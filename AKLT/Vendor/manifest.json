@@ -1,0 +1,708 @@
+[
+  {
+    "donor": "FiniteConditioning",
+    "repository": "https://github.com/pmaronow/llm-audit-lean",
+    "commit": "46b3e3fc61c6b1175a695582631396845b40557c",
+    "original_module": "AronowAudit.P015.P015_FiniteConditioning",
+    "original_path": "AronowAudit/P015/P015_FiniteConditioning.lean",
+    "module": "AKLT.Vendor.FiniteConditioning.P015.P015_FiniteConditioning",
+    "path": "AKLT/Vendor/FiniteConditioning/P015/P015_FiniteConditioning.lean",
+    "source_sha256": "14b9ec1eae0e3fc7ccf24669e64c5c1963581ece59be76bdf1a3a19a9a5015bf",
+    "vendored_sha256": "1ea5f29bb2267e4845a66cd761280538f6d5d151ed9a9881c118b39329e9b573",
+    "imports": [
+      "Mathlib.Probability.Independence.Basic",
+      "Mathlib.Probability.Kernel.Condexp",
+      "Mathlib.Probability.Independence.Conditional",
+      "Mathlib.Tactic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteConditioning",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Moved upstream diagnostic commands to the external audit harness",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.EntropyCoverage",
+    "original_path": "SKConstants/EntropyCoverage.lean",
+    "module": "AKLT.Vendor.FiniteChain.EntropyCoverage",
+    "path": "AKLT/Vendor/FiniteChain/EntropyCoverage.lean",
+    "source_sha256": "b6e76b8282ea09018a8674ff92dc3e67503a54af07923b6dce3d6011369a3cb4",
+    "vendored_sha256": "4ca8962749562feed11e100c15be9ce9cde4ad7d30029bbc781fcd7eac077082",
+    "imports": [
+      "Mathlib.Analysis.SpecialFunctions.BinaryEntropy",
+      "Mathlib.Tactic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.EntropyDissipation",
+    "original_path": "SKConstants/EntropyDissipation.lean",
+    "module": "AKLT.Vendor.FiniteChain.EntropyDissipation",
+    "path": "AKLT/Vendor/FiniteChain/EntropyDissipation.lean",
+    "source_sha256": "1b5355d92c7354ed2724831e21bb07b7420aa2840af2921ef7be607b5e6e8b4d",
+    "vendored_sha256": "b5054fbf54921321021f78e7a5a9082fd0de87e9b64e6bc2031012f28d54924c",
+    "imports": [
+      "AKLT.Vendor.FiniteChain.EntropyCoverage",
+      "AKLT.Vendor.FiniteChain.FiniteChainSemigroup",
+      "AKLT.Vendor.FiniteChain.FiniteGibbs",
+      "AKLT.Vendor.FiniteChain.FiniteChainDirichlet",
+      "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+      "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteChainCheeger",
+    "original_path": "SKConstants/FiniteChainCheeger.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteChainCheeger",
+    "path": "AKLT/Vendor/FiniteChain/FiniteChainCheeger.lean",
+    "source_sha256": "19665faa5b4fae5fdce8e2a00484ac446b094cb0d56cf76e558e6d983b0ebd91",
+    "vendored_sha256": "8473a9dc1384ec9eb22950f0e60acd823d60f762e2820ed3794dce8813cce2f6",
+    "imports": [
+      "AKLT.Vendor.FiniteChain.FiniteChainPruning",
+      "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+      "Mathlib.Tactic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteChainDirichlet",
+    "original_path": "SKConstants/FiniteChainDirichlet.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteChainDirichlet",
+    "path": "AKLT/Vendor/FiniteChain/FiniteChainDirichlet.lean",
+    "source_sha256": "8eba816e330375646dc57d8f0c629784f161cb739e6458a6214beee763bc819c",
+    "vendored_sha256": "afe8343c203ed5eb1dd788cdf965969afe393b652c62df7f7c06044affab3e56",
+    "imports": [
+      "AKLT.Vendor.FiniteChain.FiniteChainSemigroup",
+      "Mathlib.Analysis.Calculus.Deriv.Pi",
+      "Mathlib.Analysis.Calculus.Deriv.Mul",
+      "Mathlib.Analysis.Calculus.Deriv.Add",
+      "Mathlib.Analysis.Calculus.Deriv.Comp"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteChainMixing",
+    "original_path": "SKConstants/FiniteChainMixing.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteChainMixing",
+    "path": "AKLT/Vendor/FiniteChain/FiniteChainMixing.lean",
+    "source_sha256": "612dd6bc799dbd7514556cd6d7ad25d8cc203f8b986de3815edf0181ca1108b4",
+    "vendored_sha256": "0c844a644448c80a6796943200ac01c279ec4fa6e723eea548401814a73a30a9",
+    "imports": [
+      "AKLT.Vendor.FiniteChain.FiniteChainSemigroup",
+      "AKLT.Vendor.FiniteChain.FiniteChainDirichlet",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "AKLT.Vendor.FiniteChain.EntropyDissipation",
+      "AKLT.Vendor.FiniteChain.FiniteChainCheeger",
+      "Mathlib.Analysis.SpecificLimits.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteChainPruning",
+    "original_path": "SKConstants/FiniteChainPruning.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteChainPruning",
+    "path": "AKLT/Vendor/FiniteChain/FiniteChainPruning.lean",
+    "source_sha256": "70049fe25606c40656c17c410867c18bac1c6d40802810dbef01cffcbdf339b1",
+    "vendored_sha256": "f7e61c92e024b4c5630edf7741c180c1f538ea3e2d12082d98bfb742bf0fb8e3",
+    "imports": [
+      "Mathlib.Tactic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteChainSemigroup",
+    "original_path": "SKConstants/FiniteChainSemigroup.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteChainSemigroup",
+    "path": "AKLT/Vendor/FiniteChain/FiniteChainSemigroup.lean",
+    "source_sha256": "a7fa23c588f2ad9cdb5b6dab70e2384476b15335b5ec7e2f8a71a07495561e50",
+    "vendored_sha256": "81693c92aebd231137af933d5b7a382650ca5c8fa438c9b202594ebf0fe40e81",
+    "imports": [
+      "Mathlib.Analysis.Normed.Algebra.MatrixExponential",
+      "Mathlib.LinearAlgebra.Matrix.Stochastic",
+      "Mathlib.Analysis.SpecialFunctions.Exponential"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "FiniteChain",
+    "repository": "https://github.com/pmaronow/fluctuations-palomar",
+    "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+    "original_module": "SKConstants.FiniteGibbs",
+    "original_path": "SKConstants/FiniteGibbs.lean",
+    "module": "AKLT.Vendor.FiniteChain.FiniteGibbs",
+    "path": "AKLT/Vendor/FiniteChain/FiniteGibbs.lean",
+    "source_sha256": "3e184181beea28d7008db27b03a4eb0e8ebdacf7bcceeb2699187fac522bd221",
+    "vendored_sha256": "4d0d9b7971bbb4a51c821a6da8fcbb803eebd88df1197867c2f65b76abbf4841",
+    "imports": [
+      "AKLT.Vendor.FiniteChain.EntropyCoverage",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.Matrix.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.FiniteChain",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Flattened the upstream namespace into the donor namespace"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "QICLean",
+    "repository": "https://github.com/LionSR/QICLean",
+    "commit": "603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac",
+    "original_module": "QICLean.Algebra.MatrixUnitaryBetween",
+    "original_path": "QICLean/Algebra/MatrixUnitaryBetween.lean",
+    "module": "AKLT.Vendor.QICLean.Algebra.MatrixUnitaryBetween",
+    "path": "AKLT/Vendor/QICLean/Algebra/MatrixUnitaryBetween.lean",
+    "source_sha256": "8a16535653a740b1c3088c263aa11ec12bbc2f5682125e0a65efe81e325e470c",
+    "vendored_sha256": "3eee1dc7c44190651fdc7e89fcccd43f00a56142c8b5c97104f4e86a6b0c938f",
+    "imports": [
+      "Mathlib.Basic.Complex.Basic",
+      "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.LinearAlgebra.Matrix.Reindex",
+      "Mathlib.LinearAlgebra.UnitaryGroup"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.QICLean",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Applied the audited current-pin matrix-rank proof repair",
+      "Resolved Mathlib scopes/names explicitly; rewrote relocated extension field notation as qualified applications"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "QICLean",
+    "repository": "https://github.com/LionSR/QICLean",
+    "commit": "603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac",
+    "original_module": "QICLean.Analysis.EuclideanEigenvectorBasis",
+    "original_path": "QICLean/Analysis/EuclideanEigenvectorBasis.lean",
+    "module": "AKLT.Vendor.QICLean.Analysis.EuclideanEigenvectorBasis",
+    "path": "AKLT/Vendor/QICLean/Analysis/EuclideanEigenvectorBasis.lean",
+    "source_sha256": "67132e40fbcea18f33d19271fdadaf5a22487250d80459b83eb086fe02566ba1",
+    "vendored_sha256": "75691c3f1d62ac8231ab28fd00dea7486c4e587b5c23ca317f4f4e760536c140",
+    "imports": [
+      "Mathlib.Analysis.CStarAlgebra.Matrix",
+      "Mathlib.Analysis.Matrix.Spectrum"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.QICLean",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Resolved Mathlib scopes/names explicitly; rewrote relocated extension field notation as qualified applications"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "QICLean",
+    "repository": "https://github.com/LionSR/QICLean",
+    "commit": "603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac",
+    "original_module": "QICLean.Analysis.KernelSpectralGap",
+    "original_path": "QICLean/Analysis/KernelSpectralGap.lean",
+    "module": "AKLT.Vendor.QICLean.Analysis.KernelSpectralGap",
+    "path": "AKLT/Vendor/QICLean/Analysis/KernelSpectralGap.lean",
+    "source_sha256": "ce1d4f4965410c1cb15f8b8dd52f5455efe9a0244c5ffb718ec2b6eea09970a4",
+    "vendored_sha256": "038f77a160f922ef2cd3747958f6b7412d5fbd9ecdfc2c198aa84df82f78e677",
+    "imports": [
+      "AKLT.Vendor.QICLean.Analysis.EuclideanEigenvectorBasis",
+      "AKLT.Vendor.QICLean.Analysis.LowEnergyPerturbation"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.QICLean",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Resolved Mathlib scopes/names explicitly; rewrote relocated extension field notation as qualified applications"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "QICLean",
+    "repository": "https://github.com/LionSR/QICLean",
+    "commit": "603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac",
+    "original_module": "QICLean.Analysis.LowEnergyPerturbation",
+    "original_path": "QICLean/Analysis/LowEnergyPerturbation.lean",
+    "module": "AKLT.Vendor.QICLean.Analysis.LowEnergyPerturbation",
+    "path": "AKLT/Vendor/QICLean/Analysis/LowEnergyPerturbation.lean",
+    "source_sha256": "1e2a6af6b9eb997d5e23488e3fda83606589087cb58aca2b6087fddaa04fa344",
+    "vendored_sha256": "cf4188e637e7a50cc2706c209da69b200029ab8e5ee9280d92c9a1bac2bc3244",
+    "imports": [
+      "Mathlib.Algebra.Order.Chebyshev",
+      "AKLT.Vendor.QICLean.Analysis.ViableSubspace"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.QICLean",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Resolved Mathlib scopes/names explicitly; rewrote relocated extension field notation as qualified applications"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "QICLean",
+    "repository": "https://github.com/LionSR/QICLean",
+    "commit": "603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac",
+    "original_module": "QICLean.Analysis.ViableSubspace",
+    "original_path": "QICLean/Analysis/ViableSubspace.lean",
+    "module": "AKLT.Vendor.QICLean.Analysis.ViableSubspace",
+    "path": "AKLT/Vendor/QICLean/Analysis/ViableSubspace.lean",
+    "source_sha256": "c629eb06ec79d680dab79bc66ea9e118084e41a884f9cf30dbe60f3b03845fb0",
+    "vendored_sha256": "ea0d53e206a9cfae538aacf51a19ea5def1d07b8c57ed3d9d9714c29fa834cbf",
+    "imports": [
+      "Mathlib.Analysis.InnerProductSpace.Positive",
+      "Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.QICLean",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Resolved Mathlib scopes/names explicitly; rewrote relocated extension field notation as qualified applications"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "Physlib.Mathematics.KroneckerDelta.Basic",
+    "original_path": "Physlib/Mathematics/KroneckerDelta/Basic.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.KroneckerDelta.Basic",
+    "path": "AKLT/Vendor/Physlib/Mathematics/KroneckerDelta/Basic.lean",
+    "source_sha256": "646a30b2e7ae47821d4c2f8b8453d5180eeb2c86dc79825f9d7eb498f5a60f6f",
+    "vendored_sha256": "4e5fe5ce560334ae5b270fb10f4cb2e1e5f29cb6e146f7445083eee91a76dbd4",
+    "imports": [
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.LadderSystem.Basic",
+    "original_path": "PhyslibAlpha/Mathematics/LadderSystem/Basic.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.LadderSystem.Basic",
+    "path": "AKLT/Vendor/Physlib/Mathematics/LadderSystem/Basic.lean",
+    "source_sha256": "b33458836ec6c435639a9aa02f521e4c02cb83669cf1dae7672eddf7a2626e9d",
+    "vendored_sha256": "8319d207d9310a8861a6a53db246eef5c360828e29e63bec6e7ff325035f3b80",
+    "imports": [
+      "Mathlib.Algebra.Lie.OfAssociative",
+      "Mathlib.Tactic.NoncommRing",
+      "AKLT.Vendor.Physlib.Mathematics.KroneckerDelta.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.Basic",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/Basic.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Basic",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/Basic.lean",
+    "source_sha256": "cd96a99499bf65ef0e9bd650544ae28fde93a1939ff5a419275549217f928801",
+    "vendored_sha256": "5a4ebcddb289499a5882b7b0d8cabce8cc7d57f90ffd932f72790b6c50c90a71",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Construction"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.BivariateBasis",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/BivariateBasis.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.BivariateBasis",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/BivariateBasis.lean",
+    "source_sha256": "850d794a6f2deb94076b081b1bccc2f741dbdfde1b19642e6ddaab1187d3de82",
+    "vendored_sha256": "a265990b3a31002a4921c800fd67bdeadac5f9faa8a2e0e70828598f6cea02b4",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Classification"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.Classification",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/Classification.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Classification",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/Classification.lean",
+    "source_sha256": "0d41eeaecd4864027e1b2313bbafd37b8c869d41df1f8c6a6b239cd75ec7b30d",
+    "vendored_sha256": "6b928ef45196776a418dc83781317de2c6ee840d4c6e7b589f5cccdd09c7062f",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.ClebschGordan",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/ClebschGordan.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.ClebschGordan",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/ClebschGordan.lean",
+    "source_sha256": "e44cf37ee4e544d3509e6e26a9892de9c2481c4f0808b3e4b4ccebc31cf4656f",
+    "vendored_sha256": "f2515869fb88031a29a356d6cec7ddc85c899bffdd62ba17da4cdcc8955dd730",
+    "imports": [
+      "Mathlib.LinearAlgebra.DirectSum.Finite",
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Construction"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.CommutingActions",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/CommutingActions.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.CommutingActions",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/CommutingActions.lean",
+    "source_sha256": "152924e6a3c03d7f2039044d5171d5b76b50259f7bfb9a30b211df563bf5da43",
+    "vendored_sha256": "7d403fef5611c71fa27fc84345da661a4f51127fbdec3a7e151858279332b86a",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.BivariateBasis"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.Construction",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/Construction.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Construction",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/Construction.lean",
+    "source_sha256": "950fd8a34793a4c93edeb984812d62eff7a31dca7f059d226d8b6cc5f0aee8e8",
+    "vendored_sha256": "b3c7e2331315e2b9fb93ec8bc59bd63b50a92b7728d7e19b9cc60fb0e7eb0db7",
+    "imports": [
+      "Mathlib.Algebra.Lie.Semisimple.Basic",
+      "Mathlib.Algebra.Lie.Sl2",
+      "Mathlib.RingTheory.Flat.TorsionFree",
+      "Mathlib.RingTheory.SimpleRing.Principal",
+      "AKLT.Vendor.Physlib.Mathematics.LadderSystem.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.Schur",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/Schur.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Schur",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/Schur.lean",
+    "source_sha256": "d94d0306855300c7d1ba81334cf167499b46adaafca48e891655ab2755125a4b",
+    "vendored_sha256": "d113ea85e1b084f61943e3a1b799ab9e155b9c0a43d7c2be8691d0ba0852148a",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorHighestWeight"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.TensorDecomposition",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/TensorDecomposition.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorDecomposition",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorDecomposition.lean",
+    "source_sha256": "be72ac2de3584dd9b757122b11bfdc052287cbb7df1831779776a15a741a1ab3",
+    "vendored_sha256": "fcb9c751eef5b177dadc90fc54ec15778d4a8ca1c12b35a324964847e3e42e02",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.CommutingActions",
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorHighestWeight"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.TensorHighestWeight",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/TensorHighestWeight.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorHighestWeight",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorHighestWeight.lean",
+    "source_sha256": "f6f399ac68e037d35773224f362cd0601e3a7fbb1a124aa471874eafe6838849",
+    "vendored_sha256": "80036074d43ceabe850b2225042adfe1b3ad8463292ff9f84d15c4d6541e657f",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.BivariateBasis",
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.ClebschGordan"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Physlib",
+    "repository": "https://github.com/leanprover-community/physlib",
+    "commit": "892e8fcba8af5ec691ca7a8ad82ee5dbe3180b17",
+    "original_module": "PhyslibAlpha.Mathematics.RepresentationTheory.Sl2.TensorIntertwiner",
+    "original_path": "PhyslibAlpha/Mathematics/RepresentationTheory/Sl2/TensorIntertwiner.lean",
+    "module": "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorIntertwiner",
+    "path": "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorIntertwiner.lean",
+    "source_sha256": "23d0b814a5511c62cc69926df1d200a38487f2537c1819d219833cac1bf037d3",
+    "vendored_sha256": "4cc6180a3d739a1097a4390a95bf2596c10e6353608d4e8e7fdcc3f16c4a44e2",
+    "imports": [
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.Schur",
+      "AKLT.Vendor.Physlib.Mathematics.RepresentationTheory.Sl2.TensorDecomposition"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Physlib",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "Balaban",
+    "repository": "https://github.com/scottnarmstrong/balaban-lean",
+    "commit": "493e9eb97292ebf6070c1c217a09bcf1adc23857",
+    "original_module": "Balaban.LargeField.Geometry.BoundaryConnectivity",
+    "original_path": "Balaban/LargeField/Geometry/BoundaryConnectivity.lean",
+    "module": "AKLT.Vendor.Balaban.LargeField.Geometry.BoundaryConnectivity",
+    "path": "AKLT/Vendor/Balaban/LargeField/Geometry/BoundaryConnectivity.lean",
+    "source_sha256": "5d60a7c7f97fafd4aa231db4b4a54e045104d073df591af0ab6541f182692a45",
+    "vendored_sha256": "312d8ba99c093bbdd9984933067d5a4b9d8a4ff17d02c247a4d2799c6de77d01",
+    "imports": [
+      "AKLT.Vendor.Balaban.LargeField.Geometry.Plaquette",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Abel"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Balaban",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Balaban",
+    "repository": "https://github.com/scottnarmstrong/balaban-lean",
+    "commit": "493e9eb97292ebf6070c1c217a09bcf1adc23857",
+    "original_module": "Balaban.LargeField.Geometry.Escape",
+    "original_path": "Balaban/LargeField/Geometry/Escape.lean",
+    "module": "AKLT.Vendor.Balaban.LargeField.Geometry.Escape",
+    "path": "AKLT/Vendor/Balaban/LargeField/Geometry/Escape.lean",
+    "source_sha256": "8152fe4efc3fc0d2811e38f469595fc23cd93650bd028c1c1a4800bf77d5becc",
+    "vendored_sha256": "9139cfdba96b4e1a5a049d60991c968992c3fb8bbdb50991a830e763b3e95343",
+    "imports": [
+      "AKLT.Vendor.Balaban.LargeField.Geometry.Lattice",
+      "Mathlib.Order.Filter.AtTopBot.Basic",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Balaban",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Balaban",
+    "repository": "https://github.com/scottnarmstrong/balaban-lean",
+    "commit": "493e9eb97292ebf6070c1c217a09bcf1adc23857",
+    "original_module": "Balaban.LargeField.Geometry.Lattice",
+    "original_path": "Balaban/LargeField/Geometry/Lattice.lean",
+    "module": "AKLT.Vendor.Balaban.LargeField.Geometry.Lattice",
+    "path": "AKLT/Vendor/Balaban/LargeField/Geometry/Lattice.lean",
+    "source_sha256": "b614eb52943f53a55c8385975d6785eb8934f5db41448d1dc307be56a633f280",
+    "vendored_sha256": "63a6afbcde6a42941260bb15d3a0761fab1d33887be90ad295d171f2f91bf945",
+    "imports": [
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.Data.Int.Interval",
+      "Mathlib.Order.Interval.Set.Pi",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Logic.Relation",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Balaban",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Balaban",
+    "repository": "https://github.com/scottnarmstrong/balaban-lean",
+    "commit": "493e9eb97292ebf6070c1c217a09bcf1adc23857",
+    "original_module": "Balaban.LargeField.Geometry.Plaquette",
+    "original_path": "Balaban/LargeField/Geometry/Plaquette.lean",
+    "module": "AKLT.Vendor.Balaban.LargeField.Geometry.Plaquette",
+    "path": "AKLT/Vendor/Balaban/LargeField/Geometry/Plaquette.lean",
+    "source_sha256": "0a3ec1e37fcba85bbe5b1b7308412a233f9d9c8450c2a794da06992ffa16f070",
+    "vendored_sha256": "47585c0eb3d29bc3dae60dc73af1961453572b6903d3a3c978df2ce7a3df3c11",
+    "imports": [
+      "AKLT.Vendor.Balaban.LargeField.Geometry.Lattice",
+      "Mathlib.Algebra.CharP.Two",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.Abel"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Balaban",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": false
+  },
+  {
+    "donor": "Balaban",
+    "repository": "https://github.com/scottnarmstrong/balaban-lean",
+    "commit": "493e9eb97292ebf6070c1c217a09bcf1adc23857",
+    "original_module": "Balaban.LargeField.Geometry.Timar",
+    "original_path": "Balaban/LargeField/Geometry/Timar.lean",
+    "module": "AKLT.Vendor.Balaban.LargeField.Geometry.Timar",
+    "path": "AKLT/Vendor/Balaban/LargeField/Geometry/Timar.lean",
+    "source_sha256": "c10b6878da6086e0105a2c5b000a293de07cc1b08bacc92774ba48f53666871f",
+    "vendored_sha256": "07dda9280dcaecd3d85794a82a0a1be39aa3737bc1f2f6600616dae72adb6a44",
+    "imports": [
+      "AKLT.Vendor.Balaban.LargeField.Geometry.BoundaryConnectivity",
+      "AKLT.Vendor.Balaban.LargeField.Geometry.Escape",
+      "Mathlib.Tactic.Linarith"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.Balaban",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": true
+  },
+  {
+    "donor": "LeanCert",
+    "repository": "https://github.com/alerad/leancert",
+    "commit": "44b323a0d6af00211d5013f6e021432db032087c",
+    "original_module": "LeanCert.Core.Dyadic",
+    "original_path": "LeanCert/Core/Dyadic.lean",
+    "module": "AKLT.Vendor.LeanCert.Core.Dyadic",
+    "path": "AKLT/Vendor/LeanCert/Core/Dyadic.lean",
+    "source_sha256": "d192b0feca965ff61bfd702a987355a0e8cf93b7957345d0d5195c1343b8c38d",
+    "vendored_sha256": "100d5b6878558e0099a3db123b01af26db9cbb412022ec6218fbc4909b9f7e05",
+    "imports": [
+      "Mathlib.Data.Rat.Cast.Order",
+      "Mathlib.Algebra.Order.Field.Basic",
+      "Mathlib.Basic.Real.Basic"
+    ],
+    "modifications": [
+      "Relocated local imports and all declarations under AKLT.Vendor.LeanCert",
+      "Made upstream implicit-variable options explicit for the campaign Lake settings",
+      "Reworded a documentation-only reference to an excluded evaluation tactic",
+      "Removed the redundant upstream namespace root"
+    ],
+    "seed": true
+  }
+]
