@@ -17,3 +17,10 @@ leanOptions = { autoImplicit = false, relaxedAutoImplicit = false }
 name = "CertData"
 globs = ["CertData"]
 leanOptions = { autoImplicit = false, relaxedAutoImplicit = false }
+
+# H1 attachment, separate from the ordinary AKLT and shared CertData roots.
+[[lean_lib]]
+name = "CertDataH1"
+roots = ["CertData.H1.Generated"]
+globs = ["CertData.H1.Generated.Batch.+", "CertData.H1.Generated.Bridge.+"]
+leanOptions = { autoImplicit = false, relaxedAutoImplicit = false }
