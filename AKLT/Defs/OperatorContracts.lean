@@ -100,4 +100,24 @@ def bareissState {n : ℕ} (M : Matrix (Fin n) (Fin n) ℤ) : ℕ → Matrix (Fi
 def bareissPivot {n : ℕ} (M : Matrix (Fin n) (Fin n) ℤ) (j : ℕ) : ℤ :=
   if h : j < n then (bareissState M j).1 ⟨j, h⟩ ⟨j, h⟩ else 0
 
+/-- `d:exchange`: canonical signs for an orthogonal sector decomposition.
+Unused single/U-pair signs are fixed to true. The original `ExchangeSigns`
+type remains unchanged; its unrestricted assignments can repeat a space. -/
+def EffectiveExchangeSigns (π : PatternData) (r : Representation) (ε : ExchangeSigns π) : Prop :=
+  ∀ x : reductionGroups π, ¬ (groupIsPair π r x.val = true ∧ π.statusAt x.val = .D) → ε x = true
+
+/-- `p:certificate`: actual reconstructed witness existence, separate from soundness. -/
+def H1SectorWitnesses (π : PatternData) (r : Representation) (I : Finset (Fin 20))
+    (D₀ p q : ℕ) : Prop :=
+  ∀ ε : ExchangeSigns π, ∃ t : ℕ, ∃ index : Fin t ≃ CentralBasis π r ε,
+    ∃ g d S : ℕ, ∃ L : Matrix (Fin t) (Fin t) ℤ,
+      (∀ i j, i < j → L i j = 0) ∧
+      GramResidualRows (indexedSectorMatrix π r ε I D₀ p q index) L g d S
+
+/-- `t:H1`: numerator of the threshold assigned to this pattern's type. -/
+def h1Numerator (π : PatternData) : ℕ := if π.outgoing = .north then 961 else 187
+
+/-- `t:H1`: positive denominator paired with `h1Numerator`. -/
+def h1Denominator (π : PatternData) : ℕ := if π.outgoing = .north then 1000 else 200
+
 end AKLT.Defs

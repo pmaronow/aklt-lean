@@ -49,7 +49,8 @@ def freeCoefficient {m q : ℕ} (Q : MemoryQuotient m q)
   if Q.allowed a d then phaseTransition (Q.kind a d)
     (relaxedReward (0, 0) (Q.arrival a) d ∅) φ ψ else 0
 
-/-- `d:stationary-walk`: exact stationary coefficients, with permanent initial-bond rules. -/
+/-- Legacy stationary coefficients, retained for existing H3 proofs.
+Use `stationaryCoefficientV2` for the paper's zero-centre-edge operator. -/
 def stationaryCoefficient {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
     (φ : Phase) (a : Fin q) (x : Plane) (d : Compass) (ψ : Phase) : ℚ :=
   if x = kernelCentre ∨ x = kernelTarget X ∨ Q.allowed a d = false then 0 else
@@ -60,7 +61,8 @@ def stationaryCoefficient {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d
       phaseTransition (Q.kind a d)
         (relaxedReward x (Q.arrival a) d {kernelCentre}) φ ψ
 
-/-- `d:stationary-walk`: nonnegative backward operator on the actual infinite lattice. -/
+/-- Legacy backward operator, retained for existing H3 proofs.
+The corrected arbitrary-function operator is `stationaryApplyV2`. -/
 def stationaryApply {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
     (F : Phase → Fin q → Plane → ℚ) (φ : Phase) (a : Fin q) (x : Plane) : ℚ :=
   ∑ d : Compass, ∑ ψ : Phase,
@@ -162,5 +164,45 @@ def stationaryPrefixCeiling (X : PairType) (d : Compass) : ℕ :=
   | .C, .west => 380754375
   | .C, .south => 273048088
   | _, _ => 0
+
+/-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
+into the centre is zero, including known-site rows. Legacy definitions are
+retained for existing H3 row/refinement proofs. -/
+def stationaryCoefficientV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
+    (φ : Phase) (a : Fin q) (x : Plane) (d : Compass) (ψ : Phase) : ℚ :=
+  if x = kernelCentre ∨ x = kernelTarget X ∨ Q.allowed a d = false ∨ x + d.step = kernelCentre then 0 else
+    if x = kernelStart ∨ x = kernelStart + d₀.step then
+      if ({x, x + d.step} : Finset Plane) = {kernelStart, kernelStart + d₀.step} ∨
+        Q.kind a d = .revisit then 0 else if φ = ψ then 1 / 5 else 0
+    else phaseTransition (Q.kind a d)
+        (relaxedReward x (Q.arrival a) d {kernelCentre}) φ ψ
+
+/-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
+into the centre is zero, including known-site rows. Legacy definitions are
+retained for existing H3 row/refinement proofs. -/
+def stationaryApplyV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
+    (F : Phase → Fin q → Plane → ℚ) (φ : Phase) (a : Fin q) (x : Plane) : ℚ :=
+  ∑ d : Compass, ∑ ψ : Phase,
+    stationaryCoefficientV2 Q X d₀ φ a x d ψ * F ψ (Q.successor a d) (x + d.step)
+
+/-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
+into the centre is zero, including known-site rows. Legacy definitions are
+retained for existing H3 row/refinement proofs. -/
+def StationaryData.PassesV2 {m q : ℕ} (C : StationaryData q) (Q : MemoryQuotient m q)
+    (X : PairType) (d₀ : Compass) : Prop :=
+  (∀ φ a, 0 < C.cap φ a) ∧
+  (∀ a, certificateValueScale ≤ C.cap .C a ∧ certificateValueScale ≤ C.cap .D a) ∧
+  (∀ φ a, (∑ d : Compass, ∑ ψ : Phase,
+    coefficientCeiling (freeCoefficient Q φ a d ψ) * C.cap ψ (Q.successor a d)) ≤
+      certificateCoefficientScale * C.cap φ a) ∧
+  (∀ φ a x, C.value φ a x ≤ C.cap φ a) ∧
+  (∀ φ a, C.extended φ a kernelCentre = 0 ∧
+    (C.extended φ a (kernelTarget X) : ℚ) = certificateValueScale * phaseTerminal φ) ∧
+  ∀ φ a (x : square (0, 0) certificateRadius),
+    x.val ≠ kernelCentre → x.val ≠ kernelTarget X →
+    (∑ d : Compass, ∑ ψ : Phase,
+      coefficientCeiling (stationaryCoefficientV2 Q X d₀ φ a x.val d ψ) *
+        C.extended ψ (Q.successor a d) (x.val + d.step)) ≤
+      certificateCoefficientScale * C.value φ a x
 
 end AKLT.Defs

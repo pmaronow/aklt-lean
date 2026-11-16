@@ -1,5 +1,6 @@
 import AKLT.Blueprint.Top.Common
 import AKLT.Defs.OperatorContracts
+import AKLT.Defs.RealOperator
 
 noncomputable section
 open scoped BigOperators ComplexOrder
@@ -43,7 +44,8 @@ def LeafStatement : Prop :=
           siteFunctional (π.statusAt x) (fun n => coveredSiteField m x n * (1 + dot n v)) =
             A * (1 + (replacementRadius π x : ℝ) * dot u v))
 
-/-- `c:reduce`: both permitted representations are vector-affine and orthogonally
+/-- Legacy rational specialization of `c:reduce`; use V2 for real thresholds.
+Both permitted representations are vector-affine and orthogonally
 covariant; each original assignment has the same positive K in current and next. -/
 def ReduceStatement : Prop :=
   ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ c : ℚ, 0 < c → c < 1 →
@@ -58,7 +60,8 @@ def ReduceStatement : Prop :=
       patternCurrent π m = K * evaluateReduced (reducedPolynomial π r false) u ∧
       patternNext π m = K * evaluateReduced (reducedPolynomial π r true) u
 
-/-- `l:inversion`: product densities are positive of trace one, and one supplied
+/-- Legacy rational, twenty-token specialization; `InversionStatementV2`
+is the arbitrary-real, arbitrary-finite-vector contract. One supplied
 inversion with positive Pauli operator proves positivity on the product of closed balls. -/
 def InversionStatement : Prop :=
   (∀ u : Vec3, normSq u ≤ 1 → (spinDensity u).PosSemidef ∧ (spinDensity u).trace = 1) ∧
@@ -70,7 +73,8 @@ def InversionStatement : Prop :=
     ((pauliOperator J (invertPolynomial I p)).PosSemidef →
       ∀ u : Fin 20 → Vec3, (∀ j ∈ J, normSq (u j) ≤ 1) → 0 ≤ evaluateReduced p u)
 
-/-- `l:Ostruct`: real symmetric Pauli operators, SU(2) and ladder commutators,
+/-- Legacy rational-threshold specialization of `l:Ostruct`; use V2 below.
+Real symmetric Pauli operators, SU(2) and ladder commutators,
 U-pair support and D-pair exchange symmetry, for inversions that are unions of groups. -/
 def OperatorStructureStatement : Prop :=
   ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ I : Finset (Fin 20), GroupInversion π r I →
@@ -146,5 +150,63 @@ def CertificateStatement : Prop :=
       ∃ L : Matrix (Fin t) (Fin t) ℤ,
         (∀ i j, i < j → L i j = 0) ∧ GramResidualRows (indexedSectorMatrix π r ε I D₀ p q index) L g d S) →
       ∀ m : Fin 20 → UnitVector, 0 ≤ patternCurrent π m - ((p : ℝ) / q) * patternNext π m
+
+/-- Corrected full real scope of `c:reduce`.
+The rational specialization is retained for existing proved blueprint assemblies. -/
+def ReduceStatementV2 : Prop :=
+  ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ c : ℝ, 0 < c → c < 1 →
+    VectorAffineReal (reducedDifferenceReal π r c) ∧
+    (∀ R : Matrix (Fin 3) (Fin 3) ℝ, R.transpose * R = 1 → ∀ u : Fin 20 → Vec3,
+      evaluateRealPolynomial (reducedDifferenceReal π r c) (fun j => R.mulVec (u j)) =
+        evaluateRealPolynomial (reducedDifferenceReal π r c) u) ∧
+    ((∀ u : Fin 20 → UnitVector, 0 ≤ evaluateRealPolynomial (reducedDifferenceReal π r c) (fun j => (u j).val)) →
+      ∀ m : Fin 20 → UnitVector, 0 ≤ patternCurrent π m - (c : ℝ) * patternNext π m) ∧
+    ∀ m : Fin 20 → UnitVector, ∃ K : ℝ, 0 < K ∧ ∃ u : Fin 20 → Vec3,
+      (∀ j ∈ reductionVectors π r, normSq (u j) ≤ 1) ∧
+      patternCurrent π m = K * evaluateReduced (reducedPolynomial π r false) u ∧
+      patternNext π m = K * evaluateReduced (reducedPolynomial π r true) u
+
+/-- Corrected full real scope of `l:inversion`.
+The rational specialization is retained for existing proved blueprint assemblies. -/
+def InversionStatementV2 : Prop :=
+  (∀ u : Vec3, normSq u ≤ 1 → (spinDensity u).PosSemidef ∧ (spinDensity u).trace = 1) ∧
+  ∀ n : ℕ, ∀ J : Finset (Fin n), ∀ p : RealVectorPolynomial n,
+    VectorAffineReal p → SupportedVectorsReal J p → ∀ I : Finset (Fin n), I ⊆ J →
+    (∀ u : Fin n → Vec3, (∀ j ∈ J, normSq (u j) ≤ 1) →
+      (evaluateRealPolynomial p u : ℂ) =
+        (pauliOperatorReal J (invertPolynomialReal I p) * productDensityReal J (invertVectorsReal I u)).trace) ∧
+    ((pauliOperatorReal J (invertPolynomialReal I p)).PosSemidef →
+      ∀ u : Fin n → Vec3, (∀ j ∈ J, normSq (u j) ≤ 1) → 0 ≤ evaluateRealPolynomial p u)
+
+/-- Corrected full real scope of `l:Ostruct`.
+The rational specialization is retained for existing proved blueprint assemblies. -/
+def OperatorStructureStatementV2 : Prop :=
+  ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ I : Finset (Fin 20), GroupInversion π r I →
+    ∀ c : ℝ, 0 < c → c < 1 →
+    let J := reductionVectors π r
+    let M := pauliOperatorReal J (invertPolynomialReal I (reducedDifferenceReal π r c))
+    let O := Matrix.toEuclideanLin M
+    M.IsHermitian ∧ (∀ σ τ, (M σ τ).im = 0) ∧
+    (∀ g : Matrix (Fin 2) (Fin 2) ℂ, g.conjTranspose * g = 1 → g.det = 1 →
+      Commute M (tensorPowerMatrix J g)) ∧
+    Commute O (totalSpinZ J) ∧ Commute O (totalSpinPlus J) ∧ Commute O (totalSpinMinus J) ∧
+    ∀ x : reductionGroups π, ∀ h : groupIsPair π r x.val = true,
+      (π.statusAt x.val = .U →
+        let proj := symmetricPairProjection J (leaderToken π r x) (secondToken π r x h)
+        O = proj * O * proj) ∧
+      (π.statusAt x.val = .D → Commute O (exchangeOperator J (leaderToken π r x) (secondToken π r x h)))
+
+/-- `t:H1`: the missing finite-data handoff. Every covered pattern must actually
+admit a representation, group inversion, justified denominator, and reconstructed
+Gram witnesses at its fixed threshold. A soundness implication alone supplies none
+of these witnesses. This is an unproved finite certificate obligation. -/
+def H1FiniteDataStatementV2 : Prop :=
+  ∀ π : PatternData, π.Covered → ∃ r : Representation, ∃ I : Finset (Fin 20),
+    GroupInversion π r I ∧ ∃ D₀ : ℕ, ClearsDenominator π r D₀ ∧
+      H1SectorWitnesses π r I D₀ (h1Numerator π) (h1Denominator π)
+
+/-- Combined `p:certificate` soundness and `t:H1` finite-data existence.
+The original `CertificateStatement` retains its valid conditional meaning. -/
+def CertificateStatementV2 : Prop := CertificateStatement ∧ H1FiniteDataStatementV2
 
 end AKLT.Blueprint.Top

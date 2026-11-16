@@ -87,4 +87,9 @@ def stationaryContinuationSum (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ 
 def listBackward {α : Type*} (edges : α → List (α × ℝ)) (F : α → ℝ) (s : α) : ℝ :=
   ((edges s).map fun e => e.2 * F e.1).sum
 
+/-- Finite stopped continuation for the corrected zero-centre-edge operator. -/
+def stationaryContinuationSumV2 (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
+    (φ : Phase) (a : Fin 3741) (x : Plane) (R : ℕ) : ℚ :=
+  ∑ j ∈ Finset.range (R + 1), ((stationaryApplyV2 Q X d₀)^[j]) (stationaryReward X) φ a x
+
 end AKLT.Defs

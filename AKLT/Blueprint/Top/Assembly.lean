@@ -1,5 +1,6 @@
 import AKLT.Blueprint.Top.Windows
 import AKLT.Challenge.MainV2
+import AKLT.Blueprint.Top.InputsV2
 
 /-! The proved top assembly. Every unproved mathematical part is a closed Prop;
 all mathematical inputs remain explicit arguments. -/
@@ -23,5 +24,15 @@ theorem mainV2_of_parts : InputsStatement → RecStatement → CutMOSStatement �
   · exact ⟨c, hc, L₀, hL₀, fun L N hL hN => (hEventual L N hL hN).2⟩
 
 #print axioms mainV2_of_parts
+
+/-- The top assembly with the repaired, archive-bound numerical input contract.
+Only the semantic conclusions enter the analytic implication. The additional
+finite-data obligations remain visible in its closed input proposition. -/
+theorem mainV2_of_partsV2 : InputsStatementV2 → RecStatement → CutMOSStatement →
+    MainWStatement → TorusKernelStatement → MainStatementV2 := by
+  intro hInputs hRec hCut hMainW hKernel
+  exact mainV2_of_parts hInputs.1 hRec hCut hMainW hKernel
+
+#print axioms mainV2_of_partsV2
 
 end AKLT.Blueprint.Top
