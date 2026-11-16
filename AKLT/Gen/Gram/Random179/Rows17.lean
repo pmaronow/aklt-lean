@@ -1,0 +1,9 @@
+import AKLT.Gen.Gram.Random179.Data
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+namespace AKLT.Gen.Gram.Random179
+theorem rows17_checked : checkRows lData 1 1 136 m17 l17 = true := by
+  decide +kernel
+#print axioms rows17_checked
+end AKLT.Gen.Gram.Random179
