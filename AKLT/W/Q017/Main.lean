@@ -152,9 +152,37 @@ private lemma starPlus_oneExcitation (x y : Fin 5) :
     · simp [hr, hinput, spinPlus, hxy]
     · simp [hr, hxy]
 
+private def starLeaf (j : Fin 4) : Fin 5 := ⟨j.val + 1, by omega⟩
+
+-- Compare both indices before lifting the formula to concrete star operators.
+-- Even the frozen central zero has a different implicit NeZero proof.
+private lemma starCasimir_formula (j : Fin 4) :
+    starCasimir j =
+      (starAtSite spinZ 0 + starAtSite spinZ (starLeaf j)) *
+        (starAtSite spinZ 0 + starAtSite spinZ (starLeaf j)) +
+      (1 / 2 : ℂ) •
+        ((starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf j)) *
+          (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf j)) +
+         (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf j)) *
+          (starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf j))) := by
+  refine (starCasimir.eq_1 j).trans ?_
+  exact congrArg₂ (fun z y : Fin 5 =>
+    (starAtSite spinZ z + starAtSite spinZ y) *
+      (starAtSite spinZ z + starAtSite spinZ y) +
+    (1 / 2 : ℂ) •
+      ((starAtSite spinPlus z + starAtSite spinPlus y) *
+        (starAtSite spinMinus z + starAtSite spinMinus y) +
+       (starAtSite spinMinus z + starAtSite spinMinus y) *
+        (starAtSite spinPlus z + starAtSite spinPlus y))) (Fin.ext rfl) (Fin.ext rfl)
+
+private lemma casimirFormula_apply (Z U D : Module.End ℂ StarHilbert) (v : StarHilbert) :
+    (Z * Z + (1 / 2 : ℂ) • (U * D + D * U)) v =
+      Z (Z v) + (1 / 2 : ℂ) • (U (D v) + D (U v)) := by
+  simp only [LinearMap.add_apply, LinearMap.smul_apply, Module.End.mul_apply]
+
 private lemma starCasimir_vacuum (j : Fin 4) :
     starCasimir j vacuum = (20 : ℂ) • vacuum := by
-  let y : Fin 5 := ⟨j.val + 1, by omega⟩
+  let y : Fin 5 := starLeaf j
   let Z := starAtSite spinZ 0 + starAtSite spinZ y
   let U := starAtSite spinPlus 0 + starAtSite spinPlus y
   let D := starAtSite spinMinus 0 + starAtSite spinMinus y
@@ -189,9 +217,9 @@ private lemma starCasimir_vacuum (j : Fin 4) :
     rw [hD, map_add, map_smul, map_smul, hU0, hUy]
     module
   have hDU : D (U vacuum) = 0 := by rw [hU]; simp
-  change Z (Z vacuum) + (1 / 2 : ℂ) • (U (D vacuum) + D (U vacuum)) =
-    (20 : ℂ) • vacuum
-  rw [hZZ, hUD, hDU]
+  have hCasimir : starCasimir j = Z * Z + (1 / 2 : ℂ) • (U * D + D * U) :=
+    starCasimir_formula j
+  rw [hCasimir, casimirFormula_apply, hZZ, hUD, hDU]
   module
 
 private lemma projector_fixes_vacuum (j : Fin 4) :
