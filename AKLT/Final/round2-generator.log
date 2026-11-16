@@ -1,0 +1,23 @@
+$ python3 AKLT/Final/gen_final.py --check-only
+Missing 4 of 420 hypotheses:
+  H1M068 [certificate, H1]: AKLT.Blueprint.Top.H1FiniteDataStatementV2
+  hCertificate [certificate, H1]: AKLT.Blueprint.Top.CertificateStatement
+  hAutomaton10 [certificate, H3]: AKLT.Blueprint.Top.Automaton10StatementV2
+  hStationaryCheck [certificate, H3]: AKLT.Blueprint.Top.StationaryCheckStatementV2
+Main.lean was not written. Source-found proofs have not been rechecked by this run.
+
+EXIT=1 ELAPSED=4.065s
+
+$ python3 AKLT/Final/gen_final.py --conditional --check-only
+All 416 canonical leaf sources found; exactly four certificates remain as hypotheses.
+
+EXIT=0 ELAPSED=4.215s
+
+$ python3 AKLT/Final/test_gen_final.py
+PASS: 416 distinct canonical proofs, exactly four ordered certificates, all 420 argument positions
+PASS: missing canonical leaf and unexpected bridge are rejected
+PASS: all four named certificate overrides, Main rendering, legacy override objects, invalid/duplicate rejection
+PASS: dependency allowlist
+All round 2 generator tests passed; Main.lean remains absent.
+
+EXIT=0 ELAPSED=20.102s
