@@ -1,10 +1,11 @@
 import AKLT.Blueprint.Top.All
 
-/-! Closedness checks and kernel dependency audit; these commands prove no interface input. -/
+/-! Closedness checks for legacy and repaired contracts. -/
 
 #check (AKLT.Blueprint.Top.LogMeanBoundsStatement : Prop)
 #check (AKLT.Blueprint.Top.ResponseStatement : Prop)
 #check (AKLT.Blueprint.Top.ResponseTypedStatement : Prop)
+#check (AKLT.Blueprint.Top.ResponseTypedStatementV2 : Prop)
 #check (AKLT.Blueprint.Top.MomentsStatement : Prop)
 #check (AKLT.Blueprint.Top.FiniteFactsStatement : Prop)
 #check (AKLT.Blueprint.Top.ThreeFactorMeanStatement : Prop)
@@ -23,6 +24,14 @@ import AKLT.Blueprint.Top.All
 #check (AKLT.Blueprint.Top.KernelReflectionStatement : Prop)
 #check (AKLT.Blueprint.Top.StationaryCheckStatement : Prop)
 #check (AKLT.Blueprint.Top.StationaryAssemblyStatement : Prop)
+#check (AKLT.Blueprint.Top.Automaton10StatementV2 : Prop)
+#check (AKLT.Blueprint.Top.PhaseExpansionStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.StationaryDominationStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.StationaryLocalGlobalStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.PrefixDominationStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.StationaryCheckStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.StationaryAssemblyStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.InputsStatementV2 : Prop)
 #check (AKLT.Blueprint.Top.IntegratePassageStatement : Prop)
 #check (AKLT.Blueprint.Top.LeafStatement : Prop)
 #check (AKLT.Blueprint.Top.ReduceStatement : Prop)
@@ -32,6 +41,11 @@ import AKLT.Blueprint.Top.All
 #check (AKLT.Blueprint.Top.GramResidualStatement : Prop)
 #check (AKLT.Blueprint.Top.IntegerCheckStatement : Prop)
 #check (AKLT.Blueprint.Top.CertificateStatement : Prop)
+#check (AKLT.Blueprint.Top.ReduceStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.InversionStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.OperatorStructureStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.H1FiniteDataStatementV2 : Prop)
+#check (AKLT.Blueprint.Top.CertificateStatementV2 : Prop)
 #check (AKLT.Blueprint.Top.ThreeFramesStatement : Prop)
 #check (AKLT.Blueprint.Top.TightStatement : Prop)
 #check (AKLT.Blueprint.Top.TorusKernelStatement : Prop)
@@ -50,6 +64,10 @@ import AKLT.Blueprint.Top.All
 #check (AKLT.Blueprint.Top.CutMOSStatement : Prop)
 #check (AKLT.Blueprint.Top.MainWStatement : Prop)
 
+#check AKLT.Defs.binaryActionPolynomial
+#check AKLT.Defs.Automaton10Data.supplied
 #print AKLT.Challenge.MainStatementV2
 #print AKLT.Blueprint.Top.mainV2_of_parts
 #print axioms AKLT.Blueprint.Top.mainV2_of_parts
+#print AKLT.Blueprint.Top.mainV2_of_partsV2
+#print axioms AKLT.Blueprint.Top.mainV2_of_partsV2

@@ -50,7 +50,8 @@ def ResponseStatement : Prop :=
         responseBeta D τ y o f g * ((removedPairMean D τ true y f o - removedPairMean D τ false y f o) +
           (removedPairMean D τ true y g o - removedPairMean D τ false y g o))
 
-/-- `l:response-typed`: covered U departures satisfy both the analytic and exact
+/-- Legacy full-kept specialization of `l:response-typed`; use V2 below.
+Covered U departures satisfy both the analytic and exact
 type-dependent bounds, including beta-prime when one non-outgoing neighbour is absent. -/
 def ResponseTypedStatement : Prop :=
   H1Statement →
@@ -59,6 +60,31 @@ def ResponseTypedStatement : Prop :=
   ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →
     ∀ y : Plane, D.AdmissibleStart y → D.status y = .U →
     ∀ incoming outgoing : Compass, CoveredDeparture D y incoming outgoing →
+    let o := y + outgoing.step
+    let straight := decide (outgoing = incoming)
+    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →
+      0 < responseBetaPrime D τ y o f ∧
+      responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧
+      responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧
+    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
+      0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧
+      0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧
+      responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧
+      responseAlpha D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 -
+        reciprocalLogMean (116 / 125) / 5 ∧
+      responseI D τ true y o f g ≥ (localThreshold straight : ℝ) * responseJ D τ true y f g ∧
+      responseI D τ false y o f g ≥ responseJ D τ false y f g ∧
+      responseJ D τ false y f g ≥ 1 ∧ responseJ D τ true y f g ≥ 116 / 125
+
+/-- `l:response-typed`: paper-scope internal matching, with all external corner
+slots admitted. The original statement remains for proved Rec assemblies. -/
+def ResponseTypedStatementV2 : Prop :=
+  H1Statement →
+  (∀ straight : Bool, alphaBound straight ≤ 18094 / 100000 ∧
+    betaBound straight ≤ 36751 / 100000 ∧ betaPrimeBound straight ≤ 36751 / 100000) ∧
+  ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →
+    ∀ y : Plane, D.AdmissibleStart y → D.status y = .U →
+    ∀ incoming outgoing : Compass, CoveredDepartureV2 D y incoming outgoing →
     let o := y + outgoing.step
     let straight := decide (outgoing = incoming)
     (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →

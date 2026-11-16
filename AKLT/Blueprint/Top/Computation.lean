@@ -21,7 +21,7 @@ def ALMStatement : Prop :=
 /-- `l:H2-dihedral`: raw symmetry, exact representative coverage and counts,
 and soundness of checking only one representative of each orbit. -/
 def H2DihedralStatement : Prop :=
-  (∀ m : ℕ, ∀ g : SquareSymmetry, ∀ w : DirectionWord m, RawWindow w →
+  (∀ m : ℕ, 1 ≤ m → ∀ g : SquareSymmetry, ∀ w : DirectionWord m, RawWindow w →
     RawWindow (symmetryWord g w) ∧ ∀ d : Compass,
       (WindowAdmissible (symmetryWord g w) (symmetryDirection g d) ↔ WindowAdmissible w d) ∧
       windowKind (symmetryWord g w) (symmetryDirection g d) = windowKind w d ∧
@@ -75,14 +75,16 @@ def AutomatonQuotientStatement : Prop :=
         ((rawBackward m p weight terminal)^[R]) (fun ψ ω y => G ψ (Q.project ω) y) φ w x =
           ((quotientBackward Q p weight terminal)^[R]) G φ (Q.project w) x
 
-/-- `p:automaton10`: complete raw reconstruction and the checked 3741-state labelled quotient. -/
+/-- Legacy existential quotient assertion, retained for existing H3 proofs.
+`Automaton10StatementV2` binds the designated supplied archive. -/
 def Automaton10Statement : Prop :=
   Fintype.card (MemoryWindow 10) = 60092 ∧
   ∃ Q : MemoryQuotient 10 3741, Q.Correct ∧
     quotientEdgeCount Q .straight = 2516 ∧ quotientEdgeCount Q .turn = 5032 ∧
     quotientEdgeCount Q .revisit = 1872
 
-/-- `l:phase-expansion`: the long-order reward is exactly the sum over the actual
+/-- Legacy general phase algebra on all trails; the published closed-trail
+scope is `PhaseExpansionStatementV2`. The long-order reward is the sum over the actual
 phase histories; the suffix fold retains the precise split at every prefix length. -/
 def PhaseExpansionStatement : Prop :=
   ∀ n : ℕ, ∀ w : DirectionWord n, IsTrail kernelStart kernelIncoming w →

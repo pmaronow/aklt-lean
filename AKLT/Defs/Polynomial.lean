@@ -22,11 +22,18 @@ def binaryPolynomial (d : ℕ) (p : BinaryForm d) : MvPolynomial (Fin 2) ℂ :=
   ∑ j, MvPolynomial.C (p j) * MvPolynomial.X 0 ^ (d - j.val) *
     MvPolynomial.X 1 ^ j.val
 
-/-- `d:poly`: pullback by the inverse matrix, before extracting homogeneous coefficients. -/
-def binaryActionPolynomial (d : ℕ) (g : Matrix (Fin 2) (Fin 2) ℂ)
+/-- Inverse-matrix substitution helper. The paper's action is the restricted
+`binaryActionPolynomial` below. -/
+def binaryInverseSubstitutionPolynomial (d : ℕ) (g : Matrix (Fin 2) (Fin 2) ℂ)
     (p : BinaryForm d) : MvPolynomial (Fin 2) ℂ :=
   MvPolynomial.eval₂Hom MvPolynomial.C
     (fun i => ∑ j, MvPolynomial.C (g⁻¹ i j) * MvPolynomial.X j) (binaryPolynomial d p)
+
+/-- `d:poly`: the paper's SU(2) action, `p(z) ↦ p(g⁻¹ z)`.
+The special-unitary domain excludes singular and nonunitary substitutions. -/
+def binaryActionPolynomial (d : ℕ) (g : Matrix.specialUnitaryGroup (Fin 2) ℂ)
+    (p : BinaryForm d) : MvPolynomial (Fin 2) ℂ :=
+  binaryInverseSubstitutionPolynomial d (g : Matrix (Fin 2) (Fin 2) ℂ) p
 
 /-- `d:poly`: evaluate a frozen physical vector in ordinary monomial coordinates.
 The square-root binomial factors undo the frozen orthonormal coordinate conversion. -/

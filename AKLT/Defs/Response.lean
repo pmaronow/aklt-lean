@@ -64,7 +64,8 @@ def normalizeRotation (a : Compass) (z : Plane) : Plane :=
   match a with
   | .north => z | .east => (z.2, -z.1) | .south => (-z.1, -z.2) | .west => (-z.2, z.1)
 
-/-- `l:local`, `l:response-typed`: exact normalized non-tip matching to a covered pattern.
+/-- Legacy full-kept matching, retained for existing Rec proofs.
+The paper-scope matcher is `CoveredDepartureV2` below.
 Covering tips are intentionally not constrained by any global tip kept set. -/
 def CoveredDeparture {G : Finset Plane} (D : Network G) (y : Plane) (incoming outgoing : Compass) : Prop :=
   ∃ π : PatternData, π.Covered ∧ normalizeRotation incoming π.outgoing.step = outgoing.step ∧
@@ -73,5 +74,23 @@ def CoveredDeparture {G : Finset Plane} (D : Network G) (y : Plane) (incoming ou
       (π.statusAt z ≠ .X →
         (π.keptAt z).image (fun t => y + normalizeRotation incoming t) =
           D.kept (y + normalizeRotation incoming z))
+
+/-- Internal template-bond presence, independent of its chosen positive orientation. -/
+def PatternData.InternalPresent (π : PatternData) (z t : Plane) : Prop :=
+  (z, t) ∈ π.bonds ∨ (t, z) ∈ π.bonds
+
+/-- `l:local`, `l:response-typed`, corrected paper scope: match non-tip statuses
+and actual internal bonds. External directions are slot factors, never matching
+requirements on global kept sets. A covering tip may add an absent actual bond
+(its effective field is then zero), but must retain every present actual bond.
+The original `CoveredDeparture` is retained for existing Rec proofs. -/
+def CoveredDepartureV2 {G : Finset Plane} (D : Network G) (y : Plane)
+    (incoming outgoing : Compass) : Prop :=
+  let chart := fun z => y + normalizeRotation incoming z
+  ∃ π : PatternData, π.Covered ∧ normalizeRotation incoming π.outgoing.step = outgoing.step ∧
+    (∀ z ∈ templateSites \ templateTips, π.statusAt z = D.status (chart z)) ∧
+    ∀ z ∈ templateSites \ templateTips, ∀ t ∈ templateSites,
+      if t ∈ templateTips then D.Present (chart z) (chart t) → π.InternalPresent z t
+      else (π.InternalPresent z t ↔ D.Present (chart z) (chart t))
 
 end AKLT.Defs
