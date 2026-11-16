@@ -11,3 +11,9 @@ rev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"
 name = "AKLT"
 globs = ["AKLT", "AKLT.+"]
 leanOptions = { autoImplicit = false, relaxedAutoImplicit = false }
+
+# Generated certificate data and computations are opt-in.
+[[lean_lib]]
+name = "CertData"
+globs = ["CertData"]
+leanOptions = { autoImplicit = false, relaxedAutoImplicit = false }
