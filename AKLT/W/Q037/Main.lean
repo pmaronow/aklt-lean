@@ -289,6 +289,26 @@ private theorem chartTransports_onBond (x : Site L N) (j : Fin 4)
     LinearMap.add_apply, PiLp.add_apply]
   rfl
 
+private theorem starCasimir_formula (j : Fin 4) :
+    starCasimir j =
+      (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) *
+        (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) +
+      (1 / 2 : ℂ) •
+        ((starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j)) *
+          (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) +
+         (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) *
+          (starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j))) := by
+  refine (starCasimir.eq_1 j).trans ?_
+  exact congrArg₂ (fun z y : Fin 5 =>
+    (starAtSite spinZ z + starAtSite spinZ y) *
+      (starAtSite spinZ z + starAtSite spinZ y) +
+    (1 / 2 : ℂ) •
+      ((starAtSite spinPlus z + starAtSite spinPlus y) *
+        (starAtSite spinMinus z + starAtSite spinMinus y) +
+       (starAtSite spinMinus z + starAtSite spinMinus y) *
+        (starAtSite spinPlus z + starAtSite spinPlus y))) (Fin.ext rfl) (Fin.ext rfl)
+
+
 private theorem chartTransports_starCasimir (x : Site L N) (j : Fin 4) :
     ChartTransports x (bondCasimir (starEdge x j)) (starCasimir j) := by
   let Z : Module.End ℂ (Hilbert L N) := onBond spinZ (starEdge x j)
@@ -306,8 +326,13 @@ private theorem chartTransports_starCasimir (x : Site L N) (j : Fin 4) :
   have hMix := chartTransports_add x hUD hDU
   have hScaled := chartTransports_smul x (1 / 2 : ℂ) hMix
   have hAll := chartTransports_add x hZZ hScaled
-  simpa [ChartTransports, chartSlice, Z, U, D, Z', U', D',
-    bondCasimir, starCasimir, starLeaf, starEdge] using hAll
+  -- Rewrite the operators before evaluating them on a slice.  Conversion
+  -- underneath the concrete star Casimir would unfold a 3125-coordinate sum.
+  have hBond : bondCasimir (starEdge x j) = Z * Z + (1 / 2 : ℂ) • (U * D + D * U) := rfl
+  have hStar : starCasimir j = Z' * Z' + (1 / 2 : ℂ) • (U' * D' + D' * U') :=
+    starCasimir_formula (L := L) (N := N) j
+  rw [hBond, hStar]
+  exact hAll
 
 theorem main : AKLT.Blueprint.Q.StarCasimirChartStatement := by
   intro L N x
@@ -315,7 +340,9 @@ theorem main : AKLT.Blueprint.Q.StarCasimirChartStatement := by
   let U := starChartIso x
   refine ⟨n, U, ?_⟩
   intro j ψ r s
-  exact chartTransports_starCasimir x j ψ r s
+  have hSlice : chartSlice x ψ r = WithLp.toLp 2 (fun t => U ψ (r, t)) := rfl
+  exact (chartTransports_starCasimir x j ψ r s).trans
+    (congrArg (fun v : StarLocal => starCasimir j v s) hSlice)
 
 #print axioms main
 

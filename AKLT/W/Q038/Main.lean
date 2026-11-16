@@ -11,13 +11,24 @@ abbrev StarChart (n : ℕ) := EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))
 def starRow {n : ℕ} (v : StarChart n) (r : Fin n) : AKLT.Defs.StarHilbert :=
   WithLp.toLp 2 (fun s => v (r, s))
 
+theorem starRow_eq {n : ℕ} (v : StarChart n) (r : Fin n) :
+    starRow v r = WithLp.toLp 2 (fun s => v (r, s)) := rfl
+
+theorem starRow_apply {n : ℕ} (v : StarChart n) (r : Fin n) (s : Fin 5 → Fin 5) :
+    starRow v r s = v (r, s) := rfl
+
+theorem starRow_zero {n : ℕ} (r : Fin n) :
+    starRow (0 : StarChart n) r = 0 := by
+  ext s
+  change (0 : StarChart n) (r, s) = (0 : AKLT.Defs.StarHilbert) s
+  rw [PiLp.zero_apply, PiLp.zero_apply]
+
 def starFibreSpace (n : ℕ) (j : Fin 4) : Submodule ℂ (StarChart n) where
   carrier := {v | ∀ r, starRow v r ∈ Module.End.eigenspace (starCasimir j) 20}
   zero_mem' := by
     intro r
-    rw [Module.End.mem_eigenspace_iff]
-    change starCasimir j (0 : AKLT.Defs.StarHilbert) = (20 : ℂ) • 0
-    simp
+    rw [starRow_zero]
+    exact (Module.End.eigenspace (starCasimir j) 20).zero_mem
   add_mem' := by
     intro v w hv hw r
     exact (Module.End.eigenspace (starCasimir j) 20).add_mem (hv r) (hw r)
@@ -28,6 +39,21 @@ def starFibreSpace (n : ℕ) (j : Fin 4) : Submodule ℂ (StarChart n) where
 def starRowProjection {n : ℕ} (j : Fin 4) (v : StarChart n) : StarChart n :=
   WithLp.toLp 2 (fun p =>
     (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v p.1) p.2)
+
+theorem starRowProjection_apply {n : ℕ} (j : Fin 4) (v : StarChart n)
+    (r : Fin n) (s : Fin 5 → Fin 5) :
+    starRowProjection j v (r, s) =
+      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) s := rfl
+
+-- Keep changes of row notation outside applications of the concrete Casimir.
+theorem casimirCopies_starRow {L N : Size} (x : Site L N) {n : ℕ}
+    (U : Hilbert L N ≃ₗᵢ[ℂ] StarChart n)
+    (hCopies : AKLT.Blueprint.Q.casimirCopies x n U)
+    (j : Fin 4) (ψ : Hilbert L N) (r : Fin n) (s : Fin 5 → Fin 5) :
+    U (bondCasimir (AKLT.Blueprint.Q.starEdge x j) ψ) (r, s) =
+      starCasimir j (starRow (U ψ) r) s :=
+  (hCopies j ψ r s).trans
+    (congrArg (fun v : AKLT.Defs.StarHilbert => starCasimir j v s) (starRow_eq (U ψ) r).symm)
 
 theorem starRowProjection_mem {n : ℕ} (j : Fin 4) (v : StarChart n) :
     starRowProjection j v ∈ starFibreSpace n j := by
@@ -80,62 +106,91 @@ theorem starFibreProjection_apply {n : ℕ} (j : Fin 4) (v : StarChart n)
   have hcoord := congrArg (fun z : StarChart n => z (r, s)) heq
   simpa [F, p, starRowProjection, starRow, K] using hcoord
 
-theorem main : AKLT.Blueprint.Q.StarProjectorTransportStatement := by
-  intro L N x n U hCopies j ψ r s
+theorem chart_projector_mem {L N : Size} (x : Site L N) {n : ℕ}
+    (U : Hilbert L N ≃ₗᵢ[ℂ] StarChart n)
+    (hCopies : AKLT.Blueprint.Q.casimirCopies x n U) (j : Fin 4) (ψ : Hilbert L N) :
+    U (P (AKLT.Blueprint.Q.starEdge x j) ψ) ∈ starFibreSpace n j := by
   let e : Bond L N := AKLT.Blueprint.Q.starEdge x j
   let K : Submodule ℂ (Hilbert L N) := Module.End.eigenspace (bondCasimir e) 20
-  let F : Submodule ℂ (StarChart n) := starFibreSpace n j
-  let y : StarChart n := U ψ
   let q : StarChart n := U (P e ψ)
   have hPmem : P e ψ ∈ K := by
     change K.starProjection ψ ∈ K
     exact K.starProjection_apply_mem ψ
-  have hqmem : q ∈ F := by
-    intro t
-    rw [Module.End.mem_eigenspace_iff]
-    have he := Module.End.mem_eigenspace_iff.mp hPmem
-    ext u
-    have hc : U (bondCasimir e (P e ψ)) (t, u) = starCasimir j (starRow q t) u := by
-      simpa [e, q, starRow] using hCopies j (P e ψ) t u
-    calc
-      starCasimir j (starRow q t) u = U (bondCasimir e (P e ψ)) (t, u) := hc.symm
-      _ = U ((20 : ℂ) • P e ψ) (t, u) := by rw [he]
-      _ = ((20 : ℂ) • starRow q t) u := by simp [q, starRow]
-  have hpreimage (z : StarChart n) (hz : z ∈ F) : U.symm z ∈ K := by
-    change ∀ t, starRow z t ∈ Module.End.eigenspace (starCasimir j) 20 at hz
-    have hrow t := Module.End.mem_eigenspace_iff.mp (hz t)
-    have hmap : U (bondCasimir e (U.symm z)) = (20 : ℂ) • z := by
-      ext p
-      rcases p with ⟨t, u⟩
-      calc
-        U (bondCasimir e (U.symm z)) (t, u) =
-          starCasimir j (starRow (U (U.symm z)) t) u := hCopies j (U.symm z) t u
-        _ = (20 : ℂ) * z (t, u) := by
-          have hu := congrArg (fun w : AKLT.Defs.StarHilbert => w u) (hrow t)
-          simpa [starRow, U.apply_symm_apply] using hu
-        _ = ((20 : ℂ) • z) (t, u) := by simp
-    rw [Module.End.mem_eigenspace_iff]
-    apply U.injective
-    simpa using hmap
-  have hqorth : ∀ z, z ∈ F → inner ℂ (y - q) z = 0 := by
-    intro z hz
-    have hzK := hpreimage z hz
-    have horth := K.starProjection_inner_eq_zero ψ (U.symm z) hzK
-    change inner ℂ (U ψ - U (P e ψ)) z = 0
-    calc
-      inner ℂ (U ψ - U (P e ψ)) z =
-          inner ℂ (U (ψ - P e ψ)) (U (U.symm z)) := by simp [map_sub]
-      _ = inner ℂ (ψ - P e ψ) (U.symm z) := U.inner_map_map _ _
-      _ = 0 := horth
-  have hqproj : F.starProjection y = q := F.eq_starProjection_of_mem_of_inner_eq_zero hqmem hqorth
-  have hrowproj : F.starProjection y = starRowProjection j y := by
-    change (starFibreSpace n j).starProjection y = starRowProjection j y
+  intro t
+  rw [Module.End.mem_eigenspace_iff]
+  have he := Module.End.mem_eigenspace_iff.mp hPmem
+  ext u
+  have hc : U (bondCasimir e (P e ψ)) (t, u) = starCasimir j (starRow q t) u := by
+    exact casimirCopies_starRow x U hCopies j (P e ψ) t u
+  calc
+    starCasimir j (starRow q t) u = U (bondCasimir e (P e ψ)) (t, u) := hc.symm
+    _ = U ((20 : ℂ) • P e ψ) (t, u) := by rw [he]
+    _ = ((20 : ℂ) • starRow q t) u := by simp [q, starRow]
+
+theorem chart_eigenspace_preimage {L N : Size} (x : Site L N) {n : ℕ}
+    (U : Hilbert L N ≃ₗᵢ[ℂ] StarChart n)
+    (hCopies : AKLT.Blueprint.Q.casimirCopies x n U) (j : Fin 4)
+    (z : StarChart n) (hz : z ∈ starFibreSpace n j) :
+    U.symm z ∈ Module.End.eigenspace (bondCasimir (AKLT.Blueprint.Q.starEdge x j)) 20 := by
+  let e : Bond L N := AKLT.Blueprint.Q.starEdge x j
+  change ∀ t, starRow z t ∈ Module.End.eigenspace (starCasimir j) 20 at hz
+  have hrow t := Module.End.mem_eigenspace_iff.mp (hz t)
+  have hmap : U (bondCasimir e (U.symm z)) = (20 : ℂ) • z := by
     ext p
     rcases p with ⟨t, u⟩
-    exact starFibreProjection_apply j y t u
-  have hqp : q = starRowProjection j y := hqproj.symm.trans hrowproj
-  have hcoord := congrArg (fun z : StarChart n => z (r, s)) hqp
-  simpa [q, y, starRowProjection, starRow] using hcoord
+    calc
+      U (bondCasimir e (U.symm z)) (t, u) =
+        starCasimir j (starRow (U (U.symm z)) t) u :=
+          casimirCopies_starRow x U hCopies j (U.symm z) t u
+      _ = starCasimir j (starRow z t) u :=
+        congrArg (fun w : StarChart n => starCasimir j (starRow w t) u)
+          (U.apply_symm_apply z)
+      _ = (20 : ℂ) * z (t, u) := by
+        have hu := congrArg (fun w : AKLT.Defs.StarHilbert => w u) (hrow t)
+        simpa only [PiLp.smul_apply, starRow_apply, smul_eq_mul] using hu
+      _ = ((20 : ℂ) • z) (t, u) := by simp
+  rw [Module.End.mem_eigenspace_iff]
+  apply U.injective
+  simpa using hmap
+
+theorem chart_projector_orthogonal {L N : Size} (x : Site L N) {n : ℕ}
+    (U : Hilbert L N ≃ₗᵢ[ℂ] StarChart n)
+    (hCopies : AKLT.Blueprint.Q.casimirCopies x n U) (j : Fin 4) (ψ : Hilbert L N)
+    (z : StarChart n) (hz : z ∈ starFibreSpace n j) :
+    inner ℂ (U ψ - U (P (AKLT.Blueprint.Q.starEdge x j) ψ)) z = 0 := by
+  let e : Bond L N := AKLT.Blueprint.Q.starEdge x j
+  let K : Submodule ℂ (Hilbert L N) := Module.End.eigenspace (bondCasimir e) 20
+  have hzK := chart_eigenspace_preimage x U hCopies j z hz
+  have horth := K.starProjection_inner_eq_zero ψ (U.symm z) hzK
+  calc
+    inner ℂ (U ψ - U (P e ψ)) z =
+        inner ℂ (U (ψ - P e ψ)) (U (U.symm z)) := by simp [map_sub]
+    _ = inner ℂ (ψ - P e ψ) (U.symm z) := U.inner_map_map _ _
+    _ = 0 := horth
+
+theorem starFibreProjection_eq_rowProjection {n : ℕ} (j : Fin 4) (v : StarChart n) :
+    (starFibreSpace n j).starProjection v = starRowProjection j v :=
+  (starFibreSpace n j).eq_starProjection_of_mem_of_inner_eq_zero
+    (starRowProjection_mem j v) (fun w hw => starRowProjection_orthogonal j v w hw)
+
+theorem main : AKLT.Blueprint.Q.StarProjectorTransportStatement := by
+  intro L N x n U hCopies j ψ r s
+  let e : Bond L N := AKLT.Blueprint.Q.starEdge x j
+  let F : Submodule ℂ (StarChart n) := starFibreSpace n j
+  have hqproj : F.starProjection (U ψ) = U (P e ψ) :=
+    F.eq_starProjection_of_mem_of_inner_eq_zero (chart_projector_mem x U hCopies j ψ)
+      (fun z hz => chart_projector_orthogonal x U hCopies j ψ z hz)
+  have hqp : U (P e ψ) = starRowProjection j (U ψ) :=
+    hqproj.symm.trans (starFibreProjection_eq_rowProjection j (U ψ))
+  calc
+    U (P e ψ) (r, s) = starRowProjection j (U ψ) (r, s) :=
+      congrArg (fun z : StarChart n => z (r, s)) hqp
+    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow (U ψ) r) s :=
+      starRowProjection_apply j (U ψ) r s
+    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection
+        (WithLp.toLp 2 (fun t => U ψ (r, t))) s :=
+      congrArg (fun v : AKLT.Defs.StarHilbert =>
+        (Module.End.eigenspace (starCasimir j) 20).starProjection v s) (starRow_eq (U ψ) r)
 
 end AKLT.W.Q038
 
