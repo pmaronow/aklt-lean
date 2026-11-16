@@ -1,0 +1,1003 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.Mom.IcoInjectivityStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "56\u201361",
+    "difficulty": "medium",
+    "estimated_proof_lines": 140,
+    "dependencies": [
+      "AKLT.Defs.icoVector",
+      "AKLT.Defs.signValue",
+      "AKLT.Defs.icoRadius",
+      "Real.sqrt_pos",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Show goldenRatio and icoRadius are positive. The sole zero coordinate identifies the group; compare its two nonzero coordinates to recover both signs. Alternatively enumerate the 12 labels and compare coordinates. All divisions use icoRadius \u2260 0.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Do not infer distinctness from 12 labels alone. Zero coordinates uniquely identify groups; radius positivity and nonzero signed coordinates must be proved.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 11,
+    "statement": "def IcoInjectivityStatement : Prop := Function.Injective icoVector",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.IcoUnitStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "56\u201357",
+    "difficulty": "easy",
+    "estimated_proof_lines": 90,
+    "dependencies": [
+      "AKLT.Defs.goldenRatio",
+      "AKLT.Defs.icoRadius",
+      "AKLT.Defs.normSq",
+      "Real.sq_sqrt",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Derive phi^2=phi+1 from sqrt(5)^2=5; prove radius>0 and radius^2=phi+2=1+phi^2. Enumerate the group and signs, expand the three squares, and clear the nonzero radius.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The norm is normSq, not the inherited supremum norm on Fin 3 \u2192 \u211d. Prove the square-root radicands nonnegative before using sq_sqrt.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 15,
+    "statement": "def IcoUnitStatement : Prop := \u2200 j, normSq (icoVector j) = 1",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.OddMonomialStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "63\u201365",
+    "difficulty": "medium",
+    "estimated_proof_lines": 160,
+    "dependencies": [
+      "AKLT.Defs.icoVector",
+      "AKLT.Blueprint.Mom.mono",
+      "Fintype.sum_equiv",
+      "Odd.neg_pow",
+      "Finset.prod_congr"
+    ],
+    "suggested_proof_route": "For the selected odd coordinate, construct an involution on IcoLetter that flips exactly that coordinate in each group. If the coordinate is identically zero in a group, the monomial is already zero. Reindex the finite moment sum and obtain M=-M.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The odd-coordinate witness implies a positive exponent. A zero coordinate in one group is harmless. No upper degree bound is needed.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 29,
+    "statement": "def OddMonomialStatement : Prop :=\n  \u2200 m : Fin 3 \u2192 \u2115, (\u2203 i, Odd (m i)) \u2192 moment (mono m) = 0",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.SecondScalarMomentStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "66\u201368",
+    "difficulty": "easy",
+    "estimated_proof_lines": 90,
+    "dependencies": [
+      "AKLT.Defs.moment",
+      "AKLT.Defs.icoVector",
+      "Real.sq_sqrt",
+      "Fintype.sum_prod_type",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Enumerate the three groups and two signs. For each coordinate the average is (1+phi^2)/(3*r^2). Substitute the radical identities and simplify to 1/3.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Use all 12 labels with their 1/12 mass; do not replace the label sum by an image sum before proving injectivity. Radius must be nonzero.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 34,
+    "statement": "def SecondScalarMomentStatement : Prop :=\n  \u2200 i, moment (fun v => v i ^ 2) = 1 / 3",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.FourthScalarMomentStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "66\u201372",
+    "difficulty": "medium",
+    "estimated_proof_lines": 120,
+    "dependencies": [
+      "AKLT.Defs.moment",
+      "AKLT.Defs.goldenRatio",
+      "AKLT.Defs.icoRadius",
+      "Real.sq_sqrt",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Evaluate the finite fourth-power sum. Derive r^4=5*phi^2 and 1+phi^4=3*phi^2 by ring algebra, then clear positive denominators and simplify.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Fourth powers are coordinate powers, not powers of the vector. Establish r\u22600 before fraction normalization.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 38,
+    "statement": "def FourthScalarMomentStatement : Prop :=\n  \u2200 i, moment (fun v => v i ^ 4) = 1 / 5",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.MixedScalarMomentStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMoments",
+    "paper_label": "l:moments",
+    "paper_lines": "66\u201372",
+    "difficulty": "easy",
+    "estimated_proof_lines": 110,
+    "dependencies": [
+      "AKLT.Defs.moment",
+      "AKLT.Defs.icoVector",
+      "Real.sq_sqrt",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Enumerate distinct coordinate pairs. Only one of the three groups contributes, giving phi^2/(3*r^4); use r^4=5*phi^2.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The premise i\u2260j is essential. This is not the all-equal fourth moment. Coordinate pair order does not change the product.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+    "source_line": 43,
+    "statement": "def MixedScalarMomentStatement : Prop :=\n  \u2200 i j, i \u2260 j \u2192 moment (fun v => v i ^ 2 * v j ^ 2) = 1 / 15",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.ScalarTensorReconstructionStatement",
+    "module": "AKLT.Blueprint.Mom.NodesCore",
+    "paper_label": "l:moments",
+    "paper_lines": "73\u201376",
+    "difficulty": "medium",
+    "estimated_proof_lines": 220,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.mono",
+      "AKLT.Blueprint.Mom.TensorLaw",
+      "Fin.prod_univ_three",
+      "mul_comm",
+      "mul_assoc"
+    ],
+    "suggested_proof_route": "Classify the 3^2 second-index cases and 3^4 fourth-index cases by equality pattern. Rewrite each integrand extensionally as a coordinate monomial; use parity for the remaining cases and count the nonzero delta pairings.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "L is arbitrary: no linearity is needed or available. Only equality of the entire integrand functions may be used to rewrite L. All-equal fourth indices have three pairings.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+    "source_line": 44,
+    "statement": "def ScalarTensorReconstructionStatement : Prop :=\n  \u2200 L : (Vec3 \u2192 \u211d) \u2192 \u211d,\n    L (fun _ => 1) = 1 \u2192\n    (\u2200 m : Fin 3 \u2192 \u2115, (\u2203 i, Odd (m i)) \u2192 L (mono m) = 0) \u2192\n    (\u2200 i, L (fun v => v i ^ 2) = 1 / 3) \u2192\n    (\u2200 i, L (fun v => v i ^ 4) = 1 / 5) \u2192\n    (\u2200 i j, i \u2260 j \u2192 L (fun v => v i ^ 2 * v j ^ 2) = 1 / 15) \u2192\n    TensorLaw L 1",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TensorMonomialStatement",
+    "module": "AKLT.Blueprint.Mom.NodesCore",
+    "paper_label": "l:moments",
+    "paper_lines": "73\u201376",
+    "difficulty": "medium",
+    "estimated_proof_lines": 240,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.TensorLaw",
+      "AKLT.Blueprint.Mom.scaledMoment",
+      "AKLT.Defs.rationalMoment",
+      "Fin.sum_univ_three",
+      "Fin.prod_univ_three"
+    ],
+    "suggested_proof_route": "Let m0,m1,m2 be the coordinate exponents. From their sum\u22644 enumerate the 35 exponent triples using omega/interval_cases. Reorder products and use the corresponding tensor formula. Normalize the rational casts and the arbitrary scale c.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "No linearity premise on L is required. Degree zero must return 1, independent of c. Exponents outside the degree range are not constrained.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+    "source_line": 55,
+    "statement": "def TensorMonomialStatement : Prop :=\n  \u2200 L : (Vec3 \u2192 \u211d) \u2192 \u211d, \u2200 c : \u211d, TensorLaw L c \u2192\n    \u2200 m : Fin 3 \u2192 \u2115, (\u2211 i, m i) \u2264 4 \u2192 L (mono m) = scaledMoment c m",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.OrthogonalTensorStatement",
+    "module": "AKLT.Blueprint.Mom.NodesCore",
+    "paper_label": "l:moments",
+    "paper_lines": "78\u201384",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.finiteFunctional",
+      "AKLT.Blueprint.Mom.TensorLaw",
+      "Matrix.mul_apply",
+      "Matrix.mulVec",
+      "mul_eq_one_comm",
+      "Finset.sum_comm",
+      "Finset.mul_sum"
+    ],
+    "suggested_proof_route": "First derive R*R.transpose=1 from R.transpose*R=1. Expand transformed first/third tensors using finite distributivity; expand second and fourth tensors, exchange the atom and coordinate sums, and contract each delta pairing with row orthogonality. The constant is unchanged.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Column orthogonality is the actual premise; justify row orthogonality. Weights and c can be signed. FiniteFunctional supplies linearity, so no probability or arbitrary-function rotation invariance is assumed.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+    "source_line": 61,
+    "statement": "def OrthogonalTensorStatement : Prop :=\n  \u2200 (\u03b1 : Type) [Fintype \u03b1], \u2200 w : \u03b1 \u2192 \u211d, \u2200 v : \u03b1 \u2192 Vec3, \u2200 c : \u211d,\n    TensorLaw (finiteFunctional w v) c \u2192\n    \u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192\n      TensorLaw (finiteFunctional w (fun a => R.mulVec (v a))) c",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.PolynomialExpansionStatement",
+    "module": "AKLT.Blueprint.Mom.NodesCore",
+    "paper_label": "l:moments; l:exact",
+    "paper_lines": "90\u201394; 311\u2013320",
+    "difficulty": "medium",
+    "estimated_proof_lines": 180,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.productSum",
+      "AKLT.Blueprint.Mom.mono",
+      "MvPolynomial.as_sum",
+      "MvPolynomial.eval_monomial",
+      "Finsupp.prod_fintype",
+      "Finset.sum_comm"
+    ],
+    "suggested_proof_route": "Expand p over its actual support using as_sum, evaluate each monomial, and rewrite the finite product on Fin n \u00d7 Fin 3 as an iterated product. Commute the coefficient/support/configuration sums. Keep coefficients outside productSum.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "No degree, positivity, normalization, or nonempty alphabet premise is needed. For zero sites there is one configuration. For a nonempty site set with an empty alphabet both sides vanish. Prove equality of universal finite sets when instances differ.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+    "source_line": 84,
+    "statement": "def PolynomialExpansionStatement : Prop :=\n  \u2200 n : \u2115, \u2200 (\u03b1 : Fin n \u2192 Type) [\u2200 x, Fintype (\u03b1 x)],\n    \u2200 w : (x : Fin n) \u2192 \u03b1 x \u2192 \u211d, \u2200 v : (x : Fin n) \u2192 \u03b1 x \u2192 Vec3,\n    \u2200 p : MvPolynomial (Fin n \u00d7 Fin 3) \u211d,\n      productSum \u03b1 w v (fun a => MvPolynomial.eval (fun z => a z.1 z.2) p) =\n        \u2211 m \u2208 p.support, p.coeff m *\n          productSum \u03b1 w v (fun a => \u220f x, mono (fun i => m (x, i)) (a x))",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.BallDotBoundsStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "141\u2013142",
+    "difficulty": "easy",
+    "estimated_proof_lines": 100,
+    "dependencies": [
+      "AKLT.Defs.dot",
+      "AKLT.Defs.normSq",
+      "Finset.sum_mul_sq_le_sq_mul_sq",
+      "AKLT.Blueprint.Mom.normSq_nonneg"
+    ],
+    "suggested_proof_route": "Apply the finite Cauchy\u2013Schwarz square inequality to the three coordinates. The two squared-length upper bounds and their nonnegativity give dot^2\u22641; conclude -1\u2264dot\u22641 by nlinarith.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Use squared Euclidean norm, not Pi's supremum norm. Vectors of norm zero and norm exactly one are included; there is no division.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 11,
+    "statement": "def BallDotBoundsStatement : Prop :=\n  \u2200 a b : Vec3, normSq a \u2264 1 \u2192 normSq b \u2264 1 \u2192\n    0 \u2264 1 + dot a b \u2227 1 + dot a b \u2264 2",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.LetterAvoidanceStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "148\u2013153",
+    "difficulty": "medium",
+    "estimated_proof_lines": 240,
+    "dependencies": [
+      "AKLT.Defs.icoVector",
+      "AKLT.Defs.normSq",
+      "Finset.card_biUnion_le",
+      "Finset.card_le_one",
+      "Fintype.card_prod",
+      "Finset.exists_mem_notMem_of_card_lt_card"
+    ],
+    "suggested_proof_route": "For a unit atom v and ball field b, 1+dot(v,b)=0 forces b=-v, using the nonnegative squared length of v+b. Prove each field forbids at most one distinct ico label. The union of at most four forbidden sets has card\u22644<12, so choose outside it.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "A ball field may forbid no letter. Strict positivity follows from nonnegativity plus exclusion of zero, not just absence of a negative value. Include k=0. Concrete ico distinctness and unit length can be established from the explicit coordinates; no open proposition is an input.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 17,
+    "statement": "def LetterAvoidanceStatement : Prop :=\n  \u2200 k : \u2115, k \u2264 4 \u2192 \u2200 b : Fin k \u2192 Vec3, (\u2200 i, normSq (b i) \u2264 1) \u2192\n    \u2203 j : IcoLetter, \u2200 i, 0 < 1 + dot (icoVector j) (b i)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.GreedyAssignmentStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "143\u2013156",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "dependencies": [
+      "AKLT.Defs.FiniteSpinNetwork.Valid",
+      "Fin.castLE",
+      "Finset.filter_subset",
+      "Finset.card_le_card",
+      "Finset.attach"
+    ],
+    "suggested_proof_route": "Induct over the initial segment of Fin n. Maintain an assignment with all pin factors and already completed bonds positive. Collect pins and already assigned neighbours into a Fin k list, prove k\u22644 from Valid, apply the stated local-feasibility property, and extend. Symmetry of dot handles orientation.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The statement is generic over an alphabet and explicitly assumes both its ball support and local feasibility. Those are mathematical data premises, not named blueprint leaves. Distinct endpoints and the orientation convention come from Valid. k=0 supplies a letter; n=0 uses the empty assignment.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 25,
+    "statement": "def GreedyAssignmentStatement : Prop :=\n  \u2200 (\u03b1 : Type) [Fintype \u03b1], \u2200 v : \u03b1 \u2192 Vec3, (\u2200 a, normSq (v a) \u2264 1) \u2192\n    (\u2200 k : \u2115, k \u2264 4 \u2192 \u2200 b : Fin k \u2192 Vec3, (\u2200 i, normSq (b i) \u2264 1) \u2192\n      \u2203 a, \u2200 i, 0 < 1 + dot (v a) (b i)) \u2192\n    \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, D.Valid \u2192\n      \u2203 \u03c3 : Fin n \u2192 \u03b1,\n        (\u2200 e \u2208 D.bonds, 0 < 1 + dot (v (\u03c3 e.1)) (v (\u03c3 e.2))) \u2227\n        \u2200 x, \u2200 j : Fin (D.pinCount x), 0 < 1 + dot (D.pin x j).val (v (\u03c3 x))",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.FreeCoefficientsStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "177\u2013180",
+    "difficulty": "medium",
+    "estimated_proof_lines": 170,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.freePolynomial",
+      "AKLT.Blueprint.Mom.dotPolynomial",
+      "MvPolynomial.coeff_mul",
+      "MvPolynomial.coeff_add",
+      "Finset.sum_nonneg"
+    ],
+    "suggested_proof_route": "Prove coefficientwise nonnegativity is preserved by polynomial addition and multiplication, using coeff_mul's finite antidiagonal sum. X and 1 have nonnegative coefficients. Induct over the bond Finset and observable List.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "No pins occur in freePolynomial. Repeated observable pairs and coincident endpoints are allowed. This coefficient assertion is true at any degree; the degree restriction enters later.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 46,
+    "statement": "def FreeCoefficientsStatement : Prop :=\n  \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, \u2200 pairs : List (Fin n \u00d7 Fin n),\n    \u2200 m, 0 \u2264 (freePolynomial D pairs).coeff m",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.FreeDegreeStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "181\u2013190",
+    "difficulty": "hard",
+    "estimated_proof_lines": 350,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.freePolynomial",
+      "AKLT.Defs.SeparateDegreeFour",
+      "AKLT.Defs.FiniteSpinNetwork.Valid",
+      "MvPolynomial.support_mul",
+      "MvPolynomial.support_add"
+    ],
+    "suggested_proof_route": "Maintain a per-site occurrence upper bound while multiplying factors. A distinct-endpoint bond adds at most one at each endpoint; an observable dot factor adds one at each occurrence. Sum support exponents under multiplication, and relate the bound to the filter-card/list-length premise.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The bond card counts incidence once because Valid excludes loops. Observable loops must contribute two list-filter counts, and duplicate observable pairs retain multiplicity. Pins are omitted in the free sum. Use \u2115 addition bounds without subtraction.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 52,
+    "statement": "def FreeDegreeStatement : Prop :=\n  \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, D.Valid \u2192\n    \u2200 pairs : List (Fin n \u00d7 Fin n),\n      (\u2200 x, (D.bonds.filter fun e => e.1 = x \u2228 e.2 = x).card +\n        (pairs.filter fun e => e.1 = x).length +\n        (pairs.filter fun e => e.2 = x).length \u2264 4) \u2192\n      SeparateDegreeFour (freePolynomial D pairs)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TwoSiteFactorizationStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "159\u2013168",
+    "difficulty": "hard",
+    "estimated_proof_lines": 350,
+    "dependencies": [
+      "AKLT.Defs.FiniteSpinNetwork.weight",
+      "AKLT.Blueprint.Mom.twoSiteFibre",
+      "Finset.prod_filter_mul_prod_filter_not",
+      "Finset.prod_congr"
+    ],
+    "suggested_proof_route": "Partition site, bond, and pin factors into off-{x,y}, incident-to-x, and incident-to-y groups. The no-bond premises prevent overlap. Substitute the fixed exterior \u03c3 on the fibre. Define C,u,v by these products and prove their nonnegativity from the explicit site weights and unit-ball geometry.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Require x\u2260y and absence of both stored orientations. C,u,v are only nonnegative; zero masses and zero off-site factors are permitted. Positive marginal mass is deliberately not assumed until normalization.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 84,
+    "statement": "def TwoSiteFactorizationStatement : Prop :=\n  \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, D.Valid \u2192 \u2200 pinned : Bool,\n    \u2200 x y : Fin n, x \u2260 y \u2192 (x, y) \u2209 D.bonds \u2192 (y, x) \u2209 D.bonds \u2192\n    \u2200 \u03c3 : Fin n \u2192 SpinLetter,\n      \u2203 C : \u211d, \u2203 u v : SpinLetter \u2192 \u211d,\n        0 \u2264 C \u2227 (\u2200 a, 0 \u2264 u a) \u2227 (\u2200 b, 0 \u2264 v b) \u2227\n        \u2200 \u03c4, twoSiteFibre x y \u03c3 \u03c4 \u2192 D.weight pinned \u03c4 = C * u (\u03c4 x) * v (\u03c4 y)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.FactorizedConditioningStatement",
+    "module": "AKLT.Blueprint.Mom.NodesFinite",
+    "paper_label": "l:finitefacts",
+    "paper_lines": "169\u2013175",
+    "difficulty": "medium",
+    "estimated_proof_lines": 280,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.twoSiteFibre",
+      "AKLT.Defs.normalize",
+      "AKLT.Defs.eventMass",
+      "AKLT.Defs.conditionalProbability",
+      "Fintype.sum_equiv",
+      "Finset.sum_mul"
+    ],
+    "suggested_proof_route": "Enumerate the fibre bijectively by its two SpinLetter coordinates using Function.update twice. Compute its mass and its three relevant event numerators from C*u*v. Positive event mass forces the necessary denominators nonzero. Cancel them and simplify the rank-one equality.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Only w is assumed nonnegative; no positivity of individual u or v is required for this algebra. Off-fibre weights remain in the global normalizer. Never condition an arbitrary event that fails to fix all other coordinates.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+    "source_line": 95,
+    "statement": "def FactorizedConditioningStatement : Prop :=\n  \u2200 n : \u2115, \u2200 w : (Fin n \u2192 SpinLetter) \u2192 \u211d, (\u2200 \u03c4, 0 \u2264 w \u03c4) \u2192\n    \u2200 x y : Fin n, x \u2260 y \u2192 \u2200 \u03c3 : Fin n \u2192 SpinLetter,\n    \u2200 C : \u211d, \u2200 u v : SpinLetter \u2192 \u211d,\n    (\u2200 \u03c4, twoSiteFibre x y \u03c3 \u03c4 \u2192 w \u03c4 = C * u (\u03c4 x) * v (\u03c4 y)) \u2192\n    0 < eventMass (normalize w) (twoSiteFibre x y \u03c3) \u2192\n    \u2200 a b : SpinLetter,\n      conditionalProbability (normalize w) (twoSiteFibre x y \u03c3)\n        (fun \u03c4 => \u03c4 x = a \u2227 \u03c4 y = b) =\n      conditionalProbability (normalize w) (twoSiteFibre x y \u03c3) (fun \u03c4 => \u03c4 x = a) *\n        conditionalProbability (normalize w) (twoSiteFibre x y \u03c3) (fun \u03c4 => \u03c4 y = b)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TripleNormalizerStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "218\u2013222",
+    "difficulty": "medium",
+    "estimated_proof_lines": 150,
+    "dependencies": [
+      "AKLT.Defs.siteFunctional",
+      "AKLT.Defs.localProduct",
+      "AKLT.Blueprint.Mom.tripleP",
+      "Fin.prod_univ_three",
+      "Finset.sum_add_distrib"
+    ],
+    "suggested_proof_route": "Expand exactly three affine factors. The U mass and second tensor give 1+p/3, while odd terms vanish. Derive the necessary moments by finite sums or closed proved moment lemmas when available.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The fields are arbitrary Vec3 here; their unit lengths are used only by the separate geometric bound. Expansion has degree three, within the allowed range.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 28,
+    "statement": "def TripleNormalizerStatement : Prop :=\n  \u2200 a : Fin 3 \u2192 Vec3, siteFunctional .U (localProduct a) = 1 + tripleP a / 3",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TripleNumeratorStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "223\u2013228",
+    "difficulty": "medium",
+    "estimated_proof_lines": 230,
+    "dependencies": [
+      "AKLT.Defs.siteFunctional",
+      "AKLT.Defs.localProduct",
+      "AKLT.Blueprint.Mom.tripleV",
+      "Fin.prod_univ_three",
+      "Finset.mul_sum"
+    ],
+    "suggested_proof_route": "Expand the inserted coordinate together with the three factors. Apply the second tensor to the linear-field terms and the fourth tensor to the cubic-field term. Contract the three delta pairings to obtain V/15.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The inserted coordinate makes degree four. No unit premise is needed, and the proof must not appeal to moments of degree five.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 33,
+    "statement": "def TripleNumeratorStatement : Prop :=\n  \u2200 a : Fin 3 \u2192 Vec3, \u2200 i,\n    15 * siteFunctional .U (fun v => v i * localProduct a v) = tripleV a i",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TripleGeometryStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "221\u2013232",
+    "difficulty": "easy",
+    "estimated_proof_lines": 120,
+    "dependencies": [
+      "AKLT.Defs.dot",
+      "AKLT.Defs.normSq",
+      "AKLT.Blueprint.Mom.tripleP",
+      "AKLT.Blueprint.Mom.normSq_nonneg",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Expand normSq(a0+a1+a2)\u22650 and use the three unit identities to get p\u2265-3/2. Apply the unit-vector dot bound to each pair for the three nonnegative deficits.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The lower bound concerns 1+p/3, not an arbitrary normalizer. Squared lengths are all exactly one. No square root or division by a vector length is needed.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 39,
+    "statement": "def TripleGeometryStatement : Prop :=\n  \u2200 a : Fin 3 \u2192 Vec3, (\u2200 j, normSq (a j) = 1) \u2192\n    1 / 2 \u2264 1 + tripleP a / 3 \u2227\n    0 \u2264 1 - dot (a 1) (a 2) \u2227 0 \u2264 1 - dot (a 0) (a 2) \u2227\n    0 \u2264 1 - dot (a 0) (a 1)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.TripleSOSIdentityStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "233\u2013239",
+    "difficulty": "medium",
+    "estimated_proof_lines": 260,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.tripleP",
+      "AKLT.Blueprint.Mom.tripleV",
+      "AKLT.Blueprint.Mom.tripleSOS",
+      "AKLT.Defs.dot",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Expand normSq(V) using dot bilinearity into a polynomial in the three pairwise scalar products and the three squared lengths. Substitute each squared length=1 and ring-normalize to the displayed SOS. Work at the scalar-product level to avoid a large raw coordinate expansion.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "This is an equality, not a positivity claim. All three unit hypotheses are essential. Nonnegativity of the deficits is supplied separately in the assembly; it is not silently used in this leaf.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 47,
+    "statement": "def TripleSOSIdentityStatement : Prop :=\n  \u2200 a : Fin 3 \u2192 Vec3, (\u2200 j, normSq (a j) = 1) \u2192\n    (9 + 3 * tripleP a)^2 - normSq (tripleV a) = tripleSOS a",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.BallFieldSplitStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "241\u2013247",
+    "difficulty": "medium",
+    "estimated_proof_lines": 160,
+    "dependencies": [
+      "AKLT.Defs.UnitVector",
+      "AKLT.Defs.normSq",
+      "Real.sqrt_nonneg",
+      "Real.sq_sqrt",
+      "Real.sqrt_pos",
+      "Fin.sum_univ_three"
+    ],
+    "suggested_proof_route": "Let r=sqrt(normSq a). For r>0 take e=a/r and t=(1+r)/2, prove e is unit and t\u2208[0,1], and expand the affine identity. For r=0 prove a=0 coordinatewise and choose e1 with t=1/2.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The zero vector needs a separate unit-vector choice before division. Do not use the supremum norm on the function type. The identity holds for all v, not merely support atoms.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 53,
+    "statement": "def BallFieldSplitStatement : Prop :=\n  \u2200 a : Vec3, normSq a \u2264 1 \u2192 \u2203 t : \u211d, \u2203 e : UnitVector,\n    0 \u2264 t \u2227 t \u2264 1 \u2227\n    \u2200 v : Vec3, 1 + dot v a =\n      t * (1 + dot v e.val) + (1 - t) * (1 + dot v (-e.val))",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.ProductMixtureStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "248\u2013253",
+    "difficulty": "medium",
+    "estimated_proof_lines": 280,
+    "dependencies": [
+      "AKLT.Defs.localProduct",
+      "AKLT.Defs.UnitVector",
+      "Fin.prod_univ_three",
+      "Finset.prod_add",
+      "Fintype.prod_sum"
+    ],
+    "suggested_proof_route": "Case-split k=0,1,2,3 using k\u22643. Pad missing fields by zero, represent their factors using e1 and -e1 with weights 1/2, and expand the three binary choices. Index the eight choices by Fin 8, multiply their coefficients, and verify nonnegativity and total weight one.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The field decompositions are explicit input data. Missing factors must be inserted by averaging opposite unit fields, not by adding a zero vector as a unit field. Zero mixture coefficients are allowed; avoid unchecked 3-k subtraction.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 62,
+    "statement": "def ProductMixtureStatement : Prop :=\n  \u2200 k : \u2115, k \u2264 3 \u2192 \u2200 a : Fin k \u2192 Vec3,\n    (\u2200 j, \u2203 t : \u211d, \u2203 e : UnitVector, 0 \u2264 t \u2227 t \u2264 1 \u2227\n      \u2200 v : Vec3, 1 + dot v (a j) =\n        t * (1 + dot v e.val) + (1 - t) * (1 + dot v (-e.val))) \u2192\n    \u2203 t : Fin 8 \u2192 \u211d, \u2203 b : Fin 8 \u2192 Fin 3 \u2192 UnitVector,\n      (\u2200 \u03b7, 0 \u2264 t \u03b7) \u2227 (\u2211 \u03b7, t \u03b7) = 1 \u2227\n      \u2200 v, localProduct a v =\n        \u2211 \u03b7, t \u03b7 * localProduct (fun j => (b \u03b7 j).val) v",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.PositiveMixtureEstimateStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35; l:finitefacts",
+    "paper_lines": "254\u2013258; 193\u2013194",
+    "difficulty": "medium",
+    "estimated_proof_lines": 260,
+    "dependencies": [
+      "AKLT.Defs.normSq",
+      "Finset.sum_le_sum",
+      "Finset.sum_mul_sq_le_sq_mul_sq",
+      "Finset.mul_sum",
+      "Finset.sum_div"
+    ],
+    "suggested_proof_route": "Show Z=sum t*A\u22651/2 using sum t=1. Set q\u03b7=t\u03b7*A\u03b7/Z, prove q\u22650 and sum q=1, and rewrite the ratio of vector sums as sum q\u03b7*(B\u03b7/A\u03b7). Apply weighted Cauchy\u2013Schwarz coordinatewise and sum the three inequalities.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Every A\u22651/2 and Z\u22651/2, so divisions are nonzero. r\u22650 includes r=0. An empty index type cannot satisfy sum t=1, as intended. Coefficients may vanish. No inherited Pi norm is used.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 75,
+    "statement": "def PositiveMixtureEstimateStatement : Prop :=\n  \u2200 (\u03b1 : Type) [Fintype \u03b1], \u2200 t A : \u03b1 \u2192 \u211d, \u2200 B : \u03b1 \u2192 Vec3, \u2200 r : \u211d,\n    0 \u2264 r \u2192 (\u2200 \u03b7, 0 \u2264 t \u03b7) \u2192 (\u2211 \u03b7, t \u03b7) = 1 \u2192\n    (\u2200 \u03b7, 1 / 2 \u2264 A \u03b7) \u2192\n    (\u2200 \u03b7, normSq (fun i => B \u03b7 i / A \u03b7) \u2264 r^2) \u2192\n      1 / 2 \u2264 \u2211 \u03b7, t \u03b7 * A \u03b7 \u2227\n      normSq (fun i => (\u2211 \u03b7, t \u03b7 * B \u03b7 i) / (\u2211 \u03b7, t \u03b7 * A \u03b7)) \u2264 r^2",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.DepletedContractionStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "260\u2013266",
+    "difficulty": "easy",
+    "estimated_proof_lines": 110,
+    "dependencies": [
+      "AKLT.Defs.localProduct",
+      "AKLT.Defs.localMean",
+      "AKLT.Blueprint.Mom.siteLawDecomposition",
+      "AKLT.Blueprint.Mom.normSq_nonneg",
+      "Finset.sum_mul"
+    ],
+    "suggested_proof_route": "At zero, the product is 1 and each coordinate numerator is zero. From siteLawDecomposition obtain AD=(3/5)AU+2/5>0 and meanD=q*meanU, where q=(3 AU)/(3 AU+2)\u2208(0,1). Expand normSq(q*v)=q^2*normSq(v).",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "AU>0 is an explicit premise. k is unrestricted and fields need not lie in the ball: the contraction is purely algebraic under that premise. Empty products are 1.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 85,
+    "statement": "def DepletedContractionStatement : Prop :=\n  \u2200 k : \u2115, \u2200 a : Fin k \u2192 Vec3, 0 < siteFunctional .U (localProduct a) \u2192\n    0 < siteFunctional .D (localProduct a) \u2227\n      normSq (localMean .D a) \u2264 normSq (localMean .U a)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.MeanPathContinuityStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "274\u2013275",
+    "difficulty": "medium",
+    "estimated_proof_lines": 170,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.meanPath",
+      "AKLT.Blueprint.Mom.meanPathEnd",
+      "AKLT.Defs.localMean",
+      "ContinuousOn.div",
+      "Real.continuous_cos",
+      "Real.continuous_sin"
+    ],
+    "suggested_proof_route": "Use finite-sum/product continuity for the scalar numerator and denominator along the trigonometric path. Show the denominator\u22651/2 throughout the interval using the explicit degree-three formula and unit geometry. Apply ContinuousOn.div coordinatewise, then continuity of the sum of squares.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Continuity of a quotient requires a nonzero denominator on the entire interval. The topology is the finite product topology; no distribution-level rotational invariance is needed.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 109,
+    "statement": "def MeanPathContinuityStatement : Prop :=\n  ContinuousOn (fun t => normSq (localMean .U (meanPath t))) (Set.Icc 0 meanPathEnd)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.MeanPathEndpointsStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "276\u2013279",
+    "difficulty": "medium",
+    "estimated_proof_lines": 170,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.meanPath",
+      "AKLT.Blueprint.Mom.tripleP",
+      "AKLT.Blueprint.Mom.tripleV",
+      "Real.cos_zero",
+      "Real.sin_zero",
+      "Real.cos_two_mul",
+      "Real.cos_pi_div_three"
+    ],
+    "suggested_proof_route": "Evaluate the aligned triple at zero, obtaining mean (3/5)e1. At 2\u03c0/3, the fields sum to zero and all pairwise dots are -1/2, so V=0 and the denominator is positive. Substitute into the finite mean formulas and take squared norms.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The endpoint statements concern squared norms 9/25 and 0. Prove the actual normalizers nonzero before simplifying division; do not infer vector zero from a scalar endpoint without the norm-square argument.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 114,
+    "statement": "def MeanPathEndpointsStatement : Prop :=\n  normSq (localMean .U (meanPath 0)) = (3 / 5 : \u211d)^2 \u2227\n    normSq (localMean .U (meanPath meanPathEnd)) = 0",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.MeanCovarianceStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "280\u2013288",
+    "difficulty": "medium",
+    "estimated_proof_lines": 280,
+    "dependencies": [
+      "AKLT.Defs.localMean",
+      "AKLT.Blueprint.Mom.tripleP",
+      "AKLT.Blueprint.Mom.tripleV",
+      "Matrix.mulVec",
+      "Matrix.mul_apply",
+      "mul_eq_one_comm"
+    ],
+    "suggested_proof_route": "Using the displayed degree-three and degree-four mean formulas, prove p(Ra)=p(a) and V(Ra)=R V(a). Orthogonality preserves unit lengths and keeps the positive denominator unchanged. Move scalar division through mulVec.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The conclusion is covariance only for the polynomial mean on triples of unit fields. It does not assert that the 12-point alphabet or arbitrary functions are invariant under every rotation.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 120,
+    "statement": "def MeanCovarianceStatement : Prop :=\n  \u2200 a : Fin 3 \u2192 Vec3, (\u2200 j, normSq (a j) = 1) \u2192\n    \u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192\n      localMean .U (fun j => R.mulVec (a j)) = R.mulVec (localMean .U a)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.OrthogonalNormStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:moments; l:35",
+    "paper_lines": "78\u201384; 280\u2013284",
+    "difficulty": "easy",
+    "estimated_proof_lines": 130,
+    "dependencies": [
+      "AKLT.Defs.normSq",
+      "Matrix.mul_apply",
+      "Matrix.mulVec",
+      "Matrix.transpose_apply",
+      "Finset.sum_comm"
+    ],
+    "suggested_proof_route": "Expand sum_i(sum_j R_ij*v_j)^2, exchange finite sums, and contract the columns using R.transpose*R=1. Alternatively identify the coordinate quadratic form with v\u1d40R\u1d40Rv.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "The premise is column orthogonality, exactly what this norm identity uses. The zero vector is included and no division occurs.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 127,
+    "statement": "def OrthogonalNormStatement : Prop :=\n  \u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192\n    \u2200 v : Vec3, normSq (R.mulVec v) = normSq v",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.OrthogonalTransportStatement",
+    "module": "AKLT.Blueprint.Mom.NodesMean",
+    "paper_label": "l:35",
+    "paper_lines": "283\u2013285",
+    "difficulty": "medium",
+    "estimated_proof_lines": 300,
+    "dependencies": [
+      "AKLT.Defs.dot",
+      "AKLT.Defs.normSq",
+      "Matrix.mul_apply",
+      "Matrix.mulVec",
+      "Fin.sum_univ_three",
+      "AKLT.Blueprint.Mom.normSq_nonneg"
+    ],
+    "suggested_proof_route": "If v=w use identity. Otherwise let u=v-w and define the Householder matrix I-2*u*u\u1d40/normSq(u). Establish normSq(u)>0 and 2 dot(u,v)=normSq(u) from equal squared lengths, then verify orthogonality and Rv=w by finite algebra.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "v=w handles both zero vectors and prevents division by zero. Equal squared norms, rather than an ambient Pi norm, is the premise. Reflections are allowed because O(3), not SO(3), is requested.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+    "source_line": 133,
+    "statement": "def OrthogonalTransportStatement : Prop :=\n  \u2200 v w : Vec3, normSq v = normSq w \u2192\n    \u2203 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2227 R.mulVec v = w",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.SingleSiteQuadratureStatement",
+    "module": "AKLT.Blueprint.Mom.NodesExact",
+    "paper_label": "l:exact",
+    "paper_lines": "317\u2013325",
+    "difficulty": "easy",
+    "estimated_proof_lines": 120,
+    "dependencies": [
+      "AKLT.Defs.MomentLaw",
+      "AKLT.Defs.momentLawFunctional",
+      "AKLT.Blueprint.Mom.mono",
+      "AKLT.Blueprint.Mom.siteLawDecomposition",
+      "MvPolynomial.totalDegree_monomial_le",
+      "MvPolynomial.eval_monomial"
+    ],
+    "suggested_proof_route": "Build the one-site polynomial prod_i X_i^(m_i), prove totalDegree\u2264sum m\u22644, and apply MomentLaw's polynomial equality. Split s=U or D and use the proved site-law decomposition. Constant and positive-degree zero-atom behavior are both included.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "MomentLaw does not require injective atoms; do not add that premise. A zero-size law cannot have total weight one, but zero sites are still permitted in the product statement. Active status is explicit.",
+    "target_usage": "required by all_of_leaves",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesExact.lean",
+    "source_line": 22,
+    "statement": "def SingleSiteQuadratureStatement : Prop :=\n  \u2200 k : \u2115, \u2200 F : FrameData k, MomentLaw F \u2192\n    \u2200 s : Status, s = .U \u2228 s = .D \u2192\n    \u2200 m : Fin 3 \u2192 \u2115, (\u2211 i, m i) \u2264 4 \u2192\n      momentLawFunctional F s (mono m) = siteFunctional s (mono m)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.InteractionDegreeStatement",
+    "module": "AKLT.Blueprint.Mom.NodesExact",
+    "paper_label": "l:exact",
+    "paper_lines": "327\u2013331",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "dependencies": [
+      "AKLT.Blueprint.Mom.interactionPolynomial",
+      "AKLT.Blueprint.Mom.interactionOccurrences",
+      "AKLT.Defs.SeparateDegreeFour",
+      "MvPolynomial.support_mul",
+      "MvPolynomial.support_add"
+    ],
+    "suggested_proof_route": "Prove per-site support-degree bounds for one signed bond and one signed pin. Induct over both lists and combine support exponents under products with the observable's support. Each bond endpoint appearance contributes one, including multiplicity.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "Observable degrees are included in the premise. Loops contribute two appearances and duplicate list factors remain duplicated. Signs and pin vectors may be arbitrary reals: that strengthens only the degree assertion. If p=0 the support premise is vacuous and the resulting polynomial is zero.",
+    "target_usage": "paper consequence outside compact Top type",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesExact.lean",
+    "source_line": 68,
+    "statement": "def InteractionDegreeStatement : Prop :=\n  \u2200 n : \u2115, \u2200 bonds : List ((Fin n \u00d7 Fin n) \u00d7 \u211d),\n    \u2200 pins : List ((Fin n \u00d7 Vec3) \u00d7 \u211d), \u2200 p : MvPolynomial (Fin n \u00d7 Fin 3) \u211d,\n    (\u2200 m \u2208 p.support, \u2200 x : Fin n,\n      (\u2211 i : Fin 3, m (x, i)) + interactionOccurrences bonds pins x \u2264 4) \u2192\n      SeparateDegreeFour (interactionPolynomial bonds pins p)",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement",
+    "module": "AKLT.Blueprint.Mom.NodesConsequences",
+    "paper_label": "l:35",
+    "paper_lines": "290\u2013294",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "dependencies": [
+      "AKLT.Defs.FiniteSpinNetwork.weight",
+      "AKLT.Defs.normalize",
+      "AKLT.Defs.eventMass",
+      "AKLT.Defs.localMean",
+      "AKLT.Blueprint.Mom.oneSiteFibre",
+      "AKLT.Blueprint.Mom.conditionalSpinMean",
+      "Fintype.sum_equiv"
+    ],
+    "suggested_proof_route": "Enumerate the retained neighbours of x, using the distinct-endpoint orientation and degree\u22643. On the fibre, allocate all exterior factors to a common constant and obtain the one-site weight spinWeight(status x)*localProduct(fields). Use positive marginal mass to show the common constant and local normalizer are nonzero, cancel them, and identify each coordinate mean.",
+    "donor_reuse_pointer": "/home/ubuntu/aklt/reports/VENDOR_1/reuse-map.md:15-19: no direct audited donor for these four lemmas; use the pinned Mathlib finite-sum, polynomial, and real-algebra libraries. Continuous-sphere donors are excluded.",
+    "trap_check": "pinCount x=0 is explicit; no new pins arise at removed sites. Conditioning is off exactly one site and its normalized event mass is positive. The result includes local-normalizer positivity. k=0 is allowed and exterior zero atoms are ball fields.",
+    "target_usage": "paper consequence outside compact Top type",
+    "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesConsequences.lean",
+    "source_line": 26,
+    "statement": "def OneSiteConditionalReductionStatement : Prop :=\n  \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, D.Valid \u2192 \u2200 pinned : Bool,\n    \u2200 x : Fin n, D.pinCount x = 0 \u2192\n    (D.bonds.filter fun e => e.1 = x \u2228 e.2 = x).card \u2264 3 \u2192\n    \u2200 \u03c3 : Fin n \u2192 SpinLetter,\n    0 < eventMass (normalize (D.weight pinned)) (oneSiteFibre x \u03c3) \u2192\n      \u2203 k : \u2115, k \u2264 3 \u2227 \u2203 a : Fin k \u2192 Vec3,\n        (\u2200 j, normSq (a j) \u2264 1) \u2227 0 < siteFunctional (D.status x) (localProduct a) \u2227\n        conditionalSpinMean (normalize (D.weight pinned)) x \u03c3 = localMean (D.status x) a",
+    "closedness": "def NameStatement : Prop, without parameters; autoImplicit=false and relaxedAutoImplicit=false",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C1a/sec2-moments.tex",
+    "proof_assignment": {
+      "first_attempt_owner": "a different, cheaper model",
+      "blueprint_agent_may_attempt_leaf_proof": false,
+      "status": "open; awaiting proof-writer assignment",
+      "applies_to": "every future leaf proof, including checker soundness"
+    }
+  }
+]

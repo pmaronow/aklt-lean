@@ -1,0 +1,11 @@
+Sharp thresholds and negative controls (agent 57 slot model, exact arithmetic).
+closed-form patterns: certified at the first threshold, NOT certified at the second (true minimum in between)
+  pattern 7645 min57 0.961240 >= 96123/100000 : True    >= 769/800 : False
+  pattern 1382 min57 0.935565 >= 23389/25000 : True    >= 93557/100000 : False
+  pattern 5469 min57 0.935771 >= 93577/100000 : True    >= 46789/50000 : False
+operator certificates: certified at the first threshold; at the second (above the numerical minimum for turns) the exact check must fail
+  pattern 5420 numerical min 0.960973 float bound 0.960973 >= 9609/10000 : True    >= 961/1000 : False (15s)
+  pattern 7697 numerical min 1.001202 float bound 0.992310 >= 992/1000 : True    >= 9924/10000 : False (13s)
+  pattern 3596 numerical min 0.971890 float bound 0.961364 >= 9613/10000 : True    >= 9614/10000 : False (13s)
+  pattern 5287 numerical min 0.937651 float bound 0.937651 >= 9376/10000 : True    >= 9377/10000 : False (3s)
+  pattern 5441 numerical min 0.937707 float bound 0.937707 >= 9377/10000 : True    >= 9378/10000 : False (2s)

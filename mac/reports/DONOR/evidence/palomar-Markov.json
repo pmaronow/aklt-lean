@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalisation of Theorems A\u2013F for absorbing Markov chains on compact metric spaces under Hypothesis H. The results give conditional Poisson point-process and shrinking-target limits, stable laws and their Gaussian boundary, an L2 central limit theorem, exponential concentration, and conditional laws of large numbers. The registry statement exposes the canonical path laws, local admissibility, and normalised spectral data; existence of the spectral data is proved from H.",
+      "authors": [
+        {
+          "name": "Bernat Bassols Cornudella"
+        },
+        {
+          "name": "Matheus M Castro"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.DS"
+        ],
+        "msc2020": [
+          "60F05",
+          "60G55",
+          "60J05",
+          "37A50"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ConditionedStableLaws.CanonicalChain.killedTransition_mass_le_one",
+          "ConditionedStableLaws.singularObservable_pos",
+          "ConditionedStableLaws.measurable_singularObservable",
+          "ConditionedStableLaws.NormalizationBridge.positivePowerScale_pos",
+          "ConditionedStableLaws.LocallyFinitePointMeasure.measurable_empirical",
+          "ConditionedStableLaws.RandomPointMeasure.measurable_normalizedObservation",
+          "ConditionedStableLaws.measurable_positiveExtension",
+          "ConditionedStableLaws.positiveExtension_pos",
+          "ConditionedStableLaws.AnnularPoissonClouds.powerLaw_probability",
+          "ConditionedStableLaws.AnnularPoissonClouds.positiveIntegral_laplace",
+          "ConditionedStableLaws.AnnularPoissonClouds.unitCompensatedStable_characteristic_real",
+          "ConditionedStableLaws.AnnularPoissonClouds.fullyCompensatedStable_characteristic_real",
+          "ConditionedStableLaws.AnnularPoissonClouds.measurable_unitCompensatedStable",
+          "ConditionedStableLaws.AnnularPoissonClouds.positiveIntegral_aemeasurable",
+          "ConditionedStableLaws.StableIdentification.positiveIntegral_isStable",
+          "ConditionedStableLaws.StableIdentification.unitCompensatedStable_isStable",
+          "ConditionedStableLaws.StableIdentification.fullyCompensatedStable_isStable",
+          "ConditionedStableLaws.Submission.conditionedProbability_eq",
+          "ConditionedStableLaws.Submission.poissonLimit",
+          "ConditionedStableLaws.Submission.eigenData",
+          "ConditionedStableLaws.Submission.TheoremA",
+          "ConditionedStableLaws.Submission.TheoremB",
+          "ConditionedStableLaws.Submission.TheoremC",
+          "ConditionedStableLaws.Submission.TheoremD",
+          "ConditionedStableLaws.Submission.TheoremE",
+          "ConditionedStableLaws.Submission.TheoremF",
+          "ConditionedStableLaws.Submission.positiveExtension_eq",
+          "ConditionedStableLaws.Submission.positiveIntegral_eq",
+          "ConditionedStableLaws.Submission.fullyCompensatedStable_eq"
+        ]
+      },
+      "id": "PALOMAR-2026-11-10-000011",
+      "path": "entries/PALOMAR-2026-11-10-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "aa1361dd32ddc3383c9c0440318b3a40293d478e",
+            "fork_repository": "PalomarArchive/Manzatto--conditional-stable-laws--c4e6501f83a4",
+            "source_repository": "Manzatto/conditional-stable-laws"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f3bc963010a67db34eb65df2cd69d68ec8e9bfdb5d5cfe1627e26259c4f0d060",
+        "version": 1
+      },
+      "published_at": "2026-11-10T19:24:33Z",
+      "source": {
+        "commit": "aa1361dd32ddc3383c9c0440318b3a40293d478e",
+        "project_path": null,
+        "repository": "Manzatto/conditional-stable-laws"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Conditional stable laws and rare-event limits for absorbing Markov chains",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry formalizes a total variation bound between the pairwise coalescence-time process of an unpruned ancestral recombination graph and the SMC' approximation, for N \u2265 1 samples, a unit-length genome, and scaled recombination rate R \u2265 0. The observed object is the collection of pairwise coalescence times of all sample pairs at every rational position in [0, 1). The total variation distance is at most an explicit double bound, which is at most min(1, R\u00b2 times a quadratic coefficient in N \u2212 1). The distance is 0 for one sample and for zero recombination. Supporting statements show that the event kernels of both processes are Markov, the two laws are probability measures, the number of live lineages of the backward process reaches at most one almost surely, the observed coalescence times are almost surely finite, and the expected number of active events, the expected total time, and the expected largest observed coalescence time are bounded by an explicit absorption budget.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "q-bio.PE",
+          "math.PR"
+        ],
+        "msc2020": [
+          "92D10",
+          "60J90",
+          "60J05",
+          "60F05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.SmcPrimeBound.eventKernel_isMarkovKernel",
+          "Rhone.Palomar.SmcPrimeBound.spatialKernel_isMarkovKernel",
+          "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_bound",
+          "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_quadratic",
+          "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_one_sample",
+          "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_zero_recombination",
+          "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_probability",
+          "Rhone.Palomar.SmcPrimeBound.smcPrimeGenealogyLaw_probability",
+          "Rhone.Palomar.SmcPrimeBound.eventProcess_liveCount_reaches_one",
+          "Rhone.Palomar.SmcPrimeBound.eventProcess_active_events_le",
+          "Rhone.Palomar.SmcPrimeBound.eventProcess_total_time_le",
+          "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_ae_finite",
+          "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_lintegral_iSup_le"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000029",
+      "path": "entries/PALOMAR-2026-10-29-000029-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "bdfd7660cf230f8a90c519a05b586359809cdd3c37d187590cb0542b4397bbae",
+        "version": 1
+      },
+      "published_at": "2026-10-29T15:19:29Z",
+      "source": {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Total variation bound between an unpruned ancestral recombination process and SMC' on pairwise coalescence times",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of Theorems 1, 2 and 3 of Duminil-Copin, Sidoravicius and Tassion (arXiv:1505.04159v1). Theorem 3: for the random-cluster model on the square lattice with any real cluster weight q >= 1, at its critical point p_c, the following are equivalent: the origin lies in an infinite cluster with probability 0 under the wired measure; equality of the free and wired measures; infinite susceptibility of the free measure; sub-exponential decay of the free one-arm probability; and the RSW bound for free boundary conditions at distance n. Theorem 2: for 1 <= q <= 4 the wired measure at p_c gives probability 0 to the origin lying in an infinite cluster. Theorem 1: for the q-state Potts model with q = 2, 3, 4, the monochromatic Gibbs measure at beta_c gives its own colour at the origin probability exactly 1/q, so the phase transition is continuous. The critical points are the genuine phase-transition thresholds, whose existence the theorems assert; four further theorems prove that these critical points and the infinite-volume measures are unique; beyond this statement surface, the development also proves p_c = sqrt(q)/(1 + sqrt q) for every q >= 1 (PottsContinuity.BD12.isRCCriticalPoint_sqrt) and beta_c = log(1 + sqrt q) for every integer q >= 2 (PottsContinuity.Thm1.isPottsCriticalPoint_log_sqrt); these identifications are not checked by Comparator. The infinite-volume measures are limits along every exhaustion of the lattice, and their existence and uniqueness are proved. The external results that the paper cites and the proof uses (the value of p_c and the crossing estimates of Beffara-Duminil-Copin, the contour identity of the parafermionic observable in the form used in Section 4 of the paper, Theorem 4 of the paper, the Edwards-Sokal coupling, FKG and comparison inequalities, the domain Markov property, planar duality and topology) are proved here or taken from Mathlib; the Jordan-Schoenflies theorem and Brouwer's fixed-point theorem come from vendored libraries, and circle-degree and Jordan-curve facts from the Tau Ceti library. The only axioms are propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Zijie Zhuang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B20",
+          "82B26",
+          "82B43",
+          "60K35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PottsContinuity.isPottsCriticalPoint_unique",
+          "PottsContinuity.isPottsInfiniteVolumeLimit_unique",
+          "PottsContinuity.isRCCriticalPoint_unique",
+          "PottsContinuity.isRCInfiniteVolumeLimit_unique",
+          "PottsContinuity.theorem_1",
+          "PottsContinuity.theorem_2",
+          "PottsContinuity.theorem_3"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000019",
+      "path": "entries/PALOMAR-2026-10-22-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+            "fork_repository": "PalomarArchive/zijie123123--PottsContinuity-lean--faa19bd318be",
+            "source_repository": "zijie123123/PottsContinuity-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c49ed3fda6e6a20cb44ca396050999abd47801797b6a7ec908fdee3df137caf3",
+        "version": 1
+      },
+      "published_at": "2026-10-22T09:03:15Z",
+      "source": {
+        "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+        "project_path": null,
+        "repository": "zijie123123/PottsContinuity-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Continuity of the phase transition for planar random-cluster and Potts models with 1 <= q <= 4 (Theorems 1, 2 and 3)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Acquisition and retention of catalytic function are established for a four-compartment chemical model with three prescribed catalyst types and finite resources. Starting with at least 512 copies of each of two old catalyst types per compartment, arbitrary candidate counts and arbitrary fuel occupancy, a seeding phase ends at time 30. At the fixed beta = 4,000,000 operating point, the joint mission through time 60 has failure probability at most 0.004517975690072193. It includes applicable count floors of 16 for both actual complementary daughters, 3,000,000 service credits, at least five initiating divisions per compartment after seed withdrawal, and eleven current-population recoveries interleaved with ten selected actual divisions by time 55.5. Seven simultaneous resource ceilings are enforced by one finite-stock process, with the first attempted excess entering failure. The proof connects the marked physical-time law, deterministic seed withdrawal, stopped recovery and resource accounting to the complete mission.",
+      "authors": [
+        {
+          "name": "Michael Mislan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.LO"
+        ],
+        "msc2020": [
+          "60J27",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "P161Formal.template_free_heredity_finite_stock",
+          "P161Formal.fixedGridService._proof_1",
+          "P161Formal.failureCeiling._proof_1",
+          "CTMCHeredity20261019.canonicalSeedFreeCF3._proof_2",
+          "CTMCHeredity20261019.canonicalSeedFreeCF3._proof_1",
+          "CTMCHeredity20261019.V2.SeedSwitch.blockDuration._proof_1",
+          "CTMCHeredity20261019.cutPrefixArrival._proof_1",
+          "CTMCHeredity20261019.V2.PhysicalSplice.prefixSplice._proof_1",
+          "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_3",
+          "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_2",
+          "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_1",
+          "P161Formal.literalSourcePar._proof_2",
+          "P161Formal.literalSourcePar._proof_1",
+          "P161Formal.globalSourceDivisionAt._proof_1",
+          "P161Formal.emptyStockPopulation._proof_1",
+          "P161Formal.sourceRealizedObservations._proof_1",
+          "P161Formal.protectedFloors._proof_1",
+          "P161Formal.seedCoefficient._proof_1",
+          "P161Formal.renewalMission._proof_2",
+          "P161Formal.divisionMarkRate._proof_2",
+          "P161Formal.renewalMission._proof_1",
+          "CTMCHeredity20261019.V4.TwoPhaseLaw.terminalKernel._proof_1",
+          "CTMCHeredity20261019.canonicalSeedFree_valid",
+          "CTMCHeredity20261019.CF3MarkedKernel.rate_positive",
+          "FunctionalCapacity.cf3._proof_2",
+          "CTMCHeredity20261019.CF3MarkedKernel.core_channel_bound",
+          "CTMCHeredity20261019.CF3Marked.coreChannels._proof_1",
+          "FunctionalCapacity.Site.comp._proof_2",
+          "FunctionalCapacity.Site.dec._proof_2",
+          "FunctionalCapacity.Site.inc._proof_2",
+          "FunctionalCapacity.cf3._proof_1",
+          "CTMCHeredity20261019.MarkedKernel.kernel._proof_2",
+          "CTMCHeredity20261019.MarkedKernel.kernel._proof_1",
+          "CTMCHeredity20261019.CF3MarkedKernel.instMeasurableSingletonClassState",
+          "HybridCTMC.Kernel.eventKernel_markov",
+          "HybridCTMC.Kernel.eventKernel._proof_1",
+          "HybridCTMC.Kernel.eventKernel._proof_2",
+          "HybridCTMC.Kernel.clockKernel._proof_1",
+          "HybridCTMC.Kernel.pmf._proof_1",
+          "CTMCHeredity20261019.V2.SeedSwitch.afterSwitchKernel._proof_1",
+          "CTMCHeredity20261019.V2.RawOperated.measurable_nextState",
+          "CTMCHeredity20261019.V2.RawOperated.segmentKernel._proof_1",
+          "CTMCHeredity20261019.V2.RawOperated.instMeasurableSingletonClassSourceState",
+          "CTMCHeredity20261019.V2.RawOperated.rawLaw._proof_1",
+          "CTMCHeredity20261019.V2.Operated.tailKernel._proof_1",
+          "CTMCHeredity20261019.V2.SeedSwitch.seedOn_valid",
+          "P161Formal.sourceGlobalInitial._proof_1",
+          "P161Formal.sourceChemConsumed._proof_1",
+          "P161Formal.sourceStockStep._proof_1"
+        ]
+      },
+      "id": "PALOMAR-2026-10-21-000010",
+      "path": "entries/PALOMAR-2026-10-21-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "771a4dbad576d336e7e054a2d6a71958ea547711",
+            "fork_repository": "PalomarArchive/mmislan--palomar-template-free-heredity--7897efb38133",
+            "source_repository": "mmislan/palomar-template-free-heredity"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "31402070995fc2a6e446d2751c7503b219409709d79282ef07a6ae653b502279",
+        "version": 1
+      },
+      "published_at": "2026-10-21T04:14:09Z",
+      "source": {
+        "commit": "771a4dbad576d336e7e054a2d6a71958ea547711",
+        "project_path": null,
+        "repository": "mmislan/palomar-template-free-heredity"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Chemical heredity without genetic templates",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Survival and transience are established throughout the strictly supercritical regime of the noncoagulating compartment model of Anderson, Howells and Rojas La Luz (https://arxiv.org/abs/2511.10223v4, Remark 4.8). Compartments produce molecules at rate b, degrade them at rate d per molecule, exit at rate e, and divide at rate f per molecule, with arbitrary conservative allocation between the daughters. For b,e,f > 0 and d >= 0 with bf > e(e+d), every finite nonempty family has positive probability of eternal survival, with an explicit product lower bound. For positive immigration intensity and any distribution of finite immigrant contents, the process is nonexplosive and the expected total physical occupation time of every compartment-count state has an explicit finite bound. This establishes the transience conjectured in Remark 4.8 without a moment assumption on immigrant contents. The quantitative bounds use a positive eigenweight of the mean system and a bounded multiplicative barrier; a distribution-dependent immigration constant sharpens the uniform occupation bound.",
+      "authors": [
+        {
+          "name": "Michael Mislan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "q-bio.MN"
+        ],
+        "msc2020": [
+          "60J27",
+          "60J80",
+          "92C42"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DividingCompartments.Paper.main_quantitative",
+          "DividingCompartments.Paper.explicit_occupation_mark",
+          "DividingCompartments.Paper.explicit_barrier_occupation",
+          "DividingCompartments.Paper.kappa_pos",
+          "DividingCompartments.Paper.kappa_le_kappaMark",
+          "DividingCompartments.strict_supercritical_source",
+          "DividingCompartments.Paper.example_survival_empty",
+          "DividingCompartments.Paper.example_survival_one",
+          "DividingCompartments.CountProcess.barrier_lt_one",
+          "DividingCompartments.CountProcess.projected_survival_bound",
+          "DividingCompartments.CountProcess.projected_occupation_bound",
+          "DividingCompartments.CountProcess.projected_source_nonexplosive",
+          "DividingCompartments.CountProcess.count_observable_generator",
+          "DividingCompartments.CountProcess.count_generator_cons",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.total_positive",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.jumpWeight_nonneg",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.jumpWeight_sum",
+          "DividingCompartments.FamilySource.row_nonneg",
+          "DividingCompartments.FamilySource.dummy_mem",
+          "DividingCompartments.MarkovRenewal.Model.rate_pos",
+          "DividingCompartments.Immigration.family_total_lower",
+          "DividingCompartments.Immigration.step_probability",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.markedStepLaw_probability",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.markedKernel_markov",
+          "DividingCompartments.FiniteBranching.FiniteRateModel.pathKernel_markov",
+          "DividingCompartments.FamilySource.stateSingleton",
+          "DividingCompartments.MarkovRenewal.Model.stepProbability",
+          "DividingCompartments.MarkovRenewal.Model.markedProbability",
+          "DividingCompartments.MarkovRenewal.Model.markedMarkov",
+          "DividingCompartments.MarkovRenewal.Model.pathMarkov",
+          "DividingCompartments.Immigration.arrivalProbability",
+          "DividingCompartments.FiniteBranching.lastIndex_mem",
+          "DividingCompartments.FiniteBranching.lastState_measurable",
+          "DividingCompartments.CountProcess.main_literal",
+          "DividingCompartments.CountProcess.literal_characterization",
+          "DividingCompartments.CountProcess.jumpRate_formula",
+          "DividingCompartments.CountProcess.source_path_count",
+          "DividingCompartments.CountProcess.physicalSurvives_iff",
+          "DividingCompartments.CountProcess.physicalSurvives_measurable",
+          "DividingCompartments.CountProcess.empty_family_physical",
+          "DividingCompartments.PhysicalPath.reward_eq_holding_sum",
+          "DividingCompartments.PhysicalPath.grouped_state",
+          "DividingCompartments.PhysicalPath.grouped_holding_sum",
+          "DividingCompartments.PhysicalPath.restart_state",
+          "DividingCompartments.CountProcess.countSingleton",
+          "DividingCompartments.CountProcess.countScalarTower"
+        ]
+      },
+      "id": "PALOMAR-2026-10-19-000003",
+      "path": "entries/PALOMAR-2026-10-19-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c5dacf41f334ccc781c4bda691c388b6214befb2",
+            "fork_repository": "PalomarArchive/mmislan--palomar-compartment-division-threshold--29db348fffe5",
+            "source_repository": "mmislan/palomar-compartment-division-threshold"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f32d02065878f997830589430e58d3f46c7290e6baf84579c25f657b248a237f",
+        "version": 1
+      },
+      "published_at": "2026-10-19T01:18:26Z",
+      "source": {
+        "commit": "c5dacf41f334ccc781c4bda691c388b6214befb2",
+        "project_path": null,
+        "repository": "mmislan/palomar-compartment-division-threshold"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Survival and transience above the compartment-division threshold",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the paper \"Anomalous scaling limit of a Brownian particle in a log-correlated potential\" by Armstrong, Bou-Rabee and Kuusi: the subdiffusive scaling limit of a Brownian particle whose drift is the gradient of a log-correlated random potential (Theorem A, in its introduction form and in its precise quenched form), quantitative homogenization of the Dirichlet problem uniformly in the infrared cutoff (Theorem B), and large-scale H\u00f6lder regularity with a Liouville theorem (Theorem C), together with the supporting coarse-graining, elliptic-regularity and Markov-process theory. The theorems hold for every random environment satisfying the paper's standing assumptions (a GMCModel). The development builds on Mathlib and on the public CoarseGraining and MarkovProcess libraries. The three headline theorems are independently checked by the comparator pairs under SubdiffusiveProcessAudit/.",
+      "authors": [
+        {
+          "name": "Scott Armstrong"
+        },
+        {
+          "name": "Ahmed Bou-Rabee"
+        },
+        {
+          "name": "Tuomo Kuusi"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.AP"
+        ],
+        "msc2020": [
+          "60K37",
+          "35R60",
+          "82B28"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SubdiffusiveProcessAudit.ProcessConvergence.theoremA"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000009",
+      "path": "entries/PALOMAR-2026-10-11-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4c6b8fa60357a07fd5713e5104a6cc70f8e432dc",
+            "fork_repository": "PalomarArchive/nitromannitol--subdiffusive-process--7f56d1d55d23",
+            "source_repository": "nitromannitol/subdiffusive-process"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "52798a3914610c93605b73ce5d24486eb36973dd59e6bd6bf5d3a3545377a14a",
+        "version": 1
+      },
+      "published_at": "2026-10-11T08:00:33Z",
+      "source": {
+        "commit": "4c6b8fa60357a07fd5713e5104a6cc70f8e432dc",
+        "project_path": null,
+        "repository": "nitromannitol/subdiffusive-process"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Anomalous scaling limit of a Brownian particle in a log-correlated potential",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 formalisation of the automorphism-matching theorems and the quasi-isometry classification of Galton\u2013Watson trees from the paper \"The quasi-isometry classes of Galton\u2013Watson trees\" by Jayadev S. Athreya and Sascha Troscheit (arXiv:2609.23882). The audited statements are: the i.i.d. matching theorem on the binary tree (Theorem 5.1), the general Markov matching theorem for typed label processes on the binary tree, in its finite-type and zero-compatible forms (Theorem 6.1), the complete classification, up to quasi-isometry, of Galton\u2013Watson trees with finitely supported offspring law conditioned on infinite diameter (Theorem 1.2), the mutual embeddability theorem (Theorem 1.3), and two-value universality with its quantitative rate (Theorem 1.4). The statements are made in Challenge.lean over Mathlib alone and discharged by Solution.lean from four library targets.",
+      "authors": [
+        {
+          "name": "Jayadev S. Athreya"
+        },
+        {
+          "name": "Sascha Troscheit"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.GR",
+          "math.MG"
+        ],
+        "msc2020": [
+          "60J80",
+          "51F30",
+          "30L10",
+          "28A80",
+          "60K35",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Challenge.audit_graph_leaf_matching_bound",
+          "Challenge.audit_graph_full_matching_bound",
+          "Challenge.audit_exists_infinite_tree_matching_graphAut",
+          "Challenge.audit_bounded_graph_qi_point",
+          "Challenge.audit_extinction_of_not_supercritical",
+          "Challenge.audit_full_classification_ae_iff",
+          "Challenge.audit_mutual_embeddability",
+          "Challenge.audit_twovalue_ae_tree_family",
+          "Challenge.audit_twovalue_rate_tree",
+          "Challenge.audit_markov_matching_finite",
+          "Challenge.audit_markov_matching_zero",
+          "Challenge.audit_markov_matching_finite_infinite",
+          "Challenge.audit_markov_matching_zero_infinite"
+        ]
+      },
+      "id": "PALOMAR-2026-09-25-000002",
+      "path": "entries/PALOMAR-2026-09-25-000002-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "35e78969d036b4f663fc9a96d8c22750834a6ac4",
+            "fork_repository": "PalomarArchive/sascha2718--qi-trees-and-matching-lean--3baa1f2ce694",
+            "source_repository": "sascha2718/qi-trees-and-matching-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "ec4e37ae020526bf0dd2ef6b55e26e415e5d3e6c9bced8247503aa6d254dbfae",
+        "version": 2
+      },
+      "published_at": "2026-09-30T11:52:38Z",
+      "source": {
+        "commit": "35e78969d036b4f663fc9a96d8c22750834a6ac4",
+        "project_path": null,
+        "repository": "sascha2718/qi-trees-and-matching-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The quasi-isometry classes of Galton\u2013Watson trees: Lean formalisation",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of the quantitative theory of advection-diffusion in self-similar random incompressible flows: the superdiffusive asymptotics of the effective diffusivity (Theorem A), the renormalization of the generator (quantitative homogenization of the Dirichlet problem at every scale, Theorem B), and the anomalous large-scale regularity theory (Theorem C) of Armstrong-Bou-Rabee-Kuusi, together with the sensitivity and coarse-matrix-derivative theory, the diffusivity recursion, and the diffusion-process theory that support them. The formalization consumes the public CoarseGraining homogenization library as its analytic base and the public MarkovProcess library for the general theory of continuous strong Markov processes of Feller semigroups. The three headline theorems are independently checked using the SuperdiffusionAudit/ comparator pairs.",
+      "authors": [
+        {
+          "name": "Scott Armstrong"
+        },
+        {
+          "name": "Tuomo Kuusi"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.AP",
+          "math-ph"
+        ],
+        "msc2020": [
+          "60K37",
+          "35B27",
+          "60J60"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Algsuperdiff.StatementAudit.Superdiffusivity.superdiffusivity"
+        ]
+      },
+      "id": "PALOMAR-2026-09-18-000001",
+      "path": "entries/PALOMAR-2026-09-18-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b648c0736372daaae80b1007061a1199bc18cc4a",
+            "fork_repository": "PalomarArchive/scottnarmstrong--Superdiffusion--8fdfa253ab02",
+            "source_repository": "scottnarmstrong/Superdiffusion"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "178d3e016d23a76784e3be5203ed0d6c56352996a2428daaacb96bf317f32aa7",
+        "version": 1
+      },
+      "published_at": "2026-09-18T09:31:26Z",
+      "source": {
+        "commit": "b648c0736372daaae80b1007061a1199bc18cc4a",
+        "project_path": null,
+        "repository": "scottnarmstrong/Superdiffusion"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Superdiffusion",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Three theorems about binary channels on a doubly symmetric binary source: a pair (\ud835\udc4b, \ud835\udc4c) of\nBernoulli(1/2) bits with P(\ud835\udc4b \u2260 \ud835\udc4c) = \ud835\udc5d, together with Markov chains \ud835\udc48 - \ud835\udc4b - \ud835\udc4c - \ud835\udc49 in which \ud835\udc48\nand \ud835\udc49 are the outputs of two independent binary channels applied to \ud835\udc4b and to \ud835\udc4c. Let \ud835\udc9c be the\nset of rate triples (\ud835\udc45\u2080, \ud835\udc45\u2081, \ud835\udc45\u2082) with \ud835\udc3c(\ud835\udc48;\ud835\udc4b) \u2264 \ud835\udc45\u2081, \ud835\udc3c(\ud835\udc4c;\ud835\udc49) \u2264 \ud835\udc45\u2082 and \ud835\udc45\u2080 \u2264 \ud835\udc3c(\ud835\udc48;\ud835\udc49) attainable by\narbitrary binary channels on the two sides, and \u212c the same set with both channels restricted\nto be binary symmetric.\n\n(1) conv \ud835\udc9c = conv \u212c for every \ud835\udc5d in [0,1]. (2) At \ud835\udc5d = 0, no pair of binary channels whose rates\ndo not exceed those of the Z-channel with parameter \ud835\udc4e and the S-channel with parameter \ud835\udc51\nattains a larger \ud835\udc3c(\ud835\udc48;\ud835\udc49) than that pair does. (3) At \ud835\udc5d = 0, no pair of binary channels whose\nrates are at least those of the Z-channels with parameters \ud835\udc4e and \ud835\udc51 attains a smaller \ud835\udc3c(\ud835\udc48;\ud835\udc49)\nthan that pair does. Here \ud835\udc4e, \ud835\udc51 range over (0,1).",
+      "authors": [
+        {
+          "name": "Georg Pichler"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.IT",
+          "math.IT"
+        ],
+        "msc2020": [
+          "94A17",
+          "94A15",
+          "94A40",
+          "94A34",
+          "26D07"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BSCAveraging.MO285151.averaged_bsc_maximise_mutual_information",
+          "BSCAveraging.DSIB.conjecture1_p0",
+          "BSCAveraging.DSIB.conjecture2_p0"
+        ]
+      },
+      "id": "PALOMAR-2026-08-26-000006",
+      "path": "entries/PALOMAR-2026-08-26-000006-v3.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "288a1d8787c68010534969b53dcf01ba223e085e",
+            "fork_repository": "PalomarArchive/g-pichler--bsc-averaging--863d39aecd42",
+            "source_repository": "g-pichler/bsc-averaging"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "fd6fa7cb5e9aacff0fa75f1c9293af9b5a9760508f96681426ee23ba975deeb8",
+        "version": 3
+      },
+      "published_at": "2026-09-15T23:28:06Z",
+      "source": {
+        "commit": "288a1d8787c68010534969b53dcf01ba223e085e",
+        "project_path": null,
+        "repository": "g-pichler/bsc-averaging"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "BSCAveraging",
+      "trust": {
+        "level": "high"
+      },
+      "version": 3,
+      "versions": 3
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of continuous-path Markov processes associated with conservative Feller transition semigroups on nonempty locally compact Polish spaces. A uniform Kolmogorov displacement-moment bound yields a unique measurable kernel from each starting point to continuous-path space, with the prescribed finite-dimensional distributions. The library also develops strong Markov properties, generators and resolvents, stopping and killing, and Brownian motion as an example. The existence and uniqueness theorem is independently checked using Audit/ContinuousMarkovProcess/comparator.json.",
+      "authors": [
+        {
+          "name": "Scott Armstrong"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR"
+        ],
+        "msc2020": [
+          "60J25",
+          "60J35",
+          "60G17"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MarkovProcessChallenge.existsUnique_continuousMarkovProcess"
+        ]
+      },
+      "id": "PALOMAR-2026-09-15-000007",
+      "path": "entries/PALOMAR-2026-09-15-000007-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "dbade0d12c4f84179441a9df7d7147df7a8bcaa0",
+            "fork_repository": "PalomarArchive/scottnarmstrong--MarkovProcess--0dc1ad4f4c93",
+            "source_repository": "scottnarmstrong/MarkovProcess"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9c4c3320f3579103f020de05a520bd68f1d2bd4ca92796f9779d2b14c9e8769c",
+        "version": 1
+      },
+      "published_at": "2026-09-15T18:36:11Z",
+      "source": {
+        "commit": "dbade0d12c4f84179441a9df7d7147df7a8bcaa0",
+        "project_path": null,
+        "repository": "scottnarmstrong/MarkovProcess"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "MarkovProcess",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A finite Cesaro/Markov reduction turns one external regret learner per recommendation into a quantitative swap-regret bound. Applied to the pinned regret-matching and regret-matching+ algorithm, the development proves an approximate correlated-equilibrium guarantee for actual simultaneous play, with an explicit finite stationarity term. A rational refinement and exact coordination run make the construction executable.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.GT"
+        ],
+        "msc2020": [
+          "91A26",
+          "91A10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "CorrelatedEquilibrium.SwapReduction.Palomar.swap_regret_bound_of_base",
+          "CorrelatedEquilibrium.SwapReduction.Palomar.swap_regret_bound",
+          "CorrelatedEquilibrium.SwapReduction.Palomar.averageProduct_swapGain_eq_cumulative",
+          "CorrelatedEquilibrium.SwapReduction.Palomar.averageProduct_approxCE_of_swap_bound"
+        ]
+      },
+      "id": "PALOMAR-2026-09-09-000002",
+      "path": "entries/PALOMAR-2026-09-09-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5a3ca60f6390d88cef38c767e8952eb47c7b3dfa",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--correlated-swap-regret-lean--11f09b229fec",
+            "source_repository": "Arthur742Ramos/correlated-swap-regret-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e750f527968ec5f251143c2a3e5c66dd68b437e1af7520f766302f402f6f852f",
+        "version": 1
+      },
+      "published_at": "2026-09-09T14:36:13Z",
+      "source": {
+        "commit": "5a3ca60f6390d88cef38c767e8952eb47c7b3dfa",
+        "project_path": null,
+        "repository": "Arthur742Ramos/correlated-swap-regret-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Verified external-to-swap regret reduction and correlated-equilibrium solver",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

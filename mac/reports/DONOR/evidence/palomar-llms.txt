@@ -1,0 +1,75 @@
+# Palomar
+
+> A public registry of Lean 4 formalizations whose proofs were machine-checked
+> at one pinned GitHub commit. This site is the human explorer. Machines read
+> JSON; they do not scrape these pages.
+
+## Read and search
+
+Use https://data.palomar-registry.org (CORS `*`, CC0).
+
+- Registry listing and search: https://data.palomar-registry.org/api/v1/results
+- RSS: https://data.palomar-registry.org/feed.xml
+- Record schema: https://data.palomar-registry.org/schema-v3.json
+- Browse head: https://data.palomar-registry.org/browse/index.json
+- Licence: https://data.palomar-registry.org/LICENSE
+- Policy: https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md
+- Current aggregate operating-cost run rate: https://palomar-registry.org/costs
+
+`/api/v1/results` accepts `q`, `arxiv`, `msc` (prefix),
+`trust=all|high|qualified`, `order=updated|registered`, inclusive `from`/`to`
+(YYYY-MM-DD), exact `id` lookup, and `cursor`. Filters combine across the entire registry. Text
+searches current titles, abstracts, authors, theorem names and repositories;
+words are ANDed, accents folded, and common function words ignored.
+Use at most 4096 UTF-8 bytes and 20 distinct normalized words.
+
+The response is schema version 1, at most 25 entries and 512 KiB uncompressed.
+It includes exact registry-wide `totals`, bounded display summaries, and opaque
+`next`/`previous` cursors (null at the ends). Follow a cursor with the same
+filters and order. HTTP 409 means the registry changed: remove the cursor and
+refresh. Large display fields may be abbreviated; search uses complete text.
+Only the newest active version of each ID is listed. Complete records remain
+at their versioned entry URLs. No filtered total is calculated.
+
+The old `/search/t/...` and `/search/stopwords.json` APIs are retired (410).
+Static data paths below still reject query strings.
+
+Path grammar on that origin, substituting the braces. These are not documents
+to fetch as written:
+
+- `/versions/PALOMAR-YYYY-MM-DD-NNNNNN.json`
+- `/entries/PALOMAR-YYYY-MM-DD-NNNNNN-vN.json`
+- `/repositories/{owner}/{repo}.json` (lowercase)
+- `/subjects/arxiv/{code}.json` and `/subjects/msc/{code}.json`
+- `/registration-identities/{sha256}.json`
+
+Cite `id` and integer `version`. An unversioned URL floats to latest. Human
+permalink: `/entry?id=PALOMAR-…&version=N`.
+
+## Submit, watch, register
+
+Do not drive the browser form or GitHub OAuth. The agent protocol is
+https://submit.palomar-registry.org/llms.txt
+
+Prepare source first: new ordinary submissions require `module` in every Lean
+source file and at most 10,000 physical lines per file. Challenge retains its
+stricter 1,000-line and 100 KiB caps. Read the policy above for scope and
+exclusions, and the submission protocol for full mechanical preflight;
+bounded intake checks can be incomplete and do not replace verification.
+
+Sketch: `POST /api/submit` → lightweight tag `palomar-verify-{challenge}` at
+the commit → secret gist carrying the challenge → `POST /api/verify` → Bearer
+token → delete the temporary tag and gist.
+
+With that token:
+
+- Watch: `GET /api/submission` (`run.url` is the public Actions run;
+  `registered_url` is the final registry permalink)
+- Review: `GET /api/review` (private until registered)
+- Register: `POST /register` with `{"review_sha256":"..."}` only after showing
+  your user the review, explaining what registration permanently publishes,
+  and receiving their explicit instruction to register
+- Withdraw: `POST /withdraw`
+
+Lost token: hand the human https://submit.palomar-registry.org/ (Find my
+submissions).

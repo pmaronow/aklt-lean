@@ -1,0 +1,2576 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.H1.H1FiniteDataStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesCertificate",
+    "paper_label": "t:H1 / p:certificate",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 17,
+    "dependencies": [
+      "AKLT.Blueprint.H1.SectorWitnesses",
+      "AKLT.Defs.GroupInversion",
+      "AKLT.Defs.ClearsDenominator",
+      "AKLT.Blueprint.H1.h1Numerator",
+      "AKLT.Blueprint.H1.h1Denominator",
+      "AKLT.Gen.Gram.int_gram_residual_posDef",
+      "AKLT/Gen/Gram/Checker.lean"
+    ],
+    "suggested_proof_route": "EXTERNAL HANDOFF: supply complete covered-pattern and orbit coverage, exact representations/inversions/denominators, and all integer Gram factors. Prove regeneration/checker soundness and kernel-check independent data shards. The soundness Top statements do not imply this existence contract.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`t:H1`, REV-PLAN lines 2308\u20132323, and `p:certificate`, Appendix D lines\n830\u2013896. REQUIRED EXTERNAL DATA HANDOFF: every covered pattern must actually\nhave a representation, a group inversion, a justified denominator and passing\nGram witnesses at its exact threshold. Neither existing Top soundness statement\nasserts this existence. A data owner should refine this contract into checked\nenumeration/orbit coverage and separately kernel-checked certificate shards.\nThis is not a claim that the study's discarded factors have been recovered."
+    },
+    "closed_statement": "def H1FiniteDataStatementV2 : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2203 r : Representation, \u2203 I : Finset (Fin 20),\n    GroupInversion \u03c0 r I \u2227 \u2203 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2227\n      SectorWitnesses \u03c0 r I D\u2080 (h1Numerator \u03c0) (h1Denominator \u03c0)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "This is an EXTERNAL finite-data existence obligation, not a derived fact. It includes GroupInversion, ClearsDenominator and every sector witness at the selected threshold.",
+      "vacuity_and_degenerate": "Repeated unused exchange signs are permitted. Empty central matrices use Fin 0 and still require positive scales.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "h1Denominator is 1000 or 200; ClearsDenominator includes D0>0. GramResidualRows includes g,d,S>0.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "external certificate-data owner; interface gap",
+    "estimated_proof_lines": null,
+    "reuse_pointers": [
+      "AKLT.Gen.Gram.int_gram_residual_posDef",
+      "AKLT/Gen/Gram/Checker.lean",
+      "REV-PLAN/PLAN.md lines 2296-2323: 12173 external sector blocks; full factor export remains required.",
+      "AKLT.Gen.Gram.checker_sound_complex (generic checker only; does not supply data)."
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CoveredSlotEnumerationStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 12,
+    "dependencies": [
+      "AKLT.Defs.PatternData.Covered",
+      "AKLT.Defs.externalSlot",
+      "AKLT.Defs.coveredSiteField",
+      "AKLT.Defs.replacementRadius",
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ],
+    "suggested_proof_route": "Enumerate the eight peripheral sites and their two or three assigned slot indices. Read the U tip rule and U/D nonremoved corner alternatives from Covered. Reorder products to localProduct.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:leaf`, lines 108\u2013149; enumerate the 20 slots at a peripheral site.\nTips have exactly three fields and status U. A nonremoved corner has exactly\ntwo fields and status U or D. The radius is matched in Q before coercion."
+    },
+    "closed_statement": "def CoveredSlotEnumerationStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 m : Fin 20 \u2192 UnitVector,\n    \u2200 x \u2208 templateCorners \u222a templateTips, \u03c0.statusAt x \u2260 .X \u2192\n    (\u2203 a : Fin 3 \u2192 UnitVector, \u03c0.statusAt x = .U \u2227 replacementRadius \u03c0 x = 3 / 5 \u2227\n      coveredSiteField m x = localProduct (fun j => (a j).val)) \u2228\n    (\u2203 a : Fin 2 \u2192 UnitVector, (\u03c0.statusAt x = .U \u2228 \u03c0.statusAt x = .D) \u2227\n      replacementRadius \u03c0 x = (if \u03c0.statusAt x = .U then 1 / 2 else 1 / 3) \u2227\n      coveredSiteField m x = localProduct (fun j => (a j).val))",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Nonremovedness is required for corners. All tips are U by Covered. Both corner slots are retained regardless of kept external half-bonds.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CornerMeanBoundsStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 24,
+    "dependencies": [
+      "AKLT.Blueprint.H1.MonomialMoments",
+      "AKLT.Defs.localProduct",
+      "AKLT.Defs.localMean",
+      "AKLT.Defs.normSq",
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ],
+    "suggested_proof_route": "Compute A and V from the supplied monomial moments. With t=a dot b, prove -1 <= t <= 1 and normSq(a+b)=2+2t. Use the paper's two square factorizations and A>0 before clearing the localMean denominator.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:leaf`, lines 136\u2013159; expand the two-slot U/D normalizer and vector mean.\nUse t = a.b in [-1,1], |a+b|\u00b2 = 2+2t, and the displayed square factorizations.\nThe positivity clause explicitly protects the denominator in `localMean`."
+    },
+    "closed_statement": "def CornerMeanBoundsStatement : Prop :=\n  MonomialMoments \u2192 \u2200 a : Fin 2 \u2192 UnitVector, \u2200 s : Status, s = .U \u2228 s = .D \u2192\n    0 < siteFunctional s (localProduct (fun j => (a j).val)) \u2227\n    normSq (localMean s (fun j => (a j).val)) \u2264\n      (if s = .U then (1 / 2 : \u211d) else 1 / 3) ^ 2",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Normalizer positivity is part of the conclusion and must be established before any division in localMean is cleared.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.NormalizedMeanFactorStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 33,
+    "dependencies": [
+      "AKLT.Defs.localMean",
+      "AKLT.Defs.siteFunctional",
+      "AKLT.Defs.localProduct",
+      "AKLT.Defs.normSq",
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ],
+    "suggested_proof_route": "Expand the one-bond finite sum as A + V dot v; V/A is localMean. Set u=localMean/rho and use rho>0 and A>0 to clear denominators and obtain normSq u <= 1.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:leaf`, lines 122\u2013132 and 156\u2013162; finite-sum linearity gives A+V.v.\nScale the normalized mean by a positive radius. This lemma needs neither a\nnonzero mean nor a nonzero neighbour vector, and handles an empty field list."
+    },
+    "closed_statement": "def NormalizedMeanFactorStatement : Prop :=\n  \u2200 k : \u2115, \u2200 a : Fin k \u2192 Vec3, \u2200 s : Status, \u2200 \u03c1 : \u211d, 0 < \u03c1 \u2192\n    0 < siteFunctional s (localProduct a) \u2192 normSq (localMean s a) \u2264 \u03c1 ^ 2 \u2192\n    \u2203 A : \u211d, 0 < A \u2227 \u2203 u : Vec3, normSq u \u2264 1 \u2227\n      \u2200 v : Vec3, normSq v \u2264 1 \u2192\n        siteFunctional s (fun n => localProduct a n * (1 + dot n v)) = A * (1 + \u03c1 * dot u v)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "A=siteFunctional s(localProduct a)>0 and rho>0 are explicit premises. The zero-mean case gives u=0 and causes no division by its norm.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Data/Fintype/BigOperators.lean",
+      "Mathlib/Analysis/InnerProductSpace/Basic.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageSiteMomentsStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 11,
+    "dependencies": [
+      "AKLT.Blueprint.H1.MonomialMoments",
+      "AKLT.Defs.siteFunctional",
+      "AKLT.Defs.dot",
+      "AKLT.Defs.rationalStatusMoment",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Expand the product into coordinate monomials of degree at most three, apply the supplied exact U/D moments, and collect the three dot products.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 57\u201363; expand three linear factors using degree \u2264 3 moments.\nNo unit or nonzero assumption is needed on the three neighbour vectors."
+    },
+    "closed_statement": "def PassageSiteMomentsStatement : Prop :=\n  MonomialMoments \u2192 \u2200 a b o : Vec3,\n    siteFunctional .U (fun n => (1 + dot n a) * (1 + dot n b) * (1 + dot n o)) =\n      1 + (dot a b + dot a o + dot b o) / 3 \u2227\n    siteFunctional .D (fun n => (1 + dot n a) * (1 + dot n b)) = 1 + dot a b / 5",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageFubiniStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 20,
+    "dependencies": [
+      "AKLT.Blueprint.H1.PassageNeighbours",
+      "AKLT.Defs.patternFunctional",
+      "AKLT.Defs.withoutPassageFunctional",
+      "AKLT.Defs.supportSpins",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Split assignments on active sites into the passage coordinate and its complement. Coveredness identifies the three possible incident bonds. Apply the supplied one-site equations with zero for removed neighbours.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 42\u201365; split the finite spin assignment at the passage site.\nCoveredness supplies exactly the present nonremoved passage bonds; the supplied\none-site identities include zero vectors for removed neighbours."
+    },
+    "closed_statement": "def PassageFubiniStatement : Prop :=\n  (\u2200 a b o : Vec3,\n    siteFunctional .U (fun n => (1 + dot n a) * (1 + dot n b) * (1 + dot n o)) =\n      1 + (dot a b + dot a o + dot b o) / 3 \u2227\n    siteFunctional .D (fun n => (1 + dot n a) * (1 + dot n b)) = 1 + dot a b / 5) \u2192\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 m : Fin 20 \u2192 UnitVector, \u2200 f g : Plane,\n    PassageNeighbours \u03c0 f g \u2192\n    patternCurrent \u03c0 m = withoutPassageFunctional \u03c0 m (passageI \u03c0.outgoing.step f g) \u2227\n    patternNext \u03c0 m = withoutPassageFunctional \u03c0 m (passageJ f g)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Coveredness, exact neighbour set equality and all three distinctness conditions are explicit. Removed-site vectors are zero, never additional spin variables.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageNetworkPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 32,
+    "dependencies": [
+      "AKLT.Defs.FiniteSpinNetwork.Valid",
+      "AKLT.Defs.withoutPassageFunctional",
+      "AKLT.Defs.externalSlot",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Enumerate the erased active set by Fin n, retain all slots, count at most four factors at each site, and invoke the supplied finite-network partition positivity.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 67\u201376; enumerate the erased template as a valid finite network\nwith all twenty slot factors, then apply finite-network positivity."
+    },
+    "closed_statement": "def PassageNetworkPositiveStatement : Prop :=\n  (\u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, D.Valid \u2192 0 < D.partition true (fun _ => 1)) \u2192\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 m : Fin 20 \u2192 UnitVector,\n    0 < withoutPassageFunctional \u03c0 m (fun _ => 1)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "The supplied generic network result includes Valid; the proof must build a valid erased network retaining every original slot.",
+      "vacuity_and_degenerate": "The template has a passage site, but its erased network can have isolated sites; finite-network input covers n=0 as well.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageNextLowerBoundStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 39,
+    "dependencies": [
+      "AKLT.Blueprint.H1.passageJ",
+      "AKLT.Defs.spinWeight",
+      "AKLT.Defs.supportSpins",
+      "UnitVector",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "From the supplied unit-atom norms show every positive-weight spin is in the ball. Cauchy-Schwarz bounds the dot product below by -1. All weights, bonds and pin factors are nonnegative, so sum the pointwise J >= 4/5 inequality.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 69\u201376; every nonzero-weight spin is in the ball and all bond\nand slot factors are nonnegative. Bound J pointwise by 4/5 before summing."
+    },
+    "closed_statement": "def PassageNextLowerBoundStatement : Prop :=\n  (\u2200 j : IcoLetter, normSq (icoVector j) = 1) \u2192\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 m : Fin 20 \u2192 UnitVector, \u2200 f g : Plane,\n    (4 / 5 : \u211d) * withoutPassageFunctional \u03c0 m (fun _ => 1) \u2264\n      withoutPassageFunctional \u03c0 m (passageJ f g)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Unit norms of the concrete atoms are explicit; zero-weight atoms are allowed. Dot-product lower bounds are needed only where the spin weights are nonzero.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalDegreeStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 61,
+    "dependencies": [
+      "AKLT.Blueprint.H1.InternalAdmissible",
+      "AKLT.Blueprint.H1.originalIntegrand",
+      "AKLT.Defs.PatternData.Covered",
+      "AKLT.Defs.externalSlot",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Count incident bonds and slots separately at passage, other neighbours, tips and corners. Use polynomial support inclusions to pass each factor count to monomial degrees; show omitted sites have zero exponents.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 78\u201392; each active spin in the original current/next integrand\nhas degree at most four, and no monomial uses an omitted spin."
+    },
+    "closed_statement": "def OriginalDegreeStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 next : Bool,\n    InternalAdmissible \u03c0.active (originalIntegrand \u03c0 next)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalFactorStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 67,
+    "dependencies": [
+      "AKLT.Blueprint.H1.LocalVectorAffine",
+      "AKLT.Blueprint.H1.IntegrandInvariant",
+      "AKLT.Defs.formalDot",
+      "AKLT.Blueprint.H1.originalIntegrand",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Every slot index occurs in exactly one factor. Orthogonal matrices preserve the dot product, so evaluation of each factor is unchanged under simultaneous spin and slot rotation.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 78\u201392; each external slot occurs once and simultaneous rotation\npreserves every formal dot product, for arbitrary spin/vector values."
+    },
+    "closed_statement": "def OriginalFactorStructureStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 next : Bool,\n    LocalVectorAffine (originalIntegrand \u03c0 next) \u2227 IntegrandInvariant (originalIntegrand \u03c0 next)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalRawEvaluationStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 73,
+    "dependencies": [
+      "AKLT.Blueprint.H1.rawFunctional",
+      "AKLT.Blueprint.H1.localEvaluation",
+      "AKLT.Blueprint.H1.originalIntegrand",
+      "AKLT.Defs.patternFunctional",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Push the evaluation ring hom through products and formal dots. Identify supportSpins with PatternData.spins and split the Boolean next branch.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`, lines 63\u201365; polynomial evaluation commutes with the finite products\nin the original integrand. The spin coordinates coincide on the active set."
+    },
+    "closed_statement": "def OriginalRawEvaluationStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 next : Bool, \u2200 m : Fin 20 \u2192 UnitVector,\n    rawFunctional \u03c0.active (nextStatus \u03c0 next) (originalIntegrand \u03c0 next) (fun j => (m j).val) =\n      if next then patternNext \u03c0 m else patternCurrent \u03c0 m",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentContractionStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 81,
+    "dependencies": [
+      "AKLT.Blueprint.H1.MonomialMoments",
+      "AKLT.Blueprint.H1.InternalAdmissible",
+      "AKLT.Defs.contractSpins",
+      "AKLT.Blueprint.H1.rawFunctional",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Expand the finite monomial support and factor the finite spin sum site by site. The support premise accounts for every internal exponent, and degree four licenses exactly the supplied local moments.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:moments` used in `l:Iw`/`c:reduce`, lines 83\u201392 and 206\u2013214.\nExpand monomials; finite-product summation factors into local exact moments.\nThe support premise prevents silently discarding an internal variable."
+    },
+    "closed_statement": "def MomentContractionStatement : Prop :=\n  MonomialMoments \u2192 \u2200 V : Finset Plane, \u2200 s : Plane \u2192 Status,\n    (\u2200 x \u2208 V, s x = .U \u2228 s x = .D) \u2192 \u2200 p : LocalPolynomial,\n    InternalAdmissible V p \u2192 \u2200 u : Fin 20 \u2192 Vec3,\n      evaluateReduced (contractSpins V s p) u = rawFunctional V s p u",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Both absent-spin support and separate degree <=4 are mandatory. rationalMoment is not exact for arbitrary higher-degree monomials.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentCovarianceTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 90,
+    "dependencies": [
+      "AKLT.Blueprint.H1.MonomialMoments",
+      "AKLT.Blueprint.H1.ProductMomentCovariance",
+      "AKLT.Blueprint.H1.InternalAdmissible",
+      "AKLT.Blueprint.H1.IntegrandInvariant",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Specialize external vectors to real coefficients, reindex V by Fin its cardinality, and use the supplied polynomial covariance. Use transpose as inverse rotation to move the transformation from spins to slots. No arbitrary-function invariance is used.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:moments` used in `l:Iw`/`c:reduce`, lines 83\u201392 and 206\u2013214.\nReindex the finite support by Fin |V|; use separate-degree-four covariance and\nintegrand invariance. Only polynomial covariance, never atom-law invariance."
+    },
+    "closed_statement": "def MomentCovarianceTransferStatement : Prop :=\n  MonomialMoments \u2192 ProductMomentCovariance \u2192 \u2200 V : Finset Plane, \u2200 s : Plane \u2192 Status,\n    (\u2200 x \u2208 V, s x = .U \u2228 s x = .D) \u2192 \u2200 p : LocalPolynomial,\n    InternalAdmissible V p \u2192 IntegrandInvariant p \u2192 OrthogonalInvariant (contractSpins V s p)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Uses the supplied degree-four polynomial covariance, support, status and integrand invariance; does not rotate the finite atom set as a set.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ContractionAffineStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 97,
+    "dependencies": [
+      "AKLT.Blueprint.H1.LocalVectorAffine",
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.contractSpins",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Use support inclusion for the finite sum of contracted monomials. Projecting exponents along Sum.inr preserves each external token's summed degree; cancellations can only shrink support.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Iw`/`c:reduce`, lines 78\u201380 and 198\u2013201; contraction only deletes internal\nexponents and adds terms, so cannot increase a vector's total degree."
+    },
+    "closed_statement": "def ContractionAffineStatement : Prop :=\n  \u2200 V : Finset Plane, \u2200 s : Plane \u2192 Status, \u2200 p : LocalPolynomial,\n    LocalVectorAffine p \u2192 VectorAffine (contractSpins V s p)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ContractionSupportStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 103,
+    "dependencies": [
+      "AKLT.Blueprint.H1.LocalSupportedVectors",
+      "AKLT.Defs.SupportedVectors",
+      "AKLT.Defs.contractSpins",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "The external exponent is the Sum.inr projection of an input exponent. Finite-sum support inclusion shows that no absent token can be created.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:Pauli`/`l:inversion`, lines 249\u2013270; the same support argument shows that\ncontraction never creates an external vector token."
+    },
+    "closed_statement": "def ContractionSupportStatement : Prop :=\n  \u2200 V : Finset Plane, \u2200 s : Plane \u2192 Status, \u2200 p : LocalPolynomial,\n    \u2200 J : Finset (Fin 20), LocalSupportedVectors J p \u2192 SupportedVectors J (contractSpins V s p)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BlochAlgebraStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 11,
+    "dependencies": [
+      "AKLT.Blueprint.H1.blochMatrix",
+      "AKLT.Defs.pauli",
+      "AKLT.Defs.normSq",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Expand the explicit 2 by 2 matrices, cancel cross terms using I squared = -1, and verify conjugate transpose, square and trace entrywise.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:Pauli`/`l:inversion`, lines 250\u2013258 and 288\u2013297; finite 2\u00d72 algebra.\nAnticommutation cancels cross terms. This does not assert positivity yet."
+    },
+    "closed_statement": "def BlochAlgebraStatement : Prop :=\n  \u2200 u : Vec3, (blochMatrix u).IsHermitian \u2227\n    blochMatrix u * blochMatrix u = (normSq u : \u2102) \u2022 1 \u2227 (blochMatrix u).trace = 0",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BlochPositivityStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 17,
+    "dependencies": [
+      "Matrix.IsHermitian",
+      "Matrix.PosSemidef",
+      "Matrix.IsHermitian.eigenvectorBasis",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Diagonalize A. The square equation forces each real eigenvalue squared to equal r, hence its magnitude is at most one. The affine density eigenvalues are nonnegative. Avoid division and handle r=0 directly.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:inversion`, lines 288\u2013298; diagonalize a Hermitian involution scaled by\nsqrt r. Its eigenvalues lie in [-1,1]. The r=0 case needs no division."
+    },
+    "closed_statement": "def BlochPositivityStatement : Prop :=\n  \u2200 A : Matrix (Fin 2) (Fin 2) \u2102, A.IsHermitian \u2192 \u2200 r : \u211d, 0 \u2264 r \u2192 r \u2264 1 \u2192\n    A * A = (r : \u2102) \u2022 1 \u2192 ((1 / 2 : \u2102) \u2022 (1 + A)).PosSemidef",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "r=0 is included; no invertibility or nonzero A is assumed.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "The eigenvalue-square argument uses no division by r or sqrt r.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliExpansionStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 34,
+    "dependencies": [
+      "AKLT.Defs.pauliExponent",
+      "AKLT.Blueprint.H1.pauliCoordinate",
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.SupportedVectors",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Construct the bijection between supported vector-affine monomials and J-to-Fin4 assignments. A zero exponent gives label 0; the unique selected coordinate gives label k+1. Evaluate the monomial expansion.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:Pauli`, lines 262\u2013270; vector-affine supported monomials are exactly the\nPauli exponents. Prove both indexing directions; the empty J case is a constant."
+    },
+    "closed_statement": "def PauliExpansionStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial, VectorAffine p \u2192 SupportedVectors J p \u2192\n    \u2200 u : Fin 20 \u2192 Vec3, evaluateReduced p u =\n      \u2211 a : J \u2192 Fin 4, (p.coeff (pauliExponent J a) : \u211d) * \u220f j : J, pauliCoordinate (u j.val) (a j)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "VectorAffine bounds the sum of the three coordinate exponents per token; scalar-coordinate multiaffineness would be insufficient. SupportedVectors excludes unrepresented tokens.",
+      "vacuity_and_degenerate": "For J empty the function type J->Fin4 is a singleton, yielding the constant term.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "pauliCoordinate uses a.val-1 only under a.val != 0; the Fin 4 bound proves this index is <3.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliProductTraceStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 42,
+    "dependencies": [
+      "AKLT.Defs.pauliOperator",
+      "AKLT.Defs.productDensity",
+      "AKLT.Blueprint.H1.pauliCoordinate",
+      "AKLT.Defs.pauliExponent",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Expand trace, matrix multiplication and the Pauli sum. Factor the sum over tensor coordinates into a product of one-slot traces, apply the supplied single-Pauli equation, and combine real casts.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:inversion`, lines 301\u2013309; interchange finite coefficient, matrix, and\ntensor sums. The trace of the coordinate product factors into one-slot traces.\nNo affineness is needed here: the Pauli operator already selects its exponents."
+    },
+    "closed_statement": "def PauliProductTraceStatement : Prop :=\n  (\u2200 a : Fin 4, \u2200 u : Vec3, (pauli a * spinDensity u).trace = (pauliCoordinate u a : \u2102)) \u2192\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial, \u2200 u : Fin 20 \u2192 Vec3,\n    (pauliOperator J p * productDensity J u).trace =\n      ((\u2211 a : J \u2192 Fin 4, (p.coeff (pauliExponent J a) : \u211d) *\n        \u220f j : J, pauliCoordinate (u j.val) (a j) : \u211d) : \u2102)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionPolynomialStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 52,
+    "dependencies": [
+      "AKLT.Defs.invertPolynomial",
+      "AKLT.Defs.invertVectors",
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.SupportedVectors",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Compute sign substitution on monomials. It multiplies coefficients by signs without changing exponents. Evaluation at inverted vectors cancels each sign, including tokens outside J.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:inversion`, lines 308\u2013313; a sign substitution preserves monomial support\nand vector degree, and applying it to both the polynomial and vectors cancels.\nThis is true even when I is not contained in J."
+    },
+    "closed_statement": "def InversionPolynomialStatement : Prop :=\n  \u2200 J I : Finset (Fin 20), \u2200 p : VectorPolynomial, VectorAffine p \u2192 SupportedVectors J p \u2192\n    VectorAffine (invertPolynomial I p) \u2227 SupportedVectors J (invertPolynomial I p) \u2227\n      \u2200 u : Fin 20 \u2192 Vec3, evaluateReduced (invertPolynomial I p) (invertVectors I u) = evaluateReduced p u",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ProductDensityPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 60,
+    "dependencies": [
+      "AKLT.Defs.productDensity",
+      "AKLT.Defs.spinDensity",
+      "Matrix.PosSemidef.kronecker",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Induct over the finite token set, use PSD of a Kronecker product, and transport across the splitting equivalence for function-space indices. The empty token set has a one-dimensional tensor and density 1.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:inversion`, lines 315\u2013316; finite tensor products of PSD 2\u00d72 matrices are\nPSD. Induct by splitting one tensor coordinate, use PSD of a Kronecker product,\nand transport by the function-space index equivalence. Include J=\u2205 explicitly."
+    },
+    "closed_statement": "def ProductDensityPositiveStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 u : Fin 20 \u2192 Vec3,\n    (\u2200 j \u2208 J, (spinDensity (u j)).PosSemidef) \u2192 (productDensity J u).PosSemidef",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "For J empty there is one tensor basis function, not zero basis functions; the resulting matrix is [1].",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.TraceProductPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 67,
+    "dependencies": [
+      "Matrix.PosSemidef",
+      "Matrix.trace",
+      "Matrix.PosSemidef.conjTranspose_mul_mul_same",
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Use a PSD square-root or spectral factorization A=R*R-adjoint. Cyclicity turns trace(AB) into the trace of R-adjoint*B*R, a PSD matrix. Apply trace nonnegativity and take its real part.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:inversion`, lines 317\u2013326; cyclically move a PSD square root of A to\nwrite Tr(AB)=Tr(A^(1/2) B A^(1/2)); the latter matrix is PSD. No commutation\nbetween A and B is assumed."
+    },
+    "closed_statement": "def TraceProductPositiveStatement : Prop :=\n  \u2200 (n : Type) [Fintype n] [DecidableEq n],\n    \u2200 A B : Matrix n n \u2102, A.PosSemidef \u2192 B.PosSemidef \u2192 0 \u2264 (A * B).trace.re",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Both factors are PSD; no commutation or positive-definiteness premise is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "The arbitrary index type explicitly binds [Fintype n] and [DecidableEq n]; the conclusion uses those instances."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Analysis/Matrix/PosDef.lean",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReducedDegreeStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 12,
+    "dependencies": [
+      "AKLT.Blueprint.H1.InternalAdmissible",
+      "AKLT.Defs.reducedSpinSites",
+      "AKLT.Defs.reducedIntegrand",
+      "AKLT.Defs.SingleReplacement",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Count factors after the chosen deletions. A replaced leaf changes one bond at the surviving endpoint into one linear field. The retained passage has at most three factors, and retained corners have at most four.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 198\u2013214; count factors after each allowed leaf deletion.\nThe passage is retained in the existing Defs integrand; its three/two bonds\nhave degrees three/two, giving the same contraction as passage-first integration."
+    },
+    "closed_statement": "def ReducedDegreeStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, \u2200 next : Bool,\n    InternalAdmissible (reducedSpinSites \u03c0 r) (reducedIntegrand \u03c0 r next)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReducedFactorStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 18,
+    "dependencies": [
+      "AKLT.Defs.reductionGroups",
+      "AKLT.Defs.reductionVectors",
+      "AKLT.Defs.reducedIntegrand",
+      "AKLT.Blueprint.H1.LocalSupportedVectors",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Check the eight disjoint token groups, with one or two tokens per group. Each factor is a dot product, each token occurs once, and every used token belongs to the declared union.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 198\u2013214; disjoint groups give separate vector affineness,\nall factors are scalar products, and each token lies in `reductionVectors`."
+    },
+    "closed_statement": "def ReducedFactorStructureStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, \u2200 next : Bool,\n    LocalVectorAffine (reducedIntegrand \u03c0 r next) \u2227\n    IntegrandInvariant (reducedIntegrand \u03c0 r next) \u2227\n    LocalSupportedVectors (reductionVectors \u03c0 r) (reducedIntegrand \u03c0 r next)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralGeometryStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 27,
+    "dependencies": [
+      "AKLT.Blueprint.H1.PeripheralGeometry",
+      "AKLT.Blueprint.H1.deletedLeafSites",
+      "AKLT.Defs.patternDegree",
+      "AKLT.Defs.leafNeighbour",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Enumerate the template and the two representation rules. Deleted sites are peripheral, have degree zero or one, are mutually nonadjacent, and every degree-one neighbour survives.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 217\u2013222; no two peripheral sites are nearest neighbours.\nEnumerate the template and both deletion rules; any deleted bonded leaf has its\nunique neighbour in the retained spin set."
+    },
+    "closed_statement": "def PeripheralGeometryStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, PeripheralGeometry \u03c0 r",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Requires Covered and both exact deletion rules; degree and neighbour statements refer to the original current internal bonds.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralFubiniStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 33,
+    "dependencies": [
+      "AKLT.Blueprint.H1.PeripheralGeometry",
+      "AKLT.Blueprint.H1.separatedLeafFunctional",
+      "AKLT.Blueprint.H1.integratedLeafFactor",
+      "AKLT.Blueprint.H1.retainedOriginalFactors",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Use the retained/deleted disjoint union to reindex spin assignments. Each deleted spin appears in only its own slots and possible single bond; factor its sum into integratedLeafFactor. This leaf has no replacement-vector choices.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 217\u2013229; use the disjoint-union equivalence between spin\nassignments on retained/deleted sets, and factor the deleted finite sums.\nThis leaf handles Fubini only, with no choice of replacement vectors."
+    },
+    "closed_statement": "def PeripheralFubiniStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, PeripheralGeometry \u03c0 r \u2192\n    \u2200 next : Bool, \u2200 m : Fin 20 \u2192 UnitVector,\n      (if next then patternNext \u03c0 m else patternCurrent \u03c0 m) = separatedLeafFunctional \u03c0 r next m",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Requires PeripheralGeometry. Deleted spins are mutually nonadjacent; next changes no deleted leaf law or bond, since none is a passage neighbour.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralAssignmentStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 41,
+    "dependencies": [
+      "AKLT.Blueprint.H1.LeafRule",
+      "AKLT.Blueprint.H1.PeripheralGeometry",
+      "AKLT.Blueprint.H1.separatedLeafFunctional",
+      "AKLT.Defs.reducedIntegrand",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Choose the isolated positive factor or one-bond normalizer and vector at each deleted site. Use atom norms for every surviving spin argument. Multiply normalizers once, fill unused tokens with zero, and compare evaluated retained factors for both next values.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 222\u2013237; choose the local normalizers and replacement\nvectors once, before next is quantified. Factor their finite product K out of\nthe separated sum. Unused tokens are zero; an empty product gives K=1."
+    },
+    "closed_statement": "def PeripheralAssignmentStatement : Prop :=\n  (\u2200 j : IcoLetter, normSq (icoVector j) = 1) \u2192\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, PeripheralGeometry \u03c0 r \u2192\n    \u2200 m : Fin 20 \u2192 UnitVector, LeafRule \u03c0 m \u2192\n      \u2203 K : \u211d, 0 < K \u2227 \u2203 u : Fin 20 \u2192 Vec3, (\u2200 j, normSq (u j) \u2264 1) \u2227\n        \u2200 next : Bool, separatedLeafFunctional \u03c0 r next m = K *\n          rawFunctional (reducedSpinSites \u03c0 r) (nextStatus \u03c0 next) (reducedIntegrand \u03c0 r next) u",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Concrete atom unit norms, LeafRule and PeripheralGeometry are explicit. A single choice of K and u precedes the next quantifier.",
+      "vacuity_and_degenerate": "If no leaf is deleted, K=1. Isolated leaves supply a positive factor; unused tokens are zero.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BallChordStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 66,
+    "dependencies": [
+      "AKLT.Blueprint.H1.UnitChord",
+      "AKLT.Defs.normSq",
+      "UnitVector",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "For nonzero v use its Euclidean normalization and its negative with weights (1+norm v)/2 and (1-norm v)/2. At v=0 use an explicit coordinate unit vector. Prove the two weights lie in [0,1].",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 239\u2013247; every ball vector is a convex combination of two\nantipodal unit vectors. Branch at zero before division by its norm."
+    },
+    "closed_statement": "def BallChordStatement : Prop := \u2200 v : Vec3, normSq v \u2264 1 \u2192 UnitChord v",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Branch on v=0. Only the nonzero branch divides by norm v; the zero branch uses an explicit unit coordinate vector.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AffineEvaluationStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 70,
+    "dependencies": [
+      "AKLT.Blueprint.H1.SeparatelyAffine",
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.evaluateReduced",
+      "Function.update",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Expand monomials. The total degree in one vector is at most one, so its contribution is constant or exactly one coordinate. Distribute the update convex combination and sum.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 242\u2013247; group polynomial monomials by the single coordinate\nof token j. `VectorAffine` is stronger than scalar-coordinate multiaffineness."
+    },
+    "closed_statement": "def AffineEvaluationStatement : Prop :=\n  \u2200 p : VectorPolynomial, VectorAffine p \u2192 SeparatelyAffine (evaluateReduced p)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ProductBallNonnegativeStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 76,
+    "dependencies": [
+      "AKLT.Blueprint.H1.UnitChord",
+      "AKLT.Blueprint.H1.SeparatelyAffine",
+      "Finset.univ",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Induct over a finite set of ball coordinates to replace each by its two supplied unit endpoints. Separate affineness preserves nonnegativity with nonnegative weights, including zero endpoint weights.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 242\u2013247; induct over the finite set of non-unit coordinates.\nAll 20 coordinates are quantified, including unused ones. No minimum or compactness\nargument is needed; a zero coefficient in the convex combination is harmless."
+    },
+    "closed_statement": "def ProductBallNonnegativeStatement : Prop :=\n  (\u2200 v : Vec3, normSq v \u2264 1 \u2192 UnitChord v) \u2192\n  \u2200 F : (Fin 20 \u2192 Vec3) \u2192 \u211d, SeparatelyAffine F \u2192\n    (\u2200 u : Fin 20 \u2192 UnitVector, 0 \u2264 F (fun j => (u j).val)) \u2192\n    \u2200 u : Fin 20 \u2192 Vec3, (\u2200 j, normSq (u j) \u2264 1) \u2192 0 \u2264 F u",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Zero convex weights are valid. The ambient 20-token function also represents constants and polynomials with no used tokens.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.DifferenceStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 84,
+    "dependencies": [
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Blueprint.H1.OrthogonalInvariant",
+      "AKLT.Defs.SupportedVectors",
+      "MvPolynomial.C",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ],
+    "suggested_proof_route": "Support of subtraction is contained in the union, and multiplication by a scalar constant introduces no exponents. Evaluation is a ring hom, so covariance is stable under the same scalar combination.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`c:reduce`, lines 198\u2013201; rational scalar combinations preserve all three\nstructural predicates. This is support inclusion for sums, not equality of supports."
+    },
+    "closed_statement": "def DifferenceStructureStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p q : VectorPolynomial, \u2200 c : \u211a,\n    VectorAffine p \u2192 VectorAffine q \u2192 OrthogonalInvariant p \u2192 OrthogonalInvariant q \u2192\n    SupportedVectors J p \u2192 SupportedVectors J q \u2192\n      VectorAffine (p - MvPolynomial.C c * q) \u2227\n      OrthogonalInvariant (p - MvPolynomial.C c * q) \u2227\n      SupportedVectors J (p - MvPolynomial.C c * q)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "Mathlib/Data/Fintype/BigOperators.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SectorSpinStableStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 12,
+    "dependencies": [
+      "AKLT.Blueprint.H1.SpinStable",
+      "AKLT.Defs.exchangeBasisVector",
+      "AKLT.Defs.GroupBasis",
+      "AKLT.Defs.totalSpinPlus",
+      "AKLT.Defs.totalSpinMinus",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Check single and pair ladder actions on the four displayed unnormalized pair vectors, then expand the sum of local actions on a tensor basis vector. Extend from generators to exchangeSpace by span induction. Physlib provides optional local sl2 tensor algebra only.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:exchange`, lines 467\u2013498; verify the local single, symmetric-pair, and\nexterior-pair ladder actions and then the product rule. This statement deliberately\ndoes not require coveredness: the defined groups always give disjoint tokens."
+    },
+    "closed_statement": "def SectorSpinStableStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 r : Representation, \u2200 \u03b5 : ExchangeSigns \u03c0,\n    SpinStable (reductionVectors \u03c0 r) (exchangeSpace \u03c0 r \u03b5)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "No Covered assumption is needed: coordinate groups are always disjoint. Unused signs may repeat the same subspace; this does not claim an orthogonal sum over all signs.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean",
+      "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorDecomposition.lean: Physlib.Sl2.tensorStringBasis and cgEquiv_tensorH/E/F; bridge to these exact coordinates is still required."
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SectorWeightBasisStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 19,
+    "dependencies": [
+      "AKLT.Blueprint.H1.sectorVector",
+      "AKLT.Defs.exchangeWeight",
+      "AKLT.Defs.centralWeight",
+      "AKLT.Defs.exchangeBasisVector",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Compute diagonal token action on each integer tensor basis vector. Pair contributions have integral weights. Count single half-integers and use parity to give the explicit integer offset from centralWeight.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:exchange`, lines 467\u2013494; each explicit integer-coordinate tensor vector\nis an S_z eigenvector. Single weights have parity fixed by their number; symmetric\npair weights are integral and exterior weights are zero."
+    },
+    "closed_statement": "def SectorWeightBasisStatement : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 r : Representation, \u2200 \u03b5 : ExchangeSigns \u03c0,\n    \u2200 b : ExchangeBasis \u03c0 r \u03b5,\n      totalSpinZ (reductionVectors \u03c0 r) (sectorVector \u03c0 r \u03b5 b) =\n        (exchangeWeight \u03c0 r \u03b5 b : \u2102) \u2022 sectorVector \u03c0 r \u03b5 b \u2227\n      \u2203 z : \u2124, (exchangeWeight \u03c0 r \u03b5 b : \u211d) = (centralWeight \u03c0 r : \u211d) + z",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "exchangeWeight and centralWeight are rational; the Z eigenvalue is complex and the integer-offset equality is real. The central half depends on the number of single groups.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean",
+      "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorDecomposition.lean: Physlib.Sl2.tensorStringBasis and cgEquiv_tensorH/E/F; bridge to these exact coordinates is still required."
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpanWeightLatticeStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 29,
+    "dependencies": [
+      "Submodule.span",
+      "Module.End.eigenspace",
+      "Module.End.eigenspace",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Group the finite spanning family by equal weights. Distinct eigenspaces are independent, so a nonzero eigenvector in their sum has one of those weights. Normalization and independence of the original spanning family are unnecessary.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:sector`, lines 515\u2013520; a nonzero eigenvector in the span of a finite\nweight basis has one of its weights. Independence and normalization of the\nspanning family are unnecessary. Use the direct sum of distinct eigenspaces."
+    },
+    "closed_statement": "def SpanWeightLatticeStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 (\u03b2 : Type) [Fintype \u03b2],\n    \u2200 v : \u03b2 \u2192 TensorSpace J, \u2200 w : \u03b2 \u2192 \u211d, \u2200 \u03ba : \u211d,\n      (\u2200 b, totalSpinZ J (v b) = (w b : \u2102) \u2022 v b) \u2192\n      (\u2200 b, \u2203 z : \u2124, w b = \u03ba + z) \u2192\n      \u2200 \u03c8 \u2208 Submodule.span \u2102 (Set.range v), \u03c8 \u2260 0 \u2192 \u2200 m : \u211d,\n        totalSpinZ J \u03c8 = (m : \u2102) \u2022 \u03c8 \u2192 \u2203 z : \u2124, m = \u03ba + z",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "For an empty spanning family the span is zero, so the nonzero eigenvector premise is impossible. No linear independence is assumed.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "The arbitrary basis-index type explicitly binds [Fintype beta]."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinAdjointStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 39,
+    "dependencies": [
+      "AKLT.Defs.totalSpinZ",
+      "AKLT.Defs.totalSpinPlus",
+      "AKLT.Defs.totalSpinMinus",
+      "AKLT.Defs.tokenMatrix",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Compute the adjoints of the explicit single-spin matrices, lift them to each token, and sum. Transport to the inherited Euclidean inner product.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:exchange`, lines 494\u2013499; token lifts preserve adjoints and distinct\ntoken operators commute. Verify the 2\u00d72 adjoint identities first."
+    },
+    "closed_statement": "def SpinAdjointStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 \u03c8 \u03c7 : TensorSpace J,\n    inner \u2102 (totalSpinZ J \u03c8) \u03c7 = inner \u2102 \u03c8 (totalSpinZ J \u03c7) \u2227\n    inner \u2102 (totalSpinPlus J \u03c8) \u03c7 = inner \u2102 \u03c8 (totalSpinMinus J \u03c7)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinCommutatorStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 46,
+    "dependencies": [
+      "AKLT.Defs.totalSpinZ",
+      "AKLT.Defs.totalSpinPlus",
+      "AKLT.Defs.totalSpinMinus",
+      "AKLT.Defs.tokenMatrix",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Verify the three single-token commutators directly. Terms on distinct tokens commute and cancel in the double sums; collect the same-token terms.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:exchange`, lines 494\u2013499; token lifts of distinct factors commute, so\nthe local sl2 identities sum to these three global commutators."
+    },
+    "closed_statement": "def SpinCommutatorStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 \u03c8 : TensorSpace J,\n    totalSpinZ J (totalSpinPlus J \u03c8) - totalSpinPlus J (totalSpinZ J \u03c8) = totalSpinPlus J \u03c8 \u2227\n    totalSpinZ J (totalSpinMinus J \u03c8) - totalSpinMinus J (totalSpinZ J \u03c8) = -totalSpinMinus J \u03c8 \u2227\n    totalSpinPlus J (totalSpinMinus J \u03c8) - totalSpinMinus J (totalSpinPlus J \u03c8) =\n      (2 : \u2102) \u2022 totalSpinZ J \u03c8",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean",
+      "AKLT/Vendor/Physlib/Mathematics/RepresentationTheory/Sl2/TensorDecomposition.lean: Physlib.Sl2.tensorStringBasis and cgEquiv_tensorH/E/F; bridge to these exact coordinates is still required."
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.WeightLadderTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 56,
+    "dependencies": [
+      "AKLT.Blueprint.H1.WeightLadder",
+      "inner",
+      "norm",
+      "AKLT.Defs.totalSpinZ",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Use the supplied adjoint and commutator identities to derive shifted weights and the norm-square difference 2m times norm-square v. Nonzero v makes its squared norm positive; the required ladder cannot vanish for the indicated sign.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:sector`, lines 522\u2013533; combine adjoints and commutators to obtain\n||S_-v||\u00b2-||S_+v||\u00b2=2m||v||\u00b2 and the shifted weights. Norm positivity proves\nnonvanishing; zero vectors are excluded only for that conclusion."
+    },
+    "closed_statement": "def WeightLadderTransferStatement : Prop :=\n  \u2200 J : Finset (Fin 20),\n    (\u2200 \u03c8 \u03c7 : TensorSpace J,\n      inner \u2102 (totalSpinZ J \u03c8) \u03c7 = inner \u2102 \u03c8 (totalSpinZ J \u03c7) \u2227\n      inner \u2102 (totalSpinPlus J \u03c8) \u03c7 = inner \u2102 \u03c8 (totalSpinMinus J \u03c7)) \u2192\n    (\u2200 \u03c8 : TensorSpace J,\n      totalSpinZ J (totalSpinPlus J \u03c8) - totalSpinPlus J (totalSpinZ J \u03c8) = totalSpinPlus J \u03c8 \u2227\n      totalSpinZ J (totalSpinMinus J \u03c8) - totalSpinMinus J (totalSpinZ J \u03c8) = -totalSpinMinus J \u03c8 \u2227\n      totalSpinPlus J (totalSpinMinus J \u03c8) - totalSpinMinus J (totalSpinPlus J \u03c8) =\n        (2 : \u2102) \u2022 totalSpinZ J \u03c8) \u2192 WeightLadder J",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CommonWeightEigenvectorStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 70,
+    "dependencies": [
+      "AKLT.Defs.eigenvaluesOn",
+      "Module.End.eigenspace",
+      "AKLT.Defs.Submodule",
+      "IsSymmetric",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Restrict Z to the intersection of S with the nonzero O eigenspace. Commutation gives invariance and the inherited inner product gives self-adjointness. Apply the finite-dimensional spectral theorem to obtain a nonzero real-weight eigenvector.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:sector`, lines 511\u2013520; restrict the Hermitian Z to the nonzero O\neigenspace inside S and apply its finite-dimensional spectral theorem. Its\neigenvalue m is real. All invariance and inherited-inner-product premises are explicit."
+    },
+    "closed_statement": "def CommonWeightEigenvectorStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 S : Submodule \u2102 (TensorSpace J),\n    \u2200 O : Module.End \u2102 (TensorSpace J), (\u2200 \u03c8 \u2208 S, O \u03c8 \u2208 S) \u2192\n      (\u2200 \u03c8 \u2208 S, \u2200 \u03c7 \u2208 S, inner \u2102 (O \u03c8) \u03c7 = inner \u2102 \u03c8 (O \u03c7)) \u2192\n      (\u2200 \u03c8 \u2208 S, totalSpinZ J \u03c8 \u2208 S) \u2192\n      (\u2200 \u03c8 \u2208 S, \u2200 \u03c7 \u2208 S, inner \u2102 (totalSpinZ J \u03c8) \u03c7 = inner \u2102 \u03c8 (totalSpinZ J \u03c7)) \u2192\n      (\u2200 \u03c8 \u2208 S, O (totalSpinZ J \u03c8) = totalSpinZ J (O \u03c8)) \u2192\n      \u2200 \u03bc \u2208 eigenvaluesOn S O, \u2203 v \u2208 S, v \u2260 0 \u2227 O v = \u03bc \u2022 v \u2227\n        \u2203 m : \u211d, totalSpinZ J v = (m : \u2102) \u2022 v",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "O and Z preserve S; both restricted symmetry conditions and O/Z commutation on S are explicit. The O eigenspace is nonzero by eigenvaluesOn membership.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean",
+      "AKLT/Vendor/QICLean/Analysis/EuclideanEigenvectorBasis.lean: AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.LadderWalkStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 83,
+    "dependencies": [
+      "AKLT.Blueprint.H1.SpinStable",
+      "AKLT.Blueprint.H1.WeightLadder",
+      "Module.End",
+      "Int",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Induct separately on positive and negative integer offsets m-kappa. Repeated lowering or raising stays in S, preserves the O eigenvalue, and is nonzero at every step. Use integer arithmetic; convert to natural iteration counts only after selecting the sign.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:sector`, lines 535\u2013549; induct on the integer distance z to \u03ba using\nS_- for positive z and S_+ for negative z. Every intermediate step has the\nstrict sign required by nonvanishing. No natural-number subtraction is used."
+    },
+    "closed_statement": "def LadderWalkStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 S : Submodule \u2102 (TensorSpace J), \u2200 \u03ba : \u211d,\n    (\u03ba = 0 \u2228 \u03ba = 1 / 2) \u2192 SpinStable J S \u2192 WeightLadder J \u2192\n    \u2200 O : Module.End \u2102 (TensorSpace J),\n      (\u2200 \u03c8 \u2208 S, O (totalSpinPlus J \u03c8) = totalSpinPlus J (O \u03c8)) \u2192\n      (\u2200 \u03c8 \u2208 S, O (totalSpinMinus J \u03c8) = totalSpinMinus J (O \u03c8)) \u2192\n      \u2200 \u03bc : \u2102, \u2200 v \u2208 S, v \u2260 0 \u2192 O v = \u03bc \u2022 v \u2192 \u2200 m : \u211d,\n      totalSpinZ J v = (m : \u2102) \u2022 v \u2192 (\u2203 z : \u2124, m = \u03ba + z) \u2192\n      \u2203 w \u2208 S, w \u2260 0 \u2227 O w = \u03bc \u2022 w \u2227 totalSpinZ J w = (\u03ba : \u2102) \u2022 w",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "kappa is exactly 0 or 1/2, spin stability and nonvanishing/shift facts are explicit. O commutes with both ladders on S. No multiplicity claim is made.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "Distances are integer offsets. Split the sign before converting a distance to Nat; never truncate m-kappa as a natural subtraction.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PositiveSpectrumStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 96,
+    "dependencies": [
+      "AKLT.Defs.PositiveOn",
+      "AKLT.Defs.eigenvaluesOn",
+      "AKLT.Defs.Submodule",
+      "IsSymmetric",
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean"
+    ],
+    "suggested_proof_route": "Restrict O to S with the inherited Hilbert structure. Use its orthonormal eigenbasis to identify strict quadratic positivity with strictly positive real eigenvalues. Transport subspace eigenvectors to the ambient definition.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:sector`, lines 551\u2013555; the spectral theorem on the invariant subspace\nequates strict quadratic-form positivity with positivity of all eigenvalues.\nThe zero-dimensional subspace satisfies both sides vacuously."
+    },
+    "closed_statement": "def PositiveSpectrumStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 S : Submodule \u2102 (TensorSpace J),\n    \u2200 O : Module.End \u2102 (TensorSpace J), (\u2200 \u03c8 \u2208 S, O \u03c8 \u2208 S) \u2192\n      (\u2200 \u03c8 \u2208 S, \u2200 \u03c7 \u2208 S, inner \u2102 (O \u03c8) \u03c7 = inner \u2102 \u03c8 (O \u03c7)) \u2192\n      (PositiveOn S O \u2194 \u2200 \u03bc \u2208 eigenvaluesOn S O, 0 < \u03bc.re)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Restriction invariance and symmetry on S are explicit; the inherited inner product is used, not the unnormalized coordinate dot product.",
+      "vacuity_and_degenerate": "S=0 makes PositiveOn and the universal eigenvalue condition both vacuously true.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "Mathlib/Analysis/InnerProductSpace/Spectrum.lean",
+      "AKLT/Vendor/QICLean/Analysis/EuclideanEigenvectorBasis.lean: AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliHermitianStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 11,
+    "dependencies": [
+      "AKLT.Defs.pauliOperator",
+      "AKLT.Defs.pauli",
+      "Matrix.IsHermitian",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Conjugate and transpose an entry. Each one-slot Pauli factor is Hermitian and rational coefficients are real; conjugation distributes over finite products and sums.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`d:Pauli`/`l:Ostruct`, lines 266\u2013270 and 350\u2013357; tensor products of\nHermitian Pauli factors are Hermitian and all rational coefficients are real."
+    },
+    "closed_statement": "def PauliHermitianStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial, (pauliOperator J p).IsHermitian",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReflectionParityStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 16,
+    "dependencies": [
+      "AKLT.Blueprint.H1.OrthogonalInvariant",
+      "AKLT.Blueprint.H1.reflectY",
+      "AKLT.Blueprint.H1.pauliYCount",
+      "AKLT.Defs.pauliExponent",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Specialize covariance to the explicit Y reflection. Equality of real polynomial functions implies coefficient equality. A Pauli exponent with an odd count of coordinate-1 factors changes sign, forcing its rational coefficient to vanish.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 350\u2013357; reflect the second coordinate and compare real\npolynomial coefficients. Odd numbers of sigma_2 factors have zero coefficient."
+    },
+    "closed_statement": "def ReflectionParityStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial, VectorAffine p \u2192 SupportedVectors J p \u2192\n    OrthogonalInvariant p \u2192 \u2200 a : J \u2192 Fin 4, Odd (pauliYCount J a) \u2192 p.coeff (pauliExponent J a) = 0",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliRealityStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 22,
+    "dependencies": [
+      "AKLT.Blueprint.H1.pauliYCount",
+      "AKLT.Defs.pauliOperator",
+      "AKLT.Defs.pauli",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Conjugation fixes factors 0,1,3 and negates factor 2. An even product is fixed; the coefficient premise removes odd products. Sum and read off zero imaginary parts.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 350\u2013357; even sigma_2 products have real entries and odd\nones have zero coefficients. This step is purely finite Pauli arithmetic."
+    },
+    "closed_statement": "def PauliRealityStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial,\n    (\u2200 a : J \u2192 Fin 4, Odd (pauliYCount J a) \u2192 p.coeff (pauliExponent J a) = 0) \u2192\n    \u2200 \u03c3 \u03c4, (pauliOperator J p \u03c3 \u03c4).im = 0",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionCovarianceStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 29,
+    "dependencies": [
+      "AKLT.Blueprint.H1.OrthogonalInvariant",
+      "AKLT.Defs.invertPolynomial",
+      "AKLT.Defs.invertVectors",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Prove eval of sign substitution is evaluation at invertVectors. Matrix.mulVec is real linear, so negation commutes with every rotation, yielding covariance after inversion.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 348\u2013350; tokenwise signs commute with real linear\nrotations. Establish evaluation/substitution compatibility, then substitute."
+    },
+    "closed_statement": "def InversionCovarianceStatement : Prop :=\n  \u2200 p : VectorPolynomial, OrthogonalInvariant p \u2192 \u2200 I : Finset (Fin 20),\n    OrthogonalInvariant (invertPolynomial I p)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 35,
+    "dependencies": [
+      "AKLT.Defs.pauli",
+      "Matrix.conjTranspose",
+      "Matrix.trace",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Conjugation by a unitary preserves Hermitian and traceless matrices. Expand an arbitrary traceless Hermitian 2 by 2 matrix as a real linear combination of the three Pauli matrices, using its entries or half-trace coordinates.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 359\u2013367; expand conjugated traceless Hermitian 2\u00d72\nmatrices in the real Pauli basis. Use entry coordinates or half-trace pairings."
+    },
+    "closed_statement": "def AdjointPauliCoordinatesStatement : Prop :=\n  \u2200 g : Matrix (Fin 2) (Fin 2) \u2102, g.conjTranspose * g = 1 \u2192 g.det = 1 \u2192\n    \u2203 R : Matrix (Fin 3) (Fin 3) \u211d, \u2200 j : Fin 3,\n      g * pauli \u27e8j.val + 1, by omega\u27e9 * g.conjTranspose =\n        \u2211 l : Fin 3, (R l j : \u2102) \u2022 pauli \u27e8l.val + 1, by omega\u27e9",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 43,
+    "dependencies": [
+      "AKLT.Defs.pauli",
+      "Matrix.trace",
+      "Matrix.conjTranspose",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Conjugation preserves the half-trace pairing. Insert the supplied Pauli coordinates, use pairwise trace orthogonality, and compare real entries to obtain R-transpose*R=1.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 359\u2013369; conjugation preserves the half-trace pairing.\nInsert the Pauli expansion and use Tr(sigma_i sigma_j)=2 delta_ij."
+    },
+    "closed_statement": "def AdjointPauliOrthogonalStatement : Prop :=\n  \u2200 g : Matrix (Fin 2) (Fin 2) \u2102, g.conjTranspose * g = 1 \u2192\n    \u2200 R : Matrix (Fin 3) (Fin 3) \u211d,\n      (\u2200 j : Fin 3, g * pauli \u27e8j.val + 1, by omega\u27e9 * g.conjTranspose =\n        \u2211 l : Fin 3, (R l j : \u2102) \u2022 pauli \u27e8l.val + 1, by omega\u27e9) \u2192 R.transpose * R = 1",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "The Pauli-coordinate equation and g-adjoint*g=1 are explicit. Square finite dimension supplies g*g-adjoint=1 when needed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliRotationTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 52,
+    "dependencies": [
+      "AKLT.Defs.pauliOperator",
+      "AKLT.Defs.tensorPowerMatrix",
+      "AKLT.Blueprint.H1.OrthogonalInvariant",
+      "AKLT.Defs.pauliExponent",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Expand tensor conjugation with the supplied rotation coordinates. Match polynomial coefficients for the transpose rotation and use covariance. Tensor unitarity cancels the conjugate transpose to give Commute.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 368\u2013377; expand tensor conjugation using the supplied\nadjoint coordinates. Covariance of the polynomial gives commutation after\ncancelling the unitary tensor power. No spin representation theorem is assumed."
+    },
+    "closed_statement": "def PauliRotationTransferStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p : VectorPolynomial, VectorAffine p \u2192 SupportedVectors J p \u2192\n    OrthogonalInvariant p \u2192 \u2200 g : Matrix (Fin 2) (Fin 2) \u2102, g.conjTranspose * g = 1 \u2192\n    \u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192\n      (\u2200 j : Fin 3, g * pauli \u27e8j.val + 1, by omega\u27e9 * g.conjTranspose =\n        \u2211 l : Fin 3, (R l j : \u2102) \u2022 pauli \u27e8l.val + 1, by omega\u27e9) \u2192\n      Commute (pauliOperator J p) (tensorPowerMatrix J g)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CayleyTensorCommutationStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 62,
+    "dependencies": [
+      "AKLT.Defs.tensorPowerMatrix",
+      "AKLT.Defs.pauli",
+      "AKLT.Defs.Real.sqrt",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Show (I-it sigma_j)/sqrt(1+t squared) is unitary of determinant one. Its denominator is strictly positive. Expand the tensor scale as a scalar power and cancel it from commutation.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 379\u2013389; normalize I-it sigma_j to an SU(2) matrix,\nthen clear the positive denominator from its tensor power."
+    },
+    "closed_statement": "def CayleyTensorCommutationStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 M : Matrix (J \u2192 Fin 2) (J \u2192 Fin 2) \u2102,\n    (\u2200 g : Matrix (Fin 2) (Fin 2) \u2102, g.conjTranspose * g = 1 \u2192 g.det = 1 \u2192\n      Commute M (tensorPowerMatrix J g)) \u2192\n    \u2200 j : Fin 3, \u2200 t : \u211d,\n      Commute M (tensorPowerMatrix J (1 + (t : \u2102) \u2022 (-Complex.I \u2022 pauli \u27e8j.val + 1, by omega\u27e9)))",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "sqrt(1+t squared)>0 for all real t; its finite tensor scalar power is nonzero, including exponent zero.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.TensorLinearCoefficientStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 71,
+    "dependencies": [
+      "AKLT.Defs.tensorPowerMatrix",
+      "AKLT.Defs.tokenMatrix",
+      "Polynomial.coeff",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Construct the one-variable matrix polynomials on both sides. Equality at every real t implies coefficient equality over C. In degree one, exactly one token contributes A, giving the token sum, also for J empty.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 386\u2013394; compare the degree-one coefficient of a matrix\npolynomial vanishing at every real t. Its coefficient is the sum of token lifts."
+    },
+    "closed_statement": "def TensorLinearCoefficientStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 M : Matrix (J \u2192 Fin 2) (J \u2192 Fin 2) \u2102,\n    \u2200 A : Matrix (Fin 2) (Fin 2) \u2102,\n      (\u2200 t : \u211d, Commute M (tensorPowerMatrix J (1 + (t : \u2102) \u2022 A))) \u2192\n      Commute M (\u2211 j : J, tokenMatrix J j A)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "For J empty the tensor polynomial is constant and its linear coefficient and token sum are both zero.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinGeneratorTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 79,
+    "dependencies": [
+      "AKLT.Defs.totalSpinZ",
+      "AKLT.Defs.totalSpinPlus",
+      "AKLT.Defs.totalSpinMinus",
+      "AKLT.Defs.tokenMatrix",
+      "Matrix.toEuclideanLin",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Use linearity of tokenMatrix to cancel the nonzero scalar -i. Take scalar linear combinations of commuting sums, and transport matrix multiplication to linear-map composition.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 390\u2013394; cancel -i and take the linear combinations\ndefining the three total spin maps. The empty tensor has zero generators."
+    },
+    "closed_statement": "def SpinGeneratorTransferStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 M : Matrix (J \u2192 Fin 2) (J \u2192 Fin 2) \u2102,\n    (\u2200 k : Fin 3, Commute M (\u2211 j : J, tokenMatrix J j (-Complex.I \u2022 pauli \u27e8k.val + 1, by omega\u27e9))) \u2192\n    Commute (Matrix.toEuclideanLin M) (totalSpinZ J) \u2227\n    Commute (Matrix.toEuclideanLin M) (totalSpinPlus J) \u2227\n    Commute (Matrix.toEuclideanLin M) (totalSpinMinus J)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentPauliInterchangeStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 89,
+    "dependencies": [
+      "AKLT.Blueprint.H1.MonomialMoments",
+      "AKLT.Blueprint.H1.InternalAdmissible",
+      "AKLT.Defs.contractSpins",
+      "AKLT.Blueprint.H1.specializeInternal",
+      "AKLT.Blueprint.H1.rawPauliFunctional",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "For one input monomial, external exponent selection and inversion signs are fixed. Factor its finite spin sum into exact local moments, then distribute over the polynomial support and matrix entries.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 397\u2013412; finite moments commute with Pauli coefficient\nextraction and inversion. Expand one monomial, then interchange the finite sums.\nThis isolates the generic moment/Pauli bridge from the corner combinatorics."
+    },
+    "closed_statement": "def MomentPauliInterchangeStatement : Prop :=\n  MonomialMoments \u2192 \u2200 V : Finset Plane, \u2200 s : Plane \u2192 Status,\n    (\u2200 x \u2208 V, s x = .U \u2228 s x = .D) \u2192 \u2200 p : LocalPolynomial,\n    InternalAdmissible V p \u2192 \u2200 J I : Finset (Fin 20),\n      pauliOperator J (invertPolynomial I (contractSpins V s p)) = rawPauliFunctional V s J I p",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Requires exact monomial moments, U/D statuses on V, internal support and degree four. External affineness is unnecessary because both sides select the same Pauli exponents.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PairExpansionFromRealizationStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 99,
+    "dependencies": [
+      "AKLT.Blueprint.H1.rawPauliFunctional",
+      "AKLT.Blueprint.H1.realPauliOperator",
+      "AKLT.Blueprint.H1.PairExpansion",
+      "AKLT.Defs.GroupInversion",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "In each real Pauli summand pull out the retained corner's two equal-sign factors. The other factors use disjoint tokens and commute with pair symmetries. Remove zero-weight U atoms, enumerate finite sums by Fin t, and join current and next with the difference coefficient.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 397\u2013431; pull the two equal-sign slot factors out of the\nreal Pauli polynomial in every raw summand. The remaining factors have disjoint\ntokens, hence commute with pair symmetries. Remove zero-weight U atoms. Current\nand next may be enumerated separately and joined with signed coefficients."
+    },
+    "closed_statement": "def PairExpansionFromRealizationStatement : Prop :=\n  (\u2200 j : IcoLetter, normSq (icoVector j) = 1) \u2192\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n    \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n    (\u2200 next : Bool, pauliOperator (reductionVectors \u03c0 r) (invertPolynomial I (reducedPolynomial \u03c0 r next)) =\n      rawPauliFunctional (reducedSpinSites \u03c0 r) (nextStatus \u03c0 next) (reductionVectors \u03c0 r) I\n        (reducedIntegrand \u03c0 r next)) \u2192\n    \u2200 c : \u211a, \u2200 x : reductionGroups \u03c0, \u2200 h : groupIsPair \u03c0 r x.val = true,\n      PairExpansion (reductionVectors \u03c0 r) (leaderToken \u03c0 r x) (secondToken \u03c0 r x h)\n        (Matrix.toEuclideanLin (pauliOperator (reductionVectors \u03c0 r)\n          (invertPolynomial I (reducedDifference \u03c0 r c)))) (\u03c0.statusAt x.val = .U)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "GroupInversion forces equal signs on the two retained slots. Unit atom norms are explicit; zero-weight U atoms must be omitted.",
+      "vacuity_and_degenerate": "The finite expansion may be empty only for the zero operator; D allows n=0.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      150,
+      380
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.UnitPairSupportStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 125,
+    "dependencies": [
+      "AKLT.Blueprint.H1.pairTerm",
+      "AKLT.Defs.symmetricPairProjection",
+      "AKLT.Blueprint.H1.blochMatrix",
+      "AKLT.Defs.tokenMatrix",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "For unit n and eta squared = 1, the 2 by 2 factor is twice a rank-one projection. Its equal tensor square has symmetric range and is fixed by the pair projection on both sides. Reindex the two distinct slots first.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 413\u2013423; for unit n, I+eta n.sigma has rank one.\nIts tensor square is fixed on both sides by the symmetric projection."
+    },
+    "closed_statement": "def UnitPairSupportStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 j k : J, j \u2260 k \u2192 \u2200 \u03b7 : \u211d, \u03b7 ^ 2 = 1 \u2192\n    \u2200 n : Vec3, normSq n = 1 \u2192\n      symmetricPairProjection J j k * pairTerm J j k \u03b7 n = pairTerm J j k \u03b7 n \u2227\n      pairTerm J j k \u03b7 n * symmetricPairProjection J j k = pairTerm J j k \u03b7 n",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "j != k, normSq n=1 and eta squared=1 are explicit. Rank-one support would be false for a zero Bloch vector.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.EqualPairExchangeStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 133,
+    "dependencies": [
+      "AKLT.Blueprint.H1.pairTerm",
+      "AKLT.Defs.exchangeOperator",
+      "AKLT.Defs.tokenMatrix",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Expand matrix entries under Equiv.swap. Swapping two equal one-slot factors leaves their tensor product unchanged. This holds for zero n and coincident j,k as well.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 425\u2013431; swapping equal factors commutes with their\ntensor product, including n=0. No unit or sign assumption is needed."
+    },
+    "closed_statement": "def EqualPairExchangeStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 j k : J, \u2200 \u03b7 : \u211d, \u2200 n : Vec3,\n    Commute (pairTerm J j k \u03b7 n) (exchangeOperator J j k)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All local mathematical premises are explicit in this closed definition; no other leaf proposition is assumed.",
+      "vacuity_and_degenerate": "n=0 and even j=k are included: equal-factor exchange still commutes.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      60,
+      240
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PairExpansionTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 139,
+    "dependencies": [
+      "AKLT.Blueprint.H1.PairExpansion",
+      "Commute",
+      "AKLT.Defs.symmetricPairProjection",
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ],
+    "suggested_proof_route": "Distribute multiplication through the finite sum. Local left/right support and auxiliary-factor commutation imply support of each summand; exchange commutation is closed under products, scalar multiples and sums.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`l:Ostruct`, lines 411\u2013431; distribute pair support and exchange over a\nfinite expansion. The auxiliary factors' commutation is an explicit premise."
+    },
+    "closed_statement": "def PairExpansionTransferStatement : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 j k : J, \u2200 O : Module.End \u2102 (TensorSpace J), \u2200 unitOnly : Prop,\n    PairExpansion J j k O unitOnly \u2192\n    (\u2200 \u03b7 : \u211d, \u03b7 ^ 2 = 1 \u2192 \u2200 n : Vec3, normSq n = 1 \u2192\n      symmetricPairProjection J j k * pairTerm J j k \u03b7 n = pairTerm J j k \u03b7 n \u2227\n      pairTerm J j k \u03b7 n * symmetricPairProjection J j k = pairTerm J j k \u03b7 n) \u2192\n    (\u2200 \u03b7 : \u211d, \u2200 n : Vec3, Commute (pairTerm J j k \u03b7 n) (exchangeOperator J j k)) \u2192\n    (unitOnly \u2192 O = symmetricPairProjection J j k * O * symmetricPairProjection J j k) \u2227\n    Commute O (exchangeOperator J j k)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "The remainder commutes with both exchange and the projection as explicit parts of PairExpansion. No positivity of complex coefficients is assumed.",
+      "vacuity_and_degenerate": "Finite empty products and sums use their usual identities. Nonzero premises are present precisely at eigenvector or norm-positivity steps.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "Only positive fixed denominators occur unless a separately stated positive-normalizer hypothesis is used.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "H1 proof writer",
+    "estimated_proof_lines": [
+      15,
+      100
+    ],
+    "reuse_pointers": [
+      "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "Mathlib/Algebra/MvPolynomial/Eval.lean"
+    ]
+  }
+]

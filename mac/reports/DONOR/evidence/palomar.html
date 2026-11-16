@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A public registry of Lean-verified mathematical results.">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101216" media="(prefers-color-scheme: dark)">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://data.palomar-registry.org; frame-src 'self' https://data.palomar-registry.org; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+    <title>Palomar — Lean-verified mathematics</title>
+    <link rel="canonical" href="https://palomar-registry.org/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/style.css?v=b3a4a5e77a3d6ab6666fa42237e60eda2087d0bf">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Palomar registered results" href="https://data.palomar-registry.org/feed.xml">
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+  </head>
+  <body data-page="index">
+    <a class="skip-link" href="#registry">Skip to registry</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Palomar home">Palomar</a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="./" aria-current="page">Registry</a>
+        <a href="/statement">Statement</a>
+        <a href="/about">About</a>
+        <a href="/how-to-submit">How to submit</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Registry of Lean-verified mathematics</h1>
+        <p class="hero-copy">
+          Palomar records mathematical claims from fixed versions of their
+          source files, checks their proofs with Lean, and publishes the exact
+          statement, the libraries it uses, and the review's comments.
+        </p>
+        <div class="metric-row" aria-live="polite">
+          <span><strong id="metric-results">—</strong> registered results</span>
+          <span><strong id="metric-projects">—</strong> source projects</span>
+        </div>
+      </section>
+
+      <section class="registry-section" id="registry" aria-label="Registered results">
+        <form id="registry-search" class="registry-search" role="search">
+          <label for="query">Search the registry:</label>
+          <input id="query" name="q" type="search" placeholder="title, author, abstract, theorem, or repository" autocomplete="off" spellcheck="false" maxlength="4096">
+          <span id="search-spinner" class="spinner" hidden aria-hidden="true"></span>
+        </form>
+        <div id="search-status" class="status" role="status" hidden></div>
+        <div id="search-results" class="entry-grid" aria-live="polite"></div>
+
+        <div class="toolbar">
+          <div class="view-switch" role="group" aria-label="Result view">
+            <span>View:</span>
+            <button class="view-button active" type="button" data-view="table" aria-pressed="true">Table</button>
+            <button class="view-button" type="button" data-view="cards" aria-pressed="false">Cards</button>
+          </div>
+          <div class="filters" role="group" aria-label="Statement dependency filters">
+            <span>Show:</span>
+            <button class="filter active" type="button" data-trust="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-trust="high" aria-pressed="false">Mathlib only</button>
+            <button class="filter" type="button" data-trust="qualified" aria-pressed="false">Additional libraries</button>
+          </div>
+          <div class="category-filters" role="group" aria-label="Subject filters">
+            <label>arXiv:
+              <input id="arxiv-query" type="search" list="arxiv-options" maxlength="32" placeholder="e.g. math.CO" autocomplete="off" spellcheck="false">
+            </label>
+            <datalist id="arxiv-options"></datalist>
+            <label>MSC:
+              <input id="msc-query" type="search" list="msc-options" maxlength="5" placeholder="e.g. 05 or 05C10" autocomplete="off" spellcheck="false">
+            </label>
+            <datalist id="msc-options"></datalist>
+          </div>
+          <div class="date-filters" role="group" aria-label="Registration date">
+            <label for="order-by">Order by:</label>
+            <select id="order-by">
+              <option value="updated">latest version</option>
+              <option value="registered">first registration</option>
+            </select>
+            <label for="date-from">from</label>
+            <input id="date-from" type="date">
+            <label for="date-to">to</label>
+            <input id="date-to" type="date">
+          </div>
+        </div>
+
+        <div id="registry-warning" class="status warning" role="status" hidden></div>
+        <div id="status" class="status" role="status">
+          Reading the Palomar database…
+          <noscript>
+            <br>
+            The registry requires JavaScript because it reads the machine-readable
+            registry at runtime. You can instead
+            <a href="https://data.palomar-registry.org/recent.json">open the newest results as JSON</a>.
+          </noscript>
+        </div>
+        <div id="entry-grid" class="entry-grid" aria-live="polite"></div>
+        <nav class="registry-pagination" aria-label="Registry pages">
+          <button id="registry-previous" type="button" disabled>Previous</button>
+          <button id="registry-next" type="button" disabled>Next</button>
+          <button id="registry-refresh" type="button" hidden>Retry</button>
+        </nav>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <span class="footer-brand">Palomar</span>
+        <span> — a registry of Lean-verified results</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://data.palomar-registry.org/feed.xml">RSS</a>
+        <a href="https://github.com/PalomarRegistry/PalomarPolicy">Policy</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="https://data.palomar-registry.org/recent.json">Data</a>
+        <a href="https://github.com/leanprover/comparator">Comparator</a>
+        <a href="https://github.com/PalomarRegistry/PalomarWeb">Source</a>
+      </div>
+    </footer>
+    <script type="module" src="assets/app.js?v=b3a4a5e77a3d6ab6666fa42237e60eda2087d0bf"></script>
+  </body>
+</html>

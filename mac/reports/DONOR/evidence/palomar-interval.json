@@ -1,0 +1,1697 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "Quantitative Poisson approximation for long multiplicative runs requires arithmetic control uniform over growing subfamilies. The selected results give the exact affine event calculus, homogeneous and compatible-nullity envelopes, unique relation-respecting component factorization, and a weighted full-support count summed over all cardinalities with one threshold before every subset and minimum size; actual positive Hermite reference laws with an exact-parameter N^(-4/3+epsilon) upper error bound and fixed-height sharp moving total-variation equivalents; and an explicit counterexample showing that agreement at every fixed factorial-moment order, even with uniform exponential-moment control, does not imply any inverse-power total-variation rate. The quadratic positivity interval and singleton identity calibrate the positive-reference family. The counterexample is an independently constructed family of probability laws; no multiplicative realization is asserted. The selected conjunctions cover main results 2.1--2.5, 7.1 and 8.4 and companion Propositions13.1 and15.1, including the latter's displayed sequence corollary.",
+      "authors": [
+        {
+          "name": "Brice Pouly"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.NT"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "PaperP1Registry.Final.Affine.uniform_event_calculus",
+          "PaperP1Registry.Final.Reference.positive_hermite_approximation",
+          "PaperP1Registry.Final.Obstruction.fixed_moment_barrier"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000020",
+      "path": "entries/PALOMAR-2026-11-13-000020-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "eeda0e055bc16afa6bb6402727afe733ace9961e",
+            "fork_repository": "PalomarArchive/Vulkin-prog--paper-p1-lean--91e74cc11e7f",
+            "source_repository": "Vulkin-prog/paper-p1-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "45dba3cd8e69cb6eec120a6f787bb2c31a2373fe15d3b57f61966917497a0c2b",
+        "version": 1
+      },
+      "published_at": "2026-11-13T22:05:23Z",
+      "source": {
+        "commit": "eeda0e055bc16afa6bb6402727afe733ace9961e",
+        "project_path": "RegistryFinal",
+        "repository": "Vulkin-prog/paper-p1-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "P1: uniform event calculus, Hermite laws and the fixed-moment obstruction",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formal Lean 4 fixed-quarter Brun\u2013Titchmarsh-type estimate for nonnegative multiplicative weights without squarefree support, with a separate fixed B*n^(1/1280) growth witness. Includes the ordinary modulus-one short-interval corollary with a factor of nine in the bound, and a uniform upper-right parameter-quadrant consequence 1/4 <= alpha,beta < 1/2.",
+      "authors": [
+        {
+          "name": "Charlie Dorsey"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "11N37",
+          "11N13",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Shiu.API.classical_quarter",
+          "Shiu.API.classical_modulus_one_quarter",
+          "Shiu.API.classical_two_parameter_quadrant"
+        ]
+      },
+      "id": "PALOMAR-2026-11-10-000003",
+      "path": "entries/PALOMAR-2026-11-10-000003-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e95766703ddf14b6b0d920bc17f6199e5797834c",
+            "fork_repository": "PalomarArchive/charliedorsey--shiu-toolkit-palomar-release--9283f0930049",
+            "source_repository": "charliedorsey/shiu-toolkit-palomar-release"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "5c7757bbdb95118d1a27ebf1ce1031b6875ba70c5e45d653059b1752f850b882",
+        "version": 2
+      },
+      "published_at": "2026-11-11T20:01:30Z",
+      "source": {
+        "commit": "e95766703ddf14b6b0d920bc17f6199e5797834c",
+        "project_path": null,
+        "repository": "charliedorsey/shiu-toolkit-palomar-release"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Shiu Bounds Toolkit",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a nonempty finite set of integers excluding 0, 1, and \u22121, consider the primes for which every integer in the set is a primitive root. When neither Matthews obstruction occurs, the simultaneous primitive primes have a lower bound of order x/log x in every sufficiently large real dyadic interval (x, 2x] and positive lower relative density among the primes. When either obstruction occurs, the simultaneous primitive primes form a finite set. This is Theorem 1.1 of the accompanying paper.",
+      "authors": [
+        {
+          "name": "Vlado Vojdanovski"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11N64",
+          "11F30",
+          "11N36",
+          "11R45"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ArtinMatthewsPaper.main_result"
+        ]
+      },
+      "id": "PALOMAR-2026-11-11-000004",
+      "path": "entries/PALOMAR-2026-11-11-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "04f62f04d704c1e2cedbe291b48417812c2911ac",
+            "fork_repository": "PalomarArchive/Vlado-V--unconditional-artin-matthews--e15f405bc758",
+            "source_repository": "Vlado-V/unconditional-artin-matthews"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2897d81dce18984636bc73423bf4309f0ec7b3923a9b9d5145096cf215711e23",
+        "version": 1
+      },
+      "published_at": "2026-11-11T18:17:01Z",
+      "source": {
+        "commit": "04f62f04d704c1e2cedbe291b48417812c2911ac",
+        "project_path": null,
+        "repository": "Vlado-V/unconditional-artin-matthews"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "An Unconditional Artin\u2013Matthews Theorem for Simultaneous Primitive Roots",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the paper's main theorem: for any permutations \u03c0 and \u03c3 of the d and e intervals, the set of pairs of length vectors (\u03bb, \u03bc) for which the two interval exchange transformations f_{\u03c0,\u03bb} and f_{\u03c3,\u03bc} generate a free group of rank 2 has measure zero. The development contains the irreducible case (Theorem 2.6, from unique ergodicity, rigidity by translations and the Diophantine condition), the almost-everywhere Diophantine property (Proposition 2.5, from the easy direction of Khintchine\u2013Groshev), Lemma 3.1 (the length map of the composition is injective and absolutely continuous), the reduction of the general case to the blocks between consecutive pair-splitting singularities (Lemmas 3.2 and 3.3), Lemma 3.4 (a word trivial on a block, obtained by rescaling the block and applying Theorem 2.6 to it), and the assembly of the per-block words into a single nontrivial word. Masur\u2013Veech unique ergodicity and Veech's rigidity are proved as well, by the Rauzy\u2013Veech induction (`IETFree/RauzyVeech/`, `IETFree/Rigidity/`, `IETFree/UniqueErgodicity/`), so the main theorem is unconditional. The remark that follows the main theorem \u2014 the relation of a trivial word is robust, so the pairs that do not generate a free group contain an open set of full measure \u2014 is proved in `IETFree/Pair/RobustRelation/`: the symbolic data of an arbitrary word and the robustness at a point of the conull set `\u03a9'` (`evalWord_eventually_eq_one`), and the assembly of the open conull set (`exists_isOpen_subset_hasRelation_of_ae`), which `ChallengeSolved.lean` feeds with the a.e. relation it proves from `main` \u2014 the conclusion on `\u0394_\u03c0 \u00d7 \u0394_\u03c3` is `exists_isOpen_ae_exists_nontrivial_evalWordEquiv_eq_one`.",
+      "authors": [
+        {
+          "name": "S\u00e9bastien Gou\u00ebzel"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS"
+        ],
+        "msc2020": [
+          "37E05",
+          "37A15",
+          "37C85",
+          "37A25",
+          "20E05",
+          "11J83"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "IntervalExchange.coe_mkIETEquiv",
+          "IntervalExchange.main",
+          "IntervalExchange.Pair.exists_isOpen_ae_exists_nontrivial_evalWordEquiv_eq_one"
+        ]
+      },
+      "id": "PALOMAR-2026-11-09-000010",
+      "path": "entries/PALOMAR-2026-11-09-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "94c4455c3243ff4229cd5e0c58af6f97879777b7",
+            "fork_repository": "PalomarArchive/sgouezel--IETFree--9c6a211e1e75",
+            "source_repository": "sgouezel/IETFree"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "622b2933d66737ec3c3a9e4f71ab99abe673a75bfbce21388d71d40e1e3d560e",
+        "version": 1
+      },
+      "published_at": "2026-11-09T11:37:11Z",
+      "source": {
+        "commit": "94c4455c3243ff4229cd5e0c58af6f97879777b7",
+        "project_path": null,
+        "repository": "sgouezel/IETFree"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "IETFree \u2014 almost every pair of interval exchange transformations does not generate a free group",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 proof that for every \u03b5 > 0 and all large natural x there is a Goldbach number, an even sum of two primes, in the interval from x to x + 3 x^(26/1075+\u03b5). The theorem is conditional on two cited results taken as explicit hypotheses, never as axioms, and neither is proved here: LiRow052, R. Li, arXiv 2308.04458, Theorem 2, the row \u03b8 = 0.52, primes in the intervals from n - n^(0.52+\u03b5) to n with a lower bound of the right order, with some positive constant since the printed constant differs between versions of the paper; and LiPrintedExceptionalCount, R. Li, arXiv 2407.05651 v6, Theorem 1.1, primes in the intervals from n to n + n^(1/21.5+\u03b5) for almost all n. The argument adapts Theorem 7.1 of arXiv 2407.05651 v6, page 27, exponent 21/860 from the 0.525 of Baker, Harman and Pintz. The exponent 26/1075 is lower by 1/4300, and the gain is only the replacement of 0.525 by Li's 0.52. Li prints this exponent himself, as Theorem 7 of arXiv 2308.04458, with no \u03b5 and no factor 3, so this is a formal check of a known result and not a new exponent. Li's later note, Primes in almost all short intervals II, claims 1/22+\u03b5 in place of 1/21.5+\u03b5, so 26/1075 is not claimed as the best exponent. Both cited papers are used here in their arXiv preprint form. Proved with no cited input: the passage from a count of primes in the intervals below n to a count in the windows from x - 2Y to x - Y, and the combinatorial step from the two counts to a Goldbach number. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude, Codex and Gemini, as listed in PORTING.md, and it is offered for human audit.",
+      "authors": [
+        {
+          "name": "Steve Hubbard"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11P32",
+          "11N05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LeanLab.GoldbachShort78.goldbach_short_1075",
+          "LeanLab.GoldbachShort78.windowCount_of_backward",
+          "LeanLab.GoldbachShort78.goldbach_of_counts",
+          "LeanLab.GoldbachShort78.exponent_1075"
+        ]
+      },
+      "id": "PALOMAR-2026-11-03-000025",
+      "path": "entries/PALOMAR-2026-11-03-000025-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d0d978d2cf565be71d6949ce529ed5503affa72e",
+            "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+            "source_repository": "sthubbar/goldbach-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "07aa9a218ef4676ad5644a2e7174380f0e7c50c22a0b37d6228fee5cc5c2f6ec",
+        "version": 1
+      },
+      "published_at": "2026-11-03T19:21:54Z",
+      "source": {
+        "commit": "d0d978d2cf565be71d6949ce529ed5503affa72e",
+        "project_path": "entries/goldbachshort1075",
+        "repository": "sthubbar/goldbach-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Goldbach numbers in short intervals of length x^(26/1075+\u03b5)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the classical prime-modulus Kloosterman-Weil bound |S_p(m,n)| <= 2 sqrt(p) for nonzero m, n, proved by the Carlitz-Stepanov method following Harcos's exposition, together with an exact Chinese-remainder factorization of unit Kloosterman sums, a squarefree-modulus bound for a unit first coefficient, a bound for the sum defined at the reduced modulus q/gcd(A,q), and interval-length-uniform and weighted bounds for centered incomplete reciprocal sums.",
+      "authors": [
+        {
+          "name": "Charlie Dorsey"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "11L05",
+          "11T23",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "RML.ExpSum.Weil.prime_bound",
+          "RML.ExpSum.Weil.weil1948_bound",
+          "RML.ExpSum.Weil.kloostermanSumPrime_eq_weilKloostermanPrime",
+          "RML.ExpSum.Weil.kloostermanUnitSum_crt",
+          "RML.ExpSum.Weil.squarefreeUnitNumerator_bound",
+          "RML.ExpSum.Weil.reducedModulus_pos",
+          "RML.ExpSum.Weil.reducedModulusSum_bound",
+          "RML.ExpSum.Weil.centeredReducedIntervalSum_bound",
+          "RML.ExpSum.Weil.weightedCenteredReducedIntervalSum_bound"
+        ]
+      },
+      "id": "PALOMAR-2026-11-03-000018",
+      "path": "entries/PALOMAR-2026-11-03-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+            "fork_repository": "PalomarArchive/charliedorsey--weil-bounds-toolkit--fdaf04f318ed",
+            "source_repository": "charliedorsey/weil-bounds-toolkit"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "6c8d51027e206a2aa73420ffb14a06c013b6965f5273517f377b84ccb19e50d9",
+        "version": 1
+      },
+      "published_at": "2026-11-03T09:10:35Z",
+      "source": {
+        "commit": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "project_path": null,
+        "repository": "charliedorsey/weil-bounds-toolkit"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Weil Bounds Toolkit",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a prime p let a = v_2(p-1), m = (p-1)/2^a, H_a the subgroup of (Z/p)^x of order m and s(x) = (-1)^<x>. The development proves the tower of band-parity laws of Paper I of the author's series: the cyclotomic tower (every coordinate of the band-parity sum of the character of order 2^a is congruent modulo 4 to an explicit count), the band-parity tower f_a = sum over H_a of s(u) s(u^2) = m (mod 4) at every odd prime, the doubling count sum over 2H_a of s(u) s(2u) = 2 N_a - m, the imaginary law e_a = 2 N_a - m (mod 4) at every prime p = 1 (mod 4) with its level-3 form, the collapse e_a = +-f_a when 2 is a 2^(a-1)-th power residue, and E. Lehmer's criterion for 2 to be a 2k-th power residue. It also proves the power-map family, the companion law Re C = Im C = kappa (mod 4) at p = 1 (mod 8), and Lehmer-type invariants of the inversion map modulo 4; and, modulo 8, the joint-parity form, the dichotomy, squaring cycles and the order-three pair, the defect lemma, odd multipliers as floor sums and the fifth-interval formula linking M_H(5) to B_{1,theta_p}.",
+      "authors": [
+        {
+          "name": "Joseph S. Farland"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11A15",
+          "11L40",
+          "11R29",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BandParityTower.Ha_spec",
+          "BandParityTower.coordinates_exact",
+          "BandParityTower.lag_identity_level_four",
+          "BandParityTower.cyclotomic_tower",
+          "BandParityTower.band_parity_tower",
+          "BandParityTower.doubling_count",
+          "BandParityTower.imaginary_law",
+          "BandParityTower.imaginary_law_three",
+          "BandParityTower.imaginary_law_two",
+          "BandParityTower.collapse_criterion",
+          "BandParityTower.lehmer_theorem_five",
+          "BandParityTower.power_map_family",
+          "BandParityTower.companion_law_one_mod_eight",
+          "BandParityTower.lehmer_invariants",
+          "BandParityTower.joint_parity_form",
+          "BandParityTower.hminus_mod_eight",
+          "BandParityTower.mod_eight_dichotomy",
+          "BandParityTower.squaring_cycles",
+          "BandParityTower.squaring_on_H",
+          "BandParityTower.cube_root_cycle",
+          "BandParityTower.e_as_correlation",
+          "BandParityTower.order_three_pair",
+          "BandParityTower.real_part_eq_fTower",
+          "BandParityTower.multiplier_identity",
+          "BandParityTower.multiplier_count_sum",
+          "BandParityTower.defect_congruence",
+          "BandParityTower.odd_multipliers",
+          "BandParityTower.fifth_interval_formula"
+        ]
+      },
+      "id": "PALOMAR-2026-11-02-000005",
+      "path": "entries/PALOMAR-2026-11-02-000005-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "fd1508a32a25bbe8a6070aee6128e6e7aca1b1b9",
+            "fork_repository": "PalomarArchive/jkfarland-bot--Bandparitytower--5c24f1f12bf3",
+            "source_repository": "jkfarland-bot/Bandparitytower"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a223db9882f5dc7721f314fe16e6ab2c5a48ed10fca23aea3a9887e32ee66f8a",
+        "version": 2
+      },
+      "published_at": "2026-11-03T07:22:35Z",
+      "source": {
+        "commit": "fd1508a32a25bbe8a6070aee6128e6e7aca1b1b9",
+        "project_path": null,
+        "repository": "jkfarland-bot/Bandparitytower"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "BandParityTower: the band-parity tower and its limit modulo eight",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For an odd prime p, an odd character chi modulo p and m >= 0, the multiplier family C(a) = sum over 0 < n < p/2 of chi(n) (-1)^(n + <a n^(2m)>) has Fourier transform over the characters 2 sum_a conj(psi)(a) C(a) = G(conj psi) G(chi psi^(2m)), with the multiplier constant G(psi) = sum_m psi(m) (-1)^m = 2 (1 - 2 psi(2)) B_(1,psi). The development proves this Mellin duality over any commutative ring, its inversion over the odd complex characters and its form bilinear in first Bernoulli numbers, the half-sum identity, the exponent family and its two collapses. At p = 5 (mod 8), for the quartic character, it proves the coset decomposition of the family, its exact sums over the cosets of the fourth powers, conjugate dynamics, the two second-moment identities, the decomposition of the second-order products of the band-parity companion by coprime pairs, and Parseval's identity for the band weight. Through the inversion and Parseval's identity over the odd characters it proves, for every a not divisible by p, the exact second moment sum over odd chi of |sum over odd psi of psi(a) (1 - 2 conj(psi)(2)) (1 - 2 chi(2) psi(2)^2) B_(1,conj psi) B_(1,chi psi^2)|^2 = ((p - 1)/2)^4.",
+      "authors": [
+        {
+          "name": "Joseph S. Farland"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11L40",
+          "11A15",
+          "11B68",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MellinDuality.multiplier_constant_half",
+          "MellinDuality.multiplier_constant_even",
+          "MellinDuality.half_sum_identity",
+          "MellinDuality.multiplier_constant_bern",
+          "MellinDuality.mellin_duality",
+          "MellinDuality.mellin_duality_inverse",
+          "MellinDuality.mellin_duality_bernoulli",
+          "MellinDuality.mellin_duality_quartic",
+          "MellinDuality.parity_dictionary",
+          "MellinDuality.exponent_family_dual",
+          "MellinDuality.exponent_collapse_first",
+          "MellinDuality.exponent_collapse_second",
+          "MellinDuality.cosets_as_fibers",
+          "MellinDuality.coset_decomposition",
+          "MellinDuality.gamma_identities",
+          "MellinDuality.exponent_terminal_values",
+          "MellinDuality.coset_trace_values",
+          "MellinDuality.coset_trace_second",
+          "MellinDuality.family_mean_values",
+          "MellinDuality.conjugate_dynamics_squaring",
+          "MellinDuality.second_moments",
+          "MellinDuality.gcd_decomposition",
+          "MellinDuality.band_sum_interval",
+          "MellinDuality.pair_structure_identities",
+          "MellinDuality.parseval_identity",
+          "MellinDuality.parseval_any_weight",
+          "MellinDuality.multiplier_family_interval",
+          "MellinDuality.parseval_odd_characters",
+          "MellinDuality.bernoulli_mean_square_identity"
+        ]
+      },
+      "id": "PALOMAR-2026-11-02-000019",
+      "path": "entries/PALOMAR-2026-11-02-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "1a5228293f894c9779404d39808b250705e30137",
+            "fork_repository": "PalomarArchive/jkfarland-bot--MellinDuality--0105682cec7c",
+            "source_repository": "jkfarland-bot/MellinDuality"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "04bb64c7f21c04097fc8571959da790523dafe82eac6a508c313a80d80918c64",
+        "version": 1
+      },
+      "published_at": "2026-11-02T21:07:35Z",
+      "source": {
+        "commit": "1a5228293f894c9779404d39808b250705e30137",
+        "project_path": null,
+        "repository": "jkfarland-bot/MellinDuality"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "MellinDuality: Mellin duality for the band-parity companion",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a prime p = 1 (mod 8) and a quartic character chi modulo p (even, with w = chi(2) = +-1), the development proves that the coordinates of B_(2,chi) = c0 + i c1 are integers with c0 = 4(E_1 + E_-1), c1 = 4(E_i + E_-i) and c0 + c1 = p - 1 modulo 8, and that 8 divides both exactly when w = 1, i.e. when 2 is a fourth power. A Gauss-Lehmer product argument gives the quartic Gauss lemma w = (-1)^(R_1 + R_3) for the quarter counts R_r, the parity of the four quarter counts when w = 1, and the parity of R_2 through the order of 2. For the quarter sum Omega = x + iy (2N(Omega) = h^-(K) for the imaginary cyclic quartic field K of conductor 4p, not formalized) it proves criteria in the quarter counts for 2^k | 2N(Omega), 2 <= k <= 6, a classical evaluation of the fourth, the coordinate valuation formula, a congruence modulo 16 linking c0 - c1 to x - y, and the valuation of B_(2,chi) at 1 + i on its first three cases.",
+      "authors": [
+        {
+          "name": "Joseph S. Farland"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11R29",
+          "11B68",
+          "11A15",
+          "11R16",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "QuarterSumLadder.even_quartic_setting",
+          "QuarterSumLadder.class_sizes",
+          "QuarterSumLadder.weight_two_integrality",
+          "QuarterSumLadder.weight_two_coefficient_congruence",
+          "QuarterSumLadder.weight_two_mod_eight",
+          "QuarterSumLadder.gauss_lehmer_product",
+          "QuarterSumLadder.quartic_gauss_lemma",
+          "QuarterSumLadder.quarter_interval_formula",
+          "QuarterSumLadder.doubling_orbit_parity",
+          "QuarterSumLadder.parity_patterns",
+          "QuarterSumLadder.quarter_sum_expansion",
+          "QuarterSumLadder.ladder_bottom",
+          "QuarterSumLadder.ladder_bottom_valuation",
+          "QuarterSumLadder.ladder_fourth",
+          "QuarterSumLadder.ladder_fourth_classical",
+          "QuarterSumLadder.second_quarter_parity",
+          "QuarterSumLadder.coordinate_valuation_formula",
+          "QuarterSumLadder.ladder_fifth",
+          "QuarterSumLadder.weight_two_comparison",
+          "QuarterSumLadder.weight_two_trichotomy",
+          "QuarterSumLadder.weight_two_trichotomy_valuation"
+        ]
+      },
+      "id": "PALOMAR-2026-11-02-000009",
+      "path": "entries/PALOMAR-2026-11-02-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "756129d46275e42fb4b27b833d156f2a025a2c21",
+            "fork_repository": "PalomarArchive/jkfarland-bot--Quartersumladder--354ba71655d0",
+            "source_repository": "jkfarland-bot/Quartersumladder"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f8395c5a9bf592d80166a1581f49b98087d043c130e4064d833b723a63ba9286",
+        "version": 1
+      },
+      "published_at": "2026-11-02T09:33:29Z",
+      "source": {
+        "commit": "756129d46275e42fb4b27b833d156f2a025a2c21",
+        "project_path": null,
+        "repository": "jkfarland-bot/Quartersumladder"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "QuarterSumLadder: the quarter-sum ladder and the weight-two congruences",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of S. Lavery, \"Discrete Beurling number systems with integer error below every power of x and no zero-free half-plane\". The headline theorem, BModel.one_zero_system_exists, constructs a discrete Beurling generalized number system whose integer counting function satisfies N(x) = x + O_\u03b5(x^\u03b5) for every \u03b5 > 0, while its zeta function is zero-free on no half-plane Re s > 1 \u2212 \u03b5 (a discrete [1, 0]-system in the sense of Broucke\u2013Debruyne\u2013R\u00e9v\u00e9sz). The second theorem, BModel.corollary_2_2_complete, is Corollary 2.2: the answer to Question Q (must N(x) = Ax + O(x^\u03b8) with \u03b8 < 1/2 force a zero-free half-plane?) is negative. The project also proves Theorem A for every \u03b8 \u2208 (0, 1/2 \u2212 10\u207b\u2074]: a system with N(x) = x + O(x^\u03b8 log* x) whose zeta function has zeros \u03c1_k with 1 \u2212 Re \u03c1_k = (log log x_k + O(1))/log x_k, i.e. at distance 1\u00b7log log x_k / log x_k from the line Re s = 1. The method is integer-first: a randomised greedy rule chooses each generalized prime so that the integer count tracks a target x + R(x) whose oscillation R plants the zeros; the main work is a positive drift for the queue of composites at every scale, using a Beurling\u2013Saias-type resolvent bound, a local prime number theorem for the realised system and a cluster-counting theorem, with numerical certificates checked by the Lean kernel (decide +kernel). In Lean both theorems are conditional on one explicit hypothesis, BaseRange.Huxley84, eq. (84) of the paper: a short-interval prime number theorem for the rational primes (relative error \u2264 (log q)\u207b\u00b3 on every interval of length \u2265 (2q)^{7/12} in [q, 2q], for large q). This is a known theorem (Heath-Brown 1988 with the de la Vall\u00e9e Poussin error term) that is not in Mathlib; it is a hypothesis of the theorems, not an axiom. The paper and the formalization were produced with heavy AI assistance (Claude agents; the Lean development was started by Aristotle, Harmonic) and have had no human expert review.",
+      "authors": [
+        {
+          "name": "Samuel Lavery"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11N80",
+          "11M41",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BModel.one_zero_system_exists",
+          "BModel.corollary_2_2_complete"
+        ]
+      },
+      "id": "PALOMAR-2026-11-02-000003",
+      "path": "entries/PALOMAR-2026-11-02-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8",
+            "fork_repository": "PalomarArchive/samlavery--Beurling--e0dcf0ff884f",
+            "source_repository": "samlavery/Beurling"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "296ffeb057573e1ecbcd50624d306676658959a25df97e998ae0d4a4fd4ce3eb",
+        "version": 1
+      },
+      "published_at": "2026-11-02T05:53:49Z",
+      "source": {
+        "commit": "c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8",
+        "project_path": null,
+        "repository": "samlavery/Beurling"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Discrete Beurling number systems with integer error below every power, without a zero-free half-plane (assuming the short-interval prime number theorem (84))",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 proof of Theorems 1, 2 and 3 of A. W. Dudek, On the Riemann hypothesis and the difference between primes, Int. J. Number Theory 11, 2015, arXiv 1402.6417. Each theorem is conditional on the Riemann hypothesis, the paper's own hypothesis, stated with Mathlib's RiemannHypothesis. Theorem 2: for every real x at least 2 there is a prime in the interval from x - (4/pi) sqrt(x) log x to x. Theorem 1: there is c > 0 such that the interval from x to x + c sqrt(x) log x holds more than sqrt(x) primes for every real x at least 2. Theorem 3: for every epsilon > 0 and all large x there is a prime in the interval from x - (1 + epsilon) sqrt(x) log x to x. Each theorem also takes one cited input as an explicit hypothesis, never as an axiom: HSWN70 gZ, the zero count of Hasanalizade, Shen and Wong, arXiv 2107.06506, Corollary 1.2, for T at least 70, stated for gZ, the ordinates of the nontrivial zeros of the Riemann zeta function counted with multiplicity. The paper cites the zero count of Trudgian 2014 at this point, whose constant Hasanalizade, Shen and Wong report to be in error; the corrected count is used instead. The bounds of Schoenfeld 1976 for psi - theta, which the paper also cites, are not an input here: the needed estimate is proved. Dudek's Lemma 4 and the explicit formula for psi_1 are proved as well. An AI agent, Claude, wrote the Lean code, with the ported PrimeNumberTheoremAnd files credited to their authors in PORTING.md; the statements were checked against the paper by AI agents and are offered for human audit.",
+      "authors": [
+        {
+          "name": "Steve Hubbard"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11N05",
+          "11M26"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LeanLab.PNTPort.ExplicitPsi1.Trivial.theorem2_of_RH_hsw",
+          "LeanLab.Dudek2014.Theorem1H.theorem1_of_RH_hsw",
+          "LeanLab.Dudek2014.AbstractC3.theorem3_of_RH_hsw"
+        ]
+      },
+      "id": "PALOMAR-2026-11-01-000028",
+      "path": "entries/PALOMAR-2026-11-01-000028-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "da5cf9edad7896290771dfcab8feee2906399e3d",
+            "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+            "source_repository": "sthubbar/goldbach-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "3bb25b968250724a6b006b0dcc3e322209c00f49cfd44ef808edf7c12451ad2c",
+        "version": 1
+      },
+      "published_at": "2026-11-01T16:23:50Z",
+      "source": {
+        "commit": "da5cf9edad7896290771dfcab8feee2906399e3d",
+        "project_path": "entries/dudek2014",
+        "repository": "sthubbar/goldbach-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "On the Riemann hypothesis and the difference between primes",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry formalizes conditions under which a single finite block of linked sites separates a three-sample genealogy from every panmictic history. A law of the two coalescence-interval lengths and the tree shape of three sampled sequences is uniformly separated at mutation scale k > 0 when some block of L completely linked sites, observed under the equal-rates mutation model, has a law at \u21131 distance at least a fixed \u03b5 > 0 from the block law of every panmictic history (any nonnegative, locally integrable, time-varying coalescence rate with a diverging integrated clock), at every mutation scale and for every alphabet size K \u2265 2. For laws with nonnegative interval lengths, a positive first coalescence time, and a regular first-survival profile matching the first coalescence time, uniform separation holds if and only if the law differs from the panmictic law with the profile's rate, in which the tree shape is uniform and independent of the times; a version for laws of the interval lengths alone, with a uniform independent shape, is also given. For three-sample symmetric island histories with time-varying coalescence and migration rates under the stated integrability hypotheses, uniform separation holds if and only if the history is not the one with all three lineages starting in the same island, no migration, and a diverging integrated coalescence clock. For finite-phase histories, separation is equivalent to failure of a density identity characterizing the panmictic form.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "q-bio.PE",
+          "math.PR"
+        ],
+        "msc2020": [
+          "92D10",
+          "60J90",
+          "62F03"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.WeakRegularSeparation.nonnegative_internal_branch_separation_iff",
+          "Rhone.Palomar.WeakRegularSeparation.regular_profile_uniform_criterion",
+          "Rhone.Palomar.WeakRegularSeparation.island_uniformlySeparated_iff",
+          "Rhone.Palomar.WeakRegularSeparation.finitePhase_uniformlySeparated_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000031",
+      "path": "entries/PALOMAR-2026-10-29-000031-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "19694b3aa17218c9c4b77c62b3716d349153e75647221d369a51083768deb200",
+        "version": 1
+      },
+      "published_at": "2026-10-29T16:15:47Z",
+      "source": {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "When one finite block of linked sites separates a three-sample genealogy from every panmictic history",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "One assembled Lean formalization of principal refined absorption results and their consequences. The selected results include refined omni-absorbers and refiners, labelled reserve matchings, dense compatible decompositions, an additive compatible-absorber interface retaining independence of the entire old ambient vertex set, and existence of simple designs for every fixed q > r \u2265 2 and index \u03bb \u2265 1 at all sufficiently large admissible orders. The literal global embedding conclusion of the survey is refuted separately from a proved piecewise replacement. The research-note endpoints give completion avoiding an arbitrary forbidden partial Steiner system, sparse prescribed and finite embedded exact intersections, an initial polynomial intersection interval, and polynomial excess in partial parallel classes and Nash\u2013Williams schedule rounds. Both external inputs are supplied by pinned proved theorems. The single comparison selects eighteen declarations from the existing aggregate proof root.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05B05",
+          "05B07",
+          "05C15",
+          "05C70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "RefinedAbsorption.Faithful2024.theorem_1_7",
+          "RefinedAbsorption.Faithful2024.theorem_1_11",
+          "RefinedAbsorption.Original2024.theorem_6_1",
+          "RefinedAbsorption.Pending.theorem_2_8",
+          "RefinedAbsorption.Faithful2024.theorem_6_2_ambient",
+          "RefinedAbsorption.Pending.theorem_6_3",
+          "RefinedAbsorption.Final.theorem_1_10_faithful",
+          "RefinedAbsorption.existenceConjecture_proved",
+          "RefinedAbsorption.Final.existenceConjecture_steiner",
+          "RefinedAbsorption.FaithfulSurvey2025.not_generalEmbeddingLemmaLiteral",
+          "RefinedAbsorption.FaithfulSurvey2025.generalEmbedding_piecewise",
+          "RefinedAbsorption.Extensions.steiner_completion_avoiding",
+          "RefinedAbsorption.Extensions.steiner_intersection_prescribed",
+          "RefinedAbsorption.Extensions.partialSteiner_intersection_embedding",
+          "RefinedAbsorption.Extensions.steiner_intersection_spectrum_poly",
+          "RefinedAbsorption.Assembly.steiner_quantitatively_almost_resolvable",
+          "RefinedAbsorption.Assembly.exists_quantitatively_almost_resolvable_steiner",
+          "RefinedAbsorption.Assembly.nash_williams_scheduled_decomposition"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000005",
+      "path": "entries/PALOMAR-2026-10-29-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5bfe5c7346a7b245581152dccebe363e22f072b6",
+            "fork_repository": "PalomarArchive/jtraverso--refined-absorption-lean--6accc6d51192",
+            "source_repository": "jtraverso/refined-absorption-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9776638475432163093caa3b3468401b288598289786ef844b4c2980ffa3bf5c",
+        "version": 1
+      },
+      "published_at": "2026-10-29T03:11:14Z",
+      "source": {
+        "commit": "5bfe5c7346a7b245581152dccebe363e22f072b6",
+        "project_path": null,
+        "repository": "jtraverso/refined-absorption-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Formalizing Delcourt\u2013Postle\u2019s refined absorption in Lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of nonuniqueness for the unforced incompressible Euler equations on the two-dimensional square torus. For each finite real exponent p at least one and each positive time interval, the selected theorem constructs a common mean-zero, divergence-free initial datum in L2 and W1p, and two distinct weak solutions continuous in time with values in L2. Their distributional vorticities have strongly measurable Lp-valued representatives that are essentially bounded in time. This is the two-dimensional finite-Lp question in the first part of Buckmaster and Vicol's Problem 6. The full proof and reproducibility checks have passed.",
+      "authors": [
+        {
+          "name": "Tao Tao"
+        },
+        {
+          "name": "Haiqi Zhang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AP"
+        ],
+        "msc2020": [
+          "35Q31",
+          "76B03"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarEuler.main_result"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000008",
+      "path": "entries/PALOMAR-2026-10-28-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ad7deb36ea565f34bdb784e9153073c5a220d46a",
+            "fork_repository": "PalomarArchive/geogleswift-glitch---euler2d-finite-lp-nonuniqueness-palomar--538bf2aa90ac",
+            "source_repository": "geogleswift-glitch/-euler2d-finite-lp-nonuniqueness-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1ec0b90bf71fe21ca0759e8c16c4d2cc2265a10bdf0b9436e07f911508765ccd",
+        "version": 1
+      },
+      "published_at": "2026-10-28T04:48:55Z",
+      "source": {
+        "commit": "ad7deb36ea565f34bdb784e9153073c5a220d46a",
+        "project_path": null,
+        "repository": "geogleswift-glitch/-euler2d-finite-lp-nonuniqueness-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Finite-Lp vorticity nonuniqueness for two-dimensional Euler",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib formalization of Conjecture 7.3 of arXiv:2609.35632 on the central configurations of the planar Newtonian four-body problem. At every strictly convex central configuration of four positive masses, the Hessian form Q of U + (\u03bb/2)I is at least two thirds of its radial part K, and strictly so wherever K is positive. In the notation of the paper this is \u03bb_max(G) < 1/3 for the explicit 2\u00d72 matrix G of its Proposition 3.5, and by its Proposition 7.2 the constant 2/3 is optimal. It sharpens Theorem B of the paper, Q \u2265 K/4. The definitions and the reduction to the normal form of Corbera, Cors and Roberts are those of the registered development lean4body-uniqueness. The new parts are a majorant that pays only the largest eigenvalue of S(y), an exact test that is positive definite exactly when \u03bb_max(G) < 1/3, and a computer-assisted proof of that test: a branch and bound with interval arithmetic over the three-dimensional set of normalized convex central configurations, reduced by a symmetry to half of it, and an exact Taylor-form theorem at the corner where the margin of the test vanishes. Lean's kernel checks the certificates with `decide +kernel`. The trusted base is Lean's kernel, including its built-in arithmetic on natural-number literals (GMP-accelerated), and the proofs use only Lean's three standard axioms.",
+      "authors": [
+        {
+          "name": "Tejasvi Singh Tomar"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math-ph"
+        ],
+        "msc2020": [
+          "70F10",
+          "70F15",
+          "65G40"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "C4.conj_sharp",
+          "C4.conj_sharp_strict"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000009",
+      "path": "entries/PALOMAR-2026-10-27-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4967a62ec6f41d075d1808bbfd091927bcfe9c7b",
+            "fork_repository": "PalomarArchive/tejasvi--lean4body-optimal-bound--f84a3aa41f81",
+            "source_repository": "tejasvi/lean4body-optimal-bound"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9da942e00b7d3b3049159849cbdf80a4faae2f9ad40474f7a8e59b992bb34771",
+        "version": 1
+      },
+      "published_at": "2026-10-27T15:53:25Z",
+      "source": {
+        "commit": "4967a62ec6f41d075d1808bbfd091927bcfe9c7b",
+        "project_path": null,
+        "repository": "tejasvi/lean4body-optimal-bound"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The optimal Hessian bound for convex four-body central configurations",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For pairwise distinct primes p, q and r, the three-prime reciprocal running-LCM kernel has nonzero square minors of every order, with row and column indices chosen independently of the third exponent. Consequently it admits no finite rational separated representation. The selected entry also proves an exact rank formula for threshold-column matrices, an explicit two-by-two example at 2,3,5, separation in the two-prime comparison, and the four-base dyadic recurrence for the actual 2,3,5 sum. A uniform finite-rank approximation statement concerns the rescaled carry matrix. The stronger unit-determinant modular minors are in E269_08 and are outside this configuration. Infinite kernel rank does not prove irrationality of the running-LCM series. In the selected rank theorem the determinants remain nonzero for every fixed third exponent k using the same injective row and column maps. The distance theorem concerns a rescaled real carry matrix and is not an approximation lower bound for the original summable kernel.",
+      "authors": [
+        {
+          "name": "Will Cook"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11B83",
+          "15A03",
+          "11J72"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarCorpus.E269.PaperStatementsA.dyadicBlockBase235_cases",
+          "PalomarCorpus.E269.PaperStatementsA.dyadicBlockBase235_mem_interval",
+          "PalomarCorpus.E269.PaperStatementsA.dyadicInternalPower_exponent_unique",
+          "PalomarCorpus.E269.PaperStatementsA.exists_dyadicInternalPower_iff_log_succ",
+          "PalomarCorpus.E269.PaperStatementsA.log_dyadic_succ_eq_of_no_internalPower",
+          "PalomarCorpus.E269.PaperStatementsA.paper_two_by_two_fixture",
+          "PalomarCorpus.E269.PaperStatementsA.paper_uniform_rank_and_nonseparation",
+          "PalomarCorpus.E269.PaperStatementsA.radix_eq_height_ratio",
+          "PalomarCorpus.E269.PaperStatementsA.threePrimeHeight_dyadicBlock_succ",
+          "PalomarCorpus.E269.PaperStatementsB.real_two_prime_separation",
+          "PalomarCorpus.E269.PaperStatementsC.long_actual_orbit",
+          "PalomarCorpus.E269.PaperStatementsE.uniform_rank_complete",
+          "PalomarCorpus.E269.PaperStructuresH.rank_cutMatrix"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000038",
+      "path": "entries/PALOMAR-2026-10-22-000038-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "80024c64bc77a95249e34824a36bf43989f62ae6",
+            "fork_repository": "PalomarArchive/wcook04--plectis-erdos-lean--26c7e2ff36da",
+            "source_repository": "wcook04/plectis-erdos-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "206fe8e8cc06926a5b141075ee718bfa470be07b66bba7fba490db8ff369c78c",
+        "version": 1
+      },
+      "published_at": "2026-10-22T16:02:25Z",
+      "source": {
+        "commit": "80024c64bc77a95249e34824a36bf43989f62ae6",
+        "project_path": null,
+        "repository": "wcook04/plectis-erdos-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Infinite rank of the three-prime running-LCM kernel",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Given any convergent dyadic series with nonnegative integer coefficients, any finite prefix and any eventually unbounded correction allowance, one common permitted set of upper Banach density zero supports nonnegative integer corrections realising every target in a nondegenerate interval above the original sum. Each fixed modulus eventually divides both corrections and cumulative corrections beyond a cutoff independent of the target. With polylogarithmic allowance, the selected theorem also bounds support in dyadic windows and preserves empirical block distributions in total variation for lengths o(log log X), uniformly in the target. The entry additionally states exact prime-to-gap summation identities and tail rationality criteria. It does not select the prime-gap joint countermodel, which in the paper uses named outside inputs, and makes no claim that corrected cumulative positions are prime or that the original prime series is irrational.",
+      "authors": [
+        {
+          "name": "Will Cook"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11J72",
+          "11B83",
+          "11A41"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarCorpus.E251.PaperStatementsA.bounded_test_finite_coupling",
+          "PalomarCorpus.E251.PaperStatementsC.real_dyadic_orbit_eq_true_tail_iff",
+          "PalomarCorpus.E251.PaperStatementsG.dyadicPartialSumQ_eq_start_add_differences",
+          "PalomarCorpus.E251.PaperStatementsG.infinite_prime_gap_identity",
+          "PalomarCorpus.E251.PaperStatementsG.irrationality_reformulation",
+          "PalomarCorpus.E251.PaperStatementsG.prime0_dyadic_summation_by_parts",
+          "PalomarCorpus.E251.PaperStatementsG.rationality_classification",
+          "PalomarCorpus.E251.PaperStatementsH.real_block_identity",
+          "PalomarCorpus.E251.PaperStatementsI.local_target_interval",
+          "PalomarCorpus.E251.UniformSparseRationalisation.arbitrary_word_sparse_rationalisation_uniform",
+          "PalomarCorpus.E251.UniformSparseRationalisation.polylogarithmic_word_interval_uniform"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000037",
+      "path": "entries/PALOMAR-2026-10-22-000037-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "34ab2ba6304c936a3537fd1cd8a91f23bbf2e575",
+            "fork_repository": "PalomarArchive/wcook04--plectis-erdos-lean--26c7e2ff36da",
+            "source_repository": "wcook04/plectis-erdos-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "5712e0897d5af8ba223c0186066f8b97f68b8495133a9ab15d7128846e159581",
+        "version": 1
+      },
+      "published_at": "2026-10-22T15:56:47Z",
+      "source": {
+        "commit": "34ab2ba6304c936a3537fd1cd8a91f23bbf2e575",
+        "project_path": null,
+        "repository": "wcook04/plectis-erdos-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Uniform sparse rationalisation of dyadic series",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, about cut-and-project schemes on a fixed integer lattice Z^iota invariant under an integer matrix A: splittings R^iota = E + H into A-invariant subspaces with Z^iota meeting H only in 0 and the projection of Z^iota to H dense in H, a window W in H (bounded, containing a relative ball), the model set Lambda(W) = {pi_E g : g in Z^iota, pi_H g in W}, and admissibility, some window with A Lambda(W) contained in Lambda(W) (inflation symmetry in Meyer's inclusion sense). The least physical dimension d(A) is the least dim E over admissible schemes. Thirteen compared theorems. (1) For every integer A, a scheme is admissible iff A is power-bounded on H; then the orbit window is a compact convex symmetric invariant window; the per-window criterion; and U(A) <= dim E, U(A) the number of eigenvalues of modulus > 1. (2) Kronecker's density criterion in cut-and-project form. (3) For every integer A with det A != 0, any chi_A: (a) d(A) is the sum over the distinct irreducible factors p of chi_A over Q of m_p u_p + c_p (m_p - r_1(p)), plus min(deg p, 2) when every root of p lies on the unit circle and r_1(p) = m_p, where m_p is the multiplicity, u_p and c_p count the roots of p of modulus > 1 and = 1, and r_1(p) = (2 dim ker p(A) - dim ker p(A)^2) / deg p (ranks over Q) is the number of Jordan blocks of size one at each root of p; (b) the value is an invariant of rational similarity; (c) the factors with all roots on the unit circle are the cyclotomic ones; and (d) for chi_A squarefree every invariant splitting is E = ker q_E(A), H = ker q_H(A) with chi_A = q_E q_H, it is admissible iff the roots of q_H lie in the closed unit disk and every irreducible rational factor of chi_A shares a root with q_E, and d(A) = U(A) + circleCount(A), counting 1 for each factor x - 1, x + 1 and 2 for each other cyclotomic factor, each with its multiplicity. (4) For det A != 0 and hyperbolic A, any chi_A and no diagonalizability: a scheme is admissible iff E contains the unstable set iff H lies in the stable set; an invariant splitting carries an admissible scheme iff E contains the unstable set; d(A) = U(A), attained only by the unstable/stable splitting. (5) For det A != 0, any chi_A: d(A) = 1 iff chi_A is irreducible with exactly one root of modulus > 1 (a real root, a Pisot or Salem number up to sign, or an integer on Z^1), or A = +-1 in any rank; in the irreducible case every admissible line is the eigenline. (6) If A^k = 1: every factor is cyclotomic and d = sum of min(deg p, 2) over the distinct factors; the same for chi_A squarefree with all roots on the unit circle; every integer matrix with chi_A = Phi_n, n >= 3 (multiplication by a primitive n-th root of unity), needs exactly a plane. (7) Jordan blocks on the circle: I_2 and the Jordan block J_2 both have chi = (x - 1)^2, for which the squarefree count of (3), with x - 1 counted twice, gives 2, but d = 1 and 2; 1 + J_2(1) and 1 + J_3(1) have d = 2 and 3. (8) Multiplication by rho, rho^-1, Q and theta = -Q^-1 = 1 - Q^3 on Z[rho] and Z[Q] (rho^3 = rho + 1, Q^4 = Q + 1): d = 1, 2, 3, 1. (9) On Z[rho] (x) Z[Q] (degree 12), multiplication by every alpha other than 0, +-1 is nonsingular (det != 0) and hyperbolic with d = U; for rho, theta, rho Q and Q the values are 4, 3, 5, 9. (10) rho and theta act on their unstable spaces as real scalars, and the spectral projection carries the quartic (resp. cubic) sector onto them with the Gram pairing GramRho (x) GramQ equal to that of GramQ (resp. GramRho), of types (3,1) and (2,1). (11) The scheme of Q on Z^4 with an interval window: a segment, an explicit Q-invariant model set in R^3, determinant -1/q' on E, non-real moduli, and the types (2,1) and (1,0) of the trace form on E and H. (12) A Salem witness, the companion of x^4 - x^3 - x^2 - x + 1: not hyperbolic, d = 1. (13) Every model set is a Delone set (Mathlib's Delone.DeloneSet) with uniformly discrete difference set. The mathematics of (1), (2), (4), (5) for irreducible chi_A, and (13), and of (6) for chi_A = Phi_n, is known in other formulations (Masakova-Mazac-Pelantova 2021; Kronecker, Pleasants 2000; Harriss-Koivusalo-Walton 2025, preprint; Meyer 1972, 1995; Lagarias 1999; Solomyak 2020; the classical cyclotomic model sets; Moody 1997); (1) and (4) are stated with no diagonalizability hypothesis. The scheme and model set of (11) are, in substance, instances of Masakova-Mazac-Pelantova Thm 13.1 and of Harriss-Koivusalo-Walton Section 3.4, and are not new. For squarefree chi_A the count of (3) also follows from the arguments of Masakova-Mazac-Pelantova (Lemma 5.1, Prop. 8.1(iii), Cor. 13.4), stated there for generic (aperiodic) schemes; the lattice-first least physical dimension was not found stated in the sources read (search completed 2026-10-20). Beyond the cited cases, the entry proves the least physical dimension for every nonsingular integer matrix (3), including what lies outside the diagonalizable class of Masakova-Mazac-Pelantova: a Jordan block of size >= 2 at an eigenvalue on the unit circle counts in full (the terms c_p (m_p - r_1(p)), which vanish for diagonalizable A), and at a cyclotomic factor with such a block the blocks of size one cost nothing, the internal space being tilted into the socle of the larger blocks; the witnesses are J_2, 1 + J_2(1) and 1 + J_3(1) (7). Every admissible scheme of an A with such a block at a root of unity has Z^iota meeting E in a nonzero vector. It also proves the characterization of every admissible splitting for squarefree chi_A ((3)(d)), non-generic splittings included (its necessity half is the injectivity argument of Masakova-Mazac-Pelantova, Lemma 5.1), and (1) for every integer matrix and (4) for every nonsingular hyperbolic integer matrix, with no diagonalizability hypothesis; for diagonalizable A and generic schemes, the uniqueness of the minimal scheme in (4) and of the minimal physical line in (5) is immediate from Masakova-Mazac-Pelantova, Cor. 13.4. For det A != 0 and squarefree chi_A with a factor Phi_n, n not in {1, 2, 3, 4, 6}, the minimal scheme is not unique, by (3)(d). The companion matrices are multiplication by rho and Q in the power bases by definition, so Crho^i (x) CQ^j is multiplication by rho^i Q^j in the product basis. That the rho^i Q^j are a Z-basis of the ring of integers of Q(rho, Q) is statement (8) of the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031); that GramRho, GramQ and GramRho (x) GramQ are the Gram matrices of the trace forms in these bases is statements (8), (9) and (19) of the author's registered entry PALOMAR-2026-09-02-000014, in which Q(rho) (x) Q(Q) is the field Q(rho, Q) (its (23)). These are cited, not compared. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K, whose integers are Z[rho] (x) Z[Q], is the parent of both (the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031), statements (7), (8)). A model set is the shadow of a lattice cut through a window, a standard mathematical model of a quasicrystal (Moody 2000). Read through the theory, this entry's theorems fix how many dimensions each of the theory's inflations needs to be the symmetry of one, and which ones.\nSpace inflates the parent through spacetime, and spacetime inflates it through space. On the parent's lattice the plastic inflation rho needs exactly four physical dimensions, and only one scheme attains four (4, 9). Those four are a copy of spacetime's: rho has a single expanding embedding in Q(rho), the real one, and the spectral projection maps the quartic sector onto them, carrying Z[Q] with its trace form unchanged, of Lorentzian type (3,1) (10). rho acts on them as a pure dilation by rho = 1.3247..., the same stretch in every direction (10). Symmetrically, the unit theta = -Q^-1 = 1 - Q^3 needs exactly three, and those three are a copy of space's: Q(rho)'s real space with its form of type (2,1) unchanged, dilated by t = -1/q' = 1.3803... (8, 9, 10). Taken over all three embeddings of Q(rho) instead of the one expanding embedding, the form on the quartic sector is tripled: the factor 3 of statement (13) of PALOMAR-2026-10-21-000012.\nThe clock needs one dimension; the ruler needs five. On Z[rho] the plastic inflation needs exactly one: the line, over a two-dimensional window at the complex place (8). The plastic substitution's control-point sets are regular model sets in this scheme, with Rauzy-fractal windows in C (Baake and Grimm 2020), and in the theory the line is time and its points are the ticks (PALOMAR-2026-08-19-000006, PALOMAR-2026-10-18-000019). The coupling ruler rho Q, which generates the parent field (Q(rho Q) = K; statement (15) of PALOMAR-2026-10-21-000012, where Z[rho Q] has index 53 in the integers; PALOMAR-2026-09-01-000005), needs exactly five, over a seven-dimensional window (9): one real and two complex expanding places, a dimension neither sector has.\nThe parent holds no circle, so every minimal scheme is forced. Off the parent, eigenvalues on the unit circle can change the count: a Salem inflation's circle eigendirections lie in the internal space and cost nothing, so it still needs only a line (5, 12), but multiplication by a primitive n-th root of unity, n >= 3, needs exactly a plane, and every element of finite order n >= 3 needs at least one (6). The parent has none. No element of K other than +-1 has a conjugate on the unit circle (statement (17) of PALOMAR-2026-10-21-000012), so every inflation of the parent by an element other than 0 and +-1 is hyperbolic, needs exactly as many dimensions as it has expanding embeddings (a complex place counts twice), and has a unique minimal scheme (4, 9).",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "math.DS",
+          "math.NT",
+          "math-ph",
+          "gr-qc",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "52C23",
+          "37D20",
+          "11R06",
+          "11J71",
+          "11R04",
+          "15A21",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ModelSetDimension.admissibility_criterion",
+          "ModelSetDimension.kronecker_density_criterion",
+          "ModelSetDimension.least_physical_dimension",
+          "ModelSetDimension.hyperbolic_case",
+          "ModelSetDimension.dimension_one_pisot_or_salem",
+          "ModelSetDimension.finite_order_case",
+          "ModelSetDimension.jordan_block_witnesses",
+          "ModelSetDimension.sector_rings",
+          "ModelSetDimension.compositum_lattice",
+          "ModelSetDimension.compositum_dilations",
+          "ModelSetDimension.quartic_model_set",
+          "ModelSetDimension.salem_witness",
+          "ModelSetDimension.modelSet_isMeyer"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000030",
+      "path": "entries/PALOMAR-2026-10-22-000030-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+            "fork_repository": "PalomarArchive/stalex444--pdt-inflation-model-set-dimension--6934a2b28ed6",
+            "source_repository": "stalex444/pdt-inflation-model-set-dimension"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cb55a83f03a2badb3cc989e42f8e203e2bee88d1ff40bbe4f369dd73212c87ad",
+        "version": 1
+      },
+      "published_at": "2026-10-22T11:57:42Z",
+      "source": {
+        "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "project_path": null,
+        "repository": "stalex444/pdt-inflation-model-set-dimension"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The least physical dimension of an inflation-symmetric model set, with the cubic, quartic and degree-12 inflations of x^3 - x - 1 and x^4 - x - 1",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of H. Iwaniec, \"On the error term in the linear sieve\" (Acta Arith. 19, 1971) and \"On the problem of Jacobsthal\" (Demonstratio Math. 11, 1978). The headline result is Iwaniec's bound for Jacobsthal's problem: if m consecutive integers are each divisible by one of r \u2265 2 given primes, then m \u2264 C (r log r)\u00b2 for an absolute constant C. More strongly, every interval of length c \u220f (1 \u2212 1/q)\u207b\u00b9 r\u00b2 log r contains at least r\u00b2 integers coprime to r given primes. Both the Theorem and the Corollary of the 1978 paper are proved, together with its Lemma 1 (the shifted sieve, both bounds) and Lemma 2. The 1971 paper is formalized in full: the Rosser\u2013Iwaniec linear sieve at the sifting limit with general modulus k and arbitrary finite sequences (\u00a72); the sieve functions f, F and the majorants \ud835\udd10, \ud835\udd1a defined by delay-differential equations, including F(3) = 2e^\u03b3 \u2212 3 and the asymptotics of \ud835\udd10 (\u00a73); the main term with error O(1/log y) and support of size O(y / log\u00b2 y) (\u00a74, Theorems 4 and 5); and Theorem 1 with its Corollary, Theorem 2 (C\u2080(r) \u226a r\u00b2 log\u00b2 r) and Theorem 3 (\u00a75). The prime number theorem with de la Vall\u00e9e Poussin error term and Mertens' theorems come from a vendored copy of PrimeNumberTheoremAnd.",
+      "authors": [
+        {
+          "name": "Jason Davies"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11N35",
+          "11N36",
+          "11N05",
+          "11N25"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "IwaniecLinearSieve.iwaniecBound",
+          "IwaniecLinearSieve.iwaniec_theorem",
+          "IwaniecLinearSieve.theorem1_full",
+          "IwaniecLinearSieve.corollary_upper",
+          "IwaniecLinearSieve.corollary_lower",
+          "IwaniecLinearSieve.theorem2",
+          "IwaniecLinearSieve.theorem3_fst",
+          "IwaniecLinearSieve.theorem3_snd"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000021",
+      "path": "entries/PALOMAR-2026-10-22-000021-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c8d01549d2ae640b36ec198c1f0f6495f1b036cf",
+            "fork_repository": "PalomarArchive/jasondavies--iwaniec-linear-sieve--fcbfd18a0a25",
+            "source_repository": "jasondavies/iwaniec-linear-sieve"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e72171af245fb17b7c7a85d3d6fde18b6dfb3b01b5ff798d3fad0f23f737dde8",
+        "version": 1
+      },
+      "published_at": "2026-10-22T09:47:00Z",
+      "source": {
+        "commit": "c8d01549d2ae640b36ec198c1f0f6495f1b036cf",
+        "project_path": null,
+        "repository": "jasondavies/iwaniec-linear-sieve"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Iwaniec's linear sieve at the sifting limit and Jacobsthal's problem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of a technical lemma in the paper \"Nonlinear lower-tail large deviations at criticality\" by Matthew Kwan and Huy Tuan Pham. This lemma is used to solve a certain variational problem, which is necessary to characterise the probability that a random graph is triangle-free in the so-called \"critical regime\" where the edge probability is of order 1 / sqrt n.\nSpecifically, this lemma defines a \"certificate function\" G and proves that it satisfies a certain inequality. This involves lots of interval arithmetic.",
+      "authors": [
+        {
+          "name": "Matthew Kwan"
+        },
+        {
+          "name": "Huy Tuan Pham"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.PR"
+        ],
+        "msc2020": [
+          "05C80",
+          "60F10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TriangleNumerical.entropy_certificate"
+        ]
+      },
+      "id": "PALOMAR-2026-10-19-000018",
+      "path": "entries/PALOMAR-2026-10-19-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2d3c19f579dc366a3cbe2083df58a51909a23af0",
+            "fork_repository": "PalomarArchive/mkwn--triangle-free-probability--d64112e43b6d",
+            "source_repository": "mkwn/triangle-free-probability"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "aec80820d1c74df6ef65b006f0a270fd5bbaa36fb60b3544d0dd5abfe1875fb8",
+        "version": 1
+      },
+      "published_at": "2026-10-19T13:15:13Z",
+      "source": {
+        "commit": "2d3c19f579dc366a3cbe2083df58a51909a23af0",
+        "project_path": null,
+        "repository": "mkwn/triangle-free-probability"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A certificate for the triangle variational problem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Proves sharp bounds for both extrema of three consecutive ordinary continued-fraction approximation coefficients. Exact finite runs of every integer central digit at least two have rational four-corner constants, unique coordinate extremizers, strict actual inequalities, and optimality within the prescribed digit classes. The project also proves exact clipping on every closed unit-square rectangle for every real parameter at least one; sharp inverse stability for both extrema for every real parameter at least two, including their equality loci and actual-convergent optimality; fixed-word sharpness at a fixed index; constant-future and exhausted-past boundary results; effective two-sided run-gap estimates; optimal actual constant-digit-window cutoffs; and an executable rational Lean interface.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11J70",
+          "11A55",
+          "26D07"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ContinuedFractionBounds.convergent_eq",
+          "ContinuedFractionBounds.ordinary_convergent_triple",
+          "ContinuedFractionBounds.runLowerBound_extremizer",
+          "ContinuedFractionBounds.runUpperBound_extremizer",
+          "ContinuedFractionBounds.runBounds_rational",
+          "ContinuedFractionBounds.actual_run_bounds",
+          "ContinuedFractionBounds.actual_run_lower_sharp",
+          "ContinuedFractionBounds.actual_run_upper_sharp",
+          "ContinuedFractionBounds.global_stability",
+          "ContinuedFractionBounds.global_stability_eq_iff",
+          "ContinuedFractionBounds.stabilityConstant_optimal",
+          "ContinuedFractionBounds.stabilityConstant_two",
+          "ContinuedFractionBounds.actual_stability_strict",
+          "ContinuedFractionBounds.actual_stabilityConstant_optimal",
+          "ContinuedFractionBounds.near_extremizer_radius",
+          "ContinuedFractionBounds.small_deficit_in_interval",
+          "ContinuedFractionBounds.lower_level_iff",
+          "ContinuedFractionBounds.upper_level_iff",
+          "ContinuedFractionBounds.lower_eq_threshold_iff",
+          "ContinuedFractionBounds.upper_eq_threshold_iff",
+          "ContinuedFractionBounds.lower_rectangle_maximum",
+          "ContinuedFractionBounds.upper_rectangle_minimum",
+          "ContinuedFractionBounds.lower_rectangle_threshold_iff",
+          "ContinuedFractionBounds.upper_rectangle_threshold_iff",
+          "ContinuedFractionBounds.fixed_word_future_sequences",
+          "ContinuedFractionBounds.exhausted_past",
+          "ContinuedFractionBounds.metallic_irrational",
+          "ContinuedFractionBounds.metallic_digits",
+          "ContinuedFractionBounds.metallic_theta",
+          "ContinuedFractionBounds.metallic_triple_even",
+          "ContinuedFractionBounds.metallic_triple_odd",
+          "ContinuedFractionBounds.metallic_triples_tendsto",
+          "ContinuedFractionBounds.metallic_future_run_extrema",
+          "ContinuedFractionBounds.metallic_low_example_states",
+          "ContinuedFractionBounds.metallic_high_example_states",
+          "ContinuedFractionBounds.metallic_low_example_attains",
+          "ContinuedFractionBounds.metallic_high_example_attains",
+          "ContinuedFractionBounds.past_ne_metallic",
+          "ContinuedFractionBounds.infinite_future_iff_metallic",
+          "ContinuedFractionBounds.envelopes_lipschitz",
+          "ContinuedFractionBounds.run_constants_convergence",
+          "ContinuedFractionBounds.small_deficit_constant_cell",
+          "ContinuedFractionBounds.small_deficit_digit_window",
+          "ContinuedFractionBounds.silver_one_low_high",
+          "ContinuedFractionBounds.past_rational",
+          "ContinuedFractionBounds.future_irrational",
+          "ContinuedFractionBounds.runCell_shift",
+          "ContinuedFractionBounds.runCell_eq_Icc",
+          "ContinuedFractionBounds.runCell_interiors_disjoint",
+          "ContinuedFractionBounds.metallic_not_mem_runCell",
+          "ContinuedFractionBounds.fixedPastLower_extremum",
+          "ContinuedFractionBounds.fixedPastUpper_extremum",
+          "ContinuedFractionBounds.fixedPast_bounds_rational",
+          "ContinuedFractionBounds.fixed_past_bounds",
+          "ContinuedFractionBounds.fixedPast_bounds_strict_threshold",
+          "ContinuedFractionBounds.fixed_past_lower_sharp",
+          "ContinuedFractionBounds.fixed_past_upper_sharp",
+          "ContinuedFractionBounds.exhausted_fixed_past_bounds",
+          "ContinuedFractionBounds.fixed_word_metallic_realization",
+          "ContinuedFractionBounds.terminal_one_endpoint",
+          "ContinuedFractionBounds.exactFutureRun_iff_mem",
+          "ContinuedFractionBounds.fixed_word_irrational_future_realization",
+          "ContinuedFractionBounds.global_upper_stability",
+          "ContinuedFractionBounds.global_upper_stability_eq_iff",
+          "ContinuedFractionBounds.upperStabilityConstant_optimal",
+          "ContinuedFractionBounds.upperStabilityConstant_two",
+          "ContinuedFractionBounds.actual_upper_stability_strict",
+          "ContinuedFractionBounds.actual_upperStabilityConstant_optimal",
+          "ContinuedFractionBounds.actual_upper_stability_sharp",
+          "ContinuedFractionBounds.rational_past_irrational_future_realization",
+          "ContinuedFractionBounds.actual_coordinate_sequences",
+          "ContinuedFractionBounds.run_gap_bounds",
+          "ContinuedFractionBounds.lowerProfile_optimal",
+          "ContinuedFractionBounds.upperProfile_optimal",
+          "ContinuedFractionBounds.sharp_window_complement_bounds",
+          "ContinuedFractionBounds.sharp_window_complement_attainment",
+          "ContinuedFractionBounds.sharp_rectangle_complement_bounds",
+          "ContinuedFractionBounds.sharp_rectangle_complement_attainment",
+          "ContinuedFractionBounds.sharp_window_digit_window",
+          "ContinuedFractionBounds.sharp_symmetric_digit_window",
+          "ContinuedFractionBounds.silver_sharp_window_one",
+          "ContinuedFractionBounds.silver_sharp_window_two",
+          "ContinuedFractionBounds.silver_sharp_window_three",
+          "ContinuedFractionBounds.actual_lower_window_sharp",
+          "ContinuedFractionBounds.actual_upper_window_sharp",
+          "ContinuedFractionBounds.actual_lower_window_threshold_optimal",
+          "ContinuedFractionBounds.actual_upper_window_threshold_optimal",
+          "ContinuedFractionBounds.rationalMinimumSupremum_cast",
+          "ContinuedFractionBounds.rationalMaximumInfimum_cast",
+          "ContinuedFractionBounds.rational_actual_run_bounds",
+          "ContinuedFractionBounds.rational_silver_one_mixed"
+        ]
+      },
+      "id": "PALOMAR-2026-10-19-000017",
+      "path": "entries/PALOMAR-2026-10-19-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a7657a01aec49be60f36a2cda8e6c6bfcd3840c3",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--continued-fraction-bounds--045995ed93d7",
+            "source_repository": "JD-Jones-ASES/continued-fraction-bounds"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "29c25daf14a324e9817dabacb92173c7b2640e629d16b39ba5e0a9f47bacce1e",
+        "version": 1
+      },
+      "published_at": "2026-10-19T12:26:24Z",
+      "source": {
+        "commit": "a7657a01aec49be60f36a2cda8e6c6bfcd3840c3",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/continued-fraction-bounds"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Sharp continued-fraction bounds from exact digit runs",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 development of Kuhn's simplified two-person poker (Kuhn 1950): three cards 1 < 2 < 3, one dealt to each player with the six deals equiprobable, an ante of a from each player and a single bet of b, player I acting first, the five courses of play of Kuhn's p. 98 with payoffs a (pass-pass, to the higher card), a to II (pass-bet-pass), a + b to the higher card (pass-bet-bet), a to I (bet-pass) and a + b to the higher card (bet-bet). The definitions are built from the game tree: a behaviour strategy of I is a pair of functions on the three cards (the probability of betting first, the probability of calling after passing and facing a bet), one of II likewise (the probability of betting after a pass, the probability of calling a bet); the payoff is the average over the six deals; a strategy guarantees v when it is valid and earns at least v (holds the opponent to at most v) against every valid strategy of the opponent; the game has value v when each player has a strategy guaranteeing v; an equilibrium is a saddle point. For Kuhn's game a = b = 1, kernel-checked: the value is -1/18 (a game has at most one value), an equilibrium exists, every equilibrium pays I exactly -1/18, and a pair is an equilibrium iff each strategy guarantees -1/18; II's optimal strategy is unique at all six information sets (bet after a pass with the 1, 2, 3 with probabilities 1/3, 0, 1; call with probabilities 0, 1/3, 1 - Kuhn's (xi, eta) = (1/3, 1/3) with the four coordinates he removed as superfluous now proved forced); I's optimal strategies are exactly Kuhn's one-parameter family (bet the 1 with probability alpha and fold it, never bet the 2 first and call with it with probability alpha + 1/3, bet the 3 with probability 3 alpha and call with it, for alpha in [0, 1/3], the call with the 3 being unconstrained exactly when 3 alpha = 1, where that information set is unreached); in the normal form with Kuhn's coding of the 27 and 64 pure strategies, his essential 8 x 4 matrix is six times the game matrix, his twelve basic optimal mixed strategies (A)-(L) and II's two guarantee -1/18, and a mixed strategy is optimal iff its realization plan lies on the family (I) or its marginals are II's strategy (II). For every ante a > 0 and bet b > 0 (Kuhn's pp. 102-103, stated there without proof, and the region b > 2a he does not state): the value is -b^2/(6(2a + b)) for b <= a, -b(2a - b)/(6(2a + b)) for a <= b <= 2a and 0 for b >= 2a, with explicit guaranteeing strategies in each case; in Case 3 the calling probability eta with the 2 ranges over [(2a - b)/(2a + b), b/(2a + b)], and the interval printed on p. 102, b/(2a + b) <= eta <= (a + b)/(2a + b), fails at its upper end (at a = 2, b = 3 and eta = 5/7 II's Case 3 strategy does not guarantee the value). Every guarantee is a finite nonnegative-product identity (the gap between the payoff and the value is a sum of products of the opponent's probabilities and their complements with coefficients nonnegative on the case's region: polynomials in a, b and the free parameter, at general stakes built from a, b, 2a + b, a - b, 2a - b, 4a - b, b - 2a and the interval factors (2a + b)eta - (2a - b), b - (2a + b)eta, 2(a - b) - (2a + b)xi, and, in the optimal-set theorems, the slacks of their stated inequalities), and every \"only if\" is a linear certificate from finitely many pure strategies (the coefficients rationals at a = b = 1 and, at general stakes, polynomials in a, b and the free parameter nonnegative on the case's region); no formal library found by the dated search holds the game. Beyond Kuhn's statements: the two certificate identities are stated as theorems; the equilibria of Kuhn's game are exactly the pairs (kuhnI \u03b1 k, kuhnII) with \u03b1 in [0, 1/3], k in [0, 1] and 3\u03b1 = 1 or k = 1; and at general stakes the optimal sets are determined - I's strategy is unique for b < a (up to the unreached call with the 3) and for a < b <= 2a, is Kuhn's family on the diagonal b = a at every scale, and for b >= 2a never bets the 1 or the 2 first, folds them, and with the 3 is cut out by one inequality (a single strategy at b = 2a; beyond it a two-dimensional set in which I may also bet the 3 first, with probability at most (b - 2a)/b), so Kuhn's one-parameter family is optimal only at b = a; II's strategy is unique on the diagonal at every scale and a segment for b <= a (the bet with the 2 after a pass free in [0, 2(a - b)/(2a + b)], so Kuhn's 'unique optimal mode of behavior' in Case 1 holds in his behaviour parameters only); for a <= b < 2a its bets after a pass are forced, (b/(2a + b), 0, 1), and its calls form a polytope of three inequalities; for b > 2a it never bets the 1 or the 2 after a pass, never calls with them, and calls with the 3 with probability at least 4a/(2a + b), its bet with the 3 free; and on the line b = 2a its optimal set is a five-dimensional polytope (the bet with the 2 after a pass zero and, with bets (p, 0, r) and calls (s, t, w), 2p <= r, s + t <= p, 1 <= t + w, 1 + p + s <= 2w; nine vertices, replayed); at every ante a > 0 and bet b > 0 every equilibrium pays the value and a pair is an equilibrium iff each strategy guarantees it, so the equilibria are exactly the pairs of optimal strategies, on b = 2a explicitly; the corrected Case 3 interval is sharp, and the printed one holds only at its lower end. A second correction, a misprint, is noted in the documentation: p. 101's table gives \u03b2 = 5/12 for (I) and (J), where p. 100's mixtures and p. 101's own formula give 7/12.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.GT"
+        ],
+        "msc2020": [
+          "91A05",
+          "91A18",
+          "91A60"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KuhnPoker.hasValue_one_one",
+          "KuhnPoker.hasValue_unique",
+          "KuhnPoker.exists_isEquilibrium",
+          "KuhnPoker.payoff_of_isEquilibrium",
+          "KuhnPoker.isEquilibrium_iff",
+          "KuhnPoker.guarantees\u2082_iff",
+          "KuhnPoker.guarantees\u2081_iff",
+          "KuhnPoker.essentialMatrix_eq",
+          "KuhnPoker.basic\u2081_guarantees",
+          "KuhnPoker.basic\u2082_guarantees",
+          "KuhnPoker.hasMixedValue",
+          "KuhnPoker.guaranteesMixed\u2081_iff",
+          "KuhnPoker.guaranteesMixed\u2082_iff",
+          "KuhnPoker.hasValue_general",
+          "KuhnPoker.kuhnValue_one_one",
+          "KuhnPoker.guarantees_case_one",
+          "KuhnPoker.guarantees_case_three",
+          "KuhnPoker.guarantees_case_four",
+          "KuhnPoker.upper_certificate",
+          "KuhnPoker.lower_certificate",
+          "KuhnPoker.isEquilibrium_iff_explicit",
+          "KuhnPoker.case_one_I_unique",
+          "KuhnPoker.case_one_II_iff",
+          "KuhnPoker.diagonal_II_unique",
+          "KuhnPoker.diagonal_I_iff",
+          "KuhnPoker.case_three_I_unique",
+          "KuhnPoker.case_three_II_iff",
+          "KuhnPoker.case_three_II_set",
+          "KuhnPoker.case_three_printed_interval",
+          "KuhnPoker.case_three_printed_upper_end_fails",
+          "KuhnPoker.case_four_I_iff",
+          "KuhnPoker.case_four_II_iff",
+          "KuhnPoker.boundary_II_certificate",
+          "KuhnPoker.boundary_II_iff",
+          "KuhnPoker.payoff_of_isEquilibrium_general",
+          "KuhnPoker.isEquilibrium_general_iff",
+          "KuhnPoker.boundary_isEquilibrium_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-10-19-000012",
+      "path": "entries/PALOMAR-2026-10-19-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "352a870a3702229cd6823966940dbd8a92fb281b",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--kuhn-poker-lean--d0abc54be31f",
+            "source_repository": "JD-Jones-ASES/kuhn-poker-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "dda43c5c8f46ac560415464e43f5d1eae63a5555a9583f8c5376521beaf4eb3e",
+        "version": 1
+      },
+      "published_at": "2026-10-19T08:58:43Z",
+      "source": {
+        "commit": "352a870a3702229cd6823966940dbd8a92fb281b",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/kuhn-poker-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Kuhn poker: the value \u22121/18, all optimal strategies, and the solution at every ante and bet",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked certificates for the multiplicative compositum of the two registered Mahler minimizers \u2014 rho, the real root of x^3 = x + 1 (the plastic number: Smyth's nonreciprocal minimum, Siegel's smallest Pisot number) and Q, the real root > 1 of x^4 = x + 1 (the degree-4 entry of the minimal-measure tables) \u2014 together with the Bedford-Kim spectral family whose limit rho is, and (new in version 2) the identification of that family with the Coxeter-element spectra of the E_m star trees. Twenty-two compared theorems. The spectral half: (1) for n >= 7 the family chi_n(x) = x^(n+1)(x^3 - x - 1) + (x^3 + x^2 - 1) has a canonical root in [117/100, rho), largest below rho, strictly increasing, tending to rho; (2) every chi_n is strictly positive on [rho, infinity); (3) chi_7 = (x - 1) * L exactly, over any commutative ring, with L Lehmer's degree-10 polynomial; (4) L has a root in [117/100, rho). The compositum half, for the degree-12 minimal polynomial of rho * Q (written out in full in every compared statement): (5) an exclusion witness \u2014 a nonreal quartic root z with 1 < |rho * z| < rho * Q; (6) the twelve embedding products ARE the conjugates of rho * Q, both directions; (7) there are exactly twelve of them; (8) rho * Q is an algebraic unit, via an explicit degree-11 cofactor over any commutative ring \u2014 the (3, 4, 12) triple in the normal form alpha * beta * gamma = 1; (9) the degree-12 polynomial is not reciprocal (neither its reversal nor the reversal's negation), placing it in the regime of Smyth's theorem; (10) degree multiplicativity \u2014 deg minpoly(rho*Q) = deg minpoly(rho) * deg minpoly(Q) = 12; (11) the compositum in sup form Q(rho) join Q(Q) = Q(rho*Q), of degree 12, with the two simple extensions linearly disjoint; (12) the complete unit-circle census \u2014 EXACTLY 5 conjugates strictly outside, EXACTLY 7 strictly inside, NONE on the circle, so rho * Q is neither a Pisot nor a Salem number; (13) the house \u2014 every conjugate other than rho * Q has modulus strictly below rho * Q; (14) the exact Mahler measure M = rho^2 * Q^2 * psi, where psi is the real root > 1 of psi^4 = psi^3 + 1; (15) the registry bridge \u2014 M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1), re-proving in-repo the quantity pinned in registered entry PALOMAR-2026-08-31-000004; (16) the order-12 Hadamard product recurrence \u2014 the termwise product of any solutions of the cubic and quartic shift recurrences satisfies the order-12 recurrence whose characteristic polynomial is exactly the degree-12 polynomial, in any Q-algebra; (17) the annihilator ideal of the product power sequence n |-> (rho * Q)^n is EXACTLY the principal ideal of the degree-12 polynomial \u2014 the classical order <= 3 * 4 bound is an equality, forced by the polynomial's kernel-held irreducibility. THE COXETER BRIDGE (version 2), for the star trees E_m = T(2,3,m-3) with generalized Cartan matrix A given entrywise and Coxeter element c = s_0 s_1 ... s_{m-1}, each simple reflection the matrix s_i = 1 - e_i e_i^T A of the geometric representation: (18) for every m >= 4, (X - 1) * charpoly(c) = X^(m-2)(X^3 - X - 1) + (X^3 + X^2 - 1) \u2014 the classical E_n Coxeter-polynomial identity (recorded in Gross-Hironaka-McMullen 2009, Section 1, and proved there as Cor. 4.3 for n >= 4), whose right-hand side is chi_{m-3}: the spectral half of this entry IS the E_m Coxeter spectrum; (19) with the E_10 Cartan matrix written out, the Coxeter polynomial of E_10 is Lehmer's polynomial; (20) for every m >= 10 the Coxeter polynomial of E_m has a root lambda_m in [117/100, rho) with no real root above it, the lambda_m strictly increasing and tending to rho; (21) for every m >= 10 the complexified Coxeter element has an eigenvalue lambda in (1, rho) and every complex eigenvalue is unimodular, lambda, or 1/lambda; (22) that lambda dominates the modulus of every eigenvalue and is a Salem number, for every m >= 10, with the Salem predicate written out as in the registered entry PALOMAR-2026-09-02-000003. Two disclosures of version 1 are discharged by (21)-(22) for n >= 7: the Salem property of the Bedford-Kim roots is now kernel-held, and the interval (1, 117/100) is now swept (the only eigenvalues off the unit circle are lambda_m and its inverse). The results address four research audiences: the degree problem for products and composita of algebraic numbers (the certified (3,4,12) witness at a canonically distinguished pair, in the field's own unit-product normal form); the Mahler-measure tradition (the measure of the composed product of the two degree-minimal polynomials, in closed form in the second-smallest Pisot number); composed products of polynomials (a certified rational instance where the finite-field coprimality criterion is unavailable and irreducibility is proved by elimination); and, new, Coxeter groups and Salem numbers (McMullen; Gross-Hironaka-McMullen; Hironaka's Lehmer program): the E_m Coxeter spectra, their Salem radii and their limit rho as one kernel-checked family \u2014 with the Lean audience served by concrete exercise of the Mahler-measure, linear-disjointness, Matrix.charpoly and spectrum APIs. Like the golden ratio, rho * Q is an algebraic unit of norm -1; the compared cofactor identity is that norm computation, certified. No novelty claim is made for the measure identity (the entry is not aware of it in the literature; the claimed contribution is the kernel certificate), none for the mathematics of (18)-(22), which is classical (the claimed contribution is the kernel-checked bridge from the registered Bedford-Kim family to the E_m Coxeter elements, for every m >= 4 (bridge) and every m >= 10 (spectrum, Salem) at once), no \"first formalization\" claim is made anywhere, and whether rho is ATTAINED as a dynamical degree is open in the literature \u2014 no statement claims it. Hypotheses are inline: rho, Q, psi enter only through their defining equations plus root-selection inequalities, the E_m Cartan matrices only through their entries, and the compared statements use only core Mathlib vocabulary (Filter.Tendsto, nhds, the complex norm, minpoly, Polynomial.rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField adjoin/sup, Module.finrank, Finset.range sums, Matrix.charpoly, Matrix.diagonal, List.finRange/List.prod, matrix literals, Matrix.map, spectrum, IsIntegral, Polynomial.aeval) \u2014 zero custom definitions. The name prefix \"ruler\" in statement names is the source project's term for the product rho * Q; nothing in any statement depends on it.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.DS",
+          "math.GR",
+          "math.RT"
+        ],
+        "msc2020": [
+          "11R06",
+          "11R04",
+          "11B37",
+          "14E07",
+          "37B40",
+          "20F55",
+          "15A18"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PlasticThreshold.plastic_salem_family",
+          "PlasticThreshold.family_pos_of_rho_le",
+          "PlasticThreshold.lehmer_first_rung",
+          "PlasticThreshold.lehmer_root_below_plastic",
+          "PlasticThreshold.ruler_second_conjugate",
+          "PlasticThreshold.ruler_conjugates_eq_embedding_products",
+          "PlasticThreshold.ruler_conjugates_card",
+          "PlasticThreshold.ruler_unit",
+          "PlasticThreshold.rulerPoly_nonreciprocal",
+          "PlasticThreshold.ruler_degree_multiplicative",
+          "PlasticThreshold.ruler_linearDisjoint",
+          "PlasticThreshold.ruler_conjugate_census",
+          "PlasticThreshold.ruler_house",
+          "PlasticThreshold.ruler_mahler_measure",
+          "PlasticThreshold.ruler_mahler_eq_quartic_measure",
+          "PlasticThreshold.product_recurrence_charpoly",
+          "PlasticThreshold.product_annihilator_iff",
+          "PlasticThreshold.coxeter_E_bridge",
+          "PlasticThreshold.coxeter_E10_lehmer",
+          "PlasticThreshold.coxeter_E_plastic",
+          "PlasticThreshold.coxeter_E_spectrum",
+          "PlasticThreshold.coxeter_E_salem"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000005",
+      "path": "entries/PALOMAR-2026-09-01-000005-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+            "fork_repository": "PalomarArchive/stalex444--mahler-minimizer-compositum--ca9ebf56e752",
+            "source_repository": "stalex444/mahler-minimizer-compositum"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a48c47af6d422214d8af628d5e0edc30542c132d4b9c3739e71562c9169a0e61",
+        "version": 2
+      },
+      "published_at": "2026-10-17T14:57:18Z",
+      "source": {
+        "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+        "project_path": null,
+        "repository": "stalex444/mahler-minimizer-compositum"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The compositum of the two Mahler minimizers: exact measure, conjugate census, house, and minimal product recurrence, with the Bedford-Kim plastic family, Lehmer's polynomial, and the E_m Coxeter bridge",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 formalisation of all 32 numbered statements of \"Distinguishing sets and measures from their planar Brownian images\" (Sascha Troscheit, arXiv:2610.16339), which asks whether two deterministic time measures on the unit interval can be distinguished almost surely from a single planar Brownian image. Rescaled correlation integrals of the time measures determine expected correlation profiles of the image measures, and profiles that differ in the limit make the image laws mutually singular, even when the time measures have the same dimension. For natural measures of self-similar sets satisfying the open set condition, renewal theory gives the profile asymptotics, a limit in the non-lattice case and a periodic non-constant limit in the lattice case, which separates lattice from non-lattice measures. Normalised neighbourhood measures of the compact Brownian image converge almost surely to the occupation measure, so the separation transfers to the laws of the compact image sets. In the two-contraction family of fixed dimension, the mean profile is real analytic and non-constant in the parameter, so each parameter is separated from all but finitely many others; for sufficiently small dimension the mean is strictly increasing and every pair of distinct parameters is separated. A homometric pair of self-similar measures with non-isometric attractors and identical profiles shows that the profile does not determine the measure. Renewal theory is proved for the self-similar laws used, and the nine headline results are stated over Mathlib alone and audited with Comparator.",
+      "authors": [
+        {
+          "name": "Sascha Troscheit"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.DS"
+        ],
+        "msc2020": [
+          "60J65",
+          "28A80"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BrownianImages.audit_main",
+          "BrownianImages.audit_profile_asymptotics",
+          "BrownianImages.audit_lattice_nonlattice_measures",
+          "BrownianImages.audit_finite_exceptions",
+          "BrownianImages.audit_small_dimension",
+          "BrownianImages.audit_finite_critical_set",
+          "BrownianImages.audit_reconstruction",
+          "BrownianImages.audit_lattice_nonlattice_sets",
+          "BrownianImages.audit_two_contraction_sets"
+        ]
+      },
+      "id": "PALOMAR-2026-10-15-000007",
+      "path": "entries/PALOMAR-2026-10-15-000007-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "343d25c53699fbcb2372d3016002993d475e249e",
+            "fork_repository": "PalomarArchive/sascha2718--lean-brownian-images--c2027be21cc9",
+            "source_repository": "sascha2718/lean-brownian-images"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "37ac5a5e0992d0fb82929371d346060a492ce7fef71536ebf4464c42e53bb316",
+        "version": 1
+      },
+      "published_at": "2026-10-15T10:12:50Z",
+      "source": {
+        "commit": "343d25c53699fbcb2372d3016002993d475e249e",
+        "project_path": null,
+        "repository": "sascha2718/lean-brownian-images"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Distinguishing sets and measures from their planar Brownian images",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalization of Dowker (1951), Theorem 4: normality plus ordinary countable paracompactness of an arbitrary topological space X is equivalent to normality of X times the closed unit interval, and to strict continuous insertion between arbitrary real upper and lower semicontinuous functions h<g. No T1 or Hausdorff assumption on X, boundedness or uniform gap is added. Companion compact metrizable product theorem (Lemma 3) and countable-cover/decreasing-closed-sequence equivalences (Theorem 2) are included.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GN"
+        ],
+        "msc2020": [
+          "54D15",
+          "54D20",
+          "54B10",
+          "54C30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Dowker.normal_countablyParacompact_iff_normal_interval_product",
+          "Dowker.normal_countablyParacompact_iff_strict_insertion",
+          "Dowker.normal_interval_product_iff_strict_insertion",
+          "Dowker.CountablyParacompact.normal_compact_metrizable_product",
+          "Dowker.countablyParacompact_iff_nat_precise",
+          "Dowker.countablyParacompact_iff_closed_sequence_property"
+        ]
+      },
+      "id": "PALOMAR-2026-10-12-000003",
+      "path": "entries/PALOMAR-2026-10-12-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ccc3ca43dc26c6774f2afd7f2b2223066451c362",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0924b4643eb142f0963a26b40db53485a263e94c8eaab086121202b0390fc678",
+        "version": 1
+      },
+      "published_at": "2026-10-12T07:43:22Z",
+      "source": {
+        "commit": "ccc3ca43dc26c6774f2afd7f2b2223066451c362",
+        "project_path": "topology/dowker-characterization",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Dowker's countable paracompactness, product normality and strict insertion characterization",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": "eyJyZXZpc2lvbiI6OTQ5LCJxdWVyeSI6IjJkMTE2OTY5NGY2NGQ3NWNlNmExMzJjNWFiMTRkMGEyNTYzOWM0ZmViMWExM2MxYzg0MTI4ZmEwNWZlZGIxZGYiLCJkaXJlY3Rpb24iOiJuZXh0IiwiZGF0ZSI6IjIwMjYtMTAtMTJUMDc6NDM6MjJaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMTAtMTItMDAwMDAzIn0=",
+  "dropped": [],
+  "message": null
+}

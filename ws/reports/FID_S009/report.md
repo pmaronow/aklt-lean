@@ -1,0 +1,54 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: PStatement PASS
+
+`AKLT/Blueprint/Top/Response.lean:30` asserts the existence of one pair of real constants, uniform over all data in the response property. The property is Definition (P), [sec2-moments.tex:338–350](/home/ubuntu/aklt/review/FID_S/paper/sec2-moments.tex:338); its existence is the conclusion of `t:rec`, sec7-recursion.tex:1009–1020, and is used in sec1-result.tex:49–51. Thus the existential wrapper has the intended interface meaning. The constraints `A ≥ 2` and `0 < θ < 1` are inside `ResponseProperty` (`Defs/PinModel.lean:44–53`), rather than omitted.
+
+Unfolding that predicate gives exactly: every finite plane volume G, every independent original-leg unit-pin assignment, every Y contained in G minus its original protected layer, and every surviving distance-two pair with a common neighbour in Y. The constants are chosen before these universal quantifiers. `Plane = ℤ × ℤ`; `latticeDist` adds integer absolute coordinate differences. `UnitVector` uses the sum-of-squares Euclidean unit condition, not the supremum norm on a function space (`Defs/Geometry.lean:8–11`, `Defs/Moment.lean:9–18`). The finite-set and subtype coercions merely index the actual sites and legs.
+
+The underlying partition sums agree with `d:pinmodel`, sec2-moments.tex:97–119: each internal bond occurs once, the factor `(1/12)^card` gives the product uniform icosahedral law, the original legs retain independent pins even at a shared exterior endpoint, and removals create no new pins (`Defs/PinModel.lean:9–40`). The twelve labels enumerate twelve distinct unit vectors; this is checked directly in the paper at sec2-moments.tex:55–61. Expectations divide by the actual partition sums. Although Mathlib real division has `a / 0 = 0` (`Algebra/GroupWithZero/Basic.lean:402`), these denominators are strictly positive: the degree is at most four, and the positive-summand argument in sec2-moments.tex:140–157 applies to precisely these sums. No zero-denominator shortcut changes the assertion.
+
+Distances use the original S(G), with width two measured from the original exterior (`Defs/Geometry.lean:58–71`). The indexed infimum in `ℕ∞` is the distance minimum, with top for an empty target set; Mathlib's empty-infimum convention follows from `Order/CompleteLattice/Basic.lean:704–712`. `ENat.toNat` sends top to zero (`Data/ENat/Basic.lean:117–140`), but `decay` explicitly handles top first and assigns decay zero. In any nonempty finite G, S(G) is nonempty, so an actual qualifying pair has finite integral distance (also sec7-recursion.tex:1048–1051). Empty volumes have no qualifying pairs, as intended.
+
+DECL: renewalAmplitude PASS
+
+`AKLT/Blueprint/Top/Response.lean:33–36` is exactly the displayed choice in [sec7-recursion.tex:1018–1019](/home/ubuntu/aklt/review/FID_S/paper/sec7-recursion.tex:1018):
+
+`(max h / min h) * max(2, 2*(12/5)^24*(CV/(1-q))^2) / (1-ρ)`.
+
+The two arguments to each `max`/`min` are the two coordinates of the same fixed h from `d:kernel-order`, sec7-recursion.tex:572–586. In particular `kernelWitness .C` is the exact rational `5404319552844595/4503599627370496`, not 6/5 (`Defs/Kernel.lean:61–66`). Rational-to-real casts preserve these values and their arithmetic (`Data/Rat/Cast/CharZero.lean`, `cast_injective`, `cast_div`). Both coordinates are positive, with minimum 1 and maximum h_C. All divisions and the base 12/5 are real operations; 24 and 2 are natural power exponents. There is no natural subtraction or integer division in the formula.
+
+The definition is total on arbitrary real arguments, but its only use in the reviewed statements is under `OpenTrailBound CV q` and `kernelRho < ρ < 1`. Those conditions imply `CV ≥ 1`, `0 < q < 1`, and `0 < ρ < 1`, so both variable denominators are positive. Consequently the displayed amplitude is finite and at least two, exactly as in `l:renewal`, sec7-recursion.tex:939–943 and 1003–1006. Its unrestricted totalization introduces no degenerate use in `RecStatement`.
+
+DECL: ShiftedWitness PASS
+
+This auxiliary predicate (`AKLT/Blueprint/Top/Response.lean:39–42`) expresses the finite matrix inequality in [sec7-recursion.tex:619–629](/home/ubuntu/aklt/review/FID_S/paper/sec7-recursion.tex:619). `PairType` has exactly the two constructors B and C and an explicit Fintype instance containing both (`Defs/Domain.lean:110–114`), so the sum is precisely the two-coordinate matrix-vector product, in row X and column Y order. Every entry is explicitly required to differ from top.
+
+Mathlib defines `ℝ≥0∞` as `WithTop ℝ≥0` (`Basic/ENNReal/Basic.lean:102`). Its `ofReal` truncates negative inputs to zero, but preserves nonnegative inputs, is finite on every real input, preserves multiplication with nonnegative factors, and reflects order when the right-hand real is nonnegative (`Basic/ENNReal/Basic.lean:230–254,345`; `Basic/ENNReal/Real.lean:147–149,297–303`). Here h is strictly positive; in both uses of `ShiftedWitness`, `ρ > kernelRho > 0` and `θ > q^2 > 0`. Thus the embeddings do not clip an intended quantity, and the predicate is exactly the finite nonnegative inequality `M_θ h ≤ ρ h`. Positivity restrictions supplied by the callers need not be duplicated in this auxiliary definition.
+
+The underlying `shiftedKernel` is also the correct object (`Defs/Kernel.lean:105–116`). Mathlib's ENNReal `tsum` is the supremum of finite subsums (`Topology/Algebra/InfiniteSum/ENNReal.lean:56–73`), matching sec7-recursion.tex:549–558; divergence produces infinity. The shift factor uses the integer exponent `-(s : ℤ)`, so it is the reciprocal power θ^(-s), with no truncated natural negation (`Algebra/Group/Basic.lean:431–435`). Nonnegative rational length coefficients are embedded before summing, so neither cancellation nor an unsummable real `tsum` can erase mass.
+
+DECL: RecStatement PASS
+
+The hypotheses and conclusion of `AKLT/Blueprint/Top/Response.lean:46–49` match [sec7-recursion.tex:1009–1034](/home/ubuntu/aklt/review/FID_S/paper/sec7-recursion.tex:1009). CV and q range over all real constants, and `OpenTrailBound CV q` contains exactly `CV ≥ 1`, `0 < q < 1`, and the uniform open-trail estimate for every natural length, start and designated incoming direction (`Defs/Trails.lean:63–69`; sec6-walks.tex:684–692). It does not restrict this theorem to the separately certified choice CV=10 and q=q_*.
+
+H1 is fixed to the two paper thresholds 961/1000 and 187/200 (`Response.lean:10`, sec6-walks.tex:531–540). H3 is the bound for every finite true-trail cutoff with the prescribed dyadic h and contraction ceiling 993015/10^6 (`Defs/Kernel.lean:119–126`; sec7-recursion.tex:594–617). The extra displayed information about θ and ρ is expressly supplied by the paper's shifted-witness lemma and used in the theorem's proof at sec7-recursion.tex:1024–1026. The amplitude is retained exactly, not replaced by an unspecified larger constant. `ResponseProperty` itself supplies `A ≥ 2` and `0 < θ < 1`; the explicit inequalities already ensure θ and ρ are positive. The witnesses may depend on CV and q, but are uniform over all response volumes, removals, pairs and pins. All denominators and ENNReal embeddings therefore have the nondegenerate meanings checked above.
+
+DECL: MThetaStatement PASS
+
+`AKLT/Blueprint/Top/Response.lean:53–61` includes all conclusions of [sec7-recursion.tex:619–629](/home/ubuntu/aklt/review/FID_S/paper/sec7-recursion.tex:619): entry finiteness and the majorant for every `q^2 < θ ≤ 1`, the geometric shift bound, and existence of `q^2 < θ < 1` and `ρ₀ < ρ < 1` with the same h satisfying the shifted inequality. Its hypotheses are exactly H2 and H3; H1 is not added.
+
+The majorant uses the exact constants `barα = 18094/100000` and `barβ = 36751/100000` from sec6-walks.tex:293–294. `Real.rpow θ (-(n : ℝ) / 2 - 1)` means θ^(-n/2-1), with real division after casting n, not natural half-length or truncated subtraction. Since θ > q^2 > 0, Mathlib's positive-base rule is the usual `exp(log θ * exponent)` (`Analysis/SpecialFunctions/Pow/Real.lean:31–66`). Every majorant summand is nonnegative and finite. Summing over all `n : ℕ` merely adds a zero n=0 term to the paper's n≥1 series. Its ratio is q/√θ < 1, so the ENNReal majorant is finite, with the finite value given in sec7-recursion.tex:658–660; an infinite upper bound does not weaken the conclusion.
+
+I checked the kernel conventions against sec7-recursion.tex:516–586. Direction words enumerate actual plane trails. Injectivity of the two-endpoint bond sets excludes repeated unoriented bonds; initial reversal is forbidden. The incoming direction is west = u-c, c is avoided throughout, and v is first hit at the terminal index (`Defs/Trails.lean:24–60`, `Defs/Kernel.lean:9–18`). The only predecessor subtraction is `i.val - 1` in a branch where i is nonzero, so it cannot underflow. There is no spatial quotient or hidden domain restriction.
+
+Response pairs are exactly unordered two-element subsets of the live nonarrival neighbours including the outgoing neighbour: Mathlib `Finset.mem_powersetCard` specifies subset membership and cardinality two (`Data/Finset/Powerset.lean:196–203`). Their type, coefficient table, and actual shift match the paper. `pairShift` is the maximum over the pair of the minimum distances to u and v; `Finset.sup` is a supremum fold, hence a maximum on these nonempty natural-valued pairs (`Data/Finset/Lattice/Fold.lean:42–63`). The bound casts that maximum and n to reals before division. It holds at every departure index by the two endpoint path-length bounds and the triangle inequality (sec7-recursion.tex:633–640), including any revisit indices quantified by the Lean clause.
+
+Only first visits enter kernel coefficients. The short ordering uses the paper's rational key, places zero rewards last, and resolves ties by increasing path index; the long ordering lists straight first visits before turning first visits, preserving path order. Mathlib merge sort sorts by its supplied comparison (`Data/List/Sort.lean:336–346`). The recursive exposure sum multiplies each reward by all passage factors up to and including its own position. Thus both θ-independent orderings and the products agree. The extra n=0 term in the kernel is zero (the fixed start differs from either target). The finite-cutoff H3 and ENNReal full series consequently refer to the same nonnegative kernel.
+
+Non-blocking remarks:
+
+- The whole target file and its transitive project imports were read. Judgments above concern only the five assigned declarations.
+- Exact rational Python checks confirmed `1 < h_C < 6/5`, `0 < ρ₀ < 1`, the threshold ranges, and the coefficient-majorant comparisons. No Lean processes were launched; this was a semantic fidelity review, not a proof-completion or build check.
+- No blocking discrepancies or additional non-blocking fidelity issues were found. Inputs were not modified.

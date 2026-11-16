@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "For every integer q at least 3, the formalization proves the existence of a limiting q-colorability threshold for sparse random graphs. A single constant alpha_q in [1/2, log(q)/log(q/(q-1))] gives the transition for the uniform model with floor(c n) edges and the transition at d = 2 alpha_q for the binomial model with edge probability d/n. For every fixed eta in (0,1), there is C > 0 such that, for all sufficiently large n, the first loss of q-colorability under independent uniform additions of unordered pairs of distinct vertices lies within C n (log n)^(-3/2) steps of deterministic integer centers with probability at least 1-eta. The centers divided by n converge to the same alpha_q. Repeated edges are retained in this process. The scope is Theorems 1.1 and 1.2 of the included manuscript.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.PR"
+        ],
+        "msc2020": [
+          "05C80",
+          "05C15",
+          "60C05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ThresholdChallenge.main"
+        ]
+      },
+      "id": "PALOMAR-2026-11-04-000013",
+      "path": "entries/PALOMAR-2026-11-04-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f31c25fbba9ecf72305de746ec1b64c8be327f26",
+            "fork_repository": "PalomarArchive/pmaronow--q-colorability-palomar--02f63be3fbb9",
+            "source_repository": "pmaronow/q-colorability-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "5fea5472db67b0238ff8db4cb59c8a7b962ab276a5f623d9d4a5e4b52c38dee3",
+        "version": 1
+      },
+      "published_at": "2026-11-04T15:56:45Z",
+      "source": {
+        "commit": "f31c25fbba9ecf72305de746ec1b64c8be327f26",
+        "project_path": null,
+        "repository": "pmaronow/q-colorability-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Existence of the q-colorability threshold for sparse random graphs",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 formalization of the principal superfluid-stiffness, nonclassical rotational-inertia, winding, and high-temperature normal-phase results of the supplied manuscript, with concrete hard-sphere path measures and Dirichlet-form response definitions.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SFLean.Submission.theorem_1_1",
+          "SFLean.Submission.theorem_1_2",
+          "SFLean.Submission.normal_challenge",
+          "SFLean.Submission.winding_challenge",
+          "SFLean.Submission.winding_tightness"
+        ]
+      },
+      "id": "PALOMAR-2026-11-01-000016",
+      "path": "entries/PALOMAR-2026-11-01-000016-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5baea1d13edcb17ec0d7746c8c7ad23ae7ddcd35",
+            "fork_repository": "PalomarArchive/pmaronow--superfluidity-palomar--b00b337f39aa",
+            "source_repository": "pmaronow/superfluidity-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2d44c230000c140b89607f1c789b23ebd46e2085fdcf80264a3763ac719c51aa",
+        "version": 1
+      },
+      "published_at": "2026-11-01T11:12:03Z",
+      "source": {
+        "commit": "5baea1d13edcb17ec0d7746c8c7ad23ae7ddcd35",
+        "project_path": null,
+        "repository": "pmaronow/superfluidity-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Superfluid stiffness and nonclassical rotational inertia of the dilute hard-sphere Bose gas",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of the six headline result groups: Theorem 1.2, Corollary 1.3, and Theorems 1.4\u20131.7. Theorem 1.2, Corollary 1.3, and the asymptotic clauses of Theorem 1.4 are conditional only on Chen\u2019s finite-mixture Parisi formula. Universal pressure lower tails are proved internally. The finite-dimensional Haar comparison and Theorems 1.5\u20131.7 have no literature premise. The manuscript and exact model assumptions are included.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.LO"
+        ],
+        "msc2020": [
+          "60K35",
+          "82B44",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SlowEquilibrationCondensedSource.theorem_1_2",
+          "SlowEquilibrationCondensedSource.corollary_1_3_a",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b_degree_window",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b_support",
+          "SlowEquilibrationCondensedSource.corollary_1_3_c",
+          "SlowEquilibrationCondensedSource.corollary_1_3_d",
+          "SlowEquilibrationCondensedSource.theorem_1_4_haar",
+          "SlowEquilibrationCondensedSource.theorem_1_4",
+          "SlowEquilibrationCondensedSource.theorem_1_5",
+          "SlowEquilibrationCondensedSource.theorem_1_6",
+          "SlowEquilibrationCuspSource.theorem_1_7"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000003",
+      "path": "entries/PALOMAR-2026-10-27-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a28aaa336343c4caf43791ababd8ed0ee5c7b58e",
+            "fork_repository": "PalomarArchive/pmaronow--slowequilibration-palomar--34a70045061a",
+            "source_repository": "pmaronow/slowequilibration-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0c8dac72db6f8e59835da70e32b5d28bcdc3b07024b15477318cf7de1b1858bc",
+        "version": 1
+      },
+      "published_at": "2026-10-27T14:26:27Z",
+      "source": {
+        "commit": "a28aaa336343c4caf43791ababd8ed0ee5c7b58e",
+        "project_path": null,
+        "repository": "pmaronow/slowequilibration-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Slow Equilibration and Persistent Stationary Correlations in Spherical Spin Glasses",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of five manuscript result groups: Theorems 1.1, 1.3, and 1.6, and Corollaries 1.2 and 1.7. The barrier covers both clocks and every fixed threshold below one half, with exponent 7/30. The upper bound is the continuous-time statement for every fixed exponent saving between zero and one quarter. The fluctuation exponents and mean-bias lower bound have their stated positive exponent slack. Corollary 1.7 also explicitly concludes convergence of the finite-volume counting pressures to the limiting pressure. The manuscript and exact scope are included.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.LO"
+        ],
+        "msc2020": [
+          "60K35",
+          "82B44",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LowerUpperBounds.theorem_1_1",
+          "LowerUpperBounds.corollary_1_2",
+          "LowerUpperBounds.theorem_1_3",
+          "LowerUpperBounds.theorem_1_6",
+          "LowerUpperBounds.corollary_1_7"
+        ]
+      },
+      "id": "PALOMAR-2026-10-21-000025",
+      "path": "entries/PALOMAR-2026-10-21-000025-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+            "fork_repository": "PalomarArchive/pmaronow--fluctuations-palomar--481fdf8438f9",
+            "source_repository": "pmaronow/fluctuations-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "39662042cf9fb8b5c97633401ebf6643d36903fc5e4a1bef7fcf6f58483deafd",
+        "version": 1
+      },
+      "published_at": "2026-10-21T23:55:39Z",
+      "source": {
+        "commit": "52e8a21a2497f28811a3154dea6d37e819ccc088",
+        "project_path": null,
+        "repository": "pmaronow/fluctuations-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Lower and Upper Bounds for Glauber Dynamics from Typical States of the Low-Temperature Sherrington\u2013Kirkpatrick Model",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean proves that the finite-complexity affine-linear prime asymptotic implies infinitely many geometric isomorphism classes of rational elliptic curves of each exact Mordell\u2013Weil rank five, six, and seven. The generic analytic theorem is an explicit hypothesis. The specialization checks, two-isogeny descent, exact rank calculations, and passage to infinitely many j-invariants are formalized; the prime asymptotic is not proved in Lean here.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11G05",
+          "11N32"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "RankCertificates.infiniteGeometricClasses_exactRanksFiveThroughSeven"
+        ]
+      },
+      "id": "PALOMAR-2026-10-16-000002",
+      "path": "entries/PALOMAR-2026-10-16-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b1f2ded85275d67b78fada55212fefff54d7c35e",
+            "fork_repository": "PalomarArchive/pmaronow--ec567-palomar--8f7281a287fa",
+            "source_repository": "pmaronow/ec567-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cca637e6632d7d5535619fd419f6dacc355942b335c135d2954a9e7ab1b3e3ef",
+        "version": 1
+      },
+      "published_at": "2026-10-16T00:43:38Z",
+      "source": {
+        "commit": "b1f2ded85275d67b78fada55212fefff54d7c35e",
+        "project_path": null,
+        "repository": "pmaronow/ec567-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Elliptic curves of exact ranks five, six, and seven: conditional formalization",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of the spherical Gaussian spin-glass dynamics and its positive-semidefinite Cugliandolo--Kurchan limit, including the physical variational response, entropy and Fisher estimates, stationary translated clusters, general-spin selection and aging bounds, and stationary relaxation. Theorem 11.4 covers every integer p >= 3 and beta > 0. The cubic product inequality includes beta = beta_d; strictly positive Fisher-cost conclusions require beta > beta_d. The root Challenge retains the original complete-conclusions theorem with the five principal theorem groups and all-spin forward theorem, sharing CK, stationary-profile, dimension-subsequence, density and Fisher-majorant witnesses. The same file separately retains the original Proposition 5.7 statement for every CK solution, every late sequence and every raw translated cluster.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.AP"
+        ],
+        "msc2020": [
+          "60H10",
+          "82D30",
+          "60G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SphericalAging.PalomarCompleteTheorems.exists_complete_conclusions",
+          "SphericalAging.PalomarStationarityCertificate.proposition5_7"
+        ]
+      },
+      "id": "PALOMAR-2026-10-12-000002",
+      "path": "entries/PALOMAR-2026-10-12-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d3f09f56462be6f73eb20733cb7963410409fa06",
+            "fork_repository": "PalomarArchive/pmaronow--aging-palomar--4b3b27b78e14",
+            "source_repository": "pmaronow/aging-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4c90969375364594fec8fbae9f72314cf98480d0e80dcb4e97e6ceefc0ba7091",
+        "version": 1
+      },
+      "published_at": "2026-10-12T07:32:35Z",
+      "source": {
+        "commit": "d3f09f56462be6f73eb20733cb7963410409fa06",
+        "project_path": null,
+        "repository": "pmaronow/aging-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Aging in Spherical Spin Glass Dynamics",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of open phases with every prescribed finite replica symmetry breaking depth in mixed even-spin Ising models at zero external field and positive temperature. The first selected result constructs strictly increasing even degrees beginning at four and a nonempty open set of positive effective covariance coefficients, with an optimizing probability measure having exactly k+1 support points. The independent statement uses concrete Gaussian Cole\u2013Hopf recursions and comparison against all finite schemes at every competing depth. The substantive development constructs minimizers over all probability measures and includes the revised quadratic-inclusive universal transition, exact phase geometry and asymptotics, atomic Hessian, entropy, and analytic comparison results.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "60K35",
+          "82B44"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ArbitraryRSB.arbitrary_finite_depth_open_set",
+          "ArbitraryRSB.universal_gardner_transition"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000017",
+      "path": "entries/PALOMAR-2026-10-11-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5162e2d15b440ce46fd322f20eb429468d601948",
+            "fork_repository": "PalomarArchive/pmaronow--arbitrary-rsb-palomar--0236bf82e169",
+            "source_repository": "pmaronow/arbitrary-rsb-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c6914eb1be4fb74e2692905c432ca236eb55e4ecfe90c3d435d0c9e89366a7c2",
+        "version": 1
+      },
+      "published_at": "2026-10-11T15:02:55Z",
+      "source": {
+        "commit": "5162e2d15b440ce46fd322f20eb429468d601948",
+        "project_path": null,
+        "repository": "pmaronow/arbitrary-rsb-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Replica symmetry breaking at arbitrary depth",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalization of a fixed-temperature N^(-7/10) bound for the finite-size mean bias of the zero-field Sherrington-Kirkpatrick model with independent standard Gaussian couplings and the unnormalized partition function. For every beta > 1, a positive constant depending on beta bounds the nonnegative pressure gap for every integer N >= 2. The selected results also establish the thermodynamic limit for beta > 0, the corresponding free-energy-density and expected log-partition corrections, a positive exponent saving over 2/3, and a full-sequence little-o improvement. The independently readable interface defines the limiting pressure by a thermodynamic limit; Solution identifies it with the all-probability-profile Parisi variational value.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "cond-mat.dis-nn"
+        ],
+        "msc2020": [
+          "82B44",
+          "60K35",
+          "60G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SKMeanBias.thermodynamic_limit",
+          "SKMeanBias.main_mean_bias",
+          "SKMeanBias.free_energy_density_correction",
+          "SKMeanBias.log_partition_mean_correction",
+          "SKMeanBias.strictly_better_than_two_thirds",
+          "SKMeanBias.mean_bias_little_o_two_thirds"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000006",
+      "path": "entries/PALOMAR-2026-10-11-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "7601a9d5ade08066632bc68b9a615e163f2dd02c",
+            "fork_repository": "PalomarArchive/pmaronow--sk-mean-bias-palomar--c8eac0abe48b",
+            "source_repository": "pmaronow/sk-mean-bias-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1c6b22a8cadb8219f90c32eaaefffc2357693225d6e0ba27f6931e88d80103c8",
+        "version": 1
+      },
+      "published_at": "2026-10-11T06:45:14Z",
+      "source": {
+        "commit": "7601a9d5ade08066632bc68b9a615e163f2dd02c",
+        "project_path": null,
+        "repository": "pmaronow/sk-mean-bias-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Finite-size mean bias of the Sherrington-Kirkpatrick free energy",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean development of upper and local lower minimax bounds for nonlinear functionals of conditional means under bounded, rough random design. The generic theorem covers the root-n regime and the subcritical regime with its density-dependent stretched-exponential correction, logarithmic upper and lower factors, and a one-quarter minimax probability lower bound. The substantive development also contains projection, polynomial-estimator, Poisson reduction, lattice-prior, application, and causal-identification results. The selected Comparator surface is the generic theorem's two parts. The remaining logarithmic gap is unresolved.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "stat.ME"
+        ],
+        "msc2020": [
+          "62G05",
+          "62G08",
+          "62G20",
+          "62C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "RoughRegimeSubmission.mainUpper",
+          "RoughRegimeSubmission.mainLower"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000002",
+      "path": "entries/PALOMAR-2026-10-11-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ec97825d7539266fd3ebd9d0527c34b0ba5d0f65",
+            "fork_repository": "PalomarArchive/pmaronow--roughregime-palomar--9ee2236482f9",
+            "source_repository": "pmaronow/roughregime-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "64c05d47e24dc8bf8aba343a657b6140bc2b0021a1615175e96759be7b02136c",
+        "version": 1
+      },
+      "published_at": "2026-10-11T00:11:04Z",
+      "source": {
+        "commit": "ec97825d7539266fd3ebd9d0527c34b0ba5d0f65",
+        "project_path": null,
+        "repository": "pmaronow/roughregime-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Nearly Minimax Rates for Functional Estimation Under Rough Random Design",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Minimax root-mean-square bounds for estimating a constant conditional variance from independent random-design regression observations. The design density has fixed positive lower and upper bounds but no smoothness; covariate-dependent errors have uniformly bounded conditional fourth moments. For 1 < s < d/4, the proved bracket identifies the polynomial exponent 2(s+1)/(d+4) and the common explicit stretched-exponential factor, with a remaining logarithmic gap. It also proves the exponent corollary, the exact low-smoothness rate, and the parametric regime.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.ST",
+          "stat.TH"
+        ],
+        "msc2020": [
+          "62G05",
+          "62G08",
+          "62G20",
+          "62C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "NearlyMinimax.Submission.paper_main",
+          "NearlyMinimax.Submission.exponent_limit",
+          "NearlyMinimax.Submission.polynomial_bounds",
+          "NearlyMinimax.Submission.low_smoothness",
+          "NearlyMinimax.Submission.parametric"
+        ]
+      },
+      "id": "PALOMAR-2026-10-10-000002",
+      "path": "entries/PALOMAR-2026-10-10-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f3ef2ef312d44bbc693c1d5bea9cee654a29b598",
+            "fork_repository": "PalomarArchive/pmaronow--ccv-palomar--47775cd59e5a",
+            "source_repository": "pmaronow/ccv-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c13eb2e799f098a489fe9e91b14f9893d68e988aacb4197236a342b29c05125e",
+        "version": 1
+      },
+      "published_at": "2026-10-10T04:35:14Z",
+      "source": {
+        "commit": "f3ef2ef312d44bbc693c1d5bea9cee654a29b598",
+        "project_path": null,
+        "repository": "pmaronow/ccv-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Nearly minimax variance estimation under rough random design",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of Patrick Lopatto's zero-field Sherrington\u2013Kirkpatrick results. The selected claims are full interval support, a nonnegative smooth density with a terminal atom for every inverse temperature beta > 1, and quantitative inequalities for that actual atom. The independent Challenge defines the Parisi functional through concrete bounded-gradient weak PDE solutions, with terminal log cosh and coefficient beta squared divided by two. Solution identifies that definition with the constructed Parisi potential. The repository retains the supporting PDE, diffusion, covariance, minimizer, and numbered-result development described in COVERAGE.md and results.json.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B44",
+          "60G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarFRSB.fullRSB",
+          "PalomarFRSB.quantitativeAtom"
+        ]
+      },
+      "id": "PALOMAR-2026-10-10-000001",
+      "path": "entries/PALOMAR-2026-10-10-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b3ff38e8bc8c057b8ee2addf0fa2428db32f106b",
+            "fork_repository": "PalomarArchive/pmaronow--frsb-palomar--66f552945dc4",
+            "source_repository": "pmaronow/frsb-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4a15fd71fc28b77bd0bcdc50e4e212316f92d848009ad93c92591e1149572f72",
+        "version": 1
+      },
+      "published_at": "2026-10-10T00:49:02Z",
+      "source": {
+        "commit": "b3ff38e8bc8c057b8ee2addf0fa2428db32f106b",
+        "project_path": null,
+        "repository": "pmaronow/frsb-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Full replica symmetry breaking in the Sherrington\u2013Kirkpatrick model",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of the positive-field Sherrington\u2013Kirkpatrick results in Patrick Lopatto's arXiv:2604.11921v2. The selected registry claims are convergence of the expected finite-volume free energy to the concrete replica-symmetric Gaussian formula for beta > 0, h > 0, and AT parameter at most one, including equality; and an exact description of the positive-field AT boundary as a positive strictly increasing smooth graph on beta > 1, tending to zero at beta = 1 from the right, together with (1,0). The repository also contains the numbered PDE, stochastic-process, moment, and variational results documented in COVERAGE.md and results.json.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B44",
+          "60G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarAT.replicaSymmetry",
+          "PalomarAT.smoothATBoundary"
+        ]
+      },
+      "id": "PALOMAR-2026-10-09-000013",
+      "path": "entries/PALOMAR-2026-10-09-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "915bca99f46bad65629ef35c8be4bf8fc962af9a",
+            "fork_repository": "PalomarArchive/pmaronow--at-palomar--1a4bf753f431",
+            "source_repository": "pmaronow/at-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "6e250847a495de443e5b7b65c7f3f1939226759fb60d49a3e9fbcf9e6b6849a2",
+        "version": 1
+      },
+      "published_at": "2026-10-09T17:37:41Z",
+      "source": {
+        "commit": "915bca99f46bad65629ef35c8be4bf8fc962af9a",
+        "project_path": null,
+        "repository": "pmaronow/at-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Replica symmetry up to the de Almeida\u2013Thouless line in the Sherrington\u2013Kirkpatrick model",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

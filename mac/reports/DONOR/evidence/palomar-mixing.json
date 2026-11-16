@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of Theorems A, B, and C of the paper. It constructs stationary processes with finite-order exponential mixing and no Gaussian subsequential limit, then realizes the phenomenon in analytic and smooth dynamical systems.",
+      "authors": [
+        {
+          "name": "Bernat Bassols Cornudella"
+        },
+        {
+          "name": "Matheus M. Castro"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.PR"
+        ],
+        "msc2020": [
+          "37A25",
+          "37D20",
+          "60F05",
+          "60G10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarEntry.theoremA",
+          "PalomarEntry.theoremB",
+          "PalomarEntry.theoremC"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000004",
+      "path": "entries/PALOMAR-2026-11-06-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "7e3e00b06a78c76ea7208d6e327fb022d6a39ba7",
+            "fork_repository": "PalomarArchive/Manzatto--finite-order-mixing-does-not-imply-clt--7708e4e5bb7f",
+            "source_repository": "Manzatto/finite-order-mixing-does-not-imply-clt"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1bf73bfb84303ca4e13e999f756edf1d8bba9cb2d7bbf12ea3db23641024502e",
+        "version": 1
+      },
+      "published_at": "2026-11-06T02:06:50Z",
+      "source": {
+        "commit": "7e3e00b06a78c76ea7208d6e327fb022d6a39ba7",
+        "project_path": null,
+        "repository": "Manzatto/finite-order-mixing-does-not-imply-clt"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Finite-order exponential mixing does not imply the central limit theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a continuous map of a second-countable Baire Hausdorff space with topologically transitive square, a residual set of points has IP entering times into every nonempty open set. A nonempty space has a nonempty dense G-delta family of such points; square hitting times are infinite.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.GN"
+        ],
+        "msc2020": [
+          "37B05",
+          "37B20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "IPTransitive.weak_mixing_infinite_hits",
+          "IPTransitive.positive_pair_returns_yield_ip",
+          "IPTransitive.residual_ip_transitive",
+          "IPTransitive.exists_dense_Gdelta_ip_transitive"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000042",
+      "path": "entries/PALOMAR-2026-10-29-000042-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2beccde9cbc4d96e4248662417d1490a2140eb9f",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2134f18ebb00e856e62df62764b3967ebeff44bc2252d2c68a7cc5c7f8aa07cb",
+        "version": 1
+      },
+      "published_at": "2026-10-29T23:51:23Z",
+      "source": {
+        "commit": "2beccde9cbc4d96e4248662417d1490a2140eb9f",
+        "project_path": "topology/ip-transitive-points",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Generic IP-transitive points in weakly mixing systems",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A continuous surjective weakly mixing map on a nontrivial metric space admits one positive separation constant such that every finite family of nonempty open sets has arbitrarily long, arbitrarily late blocks of common positive separation times. Witness pairs may depend on the set and time. Finite-family common hitting thickness and separated open targets are proved.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.GN"
+        ],
+        "msc2020": [
+          "37B05",
+          "37B02"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ThickSensitive.separated_open_targets",
+          "ThickSensitive.finite_hitting_thick",
+          "ThickSensitive.weakMixing_thick_multisensitive"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000033",
+      "path": "entries/PALOMAR-2026-10-29-000033-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b1bfaf3132bfe83accdb4e18519cb4064a858f76",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "af78ec7cc7719b2dc220b6f9584f912812592c8ec44d35a44fd098ca510f4b8d",
+        "version": 1
+      },
+      "published_at": "2026-10-29T17:20:14Z",
+      "source": {
+        "commit": "b1bfaf3132bfe83accdb4e18519cb4064a858f76",
+        "project_path": "topology/weak-mixing-thick-multisensitivity",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Weak mixing and thick common multi-sensitivity",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A continuous weakly mixing self-map of a nonempty compact Hausdorff space has a transitive actual heterogeneous product with any continuous pointwise forward-minimal self-map of a nonempty compact space. Surjectivity, arbitrarily late thick hitting blocks, syndetic hitting gaps and their intersection are proved.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.GN"
+        ],
+        "msc2020": [
+          "37B05",
+          "37B02"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "WeakMinimal.surjective_of_weakMixing",
+          "WeakMinimal.hitting_thick",
+          "WeakMinimal.minimal_hitting_syndetic",
+          "WeakMinimal.thick_meets_syndetic",
+          "WeakMinimal.weakMixing_minimal_product"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000025",
+      "path": "entries/PALOMAR-2026-10-29-000025-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2fae123025f57f2f74220c01ffea7148fc6e3a11",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2537dedc3f9317ad81e6d243ee4888d7e473873f085f0b32efec3dc05c0b6c1e",
+        "version": 1
+      },
+      "published_at": "2026-10-29T14:08:10Z",
+      "source": {
+        "commit": "2fae123025f57f2f74220c01ffea7148fc6e3a11",
+        "project_path": "topology/weak-mixing-minimal-product",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Weak mixing times minimality: transitivity of the product",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a continuous weakly mixing self-map of a nonempty Polish space, a comeagre set of countable sequences has every finite prefix dense under the corresponding diagonal forward orbit. A nonempty dense G-delta subset of such sequences is constructed through countable-product transitivity and a countable-basis Baire argument.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.GN"
+        ],
+        "msc2020": [
+          "37B05",
+          "37B02"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "StrongTransitive.residual_dense_orbits",
+          "StrongTransitive.countable_power_transitive",
+          "StrongTransitive.dense_prefix_orbit",
+          "StrongTransitive.residual_strong_sequences",
+          "StrongTransitive.exists_dense_Gdelta_strong_sequences"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000001",
+      "path": "entries/PALOMAR-2026-10-29-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b507c8fd789af8ac5dee356ea2a85444209e401d",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0a9f914d7c7d6d2ac650b948ec4d3e65aec79d8c1068fedb5084f77557ae425a",
+        "version": 1
+      },
+      "published_at": "2026-10-29T00:58:14Z",
+      "source": {
+        "commit": "b507c8fd789af8ac5dee356ea2a85444209e401d",
+        "project_path": "topology/strongly-transitive-sequences",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Generic strongly transitive sequences in weakly mixing Polish systems",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a continuous self-map of a nonempty topological space, square transitivity implies transitivity of every finite diagonal power, including power zero. A genuine open-pair refinement and finite induction give a common natural forward hitting time for any finite family of nonempty open pairs. The literal two-pair condition is proved equivalent to actual square transitivity.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.GN"
+        ],
+        "msc2020": [
+          "37B05",
+          "37B02"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Furstenberg.weakMixing_iff_product_transitive",
+          "Furstenberg.hitting_refinement",
+          "Furstenberg.finite_refinement",
+          "Furstenberg.finite_simultaneous_hitting",
+          "Furstenberg.finite_power_transitive"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000033",
+      "path": "entries/PALOMAR-2026-10-28-000033-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9e5b57dba2ba9423cc8f12ff934bd07d86394c47",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2abd8d175bb9fe97d6ee53d1daf8caa602f95dc1462e6f82cb65cfc625ccc1a4",
+        "version": 1
+      },
+      "published_at": "2026-10-28T23:48:39Z",
+      "source": {
+        "commit": "9e5b57dba2ba9423cc8f12ff934bd07d86394c47",
+        "project_path": "topology/furstenberg-weak-mixing",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Furstenberg weak mixing and finite diagonal powers",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Eventual equality on the actual Cantor product has a BP invariant-set zero-one law. Every invariant map with BP open preimages into a second countable T0 target has a comeagre constant fiber. Consequently no such BP map, and no Borel map with explicit Borel sigma-algebras, reduces eventual equality to equality.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.LO",
+          "math.GN"
+        ],
+        "msc2020": [
+          "03E15",
+          "54H05",
+          "54E52"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "EZero.finite_flip_mixing",
+          "EZero.zero_one",
+          "EZero.generically_constant",
+          "EZero.no_baire_reduction",
+          "EZero.no_borel_reduction"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000032",
+      "path": "entries/PALOMAR-2026-10-28-000032-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "eee893e9a0359f39eb6c8ff3fcf50244b743fa9f",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1bd491baa2b995292a28c7d9039a29e50afb4f4027c78aa61eb3710e9906e8b7",
+        "version": 1
+      },
+      "published_at": "2026-10-28T22:18:55Z",
+      "source": {
+        "commit": "eee893e9a0359f39eb6c8ff3fcf50244b743fa9f",
+        "project_path": "topology/e0-nonsmoothness",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Generic ergodicity and non-smoothness of E\u2080",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A subset A of X^J with the property of Baire, invariant under every permutation moving only finitely many indices, is meagre or has meagre complement when J is infinite and the actual product space X^J is Baire. A corollary covers countable products of any Polish space. Finite-support displacement, cylinder mixing and the category contradiction are proved, not assumed.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GN",
+          "math.DS"
+        ],
+        "msc2020": [
+          "54E52",
+          "54B10",
+          "37B02"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "HewittSavage.category_zero_one",
+          "HewittSavage.polish_sequence_zero_one"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000020",
+      "path": "entries/PALOMAR-2026-10-28-000020-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2fb199d3c35ec0aa7c51bb4331de8c1f7ab31a07",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+            "source_repository": "Arthur742Ramos/Math-Formalization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "57de2d09d3a0b0c43ac4dd67b5af3f7f602d6c09241f3314013a41ee669a4f62",
+        "version": 1
+      },
+      "published_at": "2026-10-28T12:08:11Z",
+      "source": {
+        "commit": "2fb199d3c35ec0aa7c51bb4331de8c1f7ab31a07",
+        "project_path": "topology/hewitt-savage-category",
+        "repository": "Arthur742Ramos/Math-Formalization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Category Hewitt\u2013Savage zero-one law for infinite Baire products",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of two basic results of spectral graph theory, stated through the adjacency quadratic form on vectors orthogonal to the all-ones vector: the expander mixing lemma of Alon and Chung (for a d-regular graph on n \u2265 2 vertices with |x\u00b7Ax| \u2264 \u03bc\u2016x\u2016\u00b2 on \ud835\udfd9\u22a5, |e(S,T) \u2212 d|S||T|/n| \u2264 \u03bc\u221a(|S||T|)), and the Alon\u2013Boppana bound in Nilli's form (a d-regular graph, d \u2265 2, with two vertices at distance at least 2k + 4 has a nonzero x \u27c2 \ud835\udfd9 with x\u00b7Ax \u2265 (2\u221a(d\u22121) \u2212 (2\u221a(d\u22121) \u2212 1)/(k+1))\u2016x\u2016\u00b2). Mathlib has adjacency matrices but neither result.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C48"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ExpanderTheorem.expander_mixing",
+          "ExpanderTheorem.alon_boppana"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000035",
+      "path": "entries/PALOMAR-2026-10-22-000035-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f96a99893d4d31495af5f8d9e6181f7b4c91e0ba",
+            "fork_repository": "PalomarArchive/jtraverso--expander-spectral--c7934103ea1e",
+            "source_repository": "jtraverso/expander-spectral"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a07708fdf5e9c68841e4629fe3535508718f7c7a0566be9da1aa1d7ac28f9f7d",
+        "version": 1
+      },
+      "published_at": "2026-10-22T15:25:36Z",
+      "source": {
+        "commit": "f96a99893d4d31495af5f8d9e6181f7b4c91e0ba",
+        "project_path": null,
+        "repository": "jtraverso/expander-spectral"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The expander mixing lemma and the Alon\u2013Boppana bound",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

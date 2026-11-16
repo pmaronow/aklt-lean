@@ -1,0 +1,31 @@
+step 10 arrival 0.024203973499822354 wall 0.11953370901755989
+step 20 arrival 0.025260528312600387 wall 0.49994795900420286
+step 30 arrival 0.026450096764767145 wall 0.859175084013259
+{
+  "m": 6,
+  "L": 8,
+  "K": 9,
+  "T": 33,
+  "AT": 33,
+  "X": "B",
+  "D0": 1,
+  "nw": 124,
+  "sites": 162,
+  "storage_bits": 160,
+  "scale_bits": 64,
+  "weight_bits": 48,
+  "plane_bits": 25920,
+  "counts": {
+    "mul_up": 86200,
+    "permutes": 31604,
+    "nat_mul": 86200,
+    "nat_add": 172400,
+    "nat_shift": 212616,
+    "nat_land": 323616,
+    "nat_lor": 94812,
+    "bound_checks": 12400,
+    "edge_visits": 7900
+  },
+  "wall": 0.9684485839970876,
+  "maxrss_bytes": 24150016
+}

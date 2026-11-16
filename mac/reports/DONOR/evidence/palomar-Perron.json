@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the main results of Abedin, Feldman and Stinson on Perron's extremal solutions of the one-phase Bernoulli free boundary problem \u0394u = 0 in {u > 0} \u2229 U, |\u2207u| = Q on \u2202{u > 0} \u2229 U. Let U \u2282 \u211d\u1d48, d \u2265 2, be open, bounded and connected with C\u00b2 boundary, and let Q be Lipschitz on the closure of U with 0 < Q_min \u2264 Q \u2264 Q_max. Theorem 1.1: the smallest supersolution above a smooth strict subsolution g with g > 0 on \u2202U is (i) a viscosity solution in U, (ii) an inner variational solution in U for some \u03c7 (the first domain variation of the Alt\u2013Caffarelli energy \u222b |\u2207u|\u00b2 + Q\u00b2 \u03c7 vanishes), and (iii) a downward minimizer of that energy on a ball around each free boundary point; the largest subsolution below a smooth strict supersolution g has the same three properties, with upward minimality in (iii). Corollary 1.2, in \u211d\u00b2: (i) the free boundary of the smallest supersolution is the disjoint union of a relatively open set, near each point of which u is a classical solution (a C^{1,\u03b3} free boundary, u harmonic in {u > 0}, \u2207u continuous up to the free boundary with |\u2207u| = Q there), and a set at each point x\u2080 of which every blow-up limit of u is the two-plane function Q(x\u2080)|y \u00b7 e| for some unit vector e; (ii) the largest subsolution is a classical solution near every free boundary point. Every notion, including viscosity solutions, smooth strict sub- and supersolutions, Perron's classes, inner variational solutions, Sobolev functions, the one-sided minimizers, blow-up limits and classical solutions, is written out from Mathlib definitions. A fifth statement is the necklace example, a rigorous version, with different parameters, of the numerical example in Figure 1 of the paper: in \u211d\u00b2 with Q \u2261 1 there are a domain and data, with the same boundary values for both problems, whose smallest supersolution and largest subsolution are both nontrivial and differ on a set of positive measure, the smallest supersolution has a two-plane point, and a minimizer of the Alt\u2013Caffarelli energy with the same boundary data exists and differs from both extremal solutions on sets of positive measure. It also shows that the hypotheses of the other statements can be met and that their conclusions are not degenerate.",
+      "authors": [
+        {
+          "name": "William M. Feldman"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AP"
+        ],
+        "msc2020": [
+          "35R35",
+          "35D40",
+          "49Q10",
+          "35J25",
+          "35B65"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "challenge_main_smallest",
+          "challenge_main_largest",
+          "challenge_corollary_2d_smallest",
+          "challenge_corollary_2d_largest",
+          "challenge_necklace_example"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000028",
+      "path": "entries/PALOMAR-2026-10-27-000028-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2abc33271f023fcb309e6c8cd07e229a352ed911",
+            "fork_repository": "PalomarArchive/willmfeldman--bernoulli-perron-variational--092f2994d791",
+            "source_repository": "willmfeldman/bernoulli-perron-variational"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7827181da8966470f96046532c556f24c55db4bbfbd710f8d7a3f30bb691ba7f",
+        "version": 1
+      },
+      "published_at": "2026-10-27T22:39:17Z",
+      "source": {
+        "commit": "2abc33271f023fcb309e6c8cd07e229a352ed911",
+        "project_path": "challenges/main-results",
+        "repository": "willmfeldman/bernoulli-perron-variational"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Perron's extremal solutions of the Bernoulli one-phase problem: viscosity, inner variational and one-sided minimizing solutions, and free boundary structure in the plane",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of Theorems 1.1 and 1.2 of Duminil-Copin, Gagnebin, Harel, Manolescu and Tassion (arXiv:1611.09877v2). For the q-state Potts model on the square lattice with q > 4, at beta_c = log(1 + sqrt q), the q + 1 box-limit Gibbs measures are distinct and ergodic, each monochromatic measure gives its own colour probability greater than 1/q at the origin, and the inverse correlation length in the diagonal direction is lambda + 2 sum_{k >= 1} (-1)^k tanh(k lambda) / k, where cosh lambda = sqrt(q) / 2, a positive number. For the random-cluster model on the square lattice with q > 4 at p_c = sqrt(q) / (1 + sqrt q), the free and wired box-limit measures differ, the wired measure has an infinite cluster almost surely, the free two-point function between 0 and the diagonal site x_n decays at the same exact rate, and that rate equals sum_{k >= 0} 4 / ((2k + 1) sinh(pi^2 (2k + 1) / (2 lambda))), which is equivalent to 8 exp(-pi^2 / sqrt(q - 4)) as q decreases to 4. The external results the paper cites and the proof uses (Edwards-Sokal coupling, FKG and comparison inequalities, finite energy, ergodicity and the 0-1 law for infinite clusters, planar self-duality, the coordinate Bethe ansatz of the companion paper arXiv:1611.09909, Perron-Frobenius, the analytic implicit function theorem) are proved or taken from Mathlib; uniqueness of the infinite cluster is not needed, and Brouwer's fixed-point theorem comes from a vendored library. The only axioms are propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Zijie Zhuang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B20",
+          "82B26",
+          "82B43",
+          "60K35",
+          "82B23"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PottsDiscontinuity.potts_theorem_1_1",
+          "PottsDiscontinuity.rc_theorem_1_2",
+          "PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3"
+        ]
+      },
+      "id": "PALOMAR-2026-10-21-000001",
+      "path": "entries/PALOMAR-2026-10-21-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "435fb57856860eda7a65c8fec9e5fb29eff2b46b",
+            "fork_repository": "PalomarArchive/zijie123123--PottsDiscontinuity-lean--93951fb65fb1",
+            "source_repository": "zijie123123/PottsDiscontinuity-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "77b1737df1185033aef166bafcfa8d6d72eae3be5d45b114ac174ae3659a4051",
+        "version": 1
+      },
+      "published_at": "2026-10-21T00:09:23Z",
+      "source": {
+        "commit": "435fb57856860eda7a65c8fec9e5fb29eff2b46b",
+        "project_path": null,
+        "repository": "zijie123123/PottsDiscontinuity-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Discontinuity of the phase transition for the planar random-cluster and Potts models with q > 4 (Theorems 1.1 and 1.2)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

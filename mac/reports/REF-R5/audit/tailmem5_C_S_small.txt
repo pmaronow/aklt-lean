@@ -1,0 +1,18 @@
+# tailmem5 (straights-first order, diagonal quotient, u-revisit, sorted closed DFS, first-direction split) D0=3 X=C m=4 L=8 K=9 T=33 AT=33 NEX=8 cs=0.961000 ct=0.935000 a=0.180941 b=0.367511 h=(1.000000,1.230000)
+# E = exact (DFS), D = DP with c killed / v absorbing, F = free torus; values h-weighted upper bounds
+E 6 2.428168611282e-02
+E 8 2.407218931240e-02
+# EXACT(n<=min(L,NEX)) = 4.835387542522e-02
+D 10 2.3150204338e-02
+D 12 2.1725301048e-02
+D 14 2.1346120697e-02
+D 16 2.5042688613e-02
+D 18 2.9353627107e-02
+D 20 3.2521393602e-02
+D 22 3.5022360496e-02
+D 24 3.7478661975e-02
+D 26 4.0002907072e-02
+D 28 4.2484011583e-02
+D 30 4.4857772093e-02
+D 32 4.7136198391e-02
+# TAIL(8<n<=33) <= 4.001212471e-01   (mode A, no remainder)

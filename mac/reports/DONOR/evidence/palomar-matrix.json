@@ -1,0 +1,1595 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "A machine-checked proof of the Knill-Laflamme theorem for finite-dimensional quantum codes, in two forms. For a nonzero code given by an orthogonal projector P and a finite family of arbitrary error matrices E_i, the condition P E_i^\u2020 E_j P = c_ij P for some matrix c holds if and only if some quantum channel, with any finite number of Kraus operators, undoes each error on every code state up to its own scalar (knill_laflamme), and also if and only if some channel undoes the combined noise rho -> sum_i E_i rho E_i^\u2020 up to a scalar (knill_laflamme_sum). The errors need not form a channel. The recovery is constructed explicitly. Mathlib, at the pinned commit, has no quantum error correction. Four other Lean proofs of the channel form are known to me, one earlier and three later than this proof (listed under related_formalizations); this proof is independent of all four. The theorem is classical and no priority is claimed.",
+      "authors": [
+        {
+          "name": "Zayn Blore"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "quant-ph"
+        ],
+        "msc2020": [
+          "81P73",
+          "81P47"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "QuantumInfo.knill_laflamme",
+          "QuantumInfo.knill_laflamme_sum"
+        ]
+      },
+      "id": "PALOMAR-2026-11-15-000005",
+      "path": "entries/PALOMAR-2026-11-15-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f680e2d5f616bb423fb814f1471b07387729fffd",
+            "fork_repository": "PalomarArchive/zblore--knill-laflamme-lean--6f20e7cab180",
+            "source_repository": "zblore/knill-laflamme-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "047e9b868ed6b8951d51ce30cb622813ace1b147126399e925780b51e83d5975",
+        "version": 1
+      },
+      "published_at": "2026-11-15T15:14:02Z",
+      "source": {
+        "commit": "f680e2d5f616bb423fb814f1471b07387729fffd",
+        "project_path": null,
+        "repository": "zblore/knill-laflamme-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Knill-Laflamme theorem: a set of errors is correctable on a quantum code exactly when P E_i^\u2020 E_j P = c_ij P",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about the Lie algebra L of the linear endomorphisms of four-dimensional Minkowski space that are skew-adjoint for the Minkowski form. Main theorem, (6): a real bilinear form B on L satisfies B([Z,X],Y) + B(X,[Z,Y]) = 0 for all X, Y, Z if and only if B(X,Y) = a tr(XY) + b tr(H(X)Y) for exactly one pair of real numbers (a,b); every such form is symmetric. Here tr(XY) is the trace form of L acting on Minkowski space and H is the operator of (4). For a real simple Lie algebra whose complexification is simple the invariant symmetric bilinear forms are the multiples of the Killing form; for a complex simple Lie algebra regarded as a real one they form a plane (Francis-Staite and Leistner, Proposition 4.1). L is of the second kind: it is sl(2,C) regarded as a real Lie algebra ((1), (2)), H is multiplication by -i under that isomorphism ((4)), and tr(H(X)Y) is a second invariant form, not a multiple of the Killing form (Olafsson and Quiroga-Barranco, Remark A.10, where it is, up to a nonzero factor, K(X, J Y)). Read with X as a field strength, tr(XX) and tr(H(X)X) are, up to normalisation, the Maxwell term and the theta term (Tong's names); that reading is not formalized. Statements (1)-(5): sl(2,C), the exponential criterion, the operator H and the complexification; (2) and (4) are the structure behind the second term of (6). (1) On Mathlib's own objects, with nothing carried: Mathlib's so' (Fin 1) (Fin 3) R is isomorphic, as a real Lie algebra, to sl(2,C) (Mathlib's sl (Fin 2) C with scalars restricted to R), by the explicit map X -> -(1/2) sum_k (beta_k + i theta_k) sigma_k, where beta_k and theta_k are the boost and rotation entries of X and sigma_k are the Pauli matrices. (2) On the carried copy of Minkowski space: L has dimension 6; the same map is an isomorphism of real Lie algebras from L onto sl(2,C); the three boost generators and the three rotation generators are in L, the boost along the axis k goes to -(1/2) sigma_k and the rotation in the plane of the two other axes goes to -(i/2) sigma_k. (3) The exponential criterion: a continuous linear endomorphism A is in L if and only if exp(tA) is in the carried type ProperLorentz for every real t; the statement also records that the Minkowski form used for L has the carried minkowskiSquare as its quadratic form. (4) The explicit operator H (the boost along the axis k goes to minus the rotation in the plane of the two other axes, and that rotation goes to the boost) maps L into L, is real-linear there, satisfies H[X,Y] = [X,HY] and H(HX) = -X, and the isomorphism of (2) carries it to multiplication by -i on sl(2,C). (5) The complexification C (x)_R L is isomorphic, as a complex Lie algebra, to sl(2,C) x sl(2,C), and the two maps (1/2)(1 + iH) and (1/2)(1 - iH) are the projections onto the two factors, H being the operator of (4) extended C-linearly. Controls: (7) for the definite diagonal form diag(1,1,1,1) the Lie algebra of skew matrices is isomorphic to so(3) x so(3), for the split form diag(1,1,-1,-1) it is isomorphic to sl(2,R) x sl(2,R), and neither of the two is isomorphic to sl(2,C) as a real Lie algebra; (8) there is a bilinear form on L that is not a tr(XY) + b tr(H(X)Y) for any real a, b; (9) there is a continuous linear endomorphism A with exp(A) in ProperLorentz and A not in L. Numbering as in comparator.json. Statement (1) and part (b) of statement (2) are one isomorphism on two presentations; they are not two results. The Challenge imports Mathlib only. The definitions of Minkowski space and of the Lorentz transformations (Spacetime, minkowskiSquare, ProperLorentz and eight more) are copies carried textually from the public statement of the Yang-Mills release, repository github.com/yang-mills-group/OpenAI-YM-20261028, commit 3456e5e75cf8d4cd558955a5c7638fba2d68f464, file PublicTheory.lean, under the Apache License, Version 2.0; the source file is not imported. Statement (6) is proved from the classification of the linear maps R of L with R[X,Y] = [X,RY], which is the subject of a separate entry in preparation and is not compared here. Audience. Formal developments that use the Lorentz Lie algebra as an object. physlib's lorentzAlgebra is Mathlib's so' (Fin 1) (Fin 3) R, the object of (1); physlib also proves that the complex coefficient tensors with four vector indices invariant under SL(2,C) acting through the Lorentz group are combinations of the three pairings of the metric and the alternating symbol (independence is not proved there). The Yang-Mills release works with the Lorentz Lie algebra of this entry as the predicate tangent (X^T = -theta X theta) on its own 4 x 4 matrix type, splits it into rotations and boosts (tangent_parts), and proves, under its hypothesis Spin.Port, that its Wick-rotated map into operators on field labels respects brackets whenever the first argument is a boost (rank_bracket), in YM/Next/BOUNDARY/Derived.lean; it does not state or use any of the nine statements here, and its matrix type is not the carried Spacetime. The monograph project hairer/humanise-yang-mills proves that invariant bilinear forms on the compact colour algebra are scalar multiples using a positive invariant inner product (manuscript/existence/trace-free-rank.tex, lines 34-51, commit 0f00ae72); (6) shows that on so(3,1), which is simple but has no such inner product, the invariant forms are a two-parameter family. No one at these projects was contacted, and none of them has asked for or endorsed this entry. Literature. This entry formalizes known mathematics; the clauses not found printed are listed below. (1) and (2) are the Lie-algebra form of Spin(3,1) = SL(2,C) (Woit, Quantum Theory, Groups and Representations, sections 40.2 and 40.4; the formula is printed on generators in section 41.2; Olafsson and Quiroga-Barranco, Lemma A.1, state so(3,1) = sl(2,C)_R); (3) is the description of the Lie algebra of a matrix group by its one-parameter subgroups (Hall, arXiv:math-ph/0005032, Definition 3.13; proved there for O(n;k), which includes O(3;1), Chapter 3, section 5.6), stated here for the proper orthochronous subgroup, and (9) is an exercise of that chapter; (4) is the Hodge operator on so(3,1) (Wise, Class. Quantum Grav. 27 (2010) 155010, Appendix); (5) is the splitting of the complexified Lorentz algebra (Woit, section 40.2; Sahlmann and Seeger, Class. Quantum Grav. 41 (2024) 075010, section 2.2.1); (6) is the description of the invariant bilinear forms of a complex simple Lie algebra regarded as a real one (Olafsson and Quiroga-Barranco, Transform. Groups 17 (2012), Remark A.10; Francis-Staite and Leistner, Transform. Groups 26 (2021), Proposition 4.1); parts (a) and (b) of (7) are the companion isomorphisms in the two other signatures (Woit, section 21.2; Olafsson and Quiroga-Barranco, Remark A.2); (8) holds by a count of dimensions (the bilinear forms on L have dimension 36 and the forms of statement 6 are a plane). Not found printed in the sources read: the clause of (4) on multiplication by -i, and parts (c) and (d) of (7); README.md says how each follows from what is printed. Prior formalization, recorded under related_formalizations (search of 2026-11-13): no formalization of a compared statement was found. The counterparts for groups of (1), (2), (5), (7a) and (7b) are in TauCeti, and the homomorphism from SL(2,C) onto the restricted Lorentz group is in physlib; every ingredient of (1) and (2) is in TauCeti and was not found combined there. The equivalence of (3) is proved in TauCeti as a general theorem for the unitary group of a complete normed real algebra with a continuous involution (the form-preservation part of (3) is a case of it, by a reading that was not compiled), for the matrix groups O(n), SO(n), SL(n), SU(n) and the symplectic group, and for the Spin groups; its direction from the algebra to the group is proved for Lorentz matrices in physlib and in OSreconstruction; it was not found with both directions for the Lorentz group or another indefinite orthogonal group of linear maps. For (6), TauCeti has the uniqueness of invariant forms over an algebraically closed field and physlib the invariant coefficient tensors with four vector indices. For (5), TauCeti has extension of scalars for the skew-adjoint matrices of a Gram matrix and the complexifications of so(n) and su(n); the splitting into sl(2,C) x sl(2,C) was not found. The Hodge operator of Euclidean four-space on matrices is in github.com/openai/math. Not formalized: no covering map from SL(2,C) to ProperLorentz, no Lie group structure, no connectedness statement, no statement that every element of ProperLorentz is an exponential; other dimensions and signatures beyond (7); the identification of L with two-forms; the Killing form; the invariant forms of the complexification. Also proved in the library, not compared: Minkowski space from a number field. For a number field K with exactly two real places and exactly one complex place there is a real-linear equivalence e from Mathlib's mixedSpace K onto Spacetime with minkowskiSquare(e x) = -Tr_{K/Q}(x^2) for every x in K, and conjugation by e is an isomorphism of real Lie algebras onto L from the Lie algebra of the endomorphisms of mixedSpace K that are skew-adjoint for the form that restricts to Tr_{K/Q}(x^2) on K. This is proved in the library of this entry and is not compared.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RT",
+          "math-ph",
+          "gr-qc",
+          "hep-th"
+        ],
+        "msc2020": [
+          "17B20",
+          "22E43",
+          "17B05",
+          "15A63",
+          "17B81",
+          "83A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MinkowskiLorentz.so'_one_three_lieEquiv_sl2C",
+          "MinkowskiLorentz.lorentzAlgebra_lieEquiv_sl2C",
+          "MinkowskiLorentz.mem_lorentzAlgebra_iff_exp",
+          "MinkowskiLorentz.hodgeEnd_complexStructure",
+          "MinkowskiLorentz.complexification_lieEquiv",
+          "MinkowskiLorentz.invariant_bilinForm_iff",
+          "MinkowskiLorentz.definite_split_signature",
+          "MinkowskiLorentz.exists_bilinForm_not_trace_form",
+          "MinkowskiLorentz.exists_exp_mem_not_mem_lorentzAlgebra"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000019",
+      "path": "entries/PALOMAR-2026-11-14-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+            "fork_repository": "PalomarArchive/stalex444--minkowski-lorentz-algebra--34c1409c6a74",
+            "source_repository": "stalex444/minkowski-lorentz-algebra"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "bd0e8a0fc3b035fda0c9f4bc622e2d333788757f97e5bfc7f312858a12958700",
+        "version": 1
+      },
+      "published_at": "2026-11-14T14:24:48Z",
+      "source": {
+        "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+        "project_path": null,
+        "repository": "stalex444/minkowski-lorentz-algebra"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Invariant bilinear forms on the Lorentz Lie algebra so(3,1): the two-parameter family a tr(XY) + b tr(H(X)Y), with sl(2,C), the exponential criterion and the complexification",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This Lean 4 and Mathlib development produces exact, machine-checked positivity certificates for finite Gram matrices built from Suzuki's zeta screw function. Weil's explicit formula recasts the Riemann Hypothesis as positivity of a quadratic form assembled from prime powers, and a recent line of work truncates that form and studies the resulting finite matrices. The objects formalized here are the screw function Psi, defined as an archimedean profile minus a von Mangoldt weighted prime sum and extended evenly; its Gram kernel G(t,u) = Psi(t) + Psi(u) - Psi(t-u); and positive definiteness, in the quadratic-form sense, of the finite matrices this kernel generates on explicit grids.\nThe three compared results are as follows. (1) On the grid (0.2, 0.4, 0.6) the 3 by 3 Gram matrix M3 of the genuine kernel satisfies an explicit Rayleigh floor: for every real vector x, 0.005 times the sum of the x_i squared is at most the quadratic form of M3 at x. (2) M3 is positive definite. (3) On the grid (0.4, 0.9) the 2 by 2 Gram matrix is positive definite. The prime sum in Psi vanishes for t below log 2 (about 0.693) and the node 0.9 lies above it, so the p = 2 prime term contributes to this matrix.\nThe interest is that the surrounding literature (Connes and van Suijlekom; Connes, Consani and Moscovici; Suzuki) works either in floating point or at the level of existence statements, whereas these are exact certificates checked against the definition of Psi itself. Suzuki establishes that some positivity window exists; here an explicit one is exhibited, with an explicit margin, and verified, to our knowledge for the first time.\nScope is finite and explicit. Every positivity statement concerns a specified grid at specified rational nodes; there is no asymptotic, fine-mesh or all-grid result; and nothing here bears on the Riemann Hypothesis.",
+      "authors": [
+        {
+          "name": "Rohan Badade"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.LO"
+        ],
+        "msc2020": [
+          "11M26",
+          "15B48",
+          "68V20",
+          "65G20",
+          "15A63",
+          "11M06"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Challenge.true_kernel_grid_margin",
+          "Challenge.true_kernel_grid_posdef",
+          "Challenge.true_kernel_first_prime_posdef"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000017",
+      "path": "entries/PALOMAR-2026-11-14-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+            "fork_repository": "PalomarArchive/gnostrich--certified-positivity--79bf1f217491",
+            "source_repository": "gnostrich/certified-positivity"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c052c75e406f62750dc622503e3f9d3840ce415ae4f1be56874f871ccf49e78f",
+        "version": 1
+      },
+      "published_at": "2026-11-14T13:03:23Z",
+      "source": {
+        "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+        "project_path": null,
+        "repository": "gnostrich/certified-positivity"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Certified Positivity: machine-checked positivity windows for the Suzuki zeta screw kernel",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that the matrix multiplication tensor \u27e89, 11, 11\u27e9 has rank at most 708 over the rationals. Two compared theorems: 708 triples of rational matrices decompose the tensor (\u2211\u1d62 u\u1d62[a, b] v\u1d62[c, d] w\u1d62[e, f] = [b = c \u2227 a = e \u2227 d = f]), and the same triples form a bilinear algorithm A * B = \u2211\u1d62 (\u2211 u\u1d62[a, b] A[a, b]) (\u2211 v\u1d62[c, d] B[c, d]) w\u1d62 over every field of characteristic zero. The scheme, scaled to integers, is data; Lean's kernel checks it (decide +kernel, no native_decide) slice by slice with the coefficients packed into large integers, and a soundness proof for every input turns the 99 slice checks, a range check and a bound check into the tensor identity. The smallest rank listed for this format in the Lille catalogue was 710 when this was written.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.SC",
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68Q25",
+          "15A69",
+          "68W30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MatMul9x11x11.exists_tensor_decomposition",
+          "MatMul9x11x11.exists_bilinear_algorithm"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000006",
+      "path": "entries/PALOMAR-2026-11-14-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f3eb2873d0e27364a75846568294a566cc1fa2b7",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-fmm-9x11x11--5ffb1a2ee16c",
+            "source_repository": "arhancanli/quantavane-fmm-9x11x11"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a18d59260cc51f49a7d27dd4f7ced3d8a106ff2a08361c97dc977c3b896ded48",
+        "version": 1
+      },
+      "published_at": "2026-11-14T07:12:05Z",
+      "source": {
+        "commit": "f3eb2873d0e27364a75846568294a566cc1fa2b7",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-fmm-9x11x11"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Multiplying 9 \u00d7 11 by 11 \u00d7 11 matrices with 708 multiplications",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that the matrix multiplication tensor \u27e89, 10, 11\u27e9 has rank at most 640 over the rationals. Two compared theorems: 640 triples of rational matrices decompose the tensor (\u2211\u1d62 u\u1d62[a, b] v\u1d62[c, d] w\u1d62[e, f] = [b = c \u2227 a = e \u2227 d = f]), and the same triples form a bilinear algorithm A * B = \u2211\u1d62 (\u2211 u\u1d62[a, b] A[a, b]) (\u2211 v\u1d62[c, d] B[c, d]) w\u1d62 over every field of characteristic zero. The scheme, scaled to integers, is data; Lean's kernel checks it (decide +kernel, no native_decide) slice by slice with the coefficients packed into large integers, and a soundness proof for every input turns the 90 slice checks, a range check and a bound check into the tensor identity. The smallest rank listed for this format in the Lille catalogue was 644 when this was written.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.SC",
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68Q25",
+          "15A69",
+          "68W30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MatMul9x10x11.exists_tensor_decomposition",
+          "MatMul9x10x11.exists_bilinear_algorithm"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000005",
+      "path": "entries/PALOMAR-2026-11-14-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f4e076c036a6a8bd2402a24e8f468d550bbb5234",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-fmm-9x10x11--a96afb5c9a72",
+            "source_repository": "arhancanli/quantavane-fmm-9x10x11"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9dd74af511473637f9a8e2912bb2b511ae474e17de70cf546551f309ab7e096c",
+        "version": 1
+      },
+      "published_at": "2026-11-14T07:04:58Z",
+      "source": {
+        "commit": "f4e076c036a6a8bd2402a24e8f468d550bbb5234",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-fmm-9x10x11"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Multiplying 9 \u00d7 10 by 10 \u00d7 11 matrices with 640 multiplications",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about R^n with a diagonal metric eta whose entries are +1 or -1 (every signature). A covector field omega is conformal Killing when it is C^3 and d_i omega_j + d_j omega_i = 2 phi eta_ij for some function phi, and Killing when it is C^3 and d_i omega_j + d_j omega_i = 0. (1) For n >= 3 the conformal Killing fields are exactly the members of an explicit family: translations, rotations (an antisymmetric matrix), the dilation and the special conformal fields. (2) In every dimension the Killing fields are exactly the affine fields a + A x with A antisymmetric. (3) For n >= 3 the conformal Killing fields form a real vector space of finite dimension (n+1)(n+2)/2. (4) In every dimension the Killing fields form a real vector space of finite dimension n(n+1)/2. (5) A control for the hypothesis n >= 3 of (1): in the Euclidean plane there is a conformal Killing field that is not a member of the family for any values of its parameters, the matrix being any real matrix, antisymmetric or not (the witness in the proof is the real and imaginary parts of z^3). Statements (6)-(9) are statements about conserved currents: they say which fields give conserved currents. (6) If a tensor field T and a covector field omega are differentiable at a point x, T(x) is symmetric and the conformal Killing equation holds at x with factor phi, then the current J^i = sum_j T^ij omega_j satisfies div J = (div T) . omega + phi tr_eta T at x. (7) A C^3 field is conformal Killing if and only if the current of every differentiable, symmetric, divergence-free, eta-trace-free tensor field against it is divergence-free. (8) A C^3 field is Killing if and only if the current of every differentiable, symmetric, divergence-free tensor field against it is divergence-free. (9) For n >= 1 the dilation omega_j = eta_j x_j is conformal Killing and is not Killing. The Challenge imports Mathlib only and carries the definitions its statements use (the partial derivative, the two equations, the family, the two solution spaces as submodules, the divergences, the current and the metric trace), each with its convention. Statements (1)-(4) are classical: (1) and (3) are the classification of the conformal Killing fields of R^{p,q}, p + q >= 3, and the count of their parameters (Schottenloher 2008, Theorem 1.7; Ginsparg 1988, section 1.1), the infinitesimal counterpart of Liouville's theorem on conformal maps; (2) and (4) are the Killing fields of flat space and their number. (6) is the standard identity behind the conserved currents of a trace-free stress tensor, and (5) and (9) are standard examples. In (7) and (8) the direction from the equation to conserved currents is (6); the other direction was not found stated in the sources read for this entry, is elementary (it is proved by testing on constant tensor fields, so it is a pointwise fact of linear algebra) and is not claimed as new. No statement is claimed as a new theorem. Scope: diagonal metrics with entries +1 or -1 (a general constant metric, reached by a linear change of coordinates, is not formalized); C^3 covector fields on all of R^n; the numbers in (3) and (4) are dimensions of real vector spaces, with no Lie bracket and no isomorphism with so(p+1,q+1) stated; the finite conformal maps (Liouville's theorem itself) are not formalized; nothing is said about compactly supported tensor fields in (7) and (8). Prior formalization, recorded under related_formalizations: the identity (6), with its corollary for conserved trace-free tensors, is formalized for n = 4 and signature (1,3), for tensors of tempered distributions, in github.com/openai/math; special cases of the currents are in the Yang-Mills release github.com/yang-mills-group/OpenAI-YM-20261028 and in facebookresearch/atlas-lean, and Killing fields on Riemannian manifolds are in atlas-lean and in TauCetiProject/TauCeti. In a dated search no formalization was found of (1)-(5) or of the direction of (7) and (8) from conserved currents to the equation. Application (cited; no compared statement asserts it): for n = 4 and a Lorentzian signature the spaces of (3) and (4) have dimensions 15 and 10, the infinitesimal conformal symmetries and the infinitesimal isometries of Minkowski space, and (6) is the conservation law for the currents of a conserved symmetric stress tensor against them, trace-free in the conformal case.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DG",
+          "math-ph",
+          "gr-qc",
+          "hep-th"
+        ],
+        "msc2020": [
+          "53C18",
+          "53B30",
+          "35N05",
+          "70S10",
+          "81T40",
+          "83A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FlatConformalKilling.conformalKilling_iff_family",
+          "FlatConformalKilling.killing_iff_affine",
+          "FlatConformalKilling.finrank_conformalKilling",
+          "FlatConformalKilling.finrank_killing",
+          "FlatConformalKilling.plane_conformalKilling_not_family",
+          "FlatConformalKilling.div_current_of_conformal",
+          "FlatConformalKilling.currents_conserved_iff_conformalKilling",
+          "FlatConformalKilling.currents_conserved_iff_killing",
+          "FlatConformalKilling.dilation_conformalKilling_not_killing"
+        ]
+      },
+      "id": "PALOMAR-2026-11-12-000002",
+      "path": "entries/PALOMAR-2026-11-12-000002-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+            "fork_repository": "PalomarArchive/stalex444--conformal-killing-flat--43bc2d3753b9",
+            "source_repository": "stalex444/conformal-killing-flat"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "770afa854af6548440fc404321fc0dc25bbfbd5a70884af39be73ca759afad24",
+        "version": 2
+      },
+      "published_at": "2026-11-13T23:17:27Z",
+      "source": {
+        "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+        "project_path": null,
+        "repository": "stalex444/conformal-killing-flat"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Conformal Killing and Killing fields of flat pseudo-Euclidean space: classification for n >= 3 in every signature, the two dimension counts, and the divergence of the current of a symmetric tensor field",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 and Mathlib proofs that no directed strongly regular graph exists for 28 parameter sets (v, k, t, \u03bb, \u03bc). A directed strongly regular graph is a 0-1 matrix A with zero diagonal, all row and column sums equal to k and A\u00b2 = tI + \u03bbA + \u03bc(J \u2212 I \u2212 A). Nine of the parameter sets are those of the paper below: (50, 11, 7, 0, 3), (68, 13, 7, 0, 3), (100, 16, 7, 0, 3), (108, 19, 9, 0, 4), (55, 16, 12, 1, 6), (66, 10, 5, 4, 1), (91, 12, 6, 5, 1), (96, 15, 10, 9, 1) and (28, 6, 3, 2, 1); the tenth set of the paper, (48, 9, 5, 0, 2), is not formalized. The same lemmas exclude eight further sets, and a formalized complement lemma excludes eleven complementary sets. The proofs compare the rank of A \u2212 \u03b8I, for a root \u03b8 of the quadratic x\u00b2 \u2212 (\u03bb \u2212 \u03bc)x \u2212 (t \u2212 \u03bc), with a submatrix of A prescribed at one vertex. For (28, 6, 3, 2, 1) one case is a SAT refutation whose LRAT certificate the Lean kernel checks with decide +kernel. The theorems use only propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Iurii Ivanov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C20",
+          "05E30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DsrgRank.ClosedNbhd_no_50_11_7_0_3",
+          "DsrgRank.ClosedNbhd_no_54_13_9_0_4",
+          "DsrgRank.ClosedNbhd_no_64_17_13_0_6",
+          "DsrgRank.ClosedNbhd_no_68_13_7_0_3",
+          "DsrgRank.ClosedNbhd_no_70_15_9_0_4",
+          "DsrgRank.ClosedNbhd_no_78_19_13_0_6",
+          "DsrgRank.ClosedNbhd_no_88_23_17_0_8",
+          "DsrgRank.ClosedNbhd_no_100_16_7_0_3",
+          "DsrgRank.ClosedNbhd_no_108_19_9_0_4",
+          "DsrgRank.ClosedNbhd_no_110_31_25_0_12",
+          "DsrgRank.LeftKer_no_55_16_12_1_6",
+          "DsrgRank.TwinMuOne_no_40_9_6_5_1",
+          "DsrgRank.TwinMuOne_no_66_10_5_4_1",
+          "DsrgRank.TwinMuOne_no_91_12_6_5_1",
+          "DsrgRank.TwinMuOne_no_96_15_10_9_1",
+          "DsrgRank.Twin_no_80_19_13_12_2",
+          "DsrgRank.Case28_no_28_6_3_2_1",
+          "DsrgRank.Case28_no_28_21_18_15_18",
+          "DsrgRank.compl_no_40_30_27_21_27",
+          "DsrgRank.compl_no_50_38_34_29_28",
+          "DsrgRank.compl_no_55_38_34_27_24",
+          "DsrgRank.compl_no_66_55_50_45_50",
+          "DsrgRank.compl_no_68_54_48_43_42",
+          "DsrgRank.compl_no_80_60_54_42_54",
+          "DsrgRank.compl_no_91_78_72_66_72",
+          "DsrgRank.compl_no_96_80_75_65_75",
+          "DsrgRank.compl_no_100_83_74_69_68",
+          "DsrgRank.compl_no_108_88_78_72_70"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000004",
+      "path": "entries/PALOMAR-2026-11-13-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+            "fork_repository": "PalomarArchive/Nosdormas--melete-math--c62e2f56db1d",
+            "source_repository": "Nosdormas/melete-math"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7e3b0d59274bd11110305f0a9f007af8de3b2396a771f4d3dc5bfdd31b954959",
+        "version": 1
+      },
+      "published_at": "2026-11-13T06:03:05Z",
+      "source": {
+        "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+        "project_path": "dsrg-rank-method/lean",
+        "repository": "Nosdormas/melete-math"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Nonexistence of directed strongly regular graphs by rank arguments",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For every n and every primitive complex (2n+1)-th root of unity \u03b6, the permanent of the 2n \u00d7 2n matrix with entries 1 on the diagonal and (1 + \u03b6^(j\u2212k))/(1 \u2212 \u03b6^(j\u2212k)) off it equals 4^n (n!)^2/(2n+1). Zhi-Wei Sun posed the identity in OEIS A002454 (2022), and She, Sun and Xia proved it (arXiv:2208.12167, Theorem 1.3(ii)). The proof formalizes the determinant approach of Guo, Li, Tao and Wei.",
+      "authors": [
+        {
+          "name": "Wentao Li"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.NT"
+        ],
+        "msc2020": [
+          "15A15",
+          "11C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA2454.conjecture"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000003",
+      "path": "entries/PALOMAR-2026-11-13-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8d4df1333a708c3103b5a939523e63481bb49ec0",
+            "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+            "source_repository": "VictorLiwentao/fc-palomar-proofs"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "eb8d05d1b4351839494beddfe6009b6feb8c41e910ea92003872d149a1ffd732",
+        "version": 1
+      },
+      "published_at": "2026-11-13T05:01:34Z",
+      "source": {
+        "commit": "8d4df1333a708c3103b5a939523e63481bb49ec0",
+        "project_path": null,
+        "repository": "VictorLiwentao/fc-palomar-proofs"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "OEIS A002454: the odd-order permanent identity (She\u2013Sun\u2013Xia)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Let M be the n x n matrix with entries 1/lcm(i,j). R. G. Wilson v conjectured (OEIS A060841, 2015) that 1/det(M) is an integer only for n = 1, ..., 34, 36 and 38. This project proves the conjecture as stated in formal-conjectures (OeisA60841.conjecture1): by Smith's determinant the gcd matrix factors as E diag(phi) E^T with E the unitriangular divisibility matrix, so 1/det(M) = (n!)^2 / prod_{k <= n} phi(k); for n in {1, ..., 34, 36, 38} the divisibility is decided by computation, and for every other n the odd primes up to 97 and the powers of 2 from 4 to 128 force v_2(prod phi(k)) > v_2((n!)^2), numerically for n = 35, 37 and 39 <= n < 100 and by a linear bound for n >= 100.",
+      "authors": [
+        {
+          "name": "Daniel Veljjanoski"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11C20",
+          "11A25",
+          "15A15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA60841.conjecture1"
+        ]
+      },
+      "id": "PALOMAR-2026-11-10-000008",
+      "path": "entries/PALOMAR-2026-11-10-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "72400d30058c0a95e6c4c1c1e55557039f2daec7",
+            "fork_repository": "PalomarArchive/veljjanoski--oeis60841-palomar--617ba1cfdb3a",
+            "source_repository": "veljjanoski/oeis60841-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "708d97222b1483e7379ab55880428b8f76fe72fb4a334e9f380fe7c784016886",
+        "version": 1
+      },
+      "published_at": "2026-11-10T13:25:46Z",
+      "source": {
+        "commit": "72400d30058c0a95e6c4c1c1e55557039f2daec7",
+        "project_path": null,
+        "repository": "veljjanoski/oeis60841-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "OEIS A060841: 1/det(1/lcm(i,j)) is an integer exactly for n <= 34, n = 36 and n = 38",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete source-based finite penalty/energy family: the generic full ordered QUBO identity and strict integer-row minimizer equivalence, consistent fixed-coordinate energy/minimizer transport, and the literal incidence, time-indexed arc and sequence applications. The statements retain actual rows, repeated costs, full offsets, source free/fixed partitions, feasibility conditions, strict sufficient thresholds and finite source energy attainment. Capacity, physical route completeness and solver/quantum performance are outside scope.",
+      "authors": [
+        {
+          "name": "David E. Bernal Neira"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OC"
+        ],
+        "msc2020": [
+          "90C09",
+          "90C11"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Chapter10.palomar_source_route_penalty_proposition",
+          "Chapter10.Algebra.palomar_integer_penalty_zero_iff",
+          "Chapter10.Algebra.palomar_integer_penalty_gap",
+          "Chapter10.Routing.Arc.palomar_matrix_iff_literal",
+          "Chapter10.Routing.Arc.palomar_arc_penalty_zero_iff",
+          "Chapter10.Routing.Arc.palomar_arc_minimizers_exact",
+          "Chapter10.Routing.Arc.palomar_actual_arc_qubo_identity",
+          "Chapter10.SequencePenalty.palomar_source_penalty_sums",
+          "Chapter10.SequencePenalty.palomar_penalty_zero_iff",
+          "Chapter10.SequencePenalty.palomar_objective_range",
+          "Chapter10.SequencePenalty.palomar_objective_range_printed",
+          "Chapter10.SequencePenalty.palomar_minimizers_exact",
+          "Chapter10.SequencePenalty.palomar_source_energy_matrix_identity",
+          "Chapter10.SequencePenalty.palomar_domain_iff_split_fixed",
+          "Chapter10.SequencePenalty.palomar_source_fixed_energy_identity",
+          "Chapter10.SequencePenalty.palomar_source_fixed_min_transport",
+          "Chapter10.SequencePenalty.palomar_reduced_minimizers_exact",
+          "Chapter10.SequencePenalty.palomar_source_energy_attainment",
+          "Chapter10.Algebra.palomar_full_qubo_identity",
+          "Chapter10.Algebra.palomar_integer_penalty_minimizers_exact",
+          "Chapter10.Algebra.palomar_fixed_qubo_identity",
+          "Chapter10.Algebra.palomar_fixed_qubo_min_transport",
+          "Chapter10.Sequence.penultimate._proof_2",
+          "Chapter10.Sequence.second._proof_2"
+        ]
+      },
+      "id": "PALOMAR-2026-11-08-000006",
+      "path": "entries/PALOMAR-2026-11-08-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "95f2a288a6c50ea6eaabde90c2515885197796cf",
+            "fork_repository": "PalomarArchive/bernalde--routing-penalty-adapters--1acf02c66f83",
+            "source_repository": "bernalde/routing-penalty-adapters"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e4ac23dc9b422f4a7bdc8db061be6a44ba314bf5d819d50d333d4b0d8d7ab4ad",
+        "version": 1
+      },
+      "published_at": "2026-11-08T04:41:38Z",
+      "source": {
+        "commit": "95f2a288a6c50ea6eaabde90c2515885197796cf",
+        "project_path": null,
+        "repository": "bernalde/routing-penalty-adapters"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Finite integer penalties and literal routing QUBO transport",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of D. Gale, A theorem on flows in networks (Pacific J. Math. 7, 1957) and of Hoffman's circulation theorem (A. J. Hoffman, 1960, in the form of A. Schrijver, A Course in Combinatorial Optimization, Theorems 4.6 and 4.7). A network is a finite node type N with capacities c : N \u2192 N \u2192 \u211d, c \u2265 0 (finite capacities only); a flow is f : N \u2192 N \u2192 \u211d with f x y + f y x = 0 and f \u2264 c; a demand d : N \u2192 \u211d is feasible if some flow has net inflow \u2211_y f y x \u2265 d x at every node. feasibility: d is feasible if and only if d(S\u1d9c) \u2264 c(S, S\u1d9c) for every S \u2286 N (Gale's Feasibility Theorem). feasibility_int: the same for integer c and d with an integer flow (Gale's remark). feasibility_second: Gale's second formulation (for every set Y of nodes of positive demand, some flow meets the demand at all nodes of nonpositive demand and the aggregate demand of Y). gale_ryser_unsorted, gale_ryser: for a : Fin m \u2192 \u2115 and b : Fin n \u2192 \u2115, a 0-1 matrix with row sums at most a i and column sums b j exists if and only if \u2211_{j\u2208Y} b j \u2264 \u2211_i min(a i, |Y|) for all column sets Y, equivalently, for b nonincreasing, \u2211_{j<k} b j \u2264 \u2211_{j<k} #{i | j < a i} for all k \u2264 n (Gale's Problem I, \u00a73). gale_ryser_exact: if moreover \u2211 a = \u2211 b, the row sums can be made exactly a (the Gale\u2013Ryser theorem). hoffman, hoffman_int: on a finite directed multigraph (arc type A, tail and head maps src, tgt : A \u2192 V) with bounds d \u2264 c on the arcs (real, respectively integer), there is a circulation f (real, respectively integer) with d \u2264 f \u2264 c if and only if d(\u03b4^in(U)) \u2264 c(\u03b4^out(U)) for every U \u2286 V. Eight statements; no definitions beyond Mathlib's.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.OC"
+        ],
+        "msc2020": [
+          "90B10",
+          "05C21",
+          "05B20",
+          "90C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "GaleHoffman.feasibility",
+          "GaleHoffman.feasibility_int",
+          "GaleHoffman.feasibility_second",
+          "GaleHoffman.gale_ryser_unsorted",
+          "GaleHoffman.gale_ryser",
+          "GaleHoffman.gale_ryser_exact",
+          "GaleHoffman.hoffman",
+          "GaleHoffman.hoffman_int"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000015",
+      "path": "entries/PALOMAR-2026-11-06-000015-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+            "fork_repository": "PalomarArchive/jtraverso--gale-hoffman-feasibility--31485ec5ef29",
+            "source_repository": "jtraverso/gale-hoffman-feasibility"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "be842c977f39ddef23813e4ce437cae40bff50a6cbb1b60efb539c69da2607bc",
+        "version": 1
+      },
+      "published_at": "2026-11-06T15:58:45Z",
+      "source": {
+        "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+        "project_path": null,
+        "repository": "jtraverso/gale-hoffman-feasibility"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Gale's feasibility theorem, the Gale\u2013Ryser theorem and Hoffman's circulation theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of Baranyai's theorem: if k divides n, the k-subsets of an n-set can be partitioned into (n\u22121 choose k\u22121) parallel classes, each a partition of the set into n/k blocks of size k (a 1-factorization of the complete k-uniform hypergraph); and of Baranyai's rounding lemma: every real matrix can be rounded entrywise to floors or ceilings so that all row sums, column sums and the total are also rounded. The proof includes the integral max-flow theorem for integer capacities. Mathlib has neither result.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C65",
+          "05C70",
+          "90C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BaranyaiTheorem.rounding",
+          "BaranyaiTheorem.baranyai"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000003",
+      "path": "entries/PALOMAR-2026-11-06-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "0ff6d6f4005b0b68114e0b99e6d342742918b629",
+            "fork_repository": "PalomarArchive/jtraverso--baranyai-theorem--0fb5997ac7ea",
+            "source_repository": "jtraverso/baranyai-theorem"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "47699f3a28e428f3bd2f3b645e0205113cbdd70b21fd5c4de36119cc64191d28",
+        "version": 1
+      },
+      "published_at": "2026-11-06T01:56:03Z",
+      "source": {
+        "commit": "0ff6d6f4005b0b68114e0b99e6d342742918b629",
+        "project_path": null,
+        "repository": "jtraverso/baranyai-theorem"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Baranyai's theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A machine-checked proof that, over a field of characteristic zero, the Jacobian conjecture in dimension 2n implies the Poisson conjecture in dimension n (K. Adjamagbo and A. van den Essen, 2007, Theorem 7). The statement and definitions are Formal Conjectures' (poisson_conjecture.variants.jacobian_implication in PoissonConjecture.lean, arXiv math/0608009), copied verbatim into Challenge.lean, so this entry proves Formal Conjectures' own statement. A Poisson endomorphism's Jacobian matrix lies in Mathlib's symplectic group, so its determinant is a unit; the Jacobian conjecture then gives a polynomial inverse.",
+      "authors": [
+        {
+          "name": "Zayn Blore"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math.AG"
+        ],
+        "msc2020": [
+          "14R15",
+          "17B63"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PoissonConjecture.poisson_conjecture.variants.jacobian_implication"
+        ]
+      },
+      "id": "PALOMAR-2026-11-03-000028",
+      "path": "entries/PALOMAR-2026-11-03-000028-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e395ab52d16b1c26b354daecf0c62b361f01c7a8",
+            "fork_repository": "PalomarArchive/zblore--fc-jacobian-poisson--4d0d84a331c9",
+            "source_repository": "zblore/fc-jacobian-poisson"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "635d0e44c283315b2b3f5bbc4ce8756111100800dd5cca53896de4d8566fbaad",
+        "version": 1
+      },
+      "published_at": "2026-11-03T21:59:48Z",
+      "source": {
+        "commit": "e395ab52d16b1c26b354daecf0c62b361f01c7a8",
+        "project_path": null,
+        "repository": "zblore/fc-jacobian-poisson"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Jacobian conjecture in dimension 2n implies the Poisson conjecture in dimension n",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of ten statements. Let K be a number field of degree 9 containing a totally real cubic field L and a cubic field M with one real place. Then K = LM has signature (3, 3), and its nine embeddings are the pairs (lambda, mu). A slot assignment, fixed by a labelling of L's embeddings and a non-real embedding mu_1 of M, places the nine conjugates of x in K in a 3 x 3 Hermitian array, the symbol of x; the symbol of x^-1 is its entrywise (Hadamard) inverse. (1) For every finite index type, a positive semidefinite complex matrix with no zero entry has positive semidefinite Hadamard inverse iff it is w w* (rank one); (2) for every complex matrix with no zero entry (positive semidefiniteness not assumed), the Schur multipliers of the matrix and of its Hadamard inverse are both completely positive iff it is w w*. Statements 1-2 are supporting lemmas. (3) The setting: L and M are linearly disjoint, L M = K, and K has 3 real and 3 complex places. (4) The slot assignment exists, is a bijection Fin 3 x Fin 3 ~ (K -> C) with real diagonal and conjugate-symmetric slots, and is unique. (5) For x != 0 in K, the symbol of x is rank one iff N_{K/L}(x) and N_{K/M}(x) are one and the same positive rational number. (6) For a unit u, the symbol is rank one iff N_{K/L}(u) = N_{K/M}(u) = 1. (7) These units H are torsion-free and their logarithmic embedding spans a Z-module of rank 2, so H is isomorphic to Z^2 (the isomorphism is not itself a Lean term). (8) For a unit u, the Schur multipliers of the symbols of u and of u^-1 are both completely positive iff u is in H. (9) There is a unit of infinite order all of whose powers run both ways. (10) The degree-four contrast: in a field with two real places and one complex place, both Schur multipliers of the 2 x 2 place symbol of a unit u and of u^-1 are completely positive iff u is positive at both real places and |sigma(u)| = 1. Statements 4-6, 8 and 9 hold for every labelling and every non-real mu_1. The compositum place bookkeeping is ported, with citation, from the registered entry PALOMAR-2026-10-21-000012; it is not re-proved. Application to time (no compared statement asserts it): in the arithmetic of time the tick is multiplication by a unit; if a unit acts by multiplication on a Hermitian register of its places and an admissible tick must be completely positive, then in degree four a tick u != 1 runs both ways only through a conjugate on the unit circle (Salem type); in a field such as Q(Q), Q^4 = Q + 1, the only such elements are +-1 (not proved in this entry; it follows from statement 17 of the registered entry PALOMAR-2026-10-21-000012, since Q(Q) is contained in Q(rho, Q)), so there the arithmetic gives time a direction; in degree nine a rank-two group of units runs both ways, so the direction is not a property of arithmetic in general: it rests on the degree-four shape and on Q(Q) having no conjugate on the unit circle. The ticks are completely positive, not trace-non-increasing. Companion of the registered entry PALOMAR-2026-08-19-000006 (the arithmetic of time), whose README Scope section is reproduced verbatim in this entry's README.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.OA",
+          "math.RA",
+          "quant-ph",
+          "math-ph",
+          "physics.hist-ph"
+        ],
+        "msc2020": [
+          "11R27",
+          "11R16",
+          "11R06",
+          "15B48",
+          "47B49",
+          "81P47",
+          "00A79"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DegreeNine.hadamardInv_posSemidef_iff",
+          "DegreeNine.cp_both_iff_rankOne",
+          "DegreeNine.compositum_setting",
+          "DegreeNine.slot_assignment_exists_unique",
+          "DegreeNine.rankOne_iff_relNorm_eq_ratCast",
+          "DegreeNine.unit_rankOne_iff",
+          "DegreeNine.relNormKernel_torsionFree_rank_two",
+          "DegreeNine.reversible_iff",
+          "DegreeNine.exists_reversible",
+          "DegreeNine.quartic_reversible_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-11-02-000018",
+      "path": "entries/PALOMAR-2026-11-02-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+            "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time-reversible-units-degree-nine--30ddb83bb682",
+            "source_repository": "stalex444/arithmetic-of-time-reversible-units-degree-nine"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c0c37d7056f79d99d58d1ac04df17881d3016c7a4eb0a97877a52a3e661e0cab",
+        "version": 1
+      },
+      "published_at": "2026-11-02T20:25:10Z",
+      "source": {
+        "commit": "723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+        "project_path": null,
+        "repository": "stalex444/arithmetic-of-time-reversible-units-degree-nine"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Arithmetic of Time: reversible units of a degree-nine field. The units of K = LM (L, M cubic) with rank-one Hermitian symbol are exactly those of trivial relative norm to L and to M, a group of rank two, and exactly those whose Schur multipliers run both ways",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A kernel-checked chirality package for the Padovan substitution (0 \u21a6 1, 1 \u21a6 2, 2 \u21a6 01 on Fin 3; its incidence matrix has characteristic polynomial x\u00b3 \u2212 x \u2212 1, an orientation fact that is not used or compared). Three compared theorems, all at the iterate-factor level \u2014 they quantify over factors of the concrete words S^[n] [x], never over an abstract subshift. (1) The successor invariant: in every positive iterate from any seed, the letter 0 (\"a\") is immediately followed by 1 (\"b\"). (2) Chirality: the word 20 (\"ca\") is a factor of an iterate while its reversal 02 (\"ac\") is a factor of no iterate from any seed \u2014 the factor language reads differently backwards \u2014 proved from the invariant, with no enumeration on the ac side. (3) No palindromic factor: no factor of length \u2265 4 of any iterate from any seed (including the zeroth iterate) is a palindrome, via a complete length-\u22645 window certificate for the seed a together with the index shift S [0] = [1], S [1] = [2], which exhibits every seed's iterate as a seed-a iterate. These are the three compared statements of the registered record (PALOMAR-2026-08-19-000006 at revision c48eb12), unchanged in this revision. The uniqueness results proved in this repository (Supplement.lean: padovan_minimal_unique, padovan_eigenvalue_unique, padovan_matrix_unique, pisot_ge_plastic, padovan_rules_chiral) are registered separately as PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock, revision 49eafbab4af8899b2a66469697bf74683a88ce87), which compares them over s, mir, inc and sub. Everything else in this repository is public and kernel-checked but not compared: among it the exact orientation threshold (padovan_exact_orientation_threshold_four), the irrationality of the distinguished slope (Time.beta_irrational), mirror identities for arbitrary substitutions, a rate identity, and the characteristic polynomial and chirality of a twelve-letter substitution for \u03c1Q.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.DS",
+          "physics.hist-ph"
+        ],
+        "msc2020": [
+          "68R15",
+          "37B10",
+          "00A79"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ArithmeticOfTime.padovan_a_forces_b",
+          "ArithmeticOfTime.padovan_chirality",
+          "ArithmeticOfTime.padovan_no_long_palindrome"
+        ]
+      },
+      "id": "PALOMAR-2026-08-19-000006",
+      "path": "entries/PALOMAR-2026-08-19-000006-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "dff259119db097947f946f44620b42d0bd242b7d",
+            "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time--b101f6bdb410",
+            "source_repository": "stalex444/arithmetic-of-time"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4bfccf8809b6d0844b5ad06d23dba744c44b3402fa05a2e728eedef8c8bac0ef",
+        "version": 2
+      },
+      "published_at": "2026-11-02T13:21:48Z",
+      "source": {
+        "commit": "dff259119db097947f946f44620b42d0bd242b7d",
+        "project_path": null,
+        "repository": "stalex444/arithmetic-of-time"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Arithmetic of Time: chirality of the Padovan substitution",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The three principal manuscript results M01, M02 and M03, with their original domains and quantifier order. M01: one finite C>0 before every n>0 and compact convex Euclidean body K with nonempty interior; there exists a literal real special-linear matrix S with finite actual H0 Rayleigh infimum on interior(S K) and lambda_1(interior(S K))*volume(K)^(2/n)<=C*n. M02: one finite C>0 before every n>0 and origin-symmetric compact convex volume-one K with nonempty interior in maximal Gaussian measure position; its actual H0 Rayleigh infimum is at most C*n. M03: for each real P>=2 one finite C(P)>0 precedes every n>0, every even isotropic probability law nu satisfying the conventional compact-set IsLogConcaveMeasure condition, least Poincare constant at most P and finite actual Gaussian-relative Fisher information, and every origin-symmetric compact convex body D with nonempty interior supporting nu almost everywhere; lambda_1(interior D)<=C(P)*(n+sqrt(n*I(nu|gamma))). The log-concave density is derived from the law's original finite-information hypothesis; no density witness, covariance lower bound, ellipsoid-existence conclusion or desired spectral estimate is an additional premise. This standalone combined M01/M02/M03 package passed its own ordinary Linux sandboxed Comparator --paranoid with all six configured kernels. Its actual build, complete fixed-statement comparison, private proof inspection, axiom reports and separate AI reviews are retained under verification/.",
+      "authors": [
+        {
+          "name": "Matthew J. Colbrook"
+        },
+        {
+          "name": "George Stepaniants"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SP",
+          "math.MG"
+        ],
+        "msc2020": [
+          "35P15",
+          "52A23"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "AffineFK.affine_reverse_faber_krahn_principal_results"
+        ]
+      },
+      "id": "PALOMAR-2026-11-01-000009",
+      "path": "entries/PALOMAR-2026-11-01-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8da3a495c1e4ca178ae216c01ae44826fbe1a7cc",
+            "fork_repository": "PalomarArchive/MColbrook--Affine-reverse-Faber-Krahn-problem--47d3b15fd525",
+            "source_repository": "MColbrook/Affine-reverse-Faber-Krahn-problem"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "43e2547468d1ef7f934a1d5213274aaba0e1408e37c72d7738acc3b055c4e0ac",
+        "version": 1
+      },
+      "published_at": "2026-11-01T09:19:15Z",
+      "source": {
+        "commit": "8da3a495c1e4ca178ae216c01ae44826fbe1a7cc",
+        "project_path": null,
+        "repository": "MColbrook/Affine-reverse-Faber-Krahn-problem"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A formal proof of an affine reverse Faber-Krahn inequality",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This formalization develops a machine-checked theory of the Traveling Salesperson Problem (TSP) on finite undirected graphs over Fin n in Lean 4 across two principal modules. First, in Christofides.lean (compared against ChallengeChristofides.lean), we formalize the complete Christofides-Serdyukov 3/2-approximation algorithm for Metric TSP: the Minimum Spanning Tree (MST) lower bound (cost(T) <= OPT), Euler's handshaking parity invariant for odd-degree vertices, the minimum-weight perfect matching upper bound on odd-degree vertices (2 * cost(M) <= OPT) via alternating matching decomposition of shortcut cycles, multigraph degree parity of T U M, constructive existence of Eulerian circuits via Hierholzer cycle splicing and complete Christofides certificates, metric walk shortcutting contraction, and the unconditional 3/2-approximation guarantee in both exact integer scaling and real arithmetic. Second, in TSPComplexity.lean (compared against ChallengeTSPComplexity.lean), we formalize polyhedral and complexity-theoretic barriers for Decision TSP: a fuel-bounded branch-and-cut state machine with verified soundness, completeness, and support-pruned cycle-separation rank decision equivalence; the Dantzig-Fulkerson-Johnson (DFJ) subtour cut inequality (every valid tour crosses any proper nonempty cut at least twice); the continuous Held-Karp LP relaxation embedding; a machine-checked proof that the 10-vertex Petersen graph fractional assignment (x_e = 2/3) strictly separates the Held-Karp relaxation from the integral TSP polytope with zero slack on singleton cuts and slack >= 2/3 on all nontrivial cuts; Yannakakis DFJ slack matrix nonnegativity and conditional Fiorini-Rothvoss PSD extension complexity scaling; and polynomial-time reductions from Hamiltonian Cycle and gadget-parameterized 3-SAT to Decision TSP.",
+      "authors": [
+        {
+          "name": "Ian McNelly"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.DS",
+          "cs.CC",
+          "math.CO",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "68W25",
+          "68Q17",
+          "90C27",
+          "05C45",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "IJM.TSP.MSTCost_le_OPT",
+          "IJM.TSP.even_card_oddDegreeVertices",
+          "IJM.TSP.perfectMatching_card_two_mul",
+          "IJM.TSP.matchingCost_le_half_OPT",
+          "IJM.TSP.multigraph_degree_even",
+          "IJM.TSP.circuitCost_eq_treeCost_add_matchingCost",
+          "IJM.TSP.shortcutCircuit_isTour",
+          "IJM.TSP.shortcut_tourCost_le_circuitCost",
+          "IJM.TSP.christofides_circuit_approx_ratio_nat",
+          "IJM.TSP.christofides_circuit_approx_ratio",
+          "IJM.TSP.christofides_approx_ratio_nat",
+          "IJM.TSP.christofides_approx_ratio",
+          "IJM.TSP.exists_christofidesCertificate",
+          "IJM.TSP.christofides_certificate_approx_ratio_nat_unconditional",
+          "IJM.TSP.christofides_certificate_approx_ratio_unconditional"
+        ]
+      },
+      "id": "PALOMAR-2026-10-30-000013",
+      "path": "entries/PALOMAR-2026-10-30-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "73c122b96051de95d29b6977cdc2a10b56e2af2b",
+            "fork_repository": "PalomarArchive/IanMcNelly--lean4-tsp-complexity-christofides--7c1f1ecba67b",
+            "source_repository": "IanMcNelly/lean4-tsp-complexity-christofides"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "251c58f4546caa65d79428ed3fb6ff3783ded37829f6517354629a8f59debb3e",
+        "version": 1
+      },
+      "published_at": "2026-10-30T23:06:24Z",
+      "source": {
+        "commit": "73c122b96051de95d29b6977cdc2a10b56e2af2b",
+        "project_path": null,
+        "repository": "IanMcNelly/lean4-tsp-complexity-christofides"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Machine-Checked Christofides 3/2-Approximation and Polyhedral Complexity Barriers for the Traveling Salesperson Problem in Lean 4",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib formalization of arXiv:2308.00484, \"Uniform attachment with freezing: Scaling limits\", published in Ann. Inst. H. Poincar\u00e9 Probab. Statist. 61(4) 2679\u20132708 (2025). It proves the Introduction's height theorem, the subcritical Gromov\u2013Hausdorff\u2013Prokhorov (GHP) limit to a measured segment, the critical GHP limit to a random compact measured real tree T(f) together with its geometric properties (leaves carry the mass; binary if and only if the reciprocal-square integral diverges; root condensation otherwise), and the supercritical distance-matrix limit in its corrected zero-diagonal form. All numbered intermediate results are proved, several in corrected or qualified forms. The CRT corollary (cor:CRT) is not formalized. Height and forward-tree modules are adapted from the companion formalization of \"Uniform attachment with freezing\" by the same contributor (not yet public; see docs/companion-provenance.md).",
+      "authors": [
+        {
+          "name": "Igor Kortchemski"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.CO"
+        ],
+        "msc2020": [
+          "60C05",
+          "05C80",
+          "60F05",
+          "60J80"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FreezingStatements.height_scaling_limit",
+          "FreezingStatements.subcritical_scaling_limit",
+          "FreezingStatements.critical_scaling_limit",
+          "FreezingStatements.supercritical_distance_matrix_limit",
+          "FreezingStatements.bounded_population_GH_limit"
+        ]
+      },
+      "id": "PALOMAR-2026-10-30-000012",
+      "path": "entries/PALOMAR-2026-10-30-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8bace72d36cdf7d250414f3d98acfaa415de23d9",
+            "fork_repository": "PalomarArchive/igor-kortchemski--uniform-attachment-freezing-scaling-limits--3350ab0eb2af",
+            "source_repository": "igor-kortchemski/uniform-attachment-freezing-scaling-limits"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cfa73173a2bbba511b6230c171ca0fc5940d47210f1b390be124f394e197e452",
+        "version": 1
+      },
+      "published_at": "2026-10-30T14:32:41Z",
+      "source": {
+        "commit": "8bace72d36cdf7d250414f3d98acfaa415de23d9",
+        "project_path": null,
+        "repository": "igor-kortchemski/uniform-attachment-freezing-scaling-limits"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Uniform attachment with freezing: Scaling limits \u2014 Lean formalization",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Cohn, Kumar and Minton constructed a universally optimal code of thirty-nine points in the octonionic projective plane \ud835\udd46P\u00b2, whose existence was conjectured by Hoggar. Its points form thirteen mutually unbiased Jordan frames, and a four-parameter phase family deforms the code through such configurations. This Lean development describes their local geometry under the automorphism group F\u2084. At every nonresonant phase, every nearby real solution of the defining equations belongs to one of four smooth families of labelled configurations. In a local slice for F\u2084, their union has normal form R\u2074 \u00d7 \u22c3\u1d62\u208c\u2081\u2074 R\u2076\u1d62, with the R\u2076\u1d62 in direct sum. The distance to the localized family union is bounded by a phase-dependent constant times the square root of the residual, and the exponent 1/2 is sharp in the ambient configuration space. On an explicit open dense subset of the nonresonant phases, the complexified families are exactly the top-dimensional components of the complex solution germ, each generically reduced. Every neighbourhood of the original code in the space of unlabelled tight 39-point codes modulo F\u2084 contains points of local dimension 10.\n\nThe results are local, the resonant germ at the original code is not classified, and lower-dimensional complex components are not excluded. For exact frames and strongly convex C\u00b2 overlap potentials, we prove a two-sided comparison of the energy gap with squared overlap errors and, near each nonresonant orbit, a quartic lower bound in distance to the localized family union. Except for attributed third-party material, all text and code are AI-generated under Robert R. MacGregor\u2019s direction. Robert is an amateur who welcomes collaboration (macgregor@gmail.com).",
+      "authors": [
+        {
+          "name": "Robert R. MacGregor"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DG",
+          "math.CO",
+          "math.RA"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "CKM.NativeTightCodeConsumer.code_bound",
+          "CKM.NativeTightCodeConsumer.code_bound_sharp",
+          "CKM.NativeTightCodeConsumer.tight_code_iff_frames",
+          "SupportedStress.supported_stress_local_criterion",
+          "CKM.NativeExactFrameEnergy.native_energy_sandwich",
+          "CompactAlbert.native_idempotent_iff_scaled_specialUnitary_of_literal_quartet_readouts",
+          "CompactAlbert.nativeComplementaryPoint_scaled_hidden_inverse",
+          "CompactAlbert.native_complementary_frame_iff_exists_central_order",
+          "CompactAlbert.native_ordered_central_triples_overlap_iff_hilbertSchmidt",
+          "CKM.NativeUnlabelledSlice.literalCfg_mem_tightLocus",
+          "Option2StatementCode.exists_goodAvoid_codeClass_mem_nhds_one",
+          "Option2StatementA1.state_equivalence",
+          "Option2StatementA1.quartet_fixer_classification",
+          "Option2StatementA1.quartet_fixer_converse",
+          "Option2StatementCode.originalCode_no_open24_chart",
+          "Option2StatementCode.originalCode_no_charted24_neighborhood",
+          "Option2StatementA3.finrank_original_derivative_kernel",
+          "Option2StatementA1.nine_frame_array",
+          "Option2StatementA3Matrix.unrestricted_matrix_normal_form",
+          "Option2StatementA3Matrix.firstOrder_dimension",
+          "Option2StatementA3Matrix.resonance_count_cases",
+          "Option2StatementA2.full_A2",
+          "Option2StatementA5Slice.native_A5_geometry",
+          "Option2StatementA4.full_A4",
+          "Option2StatementA6.native_A6",
+          "Option2StatementCode.native_A7_local_dimension",
+          "Option2StatementR.native_real_endpoint",
+          "Option2StatementR.normal_form_exists",
+          "Option2StatementR.native_exact_frame_quartic_stability_near_orbit"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000034",
+      "path": "entries/PALOMAR-2026-10-29-000034-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+            "fork_repository": "PalomarArchive/macgregor-sudo--tight-39-code--ae805be97afb",
+            "source_repository": "macgregor-sudo/tight-39-code"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "259e226017db4bde15d40a22221ab1d528667151a1b696a43837de05189b64fd",
+        "version": 1
+      },
+      "published_at": "2026-10-29T17:30:19Z",
+      "source": {
+        "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+        "project_path": null,
+        "repository": "macgregor-sudo/tight-39-code"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "On the local geometry of the tight 39-point code in \ud835\udd46P\u00b2",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry collects classical identities and a limit theorem from selection theory. The identities are stated for finite populations; Geiringer's limit theorem is stated for the deterministic infinite-population recombination model on finitely many loci with a common finite allele set. Fisher's fundamental theorem is stated, in Ewens' interpretation, as the equality of the partial change in mean fitness (the change in allele frequencies under selection, weighted by least-squares average effects) with the additive genetic variance divided by mean fitness, for arbitrary genotype frequencies and any number of loci, together with nonnegativity of that change. A grouped covariance decomposition and a multilevel Price equation are stated as identities for arbitrary weights. Hamilton's rule is derived from the least-squares regression of fitness on own and social genotypes, and the existence of the Lande\u2013Arnold gradient, equal to the inverse phenotypic covariance matrix applied to the vector of selection differentials, is stated under a nonsingular phenotypic covariance. Geiringer's theorem is stated as convergence of repeated recombination to the product of the single-locus marginals, under the condition that every pair of loci is separated with positive probability.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "q-bio.PE",
+          "math.PR"
+        ],
+        "msc2020": [
+          "92D15",
+          "92D10",
+          "60J10",
+          "62J05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.SelectionTheorems.fisher_fundamental_theorem",
+          "Rhone.Palomar.SelectionTheorems.fisher_partial_nonneg",
+          "Rhone.Palomar.SelectionTheorems.grouped_covariance_decomposition",
+          "Rhone.Palomar.SelectionTheorems.multilevel_price_equation",
+          "Rhone.Palomar.SelectionTheorems.hamilton_from_leastSquares",
+          "Rhone.Palomar.SelectionTheorems.lande_arnold_gradient_exists",
+          "Rhone.Palomar.SelectionTheorems.geiringer_recombination_converges"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000032",
+      "path": "entries/PALOMAR-2026-10-29-000032-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "40430cc1c60bb35b2b4872a6c9583b71cc363e7a",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7ca5bdde083fc4c5bcb63161e8b608f91e7c2d45f3323c31d3412f14a64fd4d1",
+        "version": 1
+      },
+      "published_at": "2026-10-29T16:57:32Z",
+      "source": {
+        "commit": "40430cc1c60bb35b2b4872a6c9583b71cc363e7a",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Classical identities and a limit theorem of selection theory",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry formalizes the two-locus sampling recursion of the coalescent with recombination, with finitely many alleles at each locus and parent-independent mutation. For positive mutation rates and nonnegative recombination rate, a solution exists and is unique, over any linearly ordered field. For real parameters, the solution at a sample typed at both loci equals the probability that the typed ancestral recombination graph, in which a mutation removes the ancestry of a lineage at that locus and assigns a type to the sample members it carries, ends with exactly the types of the sample. The solution sums to 1 over all typings of a sample of given size, tends to the product of the one-locus sampling probabilities as the recombination rate tends to infinity, and at recombination rate 0 gives a solution of a one-locus recursion on pairs of alleles. With mutation rates 0, the expected total branch length of the genealogy at locus A of a sample of size n is 2 times the sum of 1/(i + 1) for i < n \u2212 1. The transition matrix of the typed ancestral chain is shown to be nonnegative with unit row sums.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "q-bio.PE",
+          "math.PR"
+        ],
+        "msc2020": [
+          "92D10",
+          "60J90",
+          "60J10",
+          "92D15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.SamplingRecursion.exists_isSolution",
+          "Rhone.Palomar.SamplingRecursion.isSolution_unique",
+          "Rhone.Palomar.SamplingRecursion.measure_hit_ever_initT",
+          "Rhone.Palomar.SamplingRecursion.sum_q_cSample",
+          "Rhone.Palomar.SamplingRecursion.tendsto_q_qHat",
+          "Rhone.Palomar.SamplingRecursion.isSolutionOneG_q_rho_zero",
+          "Rhone.Palomar.SamplingRecursion.expected_total_length",
+          "Rhone.LinearAlgebra.Recursion.exists_isSolution",
+          "Rhone.Coalescent.TypedAncestralChain.transS_nonneg",
+          "Rhone.Coalescent.TypedAncestralChain.sum_transS"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000027",
+      "path": "entries/PALOMAR-2026-10-29-000027-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "87221a216d46c39b34cfc77fc30dc2f8e9ee757f60b0e58143139d36ae32cad9",
+        "version": 1
+      },
+      "published_at": "2026-10-29T14:50:57Z",
+      "source": {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The two-locus sampling recursion of the coalescent with recombination: existence, uniqueness, and probabilistic interpretation",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry formalizes algebraic properties of the block determinants E(i, j) of the two-locus sampling recursion, viewed as polynomials in the recombination rate \u03c1. E(i, j) is the determinant of an explicit (min(i, j) + 1)-square tridiagonal matrix whose entries depend on i, j, the mutation rates \u03b8_A and \u03b8_B, and \u03c1. Its degree in \u03c1 is min(i, j) under a stated nondegeneracy condition, and it is positive for i, j \u2265 2 with nonnegative parameters. For nonnegative real mutation rates, every root in \u03c1 of E(5, 5) and of E(7, 7) is real and negative. At explicit rational parameters with negative \u03b8_A, E(5, 5) and E(7, 7) are irreducible over the rationals, have 3 and 5 real roots, have Galois groups of orders 120 and 5040 (the full symmetric groups), and have roots that are not expressible by radicals. E(5, 5) and E(7, 7) are irreducible over the field of rational functions in the mutation rate, and their Galois groups over the field of rational functions in two independent mutation rates are the full symmetric groups; a general specialization lemma used for this is also stated. Squarefreeness, and coprimality for distinct index pairs, of the determinants with i, j \u2265 1 are stated over a field of rational functions in two independent mutation rates and over a field of Laurent series in which both mutation rates are large with a ratio that is not rational.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AC",
+          "math.NT"
+        ],
+        "msc2020": [
+          "12F10",
+          "11R32",
+          "12E05",
+          "92D10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.GaloisObstruction.natDegree_E",
+          "Rhone.Palomar.GaloisObstruction.E_pos",
+          "Rhone.Palomar.GaloisObstruction.E55pt_irreducible",
+          "Rhone.Palomar.GaloisObstruction.card_rootSet_E55pt_real",
+          "Rhone.Palomar.GaloisObstruction.card_gal_E55pt",
+          "Rhone.Palomar.GaloisObstruction.E55pt_root_not_solvableByRad",
+          "Rhone.Palomar.GaloisObstruction.E77pt_irreducible",
+          "Rhone.Palomar.GaloisObstruction.card_rootSet_E77pt_real",
+          "Rhone.Palomar.GaloisObstruction.card_gal_E77pt",
+          "Rhone.Palomar.GaloisObstruction.E77pt_root_not_solvableByRad",
+          "Rhone.Palomar.GaloisObstruction.E55gen_irreducible_ratFunc",
+          "Rhone.Palomar.GaloisObstruction.E55gen_irreducible_two_var",
+          "Rhone.Palomar.GaloisObstruction.E77gen_irreducible_ratFunc",
+          "Rhone.Palomar.GaloisObstruction.E77gen_irreducible_two_var",
+          "Rhone.Palomar.GaloisObstruction.E55_splits",
+          "Rhone.Palomar.GaloisObstruction.card_roots_E55",
+          "Rhone.Palomar.GaloisObstruction.roots_neg_E55",
+          "Rhone.Palomar.GaloisObstruction.E77_splits",
+          "Rhone.Palomar.GaloisObstruction.card_roots_E77",
+          "Rhone.Palomar.GaloisObstruction.roots_neg_E77",
+          "Rhone.Palomar.GaloisObstruction.E_squarefree_laurent",
+          "Rhone.Palomar.GaloisObstruction.E_coprime_of_ne_laurent",
+          "Rhone.Palomar.GaloisObstruction.E_squarefree_generic",
+          "Rhone.Palomar.GaloisObstruction.E_coprime_generic",
+          "Rhone.Palomar.GaloisObstruction.E55_galois_full",
+          "Rhone.Palomar.GaloisObstruction.E77_galois_full",
+          "Rhone.Palomar.GaloisObstruction.generic_galois_full_of_specialization"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000018",
+      "path": "entries/PALOMAR-2026-10-29-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4ddc4a553852c4d2d983b87067e54c2a44685946a5392afe506095a35a6ca411",
+        "version": 1
+      },
+      "published_at": "2026-10-29T11:29:00Z",
+      "source": {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Block determinants of the two-locus sampling recursion: degree, positivity, squarefreeness, coprimality, and Galois groups",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This entry formalizes degree and divisibility facts about the denominators of solutions to the two-locus sampling recursion with two alleles at each locus. Centred moments of a solution, grouped in blocks by the numbers i and j of lineages at the two loci, satisfy a tridiagonal linear system with matrix T(i, j) whose right-hand side involves only smaller blocks. An explicit product D of linear factors in the mutation rates and of block determinants E(p, s) = det T(p, s) clears the denominator of the solution: D times the solution lies in any subring that contains the parameters. Conditionally on D being the reduced denominator of the top centred moment, every denominator of the solution is divisible by E. The determinant E(i, j) has degree min(i, j) in the recombination rate when a nonvanishing condition holds, and is positive when i, j \u2265 2 and the rates are nonnegative. Two statements show that the diagonal determinants E(m, m), with one mutation rate set to zero, have irreducible factors of unbounded degree as m varies, both as polynomials in the mutation rate over rational functions of the recombination rate and as polynomials in the recombination rate over rational functions of the mutation rate.",
+      "authors": [
+        {
+          "name": "X. Lee"
+        },
+        {
+          "name": "N. Volkov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AC",
+          "q-bio.PE"
+        ],
+        "msc2020": [
+          "92D10",
+          "12E05",
+          "13F20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Rhone.Palomar.DenominatorLaw.T_mulVec_Phi_eq_phiRecursionSource",
+          "Rhone.Palomar.DenominatorLaw.Dfull_mul_q_mem",
+          "Rhone.Palomar.DenominatorLaw.dvdIn_E_of_clears",
+          "Rhone.Palomar.DenominatorLaw.natDegree_E",
+          "Rhone.Palomar.DenominatorLaw.E_pos",
+          "Rhone.Palomar.DenominatorLaw.unbounded_irreducible_E_mm_factor_degree",
+          "Rhone.Palomar.DenominatorLaw.unbounded_irreducible_E_mm_recombination_factor_degree"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000011",
+      "path": "entries/PALOMAR-2026-10-29-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+            "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+            "source_repository": "cenozoic-works/rhone-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "d44c86f27bea7b1dee956b7cd7079f8e1e44012a9171c2737fb09d98f77adbd9",
+        "version": 1
+      },
+      "published_at": "2026-10-29T05:49:42Z",
+      "source": {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "project_path": null,
+        "repository": "cenozoic-works/rhone-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "An upper bound on the denominators of solutions of the two-locus sampling recursion",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked transfer of the exact CHSH constants for self-adjoint involutions (Mathlib's IsCHSHTuple in a C*-normed ring: the norm of the CHSH operator T = A0 B0 + A0 B1 + A1 B0 - A1 B1 is at most 2*sqrt(2), equals 2 under a commuting party (the equality in a nontrivial real C*-normed algebra; the <= forms in every C*-normed ring), and exceeds 2 only if both parties are noncommuting) to self-adjoint CONTRACTIONS, together with the state corollary. A CHSH contraction tuple is four self-adjoint operators of norm at most 1 with the four cross-party commutations - IsCHSHTuple with the involution relations relaxed to norm bounds. The route is the Halmos dilation A -> A (x) Z + sqrt(1 - A^2) (x) X (Halmos 1950), applied with ONE ANCILLA PER OBSERVABLE: the four dilations form a Mathlib IsCHSHTuple on n (x) (C^2)^(x)4, every commutation relation among the four observables transfers to the dilations, the dilated CHSH operator compresses to T, and compression does not increase the operator norm, so every involution bound transfers. One ancilla per party would not do: for B0 = 1, B1 = 0 the single-ancilla dilations 1 (x) Z and 1 (x) X anticommute, so the commuting-party bound would not transfer. Nine compared statements: for n x n complex matrices (l2-operator norm), norm T <= 2*sqrt(2), norm T <= 2 if either party commutes, and 2 < norm T forces both parties noncommuting; for every density matrix rho, (1/2)|Re tr(rho T)| <= sqrt(2), and <= 1 under a commuting party; the same three norm bounds for bounded operators on a complete complex inner-product space (ampliation on the Hilbert sum WithLp 2 (E x E)); and, RESTATED, the parallelogram bound norm(A0 (B0 + B1) + A1 (B0 - B1)) <= 2*sqrt(2) for four operators of norm at most 1 with no self-adjointness and no commutation (folklore; formalized in Lean by Physical Superintelligence, 2026-10-23; proved independently here). The involution constants are the author's registered entry PALOMAR-2026-08-19-000007, re-proved here as library support and not compared. The bounds themselves are classical (Tsirelson 1980; the commuting-algebra bound as used by Summers and Werner 1987); new in this entry, relative to the Lean prior art recorded under sources (PSI's parallelogram and Hilbert-space state bounds; Lean-QIT's Kronecker-form state bound for contractions), are the contraction statements in the forms stated and their derivation from the involution constants by dilation (statements 1 and 6 are, as statements, the self-adjoint cross-commuting case of the parallelogram bound; their novelty is the route). The Challenge imports Mathlib only; the three structures it uses (IsCHSHContractionTuple for matrices, IsDensityMatrix, Hilbert.IsCHSHContractionTuple for operators) are verbatim copies of the library's, checked byte for byte by scripts/check_challenge_definitions.py. The Mathlib definitions the statements import (the scoped l2-operator norm on matrices, PosSemidef under ComplexOrder, IsSelfAdjoint and the adjoint, the trace, the operator norm, WithLp 2, IsCHSHTuple) are quoted verbatim from the pinned source with permalinks in MATHLIB_DEFINITIONS.md and kernel-checked in DefinitionAudit.lean, a default build target that is not compared.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "quant-ph",
+          "math-ph",
+          "math.OA"
+        ],
+        "msc2020": [
+          "81P40",
+          "81P15",
+          "47A20",
+          "46L05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TsirelsonContractions.Entry.chsh_norm_le_of_contractions",
+          "TsirelsonContractions.Entry.chsh_norm_le_two_of_contractions_of_comm",
+          "TsirelsonContractions.Entry.noncomm_of_chsh_norm_gt_two_of_contractions",
+          "TsirelsonContractions.Entry.bell_correlation_le_sqrt_two",
+          "TsirelsonContractions.Entry.bell_correlation_le_one_of_comm",
+          "TsirelsonContractions.Entry.Hilbert.chsh_norm_le_of_contractions",
+          "TsirelsonContractions.Entry.Hilbert.chsh_norm_le_two_of_contractions_of_comm",
+          "TsirelsonContractions.Entry.Hilbert.noncomm_of_chsh_norm_gt_two_of_contractions",
+          "TsirelsonContractions.Entry.chsh_norm_le_two_sqrt_two_of_contractions"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000030",
+      "path": "entries/PALOMAR-2026-10-28-000030-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+            "fork_repository": "PalomarArchive/stalex444--tsirelson-contractions--1b92abc56697",
+            "source_repository": "stalex444/tsirelson-contractions"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "577f898d594acf823e547be069f3452cacc4bc261488133dca64a73618d977f4",
+        "version": 1
+      },
+      "published_at": "2026-10-28T19:22:20Z",
+      "source": {
+        "commit": "ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+        "project_path": null,
+        "repository": "stalex444/tsirelson-contractions"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "CHSH bounds for contractions by dilation: Tsirelson's bound, the classical bound under a commuting party, and the necessity of noncommutativity",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Pratt (STOC 2024, arXiv:2311.02774, Corollary 1.12) showed that if the Set Cover Conjecture holds, then for every k the asymptotic rank of the balanced tripartitioning tensor T_k is at least tau_k = 8^k * C(3k,k) * C(2k,k) / 27^k. A natural way to bound this rank, and Pratt's own route to rank at most 8^k/2, is a group construction: maps f1, f2, f3 from k-subsets of a 3k-set to a group G with f1(A) f2(B) f3(C) = 1 exactly when A, B, C are pairwise disjoint (a partition analogue of the Cohn-Umans triple product property). We formalise that no such construction, in any finite group, abelian or not, can refute the conjecture: |G| > tau_k for every k >= 2. The same holds for Strassen combinatorial degenerations of group tensors (border-rank constructions), via |G| >= C(3k, floor(3k/2)) > tau_k. The proof formalises a rigidity theorem: the triple products always factor through pairwise commuting elements, f1(A) f2(B) f3(C) = prod_i g_i^(m_i - 1) with m the multiplicity vector, so non-abelian groups give no advantage, unlike in the Cohn-Umans approach to matrix multiplication. It also formalises a lift lemma giving |G| >= 2^(3k-1), which shows Pratt's 8^k/2 is exactly optimal among group restrictions. Pratt's Corollary 1.12 and the passage from a group embedding to a rank bound are cited, not formalised. The bounds concern the group size needed by such constructions, not the rank of T_k itself. Joint constructions for tensor powers are covered: a degeneration of a group tensor onto T_k^(tensor m) needs |G| >= C(3k, floor(3k/2))^m > tau_k^m, so the induced asymptotic-rank bound |G|^(1/m) stays above tau_k.",
+      "authors": [
+        {
+          "name": "Eyal Merhavi"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.CC",
+          "math.CO",
+          "math.GR"
+        ],
+        "msc2020": [
+          "68Q17",
+          "15A69",
+          "20D60"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "group_constructions_cannot_refute_SCC",
+          "group_degeneration_exceeds_SCC_threshold",
+          "group_construction_exceeds_SCC_threshold",
+          "ppp_card_ge",
+          "ppp_factors_through_commuting"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000017",
+      "path": "entries/PALOMAR-2026-10-28-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6e572ed4367b37cfd89830f2fa99f4705d300c93",
+            "fork_repository": "PalomarArchive/Eyali1001--scc-group-barrier--270e060b428b",
+            "source_repository": "Eyali1001/scc-group-barrier"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cd27942153c5eb89776c6b395442d788935be3d116d42096fc84ac5f94046a3f",
+        "version": 1
+      },
+      "published_at": "2026-10-28T08:28:44Z",
+      "source": {
+        "commit": "6e572ed4367b37cfd89830f2fa99f4705d300c93",
+        "project_path": null,
+        "repository": "Eyali1001/scc-group-barrier"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Group constructions cannot refute the Set Cover Conjecture, including tensor powers",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": "eyJyZXZpc2lvbiI6OTQ5LCJxdWVyeSI6ImE4YTFlOTgwZDI2NjY4MTQ5ZTU4YmMxMDRhMjU2MjE5NjAyNDczYWQxYWI5M2ZjNWU5MjA1OGQ5Zjk2NDA0YmUiLCJkaXJlY3Rpb24iOiJuZXh0IiwiZGF0ZSI6IjIwMjYtMTAtMjhUMDg6Mjg6NDRaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMTAtMjgtMDAwMDE3In0=",
+  "dropped": [],
+  "message": null
+}

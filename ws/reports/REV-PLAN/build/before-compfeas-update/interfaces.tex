@@ -1,0 +1,580 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\emergencystretch=3em
+\title{REV-PLAN: exact shared interfaces for the AKLT gap revision}
+\date{}
+\begin{document}
+\maketitle
+\noindent These are mathematical statements for parallel proof writing.
+No proof or certificate verification is asserted by this interface file.
+All expectations and functionals below are finite sums.
+The statements with hypotheses are internal implications; the target
+main theorem is unconditional after the computational input theorems
+are proved. Labels are shared with the complete inventory in PLAN.md.
+
+
+\section{Result and conventions}
+
+% Owner: A
+\begin{definition}\label{d:model}
+For integers \(L,N\ge3\), let \(\Lambda=\Lambda_{L,N}=\mathbb Z_L\times\mathbb Z_N\)
+with its simple, unoriented nearest-neighbour edge set \(E_{L,N}\).
+The Hilbert space is \(\mathcal H_\Lambda=\bigotimes_{x\in\Lambda}V_4\).
+Each site carries the spin-\(2\) space \(V_4\), and \(P_{\{x,y\}}\)
+is the orthogonal projection onto total spin \(4\) in \(V_4\otimes V_4\).
+Fix one orientation of each edge and set
+\[
+ q_{xy}=z_{x,1}z_{y,2}-z_{x,2}z_{y,1},\qquad
+ B_{L,N}=\prod_{e\in E_{L,N}}q_e,\qquad
+ H_{L,N}=\sum_{e\in E_{L,N}}P_e.
+\]
+Every edge is counted once. The spectral gap of \(H_{L,N}\) means its
+smallest positive eigenvalue.
+\end{definition}
+
+
+\section{Finite moment algebra and the response input}
+
+% Owner: C
+\begin{definition}\label{d:moment}
+Write \(\mathbb S^2=\{a\in\mathbb R^3:|a|=1\}\), put
+\(\phi=(1+\sqrt5)/2\), \(r=\sqrt{\phi+2}\), and set
+\[
+ D=\frac1r\{(0,\pm1,\pm\phi),(\pm1,\pm\phi,0),(\pm\phi,0,\pm1)\},
+ \qquad
+ \mathcal M(f)=\frac1{12}\sum_{a\in D}f(a).
+\]
+All indicated signs are independent. Define finite probability laws
+\(\lambda_{\mathrm U}=\frac1{12}\sum_{a\in D}\delta_a\) and
+\(\lambda_{\mathrm D}=\frac35\lambda_{\mathrm U}+\frac25\delta_0\).
+Products of these functionals always mean finite sums.
+For plane sites, \(d\) denotes ambient \(\ell^1\) distance and
+\(\operatorname{dist}_\infty\) denotes ambient \(\ell^\infty\) distance.
+Distances to an empty set are \(+\infty\); a product over an empty site
+set has its one empty configuration. For finite probabilities, use
+\[
+ d_{\rm TV}(p,p')=\tfrac12\sum_z|p(z)-p'(z)|,\qquad
+ \operatorname{Var}_\mu f=\mu(|f-\mu f|^2),\qquad
+ d_H(n,n')=\sum_x\mathbf1_{\{n_x\ne n'_x\}} .
+\]
+\end{definition}
+
+% Owner: C
+\begin{lemma}\label{l:moments}
+The set \(D\) has twelve distinct unit vectors and is antipodal.
+For \(i,j,k,l\in\{1,2,3\}\),
+\[
+ \begin{gathered}
+ \mathcal M(1)=1,\qquad \mathcal M(n_i)=\mathcal M(n_in_jn_k)=0,\qquad
+ \mathcal M(n_in_j)=\delta_{ij}/3,\\
+ \mathcal M(n_in_jn_kn_l)=
+ (\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk})/15.
+ \end{gathered}
+\]
+For every polynomial \(p\) of total degree at most four and every
+\(R\in\mathrm O(3)\), \(\mathcal M(p\circ R)=\mathcal M(p)\).
+The same covariance holds for \(\lambda_{\mathrm D}\); its constant
+moment is one and its moments of positive degree at most four are
+\(3/5\) times those displayed above.
+These assertions hold site by site for polynomials of separate degree
+at most four in a finite product of spins.
+\end{lemma}
+
+% Owner: C
+\begin{definition}\label{d:pinmodel}
+For finite \(G\subset\mathbb Z^2\), let
+\[
+ \mathcal L(G)=\{(x,z):x\in G,\ z\notin G,\ d(x,z)=1\},\qquad
+ S(G)=\{x\in G:d(x,\mathbb Z^2\setminus G)\le2\}.
+\]
+A pin assignment is \(\tau\in(\mathbb S^2)^{\mathcal L(G)}\).
+For \(Y\subset G\), write \(D_Y=G\setminus Y\) and define
+\[
+ Z^\tau_{D_Y}[f]=
+ \sum_{n\in D^{D_Y}}12^{-|D_Y|}f(n)
+ \prod_{\substack{\{x,y\}\subset D_Y\\d(x,y)=1}}(1+n_x\cdot n_y)
+ \prod_{\substack{(x,z)\in\mathcal L(G)\\x\in D_Y}}
+       (1+\tau_{xz}\cdot n_x).
+\]
+The free sum \(Z^0_{D_Y}[f]\) omits all leg factors.
+Write \(Z^\bullet_{D_Y}=Z^\bullet_{D_Y}[1]\),
+\(\mathbb E^\bullet_{D_Y}f=Z^\bullet_{D_Y}[f]/Z^\bullet_{D_Y}\),
+and \(\Psi_{D_Y}(\tau)=Z^\tau_{D_Y}/Z^0_{D_Y}\).
+Here and below \(\bullet\) is either \(\tau\) or \(0\).
+The empty partition sum is one. There are no new factors on legs into \(Y\).
+Different original legs may carry unrelated unit pins, even if their
+outside endpoints coincide.
+\end{definition}
+
+% Owner: C
+\begin{lemma}\label{l:finitefacts}
+Consider a finite network with site laws \(\lambda_{\mathrm U}\) or
+\(\lambda_{\mathrm D}\), retained distinct-endpoint bonds
+\(1+n_x\cdot n_y\), and retained original unit-pin factors
+\(1+\tau_\ell\cdot n_x\), with at most four factors incident to each site.
+Its pinned and free partition sums are strictly positive, including
+the empty network. Non-neighbours are conditionally independent given
+the other spins on every conditioning event of positive probability.
+If \(f\) is a product of scalar products of spins and the product of
+\(f\) with the bond factors has separate degree at most four at every
+site, then \(Z^0[f]\ge0\), hence \(\mathbb E^0 f\ge0\).
+All normalized spins have norm at most one.
+\end{lemma}
+
+% Owner: C
+\begin{lemma}\label{l:35}
+For \(0\le k\le3\) and \(|a_j|\le1\), the probability law proportional to
+\(\prod_{j=1}^k(1+n\cdot a_j)\lambda_{\mathrm U}(\mathrm dn)\)
+has mean of norm at most \(3/5\). The same bound holds with
+\(\lambda_{\mathrm D}\) in place of \(\lambda_{\mathrm U}\).
+Moreover,
+\[
+ \left\{
+ \frac{\mathcal M\!\left(n\prod_{j=1}^3(1+n\cdot a_j)\right)}
+      {\mathcal M\!\left(\prod_{j=1}^3(1+n\cdot a_j)\right)}
+       :a_1,a_2,a_3\in\mathbb S^2
+ \right\}=\{b\in\mathbb R^3:|b|\le3/5\}.
+\]
+Consequently an unpinned site having at most three present factors
+has conditional mean of norm at most \(3/5\), on every positive
+conditioning fibre.
+\end{lemma}
+
+% Owner: C
+\begin{lemma}\label{l:exact}
+At each site of a finite set choose any positive weighted unit-vector
+law whose moments through degree four equal those of \(\mathcal M\).
+A polynomial of separate degree at most four has the same product
+functional under these laws as under \(\lambda_{\mathrm U}\) at all
+sites. The analogous assertion holds after replacing any chosen site
+laws by \(3/5\) times that law plus \(2/5\,\delta_0\).
+In particular this applies to partition products of factors
+\(1\pm n_x\cdot n_y\) and \(1\pm n_x\cdot a\), \(|a|=1\), whenever
+each variable occurs at most four times, and to inserted observables
+only when their degrees are included in this same bound.
+\end{lemma}
+
+% Owner: C
+\begin{definition}[(P)]\label{h:P}
+For \(A\ge2\) and \(0<\theta<1\), property \(\mathsf P(A,\theta)\)
+means that, for every finite \(G\subset\mathbb Z^2\), every unit-pin
+assignment on \(\mathcal L(G)\), every
+\(Y\subset G\setminus S(G)\), and all \(u,v\in G\setminus Y\) with
+\(d(u,v)=2\) and a common neighbour in \(Y\),
+\[
+ \left|\mathbb E^\tau_{G\setminus Y}(n_u\cdot n_v)
+             -\mathbb E^0_{G\setminus Y}(n_u\cdot n_v)\right|
+ \le A\theta^{\min\{d(u,S(G)),d(v,S(G))\}} .
+\]
+The distances are ambient plane distances to the original \(S(G)\);
+removed sites are not added to the boundary.
+\end{definition}
+
+
+\section{The quantum model, uniqueness, and positive frames}
+
+% Owner: A
+\begin{definition}\label{d:poly}
+Let \(V_d\) be the homogeneous binary polynomials of degree \(d\).
+Its monomials \(z_1^{d-j}z_2^j\), \(0\le j\le d\), are orthogonal with
+squared norms \(\binom dj^{-1}\). The action is
+\((U_gp)(z)=p(g^{-1}z)\). Use \(V_4\) at each physical site.
+For each of the finitely many frame letters \(a\) choose one unit
+spinor \(\zeta(a)\in\mathbb C^2\) with
+\(\zeta(a)\zeta(a)^*=(I+a\cdot\sigma)/2\).
+No spinor choice on the whole sphere is part of the definitions.
+\end{definition}
+
+% Owner: A
+\begin{definition}\label{d:frame}
+A frame is a finite set \(A\subset\mathbb S^2\) with positive weights
+\(w(a)\) summing to one such that
+\(\sum_{a\in A}w(a)p(a)=\mathcal M(p)\)
+for every real polynomial \(p\) of degree at most four.
+\end{definition}
+
+% Owner: A
+\begin{lemma}\label{l:tight}
+For every frame \((A,w)\) and every \(p\in V_4\),
+\[
+ \sum_{a\in A}5w(a)|p(\zeta(a))|^2=\|p\|_{V_4}^2.
+\]
+For site frames \((D_x,w_x)\), set \(\Omega=\prod_xD_x\),
+\(\pi(s)=\prod_x5w_x(s_x)\), and
+\(\iota\varphi(s)=\varphi((\zeta(s_x))_x)\).
+Then \(\iota:\mathcal H_\Lambda\to\ell^2(\Omega,\pi)\) is an isometry.
+\end{lemma}
+
+% Owner: A
+\begin{lemma}\label{l:threeframes}
+Let
+\[
+ T=\begin{pmatrix}99/101&-20/101&0\\20/101&99/101&0\\0&0&1\end{pmatrix},
+ \quad D^{(j)}=T^jD\ (j=0,1,2),\quad
+ b=\frac{5-\sqrt5}{505},\quad r_b=\frac b{2-b}.
+\]
+The matrix \(T\) is in \(\mathrm{SO}(3)\).
+Each \(D^{(j)}\), with uniform weights \(1/12\), is an antipodal frame.
+For \(i\ne j\), \(a\in D^{(i)}\), \(a'\in D^{(j)}\),
+\[
+ 0<b<1,\qquad b\le1\pm a\cdot a'\le2-b,\qquad0<r_b<1.
+\]
+The common lower bound \(b\) is attained, and distinct frames are
+disjoint even up to antipodal signs.
+\end{lemma}
+
+% Owner: A
+\begin{definition}\label{d:framemodel}
+Given any proper three-colouring \(\kappa\) of a plane or torus,
+put \(D_x=D^{(\kappa(x))}\), with weights \(1/12\).
+On the torus define
+\[
+ \mu^{\mathrm{af}}_{\kappa,L,N}(s)=
+ \frac1{Z^{\mathrm{af}}}\prod_x\frac1{12}
+       \prod_{\{x,y\}\in E_{L,N}}(1-s_x\cdot s_y).
+\]
+On the plane, for finite \(W\subset\mathbb Z^2\) and
+\(\eta_z\in D_z\) at exterior neighbour sites, define
+\[
+ \mu^{+,\eta}_{\kappa,W}(n)=\frac1{Z^{+,\eta}_{\kappa,W}}
+ \prod_{x\in W}\frac1{12}
+ \prod_{\substack{\{x,y\}\subset W\\d(x,y)=1}}(1+n_x\cdot n_y)
+ \prod_{\substack{x\in W,z\notin W\\d(x,z)=1}}(1+n_x\cdot\eta_z).
+\]
+Only the finitely many needed exterior letters are specified.
+These laws have full support. Write \(E_U\) for conditioning off \(U\),
+\(\operatorname{Var}_U f=E_U|f-E_Uf|^2\), and
+\[
+ \mathcal D_\mu(f)=\sum_x\mu(\operatorname{Var}_x f),\qquad
+ \lambda(\mu)=\inf_{\operatorname{Var}_\mu f>0}
+             \frac{\mathcal D_\mu(f)}{\operatorname{Var}_\mu f}.
+\]
+All generators have one update per physical site. A gap lower bound is
+always equivalently a Poincare inequality, including one-point spaces.
+\end{definition}
+
+% Owner: A
+\begin{lemma}\label{l:planeenergy}
+All the frame specifications above are consistent under conditioning
+and have nearest-neighbour Markov dependence. Uniformly over proper
+colourings, finite volumes, admissible frame-valued boundaries, and
+fully specified one-site fibres, every letter has conditional
+probability at least
+\[
+ \alpha=\frac1{12}r_b^4\in(0,1].
+\]
+The same lower bound holds after conditioning on fewer letters.
+Any prescribed assignment on \(k\) sites, under arbitrary consistent
+partial conditioning off those sites, has conditional probability
+at least \(\alpha^k\).
+For a finite plane block \(Q\), the single-site heat bath of every conditional block law in \(Q\) has Poincare gap at least
+\(r_b^{|E(Q)|}\), where \(E(Q)\) is its internal edge set.
+\end{lemma}
+
+
+\section{Windows, stopped coupling, and the periodic block gap}
+
+% Owner: A (frozen shared definition)
+\begin{definition}\label{d:shells}
+For \(a\in\mathbb Z^2\), integer \(u\ge1\), put
+\(C_u(a)=a+\{-u,\ldots,u\}^2\).
+For \(\operatorname{dist}_\infty(y,C_u(a))=1\), let
+\(s=u^{1/4}\), \(k_i=\lfloor is\rfloor\), \(i_1=\lfloor s\rfloor+1\).
+For an integer \(l_0\ge1\) define
+\[
+ \begin{split}
+ F_i&=\{x\in C_u(a):|x-y|_\infty>(i-1)s\},\\
+ D_i&=\{x\in C_u(a):|x-y|_\infty=k_i\},\\
+ A_i&=\{x\in D_i:\operatorname{dist}_\infty
+                    (x,\mathbb Z^2\setminus C_u(a))\le l_0\},\qquad
+ B_i=D_i\setminus A_i .
+ \end{split}
+\]
+Let \(I_0\) consist of the integers \(2\le i\le i_1\) for which
+some point of \(D_i\) is at distance strictly less than \(s/3\)
+from a corner site of \(C_u(a)\).
+All these are sets of physical sites.
+\end{definition}
+
+% Owner: A (contract); B (establishes it)
+\begin{definition}[(W)]\label{d:W}
+The family of plane frame specifications has \(\mathsf W(l_0,p_0,M_\star)\)
+if \(l_0,M_\star\) are positive integers, \(0<p_0\le1\), and,
+for every proper plane three-colouring, every translate \(C_u(a)\)
+with integer \(u\ge M_\star\), every \(y\) as in Definition~\ref{d:shells},
+every integer \(2\le i\le u^{1/4}\) outside \(I_0\), and every two
+admissible frame-valued boundary conditions \(\eta,\xi\) for \(F_i\),
+\[
+ d_{\mathrm{TV}}\!\left(
+       \mu^{+,\eta}_{\kappa,F_i,B_i},
+       \mu^{+,\xi}_{\kappa,F_i,B_i}\right)\le1-p_0 .
+\]
+The subscript \(B_i\) denotes a marginal. Boundaries are arbitrary
+within their site alphabets; they need not agree anywhere.
+\end{definition}
+
+
+\section{The cut and the site-scale window theorem}
+
+% Owner: B
+\begin{lemma}\label{l:shellgeom}
+For \(u\ge M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\),
+\(|I_0|\le1\), and \(D_i\subset F_i\) for \(2\le i\le i_1\).
+For \(2\le i\le i_1\) outside \(I_0\), \(|A_i|\le8l_0\).
+Every side of \(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
+and meeting \(C_u(a)\) is at distance at least \(s/3\) from the
+exterior half-plane beyond that edge.
+For \(i\ge2\), every point of \(C_u(a)\setminus F_i\)
+within \(\ell^\infty\) distance one of \(F_i\) lies in \(D_{i-1}\);
+\(y\) is not within that distance of \(F_i\).
+\end{lemma}
+
+% Owner: B
+\begin{theorem}\label{t:cutMOS}
+If \(\mathsf P(A,\theta)\) holds, then the family of plane frame
+specifications has \(\mathsf W(64,p_0,M_\star)\), with common
+\(p_0\in(0,1]\) and integer \(M_\star\ge1\) depending only on
+\(A,\theta\). The constants work for every proper plane
+three-colouring and every translate.
+Specifically, let
+\[
+ E=1+4A+10A\theta^{-4}
+       \left[48\theta^{14}\left(17+\frac1{1-\theta}\right)+1\right],
+ \qquad p_0=e^{-2E}.
+\]
+There exists an integer \(M_\star\ge1\) for which (W) holds
+with this displayed choice of \(p_0\).
+\end{theorem}
+
+
+\section{Walk expansion without scalar trace masses}
+
+% Owner: C
+\begin{definition}\label{d:domain}
+Fix finite \(G\), \(S=S(G)\), and original unit pins \(\tau\).
+A domain assigns statuses \(\mathrm U,\mathrm D,\mathrm X\);
+\(\mathrm X\) sites are removed. Each nonremoved site has a kept
+subset of its incident bonds inside \(G\). A bond is present if both
+ends are nonremoved and both keep it. A \(\mathrm D\) site has at
+most two present bonds. Protected sites in \(S\) have status
+\(\mathrm U\) and keep every incident bond inside \(G\).
+Use \(\lambda_{\mathrm U},\lambda_{\mathrm D}\) at the corresponding
+sites and define
+\[
+ Z_D^\tau[f]=\sum_n f(n)
+       \prod_{\text{present }\{x,y\}}(1+n_x\cdot n_y)
+       \prod_{\substack{(x,z)\in\mathcal L(G)\\x\in S}}
+                   (1+\tau_{xz}\cdot n_x)
+       \prod_{x:\,\mathrm{st}(x)\ne\mathrm X}\lambda_{\mathrm{st}(x)}(n_x).
+\]
+The sum is over the product of the supports \(D\) at \(\mathrm U\)
+sites and \(D\cup\{0\}\) at \(\mathrm D\) sites.
+Define the free sum, normalized expectations and \(\Psi_D\) as before.
+The class \(\mathcal D_{\mathrm{cons}}(G)\) consists of domains in
+which every \(\mathrm U\) site keeps all its bonds, every \(\mathrm D\)
+site keeps exactly two, and every bond between nonremoved sites is
+kept by both ends or by neither.
+An auxiliary network has the same data but permits protected
+\(\mathrm U\) sites to have arbitrary kept subsets. It retains every
+original leg factor. Neither domains nor auxiliary networks carry
+a scalar trace mass. Only the networks occurring below, with at most
+four factors at each site, are used.
+\end{definition}
+
+% Owner: C
+\begin{definition}\label{d:pattern}
+Let \(\mathsf T=\{z:d(z,0)\le2\}\), with passage site \(0\),
+arrival site \(\mathsf s=(0,-1)\), other neighbours
+\(\mathsf e=(1,0),\mathsf N=(0,1),\mathsf W=(-1,0)\),
+four corners \((\pm1,\pm1)\), and tips \((\pm2,0),(0,\pm2)\).
+The external slots are the two external bonds at each corner and
+the three at each tip, twenty in total.
+A pattern chooses an out-neighbour \(o\in\{\mathsf e,\mathsf N,\mathsf W\}\)
+and statuses/kept sets with the following rules.
+The passage site is \(\mathrm U\) and keeps precisely its three
+non-arrival bonds. The arrival site is removed or is \(\mathrm D\)
+keeping two of its three non-passage bonds.
+Each other neighbour is \(\mathrm U,\mathrm X\), or \(\mathrm D\)
+keeping its passage bond and one other bond; \(o\) is not removed.
+Each corner is \(\mathrm U,\mathrm X\), or \(\mathrm D\) keeping
+two of its four bonds. Every \(\mathrm U\) site other than the
+passage site keeps all four bonds.
+Between nonremoved non-tip sites, a bond is kept by both ends or
+by neither. Tips are covering \(\mathrm U\) sites; their bond to
+a neighbour \(z\) is present exactly when \(z\) is nonremoved and
+keeps that bond. No consistency condition with a global tip kept
+set is imposed.
+For \(m\in(\mathbb S^2)^{20}\), include every external slot factor
+at every nonremoved corner and tip, including both corner slots
+when the corresponding actual external bonds are missing.
+Let \(Z_{\rm cur}(\pi;m)\) be the finite product functional of
+all present template bonds and these slots, using the status laws.
+Let \(Z_{\rm next}(\pi;m)\) change the passage law to
+\(\lambda_{\mathrm D}\) and drop its out-bond.
+The resulting class is \(\mathcal P_{\rm ext}\); it is straight
+when \(o=\mathsf N\), and turning otherwise.
+\end{definition}
+
+% Owner: C
+\begin{definition}[(H1)]\label{h:H1}
+For \(c_{\mathrm s},c_{\mathrm t}\in(0,1]\), (H1) means that
+for every \(\pi\in\mathcal P_{\rm ext}\) and every
+\(m\in(\mathbb S^2)^{20}\),
+\[
+ Z_{\rm cur}(\pi;m)\ge c_{\rm type(\pi)}Z_{\rm next}(\pi;m).
+\]
+In the paper the fixed thresholds are
+\(c_{\mathrm s}=961/1000\), \(c_{\mathrm t}=187/200\).
+No minimum, minimizing pins, or optimal inversion is asserted.
+\end{definition}
+
+% Owner: C
+\begin{definition}\label{d:weights}
+Put \(x_{\mathrm s}=1/c_{\mathrm s}\), \(x_{\mathrm t}=1/c_{\mathrm t}\).
+A lattice trail \(w=(v_0,\ldots,v_n)\) has distinct unoriented
+nearest-neighbour bonds. Give it a designated unit incoming direction
+\(a\), and forbid \(v_1-v_0=-a\) when \(n\ge1\); the virtual
+incoming bond is not itself a used bond of the trail.
+For departure \(i\), \(0\le i<n\), give weight \(1/5\) if \(v_i\)
+has been departed from earlier, and otherwise weight \(x_{\mathrm s}/3\)
+for continuing in the incoming direction and \(x_{\mathrm t}/3\)
+for a turn. Let \(\mathsf W(w)\) be the product, with
+\(\mathsf W(\varnothing)=1\).
+\end{definition}
+
+% Owner: C
+\begin{definition}[(H2)]\label{h:H2}
+For \(C_V\ge1\) and \(0<q<1\), (H2) means that for every
+integer \(n\ge0\), every start and every designated incoming direction,
+\[
+ \sum_{\substack{|w|=n\\\text{initial reversal forbidden}}}
+                      \mathsf W(w)\le C_Vq^n .
+\]
+The sum is over plane lattice trails with those specified initial data.
+\end{definition}
+
+
+\section{Pair closure, a positive-vector witness, and renewal}
+
+% Owner: C
+\begin{definition}\label{d:kernel}
+For \(X=B,C\), fix \(c=0\), \(u=(-1,0)\), and \(v=(1,0)\)
+for \(B\), \(v=(0,1)\) for \(C\).
+Let \(\mathcal T_n^X\) be the length-\(n\) plane trails avoiding
+\(c\), from \(u\) to their first hit of \(v\).
+The initial incoming direction is \(u-c\).
+Departure \(i\), \(0\le i<n\), is a lattice revisit if \(v_i\)
+was departed from earlier. At each lattice first visit put
+\(x_i=x_{\mathrm s}\) or \(x_{\mathrm t}\) according to its type.
+Of the three neighbours other than the arrival site, the pair not
+containing the outgoing neighbour has coefficient
+\(\bar\alpha=18094/100000\), and each other pair has coefficient
+\(\bar\beta=36751/100000\). A pair is dead if it contains \(c\) or a
+site departed from twice before departure \(i\).
+A live pair \(p\) has type \(Y=B,C\) and shift
+\[
+ s(p)=\max_{z\in p}\min\{d(z,u),d(z,v)\}.
+\]
+Let \(\kappa_{Y,s}(i)\) sum its coefficients at that type and shift.
+Choose once and for all, for each trail \(w\), an ordering
+\(\sigma_w\) of its lattice first visits, independent of any later
+\(\theta\). Define
+\[
+ M_{XY,s}=\sum_{n\ge1}\sum_{w\in\mathcal T_n^X}
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}
+ \sum_k\kappa_{Y,s}(\sigma_w(k))\prod_{l\le k}x_{\sigma_w(l)},\qquad
+ M_\theta[X,Y]=\sum_{s\ge0}M_{XY,s}\theta^{-s}.
+\]
+All sums are nonnegative series. The identity
+\[
+ 3^{-n}(3/5)^{r}=3^{-(n-r)}5^{-r}
+\]
+identifies these coefficients with the new trace convention when
+the statuses are determined by the lattice trail.
+\end{definition}
+
+% Owner: C
+\begin{definition}[(H3\( _h\))]\label{h:H3}
+For the same \(c_{\mathrm s},c_{\mathrm t}\) and the kernel above,
+(H3\( _h\)) means that there exist fixed orderings \(\sigma_w\),
+a vector \(h=(h_B,h_C)\in\mathbb Q_{>0}^2\), and
+\(\rho_0\in\mathbb Q\cap(0,1)\) such that, for \(X=B,C\) and
+every integer \(R\ge0\),
+\[
+ \sum_{n=1}^{R}\sum_{w\in\mathcal T_n^X}
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}
+ \sum_k\left(\sum_{Y,s}\kappa_{Y,s}(\sigma_w(k))h_Y\right)
+                          \prod_{l\le k}x_{\sigma_w(l)}
+ \le\rho_0h_X .
+\]
+Equivalently the full nonnegative sums obey \(M_1h\le\rho_0h\).
+An ordering is only a supplied witness; no optimality is required.
+\end{definition}
+
+% Owner: C
+\begin{lemma}\label{l:Mtheta}
+Assume (H2) and (H3\( _h\)).
+For every \(q^2<\theta\le1\), all entries of \(M_\theta\) are
+finite. There exist \(q^2<\theta<1\) and \(\rho_0<\rho<1\)
+such that the same vector \(h\) satisfies \(M_\theta h\le\rho h\).
+Every shift of a length-\(n\) trail is at most \(n/2+1\), and
+each matrix entry is bounded by
+\[
+ \sum_{n\ge1} n(\bar\alpha+2\bar\beta)
+                      C_V q^n\theta^{-n/2-1}.
+\]
+\end{lemma}
+
+% Owner: C
+\begin{theorem}\label{t:rec}
+Assume (H1), (H2), and (H3\( _h\)) at the same pair
+\((c_{\mathrm s},c_{\mathrm t})\).
+Then there exist \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+One may take the \(\theta,\rho,h\) supplied by the shifted-witness
+lemma and
+\[
+ A=\frac{\max h}{\min h}\,
+       \frac{\max\{2,\,2(12/5)^{24}(C_V/(1-q))^2\}}{1-\rho}.
+\]
+\end{theorem}
+
+
+\section{Exact statements of the computational inputs}
+
+% Owner: C
+\begin{theorem}\label{t:H1}
+For every \(\pi\in\mathcal P_{\rm ext}\) and every
+\(m\in(\mathbb S^2)^{20}\),
+\[
+ Z_{\rm cur}(\pi;m)\ge
+ \begin{cases}
+ (961/1000)Z_{\rm next}(\pi;m),&\pi\text{ straight},\\
+ (187/200)Z_{\rm next}(\pi;m),&\pi\text{ turning}.
+ \end{cases}
+\]
+\end{theorem}
+
+% Owner: C (theorem text and proof account); separate certificate owner supplies H2/H3 witnesses
+\begin{theorem}\label{t:inputs}
+At \(c_{\mathrm s}=961/1000\) and \(c_{\mathrm t}=187/200\),
+(H1) holds. There exist rational constants
+\(C_V\ge1\), \(0<q<1\), \(h_B,h_C>0\), \(0<\rho_0<1\),
+and fixed orderings \(\sigma_w\), for which (H2) and
+(H3\( _h\)) hold with these constants and orderings.
+\end{theorem}
+
+
+\end{document}

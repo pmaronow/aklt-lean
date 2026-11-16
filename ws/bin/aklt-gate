@@ -1,0 +1,3 @@
+#!/bin/bash
+# Retired 2026-11-16 (V-ORCH-2 Blocking 5): delegates to the audited shared budget implementation.
+exec /home/ubuntu/aklt/bin/aklt-budget-check "${1:-1}"

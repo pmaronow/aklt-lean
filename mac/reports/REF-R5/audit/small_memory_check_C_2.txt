@@ -1,0 +1,9 @@
+Parameters: row C, first=2, m=4, L=8, K=9, mode=A, cs=.961, ct=.935, coefficients as in the paper.
+Exact-rational checks of each E output through n=8 and each D/F output through n=12:
+E 4 exact displayed numerically: 0.0592778843829287 C output: 0.05927788438293 upper: True
+E 6 exact displayed numerically: 0.0470239772642293 C output: 0.04702397726423 upper: True
+E 8 exact displayed numerically: 0.0349191903767662 C output: 0.03491919037677 upper: True
+D 10 exact displayed numerically: 0.0297226941353879 C output: 0.029722702324 upper: True
+D 12 exact displayed numerically: 0.0284644233063637 C output: 0.028464438329 upper: True
+Closed-trail counts through L: {4: 1, 6: 5, 8: 25}
+All checked upper bounds passed.

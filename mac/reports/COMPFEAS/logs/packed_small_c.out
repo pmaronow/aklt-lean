@@ -1,0 +1,19 @@
+# tailmem6 (type-dependent coefficients; straights-first, diagonal quotient, u-revisit, sorted closed DFS, split) D0=1 X=B m=6 L=8 K=9 T=33 AT=33 NEX=8 cs=0.961000 ct=0.935000 a=0.145218 b=0.352783 h=(1.000000,1.200000) coef_s=(0.145218,0.352783,0.340009) coef_t=(0.150001,0.357550,0.344662)
+# E = exact (DFS), D = DP with c killed / v absorbing, F = free torus; values h-weighted upper bounds
+E 4 4.742506499613e-02
+E 6 3.575350761314e-02
+E 8 2.962990321866e-02
+# EXACT(n<=min(L,NEX)) = 1.128084758280e-01
+D 10 2.4203979460e-02
+D 12 2.1241794111e-02
+D 14 1.9355400350e-02
+D 16 2.1487863022e-02
+D 18 2.3683452926e-02
+D 20 2.5260588727e-02
+D 22 2.5780552695e-02
+D 24 2.5987508953e-02
+D 26 2.6162416228e-02
+D 28 2.6349974420e-02
+D 30 2.6450222343e-02
+D 32 2.6420024455e-02
+# TAIL(8<n<=33) <= 2.923837777e-01   (mode A, no remainder)

@@ -1,0 +1,1535 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalisation of Theorems A\u2013F for absorbing Markov chains on compact metric spaces under Hypothesis H. The results give conditional Poisson point-process and shrinking-target limits, stable laws and their Gaussian boundary, an L2 central limit theorem, exponential concentration, and conditional laws of large numbers. The registry statement exposes the canonical path laws, local admissibility, and normalised spectral data; existence of the spectral data is proved from H.",
+      "authors": [
+        {
+          "name": "Bernat Bassols Cornudella"
+        },
+        {
+          "name": "Matheus M Castro"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.DS"
+        ],
+        "msc2020": [
+          "60F05",
+          "60G55",
+          "60J05",
+          "37A50"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ConditionedStableLaws.CanonicalChain.killedTransition_mass_le_one",
+          "ConditionedStableLaws.singularObservable_pos",
+          "ConditionedStableLaws.measurable_singularObservable",
+          "ConditionedStableLaws.NormalizationBridge.positivePowerScale_pos",
+          "ConditionedStableLaws.LocallyFinitePointMeasure.measurable_empirical",
+          "ConditionedStableLaws.RandomPointMeasure.measurable_normalizedObservation",
+          "ConditionedStableLaws.measurable_positiveExtension",
+          "ConditionedStableLaws.positiveExtension_pos",
+          "ConditionedStableLaws.AnnularPoissonClouds.powerLaw_probability",
+          "ConditionedStableLaws.AnnularPoissonClouds.positiveIntegral_laplace",
+          "ConditionedStableLaws.AnnularPoissonClouds.unitCompensatedStable_characteristic_real",
+          "ConditionedStableLaws.AnnularPoissonClouds.fullyCompensatedStable_characteristic_real",
+          "ConditionedStableLaws.AnnularPoissonClouds.measurable_unitCompensatedStable",
+          "ConditionedStableLaws.AnnularPoissonClouds.positiveIntegral_aemeasurable",
+          "ConditionedStableLaws.StableIdentification.positiveIntegral_isStable",
+          "ConditionedStableLaws.StableIdentification.unitCompensatedStable_isStable",
+          "ConditionedStableLaws.StableIdentification.fullyCompensatedStable_isStable",
+          "ConditionedStableLaws.Submission.conditionedProbability_eq",
+          "ConditionedStableLaws.Submission.poissonLimit",
+          "ConditionedStableLaws.Submission.eigenData",
+          "ConditionedStableLaws.Submission.TheoremA",
+          "ConditionedStableLaws.Submission.TheoremB",
+          "ConditionedStableLaws.Submission.TheoremC",
+          "ConditionedStableLaws.Submission.TheoremD",
+          "ConditionedStableLaws.Submission.TheoremE",
+          "ConditionedStableLaws.Submission.TheoremF",
+          "ConditionedStableLaws.Submission.positiveExtension_eq",
+          "ConditionedStableLaws.Submission.positiveIntegral_eq",
+          "ConditionedStableLaws.Submission.fullyCompensatedStable_eq"
+        ]
+      },
+      "id": "PALOMAR-2026-11-10-000011",
+      "path": "entries/PALOMAR-2026-11-10-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "aa1361dd32ddc3383c9c0440318b3a40293d478e",
+            "fork_repository": "PalomarArchive/Manzatto--conditional-stable-laws--c4e6501f83a4",
+            "source_repository": "Manzatto/conditional-stable-laws"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f3bc963010a67db34eb65df2cd69d68ec8e9bfdb5d5cfe1627e26259c4f0d060",
+        "version": 1
+      },
+      "published_at": "2026-11-10T19:24:33Z",
+      "source": {
+        "commit": "aa1361dd32ddc3383c9c0440318b3a40293d478e",
+        "project_path": null,
+        "repository": "Manzatto/conditional-stable-laws"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Conditional stable laws and rare-event limits for absorbing Markov chains",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "On the real square-summable states of the infinite centered octagonal cut-and-project vertex graph, take the graph Laplacian with edge weight 1/16, onsite potential V(x)=1+|p(x)|\u00b2 and natural domain D(V). Add t times the coordinate projection onto the eight neighbors of the origin. At t*=17/16+\u221a2 the two alternating ring modes meet at E*=13/4+\u221a2. The full eigenspace at E* has real dimension exactly two. Every solution of the eigenvector equation is its amplitude at the lift (1,0,0,0) times the first compact state plus its amplitude at (1,1,0,0) times the second. No support restriction is assumed. Locality, symmetry and a strictly positive exterior energy force the exterior part to vanish; the complete central kernel supplies the two ring patterns.",
+      "authors": [
+        {
+          "name": "Alessandro Odasso"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SP",
+          "math.FA"
+        ],
+        "msc2020": [
+          "47A10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SpectralGeometry.AmmannBeenker.admitted_zero",
+          "SpectralGeometry.AmmannBeenker.mate_involutive",
+          "SpectralGeometry.AmmannBeenker.centralLift_admitted",
+          "SpectralGeometry.AmmannBeenker.crossing_eigenvector_representation",
+          "SpectralGeometry.AmmannBeenker.crossingEigenspace_finrank"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000012",
+      "path": "entries/PALOMAR-2026-11-06-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+            "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+            "source_repository": "alexodas/spectral_geometry"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a00d10c7b6aa9a030b70a2ba76d29697cbd9d54455cc55dbb330a9a7c69ba277",
+        "version": 1
+      },
+      "published_at": "2026-11-06T12:31:22Z",
+      "source": {
+        "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+        "project_path": null,
+        "repository": "alexodas/spectral_geometry"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Spectral Geometry \u2014 exact multiplicity of a compact crossing on an infinite octagonal graph",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The three principal manuscript results M01, M02 and M03, with their original domains and quantifier order. M01: one finite C>0 before every n>0 and compact convex Euclidean body K with nonempty interior; there exists a literal real special-linear matrix S with finite actual H0 Rayleigh infimum on interior(S K) and lambda_1(interior(S K))*volume(K)^(2/n)<=C*n. M02: one finite C>0 before every n>0 and origin-symmetric compact convex volume-one K with nonempty interior in maximal Gaussian measure position; its actual H0 Rayleigh infimum is at most C*n. M03: for each real P>=2 one finite C(P)>0 precedes every n>0, every even isotropic probability law nu satisfying the conventional compact-set IsLogConcaveMeasure condition, least Poincare constant at most P and finite actual Gaussian-relative Fisher information, and every origin-symmetric compact convex body D with nonempty interior supporting nu almost everywhere; lambda_1(interior D)<=C(P)*(n+sqrt(n*I(nu|gamma))). The log-concave density is derived from the law's original finite-information hypothesis; no density witness, covariance lower bound, ellipsoid-existence conclusion or desired spectral estimate is an additional premise. This standalone combined M01/M02/M03 package passed its own ordinary Linux sandboxed Comparator --paranoid with all six configured kernels. Its actual build, complete fixed-statement comparison, private proof inspection, axiom reports and separate AI reviews are retained under verification/.",
+      "authors": [
+        {
+          "name": "Matthew J. Colbrook"
+        },
+        {
+          "name": "George Stepaniants"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SP",
+          "math.MG"
+        ],
+        "msc2020": [
+          "35P15",
+          "52A23"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "AffineFK.affine_reverse_faber_krahn_principal_results"
+        ]
+      },
+      "id": "PALOMAR-2026-11-01-000009",
+      "path": "entries/PALOMAR-2026-11-01-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8da3a495c1e4ca178ae216c01ae44826fbe1a7cc",
+            "fork_repository": "PalomarArchive/MColbrook--Affine-reverse-Faber-Krahn-problem--47d3b15fd525",
+            "source_repository": "MColbrook/Affine-reverse-Faber-Krahn-problem"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "43e2547468d1ef7f934a1d5213274aaba0e1408e37c72d7738acc3b055c4e0ac",
+        "version": 1
+      },
+      "published_at": "2026-11-01T09:19:15Z",
+      "source": {
+        "commit": "8da3a495c1e4ca178ae216c01ae44826fbe1a7cc",
+        "project_path": null,
+        "repository": "MColbrook/Affine-reverse-Faber-Krahn-problem"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A formal proof of an affine reverse Faber-Krahn inequality",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of the main results of Guti\u00e9rrez and Manfredi, \"A direct obstacle proof of a dimension-free weak-type (1,1) bound for the Gaussian Riesz transforms\" (arXiv:2610.26478). For the Gaussian measure d\u03b3\u2099 = \u03c0^{-n/2} e^{-|x|\u00b2} dx on \u211d\u207f, the Ornstein\u2013Uhlenbeck operator L = -\u00bd\u0394 + x\u00b7\u2207 and the normalized gradient D = 2^{-1/2}\u2207, the vector Riesz transform R_\u03b3 = D L^{-1/2} \u03a0\u2080 has exactly one linear extension to L\u00b9(\u03b3\u2099) satisfying t\u00b7\u03b3\u2099{|R_\u03b3 f| > t} \u2264 2\u2016f\u2016\u2081 for all t > 0, in every dimension n (Theorem 5.1). The proof goes through a Gaussian obstacle decomposition F = g + L^{1/2}u, with existence, uniqueness and the variational characterization of u, and the identification Dom(L^{1/2}) \u2286 W^{1,2}(\u03b3\u2099) (Theorem 3.1). Also formalized: the principal-value realization of the extension by the Gaussian Riesz kernels (Proposition 5.3), the coordinatewise, historically normalized and unnormalized-measure bounds (Corollary 5.4), and the complex-valued bound with constant 8/\u03c0 (Corollary 5.5). The Hermite basis of L\u00b2(\u03b3\u2099) and the spectral calculus of L are built from Mathlib; there is no sorry and no axiom beyond propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Cristian E. Guti\u00e9rrez"
+        },
+        {
+          "name": "Juan J. Manfredi"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "42B20",
+          "42C10",
+          "35J86",
+          "47A60",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "GaussianRiesz.obstacle_decomposition",
+          "GaussianRiesz.obstacle_decomposition_unique",
+          "GaussianRiesz.sqrt_domain_sobolev",
+          "GaussianRiesz.endpoint_theorem",
+          "GaussianRiesz.pv_identification",
+          "GaussianRiesz.coordinate_endpoint_bound",
+          "GaussianRiesz.spectral_normalization_bound",
+          "GaussianRiesz.unnormalized_measure_invariance",
+          "GaussianRiesz.complex_endpoint_theorem",
+          "GaussianRiesz.GaussIsProb",
+          "GaussianRiesz.HermiteFunMemLp",
+          "GaussianRiesz.HermiteL2Orthonormal",
+          "GaussianRiesz.HermiteL2Complete"
+        ]
+      },
+      "id": "PALOMAR-2026-10-30-000009",
+      "path": "entries/PALOMAR-2026-10-30-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "dc16c5de824a20c0164947c3a3e157887d9844c0",
+            "fork_repository": "PalomarArchive/na0b--gaussianriesz-lean--aa7b9db0230e",
+            "source_repository": "na0b/gaussianriesz-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e00bb50069546973bb3927b3b35eea193dcaded637ac86b99beb997a138b2914",
+        "version": 1
+      },
+      "published_at": "2026-10-30T11:32:01Z",
+      "source": {
+        "commit": "dc16c5de824a20c0164947c3a3e157887d9844c0",
+        "project_path": null,
+        "repository": "na0b/gaussianriesz-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A dimension-free weak-type (1,1) bound for the Gaussian Riesz transforms",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A formal proof that every unital surjective complex-linear spectral isometry between arbitrary complex unital C*-algebras is an algebraic Jordan isomorphism. The development also proves that a bounded generator whose exponentials are unital spectral isometries at every complex parameter is an associative derivation, and that every surjective spectral isometry is a unital Jordan isomorphism multiplied by its prescribed central unitary value at the identity.",
+      "authors": [
+        {
+          "name": "Matthew J. Colbrook"
+        },
+        {
+          "name": "George Stepaniants"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "46L05",
+          "47A65"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SpectralIsometry.main_result",
+          "SpectralIsometry.entire_group",
+          "SpectralIsometry.normalization"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000031",
+      "path": "entries/PALOMAR-2026-10-28-000031-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e08ba6700e58aff2ba00565b83ee24b71b226ed8",
+            "fork_repository": "PalomarArchive/MColbrook--Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras--ad4c932ac884",
+            "source_repository": "MColbrook/Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4fb8be78ebf90090dd77a20fdda2aa30bcbdefe04711f45bcdd106f21d07a70f",
+        "version": 1
+      },
+      "published_at": "2026-10-28T21:09:04Z",
+      "source": {
+        "commit": "e08ba6700e58aff2ba00565b83ee24b71b226ed8",
+        "project_path": null,
+        "repository": "MColbrook/Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A proof of the spectral isometry conjecture for C*-algebras",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of two basic results of spectral graph theory, stated through the adjacency quadratic form on vectors orthogonal to the all-ones vector: the expander mixing lemma of Alon and Chung (for a d-regular graph on n \u2265 2 vertices with |x\u00b7Ax| \u2264 \u03bc\u2016x\u2016\u00b2 on \ud835\udfd9\u22a5, |e(S,T) \u2212 d|S||T|/n| \u2264 \u03bc\u221a(|S||T|)), and the Alon\u2013Boppana bound in Nilli's form (a d-regular graph, d \u2265 2, with two vertices at distance at least 2k + 4 has a nonzero x \u27c2 \ud835\udfd9 with x\u00b7Ax \u2265 (2\u221a(d\u22121) \u2212 (2\u221a(d\u22121) \u2212 1)/(k+1))\u2016x\u2016\u00b2). Mathlib has adjacency matrices but neither result.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C48"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ExpanderTheorem.expander_mixing",
+          "ExpanderTheorem.alon_boppana"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000035",
+      "path": "entries/PALOMAR-2026-10-22-000035-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f96a99893d4d31495af5f8d9e6181f7b4c91e0ba",
+            "fork_repository": "PalomarArchive/jtraverso--expander-spectral--c7934103ea1e",
+            "source_repository": "jtraverso/expander-spectral"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a07708fdf5e9c68841e4629fe3535508718f7c7a0566be9da1aa1d7ac28f9f7d",
+        "version": 1
+      },
+      "published_at": "2026-10-22T15:25:36Z",
+      "source": {
+        "commit": "f96a99893d4d31495af5f8d9e6181f7b4c91e0ba",
+        "project_path": null,
+        "repository": "jtraverso/expander-spectral"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The expander mixing lemma and the Alon\u2013Boppana bound",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, about cut-and-project schemes on a fixed integer lattice Z^iota invariant under an integer matrix A: splittings R^iota = E + H into A-invariant subspaces with Z^iota meeting H only in 0 and the projection of Z^iota to H dense in H, a window W in H (bounded, containing a relative ball), the model set Lambda(W) = {pi_E g : g in Z^iota, pi_H g in W}, and admissibility, some window with A Lambda(W) contained in Lambda(W) (inflation symmetry in Meyer's inclusion sense). The least physical dimension d(A) is the least dim E over admissible schemes. Thirteen compared theorems. (1) For every integer A, a scheme is admissible iff A is power-bounded on H; then the orbit window is a compact convex symmetric invariant window; the per-window criterion; and U(A) <= dim E, U(A) the number of eigenvalues of modulus > 1. (2) Kronecker's density criterion in cut-and-project form. (3) For every integer A with det A != 0, any chi_A: (a) d(A) is the sum over the distinct irreducible factors p of chi_A over Q of m_p u_p + c_p (m_p - r_1(p)), plus min(deg p, 2) when every root of p lies on the unit circle and r_1(p) = m_p, where m_p is the multiplicity, u_p and c_p count the roots of p of modulus > 1 and = 1, and r_1(p) = (2 dim ker p(A) - dim ker p(A)^2) / deg p (ranks over Q) is the number of Jordan blocks of size one at each root of p; (b) the value is an invariant of rational similarity; (c) the factors with all roots on the unit circle are the cyclotomic ones; and (d) for chi_A squarefree every invariant splitting is E = ker q_E(A), H = ker q_H(A) with chi_A = q_E q_H, it is admissible iff the roots of q_H lie in the closed unit disk and every irreducible rational factor of chi_A shares a root with q_E, and d(A) = U(A) + circleCount(A), counting 1 for each factor x - 1, x + 1 and 2 for each other cyclotomic factor, each with its multiplicity. (4) For det A != 0 and hyperbolic A, any chi_A and no diagonalizability: a scheme is admissible iff E contains the unstable set iff H lies in the stable set; an invariant splitting carries an admissible scheme iff E contains the unstable set; d(A) = U(A), attained only by the unstable/stable splitting. (5) For det A != 0, any chi_A: d(A) = 1 iff chi_A is irreducible with exactly one root of modulus > 1 (a real root, a Pisot or Salem number up to sign, or an integer on Z^1), or A = +-1 in any rank; in the irreducible case every admissible line is the eigenline. (6) If A^k = 1: every factor is cyclotomic and d = sum of min(deg p, 2) over the distinct factors; the same for chi_A squarefree with all roots on the unit circle; every integer matrix with chi_A = Phi_n, n >= 3 (multiplication by a primitive n-th root of unity), needs exactly a plane. (7) Jordan blocks on the circle: I_2 and the Jordan block J_2 both have chi = (x - 1)^2, for which the squarefree count of (3), with x - 1 counted twice, gives 2, but d = 1 and 2; 1 + J_2(1) and 1 + J_3(1) have d = 2 and 3. (8) Multiplication by rho, rho^-1, Q and theta = -Q^-1 = 1 - Q^3 on Z[rho] and Z[Q] (rho^3 = rho + 1, Q^4 = Q + 1): d = 1, 2, 3, 1. (9) On Z[rho] (x) Z[Q] (degree 12), multiplication by every alpha other than 0, +-1 is nonsingular (det != 0) and hyperbolic with d = U; for rho, theta, rho Q and Q the values are 4, 3, 5, 9. (10) rho and theta act on their unstable spaces as real scalars, and the spectral projection carries the quartic (resp. cubic) sector onto them with the Gram pairing GramRho (x) GramQ equal to that of GramQ (resp. GramRho), of types (3,1) and (2,1). (11) The scheme of Q on Z^4 with an interval window: a segment, an explicit Q-invariant model set in R^3, determinant -1/q' on E, non-real moduli, and the types (2,1) and (1,0) of the trace form on E and H. (12) A Salem witness, the companion of x^4 - x^3 - x^2 - x + 1: not hyperbolic, d = 1. (13) Every model set is a Delone set (Mathlib's Delone.DeloneSet) with uniformly discrete difference set. The mathematics of (1), (2), (4), (5) for irreducible chi_A, and (13), and of (6) for chi_A = Phi_n, is known in other formulations (Masakova-Mazac-Pelantova 2021; Kronecker, Pleasants 2000; Harriss-Koivusalo-Walton 2025, preprint; Meyer 1972, 1995; Lagarias 1999; Solomyak 2020; the classical cyclotomic model sets; Moody 1997); (1) and (4) are stated with no diagonalizability hypothesis. The scheme and model set of (11) are, in substance, instances of Masakova-Mazac-Pelantova Thm 13.1 and of Harriss-Koivusalo-Walton Section 3.4, and are not new. For squarefree chi_A the count of (3) also follows from the arguments of Masakova-Mazac-Pelantova (Lemma 5.1, Prop. 8.1(iii), Cor. 13.4), stated there for generic (aperiodic) schemes; the lattice-first least physical dimension was not found stated in the sources read (search completed 2026-10-20). Beyond the cited cases, the entry proves the least physical dimension for every nonsingular integer matrix (3), including what lies outside the diagonalizable class of Masakova-Mazac-Pelantova: a Jordan block of size >= 2 at an eigenvalue on the unit circle counts in full (the terms c_p (m_p - r_1(p)), which vanish for diagonalizable A), and at a cyclotomic factor with such a block the blocks of size one cost nothing, the internal space being tilted into the socle of the larger blocks; the witnesses are J_2, 1 + J_2(1) and 1 + J_3(1) (7). Every admissible scheme of an A with such a block at a root of unity has Z^iota meeting E in a nonzero vector. It also proves the characterization of every admissible splitting for squarefree chi_A ((3)(d)), non-generic splittings included (its necessity half is the injectivity argument of Masakova-Mazac-Pelantova, Lemma 5.1), and (1) for every integer matrix and (4) for every nonsingular hyperbolic integer matrix, with no diagonalizability hypothesis; for diagonalizable A and generic schemes, the uniqueness of the minimal scheme in (4) and of the minimal physical line in (5) is immediate from Masakova-Mazac-Pelantova, Cor. 13.4. For det A != 0 and squarefree chi_A with a factor Phi_n, n not in {1, 2, 3, 4, 6}, the minimal scheme is not unique, by (3)(d). The companion matrices are multiplication by rho and Q in the power bases by definition, so Crho^i (x) CQ^j is multiplication by rho^i Q^j in the product basis. That the rho^i Q^j are a Z-basis of the ring of integers of Q(rho, Q) is statement (8) of the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031); that GramRho, GramQ and GramRho (x) GramQ are the Gram matrices of the trace forms in these bases is statements (8), (9) and (19) of the author's registered entry PALOMAR-2026-09-02-000014, in which Q(rho) (x) Q(Q) is the field Q(rho, Q) (its (23)). These are cited, not compared. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K, whose integers are Z[rho] (x) Z[Q], is the parent of both (the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031), statements (7), (8)). A model set is the shadow of a lattice cut through a window, a standard mathematical model of a quasicrystal (Moody 2000). Read through the theory, this entry's theorems fix how many dimensions each of the theory's inflations needs to be the symmetry of one, and which ones.\nSpace inflates the parent through spacetime, and spacetime inflates it through space. On the parent's lattice the plastic inflation rho needs exactly four physical dimensions, and only one scheme attains four (4, 9). Those four are a copy of spacetime's: rho has a single expanding embedding in Q(rho), the real one, and the spectral projection maps the quartic sector onto them, carrying Z[Q] with its trace form unchanged, of Lorentzian type (3,1) (10). rho acts on them as a pure dilation by rho = 1.3247..., the same stretch in every direction (10). Symmetrically, the unit theta = -Q^-1 = 1 - Q^3 needs exactly three, and those three are a copy of space's: Q(rho)'s real space with its form of type (2,1) unchanged, dilated by t = -1/q' = 1.3803... (8, 9, 10). Taken over all three embeddings of Q(rho) instead of the one expanding embedding, the form on the quartic sector is tripled: the factor 3 of statement (13) of PALOMAR-2026-10-21-000012.\nThe clock needs one dimension; the ruler needs five. On Z[rho] the plastic inflation needs exactly one: the line, over a two-dimensional window at the complex place (8). The plastic substitution's control-point sets are regular model sets in this scheme, with Rauzy-fractal windows in C (Baake and Grimm 2020), and in the theory the line is time and its points are the ticks (PALOMAR-2026-08-19-000006, PALOMAR-2026-10-18-000019). The coupling ruler rho Q, which generates the parent field (Q(rho Q) = K; statement (15) of PALOMAR-2026-10-21-000012, where Z[rho Q] has index 53 in the integers; PALOMAR-2026-09-01-000005), needs exactly five, over a seven-dimensional window (9): one real and two complex expanding places, a dimension neither sector has.\nThe parent holds no circle, so every minimal scheme is forced. Off the parent, eigenvalues on the unit circle can change the count: a Salem inflation's circle eigendirections lie in the internal space and cost nothing, so it still needs only a line (5, 12), but multiplication by a primitive n-th root of unity, n >= 3, needs exactly a plane, and every element of finite order n >= 3 needs at least one (6). The parent has none. No element of K other than +-1 has a conjugate on the unit circle (statement (17) of PALOMAR-2026-10-21-000012), so every inflation of the parent by an element other than 0 and +-1 is hyperbolic, needs exactly as many dimensions as it has expanding embeddings (a complex place counts twice), and has a unique minimal scheme (4, 9).",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "math.DS",
+          "math.NT",
+          "math-ph",
+          "gr-qc",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "52C23",
+          "37D20",
+          "11R06",
+          "11J71",
+          "11R04",
+          "15A21",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ModelSetDimension.admissibility_criterion",
+          "ModelSetDimension.kronecker_density_criterion",
+          "ModelSetDimension.least_physical_dimension",
+          "ModelSetDimension.hyperbolic_case",
+          "ModelSetDimension.dimension_one_pisot_or_salem",
+          "ModelSetDimension.finite_order_case",
+          "ModelSetDimension.jordan_block_witnesses",
+          "ModelSetDimension.sector_rings",
+          "ModelSetDimension.compositum_lattice",
+          "ModelSetDimension.compositum_dilations",
+          "ModelSetDimension.quartic_model_set",
+          "ModelSetDimension.salem_witness",
+          "ModelSetDimension.modelSet_isMeyer"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000030",
+      "path": "entries/PALOMAR-2026-10-22-000030-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+            "fork_repository": "PalomarArchive/stalex444--pdt-inflation-model-set-dimension--6934a2b28ed6",
+            "source_repository": "stalex444/pdt-inflation-model-set-dimension"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cb55a83f03a2badb3cc989e42f8e203e2bee88d1ff40bbe4f369dd73212c87ad",
+        "version": 1
+      },
+      "published_at": "2026-10-22T11:57:42Z",
+      "source": {
+        "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "project_path": null,
+        "repository": "stalex444/pdt-inflation-model-set-dimension"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The least physical dimension of an inflation-symmetric model set, with the cubic, quartic and degree-12 inflations of x^3 - x - 1 and x^4 - x - 1",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of classical eigenvalue bounds for a finite simple graph G on a nonempty vertex type, with \u03bb_max and \u03bb_min the largest and smallest eigenvalues of its real adjacency matrix: the average degree is at most \u03bb_max and \u03bb_max is at most the maximum degree (Collatz\u2013Sinogowitz); G is (\u230a\u03bb_max\u230b + 1)-colourable (Wilf 1967); if G has an edge, every proper colouring uses at least 1 \u2212 \u03bb_max/\u03bb_min colours (Hoffman 1970); and if G is k-regular with k \u2265 1, every independent set has at most n(\u2212\u03bb_min)/(k \u2212 \u03bb_min) vertices (Hoffman's ratio bound). Mathlib has the spectral theorem for Hermitian matrices but none of these bounds.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C15",
+          "05C69"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "AdjacencySpectrum.average_degree_le",
+          "AdjacencySpectrum.le_maxDegree",
+          "AdjacencySpectrum.wilf",
+          "AdjacencySpectrum.hoffman_chromatic",
+          "AdjacencySpectrum.hoffman_ratio"
+        ]
+      },
+      "id": "PALOMAR-2026-10-18-000016",
+      "path": "entries/PALOMAR-2026-10-18-000016-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8d8b4ce17e56165b5f1ad3b285fb141666804e1c",
+            "fork_repository": "PalomarArchive/jtraverso--spectral-graph-bounds--08d3a675ea5f",
+            "source_repository": "jtraverso/spectral-graph-bounds"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "ba6e666ac7cfa0b9aff547af62220fda15294b6663280dcfbc2bca871522ce98",
+        "version": 1
+      },
+      "published_at": "2026-10-18T14:28:11Z",
+      "source": {
+        "commit": "8d8b4ce17e56165b5f1ad3b285fb141666804e1c",
+        "project_path": null,
+        "repository": "jtraverso/spectral-graph-bounds"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Spectral bounds on the chromatic and independence numbers",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of the Hoffman\u2013Singleton theorem on Moore graphs of diameter two. For a finite k-regular graph of diameter at most two: the Moore bound n \u2264 k\u00b2 + 1; if moreover the girth is at least five, then n = k\u00b2 + 1 and the graph is strongly regular with parameters (k\u00b2 + 1, k, 0, 1); and, if k \u2265 2, then k \u2208 {2, 3, 7, 57}. Mathlib has strongly regular graphs and the spectral theorem for Hermitian matrices, but not this theorem.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C35",
+          "05E30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "HoffmanSingleton.card_le",
+          "HoffmanSingleton.card_eq",
+          "HoffmanSingleton.isSRGWith",
+          "HoffmanSingleton.hoffman_singleton"
+        ]
+      },
+      "id": "PALOMAR-2026-10-17-000018",
+      "path": "entries/PALOMAR-2026-10-17-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8819ccfea5474fab3d1cbc17e703860a4e008254",
+            "fork_repository": "PalomarArchive/jtraverso--moore-graphs-hoffman-singleton--c0de8dabed2e",
+            "source_repository": "jtraverso/moore-graphs-hoffman-singleton"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2a0c325d1fa2e2da0c4abab3a308da2394a8eebf8910713bb230a75d22609803",
+        "version": 1
+      },
+      "published_at": "2026-10-17T23:47:21Z",
+      "source": {
+        "commit": "8819ccfea5474fab3d1cbc17e703860a4e008254",
+        "project_path": null,
+        "repository": "jtraverso/moore-graphs-hoffman-singleton"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Moore graphs of diameter two: the Hoffman\u2013Singleton theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked certificates for the multiplicative compositum of the two registered Mahler minimizers \u2014 rho, the real root of x^3 = x + 1 (the plastic number: Smyth's nonreciprocal minimum, Siegel's smallest Pisot number) and Q, the real root > 1 of x^4 = x + 1 (the degree-4 entry of the minimal-measure tables) \u2014 together with the Bedford-Kim spectral family whose limit rho is, and (new in version 2) the identification of that family with the Coxeter-element spectra of the E_m star trees. Twenty-two compared theorems. The spectral half: (1) for n >= 7 the family chi_n(x) = x^(n+1)(x^3 - x - 1) + (x^3 + x^2 - 1) has a canonical root in [117/100, rho), largest below rho, strictly increasing, tending to rho; (2) every chi_n is strictly positive on [rho, infinity); (3) chi_7 = (x - 1) * L exactly, over any commutative ring, with L Lehmer's degree-10 polynomial; (4) L has a root in [117/100, rho). The compositum half, for the degree-12 minimal polynomial of rho * Q (written out in full in every compared statement): (5) an exclusion witness \u2014 a nonreal quartic root z with 1 < |rho * z| < rho * Q; (6) the twelve embedding products ARE the conjugates of rho * Q, both directions; (7) there are exactly twelve of them; (8) rho * Q is an algebraic unit, via an explicit degree-11 cofactor over any commutative ring \u2014 the (3, 4, 12) triple in the normal form alpha * beta * gamma = 1; (9) the degree-12 polynomial is not reciprocal (neither its reversal nor the reversal's negation), placing it in the regime of Smyth's theorem; (10) degree multiplicativity \u2014 deg minpoly(rho*Q) = deg minpoly(rho) * deg minpoly(Q) = 12; (11) the compositum in sup form Q(rho) join Q(Q) = Q(rho*Q), of degree 12, with the two simple extensions linearly disjoint; (12) the complete unit-circle census \u2014 EXACTLY 5 conjugates strictly outside, EXACTLY 7 strictly inside, NONE on the circle, so rho * Q is neither a Pisot nor a Salem number; (13) the house \u2014 every conjugate other than rho * Q has modulus strictly below rho * Q; (14) the exact Mahler measure M = rho^2 * Q^2 * psi, where psi is the real root > 1 of psi^4 = psi^3 + 1; (15) the registry bridge \u2014 M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1), re-proving in-repo the quantity pinned in registered entry PALOMAR-2026-08-31-000004; (16) the order-12 Hadamard product recurrence \u2014 the termwise product of any solutions of the cubic and quartic shift recurrences satisfies the order-12 recurrence whose characteristic polynomial is exactly the degree-12 polynomial, in any Q-algebra; (17) the annihilator ideal of the product power sequence n |-> (rho * Q)^n is EXACTLY the principal ideal of the degree-12 polynomial \u2014 the classical order <= 3 * 4 bound is an equality, forced by the polynomial's kernel-held irreducibility. THE COXETER BRIDGE (version 2), for the star trees E_m = T(2,3,m-3) with generalized Cartan matrix A given entrywise and Coxeter element c = s_0 s_1 ... s_{m-1}, each simple reflection the matrix s_i = 1 - e_i e_i^T A of the geometric representation: (18) for every m >= 4, (X - 1) * charpoly(c) = X^(m-2)(X^3 - X - 1) + (X^3 + X^2 - 1) \u2014 the classical E_n Coxeter-polynomial identity (recorded in Gross-Hironaka-McMullen 2009, Section 1, and proved there as Cor. 4.3 for n >= 4), whose right-hand side is chi_{m-3}: the spectral half of this entry IS the E_m Coxeter spectrum; (19) with the E_10 Cartan matrix written out, the Coxeter polynomial of E_10 is Lehmer's polynomial; (20) for every m >= 10 the Coxeter polynomial of E_m has a root lambda_m in [117/100, rho) with no real root above it, the lambda_m strictly increasing and tending to rho; (21) for every m >= 10 the complexified Coxeter element has an eigenvalue lambda in (1, rho) and every complex eigenvalue is unimodular, lambda, or 1/lambda; (22) that lambda dominates the modulus of every eigenvalue and is a Salem number, for every m >= 10, with the Salem predicate written out as in the registered entry PALOMAR-2026-09-02-000003. Two disclosures of version 1 are discharged by (21)-(22) for n >= 7: the Salem property of the Bedford-Kim roots is now kernel-held, and the interval (1, 117/100) is now swept (the only eigenvalues off the unit circle are lambda_m and its inverse). The results address four research audiences: the degree problem for products and composita of algebraic numbers (the certified (3,4,12) witness at a canonically distinguished pair, in the field's own unit-product normal form); the Mahler-measure tradition (the measure of the composed product of the two degree-minimal polynomials, in closed form in the second-smallest Pisot number); composed products of polynomials (a certified rational instance where the finite-field coprimality criterion is unavailable and irreducibility is proved by elimination); and, new, Coxeter groups and Salem numbers (McMullen; Gross-Hironaka-McMullen; Hironaka's Lehmer program): the E_m Coxeter spectra, their Salem radii and their limit rho as one kernel-checked family \u2014 with the Lean audience served by concrete exercise of the Mahler-measure, linear-disjointness, Matrix.charpoly and spectrum APIs. Like the golden ratio, rho * Q is an algebraic unit of norm -1; the compared cofactor identity is that norm computation, certified. No novelty claim is made for the measure identity (the entry is not aware of it in the literature; the claimed contribution is the kernel certificate), none for the mathematics of (18)-(22), which is classical (the claimed contribution is the kernel-checked bridge from the registered Bedford-Kim family to the E_m Coxeter elements, for every m >= 4 (bridge) and every m >= 10 (spectrum, Salem) at once), no \"first formalization\" claim is made anywhere, and whether rho is ATTAINED as a dynamical degree is open in the literature \u2014 no statement claims it. Hypotheses are inline: rho, Q, psi enter only through their defining equations plus root-selection inequalities, the E_m Cartan matrices only through their entries, and the compared statements use only core Mathlib vocabulary (Filter.Tendsto, nhds, the complex norm, minpoly, Polynomial.rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField adjoin/sup, Module.finrank, Finset.range sums, Matrix.charpoly, Matrix.diagonal, List.finRange/List.prod, matrix literals, Matrix.map, spectrum, IsIntegral, Polynomial.aeval) \u2014 zero custom definitions. The name prefix \"ruler\" in statement names is the source project's term for the product rho * Q; nothing in any statement depends on it.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.DS",
+          "math.GR",
+          "math.RT"
+        ],
+        "msc2020": [
+          "11R06",
+          "11R04",
+          "11B37",
+          "14E07",
+          "37B40",
+          "20F55",
+          "15A18"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PlasticThreshold.plastic_salem_family",
+          "PlasticThreshold.family_pos_of_rho_le",
+          "PlasticThreshold.lehmer_first_rung",
+          "PlasticThreshold.lehmer_root_below_plastic",
+          "PlasticThreshold.ruler_second_conjugate",
+          "PlasticThreshold.ruler_conjugates_eq_embedding_products",
+          "PlasticThreshold.ruler_conjugates_card",
+          "PlasticThreshold.ruler_unit",
+          "PlasticThreshold.rulerPoly_nonreciprocal",
+          "PlasticThreshold.ruler_degree_multiplicative",
+          "PlasticThreshold.ruler_linearDisjoint",
+          "PlasticThreshold.ruler_conjugate_census",
+          "PlasticThreshold.ruler_house",
+          "PlasticThreshold.ruler_mahler_measure",
+          "PlasticThreshold.ruler_mahler_eq_quartic_measure",
+          "PlasticThreshold.product_recurrence_charpoly",
+          "PlasticThreshold.product_annihilator_iff",
+          "PlasticThreshold.coxeter_E_bridge",
+          "PlasticThreshold.coxeter_E10_lehmer",
+          "PlasticThreshold.coxeter_E_plastic",
+          "PlasticThreshold.coxeter_E_spectrum",
+          "PlasticThreshold.coxeter_E_salem"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000005",
+      "path": "entries/PALOMAR-2026-09-01-000005-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+            "fork_repository": "PalomarArchive/stalex444--mahler-minimizer-compositum--ca9ebf56e752",
+            "source_repository": "stalex444/mahler-minimizer-compositum"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a48c47af6d422214d8af628d5e0edc30542c132d4b9c3739e71562c9169a0e61",
+        "version": 2
+      },
+      "published_at": "2026-10-17T14:57:18Z",
+      "source": {
+        "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+        "project_path": null,
+        "repository": "stalex444/mahler-minimizer-compositum"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The compositum of the two Mahler minimizers: exact measure, conjugate census, house, and minimal product recurrence, with the Bedford-Kim plastic family, Lehmer's polynomial, and the E_m Coxeter bridge",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For every fixed finite graph F of chromatic number r+1 at least three and every positive epsilon, there is an edge threshold M such that every finite simple F-free graph G with m at least M satisfies F2(A_G) <= 2(1-1/r)m - (2(1-1/r)-1)Delta(G) + epsilon m. F2 is the sum of the squares of the two largest positive adjacency eigenvalues with missing terms padded by zero. The graphs may be disconnected. A companion theorem establishes agreement with the two largest ordered eigenvalue squares in the same eventual range. Enough edges force an F-free graph to be noncomplete; BN nonedge interlacing gives a nonnegative second ordered eigenvalue, so its positive-two energy equals the first two ordered eigenvalue squares. The proof checks ordinary clique removal through regularity and clique counting, derives weighted deletion, reuses the proved BN rank-two Gram inequality, and supplies the spectral lift, hub separation and uniform assembly.",
+      "authors": [
+        {
+          "name": "Idris Ali Shaik"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KKP117.strengthened_asymptotic",
+          "KKP117.strengthened_ordered_asymptotic"
+        ]
+      },
+      "id": "PALOMAR-2026-10-17-000005",
+      "path": "entries/PALOMAR-2026-10-17-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8aa258c7a0b06ae96cfa56018bddd60ee643efd5",
+            "fork_repository": "PalomarArchive/shaikidris--kkp-asymptotic-spectral-bound--16a8809ca472",
+            "source_repository": "shaikidris/kkp-asymptotic-spectral-bound"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "14fdd4cd9e078ac425de05a85fd43fb52a81d9d2937c4217e7101fda63d5803f",
+        "version": 1
+      },
+      "published_at": "2026-10-17T07:40:46Z",
+      "source": {
+        "commit": "8aa258c7a0b06ae96cfa56018bddd60ee643efd5",
+        "project_path": null,
+        "repository": "shaikidris/kkp-asymptotic-spectral-bound"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A sharp asymptotic spectral bound for forbidden subgraphs",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For F=K5 minus one edge, a color-critical graph of chromatic number four, the graph formed from K(s,s,s) and K4 by one bridge is connected and F-free for every integer s at least three. It has 3s squared plus 7 edges, and the sum of squares of its two largest ordered adjacency eigenvalues exceeds 4m/3 by at least (656s squared-1366s+62)/(3(37s-1) squared)>0. The family has arbitrarily large edge counts, refuting the exact assertion in KKP Conjecture 1.16 and Li\u2013Liu\u2013Zhang Conjecture 5.4.",
+      "authors": [
+        {
+          "name": "Idris Ali Shaik"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KKP.connected_counterexample_family",
+          "KKP.unbounded_connected_counterexamples"
+        ]
+      },
+      "id": "PALOMAR-2026-10-16-000012",
+      "path": "entries/PALOMAR-2026-10-16-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c611a4a733fe796809cd941f96ff8f2c294fd1ef",
+            "fork_repository": "PalomarArchive/shaikidris--kkp-connected-spectral-counterexamples--a1b9d82c88cb",
+            "source_repository": "shaikidris/kkp-connected-spectral-counterexamples"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0d85c8ca20fcf2dcc673e77bf9d0ed463f38e1cf39b5fc91ce64b1774a27160b",
+        "version": 1
+      },
+      "published_at": "2026-10-16T12:43:10Z",
+      "source": {
+        "commit": "c611a4a733fe796809cd941f96ff8f2c294fd1ef",
+        "project_path": null,
+        "repository": "shaikidris/kkp-connected-spectral-counterexamples"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Connected counterexamples to the exact color-critical two-eigenvalue bound",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For every finite noncomplete simple graph with at least two vertices, the sum of the squares of its two largest ordered adjacency eigenvalues is bounded by the sum over unordered edges of 2(1-1/c(e)), where c(e) is the largest clique containing the edge. The proof establishes the concrete edge-clique scalar certificate and transfers it through the checked BN completely positive spectral lift. Connectedness is unnecessary.",
+      "authors": [
+        {
+          "name": "Idris Ali Shaik"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LocalBN.edgeLocalizedNoncompleteUnordered"
+        ]
+      },
+      "id": "PALOMAR-2026-10-15-000015",
+      "path": "entries/PALOMAR-2026-10-15-000015-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d3593f26e60c27d1cae1967f720f4dd59ad1c4d8",
+            "fork_repository": "PalomarArchive/shaikidris--kkp-localized-spectral-bound--6e7c863269f5",
+            "source_repository": "shaikidris/kkp-localized-spectral-bound"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "6657fe46e9b46ada9e8bb29c1e7db358793aa6265735d116216b546ae61d6c6c",
+        "version": 1
+      },
+      "published_at": "2026-10-15T20:12:21Z",
+      "source": {
+        "commit": "d3593f26e60c27d1cae1967f720f4dd59ad1c4d8",
+        "project_path": null,
+        "repository": "shaikidris/kkp-localized-spectral-bound"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Localized two-eigenvalue bound for finite noncomplete graphs",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Let (\u03a9, \u03bc) be a measure space and a = (a_k) a family of m square-integrable functions whose Gram matrix \u222b a a* d\u03bc is the identity. Then for every n \u2265 m there are points x\u2081, \u2026, x\u2099 \u2208 \u03a9 and weights w\u2081, \u2026, w\u2099 > 0 with (1 \u2212 \u221a((m\u22121)/n))\u00b2 I \u227c \u2211\u1d62 w\u1d62 a(x\u1d62) a(x\u1d62)* \u227c (1 + \u221a((m\u22121)/n))\u00b2 I in the Loewner order. For the counting measure on a finite set \u03a9 this is the theorem for finitely many vectors: if v_k \u2208 \u2102\u1d50, k \u2208 \u03a9, satisfy \u2211_k v_k v_k* = I, then for every n \u2265 m there are weights s_k \u2265 0, at most n of them nonzero, with (1 \u2212 \u221a((m\u22121)/n))\u00b2 I \u227c \u2211_k s_k v_k v_k* \u227c (1 + \u221a((m\u22121)/n))\u00b2 I, so a reweighted subset of at most n of the vectors is a spectral sparsifier of their sum. The original theorem of Batson, Spielman and Srivastava has the constants (1 \u2213 \u221a(m/n))\u00b2; with m \u2212 1 in place of m, following Chkifa, Dolbeault, Krieg and Ullrich, the statements here are slightly stronger.",
+      "authors": [
+        {
+          "name": "Mario Ullrich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.FA",
+          "cs.DS"
+        ],
+        "msc2020": [
+          "42C15",
+          "15A45",
+          "65F55",
+          "05C50"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Discretization.bss",
+          "Discretization.bss_of_sum_eq_one"
+        ]
+      },
+      "id": "PALOMAR-2026-10-14-000002",
+      "path": "entries/PALOMAR-2026-10-14-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "209d4bf72bec56fa7b181a24dacb8570b10a6986",
+            "fork_repository": "PalomarArchive/mario-ullrich--Lean-Discretization--19ad5284337e",
+            "source_repository": "mario-ullrich/Lean-Discretization"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "bb0c20757477e3639c80ca0afc187a37c525f84166ca8e738a92c830aae95dcb",
+        "version": 1
+      },
+      "published_at": "2026-10-14T07:05:26Z",
+      "source": {
+        "commit": "209d4bf72bec56fa7b181a24dacb8570b10a6986",
+        "project_path": null,
+        "repository": "mario-ullrich/Lean-Discretization"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The sparsification theorem of Batson, Spielman and Srivastava",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Exact worst squared spectral gaps for finite open chiral chains with inhomogeneous strong-bond lower bounds and weak-bond ratio intervals. The scalar optimum is the minimum over the ordered one-switch endpoint configurations, with a two-certificate reduction when cuts are allowed. Strictly positive weak lower bounds give a complete point-or-edge classification of scalar minimizers and an exact aligned-channel equality criterion for arbitrary complex matrix disorder. The sharp channel bound includes the finite chiral Hamiltonian spectral bridge.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SP",
+          "math-ph"
+        ],
+        "msc2020": [
+          "15A18",
+          "15A42",
+          "47A75",
+          "81Q10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ChiralGap.robustMinimum_spec",
+          "ChiralGap.one_switch_value",
+          "ChiralGap.two_certificate_value",
+          "ChiralGap.scalarGap_eigenvector",
+          "ChiralGap.scalarGap_le_eigenvalue",
+          "ChiralGap.scalar_optimizer_classification",
+          "ChiralGap.scalar_minimizers_vertex_or_edge",
+          "ChiralGap.robust_hopping_bound",
+          "ChiralGap.hopping_chiral_zero_multiplicity",
+          "ChiralGap.robust_chiral_sharpness_constrained",
+          "ChiralGap.hopping_nonzero_spectrum",
+          "ChiralGap.robust_chiral_complex_gap",
+          "ChiralGap.matrix_equality_criterion",
+          "ChiralGap.chiral_eigenbasis"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000019",
+      "path": "entries/PALOMAR-2026-10-11-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "3414bf564e0afd92d713ced8ba51c28db96834b2",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--chiral-gap--a9168b8ac388",
+            "source_repository": "JD-Jones-ASES/chiral-gap"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "27e71dba245a4a178fe75cfe6961e746e714e90eb9e91f4b1f79ca9f33dd1748",
+        "version": 1
+      },
+      "published_at": "2026-10-11T16:33:06Z",
+      "source": {
+        "commit": "3414bf564e0afd92d713ced8ba51c28db96834b2",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/chiral-gap"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Exact robust gaps in finite open chiral chains",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of the following theorem: there are absolute constants C, n0 > 0 such that every connected Cayley graph Cay(G, S) on n >= n0 vertices whose degree d = |S| is at least C (log n)^13 / log log n contains a Hamilton cycle (Lovasz.hamiltonian_of_polylog_degree). Here G is a finite group, S is a connection set (S = S^-1 and 1 not in S, so the graph is |S|-regular), log is the natural logarithm, and connectivity is equivalent to S generating G. The theorem is a case of the Lov\u00e1sz conjecture (every connected vertex-transitive graph has a Hamilton path) in its Cayley-graph form (every connected Cayley graph on at least three vertices is Hamiltonian). For arbitrary connected Cayley graphs the previously published degree thresholds were linear degree (Christofides, Hladk\u00fd and M\u00e1th\u00e9, 2014) and degree at least n^(1-c) (Bedert, Dragani\u0107, M\u00fcyesser and Pavez-Sign\u00e9, 2026). The proof follows the source manuscript: it extracts a connected bipartite template with spectral gap of order (log n)^-2, allocates the vertices to weighted translates of the template by signed rounding (a robust signed integrality theorem derived from the capacitated b-matching polytope, swap rounding, and a trace-exponential matrix concentration bound), connects the pieces by a sparse matching chosen by mutual nominations and a signed circulation, absorbs the outside matching inside every piece with Hamilton routers built from even-cycle comparators, and merges cycles. Every lemma of the manuscript is proved in the repository, as are the classical results it uses without proof (normalized Cheeger inequality, Haxell's hypergraph matching theorem, the b-matching polytope, Watkins's connectivity bound, the Nash-Williams\u2013Tutte tree-packing theorem, Hoffman's circulation criterion, scalar Chernoff bounds); Hall's theorem is taken from Mathlib, and matrix Bernstein is avoided by deriving the one lemma that used it from the manuscript's own concentration bound. The source manuscript is an unpublished research draft that describes its own proof as not independently verified; this formalization is, to the maintainer's knowledge, the first verification of the theorem. The proved theorem has no sorry and depends only on propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Shengtong Zhang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C45",
+          "05C25",
+          "05C48",
+          "05C50",
+          "05C70",
+          "05C80"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Lovasz.hamiltonian_of_polylog_degree"
+        ]
+      },
+      "id": "PALOMAR-2026-09-26-000003",
+      "path": "entries/PALOMAR-2026-09-26-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ee0085ddec79996279c7b52044659032e5cf8431",
+            "fork_repository": "PalomarArchive/ShengtongZhang-alt--lovasz-opus--32b678aa320e",
+            "source_repository": "ShengtongZhang-alt/lovasz-opus"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "dacb8ecffc55cb2d4866bbdc51930d91cdcb719dbfc7d12be9aece15b28207f3",
+        "version": 1
+      },
+      "published_at": "2026-09-26T03:17:12Z",
+      "source": {
+        "commit": "ee0085ddec79996279c7b52044659032e5cf8431",
+        "project_path": null,
+        "repository": "ShengtongZhang-alt/lovasz-opus"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Hamilton cycles in Cayley graphs of polylogarithmic degree",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "We establish three sets of results addressing published questions about the composition, enumeration and degradation of autocatalytic reaction networks. In response to the composition questions of Gagrani, Wang, De Decker and Lacoste (arXiv:2603.02627, Discussion and outlook), we give exact criteria for strict increases in the maximum amplification factor (MAF) under reaction addition, nonnegative species aggregation and shared-species coupling, assuming nonnegative inputs and attained MAFs. A block direct sum attains the larger component MAF, while an explicit example shows that component MAFs alone do not determine the MAF of a coupled network. Addressing the CS-core enumeration direction of Golnik, Gatter, Stadler and Vassena (arXiv:2603.02770, Section 6), we prove exact reconstruction from a complete list of ordinary-core anchor matchings, each unique on its vertex set, by alternating-path generation and certified rational semipositivity filtering. We establish existence of the certified test, its rejection of the empty matching, and an explicit nonempty instance for A \u2192 2A. For the arbitrary-degradation question discussed by Nandan, Nghe and Unterberger (arXiv:2507.15546, Section 6), we characterize growth, criticality and extinction for irreducible linear diluted source networks with nonnegative unary reaction data and species degradation d \u2265 0: the real spectral bound of A \u2212 diag(d) is positive, zero or negative exactly when d is componentwise strictly below, equal to or strictly above (Av)_i/v_i for some positive v. We also characterize partial-actuation stabilizability of Metzler matrices through a positive-vector certificate on the unactuated block. All eleven selected statements are formalized in Lean 4 with Mathlib.",
+      "authors": [
+        {
+          "name": "Michael Mislan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "q-bio.MN",
+          "math.CO"
+        ],
+        "msc2020": [
+          "92C42",
+          "15A39",
+          "05C70",
+          "15B48"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MAFComposition.reactionEdit",
+          "MAFComposition.aggregate",
+          "MAFComposition.directSum",
+          "MAFComposition.parallel",
+          "MAFComposition.scalarNoncompositionality",
+          "DegradationControl.sourceNetwork_arbitraryDegradationRegions",
+          "DegradationControl.partialActuation_stabilizable_iff_unactuatedCertificate",
+          "AutocatalyticCS.sourceDirectCSCoreEnum_exact",
+          "AutocatalyticCS.certifiedAutocatalyticTest_nonempty",
+          "AutocatalyticCS.certifiedAutocatalyticTest_rejects_empty",
+          "AutocatalyticCS.OneSpeciesExample.sourceDirectCSCoreEnum_example"
+        ]
+      },
+      "id": "PALOMAR-2026-09-25-000027",
+      "path": "entries/PALOMAR-2026-09-25-000027-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "1a6347f281c134c9561eb883ca726876b4a88c07",
+            "fork_repository": "PalomarArchive/mmislan--palomar-p011-modular-autocatalytic-interfaces--5eb3a0b13fdd",
+            "source_repository": "mmislan/palomar-p011-modular-autocatalytic-interfaces"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c2974f186fa0974247509b788662394486c7c281a366ce9d22fe77ba6df018ec",
+        "version": 1
+      },
+      "published_at": "2026-09-25T20:44:40Z",
+      "source": {
+        "commit": "1a6347f281c134c9561eb883ca726876b4a88c07",
+        "project_path": null,
+        "repository": "mmislan/palomar-p011-modular-autocatalytic-interfaces"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "MAF composition criteria, exact enumeration of child-selection autocatalytic cores, and degradation regions of linear diluted source networks",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 + mathlib formalization of Fan Chang, Hong Liu, and Miao Liu's paper \"A proof of Chv\u00e1tal's conjecture via a sharp correlation inequality\" (arXiv:2609.19123v1). It formalizes their star theorem for hereditary set families, sharp Boolean Fourier correlation inequality, antipodal corollary, sharpness results, and weighted strengthening. The formalization was completely prepared by GPT-6.",
+      "authors": [
+        {
+          "name": "Boon Suan Ho"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.PR"
+        ],
+        "msc2020": [
+          "05D05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ChvatalSubmission.chvatal",
+          "Chvatal.sharp_correlation",
+          "Chvatal.antipodal_correlation",
+          "Chvatal.two_spectral_le_quadratic_covariance",
+          "Chvatal.andFunction_sharp",
+          "Chvatal.quarter_coefficient_optimal",
+          "Chvatal.and_or_two_example",
+          "Chvatal.kleitman_weighted_bound",
+          "Chvatal.exists_largest_weighted_intersecting_star"
+        ]
+      },
+      "id": "PALOMAR-2026-09-17-000004",
+      "path": "entries/PALOMAR-2026-09-17-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c46f715af9d400523eb0d4c9c0d2335abbdc9fdd",
+            "fork_repository": "PalomarArchive/boonsuan--chvatal--bd83efb43e41",
+            "source_repository": "boonsuan/chvatal"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "55b8b12d5f40147b2edd5da666d4028959e87a3e0ca00b5ccd2b1846c2600d5a",
+        "version": 1
+      },
+      "published_at": "2026-09-17T04:26:16Z",
+      "source": {
+        "commit": "c46f715af9d400523eb0d4c9c0d2335abbdc9fdd",
+        "project_path": null,
+        "repository": "boonsuan/chvatal"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A formalization of Chang, Liu, and Liu's proof of Chv\u00e1tal's conjecture",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the MI-32 upper bound, that is, of the Lata\u0142a-\u015awi\u0105tkowski conjecture that for every regularity parameter alpha >= 1 there is a constant C > 0, independent of the dimension and of the entry laws, with E||X|| <= C (M(X) + D(X)) for every square random matrix X with independent mean-zero real entries whose absolute moments satisfy ||X_ij||_{L_2r} <= alpha ||X_ij||_{L_r} at every real order r >= 1. Here ||.|| is the Euclidean operator norm, M(X) is the sum of the largest row and column standard deviations, and D(X) is the max-min weak moment at order log(k+1) taken over one shared deterministic deletion set on both axes. The probability space is arbitrary and the subunit order log 2 at k = 1 is kept literally. The selected theorem MI32.main_upper carries a complete proof whose transitive axiom audit reports only propext, Classical.choice and Quot.sound. The proof runs through original-law positive-polynomial moments and interpolation, exact occupation-count localization, finite nets, a direct independent-coordinate Hilbert comparison, full original-law creator and annihilator contractions, positive vacuum iteration giving the local symmetric-law operator-moment theorem at the exact order log(n+1), a nested deterministic deletion decomposition with cubic two-sided variance screening, an elementary centered-Gram estimate for the far remainder, two two-shell block families controlled by the local theorem at scheduled orders, and the original-copy symmetrization reduction. Constants are explicit and conservative, not optimized.",
+      "authors": [
+        {
+          "name": "Diar Heidary"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.FA"
+        ],
+        "msc2020": [
+          "60B20",
+          "60E15",
+          "47A30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MI32.main_upper"
+        ]
+      },
+      "id": "PALOMAR-2026-09-14-000006",
+      "path": "entries/PALOMAR-2026-09-14-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "762bd5ec5050a96f5e6ba3926b6cda4816fcd4b0",
+            "fork_repository": "PalomarArchive/DiarHaidary--Spectral-norms-of-independent-entries-with-regular-moment-growth--b1249e53599c",
+            "source_repository": "DiarHaidary/Spectral-norms-of-independent-entries-with-regular-moment-growth"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "735cdd2777900571341b3f359a4458e38433ae237581d30f7edd20e89912696f",
+        "version": 1
+      },
+      "published_at": "2026-09-14T15:41:11Z",
+      "source": {
+        "commit": "762bd5ec5050a96f5e6ba3926b6cda4816fcd4b0",
+        "project_path": null,
+        "repository": "DiarHaidary/Spectral-norms-of-independent-entries-with-regular-moment-growth"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "MI-32: Lean formalization of the parity and positive-polynomial upper bound",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of the Bollob\u00e1s\u2013Nikiforov conjecture (2007) and of the matrix theorems that prove it. Let G be a finite simple graph with adjacency eigenvalues lambda_1 >= lambda_2 >= ..., m edges and clique number omega(G). The conjecture states that every noncomplete graph on at least two vertices satisfies lambda_1^2 + lambda_2^2 <= 2 (1 - 1/omega(G)) m. The formalization proves it (BN.lambda1_sq_add_lambda2_sq_le) as a consequence of a weighted spectral inequality: for every symmetric entrywise nonnegative matrix B with zero diagonal supported on the edges of G, the sum F(B) of the squares of the two largest positive eigenvalues of B is at most (1 - 1/omega(G)) ||B||_F^2 (BN.weighted). The weighted inequality rests on a complete-positivity theorem for planar Gram matrices: if z_1, ..., z_n in R^2 lie in a closed half-plane through the origin and X is their Gram matrix, then M(X) = X o X + sum over i < j with X_ij < 0 of X_ij^2 (e_i - e_j)(e_i - e_j)^T is completely positive (BN.matrix_theorem), proved by an ordered elimination, a Schur complement identified as a weighted Laplacian plus a matrix with an explicit three-column nonnegative factorization, and total nonnegativity of two rectangular kernels. A variational argument then removes the half-plane hypothesis from the scalar inequality: for every real positive semidefinite X of rank at most two, sum_{i,j} (A_G)_ij (X_ij)_+^2 <= (1 - 1/omega(G)) ||X||_F^2 (BN.gram_le), which also identifies the rank-two conic parameter chi''_{vec,3}(G) of Coutinho, Spier and Zhang with omega(G) (BN.chiVec3_eq_cliqueNum), settling their Conjectures 2 and 3 without a lower bound on the clique number. Previously the conjecture was known for weakly perfect graphs (Ando\u2013Lin), triangle-free graphs (Lin\u2013Ning\u2013Wu), regular graphs (Zhang), graphs with few triangles (Kumar\u2013Pragada, Zeng\u2013Zhang), asymptotically almost surely for random graphs (Liu\u2013Bu), and with weaker constants for all graphs (Coutinho\u2013Spier\u2013Zhang). All five headline theorems are proved with no sorry and depend only on propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Gabriel Coutinho"
+        },
+        {
+          "name": "Yinchen Liu"
+        },
+        {
+          "name": "Thom\u00e1s Jung Spier"
+        },
+        {
+          "name": "Quanyu Tang"
+        },
+        {
+          "name": "Shengtong Zhang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C50",
+          "05C35",
+          "15B48",
+          "15A18"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BN.lambda1_sq_add_lambda2_sq_le",
+          "BN.weighted",
+          "BN.matrix_theorem",
+          "BN.gram_le",
+          "BN.chiVec3_eq_cliqueNum"
+        ]
+      },
+      "id": "PALOMAR-2026-09-07-000002",
+      "path": "entries/PALOMAR-2026-09-07-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4625b2daaa48a5d1781315e78d933cc78ea6e0fb",
+            "fork_repository": "PalomarArchive/ShengtongZhang-alt--BN--c59ee485ca26",
+            "source_repository": "ShengtongZhang-alt/BN"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e4cd75421bbb96cd9ec29a397e433dac823d66be5740f0c6cde8228cb03d31ee",
+        "version": 1
+      },
+      "published_at": "2026-09-07T02:02:54Z",
+      "source": {
+        "commit": "4625b2daaa48a5d1781315e78d933cc78ea6e0fb",
+        "project_path": null,
+        "repository": "ShengtongZhang-alt/BN"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A proof of the Bollob\u00e1s\u2013Nikiforov conjecture in Lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of a rerandomized SRHT subspace embedding theorem. For every ambient Walsh dimension n = 2^m, rank 1 <= r <= n, and 0 < epsilon < 1, one deterministic width k <= min(n, ceil(C r / epsilon^2)) can be chosen independently of the orthonormal frame. For each fixed frame, the transform with two independent uniform sign layers and an independent uniform k-subset has spectral failure probability at most 1/100, and preserves all squared norms in that subspace within 1 +/- epsilon with probability at least 99/100. C is an explicit universal constant, with no sharp numerical value claimed. The Comparator selects the spectral theorem and its fixed-frame squared-norm consequence. The full repository retains the 12 named v6 results and their supporting proofs and correspondence maps.",
+      "authors": [
+        {
+          "name": "Yuning Yang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NA",
+          "math.PR"
+        ],
+        "msc2020": [
+          "65F55",
+          "60B20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Problem56.main_universal_ose",
+          "Problem56.PaperV6.fixed_frame_squared_norm_success"
+        ]
+      },
+      "id": "PALOMAR-2026-09-07-000001",
+      "path": "entries/PALOMAR-2026-09-07-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "158a716c07e16ec4fca14e36836b14d8d20ee7c8",
+            "fork_repository": "PalomarArchive/yuningyang19--rerandSRHT_prob_5_6_simons_workshop--ce13805ae8b2",
+            "source_repository": "yuningyang19/rerandSRHT_prob_5_6_simons_workshop"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9b1cf3d1cdca44fd321c47029f13ece6dc3abb1c211967a81c213b7b1f19b1d6",
+        "version": 1
+      },
+      "published_at": "2026-09-07T00:09:59Z",
+      "source": {
+        "commit": "158a716c07e16ec4fca14e36836b14d8d20ee7c8",
+        "project_path": null,
+        "repository": "yuningyang19/rerandSRHT_prob_5_6_simons_workshop"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Subspace embeddings with the rerandomized SRHT",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked classification of the morphic numbers \u2014 the reals p > 1 satisfying both of the golden ratio's defining scale closures: p + 1 = p^k (the sum of consecutive measures of the geometric system is again a measure) and p - 1 = p^(-l) (so is their difference; rendered zpow-free as p^l * (p - 1) = 1). These two equations are the arithmetic of self-similar proportion: a number satisfying both generates a measure system closed under the paper's superposition and juxtaposition, the property pair behind the divine proportion's standing as the plane's design constant. The theorem (Aarts-Fokkink-Kruijtzer 2001): there exist only two such numbers \u2014 the golden ratio, with (k, l) = (2, 1), and the plastic number, the real root of x^3 = x + 1, with (k, l) = (3, 4). Four compared statements carry the classification in full: existence of the cubic's root, the iff pinning every morphic number to the golden ratio or that root, and the two witnesses. The list of numbers with the golden ratio's defining property pair is thereby provably complete at two. The second member is a distinguished constant independently of this theorem: the plastic number is the smallest Pisot number (Siegel 1944); its minimal polynomial x^3 - x - 1 attains the minimal Mahler measure among monic irreducible integer cubics (kernel-certified in the registered entry PALOMAR-2026-08-31-000004), and by Smyth's theorem its measure \u2014 the number itself \u2014 is the global minimum of the Mahler measure over nonreciprocal integer polynomials; it is the growth rate of the Padovan and Perrin sequences, the cubic analogue of Fibonacci growth; and it is the threshold constant of the Blanc-Cantat classification of birational surface dynamical degrees, the spectral limit of the Bedford-Kim automorphism family (kernel-certified in the author's mahler-minimizer-compositum entry). It entered mathematics from architecture: Dom Hans van der Laan introduced it (Le Nombre Plastique, 1960) as the ideal ratio of three-dimensional proportion \u2014 the same discovery made independently by Cordonnier \u2014 and Kruijtzer conjectured, and Aarts-Fokkink-Kruijtzer proved, that van der Laan's number is the only companion the golden ratio has. What \"morphic\" adds to the plastic number's distinctions is finality: the golden ratio's arithmetic of self-similarity, taken as a definition, has exactly one more solution among the reals. The formalized proof consumes Selmer's trinomial irreducibility theorem from Mathlib, derives the needed Tverberg-type instance through a mirror-dichotomy argument carried out entirely in the integer polynomial ring (simplifying the paper's complex-root analysis; disclosed in the fidelity block), and closes with the factorization endgame forcing (n, m) = (3, 5). No formalization of the morphic classification, the plastic number, or the Padovan/Perrin constants exists in any surveyed prover as of the 2026-09-01 sweep; Mathlib's golden-ratio development supplies one witness's vocabulary. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.HO"
+        ],
+        "msc2020": [
+          "11R09",
+          "11C08",
+          "00A67"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MorphicNumbers.morphic_iff",
+          "MorphicNumbers.goldenRatio_morphic",
+          "MorphicNumbers.plasticNumber_morphic",
+          "MorphicNumbers.plastic_exists"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000008",
+      "path": "entries/PALOMAR-2026-09-01-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9d3664f4ad3abc3783a9296ad1207a1ef1fee41d",
+            "fork_repository": "PalomarArchive/stalex444--only-two-morphic-numbers--e5d806ec5637",
+            "source_repository": "stalex444/only-two-morphic-numbers"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "8f164d32c95e9ef596269730a5987385b9f37a5bf64474bf708b308c712da435",
+        "version": 1
+      },
+      "published_at": "2026-09-01T15:53:14Z",
+      "source": {
+        "commit": "9d3664f4ad3abc3783a9296ad1207a1ef1fee41d",
+        "project_path": null,
+        "repository": "stalex444/only-two-morphic-numbers"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Only two morphic numbers: the Aarts-Fokkink-Kruijtzer classification of the golden ratio and the plastic number",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The spectral theorem for possibly unbounded self-adjoint operators on complex Hilbert spaces, formalized through the Cayley transform and real projection-valued measures. The selected spectral theorem constructs a PVM whose scalar measures give the exact finite-second-moment domain and first-moment quadratic form, with measurable-set uniqueness, and is proved equivalent to equality with the unbounded coordinate spectral integral. The selected Stone theorem proves both that strongly continuous one-parameter unitary groups have self-adjoint generators and that every self-adjoint operator generates such a group.",
+      "authors": [
+        {
+          "name": "Ezzeri Esa"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.FA",
+          "math.OA"
+        ],
+        "msc2020": [
+          "47A10",
+          "47B15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarSpectralStone.spectral_theorem_intrinsic",
+          "PalomarSpectralStone.stone_theorem_intrinsic"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000004",
+      "path": "entries/PALOMAR-2026-09-01-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d19e279f0ab244657f02ce678e8d67fa69e2f407",
+            "fork_repository": "PalomarArchive/savarin--lean-spectral-theory--4a8d89f24640",
+            "source_repository": "savarin/lean-spectral-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "3ca12423396a56cba747d4a575e85e3bd824a660a81548c14c76db0ab3c24e28",
+        "version": 1
+      },
+      "published_at": "2026-09-01T06:32:12Z",
+      "source": {
+        "commit": "d19e279f0ab244657f02ce678e8d67fa69e2f407",
+        "project_path": null,
+        "repository": "savarin/lean-spectral-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "lean-spectral-theory",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked entanglement package on the bipartite matrix algebra (2x2 tensor 2x2, native product index): (1) the separable-state CHSH bound 2 for the real-Pauli tuple, proved through the Bloch-disk constraint with no spectral theory; (2) an entanglement witness \u2014 a bipartite state, positive semidefinite with unit trace, that is NOT separable, with Born CHSH expectation equal to the Tsirelson value 2*sqrt(2) (the Bell state, exhibited explicitly in the Solution); (3) spectral projections without spectral theory \u2014 (1+W)/2 is an effect for every Hermitian involution W, any finite dimension; (4) the two-party correlation law forced, not postulated: for any state representing a generalized probability measure on effects (Busch's theorem vocabulary; no continuity assumed), the correlation at any pair of binary-observable settings is an explicit difference of the measure's values at two effects; (5) the assembly \u2014 a state that is not separable, is the UNIQUE state reproducing its own effect statistics (Born-rule uniqueness on the composite algebra), attains the Tsirelson value, and carries the witness correlation table XX = ZZ = 1, XZ = ZX = 0. Extended (second session, 2026-08-31) by five further compared theorems \u2014 the general bounds and the quantitative Werner-family layer: (6) the separable bound 2 at ARBITRARY finite local dimensions and arbitrary Hermitian-involution settings; (7) the state-level Tsirelson bound 2*sqrt(2) at the same generality; (8) the Werner family W_p = p|Phi+><Phi+| + ((1-p)/4)1, spelled inline from the explicit Bell projector, has CHSH expectation at most 2*sqrt(2)*p at any Hermitian-involution settings with traceless party-1 observables (p >= 0) \u2014 the Werner line of the Horodecki 1995 criterion; (9) the violation threshold: for p >= 0, W_p violates CHSH at some such settings iff p > 1/sqrt(2); (10) the separability endpoint (Werner 1989): W_p is separable for 0 <= p <= 1/3. All hypotheses are inline; the compared statements use only Mathlib vocabulary (Matrix.PosSemidef, Matrix.IsHermitian, Matrix.trace, the Kronecker product, Real.sqrt, Matrix.vecMulVec) with no custom definitions.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "msc2020": [
+          "81P40",
+          "81P15",
+          "81P16"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "EntangledBorn.separable_chsh_le",
+          "EntangledBorn.entanglement_exists",
+          "EntangledBorn.effect_of_involution",
+          "EntangledBorn.born_correlation_forced",
+          "EntangledBorn.entangled_born_correlations",
+          "EntangledBorn.separable_chsh_le_general",
+          "EntangledBorn.state_chsh_le_general",
+          "EntangledBorn.werner_chsh_max",
+          "EntangledBorn.werner_violation_iff",
+          "EntangledBorn.werner_separable_third"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000003",
+      "path": "entries/PALOMAR-2026-09-01-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "81c70fe45f81da86c25254f3eb52123d504b452c",
+            "fork_repository": "PalomarArchive/stalex444--werner-window--b27a0d75c51f",
+            "source_repository": "stalex444/werner-window"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "03cb86883235a39fc6c597087888e5f9b77b779272d63751e14777e3202c2463",
+        "version": 1
+      },
+      "published_at": "2026-09-01T03:13:25Z",
+      "source": {
+        "commit": "81c70fe45f81da86c25254f3eb52123d504b452c",
+        "project_path": null,
+        "repository": "stalex444/werner-window"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The entangled Born correlations: a mixed-state entanglement witness through the Born rule forced on the composite algebra",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Hilbert-space operator theory from unitary power dilation through von Neumann's polynomial inequality, together with the Crouzeix--Palencia theorem that the closed numerical range is a (1 + square-root-of-2)-polynomial spectral set.",
+      "authors": [
+        {
+          "name": "Ezzeri Esa"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.FA",
+          "math.OA"
+        ],
+        "msc2020": [
+          "47A12",
+          "47A20",
+          "47A25",
+          "47A30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarCrouzeixPalencia.exists_unitary_power_dilation",
+          "PalomarCrouzeixPalencia.vonNeumann_inequality",
+          "PalomarCrouzeixPalencia.crouzeix_palencia"
+        ]
+      },
+      "id": "PALOMAR-2026-09-01-000002",
+      "path": "entries/PALOMAR-2026-09-01-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6f90bb7e6b056b54f56005e0416d77d6d7c2a478",
+            "fork_repository": "PalomarArchive/savarin--lean-operator-theory--791bd87b282f",
+            "source_repository": "savarin/lean-operator-theory"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "721a9ec4eb64b481cace15314ab5d69b6283151cc8333676b09b7b95ee48d669",
+        "version": 1
+      },
+      "published_at": "2026-09-01T02:17:18Z",
+      "source": {
+        "commit": "6f90bb7e6b056b54f56005e0416d77d6d7c2a478",
+        "project_path": null,
+        "repository": "savarin/lean-operator-theory"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "lean-operator-theory",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": "eyJyZXZpc2lvbiI6OTQ5LCJxdWVyeSI6IjlhYTU4NDQ2ODAzN2YyODJhNTVmOTE1NjY5NzcwYzZmNzYwODA3ZWJhYmQ2YzNhNjExY2Y5NGNlNTQ0YTgyOWYiLCJkaXJlY3Rpb24iOiJuZXh0IiwiZGF0ZSI6IjIwMjYtMDktMDFUMDI6MTc6MThaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMDktMDEtMDAwMDAyIn0=",
+  "dropped": [],
+  "message": null
+}

@@ -1,0 +1,1614 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "Sharp isoperimetric comparisons for geodesic tetrahedra in the unit three-sphere: conditional on a regular tetrahedron having the same volume or surface area, the regular tetrahedron uniquely minimizes surface area at fixed volume and uniquely maximizes volume at fixed surface area up to congruence.",
+      "authors": [
+        {
+          "name": "Arseniy Akopyan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "math.DG"
+        ],
+        "msc2020": [
+          "52A40",
+          "51M20",
+          "53C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "isoperimetric_area",
+          "isoperimetric_volume"
+        ]
+      },
+      "id": "PALOMAR-2026-11-15-000002",
+      "path": "entries/PALOMAR-2026-11-15-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8f7a3eab2d32039877dc6a16528534333f6c8b26",
+            "fork_repository": "PalomarArchive/akopjan--Spherical-tetrahedra-isoperimetry--3d4df08e2537",
+            "source_repository": "akopjan/Spherical-tetrahedra-isoperimetry"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f685a8279662c7620ce093c45715a4d04e6318a7a852da191aa5b13c39f9b0d7",
+        "version": 1
+      },
+      "published_at": "2026-11-15T06:13:18Z",
+      "source": {
+        "commit": "8f7a3eab2d32039877dc6a16528534333f6c8b26",
+        "project_path": null,
+        "repository": "akopjan/Spherical-tetrahedra-isoperimetry"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Isoperimetric Inequality for Spherical Tetrahedra",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib proof of Brouwer's fixed-point theorem in every finite dimension: a continuous map of a nonempty compact convex subset of a finite-dimensional real normed space into itself has a fixed point. Also proved: the same for closed balls of a finite-dimensional real inner product space, and the no-retraction theorem, that the unit sphere of such a space is not a retract of its closed unit ball.\n\nThe proof is analytic, along the lines of Milnor (1978) and Rogers (1980), and uses no homology, degree theory or simplicial approximation. A C1 retraction r of the closed unit ball onto its sphere is ruled out with the change of variables formula: for small t > 0 the map x + t(r(x) - x) sends the open ball bijectively onto itself with positive Jacobian determinant, so the integral of that determinant over the ball, a polynomial in t, equals the volume of the ball for every t, whereas at t = 1 it vanishes. Brouwer's theorem follows for C1 self-maps of the ball by the ray construction, for continuous ones by smoothing by convolution, and for compact convex sets through the nearest-point retraction. Brouwer's theorem has earlier formal proofs in HOL Light, Isabelle/HOL and Mizar, in Coq for the plane, in Lean 3 through singular homology, and in Lean 4 for the plane and for the standard simplex; this proof is independent of them. A second proof follows Knaster, Kuratowski and Mazurkiewicz (1929): Sperner's lemma for the iterated barycentric subdivisions of the simplex, by counting facets mod 2, then the KKM lemma and Brouwer's theorem for the simplex; Kakutani's and Schauder's proofs use this one, the proof of Brouwer's theorem that both papers cite.\n\nKakutani's fixed-point theorem (1941) and Schauder's fixed-point theorem (1930) are derived from Brouwer's. Kakutani's: a set-valued map of a nonempty compact convex subset of a finite-dimensional real normed space, with closed graph and nonempty convex values, has a point x in its own value at x; it is proved by Kakutani's argument (piecewise-linear approximations on barycentric subdivisions of a simplex, Brouwer, a limit along a subsequence, then a retraction for general compact convex sets), and a second time through a partition of unity. Schauder's: a continuous self-map of a nonempty compact convex subset of a real normed space of any dimension has a fixed point, and so does a continuous self-map of a nonempty closed convex subset of a real Banach space with relatively compact image; it is proved by Schauder's argument, a simplicial approximation on a fine triangulation of the convex hull of a finite epsilon-net and Brouwer's theorem, then compactness, with Mazur's theorem for the second form, and a second time through Schauder's projection.",
+      "authors": [
+        {
+          "name": "The-Anh Vu-Le"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GN",
+          "math.AT",
+          "math.CA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "55M20",
+          "54H25",
+          "47H10",
+          "47H04",
+          "54C60",
+          "26B10",
+          "26B15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FixedPointChallenge.brouwer",
+          "FixedPointChallenge.brouwer_closedBall",
+          "FixedPointChallenge.no_retraction",
+          "FixedPointChallenge.kakutani",
+          "FixedPointChallenge.schauder",
+          "FixedPointChallenge.schauder_of_isCompact_closure_image"
+        ]
+      },
+      "id": "PALOMAR-2026-11-10-000001",
+      "path": "entries/PALOMAR-2026-11-10-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+            "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+            "source_repository": "vltanh/lean4-fixed-point"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "658a36cb44571deeacc7cc89995d89ad7ae16ba45c73c04b2d15bfdf61645437",
+        "version": 1
+      },
+      "published_at": "2026-11-10T01:03:59Z",
+      "source": {
+        "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+        "project_path": null,
+        "repository": "vltanh/lean4-fixed-point"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The fixed-point theorems of Brouwer, Kakutani and Schauder, with an analytic proof of Brouwer's theorem and one through Sperner's lemma",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib proof of two results on sums of four squares. (1) Jacobi's four-square theorem for odd N: the number of x : Fin 4 \u2192 \u2124 with x\u2080\u00b2 + x\u2081\u00b2 + x\u2082\u00b2 + x\u2083\u00b2 = N equals 8 \u2211_{d \u2223 N} d (jacobi_four_squares_odd), following the proof of Andrews, Ekhad and Zeilberger (1993): two finite q-series identities proved by WZ telescoping, combined into a finite identity that is read modulo X^{N+1} in \u211a\u27e6X\u27e7. (2) Four squares in caps (four_squares_in_caps): for every unit vector q \u2208 \u211d\u2074 and every \u03b4 > 0 there is M\u2080 such that every odd m \u2265 M\u2080 is \u03b2\u2080\u00b2 + \u03b2\u2081\u00b2 + \u03b2\u2082\u00b2 + \u03b2\u2083\u00b2 with \u03b2 : Fin 4 \u2192 \u2124 and |\u03b2\u1d62 \u2212 \u221am q\u1d62| \u2264 \u03b4 \u221am for all i, i.e. the integer points of the sphere of radius \u221am meet every cap of fixed angular radius. The proof uses the Duke\u2013Friedlander\u2013Iwaniec delta method (in Heath-Brown's form) with Gaussian weights: an exact formula through the theta transformation, Fourier bounds for the cut-off weight, and the Weil bound for Kloosterman sums, imported from the Weil Bounds Toolkit (PALOMAR-2026-11-03-000018) as a lake dependency. The main term is not evaluated: it depends on the center of the cap only through its norm, so comparing caps with a grid of centers reduces the theorem to the lower bound r\u2084(m) \u2265 8m for odd m, which (1) provides. All constants are effective but not explicit in the statement (M\u2080 is existential). Two statements; no definitions beyond Mathlib's.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11E25",
+          "11P55",
+          "11L05",
+          "05A30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FourSquaresInCaps.jacobi_four_squares_odd",
+          "FourSquaresInCaps.four_squares_in_caps"
+        ]
+      },
+      "id": "PALOMAR-2026-11-08-000002",
+      "path": "entries/PALOMAR-2026-11-08-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+            "fork_repository": "PalomarArchive/jtraverso--four-squares-in-caps--308878e49a2e",
+            "source_repository": "jtraverso/four-squares-in-caps"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f6d4c994913c4e409ba59ffdc9f40305d9ec306b31308b6367d5957297ee8ca0",
+        "version": 1
+      },
+      "published_at": "2026-11-08T00:24:56Z",
+      "source": {
+        "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+        "project_path": null,
+        "repository": "jtraverso/four-squares-in-caps"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Four squares in caps, and Jacobi's four-square theorem for odd N",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A machine-checked proof that a finite-dimensional real normed space whose linear isometries act transitively on the unit sphere is Euclidean. This is the finite-dimensional case of the Mazur rotations problem, which appeared in Banach's 1932 book and is surveyed by Cabello Sanchez, Ferenczi and Randrianantoanina; its audience is the geometry of Banach spaces and their symmetries. It is the statement banach_mazur_rotation_problem.finite_dimensional of Formal Conjectures (BanachMazurRotation.lean), which marks it research solved. The result is classical and no priority is claimed. The proof takes the classical route: the isometries form a compact group, averaging a squared Euclidean norm over Haar measure gives an invariant quadratic form, and transitivity makes it a multiple of the squared norm. Mathlib has no topology on the isometry group, so the entry also builds it as a compact topological group with Haar measure. The general problem for separable Banach spaces, which Formal Conjectures marks research open, is not addressed.",
+      "authors": [
+        {
+          "name": "Zayn Blore"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.FA",
+          "math.MG"
+        ],
+        "msc2020": [
+          "46B04",
+          "46C15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BanachMazurRotation.banach_mazur_rotation_problem.finite_dimensional"
+        ]
+      },
+      "id": "PALOMAR-2026-11-07-000013",
+      "path": "entries/PALOMAR-2026-11-07-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b72450ef02de7b022d8d21b80884da581ac21daf",
+            "fork_repository": "PalomarArchive/zblore--fc-banach-mazur--c06cb0f1aa44",
+            "source_repository": "zblore/fc-banach-mazur"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "93efa4da935491a9310e002394d22ffacf21ad898430b1afec344e9c24de3eff",
+        "version": 1
+      },
+      "published_at": "2026-11-07T17:14:45Z",
+      "source": {
+        "commit": "b72450ef02de7b022d8d21b80884da581ac21daf",
+        "project_path": null,
+        "repository": "zblore/fc-banach-mazur"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Banach-Mazur rotation problem in finite dimensions: a transitive isometry group forces a Euclidean norm",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 formalization of the principal superfluid-stiffness, nonclassical rotational-inertia, winding, and high-temperature normal-phase results of the supplied manuscript, with concrete hard-sphere path measures and Dirichlet-form response definitions.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SFLean.Submission.theorem_1_1",
+          "SFLean.Submission.theorem_1_2",
+          "SFLean.Submission.normal_challenge",
+          "SFLean.Submission.winding_challenge",
+          "SFLean.Submission.winding_tightness"
+        ]
+      },
+      "id": "PALOMAR-2026-11-01-000016",
+      "path": "entries/PALOMAR-2026-11-01-000016-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5baea1d13edcb17ec0d7746c8c7ad23ae7ddcd35",
+            "fork_repository": "PalomarArchive/pmaronow--superfluidity-palomar--b00b337f39aa",
+            "source_repository": "pmaronow/superfluidity-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2d44c230000c140b89607f1c789b23ebd46e2085fdcf80264a3763ac719c51aa",
+        "version": 1
+      },
+      "published_at": "2026-11-01T11:12:03Z",
+      "source": {
+        "commit": "5baea1d13edcb17ec0d7746c8c7ad23ae7ddcd35",
+        "project_path": null,
+        "repository": "pmaronow/superfluidity-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Superfluid stiffness and nonclassical rotational inertia of the dilute hard-sphere Bose gas",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the paper \"Random walk on sphere packings and Delaunay triangulations in arbitrary dimension\" by Bou-Rabee and Gwynne: on orthogonal tilings with small mesh and one of three regularity hypotheses, the stopped conductance-weighted random walk converges to stopped Brownian motion modulo time parametrization (Theorem A) and the discrete Dirichlet problem converges (Theorem B, both alternatives); Poisson-Voronoi tessellations satisfy the hypotheses (Proposition 1.1); and simple random walk on a bounded-degree sphere packing need not converge (Theorem 6.1); for any nearest-neighbour walks under Assumption D the stopped walk converges to stopped Brownian motion (Theorem 4.1). Every labelled result is registered and proved, as printed or as in the corrected paper (paper/rw-spheres-corrected.tex), where the printed statement is false, not well defined, or changed with the published version open (README.md); Lemma 5.1(b) is registered with dimension-dependent constants, which is weaker than the printed statement in dimensions 4 to 12, where the printed radius also holds but is not needed. Theorem A and Theorem B(a) are Leonardo Bonanno's (leobon12) formalization, imported with attribution.",
+      "authors": [
+        {
+          "name": "Ahmed Bou-Rabee"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR"
+        ],
+        "msc2020": [
+          "60G50",
+          "60K37",
+          "65M08"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SpherePackingsAudit.theoremA"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000015",
+      "path": "entries/PALOMAR-2026-10-27-000015-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "65f7a1116f889c4943b0bce1df7f5b4b464a13ac",
+            "fork_repository": "PalomarArchive/nitromannitol--Random-Walk-On-Sphere-Packings--6d0d6a240054",
+            "source_repository": "nitromannitol/Random-Walk-On-Sphere-Packings"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "26236bcd57932dc49300aeca1c2f891f836a4f3c1ac4e3f92f9d3b553b19c765",
+        "version": 1
+      },
+      "published_at": "2026-10-27T17:22:53Z",
+      "source": {
+        "commit": "65f7a1116f889c4943b0bce1df7f5b4b464a13ac",
+        "project_path": null,
+        "repository": "nitromannitol/Random-Walk-On-Sphere-Packings"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Random walk on sphere packings and Delaunay triangulations in arbitrary dimension",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of every theorem, lemma and proposition of \"Unique continuation on planar graphs\" (Bou-Rabee, Cooperman and Ganguly): a harmonic function on a periodic plane graph with periodic conductances that is bounded by one on a set of density at least 1 - epsilon is constant (Theorem 1.1), together with the exponential upper bound (Theorem 1.2), the zero case (Theorem 1.3), the topological lemma, the exponential lower bound of the appendix with its polynomial approximation lemma and three-ball proposition, and non-planar periodic conductances on Z^2 with a harmonic function supported on a diagonal (Theorem 5.1).  Three results the paper cites from the literature (Janiszewski's theorem at a point, unicoherence of the sphere and the discrete Moser estimate) are explicit hypotheses of the theorems that use them; the classical Liouville theorem for periodic networks and the discrete Remez inequality are proved. The four main theorems are independently checked using the UCPlanarAudit/ comparator pairs.",
+      "authors": [
+        {
+          "name": "Ahmed Bou-Rabee"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "UCPlanarAudit.counterexample"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000010",
+      "path": "entries/PALOMAR-2026-10-27-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2d945e944229f04f317fdb2eec62d676019d9980",
+            "fork_repository": "PalomarArchive/nitromannitol--Unique-Continuation-Planar--2682a2bafe14",
+            "source_repository": "nitromannitol/Unique-Continuation-Planar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7a4814e219fec4df1b085078e86fdf331ef095558fd6f7ff68b94ad413c1204d",
+        "version": 1
+      },
+      "published_at": "2026-10-27T15:59:50Z",
+      "source": {
+        "commit": "2d945e944229f04f317fdb2eec62d676019d9980",
+        "project_path": null,
+        "repository": "nitromannitol/Unique-Continuation-Planar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Unique-Continuation-Planar",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "An explicit rational homogeneous cubic with 25 monomials in 14 real variables has maximum one on the Euclidean unit sphere and admits a positive degree-four moment functional with value 500753357629/500000000000. For every positive real regularization parameter, quadratic strength and cubic strength, the associated quartic has an explicitly attained global minimum whose shift is not a sum of squares of real polynomials. A quantitative strict separation bounds every SOS lower bound. The polynomial is stationary at zero with negative definite Hessian. A second explicit 25-term cubic, certified by the same rational functional, gives a unique global minimizer with positive-definite Hessian there and persistent SOS failure for all positive parameters. The exact sphere maximizers are classified. The proof combines an elementary quadratic-map contraction, a rational moment certificate, an ordinary SOS degree bound and an all-parameter radial factorization.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OC",
+          "math.AG"
+        ],
+        "msc2020": [
+          "90C22",
+          "14P10",
+          "90C26"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PersistentSOS.radius_eq_norm",
+          "PersistentSOS.cubic_abs_le",
+          "PersistentSOS.unit_sphere_attainment",
+          "PersistentSOS.cubic_unit_maximizers_coordinates",
+          "PersistentSOS.objective_all_minimizers",
+          "PersistentSOS.persistent_failure",
+          "PersistentSOS.minimum_shift_nonnegative",
+          "PersistentSOS.quantitative_sos_gap",
+          "PersistentSOS.sphere_moment_gap",
+          "PersistentSOS.stationary_origin",
+          "PersistentSOS.hessian_origin",
+          "PersistentSOS.qPoly_definition",
+          "PersistentSOS.cubicPoly_definition",
+          "PersistentSOS.sos_definition",
+          "PersistentSOS.quarticPoly_definition",
+          "PersistentSOS.objective_definition",
+          "PersistentSOS.minimizingRadius_definition",
+          "PersistentSOS.minimumValue_definition",
+          "PersistentSOS.separation_definition",
+          "PersistentSOS.unique_cubic_abs_le",
+          "PersistentSOS.unique_cubic_unit_maximizer",
+          "PersistentSOS.unique_objective_minimizer",
+          "PersistentSOS.unique_persistent_failure",
+          "PersistentSOS.unique_minimum_shift_nonnegative",
+          "PersistentSOS.unique_quantitative_sos_gap",
+          "PersistentSOS.unique_sphere_moment_gap",
+          "PersistentSOS.unique_stationary_origin",
+          "PersistentSOS.unique_hessian_origin",
+          "PersistentSOS.unique_hessian_minimizer",
+          "PersistentSOS.unique_hessian_posDef",
+          "PersistentSOS.uniqueCubicPoly_definition",
+          "PersistentSOS.uniqueCubic_definition",
+          "PersistentSOS.uniqueQuarticPoly_definition",
+          "PersistentSOS.uniqueObjective_definition",
+          "PersistentSOS.uniqueSeparation_definition"
+        ]
+      },
+      "id": "PALOMAR-2026-10-18-000030",
+      "path": "entries/PALOMAR-2026-10-18-000030-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "54dc5a01cc16e850e3350ba0aa1bd8a8e5b67c5d",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--persistent-sos--c23605c96657",
+            "source_repository": "JD-Jones-ASES/persistent-sos"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "33f3873bc6a5c61332d23c6ec7bbfc2ea6f7de12fe37c58e3fff2126aca9b113",
+        "version": 1
+      },
+      "published_at": "2026-10-18T23:09:33Z",
+      "source": {
+        "commit": "54dc5a01cc16e850e3350ba0aa1bd8a8e5b67c5d",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/persistent-sos"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Persistent failure of Euclidean quartic SOS exactness",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proof, for every Coxeter system on three generators a, b, c with m(a,c) = p, m(b,c) = q, m(a,b) = infinity and p, q >= 2, of the growth-series identity in the ring of integer power series: (sum_n a(n) X^n) * (1 - (X + ... + X^(p-1))(X + ... + X^(q-1))) = (1 + X)(1 + ... + X^(p-1))(1 + ... + X^(q-1)), where a(n) is the number of group elements of Coxeter length n; together with its instances (2,3,inf), (2,4,inf), (3,3,inf) and, for (2,3,inf) = PGL(2,Z), the sphere sizes 1, 3, 5, 7, 9, 12, 16, ..., the Padovan identity a(n) = Pad(n+5) for n >= 2, the two-sided bounds 2 rho^n <= a(n) <= 4 rho^n (n >= 2), and the growth rate a(n)^(1/n) -> rho, the plastic number, the unique real root > 1 of x^3 = x + 1; and, for the whole family, monotonicity and symmetry in (p, q), the growth rate of every hyperbolic member, and the minimality of the plastic number. Twenty compared theorems: (1) the general identity for all p, q >= 2; (2) non-vacuity, a Coxeter matrix of that type exists for all p, q >= 2; (3)-(5) the three instances; (6) the (2,3,inf) sphere sizes a(0..4) = 1, 3, 5, 7, 9 and the recursion a(n+5) = a(n+3) + a(n+2) for all n; (7) that the recursion fails one step earlier, a(4) != a(2) + a(1); (8) a(n) = Pad(n+5) for n >= 2, for any sequence with the Padovan initial values and recursion; (9) existence and uniqueness of the plastic number; (10) the bounds; (11) the n-th-root limit; (12) monotonicity: a(n) of a (p,q,inf) system is at most a(n) of a (p',q',inf) system for p <= p', q <= q'; (13) symmetry in p and q; (14) 2 rho^n <= a(n), n >= 2, for every hyperbolic member; (15) for (p,q) != (2,2) exactly one tau > 1 solves (tau^-1 + ... + tau^-(p-1))(tau^-1 + ... + tau^-(q-1)) = 1; (16) a(n)^(1/n) -> tau; (17) tau strictly increasing in (p,q); (18) rho <= tau with equality exactly at (2,3), (3,2), so the plastic number is the minimal growth rate of the family; (19) tau < 2; (20) tau -> 2 as p, q -> infinity (for every sigma < 2 there is N with tau > sigma whenever p, q >= N). The family statements (12)-(20) give the growth rate of every hyperbolic (p, q, inf) group as the unique root tau > 1 of an explicit equation, strictly increasing in the labels, with the plastic number as the family minimum attained only at (2,3,inf) and (3,2,inf); they restrict to this family, and kernel-check there, Terragni's monotonicity (2016, Thm. A), Floyd's planar minimality (1992, p. 482) and the continuity of the growth rate (Floyd 1992; Yukita 2024). The mathematics is classical and no novelty is claimed for it: the growth series of a Coxeter group is rational and determined by its finite parabolic subgroups (Steinberg 1968; Humphreys 1990 Section 5.12); growth of planar hyperbolic Coxeter groups is Floyd 1992 and Cannon-Wagreich 1992, and the (2,3,inf), (2,4,inf) and (3,3,inf) sphere sequences are OEIS A096231, A179070 (shifted) and A054886, with generating functions derived there from Cannon-Wagreich Prop. 3.1 and, for A096231, the Padovan form a(n) = A000931(n+10) recorded; Floyd 1992 (p. 482) proves (2,3,inf) minimal among cusped planar groups and Kellerhals 2013 gives an alternative proof; Bucher-Talambutsa 2016 Prop. 18 proves statement (11) itself by a normal form and, with Mann's bound, the minimality of rho for PGL(2,Z) over all generating sets. The (p, q, inf) family is hyperbolic exactly when (p, q) differs from (2, 2); the affine (2, 2, inf) is included in (1). The contribution claimed is the kernel-checked general identity for all p, q at once, and the family statements (12)-(20) derived from it, from Mathlib's CoxeterSystem alone \u2014 Mathlib at this pin has no growth series, no exchange or deletion property and no parabolic-subgroup API \u2014 by constructing the amalgam normal forms, lifting their action to the group, proving Coxeter length equals normal-form length, and counting. No \"first formalization\" claim is made. Application, cited and not a claim of the entry: the (2,3,inf) group is the Weyl group of AE_3 = PGL(2,Z) (Feingold-Frenkel 1983) and, in the Damour-Henneaux-Nicolai billiard description of the Belinski-Khalatnikov-Lifshitz limit (a conjecture for generic singularities, Henneaux-Persson-Spindel 2008 Section 2.9), the reflection group of the billiard of 3+1-dimensional vacuum gravity near a spacelike singularity (Damour-Henneaux-Nicolai 2003 Section 8; Henneaux-Persson-Spindel 2008 Section 3.1), where a(n) counts the chambers reachable from the fundamental chamber after exactly n wall collisions over all initial data, so (10)-(11) give the growth rate of those outcomes (elementary reflection-group geometry, not formal content). Hypotheses are inline: the Coxeter system enters through Mathlib's CoxeterSystem with the three matrix entries as hypotheses, rho through its defining equation and 1 < rho, the Padovan sequence through its initial values and recursion; the compared statements use only core Mathlib vocabulary (CoxeterMatrix, CoxeterSystem, CoxeterSystem.length, Nat.card, PowerSeries.mk, Finset.range/Ico sums, Filter.Tendsto, Filter.atTop, nhds, real powers) \u2014 zero custom definitions. The pinned source of each Coxeter-specific imported definition, and of Nat.card and PowerSeries.mk, is quoted verbatim, with permalinks, in MATHLIB_DEFINITIONS.md (the remaining vocabulary is standard Mathlib and is not quoted), and DefinitionAudit.lean kernel-checks the facts the statements rely on (the entry 0 encodes infinity; length is the minimal word length; spheres are finite and Nat.card is their cardinality; every Coxeter matrix has a Coxeter system).",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GR",
+          "gr-qc",
+          "math-ph"
+        ],
+        "msc2020": [
+          "20F55",
+          "20F69",
+          "05A15",
+          "11B39",
+          "83C75",
+          "17B67"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TriangleGrowth.growth_series",
+          "TriangleGrowth.triangle_matrix_exists",
+          "TriangleGrowth.growth_series_23",
+          "TriangleGrowth.growth_series_24",
+          "TriangleGrowth.growth_series_33",
+          "TriangleGrowth.sphere23_values",
+          "TriangleGrowth.sphere23_rec_fails_at_4",
+          "TriangleGrowth.sphere23_padovan",
+          "TriangleGrowth.plastic_exists_unique",
+          "TriangleGrowth.sphere23_growth_bounds",
+          "TriangleGrowth.sphere23_root_tendsto",
+          "TriangleGrowth.sphere_mono",
+          "TriangleGrowth.sphere_symm",
+          "TriangleGrowth.sphere_ge_plastic",
+          "TriangleGrowth.rate_exists_unique",
+          "TriangleGrowth.sphere_root_tendsto_rate",
+          "TriangleGrowth.rate_lt_rate",
+          "TriangleGrowth.plastic_le_rate",
+          "TriangleGrowth.rate_lt_two",
+          "TriangleGrowth.rate_tendsto_two"
+        ]
+      },
+      "id": "PALOMAR-2026-10-17-000013",
+      "path": "entries/PALOMAR-2026-10-17-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "874b6a264e1eb8adf06141686eabab8a7afbe583",
+            "fork_repository": "PalomarArchive/stalex444--triangle-group-growth--258d69f6e936",
+            "source_repository": "stalex444/triangle-group-growth"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9d5c35634c88bc9e95e473a4e5f28cd2f0ba90543bdc7f5c4ff402f6919a19b0",
+        "version": 1
+      },
+      "published_at": "2026-10-17T20:11:39Z",
+      "source": {
+        "commit": "874b6a264e1eb8adf06141686eabab8a7afbe583",
+        "project_path": null,
+        "repository": "stalex444/triangle-group-growth"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Growth series of the triangle Coxeter groups (p, q, infinity), with the PGL(2,Z) instance: Padovan sphere sizes and growth rate the plastic number",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalization of waist inequalities for different settings: (1) Gromov's waist theorem for the round sphere S^n (the original proof in Memarian arXiv:0911.3972 has gaps; here a spherical adaptation of Klartag's proof is used); (2) An explicit positive lower bound on the unnormalized (n-k)-dimensional Hausdorff measure (Mathlib's muH[n-k], defined via sum of (diam U_i)^{n-k} without the unit-ball normalization factor omega_{n-k} / 2^{n-k}, in the chordal metric on S^n) of a fiber on the round sphere S^n: muH[n-k](f^{-1}(y)) >= 1 / (12 * 4^n * 3^k), yielding the positive lower bound (omega_{n-k} / 2^{n-k}) / (12 * 4^n * 3^k) for conventionally normalized Hausdorff measure (motivated by Gromov's 2003 conjecture of the sharp bound vol(S^{n-k}), which remains open for 1 < k < n; proved via Akopyan modification of Klartag's argument, Waists.sphere_hausdorff_waist); (3) The Gaussian waist inequality on (R^n, gamma_n) (Gromov 2003, Klartag arXiv:1608.04121); (4) The waist of the open unit cube (0,1)^n (Klartag arXiv:1608.04121); (5) The waist of the Euclidean ball B^n(R) with arbitrary center and radius (Akopyan-Karasev, arXiv:1608.06279); (6) The waist of a spherical ball of radius R < pi in S^n (Akopyan-Karasev, arXiv:1702.07513); (7) The waist of a hyperbolic ball of radius R in H^n (Akopyan-Karasev, arXiv:1702.07513); (8) The waist of an ellipsoid with semi-axes a_1 <= ... <= a_n (Akopyan-Karasev, arXiv:1608.06279, Corollary 1); (9) The waist of a box / parallelotope (0, a_1) x ... x (0, a_n) (Akopyan-Karasev, arXiv:1608.06279, Corollary 2). Supporting developments include: classical and tree Borsuk-Ulam theorems derived from combinatorial Tucker-type lemmas; Pr\u00e9kopa-Leindler and Brunn-Minkowski inequalities; spherical cap quasiconcavity; Archimedes' projection; and Frostman center measures.",
+      "authors": [
+        {
+          "name": "Arseniy Akopyan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "math.DG"
+        ],
+        "msc2020": [
+          "53C23",
+          "52A20",
+          "28A75",
+          "60D05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Waists.sphere_waist",
+          "Waists.sphere_hausdorff_waist",
+          "Waists.gauss_waist",
+          "Waists.cube_waist",
+          "Waists.ball_waist",
+          "Waists.sphere_ball_waist",
+          "Waists.hyp_ball_waist",
+          "Waists.ellipsoid_waist",
+          "Waists.box_waist"
+        ]
+      },
+      "id": "PALOMAR-2026-10-16-000023",
+      "path": "entries/PALOMAR-2026-10-16-000023-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e7823b4b1252ecf3cc9f9342529bad01cb3080fa",
+            "fork_repository": "PalomarArchive/akopjan--Waist-inequalities-lean-formalizatoin--2c9b638aa757",
+            "source_repository": "akopjan/Waist-inequalities-lean-formalizatoin"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "58637b470baa2d7b04c127ce524ab419afaaaa1829760480fda2bd105569be6b",
+        "version": 1
+      },
+      "published_at": "2026-10-16T22:56:34Z",
+      "source": {
+        "commit": "e7823b4b1252ecf3cc9f9342529bad01cb3080fa",
+        "project_path": null,
+        "repository": "akopjan/Waist-inequalities-lean-formalizatoin"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Waist",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 development of Section 3 of Lagarias, Mallows and Wilks, Beyond the Descartes circle theorem (Amer. Math. Monthly 109 (2002) 338-361), in the Lorentz form. An oriented sphere in R^n with centre x and signed radius r has the augmented curvature-centre row (|x|^2/r - r, 1/r, x/r); an oriented hyperplane <h, y> = delta with unit normal h has the row (2 delta, 0, h) (LMW Definition 3.2, (3.7)-(3.9)). Tangency is distance-encoded in LMW's oriented sense: two spheres dist^2 = (r + s)^2 (external tangency for two positive radii, internal when one radius is negative), a sphere and a hyperplane <h, x> - delta = -r, two hyperplanes opposite unit normals, LMW's oriented tangency pair by pair, and the converses deliver tangency in this sense; the compatible orientations of an oriented Descartes configuration (disjoint interiors, with the given orientations or all reversed) are proved separately for every solution, after multiplying each row's power polynomial by the total curvature, and for a valid, pairwise tangent family with positive total curvature for its own open interiors. Kernel-checked, for every n >= 1 (LMW's Section 3 assumes n >= 2; their Section 8, (8.4), is the identity on the line): the augmented matrix W of n + 2 pairwise tangent spheres of nonzero curvature, and of n + 2 pairwise tangent spheres and hyperplanes, satisfies W^T Q_n W = [[0, -4, 0], [-4, 0, 0], [0, 0, 2 I_n]] with Q_n = I - (1/n) 11^T (Theorem 3.3); every real solution W is the augmented matrix of exactly one family of valid, pairwise tangent oriented spheres and hyperplanes, and, when its second column has no zero, of exactly one pairwise tangent family of spheres (the converse of Theorem 3.3); the Soddy-Gosset relation (sum 1/r_i)^2 = n sum (1/r_i)^2 with and without hyperplanes (Theorem 1.2, (1.2)) and its form b^T Q_n b = 0 ((3.2)); the curvature-centre identity M^T Q_n M = diag(0, 2 I_n) (Theorem 3.2, (3.5)); at n = 2 the complex Descartes theorem (sum b_i z_i)^2 = 2 sum (b_i z_i)^2 and sum b_i (b_i z_i) = (1/2)(sum b_i)(sum b_i z_i) (Theorem 2.1, (2.2)-(2.3)); det Q_n = -2/n; and the three statements for Mathlib's EuclideanGeometry.Sphere (pairwise IsExtTangent, or one enclosing sphere to which the others are IsIntTangent, with curvature -1/r_e). The matrix identity is proved as LMW's Section 4 argument (Lemmas 4.3-4.4, (4.9)-(4.10)) run directly in Euclidean coordinates: W^T Q_n W is the target exactly when the rows of W have Lorentz norm 1 and pair to -1 under G = [[0, -1/2, 0], [-1/2, 0, 0], [0, 0, I_n]], since W G W^T = 2I - J and (2I - J)(Q_n/2) = I. Also proved: both halves of the converse of the Soddy-Gosset theorem, LMW's Theorem 3.1, about which they write \"We do not know an easy proof of this result; a proof appears in [16]\" ([16] is Graham-Lagarias-Mallows-Wilks-Yan III, whose arXiv versions 1-2 prove both halves as their Theorem 2.2 from the same base configuration and the transitivity of the Lorentz group, a section the published version omits). Existence: every nonzero b with (sum b_i)^2 = n sum b_i^2 is the curvature vector of a pairwise tangent family of spheres, where b_i is nonzero, and hyperplanes, where b_i = 0, and of a family of spheres when no b_i vanishes, by one Q_n-reflection from the configuration of two parallel hyperplanes and n unit spheres in the proof of GLMWY III's Theorem 6.1, or from its inversion in the unit sphere. Congruence: two valid, pairwise tangent families with the same curvatures, index by index, are carried one to the other by exactly one Euclidean motion x -> x O + t with O^T O = I, reflections and hyperplanes included, with O = (1/2) X^T Q_n X' and t = -(1/4) a^T Q_n X' for augmented matrices [a | b | X] and [a' | b | X'] and the motion's action on points, spheres and hyperplanes; W_1^-1 W_2 preserves the target form and fixes the curvature coordinate, and every such matrix is a motion matrix (GLMWY III's arXiv v1-v2 argue instead by the rigidity of a simplex of centres); its uniqueness and parameters are proved here. A motion preserves validity, curvature and tangency, so two valid, pairwise tangent families are congruent exactly when their curvature vectors agree. For every solution W: the total curvature B is nonzero, the open sets {y : B F_i(y) < 0}, F_i(y) = b_i |y|^2 - 2 <v_i, y> + a_i the power polynomial of row i (negative exactly inside a ball, outside a ball of negative radius, or on the side of a hyperplane its normal points to), are pairwise disjoint, at most two rows are hyperplanes, and no three boundaries pass through a finite point; for a valid, pairwise tangent family the total curvature is nonzero, at most two members are hyperplanes, and when the total curvature is positive the open interiors are pairwise disjoint. The converse of Theorem 3.2 in every dimension under the hypothesis of a nonzero first column (every real M with M^T Q_n M = diag(0, 2 I_n) and a nonzero first column is the curvature-centre matrix of exactly one family of valid, pairwise tangent oriented spheres and hyperplanes), which GLMWY I, Theorem 3.1 and its Remark, prove at n = 2 with that hypothesis and which LMW's printed converse (\"any real solution M\") and GLMWY III's arXiv v1-v2 Theorem 2.3 omit, together with the matrix at n = 2 with columns 0, e_0 - e_1, e_2 - e_3 (GLMWY I's configuration (3.15) with its first column zeroed; the matrix of four oriented lines with normals +-e_0, +-e_1), which solves the equation and is the curvature-centre matrix of no valid, pairwise tangent family. The existence of a configuration in every dimension (that configuration); for n >= 2 the Apollonian generators S_k = I + (2/(n-1)) e_k 1^T - (2n/(n-1)) e_k e_k^T of GLMWY III, (4.1), preserve Q_n and carry configurations to configurations, with the row formula (S_k W)_k = (2/(n-1)) sum_{i != k} W_i - W_k, and Soddy's two spheres (LMW, footnote 3; GLMWY III, Section 4.1), in the signed sense: the oriented spheres and hyperplanes tangent to n + 1 members of a configuration are exactly the missing member and its Apollonian reflection, two distinct objects whose curvatures sum to (2/(n-1)) times the sum of the others' curvatures. The planar Soddy-Gosset relation for four circles of positive radius, pairwise externally tangent or with one enclosing circle, is already in Lean in facebookresearch/atlas-lean (descartes_circle_theorem, not registered); rjwalters/lean-genius and carlok/LeanFrontier treat the planar relation as a definition (its two roots, the same over the complex numbers, integer reflections and parity; LeanFrontier checks it for one family of Ford circles and their tangent line), with no derivation from tangency; no other formalization of these statements was found by the dated searches.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG"
+        ],
+        "msc2020": [
+          "52C26",
+          "51M04",
+          "51B10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "AugmentedDescartes.lorentz_sphereRow_self",
+          "AugmentedDescartes.lorentz_sphereRow_eq_neg_one_iff",
+          "AugmentedDescartes.lorentz_sphereRow_planeRow_eq_neg_one_iff",
+          "AugmentedDescartes.lorentz_planeRow_eq_neg_one_iff",
+          "AugmentedDescartes.lorentz_row_self",
+          "AugmentedDescartes.lorentz_row_eq_neg_one_iff",
+          "AugmentedDescartes.row_injOn_valid",
+          "AugmentedDescartes.exists_orientedSphere_of_lorentz_self",
+          "AugmentedDescartes.augmented_identity_iff_lorentz",
+          "AugmentedDescartes.gram_eq_of_augmented_identity",
+          "AugmentedDescartes.augmented_descartes",
+          "AugmentedDescartes.augmented_descartes_general",
+          "AugmentedDescartes.augmented_descartes_converse",
+          "AugmentedDescartes.augmented_descartes_converse_spheres",
+          "AugmentedDescartes.soddy_gosset",
+          "AugmentedDescartes.soddy_gosset_general",
+          "AugmentedDescartes.soddy_gosset_iff_isotropic",
+          "AugmentedDescartes.curvature_center",
+          "AugmentedDescartes.curvature_center_general",
+          "AugmentedDescartes.complex_descartes",
+          "AugmentedDescartes.complex_descartes_mixed",
+          "AugmentedDescartes.det_descartesQ",
+          "AugmentedDescartes.sphere_soddy_gosset",
+          "AugmentedDescartes.sphere_soddy_gosset_enclosing",
+          "AugmentedDescartes.sphere_augmented_descartes",
+          "AugmentedDescartes.exists_configuration",
+          "AugmentedDescartes.exists_pairwiseTangent",
+          "AugmentedDescartes.converse_soddy_gosset",
+          "AugmentedDescartes.converse_soddy_gosset_spheres",
+          "AugmentedDescartes.curvature_center_converse",
+          "AugmentedDescartes.curvature_center_converse_needs_nonzero",
+          "AugmentedDescartes.apollonianGen_mem_aut",
+          "AugmentedDescartes.apollonian_reflection",
+          "AugmentedDescartes.apollonianGen_mul_apply",
+          "AugmentedDescartes.two_tangent_rows",
+          "AugmentedDescartes.two_tangent_spheres",
+          "AugmentedDescartes.same_curvature_motion",
+          "AugmentedDescartes.rigidMotion_parameters",
+          "AugmentedDescartes.rigidMotionPoint_isometry",
+          "AugmentedDescartes.rigidMotionMatrix_sphereRow",
+          "AugmentedDescartes.rigidMotionMatrix_planeRow",
+          "AugmentedDescartes.same_curvature_congruence",
+          "AugmentedDescartes.rowPower_sphereRow",
+          "AugmentedDescartes.rowPower_planeRow",
+          "AugmentedDescartes.rowPower_sphereRow_neg_iff_of_pos",
+          "AugmentedDescartes.rowPower_sphereRow_neg_iff_of_neg",
+          "AugmentedDescartes.rowPower_planeRow_neg_iff",
+          "AugmentedDescartes.augmented_orientation",
+          "AugmentedDescartes.augmented_orientation_disjoint",
+          "AugmentedDescartes.augmented_no_three_zero_curvatures",
+          "AugmentedDescartes.augmented_no_three_boundaries",
+          "AugmentedDescartes.rigidMotionOf_isValid",
+          "AugmentedDescartes.rigidMotionOf_curvature",
+          "AugmentedDescartes.lorentz_vecMul_rigidMotionMatrix",
+          "AugmentedDescartes.rigidMotionOf_tangent_iff",
+          "AugmentedDescartes.congruent_iff_same_curvature",
+          "AugmentedDescartes.tangent_family_curvature_sum_ne_zero",
+          "AugmentedDescartes.tangent_family_interiors_disjoint",
+          "AugmentedDescartes.tangent_family_two_hyperplanes"
+        ]
+      },
+      "id": "PALOMAR-2026-10-16-000020",
+      "path": "entries/PALOMAR-2026-10-16-000020-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "44bdbf1dec3ffab07c97da8544aca6255826ded2",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--augmented-descartes-lean--1c7574ee15ad",
+            "source_repository": "JD-Jones-ASES/augmented-descartes-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "b3eb9c886959ac68564b9f4af59fc55f08821b4bdd54eda292ea60e80d5bd78f",
+        "version": 1
+      },
+      "published_at": "2026-10-16T21:13:31Z",
+      "source": {
+        "commit": "44bdbf1dec3ffab07c97da8544aca6255826ded2",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/augmented-descartes-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The augmented Descartes theorem in every dimension, its converses, and Soddy's two spheres",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Theorem C: for finitely many distinct points a of the unit sphere of R^d and any L in O(1,d) (L^T S L = S with S = diag(-1, 1, ..., 1)), the configuration a is Euclidean Ramsey if and only if its image under the M\u00f6bius map phi_L is Euclidean Ramsey. There is no affine-spanning hypothesis. Ramsey is OpenAI's definition from result 172 (for every r >= 2 there is D such that every r-colouring of R^D contains a monochromatic congruent copy). Corollaries, also proved: every M\u00f6bius image of a finite set of distinct unit-sphere points with real algebraic coordinates is Ramsey; and for distinct rationals t_i and arbitrary reals k != 0 and c, the circle points circ(k t_i) and circ(t_i + c) form Ramsey sets, where circ is the stereographic chart of the unit circle. The proof builds on OpenAI's complete Lean proof of the classification of finite Euclidean Ramsey configurations (openai/math fd4aeeb2, result 172), whose 28 files are included with header-only changes for the Lean module system. The Lorentz matrix transports OpenAI's real tensor criterion; OpenAI's descent and sufficiency conclude. All theorems depend on propext, Classical.choice and Quot.sound only.",
+      "authors": [
+        {
+          "name": "Will Strinz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.MG"
+        ],
+        "msc2020": [
+          "05D10",
+          "52C10",
+          "51B10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OAI.EuclideanRamsey.Mobius.ramsey_iff_ramsey_mobius_full",
+          "OAI.EuclideanRamsey.Mobius.ramsey_mobius_of_algebraic",
+          "OAI.EuclideanRamsey.Mobius.ramsey_circ_mul_rat",
+          "OAI.EuclideanRamsey.Mobius.ramsey_circ_add_rat"
+        ]
+      },
+      "id": "PALOMAR-2026-10-14-000008",
+      "path": "entries/PALOMAR-2026-10-14-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "52284ddf3db595776b0d651c844fbeaf7b34a641",
+            "fork_repository": "PalomarArchive/wstrinz--mobius-ramsey--d0c23f351ec2",
+            "source_repository": "wstrinz/mobius-ramsey"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2c30d010deef13c928f2c35d92baf1a23d67d4f271c9940639120da5f6cd297d",
+        "version": 1
+      },
+      "published_at": "2026-10-14T13:47:10Z",
+      "source": {
+        "commit": "52284ddf3db595776b0d651c844fbeaf7b34a641",
+        "project_path": null,
+        "repository": "wstrinz/mobius-ramsey"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "M\u00f6bius invariance of the Ramsey property for finite spherical sets",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 development of the optimal universal 1 -> 2 cloning of a qubit, with every figure of merit finite: a channel from one qubit to two is a finite Kraus family K_i : C^2 -> C^2 (x) C^2 with sum K_i^* K_i = 1 (the blank qubit is fixed, so this is a 1 -> 2 map; the Choi-Kraus theorem is not proved), the two clone fidelities of a pure input psi are Re <psi| Tr_2 Lambda(psi psi^*) |psi> and Re <psi| Tr_1 Lambda(psi psi^*) |psi>, and F1-bar, F2-bar are their averages over the six Pauli eigenstates (1 +- sigma)/2, Gaussian-rational density matrices (the six states form a 2-design, the octahedron being a spherical 3-design, so these equal the Bloch-sphere averages of Gisin-Massar, as Bowdrey-Oi-Short-Banaszek-Jones 2002, (11), print for qubit maps; that equality is neither used nor claimed). Theorems, kernel-only: for every channel (F1-bar + F2-bar)/2 <= 5/6, so some unit psi has min(F1, F2) <= 5/6 (Gisin-Massar 1997, their largest-eigenvalue bound; Bruss-DiVincenzo-Ekert-Fuchs-Macchiavello-Smolin 1998 within the symmetric isotropic ansatz), proved by a six-term sum of squares in the Kraus entries; the Buzek-Hillery channel (1/6) V1 rho V1^* + (2/3) V2 rho V2^* (V1|0> = 2|00>, V1|1> = |01> + |10>, V2|0> = (|01> + |10>)/2, V2|1> = |11>; Buzek-Hillery 1996, (3.29)) is a channel whose two marginals are rho -> (2/3) rho + (1/6) Tr(rho) 1 (their (4.6); Werner 1998, (3.7)-(3.8)), so F1 = F2 = 5/6 for every unit psi (their root fidelity sqrt(5/6), p. 7); a channel with (F1-bar + F2-bar)/2 = 5/6, or with F1, F2 >= 5/6 on every unit psi, is the Buzek-Hillery channel as a map (the uniqueness under the average-fidelity criterion is proved here from the certificate; Keyl-Werner 1999 prove uniqueness under the worst-case one-clone criterion Delta_one and Werner 1998 under the global criterion; the Kraus family and the dilation are not unique, Roubert-Braun 2008), so 5/6 is the greatest t for which some channel has t <= F1(psi), F2(psi) for every unit psi, in Lean's IsGreatest form; F1-bar, F2-bar >= 1/3 for every channel, attained for the first clone by the universal NOT on it with a maximally mixed second clone (the universal-NOT bound of Buzek-Hillery-Werner 1999 and Gisin-Popescu 1999, in six-state average form); the asymmetric trade-off a b <= a(a + 2b)(1 - F1-bar) + b(2a + b)(1 - F2-bar) for every channel and all weights a, b >= 0, also with worst-case fidelities in place of the averages (the largest-eigenvalue bound of Fiurasek-Filip-Cerf 2005, Section II, in every dimension, with their conic alpha^2 + alpha beta + beta^2 = 1 written homogeneously; Hashagen 2017, (6.4a); the curve of Niu-Griffiths 1998, (6.29); the conic of Cerf, J. Mod. Opt. 2000, (2.31), and x^2 + x'^2 + x x' >= 1/4 of Cerf, PRL 2000, (6); Buzek-Hillery-Bednik 1998, (11); the full achievable region in Hashagen 2017 and Nechita-Pellegrini-Rochette 2021), proved by a sum of squares polynomial in a, b; the family (A0 rho A0^* + A1 rho A1^*)/(2(a^2 + ab + b^2)) with A0|0> = (a + b)|00>, A0|1> = a|10> + b|01>, A1|0> = a|01> + b|10>, A1|1> = (a + b)|11> (the optimal asymmetric cloner of Niu-Griffiths (4.13), Cerf, J. Mod. Opt. 2000, (2.28), Fiurasek-Filip-Cerf (19), Scarani-Iblisdir-Gisin-Acin 2005 (27)) consists of channels with marginals rho -> (1 - b^2/s) rho + (b^2/2s) Tr(rho) 1 and rho -> (1 - a^2/s) rho + (a^2/2s) Tr(rho) 1, s = a^2 + ab + b^2, so F1 = 1 - b^2/2s and F2 = 1 - a^2/2s on every unit psi, with equality in the bound at the weights (a, b), and for a, b > 0 equality holds only for that channel (proved here; Hashagen's uniqueness is within symmetrized channels); a = b is the Buzek-Hillery channel; hence the square-root form sqrt((1 - F1-bar)(1 - F2-bar)) >= F1-bar + F2-bar - 3/2 (Scarani-Iblisdir-Gisin-Acin 2005, (23)), its worst-case form, and equality along the family for a, b >= 0 (the curve of Niu-Griffiths (6.29)). For every channel 3(F1-bar + F2-bar) - 7/2 <= sqrt((3F1-bar - 1)(3F2-bar - 1)), binding also where a clone is below 1/2 (with the floor, the necessity half of Nechita-Pellegrini-Rochette 2021, Theorem 6, at d = 2 for the six-state averages; Hashagen 2017, Theorem 6.4, in entanglement fidelity), proved by a Gram identity in the Kraus entries and Cauchy-Schwarz, with equality along the family when (2a + b)(a + 2b) >= 0 and, with neither clone perfect, only there; a perfect clone on average leaves the other at 1/2 (Hashagen 2017, p. 20, via Nielsen 2002, (3)); the asymmetric bound holds for all real a, b with (2a + b)(a + 2b) >= 0, the family being its only equality case when the product is positive and a, b != 0, and at (3, -1) it is the anticloning bound 3F1-bar - 5F2-bar <= 1, attained only by asymChannel 3 (-1), at (13/14, 5/14); F2-bar = 1/3 forces F1-bar <= 5/6, and (5/6, 1/3) is attained only by asymChannel 2 (-1), on every unit psi, the Buzek-Hillery clone with its anti-clone (Scarani-Iblisdir-Gisin-Acin 2005, (12)-(15)), and likewise with the clones exchanged; if (F1-bar + F2-bar)/2 >= 5/6 - eps, the Kraus operators lie within total squared Frobenius distance 6 eps of span{V1, V2}, and ||Lambda(rho) - Lambda_BH(rho)||_F <= 200 sqrt(eps) ||rho||_F for every input rho. Forty-four compared statements over twenty fully specified definitions; the identities behind every statement are replayed in rational arithmetic in the standard library by scripts/check_cloning.py and scripts/check_extensions.py. As of 2026-10-11 no formalization of the fidelity bound, of the Buzek-Hillery marginals, of the uniqueness, of the floor or of any asymmetric trade-off was located in the Palomar registry, Mathlib, formal-conjectures, openai/math, physlib, Lean-QIT, QICLean, csd-lean4, atlas-lean, trureturing, JWang226/Cloning (asymptotic global-fidelity cloning, a different figure of merit), the Isabelle AFP, the Rocq package index or arXiv; physlib's wishlist names the 5/6 bound as wanted and csd-lean4 holds the qualitative no-cloning and no-broadcasting theorems; nor, on the same date, of the full-range or signed trade-offs, their equality cases or the stability in the Palomar registry, Mathlib, formal-conjectures, physlib, Lean-QIT, QICLean, csd-lean4, atlas-lean, trureturing, JWang226/Cloning, the Isabelle AFP or GitHub code search.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "quant-ph"
+        ],
+        "msc2020": [
+          "81P45",
+          "81P47",
+          "15A45"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "QubitCloning.proj_pauliVec",
+          "QubitCloning.pauliVec_unit",
+          "QubitCloning.sixAvg_le",
+          "QubitCloning.exists_unit_min_le",
+          "QubitCloning.sixAvg_ge_third",
+          "QubitCloning.exists_sixAvg_eq_third",
+          "QubitCloning.bh_isChannel",
+          "QubitCloning.bh_trace",
+          "QubitCloning.bh_traceSecond",
+          "QubitCloning.bh_traceFirst",
+          "QubitCloning.bh_fidelity",
+          "QubitCloning.bh_sixAvg",
+          "QubitCloning.eq_bh_of_sixAvg",
+          "QubitCloning.eq_bh_of_forall",
+          "QubitCloning.isGreatest_cloning_fidelity",
+          "QubitCloning.asym_bound",
+          "QubitCloning.asym_bound_forall",
+          "QubitCloning.asym_isChannel",
+          "QubitCloning.asym_traceSecond",
+          "QubitCloning.asym_traceFirst",
+          "QubitCloning.asym_fidelity",
+          "QubitCloning.asym_equality",
+          "QubitCloning.eq_asym_of_equality",
+          "QubitCloning.bhChannel_eq_asymChannel",
+          "QubitCloning.tradeoff_sqrt",
+          "QubitCloning.tradeoff_forall",
+          "QubitCloning.tradeoff_attained",
+          "QubitCloning.tradeoff_full_sqrt",
+          "QubitCloning.signed_asym_bound",
+          "QubitCloning.eq_asym_of_signed_equality",
+          "QubitCloning.clone_anticlone_bound",
+          "QubitCloning.clone_anticlone_attained",
+          "QubitCloning.eq_clone_anticlone_of_equality",
+          "QubitCloning.sixAvg\u2081_le_of_sixAvg\u2082_eq_third",
+          "QubitCloning.sixAvg\u2082_le_of_sixAvg\u2081_eq_third",
+          "QubitCloning.floor_companion_attained",
+          "QubitCloning.kraus_span_stability",
+          "QubitCloning.tradeoff_full_attained",
+          "QubitCloning.eq_asym_of_tradeoff_full_equality",
+          "QubitCloning.eq_asym_of_floor\u2082",
+          "QubitCloning.eq_asym_of_floor\u2081",
+          "QubitCloning.sixAvg\u2082_eq_half_of_sixAvg\u2081_eq_one",
+          "QubitCloning.sixAvg\u2081_eq_half_of_sixAvg\u2082_eq_one",
+          "QubitCloning.channel_stability"
+        ]
+      },
+      "id": "PALOMAR-2026-10-13-000001",
+      "path": "entries/PALOMAR-2026-10-13-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f619a52e67849f80205127e3ba7877f7f7658e50",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--qubit-cloning-lean--940a4273493b",
+            "source_repository": "JD-Jones-ASES/qubit-cloning-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "703d43bd45d6ab9681384693d4b1502d49f8b574660d7b94922fb2d2401075ba",
+        "version": 1
+      },
+      "published_at": "2026-10-13T00:17:47Z",
+      "source": {
+        "commit": "f619a52e67849f80205127e3ba7877f7f7658e50",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/qubit-cloning-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Optimal universal 1 \u2192 2 qubit cloning at fidelity 5/6, the universal-NOT, and asymmetric cloning",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "We construct uniformly bounded orthonormal bases for homogeneous holomorphic polynomials on complex unit spheres. Fix d >= 2 and N >= 0, and put m = d-1 and L = N+d-1. For each multi-index alpha = (alpha_1,...,alpha_d) of nonnegative integers with sum N, define s_b(alpha) = b + alpha_1 + ... + alpha_b, 1 <= b <= m, and the normalized monomial M_alpha(z) = sqrt((N+d-1)! / ((d-1)! alpha_1! ... alpha_d!)) z_1^alpha_1 ... z_d^alpha_d. Let F be the normalized Fourier matrix, with entries F_(t,s) = L^(-1/2) exp(2 pi i t s/L), for 1 <= t,s <= L. For each increasing m-element subset T = {t_1,...,t_m} of {1,...,L}, define P_T(z) = sum_(|alpha|=N) det[F_(t_a,s_b(alpha))] exp(2 pi i sqrt(2) sum_r alpha_r^2) M_alpha(z), where the determinant is over 1 <= a,b <= m. These polynomials form an orthonormal basis with respect to surface measure of total mass one on the complex unit sphere. Their absolute values on the closed unit ball are bounded by a constant depending only on d, independently of N and T. The construction and proof are formalized in Lean.",
+      "authors": [
+        {
+          "name": "Mark Lewko"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CV",
+          "math.FA"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "BourgainStatement.manuscript_main"
+        ]
+      },
+      "id": "PALOMAR-2026-10-09-000004",
+      "path": "entries/PALOMAR-2026-10-09-000004-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a91b7a0f08c5771f1c66435eac4a456a918ff384",
+            "fork_repository": "PalomarArchive/mrklwk--uniformly-bounded-holomorphic-bases--6ee7b12e3633",
+            "source_repository": "mrklwk/uniformly-bounded-holomorphic-bases"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "943cf664e88a8986bca4b157a418497c31dfd0b2f613192bd7b18bf07bda1e13",
+        "version": 2
+      },
+      "published_at": "2026-10-11T09:52:29Z",
+      "source": {
+        "commit": "a91b7a0f08c5771f1c66435eac4a456a918ff384",
+        "project_path": null,
+        "repository": "mrklwk/uniformly-bounded-holomorphic-bases"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Explicit uniformly bounded bases of homogeneous holomorphic polynomials in every dimension",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of the theorem of A. Kupiainen, R. Rhodes and V. Vargas (Annals of Mathematics, 2020) that the three-point structure constants of Liouville conformal field theory on the Riemann sphere are given by the DOZZ formula of Dorn\u2013Otto and Zamolodchikov\u2013Zamolodchikov. The structure constants are defined probabilistically: for 0 < gamma < 2, cosmological constant mu > 0 and charges satisfying the extended Seiberg bounds, C_gamma(alpha_1, alpha_2, alpha_3) = 2 mu^(-s) gamma^(-1) Gamma(s) E[rho^(-s)], where rho integrates explicit power weights against the Gaussian multiplicative chaos of the Gaussian free field pinned on the equator. The formalization proves C_gamma = C_gamma^DOZZ, expressed through the Zamolodchikov function Upsilon_{gamma/2}, at every point of the domain where Gamma(s) is finite, and at every point including the poles for the unit-volume constant; and it proves that the probabilistic reflection coefficient, built from Brownian motion conditioned to stay negative and lateral chaos, equals R^DOZZ (Theorem 3.5). The theorems hold for every model of the field and chaos, and models are constructed. All prerequisites are proved: the construction, uniqueness and moment theory of Gaussian multiplicative chaos and the extended Seiberg bounds (David, Kupiainen, Rhodes and Vargas, 2016); the BPZ equations for degenerate four-point functions and the classification of their real single-valued solutions by the Gauss hypergeometric function (Kupiainen, Rhodes and Vargas, 2019); analytic continuation of correlation functions, tail estimates for multiplicative chaos, fusion asymptotics, the shift equations and the quotient argument. Errata found in the three papers, and the places where the Lean statements differ from them, are recorded in docs/ERRATA-AND-DEVIATIONS.md.",
+      "authors": [
+        {
+          "name": "Scott Armstrong"
+        },
+        {
+          "name": "Am\u00e9lie Loher"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph",
+          "math.MP",
+          "hep-th"
+        ],
+        "msc2020": [
+          "60G60",
+          "60G57",
+          "81T40",
+          "60J65",
+          "33C05",
+          "33B15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DOZZChallenge.dozz_formula",
+          "DOZZChallenge.dozz_unitVolume",
+          "DOZZChallenge.dozz_existence",
+          "DOZZChallenge.IsUpsilon.unique",
+          "DOZZChallenge.isCircleAverage_law",
+          "DOZZChallenge.equatorGFF_GMC_unique_ae",
+          "DOZZChallenge.equatorGFF_GMC_nontrivial",
+          "DOZZChallenge.equatorGFF_GMC_law_transport",
+          "DOZZChallenge.equatorGFF_extendedSeiberg_rho_moment"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000008",
+      "path": "entries/PALOMAR-2026-10-11-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5d770d1a6d69fac6dbb63060e8a89861bf3ee330",
+            "fork_repository": "PalomarArchive/scottnarmstrong--DOZZ--ab6295909671",
+            "source_repository": "scottnarmstrong/DOZZ"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "d65f7bc9f4d1e88b6a62e8df62c578fa890ccaf5331bda4985165b7eb04a903c",
+        "version": 1
+      },
+      "published_at": "2026-10-11T07:06:08Z",
+      "source": {
+        "commit": "5d770d1a6d69fac6dbb63060e8a89861bf3ee330",
+        "project_path": null,
+        "repository": "scottnarmstrong/DOZZ"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Integrability of Liouville theory: the Kupiainen\u2013Rhodes\u2013Vargas proof of the DOZZ formula",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 development around the tensor criterion of the classification of finite Euclidean Ramsey configurations (openai/math, family 172). With the criterion's definitions restated character for character from that project's challenge file: every set of six distinct points on a circle satisfies the criterion, by an explicit certificate (the product of the two bilinear forms through the first three and the last three points of a homogeneous parametrisation of the circle, scaled and conjugated by the parametrisation); the sharp dimension theorem: every spherical set of at most m + 4 distinct points, m the dimension of its affine span, satisfies the criterion in its own space and coordinate field (either the augmented vectors admit real isolating quadrics and the sphere lifts by the adjugate, or a dependence among them is supported on six concyclic points while every other point adds a dimension, and the six-point certificate is carried into the ambient space, symmetrised, adjusted to the common sphere, extended point by point and descended from R tensor R to F tensor F), so every spherical set of at most six points satisfies it in any dimension with any affine span; every spherical set with algebraic coordinates satisfies it, of any size, by the separability idempotent of F tensor F; the criterion always implies sphericity, so for algebraic coordinates it is exactly sphericity. Given the sufficiency half of the classification as an explicit hypothesis (quantified as the source states its Theorem 1.1), every spherical set of at most six points, every spherical set of at most m + 4 points and every spanning spherical set with algebraic coordinates is Ramsey; given both halves, a spanning set with algebraic coordinates is Ramsey if and only if it is spherical. The source proves the Ramsey property for at most five circle points; six is the first case its method of independent quadratic rows cannot reach. With the seven-point non-Ramsey circle set of A cyclic non-Ramsey heptagon (arXiv:2609.23327), the least size of a non-Ramsey spherical set is seven, given the classification, and, for m at least 2, m + 5 the least size of one with affine span of dimension m, since the heptagon with m - 2 further sphere points fails the criterion and is not Ramsey; the research note in note/ states this, verifies by an exact derivation identity that the heptagon fails the criterion, and proves the sharpness on paper (nothing in Lean says that a set fails the criterion). The classification is not proved here. The restated definitions and a few adapted lemmas derive from Apache-2.0 work of OpenAI (NOTICE, LICENSES/Apache-2.0.txt); the rest is MIT.",
+      "authors": [
+        {
+          "name": "JD Jones"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.MG"
+        ],
+        "msc2020": [
+          "05D10",
+          "52C10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SixConcyclic.six_concyclic_fieldCriterion",
+          "SixConcyclic.at_most_six_concyclic_fieldCriterion",
+          "SixConcyclic.at_most_six_spherical_spanning_fieldCriterion",
+          "SixConcyclic.at_most_five_spherical_fieldCriterion",
+          "SixConcyclic.algebraic_spherical_fieldCriterion",
+          "SixConcyclic.fieldCriterion_spherical",
+          "SixConcyclic.algebraic_fieldCriterion_iff_spherical",
+          "SixConcyclic.at_most_six_spherical_ramsey_of_sufficiency",
+          "SixConcyclic.at_most_six_circle_points_ramsey_of_sufficiency",
+          "SixConcyclic.algebraic_spherical_ramsey_of_sufficiency",
+          "SixConcyclic.algebraic_ramsey_iff_spherical_of_classification",
+          "SixConcyclic.spherical_fieldCriterion_of_card_le_finrank_add_four",
+          "SixConcyclic.at_most_six_spherical_fieldCriterion",
+          "SixConcyclic.spherical_ramsey_of_sufficiency_of_card_le_finrank_add_four"
+        ]
+      },
+      "id": "PALOMAR-2026-10-07-000011",
+      "path": "entries/PALOMAR-2026-10-07-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6bf3f4019bf0ced69f609abe3d517f9d7c31e55e",
+            "fork_repository": "PalomarArchive/JD-Jones-ASES--six-concyclic-lean--c1d655f6e8fd",
+            "source_repository": "JD-Jones-ASES/six-concyclic-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1349f50b76e2368e53b336a7dbcbd1aa29a13835f3b9d0d058e9b6bc85e3a935",
+        "version": 1
+      },
+      "published_at": "2026-10-07T15:56:05Z",
+      "source": {
+        "commit": "6bf3f4019bf0ced69f609abe3d517f9d7c31e55e",
+        "project_path": null,
+        "repository": "JD-Jones-ASES/six-concyclic-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Six concyclic points satisfy the Euclidean Ramsey tensor criterion, as does every spherical set of at most m + 4 points of affine dimension m and every algebraic spherical set; given the classification's sufficiency half, these sets are Ramsey (the algebraic ones when spanning)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Higher-cell attachment invariance for ordinary topological fundamental groups. For any path-connected topological space X, any basepoint, an index type in an independent universe, independently varying cell dimensions at least three, and arbitrary continuous unit-sphere attaching maps, the genuine adjunction quotient of X and the coproduct of closed Euclidean unit balls is constructed with its quotient topology. The actual inclusion-induced fundamental-group homomorphism is bijective and is the underlying homomorphism of the displayed multiplicative equivalence. Mixed dimensions and the empty family are included. No finiteness, countability, CW, separation or local-connectivity hypotheses are added, and no retraction, simple-connectivity or kernel oracle is assumed.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        },
+        {
+          "name": "David Barros Hulak"
+        },
+        {
+          "name": "Ruy Jose Guerra Barretto de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AT",
+          "math.CT"
+        ],
+        "msc2020": [
+          "55Q05",
+          "18B40"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "HigherCellAttachment.higher_cell_attachment"
+        ]
+      },
+      "id": "PALOMAR-2026-10-05-000001",
+      "path": "entries/PALOMAR-2026-10-05-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "bcf788e349b4969f4d8379ee9cb4df7a28352af1",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--higher-cell-attachment-lean--839dc8f39578",
+            "source_repository": "Arthur742Ramos/higher-cell-attachment-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "d4432379a30d3a56de3a768aa83953b7ccccc6f702cc3c0de3c39e1d1eb92564",
+        "version": 1
+      },
+      "published_at": "2026-10-05T02:16:29Z",
+      "source": {
+        "commit": "bcf788e349b4969f4d8379ee9cb4df7a28352af1",
+        "project_path": null,
+        "repository": "Arthur742Ramos/higher-cell-attachment-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Fundamental Groups of Arbitrary Higher-Cell Attachments",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "We formalise the proof of two major recent results on wandering domains of transcendental entire and meromorphic functions: every orbit in a wandering domain accumulates at infinity and at a non-isolated (derived) point of the spherical set of singular values.\nBoth results are obtained as a special case of a more general theorem, for locally defined functions on possibly disconnected complex one-manifolds. Let f be an open holomorphic function from an open subset O of such a manifold X into X. Different components of O may map to different components of X, even when those source components lie in the same ambient component. Suppose that U is a wandering component of the set of normality of f, and that z is in U. If the orbit of z is contained in a compact subset of X, then it accumulates at a non-isolated point s of the set of singular values. Moreover, this accumulation must occur close to singularities for infinitely many singular values. That is, there exists a sequence (s_n) of distinct singular values converging to s, a sequence of embedded discs D_n containing s and a sequence U_n of components of f^{-1}(D_n), with the following properties. (We say that the orbit of z has \"singular encounters\"; see HasSingularEncounterSequence in the formalisation.) * the discs D_n shrink to s; that is, every neighbourhood of s contains D_n for sufficiently large n; * each component U_n contains a point of the orbit of z; * s_n is a singular value of the restriction f:U_n\\to D_n. In particular, the orbit of z is not contained in any compact subset of O. In the special case of a transcendental entire or meromorphic function, we can take X to be the Riemann sphere, and hence compact, so that the hypotheses are satisfied for any wandering Fatou component.\nWe also prove a corresponding theorem for measurable wandering subsets of the complement of the domain of normality on which all iterates are defined and injective; here the conclusion is that almost every point of the set (in any chart) behaves as above: ambient escape along a subsequence, or singular encounters.\nAs corollaries we recover Epstein's absence of wandering domains for finite-type maps on arbitrary open subsets of compact, possibly disconnected complex one-manifolds, and the classical no-wandering results for rational maps, compact-surface self-maps, and class S entire and meromorphic functions.\nThis is an update from the previous registered submission on Palomar, https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-25-000001&version=3 . The change in this update is to allow functions in the local result to take values in a possibly disconnected complex 1-manifold, rather than a Riemann surface. This aligns the definition with Epstein's original discussion of finite-type analytic maps, which likewise allow (compact) complex 1-manifolds.",
+      "authors": [
+        {
+          "name": "Nikolai Prochorov"
+        },
+        {
+          "name": "Lasse Rempe"
+        },
+        {
+          "name": "James Waterman"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS",
+          "math.CV"
+        ],
+        "msc2020": [
+          "37F10",
+          "30D05",
+          "30F45"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BoundedWanderingDomains.wandering_domain_has_locally_uniform_escaping_subsequence",
+          "MeromorphicDynamics.wandering_domain_has_locally_uniform_escaping_subsequence",
+          "SurfaceDynamics.wandering_component_orbit_not_compactly_contained",
+          "SurfaceDynamics.positive_area_wandering_saturation_not_compactly_contained",
+          "BoundedWanderingDomains.wandering_orbit_accumulates_on_derived_singular_values",
+          "SurfaceDynamics.wandering_orbit_has_escaping_or_derived_singular_subsequence",
+          "BoundedWanderingDomains.no_bounded_wandering_domains_transcendental_entire",
+          "BoundedWanderingDomains.no_wandering_domains_transcendental_entire_finite_singularValues",
+          "SurfaceDynamics.no_wandering_domains_compact",
+          "SurfaceDynamics.no_wandering_domains_rational",
+          "SurfaceDynamics.compact_wandering_orbit_accumulates_on_derived_singular_values",
+          "SurfaceDynamics.almost_every_wandering_point_has_source_escaping_subsequence",
+          "SurfaceDynamics.positive_area_wandering_saturation_not_compactly_contained_away_from_derived",
+          "SurfaceDynamics.almost_every_wandering_point_has_escaping_or_derived_singular_subsequence",
+          "SurfaceDynamics.no_wandering_domains_finite_type",
+          "MeromorphicDynamics.no_wandering_domains_transcendental_meromorphic_finite_singularValues",
+          "SurfaceDynamics.wandering_domain_has_escaping_or_singular_encounter_sequence",
+          "SurfaceDynamics.almost_every_wandering_point_has_escaping_or_singular_encounter_sequence",
+          "MeromorphicDynamics.wandering_orbit_accumulates_on_derived_singular_values"
+        ]
+      },
+      "id": "PALOMAR-2026-09-25-000001",
+      "path": "entries/PALOMAR-2026-09-25-000001-v4.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6e306deb8169e834e9cc6662160c70231a7e2a83",
+            "fork_repository": "PalomarArchive/LR-UK--Bounded-orbit-wandering-domains--c47223f53157",
+            "source_repository": "LR-UK/Bounded-orbit-wandering-domains"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "96dd64ec2ceea996af2c039f20e385fff7632a905dc4c9ee32b574c19c5954d8",
+        "version": 4
+      },
+      "published_at": "2026-10-01T14:01:10Z",
+      "source": {
+        "commit": "6e306deb8169e834e9cc6662160c70231a7e2a83",
+        "project_path": null,
+        "repository": "LR-UK/Bounded-orbit-wandering-domains"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Absence of bounded-orbit wandering domains",
+      "trust": {
+        "level": "high"
+      },
+      "version": 4,
+      "versions": 4
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The kissing number of Euclidean 3-space is 12: at most twelve unit balls with disjoint interiors touch a given unit ball, and twelve do. The upper bound follows Musin's extension of the Delsarte linear-programming method. The Delsarte machinery on the sphere (positive-definite zonal kernels up to degree 9 and the LP bound, which by itself gives only 13) is built from scratch, since Mathlib has no spherical harmonics. The lower bound is the cuboctahedron.",
+      "authors": [
+        {
+          "name": "Marek Wrzos"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "52C17",
+          "05B40",
+          "94B65",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KissingNumber.kissingNumber_three",
+          "KissingNumber.neighbors_le_twelve"
+        ]
+      },
+      "id": "PALOMAR-2026-09-30-000012",
+      "path": "entries/PALOMAR-2026-09-30-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2e403b0d1afe84f41a90cb77d926bc31666a8972",
+            "fork_repository": "PalomarArchive/Pendzoncymisio--kissing-number-lean--012113b2f3eb",
+            "source_repository": "Pendzoncymisio/kissing-number-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1754f48c36ae2ee6f24f2f0c09b98faa1ae485d086258d8687287adc16608480",
+        "version": 1
+      },
+      "published_at": "2026-09-30T03:10:53Z",
+      "source": {
+        "commit": "2e403b0d1afe84f41a90cb77d926bc31666a8972",
+        "project_path": null,
+        "repository": "Pendzoncymisio/kissing-number-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "kissing-number-lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalizes attainment of the first positive smooth Laplace eigenvalue on closed connected smooth Riemannian manifolds of dimension n >= 2, its sharp lower bound n*K under Ric >= (n-1)*K with K > 0, and equality if and only if the manifold is smoothly Riemannian-isometric to the round sphere of radius 1/sqrt K. The independent statement constructs the metric-compatible torsion-free connection and explicitly defines Ricci curvature, the Riesz gradient, the div-grad Laplacian, eigenvalue minimality, and the radius-scaled induced round metric.",
+      "authors": [
+        {
+          "name": "Arthur Freitas Ramos"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DG",
+          "math.SP",
+          "math.LO"
+        ],
+        "msc2020": [
+          "53C21",
+          "58J50",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LichnerowiczObataEntry.Geometry.lichnerowiczObata"
+        ]
+      },
+      "id": "PALOMAR-2026-09-08-000006",
+      "path": "entries/PALOMAR-2026-09-08-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5db025e6d20d8aad714c3d116714545d1823fd8e",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--lean-poincare-formalization-plan--659c07d79115",
+            "source_repository": "Arthur742Ramos/lean-poincare-formalization-plan"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "8f7f45e48280da5aef94cfd31cb1a5441ad1a28a1360d88728bffd50c7240241",
+        "version": 1
+      },
+      "published_at": "2026-09-08T23:45:46Z",
+      "source": {
+        "commit": "5db025e6d20d8aad714c3d116714545d1823fd8e",
+        "project_path": "lichnerowicz-obata",
+        "repository": "Arthur742Ramos/lean-poincare-formalization-plan"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Lichnerowicz--Obata first eigenvalue and round-sphere rigidity",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete machine-checked Lean 4 formalization of Tucker's Lemma (Albert W. Tucker, 1945) and the combinatorial Borsuk\u2013Ulam theorem in 1D and 2D without artificial conditions. Formalizes four foundational pillars: (1) 1D discrete sign-change parity and antipodal interval subdivision lemma; (2) 2D combinatorial double counting of face doors and modulo-2 parity conservation on edge-pseudomanifolds; (3) the boundary cycle engine on 2D edge-pseudomanifolds with an enumerated cyclic boundary (CyclicBoundaryPseudomanifold2D) under antipodal boundary labeling, proving that non-complementary boundary labelings force odd boundary door parity, thereby establishing the 2D Tucker's Lemma on cyclic boundary pseudomanifolds, retracting previous claims of full topological disk coverage; and (4) the concrete 6-vertex, 8-face, 12-edge octahedral 2-sphere S^2_8 triangulation. All declarations rely strictly on standard Lean 4 kernel axioms (propext, Quot.sound, Classical.choice).",
+      "authors": [
+        {
+          "name": "Noah Cohen"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.AT"
+        ],
+        "msc2020": [
+          "05C10",
+          "55M20",
+          "57M15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TuckersLemma.tucker_1d",
+          "TuckersLemma.sign_switch_parity",
+          "TuckersLemma.double_counting_doors",
+          "TuckersLemma.parity_conservation",
+          "TuckersLemma.boundary_doors_odd_of_no_comp",
+          "TuckersLemma.tuckers_lemma_2d",
+          "TuckersLemma.octahedron_tuckers_lemma"
+        ]
+      },
+      "id": "PALOMAR-2026-09-03-000007",
+      "path": "entries/PALOMAR-2026-09-03-000007-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "932380aafde3af51cea2aa43f0e9612acca48dc6",
+            "fork_repository": "PalomarArchive/sneed-and-feed--lean-theorems-1--a2ac55dbf7b5",
+            "source_repository": "sneed-and-feed/lean-theorems-1"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "31a272082578e29e70e36e955b895ea49dec5b57abb5f9b8697fd89da4e6e318",
+        "version": 1
+      },
+      "published_at": "2026-09-03T22:26:28Z",
+      "source": {
+        "commit": "932380aafde3af51cea2aa43f0e9612acca48dc6",
+        "project_path": null,
+        "repository": "sneed-and-feed/lean-theorems-1"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Tucker's Lemma: Full Combinatorial & Topological Parity Suite in 1D and 2D",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A kernel-checked certificate for the finite mathematical core of the paper's explicit 16-vertex counterexample. The compared declarations prove cubicity, bipartiteness, connectivity after every deletion of at most two vertices, Hamiltonicity of the displayed cycle, its exact complementary perfect matching, the displayed oriented facial incidence and dual data, Euler's equality, properness and uniqueness up to global permutation of the face coloring, the induced edge-color classes, their unavoidable intersections with the complementary matching, and the instantiated final obstruction. The topological realization of the incidence data as a sphere embedding and the published algorithm's Property 1 remain external inputs.",
+      "authors": [
+        {
+          "name": "Lennart Rudolph"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "cs.CG"
+        ],
+        "msc2020": [
+          "05C10",
+          "05C45",
+          "68R10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BarnettePalomar.concrete_graph_certificate",
+          "BarnettePalomar.deletion_connectivity_certificate",
+          "BarnettePalomar.hamiltonian_cycle_and_matching_certificate",
+          "BarnettePalomar.plane_embedding_certificate",
+          "BarnettePalomar.face_coloring_certificate",
+          "BarnettePalomar.property_one_excludes_prescribed_cycle"
+        ]
+      },
+      "id": "PALOMAR-2026-08-21-000002",
+      "path": "entries/PALOMAR-2026-08-21-000002-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "090b3b300ba8ec76fdba09a17f086953d13f2653",
+            "fork_repository": "PalomarArchive/lennrt--palomar-formalizations--21c40838d48e",
+            "source_repository": "lennrt/palomar-formalizations"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "5280b2c1fe5d092ef00e9122e222f79fdcb86f4e09c11d300ac4c2a97b8f1c2a",
+        "version": 1
+      },
+      "published_at": "2026-09-03T05:55:09Z",
+      "source": {
+        "commit": "090b3b300ba8ec76fdba09a17f086953d13f2653",
+        "project_path": "zenodo-21890733/palomar",
+        "repository": "lennrt/palomar-formalizations"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "lennrt/palomar-formalizations",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A kernel-checked Lean formalization of the exact no-broken-circuit volume identity for hard-sphere Mayer cluster integrals and the stronger dimension-three fork-packing upper bound for each tree-owned NBC region. The development proves finite broken-circuit cancellation, the measurable finite-region decomposition, the anchored Euclidean product-measure theorem, and its explicit flat-coordinate transport.  Its geometric result is the attachment-aware estimate Vol(NBC_T) <= (17/32)^hardSphereNu T * hardSphereKappa^(k-1), where hardSphereNu T is the maximum cardinality of a packing of pairwise vertex-disjoint, order-compatible forks in T.  A formal fork is an ordered triple (a,b,c) with a < b < c, center a, leaves b,c, and tree edges {a,b} and {a,c}.  The central contribution is the complete pointwise-to-integral bridge together with the orientation-aware measure-preserving factorization that realizes the per-fork volume suppression.",
+      "authors": [
+        {
+          "name": "ukiyois"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math-ph"
+        ],
+        "msc2020": [
+          "05C15",
+          "82B05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PalomarHS.main_result",
+          "PalomarHS.nbc_region_real_volume_le_fork_factor"
+        ]
+      },
+      "id": "PALOMAR-2026-08-29-000014",
+      "path": "entries/PALOMAR-2026-08-29-000014-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6ff2cea17ea9320d8974b76f26bd502b4a4076a9",
+            "fork_repository": "PalomarArchive/ukiyois--hs-virial-nbc-identity--d905f84d1fae",
+            "source_repository": "ukiyois/hs-virial-nbc-identity"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0379c97d8720bfbed8608d294a5f6b0ae21ec54c7a294c9d6e66a8754ccf44ff",
+        "version": 1
+      },
+      "published_at": "2026-09-03T00:25:02Z",
+      "source": {
+        "commit": "6ff2cea17ea9320d8974b76f26bd502b4a4076a9",
+        "project_path": null,
+        "repository": "ukiyois/hs-virial-nbc-identity"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ukiyois/hs-virial-nbc-identity",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of the classification theorem for compact connected topological 2-manifolds, including surfaces with boundary. The main theorem proves that every compact connected Hausdorff 2-manifold modeled on the Euclidean half-plane is homeomorphic to the sphere, an orientable canonical quotient surface, or a non-orientable canonical quotient surface. The submitted theorem is the exact statement of the Lean Eval `topological_classification_of_surfaces` challenge.",
+      "authors": [
+        {
+          "name": "Ryan McCorvie"
+        },
+        {
+          "name": "Jack McCarthy"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GT"
+        ],
+        "msc2020": [
+          "57K20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "classification_of_surfaces"
+        ]
+      },
+      "id": "PALOMAR-2026-08-29-000011",
+      "path": "entries/PALOMAR-2026-08-29-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e3c7230fe78d7b056a415d9ecae6f77887046b32",
+            "fork_repository": "PalomarArchive/mccorvie--classification-of-surfaces--d718e10e33ab",
+            "source_repository": "mccorvie/classification-of-surfaces"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "aca71af169e8dc43bf9cf62fd67daf6949018b7ebe1daabf0acb789b162a0188",
+        "version": 1
+      },
+      "published_at": "2026-08-29T02:38:23Z",
+      "source": {
+        "commit": "e3c7230fe78d7b056a415d9ecae6f77887046b32",
+        "project_path": "LeanEval/topological_classification_of_surfaces",
+        "repository": "mccorvie/classification-of-surfaces"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "mccorvie/classification-of-surfaces",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For a fixed angular radius theta in (0, pi/2), the least number M(n, theta) of spherical caps of angular radius theta, centred at points of the unit sphere of R^n, whose union is that whole sphere satisfies (1/n) log M(n, theta) -> -log sin theta as n -> infinity. This is the covering half of Wyner (1967): the elementary volume bound gives the lower bound on the covering number and a random-covering argument gives the upper bound. The statement is given in Mathlib's own vocabulary, as an asymptotic for Metric.coveringNumber of Metric.sphere 0 1 in EuclideanSpace R (Fin n) at chordal radius 2 sin (theta/2), and introduces no definition of its own; two compared lemmas establish that an angular cap of half-angle theta about a unit vector is exactly the closed chordal ball of that radius, which is what licenses reading the result as a statement about caps. Two further compared theorems rule out the junk values that the N-infinity-valued covering number and the logarithm would otherwise admit.",
+      "authors": [
+        {
+          "name": "George A. Constantinides"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "cs.IT"
+        ],
+        "msc2020": [
+          "52C17",
+          "41A46",
+          "94B65"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MiscMath.Geometry.tendsto_log_coveringNumber_sphere_div_atTop",
+          "MiscMath.Geometry.coveringNumber_sphere_ne_top",
+          "MiscMath.Geometry.coveringNumber_sphere_pos",
+          "MiscMath.Geometry.angle_le_iff_dist_le",
+          "MiscMath.Geometry.dist_eq_two_mul_sin_angle_div_two"
+        ]
+      },
+      "id": "PALOMAR-2026-08-23-000001",
+      "path": "entries/PALOMAR-2026-08-23-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4a1b0c422b6b4e0fd98b04b31a5c41b33fcea123",
+            "fork_repository": "PalomarArchive/geoconuk--lean-misc-math--79e5c7089a59",
+            "source_repository": "geoconuk/lean-misc-math"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "58f63906b087ce4956e54a30bafd686b227a35ea73b7f86a2e44b601f5073cbc",
+        "version": 1
+      },
+      "published_at": "2026-08-23T09:43:44Z",
+      "source": {
+        "commit": "4a1b0c422b6b4e0fd98b04b31a5c41b33fcea123",
+        "project_path": null,
+        "repository": "geoconuk/lean-misc-math"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "geoconuk/lean-misc-math",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

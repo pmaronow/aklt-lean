@@ -1,0 +1,1500 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 / Mathlib formalization of two results. (1) An explicit lower bound for the linear form \u039b = (K + L) log 2 \u2212 K log 3: for every K \u2265 2438425051595107335801557824 and every L, \u039b cannot satisfy 0 < \u039b < 100 \u00b7 2^(1 \u2212 K/2^68). This new self-contained bound is proved from Mathlib using explicit symmetric multipoint Pad\u00e9 approximants (the z = x(70 \u2212 x) kernel of Salikhov and Bouchelaghem\u2013He\u2013Li\u2013Wu) together with an elementary bound on lcm(1, \u2026, n), replacing the use of Rhin's (1987) effective irrationality measure in Collatz cycle arguments. (2) An independent proof of Hercher's (2023) theorem on Collatz m-cycles: assuming Ba\u0159ina's 2025 computer verification that every integer 1 \u2264 k \u2264 2^71 reaches 1 under the Collatz map (passed as an explicit hypothesis), there is no non-trivial cycle of the shortcut Collatz map with m \u2264 91 local minima. Rather than Hercher's finite search and Rhin's (1987) bound, the proof here combines a Raney-type rotation of the cycle, a telescopic lower bound on every local minimum, a 2-adic unimodular reduction, and a kernel-checked chain of continued-fraction steps that forces the number of odd steps past the range of (1). The definitions of the shortcut map and of m-cycles follow Moritz Firsching's formal-conjectures specification. This is an incremental m-cycle certificate plus a formalization; it does not address general cycles or divergent orbits. Both theorems use only propext, Classical.choice and Quot.sound. Four supporting statements are also compared: the trivial cycle 1 \u2192 2 \u2192 1 is a 1-cycle through 1 and through 2, every m-cycle has m \u2265 1, and (under the same hypothesis) every element of a non-trivial cycle exceeds 2^71.",
+      "authors": [
+        {
+          "name": "Hamed Sadeghi"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11B83",
+          "11J86",
+          "11J82",
+          "68V15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "CollatzMCycles.Diophantine.terminal",
+          "CollatzMCycles.not_isMCycle_of_le_91_of_barina",
+          "CollatzMCycles.two_pow_71_lt_iterate",
+          "CollatzMCycles.IsMCycle.ne_zero",
+          "isMCycle_one_one",
+          "isMCycle_one_two"
+        ]
+      },
+      "id": "PALOMAR-2026-11-15-000008",
+      "path": "entries/PALOMAR-2026-11-15-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a1fdeaadc8995232613c282730157d777c6b145f",
+            "fork_repository": "PalomarArchive/hamsade-google--collatz-mcycles-lean--d5fa10cd6589",
+            "source_repository": "hamsade-google/collatz-mcycles-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "52f780ce4b03a4566b24fc77748b9abbbda09ba96a14d3ae8b06361fdeedeae8",
+        "version": 1
+      },
+      "published_at": "2026-11-15T22:03:23Z",
+      "source": {
+        "commit": "a1fdeaadc8995232613c282730157d777c6b145f",
+        "project_path": null,
+        "repository": "hamsade-google/collatz-mcycles-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Collatz m-cycles for m \u2264 91 (conditional on Ba\u0159ina's 2^71 check) and an explicit linear-form bound for log 2 and log 3",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 proof that 30 \u2264 k(6,3) \u2264 32. Here k(n,3) is the Erd\u0151s-Rado number: the least k such that every oriented graph on k vertices has n vertices with no arc between any two of them, or a transitive triangle (vertices x, y, z with arcs x \u2192 y, y \u2192 z and x \u2192 z). The lower bound is an explicit oriented graph on 29 vertices with no transitive triangle and no 6 independent vertices. The upper bound shows that every oriented graph on 32 vertices has one or the other; it rests on a counting argument and on one finite case analysis (every oriented graph on 14 vertices with no transitive triangle and no 4 independent vertices is 6-regular), which is carried out by 49 computations inside Lean's kernel. The upper bounds k(3,3) \u2264 9, k(4,3) \u2264 15 and k(5,3) \u2264 23 are proved on the way and are not cited. The whole proof is checked by the kernel, with no native_decide, and uses only the axioms propext, Quot.sound and Classical.choice. Before this work the bounds that followed from published results were 26 \u2264 k(6,3) \u2264 33. The result gives bounds only: k(6,3) is 30, 31 or 32, its value is not determined, and Erd\u0151s Problem #112, which asks for k(n,m) in general, remains open. As of 14 November 2026 the community database of Erd\u0151s problems lists #112 as unformalized, and the public Lean statements of the problem known to the author prove no bound; to the author's knowledge this is the first machine-checked result on the problem.",
+      "authors": [
+        {
+          "name": "Tyler Satchel Orden"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C55",
+          "05C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Erdos112.k63_bounds"
+        ]
+      },
+      "id": "PALOMAR-2026-11-15-000004",
+      "path": "entries/PALOMAR-2026-11-15-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+            "fork_repository": "PalomarArchive/Tyorden--erdos-112-lean--8987a7d4c431",
+            "source_repository": "Tyorden/erdos-112-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "d729d4f7882e9c75ac0e814885c505fb5b3f4eac3cfcca1b6d945a0506e4415a",
+        "version": 1
+      },
+      "published_at": "2026-11-15T12:15:47Z",
+      "source": {
+        "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+        "project_path": null,
+        "repository": "Tyorden/erdos-112-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Bounds on the Erd\u0151s-Rado number k(6,3): 30 \u2264 k(6,3) \u2264 32 (Erd\u0151s Problem #112)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib proof of Exoo's lower bound R(5,5) \u2265 43 for the diagonal graph Ramsey number: there is a simple graph on 42 vertices with no clique of size 5 and no independent set of size 5. The proof defines a clique scan on natural-number bit masks, proves that a scan with the result `false` excludes every clique of the given size, and lets the Lean kernel evaluate the scan on one explicit graph and on its complement (`decide +kernel`, no `native_decide`). The statement is the one that the Formal Conjectures repository records as `RamseyNumbers.ramsey_number_five_five_lower_bound`. The value of R(5,5) is open; 43 has been the best known lower bound since 1989.",
+      "authors": [
+        {
+          "name": "Arth Singh"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05D10",
+          "05C55",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "RamseyR55.ramsey_number_five_five_lower_bound"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000020",
+      "path": "entries/PALOMAR-2026-11-14-000020-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9128e900ed3de9429e1dab817d93b308a054e104",
+            "fork_repository": "PalomarArchive/Arth-Singh--ramsey-r55-lower-bound--ca60e509a154",
+            "source_repository": "Arth-Singh/ramsey-r55-lower-bound"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "46a0798cc2dd6db6438c4d2023fa984a27a0635ebdee9c2158fbc41652f1b902",
+        "version": 1
+      },
+      "published_at": "2026-11-14T18:02:48Z",
+      "source": {
+        "commit": "9128e900ed3de9429e1dab817d93b308a054e104",
+        "project_path": null,
+        "repository": "Arth-Singh/ramsey-r55-lower-bound"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The lower bound R(5,5) \u2265 43: a kernel-checked Ramsey graph on 42 vertices",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about the Lie algebra L of the linear endomorphisms of four-dimensional Minkowski space that are skew-adjoint for the Minkowski form. Main theorem, (6): a real bilinear form B on L satisfies B([Z,X],Y) + B(X,[Z,Y]) = 0 for all X, Y, Z if and only if B(X,Y) = a tr(XY) + b tr(H(X)Y) for exactly one pair of real numbers (a,b); every such form is symmetric. Here tr(XY) is the trace form of L acting on Minkowski space and H is the operator of (4). For a real simple Lie algebra whose complexification is simple the invariant symmetric bilinear forms are the multiples of the Killing form; for a complex simple Lie algebra regarded as a real one they form a plane (Francis-Staite and Leistner, Proposition 4.1). L is of the second kind: it is sl(2,C) regarded as a real Lie algebra ((1), (2)), H is multiplication by -i under that isomorphism ((4)), and tr(H(X)Y) is a second invariant form, not a multiple of the Killing form (Olafsson and Quiroga-Barranco, Remark A.10, where it is, up to a nonzero factor, K(X, J Y)). Read with X as a field strength, tr(XX) and tr(H(X)X) are, up to normalisation, the Maxwell term and the theta term (Tong's names); that reading is not formalized. Statements (1)-(5): sl(2,C), the exponential criterion, the operator H and the complexification; (2) and (4) are the structure behind the second term of (6). (1) On Mathlib's own objects, with nothing carried: Mathlib's so' (Fin 1) (Fin 3) R is isomorphic, as a real Lie algebra, to sl(2,C) (Mathlib's sl (Fin 2) C with scalars restricted to R), by the explicit map X -> -(1/2) sum_k (beta_k + i theta_k) sigma_k, where beta_k and theta_k are the boost and rotation entries of X and sigma_k are the Pauli matrices. (2) On the carried copy of Minkowski space: L has dimension 6; the same map is an isomorphism of real Lie algebras from L onto sl(2,C); the three boost generators and the three rotation generators are in L, the boost along the axis k goes to -(1/2) sigma_k and the rotation in the plane of the two other axes goes to -(i/2) sigma_k. (3) The exponential criterion: a continuous linear endomorphism A is in L if and only if exp(tA) is in the carried type ProperLorentz for every real t; the statement also records that the Minkowski form used for L has the carried minkowskiSquare as its quadratic form. (4) The explicit operator H (the boost along the axis k goes to minus the rotation in the plane of the two other axes, and that rotation goes to the boost) maps L into L, is real-linear there, satisfies H[X,Y] = [X,HY] and H(HX) = -X, and the isomorphism of (2) carries it to multiplication by -i on sl(2,C). (5) The complexification C (x)_R L is isomorphic, as a complex Lie algebra, to sl(2,C) x sl(2,C), and the two maps (1/2)(1 + iH) and (1/2)(1 - iH) are the projections onto the two factors, H being the operator of (4) extended C-linearly. Controls: (7) for the definite diagonal form diag(1,1,1,1) the Lie algebra of skew matrices is isomorphic to so(3) x so(3), for the split form diag(1,1,-1,-1) it is isomorphic to sl(2,R) x sl(2,R), and neither of the two is isomorphic to sl(2,C) as a real Lie algebra; (8) there is a bilinear form on L that is not a tr(XY) + b tr(H(X)Y) for any real a, b; (9) there is a continuous linear endomorphism A with exp(A) in ProperLorentz and A not in L. Numbering as in comparator.json. Statement (1) and part (b) of statement (2) are one isomorphism on two presentations; they are not two results. The Challenge imports Mathlib only. The definitions of Minkowski space and of the Lorentz transformations (Spacetime, minkowskiSquare, ProperLorentz and eight more) are copies carried textually from the public statement of the Yang-Mills release, repository github.com/yang-mills-group/OpenAI-YM-20261028, commit 3456e5e75cf8d4cd558955a5c7638fba2d68f464, file PublicTheory.lean, under the Apache License, Version 2.0; the source file is not imported. Statement (6) is proved from the classification of the linear maps R of L with R[X,Y] = [X,RY], which is the subject of a separate entry in preparation and is not compared here. Audience. Formal developments that use the Lorentz Lie algebra as an object. physlib's lorentzAlgebra is Mathlib's so' (Fin 1) (Fin 3) R, the object of (1); physlib also proves that the complex coefficient tensors with four vector indices invariant under SL(2,C) acting through the Lorentz group are combinations of the three pairings of the metric and the alternating symbol (independence is not proved there). The Yang-Mills release works with the Lorentz Lie algebra of this entry as the predicate tangent (X^T = -theta X theta) on its own 4 x 4 matrix type, splits it into rotations and boosts (tangent_parts), and proves, under its hypothesis Spin.Port, that its Wick-rotated map into operators on field labels respects brackets whenever the first argument is a boost (rank_bracket), in YM/Next/BOUNDARY/Derived.lean; it does not state or use any of the nine statements here, and its matrix type is not the carried Spacetime. The monograph project hairer/humanise-yang-mills proves that invariant bilinear forms on the compact colour algebra are scalar multiples using a positive invariant inner product (manuscript/existence/trace-free-rank.tex, lines 34-51, commit 0f00ae72); (6) shows that on so(3,1), which is simple but has no such inner product, the invariant forms are a two-parameter family. No one at these projects was contacted, and none of them has asked for or endorsed this entry. Literature. This entry formalizes known mathematics; the clauses not found printed are listed below. (1) and (2) are the Lie-algebra form of Spin(3,1) = SL(2,C) (Woit, Quantum Theory, Groups and Representations, sections 40.2 and 40.4; the formula is printed on generators in section 41.2; Olafsson and Quiroga-Barranco, Lemma A.1, state so(3,1) = sl(2,C)_R); (3) is the description of the Lie algebra of a matrix group by its one-parameter subgroups (Hall, arXiv:math-ph/0005032, Definition 3.13; proved there for O(n;k), which includes O(3;1), Chapter 3, section 5.6), stated here for the proper orthochronous subgroup, and (9) is an exercise of that chapter; (4) is the Hodge operator on so(3,1) (Wise, Class. Quantum Grav. 27 (2010) 155010, Appendix); (5) is the splitting of the complexified Lorentz algebra (Woit, section 40.2; Sahlmann and Seeger, Class. Quantum Grav. 41 (2024) 075010, section 2.2.1); (6) is the description of the invariant bilinear forms of a complex simple Lie algebra regarded as a real one (Olafsson and Quiroga-Barranco, Transform. Groups 17 (2012), Remark A.10; Francis-Staite and Leistner, Transform. Groups 26 (2021), Proposition 4.1); parts (a) and (b) of (7) are the companion isomorphisms in the two other signatures (Woit, section 21.2; Olafsson and Quiroga-Barranco, Remark A.2); (8) holds by a count of dimensions (the bilinear forms on L have dimension 36 and the forms of statement 6 are a plane). Not found printed in the sources read: the clause of (4) on multiplication by -i, and parts (c) and (d) of (7); README.md says how each follows from what is printed. Prior formalization, recorded under related_formalizations (search of 2026-11-13): no formalization of a compared statement was found. The counterparts for groups of (1), (2), (5), (7a) and (7b) are in TauCeti, and the homomorphism from SL(2,C) onto the restricted Lorentz group is in physlib; every ingredient of (1) and (2) is in TauCeti and was not found combined there. The equivalence of (3) is proved in TauCeti as a general theorem for the unitary group of a complete normed real algebra with a continuous involution (the form-preservation part of (3) is a case of it, by a reading that was not compiled), for the matrix groups O(n), SO(n), SL(n), SU(n) and the symplectic group, and for the Spin groups; its direction from the algebra to the group is proved for Lorentz matrices in physlib and in OSreconstruction; it was not found with both directions for the Lorentz group or another indefinite orthogonal group of linear maps. For (6), TauCeti has the uniqueness of invariant forms over an algebraically closed field and physlib the invariant coefficient tensors with four vector indices. For (5), TauCeti has extension of scalars for the skew-adjoint matrices of a Gram matrix and the complexifications of so(n) and su(n); the splitting into sl(2,C) x sl(2,C) was not found. The Hodge operator of Euclidean four-space on matrices is in github.com/openai/math. Not formalized: no covering map from SL(2,C) to ProperLorentz, no Lie group structure, no connectedness statement, no statement that every element of ProperLorentz is an exponential; other dimensions and signatures beyond (7); the identification of L with two-forms; the Killing form; the invariant forms of the complexification. Also proved in the library, not compared: Minkowski space from a number field. For a number field K with exactly two real places and exactly one complex place there is a real-linear equivalence e from Mathlib's mixedSpace K onto Spacetime with minkowskiSquare(e x) = -Tr_{K/Q}(x^2) for every x in K, and conjugation by e is an isomorphism of real Lie algebras onto L from the Lie algebra of the endomorphisms of mixedSpace K that are skew-adjoint for the form that restricts to Tr_{K/Q}(x^2) on K. This is proved in the library of this entry and is not compared.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RT",
+          "math-ph",
+          "gr-qc",
+          "hep-th"
+        ],
+        "msc2020": [
+          "17B20",
+          "22E43",
+          "17B05",
+          "15A63",
+          "17B81",
+          "83A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MinkowskiLorentz.so'_one_three_lieEquiv_sl2C",
+          "MinkowskiLorentz.lorentzAlgebra_lieEquiv_sl2C",
+          "MinkowskiLorentz.mem_lorentzAlgebra_iff_exp",
+          "MinkowskiLorentz.hodgeEnd_complexStructure",
+          "MinkowskiLorentz.complexification_lieEquiv",
+          "MinkowskiLorentz.invariant_bilinForm_iff",
+          "MinkowskiLorentz.definite_split_signature",
+          "MinkowskiLorentz.exists_bilinForm_not_trace_form",
+          "MinkowskiLorentz.exists_exp_mem_not_mem_lorentzAlgebra"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000019",
+      "path": "entries/PALOMAR-2026-11-14-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+            "fork_repository": "PalomarArchive/stalex444--minkowski-lorentz-algebra--34c1409c6a74",
+            "source_repository": "stalex444/minkowski-lorentz-algebra"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "bd0e8a0fc3b035fda0c9f4bc622e2d333788757f97e5bfc7f312858a12958700",
+        "version": 1
+      },
+      "published_at": "2026-11-14T14:24:48Z",
+      "source": {
+        "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+        "project_path": null,
+        "repository": "stalex444/minkowski-lorentz-algebra"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Invariant bilinear forms on the Lorentz Lie algebra so(3,1): the two-parameter family a tr(XY) + b tr(H(X)Y), with sl(2,C), the exponential criterion and the complexification",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "This Lean 4 and Mathlib development produces exact, machine-checked positivity certificates for finite Gram matrices built from Suzuki's zeta screw function. Weil's explicit formula recasts the Riemann Hypothesis as positivity of a quadratic form assembled from prime powers, and a recent line of work truncates that form and studies the resulting finite matrices. The objects formalized here are the screw function Psi, defined as an archimedean profile minus a von Mangoldt weighted prime sum and extended evenly; its Gram kernel G(t,u) = Psi(t) + Psi(u) - Psi(t-u); and positive definiteness, in the quadratic-form sense, of the finite matrices this kernel generates on explicit grids.\nThe three compared results are as follows. (1) On the grid (0.2, 0.4, 0.6) the 3 by 3 Gram matrix M3 of the genuine kernel satisfies an explicit Rayleigh floor: for every real vector x, 0.005 times the sum of the x_i squared is at most the quadratic form of M3 at x. (2) M3 is positive definite. (3) On the grid (0.4, 0.9) the 2 by 2 Gram matrix is positive definite. The prime sum in Psi vanishes for t below log 2 (about 0.693) and the node 0.9 lies above it, so the p = 2 prime term contributes to this matrix.\nThe interest is that the surrounding literature (Connes and van Suijlekom; Connes, Consani and Moscovici; Suzuki) works either in floating point or at the level of existence statements, whereas these are exact certificates checked against the definition of Psi itself. Suzuki establishes that some positivity window exists; here an explicit one is exhibited, with an explicit margin, and verified, to our knowledge for the first time.\nScope is finite and explicit. Every positivity statement concerns a specified grid at specified rational nodes; there is no asymptotic, fine-mesh or all-grid result; and nothing here bears on the Riemann Hypothesis.",
+      "authors": [
+        {
+          "name": "Rohan Badade"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.LO"
+        ],
+        "msc2020": [
+          "11M26",
+          "15B48",
+          "68V20",
+          "65G20",
+          "15A63",
+          "11M06"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Challenge.true_kernel_grid_margin",
+          "Challenge.true_kernel_grid_posdef",
+          "Challenge.true_kernel_first_prime_posdef"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000017",
+      "path": "entries/PALOMAR-2026-11-14-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+            "fork_repository": "PalomarArchive/gnostrich--certified-positivity--79bf1f217491",
+            "source_repository": "gnostrich/certified-positivity"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c052c75e406f62750dc622503e3f9d3840ce415ae4f1be56874f871ccf49e78f",
+        "version": 1
+      },
+      "published_at": "2026-11-14T13:03:23Z",
+      "source": {
+        "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+        "project_path": null,
+        "repository": "gnostrich/certified-positivity"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Certified Positivity: machine-checked positivity windows for the Suzuki zeta screw kernel",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that there is an 8-regular simple graph of girth 7 on 768 vertices (Mathlib's SimpleGraph, IsRegularOfDegree and girth), so that the order n(8, 7) of an (8, 7)-cage is at most 768; the House of Graphs cage table listed 774 when this was written. The graph is data (adjacency lists in a binary trie). Lean's kernel checks (decide +kernel, no native_decide) that it is simple and 8-regular, and, for every vertex v and every two neighbours x \u2260 y, that the ends of the non-backtracking walks of length at most 3 starting with the edge v x are disjoint from those starting with v y. A cycle of length at most 6 would contradict this at one of its vertices, and an explicit 7-cycle gives girth exactly 7.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C35",
+          "05C38",
+          "51E12"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Cage87.exists_regular_girth_seven"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000013",
+      "path": "entries/PALOMAR-2026-11-14-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-cage-8-7--b176c239a81e",
+            "source_repository": "arhancanli/quantavane-cage-8-7"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "41333572038018283f24f1c11b98008f9f558000747e769243517ba1bb481488",
+        "version": 1
+      },
+      "published_at": "2026-11-14T10:05:25Z",
+      "source": {
+        "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-cage-8-7"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "An 8-regular graph of girth 7 on 768 vertices",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that the matrix multiplication tensor \u27e89, 11, 11\u27e9 has rank at most 708 over the rationals. Two compared theorems: 708 triples of rational matrices decompose the tensor (\u2211\u1d62 u\u1d62[a, b] v\u1d62[c, d] w\u1d62[e, f] = [b = c \u2227 a = e \u2227 d = f]), and the same triples form a bilinear algorithm A * B = \u2211\u1d62 (\u2211 u\u1d62[a, b] A[a, b]) (\u2211 v\u1d62[c, d] B[c, d]) w\u1d62 over every field of characteristic zero. The scheme, scaled to integers, is data; Lean's kernel checks it (decide +kernel, no native_decide) slice by slice with the coefficients packed into large integers, and a soundness proof for every input turns the 99 slice checks, a range check and a bound check into the tensor identity. The smallest rank listed for this format in the Lille catalogue was 710 when this was written.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.SC",
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68Q25",
+          "15A69",
+          "68W30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MatMul9x11x11.exists_tensor_decomposition",
+          "MatMul9x11x11.exists_bilinear_algorithm"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000006",
+      "path": "entries/PALOMAR-2026-11-14-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f3eb2873d0e27364a75846568294a566cc1fa2b7",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-fmm-9x11x11--5ffb1a2ee16c",
+            "source_repository": "arhancanli/quantavane-fmm-9x11x11"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a18d59260cc51f49a7d27dd4f7ced3d8a106ff2a08361c97dc977c3b896ded48",
+        "version": 1
+      },
+      "published_at": "2026-11-14T07:12:05Z",
+      "source": {
+        "commit": "f3eb2873d0e27364a75846568294a566cc1fa2b7",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-fmm-9x11x11"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Multiplying 9 \u00d7 11 by 11 \u00d7 11 matrices with 708 multiplications",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that the matrix multiplication tensor \u27e89, 10, 11\u27e9 has rank at most 640 over the rationals. Two compared theorems: 640 triples of rational matrices decompose the tensor (\u2211\u1d62 u\u1d62[a, b] v\u1d62[c, d] w\u1d62[e, f] = [b = c \u2227 a = e \u2227 d = f]), and the same triples form a bilinear algorithm A * B = \u2211\u1d62 (\u2211 u\u1d62[a, b] A[a, b]) (\u2211 v\u1d62[c, d] B[c, d]) w\u1d62 over every field of characteristic zero. The scheme, scaled to integers, is data; Lean's kernel checks it (decide +kernel, no native_decide) slice by slice with the coefficients packed into large integers, and a soundness proof for every input turns the 90 slice checks, a range check and a bound check into the tensor identity. The smallest rank listed for this format in the Lille catalogue was 644 when this was written.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.SC",
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68Q25",
+          "15A69",
+          "68W30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MatMul9x10x11.exists_tensor_decomposition",
+          "MatMul9x10x11.exists_bilinear_algorithm"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000005",
+      "path": "entries/PALOMAR-2026-11-14-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f4e076c036a6a8bd2402a24e8f468d550bbb5234",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-fmm-9x10x11--a96afb5c9a72",
+            "source_repository": "arhancanli/quantavane-fmm-9x10x11"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9dd74af511473637f9a8e2912bb2b511ae474e17de70cf546551f309ab7e096c",
+        "version": 1
+      },
+      "published_at": "2026-11-14T07:04:58Z",
+      "source": {
+        "commit": "f4e076c036a6a8bd2402a24e8f468d550bbb5234",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-fmm-9x10x11"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Multiplying 9 \u00d7 10 by 10 \u00d7 11 matrices with 640 multiplications",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about R^n with a diagonal metric eta whose entries are +1 or -1 (every signature). A covector field omega is conformal Killing when it is C^3 and d_i omega_j + d_j omega_i = 2 phi eta_ij for some function phi, and Killing when it is C^3 and d_i omega_j + d_j omega_i = 0. (1) For n >= 3 the conformal Killing fields are exactly the members of an explicit family: translations, rotations (an antisymmetric matrix), the dilation and the special conformal fields. (2) In every dimension the Killing fields are exactly the affine fields a + A x with A antisymmetric. (3) For n >= 3 the conformal Killing fields form a real vector space of finite dimension (n+1)(n+2)/2. (4) In every dimension the Killing fields form a real vector space of finite dimension n(n+1)/2. (5) A control for the hypothesis n >= 3 of (1): in the Euclidean plane there is a conformal Killing field that is not a member of the family for any values of its parameters, the matrix being any real matrix, antisymmetric or not (the witness in the proof is the real and imaginary parts of z^3). Statements (6)-(9) are statements about conserved currents: they say which fields give conserved currents. (6) If a tensor field T and a covector field omega are differentiable at a point x, T(x) is symmetric and the conformal Killing equation holds at x with factor phi, then the current J^i = sum_j T^ij omega_j satisfies div J = (div T) . omega + phi tr_eta T at x. (7) A C^3 field is conformal Killing if and only if the current of every differentiable, symmetric, divergence-free, eta-trace-free tensor field against it is divergence-free. (8) A C^3 field is Killing if and only if the current of every differentiable, symmetric, divergence-free tensor field against it is divergence-free. (9) For n >= 1 the dilation omega_j = eta_j x_j is conformal Killing and is not Killing. The Challenge imports Mathlib only and carries the definitions its statements use (the partial derivative, the two equations, the family, the two solution spaces as submodules, the divergences, the current and the metric trace), each with its convention. Statements (1)-(4) are classical: (1) and (3) are the classification of the conformal Killing fields of R^{p,q}, p + q >= 3, and the count of their parameters (Schottenloher 2008, Theorem 1.7; Ginsparg 1988, section 1.1), the infinitesimal counterpart of Liouville's theorem on conformal maps; (2) and (4) are the Killing fields of flat space and their number. (6) is the standard identity behind the conserved currents of a trace-free stress tensor, and (5) and (9) are standard examples. In (7) and (8) the direction from the equation to conserved currents is (6); the other direction was not found stated in the sources read for this entry, is elementary (it is proved by testing on constant tensor fields, so it is a pointwise fact of linear algebra) and is not claimed as new. No statement is claimed as a new theorem. Scope: diagonal metrics with entries +1 or -1 (a general constant metric, reached by a linear change of coordinates, is not formalized); C^3 covector fields on all of R^n; the numbers in (3) and (4) are dimensions of real vector spaces, with no Lie bracket and no isomorphism with so(p+1,q+1) stated; the finite conformal maps (Liouville's theorem itself) are not formalized; nothing is said about compactly supported tensor fields in (7) and (8). Prior formalization, recorded under related_formalizations: the identity (6), with its corollary for conserved trace-free tensors, is formalized for n = 4 and signature (1,3), for tensors of tempered distributions, in github.com/openai/math; special cases of the currents are in the Yang-Mills release github.com/yang-mills-group/OpenAI-YM-20261028 and in facebookresearch/atlas-lean, and Killing fields on Riemannian manifolds are in atlas-lean and in TauCetiProject/TauCeti. In a dated search no formalization was found of (1)-(5) or of the direction of (7) and (8) from conserved currents to the equation. Application (cited; no compared statement asserts it): for n = 4 and a Lorentzian signature the spaces of (3) and (4) have dimensions 15 and 10, the infinitesimal conformal symmetries and the infinitesimal isometries of Minkowski space, and (6) is the conservation law for the currents of a conserved symmetric stress tensor against them, trace-free in the conformal case.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DG",
+          "math-ph",
+          "gr-qc",
+          "hep-th"
+        ],
+        "msc2020": [
+          "53C18",
+          "53B30",
+          "35N05",
+          "70S10",
+          "81T40",
+          "83A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FlatConformalKilling.conformalKilling_iff_family",
+          "FlatConformalKilling.killing_iff_affine",
+          "FlatConformalKilling.finrank_conformalKilling",
+          "FlatConformalKilling.finrank_killing",
+          "FlatConformalKilling.plane_conformalKilling_not_family",
+          "FlatConformalKilling.div_current_of_conformal",
+          "FlatConformalKilling.currents_conserved_iff_conformalKilling",
+          "FlatConformalKilling.currents_conserved_iff_killing",
+          "FlatConformalKilling.dilation_conformalKilling_not_killing"
+        ]
+      },
+      "id": "PALOMAR-2026-11-12-000002",
+      "path": "entries/PALOMAR-2026-11-12-000002-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+            "fork_repository": "PalomarArchive/stalex444--conformal-killing-flat--43bc2d3753b9",
+            "source_repository": "stalex444/conformal-killing-flat"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "770afa854af6548440fc404321fc0dc25bbfbd5a70884af39be73ca759afad24",
+        "version": 2
+      },
+      "published_at": "2026-11-13T23:17:27Z",
+      "source": {
+        "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+        "project_path": null,
+        "repository": "stalex444/conformal-killing-flat"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Conformal Killing and Killing fields of flat pseudo-Euclidean space: classification for n >= 3 in every signature, the two dimension counts, and the divergence of the current of a symmetric tensor field",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Exact expansion at the first excluded ordered prefix and a positive remainder kernel under arbitrary dependence. A universal heterogeneous Poisson\u2013Charlier conversion bound is applied to the actual run model. Complete-law transfer explicitly assumes the 254 fixed-order connected-activity estimates; reconstruction from absolute triple activity and the resulting 4/3 upper bound are unconditional.",
+      "authors": [
+        {
+          "name": "Brice Pouly"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.NT"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "PaperP1Registry.V2.StoppingReconstruction.expansion_polynomial_expansion",
+          "PaperP1Registry.V2.StoppingReconstruction.prefix_suffix",
+          "PaperP1Registry.V2.StoppingReconstruction.expansion_positive_stopped_kernel",
+          "PaperP1Registry.V2.StoppingReconstruction.expansion_stopped_l1_bound",
+          "PaperP1Registry.V2.StoppingReconstruction.finite_conversion",
+          "PaperP1Registry.V2.StoppingReconstruction.run_conversion",
+          "PaperP1Registry.V2.StoppingReconstruction.conditional_transfer",
+          "PaperP1Registry.V2.StoppingReconstruction.triple_reconstruction"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000008",
+      "path": "entries/PALOMAR-2026-11-13-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d6a0f6c5109886127526677603eb6b74e8c0cd82",
+            "fork_repository": "PalomarArchive/Vulkin-prog--paper-p1-lean--91e74cc11e7f",
+            "source_repository": "Vulkin-prog/paper-p1-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "8365f76a7059e8f57ef49259262ffaf5acad9d09ee2f6c29b1d5cc3455da6407",
+        "version": 1
+      },
+      "published_at": "2026-11-13T09:20:18Z",
+      "source": {
+        "commit": "d6a0f6c5109886127526677603eb6b74e8c0cd82",
+        "project_path": "RegistryV2",
+        "repository": "Vulkin-prog/paper-p1-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "P1 publication: Stopping and complete-law reconstruction",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib proof that the Gallai\u2013van der Waerden numbers GW(r; 3, 4) of Mao, Ozeki, Robertson and Wang equal 53 for r = 3, 4 and 5. GW(r; 3, l) is the least m such that for every n \u2265 m, every exact r-colouring of {1, \u2026, n} contains a rainbow 3-term or a monochromatic l-term arithmetic progression. Upper bound: for every r \u2264 5 and every n \u2265 53, every r-colouring of {1, \u2026, n} has a rainbow 3-term or a monochromatic 4-term progression. This is reduced to the unsatisfiability of a CNF with 265 atoms and 43,562 clauses (colours renamed in order of first appearance), and the unsatisfiability is checked in Lean's kernel (decide +kernel, no native_decide) from an LRAT certificate of 1,211 derived clauses by a bitmask unit-propagation checker whose soundness is proved in Lean for every input. Lower bound: explicit exact 3-, 4- and 5-colourings of {1, \u2026, 52} with neither progression, checked by the kernel. Together: GW(3; 3, 4) = GW(4; 3, 4) = GW(5; 3, 4) = 53.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05D10",
+          "11B25",
+          "05-08"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "GwExact.gwProperty_53",
+          "GwExact.exists_good_3",
+          "GwExact.exists_good_4",
+          "GwExact.exists_good_5",
+          "GwExact.GW_eq_53"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000005",
+      "path": "entries/PALOMAR-2026-11-13-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "0b66486688882b30ff6ee48c15b55a09c73d6a0c",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-gw-exact--f553995b96f1",
+            "source_repository": "arhancanli/quantavane-gw-exact"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "de3e4f3f7448e3a714febfafec77d9789f38ecd752c48caa221b613ce72ec4a8",
+        "version": 1
+      },
+      "published_at": "2026-11-13T07:02:47Z",
+      "source": {
+        "commit": "0b66486688882b30ff6ee48c15b55a09c73d6a0c",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-gw-exact"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Exact Gallai\u2013van der Waerden numbers: GW(r; 3, 4) = 53 for r = 3, 4, 5",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean 4 and Mathlib proofs that no directed strongly regular graph exists for 28 parameter sets (v, k, t, \u03bb, \u03bc). A directed strongly regular graph is a 0-1 matrix A with zero diagonal, all row and column sums equal to k and A\u00b2 = tI + \u03bbA + \u03bc(J \u2212 I \u2212 A). Nine of the parameter sets are those of the paper below: (50, 11, 7, 0, 3), (68, 13, 7, 0, 3), (100, 16, 7, 0, 3), (108, 19, 9, 0, 4), (55, 16, 12, 1, 6), (66, 10, 5, 4, 1), (91, 12, 6, 5, 1), (96, 15, 10, 9, 1) and (28, 6, 3, 2, 1); the tenth set of the paper, (48, 9, 5, 0, 2), is not formalized. The same lemmas exclude eight further sets, and a formalized complement lemma excludes eleven complementary sets. The proofs compare the rank of A \u2212 \u03b8I, for a root \u03b8 of the quadratic x\u00b2 \u2212 (\u03bb \u2212 \u03bc)x \u2212 (t \u2212 \u03bc), with a submatrix of A prescribed at one vertex. For (28, 6, 3, 2, 1) one case is a SAT refutation whose LRAT certificate the Lean kernel checks with decide +kernel. The theorems use only propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Iurii Ivanov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C20",
+          "05E30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DsrgRank.ClosedNbhd_no_50_11_7_0_3",
+          "DsrgRank.ClosedNbhd_no_54_13_9_0_4",
+          "DsrgRank.ClosedNbhd_no_64_17_13_0_6",
+          "DsrgRank.ClosedNbhd_no_68_13_7_0_3",
+          "DsrgRank.ClosedNbhd_no_70_15_9_0_4",
+          "DsrgRank.ClosedNbhd_no_78_19_13_0_6",
+          "DsrgRank.ClosedNbhd_no_88_23_17_0_8",
+          "DsrgRank.ClosedNbhd_no_100_16_7_0_3",
+          "DsrgRank.ClosedNbhd_no_108_19_9_0_4",
+          "DsrgRank.ClosedNbhd_no_110_31_25_0_12",
+          "DsrgRank.LeftKer_no_55_16_12_1_6",
+          "DsrgRank.TwinMuOne_no_40_9_6_5_1",
+          "DsrgRank.TwinMuOne_no_66_10_5_4_1",
+          "DsrgRank.TwinMuOne_no_91_12_6_5_1",
+          "DsrgRank.TwinMuOne_no_96_15_10_9_1",
+          "DsrgRank.Twin_no_80_19_13_12_2",
+          "DsrgRank.Case28_no_28_6_3_2_1",
+          "DsrgRank.Case28_no_28_21_18_15_18",
+          "DsrgRank.compl_no_40_30_27_21_27",
+          "DsrgRank.compl_no_50_38_34_29_28",
+          "DsrgRank.compl_no_55_38_34_27_24",
+          "DsrgRank.compl_no_66_55_50_45_50",
+          "DsrgRank.compl_no_68_54_48_43_42",
+          "DsrgRank.compl_no_80_60_54_42_54",
+          "DsrgRank.compl_no_91_78_72_66_72",
+          "DsrgRank.compl_no_96_80_75_65_75",
+          "DsrgRank.compl_no_100_83_74_69_68",
+          "DsrgRank.compl_no_108_88_78_72_70"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000004",
+      "path": "entries/PALOMAR-2026-11-13-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+            "fork_repository": "PalomarArchive/Nosdormas--melete-math--c62e2f56db1d",
+            "source_repository": "Nosdormas/melete-math"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7e3b0d59274bd11110305f0a9f007af8de3b2396a771f4d3dc5bfdd31b954959",
+        "version": 1
+      },
+      "published_at": "2026-11-13T06:03:05Z",
+      "source": {
+        "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+        "project_path": "dsrg-rank-method/lean",
+        "repository": "Nosdormas/melete-math"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Nonexistence of directed strongly regular graphs by rank arguments",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six statements. An additive map phi between associative rings is a Jordan homomorphism when phi(ab + ba) = phi(a)phi(b) + phi(b)phi(a). (1) A Jordan homomorphism onto a prime ring without 2-torsion is a homomorphism or an anti-homomorphism (phi(ab) = phi(b)phi(a)): Herstein's theorem (1956, Theorem H) in the form Smiley gave it (1957, p. 428), with characteristic 3 admitted; an additive map of rings, no identity assumed. (2) The domain form in every characteristic (Jacobson and Rickart 1950, Theorem 2): an additive map with phi(a^2) = phi(a)^2 and phi(aba) = phi(a)phi(b)phi(a), into a ring without zero divisors, is multiplicative or anti-multiplicative, with no surjectivity and no hypothesis on 2. (3)-(5) Each hypothesis of (1) is needed; each statement asserts that one hypothesis fails, that the others hold, and that the map is neither multiplicative nor anti-multiplicative: (3) from 2x2 into 4x4 integer matrices, not onto, the target prime and without 2-torsion (witness a -> diag(a, a^T)); (4) on pairs of 2x2 integer matrices, onto, the target not prime (witness (a, b) -> (a, b^T)); (5) from F_2 x F_2 onto F_2, a prime ring with 2-torsion (witness (x, y) -> x + y). (6) The theorem in every characteristic (Smiley 1957, Added in proof, p. 429): an additive map with the two identities of (2), onto a prime ring, is a homomorphism or an anti-homomorphism, with no hypothesis on 2; it implies (1), and (5) shows that the Jordan identity alone does not suffice when the ring has 2-torsion. The compared statements add no definition: the identities on the map and the conditions on the target ring are written out as universally quantified statements, the maps are Mathlib's AddMonoidHom, and onto is Function.Surjective. Statements 1, 2 and 6 formalize theorems of the 1950s and statements 3-5 are standard examples; nothing here is a new theorem. The proof of (1) follows the argument written out by Beidar, Bresar and Chebotar (2003, Proposition 3.1), not Smiley's; the proof of (2) is Jacobson and Rickart's; the proof of (6) is Smiley's, through his lemma that a prime ring in which every commutator squares to zero is commutative. Not formalized: the semiprime generalizations. A prior formalization of the case of complex-linear maps between unital complex algebras exists in github.com/openai/math and is recorded under related_formalizations; statements (1) and (6) contain that case. Application (cited; no compared statement asserts it): the self-adjoint elements of an algebra of observables are closed under the symmetrized product and not, in general, under the product; applied to the identity map, (1) says that on a prime ring without 2-torsion the symmetrized product determines the associative product up to reversing the order of the factors.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math-ph",
+          "quant-ph"
+        ],
+        "msc2020": [
+          "16W10",
+          "16N60",
+          "17C50",
+          "81R15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "JordanPrime.jordan_onto_prime",
+          "JordanPrime.twoIdentity_into_domain",
+          "JordanPrime.onto_needed",
+          "JordanPrime.prime_needed",
+          "JordanPrime.two_needed",
+          "JordanPrime.twoIdentity_onto_prime"
+        ]
+      },
+      "id": "PALOMAR-2026-11-11-000008",
+      "path": "entries/PALOMAR-2026-11-11-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+            "fork_repository": "PalomarArchive/stalex444--herstein-jordan-homomorphisms--865f53090a9e",
+            "source_repository": "stalex444/herstein-jordan-homomorphisms"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9dacac9a47966ba3739949ab977c6a543a1241058efdbbd60600f067206d5ece",
+        "version": 1
+      },
+      "published_at": "2026-11-11T23:11:48Z",
+      "source": {
+        "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+        "project_path": null,
+        "repository": "stalex444/herstein-jordan-homomorphisms"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Herstein's theorem on Jordan homomorphisms onto prime rings, in Smiley's form for characteristic different from 2 and in his form for every characteristic, with the Jacobson-Rickart domain theorem and an example for each hypothesis",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Let f(y) be the decimal reversal of the y-th prime (f(1) = 2, f(2) = 3, f(5) = 11, f(11) = 13). OEIS A100475 is the orbit of 1 under f, and its entry asks (Jonathan Vos Post, 2004) whether the orbit of any other positive start ever enters a loop. This project proves that it never does, i.e. the negation of the formal-conjectures statement OeisA100475.conjecture: the number of digits never decreases along an orbit (p_y > y, and a prime never ends in 0), so on a cycle it is a constant D and every cycle element v satisfies p_v < 10^D; for D <= 4 this forces v <= 1229, and a kernel-checked table of the first 1230 primes with an escape-time ranking shows that no cycle stays below 1230; for D >= 5 it contradicts the bound pi'(10^D) < 10^(D-1) on the number of primes below 10^D, proved for D = 5, ..., 8 by Legendre's sieve recursion evaluated by the Lean kernel and for D >= 9 by Chebyshev's bound theta(x) <= x log 4 with the split point 10^(D-2).",
+      "authors": [
+        {
+          "name": "Daniel Veljjanoski"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11A63",
+          "11N05",
+          "11B83"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA100475.conjecture"
+        ]
+      },
+      "id": "PALOMAR-2026-11-11-000001",
+      "path": "entries/PALOMAR-2026-11-11-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "0968200356e449a24a023264821d4ea966091cf0",
+            "fork_repository": "PalomarArchive/veljjanoski--oeis100475-palomar--96b4cf8514aa",
+            "source_repository": "veljjanoski/oeis100475-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1e180d8191c549b40c647d2ff246e2bc83be6c92ccae6211ad5e896c5638067b",
+        "version": 1
+      },
+      "published_at": "2026-11-11T00:08:23Z",
+      "source": {
+        "commit": "0968200356e449a24a023264821d4ea966091cf0",
+        "project_path": null,
+        "repository": "veljjanoski/oeis100475-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "OEIS A100475: the reverse-prime map never loops",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalizes the target lowMul3, the three low bits of the product of two 3-bit integers (the product modulo 8), in the unrestricted XOR--AND circuit model of arXiv:2608.30238v1, where XOR and constants are free and either input of a paid AND gate may reuse arbitrary earlier nonlinear wires. Phase 1 proves that the three ANF coordinates agree with integer multiplication modulo 8 on all 64 inputs, and gives an explicit six-gate circuit, one of whose gates reuses two earlier nonlinear wires. Phase 2 adds the derivative lemma (Lemma 8 of the four-gate note in paper/notes/). Phase 3 proves the normal form (Lemma 1), Lemma 2, the pi2 / iota layer with Lemma 8 in the paper's form, Lemma 4 (kernel) and Lemma 6, excludes lambda = 5, and reduces MC(lowMul3) = 6 to four explicit statements. Phase 4 proves the four-linear-gate case (StarFree, Theorem 12 of the note). Phases 5 and 6 prove the three-linear-gate case (lambdaCase_three), so MC(lowMul3) = 6 follows from LambdaCase 1 and LambdaCase 2. The development proves both remaining cases, including TwoClaim and the shared modular feedback lemmas. LowHalfMul3Solution.lean proves the unconditional theorem mc_lowMul3.",
+      "authors": [
+        {
+          "name": "Bshara Alhodali"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68Q06",
+          "68Q17",
+          "94D10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "UnrestrictedBooleanMul.LowHalfMul3.mc_lowMul3"
+        ]
+      },
+      "id": "PALOMAR-2026-11-09-000020",
+      "path": "entries/PALOMAR-2026-11-09-000020-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b6c00ef8d94ff578585b428270df1af271a96bd6",
+            "fork_repository": "PalomarArchive/bishara74--lowhalf-mul3--c49c0da1e89d",
+            "source_repository": "bishara74/lowhalf-mul3"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "42d7eb96a390e230acba94973e99922b595baab41faaaff4042451a4ea980a33",
+        "version": 1
+      },
+      "published_at": "2026-11-09T22:04:30Z",
+      "source": {
+        "commit": "b6c00ef8d94ff578585b428270df1af271a96bd6",
+        "project_path": null,
+        "repository": "bishara74/lowhalf-mul3"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Unrestricted Boolean multiplicative complexity of the 3x3 low-half multiplier",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of material in a forthcoming manuscript entitled \"The Orthogonal Art Gallery Problem is \u2203\u211d-complete\". A Lean 4 and Mathlib proof, for an explicit single-tape Turing machine model, that deciding whether an orthogonal simple polygon (every edge horizontal or vertical) with rational corners can be guarded by g points of its boundary, which together must see the whole closed polygon (the boundary-point variant), is \u2203\u211d-complete under polynomial-time many-one reductions. The orthogonal point-point and point-boundary variants are the subject of the author's earlier entry PALOMAR-2026-11-01-000004 v1, whose definitions this entry reuses unchanged. For general polygons the boundary-point variant is treated by Abrahamsen, Adamaszek and Miltzow (J. ACM 2021); orthogonal polygons are not. The hardness proof is a new construction: the ETR-INV instance is compiled to rows of fourteen relation profiles, and the polygon is a hub with one floor slot per variable and one door per row, behind each of which hangs an orthogonal wing (a staircase corridor ending in an arithmetic room) whose boundary guards copy the slot values through the door and enforce the row relation. Its finite visibility facts are kernel-checked certificates on the wing charts, parametric in the size and value parameters. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Robert D. Barish"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.CG",
+          "cs.CC"
+        ],
+        "msc2020": [
+          "68U05",
+          "68Q17",
+          "14P10",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ArtGallery.agpOrthBoundaryPoint_erComplete"
+        ]
+      },
+      "id": "PALOMAR-2026-11-09-000004",
+      "path": "entries/PALOMAR-2026-11-09-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "2a85b75f31661e89d545efdb3c6e2d3c3e54aa09",
+            "fork_repository": "PalomarArchive/RBarish-UTokyo--OrthogonalArtGalleryProblem-BoundaryPointVariant-ExistsR-Lean4--cae60e8d7b29",
+            "source_repository": "RBarish-UTokyo/OrthogonalArtGalleryProblem-BoundaryPointVariant-ExistsR-Lean4"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0a3c958b1d27c86beb9ed672129169bd5fbc75bb2cae501d1fcd0cc212578a42",
+        "version": 1
+      },
+      "published_at": "2026-11-09T01:01:42Z",
+      "source": {
+        "commit": "2a85b75f31661e89d545efdb3c6e2d3c3e54aa09",
+        "project_path": null,
+        "repository": "RBarish-UTokyo/OrthogonalArtGalleryProblem-BoundaryPointVariant-ExistsR-Lean4"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The orthogonal boundary-point art gallery problem is \u2203\u211d-complete, in Lean 4",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Finite quantitative sparse-kernel and necessary expected-row bounds for independently subsampled binary Walsh matrices, with uniform asymptotic and recovery/RIP consequences.",
+      "authors": [
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.FA"
+        ],
+        "msc2020": [
+          "42C10",
+          "60B20",
+          "94A20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Paper.finiteKernel",
+          "Paper.uniformKernel",
+          "Paper.finiteRecovery",
+          "Paper.necessarySampling",
+          "Paper.boundedOrthonormalExample",
+          "Paper.finiteDecoderComplex"
+        ]
+      },
+      "id": "PALOMAR-2026-11-07-000004",
+      "path": "entries/PALOMAR-2026-11-07-000004-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "eda7f225c99611efa2fd0ee3547ce8ffbb913f2e",
+            "fork_repository": "PalomarArchive/lopatto--fourier-formalization-public--597ad0c5f1d9",
+            "source_repository": "lopatto/fourier-formalization-public"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4b7feb361513a1def913a243d5eb4f82d3910e1c02ea825bed6f72b240def0c4",
+        "version": 1
+      },
+      "published_at": "2026-11-07T03:14:21Z",
+      "source": {
+        "commit": "eda7f225c99611efa2fd0ee3547ce8ffbb913f2e",
+        "project_path": null,
+        "repository": "lopatto/fourier-formalization-public"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Sparse kernels and necessary sampling for binary Walsh matrices",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 formalization of two results on strictly 3-bicolored Steiner triple systems. For every positive triple of class sizes a,b,c, existence is equivalent to n=a+b+c being 1 or 3 modulo 6, the identity a\u00b2+b\u00b2+c\u00b2-ab-ac-bc=n, and the exclusion of two classes of size 2. For every sufficiently large admissible profile, the number of AAC blocks is characterized exactly by two explicit arithmetic tests. The first result settles the class-size conjecture posed by Colbourn, Dinitz and Rosa in 1999; the second applies the typed absorption theorems of Triangle decompositions III. Both statements are compared in one shared development.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05B07",
+          "05C15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "CDRBicolour.cdr_conjecture",
+          "CDRBicolour.cdr_characterization",
+          "CDRBicolour.Absorption.Corners.cdr_type_spectrum"
+        ]
+      },
+      "id": "PALOMAR-2026-11-07-000002",
+      "path": "entries/PALOMAR-2026-11-07-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10",
+            "fork_repository": "PalomarArchive/jtraverso--cdr-palomar-kernel--853fb49173b4",
+            "source_repository": "jtraverso/cdr-palomar-kernel"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "20b9c608387c7361e00e750337a0ef361dc994e565c774accdab268b8d790bfe",
+        "version": 1
+      },
+      "published_at": "2026-11-07T02:21:32Z",
+      "source": {
+        "commit": "5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10",
+        "project_path": null,
+        "repository": "jtraverso/cdr-palomar-kernel"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The Colbourn\u2013Dinitz\u2013Rosa conjecture and the exact block-type spectrum",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "On the real square-summable states of the infinite centered octagonal cut-and-project vertex graph, take the graph Laplacian with edge weight 1/16, onsite potential V(x)=1+|p(x)|\u00b2 and natural domain D(V). Add t times the coordinate projection onto the eight neighbors of the origin. At t*=17/16+\u221a2 the two alternating ring modes meet at E*=13/4+\u221a2. The full eigenspace at E* has real dimension exactly two. Every solution of the eigenvector equation is its amplitude at the lift (1,0,0,0) times the first compact state plus its amplitude at (1,1,0,0) times the second. No support restriction is assumed. Locality, symmetry and a strictly positive exterior energy force the exterior part to vanish; the complete central kernel supplies the two ring patterns.",
+      "authors": [
+        {
+          "name": "Alessandro Odasso"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SP",
+          "math.FA"
+        ],
+        "msc2020": [
+          "47A10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SpectralGeometry.AmmannBeenker.admitted_zero",
+          "SpectralGeometry.AmmannBeenker.mate_involutive",
+          "SpectralGeometry.AmmannBeenker.centralLift_admitted",
+          "SpectralGeometry.AmmannBeenker.crossing_eigenvector_representation",
+          "SpectralGeometry.AmmannBeenker.crossingEigenspace_finrank"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000012",
+      "path": "entries/PALOMAR-2026-11-06-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+            "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+            "source_repository": "alexodas/spectral_geometry"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a00d10c7b6aa9a030b70a2ba76d29697cbd9d54455cc55dbb330a9a7c69ba277",
+        "version": 1
+      },
+      "published_at": "2026-11-06T12:31:22Z",
+      "source": {
+        "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+        "project_path": null,
+        "repository": "alexodas/spectral_geometry"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Spectral Geometry \u2014 exact multiplicity of a compact crossing on an infinite octagonal graph",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six statements. Write ||x|| = |x - round x| for the distance from a real number to the nearest integer, and let rho be the plastic number, the real root of x^3 = x + 1 and the smallest Pisot number (Siegel 1944). Convergence of sum_{n >= 1} ||theta^n||^2 for a Pisot number theta is elementary, and Pisot (1938) proved the converse; neither gives the value. (1) For every real rho with rho^3 = rho + 1, sum_{n >= 1} ||rho^n||^2 = rho (as a HasSum). (2) The tsum form of (1). (3) For every complex alpha != rho with alpha^3 = alpha + 1 (one of the two conjugates inside the unit disc), sum_{n >= 0} (alpha^(2n) + conj(alpha)^(2n)) = rho: the even-power trace of the hidden pair is the generator, the mechanism behind (1), because x^3 - x - 1 = (x - 1) x (x + 1) - 1 makes the resolvent trace sum_{roots} 1/(1 - r^2) vanish. (4) For a real theta, a complex alpha with ||alpha|| < 1, and integers a, b, c that are the elementary symmetric functions of (theta, alpha, conj alpha): sum_{n >= 1} (S_n - theta^n)^2 = Re(geo alpha), where S_n are the Newton power sums of x^3 - a x^2 + b x - c and geo alpha = alpha^2/(1 - alpha^2) + conj(alpha)^2/(1 - conj(alpha)^2) + 2 alpha conj(alpha)/(1 - alpha conj(alpha)). (5) Under the same hypotheses, for every N with ||alpha||^N < 1/4, sum_{n >= 1} ||theta^n||^2 = Re(geo alpha) + sum_{n = 1}^{N} (||theta^n||^2 - (S_n - theta^n)^2): Pisot's convergence in quantitative form for the cubic complex-pair case; (1) is the case a = 0, b = -1, c = 1, N = 10 (the smallest N with rho^(-N/2) < 1/4; the n = 10 correction term is zero), with Re(geo alpha) = 2 rho^2 + 3 rho - 2 and correction 2 - 2 rho - 2 rho^2. (6) x^3 = x + 1 has exactly one real solution. Statements 4-5 assume neither theta > 1 nor irreducibility. Pisot's theorem itself is not formalized. Not compared, proved in the repository's library only: the threshold from which the Perrin numbers are the nearest integers to rho^n (n >= 10, sharp at n = 9), a claim previously stated without proof at OEIS A001608 (R. Stephan, 2002); it was a compared statement in the withdrawn submissions of 2026-11-03/04 and was removed from the compared set on 2026-11-05 so that every compared result is one first presented here. Application to time (no compared statement asserts it): in the arithmetic of time the tick is multiplication by rho on Q(rho) and the record is the integer lattice; statement 1 says the total squared distance by which the tick history falls short of its record is exactly one tick's unit, rho, and statement 3 says that unit is returned by the two conjugates that are not seen; the quartic companion Q, Q^4 = Q + 1, is not Pisot, so by Pisot's theorem its series diverges (not proved here). That physical time is this arithmetic is the identification stated in the companion entry PALOMAR-2026-08-19-000006 (the arithmetic of time), as an identification; the theorems here are its arithmetic content. That entry's README Scope section is reproduced verbatim in this entry's README.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math-ph",
+          "physics.hist-ph"
+        ],
+        "msc2020": [
+          "11R06",
+          "11J71",
+          "11B39",
+          "00A79"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SettlingSum.plastic_settling_sum",
+          "SettlingSum.plastic_tsum",
+          "SettlingSum.plastic_even_trace",
+          "SettlingSum.cubic_trace_sum",
+          "SettlingSum.cubic_settling_sum",
+          "SettlingSum.existsUnique_root"
+        ]
+      },
+      "id": "PALOMAR-2026-11-06-000005",
+      "path": "entries/PALOMAR-2026-11-06-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e",
+            "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time-settling-sum--82edf6e366e4",
+            "source_repository": "stalex444/arithmetic-of-time-settling-sum"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "adfb3b8401e9503fb68e107d7c3fce3b62261c9debe26788b2a94371ade93c52",
+        "version": 1
+      },
+      "published_at": "2026-11-06T02:55:42Z",
+      "source": {
+        "commit": "a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e",
+        "project_path": null,
+        "repository": "stalex444/arithmetic-of-time-settling-sum"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The settling sum of the plastic number: sum_{n >= 1} ||rho^n||^2 = rho. The squared distances from the powers of the plastic number to the nearest integers sum to the plastic number itself; the even-power trace of its two hidden conjugates is rho; with the general cubic complex-pair form",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A machine-checked proof of the Osterwalder-Schrader correspondence between Euclidean Schwinger functions and relativistic Wightman distributions, in both directions, for every spatial dimension d >= 1. The Euclidean side is a family of Schwinger functions on the zero-diagonal Schwartz space (OS II's test space) satisfying E0-E4; the relativistic side is a family of tempered distributions satisfying the Wightman function axioms (Poincare covariance, spectrum condition, locality, positivity, Hermiticity, clustering). They are linked by a Wick pairing: one holomorphic kernel on the forward tube whose boundary values give the Wightman distribution and whose restriction to Wick- rotated points gives the Schwinger function. Three theorems are verified: E'->R (OS axioms plus linear growth yield Wick-paired Wightman distributions); E'->R' in OS II's form (with growth E0' (4.1), the Wightman distributions exist, satisfy the output bound R0' (4.3), and are unique among Wick-paired families; the two growth conditions are proved equivalent); and R->E (every Wightman family yields, via an explicit constructor, Schwinger functions satisfying E0-E4, with no growth hypothesis). The asymmetry is OS II's correction of OS I and is reproduced faithfully: growth is assumed on the Euclidean side and not recovered, so the two directions do not compose to a biconditional. Scope: theorems about Wightman functions, not the GNS reconstruction of operators. Four conventions are weaker than the textbook ones and are visible in the Challenge: the forward tube carries the extra condition Im z_0 in the open forward cone; locality is stated for adjacent transpositions; reflection positivity goes through a totalized coercion onto zero-diagonal tests; growth is a hypothesis, not a conclusion. To our knowledge this is the first machine-checked proof of the OS reconstruction theorem; its audience is constructive and axiomatic QFT, where it is the bridge every Euclidean construction crosses. The companion formalization of the massive free field and the Proca Wick square inhabits its hypotheses.",
+      "authors": [
+        {
+          "name": "Xi Yin"
+        },
+        {
+          "name": "Michael R. Douglas"
+        },
+        {
+          "name": "Anna Mei"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math-ph",
+          "hep-th"
+        ],
+        "msc2020": [
+          "81T05",
+          "81T08",
+          "46F12"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OSReconstructionAudit.e_to_r",
+          "OSReconstructionAudit.e_to_r_osii",
+          "OSReconstructionAudit.r_to_e"
+        ]
+      },
+      "id": "PALOMAR-2026-11-04-000010",
+      "path": "entries/PALOMAR-2026-11-04-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "93cdb40e728ba27b7b1b55efc30d57f7b43de9aa",
+            "fork_repository": "PalomarArchive/mrdouglasny--OSreconstruction-comparator--c95d4150d61b",
+            "source_repository": "mrdouglasny/OSreconstruction-comparator"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "08af1519acec7c4192b90d01d97cad720263b6d75c9a28d407b63c9384bb79af",
+        "version": 1
+      },
+      "published_at": "2026-11-04T13:05:23Z",
+      "source": {
+        "commit": "93cdb40e728ba27b7b1b55efc30d57f7b43de9aa",
+        "project_path": null,
+        "repository": "mrdouglasny/OSreconstruction-comparator"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "OSreconstruction",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of Schatten-class truncated Toeplitz operator results from the local Lopatto\u2013Rochberg manuscript. Includes analytic and coanalytic Besov classifications for every real p>0, compactness and interpolation criteria, splitting and polynomial-symbol results, and Hilbert\u2013Schmidt energy, differential and squared-kernel quotient descriptions.",
+      "authors": [
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.FA",
+          "math.CV"
+        ],
+        "msc2020": [
+          "47B35",
+          "47B10",
+          "30H10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TTO.Paper.Proved.besovClassificationTheorem",
+          "TTO.Paper.Proved.compactClassificationTheorem",
+          "TTO.Paper.Proved.interpolatingClassificationTheorem",
+          "TTO.Paper.Proved.perturbedKernelBasisClassificationTheorem",
+          "TTO.Paper.Proved.gapSplittingTheorem",
+          "TTO.Paper.Proved.canonicalGapSplittingTheorem",
+          "TTO.Paper.Proved.finiteAtomClassificationTheorem",
+          "TTO.Paper.Proved.polynomialClassificationTheorem",
+          "TTO.Paper.Proved.hilbertSchmidtEnergyTheorem",
+          "TTO.Paper.Proved.differentialRealizationTheorem",
+          "TTO.Paper.Proved.coanalyticBesovTheorem",
+          "TTO.Paper.Proved.squaredKernelQuotientTheorem"
+        ]
+      },
+      "id": "PALOMAR-2026-11-04-000005",
+      "path": "entries/PALOMAR-2026-11-04-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b0bbb4c39145f643482d8bc1215301aabafe3dc2",
+            "fork_repository": "PalomarArchive/lopatto--tto-palomar--089a37d5d448",
+            "source_repository": "lopatto/tto-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a12ff5470d46a57bb2f416e40bbb9327c7d9676e2a31fed7604469b8a200ff48",
+        "version": 1
+      },
+      "published_at": "2026-11-04T05:08:23Z",
+      "source": {
+        "commit": "b0bbb4c39145f643482d8bc1215301aabafe3dc2",
+        "project_path": null,
+        "repository": "lopatto/tto-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Schatten-class truncated Toeplitz operators",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 proof that two-colour Zig-Zag Numberlink on rectangular grids (the paired 2-disjoint path cover problem: two vertex-disjoint paths s0 \u2192 t0 and s1 \u2192 t1 that together visit every cell) is decided by an explicit procedure, and that an explicit construction finds a solution whenever one exists. For both sides at least 11, an instance is solvable exactly when it passes a finite catalogue of forbidden patterns; for a side at most 10, a plug dynamic program decides it. The finite cases of the characterization are 21 boxes of slice certificates and 59 window certificates, all checked by the kernel.",
+      "authors": [
+        {
+          "name": "Z. Zzyzek (github: zzyzek)"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.DM",
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C38",
+          "05C85",
+          "68R10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ZZN.T.solvableBT_main",
+          "ZZN.T.fires3T_iff_solvable",
+          "ZZN.T.solveZZNT_main"
+        ]
+      },
+      "id": "PALOMAR-2026-11-04-000002",
+      "path": "entries/PALOMAR-2026-11-04-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "6567375a4c4574d26237756819e2ce4b027bf119",
+            "fork_repository": "PalomarArchive/zzyzek--R2K2ZZN--d5b713a305c5",
+            "source_repository": "zzyzek/R2K2ZZN"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "dd5d155dd815e5dc26e43d6019b108abcb6b9a9509499ce7de97e5508071d7ae",
+        "version": 1
+      },
+      "published_at": "2026-11-04T01:09:21Z",
+      "source": {
+        "commit": "6567375a4c4574d26237756819e2ce4b027bf119",
+        "project_path": "proof",
+        "repository": "zzyzek/R2K2ZZN"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Two-colour Zig-Zag Numberlink on rectangles",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of classical results on planar graphs and graphs without a K5 minor. (1) Wagner's theorem (1937): a finite graph is planar if and only if it has neither K5 nor K3,3 as a minor. (2) \u0160krekovski's theorem (1998): every finite graph without a K5 minor is 5-choosable, proved along the route of Wood and Linusson, and Thomassen's theorem (1994) that every finite planar graph is 5-choosable, as a corollary. (3) DP-colouring: every finite graph without a K5 minor (Li\u2013Wang, 2022), hence every finite planar graph (Dvo\u0159\u00e1k\u2013Postle, 2018), is DP-5-colourable. (4) Voigt's theorem (1993): an explicit planar graph on 238 vertices with lists of four colours has no proper list colouring, so 5 cannot be lowered to 4; its planarity and non-colourability are checked by kernel reduction. (5) Wagner's equivalence of the Four Colour Theorem with Hadwiger's conjecture for K5 (neither side is proved). (6) Wagner's structure theorem (1937, added in version 2): a finite graph has no K5 minor if and only if it is a spanning subgraph of a graph obtained by clique-sums of order at most three, keeping the clique edges, from planar graphs and copies of the Wagner graph V8. Planarity is defined combinatorially, by rotation systems of genus zero (Euler defect 0); as sanity checks K4 is planar and K5, K3,3 are not.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C10",
+          "05C15",
+          "05C83"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PlanarChoosability.isPlanar_iff_minorFree",
+          "PlanarChoosability.k5MinorFree_iff_exists_k5Decomp",
+          "PlanarChoosability.choosableWith_five_of_k5MinorFree",
+          "PlanarChoosability.choosableWith_five_of_isPlanar",
+          "PlanarChoosability.dpColourableWith_five_of_k5MinorFree",
+          "PlanarChoosability.dpColourableWith_five_of_isPlanar",
+          "PlanarChoosability.exists_isPlanar_not_choosableWith_four",
+          "PlanarChoosability.fourColour_iff_hadwigerFive",
+          "PlanarChoosability.isPlanar_K4",
+          "PlanarChoosability.not_isPlanar_K5",
+          "PlanarChoosability.not_isPlanar_K33"
+        ]
+      },
+      "id": "PALOMAR-2026-10-15-000005",
+      "path": "entries/PALOMAR-2026-10-15-000005-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5b262124ae6c99661cf1e75bd0351cc7faab80c5",
+            "fork_repository": "PalomarArchive/jtraverso--planar-list-colouring--03a15f1929ab",
+            "source_repository": "jtraverso/planar-list-colouring"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "a2ab147b3ca5fb739c6aa73ee667efd94c6194b323dca2b1e428525b38516adc",
+        "version": 2
+      },
+      "published_at": "2026-11-03T23:18:06Z",
+      "source": {
+        "commit": "5b262124ae6c99661cf1e75bd0351cc7faab80c5",
+        "project_path": null,
+        "repository": "jtraverso/planar-list-colouring"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Wagner's planarity criterion and list colouring of planar and K5-minor-free graphs",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "For primes p = 5 (mod 16), p = a^2 + b^2 with b even, the companion note proves h(-8p) = h(-4p) + 8 [b = +-6 (mod 16)] (mod 16), which settles Conjecture 5.3 of Paper V of the K Project series. The proof writes 4(h(-8p) - h(-4p)) as a combination of representation numbers of x^2 + 2y^2 + 4z^2 and x^2 + 2y^2 + 2z^2. It shows that a weight-2 form Phi built from sieved theta series vanishes modulo 256, by Sturm's theorem and a finite check below the bound 512, and reads off the coefficient at p. This development formalizes the proof with the modular input (Serre-Stark modularity and Sturm's theorem) and Gauss's three-square class number formula as explicit hypotheses. It proves the finite check by kernel computation, the iteration of Sturm's theorem, the inversion of theta(1), the bijections relating the ternary forms to sums of three squares, the uniqueness argument for p = a^2 + b^2, the congruence, Conjecture 5.3 given Paper V Theorem 5.2(iv), and the corollaries on the octant sum and with Desnoux's congruence.",
+      "authors": [
+        {
+          "name": "Joseph S. Farland"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11R29",
+          "11E25",
+          "11F37",
+          "11A15",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ConjCoord.tCoeff_check",
+          "ConjCoord.phi_eq",
+          "ConjCoord.phi_check",
+          "ConjCoord.sturm_iter",
+          "ConjCoord.phi_dvd",
+          "ConjCoord.tCoeff_dvd",
+          "ConjCoord.r3_eq_three_mul_reps122",
+          "ConjCoord.r3_two_mul_eq",
+          "ConjCoord.reps112_eq",
+          "ConjCoord.lemma3",
+          "ConjCoord.two_sq_unique",
+          "ConjCoord.gCount_prime",
+          "ConjCoord.reps_congruence",
+          "ConjCoord.r3_congruence",
+          "ConjCoord.class_number_congruence",
+          "ConjCoord.conjecture_coord",
+          "ConjCoord.octant_sum",
+          "ConjCoord.octant_nonresidues",
+          "ConjCoord.desnoux_halves_exact",
+          "ConjCoord.desnoux_corollary"
+        ]
+      },
+      "id": "PALOMAR-2026-11-03-000031",
+      "path": "entries/PALOMAR-2026-11-03-000031-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c956f4808ba6c6f15a1d4234a04cd8fc56be2711",
+            "fork_repository": "PalomarArchive/jkfarland-bot--ConjCoord--9304a71ebfc2",
+            "source_repository": "jkfarland-bot/ConjCoord"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "50f974d35d4fc6f91870e1b2b9b49c2019d3a540d6e3ee8cd94af1d10912585d",
+        "version": 1
+      },
+      "published_at": "2026-11-03T22:25:53Z",
+      "source": {
+        "commit": "c956f4808ba6c6f15a1d4234a04cd8fc56be2711",
+        "project_path": null,
+        "repository": "jkfarland-bot/ConjCoord"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ConjCoord: a class number congruence modulo 16 for p = 5 (mod 16) and Conjecture coord of Paper V",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": "eyJyZXZpc2lvbiI6OTQ5LCJxdWVyeSI6ImRhMGFkMDdhMTRjY2NhNzFmMjY1NzZiNjg5OGZhNjc5NmRhNGUzOWVkNTA4MTZkMDliOGFiY2Y1ODJmMzUzNGMiLCJkaXJlY3Rpb24iOiJuZXh0IiwiZGF0ZSI6IjIwMjYtMTEtMDNUMjI6MjU6NTNaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMTEtMDMtMDAwMDMxIn0=",
+  "dropped": [],
+  "message": null
+}

@@ -1,0 +1,40 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: OpenTrailBound PASS
+
+Matches (H2), `paper/sec6-walks.tex:684`–691, using the weights in Definition `d:weights`, `paper/sec6-walks.tex:655`–682. The conjunction includes exactly the parameter conditions `C_V ≥ 1` and `0 < q < 1`. Its quantifiers cover every nonnegative length, every point of the ambient integer plane, and every unit incoming direction, with the same fixed constants. There is no restriction to a finite spatial volume, a quotient, a particular start, or a particular incoming direction.
+
+The supporting encoding gives precisely the stated summands. `Plane = ℤ × ℤ` has componentwise addition, and the four `Compass.step` values are exactly the four unit displacements. Consequently `wordVertex u w (i+1) - wordVertex u w i = (w i).step` for `i < n`; direction words and ordered nearest-neighbour vertex paths with fixed start are in bijection. Each `wordBond` is a two-element finite set, so `Function.Injective (wordBond u w)` forbids reuse in either orientation while permitting vertex revisits. Mathlib's `Finset.pair_comm` (`Mathlib/Data/Finset/Insert.lean:419`) confirms the unordered meaning. The initial rule excludes precisely `-incoming`; distinct bonds already exclude subsequent immediate reversal. The virtual incoming bond is not inserted into the used-bond set, as required at `paper/sec6-walks.tex:659`–660 and `paper/app-input-contracts.tex:61`–63.
+
+For departure `i : Fin n`, `min i.val n = i.val`, so the filtered range counts exactly earlier departures, excluding the current and terminal vertices. The Boolean tests have their ordinary proposition meaning (`Bool.decide_iff`, `Mathlib/Data/Bool/Basic.lean:71`). The predecessor subtraction in `wordIncoming` is evaluated only when `i.val ≠ 0`; it therefore yields the actual preceding direction without natural-number truncation. A revisit receives exactly `1/5`; other departures receive `1000/(961*3)` when straight and `200/(187*3)` when turning, using the frozen thresholds at `paper/sec6-walks.tex:538`–539.
+
+Mathlib's finite Pi instance enumerates all `4^n` words (`Mathlib/Data/Fintype/Pi.lean:134`), and the big sum is a sum over `Finset.univ` (`Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean:25`–32). Invalid words contribute zero, with no multiplicity or summability issue. All weight divisions are in `ℚ` with positive denominators; the cast to `ℝ` preserves their values, products, and divisions (`Rat.cast_mul`, `Rat.cast_div`, `Mathlib/Data/Rat/Cast/CharZero.lean:47`–64). At `n = 0` there is exactly one empty word, its empty product is one, and `q^0 = 1`. Thus the zero-length inequality has the intended content `1 ≤ C_V`, consistent with `paper/app-input-contracts.tex:116`.
+
+DECL: certifiedRate PASS
+
+The rational is exactly the value in Theorem `t:inputs`, `paper/sec8-inputs.tex:270`–277, and the memory-six maximum in `paper/app-input-contracts.tex:198`–204. The expected result type makes both numerals and division rational, with denominator `1120437614225 > 0`; there is no integer division, rounding, or division-by-zero case. The real coercion used by `H2Statement` preserves this exact value. Exact rational checks give `1 - certifiedRate = 489326872/1120437614225 > 0` and `2499/2500 - certifiedRate = 4115182631/112043761422500 > 0`.
+
+DECL: wordVertices PASS
+
+This auxiliary conversion is the vertex list required by Definition `d:trace`, `paper/sec6-walks.tex:51`–58. Mathlib describes `List.range k` as `[0, ..., k-1]` (`Mathlib/Data/List/Range.lean:16`–18); `List.map` preserves length, order, and repeated entries (`List.getElem_map_rev`, `Mathlib/Data/List/Basic.lean:639`). Hence the result is exactly `[v₀, ..., vₙ]`, with length `n+1`, initial point `u`, and terminal point `wordVertex u w n`. Repeated vertices are retained, as a bond trail requires. Only indices through `n` are used, so the auxiliary clamping of `wordVertex` beyond the word length has no effect.
+
+In the imported `Domain.lean:94`–101, the trace and coefficient recursions consume one adjacent pair at a time. This list therefore causes exactly `n` trace steps and departure factors. At length zero it is `[u]`, yielding the unchanged network and coefficient one, as specified by `D[w₀] = D` at `paper/sec6-walks.tex:58`.
+
+DECL: StoppedNetworkTrail PASS
+
+Matches the combinatorial class `𝒯_D(u,T)` in Definition `d:trace`, `paper/sec6-walks.tex:50`–54. Injectivity of the unordered bond list imposes distinct bonds. For each departure, `D.Present` requires both endpoints to be active sites of the original finite `G`, ambient nearest-neighbour adjacency, and mutual keeping (`Domain.lean:14`–15); this is exactly the presence rule at `paper/sec6-walks.tex:11`–13. It is symmetric and does not admit kept half-edges as bonds. The direction-word encoding already supplies unit, distinct-endpoint steps.
+
+The bounded universal quantifier is over every natural `j < n`, including zero. It forbids all earlier visits to `T` and every departure from the original protected set; the separate final condition requires a hit of `T` at time `n`. Thus it stops at the first target hit, allows a protected terminal arrival, and cannot continue after such an arrival. The imported `protectedSites` is exactly `S(G)` from `paper/sec2-moments.tex:97`–101: it filters `G` by ambient ℓ¹ distance to its original complement being at most two. The extended-natural infimum really is a minimum distance when the indexing set is nonempty, and infinity when empty (`Mathlib/Data/ENat/Lattice.lean:41`, 74). There is no distance in a deleted graph or a torus.
+
+Presence is correctly tested in the initial network. For admissible starts the paper proves that every unused initial bond remains present until needed (`paper/sec6-walks.tex:71`–83), so no evolving-network condition is missing from this combinatorial definition. Domain/auxiliary validity and admissible-start conditions govern the trace results separately (`paper/sec6-walks.tex:59`–62; 148–153); they are not additional membership conditions in the definition of the stopped trail class. Nor does this class require a designated incoming direction or the separate plane-weight initial-reversal rule.
+
+At `n = 0`, membership reduces to `u ∈ T`: all bond and departure conditions are vacuous, representing immediate first hit and no trace step. If `u ∈ T`, positive lengths are excluded by the condition at `j = 0`. At positive lengths every vertex is active by the presence conditions. Distinct initially present bonds give the claimed bound `n ≤ D.bonds.card`; an explicit length-bound conjunct would be redundant.
+
+DECL: stoppedNetworkTrails PASS
+
+This is exactly the length-`n` component of `𝒯_D(u,T)` from `paper/sec6-walks.tex:51`–54. The finite function-space instance enumerates every direction word once. `Finset.univ.filter` has membership equivalent to `StoppedNetworkTrail D u T w` (`Finset.mem_filter_univ`, `Mathlib/Data/Fintype/Defs.lean:115`; `Finset.mem_filter`, `Mathlib/Data/Finset/Filter.lean:127`). It introduces no extra hypothesis, quotient, multiplicity, cutoff, or initial-reversal condition. Classical decidability permits filtering without changing the predicate's meaning. Fixed-length finiteness holds for arbitrary `n`; bond distinctness ensures that lengths above the original bond count have empty components, consistent with the finite expansion at `paper/sec6-walks.tex:194`–203.
+
+Non-blocking remarks:
+
+Read the entire `Trails.lean` and its local transitive imports `Domain.lean`, `PinModel.lean`, `Moment.lean`, and `Geometry.lean`, and checked relevant downstream uses and Mathlib sources. No input was modified and no Lean process was launched. Supplementary Python checks used exact rational arithmetic and exhaustively compared the direction-word/bond encoding with incremental trail construction for lengths zero through seven. A returning-square example also confirmed that a later traversal of the virtual incoming bond is allowed and a repeated departure receives `1/5`. These checks found no discrepancy.

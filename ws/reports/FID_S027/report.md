@@ -1,0 +1,30 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: Plane PASS
+
+`AKLT/Defs/Geometry.lean:8` defines `AKLT.Defs.Plane` as the unrestricted Cartesian product `ℤ × ℤ`. This is precisely the lattice underlying the ambient plane distances in Definition `d:moment` (`sec2-moments.tex:20–21`), explicitly identified as `ℤ²` in Definition `d:pinmodel` (`sec2-moments.tex:97–101`) and `app-input-contracts.tex:9–10`. Mathlib's `Data/Int/Notation.lean:15` makes `ℤ` notation for `Int`; the product has ordinary ordered coordinate pairs and coordinatewise equality. There is no quotient, periodic identification, bounded coordinate type, or finiteness assumption on the ambient lattice. Mathlib's componentwise addition and negation (`Algebra/Notation/Prod.lean:65–104`, including the generated additive declarations) give the intended lattice translations used by `neighbours` and `wordVertex`.
+
+DECL: latticeDist PASS
+
+`AKLT/Defs/Geometry.lean:11` computes `|x₁-y₁| + |x₂-y₂|`, exactly the ambient ℓ¹ distance required by Definition `d:moment` (`sec2-moments.tex:20`). Both subtractions take place in `ℤ`, before applying `Int.natAbs`; there is no truncated natural subtraction. Mathlib documents `Int.natAbs` as integer absolute value with natural-number output (`Data/Int/NatAbs.lean:15–16`); its two subtraction lemmas (`:35–39`) explicitly cover both coordinate orders. Its agreement with integer absolute value is also used through `Int.abs_eq_natAbs` in `Data/Int/Order/Lemmas.lean:26–35`. Thus negative coordinates and either subtraction order are handled correctly. The natural-number codomain loses no information, since these lattice distances are integral and nonnegative. The formula is symmetric, vanishes exactly when the sites coincide, and equals one exactly for the four nearest neighbours. It depends only on the two ambient sites, as required, rather than on paths within a chosen finite or punctured volume; compare `sec2-moments.tex:349–350`. No additional side conditions or hypotheses are imposed.
+
+DECL: supDist PASS
+
+`AKLT/Defs/Geometry.lean:14` computes `max(|x₁-y₁|, |x₂-y₂|)`, precisely the ambient ℓ∞ distance of Definition `d:moment` (`sec2-moments.tex:20–21`). The same integer-subtraction and `Int.natAbs` checks apply. Mathlib's `max_def` (`Order/Defs/LinearOrder.lean:133`) selects the larger argument in the usual order; `max_le_iff` (`:147`) characterizes a bound by the two coordinate bounds. Hence this is the maximum coordinate displacement, with no rounding, modular reduction, or truncation. For example, a displacement `(1,1)` has `supDist = 1` and `latticeDist = 2`, as intended. Its use in the physical shells and exterior-distance tests (`Geometry.lean:92–116`) agrees with the ℓ∞ formulas in `sec4-periodic-gap.tex:10–27`. The unrestricted two-site domain and natural-number result are exact for lattice sites.
+
+DECL: Compass PASS
+
+`AKLT/Defs/Geometry.lean:17–22` gives exactly four distinct, inhabited constructors, `east`, `north`, `west`, and `south`. Together with `Compass.step`, these faithfully represent the four-element set `𝓔` in Definition `d:memory-automaton` (`app-input-contracts.tex:20–22`). Constructor equality distinguishes all four directions, and no heading, position, or symmetry quotient is built into the type; labels remain absolute, as explicitly required at `app-input-contracts.tex:33`. The derived `DecidableEq` and `Repr` add no mathematical restriction. The adjacent `Fintype` instance enumerates all four constructors and proves completeness by cases. Mathlib's `Fintype` means an exhaustive finite set without duplicates (`Data/Fintype/Defs.lean:53–61`), and `Finset.univ` is exactly that set (`:90–97`). Thus downstream sums and finite direction words include each of the four directions once, with none omitted or identified. Representing the vector set by a type bijective to it adds no extra data or hypotheses.
+
+DECL: Compass.step PASS
+
+`AKLT/Defs/Geometry.lean:25–29` sends east to `(1,0)`, north to `(0,1)`, west to `(-1,0)`, and south to `(0,-1)`, exactly the four assignments in `app-input-contracts.tex:21–22`. The return type `Plane = ℤ × ℤ` forces every coordinate numeral and negative sign to be interpreted in the integers, so the negative unit steps do not collapse to zero. The map is injective, has precisely the four integer vectors of ℓ¹ length one as its image, and has no zero or diagonal step. Componentwise product addition and negation have the Mathlib meanings checked above; in particular, the neighbouring definition of `Compass.reverse` sends each step to its additive negative. The actual use `u + ∑ (w i).step` in `AKLT/Defs/Trails.lean:24–28` therefore realizes the paper's cumulative positions `z_j = ∑_{i≤j} d_i` (`app-input-contracts.tex:24–28`), with zero-based Lean indexing accounting for the prefix bound. There is no sign, axis, relative-direction, or spatial-periodicity discrepancy.
+
+Non-blocking remarks:
+
+- No non-blocking defects found. These five declarations contain no division, conditional probability, natural-number subtraction, or quantified theorem hypotheses. The paper's restrictions on finite volumes and positive memory lengths concern their consumers, not these ambient types and functions.
+- Point-to-point distances are finite. The paper's empty-set distance convention (`sec2-moments.tex:22`) is handled separately by `setDistance`; it does not require either reviewed point-distance function to return an extended number.
+- The entire `Geometry.lean` file was read. Its sole direct import is the general `Mathlib` import; the relevant integer, product, order, and finite-type source meanings were inspected. Consumer context included direction words, the memory automaton, stationary spatial steps, and shell definitions. Verdicts concern only the five assigned declarations. This was a source-level fidelity review; no Lean processes were run and no inputs were modified.
+
+Paths: paper references are relative to `/home/ubuntu/aklt/review/FID_S/paper/`; project Lean references to `/home/ubuntu/aklt/review/FID_S/lean/`; Mathlib references to `/home/ubuntu/aklt/repo/.lake/packages/mathlib/Mathlib/`.

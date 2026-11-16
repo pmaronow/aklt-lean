@@ -1,0 +1,9 @@
+# tailmem4 (straights-first order, diagonal quotient, u-revisit, sorted closed DFS) X=B m=10 L=10 K=13 T=11 AT=10 NEX=49 cs=0.961000 ct=0.935000 a=0.180941 b=0.367511 h=(1.000000,1.230000)
+# E = exact (DFS), D = DP with c killed / v absorbing, F = free torus; values h-weighted upper bounds
+E 4 1.026405269334e-01
+E 6 9.609079646040e-02
+E 8 9.015015377886e-02
+E 10 7.632891495411e-02
+# EXACT(n<=min(L,NEX)) = 3.652103921267e-01
+# remainder: lamA=0.979532787 lamB=0.940599617 lcheck=0.979532789 check=OK (max ratio 0.999999999001) alpha=1.186039e-04 |zC+zD|=9.433735e+05 remainder<=5.354794e+03
+# TAIL(n>49) <= 5.354793874e+03  (sum over t<=11: 0.000000000e+00 + remainder 5.354794e+03)  

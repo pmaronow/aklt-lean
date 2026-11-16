@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about the Lie algebra L of the linear endomorphisms of four-dimensional Minkowski space that are skew-adjoint for the Minkowski form. Main theorem, (6): a real bilinear form B on L satisfies B([Z,X],Y) + B(X,[Z,Y]) = 0 for all X, Y, Z if and only if B(X,Y) = a tr(XY) + b tr(H(X)Y) for exactly one pair of real numbers (a,b); every such form is symmetric. Here tr(XY) is the trace form of L acting on Minkowski space and H is the operator of (4). For a real simple Lie algebra whose complexification is simple the invariant symmetric bilinear forms are the multiples of the Killing form; for a complex simple Lie algebra regarded as a real one they form a plane (Francis-Staite and Leistner, Proposition 4.1). L is of the second kind: it is sl(2,C) regarded as a real Lie algebra ((1), (2)), H is multiplication by -i under that isomorphism ((4)), and tr(H(X)Y) is a second invariant form, not a multiple of the Killing form (Olafsson and Quiroga-Barranco, Remark A.10, where it is, up to a nonzero factor, K(X, J Y)). Read with X as a field strength, tr(XX) and tr(H(X)X) are, up to normalisation, the Maxwell term and the theta term (Tong's names); that reading is not formalized. Statements (1)-(5): sl(2,C), the exponential criterion, the operator H and the complexification; (2) and (4) are the structure behind the second term of (6). (1) On Mathlib's own objects, with nothing carried: Mathlib's so' (Fin 1) (Fin 3) R is isomorphic, as a real Lie algebra, to sl(2,C) (Mathlib's sl (Fin 2) C with scalars restricted to R), by the explicit map X -> -(1/2) sum_k (beta_k + i theta_k) sigma_k, where beta_k and theta_k are the boost and rotation entries of X and sigma_k are the Pauli matrices. (2) On the carried copy of Minkowski space: L has dimension 6; the same map is an isomorphism of real Lie algebras from L onto sl(2,C); the three boost generators and the three rotation generators are in L, the boost along the axis k goes to -(1/2) sigma_k and the rotation in the plane of the two other axes goes to -(i/2) sigma_k. (3) The exponential criterion: a continuous linear endomorphism A is in L if and only if exp(tA) is in the carried type ProperLorentz for every real t; the statement also records that the Minkowski form used for L has the carried minkowskiSquare as its quadratic form. (4) The explicit operator H (the boost along the axis k goes to minus the rotation in the plane of the two other axes, and that rotation goes to the boost) maps L into L, is real-linear there, satisfies H[X,Y] = [X,HY] and H(HX) = -X, and the isomorphism of (2) carries it to multiplication by -i on sl(2,C). (5) The complexification C (x)_R L is isomorphic, as a complex Lie algebra, to sl(2,C) x sl(2,C), and the two maps (1/2)(1 + iH) and (1/2)(1 - iH) are the projections onto the two factors, H being the operator of (4) extended C-linearly. Controls: (7) for the definite diagonal form diag(1,1,1,1) the Lie algebra of skew matrices is isomorphic to so(3) x so(3), for the split form diag(1,1,-1,-1) it is isomorphic to sl(2,R) x sl(2,R), and neither of the two is isomorphic to sl(2,C) as a real Lie algebra; (8) there is a bilinear form on L that is not a tr(XY) + b tr(H(X)Y) for any real a, b; (9) there is a continuous linear endomorphism A with exp(A) in ProperLorentz and A not in L. Numbering as in comparator.json. Statement (1) and part (b) of statement (2) are one isomorphism on two presentations; they are not two results. The Challenge imports Mathlib only. The definitions of Minkowski space and of the Lorentz transformations (Spacetime, minkowskiSquare, ProperLorentz and eight more) are copies carried textually from the public statement of the Yang-Mills release, repository github.com/yang-mills-group/OpenAI-YM-20261028, commit 3456e5e75cf8d4cd558955a5c7638fba2d68f464, file PublicTheory.lean, under the Apache License, Version 2.0; the source file is not imported. Statement (6) is proved from the classification of the linear maps R of L with R[X,Y] = [X,RY], which is the subject of a separate entry in preparation and is not compared here. Audience. Formal developments that use the Lorentz Lie algebra as an object. physlib's lorentzAlgebra is Mathlib's so' (Fin 1) (Fin 3) R, the object of (1); physlib also proves that the complex coefficient tensors with four vector indices invariant under SL(2,C) acting through the Lorentz group are combinations of the three pairings of the metric and the alternating symbol (independence is not proved there). The Yang-Mills release works with the Lorentz Lie algebra of this entry as the predicate tangent (X^T = -theta X theta) on its own 4 x 4 matrix type, splits it into rotations and boosts (tangent_parts), and proves, under its hypothesis Spin.Port, that its Wick-rotated map into operators on field labels respects brackets whenever the first argument is a boost (rank_bracket), in YM/Next/BOUNDARY/Derived.lean; it does not state or use any of the nine statements here, and its matrix type is not the carried Spacetime. The monograph project hairer/humanise-yang-mills proves that invariant bilinear forms on the compact colour algebra are scalar multiples using a positive invariant inner product (manuscript/existence/trace-free-rank.tex, lines 34-51, commit 0f00ae72); (6) shows that on so(3,1), which is simple but has no such inner product, the invariant forms are a two-parameter family. No one at these projects was contacted, and none of them has asked for or endorsed this entry. Literature. This entry formalizes known mathematics; the clauses not found printed are listed below. (1) and (2) are the Lie-algebra form of Spin(3,1) = SL(2,C) (Woit, Quantum Theory, Groups and Representations, sections 40.2 and 40.4; the formula is printed on generators in section 41.2; Olafsson and Quiroga-Barranco, Lemma A.1, state so(3,1) = sl(2,C)_R); (3) is the description of the Lie algebra of a matrix group by its one-parameter subgroups (Hall, arXiv:math-ph/0005032, Definition 3.13; proved there for O(n;k), which includes O(3;1), Chapter 3, section 5.6), stated here for the proper orthochronous subgroup, and (9) is an exercise of that chapter; (4) is the Hodge operator on so(3,1) (Wise, Class. Quantum Grav. 27 (2010) 155010, Appendix); (5) is the splitting of the complexified Lorentz algebra (Woit, section 40.2; Sahlmann and Seeger, Class. Quantum Grav. 41 (2024) 075010, section 2.2.1); (6) is the description of the invariant bilinear forms of a complex simple Lie algebra regarded as a real one (Olafsson and Quiroga-Barranco, Transform. Groups 17 (2012), Remark A.10; Francis-Staite and Leistner, Transform. Groups 26 (2021), Proposition 4.1); parts (a) and (b) of (7) are the companion isomorphisms in the two other signatures (Woit, section 21.2; Olafsson and Quiroga-Barranco, Remark A.2); (8) holds by a count of dimensions (the bilinear forms on L have dimension 36 and the forms of statement 6 are a plane). Not found printed in the sources read: the clause of (4) on multiplication by -i, and parts (c) and (d) of (7); README.md says how each follows from what is printed. Prior formalization, recorded under related_formalizations (search of 2026-11-13): no formalization of a compared statement was found. The counterparts for groups of (1), (2), (5), (7a) and (7b) are in TauCeti, and the homomorphism from SL(2,C) onto the restricted Lorentz group is in physlib; every ingredient of (1) and (2) is in TauCeti and was not found combined there. The equivalence of (3) is proved in TauCeti as a general theorem for the unitary group of a complete normed real algebra with a continuous involution (the form-preservation part of (3) is a case of it, by a reading that was not compiled), for the matrix groups O(n), SO(n), SL(n), SU(n) and the symplectic group, and for the Spin groups; its direction from the algebra to the group is proved for Lorentz matrices in physlib and in OSreconstruction; it was not found with both directions for the Lorentz group or another indefinite orthogonal group of linear maps. For (6), TauCeti has the uniqueness of invariant forms over an algebraically closed field and physlib the invariant coefficient tensors with four vector indices. For (5), TauCeti has extension of scalars for the skew-adjoint matrices of a Gram matrix and the complexifications of so(n) and su(n); the splitting into sl(2,C) x sl(2,C) was not found. The Hodge operator of Euclidean four-space on matrices is in github.com/openai/math. Not formalized: no covering map from SL(2,C) to ProperLorentz, no Lie group structure, no connectedness statement, no statement that every element of ProperLorentz is an exponential; other dimensions and signatures beyond (7); the identification of L with two-forms; the Killing form; the invariant forms of the complexification. Also proved in the library, not compared: Minkowski space from a number field. For a number field K with exactly two real places and exactly one complex place there is a real-linear equivalence e from Mathlib's mixedSpace K onto Spacetime with minkowskiSquare(e x) = -Tr_{K/Q}(x^2) for every x in K, and conjugation by e is an isomorphism of real Lie algebras onto L from the Lie algebra of the endomorphisms of mixedSpace K that are skew-adjoint for the form that restricts to Tr_{K/Q}(x^2) on K. This is proved in the library of this entry and is not compared.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RT",
+          "math-ph",
+          "gr-qc",
+          "hep-th"
+        ],
+        "msc2020": [
+          "17B20",
+          "22E43",
+          "17B05",
+          "15A63",
+          "17B81",
+          "83A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "MinkowskiLorentz.so'_one_three_lieEquiv_sl2C",
+          "MinkowskiLorentz.lorentzAlgebra_lieEquiv_sl2C",
+          "MinkowskiLorentz.mem_lorentzAlgebra_iff_exp",
+          "MinkowskiLorentz.hodgeEnd_complexStructure",
+          "MinkowskiLorentz.complexification_lieEquiv",
+          "MinkowskiLorentz.invariant_bilinForm_iff",
+          "MinkowskiLorentz.definite_split_signature",
+          "MinkowskiLorentz.exists_bilinForm_not_trace_form",
+          "MinkowskiLorentz.exists_exp_mem_not_mem_lorentzAlgebra"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000019",
+      "path": "entries/PALOMAR-2026-11-14-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+            "fork_repository": "PalomarArchive/stalex444--minkowski-lorentz-algebra--34c1409c6a74",
+            "source_repository": "stalex444/minkowski-lorentz-algebra"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "bd0e8a0fc3b035fda0c9f4bc622e2d333788757f97e5bfc7f312858a12958700",
+        "version": 1
+      },
+      "published_at": "2026-11-14T14:24:48Z",
+      "source": {
+        "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+        "project_path": null,
+        "repository": "stalex444/minkowski-lorentz-algebra"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Invariant bilinear forms on the Lorentz Lie algebra so(3,1): the two-parameter family a tr(XY) + b tr(H(X)Y), with sl(2,C), the exponential criterion and the complexification",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of the six headline result groups: Theorem 1.2, Corollary 1.3, and Theorems 1.4\u20131.7. Theorem 1.2, Corollary 1.3, and the asymptotic clauses of Theorem 1.4 are conditional only on Chen\u2019s finite-mixture Parisi formula. Universal pressure lower tails are proved internally. The finite-dimensional Haar comparison and Theorems 1.5\u20131.7 have no literature premise. The manuscript and exact model assumptions are included.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.LO"
+        ],
+        "msc2020": [
+          "60K35",
+          "82B44",
+          "03B35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SlowEquilibrationCondensedSource.theorem_1_2",
+          "SlowEquilibrationCondensedSource.corollary_1_3_a",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b_degree_window",
+          "SlowEquilibrationCondensedSource.corollary_1_3_b_support",
+          "SlowEquilibrationCondensedSource.corollary_1_3_c",
+          "SlowEquilibrationCondensedSource.corollary_1_3_d",
+          "SlowEquilibrationCondensedSource.theorem_1_4_haar",
+          "SlowEquilibrationCondensedSource.theorem_1_4",
+          "SlowEquilibrationCondensedSource.theorem_1_5",
+          "SlowEquilibrationCondensedSource.theorem_1_6",
+          "SlowEquilibrationCuspSource.theorem_1_7"
+        ]
+      },
+      "id": "PALOMAR-2026-10-27-000003",
+      "path": "entries/PALOMAR-2026-10-27-000003-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a28aaa336343c4caf43791ababd8ed0ee5c7b58e",
+            "fork_repository": "PalomarArchive/pmaronow--slowequilibration-palomar--34a70045061a",
+            "source_repository": "pmaronow/slowequilibration-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "0c8dac72db6f8e59835da70e32b5d28bcdc3b07024b15477318cf7de1b1858bc",
+        "version": 1
+      },
+      "published_at": "2026-10-27T14:26:27Z",
+      "source": {
+        "commit": "a28aaa336343c4caf43791ababd8ed0ee5c7b58e",
+        "project_path": null,
+        "repository": "pmaronow/slowequilibration-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Slow Equilibration and Persistent Stationary Correlations in Spherical Spin Glasses",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Lean formalization of the spherical Gaussian spin-glass dynamics and its positive-semidefinite Cugliandolo--Kurchan limit, including the physical variational response, entropy and Fisher estimates, stationary translated clusters, general-spin selection and aging bounds, and stationary relaxation. Theorem 11.4 covers every integer p >= 3 and beta > 0. The cubic product inequality includes beta = beta_d; strictly positive Fisher-cost conclusions require beta > beta_d. The root Challenge retains the original complete-conclusions theorem with the five principal theorem groups and all-spin forward theorem, sharing CK, stationary-profile, dimension-subsequence, density and Fisher-majorant witnesses. The same file separately retains the original Proposition 5.7 statement for every CK solution, every late sequence and every raw translated cluster.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math.AP"
+        ],
+        "msc2020": [
+          "60H10",
+          "82D30",
+          "60G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SphericalAging.PalomarCompleteTheorems.exists_complete_conclusions",
+          "SphericalAging.PalomarStationarityCertificate.proposition5_7"
+        ]
+      },
+      "id": "PALOMAR-2026-10-12-000002",
+      "path": "entries/PALOMAR-2026-10-12-000002-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "d3f09f56462be6f73eb20733cb7963410409fa06",
+            "fork_repository": "PalomarArchive/pmaronow--aging-palomar--4b3b27b78e14",
+            "source_repository": "pmaronow/aging-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4c90969375364594fec8fbae9f72314cf98480d0e80dcb4e97e6ceefc0ba7091",
+        "version": 1
+      },
+      "published_at": "2026-10-12T07:32:35Z",
+      "source": {
+        "commit": "d3f09f56462be6f73eb20733cb7963410409fa06",
+        "project_path": null,
+        "repository": "pmaronow/aging-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Aging in Spherical Spin Glass Dynamics",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean formalization of open phases with every prescribed finite replica symmetry breaking depth in mixed even-spin Ising models at zero external field and positive temperature. The first selected result constructs strictly increasing even degrees beginning at four and a nonempty open set of positive effective covariance coefficients, with an optimizing probability measure having exactly k+1 support points. The independent statement uses concrete Gaussian Cole\u2013Hopf recursions and comparison against all finite schemes at every competing depth. The substantive development constructs minimizers over all probability measures and includes the revised quadratic-inclusive universal transition, exact phase geometry and asymptotics, atomic Hessian, entropy, and analytic comparison results.",
+      "authors": [
+        {
+          "name": "P. M. Aronow"
+        },
+        {
+          "name": "Patrick Lopatto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "60K35",
+          "82B44"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ArbitraryRSB.arbitrary_finite_depth_open_set",
+          "ArbitraryRSB.universal_gardner_transition"
+        ]
+      },
+      "id": "PALOMAR-2026-10-11-000017",
+      "path": "entries/PALOMAR-2026-10-11-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5162e2d15b440ce46fd322f20eb429468d601948",
+            "fork_repository": "PalomarArchive/pmaronow--arbitrary-rsb-palomar--0236bf82e169",
+            "source_repository": "pmaronow/arbitrary-rsb-palomar"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c6914eb1be4fb74e2692905c432ca236eb55e4ecfe90c3d435d0c9e89366a7c2",
+        "version": 1
+      },
+      "published_at": "2026-10-11T15:02:55Z",
+      "source": {
+        "commit": "5162e2d15b440ce46fd322f20eb429468d601948",
+        "project_path": null,
+        "repository": "pmaronow/arbitrary-rsb-palomar"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Replica symmetry breaking at arbitrary depth",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 and Mathlib formalization of the stability of non-relativistic Coulomb matter in three dimensions. For normalized antisymmetric L2 electron states with q >= 1 spin states and static nuclei with charges between zero and Z, it proves a lower energy bound -C(q,Z)(N+M), uniformly in particle counts and nuclear positions. The main estimate is an additive inequality between nonnegative extended energies, valid even for infinite kinetic energy and nuclear collisions. A real quadratic-form theorem proves Coulomb finiteness and the lower bound for states with finite kinetic energy and distinct nuclear positions. The library also proves the kinetic Lieb-Thirring inequality with Rumin's explicit coefficient (9/35)(6 pi^2)^(2/3) q^(-2/3), Baxter's electrostatic inequality with its positive nearest-other-nucleus correction, and equality of the Fourier kinetic form with the classical Dirichlet integral on spin-valued Schwartz functions. The kinetic normalization is -Delta. The proof combines Pauli projections and Rumin's layer cake, a Voronoi boundary-measure proof of Baxter's inequality, nearest-nucleus screening, and Hardy's inequality. Three extensions prove the atomic bound N < 2Z+1 for weak ground states and strict binding, the unique continuous convex canonical zero-temperature energy density of neutral matter with finite-mass bosonic nuclei in Dirichlet balls, and the molecular Thomas-Fermi large-charge limit for arbitrary fixed spin and every fixed TF mass nu>0. Thomas-Fermi theory also has a unique relaxed minimizer, mass saturation at the total nuclear charge, and exact-mass attainment precisely up to neutrality.",
+      "authors": [
+        {
+          "name": "Scott Armstrong"
+        },
+        {
+          "name": "Am\u00e9lie Loher"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math-ph",
+          "math.AP"
+        ],
+        "msc2020": [
+          "81V70",
+          "81Q10",
+          "35Q40"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "LiebThirringAudit.stability_of_matter",
+          "LiebThirringAudit.stability_of_matter_real",
+          "LiebThirringAudit.kinetic_lieb_thirring",
+          "LiebThirringAudit.baxter",
+          "LiebThirringAudit.electron_count_lt_of_atomic_binding",
+          "LiebThirringAudit.electron_count_lt_of_atomic_weak_ground_state",
+          "LiebThirringAudit.exists_unique_thermodynamic_energy_density",
+          "LiebThirringAudit.tendsto_electronicGroundStateEnergy_tf",
+          "LiebThirringAudit.tendsto_groundStateEnergy_tf"
+        ]
+      },
+      "id": "PALOMAR-2026-10-08-000006",
+      "path": "entries/PALOMAR-2026-10-08-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8bf4656f07f5aaa227b0b850d77b16976915bbd4",
+            "fork_repository": "PalomarArchive/scottnarmstrong--LiebThirring--405b8eacc42e",
+            "source_repository": "scottnarmstrong/LiebThirring"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "21e627fe1b1abcc80b1f258bcd38c363c3467fa643560b7e2e1f7dc603e71757",
+        "version": 1
+      },
+      "published_at": "2026-10-08T16:52:47Z",
+      "source": {
+        "commit": "8bf4656f07f5aaa227b0b850d77b16976915bbd4",
+        "project_path": null,
+        "repository": "scottnarmstrong/LiebThirring"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Stability of Matter in Lean: Lieb\u2013Thirring, Ionization, the Thermodynamic Limit and Thomas\u2013Fermi Theory",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A conditional Lean 4 formalization of E. Markman, \"Cycles on abelian 2n-folds of Weil type from secant sheaves on abelian n-folds\" (arXiv:2502.03415v2). The paper proves that the Hodge-Weil classes of polarized abelian sixfolds of Weil type with discriminant -1 are algebraic (Theorem 1.5.1) and deduces the Hodge conjecture for abelian fourfolds (Corollary 1.6.1).\n\nEvery result of the paper about cohomology classes, Clifford algebras, spin representations, Hodge structures and period domains is proved in a linear-algebra model of the cohomology of abelian varieties (abelian varieties up to isogeny as polarizable rational Hodge structures of weight one), by the paper's arguments except the departures listed under fidelity (notably Proposition 6.1.2 and Lemma 4.0.2, proved by other arguments with the owner's approval): rational secant lines to the spinor variety and the abelian 2n-folds of Weil type they give (Sections 2-4), the Spin(V)-equivariance of Orlov's equivalence (Section 6, Proposition 6.1.2), Theorem 1.4.1(3) and (4) (the characteristic class of the secant-square sheaf stays of Hodge type on every Weil-type deformation of X x X^, and its K-translates with h^3 span Q h^3 + HW), Corollary 1.3.2, the cohomological results of Section 8, and Section 10. The results the paper cites from Chevalley, Igusa (Lemmas 1-2, Section 2, Proposition 3 except the orbits over subfields in which -d is not a square), Golyshev-Lunts-Orlov, Orlov, Huybrechts, Trautman, van Geemen (Def. 4.9, and Th. 5.2(3) through Landherr's theorem and Meyer's theorem), Markman (2023) and Schoen (Prop. 10, from push-forward of cycles, by Voisin's argument) are proved in the case the paper uses.\n\nTheorem 1.5.1 and Corollary 1.6.1 are proved assuming, as named hypotheses in their statements, the paper's own sheaf-theoretic Sections 7-9 (in the form: the class kappa_3(E) is algebraic near X x X^ wherever kappa(E) is of Hodge type) and results from algebraic geometry not yet available in Lean: about algebraic cycles, pullbacks, push-forwards along projections and products of algebraic classes, the Lefschetz (1,1) theorem, Voisin's algebraicity loci and a theorem of Ramon-Mari; about Hodge structures, two theorems of Moonen-Zarhin. Remark 10.1.2(1) assumes part of Igusa's Proposition 3 when -d is not a square. Eleven statements of the paper are false or misprinted as printed and are formalized in corrected form (the basis of Example 10.2.2 is also misprinted, with no effect on the value computed there); REPORT.md audits the paper.",
+      "authors": [
+        {
+          "name": "The-Anh Vu-Le"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.AG"
+        ],
+        "msc2020": [
+          "14C30",
+          "14C25",
+          "14K22",
+          "14K12",
+          "15A66",
+          "14F08"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "WeilClasses.Challenge.Kd_Nm",
+          "WeilClasses.Challenge.fX_mul_self",
+          "WeilClasses.Challenge.JX_mem_weilDomain",
+          "WeilClasses.Challenge.discIs_XXhat",
+          "WeilClasses.Challenge.rank_chE",
+          "WeilClasses.Challenge.theorem1_4_1_3",
+          "WeilClasses.Challenge.theorem1_4_1_4",
+          "WeilClasses.Challenge.theorem1_5_1",
+          "WeilClasses.Challenge.corollary1_6_1"
+        ]
+      },
+      "id": "PALOMAR-2026-10-05-000007",
+      "path": "entries/PALOMAR-2026-10-05-000007-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4be865ee7242c8ac4e7b7f92b192b31f9d1c3338",
+            "fork_repository": "PalomarArchive/vltanh--lean4-markman25-hodge-abelian-fourfolds--041dfda52aff",
+            "source_repository": "vltanh/lean4-markman25-hodge-abelian-fourfolds"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e8f341eeeee325a186bc0d1278f498df0efaca2e2e60a6f7768f79a0b8d5bb7c",
+        "version": 1
+      },
+      "published_at": "2026-10-05T17:07:39Z",
+      "source": {
+        "commit": "4be865ee7242c8ac4e7b7f92b192b31f9d1c3338",
+        "project_path": null,
+        "repository": "vltanh/lean4-markman25-hodge-abelian-fourfolds"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Weil classes on abelian sixfolds and the Hodge conjecture for abelian fourfolds (Markman)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Formalizes an exterior-model spinor construction for a field K in which 2 is invertible, using an explicit hyperbolic presentation and the Clifford conjugation action on the ambient quadratic space.  The development proves field-sensitive covering and image results: the positive split-rank spin-to-isometry kernel is {1,-1}, the spin action therefore descends only projectively, the split-line image is exactly the square-scaling subgroup, and a finite-dimensional split Levi element associated to g lies in the ambient spin image exactly when det(g) is a square unit.  The repository also packages the chosen exterior model, half-spin pieces, explicit transvection and square-scaling Clifford lifts, square-class quotient characters, vector-product norm identities, and selected complex and real low-dimensional Clifford classifications.",
+      "authors": [
+        {
+          "name": "Arthur F. Ramos"
+        },
+        {
+          "name": "David B. Hulak"
+        },
+        {
+          "name": "Ruy J. G. B. de Queiroz"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA"
+        ],
+        "msc2020": [
+          "15A66",
+          "11E81",
+          "20G15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Palomar.splitLevi_mem_spin_isometry_range_iff_det_square"
+        ]
+      },
+      "id": "PALOMAR-2026-08-27-000017",
+      "path": "entries/PALOMAR-2026-08-27-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "5c890f3466da7433a133eb45c5372a55fbdab1da",
+            "fork_repository": "PalomarArchive/Arthur742Ramos--SpinorLean--abf31c872d80",
+            "source_repository": "Arthur742Ramos/SpinorLean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "3e2a3e6db19b418fb6977a77aba02f05a7a82c02dde0f3100f31987fece9e17e",
+        "version": 1
+      },
+      "published_at": "2026-08-27T21:07:51Z",
+      "source": {
+        "commit": "5c890f3466da7433a133eb45c5372a55fbdab1da",
+        "project_path": null,
+        "repository": "Arthur742Ramos/SpinorLean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Arthur742Ramos/SpinorLean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

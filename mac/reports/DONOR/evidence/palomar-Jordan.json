@@ -1,0 +1,990 @@
+{
+  "schema_version": 1,
+  "revision": 949,
+  "release": "3cd4aee8ea32d796f5784625915944a3444a6643ae5449480ea18212ac1acc7f",
+  "totals": {
+    "results": 1135,
+    "projects": 874
+  },
+  "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six statements. An additive map phi between associative rings is a Jordan homomorphism when phi(ab + ba) = phi(a)phi(b) + phi(b)phi(a). (1) A Jordan homomorphism onto a prime ring without 2-torsion is a homomorphism or an anti-homomorphism (phi(ab) = phi(b)phi(a)): Herstein's theorem (1956, Theorem H) in the form Smiley gave it (1957, p. 428), with characteristic 3 admitted; an additive map of rings, no identity assumed. (2) The domain form in every characteristic (Jacobson and Rickart 1950, Theorem 2): an additive map with phi(a^2) = phi(a)^2 and phi(aba) = phi(a)phi(b)phi(a), into a ring without zero divisors, is multiplicative or anti-multiplicative, with no surjectivity and no hypothesis on 2. (3)-(5) Each hypothesis of (1) is needed; each statement asserts that one hypothesis fails, that the others hold, and that the map is neither multiplicative nor anti-multiplicative: (3) from 2x2 into 4x4 integer matrices, not onto, the target prime and without 2-torsion (witness a -> diag(a, a^T)); (4) on pairs of 2x2 integer matrices, onto, the target not prime (witness (a, b) -> (a, b^T)); (5) from F_2 x F_2 onto F_2, a prime ring with 2-torsion (witness (x, y) -> x + y). (6) The theorem in every characteristic (Smiley 1957, Added in proof, p. 429): an additive map with the two identities of (2), onto a prime ring, is a homomorphism or an anti-homomorphism, with no hypothesis on 2; it implies (1), and (5) shows that the Jordan identity alone does not suffice when the ring has 2-torsion. The compared statements add no definition: the identities on the map and the conditions on the target ring are written out as universally quantified statements, the maps are Mathlib's AddMonoidHom, and onto is Function.Surjective. Statements 1, 2 and 6 formalize theorems of the 1950s and statements 3-5 are standard examples; nothing here is a new theorem. The proof of (1) follows the argument written out by Beidar, Bresar and Chebotar (2003, Proposition 3.1), not Smiley's; the proof of (2) is Jacobson and Rickart's; the proof of (6) is Smiley's, through his lemma that a prime ring in which every commutator squares to zero is commutative. Not formalized: the semiprime generalizations. A prior formalization of the case of complex-linear maps between unital complex algebras exists in github.com/openai/math and is recorded under related_formalizations; statements (1) and (6) contain that case. Application (cited; no compared statement asserts it): the self-adjoint elements of an algebra of observables are closed under the symmetrized product and not, in general, under the product; applied to the identity map, (1) says that on a prime ring without 2-torsion the symmetrized product determines the associative product up to reversing the order of the factors.",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math-ph",
+          "quant-ph"
+        ],
+        "msc2020": [
+          "16W10",
+          "16N60",
+          "17C50",
+          "81R15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "JordanPrime.jordan_onto_prime",
+          "JordanPrime.twoIdentity_into_domain",
+          "JordanPrime.onto_needed",
+          "JordanPrime.prime_needed",
+          "JordanPrime.two_needed",
+          "JordanPrime.twoIdentity_onto_prime"
+        ]
+      },
+      "id": "PALOMAR-2026-11-11-000008",
+      "path": "entries/PALOMAR-2026-11-11-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+            "fork_repository": "PalomarArchive/stalex444--herstein-jordan-homomorphisms--865f53090a9e",
+            "source_repository": "stalex444/herstein-jordan-homomorphisms"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "9dacac9a47966ba3739949ab977c6a543a1241058efdbbd60600f067206d5ece",
+        "version": 1
+      },
+      "published_at": "2026-11-11T23:11:48Z",
+      "source": {
+        "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+        "project_path": null,
+        "repository": "stalex444/herstein-jordan-homomorphisms"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Herstein's theorem on Jordan homomorphisms onto prime rings, in Smiley's form for characteristic different from 2 and in his form for every characteristic, with the Jacobson-Rickart domain theorem and an example for each hypothesis",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Cohn, Kumar and Minton constructed a universally optimal code of thirty-nine points in the octonionic projective plane \ud835\udd46P\u00b2, whose existence was conjectured by Hoggar. Its points form thirteen mutually unbiased Jordan frames, and a four-parameter phase family deforms the code through such configurations. This Lean development describes their local geometry under the automorphism group F\u2084. At every nonresonant phase, every nearby real solution of the defining equations belongs to one of four smooth families of labelled configurations. In a local slice for F\u2084, their union has normal form R\u2074 \u00d7 \u22c3\u1d62\u208c\u2081\u2074 R\u2076\u1d62, with the R\u2076\u1d62 in direct sum. The distance to the localized family union is bounded by a phase-dependent constant times the square root of the residual, and the exponent 1/2 is sharp in the ambient configuration space. On an explicit open dense subset of the nonresonant phases, the complexified families are exactly the top-dimensional components of the complex solution germ, each generically reduced. Every neighbourhood of the original code in the space of unlabelled tight 39-point codes modulo F\u2084 contains points of local dimension 10.\n\nThe results are local, the resonant germ at the original code is not classified, and lower-dimensional complex components are not excluded. For exact frames and strongly convex C\u00b2 overlap potentials, we prove a two-sided comparison of the energy gap with squared overlap errors and, near each nonresonant orbit, a quartic lower bound in distance to the localized family union. Except for attributed third-party material, all text and code are AI-generated under Robert R. MacGregor\u2019s direction. Robert is an amateur who welcomes collaboration (macgregor@gmail.com).",
+      "authors": [
+        {
+          "name": "Robert R. MacGregor"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DG",
+          "math.CO",
+          "math.RA"
+        ],
+        "msc2020": []
+      },
+      "formalization": {
+        "theorem_names": [
+          "CKM.NativeTightCodeConsumer.code_bound",
+          "CKM.NativeTightCodeConsumer.code_bound_sharp",
+          "CKM.NativeTightCodeConsumer.tight_code_iff_frames",
+          "SupportedStress.supported_stress_local_criterion",
+          "CKM.NativeExactFrameEnergy.native_energy_sandwich",
+          "CompactAlbert.native_idempotent_iff_scaled_specialUnitary_of_literal_quartet_readouts",
+          "CompactAlbert.nativeComplementaryPoint_scaled_hidden_inverse",
+          "CompactAlbert.native_complementary_frame_iff_exists_central_order",
+          "CompactAlbert.native_ordered_central_triples_overlap_iff_hilbertSchmidt",
+          "CKM.NativeUnlabelledSlice.literalCfg_mem_tightLocus",
+          "Option2StatementCode.exists_goodAvoid_codeClass_mem_nhds_one",
+          "Option2StatementA1.state_equivalence",
+          "Option2StatementA1.quartet_fixer_classification",
+          "Option2StatementA1.quartet_fixer_converse",
+          "Option2StatementCode.originalCode_no_open24_chart",
+          "Option2StatementCode.originalCode_no_charted24_neighborhood",
+          "Option2StatementA3.finrank_original_derivative_kernel",
+          "Option2StatementA1.nine_frame_array",
+          "Option2StatementA3Matrix.unrestricted_matrix_normal_form",
+          "Option2StatementA3Matrix.firstOrder_dimension",
+          "Option2StatementA3Matrix.resonance_count_cases",
+          "Option2StatementA2.full_A2",
+          "Option2StatementA5Slice.native_A5_geometry",
+          "Option2StatementA4.full_A4",
+          "Option2StatementA6.native_A6",
+          "Option2StatementCode.native_A7_local_dimension",
+          "Option2StatementR.native_real_endpoint",
+          "Option2StatementR.normal_form_exists",
+          "Option2StatementR.native_exact_frame_quartic_stability_near_orbit"
+        ]
+      },
+      "id": "PALOMAR-2026-10-29-000034",
+      "path": "entries/PALOMAR-2026-10-29-000034-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+            "fork_repository": "PalomarArchive/macgregor-sudo--tight-39-code--ae805be97afb",
+            "source_repository": "macgregor-sudo/tight-39-code"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "259e226017db4bde15d40a22221ab1d528667151a1b696a43837de05189b64fd",
+        "version": 1
+      },
+      "published_at": "2026-10-29T17:30:19Z",
+      "source": {
+        "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+        "project_path": null,
+        "repository": "macgregor-sudo/tight-39-code"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "On the local geometry of the tight 39-point code in \ud835\udd46P\u00b2",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A formal proof that every unital surjective complex-linear spectral isometry between arbitrary complex unital C*-algebras is an algebraic Jordan isomorphism. The development also proves that a bounded generator whose exponentials are unital spectral isometries at every complex parameter is an associative derivation, and that every surjective spectral isometry is a unital Jordan isomorphism multiplied by its prescribed central unitary value at the identity.",
+      "authors": [
+        {
+          "name": "Matthew J. Colbrook"
+        },
+        {
+          "name": "George Stepaniants"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "46L05",
+          "47A65"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "SpectralIsometry.main_result",
+          "SpectralIsometry.entire_group",
+          "SpectralIsometry.normalization"
+        ]
+      },
+      "id": "PALOMAR-2026-10-28-000031",
+      "path": "entries/PALOMAR-2026-10-28-000031-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "e08ba6700e58aff2ba00565b83ee24b71b226ed8",
+            "fork_repository": "PalomarArchive/MColbrook--Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras--ad4c932ac884",
+            "source_repository": "MColbrook/Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "4fb8be78ebf90090dd77a20fdda2aa30bcbdefe04711f45bcdd106f21d07a70f",
+        "version": 1
+      },
+      "published_at": "2026-10-28T21:09:04Z",
+      "source": {
+        "commit": "e08ba6700e58aff2ba00565b83ee24b71b226ed8",
+        "project_path": null,
+        "repository": "MColbrook/Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "A proof of the spectral isometry conjecture for C*-algebras",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, about cut-and-project schemes on a fixed integer lattice Z^iota invariant under an integer matrix A: splittings R^iota = E + H into A-invariant subspaces with Z^iota meeting H only in 0 and the projection of Z^iota to H dense in H, a window W in H (bounded, containing a relative ball), the model set Lambda(W) = {pi_E g : g in Z^iota, pi_H g in W}, and admissibility, some window with A Lambda(W) contained in Lambda(W) (inflation symmetry in Meyer's inclusion sense). The least physical dimension d(A) is the least dim E over admissible schemes. Thirteen compared theorems. (1) For every integer A, a scheme is admissible iff A is power-bounded on H; then the orbit window is a compact convex symmetric invariant window; the per-window criterion; and U(A) <= dim E, U(A) the number of eigenvalues of modulus > 1. (2) Kronecker's density criterion in cut-and-project form. (3) For every integer A with det A != 0, any chi_A: (a) d(A) is the sum over the distinct irreducible factors p of chi_A over Q of m_p u_p + c_p (m_p - r_1(p)), plus min(deg p, 2) when every root of p lies on the unit circle and r_1(p) = m_p, where m_p is the multiplicity, u_p and c_p count the roots of p of modulus > 1 and = 1, and r_1(p) = (2 dim ker p(A) - dim ker p(A)^2) / deg p (ranks over Q) is the number of Jordan blocks of size one at each root of p; (b) the value is an invariant of rational similarity; (c) the factors with all roots on the unit circle are the cyclotomic ones; and (d) for chi_A squarefree every invariant splitting is E = ker q_E(A), H = ker q_H(A) with chi_A = q_E q_H, it is admissible iff the roots of q_H lie in the closed unit disk and every irreducible rational factor of chi_A shares a root with q_E, and d(A) = U(A) + circleCount(A), counting 1 for each factor x - 1, x + 1 and 2 for each other cyclotomic factor, each with its multiplicity. (4) For det A != 0 and hyperbolic A, any chi_A and no diagonalizability: a scheme is admissible iff E contains the unstable set iff H lies in the stable set; an invariant splitting carries an admissible scheme iff E contains the unstable set; d(A) = U(A), attained only by the unstable/stable splitting. (5) For det A != 0, any chi_A: d(A) = 1 iff chi_A is irreducible with exactly one root of modulus > 1 (a real root, a Pisot or Salem number up to sign, or an integer on Z^1), or A = +-1 in any rank; in the irreducible case every admissible line is the eigenline. (6) If A^k = 1: every factor is cyclotomic and d = sum of min(deg p, 2) over the distinct factors; the same for chi_A squarefree with all roots on the unit circle; every integer matrix with chi_A = Phi_n, n >= 3 (multiplication by a primitive n-th root of unity), needs exactly a plane. (7) Jordan blocks on the circle: I_2 and the Jordan block J_2 both have chi = (x - 1)^2, for which the squarefree count of (3), with x - 1 counted twice, gives 2, but d = 1 and 2; 1 + J_2(1) and 1 + J_3(1) have d = 2 and 3. (8) Multiplication by rho, rho^-1, Q and theta = -Q^-1 = 1 - Q^3 on Z[rho] and Z[Q] (rho^3 = rho + 1, Q^4 = Q + 1): d = 1, 2, 3, 1. (9) On Z[rho] (x) Z[Q] (degree 12), multiplication by every alpha other than 0, +-1 is nonsingular (det != 0) and hyperbolic with d = U; for rho, theta, rho Q and Q the values are 4, 3, 5, 9. (10) rho and theta act on their unstable spaces as real scalars, and the spectral projection carries the quartic (resp. cubic) sector onto them with the Gram pairing GramRho (x) GramQ equal to that of GramQ (resp. GramRho), of types (3,1) and (2,1). (11) The scheme of Q on Z^4 with an interval window: a segment, an explicit Q-invariant model set in R^3, determinant -1/q' on E, non-real moduli, and the types (2,1) and (1,0) of the trace form on E and H. (12) A Salem witness, the companion of x^4 - x^3 - x^2 - x + 1: not hyperbolic, d = 1. (13) Every model set is a Delone set (Mathlib's Delone.DeloneSet) with uniformly discrete difference set. The mathematics of (1), (2), (4), (5) for irreducible chi_A, and (13), and of (6) for chi_A = Phi_n, is known in other formulations (Masakova-Mazac-Pelantova 2021; Kronecker, Pleasants 2000; Harriss-Koivusalo-Walton 2025, preprint; Meyer 1972, 1995; Lagarias 1999; Solomyak 2020; the classical cyclotomic model sets; Moody 1997); (1) and (4) are stated with no diagonalizability hypothesis. The scheme and model set of (11) are, in substance, instances of Masakova-Mazac-Pelantova Thm 13.1 and of Harriss-Koivusalo-Walton Section 3.4, and are not new. For squarefree chi_A the count of (3) also follows from the arguments of Masakova-Mazac-Pelantova (Lemma 5.1, Prop. 8.1(iii), Cor. 13.4), stated there for generic (aperiodic) schemes; the lattice-first least physical dimension was not found stated in the sources read (search completed 2026-10-20). Beyond the cited cases, the entry proves the least physical dimension for every nonsingular integer matrix (3), including what lies outside the diagonalizable class of Masakova-Mazac-Pelantova: a Jordan block of size >= 2 at an eigenvalue on the unit circle counts in full (the terms c_p (m_p - r_1(p)), which vanish for diagonalizable A), and at a cyclotomic factor with such a block the blocks of size one cost nothing, the internal space being tilted into the socle of the larger blocks; the witnesses are J_2, 1 + J_2(1) and 1 + J_3(1) (7). Every admissible scheme of an A with such a block at a root of unity has Z^iota meeting E in a nonzero vector. It also proves the characterization of every admissible splitting for squarefree chi_A ((3)(d)), non-generic splittings included (its necessity half is the injectivity argument of Masakova-Mazac-Pelantova, Lemma 5.1), and (1) for every integer matrix and (4) for every nonsingular hyperbolic integer matrix, with no diagonalizability hypothesis; for diagonalizable A and generic schemes, the uniqueness of the minimal scheme in (4) and of the minimal physical line in (5) is immediate from Masakova-Mazac-Pelantova, Cor. 13.4. For det A != 0 and squarefree chi_A with a factor Phi_n, n not in {1, 2, 3, 4, 6}, the minimal scheme is not unique, by (3)(d). The companion matrices are multiplication by rho and Q in the power bases by definition, so Crho^i (x) CQ^j is multiplication by rho^i Q^j in the product basis. That the rho^i Q^j are a Z-basis of the ring of integers of Q(rho, Q) is statement (8) of the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031); that GramRho, GramQ and GramRho (x) GramQ are the Gram matrices of the trace forms in these bases is statements (8), (9) and (19) of the author's registered entry PALOMAR-2026-09-02-000014, in which Q(rho) (x) Q(Q) is the field Q(rho, Q) (its (23)). These are cited, not compared. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K, whose integers are Z[rho] (x) Z[Q], is the parent of both (the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031), statements (7), (8)). A model set is the shadow of a lattice cut through a window, a standard mathematical model of a quasicrystal (Moody 2000). Read through the theory, this entry's theorems fix how many dimensions each of the theory's inflations needs to be the symmetry of one, and which ones.\nSpace inflates the parent through spacetime, and spacetime inflates it through space. On the parent's lattice the plastic inflation rho needs exactly four physical dimensions, and only one scheme attains four (4, 9). Those four are a copy of spacetime's: rho has a single expanding embedding in Q(rho), the real one, and the spectral projection maps the quartic sector onto them, carrying Z[Q] with its trace form unchanged, of Lorentzian type (3,1) (10). rho acts on them as a pure dilation by rho = 1.3247..., the same stretch in every direction (10). Symmetrically, the unit theta = -Q^-1 = 1 - Q^3 needs exactly three, and those three are a copy of space's: Q(rho)'s real space with its form of type (2,1) unchanged, dilated by t = -1/q' = 1.3803... (8, 9, 10). Taken over all three embeddings of Q(rho) instead of the one expanding embedding, the form on the quartic sector is tripled: the factor 3 of statement (13) of PALOMAR-2026-10-21-000012.\nThe clock needs one dimension; the ruler needs five. On Z[rho] the plastic inflation needs exactly one: the line, over a two-dimensional window at the complex place (8). The plastic substitution's control-point sets are regular model sets in this scheme, with Rauzy-fractal windows in C (Baake and Grimm 2020), and in the theory the line is time and its points are the ticks (PALOMAR-2026-08-19-000006, PALOMAR-2026-10-18-000019). The coupling ruler rho Q, which generates the parent field (Q(rho Q) = K; statement (15) of PALOMAR-2026-10-21-000012, where Z[rho Q] has index 53 in the integers; PALOMAR-2026-09-01-000005), needs exactly five, over a seven-dimensional window (9): one real and two complex expanding places, a dimension neither sector has.\nThe parent holds no circle, so every minimal scheme is forced. Off the parent, eigenvalues on the unit circle can change the count: a Salem inflation's circle eigendirections lie in the internal space and cost nothing, so it still needs only a line (5, 12), but multiplication by a primitive n-th root of unity, n >= 3, needs exactly a plane, and every element of finite order n >= 3 needs at least one (6). The parent has none. No element of K other than +-1 has a conjugate on the unit circle (statement (17) of PALOMAR-2026-10-21-000012), so every inflation of the parent by an element other than 0 and +-1 is hyperbolic, needs exactly as many dimensions as it has expanding embeddings (a complex place counts twice), and has a unique minimal scheme (4, 9).",
+      "authors": [
+        {
+          "name": "Stephanie Alexander"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.MG",
+          "math.DS",
+          "math.NT",
+          "math-ph",
+          "gr-qc",
+          "cs.LO"
+        ],
+        "msc2020": [
+          "52C23",
+          "37D20",
+          "11R06",
+          "11J71",
+          "11R04",
+          "15A21",
+          "68V20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ModelSetDimension.admissibility_criterion",
+          "ModelSetDimension.kronecker_density_criterion",
+          "ModelSetDimension.least_physical_dimension",
+          "ModelSetDimension.hyperbolic_case",
+          "ModelSetDimension.dimension_one_pisot_or_salem",
+          "ModelSetDimension.finite_order_case",
+          "ModelSetDimension.jordan_block_witnesses",
+          "ModelSetDimension.sector_rings",
+          "ModelSetDimension.compositum_lattice",
+          "ModelSetDimension.compositum_dilations",
+          "ModelSetDimension.quartic_model_set",
+          "ModelSetDimension.salem_witness",
+          "ModelSetDimension.modelSet_isMeyer"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000030",
+      "path": "entries/PALOMAR-2026-10-22-000030-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+            "fork_repository": "PalomarArchive/stalex444--pdt-inflation-model-set-dimension--6934a2b28ed6",
+            "source_repository": "stalex444/pdt-inflation-model-set-dimension"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "cb55a83f03a2badb3cc989e42f8e203e2bee88d1ff40bbe4f369dd73212c87ad",
+        "version": 1
+      },
+      "published_at": "2026-10-22T11:57:42Z",
+      "source": {
+        "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "project_path": null,
+        "repository": "stalex444/pdt-inflation-model-set-dimension"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "The least physical dimension of an inflation-symmetric model set, with the cubic, quartic and degree-12 inflations of x^3 - x - 1 and x^4 - x - 1",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A complete Lean 4 / Mathlib formalization of Theorems 1, 2 and 3 of Duminil-Copin, Sidoravicius and Tassion (arXiv:1505.04159v1). Theorem 3: for the random-cluster model on the square lattice with any real cluster weight q >= 1, at its critical point p_c, the following are equivalent: the origin lies in an infinite cluster with probability 0 under the wired measure; equality of the free and wired measures; infinite susceptibility of the free measure; sub-exponential decay of the free one-arm probability; and the RSW bound for free boundary conditions at distance n. Theorem 2: for 1 <= q <= 4 the wired measure at p_c gives probability 0 to the origin lying in an infinite cluster. Theorem 1: for the q-state Potts model with q = 2, 3, 4, the monochromatic Gibbs measure at beta_c gives its own colour at the origin probability exactly 1/q, so the phase transition is continuous. The critical points are the genuine phase-transition thresholds, whose existence the theorems assert; four further theorems prove that these critical points and the infinite-volume measures are unique; beyond this statement surface, the development also proves p_c = sqrt(q)/(1 + sqrt q) for every q >= 1 (PottsContinuity.BD12.isRCCriticalPoint_sqrt) and beta_c = log(1 + sqrt q) for every integer q >= 2 (PottsContinuity.Thm1.isPottsCriticalPoint_log_sqrt); these identifications are not checked by Comparator. The infinite-volume measures are limits along every exhaustion of the lattice, and their existence and uniqueness are proved. The external results that the paper cites and the proof uses (the value of p_c and the crossing estimates of Beffara-Duminil-Copin, the contour identity of the parafermionic observable in the form used in Section 4 of the paper, Theorem 4 of the paper, the Edwards-Sokal coupling, FKG and comparison inequalities, the domain Markov property, planar duality and topology) are proved here or taken from Mathlib; the Jordan-Schoenflies theorem and Brouwer's fixed-point theorem come from vendored libraries, and circle-degree and Jordan-curve facts from the Tau Ceti library. The only axioms are propext, Classical.choice and Quot.sound.",
+      "authors": [
+        {
+          "name": "Zijie Zhuang"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.PR",
+          "math-ph"
+        ],
+        "msc2020": [
+          "82B20",
+          "82B26",
+          "82B43",
+          "60K35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PottsContinuity.isPottsCriticalPoint_unique",
+          "PottsContinuity.isPottsInfiniteVolumeLimit_unique",
+          "PottsContinuity.isRCCriticalPoint_unique",
+          "PottsContinuity.isRCInfiniteVolumeLimit_unique",
+          "PottsContinuity.theorem_1",
+          "PottsContinuity.theorem_2",
+          "PottsContinuity.theorem_3"
+        ]
+      },
+      "id": "PALOMAR-2026-10-22-000019",
+      "path": "entries/PALOMAR-2026-10-22-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+            "fork_repository": "PalomarArchive/zijie123123--PottsContinuity-lean--faa19bd318be",
+            "source_repository": "zijie123123/PottsContinuity-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "c49ed3fda6e6a20cb44ca396050999abd47801797b6a7ec908fdee3df137caf3",
+        "version": 1
+      },
+      "published_at": "2026-10-22T09:03:15Z",
+      "source": {
+        "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+        "project_path": null,
+        "repository": "zijie123123/PottsContinuity-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Continuity of the phase transition for planar random-cluster and Potts models with 1 <= q <= 4 (Theorems 1, 2 and 3)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Lean 4 / Mathlib formalization of results on 3-colourings of planar graphs. (1) Kostochka and Yancey's theorem, the case k = 4 of Ore's 1967 conjecture on the minimum number of edges of k-critical graphs: every finite 4-critical graph G satisfies 3|E(G)| \u2265 5|V(G)| - 2, by their potential method. (2) Gr\u00f6tzsch's theorem: every finite triangle-free planar graph is 3-colourable, deduced from (1) as in Kostochka\u2013Yancey, with the topological crossing argument replaced by a K5-minor argument with an apex inside a face. (3) Aksenov's and Jensen\u2013Thomassen's theorem: a triangle-free planar graph plus one edge is 3-colourable (Borodin\u2013Kostochka\u2013Lidick\u00fd\u2013Yancey, Theorem 2). (4) A triangle-free planar graph plus one vertex of degree at most 4 is 3-colourable (BKLY, Theorem 4). (5) The Gr\u00fcnbaum\u2013Aksenov theorem: every finite planar graph with at most three triangles is 3-colourable, following BKLY's short proof (Theorem 7), with precolouring extension for 4- and 5-cycles (BKLY Theorem 5, for arbitrary cycles) and a combinatorial region (Jordan-type) theorem for rotation systems making the interiors and outer faces of the paper precise. Planarity is defined combinatorially, by rotation systems of genus zero (Euler defect 0); as sanity checks on this definition K4 is shown planar and K5 and K3,3 non-planar.",
+      "authors": [
+        {
+          "name": "Juan Pablo Traverso Gianini"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C15",
+          "05C10",
+          "05C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "GrotzschKY.grotzsch",
+          "GrotzschKY.ore_four",
+          "GrotzschKY.isPlanar_K4",
+          "GrotzschKY.not_isPlanar_K5",
+          "GrotzschKY.not_isPlanar_K33",
+          "GrotzschKY.colorable_of_planar_add_edge",
+          "GrotzschKY.colorable_of_planar_add_vertex",
+          "GrotzschKY.grunbaum_aksenov"
+        ]
+      },
+      "id": "PALOMAR-2026-10-13-000005",
+      "path": "entries/PALOMAR-2026-10-13-000005-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ff6d5123c06e4c99bb6074e0a72e8be8d595eefa",
+            "fork_repository": "PalomarArchive/jtraverso--grotzsch-ore--8ebd0df3e665",
+            "source_repository": "jtraverso/grotzsch-ore"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7bf631c84fce0190baf8309fb85eaaa0d2124ef3fe54803340a71216d829376c",
+        "version": 2
+      },
+      "published_at": "2026-10-15T05:09:46Z",
+      "source": {
+        "commit": "ff6d5123c06e4c99bb6074e0a72e8be8d595eefa",
+        "project_path": null,
+        "repository": "jtraverso/grotzsch-ore"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Gr\u00f6tzsch's theorem, Ore's conjecture for k = 4 (Kostochka\u2013Yancey) and the Gr\u00fcnbaum\u2013Aksenov theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abbreviated": false,
+      "abstract": "Let J be the split Albert algebra over a field k of characteristic zero, the 27-dimensional Jordan algebra of 3 by 3 Hermitian matrices over the split octonions, with trace tr. A frame is an ordered triple of trace-one idempotents summing to 1. Three frames E, F, K carry 54 natural invariants under the group G of all unital k-linear bijections of J preserving its Jordan product: the pair traces tr(e\u1d62\u2218f\u2c7c), tr(f\u2c7c\u2218k\u2097), tr(k\u2097\u2218e\u1d62) and the triple traces tr(e\u1d62\u2218(f\u2c7c\u2218k\u2097)). This Lean 4 development proves that these traces do not generate all rational invariants of three frames, and that adjoining one additional invariant suffices: the field of G-invariant rational functions on the variety of frame triples is a quadratic extension H(d) of the field H generated by the 54 traces, where d = tr(W\u2218(W\u2218W)), W = x\u2218(y\u2218z) \u2212 y\u2218(x\u2218z), x = e\u2082 \u2212 e\u2080, y = f\u2082 \u2212 f\u2080, z = k\u2082 \u2212 k\u2080. The development also proves that the variety of frame triples is irreducible, that the coordinate algebra used is the standard split Albert algebra, that d is not in H, and that every invariant is uniquely a + b\u00b7d with a, b in H. The ambiguity occurs over \u211a: two explicit frame triples have identical 54 traces and d = \u22122591357/62208 and \u22121782559/62208, and no \u211a-linear automorphism of J combined with any of the 1,296 relabellings of frames and idempotents carries one to the other. The proved endpoints use only the permitted axiom dependencies propext, Quot.sound and Classical.choice; a Python script rechecks the example in exact arithmetic.",
+      "authors": [
+        {
+          "name": "Robert R. MacGregor"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA"
+        ],
+        "msc2020": [
+          "17C40",
+          "17C30"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "FrameInvariants.rawFrameRing_isDomain",
+          "FrameInvariants.splitAlbertModel",
+          "FrameInvariants.oneBit",
+          "FrameInvariants.rationalWitness",
+          "FrameInvariants.rationalWitness_not_equivalent_under_relabelling"
+        ]
+      },
+      "id": "PALOMAR-2026-09-13-000001",
+      "path": "entries/PALOMAR-2026-09-13-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "dd06ef5d423a0e4a5d814d2c221e999b98887ee1",
+            "fork_repository": "PalomarArchive/macgregor-sudo--albert-frame-triple-invariants--69f1cc244e60",
+            "source_repository": "macgregor-sudo/albert-frame-triple-invariants"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1215d8f03b1a482f66cb6c71960edbfd488644c617d3a4f6cf643a8fc0e4a569",
+        "version": 1
+      },
+      "published_at": "2026-09-13T15:40:23Z",
+      "source": {
+        "commit": "dd06ef5d423a0e4a5d814d2c221e999b98887ee1",
+        "project_path": null,
+        "repository": "macgregor-sudo/albert-frame-triple-invariants"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Rational invariants of three frames in the split Albert algebra: a Lean formalization",
+      "trust": {
+        "level": "qualified"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The frame Peirce decomposition: relative to a Jordan frame, a Euclidean Jordan algebra is the internal direct sum of the blocks V_ij over unordered pairs of frame indices, and in finite dimension the diagonal blocks are lines, dim V_ii = 1 - the Faraut-Koranyi table entry. The frame is carried as data, so frame conjugacy is sidestepped and nothing here claims anything about the rank of J. Machine checked, not peer reviewed, no priority claim.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "17C20",
+          "17C27",
+          "17C37",
+          "17C65",
+          "17A15",
+          "46L70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "JordanFramePeirce.frameBlock_isInternal",
+          "JordanFramePeirce.finrank_frameBlock_diag"
+        ]
+      },
+      "id": "PALOMAR-2026-08-29-000008",
+      "path": "entries/PALOMAR-2026-08-29-000008-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a83407e4dbf73c77c31a2291c02f20b37a5ebbaf",
+            "fork_repository": "PalomarArchive/ehrlich-b--euclidean-jordan--60bdbed9ee0b",
+            "source_repository": "ehrlich-b/euclidean-jordan"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "f9de108b434da1c9b77be1304607cb442c86a1910f9b0983fea0a7095cc6326a",
+        "version": 1
+      },
+      "published_at": "2026-08-29T01:43:35Z",
+      "source": {
+        "commit": "a83407e4dbf73c77c31a2291c02f20b37a5ebbaf",
+        "project_path": null,
+        "repository": "ehrlich-b/euclidean-jordan"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/euclidean-jordan",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The Jordan trace form tau(x,y) = tr(L_{x*y}), constructed from the multiplication rather than assumed: symmetric, associative, and positive definite. Symmetry and associativity need neither finite dimensionality nor formal reality; positive definiteness needs both, and runs through the spectral theorem. The carrier is not assumed unital, so this supplies the Euclidean form itself and does not by itself establish a unital Euclidean Jordan algebra. Sits directly on Mathlib's IsCommJordan. Coordinatization is absent. Machine checked, not peer reviewed, no priority claim.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "17C20",
+          "17C27",
+          "17C37",
+          "17C65",
+          "17A15",
+          "46L70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "JordanTraceForm.traceForm_comm",
+          "JordanTraceForm.traceForm_assoc",
+          "JordanTraceForm.traceForm_self_nonneg",
+          "JordanTraceForm.traceForm_self_eq_zero_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-08-29-000001",
+      "path": "entries/PALOMAR-2026-08-29-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "a0077822f037d5de7bdcbf3f9f498cc00f361a4a",
+            "fork_repository": "PalomarArchive/ehrlich-b--euclidean-jordan--60bdbed9ee0b",
+            "source_repository": "ehrlich-b/euclidean-jordan"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2bbd56ca07514b741eba15570b58b1b3a20567c7d301f4a0ad4d6f69efa35432",
+        "version": 1
+      },
+      "published_at": "2026-08-29T00:33:44Z",
+      "source": {
+        "commit": "a0077822f037d5de7bdcbf3f9f498cc00f361a4a",
+        "project_path": null,
+        "repository": "ehrlich-b/euclidean-jordan"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/euclidean-jordan",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Euclidean Jordan algebra is a finite-dimensional real inner-product space carrying a commutative bilinear product with a unit, satisfying the Jordan identity (x*y)*(x*x) = x*(y*(x*x)) and the associativity of the inner product <x*y, z> = <y, x*z>. This is Faraut-Koranyi's definition (Analysis on Symmetric Cones, III.1). This development formalizes the classical structure theory of these algebras.\nMathlib carries the Jordan identity as the typeclass IsCommJordan together with five operator-commutation lemmas, and nothing beyond that: no idempotent theory, no Peirce decomposition, no spectral theory. This development supplies that layer.\nThe registered results, in four separate Comparator configurations. (1) The Koecher / Alfsen-Shultz theorem: a unital linear order isomorphism of a Euclidean Jordan algebra is a Jordan automorphism, with the cone taken to be the sums-of-squares cone and the product carried as a bundled bilinear map so that the statement needs no ring instance to elaborate. (2) The single-element spectral theorem: every element of a finite-dimensional formally real Jordan algebra is a real linear combination of a complete family of pairwise-orthogonal idempotents. Finite-dimensionality is load-bearing rather than decorative - the polynomial algebra R[X] satisfies every other hypothesis and has no nonconstant spectral resolution. (3) The Jordan trace form tau(x,y) = tr(L_{x*y}): symmetric, associative, and positive definite, constructed from the multiplication alone rather than assumed. Symmetry and associativity are registered at their honest generality, which does not include finite-dimensionality; positive definiteness needs the spectral theorem and therefore does. (4) The frame Peirce decomposition: for a Jordan frame p_1, ..., p_n the algebra is the internal direct sum of the blocks V_ij over unordered pairs, together with the Faraut-Koranyi table entry dim V_ii = 1.\nDirection and scope. Every registered theorem is proved outright from the stated hypotheses; none is conditional on a cited result. The development also proves, but does not register here, Albert's power-associativity theorem (x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed), which is registered from a separate development of the author's and is deliberately not re-registered; the existence of a Jordan frame in any nontrivial finite-dimensional Euclidean Jordan algebra; the associativity of the subalgebra generated by a single element; the Peirce subalgebras J_2(c) and J_0(c) as Euclidean Jordan algebras in their own right; and an order-unit-space structure with the sums-of-squares cone, proved to coincide with the Loewner order on the concrete carrier.\nWhat is NOT here. Coordinatization is absent: the Jordan-von Neumann-Wigner route continues by making the off-diagonal block a composition algebra and applying Hurwitz's theorem to land J = H_n(K), and that step depends on the composition-algebra classification, which lives in a separate repository. This development therefore stops at the connectors and the frame-block structure. There is no functional calculus on the spectral resolution. Frame conjugacy (Faraut-Koranyi IV.2.5) is not proved - the development sidesteps it by carrying a Jordan frame as data rather than reasoning about the rank as a number. The classification of simple Euclidean Jordan algebras is not proved, and no statement about the exceptional algebra H_3(O) appears. Formal reality and the associativity of the inner product are equivalent over R in finite dimension, but that equivalence is not formalized, so both appear as hypotheses.\nThe abstract theory has a live carrier: H_n(K) for K = R or C, the Hermitian matrices under A*B = (AB+BA)/2, is an instance of the EuclideanJordanAlgebra class, checked by instance synthesis in the mechanical audit rather than by inspection. The check is finer than nonemptiness of the class: every Peirce rule mentioning the half-eigenspace would be vacuously true on a carrier where that space is trivial, and it is trivial for the two idempotents one reaches for first, so a witness with nonzero half-eigenspace is exhibited on H_2(C).\nEvery declaration in the tracked tree has an axiom closure contained in Lean's three core axioms (propext, Classical.choice, Quot.sound). The tree carries no custom axiom, no sorry and no native_decide.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "17C20",
+          "17C27",
+          "17C37",
+          "17C65",
+          "17A15",
+          "46L70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "JordanSpectral.spectral_resolution_bilinear"
+        ]
+      },
+      "id": "PALOMAR-2026-08-23-000006",
+      "path": "entries/PALOMAR-2026-08-23-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "58fb886dceab0a3439c9ba3fca37f01073f2a0a4",
+            "fork_repository": "PalomarArchive/ehrlich-b--euclidean-jordan--60bdbed9ee0b",
+            "source_repository": "ehrlich-b/euclidean-jordan"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "01c1ef28bb7a7465b8677941094728d5124609f68f8a5e888976b5ceebaa5b6e",
+        "version": 1
+      },
+      "published_at": "2026-08-23T18:02:47Z",
+      "source": {
+        "commit": "58fb886dceab0a3439c9ba3fca37f01073f2a0a4",
+        "project_path": null,
+        "repository": "ehrlich-b/euclidean-jordan"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/euclidean-jordan",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A Euclidean Jordan algebra is a finite-dimensional real inner-product space carrying a commutative bilinear product with a unit, satisfying the Jordan identity (x*y)*(x*x) = x*(y*(x*x)) and the associativity of the inner product <x*y, z> = <y, x*z>. This is Faraut-Koranyi's definition (Analysis on Symmetric Cones, III.1). This development formalizes the classical structure theory of these algebras.\nMathlib carries the Jordan identity as the typeclass IsCommJordan together with five operator-commutation lemmas, and nothing beyond that: no idempotent theory, no Peirce decomposition, no spectral theory. This development supplies that layer.\nThe registered results, in four separate Comparator configurations. (1) The Koecher / Alfsen-Shultz theorem: a unital linear order isomorphism of a Euclidean Jordan algebra is a Jordan automorphism, with the cone taken to be the sums-of-squares cone and the product carried as a bundled bilinear map so that the statement needs no ring instance to elaborate. (2) The single-element spectral theorem: every element of a finite-dimensional formally real Jordan algebra is a real linear combination of a complete family of pairwise-orthogonal idempotents. Finite-dimensionality is load-bearing rather than decorative - the polynomial algebra R[X] satisfies every other hypothesis and has no nonconstant spectral resolution. (3) The Jordan trace form tau(x,y) = tr(L_{x*y}): symmetric, associative, and positive definite, constructed from the multiplication alone rather than assumed. Symmetry and associativity are registered at their honest generality, which does not include finite-dimensionality; positive definiteness needs the spectral theorem and therefore does. (4) The frame Peirce decomposition: for a Jordan frame p_1, ..., p_n the algebra is the internal direct sum of the blocks V_ij over unordered pairs, together with the Faraut-Koranyi table entry dim V_ii = 1.\nDirection and scope. Every registered theorem is proved outright from the stated hypotheses; none is conditional on a cited result. The development also proves, but does not register here, Albert's power-associativity theorem (x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed), which is registered from a separate development of the author's and is deliberately not re-registered; the existence of a Jordan frame in any nontrivial finite-dimensional Euclidean Jordan algebra; the associativity of the subalgebra generated by a single element; the Peirce subalgebras J_2(c) and J_0(c) as Euclidean Jordan algebras in their own right; and an order-unit-space structure with the sums-of-squares cone, proved to coincide with the Loewner order on the concrete carrier.\nWhat is NOT here. Coordinatization is absent: the Jordan-von Neumann-Wigner route continues by making the off-diagonal block a composition algebra and applying Hurwitz's theorem to land J = H_n(K), and that step depends on the composition-algebra classification, which lives in a separate repository. This development therefore stops at the connectors and the frame-block structure. There is no functional calculus on the spectral resolution. Frame conjugacy (Faraut-Koranyi IV.2.5) is not proved - the development sidesteps it by carrying a Jordan frame as data rather than reasoning about the rank as a number. The classification of simple Euclidean Jordan algebras is not proved, and no statement about the exceptional algebra H_3(O) appears. Formal reality and the associativity of the inner product are equivalent over R in finite dimension, but that equivalence is not formalized, so both appear as hypotheses.\nThe abstract theory has a live carrier: H_n(K) for K = R or C, the Hermitian matrices under A*B = (AB+BA)/2, is an instance of the EuclideanJordanAlgebra class, checked by instance synthesis in the mechanical audit rather than by inspection. The check is finer than nonemptiness of the class: every Peirce rule mentioning the half-eigenspace would be vacuously true on a carrier where that space is trivial, and it is trivial for the two idempotents one reaches for first, so a witness with nonzero half-eigenspace is exhibited on H_2(C).\nEvery declaration in the tracked tree has an axiom closure contained in Lean's three core axioms (propext, Classical.choice, Quot.sound). The tree carries no custom axiom, no sorry and no native_decide.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RA",
+          "math.OA",
+          "math.FA"
+        ],
+        "msc2020": [
+          "17C20",
+          "17C27",
+          "17C37",
+          "17C65",
+          "17A15",
+          "46L70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KoecherAlfsenShultz.orderIso_preservesJordan"
+        ]
+      },
+      "id": "PALOMAR-2026-08-23-000005",
+      "path": "entries/PALOMAR-2026-08-23-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "58fb886dceab0a3439c9ba3fca37f01073f2a0a4",
+            "fork_repository": "PalomarArchive/ehrlich-b--euclidean-jordan--60bdbed9ee0b",
+            "source_repository": "ehrlich-b/euclidean-jordan"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "7b34f67d5c300e87d0838d5fc44df3c0e993e8e192b2c9463f77b0892ebadcac",
+        "version": 1
+      },
+      "published_at": "2026-08-23T14:43:08Z",
+      "source": {
+        "commit": "58fb886dceab0a3439c9ba3fca37f01073f2a0a4",
+        "project_path": null,
+        "repository": "ehrlich-b/euclidean-jordan"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/euclidean-jordan",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A sequential product on the effects of an order-unit space is a binary operation a & b, read \"first test a, then test b with the state updated by the first test\", satisfying the seven axioms S1-S7 of van de Wetering (arXiv:1803.11139, Definition 2). This development registers two classification theorems for such products on the Hermitian matrix algebras.\nOn H_N(R), the Hermitian N x N real matrices with N >= 1, every sequential product is the Lueders product sqrt(a) b sqrt(a): there is no free parameter. On H_N(C) with N >= 3, every sequential product has the twist normal form a^(1/2+it) b a^(1/2-it) for a unique real t. The twist family is a one-parameter deformation of the Lueders product, and the complex theorem says nothing outside it satisfies the axioms.\nPrior art. That Lueders is not the only sequential product, and twisted products of this shape in particular, are not new: Gudder asked the question in 2005, Shen and Wu answered it negatively and gave a general construction in 2009 (arXiv:0905.0596), and Liu, Wu and Wu showed those examples are unitary equivalent to Lueders (arXiv:1009.2593). What is registered here is the converse direction. The examples are not exhibited; they are shown to be forced, with the parameter unique, and with no product outside the family admissible. The equations are asserted on all effects, including singular ones, and the uniqueness of t is part of the registered statement.\nDirection. Both registered classification theorems are necessity: a product satisfying the axioms is supplied, and the theorem says it has the stated normal form. The two converses differ in status and neither is registered. For the complex case, that each real t defines a SeqProd satisfying S2 is proved in the wider development; together with the registered uniqueness it is what would make the parameter map injective. For the real case, that the Lueders formula defines a SeqProd satisfying S2 is not proved anywhere in this development. Nothing here registers a bijection between parameters and products, or the admissibility of the Lueders formula.\nThe package also registers two classical theorems the development proves in passing. Albert's power-associativity theorem: in a commutative Jordan ring carrying an R-module structure, x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed. And the real case of Wigner's theorem: every transition probability preserving self-map of the rays of a finite-dimensional real inner product space is induced by a linear isometry, with bijectivity not assumed but derived.\nBoth classification theorems are proved from S1-S7 with no hypotheses beyond the dimension bounds, and their axiom closures contain only Lean's three core axioms (propext, Classical.choice, Quot.sound). The continuity axiom S2 is stated in the order-unit norm, as an explicit epsilon-delta condition, so the statement file depends on no normed-space or topological instance; the equivalence with continuity in the carrier's Frobenius topology is proved in the development.\nScope. The repository carries three Comparator configurations, selecting four theorems between them: the two sequential-product classifications above, which use the SeqProd interface and the axiom S2 and correspond to numbered rows of the manuscript; and the two ancillary classical theorems, Albert and Wigner, which use neither and correspond to no manuscript row. Each configuration is a separate submission and a separate entry; no one entry contains all four. No Palomar claim is made here for any other declaration in the repository.\nThe two classification theorems are two rows of a thirty-six row manifest tracking the numbered results of the accompanying manuscript. The manuscript as a whole is not formalized: as of 2026-08-12 the manifest stands at 12 rows formalized, 19 partial, and 5 absent. In particular the quaternionic row H_n(H) and the Albert-algebra row H_3(O) of the manuscript's main theorem are not proved here, and the coalescence and diagonal-homomorphism lemmas are established on the concrete carrier H_N(C) rather than at the manuscript's stated generality of a finite-dimensional simple Euclidean Jordan algebra.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OA",
+          "math.RA",
+          "quant-ph"
+        ],
+        "msc2020": [
+          "17C65",
+          "81P16",
+          "46L70",
+          "81P10",
+          "15B57",
+          "17C90"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "TwistNormalForm.real_classification",
+          "TwistNormalForm.complex_classification"
+        ]
+      },
+      "id": "PALOMAR-2026-08-22-000006",
+      "path": "entries/PALOMAR-2026-08-22-000006-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9c6d92f5fc222d9d1646ae6044dcec053900ca83",
+            "fork_repository": "PalomarArchive/ehrlich-b--sequential-products-lean--7c5c76db591c",
+            "source_repository": "ehrlich-b/sequential-products-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "da9169c1f6aa82a5c665e4bb5a45f686a2dc298ee49389d68576436a97ab6a80",
+        "version": 1
+      },
+      "published_at": "2026-08-22T16:18:09Z",
+      "source": {
+        "commit": "9c6d92f5fc222d9d1646ae6044dcec053900ca83",
+        "project_path": null,
+        "repository": "ehrlich-b/sequential-products-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/sequential-products-lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A sequential product on the effects of an order-unit space is a binary operation a & b, read \"first test a, then test b with the state updated by the first test\", satisfying the seven axioms S1-S7 of van de Wetering (arXiv:1803.11139, Definition 2). This development registers two classification theorems for such products on the Hermitian matrix algebras.\nOn H_N(R), the Hermitian N x N real matrices with N >= 1, every sequential product is the Lueders product sqrt(a) b sqrt(a): there is no free parameter. On H_N(C) with N >= 3, every sequential product has the twist normal form a^(1/2+it) b a^(1/2-it) for a unique real t. The twist family is a one-parameter deformation of the Lueders product, and the complex theorem says nothing outside it satisfies the axioms.\nPrior art. That Lueders is not the only sequential product, and twisted products of this shape in particular, are not new: Gudder asked the question in 2005, Shen and Wu answered it negatively and gave a general construction in 2009 (arXiv:0905.0596), and Liu, Wu and Wu showed those examples are unitary equivalent to Lueders (arXiv:1009.2593). What is registered here is the converse direction. The examples are not exhibited; they are shown to be forced, with the parameter unique, and with no product outside the family admissible. The equations are asserted on all effects, including singular ones, and the uniqueness of t is part of the registered statement.\nDirection. Both registered classification theorems are necessity: a product satisfying the axioms is supplied, and the theorem says it has the stated normal form. The two converses differ in status and neither is registered. For the complex case, that each real t defines a SeqProd satisfying S2 is proved in the wider development; together with the registered uniqueness it is what would make the parameter map injective. For the real case, that the Lueders formula defines a SeqProd satisfying S2 is not proved anywhere in this development. Nothing here registers a bijection between parameters and products, or the admissibility of the Lueders formula.\nThe package also registers two classical theorems the development proves in passing. Albert's power-associativity theorem: in a commutative Jordan ring carrying an R-module structure, x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed. And the real case of Wigner's theorem: every transition probability preserving self-map of the rays of a finite-dimensional real inner product space is induced by a linear isometry, with bijectivity not assumed but derived.\nBoth classification theorems are proved from S1-S7 with no hypotheses beyond the dimension bounds, and their axiom closures contain only Lean's three core axioms (propext, Classical.choice, Quot.sound). The continuity axiom S2 is stated in the order-unit norm, as an explicit epsilon-delta condition, so the statement file depends on no normed-space or topological instance; the equivalence with continuity in the carrier's Frobenius topology is proved in the development.\nScope. The repository carries three Comparator configurations, selecting four theorems between them: the two sequential-product classifications above, which use the SeqProd interface and the axiom S2 and correspond to numbered rows of the manuscript; and the two ancillary classical theorems, Albert and Wigner, which use neither and correspond to no manuscript row. Each configuration is a separate submission and a separate entry; no one entry contains all four. No Palomar claim is made here for any other declaration in the repository.\nThe two classification theorems are two rows of a thirty-six row manifest tracking the numbered results of the accompanying manuscript. The manuscript as a whole is not formalized: as of 2026-08-12 the manifest stands at 12 rows formalized, 19 partial, and 5 absent. In particular the quaternionic row H_n(H) and the Albert-algebra row H_3(O) of the manuscript's main theorem are not proved here, and the coalescence and diagonal-homomorphism lemmas are established on the concrete carrier H_N(C) rather than at the manuscript's stated generality of a finite-dimensional simple Euclidean Jordan algebra.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OA",
+          "math.RA",
+          "quant-ph"
+        ],
+        "msc2020": [
+          "17C65",
+          "81P16",
+          "46L70",
+          "81P10",
+          "15B57",
+          "17C90"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "AlbertPowerAssoc.jpow_mul_jpow"
+        ]
+      },
+      "id": "PALOMAR-2026-08-21-000009",
+      "path": "entries/PALOMAR-2026-08-21-000009-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9c6d92f5fc222d9d1646ae6044dcec053900ca83",
+            "fork_repository": "PalomarArchive/ehrlich-b--sequential-products-lean--7c5c76db591c",
+            "source_repository": "ehrlich-b/sequential-products-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "2c59b826d51212ada0ec35d0a9a5d566441c517fbcc4dfca811e0a091fae4b77",
+        "version": 1
+      },
+      "published_at": "2026-08-21T18:03:30Z",
+      "source": {
+        "commit": "9c6d92f5fc222d9d1646ae6044dcec053900ca83",
+        "project_path": null,
+        "repository": "ehrlich-b/sequential-products-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/sequential-products-lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "A sequential product on the effects of an order-unit space is a binary operation a & b, read \"first test a, then test b with the state updated by the first test\", satisfying the seven axioms S1-S7 of van de Wetering (arXiv:1803.11139, Definition 2). This development registers two classification theorems for such products on the Hermitian matrix algebras.\nOn H_N(R), the Hermitian N x N real matrices with N >= 1, every sequential product is the Lueders product sqrt(a) b sqrt(a): there is no free parameter. On H_N(C) with N >= 3, every sequential product has the twist normal form a^(1/2+it) b a^(1/2-it) for a unique real t. The twist family is a one-parameter deformation of the Lueders product, and the complex theorem says nothing outside it satisfies the axioms. The equations are asserted on all effects, including singular ones, and the uniqueness of t is part of the registered statement.\nDirection. Both registered classification theorems are necessity: a product satisfying the axioms is supplied, and the theorem says it has the stated normal form. The two converses differ in status and neither is registered. For the complex case, that each real t defines a SeqProd satisfying S2 is proved in the wider development; together with the registered uniqueness it is what would make the parameter map injective. For the real case, that the Lueders formula defines a SeqProd satisfying S2 is not proved anywhere in this development. Nothing here registers a bijection between parameters and products, or the admissibility of the Lueders formula.\nThe package also registers two classical theorems the development proves in passing. Albert's power-associativity theorem: in a commutative Jordan ring carrying an R-module structure, x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed. And the real case of Wigner's theorem: every transition probability preserving self-map of the rays of a finite-dimensional real inner product space is induced by a linear isometry, with bijectivity not assumed but derived.\nBoth classification theorems are proved from S1-S7 with no hypotheses beyond the dimension bounds, and their axiom closures contain only Lean's three core axioms (propext, Classical.choice, Quot.sound). The continuity axiom S2 is stated in the order-unit norm, as an explicit epsilon-delta condition, so the statement file depends on no normed-space or topological instance; the equivalence with continuity in the carrier's Frobenius topology is proved in the development.\nScope. Comparator registers four theorems across three separate entries: the two sequential-product classifications above, which use the SeqProd interface and the axiom S2 and correspond to numbered rows of the manuscript; and the two ancillary classical theorems, Albert and Wigner, which use neither and correspond to no manuscript row. Nothing beyond those four registered theorems is claimed by this submission.\nThe two classification theorems are two rows of a thirty-six row manifest tracking the numbered results of the accompanying manuscript. The manuscript as a whole is not formalized: as of 2026-08-12 the manifest stands at 12 rows formalized, 19 partial, and 5 absent. In particular the quaternionic row H_n(H) and the Albert-algebra row H_3(O) of the manuscript's main theorem are not proved here, and the coalescence and diagonal-homomorphism lemmas are established on the concrete carrier H_N(C) rather than at the manuscript's stated generality of a finite-dimensional simple Euclidean Jordan algebra.",
+      "authors": [
+        {
+          "name": "Bryan Ehrlich"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.OA",
+          "math.RA",
+          "quant-ph"
+        ],
+        "msc2020": [
+          "17C65",
+          "81P16",
+          "46L70",
+          "81P10",
+          "15B57",
+          "17C90"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "WignerReal.exists_isometry_of_transProbPreserving"
+        ]
+      },
+      "id": "PALOMAR-2026-08-21-000001",
+      "path": "entries/PALOMAR-2026-08-21-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "3c0e870eb2acb1320b62e62c791c9365f7e5260b",
+            "fork_repository": "PalomarArchive/ehrlich-b--sequential-products-lean--7c5c76db591c",
+            "source_repository": "ehrlich-b/sequential-products-lean"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "ce492770acb57659b62a26546f3f23fc7de2ea4624930916b90e0db1d7577ba1",
+        "version": 1
+      },
+      "published_at": "2026-08-21T04:18:12Z",
+      "source": {
+        "commit": "3c0e870eb2acb1320b62e62c791c9365f7e5260b",
+        "project_path": null,
+        "repository": "ehrlich-b/sequential-products-lean"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "ehrlich-b/sequential-products-lean",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "The Jordan curve theorem, formalized in Lean 4 against Mathlib: a continuous injective map from the circle into the plane has a complement with exactly two connected components. The hypothesis is bare continuity and injectivity \u2014 no smoothness, piecewise-linearity or rectifiability \u2014 which is what makes the theorem hard and what separates it from the polygonal case. The proof follows Maehara's reduction to the Brouwer fixed point theorem, via a crossing lemma for transversal paths in a rectangle and the fact that every component has the curve as its boundary, together with a farthest-pair normalization that pins down exactly one bounded component. Because Mathlib has no Brouwer fixed point theorem at the pinned revision, Brouwer is built here from the ground up: covering-space path lifting for the circle giving \u03c0\u2081(S\u00b9) \u2245 \u2124, then no-retraction of the disk onto its boundary, then Brouwer on the disk by ray-retraction, then the general nonempty-compact-convex case by nearest-point projection. The statement is expressed in Mathlib's own vocabulary. The proof is sorry-free and depends on Lean's three standard axioms (propext, Classical.choice, Quot.sound) and nothing else.",
+      "authors": [
+        {
+          "name": "Rado Kirov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GT",
+          "math.GN"
+        ],
+        "msc2020": [
+          "54F65",
+          "54F15",
+          "54H25",
+          "55M20",
+          "55M25",
+          "54D05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "jordan_curve"
+        ]
+      },
+      "id": "PALOMAR-2026-08-19-000001",
+      "path": "entries/PALOMAR-2026-08-19-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b3c9b7cf7358bf81a077d78ad67e6e8247869ddd",
+            "fork_repository": "PalomarArchive/rkirov--jordan_pick--96177826a785",
+            "source_repository": "rkirov/jordan_pick"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "e8eb66c6395996fab9fec10d0da7c41d088b11a91d9703189d317e1b76578684",
+        "version": 1
+      },
+      "published_at": "2026-08-19T01:54:36Z",
+      "source": {
+        "commit": "b3c9b7cf7358bf81a077d78ad67e6e8247869ddd",
+        "project_path": "submission/jordan_curve",
+        "repository": "rkirov/jordan_pick"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "rkirov/jordan_pick",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abbreviated": false,
+      "abstract": "jordan_pick \u2014 Rad\u00f3's theorem (Lean 4 / Mathlib)",
+      "authors": [
+        {
+          "name": "Rado Kirov"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CV",
+          "math.GN"
+        ],
+        "msc2020": [
+          "30F20",
+          "30F15",
+          "30F25",
+          "30F99",
+          "54D65",
+          "32Q55",
+          "31A05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "rado_riemannSurface"
+        ]
+      },
+      "id": "PALOMAR-2026-08-17-000001",
+      "path": "entries/PALOMAR-2026-08-17-000001-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ccbcc61444864ceb7990ab6b1abb5238c4fc6243",
+            "fork_repository": "PalomarArchive/rkirov--jordan_pick--96177826a785",
+            "source_repository": "rkirov/jordan_pick"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "1f7f2ea9d1c3c3872efa8efc7a82818a167723219d0f5594b447880195b9b035",
+        "version": 1
+      },
+      "published_at": "2026-08-17T06:39:48Z",
+      "source": {
+        "commit": "ccbcc61444864ceb7990ab6b1abb5238c4fc6243",
+        "project_path": "submission/rado_riemannSurface",
+        "repository": "rkirov/jordan_pick"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "rkirov/jordan_pick",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ],
+  "previous": null,
+  "next": null,
+  "dropped": [],
+  "message": null
+}

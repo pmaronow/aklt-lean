@@ -1,0 +1,56 @@
+{
+  "h1_all_gram": {
+    "blocks": 12173,
+    "raw_dd": 8439,
+    "weighted_dd": 0,
+    "chol": 3734,
+    "failures": 0,
+    "max_size": 179,
+    "max_factor_bits": 23,
+    "max_matrix_bits": 46,
+    "total_factor_entries": 2184033,
+    "total_products": 60154555
+  },
+  "h1_all_gram_wall": 286.6218710830144,
+  "h3_paper_baseline": {
+    "windows": 60092,
+    "sites": 1568,
+    "phases": 4,
+    "steps": 925,
+    "edges": [
+      54124,
+      108248,
+      6720
+    ],
+    "entries": 376897024,
+    "two_buffers": 3015176192,
+    "transition_site_visits": 245251036800,
+    "generic_float_ops": 2433016992000
+  },
+  "max_c_rss": [
+    3021717504,
+    "h3_original_m10_L18_K28_T260_C_free.err"
+  ],
+  "max_profile_rss_top": [
+    [
+      3021717504,
+      "h3_original_m10_L18_K28_T260_C_free.err"
+    ],
+    [
+      3017555968,
+      "h3_original_m10_L18_K28_T260_B_free.err"
+    ],
+    [
+      2962702336,
+      "h3_original_m10_L18_K28_T260_B_d2.err"
+    ],
+    [
+      2959097856,
+      "h3_original_m10_L18_K28_T260_B_d1.err"
+    ],
+    [
+      1540947968,
+      "h3_typed_m10_L18_K20_T260_C_d2.err"
+    ]
+  ]
+}
