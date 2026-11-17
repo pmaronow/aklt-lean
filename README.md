@@ -13,12 +13,12 @@ nonzero eigenvalue for all sufficiently large periods, with every parity allowed
 The finite H1 and H3 certificate proofs belong to that import closure. The
 ordinary library also retains `AKLT.Final.main_of_inputs`, the two-input reduction.
 
-The hand-written module-system port is complete in this phase. The generated
-certificate sources must be regenerated and rebuilt against these kernels before
-the unconditional Solution and Audit can build. Legacy certificate oleans cannot
-be reused. This is a complete-formalization source layout with a pending
-certificate regeneration step, not a claim that the new unconditional package
-has already completed its full build or independent checker replays.
+The hand-written module-system development is complete. The certificate sources
+are being regenerated and built separately. The final release merges those
+sources with this development and is built once from scratch; objects from
+legacy or regeneration builds are not reused. The unconditional Solution and
+Audit require those generated sources before their complete build and
+independent checker replays can run.
 
 `Challenge.lean` imports only Mathlib and gives the physical statement directly,
 with one conventional placeholder. It has no H1 or H3 premise definitions.
@@ -37,13 +37,15 @@ hash record byte-for-byte; both source verification and the end-to-end runner
 require this check. To regenerate after an authorized source change, run the
 same script without `--check`.
 
+The generator copies library declarations and doc comments verbatim, without a
+comment-correction layer. The unused even-period helper has been removed.
 The release Challenge contains no environment-modifying elaborator commands.
 The two former auxiliary-proof-cache resets were removed after the physical
 statement comparison passed with Lean and NanoDa. The model definitions and
 MainStatementV2 retain their exact mathematical bodies; no library reorganization
 is needed. The separate conditional regression template retains its original
 source-boundary naming machinery. See [statement notes](docs/STATEMENT-NOTES.md)
-for the frozen interface, legacy helpers, spin convention, and sanity statements.
+for the certificate interface, legacy helpers, spin convention, and sanity statements.
 All sanity propositions now have downstream proofs, including the full bond rank
 and the combined 4×4 nondegeneracy check; no sanity premise is added to the headline.
 

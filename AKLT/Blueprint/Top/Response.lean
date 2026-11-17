@@ -22,7 +22,7 @@ def H1TheoremStatement : Prop :=
 /-- `h:H2`: the selected all-length open-trail assertion, with C_V=10 and exact q_*. -/
 def H2Statement : Prop := OpenTrailBound 10 (certifiedRate : ℝ)
 
-/-- `h:H3`: all finite cutoffs of the modified kernel, with its fixed dyadic vector and orderings. -/
+/-- `h:H3`: all finite cutoffs of the type-dependent kernel, with its fixed dyadic vector and orderings. -/
 def H3Statement : Prop := PositiveVectorBound
 
 /-- `t:inputs`: the three semantic conclusions of the adopted certificate routes.

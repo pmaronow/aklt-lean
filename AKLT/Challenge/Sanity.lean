@@ -168,20 +168,7 @@ def BondRank (L N : Size) : Prop :=
   ∀ e : Bond L N, Module.finrank ℂ (LinearMap.range (P e)) =
     9 * 5 ^ (L.val * N.val - 2)
 
-/-- An auxiliary arithmetic check: even permitted sizes are unbounded.
-Theorem 1.2 itself allows every parity. -/
-def EvenSizesUnbounded : Prop :=
-  ∀ K : ℕ, ∃ L : Size, Even L.val ∧ K ≤ L.val
-
-theorem even_sizes_unbounded : EvenSizesUnbounded := by
-  intro K
-  refine ⟨⟨2 * (K + 3), by omega⟩, ?_, ?_⟩
-  · change Even (2 * (K + 3))
-    exact ⟨K + 3, by omega⟩
-  · dsimp
-    omega
-
-/-- The smallest even torus in the paper's domain. -/
+/-- The 4×4 torus used in the concrete checks below. -/
 def four : Size := ⟨4, by decide⟩
 
 /-- A concrete non-degeneracy check: 16 sites, 32 bonds, dimension 5^16. -/
@@ -216,7 +203,6 @@ def FourByFourNondegenerate : Prop :=
 #print axioms bonds_haveTwoSites
 #print axioms bonds_areDistinct
 #print axioms basis_normalization_nonzero
-#print axioms even_sizes_unbounded
 #print axioms four_by_four_sizes
 
 end AKLT.Challenge

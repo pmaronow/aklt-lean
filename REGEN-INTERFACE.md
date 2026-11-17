@@ -155,13 +155,13 @@ The H3 manifest lists their transitive generated dependencies.
 ## Exposed computational bodies
 
 The body inventory was read from the actual compiled Lean environment, not
-inferred only from source attributes. H1 has 1,153 available bodies in its
-hand-written dependency surface; H3 has 1,083. The smaller
+inferred only from source attributes. H1 has 1,152 available bodies in its
+hand-written dependency surface; H3 has 1,082. The smaller
 `H1-reduction-bodies.tsv` and `H3-reduction-bodies.tsv` lists identify 410 and 392
 kernel arithmetic/checker entries, respectively, including generated matchers
 and projections. The reference candidate lists have 100 H1 and 69 H3 names;
 conservative suffix matches can include a short-name ambiguity. The complete
-named surfaces, with 1,589 H1 and 1,511 H3 names, cover that ambiguity and implicit
+named surfaces, with 1,588 H1 and 1,510 H3 names, cover that ambiguity and implicit
 elaborated names. Standard-library and Mathlib dependencies remain pinned.
 
 Representative H1 entries are `AKLT.Cert.H1.Gaussian.mul`, `Table.get`,
@@ -211,3 +211,8 @@ All prose and first-party identifiers use American English.
 Mathlib identifiers and manuscript labels such as `l:colour` stay exact.
 The generator input-key audit found no affected external data key: only emitted
 Lean names and Lean leaf-name metadata values change.
+
+The unused even-period MainStatement has been removed from the two complete and
+two exposed inventories. It was absent from both generated reference lists. All
+retained recorded declarations, including their elaborated types and universes,
+are unchanged; the round-2 interface receipt records the comparison.

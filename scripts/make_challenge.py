@@ -6,45 +6,6 @@ import json
 from pathlib import Path
 import re
 
-# Main.lean is frozen while certificates are rebuilt. Only copied documentation
-# is corrected here; every declaration body is copied without alteration.
-COMMENT_CORRECTIONS = {
-    '§1, before (`d:model`, `sec1-result.tex`)':
-        'Definition 1.1 (`d:model`, `sec1-result.tex`)',
-    '§1, the set E': 'Definition 1.1 (`d:model`, `sec1-result.tex`), the set E',
-    '§1; §2, (`d:poly`, `sec3-quantum-frames.tex`)':
-        'Definition 1.1 (`d:model`, `sec1-result.tex`) and Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`)',
-    '§2, immediately before (`d:model`, `sec1-result.tex`)':
-        'Definition 1.1 (`d:model`, `sec1-result.tex`)',
-    '§2, (`d:model`, `sec1-result.tex`)':
-        'Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`)',
-    'exactly (`d:model`, `sec1-result.tex`)':
-        'exactly Definition 1.1 (`d:model`, `sec1-result.tex`)',
-    'B of (`d:model`, `sec1-result.tex`)':
-        'B of Definition 1.1 (`d:model`, `sec1-result.tex`)',
-    'unitary for (`d:poly`, `sec3-quantum-frames.tex`)':
-        'unitary for Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`)',
-    '§1, spin 2': 'Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`), spin 2',
-    '§1, P_e': 'Definition 1.1 (`d:model`, `sec1-result.tex`), P_e',
-    '§1, total-spin-4 subspace': 'Definition 1.1 (`d:model`, `sec1-result.tex`), total-spin-4 subspace',
-    'P_e of §1:': 'P_e of Definition 1.1 (`d:model`, `sec1-result.tex`):',
-    'Together with `spinPlus` and `spinMinus` this fixes the concrete model of V.':
-        'Together with `spinPlus` and `spinMinus` this fixes the concrete model of V.\n'
-        'The label of e_k under spinZ is the negative of the paper\'s weight for\n'
-        'z₁^(4-k) z₂^k; this relabeling preserves the Casimir, projection, and Hamiltonian.',
-}
-
-
-def correct_comments(text):
-    """Change prose only, preserving the Lean code and exact paper labels."""
-    def replace(match):
-        comment = match.group()
-        for old, new in COMMENT_CORRECTIONS.items():
-            comment = comment.replace(old, new)
-        return comment
-    return re.sub(r'/\-.*?\-/', replace, text, flags=re.S)
-
-
 def render(tree):
     selection = [
         ('AKLT/Challenge/Main.lean', 'AKLT.Challenge', {
@@ -81,7 +42,7 @@ open scoped BigOperators ENNReal
         for block in blocks:
             declared = re.findall(r'^(?:@\[[^\n]*\]\s*)*(?:noncomputable )?(?:def|abbrev|inductive|structure|instance) ([\w.]+)', block, re.M)
             if names is None or any(name in names for name in declared):
-                kept.append(correct_comments(block.rstrip()))
+                kept.append(block.rstrip())
         result += '\n/- Statement source: ' + relative + '. -/\n'
         result += 'namespace ' + namespace + '\n\n'
         result += '\n\n'.join(kept) + '\n\nend ' + namespace + '\n'
@@ -90,10 +51,10 @@ open scoped BigOperators ENNReal
     result += '''
 namespace AKLTPalomar
 
-/-- Theorem 1.2 (`t:main`, `sec1-result.tex`): all-period uniqueness and an eventual uniform gap. -/
+/-- Theorem 1.2: all-period uniqueness and an eventual uniform gap. -/
 def Main : Prop := AKLT.Challenge.MainStatementV2
 
-/-- The unconditional theorem, Theorem 1.2 (`t:main`, `sec1-result.tex`). -/
+/-- The unconditional theorem, Theorem 1.2. -/
 theorem aklt_gap : Main := by
   sorry
 

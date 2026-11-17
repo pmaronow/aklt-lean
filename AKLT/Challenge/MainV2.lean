@@ -16,7 +16,7 @@ Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`).
 
 namespace AKLT.Challenge
 
-/-- Theorem 1.2 (`t:main`, `sec1-result.tex`): for every torus with both periods at least three, the VBS vector
+/-- Theorem 1.2: for every torus with both periods at least three, the VBS vector
 is nonzero and spans the kernel. There are a positive constant and one size
 threshold above which every nonzero eigenvalue has that uniform lower bound.
 Both assertions allow every parity; uniqueness has no eventual-size restriction.

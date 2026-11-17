@@ -104,3 +104,16 @@ emits cache resets; copied declaration bodies are unchanged. All 65 transitive
 certificate dependency sources, including Main.lean and Top/Response.lean, were
 preserved byte-for-byte. Deferred comments and obsolete definitions are explained
 in docs/STATEMENT-NOTES.md. The generation check runs during source and full verification.
+
+## Fidelity fix round 2
+
+The unused even-period MainStatement and unused EvenSizesUnbounded/even_sizes_unbounded
+pair are deleted. Every retained declaration body, statement, and proof is unchanged.
+Main.lean now has the corrected paper references and spin-convention sentence;
+MainV2.lean uses the theorem number in its declaration comment and keeps the label
+and file references in its module comment. Top/Response.lean says type-dependent
+kernel. Challenge generation copies library comments verbatim and no longer has
+comment-correction rules. Documentation describes the current tree and the final
+source merge. The obsolete MainStatement row is removed from the two complete and
+two exposed inventories; no generated reference list entry is removed. Elaborated
+interface types and universes are compared with the 61f1093 baseline.
