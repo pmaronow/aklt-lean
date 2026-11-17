@@ -1,0 +1,183 @@
+\section{Star-connected boundaries and connected thickening}
+\label{s:topology}
+
+Two sites are nearest neighbors when their ambient \(\ell^1\)
+distance is one, and star-neighbors when their ambient
+\(\ell^\infty\) distance is one.  A path in either graph is
+a finite sequence of vertices with consecutive vertices adjacent
+in that graph.  A one-point set is connected in both senses.
+
+\begin{lemma}\label{l:boundaryconn}
+If \(A\subset\mathbb Z^2\) is finite, nonempty and star-connected,
+and \(A^c\) is star-connected, then
+\(\partial_\infty A=\{z\notin A:\operatorname{dist}_\infty(z,A)=1\}\)
+is nonempty and star-connected.
+Here star-neighbors differ by \(\ell^\infty\) distance one.
+\end{lemma}
+
+\begin{proof}
+Let \(\mathcal K\) be the graph whose vertices are \(\mathbb Z^2\)
+and whose edges join star-neighbors.  Finite edge sets form
+a vector space over \(\mathbb F_2\), with addition given by
+symmetric difference.  An edge set is called even if each
+vertex has even degree in it.  A triangle consists of three
+pairwise star-neighboring vertices and its boundary is its
+three-edge set.  Such a triangle lies in a square
+\((i,j)+\{0,1\}^2\).
+
+We first prove that every finite even edge set is a finite
+sum of triangle boundaries.  Let \(Z\) be such an edge set.
+For each diagonal edge \(e=\{p,p+(1,\epsilon)\}\) of \(Z\),
+where \(\epsilon\in\{-1,1\}\), add the boundary of the triangle
+\(\{p,p+(1,0),p+(1,\epsilon)\}\).  Its only diagonal edge
+is \(e\).  The resulting edge set \(Z'\) is finite, even,
+and has horizontal and vertical edges only.
+
+Write \(H(i,j)\in\mathbb F_2\) for the indicator that
+\(\{(i,j),(i+1,j)\}\) belongs to \(Z'\), and
+\(V(i,j)\) for the analogous indicator of
+\(\{(i,j),(i,j+1)\}\).  Choose an integer \(R\ge1\) such that
+every endpoint of \(Z'\) lies in \([-R,R]^2\); when \(Z'\) is
+empty take \(R=1\).  In particular \(H(i,r)=0\) for
+\(|r|>R\), and \(V(i,R)=0\).  Define the finite sum
+\[
+ n(i,j)=\sum_{\substack{-R\le r\le R\\r>j}}H(i,r)
+                    \quad\hbox{in }\mathbb F_2.
+\]
+For each fixed \(i\), \(\sum_{r=-R}^R H(i,r)=0\).  Indeed this sum
+is the parity of the number of edges crossing the line from
+the half-plane \(x_1\le i\) to its complement.  It equals
+the sum of the degrees of \(Z'\) at vertices of that
+half-plane, because edges inside it contribute twice.
+This sum is zero because \(Z'\) is even.  All degree sums
+are finite after omitting the zero terms, since \(Z'\) is
+finite.  It follows that \(n(i,j)\) is nonzero for only
+finitely many pairs \((i,j)\): only finitely many columns
+contain horizontal edges, and in each such column the sum
+vanishes both above its highest horizontal edge and below
+its lowest one.
+
+Let \(P_{ij}=(i,j)+\{0,1\}^2\), and let \(\partial P_{ij}\)
+be its four nearest-neighbor edges.  We claim that
+\[
+                    Z'=\sum_{i,j}n(i,j)\partial P_{ij}.
+\]
+The horizontal edge with indicator \(H(i,j)\) occurs on
+the right with coefficient
+\(n(i,j-1)+n(i,j)=H(i,j)\).
+The vertical edge with indicator \(V(i,j)\) occurs with
+coefficient
+\[
+ n(i-1,j)+n(i,j)
+       =\sum_{\substack{-R\le r\le R\\r>j}}
+                          \bigl(H(i-1,r)+H(i,r)\bigr).
+\]
+For \(j<R\), sum the even-degree identity
+\(H(i-1,r)+H(i,r)+V(i,r-1)+V(i,r)=0\)
+over the finite integer interval \(j+1\le r\le R\).
+Terms with \(r<-R\) are zero by the endpoint bound.
+All vertical terms cancel in pairs except \(V(i,j)\) and
+\(V(i,R)=0\), proving that this coefficient is \(V(i,j)\).
+For \(j\ge R\), both the sum and \(V(i,j)\) are zero.
+The claim follows.  Finally, each \(\partial P_{ij}\) is
+the sum of the two triangle boundaries obtained by inserting
+one of the diagonals of \(P_{ij}\).  Together with the
+initial diagonal eliminations, this proves the assertion
+about even edge sets.
+
+Let \(\mathcal B\) be the set of edges of \(\mathcal K\)
+with one endpoint in \(A\) and one in \(A^c\).  It is finite,
+and it is nonempty because a point of \(A\) of largest first
+coordinate has its right nearest neighbor outside \(A\).
+Say that two edges of \(\mathcal B\) are linked if some
+triangle boundary contains both.  We prove that any two
+edges of \(\mathcal B\) can be joined by a finite sequence
+of linked edges.  Otherwise choose a connected component
+\(\mathcal B_1\) for this relation and put
+\(\mathcal B_2=\mathcal B\setminus\mathcal B_1\).
+Both parts are nonempty, and no linked pair crosses between
+them.  For finite edge sets define the linear functional
+\[
+              \varphi(Z)=|Z\cap\mathcal B_1|\pmod2.
+\]
+A triangle has either zero or two edges in \(\mathcal B\),
+according to whether all its vertices lie on the same side
+of \(A\), or they do not.  In the latter case the two edges
+are linked and belong to the same \(\mathcal B_r\).
+Thus \(\varphi\) vanishes on every triangle boundary, and
+the preceding decomposition implies that it vanishes on
+every finite even edge set.
+
+Choose \(e_r=\{a_r,b_r\}\in\mathcal B_r\), with
+\(a_r\in A\) and \(b_r\in A^c\), for \(r=1,2\).
+There is a finite star-path from \(a_1\) to \(a_2\) in
+\(A\), and a finite star-path from \(b_2\) to \(b_1\)
+in \(A^c\), by the two connectivity assumptions.
+Concatenate these paths with \(e_2\) and \(e_1\) to form
+a closed walk.  The set \(Z\) of edges traversed an odd
+number of times by this walk is finite and even: at every
+vertex the number of entrances equals the number of exits
+modulo two.  Its intersection with \(\mathcal B\) consists
+of exactly the distinct edges \(e_1,e_2\), since both
+connecting paths stay on one side.  This gives
+\(\varphi(Z)=1\), a contradiction.  The linked-edge relation
+is therefore connected.
+
+Every edge of \(\mathcal B\) has a unique endpoint in
+\(A^c\), and these outer endpoints are precisely the
+vertices of \(\partial_\infty A\).  Outer endpoints of
+two linked edges lie in the same triangle, so they are
+equal or star-neighbors.  A sequence of linked edges
+thus gives a star-path between their outer endpoints,
+after deleting consecutive repetitions.  Surjectivity of
+the outer-endpoint map proves star-connectivity of
+\(\partial_\infty A\); nonemptiness follows from that of
+\(\mathcal B\).
+\end{proof}
+
+\begin{lemma}\label{l:thicken}
+If \(X_0\) is finite, nonempty and star-connected, then
+\(X=\{z:d(z,X_0)\le1\}\) is nearest-neighbor connected.
+For any finite \(G\) containing \(X\), every \(0<\vartheta<1\)
+satisfies
+\[
+ \sum_{z\in X}\vartheta^{d(z,G^c)}
+       \le5\vartheta^{-1}
+                      \sum_{x\in X_0}\vartheta^{d(x,G^c)}.
+\]
+\end{lemma}
+
+\begin{proof}
+For each \(x\) put
+\(C(x)=\{x,x+(1,0),x-(1,0),x+(0,1),x-(0,1)\}\).
+This five-point cross is nearest-neighbor connected,
+and \(X=\bigcup_{x\in X_0}C(x)\).
+For star-neighbors \(x,x'\), if their difference has
+one zero coordinate then they are nearest neighbors
+and \(C(x)\cap C(x')\) contains both centers.
+Otherwise \(x'-x=(\epsilon_1,\epsilon_2)\), where
+\(\epsilon_1,\epsilon_2\in\{-1,1\}\), and their crosses
+share the two points \(x+(\epsilon_1,0)\) and
+\(x+(0,\epsilon_2)\).  These are all possibilities for
+star-neighbors.  A star-path between centers therefore
+gives a chain of intersecting connected crosses.  Any
+two points of their union can be joined by concatenating
+paths inside the crosses through these intersection
+points.  This proves nearest-neighbor connectedness
+of \(X\), including when \(X_0\) is a singleton.
+
+For finite \(G\supset X\), its complement is nonempty
+and the ambient distance \(b(z)=d(z,G^c)\) is
+one-Lipschitz.  Thus for \(z\in C(x)\),
+\(b(z)\ge b(x)-1\).  Since \(0<\vartheta<1\),
+\(\vartheta^{b(z)}\le\vartheta^{-1}\vartheta^{b(x)}\).
+Every point of \(X\) is in at least one of the crosses,
+so summing nonnegative terms gives
+\[
+ \sum_{z\in X}\vartheta^{b(z)}
+    \le\sum_{x\in X_0}\sum_{z\in C(x)}\vartheta^{b(z)}
+    \le5\vartheta^{-1}\sum_{x\in X_0}\vartheta^{b(x)}.
+\]
+This proves the claimed estimate without requiring
+the crosses to be disjoint.
+\end{proof}

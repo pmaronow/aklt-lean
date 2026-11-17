@@ -1,0 +1,384 @@
+{
+  "status": "ROUND 2 COMPLETE",
+  "baseline_commit": "61f109327968ca76e99c22c4564de56387df96b5",
+  "verified_source_commit": "dad70bac7b345ea4ca89426c32848b4567acb6a8",
+  "scope": "Second fidelity cleanup, retained certificate-interface identity, available hand-written development, physical statement identity, and protected two-input regression. Full unconditional proof replays await the generated source merge.",
+  "retained_interfaces_identical": 2408,
+  "explicitly_deleted_unused_inventory_name": "AKLT.Challenge.MainStatement",
+  "actual_generated_reference_candidates_unchanged": {
+    "H1": 100,
+    "H3": 69
+  },
+  "no_retained_body_statement_or_proof_change": true,
+  "source_diff": {
+    "status": "PASS",
+    "baseline": "61f109327968ca76e99c22c4564de56387df96b5",
+    "changed_lean_files": {
+      "AKLT/Blueprint/Top/Response.lean": {
+        "added": 1,
+        "removed": 1,
+        "before_lines": 68,
+        "after_lines": 68
+      },
+      "AKLT/Challenge/Main.lean": {
+        "added": 51,
+        "removed": 54,
+        "before_lines": 147,
+        "after_lines": 144
+      },
+      "AKLT/Challenge/MainV2.lean": {
+        "added": 1,
+        "removed": 1,
+        "before_lines": 31,
+        "after_lines": 31
+      },
+      "AKLT/Challenge/Sanity.lean": {
+        "added": 1,
+        "removed": 15,
+        "before_lines": 222,
+        "after_lines": 208
+      },
+      "Challenge.lean": {
+        "added": 46,
+        "removed": 44,
+        "before_lines": 159,
+        "after_lines": 161
+      },
+      "Solution.lean": {
+        "added": 0,
+        "removed": 0,
+        "before_lines": 20,
+        "after_lines": 20
+      }
+    },
+    "all_retained_definition_statement_proof_code_identical": true,
+    "authorized_deletions": [
+      "AKLT.Challenge.MainStatement",
+      "AKLT.Challenge.EvenSizesUnbounded",
+      "AKLT.Challenge.even_sizes_unbounded"
+    ],
+    "generated_comment_blocks_verbatim": 24,
+    "labels_only_once_in_each_module_header": true,
+    "old_closure_handwritten_changes_since_d132032": [
+      "AKLT/Blueprint/Top/Response.lean",
+      "AKLT/Challenge/Main.lean"
+    ],
+    "solution_unchanged": true
+  },
+  "old_closure_handwritten_changes_since_d132032": [
+    {
+      "module": "AKLT.Blueprint.Top.Response",
+      "path": "AKLT/Blueprint/Top/Response.lean",
+      "d132032_sha256": "cf5f29c1b3ebea51d2d65ab5e639c3e89a66a7d02cf04485a07f447a6ad4a973",
+      "61f1093_sha256": "cf5f29c1b3ebea51d2d65ab5e639c3e89a66a7d02cf04485a07f447a6ad4a973",
+      "new_sha256": "8701ae3e142a9af77bd255fc824090e65c025e1478dff2d9049208bbe18f7ace",
+      "change": "Comment only: type-dependent kernel"
+    },
+    {
+      "module": "AKLT.Challenge.Main",
+      "path": "AKLT/Challenge/Main.lean",
+      "d132032_sha256": "4589f24f835af7313a0e9ed8acc3d5935b043fac6e806c3ab275e84889b156f1",
+      "61f1093_sha256": "4589f24f835af7313a0e9ed8acc3d5935b043fac6e806c3ab275e84889b156f1",
+      "new_sha256": "96cc25ead1b1eb7b74c76a145e3101c12aad3fd8059119218871520cb7c75d85",
+      "change": "Comment corrections and deletion of unused MainStatement"
+    }
+  ],
+  "lean_files": 1117,
+  "challenge_lines": 161,
+  "challenge_bytes": 7359,
+  "copied_doc_comments_verbatim": 24,
+  "audit_constant_entries": 21896,
+  "audit_explicit_exports": 18,
+  "configured_lean_num_threads": 12,
+  "affinity_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "build_peak_lean_processes": 12,
+  "physical_statement_lean_nanoda_accept": true,
+  "physical_negative_control_rejects": true,
+  "regression_lean_nanoda_conron_accept": true,
+  "regression_export_identical_to_61f1093": true,
+  "regression_solution_export": {
+    "path": "/home/ubuntu/aklt/reports/PAL_FIT/fidelity-round2/regression/exports/solution.ndjson",
+    "bytes": 671986654,
+    "sha256": "ea82aaec07c458ff23d38403de8cc22fc93b488cebc3a99ebe4ed6701d7fab6d"
+  },
+  "metadata_findings": [
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ],
+  "measurements": [
+    {
+      "stage": "Elaborated interface at 61f1093",
+      "wall_s": 17.657055089002824,
+      "cpu_s": 17.342018,
+      "peak_tree_rss_gib": 4.8103485107421875,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/interface-before-final/result.json"
+    },
+    {
+      "stage": "Fresh affected build (1,025 modules)",
+      "wall_s": 1102.6234670600097,
+      "cpu_s": 10674.759839,
+      "peak_tree_rss_gib": 57.77635955810547,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/fresh-affected-build/result.json"
+    },
+    {
+      "stage": "Elaborated interface after cleanup",
+      "wall_s": 12.051120952004567,
+      "cpu_s": 12.089648,
+      "peak_tree_rss_gib": 4.8285675048828125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/interface-after/result.json"
+    },
+    {
+      "stage": "H1 regeneration consumer",
+      "wall_s": 6.495019413006958,
+      "cpu_s": 6.516921,
+      "peak_tree_rss_gib": 4.52423095703125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/h1-consumer/result.json"
+    },
+    {
+      "stage": "H3 regeneration consumer",
+      "wall_s": 5.3784622460079845,
+      "cpu_s": 5.353151,
+      "peak_tree_rss_gib": 4.519519805908203,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/h3-consumer/result.json"
+    },
+    {
+      "stage": "Strict hand-written Audit",
+      "wall_s": 7.707373484008713,
+      "cpu_s": 7.649614,
+      "peak_tree_rss_gib": 4.758968353271484,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/strict-handwritten-audit/result.json"
+    },
+    {
+      "stage": "Axiom transcript guard",
+      "wall_s": 0.20507009100401774,
+      "cpu_s": 0.110469,
+      "peak_tree_rss_gib": 0.01601409912109375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/axiom-transcript/result.json"
+    },
+    {
+      "stage": "All Lean headers",
+      "wall_s": 2.8670900209981482,
+      "cpu_s": 2.8758169999999996,
+      "peak_tree_rss_gib": 1.6762924194335938,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/all-headers/result.json"
+    },
+    {
+      "stage": "Byte-for-byte generation",
+      "wall_s": 0.10450698599743191,
+      "cpu_s": 0.06634,
+      "peak_tree_rss_gib": 0.0005950927734375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/generation-check/result.json"
+    },
+    {
+      "stage": "Physical statement: build-FidelityStatementChallenge",
+      "wall_s": 6.363126020994969,
+      "cpu_s": 6.310848999999999,
+      "peak_tree_rss_gib": 3.6187400817871094,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "statement-positive/stages/build-FidelityStatementChallenge/result.json"
+    },
+    {
+      "stage": "Physical statement: build-FidelityStatementSolution",
+      "wall_s": 5.449856890991214,
+      "cpu_s": 5.430226,
+      "peak_tree_rss_gib": 3.608318328857422,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "statement-positive/stages/build-FidelityStatementSolution/result.json"
+    },
+    {
+      "stage": "Physical statement: export-challenge",
+      "wall_s": 16.545905969003798,
+      "cpu_s": 16.455621,
+      "peak_tree_rss_gib": 6.358524322509766,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "statement-positive/stages/export-challenge/result.json"
+    },
+    {
+      "stage": "Physical statement: export-solution",
+      "wall_s": 16.949811097001657,
+      "cpu_s": 16.843374999999998,
+      "peak_tree_rss_gib": 6.358428955078125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "statement-positive/stages/export-solution/result.json"
+    },
+    {
+      "stage": "Physical statement: statement-comparator",
+      "wall_s": 69.52657149299921,
+      "cpu_s": 83.19,
+      "peak_tree_rss_gib": 0.5794219970703125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "statement-positive/stages/statement-comparator/result.json"
+    },
+    {
+      "stage": "Altered-spin negative control",
+      "wall_s": 18.466696565010352,
+      "cpu_s": 18.34,
+      "peak_tree_rss_gib": 0.4322700500488281,
+      "exit_code": 1,
+      "outcome": "EXPECTED REJECTION",
+      "receipt": "negative-spin/stages/statement-comparator/result.json"
+    },
+    {
+      "stage": "Two-input: statement-generation-check",
+      "wall_s": 0.10414658399531618,
+      "cpu_s": 0.064678,
+      "peak_tree_rss_gib": 0.000545501708984375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/statement-generation-check/result.json"
+    },
+    {
+      "stage": "Two-input: source-configuration",
+      "wall_s": 5.342986801013467,
+      "cpu_s": 5.290661,
+      "peak_tree_rss_gib": 0.06487274169921875,
+      "exit_code": 1,
+      "outcome": "AUTHOR TODOs ONLY",
+      "receipt": "regression/stages/source-configuration/result.json"
+    },
+    {
+      "stage": "Two-input: lean-header-parser",
+      "wall_s": 0.20753379799134564,
+      "cpu_s": 0.129236,
+      "peak_tree_rss_gib": 0.09130096435546875,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/lean-header-parser/result.json"
+    },
+    {
+      "stage": "Two-input: explicit-targets",
+      "wall_s": 9.324758041999303,
+      "cpu_s": 14.880640999999999,
+      "peak_tree_rss_gib": 0.9764060974121094,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/explicit-targets/result.json"
+    },
+    {
+      "stage": "Two-input: strict-audit",
+      "wall_s": 6.185012165005901,
+      "cpu_s": 6.195662,
+      "peak_tree_rss_gib": 4.504146575927734,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/strict-audit/result.json"
+    },
+    {
+      "stage": "Two-input: axiom-transcript",
+      "wall_s": 0.10449341099592857,
+      "cpu_s": 0.05193099999999999,
+      "peak_tree_rss_gib": 0.000583648681640625,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/axiom-transcript/result.json"
+    },
+    {
+      "stage": "Two-input: protected-challenge-build",
+      "wall_s": 8.835388979001436,
+      "cpu_s": 8.74,
+      "peak_tree_rss_gib": 3.6584320068359375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/protected-challenge-build/result.json"
+    },
+    {
+      "stage": "Two-input: challenge-export",
+      "wall_s": 16.661481207003817,
+      "cpu_s": 16.48,
+      "peak_tree_rss_gib": 6.365329742431641,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/challenge-export/result.json"
+    },
+    {
+      "stage": "Two-input: solution-export",
+      "wall_s": 72.71807068500493,
+      "cpu_s": 72.51,
+      "peak_tree_rss_gib": 7.078239440917969,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/solution-export/result.json"
+    },
+    {
+      "stage": "Two-input: protected-comparator",
+      "wall_s": 1117.5738684230018,
+      "cpu_s": 1218.76,
+      "peak_tree_rss_gib": 23.226165771484375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/protected-comparator/result.json"
+    },
+    {
+      "stage": "Two-input: conron-replay",
+      "wall_s": 713.2121017370082,
+      "cpu_s": 878.22,
+      "peak_tree_rss_gib": 47.18389892578125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression/stages/conron-replay/result.json"
+    },
+    {
+      "stage": "Sample-reference coverage",
+      "wall_s": 6.493256385001587,
+      "cpu_s": 6.486502,
+      "peak_tree_rss_gib": 4.503150939941406,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/sample-reference-coverage/result.json"
+    }
+  ],
+  "regeneration_clones_and_reports_modified": false,
+  "sample_reference_coverage": {
+    "sample_declarations": 21,
+    "referenced_constants": 96,
+    "referenced_firstparty": 22,
+    "all_firstparty_reference_types_in_before_after_comparison": true,
+    "uncovered_firstparty_references": []
+  }
+}

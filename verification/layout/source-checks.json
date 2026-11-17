@@ -1,0 +1,34 @@
+{
+  "scope": "local source/config checks; not full preparation",
+  "summary": {
+    "schema_version": 1,
+    "module_required": true,
+    "maximum_lines": 10000,
+    "files_checked": 1117
+  },
+  "configuration": {
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "AKLTPalomar.aklt_gap"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ]
+  },
+  "passed": false,
+  "issues": [
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ],
+  "generated_missing_count": 12996,
+  "generated_present_count": 0
+}

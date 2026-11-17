@@ -1,0 +1,163 @@
+\section{The result and conventions}\label{s:result}
+
+We study the spin-\(2\) square-lattice AKLT model of Affleck, Kennedy,
+Lieb, and Tasaki~\cite{AKLT88,KLT88}. We prove uniqueness of its ground
+state on every torus with integer periods \(L,N\ge3\) and a uniform
+positive spectral gap for all integers \(L,N\ge L_0\), with no parity
+restriction, for one fixed threshold \(L_0\). The computational inputs
+are local operator inequalities, an open-trail growth bound, and a
+type-dependent positive-vector bound obtained from stationary Bellman
+inequalities and finite prefix sums. All computations are checked in
+exact arithmetic. The polynomial realization of the spin space,
+including its Hilbert space normalization, is fixed in
+Definition~\ref{d:poly}.
+
+\begin{definition}\label{d:model}
+For integers \(L,N\ge3\), let \(\Lambda=\Lambda_{L,N}=\mathbb Z_L\times\mathbb Z_N\)
+with its simple, unoriented nearest-neighbor edge set \(E_{L,N}\).
+The Hilbert space is \(\mathcal H_\Lambda=\bigotimes_{x\in\Lambda}V_4\).
+Each site carries the spin-\(2\) space \(V_4\), and \(P_{\{x,y\}}\)
+is the orthogonal projection onto total spin \(4\) in \(V_4\otimes V_4\).
+Fix one orientation of each edge and set
+\[
+ q_{xy}=z_{x,1}z_{y,2}-z_{x,2}z_{y,1},\qquad
+ B_{L,N}=\prod_{e\in E_{L,N}}q_e,\qquad
+ H_{L,N}=\sum_{e\in E_{L,N}}P_e.
+\]
+Every edge is counted once. The spectral gap of \(H_{L,N}\) means its
+smallest positive eigenvalue.
+\end{definition}
+
+Here an edge joins two distinct sites whose difference is one of
+\((1,0),(-1,0),(0,1),(0,-1)\), with coordinates reduced modulo the
+periods. The edge set is a set of unordered pairs, so that an edge
+is included only once even if it has more than one description.
+The notation \(q_e\) uses the chosen orientation; \(P_e\) does not.
+The polynomial \(B_{L,N}\) is the valence-bond state.
+
+\begin{theorem}\label{t:main}
+For every \(L,N\ge3\), \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).
+There exist \(c>0\) and an integer \(L_0\ge3\) such that, for all
+integers \(L,N\ge L_0\), every nonzero eigenvalue of \(H_{L,N}\)
+is at least \(c\).
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-coloring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+\subsection{Structure of the proof}
+
+The uniqueness assertion has a separate algebraic proof. The kernel
+of each edge projection consists of multiples of its edge determinant.
+Unique factorization combines these divisibilities, and degree four
+at every torus site leaves a scalar quotient. This argument applies
+also when either period is three.
+
+For the gap, finite fourth moments in Section~2 give tight frames of
+coherent states. In Section~3 we assign three explicit rotated
+icosahedral frames according to a proper torus coloring. Their
+separation makes the squared modulus of the frame image of
+\(B_{L,N}\) strictly positive. The resulting antiferromagnetic
+probability law on the torus has a single-site heat bath whose gap
+bounds the quantum gap from below. A conditional physical square
+lifts to the plane, where a coordinatewise sign change converts its
+law to the positive-interaction plane specification. This sign
+change is defined on the lift.
+
+Section~4 uses a uniform estimate for window marginals to choose one
+square scale. A stopped coupling bounds the Hamming cost of changing
+one exterior letter. Counting all periodic translates of that square
+gives a gap for block updates, and comparison of conditional block
+and site Dirichlet forms gives the torus site gap.
+Theorem~\ref{t:mainW} combines this with the quantum comparison of
+Theorem~\ref{t:QD} to obtain the uniform quantum gap.
+Section~5 proves the required window estimate from the pair-response
+bound \(\mathsf P(A,\theta)\), uniformly over plane colorings and
+placements. Sections~6--8 prove that response bound using a walk
+expansion, a contracting positive-vector recursion, and the exact
+computational inputs. Thus the gap implication is
+\[
+ \begin{gathered}
+ \text{exact computational inputs}
+ \ \Longrightarrow\ \mathsf P
+ \ \Longrightarrow\ \mathsf W\\
+ \ \Longrightarrow\ \text{periodic block gap}
+ \ \Longrightarrow\ \text{site gap}
+ \ \Longrightarrow\ \text{quantum gap}.
+ \end{gathered}
+\]
+The finite probability and comparison tools are proved in Appendix~A;
+the planar topology and the computational certificate arguments are
+proved in Appendices~B--D. All scale choices precede the choice of the
+torus periods, coloring, block placement and exterior configuration.
+
+\emph{Formal verification.}
+Theorem~\ref{t:main} has been formalized in Lean~4 and checked by the
+Lean kernel. The formalization has two parts. The first derives
+Theorem~\ref{t:main} from (H1) and (H3\(_h\)) and proves (H2); it is
+self-contained and is checked in minutes. The second checks the
+finite inputs (H1) and (H3\(_h\)) in the Lean kernel, which takes
+about \(152\) and \(23\) CPU-hours. Both parts are available with
+this paper. % CHECK: add repository reference
+
+\subsection{Conventions}
+
+All Hilbert spaces are complex, with inner products conjugate linear
+in the first argument. An inequality between self-adjoint operators
+means the corresponding inequality of quadratic forms.
+We abbreviate \(B=B_{L,N}\) and \(H=H_{L,N}\) when the periods are
+fixed. Products over empty sets are one and sums over empty sets
+are zero.
+
+On the plane,
+\[
+ d(x,y)=|x_1-y_1|+|x_2-y_2|,\qquad
+ |x-y|_\infty=\max\{|x_1-y_1|,|x_2-y_2|\}.
+\]
+We write \(x\sim y\) for nearest neighbors and
+\(d(x,S)=\min_{y\in S}d(x,y)\), with the value \(+\infty\) if
+\(S=\varnothing\). Distances in plane estimates are these ambient
+distances, even if sites have been removed. A torus distance, when
+needed, is stated explicitly.
+Lattice translations lie in \(\mathbb Z^2\), and a radius used as
+an endpoint of a lattice interval is a nonnegative integer.
+
+For probabilities \(\nu,\nu'\) on a finite set,
+\[
+ d_{\rm TV}(\nu,\nu')
+ =\frac12\sum_s|\nu(s)-\nu'(s)|
+ =\max_A|\nu(A)-\nu'(A)|.
+\]
+For two configurations on the same product of site alphabets, their
+Hamming distance is the number of sites at which their letters
+differ. Conditional expectations and probabilities are finite sums
+on positive conditioning events. Variances use squared complex
+moduli. A claimed Poincare gap \(g>0\) means
+\(\mathcal D(f)\ge g\operatorname{Var}(f)\) for every \(f\).
+This convention includes a one-point configuration space, for which
+both sides vanish; the infimum over positive-variance functions is
+then \(+\infty\). Every heat-bath update rate is one per physical
+site unless a different set of update labels is explicitly specified.

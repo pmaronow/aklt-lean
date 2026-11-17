@@ -1,0 +1,75 @@
+# Author metadata: replace each explicit TODO with verified author information.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
+version: v0.4
+project:
+  name: The square-lattice spin-2 AKLT spectral gap
+  description: >-
+    Formalizes the unconditional all-parity AKLT theorem: nonvanishing and
+    uniqueness of the VBS ground state on every torus with periods at least
+    three, and a uniform positive spectral gap for all sufficiently large
+    periods. The finite H1 and H3 certificate libraries are part of the proof.
+    The manuscript, mathematical proofs, certificate generators, and checked
+    finite-input interfaces are included in one source tree.
+  authors:
+    - 'TODO: formalization author name and ORCID'
+  responsible_maintainers:
+    - 'TODO: responsible maintainer name and ORCID'
+  license: 'TODO: SPDX identifier matching the release LICENSE'
+classification:
+  arxiv:
+    - math-ph
+    - math.PR
+  msc2020:
+    - 82B10
+sources:
+  - title: The spectral gap of the spin-2 AKLT model on the square lattice
+    authors:
+      - 'TODO: manuscript author names'
+    type: paper
+    relationship: formalizes
+    location: >-
+      manuscript/ at commit 9806e35e3bb87b469fc16077a31617121c776c5d: sec1-result.tex, t:main;
+      sec6-walks.tex, h:H1; sec7-recursion.tex, h:H3;
+      sec8-inputs.tex, t:H1 and t:inputs.
+    note: >-
+      The advertised claim is the unconditional t:main, with H1, H2, and H3_h
+      discharged by the mathematical development and finite certificates. See docs/FIDELITY.md for exact source lines and
+      the clause-by-clause correspondence. TODO: immutable public source URL.
+  - title: AKLT finite certificate companion artifact
+    authors:
+      - 'TODO: companion artifact authors'
+    type: formalization
+    relationship: background
+    location: >-
+      AKLT/Cert/H1, AKLT/Cert/H3, CertData, AKLT/W/H1C*, AKLT/W/H3C*,
+      and the H1M/H3M semantic assemblies in the companion development.
+    note: >-
+      Supplies the finite verification routes inside the unconditional Solution
+      import closure. Generated sources are regenerated or fetched as pinned archives.
+      TODO: public companion URL, immutable commit, artifact manifest, and receipts.
+automation:
+  methods:
+    - method: agent
+      models:
+        - GPT-6
+      framework: OpenAI Codex
+      tool_setup: >-
+        Lean 4.35.0-rc2, pinned Mathlib, source import inventory, a visibility-only module-system port, strict axiom
+        prints, and protected statement comparison with the toolchain Comparator. Reproducible
+        certificate generation and strict per-theorem axiom audits accompany the Lean source build.
+      notes: 'TODO: add accurate provenance for the underlying proof development.'
+review:
+  status: independently reviewed with nonblocking remarks
+  notes: >-
+    Two independent statement-and-input reviews found the selected statements
+    faithful with remarks and no Fatal or Major finding. A separate earlier
+    headline review passed with zero blocking findings. See VERIFICATION.md
+    for scope, verdicts, resolution records, and the final build.
+limitations:
+  - Generated certificate sources and numeric inputs are distributed as pinned
+    release attachments rather than tracked in Git.
+  - Lean and NanoDa compared the physical statement, and Lean, NanoDa, and con-ron
+    accepted the full two-input reduction. A full independent-kernel replay of
+    the unconditional certificate proof was not run because of its size and cost.
+  - Author identities, ORCIDs, license, immutable public URLs, and underlying
+    proof-development provenance are author TODOs. This is not a Palomar submission.

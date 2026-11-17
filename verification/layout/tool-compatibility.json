@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "baseline": "42b16c3",
+  "deleted_tools": [
+    "AKLT/Cert/H1/tools/export_leaves.py",
+    "AKLT/Cert/H1/tools/production_bootstrap.py",
+    "AKLT/Cert/H1/tools/production_handoff.py",
+    "AKLT/Cert/H1/tools/production_leaves.py",
+    "AKLT/Cert/H1/tools/production_merge_check.py",
+    "AKLT/Cert/H1/tools/production_regen.py",
+    "AKLT/Cert/H1/tools/production_status.py",
+    "AKLT/Cert/H3/production_plan.py",
+    "AKLT/Cert/H3/validate_merge.py"
+  ],
+  "unchanged_key_verifier_emitter_functions": {
+    "AKLT/Cert/H1/tools/production_build.py": [
+      "build_key",
+      "library_fingerprint",
+      "artifact_hashes",
+      "axiom_audit",
+      "main.run"
+    ],
+    "AKLT/Cert/H1/tools/production_receipts.py": [
+      "verify"
+    ],
+    "AKLT/Cert/H1/tools/production_reexport.py": [
+      "main"
+    ],
+    "AKLT/Cert/H1/tools/production_bundle.py": [
+      "main"
+    ],
+    "AKLT/Cert/H3/regen.py": [
+      "context",
+      "source_info",
+      "dep_hashes",
+      "run_one",
+      "verify",
+      "current"
+    ],
+    "AKLT/Cert/H3/production.py": [
+      "source",
+      "generate_graph",
+      "generate_case",
+      "generate_assemblies"
+    ]
+  },
+  "function_changes_limited_to": {
+    "AKLT/Cert/H1/tools/packed.py": [
+      "main"
+    ],
+    "AKLT/Cert/H1/tools/production_bridge_export.py": [
+      "main"
+    ],
+    "AKLT/Cert/H1/tools/production_coverage.py": [
+      "main"
+    ],
+    "AKLT/Cert/H1/tools/production_export.py": [
+      "main"
+    ],
+    "AKLT/Cert/H1/tools/production_receipts.py": [
+      "inputs"
+    ],
+    "AKLT/Cert/H1/tools/production_build.py": [
+      "main"
+    ],
+    "AKLT/Cert/H3/export.py": [
+      "main"
+    ]
+  },
+  "all_other_retained_function_ASTs_identical": true,
+  "all_nonresource_tool_AST_changes_are_only_paths_imports_or_docstrings": true,
+  "synthetic_probes": {
+    "H1_build_key_identical": true,
+    "H1_axiom_format_and_rejection_identical": true,
+    "H1_input_receipt_bytes_identical": true,
+    "H3_context_and_dependency_hashes_identical": true,
+    "H1_module_envelope_bytes_identical": true,
+    "H3_module_template_bytes_identical": true
+  },
+  "compiler_or_runner_started": false
+}

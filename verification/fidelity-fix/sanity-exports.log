@@ -1,0 +1,54 @@
+AKLT.Challenge.SanityRank.exponent_apply {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (σ : AKLT.Challenge.SanityRank.Coordinates d) (x : AKLT.Challenge.Site L N) (k : Fin 2) :
+  (AKLT.Challenge.SanityRank.exponent d σ) (x, k) = if k = 0 then d x - ↑(σ x) else ↑(σ x)
+'AKLT.Challenge.SanityRank.exponent_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.exponent_injective {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ) :
+  Function.Injective (AKLT.Challenge.SanityRank.exponent d)
+'AKLT.Challenge.SanityRank.exponent_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.exponent_weight {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (σ : AKLT.Challenge.SanityRank.Coordinates d) (x : AKLT.Challenge.Site L N) :
+  (Finsupp.weight (AKLT.Uniq.siteWeight x)) (AKLT.Challenge.SanityRank.exponent d σ) = d x
+'AKLT.Challenge.SanityRank.exponent_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.exists_exponent {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (m : AKLT.Challenge.Site L N × Fin 2 →₀ ℕ)
+  (hm : ∀ (x : AKLT.Challenge.Site L N), (Finsupp.weight (AKLT.Uniq.siteWeight x)) m = d x) :
+  ∃ σ, AKLT.Challenge.SanityRank.exponent d σ = m
+'AKLT.Challenge.SanityRank.exists_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.polynomial_coeff {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (c : AKLT.Challenge.SanityRank.Coordinates d → ℂ) (σ : AKLT.Challenge.SanityRank.Coordinates d) :
+  (AKLT.Challenge.SanityRank.polynomial d c).coeff (AKLT.Challenge.SanityRank.exponent d σ) = c σ
+'AKLT.Challenge.SanityRank.polynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.polynomial_degrees {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (c : AKLT.Challenge.SanityRank.Coordinates d → ℂ) :
+  AKLT.Uniq.HasSiteDegrees (AKLT.Challenge.SanityRank.polynomial d c) d
+'AKLT.Challenge.SanityRank.polynomial_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.polynomial_inverse {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ)
+  (p : ↥(AKLT.Challenge.SanityRank.gradedSpace d)) :
+  (AKLT.Challenge.SanityRank.polynomial d fun σ => (↑p).coeff (AKLT.Challenge.SanityRank.exponent d σ)) = ↑p
+'AKLT.Challenge.SanityRank.polynomial_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.graded_finrank {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N → ℕ) :
+  Module.finrank ℂ ↥(AKLT.Challenge.SanityRank.gradedSpace d) = ∏ x, (d x + 1)
+'AKLT.Challenge.SanityRank.graded_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.residual_physical {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (q : ↥(AKLT.Challenge.SanityRank.gradedSpace (AKLT.Uniq.edgeResidual e 1))) :
+  AKLT.Uniq.IsPhysical (AKLT.Challenge.singlet e * ↑q)
+'AKLT.Challenge.SanityRank.residual_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.kernelMap_bijective {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  Function.Bijective ⇑(AKLT.Challenge.SanityRank.kernelMap e)
+'AKLT.Challenge.SanityRank.kernelMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.kernel_finrank {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  Module.finrank ℂ ↥(LinearMap.ker (AKLT.Challenge.P e)) = ∏ x, (AKLT.Uniq.edgeResidual e 1 x + 1)
+'AKLT.Challenge.SanityRank.kernel_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.residual_product {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  ∏ x, (AKLT.Uniq.edgeResidual e 1 x + 1) = 16 * 5 ^ (↑L * ↑N - 2)
+'AKLT.Challenge.SanityRank.residual_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.bond_rank (L N : AKLT.Challenge.Size) : AKLT.Challenge.BondRank L N
+'AKLT.Challenge.SanityRank.bond_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.SanityRank.four_by_four_nondegenerate : AKLT.Challenge.FourByFourNondegenerate
+'AKLT.Challenge.SanityRank.four_by_four_nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.b_nonzero (L N : AKLT.Challenge.Size) : AKLT.Challenge.BNonzero L N
+'AKLT.Challenge.b_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.bond_rank (L N : AKLT.Challenge.Size) : AKLT.Challenge.BondRank L N
+'AKLT.Challenge.bond_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.four_by_four_nondegenerate : AKLT.Challenge.FourByFourNondegenerate
+'AKLT.Challenge.four_by_four_nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]

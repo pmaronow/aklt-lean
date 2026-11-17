@@ -1,0 +1,137 @@
+{
+  "status": "FINAL FILL COMPLETE",
+  "source_baseline": "42b16c34abb52e2e508ae4000cdfd804115ed14c",
+  "source_digest": "c875dff024d396b0b78f1fa955ea5d38e8f577e1d8bd69e970fd02bea906bee9",
+  "unchanged_Lean_sources": 1117,
+  "unchanged_Lean_build_and_interface_files": 1133,
+  "current_source_and_tool_hashes": 1162,
+  "cold_driver_stages": 29,
+  "H1_default_route": [
+    "inputs",
+    "reexport --install",
+    "build --cap-gib 7",
+    "verify",
+    "close"
+  ],
+  "external_H1_adapter_required": false,
+  "existing_custom_stage_override_preserved": true,
+  "certificate_receipt_keys_formats_and_generated_templates_unchanged": true,
+  "deleted_unused_tools": [
+    "AKLT/Cert/H1/tools/export_leaves.py",
+    "AKLT/Cert/H1/tools/production_bootstrap.py",
+    "AKLT/Cert/H1/tools/production_handoff.py",
+    "AKLT/Cert/H1/tools/production_leaves.py",
+    "AKLT/Cert/H1/tools/production_merge_check.py",
+    "AKLT/Cert/H1/tools/production_regen.py",
+    "AKLT/Cert/H1/tools/production_status.py",
+    "AKLT/Cert/H3/production_plan.py",
+    "AKLT/Cert/H3/validate_merge.py"
+  ],
+  "comment_updated_source_files": [
+    "AKLT/Blueprint/Gap/Assembly.lean",
+    "AKLT/Blueprint/Gap/NodesFinite.lean",
+    "AKLT/Blueprint/Gap/NodesMain.lean",
+    "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "AKLT/Blueprint/Q/NodesSplits.lean",
+    "AKLT/Cert/H1/Production/Leaves.lean",
+    "AKLT/Final/Skeleton.lean",
+    "AKLT/Gen/Bellman/Growth.lean",
+    "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+    "AKLT/W/H3C034/PrefixStep/Main.lean",
+    "CertData/H1/Close/Main.lean"
+  ],
+  "source_manifest_rows_refreshed": 11,
+  "source_inventory_and_statement_source_record_unchanged": true,
+  "numeric_inputs_hash_checked": 23,
+  "source_configuration_findings": [
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ],
+  "compilers_certificate_commands_and_independent_kernels_executed": false,
+  "existing_axiom_transcript_guard": "18 hand-written export prints accepted; this is not a new Lean audit",
+  "actual_existing_production_receipt_verification": "Not executed; exact verifier/key AST identity and synthetic probes establish compatibility.",
+  "historical_hash_occurrences_preserved": [
+    {
+      "file": "verification/fidelity-fix/protected-closure.json",
+      "stale_source_references": [
+        "AKLT/Cert/H1/Production/Leaves.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/fidelity-fix/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/fidelity-round2/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/rename/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/rename/summary.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    }
+  ],
+  "author_metadata_unchanged": true
+}

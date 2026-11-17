@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checks": {
+    "python_syntax": true,
+    "shell_syntax": true,
+    "cold_plan": {
+      "stages": 29,
+      "default_H1_sequence": [
+        "H1-inputs",
+        "H1-reexport",
+        "H1-build",
+        "H1-verify",
+        "H1-close"
+      ],
+      "numeric_route_without_adapter": true,
+      "job_memory_caps": true,
+      "spaces_in_paths": true,
+      "invalid_arguments_rejected": true,
+      "existing_custom_stage_option_preserved": true,
+      "dry_run_creates_no_files": true
+    },
+    "H1_locations": {
+      "one_input_setting": true,
+      "scratch_output_independent": true,
+      "existing_report_override_preserved": true
+    },
+    "H3_locations": {
+      "all_three_entry_points": true,
+      "existing_overrides_preserved": true
+    },
+    "H1_resource_option": {
+      "default_270_GB_unchanged": true,
+      "explicit_limit_applied": true,
+      "existing_default_jobs_and_process_cap_unchanged": true
+    },
+    "input_pins": {
+      "small_positive_fixture": true,
+      "modified_input_rejected": true,
+      "uppercase_compatibility": true,
+      "ambiguous_case_rejected": true
+    },
+    "statement_bytes": true,
+    "altered_statement_bytes_rejected_without_source_write": true,
+    "current_manifests": {
+      "passed": true,
+      "source_digest": "c875dff024d396b0b78f1fa955ea5d38e8f577e1d8bd69e970fd02bea906bee9",
+      "handwritten_files": 1117,
+      "protected_files": 1162,
+      "issues": []
+    },
+    "no_compiler_runner_or_build_directory_created": true
+  }
+}

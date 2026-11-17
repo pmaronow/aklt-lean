@@ -1,0 +1,23 @@
+/.lake/
+/data/
+/verification/runs/
+/verification/installed/
+__pycache__/
+*.pyc
+
+# Generated certificate families. Hand-written kernels, bridges, and closing
+# modules remain tracked. The exact generated inventory is independently checked
+# against verification/generated-modules.json by the source checker and runners.
+/CertData/H1/Generated/
+/CertData/H3/B1/
+/CertData/H3/B2/
+/CertData/H3/C1/
+/CertData/H3/C2/
+/CertData/H3/C3/
+/CertData/H3/Check/
+/CertData/H3/Bridge/All.lean
+/CertData/H3/Bridge/B[12].lean
+/CertData/H3/Bridge/C[123].lean
+/CertData/H3/Exact.lean
+/CertData/H3/Graph.lean
+/CertData/H3/GraphAssembly.lean

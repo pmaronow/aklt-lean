@@ -1,0 +1,776 @@
+\section{Walk expansion without scalar trace masses}\label{s:walks}
+
+We work on a finite subset of the plane with the laws of
+Definition~\ref{d:moment}. We first prove the finite expansion and
+uniform response estimates, and then give the local and open-trail
+contracts used to bound it.
+
+\begin{definition}\label{d:domain}
+Fix finite \(G\), \(S=S(G)\), and original unit pins \(\tau\).
+A domain assigns statuses \(\mathrm U,\mathrm D,\mathrm X\);
+\(\mathrm X\) sites are removed. Each nonremoved site has a kept
+subset of its incident bonds inside \(G\). A bond is present if both
+ends are nonremoved and both keep it. A \(\mathrm D\) site has at
+most two present bonds. Protected sites in \(S\) have status
+\(\mathrm U\) and keep every incident bond inside \(G\).
+Use \(\lambda_{\mathrm U},\lambda_{\mathrm D}\) at the corresponding
+sites and define
+\[
+ Z_D^\tau[f]=\sum_n f(n)
+       \prod_{\text{present }\{x,y\}}(1+n_x\cdot n_y)
+       \prod_{\substack{(x,z)\in\mathcal L(G)\\x\in S}}
+                   (1+\tau_{xz}\cdot n_x)
+       \prod_{x:\,\mathrm{st}(x)\ne\mathrm X}\lambda_{\mathrm{st}(x)}(n_x).
+\]
+The sum is over the product of the supports \(D\) at \(\mathrm U\)
+sites and \(D\cup\{0\}\) at \(\mathrm D\) sites.
+Define the free sum, normalized expectations and \(\Psi_D\) as before.
+The class \(\mathcal D_{\mathrm{cons}}(G)\) consists of domains in
+which every \(\mathrm U\) site keeps all its bonds, every \(\mathrm D\)
+site keeps exactly two, and every bond between nonremoved sites is
+kept by both ends or by neither.
+An auxiliary network has the same data but permits protected
+\(\mathrm U\) sites to have arbitrary kept subsets. It retains every
+original leg factor. Neither domains nor auxiliary networks carry
+a scalar trace mass. Only the networks occurring below, with at most
+four factors at each site, are used.
+\end{definition}
+
+All normalizers in this definition are positive by
+Lemma~\ref{l:finitefacts}. Original legs occur only at protected
+\(\mathrm U\) sites. In particular every departure site outside
+\(S\) is unpinned.
+The domains \(G\setminus Y\), \(Y\subset G\setminus S\), in
+Definition~\ref{d:pinmodel} are members of
+\(\mathcal D_{\mathrm{cons}}(G)\), with statuses
+\(\mathrm U,\mathrm X\) only.
+An auxiliary network allows a stopped arrival to delete a protected
+site's arrival bond while retaining all of that site's original legs.
+
+\begin{definition}\label{d:trace}
+A trail uses distinct present unoriented bonds. Its prefixes are
+\(w_j=(v_0,\ldots,v_j)\), and \(\mathcal T_D(u,T)\) denotes trails
+starting at \(u\) and stopping at their first hit of \(T\).
+No trail departs from \(S\).
+At departure from \(y=v_{j-1}\), drop \(\{y,v_j\}\) at both ends.
+If \(y\) is \(\mathrm U\), change it to \(\mathrm D\), keeping its
+other kept bonds. If \(y\) is \(\mathrm D\), remove it.
+Call the resulting network \(D[w_j]\), with \(D[w_0]=D\).
+Admissible initial starts are unpinned sites outside \(S\) of status
+\(\mathrm U\) with at most three present bonds, or status \(\mathrm D\)
+with at most one. The same restrictions then hold at every later
+departure. Set
+\[
+ a_D(w)=3^{-N_{\mathrm U}(w)}5^{-N_{\mathrm D}(w)},\qquad
+ R_D^\bullet(w)=Z^\bullet_{D[w]}/Z^\bullet_D,
+\]
+where the counts record the status at departure, not the original status.
+Original legs are always unchanged, including at a terminal hit of \(S\).
+\end{definition}
+
+We record why this tracing rule is defined on every trail under
+consideration. At length zero the stated bounds hold by the start
+hypothesis. After an arrival, a \(\mathrm U\) site has lost the
+arrival bond from at most four present bonds, so it has at most three;
+a \(\mathrm D\) site has lost it from at most two, so it has at
+most one. At a \(\mathrm U\) departure, deleting the out-bond
+leaves at most two present bonds at the new \(\mathrm D\) site.
+At a \(\mathrm D\) departure there is at most the out-bond:
+deleting it and removing the site removes no other present bond.
+In particular no unused present bond is destroyed by removal.
+Induction on the prefix length now shows that every unused bond
+of the trail is still present when it is needed, and that every
+departure satisfies the asserted bounds.
+Sites in \(S\) are never departed from, so none is removed.
+They retain all original leg factors even when the final arrival
+drops a bond at such a site.
+
+There are at most two departures from any site during this trace:
+after its first \(\mathrm U\) departure it is \(\mathrm D\), and
+after a \(\mathrm D\) departure it is removed. Also
+\[
+ |w|=N_{\mathrm U}(w)+N_{\mathrm D}(w),\qquad
+ a_D(w)=3^{-|w|}(3/5)^{N_{\mathrm D}(w)}.
+\]
+This identity places the entire revisit factor in the coefficient.
+Partition-function ratios telescope to
+\(R_D^\bullet(w)=\prod_{j=1}^{|w|}\rho_j^\bullet\), where
+\(\rho_j^\bullet\) is the ratio for the \(j\)-th step.
+
+\begin{lemma}\label{l:stepid}
+For vectors \(a,u_1,\ldots,u_k\in\mathbb R^3\),
+\[
+ \mathcal M\!\left((a\cdot n)\prod_{i=1}^k(1+n\cdot u_i)\right)
+ =\frac13\sum_{i=1}^k(a\cdot u_i)
+       \lambda_{\mathrm D}\!\left(\prod_{i'\ne i}(1+n\cdot u_{i'})\right)
+       \quad(0\le k\le3),
+\]
+and
+\[
+ \lambda_{\mathrm D}\!\left((a\cdot n)\prod_{i=1}^k(1+n\cdot u_i)\right)
+       =\frac15\sum_{i=1}^k a\cdot u_i\quad(0\le k\le1).
+\]
+An empty sum is zero. The second identity removes the departure site
+with no residual scalar mass.
+\end{lemma}
+
+\begin{proof}
+Expand the product into subsets of \(\{1,\ldots,k\}\).
+In the first identity, the inserted linear factor permits only
+subsets of sizes one and three to contribute, by
+Lemma~\ref{l:moments}. The value is
+\[
+ \frac13\sum_i a\cdot u_i+
+ \frac1{15}\sum_{i<j<l}
+ \bigl((a\cdot u_i)(u_j\cdot u_l)
+       +(a\cdot u_j)(u_i\cdot u_l)
+       +(a\cdot u_l)(u_i\cdot u_j)\bigr).
+\]
+For the residual product, which has at most two factors,
+\[
+ \lambda_{\mathrm D}\left(\prod_{i'\ne i}(1+n\cdot u_{i'})\right)
+ =1+\frac15\sum_{\substack{j<l\\j,l\ne i}}u_j\cdot u_l.
+\]
+Multiplying by \((a\cdot u_i)/3\) and summing over \(i\)
+gives exactly the preceding expression, including the empty sums
+when \(k=0,1,2\).
+
+For the second identity, \(k=0\) gives zero by the first moment.
+For \(k=1\), the constant part again vanishes and the second
+moment is
+\((3/5)(a\cdot u_1)/3=(a\cdot u_1)/5\).
+There is no residual factor depending on \(n\).
+Thus the site can be deleted with the displayed coefficient and
+with no change of the normalization of the remaining site laws.
+All polynomials evaluated here have degree at most four.
+\end{proof}
+
+\begin{proposition}\label{p:pairwalk}
+Let \(D\) be a domain or auxiliary network, and let \(u\) be an
+admissible initial start. Let \(v\ne u\) be nonremoved; if it is
+\(\mathrm U\), assume at most three incident factors, counting
+original legs; if it is \(\mathrm D\), assume at most one present bond.
+Put \(T=S\cup\{v\}\). For \(\bullet=\tau,0\),
+\[
+ \mathbb E_D^\bullet(n_u\cdot n_v)=
+ \sum_{w\in\mathcal T_D(u,T)}a_D(w)R_D^\bullet(w)
+           \mathbb E_{D[w]}^\bullet(n_{v_{|w|}}\cdot n_v).
+\]
+If the endpoint is \(v\), its last factor is independent of the
+choice of \(\bullet\): it is \(1\) for status \(\mathrm U\),
+and \(3/5\) for status \(\mathrm D\).
+Every partition product with an inserted observable used in this
+identity has separate degree at most four.
+\end{proposition}
+
+\begin{proof}
+We prove an identity of unnormalized numerators. Write
+\(n_u\cdot n_v=\sum_{\beta=1}^3n_{u,\beta}n_{v,\beta}\), and fix
+\(\beta\). At any nonterminal prefix ending at \(y\), the marked
+factor is \(n_{y,\beta}n_{v,\beta}\), with \(y\ne v\) and
+\(y\notin S\). Sum over \(n_y\) first.
+If its status is \(\mathrm U\), the first identity of
+Lemma~\ref{l:stepid}, with \(a=e_\beta\) and the present
+neighboring spins as the \(u_i\), gives
+\[
+ Z^\bullet_E[n_{y,\beta}n_{v,\beta}]
+   =\frac13\sum_{o:\,\{y,o\}\text{ present in }E}
+        Z^\bullet_{E[(y,o)]}[n_{o,\beta}n_{v,\beta}].
+\]
+Here \(E\) denotes the current network; \(E[(y,o)]\) is its
+one-step trace, so its law at \(y\) is
+\(\lambda_{\mathrm D}\) and the selected bond has been dropped.
+If \(y\) is \(\mathrm D\), the second identity gives instead
+\[
+ Z^\bullet_E[n_{y,\beta}n_{v,\beta}]
+   =\frac15\sum_{o:\,\{y,o\}\text{ present in }E}
+        Z^\bullet_{E[(y,o)]}[n_{o,\beta}n_{v,\beta}],
+\]
+where \(y\) is removed in every term.
+The departure bounds needed for these identities were verified
+after Definition~\ref{d:trace}. There are no leg factors at \(y\).
+If there is no present bond, either displayed sum is zero.
+
+Iterate these equalities until the marked site reaches \(T\).
+Every iteration consumes a previously unused present unoriented
+bond. There are only finitely many bonds initially, so the
+iteration terminates after at most that many steps, even for
+branches which end with an empty sum. No unused present bond is
+destroyed by the trace, as proved after
+Definition~\ref{d:trace}. Hence the branches that reach \(T\) are
+in bijection with the trails in \(\mathcal T_D(u,T)\): a sequence
+of choices determines one such trail and conversely. The product of its
+coefficients is \(a_D(w)\). We have proved
+\[
+ Z^\bullet_D[n_{u,\beta}n_{v,\beta}]
+ =\sum_{w\in\mathcal T_D(u,T)}
+       a_D(w)Z^\bullet_{D[w]}
+                   [n_{v_{|w|},\beta}n_{v,\beta}].
+\]
+Sum over \(\beta\) and divide once by the positive \(Z^\bullet_D\).
+This proves the expansion.
+
+If the endpoint is \(v\), this is its first hit, so the status of
+\(v\) has not changed. For status \(\mathrm U\), its spin has
+squared norm one pointwise. For status \(\mathrm D\), its sole
+possible present bond in \(D\) must have been the arrival bond;
+there are no original legs at a \(\mathrm D\) site. After arrival
+it is isolated and has its normalized law
+\(\lambda_{\mathrm D}\), independently of all other spins.
+Thus its expected squared norm is \(3/5\), for either pin choice.
+
+For completeness, before a terminal hit the fixed target \(v\)
+has at most three factors if \(\mathrm U\), or at most one
+present bond if \(\mathrm D\). Inserting its one coordinate
+therefore gives degree at most four or two, respectively.
+The moving marked site has at most three bonds if \(\mathrm U\),
+or one if \(\mathrm D\), and no legs; its inserted coordinate
+has the same respective bounds. At a terminal site in
+\(S\setminus\{v\}\), the lost arrival bond leaves at most three
+factors, counting all unchanged original legs, and the inserted
+coordinate gives degree at most four. At a terminal \(v\) of
+status \(\mathrm U\), at most two factors remain after arrival;
+inserting \(|n_v|^2\) again gives degree at most four.
+A terminal \(v\) of status \(\mathrm D\) is isolated and has
+only the degree-two insertion. All unmarked sites have at most
+four factors, and changing a law or deleting a bond raises no
+degree. These cases cover every numerator in the iteration.
+\end{proof}
+
+\begin{definition}\label{d:ratios}
+At a step \(j\), put
+\(\rho_j^\bullet=Z^\bullet_{D[w_j]}/Z^\bullet_{D[w_{j-1}]}\).
+At a \(\mathrm D\) departure \(\rho_j^\tau=\rho_j^0=1\).
+At a \(\mathrm U\) departure from \(y\) to \(o\), let \(E'\)
+be the pre-step network with \(y\) removed.
+If the other present neighbors are \(f,g\), set
+\[
+ I=1+\tfrac13(P_{fg}+P_{fo}+P_{go}),\quad
+ J=1+\tfrac15P_{fg},\quad P_{ab}=n_a\cdot n_b,\qquad
+ (\rho_j^\bullet)^{-1}=\mathbb E_{E'}^\bullet I/
+                                      \mathbb E_{E'}^\bullet J.
+\]
+With only one other neighbor \(f\), use \(I=1+P_{fo}/3,\ J=1\);
+with no other neighbor, \(\rho_j^\bullet=1\).
+Straight/turning refers to the incoming direction, with a designated
+absent incoming bond at the first step.
+\end{definition}
+
+These formulas follow by summing over the departure spin before
+performing the remaining product sum. With three neighbors, the
+pre-step \(\lambda_{\mathrm U}\) sum is \(I\), by its second
+moment and vanishing odd moments. The post-step
+\(\lambda_{\mathrm D}\) sum over its two retained bonds is \(J\),
+by its second moment \(1/5\). Thus
+\[
+ Z^\bullet_{D[w_{j-1}]}=Z^\bullet_{E'}\mathbb E^\bullet_{E'}I,
+ \qquad
+ Z^\bullet_{D[w_j]}=Z^\bullet_{E'}\mathbb E^\bullet_{E'}J.
+\]
+With two neighbors these same sums are \(1+P_{fo}/3\) and \(1\);
+with one they are both \(1\). At a \(\mathrm D\) departure
+there is at most the selected bond, and
+\(\lambda_{\mathrm D}(1+n\cdot n_o)=1\), so deletion leaves
+the partition function unchanged. All divisions are justified by
+Lemma~\ref{l:finitefacts}. These computations also show directly
+that the revisit has ratio one for both pin choices.
+
+Incoming directions are lattice unit vectors, namely
+\((\pm1,0)\) or \((0,\pm1)\).
+At an admissible start, all four neighboring sites lie in \(G\)
+because the start is outside \(S\); there are at most three
+present bonds. Hence an absent bond can always be designated as
+the initial incoming bond. At every later step the actual incoming
+bond has already been deleted at both ends.
+
+\begin{lemma}\label{l:response}
+At a \(\mathrm U\) departure \(y\notin S\), write
+\(r_{ab}=\mathbb E^\tau_{E'}P_{ab}-\mathbb E^0_{E'}P_{ab}\).
+With three present neighbors,
+\[
+ \log\rho_j^0-\log\rho_j^\tau
+       =\alpha_jr_{fg}+\beta_j(r_{fo}+r_{go}),\qquad
+ 0<\alpha_j\le\bar\alpha=\frac{18094}{100000},\quad
+ 0<\beta_j\le\bar\beta=\frac{36751}{100000}.
+\]
+With two present neighbors the response is \(\beta_j'r_{fo}\),
+where \(0<\beta_j'\le35510/100000\le\bar\beta\);
+with one it is zero. Also \(\rho_j^0\le1\) and
+\(\rho_j^\tau\le12/5\).
+A \(\mathrm D\) departure has zero logarithmic response.
+\end{lemma}
+
+\begin{proof}
+For positive \(x,y\), define
+\[
+ L(x,y)=\int_0^1x^t y^{1-t}\,\mathrm dt
+ =\begin{cases}
+ (x-y)/(\log x-\log y),&x\ne y,\\
+ x,&x=y.
+ \end{cases}
+\]
+The equality follows by integrating the exponential when \(x\ne y\).
+The integral shows that \(L\) is positive, increasing in each argument,
+and between the minimum and maximum of its arguments. In both cases
+\(\log x-\log y=(x-y)/L(x,y)\).
+
+First suppose that the present neighbors are \(f,g,o\).
+Write \(I^\bullet=\mathbb E^\bullet_{E'}I\),
+\(J^\bullet=\mathbb E^\bullet_{E'}J\), and
+\(L_I=L(I^\tau,I^0)\), \(L_J=L(J^\tau,J^0)\).
+Using the ratio formula in Definition~\ref{d:ratios} gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{L_I}
+       -\frac{J^\tau-J^0}{L_J}\\
+ &=\left(\frac1{3L_I}-\frac1{5L_J}\right)r_{fg}
+       +\frac1{3L_I}(r_{fo}+r_{go}).
+ \end{split}
+\]
+We use these displayed expressions to define \(\alpha_j,\beta_j\),
+also when a response or both arguments of a logarithmic mean coincide.
+
+Since \(y\notin S(G)\), it has distance at least three from
+\(\mathbb Z^2\setminus G\). Each of its neighbors has distance
+at least two from that complement and carries no original leg.
+After \(y\) is removed, each has at most three present bonds.
+The neighbors are pairwise nonadjacent. On every positive fiber
+of the other spins in \(E'\), Lemmas~\ref{l:finitefacts}
+and~\ref{l:35} therefore give independent conditional spins with
+means \(m_f,m_g,m_o\) of norms at most \(3/5\), under either
+pin choice. Put \(Q=\sum_{\{a,b\}\subset\{f,g,o\}}m_a\cdot m_b\).
+Then
+\[
+ -\frac{27}{50}\le
+ \frac{|\sum_a m_a|^2-\sum_a|m_a|^2}{2}=Q
+ \le\sum_{\{a,b\}}|m_a||m_b|\le\frac{27}{25}.
+\]
+Also \(|m_f\cdot m_g|\le9/25\).
+Averaging these conditional inequalities proves
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Every pair insertion used here is admissible for free positivity:
+removal of \(y\) leaves at most three factors at each inserted
+endpoint, and the pair adds one degree there.
+Thus Lemma~\ref{l:finitefacts} gives \(I^0\ge1\), \(J^0\ge1\).
+The monotonicity of \(L\) now gives
+\[
+ L_I\ge L(41/50,1),\quad L_I\le34/25,\qquad
+ 116/125\le L_J\le134/125.
+\]
+In particular
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+       =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+
+Here are exact rational upper bounds for the logarithms needed in
+the upper estimates. For \(0<s<1\), set \(t=(1-s)/(1+s)\).
+The substitution giving
+\(-\log s=2\int_0^t(1-u^2)^{-1}\,\mathrm du\), together with
+\[
+ \frac1{1-u^2}=1+u^2+\frac{u^4}{1-u^2},\qquad
+ \frac1{1-u^2}\le\frac1{1-t^2}\quad(0\le u\le t),
+\]
+proves
+\[
+ \frac{-\log s}{1-s}\le
+ B(s):=\frac2{1-s}
+       \left(t+\frac{t^3}{3}+\frac{t^5}{5(1-t^2)}\right).
+\]
+Substitution and rational simplification give
+\[
+ \begin{array}{c|c|c}
+ s&B(s)/3&\text{rational upper bound}\\ \hline
+ 41/50&340634561/926892330&367502/10^6\\
+ 22/25&24332081/68523180&35510/100000
+ \end{array}
+\]
+The middle entries are strictly smaller than the right entries;
+all denominators are positive. For example their cross-product
+differences are respectively \(224059660\) and \(50021800\).
+Consequently
+\[
+ \beta_j\le\frac1{3L(41/50,1)}
+       \le\frac{367502}{10^6}<\bar\beta,\qquad
+ \alpha_j\le\frac{367502}{10^6}-\frac{25}{134}
+       =\frac{6061317}{33500000}<\bar\alpha.
+\]
+The last strict inequality has difference
+\(173/33500000>0\).
+
+With just the neighbors \(f,o\), \(J=1\) and
+\[
+ I^\bullet\in[22/25,28/25],\qquad I^0\ge1.
+\]
+The same logarithmic identity gives
+\(\beta_j'=1/(3L(I^\tau,I^0))>0\) and response
+\(\beta_j'r_{fo}\). The second row of the table proves
+\(\beta_j'\le35510/100000\le\bar\beta\).
+With only \(o\), both partition ratios are one and the response
+is zero.
+
+For the free ratio with three neighbors, free positivity also gives
+\[
+ I^0-J^0
+ =\frac2{15}\mathbb E^0_{E'}P_{fg}
+      +\frac13\mathbb E^0_{E'}(P_{fo}+P_{go})\ge0.
+\]
+For two neighbors use \(I^0-1=\mathbb E^0_{E'}P_{fo}/3\ge0\);
+for one neighbor the ratio is one. Hence \(\rho_j^0\le1\)
+in all cases. Pointwise, for three neighbors of norm at most one,
+\[
+ \sum_{\{a,b\}}n_a\cdot n_b
+   =\frac{|\sum_a n_a|^2-\sum_a|n_a|^2}{2}\ge-\frac32,
+ \qquad I\ge\frac12,\qquad J\le\frac65.
+\]
+It follows that \(\rho_j^\tau=J^\tau/I^\tau\le12/5\).
+For two neighbors, \(I\ge2/3\), \(J=1\), so the bound is
+\(3/2\le12/5\); for one it is one.
+Finally a \(\mathrm D\) departure has both ratios equal to one
+by Definition~\ref{d:ratios}, proving its zero logarithmic response.
+\end{proof}
+
+\begin{lemma}\label{l:exposure}
+For an admissibly started stopped trail, let \(\Phi\) be its
+\(\mathrm U\) departures, and suppose \(\rho_j^\tau\le x_j\),
+\(x_j\ge1\), for \(j\in\Phi\).
+For every ordering \(\sigma\) of \(\Phi\),
+\[
+ |R_D^\tau(w)-R_D^0(w)|
+ \le\sum_{k=1}^{|\Phi|}
+       |\log\rho_{\sigma(k)}^0-\log\rho_{\sigma(k)}^\tau|
+                         \prod_{l\le k}x_{\sigma(l)}.
+\]
+Multiplication by \(a_D(w)\) gives the corresponding bound on the
+coefficient in the pair expansion.
+\end{lemma}
+
+\begin{proof}
+All step ratios are positive. The \(\mathrm D\) ratios are one
+for both pin choices, so
+\[
+ R_D^\tau(w)=\prod_{j\in\Phi}b_j,\qquad
+ R_D^0(w)=\prod_{j\in\Phi}c_j,\qquad
+ b_j=\rho_j^\tau,\quad c_j=\rho_j^0.
+\]
+For \(m=|\Phi|\), telescoping in the given order gives the exact
+identity
+\[
+ \prod_{j\in\Phi}b_j-\prod_{j\in\Phi}c_j
+ =\sum_{k=1}^m
+   \left(\prod_{l<k}b_{\sigma(l)}\right)
+   (b_{\sigma(k)}-c_{\sigma(k)})
+   \left(\prod_{l>k}c_{\sigma(l)}\right).
+\]
+For positive \(b,c\), integration of the derivative of
+\(\exp t\) between \(\log b\) and \(\log c\) yields
+\[
+ |b-c|\le\max\{b,c\}\,|\log b-\log c|.
+\]
+Lemma~\ref{l:response} gives \(c_j\le1\), and the hypothesis
+gives \(b_j\le x_j\), with \(x_j\ge1\).
+Thus \(\max\{b_j,c_j\}\le x_j\), and the absolute value of
+the \(k\)-th telescoping term is at most
+\[
+ |\log\rho_{\sigma(k)}^0-\log\rho_{\sigma(k)}^\tau|
+          \prod_{l\le k}x_{\sigma(l)}.
+\]
+Sum these inequalities. If \(m=0\), both products are one and
+the sum is empty, so the same assertion holds.
+Finally \(a_D(w)>0\), and multiplying the inequality by it
+gives the stated coefficient bound.
+\end{proof}
+
+\begin{definition}\label{d:pattern}
+Let \(\mathsf T=\{z:d(z,0)\le2\}\), with passage site \(0\),
+arrival site \(\mathsf s=(0,-1)\), other neighbors
+\(\mathsf e=(1,0),\mathsf N=(0,1),\mathsf W=(-1,0)\),
+four corners \((\pm1,\pm1)\), and tips \((\pm2,0),(0,\pm2)\).
+The external slots are the two external bonds at each corner and
+the three at each tip, twenty in total.
+A pattern chooses an out-neighbor \(o\in\{\mathsf e,\mathsf N,\mathsf W\}\)
+and statuses/kept sets with the following rules.
+The passage site is \(\mathrm U\) and keeps precisely its three
+non-arrival bonds. The arrival site is removed or is \(\mathrm D\)
+keeping two of its three non-passage bonds.
+Each other neighbor is \(\mathrm U,\mathrm X\), or \(\mathrm D\)
+keeping its passage bond and one other bond; \(o\) is not removed.
+Each corner is \(\mathrm U,\mathrm X\), or \(\mathrm D\) keeping
+two of its four bonds. Every \(\mathrm U\) site other than the
+passage site keeps all four bonds.
+Between nonremoved non-tip sites, a bond is kept by both ends or
+by neither. Tips are covering \(\mathrm U\) sites; their bond to
+a neighbor \(z\) is present exactly when \(z\) is nonremoved and
+keeps that bond. No consistency condition with a global tip kept
+set is imposed.
+For \(m\in(\mathbb S^2)^{20}\), include every external slot factor
+at every nonremoved corner and tip, including both corner slots
+when the corresponding actual external bonds are missing.
+Let \(Z_{\rm cur}(\pi;m)\) be the finite product functional of
+all present template bonds and these slots, using the status laws.
+Let \(Z_{\rm next}(\pi;m)\) change the passage law to
+\(\lambda_{\mathrm D}\) and drop its out-bond.
+The resulting class is \(\mathcal P_{\rm ext}\); it is straight
+when \(o=\mathsf N\), and turning otherwise.
+\end{definition}
+
+Both local sums are strictly positive for every unit slot choice.
+Indeed a corner has at most two internal factors and two slots,
+a tip has at most one internal factor and three slots, a neighbor
+has at most its four internal factors, and the passage site has
+at most three before the step and two after it. Removed sites
+contribute no variable or slot. Lemma~\ref{l:finitefacts}
+therefore applies to each sum. Every slot vector occurs once,
+affinely; this property also applies when a slot at a removed site
+has no effect.
+
+\begin{definition}[(H1)]\label{h:H1}
+For \(c_{\mathrm s},c_{\mathrm t}\in(0,1]\), (H1) means that
+for every \(\pi\in\mathcal P_{\rm ext}\) and every
+\(m\in(\mathbb S^2)^{20}\),
+\[
+ Z_{\rm cur}(\pi;m)\ge c_{\rm type(\pi)}Z_{\rm next}(\pi;m).
+\]
+In the paper the fixed thresholds are
+\(c_{\mathrm s}=961/1000\), \(c_{\mathrm t}=187/200\).
+No minimum, minimizing pins, or optimal inversion is asserted.
+\end{definition}
+
+We use (H1) through its pointwise inequality on the full covered
+pattern class of Definition~\ref{d:pattern}.
+
+\begin{lemma}\label{l:local}
+At any \(\mathrm U\) departure outside \(S\) whose normalized
+non-tip template data belong to \(\mathcal P_{\rm ext}\), (H1)
+implies \(\rho_j^\tau\le1/c_{\rm type}\).
+The conclusion is uniform in all original unit pins, all outside
+spins of norm at most one, all missing external factors, and all
+actual tip statuses and kept sets allowed by the ordinary-domain rules.
+\end{lemma}
+
+\begin{proof}
+Let \(E\) and \(E^+\) be the pre-step and post-step networks,
+and let \(\mathsf T(y)=y+\mathsf T\) be the template.
+Because \(y\notin S(G)\), this template lies in \(G\).
+Apply a lattice symmetry to put the incoming direction and the
+out-neighbor in the positions of Definition~\ref{d:pattern}.
+This just relabels the sites and their spins.
+
+Fix the outside spins at \(\omega\). Split off all site weights
+and factors involving only sites outside the template; their
+product, denoted \(H(\omega)\), is nonnegative and identical
+for \(E\) and \(E^+\). Let \(C(\omega)\), \(N(\omega)\) be the
+remaining template sums for \(E\), \(E^+\), respectively.
+There is a factor \(1+n_z\cdot b\) for each actual external
+bond or original leg of a nonremoved template site \(z\), with
+\(|b|\le1\). Original pins have \(|b|=1\).
+Each external direction carries at most one such factor.
+No external factor is incident to the passage site or its
+neighbors, since these sites are at distances at least three
+and two, respectively, from the original complement.
+
+We first replace the actual tips. A tip \(t\) has precisely one
+possible neighbor \(z\) inside the template; its other three
+directions are external slots. If \(t\) is nonremoved, write
+\[
+ W_t(n)=\prod_{\text{actual external factors at }t}(1+n\cdot b),
+ \quad A_t=\lambda_{\mathrm{st}(t)}(W_t)>0,\quad
+ b_t=\frac{\lambda_{\mathrm{st}(t)}(nW_t)}{A_t}.
+\]
+There are at most three external factors, so \(A_t>0\) and
+\(|b_t|\le3/5\), by the proof of Lemma~\ref{l:35}.
+If its internal bond is present, summing over this tip gives
+\(A_t(1+b_t\cdot n_z)\); if the bond is absent it gives \(A_t\).
+A removed tip contributes the constant one.
+These sums and constants are identical in the current and next
+template, since the step changes only the passage site and its
+out-bond.
+
+In the covering pattern the bond from this tip to \(z\) is
+required exactly when \(z\) is nonremoved and keeps it.
+If that bond is required but the actual tip has no present bond,
+use the desired effective mean zero and the actual constant
+as \(A_t\), taking \(A_t=1\) for a removed tip.
+If it is required and actually present, use the effective mean
+\(b_t\) just computed. In either case Lemma~\ref{l:35}
+supplies three unit external fields for a covering
+\(\mathrm U\) tip with that exact mean. Let \(A'_t>0\) be
+its external three-factor normalizer. Its integrated factor
+is the desired factor multiplied by \(A'_t/A_t\).
+If the covering bond is not required, the actual bond is
+absent as well; choose any three unit fields for the covering
+tip and use the same positive normalizer adjustment.
+Thus replacing all four tips gives a covered-tip template whose
+current and next sums are multiplied by the same strictly
+positive scalar \(\prod_t A'_t/A_t\).
+The zero mean and the full ball of means used here are attained
+by the explicit moment formula in Lemma~\ref{l:35}.
+
+We next fill and resolve the corner slots. For each external
+direction at a nonremoved corner, use its actual field
+\(b\) if present, and use \(b=0\) if absent.
+For any \(|b|\le1\), choose a unit \(e\) parallel to \(b\)
+when \(b\ne0\), and any unit \(e\) when \(b=0\). Then
+\[
+ 1+n_z\cdot b
+ =\frac{1+|b|}{2}(1+n_z\cdot e)
+       +\frac{1-|b|}{2}(1-n_z\cdot e).
+\]
+This is also the filling identity for an absent factor.
+Expanding independently over the at most eight corner slots
+expresses the current and next sums as convex combinations
+with identical coefficients of sums with unit vectors in every
+corner slot. Both slots are filled at every nonremoved corner,
+regardless of its actual external kept bonds.
+At removed corners the slot values can be assigned arbitrarily.
+
+By the premise, the non-tip statuses and internal bonds are
+exactly those of a pattern \(\pi\in\mathcal P_{\mathrm{ext}}\).
+After the two replacements, every term is therefore
+\(Z_{\rm cur}(\pi;m)\) or \(Z_{\rm next}(\pi;m)\) for the same
+unit slot assignment \(m\); its type is the type of the given
+step. Apply (H1) term by term, average with the nonnegative
+corner coefficients, and undo the common positive tip scalar.
+This proves
+\(C(\omega)\ge c_{\rm type}N(\omega)\)
+for every outside configuration \(\omega\).
+Multiply by \(H(\omega)\) and sum over the outside spins.
+The result is
+\[
+ Z_E^\tau\ge c_{\rm type}Z_{E^+}^\tau.
+\]
+Both partition functions are positive by
+Lemma~\ref{l:finitefacts}, so division proves
+\(\rho_j^\tau=Z_{E^+}^\tau/Z_E^\tau\le1/c_{\rm type}\).
+The construction allowed each fixed outside field to range
+over the whole closed unit ball, and every missing slot and
+allowed tip status was treated explicitly. This proves all
+the asserted uniformity.
+\end{proof}
+
+\begin{definition}\label{d:weights}
+Put \(x_{\mathrm s}=1/c_{\mathrm s}\), \(x_{\mathrm t}=1/c_{\mathrm t}\).
+A lattice trail \(w=(v_0,\ldots,v_n)\) has distinct unoriented
+nearest-neighbor bonds. Give it a designated unit incoming direction
+\(a\), and forbid \(v_1-v_0=-a\) when \(n\ge1\); the virtual
+incoming bond is not itself a used bond of the trail.
+For departure \(i\), \(0\le i<n\), give weight \(1/5\) if \(v_i\)
+has been departed from earlier, and otherwise weight \(x_{\mathrm s}/3\)
+for continuing in the incoming direction and \(x_{\mathrm t}/3\)
+for a turn. Let \(\mathsf W(w)\) be the product, with
+\(\mathsf W(\varnothing)=1\).
+\end{definition}
+
+At a later departure the incoming direction is
+\(v_i-v_{i-1}\); at \(i=0\) it is \(a\).
+Distinctness of the unoriented bonds forbids immediate reversal
+at every later step. The first-step rule is an additional
+restriction specified by the incoming direction.
+In a trace, a site which has been departed from earlier cannot
+again have status \(\mathrm U\). At any subsequent departure
+from that site it is \(\mathrm D\), with coefficient \(1/5\)
+and ratio one. A site initially of status \(\mathrm D\) may
+instead have its first lattice departure weighted as a first
+visit; since \(c_{\rm type}\le1\),
+\[
+ \frac15\le\frac13\le\frac{x_{\rm type}}3.
+\]
+This is the comparison for initially \(\mathrm D\) sites.
+
+\begin{definition}[(H2)]\label{h:H2}
+For \(C_V\ge1\) and \(0<q<1\), (H2) means that for every
+integer \(n\ge0\), every start and every designated incoming direction,
+\[
+ \sum_{\substack{|w|=n\\\text{initial reversal forbidden}}}
+                      \mathsf W(w)\le C_Vq^n .
+\]
+The sum is over plane lattice trails with those specified initial data.
+\end{definition}
+
+
+\begin{lemma}\label{l:onepoint}
+Assume (H1) and (H2). Start a trace at an admissible \(x\notin S\)
+with incoming direction \(a\) such that \(\{x-a,x\}\) is absent.
+Suppose each stopped trail from \(x\) to \(S\) has at most twelve
+\(\mathrm U\) departures whose templates are not covered patterns.
+Then
+\[
+ \sum_{w\in\mathcal T_D(x,S)}a_D(w)
+                  \max\{R_D^\tau(w),R_D^0(w)\}
+ \le (12/5)^{12}\frac{C_V}{1-q}\,q^{d(x,S)}.
+\]
+Pointwise the summand is at most \((12/5)^{12}\mathsf W(w)\).
+\end{lemma}
+
+\begin{proof}
+The absent bond \(\{x-a,x\}\) ensures that every trail of the
+network from \(x\) has the forbidden initial reversal required
+in Definition~\ref{d:weights}. Subsequent steps have distinct
+unoriented bonds, so every stopped trail in the left-hand side
+is among the plane trails in (H2) with these same initial data.
+
+Fix such a stopped trail \(w\), and let \(\omega_j\) be its
+\(j\)-th lattice weight in \(\mathsf W(w)\).
+We bound its coefficient for both choices of \(\bullet\)
+by the same product of step majorants.
+At a \(\mathrm D\) departure the product of the departure
+coefficient and \(\rho_j^\bullet\) is exactly \(1/5\).
+If this site was departed from earlier in \(w\), this is
+exactly \(\omega_j\). If it was not, then
+\(\omega_j=x_{\rm type}/3\ge1/3\), so it still bounds \(1/5\).
+This includes an initially \(\mathrm D\) start, whose
+admissibility ensures at most one present bond.
+
+A \(\mathrm U\) departure is necessarily the first departure
+from its site in \(w\). If its pattern is covered,
+Lemma~\ref{l:local} gives \(\rho_j^\tau\le x_{\rm type}\)
+and Lemma~\ref{l:response} gives
+\(\rho_j^0\le1\le x_{\rm type}\). Thus, for both choices,
+\[
+ \frac13\rho_j^\bullet\le\frac{x_{\rm type}}3=\omega_j.
+\]
+At an uncovered \(\mathrm U\) departure, the same uniform
+response lemma gives \(\rho_j^\tau\le12/5\),
+\(\rho_j^0\le1\le12/5\). Therefore
+\[
+ \frac13\rho_j^\bullet\le\frac45
+          \le(12/5)\,\omega_j,
+\]
+because \(\omega_j\ge1/3\).
+There are at most twelve such departures, wherever they occur
+along \(w\). Multiplying the step estimates and telescoping
+the ratios proves, for both pin choices with the same bound,
+\[
+ a_D(w)R_D^\bullet(w)
+   \le(12/5)^{12}\prod_j\omega_j
+   =(12/5)^{12}\mathsf W(w).
+\]
+Taking the maximum preserves this pointwise inequality.
+
+The length of a nearest-neighbor trail from \(x\) to \(S\)
+is at least \(d_0=d(x,S)\). If there are no stopped trails,
+the asserted sum is zero. Otherwise, group the finite domain
+sum by length and enlarge each group to all plane trails
+of that length with the fixed start and incoming direction.
+Using (H2), nonnegativity and \(0<q<1\), we obtain
+\[
+ \begin{split}
+ \sum_{w\in\mathcal T_D(x,S)}
+       a_D(w)\max\{R_D^\tau(w),R_D^0(w)\}
+ &\le(12/5)^{12}\sum_{n\ge d_0}
+              \sum_{\substack{|w|=n\\
+                    \text{initial reversal forbidden}}}\mathsf W(w)\\
+ &\le(12/5)^{12}C_V\sum_{n\ge d_0}q^n\\
+ &=(12/5)^{12}\frac{C_V}{1-q}\,q^{d_0}.
+ \end{split}
+\]
+Here \(d_0\) is a finite integer: the existence of \(x\) makes
+\(G\) nonempty, and every nonempty finite \(G\subset\mathbb Z^2\)
+has a site adjacent to its complement, hence \(S\ne\varnothing\).
+This completes the proof.
+\end{proof}
+

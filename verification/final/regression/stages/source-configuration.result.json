@@ -1,0 +1,76 @@
+{
+  "stage": "source-configuration",
+  "started_utc": "2026-11-17T16:55:05.575462+00:00",
+  "command": [
+    "/usr/bin/python3",
+    "/home/ubuntu/aklt/regr/scripts/verify_sources.py",
+    "--verifier",
+    "/home/ubuntu/dbl/scratch/PAL-DRY/tools/PalomarSubmission",
+    "--report",
+    "/home/ubuntu/aklt/reports/FINAL/regression/source-checks.json"
+  ],
+  "cwd": "/home/ubuntu/aklt/regr",
+  "exit_code": 1,
+  "wall_s": 2.5180947949993424,
+  "user_s": 2.367535,
+  "system_s": 0.104804,
+  "cpu_s": 2.4723390000000003,
+  "sampled_tree_cpu_s": 2.4,
+  "peak_tree_rss_bytes": 67194880,
+  "peak_single_rss_bytes": 70914048,
+  "peak_tree_vms_bytes": 79806464,
+  "peak_threads": 1,
+  "peak_processes": 1,
+  "peak_lean_processes": 0,
+  "affinity_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "timeout_s": 0.0,
+  "limit": null,
+  "rss_cap_gb": 285.0,
+  "virtual_address_limit_per_process_bytes": 257698037760,
+  "cgroup": {
+    "authenticated_palomar_telemetry": false,
+    "path": "/sys/fs/cgroup/user.slice/user-1000.slice/session-1228.scope",
+    "limits": {
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "memory.swap.max": "max"
+    },
+    "cpu.stat": "usage_usec 1826514945887\nuser_usec 1772857895289\nsystem_usec 53657050598\nnice_usec 471829127282\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "memory.peak": "313043365888",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  },
+  "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
+  "wait4_cpu_s": 2.4723390000000003,
+  "cpu_method": "wait4 cumulative",
+  "cgroup_before": {
+    "authenticated_palomar_telemetry": false,
+    "path": "/sys/fs/cgroup/user.slice/user-1000.slice/session-1228.scope",
+    "limits": {
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "memory.swap.max": "max"
+    },
+    "cpu.stat": "usage_usec 1826479725732\nuser_usec 1772823168170\nsystem_usec 53656557562\nnice_usec 471798913959\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "memory.peak": "313043365888",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  }
+}

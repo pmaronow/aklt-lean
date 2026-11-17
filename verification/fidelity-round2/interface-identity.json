@@ -1,0 +1,36 @@
+{
+  "status": "RETAINED_API_IDENTICAL",
+  "baseline_commit": "61f109327968ca76e99c22c4564de56387df96b5",
+  "after_source_commit": "dad70bac7b345ea4ca89426c32848b4567acb6a8",
+  "captured_before": 2409,
+  "captured_after_including_missing_sentinel": 2409,
+  "identical_retained_declarations": 2408,
+  "comparison_fields": [
+    "name_structure",
+    "level_params",
+    "type_ast",
+    "type_pretty",
+    "type_repr",
+    "has_value"
+  ],
+  "changed_retained_declarations": {},
+  "explicit_deletion": [
+    "AKLT.Challenge.MainStatement"
+  ],
+  "deletion_scope": "MainStatement was an unused entry only in the two complete and two exposed supersets; both actual generated reference candidate lists and all sample APIs retain every name.",
+  "families": {
+    "H1": {
+      "before_inventory": 1589,
+      "retained_inventory": 1588,
+      "actual_generated_reference_candidates": 100,
+      "all_retained_types_universes_repr_and_exposure_identical": true
+    },
+    "H3": {
+      "before_inventory": 1511,
+      "retained_inventory": 1510,
+      "actual_generated_reference_candidates": 69,
+      "all_retained_types_universes_repr_and_exposure_identical": true
+    }
+  },
+  "source_body_equality_checked_separately": true
+}
