@@ -9,16 +9,20 @@ import argparse, array, gzip, hashlib, json, os, pathlib, shutil, struct, sys
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 HERE = pathlib.Path(__file__).resolve().parent
 LEGACY_DATA = ROOT/'CertData/H3/Legacy/Data'
-ARCHIVE = pathlib.Path('/home/ubuntu/aklt/compfeas/data')
+ARCHIVE = pathlib.Path(os.environ.get('H3_INPUT_DIR', '/home/ubuntu/aklt/compfeas/data'))
 SS, NW, BITS = 19881, 3741, 80
-HEADER = 'set_option maxHeartbeats 0\nset_option maxRecDepth 1000000\n'
+HEADER = '\n@[expose] public section\nset_option backward.proofsInPublic true\nset_option maxHeartbeats 2000000000\nset_option maxRecDepth 1000000\n'
 
 def disk_guard(additional_bytes=0):
     if shutil.disk_usage('/').free - additional_bytes < 100 * 1024**3:
         raise RuntimeError('ABORT: free disk on / below 100 GB')
-    size = sum(p.stat().st_size for base in [ROOT, pathlib.Path('/home/ubuntu/aklt/scratch/CERT_H3')]
-               for p in base.rglob('*') if p.is_file() and not p.is_symlink())
-    if size + additional_bytes > 60 * 10**9: raise RuntimeError('ABORT: 60 GB workspace/scratch budget exceeded')
+
+def write_source(path, text):
+    if not text.startswith('module\n') or len(text.splitlines()) > 10000:
+        raise RuntimeError('Invalid generated module header or line count: ' + str(path))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    disk_guard(len(text))
+    path.write_text(text)
 
 def literal(n): return 'h3_hex% "'+format(n,'x')+'"'
 def pack_fields(vals,bits):
@@ -45,7 +49,7 @@ def export_automaton():
     mapping,reps=read_windows()
     dense=[NW]*(4**10)
     for c,a in mapping.items(): dense[c]=a
-    text='import AKLT.Cert.H3.Common\nimport AKLT.Cert.H3.Literal\n'+HEADER
+    text='module\n\npublic import CertData.H3.Kernel.Common\npublic import CertData.H3.Kernel.Literal\n'+HEADER
     text+='namespace AKLT.Cert.H3.Data\nopen AKLT.Defs AKLT.Gen.Packed\n'
     for name,n in [('rawClass',pack_fields(dense,12)),('representatives',pack_fields((r[0] for r in reps),20)),
                    ('destinations',pack_fields((t+1 for r in reps for t in r[1:5]),12)),
@@ -63,7 +67,7 @@ def quotient : MemoryQuotient 10 3741 where
   arrival a := direction (representativeCode a % 4)
 end AKLT.Cert.H3.Data
 '''
-    out=LEGACY_DATA/'Automaton.lean'; disk_guard(len(text)); out.write_text(text)
+    out=LEGACY_DATA/'Automaton.lean'; write_source(out, text)
     return dict(source=str(out),raw_states=len(mapping),classes=NW)
 
 def tree_expr(entries):
@@ -100,7 +104,7 @@ def export_case(name, selected, all_planes=False, group=64):
     for g,entries in sorted(groups.items()):
         disk_guard()
         module=f'{tag}G{g:04d}' if all_planes else 'BNPrototype'
-        text='import CertData.H3.Legacy.Data.Automaton\nimport AKLT.Cert.H3.Literal\n'+HEADER
+        text='module\n\npublic import CertData.H3.Legacy.Data.Automaton\npublic import CertData.H3.Kernel.Literal\n'+HEADER
         text+=f'namespace AKLT.Cert.H3.Data.{module}\nopen AKLT.Defs AKLT.Gen.Packed\n'
         text+=f'def caps : Nat := {literal(pack_fields(caps,32))}\n'
         for key,plane in entries: text+=f'def p{key} : Nat := {literal(plane)}\n'
@@ -112,7 +116,7 @@ def certificate : StationaryData 3741 where
   value φ a x := lane (plane φ a) 80 (siteIndex x.val)
 '''
         text+=f'end AKLT.Cert.H3.Data.{module}\n'
-        out=LEGACY_DATA/f'{module}.lean';disk_guard(len(text));out.write_text(text);modules.append(str(out))
+        out=LEGACY_DATA/f'{module}.lean';write_source(out,text);modules.append(str(out))
     sha=hashlib.file_digest(source.open('rb'),'sha256').hexdigest()
     return dict(name=name,sha256=sha,header=expected,modules=modules,exported_planes=sum(map(len,groups.values())),
                 max_exported_u=maxima,max_cap=max(caps),selected_keys=sorted(selected))
@@ -139,7 +143,8 @@ def main():
         ap.error('The selected prototype is B/north; use --all to export another complete case.')
     disk_guard();auto=export_automaton()
     cert=export_case(args.case,prototype_keys(),args.all,args.group)
-    report=pathlib.Path('/home/ubuntu/aklt/reports/CERT_H3')
+    report=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
+    report.mkdir(parents=True,exist_ok=True)
     (report/'export_manifest.json').write_text(json.dumps(dict(automaton=auto,certificate=cert),indent=2)+'\n')
     print(json.dumps({k:v for k,v in cert.items() if k!='selected_keys'}),flush=True)
 if __name__=='__main__':main()

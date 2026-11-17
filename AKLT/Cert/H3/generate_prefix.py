@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate one small frontier shard; all its mathematical claims are rechecked in Lean."""
 from fractions import Fraction as F
-import array, gzip, importlib.util, json, math, pathlib, struct, sys
+import array, gzip, importlib.util, json, math, os, pathlib, struct, sys
 HERE=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('exporter',HERE/'export.py')
 ex=importlib.util.module_from_spec(spec);spec.loader.exec_module(ex)
@@ -94,7 +94,7 @@ denominator=D**12*65536
 short=sum((r['short'] for r in leaves),F(0))
 assert not any(evaluate(stem+[i])['closed'] for i in range(4))
 
-s='import AKLT.Cert.H3.Common\nimport AKLT.Cert.H3.Literal\n'+ex.HEADER
+s='module\n\npublic import CertData.H3.Kernel.Common\npublic import CertData.H3.Kernel.Literal\n'+ex.HEADER
 s+='namespace AKLT.Cert.H3.Data.PrefixBN\nopen AKLT.Defs AKLT.Gen.Packed\n'
 for name,n in [('stemCode',code(stem)),('stepDenominator',D),('survivalMask',survivalMask),
     ('phaseBits',phaseBits),('phaseNumerators',ex.pack_fields([v for r in leaves for v in r['ph']],phaseBits)),
@@ -114,9 +114,11 @@ def shardNumerator : Nat := ∑ e : Fin 16, if survives e then
   ∑ φ : Phase, phaseNumerator e φ * endpointValue e φ else 0
 end AKLT.Cert.H3.Data.PrefixBN
 '''
-(ex.LEGACY_DATA/'PrefixBN.lean').write_text(s)
+ex.write_source(ex.LEGACY_DATA/'PrefixBN.lean',s)
 stats=dict(stem=stem,step_denominator=str(D),step_denominator_bits=D.bit_length(),phase_bits=phaseBits,
            surviving=[i for i,r in enumerate(leaves) if r['surviving']],closed=[i for i,r in enumerate(leaves) if r['closed']],
            tail_numerator=str(numerator),tail_denominator=str(denominator),short=str(short),shard_value=str(short+F(numerator,denominator)))
-pathlib.Path('/home/ubuntu/aklt/reports/CERT_H3/prefix_manifest.json').write_text(json.dumps(stats,indent=2)+'\n')
+report=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
+report.mkdir(parents=True,exist_ok=True)
+(report/'prefix_manifest.json').write_text(json.dumps(stats,indent=2)+'\n')
 print(json.dumps(stats,indent=2))

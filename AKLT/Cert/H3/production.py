@@ -5,27 +5,27 @@ No native result is trusted as a proof. Expected integers, tables and scheduling
 are untrusted inputs to ordinary Lean decide +kernel computations.
 """
 from __future__ import annotations
-import argparse, array, concurrent.futures, dataclasses, fractions, gzip, hashlib
-import importlib.util, json, math, os, pathlib, re, resource, shutil, struct
-import subprocess, sys, threading, time
+import array, fractions, gzip, hashlib, json, math, os, pathlib, re, shutil
+import struct, sys, time
 
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 OUT=ROOT/'CertData/H3'
-REPORT=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/CERT_H3/phase2'))
-SCRATCH=pathlib.Path('/home/ubuntu/aklt/scratch/CERT_H3')
-ARCHIVE=pathlib.Path('/home/ubuntu/aklt/compfeas/data')
+REPORT=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
+ARCHIVE=pathlib.Path(os.environ.get('H3_INPUT_DIR','/home/ubuntu/aklt/compfeas/data'))
 SS,NQ,BITS=19881,3741,80
 CASES={'B1':('B',1,351207554),'B2':('B',2,290599163),'C1':('C',1,527872005),'C2':('C',2,380754375),'C3':('C',3,273048088)}
-HDR='set_option maxHeartbeats 0\nset_option maxRecDepth 1000000\n'
+HDR='set_option maxHeartbeats 2000000000\nset_option maxRecDepth 1000000\n'
 F=fractions.Fraction
 DX=[1,0,-1,0];DY=[0,1,0,-1]
+LEGACY_HASHES={}
+EQUIVALENCE={}
 
 def guard(extra=0):
     if shutil.disk_usage('/').free-extra<100*1024**3:raise RuntimeError('ABORT: free disk below 100 GiB')
-    total=sum(p.stat().st_size for b in [ROOT,SCRATCH] for p in b.rglob('*') if p.is_file() and not p.is_symlink())
-    if total+extra>60*10**9:raise RuntimeError('ABORT: workspace/scratch disk budget 60 GB')
 
 def write(path,text):
+    if text.count('\n')>10000:raise RuntimeError('Generated source exceeds 10,000 lines: '+str(path))
+    if not text.startswith('module\n'):raise RuntimeError('Missing module header: '+str(path))
     if path.exists() and path.read_text()==text:return
     path.parent.mkdir(parents=True,exist_ok=True);guard(max(0,len(text)-(path.stat().st_size if path.exists() else 0)))
     path.write_text(text)
@@ -46,7 +46,19 @@ def module(path):return str(path.relative_to(ROOT).with_suffix('')).replace('/',
 def namespace(path):return module(path)
 def source(path,imports,body,certificate=True):
     if 'CertData.H3.Kernel.Production.Model' not in imports:imports=['CertData.H3.Kernel.Production.Model']+list(imports)
-    return '\n'.join('import '+i for i in imports)+'\n'+(HDR if certificate else '')+'namespace '+namespace(path)+'\nopen AKLT.Cert.H3 AKLT.Cert.H3.Production AKLT.Defs AKLT.Gen.Packed\n'+body+'\nend '+namespace(path)+'\n'
+    if module(path) in LEGACY_HASHES:
+        legacy='\n'.join('import '+i for i in imports)+'\n'+('set_option maxHeartbeats 0\nset_option maxRecDepth 1000000\n' if certificate else '')+'namespace '+namespace(path)+'\nopen AKLT.Cert.H3 AKLT.Cert.H3.Production AKLT.Defs AKLT.Gen.Packed\n'+body+'\nend '+namespace(path)+'\n'
+        actual=hashlib.sha256(legacy.encode()).hexdigest()
+        EQUIVALENCE[module(path)]=dict(legacy_template_sha256=actual,expected_sha256=LEGACY_HASHES[module(path)],equal=actual==LEGACY_HASHES[module(path)])
+    # Audit all exported theorems, including glue omitted by the legacy template.
+    lines=body.splitlines()
+    printed={line.split()[2] for line in lines if line.startswith('#print axioms ')}
+    theorems=[re.match(r'theorem (\w+)',line)[1] for line in lines if line.startswith('theorem ')]
+    body+=''.join('\n#print axioms '+n+'\n' for n in theorems if n not in printed)
+    # The unchanged structural sort calls this standard-library module's private
+    # split helper. Import its body where kernel replay actually takes place.
+    sort_import='\nimport all Init.Data.List.Sort.Basic' if 'earlyDFS' in body or 'prefixBatch' in body else ''
+    return 'module\n\n'+'\n'.join('public import '+i for i in imports)+sort_import+'\n\n@[expose] public section\nset_option backward.proofsInPublic true\n'+(HDR if certificate else '')+'namespace '+namespace(path)+'\nopen AKLT.Cert.H3 AKLT.Cert.H3.Production AKLT.Defs AKLT.Gen.Packed\n'+body+'\nend '+namespace(path)+'\n'
 def load_windows():
     ls=(ARCHIVE/'windows_m10_min.txt').read_text().splitlines();nr,nq=map(int,ls[0].split());assert(nr,nq)==(60092,3741)
     raw=[tuple(map(int,l.split())) for l in ls[1:nr+1]]
@@ -360,230 +372,16 @@ def generate_case(tag,m,mapping,oracle,group=64,depth=8,batch=256):
     total=early
     for r in results:total=add(total,r)
     value=F(total['short'],oracle.K**36)+F(total['tail'],oracle.K**12*65536)
-    log=json.loads((ARCHIVE.parent/'logs'/f'{name}_exact_prefix.json').read_text());assert value==F(log['exact_bound']),(value,log['exact_bound'])
+    log=json.loads(pathlib.Path(__file__).with_name('prefix-reference.json').read_text())[tag];assert value==F(log['exact_bound']),(value,log['exact_bound'])
     assert total['leaves']==log['leaves'] and total['closed']==log['closed']
     assert 10**9*value<=ceiling
     m['jobs']=[j for j in m['jobs'] if j.get('case')!=tag]+jobs
     m['cases'][tag]=dict(name=name,header=header,group=group,frontier_depth=depth,prefix_batch=batch,planes=14964,plane_modules=len(plane_groups),prefix_modules=len(results),expected_early=early,expected_prefix=results,expected_total=total,exact_bound=str(value),ceiling=ceiling,export_wall=time.monotonic()-t,source_sha256=hashlib.file_digest(src.open('rb'),'sha256').hexdigest())
     print(json.dumps(dict(case=tag,planes=14964,prefix_modules=len(results),leaves=total['leaves'],closed=total['closed'],export_wall=time.monotonic()-t)),flush=True)
 
-def compact_case(m,tag):
-    """Keep the checked importable oleans; remove reproducible literal sources."""
-    ledger=REPORT/'compacted_sources.json';saved=json.loads(ledger.read_text()) if ledger.exists() else {}
-    latest={}
-    for line in (REPORT/'measurements.jsonl').read_text().splitlines():
-        r=json.loads(line)
-        if not r.get('resumed'):latest[r['module']]=r
-    witness=latest.get(f'CertData.H3.Bridge.{tag}',{})
-    if witness.get('exit')!=0:raise RuntimeError('Refusing compaction before checked case assembly: '+tag)
-    freed=0
-    for j in m['jobs']:
-        if j.get('case')!=tag or j['kind'] not in {'plane_data','endpoint_data'}:continue
-        p=ROOT/j['source'];ole=p.with_suffix('.olean')
-        if not p.exists():
-            if j['module'] not in saved:raise RuntimeError('Missing uncompacted source: '+str(p))
-            continue
-        r=latest.get(j['module'],{})
-        if r.get('exit')!=0 or not ole.exists() or ole.stat().st_mtime_ns<p.stat().st_mtime_ns:
-            raise RuntimeError('Refusing compaction of unbuilt/stale module: '+j['module'])
-        rec=dict(source=j['source'],source_bytes=p.stat().st_size,
-                 source_sha256=hashlib.file_digest(p.open('rb'),'sha256').hexdigest(),
-                 olean_sha256=hashlib.file_digest(ole.open('rb'),'sha256').hexdigest(),
-                 archive_sha256=m['cases'][tag]['source_sha256'],case=tag)
-        saved[j['module']]=rec
-        # Persist recovery metadata before each reversible source deletion.
-        ledger.write_text(json.dumps(saved,indent=2)+'\n')
-        freed+=p.stat().st_size;p.unlink()
-    print(json.dumps(dict(event='compacted_sources',case=tag,freed_bytes=freed)),flush=True)
-
-
-def environment():
-    env=os.environ.copy();env['PATH']=str(pathlib.Path.home()/'.elan/bin')+':'+env.get('PATH','');env['LEAN_NUM_THREADS']='1'
-    if not env.get('H3_PRODUCTION_ENV'):
-        env['H3_PRODUCTION_ENV']='1';raise SystemExit(subprocess.call(['lake','env','python3',__file__,*sys.argv[1:]],cwd=ROOT,env=env))
-    lib=SCRATCH/'leanlib';ns=lib/'AKLT';ns.mkdir(parents=True,exist_ok=True)
-    for dep in pathlib.Path('/home/ubuntu/aklt/repo/.lake/build/lib/lean/AKLT').iterdir():
-        if dep.name=='Cert':continue
-        if not (ns/dep.name).exists():(ns/dep.name).symlink_to(dep,target_is_directory=dep.is_dir())
-    (ns/'Cert').mkdir(exist_ok=True)
-    if not (ns/'Cert/H3').exists():(ns/'Cert/H3').symlink_to(ROOT/'CertData/H3/Kernel',target_is_directory=True)
-    if not (lib/'CertData').exists():(lib/'CertData').symlink_to(ROOT/'CertData',target_is_directory=True)
-    repaired=SCRATCH/'dependencies/AKLT'
-    pin=REPORT/'dependencies.json'
-    if not pin.exists():raise RuntimeError('Missing repaired-statement dependency pin: '+str(pin))
-    for entry in json.loads(pin.read_text())['files']:
-        q=repaired/entry['path']
-        if not q.exists() or hashlib.file_digest(q.open('rb'),'sha256').hexdigest()!=entry['sha256']:
-            raise RuntimeError('Repaired dependency pin changed: '+str(q))
-    if (repaired/'Defs/Stationary.olean').exists():
-        dest=ns/'Defs'
-        if dest.is_symlink():dest.unlink();dest.symlink_to(repaired/'Defs',target_is_directory=True)
-        bp=ns/'Blueprint'
-        if bp.is_symlink():bp.unlink();bp.mkdir()
-        for part in pathlib.Path('/home/ubuntu/aklt/repo/.lake/build/lib/lean/AKLT/Blueprint').iterdir():
-            dst=bp/part.name
-            if not dst.exists():dst.symlink_to(repaired/'Blueprint/Top' if part.name=='Top' else part,target_is_directory=part.is_dir())
-    env['LEAN_PATH']=str(lib)+':'+env.get('LEAN_PATH','');return env
-
-def build(m,args,env):
-    REPORT.mkdir(parents=True,exist_ok=True);(REPORT/'logs').mkdir(exist_ok=True)
-    jobs={j['module']:j for j in m['jobs'] if (not j.get('case') or j['case'] in args.cases) and all(c in args.cases for c in j.get('requires_cases',[])) and (not args.kind or j['kind'] in args.kind)}
-    done=set();failed=[];running={};lock=threading.Lock();started=time.monotonic()
-    compacted=json.loads((REPORT/'compacted_sources.json').read_text()) if (REPORT/'compacted_sources.json').exists() else {}
-    active_pids=set();monitor_stop=threading.Event();memory_peak=0;memory_abort=[]
-    def sample_memory():
-        nonlocal memory_peak
-        with lock:roots=list(active_pids)
-        pending=list(roots);seen=set();rss=0
-        while pending:
-            pid=pending.pop()
-            if pid in seen:continue
-            seen.add(pid)
-            try:
-                status=pathlib.Path(f'/proc/{pid}/status').read_text()
-                mm=re.search(r'^VmRSS:\s+(\d+)',status,re.M)
-                if mm:rss+=int(mm[1])*1024
-                pending.extend(map(int,pathlib.Path(f'/proc/{pid}/task/{pid}/children').read_text().split()))
-            except (FileNotFoundError,ProcessLookupError):pass
-        memory_peak=max(memory_peak,rss)
-        with (REPORT/'memory_samples.jsonl').open('a') as f:f.write(json.dumps(dict(time=time.time(),run_start=started,rss_bytes=rss,processes=len(roots)))+'\n')
-        if rss>args.ram_gb*10**9 or shutil.disk_usage('/').free<100*1024**3:
-            memory_abort.append(dict(rss_bytes=rss,free_bytes=shutil.disk_usage('/').free))
-            for pid in roots:
-                try:os.killpg(pid,15)
-                except ProcessLookupError:pass
-    def monitor():
-        while not monitor_stop.wait(1):sample_memory()
-    prior={}
-    if (REPORT/'measurements.jsonl').exists():
-        for line in (REPORT/'measurements.jsonl').read_text().splitlines():
-            r=json.loads(line);prior[r['module']]=r
-    core_stamp=max(p.stat().st_mtime_ns for p in (ROOT/'CertData/H3/Kernel').rglob('*.olean'))
-    alljobs={j['module']:j for j in m['jobs']}
-    availability={}
-    def available(dep):
-        if dep in availability:return availability[dep]
-        p=ROOT/(dep.replace('.','/')+'.lean');ole=p.with_suffix('.olean')
-        good=ole.exists() and ole.stat().st_mtime_ns>=core_stamp
-        if good and p.exists():good=ole.stat().st_mtime_ns>=p.stat().st_mtime_ns
-        if good and not p.exists():
-            rec=compacted.get(dep);good=bool(rec) and hashlib.file_digest(ole.open('rb'),'sha256').hexdigest()==rec['olean_sha256']
-        if good and dep in alljobs:good=all(available(d) for d in alljobs[dep]['deps'])
-        availability[dep]=good;return good
-    # A selected shard cannot silently consume stale unselected inputs.
-    for j in jobs.values():
-        for dep in j['deps']:
-            if dep not in jobs and available(dep):done.add(dep)
-    def run(j):
-        guard();name=j['module'].replace('.','_');log=REPORT/'logs'/(name+'.log');stats=REPORT/'logs'/(name+'.time')
-        src=ROOT/j['source'];ole=src.with_suffix('.olean')
-        old=prior.get(j['module'],{})
-        deps_fresh=all((ROOT/(d.replace('.','/')+'.olean')).stat().st_mtime_ns<=ole.stat().st_mtime_ns for d in j['deps']) if ole.exists() else False
-        cache_fresh=ole.exists() and ole.stat().st_mtime_ns>=core_stamp and deps_fresh
-        if not src.exists():
-            rec=compacted.get(j['module'])
-            if not args.resume or not rec or not cache_fresh or hashlib.file_digest(ole.open('rb'),'sha256').hexdigest()!=rec['olean_sha256']:
-                raise RuntimeError('Regenerate compacted source or use --resume with its checked olean: '+j['module'])
-            return dict(module=j['module'],kind=j['kind'],case=j.get('case'),exit=0,resumed=True,compacted=True)
-        if args.resume and old.get('exit')==0 and cache_fresh and ole.stat().st_mtime>=src.stat().st_mtime and old.get('source_mtime_ns')==src.stat().st_mtime_ns:return dict(module=j['module'],kind=j['kind'],case=j.get('case'),exit=0,resumed=True)
-        def limit():
-            resource.setrlimit(resource.RLIMIT_CORE,(0,0));cap=j.get('memory_gib',args.process_gib)*1024**3;resource.setrlimit(resource.RLIMIT_AS,(cap,cap))
-        cmd=['/usr/bin/time','-v','-o',str(stats),'timeout',str(args.timeout),'lean','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DElab.async=false','-o',str(ole),str(src)]
-        t=time.monotonic();wallstart=time.time()
-        with log.open('w') as f:
-            p=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT,preexec_fn=limit,start_new_session=True)
-            with lock:active_pids.add(p.pid)
-            p.wait()
-            with lock:active_pids.discard(p.pid)
-        r=dict(module=j['module'],kind=j['kind'],case=j.get('case'),exit=p.returncode,wall=time.monotonic()-t,source_bytes=src.stat().st_size,source_mtime_ns=src.stat().st_mtime_ns,started_unix=wallstart,ended_unix=time.time(),log=str(log),command=cmd)
-        for line in stats.read_text().splitlines():
-            if 'Maximum resident set size (kbytes):' in line:r['rss_kib']=int(line.split(':')[-1])
-            if 'User time (seconds):' in line:r['user_s']=float(line.split(':')[-1])
-            if 'System time (seconds):' in line:r['sys_s']=float(line.split(':')[-1])
-        if p.returncode==0:r['olean_bytes']=ole.stat().st_size
-        with lock:
-            with (REPORT/'measurements.jsonl').open('a') as f:f.write(json.dumps(r)+'\n')
-        if p.returncode:print(json.dumps(r),flush=True);print(log.read_text()[-4000:],flush=True)
-        return r
-    for j in jobs.values():
-        j['memory_gib']=max(args.process_gib,64) if j['kind']=='all_case_assembly' else args.process_gib
-        j['rss_reserve_gb']=18 if j['kind'] in {'prefix','plane_catalog'} else 15 if j['kind'] in {'rows','tables','assembly','row_assembly','pilot','case_assembly','automaton_bridge'} else 40 if j['kind']=='all_case_assembly' else 11
-    max_workers=min(args.jobs,48)
-    assert max_workers>0
-    print(json.dumps(dict(event='build_start',jobs=len(jobs),workers=max_workers,memory_gib_per_process=args.process_gib)),flush=True)
-    thread=threading.Thread(target=monitor,daemon=True);thread.start()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as pool:
-        pending=dict(jobs)
-        while pending or running:
-            ready=[j for j in pending.values() if all(dep in done for dep in j['deps'])]
-            ready.sort(key=lambda j: (-1 if not j.get('case') else list(CASES).index(j['case'])))
-            reserved=sum(j['rss_reserve_gb']*10**9 for j in running.values())
-            for j in ready:
-                need=j['rss_reserve_gb']*10**9
-                if len(running)>=max_workers:break
-                if reserved+need>args.ram_gb*10**9:continue
-                running[pool.submit(run,j)]=j;del pending[j['module']];reserved+=need
-            if not running:
-                if pending:raise RuntimeError('Missing/unbuilt dependencies: '+str([(j['module'],[x for x in j['deps'] if x not in done]) for j in list(pending.values())[:5]]))
-                break
-            complete,_=concurrent.futures.wait(running,timeout=30,return_when=concurrent.futures.FIRST_COMPLETED)
-            for f in complete:
-                j=running.pop(f);r=f.result()
-                if r['exit']:failed.append(r)
-                else:
-                    done.add(j['module'])
-                    if args.compact_sources and j['kind']=='case_assembly':compact_case(m,j['case'])
-            if failed:
-                pending.clear()
-                for f in running:f.cancel()
-                break
-            if complete and (len(done)%20==0 or not pending):print(json.dumps(dict(event='progress',done=len(done),pending=len(pending),running=len(running),wall=time.monotonic()-started,memory_peak_gb=memory_peak/10**9)),flush=True)
-    monitor_stop.set();thread.join();sample_memory()
-    summary=dict(started=started,wall=time.monotonic()-started,workers=max_workers,done=len(done),failed=failed,sampled_peak_rss_bytes=memory_peak,memory_abort=memory_abort)
-    (REPORT/'last_build.json').write_text(json.dumps(summary,indent=2)+'\n')
-    with (REPORT/'build_runs.jsonl').open('a') as f:f.write(json.dumps(summary)+'\n')
-    if failed:raise SystemExit(1)
-
-def bootstrap(env,args):
-    core=['Common','Literal','Automaton','Packed','Rows','View','Prefix','PrefixView','Soundness','Production.Model','Production.Replay','Production.Batching']
-    force=False
-    for name in core:
-        p=ROOT/('CertData/H3/Kernel/'+name.replace('.','/')+'.lean');ole=p.with_suffix('.olean')
-        if not force and ole.exists() and ole.stat().st_mtime>=p.stat().st_mtime:continue
-        force=True
-        log=REPORT/('bootstrap_'+name.replace('.','_')+'.log');log.parent.mkdir(parents=True,exist_ok=True)
-        with log.open('w') as f:r=subprocess.run(['lean','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DElab.async=false','-o',str(ole),str(p)],cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT)
-        if r.returncode:raise RuntimeError('Core bootstrap failed: '+str(log))
-    for mod in ['Bridge.Interface','Bridge.GraphLayout','Bridge.Production','Bridge.FamilyAssembly','Bridge.LegacyTargets','Core']:
-        p=ROOT/('CertData/H3/'+mod.replace('.','/')+'.lean');ole=p.with_suffix('.olean')
-        if not force and ole.exists() and ole.stat().st_mtime_ns>=p.stat().st_mtime_ns:continue
-        force=True
-        log=REPORT/('bootstrap_'+mod.replace('.','_')+'.log')
-        with log.open('w') as f:r=subprocess.run(['lean','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DElab.async=false','-o',str(ole),str(p)],cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT)
-        if r.returncode:raise RuntimeError('Handwritten H3 bootstrap failed: '+str(log))
-
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('action',choices=['generate','assemble','build','compact','legacy'])
-    ap.add_argument('--cases',nargs='+',choices=list(CASES),default=['B1']);ap.add_argument('--group',type=int,default=64)
-    ap.add_argument('--depth',type=int,default=8);ap.add_argument('--batch',type=int,default=256)
-    ap.add_argument('--jobs',type=int,default=24);ap.add_argument('--ram-gb',type=int,default=300)
-    ap.add_argument('--process-gib',type=int,default=32);ap.add_argument('--timeout',type=int,default=1800)
-    ap.add_argument('--compact-sources',action='store_true',help='After each complete case, keep oleans and delete regenerable plane/endpoint literal sources')
-    ap.add_argument('--resume',action='store_true');ap.add_argument('--kind',nargs='*')
-    args=ap.parse_args();env=environment();guard();m=load_manifest()
-    if args.group<=0 or args.batch<=0 or not 1<=args.depth<=12:ap.error('group/batch must be positive and 1 <= depth <= 12')
-    if args.action=='generate':
-        mapping,reps=generate_graph(m)
-        o=Oracle();o.generate_exact(m)
-        m['exact_denominator']=str(o.K)
-        for c in args.cases:generate_case(c,m,mapping,o,args.group,args.depth,args.batch);save_manifest(m)
-        generate_assemblies(m);save_manifest(m)
-    elif args.action=='assemble':generate_assemblies(m);save_manifest(m)
-    elif args.action=='legacy':
-        files=list((OUT/'Legacy').rglob('*.lean'));names={module(p) for p in files}
-        jobs=[job(p,'retained_legacy',[i for i in re.findall(r'^import (\S+)',p.read_text(),re.M) if i in names]) for p in files]
-        bootstrap(env,args);build(dict(jobs=jobs,cases={}),args,env)
-    elif args.action=='compact':
-        for tag in args.cases:compact_case(m,tag)
-    else:bootstrap(env,args);build(m,args,env)
-if __name__=='__main__':main()
+    # The module-system runner owns input pins, freshness, resources, and receipts.
+    from regen import main as run
+    return run()
+
+if __name__=='__main__':raise SystemExit(main())

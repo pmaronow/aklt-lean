@@ -1,0 +1,79 @@
+# H3 regenerated certificate library
+
+All 5,032 generated modules and both H3 closing theorems are freshly kernel
+checked in this release. No legacy compiled artifact was reused. Numeric inputs,
+checker definitions, and certificate statements are unchanged.
+
+```lean
+CertData.H3.Close.automaton10 : AKLT.Blueprint.Top.Automaton10StatementV2
+CertData.H3.Close.stationaryCheck : AKLT.Blueprint.Top.StationaryCheckStatementV2
+```
+
+Both declarations are hypothesis-free, have exact-type examples, and print only
+the permitted axioms. All 2,735 generated theorem axiom audits pass. The report
+and complete logs are at `/home/ubuntu/aklt/reports/REGEN_H3/report.md`.
+
+From this root with its prebuilt ported hand-written dependencies:
+
+```sh
+export PATH="$HOME/.elan/bin:$PATH"
+export H3_INPUT_DIR=/home/ubuntu/aklt/compfeas/data
+export H3_REPORT_DIR=/home/ubuntu/aklt/reports/REGEN_H3
+python3 AKLT/Cert/H3/regen.py generate
+python3 AKLT/Cert/H3/regen.py build --jobs 16 --ram-gb 160
+python3 AKLT/Cert/H3/regen.py close --stage closing --jobs 1 --ram-gb 160
+python3 AKLT/Cert/H3/regen.py verify
+```
+
+Inputs are the six files pinned in `AKLT/Cert/H3/inputs.json`; native export
+sanity assertions are tracked in `prefix-reference.json`. The toolchain is Lean
+4.35.0-rc2 with Mathlib `065356127b1dc0016f66b7283ce0ce2c4055aa55`.
+No package update or Mathlib rebuild is needed. A new empty report directory or
+`build --force` causes a fresh numerical rebuild. Normal runs resume only
+hash-matching successful source/dependency/compiler/object receipts.
+
+There are 968 generated modules for each of B1, B2, C1, C2, and C3, and 192 shared
+modules. Unique successful module compilation used **23.081631 CPU h**;
+all recorded runner attempts used 23.187933 CPU h.
+Peak process RSS, including closing, was 13.636 GB; peak sampled aggregate
+RSS was 94.716 GB. At most 16 Lean processes ran.
+The runner guards 170 GB aggregate RSS, 40 GB available memory, and 100 GiB free disk.
+
+All **5,032 sources remain** under `CertData/H3/` (30,710,614,793 bytes;
+maximum 1,058 lines). No literal source was deleted or compacted. The public,
+server, and private olean artifacts remain under
+`.lake/build/lib/lean/CertData/H3/` (31,472,572,448 bytes). Generated sources
+and objects are excluded from Git. No additional hand-written Lean edit was needed.
+`REGEN-CHANGES.md` documents the generator and private sort-body import repair.
+
+The following files are under `/home/ubuntu/aklt/reports/REGEN_H3/`:
+
+- `manifest.json`: every generated source and compiled artifact, SHA-256, status,
+  command, timing, RSS, dependency hash, and theorem axiom audit.
+- `SHA256SUMS`: all generated source/compiled hashes and closing-module hashes,
+  with clone-relative paths; check with `sha256sum -c` from this root.
+- `declarations.json`, `axioms.json`, and `summary.json`: all theorem headers,
+  axiom sets, and exact aggregate measurements.
+- `H3-modules.tar.gz`: source-only archive, 4,168,219,365 bytes,
+  SHA-256 `4eab44fec523c00dc6f6c620eb74d25b47077c67b67c23da582440fa0710f60f`.
+- `archive-sources.json` and `final-generator-verification.json`: the archive
+  source pins and proof that the final generator reproduced all 5,032 files
+  byte-for-byte. All legacy-template hashes also match the original production.
+
+To install the archive in another release clone without generated sources:
+
+```sh
+python3 scripts/install_certificates.py \
+  --archive /home/ubuntu/aklt/reports/REGEN_H3/H3-modules.tar.gz \
+  --sha256 4eab44fec523c00dc6f6c620eb74d25b47077c67b67c23da582440fa0710f60f
+```
+
+The final hand-written assembly needs `CertData.H1.Close.Main` and
+`CertData.H3.Close.Main`. Supply this H3 source/object closure and H1's regenerated
+artifacts, then build `CertData.Close.All`, Solution, and Audit and run the full
+combined independent-checker pipeline. Direct `lake env lean -o ...` commands
+use retained checked objects without scheduling another numerical rebuild.
+
+This clone's Git metadata is mounted read-only, so its ref could not be updated.
+The report supplies a parented commit bundle and format patch for Fable to apply
+in writable Git metadata. No Lean proof or generated module remains open.
