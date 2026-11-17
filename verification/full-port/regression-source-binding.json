@@ -1,0 +1,9 @@
+{
+  "regression_status": "all-mechanical-components-pass",
+  "changed_since_regression": [
+    "AuditHandwritten.lean"
+  ],
+  "regression_solution_and_reachable_sources_unchanged": true,
+  "change_explanation": "The corrected read-only AuditHandwritten helper is outside the Regression.Solution import closure. A final source audit and build bind it separately.",
+  "regression_solution_export_sha256": "9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a"
+}

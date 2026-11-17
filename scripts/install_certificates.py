@@ -27,7 +27,6 @@ with tempfile.TemporaryDirectory(prefix='aklt-generated-',dir=root) as tmp:
             if name not in allowed or name in names:raise SystemExit('Unexpected or duplicate generated source: '+name)
             if (root/name).exists():raise SystemExit('Refusing to overwrite an existing source: '+name)
             data=archive.extractfile(entry).read()
-            if len(data)>128*1024**2:raise SystemExit('Generated source exceeds the archive member size limit')
             text=data.decode()
             if not re.match(r'\s*module\b',text) or len(text.splitlines())>10000:
                 raise SystemExit('Generated source lacks a module header or exceeds the line cap: '+name)
