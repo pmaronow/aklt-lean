@@ -1,0 +1,652 @@
+{
+  "baseline_commit": "d1320320e7cbf2d216d0afc87be92aabb206d690",
+  "roots": [
+    "AKLT.Cert.H1.Literals",
+    "AKLT.Cert.H1.Production.Assembly",
+    "AKLT.Cert.H1.Production.Basic",
+    "AKLT.Cert.H1.Production.Coverage",
+    "AKLT.Cert.H1.Production.Input",
+    "AKLT.Cert.H1.Production.Semantics",
+    "AKLT.Defs.Automaton10Data",
+    "AKLT.Defs.OperatorContracts",
+    "AKLT.Gen.Gram.Basic",
+    "CertData.H3.Bridge.GraphLayout",
+    "CertData.H3.Bridge.Interface",
+    "CertData.H3.Bridge.Production",
+    "CertData.H3.Kernel.Common",
+    "CertData.H3.Kernel.Literal",
+    "CertData.H3.Kernel.Production.Batching",
+    "CertData.H3.Kernel.Production.Model",
+    "CertData.H3.Kernel.Production.Replay"
+  ],
+  "files": [
+    {
+      "module": "AKLT.Blueprint.Top.Coefficients",
+      "path": "AKLT/Blueprint/Top/Coefficients.lean",
+      "sha256": "d57605fc01e30bb43652b279ce7a61b0391166984fea78397b7a02d21521eef9"
+    },
+    {
+      "module": "AKLT.Blueprint.Top.Common",
+      "path": "AKLT/Blueprint/Top/Common.lean",
+      "sha256": "488b9a90ee850b48a466e026ccb4d4ac706e82289b39fd5a178ea0730e95040e"
+    },
+    {
+      "module": "AKLT.Blueprint.Top.Computation",
+      "path": "AKLT/Blueprint/Top/Computation.lean",
+      "sha256": "48e961b4e6779d8e1d5fda194cc57004d2efe33cd12b16556fa224150dfd347e"
+    },
+    {
+      "module": "AKLT.Blueprint.Top.ComputationV2",
+      "path": "AKLT/Blueprint/Top/ComputationV2.lean",
+      "sha256": "4b9088e4e1014f87b28938821ddb1a9fc9c9257f7e79945d0091ad87ddc1da34"
+    },
+    {
+      "module": "AKLT.Blueprint.Top.Operator",
+      "path": "AKLT/Blueprint/Top/Operator.lean",
+      "sha256": "896b8526327b4fa148ecc6179993c3439a0f4c115564c388d3d96f85f3796b74"
+    },
+    {
+      "module": "AKLT.Blueprint.Top.Response",
+      "path": "AKLT/Blueprint/Top/Response.lean",
+      "sha256": "cf5f29c1b3ebea51d2d65ab5e639c3e89a66a7d02cf04485a07f447a6ad4a973"
+    },
+    {
+      "module": "AKLT.Cert.H1.Contraction",
+      "path": "AKLT/Cert/H1/Contraction.lean",
+      "sha256": "3e9f26c9f39ee436b9db04907de23d1fd2f3e122ff0a4ff75163e80093ad2d8d"
+    },
+    {
+      "module": "AKLT.Cert.H1.Coverage",
+      "path": "AKLT/Cert/H1/Coverage.lean",
+      "sha256": "2247732d2168f8268ee1ef66283d49bca70eba8cbeeec49a0557b93063453933"
+    },
+    {
+      "module": "AKLT.Cert.H1.Literals",
+      "path": "AKLT/Cert/H1/Literals.lean",
+      "sha256": "b90735f4614cbea7d433b6e948595092620f3ba67c98ad3aabdedead9840b3ef"
+    },
+    {
+      "module": "AKLT.Cert.H1.PackedConstructor",
+      "path": "AKLT/Cert/H1/PackedConstructor.lean",
+      "sha256": "e0aba539e1781e17d88dce8c5ff6e16df0916bad8e0dcf8cebe34b800a6a79a2"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Assembly",
+      "path": "AKLT/Cert/H1/Production/Assembly.lean",
+      "sha256": "a1c9c85ffc7dba79531e619e2a2ccf998729acd6abe093252717cab3fb957cd4"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Basic",
+      "path": "AKLT/Cert/H1/Production/Basic.lean",
+      "sha256": "7035b988632134fc89a301e429b038c6d7a93c2d3b3bb62e93558b085a7e12ee"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Coverage",
+      "path": "AKLT/Cert/H1/Production/Coverage.lean",
+      "sha256": "efabd6dd83890eff2b45d85ec4d8c36a5b1574d6ebb58c4d28388b9d1a9e1fa0"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Input",
+      "path": "AKLT/Cert/H1/Production/Input.lean",
+      "sha256": "98af8a81adc9f85db22453240d071e506d212efb02487874030e4e502b4daf59"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Leaves",
+      "path": "AKLT/Cert/H1/Production/Leaves.lean",
+      "sha256": "76ad01c197b5e6915b35230e049dd3da2274b3c56fa863bdec7f905f510a75ee"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Semantics",
+      "path": "AKLT/Cert/H1/Production/Semantics.lean",
+      "sha256": "4e16168195706730ae02debd59ad28967aa76ea2876342d07d16b35cc6f25b24"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.Tensor",
+      "path": "AKLT/Cert/H1/Production/Tensor.lean",
+      "sha256": "e471d7e8a26a6035bd1a1033cba42bbc40e90735c9d70561cf7f6582cc7d021c"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.TopAssembly",
+      "path": "AKLT/Cert/H1/Production/TopAssembly.lean",
+      "sha256": "7f64d24a31831962fa812cc73393b6f9addf00fb63911c3401e30c0daf37b2d5"
+    },
+    {
+      "module": "AKLT.Cert.H1.Production.TopLeaves",
+      "path": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "sha256": "86ea4f046c023072d1f4b13050bebc962b5cdb560051d72959b14b7a85d0cc33"
+    },
+    {
+      "module": "AKLT.Cert.H1.Soundness",
+      "path": "AKLT/Cert/H1/Soundness.lean",
+      "sha256": "defed23adf7474543ba711d170e3a08035c68ac9a998433382cb0dde7ea555b1"
+    },
+    {
+      "module": "AKLT.Challenge.Main",
+      "path": "AKLT/Challenge/Main.lean",
+      "sha256": "4589f24f835af7313a0e9ed8acc3d5935b043fac6e806c3ab275e84889b156f1"
+    },
+    {
+      "module": "AKLT.Defs.Automaton",
+      "path": "AKLT/Defs/Automaton.lean",
+      "sha256": "d62c199f7a472e88f22d55c65ee25068de00c046bc96271e672f25c7602387a0"
+    },
+    {
+      "module": "AKLT.Defs.Automaton10Data",
+      "path": "AKLT/Defs/Automaton10Data.lean",
+      "sha256": "6402d18de389c589a4eb3c86e051c9a4d6a809b146a251953088a656495a7571"
+    },
+    {
+      "module": "AKLT.Defs.Computational",
+      "path": "AKLT/Defs/Computational.lean",
+      "sha256": "c9e61539ab1eccccd4dc27356ade1078e884c2197d7af06f85adb5973333e411"
+    },
+    {
+      "module": "AKLT.Defs.Domain",
+      "path": "AKLT/Defs/Domain.lean",
+      "sha256": "81d4143f6487c1c84d6b114a9ed9a9745775763ecfb879825313c5a47863cb7d"
+    },
+    {
+      "module": "AKLT.Defs.FiniteNetwork",
+      "path": "AKLT/Defs/FiniteNetwork.lean",
+      "sha256": "a3ae8f5f91a18fa598dd5682f09cf2337b40d8004c3b3b356faec263d449b07d"
+    },
+    {
+      "module": "AKLT.Defs.Frame",
+      "path": "AKLT/Defs/Frame.lean",
+      "sha256": "c58e129552fc480b88cbcda40909523af4b449f956f3a833016a5171b7eeaae5"
+    },
+    {
+      "module": "AKLT.Defs.FrameModel",
+      "path": "AKLT/Defs/FrameModel.lean",
+      "sha256": "3389a9153b74a013d77887d96080b73545441fb287d131d3b968482c149ecb30"
+    },
+    {
+      "module": "AKLT.Defs.Geometry",
+      "path": "AKLT/Defs/Geometry.lean",
+      "sha256": "50f97e1f81b86285656b4f79872b9af6d2b420d3aa985dcf002a1557be2d9eed"
+    },
+    {
+      "module": "AKLT.Defs.Kernel",
+      "path": "AKLT/Defs/Kernel.lean",
+      "sha256": "1f109fe5904274ebb0342cb5f6204e0674e9bca59f043eb058b1cf09ef37d39d"
+    },
+    {
+      "module": "AKLT.Defs.Moment",
+      "path": "AKLT/Defs/Moment.lean",
+      "sha256": "2e38dd8dbe631bcfcdac04fcf2e25fcd8d1cede96e1899e04b4e9411da2a826e"
+    },
+    {
+      "module": "AKLT.Defs.Operator",
+      "path": "AKLT/Defs/Operator.lean",
+      "sha256": "fba684ed9e92b374f6ee7ba26810e6e5d306c95503b1fcb4ada667587df31bc6"
+    },
+    {
+      "module": "AKLT.Defs.OperatorContracts",
+      "path": "AKLT/Defs/OperatorContracts.lean",
+      "sha256": "38ef79d39011df758ae4454bab76a7177c0c26400092f34ed1b30b28a14ac9d1"
+    },
+    {
+      "module": "AKLT.Defs.Pattern",
+      "path": "AKLT/Defs/Pattern.lean",
+      "sha256": "35b84780df378be39228153f47ba49e38d79f2f0baa5be7bb8624ff044dcfc67"
+    },
+    {
+      "module": "AKLT.Defs.PinModel",
+      "path": "AKLT/Defs/PinModel.lean",
+      "sha256": "b225748bfbd9776bec346641b44399edfac0001527de27aed898daee3c10a430"
+    },
+    {
+      "module": "AKLT.Defs.Polynomial",
+      "path": "AKLT/Defs/Polynomial.lean",
+      "sha256": "b544e92675d9999c7414b7bc1c1e5f68963ef89e50271f0e0254e438f7855ed3"
+    },
+    {
+      "module": "AKLT.Defs.Probability",
+      "path": "AKLT/Defs/Probability.lean",
+      "sha256": "a0eb5ec1c1c080a5edcee0cdcc5d0118075c0dd9515aae80ff9f70a6bf6b74b3"
+    },
+    {
+      "module": "AKLT.Defs.RealOperator",
+      "path": "AKLT/Defs/RealOperator.lean",
+      "sha256": "df459e710ee58256c5942a4ee4507655881370720efcd06bb882c38ab84d4c1a"
+    },
+    {
+      "module": "AKLT.Defs.Response",
+      "path": "AKLT/Defs/Response.lean",
+      "sha256": "1572581b4a9c4211f0da87680512babaefb25dfeb2b5cb7ac989e42828b22a21"
+    },
+    {
+      "module": "AKLT.Defs.Stationary",
+      "path": "AKLT/Defs/Stationary.lean",
+      "sha256": "e5de76f596ecb6051448902edbd4bb0493c0b555fb035c53e209e60a247b7cbd"
+    },
+    {
+      "module": "AKLT.Defs.Trails",
+      "path": "AKLT/Defs/Trails.lean",
+      "sha256": "3a8eff1a75be61df7cb882ee52cf42490e6638469ae8fbc4e6a341adbcdd86dc"
+    },
+    {
+      "module": "AKLT.Gen.Gram.Basic",
+      "path": "AKLT/Gen/Gram/Basic.lean",
+      "sha256": "c593a18992e2be676e787688807c06769b5cca557d790ef7a52c334b70102325"
+    },
+    {
+      "module": "AKLT.Gen.Gram.Checker",
+      "path": "AKLT/Gen/Gram/Checker.lean",
+      "sha256": "70a4341ab661efcc024725a93be5dae8e541f73d33baae9dfe0a10b50919699b"
+    },
+    {
+      "module": "AKLT.Gen.Gram.Theory",
+      "path": "AKLT/Gen/Gram/Theory.lean",
+      "sha256": "ee864c4e7e2b8ed8b2006861e6bbe066f82d4433c1955639a7793440f42d8394"
+    },
+    {
+      "module": "AKLT.Gen.Packed.All",
+      "path": "AKLT/Gen/Packed/All.lean",
+      "sha256": "00cdd5eaaa7fe1871842bca1c600df67868038a8fd6f2b62d8297dd29122b3df"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Basic",
+      "path": "AKLT/Gen/Packed/Basic.lean",
+      "sha256": "6953b195910fbf23f65b6bf15f3ceb427488c1082e2e13143cfffd9b7bccfde4"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Check",
+      "path": "AKLT/Gen/Packed/Check.lean",
+      "sha256": "6d75ec01c05c028aaf84ba0cbddf3ef0e7116b245bb59e95522640d329a0a26e"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Construction",
+      "path": "AKLT/Gen/Packed/Construction.lean",
+      "sha256": "39264c9753a2fb7e982773b232de8b3284ddefd382796f5cf5944d6a9bc24375"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Grid",
+      "path": "AKLT/Gen/Packed/Grid.lean",
+      "sha256": "50e2a42e53a76892a342fba2a69d2848e2920ca0c1b446495bd0098d1e1bbf7a"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Guard",
+      "path": "AKLT/Gen/Packed/Guard.lean",
+      "sha256": "9fd794509b190eb32c29a0f778207d45f7447edb7b88c993a6cc51be8de268c9"
+    },
+    {
+      "module": "AKLT.Gen.Packed.Routing",
+      "path": "AKLT/Gen/Packed/Routing.lean",
+      "sha256": "23d3cf4e05fcf9a0b958aee85b50b6fe4294fc696818f2620167685ca650420a"
+    },
+    {
+      "module": "CertData.H3.Bridge.GraphLayout",
+      "path": "CertData/H3/Bridge/GraphLayout.lean",
+      "sha256": "0f6dbdfdfa0b9a86c18c3f4c5f2625931044427e45d6d0d4d93ae3512c0ea3c3"
+    },
+    {
+      "module": "CertData.H3.Bridge.Interface",
+      "path": "CertData/H3/Bridge/Interface.lean",
+      "sha256": "dff43a834228e0cc8bbb33b213709a78a9176c5d099b6c198b90c89103b98590"
+    },
+    {
+      "module": "CertData.H3.Bridge.Production",
+      "path": "CertData/H3/Bridge/Production.lean",
+      "sha256": "c79319b0ccd6ffa701632a018b51d1c307af244a87a6cfb9951951a2a7c8aeb8"
+    },
+    {
+      "module": "CertData.H3.Kernel.Automaton",
+      "path": "CertData/H3/Kernel/Automaton.lean",
+      "sha256": "9c026ee712f8f2963a3c82aa865e3ace2a818238dd0136978243160e2ee33305"
+    },
+    {
+      "module": "CertData.H3.Kernel.Common",
+      "path": "CertData/H3/Kernel/Common.lean",
+      "sha256": "3c47fc0cdf7ceb22858d5ff5480f138594951149c0b3078d3097220a9d8219d7"
+    },
+    {
+      "module": "CertData.H3.Kernel.Literal",
+      "path": "CertData/H3/Kernel/Literal.lean",
+      "sha256": "3a4f1066bd9836a2858dd0d2ed705914ef9babd38dd1034559ab1369284e6631"
+    },
+    {
+      "module": "CertData.H3.Kernel.Packed",
+      "path": "CertData/H3/Kernel/Packed.lean",
+      "sha256": "e82f829870116653a6ea8653a125a3e7ae4dd9424bc398b161489131e0a26370"
+    },
+    {
+      "module": "CertData.H3.Kernel.Prefix",
+      "path": "CertData/H3/Kernel/Prefix.lean",
+      "sha256": "b211b57ca07db5d4fc45080b8ac40f0cf916379808b6f20cb5530a43881d8004"
+    },
+    {
+      "module": "CertData.H3.Kernel.PrefixView",
+      "path": "CertData/H3/Kernel/PrefixView.lean",
+      "sha256": "9d1e6288fcb5919849bd20ea3ada97dfca60de0fdfa43e3d6c8d8758b91c026c"
+    },
+    {
+      "module": "CertData.H3.Kernel.Production.Batching",
+      "path": "CertData/H3/Kernel/Production/Batching.lean",
+      "sha256": "8b33a30d4dce1bc01a29f1a2225c993a53286cbcf01ecd066c3c02bd3f8e28f5"
+    },
+    {
+      "module": "CertData.H3.Kernel.Production.Model",
+      "path": "CertData/H3/Kernel/Production/Model.lean",
+      "sha256": "3bec630e2f89bd578f2586459180c878ee1fac8549b41fb5f364312a6296efe0"
+    },
+    {
+      "module": "CertData.H3.Kernel.Production.Replay",
+      "path": "CertData/H3/Kernel/Production/Replay.lean",
+      "sha256": "bc78a3f88da3ad5e1984c391454c43a0af38dbca1f26b57a8a5d4e003991cb3d"
+    },
+    {
+      "module": "CertData.H3.Kernel.Rows",
+      "path": "CertData/H3/Kernel/Rows.lean",
+      "sha256": "77b4c151e7297e1552004cd1ec4ba6d6afc6e0505780508425a7b1ea67b79b9b"
+    },
+    {
+      "module": "CertData.H3.Kernel.View",
+      "path": "CertData/H3/Kernel/View.lean",
+      "sha256": "8ecb2746421fb0c26545e610466d2d58441eb05e0c57852f4ae57e5dda472709"
+    }
+  ],
+  "header_confirmation": "Lean --deps-json; 65/65 agree with comment-stripped header traversal",
+  "shortest_root_chains": {
+    "AKLT.Cert.H1.Literals": [
+      "AKLT.Cert.H1.Literals"
+    ],
+    "AKLT.Cert.H1.Production.Assembly": [
+      "AKLT.Cert.H1.Production.Assembly"
+    ],
+    "AKLT.Cert.H1.Production.Basic": [
+      "AKLT.Cert.H1.Production.Basic"
+    ],
+    "AKLT.Cert.H1.Production.Coverage": [
+      "AKLT.Cert.H1.Production.Coverage"
+    ],
+    "AKLT.Cert.H1.Production.Input": [
+      "AKLT.Cert.H1.Production.Input"
+    ],
+    "AKLT.Cert.H1.Production.Semantics": [
+      "AKLT.Cert.H1.Production.Semantics"
+    ],
+    "AKLT.Defs.Automaton10Data": [
+      "AKLT.Defs.Automaton10Data"
+    ],
+    "AKLT.Defs.OperatorContracts": [
+      "AKLT.Defs.OperatorContracts"
+    ],
+    "AKLT.Gen.Gram.Basic": [
+      "AKLT.Gen.Gram.Basic"
+    ],
+    "CertData.H3.Bridge.GraphLayout": [
+      "CertData.H3.Bridge.GraphLayout"
+    ],
+    "CertData.H3.Bridge.Interface": [
+      "CertData.H3.Bridge.Interface"
+    ],
+    "CertData.H3.Bridge.Production": [
+      "CertData.H3.Bridge.Production"
+    ],
+    "CertData.H3.Kernel.Common": [
+      "CertData.H3.Kernel.Common"
+    ],
+    "CertData.H3.Kernel.Literal": [
+      "CertData.H3.Kernel.Literal"
+    ],
+    "CertData.H3.Kernel.Production.Batching": [
+      "CertData.H3.Kernel.Production.Batching"
+    ],
+    "CertData.H3.Kernel.Production.Model": [
+      "CertData.H3.Kernel.Production.Model"
+    ],
+    "CertData.H3.Kernel.Production.Replay": [
+      "CertData.H3.Kernel.Production.Replay"
+    ],
+    "AKLT.Cert.H1.Production.Leaves": [
+      "AKLT.Cert.H1.Production.Assembly",
+      "AKLT.Cert.H1.Production.Leaves"
+    ],
+    "AKLT.Cert.H1.Production.TopAssembly": [
+      "AKLT.Cert.H1.Production.Assembly",
+      "AKLT.Cert.H1.Production.TopAssembly"
+    ],
+    "AKLT.Cert.H1.PackedConstructor": [
+      "AKLT.Cert.H1.Production.Basic",
+      "AKLT.Cert.H1.PackedConstructor"
+    ],
+    "AKLT.Cert.H1.Soundness": [
+      "AKLT.Cert.H1.Production.Basic",
+      "AKLT.Cert.H1.Soundness"
+    ],
+    "AKLT.Cert.H1.Coverage": [
+      "AKLT.Cert.H1.Production.Basic",
+      "AKLT.Cert.H1.Coverage"
+    ],
+    "AKLT.Cert.H1.Contraction": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Cert.H1.Contraction"
+    ],
+    "AKLT.Blueprint.Top.Operator": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator"
+    ],
+    "AKLT.Defs.Automaton": [
+      "AKLT.Defs.Automaton10Data",
+      "AKLT.Defs.Automaton"
+    ],
+    "AKLT.Defs.FiniteNetwork": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork"
+    ],
+    "AKLT.Gen.Gram.Theory": [
+      "AKLT.Gen.Gram.Basic",
+      "AKLT.Gen.Gram.Theory"
+    ],
+    "AKLT.Gen.Gram.Checker": [
+      "AKLT.Gen.Gram.Basic",
+      "AKLT.Gen.Gram.Checker"
+    ],
+    "AKLT.Blueprint.Top.ComputationV2": [
+      "CertData.H3.Bridge.Interface",
+      "AKLT.Blueprint.Top.ComputationV2"
+    ],
+    "CertData.H3.Kernel.Automaton": [
+      "CertData.H3.Bridge.Interface",
+      "CertData.H3.Kernel.Automaton"
+    ],
+    "CertData.H3.Kernel.Prefix": [
+      "CertData.H3.Bridge.Interface",
+      "CertData.H3.Kernel.Prefix"
+    ],
+    "AKLT.Defs.Computational": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Defs.Computational"
+    ],
+    "AKLT.Gen.Packed.All": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All"
+    ],
+    "CertData.H3.Kernel.Rows": [
+      "CertData.H3.Kernel.Production.Model",
+      "CertData.H3.Kernel.Rows"
+    ],
+    "CertData.H3.Kernel.PrefixView": [
+      "CertData.H3.Kernel.Production.Replay",
+      "CertData.H3.Kernel.PrefixView"
+    ],
+    "AKLT.Cert.H1.Production.TopLeaves": [
+      "AKLT.Cert.H1.Production.Assembly",
+      "AKLT.Cert.H1.Production.Leaves",
+      "AKLT.Cert.H1.Production.TopLeaves"
+    ],
+    "AKLT.Cert.H1.Production.Tensor": [
+      "AKLT.Cert.H1.Production.Assembly",
+      "AKLT.Cert.H1.Production.Leaves",
+      "AKLT.Cert.H1.Production.Tensor"
+    ],
+    "AKLT.Blueprint.Top.Common": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator",
+      "AKLT.Blueprint.Top.Common"
+    ],
+    "AKLT.Defs.RealOperator": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator",
+      "AKLT.Defs.RealOperator"
+    ],
+    "AKLT.Defs.Kernel": [
+      "AKLT.Defs.Automaton10Data",
+      "AKLT.Defs.Automaton",
+      "AKLT.Defs.Kernel"
+    ],
+    "AKLT.Defs.Probability": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Probability"
+    ],
+    "AKLT.Defs.Operator": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Operator"
+    ],
+    "AKLT.Blueprint.Top.Computation": [
+      "CertData.H3.Bridge.Interface",
+      "AKLT.Blueprint.Top.ComputationV2",
+      "AKLT.Blueprint.Top.Computation"
+    ],
+    "CertData.H3.Kernel.View": [
+      "CertData.H3.Bridge.Interface",
+      "CertData.H3.Kernel.Prefix",
+      "CertData.H3.Kernel.View"
+    ],
+    "AKLT.Defs.Stationary": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Defs.Computational",
+      "AKLT.Defs.Stationary"
+    ],
+    "AKLT.Gen.Packed.Construction": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Construction"
+    ],
+    "AKLT.Gen.Packed.Check": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Check"
+    ],
+    "AKLT.Gen.Packed.Grid": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Grid"
+    ],
+    "CertData.H3.Kernel.Packed": [
+      "CertData.H3.Kernel.Production.Model",
+      "CertData.H3.Kernel.Rows",
+      "CertData.H3.Kernel.Packed"
+    ],
+    "AKLT.Defs.FrameModel": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator",
+      "AKLT.Blueprint.Top.Common",
+      "AKLT.Defs.FrameModel"
+    ],
+    "AKLT.Defs.Trails": [
+      "AKLT.Defs.Automaton10Data",
+      "AKLT.Defs.Automaton",
+      "AKLT.Defs.Kernel",
+      "AKLT.Defs.Trails"
+    ],
+    "AKLT.Defs.Pattern": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Operator",
+      "AKLT.Defs.Pattern"
+    ],
+    "AKLT.Defs.Frame": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Operator",
+      "AKLT.Defs.Frame"
+    ],
+    "AKLT.Blueprint.Top.Coefficients": [
+      "CertData.H3.Bridge.Interface",
+      "AKLT.Blueprint.Top.ComputationV2",
+      "AKLT.Blueprint.Top.Computation",
+      "AKLT.Blueprint.Top.Coefficients"
+    ],
+    "AKLT.Gen.Packed.Basic": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Construction",
+      "AKLT.Gen.Packed.Basic"
+    ],
+    "AKLT.Gen.Packed.Guard": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Check",
+      "AKLT.Gen.Packed.Guard"
+    ],
+    "AKLT.Gen.Packed.Routing": [
+      "CertData.H3.Kernel.Common",
+      "AKLT.Gen.Packed.All",
+      "AKLT.Gen.Packed.Grid",
+      "AKLT.Gen.Packed.Routing"
+    ],
+    "AKLT.Defs.Polynomial": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator",
+      "AKLT.Blueprint.Top.Common",
+      "AKLT.Defs.FrameModel",
+      "AKLT.Defs.Polynomial"
+    ],
+    "AKLT.Defs.Domain": [
+      "AKLT.Defs.Automaton10Data",
+      "AKLT.Defs.Automaton",
+      "AKLT.Defs.Kernel",
+      "AKLT.Defs.Trails",
+      "AKLT.Defs.Domain"
+    ],
+    "AKLT.Defs.Moment": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Operator",
+      "AKLT.Defs.Frame",
+      "AKLT.Defs.Moment"
+    ],
+    "AKLT.Blueprint.Top.Response": [
+      "CertData.H3.Bridge.Interface",
+      "AKLT.Blueprint.Top.ComputationV2",
+      "AKLT.Blueprint.Top.Computation",
+      "AKLT.Blueprint.Top.Coefficients",
+      "AKLT.Blueprint.Top.Response"
+    ],
+    "AKLT.Defs.Response": [
+      "CertData.H3.Bridge.Interface",
+      "AKLT.Blueprint.Top.ComputationV2",
+      "AKLT.Blueprint.Top.Computation",
+      "AKLT.Blueprint.Top.Coefficients",
+      "AKLT.Defs.Response"
+    ],
+    "AKLT.Challenge.Main": [
+      "AKLT.Cert.H1.Production.Semantics",
+      "AKLT.Blueprint.Top.Operator",
+      "AKLT.Blueprint.Top.Common",
+      "AKLT.Defs.FrameModel",
+      "AKLT.Defs.Polynomial",
+      "AKLT.Challenge.Main"
+    ],
+    "AKLT.Defs.PinModel": [
+      "AKLT.Defs.Automaton10Data",
+      "AKLT.Defs.Automaton",
+      "AKLT.Defs.Kernel",
+      "AKLT.Defs.Trails",
+      "AKLT.Defs.Domain",
+      "AKLT.Defs.PinModel"
+    ],
+    "AKLT.Defs.Geometry": [
+      "AKLT.Defs.OperatorContracts",
+      "AKLT.Defs.FiniteNetwork",
+      "AKLT.Defs.Operator",
+      "AKLT.Defs.Frame",
+      "AKLT.Defs.Moment",
+      "AKLT.Defs.Geometry"
+    ]
+  }
+}

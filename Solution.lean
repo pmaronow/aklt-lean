@@ -9,7 +9,9 @@ namespace AKLTPalomar
 /-- The paper's unconditional, all-parity headline. -/
 def Main : Prop := AKLT.Challenge.MainStatementV2
 
-/-- Identification with the statement in the proof development. -/
+/-- Reflexive definitional identity: `Main` is an alias, so this proof is `Iff.rfl`.
+The identity of the independent Challenge copy with the library definitions is
+established by mechanical generation and checked recursively by the Comparator. -/
 theorem main_iff : Main ↔ AKLT.Challenge.MainStatementV2 := Iff.rfl
 
 /-- The square-lattice spin-2 AKLT theorem, including the finite certificates. -/

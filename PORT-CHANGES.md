@@ -88,3 +88,16 @@ The old verification transcripts are retained unchanged in Git history and the
 campaign report archive. They are not relabeled as verification of renamed
 sources. Current verification records are under verification/rename/. The exact
 old-to-new spelling map and declaration map are in the campaign report.
+
+## Fidelity fix round
+
+No existing theorem proof body or mathematical definition was changed. MainV2,
+Sanity, Solution, and Regression.Solution received documentation corrections.
+`AKLT.Challenge.b_nonzero` in the new downstream SanityProofs module is the existing
+`AKLT.Uniq.B_ne_zero` proof under the sanity predicate. Keeping it downstream
+avoids an import cycle through Sanity. Handwritten and AuditHandwritten import or
+print this theorem. Challenge generation corrects documentation only and no longer
+emits cache resets; copied declaration bodies are unchanged. All 65 transitive
+certificate dependency sources, including Main.lean and Top/Response.lean, were
+preserved byte-for-byte. Deferred comments and obsolete definitions are explained
+in docs/STATEMENT-NOTES.md. The generation check runs during source and full verification.

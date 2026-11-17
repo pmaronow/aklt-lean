@@ -68,6 +68,7 @@ class Pipeline:
   self.env.update(HOME=str(self.work/'home'),TMPDIR=str(self.work/'tmp'),XDG_CACHE_HOME=str(self.work/'cache'),MATHLIB_CACHE_DIR=str(self.work/'mathlib-cache'))
   # The local metadata checker deliberately records author-owned TODOs without
   # letting them hide a mechanical source/configuration failure.
+  self.run('statement-generation-check',[sys.executable,ROOT/'scripts/make_challenge.py','--check'])
   source_result,out=self.run('source-configuration',[sys.executable,ROOT/'scripts/verify_sources.py','--verifier',a.verifier,'--report',self.work/'source-checks.json'],allow_failure=True)
   if source_result.get('limit'):raise RuntimeError('Source/configuration check stopped: '+str(source_result['limit']))
   source=json.loads((self.work/'source-checks.json').read_text());allowed={'package.metadata_todo','package.license_missing'}

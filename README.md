@@ -27,6 +27,24 @@ objects recursively, without definition exemptions. The paper's physical model,
 Hamiltonian, and VBS product are `d:model` in `sec1-result.tex`; its polynomial
 normalization is `d:poly` in `sec3-quantum-frames.tex`. See [FIDELITY.md](FIDELITY.md).
 
+## Statement generation and the Comparator
+
+`main_iff` is `Iff.rfl` because Main is defined as the library headline. The
+identity between the independent Challenge copy and the library is established
+by mechanical generation and the Comparator's recursive statement comparison.
+Run `python3 scripts/make_challenge.py --check` to check Challenge and its source
+hash record byte-for-byte; both source verification and the end-to-end runner
+require this check. To regenerate after an authorized source change, run the
+same script without `--check`.
+
+The release Challenge contains no environment-modifying elaborator commands.
+The two former auxiliary-proof-cache resets were removed after the physical
+statement comparison passed with Lean and NanoDa. The model definitions and
+MainStatementV2 retain their exact mathematical bodies; no library reorganization
+is needed. The separate conditional regression template retains its original
+source-boundary naming machinery. See [statement notes](docs/STATEMENT-NOTES.md)
+for the frozen interface, legacy helpers, spin convention, and sanity statements.
+
 ## Sources and libraries
 
 The Lean toolchain is 4.35.0-rc2. Mathlib is pinned to
@@ -125,7 +143,7 @@ checks to pass; an unfinished replay is never reported as acceptance.
 Author and maintainer identities, verified ORCIDs, release SPDX license and root
 LICENSE text, immutable public source and certificate archive locations, and
 proof-development provenance remain clearly marked TODO fields in
-`formalization.yaml`. Existing vendored license notices are retained. Independent
-mathematical fidelity review remains pending. Prose and first-party identifiers use American English.
+`formalization.yaml`. Existing vendored license notices are retained. Two independent statement reviews found the selected theorem faithful with remarks
+and no Fatal or Major finding. They did not certify the omitted proof or certificate modules. Prose and first-party identifiers use American English.
 The current identifier inventory is AMERICAN-ENGLISH-IDENTIFIERS.tsv; paper
 citation labels and external dependency names retain their original spelling.

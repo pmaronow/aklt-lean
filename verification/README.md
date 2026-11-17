@@ -1,9 +1,14 @@
 # Current verification records
 
-The current sources use American English for first-party identifiers as well as
-prose. Records for the fresh renamed-source build, strict Audit, regeneration
-samples, protected two-input Comparator, and con-ron replay belong under rename/.
-The exact source inventory and PORT-MANIFEST.tsv identify the current sources.
+The current statement fidelity fixes are documented under fidelity-fix/. They
+include exact generation, the frozen certificate interface, strict Audit, the
+physical statement comparison, and the protected two-input regression. Full
+unconditional proof verification remains pending the regenerated certificates.
+PORT-MANIFEST.tsv records current source hashes; a new-in-fidelity-fix row has
+no earlier legacy source hash because it is a new downstream theorem wrapper.
+
+The rename/ receipts are unchanged evidence for the preceding American English
+rename commit, not measurements of the later fidelity fixes.
 
 Earlier receipts are preserved unchanged in Git history at the baseline package
 commit 169a4007abea6cc73e4630ef99b797491a1708a7 and in the campaign report archive.

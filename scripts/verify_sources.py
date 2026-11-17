@@ -5,6 +5,7 @@ This is a local source check, not full preparation or protected verification.
 It intentionally fails while source materialization or metadata is unfinished.
 """
 import argparse
+import importlib.util
 import json
 from pathlib import Path
 import re
@@ -33,6 +34,21 @@ allowed_generated={m.replace('.','/')+'.lean' for fam in ['H1','H3'] for m in ge
 actual={str(p.relative_to(project)) for p in official.lean_source_files(project)}
 if expected-actual or actual-expected-allowed_generated:
     problems.append(dict(code='package.source_inventory', missing=sorted(expected-actual), extra=sorted(actual-expected-allowed_generated)))
+# A source-only check: render in memory, compare exact bytes, and never rewrite
+# the Challenge during verification. This also validates the source hash record.
+spec = importlib.util.spec_from_file_location('release_statement_generator', project/'scripts/make_challenge.py')
+statement_generator = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(statement_generator)
+try:
+    generated_challenge, generated_sources = statement_generator.render(project)
+    stale = [name for name, data in [('Challenge.lean', generated_challenge),
+                                   ('statement-sources.json', generated_sources)]
+             if not (project/name).is_file() or (project/name).read_bytes() != data]
+    if stale:
+        problems.append(dict(code='package.statement_generation', files=stale,
+                             message='Statement files differ byte-for-byte from their generator output'))
+except Exception as error:
+    problems.append(dict(code='package.statement_generation', message=str(error)))
 challenge = (project/'Challenge.lean').read_text()
 if physical_lines(challenge) > 1000 or len(challenge.encode()) > 100*1024:
     problems.append(dict(code='package.challenge_size'))

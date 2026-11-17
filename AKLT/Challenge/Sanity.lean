@@ -6,8 +6,9 @@ set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
 /-! Sanity statements about the concrete definitions. Unproved statements below
-are propositions, with no assumed inhabitants. Neither the ground-state equation
-nor Theorem 1.1 is proved here. -/
+are propositions, with no assumed inhabitants. These elementary checks do not
+prove Theorem 1.2 (`t:main`, `sec1-result.tex`). Nonvanishing is proved separately
+in `AKLT.Challenge.SanityProofs`; the rank sanity statement remains unproved. -/
 
 noncomputable section
 
@@ -50,7 +51,7 @@ theorem h_selfAdjoint (L N : Size) : HSelfAdjoint L N := by
   exact (h_positive L N).isSelfAdjoint
 
 /-- Every complex eigenvalue is real, so the real eigenvalue quantifier in
-`MainStatement` covers the whole spectrum. -/
+`MainStatementV2` covers the whole spectrum. -/
 def HEigenvaluesReal (L N : Size) : Prop :=
   ∀ μ : ℂ, (H L N).HasEigenvalue μ → starRingEnd ℂ μ = μ
 
@@ -155,17 +156,20 @@ theorem basis_normalization_nonzero (L N : Size) : BasisNormalizationNonzero L N
   have hp : 0 < Nat.choose 4 (σ x).val := Nat.choose_pos (by have := (σ x).isLt; omega)
   exact_mod_cast hp
 
-/-- Non-vanishing of B, asserted in `t:main` (`sec1-result.tex`). Unproved here: one must transfer
-the integral-domain argument through the degree-four coordinate extraction. -/
+/-- Nonvanishing of B in Theorem 1.2 (`t:main`, `sec1-result.tex`).
+Proved as `b_nonzero` in `AKLT.Challenge.SanityProofs` from the existing
+polynomial integral-domain argument and its coordinate conversion. -/
 def BNonzero (L N : Size) : Prop := B L N ≠ 0
 
-/-- Correct rank of the spin-4 projector. Unproved here: this requires the
-25-dimensional Casimir decomposition and its extension by spectator factors. -/
+/-- Unproved sanity statement: the spin-4 projector has the expected rank.
+No theorem or certificate assumes this proposition. A proof still needs the
+25-dimensional Casimir multiplicity and its transfer to all spectator factors. -/
 def BondRank (L N : Size) : Prop :=
   ∀ e : Bond L N, Module.finrank ℂ (LinearMap.range (P e)) =
     9 * 5 ^ (L.val * N.val - 2)
 
-/-- Even tori in the model's domain exist above every threshold in t:main. -/
+/-- An auxiliary arithmetic check: even permitted sizes are unbounded.
+Theorem 1.2 itself allows every parity. -/
 def EvenSizesUnbounded : Prop :=
   ∀ K : ℕ, ∃ L : Size, Even L.val ∧ K ≤ L.val
 
@@ -189,8 +193,8 @@ def FourByFourSizes : Prop :=
 theorem four_by_four_sizes : FourByFourSizes := by
   exact ⟨site_count four four, bond_count four four, hilbert_dimension four four⟩
 
-/-- A combined finite-torus check, stated without being assumed. The bond
-checks are proved above; rank and B ≠ 0 require additional algebraic proofs. -/
+/-- Unproved combined sanity statement, assumed by no theorem or certificate.
+The bond checks and B ≠ 0 are proved; the rank assertion remains open. -/
 def FourByFourNondegenerate : Prop :=
   BondsHaveTwoSites four four ∧ BondsAreDistinct four four ∧
     BNonzero four four ∧

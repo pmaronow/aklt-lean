@@ -1,4 +1,5 @@
 module
+public import AKLT.Challenge.SanityProofs
 
 public import AKLT.Blueprint.Gap.Assembly
 public import AKLT.Blueprint.Gap.Definitions
