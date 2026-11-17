@@ -1,0 +1,219 @@
+{
+  "method": "Exact natural arithmetic; parsed every literal and complete concatenation AST; fresh-bond recursive generation from paper; exhaustive raw and quotient comparisons.",
+  "literal_count": 786,
+  "packed_bit_lengths": {
+    "rawClass": 12582908,
+    "representatives": 74820,
+    "destinations": 179542,
+    "edgeKinds": 29928
+  },
+  "raw_counts_depth_0_to_10": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "all_code_count": 1048576,
+  "stored_valid_raw_count": 60092,
+  "surjective_class_count": 3741,
+  "edge_counts_kind_0_1_2": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "errors": {},
+  "first_error_examples": {},
+  "targets": [
+    {
+      "name": "rawClass_265",
+      "lean_line": 545,
+      "bit_start": 8224764,
+      "bit_end_exclusive": 8241148,
+      "literal_bit_length": 16384,
+      "first_code": 685397,
+      "last_code": 686762,
+      "start_within_lane": 0,
+      "end_within_lane": 4,
+      "touched_lanes": 1366,
+      "raw_lanes": 0,
+      "invalid_lanes": 1366,
+      "class_count": 0,
+      "valid_first_last": [],
+      "boundary_lanes": [
+        [
+          685397,
+          3741,
+          false
+        ],
+        [
+          686762,
+          3741,
+          false
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_266",
+      "lean_line": 547,
+      "bit_start": 8208380,
+      "bit_end_exclusive": 8224764,
+      "literal_bit_length": 16384,
+      "first_code": 684031,
+      "last_code": 685396,
+      "start_within_lane": 8,
+      "end_within_lane": 0,
+      "touched_lanes": 1366,
+      "raw_lanes": 1,
+      "invalid_lanes": 1365,
+      "class_count": 1,
+      "valid_first_last": [
+        [
+          684031,
+          218,
+          "WWNWSSSSSS"
+        ],
+        [
+          684031,
+          218,
+          "WWNWSSSSSS"
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          684031,
+          218,
+          true
+        ],
+        [
+          685396,
+          3741,
+          false
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_267",
+      "lean_line": 549,
+      "bit_start": 8191996,
+      "bit_end_exclusive": 8208380,
+      "literal_bit_length": 16384,
+      "first_code": 682666,
+      "last_code": 684031,
+      "start_within_lane": 4,
+      "end_within_lane": 8,
+      "touched_lanes": 1366,
+      "raw_lanes": 271,
+      "invalid_lanes": 1095,
+      "class_count": 229,
+      "valid_first_last": [
+        [
+          682666,
+          356,
+          "WWNWWWWWWW"
+        ],
+        [
+          684031,
+          218,
+          "WWNWSSSSSS"
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          682666,
+          356,
+          true
+        ],
+        [
+          684031,
+          218,
+          true
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_268",
+      "lean_line": 551,
+      "bit_start": 8175612,
+      "bit_end_exclusive": 8191996,
+      "literal_bit_length": 16383,
+      "first_code": 681301,
+      "last_code": 682666,
+      "start_within_lane": 0,
+      "end_within_lane": 4,
+      "touched_lanes": 1366,
+      "raw_lanes": 222,
+      "invalid_lanes": 1144,
+      "class_count": 187,
+      "valid_first_last": [
+        [
+          681301,
+          115,
+          "WWNWNNNNNN"
+        ],
+        [
+          682666,
+          356,
+          "WWNWWWWWWW"
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          681301,
+          115,
+          true
+        ],
+        [
+          682666,
+          356,
+          true
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_269",
+      "lean_line": 553,
+      "bit_start": 8159228,
+      "bit_end_exclusive": 8175612,
+      "literal_bit_length": 16379,
+      "first_code": 679935,
+      "last_code": 681300,
+      "start_within_lane": 8,
+      "end_within_lane": 0,
+      "touched_lanes": 1366,
+      "raw_lanes": 91,
+      "invalid_lanes": 1275,
+      "class_count": 91,
+      "valid_first_last": [
+        [
+          680960,
+          0,
+          "WWNWNEEEEE"
+        ],
+        [
+          681300,
+          114,
+          "WWNWNNNNNE"
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          679935,
+          3741,
+          false
+        ],
+        [
+          681300,
+          114,
+          true
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+def AKLT.Blueprint.Q.DensityVarianceStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p q : AKLT.Defs.Weight Ω),
+  @AKLT.Defs.PositiveProbability Ω inst p →
+    @AKLT.Defs.PositiveProbability Ω inst q →
+      ∀ (M : Real),
+        @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) M →
+          (∀ (σ : Ω), @LE.le Real Real.instLE (q σ) (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) M (p σ))) →
+            ∀ (f : Ω → Complex),
+              @LE.le Real Real.instLE (@AKLT.Defs.variance Ω inst q f)
+                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) M (@AKLT.Defs.variance Ω inst p f))
+def AKLT.Blueprint.Q.DensityDirichletStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x))
+  (p q : AKLT.Defs.Weight ((x : ι) → S x)),
+  @AKLT.Defs.PositiveProbability ((x : ι) → S x) (@Pi.instFintype ι S inst_1 inst x) p →
+    @AKLT.Defs.PositiveProbability ((x : ι) → S x) (@Pi.instFintype ι S inst_1 inst x) q →
+      ∀ (m : Real),
+        @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) m →
+          (∀ (σ : (x : ι) → S x),
+              @LE.le Real Real.instLE (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) m (p σ)) (q σ)) →
+            ∀ (f : ((x : ι) → S x) → Complex),
+              @LE.le Real Real.instLE
+                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) m (@AKLT.Defs.dirichlet ι inst inst_1 S x p f))
+                (@AKLT.Defs.dirichlet ι inst inst_1 S x q f)
+def AKLT.Blueprint.Q.ProductPoincareStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x))
+  (p : (x : ι) → AKLT.Defs.Weight (S x)),
+  (∀ (x_1 : ι), @AKLT.Defs.PositiveProbability (S x_1) (x x_1) (p x_1)) →
+    @AKLT.Defs.PoincareLower ι inst inst_1 S x (fun σ => ∏ x, p x (σ x))
+      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+def AKLT.Blueprint.Q.BoundaryAbsorptionStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        @Eq (AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration W)) (AKLT.Defs.planeLaw κ W η)
+          (@AKLT.Defs.normalize (AKLT.Defs.PlaneConfiguration W)
+            (@Pi.instFintype (↥W) (fun x => AKLT.Defs.IcoLetter)
+              (fun a b =>
+                @Subtype.instDecidableEq AKLT.Defs.Plane
+                  (@Membership.mem AKLT.Defs.Plane (Finset AKLT.Defs.Plane)
+                    (@SetLike.instMembership (Finset AKLT.Defs.Plane) AKLT.Defs.Plane
+                      (@Finset.instSetLike AKLT.Defs.Plane))
+                    W)
+                  (fun a b => @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b) a b)
+              (@Finset.Subtype.fintype AKLT.Defs.Plane W) fun a =>
+              @instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Prod (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (Fin.fintype (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+            fun σ =>
+            @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (AKLT.Blueprint.Q.planeProductReference κ W η σ)
+              (AKLT.Blueprint.Q.planeInteraction κ W σ))
+def AKLT.Blueprint.Q.PlaneDensityBoundsStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        @AKLT.Defs.PositiveProbability (AKLT.Defs.PlaneConfiguration W)
+            (@Pi.instFintype (↥W) (fun x => AKLT.Defs.IcoLetter)
+              (fun a b =>
+                @Subtype.instDecidableEq AKLT.Defs.Plane
+                  (@Membership.mem AKLT.Defs.Plane (Finset AKLT.Defs.Plane)
+                    (@SetLike.instMembership (Finset AKLT.Defs.Plane) AKLT.Defs.Plane
+                      (@Finset.instSetLike AKLT.Defs.Plane))
+                    W)
+                  (fun a b => @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b) a b)
+              (@Finset.Subtype.fintype AKLT.Defs.Plane W) fun a =>
+              @instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (Prod (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (Fin.fintype (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                (@instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+            (AKLT.Blueprint.Q.planeProductReference κ W η) →
+          @Eq (AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration W)) (AKLT.Defs.planeLaw κ W η)
+              (@AKLT.Defs.normalize (AKLT.Defs.PlaneConfiguration W)
+                (@Pi.instFintype (↥W) (fun x => AKLT.Defs.IcoLetter)
+                  (fun a b =>
+                    @Subtype.instDecidableEq AKLT.Defs.Plane
+                      (@Membership.mem AKLT.Defs.Plane (Finset AKLT.Defs.Plane)
+                        (@SetLike.instMembership (Finset AKLT.Defs.Plane) AKLT.Defs.Plane
+                          (@Finset.instSetLike AKLT.Defs.Plane))
+                        W)
+                      (fun a b => @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b) a b)
+                  (@Finset.Subtype.fintype AKLT.Defs.Plane W) fun a =>
+                  @instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (Prod (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                    (Fin.fintype (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+                    (@instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+                fun σ =>
+                @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (AKLT.Blueprint.Q.planeProductReference κ W η σ)
+                  (AKLT.Blueprint.Q.planeInteraction κ W σ)) →
+            And
+              (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (AKLT.Blueprint.Q.planeInteractionMean κ W η))
+              (And
+                (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (AKLT.Blueprint.Q.planeDensityLower κ W η))
+                (And
+                  (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (AKLT.Blueprint.Q.planeDensityUpper κ W η))
+                  (And
+                    (∀ (σ : AKLT.Defs.PlaneConfiguration W),
+                      @LE.le Real Real.instLE
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                          (AKLT.Blueprint.Q.planeDensityLower κ W η) (AKLT.Blueprint.Q.planeProductReference κ W η σ))
+                        (AKLT.Defs.planeLaw κ W η σ))
+                    (And
+                      (∀ (σ : AKLT.Defs.PlaneConfiguration W),
+                        @LE.le Real Real.instLE (AKLT.Defs.planeLaw κ W η σ)
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (AKLT.Blueprint.Q.planeDensityUpper κ W η)
+                            (AKLT.Blueprint.Q.planeProductReference κ W η σ)))
+                      (@Eq Real
+                        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                          (AKLT.Blueprint.Q.planeDensityLower κ W η) (AKLT.Blueprint.Q.planeDensityUpper κ W η))
+                        (@HPow.hPow Real Nat Real
+                          (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                          AKLT.Defs.frameRatio
+                          (@Finset.card (Prod AKLT.Defs.Plane AKLT.Defs.Plane) (AKLT.Defs.internalBonds W))))))))
+def AKLT.Defs.conditionalExpectation.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype ι] →
+    [DecidableEq ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype (S x)] →
+          AKLT.Defs.Weight ((x : ι) → S x) → Finset ι → (((x : ι) → S x) → Complex) → ((x : ι) → S x) → Complex :=
+fun {ι} [Fintype ι] [DecidableEq ι] {S} [(x : ι) → Fintype (S x)] p U f σ =>
+  @HDiv.hDiv Complex Complex Complex (@instHDiv Complex (@DivInvMonoid.toDiv Complex Complex.instDivInvMonoid))
+    (∑ τ,
+      @ite Complex (@AKLT.Defs.AgreeOutside ι S U σ τ) (Classical.propDecidable (@AKLT.Defs.AgreeOutside ι S U σ τ))
+        (@HMul.hMul Complex Complex Complex (@instHMul Complex Complex.instMul) (↑(p τ)) (f τ))
+        (@OfNat.ofNat Complex (nat_lit 0) (@Zero.toOfNat0 Complex Complex.instZero)))
+    (∑ τ,
+      @ite Complex (@AKLT.Defs.AgreeOutside ι S U σ τ) (Classical.propDecidable (@AKLT.Defs.AgreeOutside ι S U σ τ))
+        (↑(p τ)) (@OfNat.ofNat Complex (nat_lit 0) (@Zero.toOfNat0 Complex Complex.instZero)))
+def AKLT.Defs.dirichlet.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype ι] →
+    [DecidableEq ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype (S x)] → AKLT.Defs.Weight ((x : ι) → S x) → (((x : ι) → S x) → Complex) → Real :=
+fun {ι} [inst : Fintype ι] [inst_1 : DecidableEq ι] {S} [inst_2 : (x : ι) → Fintype (S x)] p f =>
+  ∑ x, @AKLT.Defs.blockDirichlet ι inst inst_1 S inst_2 p (@singleton ι (Finset ι) (@Finset.instSingleton ι) x) f

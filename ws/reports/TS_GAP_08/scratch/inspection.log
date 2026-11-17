@@ -1,0 +1,139 @@
+def AKLT.Blueprint.Gap.FarBoundaryEqualityStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+      ∀ y ∉ AKLT.Defs.square a u,
+        Ne.{1} (AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u)) 1 →
+          ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+            (∀ (z : AKLT.Defs.Plane), Ne.{1} z y → Eq.{1} (η z) (ξ z)) →
+              Eq.{1} (P.law (AKLT.Defs.square a u) η) (P.law (AKLT.Defs.square a u) ξ)
+def AKLT.Blueprint.Gap.StoppedHammingConversionStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ) (n : ℕ) (d : ℝ),
+  LE.le.{0} 0 d →
+    LE.le.{0} d (HMul.hMul.{0, 0, 0} p (HPow.hPow.{0, 0, 0} α (HMul.hMul.{0, 0, 0} 16 l))) →
+      LE.le.{0} (HMul.hMul.{0, 0, 0} p (HPow.hPow.{0, 0, 0} α (HMul.hMul.{0, 0, 0} 16 l))) 1 →
+        LE.le.{0} (max.{0} Mstar (AKLT.Defs.geometryThreshold l)) (HPow.hPow.{0, 0, 0} n 8) →
+          LE.le.{0} 4 n →
+            LE.le.{0} (↑n) (AKLT.Defs.shellSpacing (HPow.hPow.{0, 0, 0} n 8)) →
+              Eq.{1} (HMul.hMul.{0, 0, 0} (↑n) (AKLT.Defs.shellSpacing (HPow.hPow.{0, 0, 0} n 8)))
+                  (HPow.hPow.{0, 0, 0} (↑n) 3) →
+                AKLT.Blueprint.Gap.StoppedEstimate P l p Mstar α →
+                  (∀ (a y : AKLT.Defs.Plane),
+                      LE.le.{0}
+                          (↑(Finset.card.{0}
+                              (sdiff.{0} Finset.univ.{0}
+                                (AKLT.Blueprint.Gap.farSites a y (HPow.hPow.{0, 0, 0} n 8)
+                                  (HPow.hPow.{0, 0, 0} (↑n) 3)))))
+                          (HMul.hMul.{0, 0, 0} 25 (HPow.hPow.{0, 0, 0} (↑n) 6)) ∧
+                        LE.le.{0} (↑(Fintype.card.{0} ↥(AKLT.Defs.square a (HPow.hPow.{0, 0, 0} n 8))))
+                          (HMul.hMul.{0, 0, 0} 25 (HPow.hPow.{0, 0, 0} (↑n) 16))) →
+                    (∀ (a : AKLT.Defs.Plane) (η : AKLT.Blueprint.Gap.Config P.Letter),
+                        AKLT.Defs.Probability.{0} (P.law (AKLT.Defs.square a (HPow.hPow.{0, 0, 0} n 8)) η)) →
+                      ∀ (a y : AKLT.Defs.Plane),
+                        Eq.{1}
+                            (AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a (HPow.hPow.{0, 0, 0} n 8)))
+                            1 →
+                          ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+                            (∀ (z : AKLT.Defs.Plane), Ne.{1} z y → Eq.{1} (η z) (ξ z)) →
+                              ∃ c,
+                                LE.le.{0} (AKLT.Blueprint.Gap.couplingCost c)
+                                  (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 25 (HPow.hPow.{0, 0, 0} (↑n) 6))
+                                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 25 (HPow.hPow.{0, 0, 0} (↑n) 16))
+                                      (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 d) (HSub.hSub.{0, 0, 0} n 3))))
+structure AKLT.Blueprint.Gap.PlaneSpec : Type 1
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Gap.PlaneSpec.Letter : AKLT.Defs.Plane → Type
+  AKLT.Blueprint.Gap.PlaneSpec.finite : (x : AKLT.Defs.Plane) → Fintype.{0} (self.Letter x)
+  AKLT.Blueprint.Gap.PlaneSpec.inhabited : ∀ (x : AKLT.Defs.Plane), Nonempty.{1} (self.Letter x)
+  AKLT.Blueprint.Gap.PlaneSpec.law : (W : Finset.{0} AKLT.Defs.Plane) →
+      AKLT.Blueprint.Gap.Config self.Letter → AKLT.Defs.Weight.{0} ((x : ↥W) → self.Letter ↑x)
+constructor:
+  AKLT.Blueprint.Gap.PlaneSpec.mk (Letter : AKLT.Defs.Plane → Type)
+    (finite : (x : AKLT.Defs.Plane) → Fintype.{0} (Letter x))
+    (inhabited : ∀ (x : AKLT.Defs.Plane), Nonempty.{1} (Letter x))
+    (law :
+      (W : Finset.{0} AKLT.Defs.Plane) →
+        AKLT.Blueprint.Gap.Config Letter → AKLT.Defs.Weight.{0} ((x : ↥W) → Letter ↑x)) :
+    AKLT.Blueprint.Gap.PlaneSpec
+def AKLT.Blueprint.Gap.RegularSpec : AKLT.Blueprint.Gap.PlaneSpec → Prop :=
+fun P =>
+  (∀ (W : Finset.{0} AKLT.Defs.Plane) (η : AKLT.Blueprint.Gap.Config P.Letter),
+      AKLT.Defs.PositiveProbability.{0} (P.law W η)) ∧
+    (∀ (W V : Finset.{0} AKLT.Defs.Plane),
+        V ⊆ W →
+          ∀ (η : AKLT.Blueprint.Gap.Config P.Letter) (σ : AKLT.Blueprint.Gap.PlaneConfig P W),
+            Eq.{1}
+              (AKLT.Defs.marginal.{0, 0}
+                (AKLT.Defs.conditionOn.{0} (P.law W η) fun τ => ∀ (x : ↥W), ↑x ∉ V → Eq.{1} (τ x) (σ x)) fun τ =>
+                AKLT.Blueprint.Gap.restrict V (AKLT.Blueprint.Gap.fill P W η τ))
+              (P.law V (AKLT.Blueprint.Gap.fill P W η σ))) ∧
+      ∀ (W : Finset.{0} AKLT.Defs.Plane) (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+        (∀ x ∉ W, LE.le.{0} (AKLT.Defs.setDistance AKLT.Defs.supDist x ↑W) 1 → Eq.{1} (η x) (ξ x)) →
+          Eq.{1} (P.law W η) (P.law W ξ)
+def AKLT.Blueprint.Gap.StoppedEstimate : AKLT.Blueprint.Gap.PlaneSpec → ℕ → ℝ → ℕ → ℝ → Prop :=
+fun P l p Mstar α =>
+  ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+    LE.le.{0} (max.{0} Mstar (AKLT.Defs.geometryThreshold l)) u →
+      ∀ (y : AKLT.Defs.Plane),
+        Eq.{1} (AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u)) 1 →
+          ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+            (∀ (z : AKLT.Defs.Plane), Ne.{1} z y → Eq.{1} (η z) (ξ z)) →
+              ∀ (h : ℕ),
+                LE.le.{0} 4 h →
+                  LE.le.{0} (↑h) (AKLT.Defs.shellSpacing u) →
+                    ∃ c,
+                      LE.le.{0}
+                        (AKLT.Blueprint.Gap.disagreement c
+                          (AKLT.Blueprint.Gap.farSites a y u (HMul.hMul.{0, 0, 0} (↑h) (AKLT.Defs.shellSpacing u))))
+                        (HPow.hPow.{0, 0, 0}
+                          (HSub.hSub.{0, 0, 0} 1
+                            (HMul.hMul.{0, 0, 0} p (HPow.hPow.{0, 0, 0} α (HMul.hMul.{0, 0, 0} 16 l))))
+                          (HSub.hSub.{0, 0, 0} h 3))
+def AKLT.Blueprint.Gap.couplingCost : {ι : Type} →
+  [inst : Fintype.{0} ι] →
+    [inst_1 : DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [inst_2 : (x : ι) → Fintype.{0} (S x)] →
+          {p q : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)} → AKLT.Defs.Coupling.{0, 0} p q → ℝ :=
+fun {ι} [Fintype.{0} ι] [DecidableEq.{1} ι] {S} [(x : ι) → Fintype.{0} (S x)] {p q} c =>
+  ∑ σ, ∑ τ, HMul.hMul.{0, 0, 0} (AKLT.Defs.Coupling.mass.{0, 0} c σ τ) ↑(AKLT.Defs.hamming.{0, 0} σ τ)
+def AKLT.Blueprint.Gap.disagreement : {ι : Type} →
+  [inst : Fintype.{0} ι] →
+    [inst_1 : DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [inst_2 : (x : ι) → Fintype.{0} (S x)] →
+          {p q : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)} →
+            AKLT.Defs.Coupling.{0, 0} p q → Finset.{0} ι → ℝ :=
+fun {ι} [Fintype.{0} ι] [DecidableEq.{1} ι] {S} [(x : ι) → Fintype.{0} (S x)] {p q} c U =>
+  ∑ σ, ∑ τ, ite.{1} (AKLT.Blueprint.Gap.AgreeOn U σ τ) 0 (AKLT.Defs.Coupling.mass.{0, 0} c σ τ)
+def AKLT.Blueprint.Gap.farSites : (a : AKLT.Defs.Plane) →
+  AKLT.Defs.Plane → (u : ℕ) → ℝ → Finset.{0} ↥(AKLT.Defs.square a u) :=
+fun a y u r => {x | LT.lt.{0} r ↑(AKLT.Defs.supDist (↑x) y)}
+structure AKLT.Defs.Coupling.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype.{u_1} Ω] [Fintype.{u_2} Ξ]
+  (p : AKLT.Defs.Weight.{u_1} Ω) (q : AKLT.Defs.Weight.{u_2} Ξ) : Type (max u_1 u_2)
+number of parameters: 6
+fields:
+  AKLT.Defs.Coupling.mass.{u_1, u_2} : Ω → Ξ → ℝ
+  AKLT.Defs.Coupling.nonnegative.{u_1,
+    u_2} : ∀ (x : Ω) (y : Ξ), LE.le.{0} 0 (AKLT.Defs.Coupling.mass.{u_1, u_2} self x y)
+  AKLT.Defs.Coupling.first_marginal.{u_1,
+    u_2} : ∀ (x : Ω), Eq.{1} (∑ y, AKLT.Defs.Coupling.mass.{u_1, u_2} self x y) (p x)
+  AKLT.Defs.Coupling.second_marginal.{u_1,
+    u_2} : ∀ (y : Ξ), Eq.{1} (∑ x, AKLT.Defs.Coupling.mass.{u_1, u_2} self x y) (q y)
+constructor:
+  AKLT.Defs.Coupling.mk.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype.{u_1} Ω] [Fintype.{u_2} Ξ]
+    {p : AKLT.Defs.Weight.{u_1} Ω} {q : AKLT.Defs.Weight.{u_2} Ξ} (mass : Ω → Ξ → ℝ)
+    (nonnegative : ∀ (x : Ω) (y : Ξ), LE.le.{0} 0 (mass x y)) (first_marginal : ∀ (x : Ω), Eq.{1} (∑ y, mass x y) (p x))
+    (second_marginal : ∀ (y : Ξ), Eq.{1} (∑ x, mass x y) (q y)) : AKLT.Defs.Coupling.{u_1, u_2} p q
+def AKLT.Defs.hamming.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] → {S : ι → Type u_2} → ((x : ι) → S x) → ((x : ι) → S x) → ℕ :=
+fun {ι} [Fintype.{u_1} ι] {S} σ τ => Finset.card.{u_1} {x | Ne.{u_2 + 1} (σ x) (τ x)}
+def AKLT.Defs.setDistance : (AKLT.Defs.Plane → AKLT.Defs.Plane → ℕ) → AKLT.Defs.Plane → Set.{0} AKLT.Defs.Plane → ℕ∞ :=
+fun metric x S => ⨅ y, ↑(metric x ↑y)
+ENat.iInf_eq_zero.{u_1} {ι : Sort u_1} {f : ι → ℕ∞} : Eq.{1} (⨅ i, f i) 0 ↔ ∃ i, Eq.{1} (f i) 0
+le_iInf.{u_1, u_4} {α : Type u_1} {ι : Sort u_4} [CompleteLattice.{u_1} α] {f : ι → α} {a : α}
+  (h : ∀ (i : ι), LE.le.{u_1} a (f i)) : LE.le.{u_1} a (iInf.{u_1, u_4} f)
+pow_le_pow_left₀.{u_2} {M₀ : Type u_2} [MonoidWithZero.{u_2} M₀] [Preorder.{u_2} M₀] {a b : M₀} [PosMulMono.{u_2} M₀]
+  [MulPosMono.{u_2} M₀] (ha : LE.le.{u_2} 0 a) (hab : LE.le.{u_2} a b) (n : ℕ) :
+  LE.le.{u_2} (HPow.hPow.{u_2, 0, u_2} a n) (HPow.hPow.{u_2, 0, u_2} b n)

@@ -1,0 +1,90 @@
+def AKLT.Blueprint.Rec.LogCoefficientMonoYStatement : Prop :=
+∀ (c x y y' : ℝ),
+  3 / 5 ≤ c →
+    c ≤ 1 →
+      0 < x →
+        0 < y →
+          y ≤ y' →
+            1 / (3 * AKLT.Defs.logarithmicMean (c * x) y') - 1 / (5 * AKLT.Defs.logarithmicMean x y') ≤
+              1 / (3 * AKLT.Defs.logarithmicMean (c * x) y) - 1 / (5 * AKLT.Defs.logarithmicMean x y)
+def AKLT.Blueprint.Rec.EightTermRemainderStatement : Prop :=
+∀ (t : ℝ),
+  0 < t →
+    t < 1 →
+      0 ≤ Real.log ((1 + t) / (1 - t)) - 2 * ∑ k ∈ Finset.range 8, t ^ (2 * k + 1) / (2 * ↑k + 1) ∧
+        Real.log ((1 + t) / (1 - t)) - 2 * ∑ k ∈ Finset.range 8, t ^ (2 * k + 1) / (2 * ↑k + 1) ≤
+          2 * t ^ 17 / (17 * (1 - t ^ 2))
+def AKLT.Blueprint.Rec.LogEnclosureLowerStatement : Prop :=
+∀ (s : ℚ), 0 < s → s < 1 → ↑(AKLT.Defs.logMeanLower s) ≤ AKLT.Defs.reciprocalLogMean ↑s
+def AKLT.Blueprint.Rec.LogEnclosureUpperStatement : Prop :=
+∀ (s : ℚ), 0 < s → s < 1 → AKLT.Defs.reciprocalLogMean ↑s ≤ ↑(AKLT.Defs.logMeanUpper s)
+def AKLT.Blueprint.Rec.TipReplacementStatement : Prop :=
+∀ (s : AKLT.Defs.Status),
+  s = AKLT.Defs.Status.U ∨ s = AKLT.Defs.Status.D →
+    ∀ k ≤ 3,
+      ∀ (b : Fin k → AKLT.Defs.Vec3),
+        (∀ (i : Fin k), AKLT.Defs.normSq (b i) ≤ 1) →
+          ∃ a scale,
+            0 < scale ∧
+              ∀ (v : AKLT.Defs.Vec3),
+                (AKLT.Defs.siteFunctional AKLT.Defs.Status.U fun n =>
+                    (1 + AKLT.Defs.dot n v) * ∏ i, (1 + AKLT.Defs.dot n ↑(a i))) =
+                  scale * AKLT.Defs.siteFunctional s fun n => (1 + AKLT.Defs.dot n v) * ∏ i, (1 + AKLT.Defs.dot n (b i))
+def AKLT.Blueprint.Rec.BallSlotConvexityStatement : Prop :=
+∀ (b : AKLT.Defs.Vec3),
+  AKLT.Defs.normSq b ≤ 1 →
+    ∃ e t,
+      0 ≤ t ∧
+        t ≤ 1 ∧
+          ∀ (n : AKLT.Defs.Vec3),
+            1 + AKLT.Defs.dot n b = t * (1 + AKLT.Defs.dot n ↑e) + (1 - t) * (1 + AKLT.Defs.dot n (-↑e))
+def AKLT.Blueprint.Rec.LocalMixtureStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (incoming outgoing : AKLT.Defs.Compass),
+      a.o = a.y + outgoing.step →
+        AKLT.Blueprint.Rec.CoveredDepartureV2 a.D a.y incoming outgoing →
+          ∃ k π m weight,
+            (∀ (i : Fin k),
+                0 ≤ weight i ∧ (π i).Covered ∧ ((π i).outgoing = AKLT.Defs.Compass.north ↔ outgoing = incoming)) ∧
+              (a.D.partition a.τ true fun x => 1) = ∑ i, weight i * AKLT.Defs.patternCurrent (π i) (m i) ∧
+                ((AKLT.Defs.traceStep a.D a.y a.o).partition a.τ true fun x => 1) =
+                  ∑ i, weight i * AKLT.Defs.patternNext (π i) (m i)
+def AKLT.Blueprint.Rec.CoveredRatioStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (a : AKLT.Blueprint.Rec.Departure),
+    a.D.status a.y = AKLT.Defs.Status.U →
+      ∀ (incoming outgoing : AKLT.Defs.Compass),
+        a.o = a.y + outgoing.step →
+          AKLT.Blueprint.Rec.CoveredDepartureV2 a.D a.y incoming outgoing →
+            AKLT.Defs.stepRatio a.D a.τ true a.y a.o ≤ ↑(AKLT.Defs.passageFactor (decide (outgoing = incoming)))
+structure AKLT.Blueprint.Rec.Departure : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.Departure.G : Finset AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.Departure.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.Departure.y : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.o : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.auxiliary : self.D.Auxiliary
+  AKLT.Blueprint.Rec.Departure.start : self.D.AdmissibleStart self.y
+  AKLT.Blueprint.Rec.Departure.present : self.o ∈ self.D.presentNeighbours self.y
+constructor:
+  AKLT.Blueprint.Rec.Departure.mk (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G)
+    (y o : AKLT.Defs.Plane) (auxiliary : D.Auxiliary) (start : D.AdmissibleStart y)
+    (present : o ∈ D.presentNeighbours y) : AKLT.Blueprint.Rec.Departure
+@[reducible] def AKLT.Defs.UnitVector : Type :=
+{ a // AKLT.Defs.normSq a = 1 }
+@[reducible] def AKLT.Defs.Vec3 : Type :=
+Fin 3 → ℝ
+def AKLT.Defs.logMeanLower : ℚ → ℚ :=
+fun s =>
+  have t := (1 - s) / (1 + s);
+  2 / (1 - s) * ∑ k ∈ Finset.range 8, t ^ (2 * k + 1) / (2 * ↑k + 1)
+def AKLT.Defs.logMeanUpper : ℚ → ℚ :=
+fun s =>
+  have t := (1 - s) / (1 + s);
+  AKLT.Defs.logMeanLower s + 2 * t ^ 17 / (17 * (1 - t ^ 2) * (1 - s))
+def AKLT.Defs.passageFactor : Bool → ℚ :=
+fun straight => (AKLT.Defs.localThreshold straight)⁻¹
+Finset.univ : Finset (Fin 20)

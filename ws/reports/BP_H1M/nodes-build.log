@@ -1,0 +1,27 @@
+AKLT.Blueprint.H1.NodesPassage: 3.490s exit 0
+AKLT.Blueprint.H1.NodesLeaf: 3.435s exit 0
+AKLT.Blueprint.H1.NodesReduction: 3.563s exit 1
+AKLT/Blueprint/H1/NodesReduction.lean:81:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun x => x ∉ templateTips ∧ (x ∉ templateCorners ∨ patternDegree π x ≠ 0 ∧ ¬SingleReplacement π r x)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+AKLT.Blueprint.H1.NodesReduction: 3.527s exit 0
+AKLT.Blueprint.H1.NodesPauli: 3.534s exit 0
+AKLT.Blueprint.H1.NodesStructure: 3.683s exit 0
+AKLT.Blueprint.H1.NodesSector: 3.621s exit 0
+AKLT.Blueprint.H1.NodesCertificate: 3.459s exit 0
+AKLT.Blueprint.H1.NodesPassage: 3.577s exit 0
+AKLT.Blueprint.H1.NodesLeaf: 3.518s exit 0
+AKLT.Blueprint.H1.NodesReduction: 3.613s exit 0
+AKLT.Blueprint.H1.NodesPauli: 3.677s exit 0
+AKLT.Blueprint.H1.NodesStructure: 4.835s exit 0
+AKLT.Blueprint.H1.NodesSector: 3.841s exit 0
+AKLT.Blueprint.H1.NodesCertificate: 3.645s exit 0
+AKLT.Blueprint.H1.Assembly: 4.003s exit 0
+AKLT/Blueprint/H1/Assembly.lean:166:2: warning: Try this: intro hMom hDegree hStructure hInvert hCov hHermitian hParity hReal hCoordinates hOrthogonal hRotate hCayley
+  hCoefficient hGenerator hExpansion hUnitPair hExchange hPairTransfer hDistinct π hπ r I hI c _ _
+
+Note: This linter can be disabled with `set_option linter.tacticAnalysis.introMerge false`
+AKLT/Blueprint/H1/Assembly.lean:196:2: warning: Try this: intro hStable hWeights hSpan hAdjoint hCommutator hTransfer hStart hWalk hSpectrum π r ε
+
+Note: This linter can be disabled with `set_option linter.tacticAnalysis.introMerge false`

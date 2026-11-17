@@ -1,0 +1,89 @@
+{
+  "started_utc": "2026-11-16T22:12:52Z",
+  "wall_s": 733.8096765390073,
+  "cpu_s": 595.216258,
+  "peak_worker_rss_sum_bytes": 27301117952,
+  "peak_worker_vms_sum_bytes": 33285906432,
+  "worker_hard_as_bytes": 33285996544,
+  "supervisor_soft_as_bytes": 536870912,
+  "total_reservation_bytes": 33822867456,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "requested_modules": 1129,
+  "passed": 1119,
+  "failed": {
+    "AKLT.Cert.H2.Check": {
+      "module": "AKLT.Cert.H2.Check",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/Cert/H2/Check.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/Cert/H2/Check.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 258.86876589200983,
+      "cpu_s": 157.709225,
+      "peak_rss_bytes": 27301117952,
+      "peak_vms_bytes": 33285906432,
+      "max_threads": 5,
+      "timeout": false
+    }
+  },
+  "blocked": {
+    "AKLT.Cert.H2.Finite": [
+      "AKLT.Cert.H2.Check"
+    ],
+    "AKLT.Cert.H2.Main": [
+      "AKLT.Cert.H2.Finite"
+    ],
+    "AKLT.Final.Skeleton": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.PALFit.Solution": [
+      "AKLT.Final.Skeleton"
+    ],
+    "AKLT.W.REC095.Main": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Cert.H2.All": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Cert.H2.Audit": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Final.Audit": [
+      "AKLT.Final.Skeleton"
+    ],
+    "AKLT.PALFit.Audit": [
+      "AKLT.PALFit.Solution"
+    ]
+  },
+  "running": [],
+  "pending": 0,
+  "max_active_workers": 1,
+  "fresh_project_objects": true,
+  "dependency_cache": "existing pinned read-only Mathlib/dependency artifacts; fetching not measured",
+  "official_lake_build": false,
+  "cgroup_enforced": false,
+  "swap_limit_enforced": false,
+  "finished": true
+}

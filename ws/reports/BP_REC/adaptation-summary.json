@@ -1,0 +1,154 @@
+{
+  "frozen_files_preserved": 13,
+  "old_open_kept": 79,
+  "old_open_superseded": 9,
+  "new_open_leaves": 14,
+  "active_open_leaves": 93,
+  "total_manifest_entries": 102,
+  "new_assembly_theorems": [
+    "response_of_leavesV2",
+    "logMeanBounds_of_leavesV2",
+    "responseTyped_shared_of_leavesV2",
+    "legacyTyped_of_sharedV2",
+    "mTheta_of_leavesV2",
+    "rec_of_leavesV2",
+    "kernelOrderScope_of_leavesV2",
+    "longPhaseKernel_of_partsV2",
+    "targets_of_leavesV2",
+    "responseProperty_of_inputsV2",
+    "mainV2_of_blueprintV2"
+  ],
+  "axioms_allowed": true,
+  "new_leaf_proofs": 0,
+  "old_to_new": {
+    "AKLT.Blueprint.Rec.LocalMixtureStatement": "AKLT.Blueprint.Rec.LocalMixtureStatementV2",
+    "AKLT.Blueprint.Rec.CoveredRatioStatement": "AKLT.Blueprint.Rec.CoveredRatioStatementV2",
+    "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatement": "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatementV2",
+    "AKLT.Blueprint.Rec.OnePointPointwiseStatement": "AKLT.Blueprint.Rec.OnePointPointwiseStatementV2",
+    "AKLT.Blueprint.Rec.OnePointSumStatement": "AKLT.Blueprint.Rec.OnePointSumStatementV2",
+    "AKLT.Blueprint.Rec.CoveredClosureStatement": "AKLT.Blueprint.Rec.CoveredClosureStatementV2",
+    "AKLT.Blueprint.Rec.PairClosureStatement": "AKLT.Blueprint.Rec.PairClosureStatementV2",
+    "AKLT.Blueprint.Rec.TerminalExceptionLocationStatement": "AKLT.Blueprint.Rec.TerminalExceptionLocationStatementV2",
+    "AKLT.Blueprint.Rec.TerminalExceptionCountStatement": "AKLT.Blueprint.Rec.TerminalExceptionCountStatementV2"
+  },
+  "build": {
+    "wall_seconds": 29.19,
+    "parallel_limit": 2,
+    "targets": [],
+    "results": [
+      {
+        "module": "AKLT.Blueprint.Rec.NodesV2Local",
+        "exit": 0,
+        "seconds": 3.54,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.NodesV2Local.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/NodesV2Local.olean",
+          "AKLT/Blueprint/Rec/NodesV2Local.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.NodesV2Walk",
+        "exit": 0,
+        "seconds": 3.52,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.NodesV2Walk.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/NodesV2Walk.olean",
+          "AKLT/Blueprint/Rec/NodesV2Walk.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.NodesV2Closure",
+        "exit": 0,
+        "seconds": 3.53,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.NodesV2Closure.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/NodesV2Closure.olean",
+          "AKLT/Blueprint/Rec/NodesV2Closure.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.NodesV2Ordering",
+        "exit": 0,
+        "seconds": 3.49,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.NodesV2Ordering.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/NodesV2Ordering.olean",
+          "AKLT/Blueprint/Rec/NodesV2Ordering.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.NodesV2Handoff",
+        "exit": 0,
+        "seconds": 3.52,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.NodesV2Handoff.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/NodesV2Handoff.olean",
+          "AKLT/Blueprint/Rec/NodesV2Handoff.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.AssemblyV2",
+        "exit": 0,
+        "seconds": 4.83,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.AssemblyV2.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/AssemblyV2.olean",
+          "AKLT/Blueprint/Rec/AssemblyV2.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.AuditV2",
+        "exit": 0,
+        "seconds": 3.46,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.AuditV2.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/AuditV2.olean",
+          "AKLT/Blueprint/Rec/AuditV2.lean"
+        ]
+      },
+      {
+        "module": "AKLT.Blueprint.Rec.AllV2",
+        "exit": 0,
+        "seconds": 3.3,
+        "log": "/home/ubuntu/aklt/reports/BP_REC/adaptation-AKLT.Blueprint.Rec.AllV2.log",
+        "command": [
+          "lean",
+          "-DautoImplicit=false",
+          "-DrelaxedAutoImplicit=false",
+          "-o",
+          "/home/ubuntu/aklt/reports/BP_REC/adaptation-olean/AKLT/Blueprint/Rec/AllV2.olean",
+          "AKLT/Blueprint/Rec/AllV2.lean"
+        ]
+      }
+    ],
+    "cached_count": 45
+  }
+}

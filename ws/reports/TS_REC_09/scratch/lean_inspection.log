@@ -1,0 +1,79 @@
+def AKLT.Blueprint.Rec.KernelLengthMajorantStatement : Prop :=
+∀ (CV q : ℝ),
+  OpenTrailBound CV q →
+    ∀ (θ : ℝ),
+      q ^ 2 < θ → θ ≤ 1 → ∀ (X Y : PairType) (n : ℕ), shiftedLength θ X Y n ≤ ENNReal.ofReal (kernelMajorant CV q θ n)
+def AKLT.Blueprint.Rec.MajorantFiniteStatement : Prop :=
+∀ (CV q : ℝ),
+  OpenTrailBound CV q → ∀ (θ : ℝ), q ^ 2 < θ → θ ≤ 1 → ∑' (n : ℕ), ENNReal.ofReal (kernelMajorant CV q θ n) ≠ ∞
+def AKLT.Blueprint.Rec.UnshiftedWitnessStatement : Prop :=
+AKLT.Blueprint.Top.H3Statement →
+  ∀ (X : PairType),
+    ∑ Y, shiftedKernel 1 X Y * ENNReal.ofReal (witnessReal Y) ≤ ENNReal.ofReal (↑kernelRho * witnessReal X)
+def AKLT.Blueprint.Rec.ShiftPowerIncrementStatement : Prop :=
+∀ (b θ : ℝ),
+  0 < b →
+    b < θ → θ ≤ 1 → ∀ (n s : ℕ), s ≤ n + 1 → 0 ≤ θ ^ (-↑s) - 1 ∧ θ ^ (-↑s) - 1 ≤ (1 - θ) * (↑n + 1) * b ^ (-↑n - 2)
+def AKLT.Blueprint.Rec.TransportChoiceStatement : Prop :=
+∀ (CV q : ℝ),
+  OpenTrailBound CV q →
+    q ^ 2 < transportTheta CV q ∧
+      transportTheta CV q < 1 ∧
+        ↑kernelRho < transportRho ∧
+          transportRho < 1 ∧
+            (1 + q) / 2 < transportTheta CV q ∧ ↑kernelRho + (1 - transportTheta CV q) * transportB CV q ≤ transportRho
+def AKLT.Blueprint.Rec.WitnessPerturbationStatement : Prop :=
+∀ (CV q : ℝ),
+  OpenTrailBound CV q →
+    ∀ (θ ρ : ℝ),
+      (1 + q) / 2 < θ →
+        θ ≤ 1 →
+          0 < ρ →
+            ↑kernelRho + (1 - θ) * transportB CV q ≤ ρ →
+              ∀ (X : PairType),
+                ∑ Y, shiftedKernel 1 X Y * ENNReal.ofReal (witnessReal Y) ≤
+                    ENNReal.ofReal (↑kernelRho * witnessReal X) →
+                  ∑ Y, shiftedKernel θ X Y * ENNReal.ofReal (witnessReal Y) ≤ ENNReal.ofReal (ρ * witnessReal X)
+def AKLT.Blueprint.Rec.ShiftedRowsRealStatement : Prop :=
+∀ (θ ρ : ℝ),
+  0 < θ → θ < 1 → 0 < ρ → ρ < 1 → AKLT.Blueprint.Top.ShiftedWitness θ ρ → RenewalRows realKernel witnessReal θ ρ
+def AKLT.Blueprint.Rec.FiniteKernelTailDominationStatement : Prop :=
+∀ (CV q : ℝ),
+  OpenTrailBound CV q →
+    ∀ (F : PairType → ℤ → ℝ),
+      (∀ (X : PairType) (d : ℤ), 0 ≤ F X d ∧ F X d ≤ 2) →
+        ∀ (X : PairType) (d : ℤ) (N : ℕ),
+          ∑ n ∈ Finset.range N, ∑ Y, ∑ s ∈ Finset.range (n + 2), ↑(kernelLengthCoefficient X Y s n) * F Y (d - ↑s) ≤
+            renewalOp realKernel F X d
+def AKLT.Defs.OpenTrailBound : ℝ → ℝ → Prop :=
+fun CV q =>
+  1 ≤ CV ∧
+    0 < q ∧
+      q < 1 ∧
+        ∀ (n : ℕ) (u : Plane) (incoming : Compass),
+          (∑ w, if IsTrail u incoming w then ↑(trailWeight u incoming w) else 0) ≤ CV * q ^ n
+def AKLT.Blueprint.Top.ShiftedWitness : ℝ → ℝ → Prop :=
+fun θ ρ =>
+  (∀ (X Y : PairType), shiftedKernel θ X Y ≠ ∞) ∧
+    ∀ (X : PairType),
+      ∑ Y, shiftedKernel θ X Y * ENNReal.ofReal ↑(kernelWitness Y) ≤ ENNReal.ofReal (ρ * ↑(kernelWitness X))
+def AKLT.Blueprint.Rec.RenewalRows : (PairType → PairType → ℕ → ℝ) → (PairType → ℝ) → ℝ → ℝ → Prop :=
+fun m h θ ρ =>
+  (∀ (X Y : PairType) (s : ℕ), 0 ≤ m X Y s) ∧
+    (∀ (X : PairType), 0 < h X) ∧
+      (∀ (X : PairType), Summable fun j => m X j.1 j.2 * h j.1 * θ ^ (-↑j.2)) ∧
+        ∀ (X : PairType), ∑' (j : PairType × ℕ), m X j.1 j.2 * h j.1 * θ ^ (-↑j.2) ≤ ρ * h X
+ENNReal.summable_toReal.{u_1} {α : Type u_1} {f : α → ℝ≥0∞} (hsum : ∑' (x : α), f x ≠ ∞) :
+  Summable fun x => (f x).toReal
+ENNReal.tsum_toReal_eq.{u_1} {α : Type u_1} {f : α → ℝ≥0∞} (hf : ∀ (a : α), f a ≠ ∞) :
+  (∑' (a : α), f a).toReal = ∑' (a : α), (f a).toReal
+ENNReal.ofReal_tsum_of_nonneg.{u_1} {α : Type u_1} {f : α → ℝ} (hf_nonneg : ∀ (n : α), 0 ≤ f n) (hf : Summable f) :
+  ENNReal.ofReal (∑' (n : α), f n) = ∑' (n : α), ENNReal.ofReal (f n)
+Summable.tsum_ofReal_ne_top.{u_1} {α : Type u_1} {f : α → ℝ} (hf : Summable f) : ∑' (i : α), ENNReal.ofReal (f i) ≠ ∞
+hasSum_coe_mul_geometric_of_norm_lt_one.{u_5} {𝕜 : Type u_5} [NormedDivisionRing 𝕜] {r : 𝕜} (hr : ‖r‖ < 1) :
+  HasSum (fun n => ↑n * r ^ n) (r / (1 - r) ^ 2)
+hasSum_sq_mul_geometric_of_norm_lt_one.{u_5} {𝕜 : Type u_5} [NormedDivisionRing 𝕜] {r : 𝕜} (hr : ‖r‖ < 1) :
+  HasSum (fun n => ↑n ^ 2 * r ^ n) (r * (1 + r) / (1 - r) ^ 3)
+(1, 5404319552844595 / 4503599627370496, 198603 / 200000)
+(145217 / 1000000, 3 / 20, 176391 / 500000, 357549 / 1000000, 42501 / 125000, 344661 / 1000000)
+(2, 1, 4)

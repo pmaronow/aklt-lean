@@ -1,0 +1,181 @@
+{
+  "raw_counts": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "class_count": 3741,
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "errors": {},
+  "examples": {},
+  "targets": [
+    {
+      "name": "rawClass_510",
+      "line": 1035,
+      "offset": 4210684,
+      "last_bit": 4227067,
+      "first_code": 350890,
+      "last_code": 352255,
+      "first_lane_bits": 8,
+      "last_lane_bits": 8,
+      "raw_words": 90,
+      "invalid_words": 1276,
+      "represented_classes": 90,
+      "sample": [
+        [
+          350890,
+          356,
+          "NNNNWWWWWW"
+        ],
+        [
+          350891,
+          433,
+          "NNNNWWWWWS"
+        ],
+        [
+          350892,
+          1206,
+          "NNNNWWWWSE"
+        ]
+      ],
+      "hex_digits": 4096
+    },
+    {
+      "name": "rawClass_511",
+      "line": 1037,
+      "offset": 4194300,
+      "last_bit": 4210683,
+      "first_code": 349525,
+      "last_code": 350890,
+      "first_lane_bits": 12,
+      "last_lane_bits": 4,
+      "raw_words": 222,
+      "invalid_words": 1144,
+      "represented_classes": 188,
+      "sample": [
+        [
+          349525,
+          115,
+          "NNNNNNNNNN"
+        ],
+        [
+          349526,
+          289,
+          "NNNNNNNNNW"
+        ],
+        [
+          349529,
+          117,
+          "NNNNNNNNWN"
+        ]
+      ],
+      "hex_digits": 4096
+    },
+    {
+      "name": "rawClass_512",
+      "line": 1039,
+      "offset": 4177916,
+      "last_bit": 4194299,
+      "first_code": 348159,
+      "last_code": 349524,
+      "first_lane_bits": 4,
+      "last_lane_bits": 12,
+      "raw_words": 311,
+      "invalid_words": 1055,
+      "represented_classes": 270,
+      "sample": [
+        [
+          348159,
+          218,
+          "NNNESSSSSS"
+        ],
+        [
+          348160,
+          0,
+          "NNNNEEEEEE"
+        ],
+        [
+          348161,
+          1,
+          "NNNNEEEEEN"
+        ]
+      ],
+      "hex_digits": 4096
+    },
+    {
+      "name": "rawClass_513",
+      "line": 1041,
+      "offset": 4161532,
+      "last_bit": 4177915,
+      "first_code": 346794,
+      "last_code": 348159,
+      "first_lane_bits": 8,
+      "last_lane_bits": 8,
+      "raw_words": 152,
+      "invalid_words": 1214,
+      "represented_classes": 152,
+      "sample": [
+        [
+          347136,
+          0,
+          "NNNESEEEEE"
+        ],
+        [
+          347137,
+          371,
+          "NNNESEEEEN"
+        ],
+        [
+          347139,
+          2,
+          "NNNESEEEES"
+        ]
+      ],
+      "hex_digits": 4096
+    },
+    {
+      "name": "rawClass_514",
+      "line": 1043,
+      "offset": 4145148,
+      "last_bit": 4161531,
+      "first_code": 345429,
+      "last_code": 346794,
+      "first_lane_bits": 12,
+      "last_lane_bits": 4,
+      "raw_words": 96,
+      "invalid_words": 1270,
+      "represented_classes": 96,
+      "sample": [
+        [
+          345429,
+          115,
+          "NNNENNNNNN"
+        ],
+        [
+          345430,
+          289,
+          "NNNENNNNNW"
+        ],
+        [
+          345433,
+          117,
+          "NNNENNNNWN"
+        ]
+      ],
+      "hex_digits": 4096
+    }
+  ],
+  "archive_digest": "671475d3333b646b3ace22a555f9a63a74f7bb076f0454f5b480c1e444a95785",
+  "archive_digest_matches_documentation": true
+}

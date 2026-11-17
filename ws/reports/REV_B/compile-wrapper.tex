@@ -1,0 +1,48 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+
+% ---------------------------------------------------------------------------
+% Macros (kept minimal; every macro used in the section files is defined here)
+% ---------------------------------------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Sph}{\mathbb{S}^2}
+\newcommand{\TV}{d_{\mathrm{TV}}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\cs}{c_{\mathrm{s}}}
+\newcommand{\ct}{c_{\mathrm{t}}}
+\newcommand{\Pext}{\mathcal{P}_{\mathrm{ext}}}
+\newcommand{\Dcons}{\mathcal{D}_{\mathrm{cons}}}
+\newcommand{\gapnote}[1]{\textbf{[GAP: #1]}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+\title{Lane B: physical windows and planar topology}
+\maketitle
+\setcounter{section}{4}
+\input{sec5-window.tex}
+\appendix
+\setcounter{section}{1}
+\input{app-topology.tex}
+\end{document}

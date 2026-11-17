@@ -1,0 +1,272 @@
+{
+  "raw_counts_by_length": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "all_code_coverage_errors": 0,
+  "all_representative_errors": [],
+  "all_row_encoding_errors": [],
+  "all_raw_row_errors": [],
+  "all_representative_kind_errors_including_inadmissible_directions": [],
+  "class_edge_counts_by_kind": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "raw_admissible_edge_counts_by_kind": {
+    "0": 54124,
+    "1": 108248,
+    "2": 6720
+  },
+  "targets": [
+    {
+      "declaration": "rawClass_185",
+      "source_line": 385,
+      "bit_range_inclusive": [
+        9535484,
+        9551867
+      ],
+      "intersecting_code_range_inclusive": [
+        794623,
+        795988
+      ],
+      "intersecting_codes": 1366,
+      "raw_codes": 0,
+      "invalid_codes": 1366,
+      "distinct_classes": 0,
+      "admissible_edges_by_kind": {},
+      "coverage_errors": [],
+      "row_errors": [],
+      "first_valid_examples": [],
+      "boundary_lanes": [
+        {
+          "code": 794623,
+          "class_or_sentinel": 3741
+        },
+        {
+          "code": 795988,
+          "class_or_sentinel": 3741
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_186",
+      "source_line": 387,
+      "bit_range_inclusive": [
+        9519100,
+        9535483
+      ],
+      "intersecting_code_range_inclusive": [
+        793258,
+        794623
+      ],
+      "intersecting_codes": 1366,
+      "raw_codes": 35,
+      "invalid_codes": 1331,
+      "distinct_classes": 35,
+      "admissible_edges_by_kind": {
+        "0": 35,
+        "1": 70
+      },
+      "coverage_errors": [],
+      "row_errors": [],
+      "first_valid_examples": [
+        {
+          "code": 793258,
+          "directions": "SEENWWWWWW",
+          "class": 356,
+          "representative": 1706
+        },
+        {
+          "code": 793259,
+          "directions": "SEENWWWWWS",
+          "class": 433,
+          "representative": 3755
+        },
+        {
+          "code": 793260,
+          "directions": "SEENWWWWSE",
+          "class": 2695,
+          "representative": 268972
+        }
+      ],
+      "boundary_lanes": [
+        {
+          "code": 793258,
+          "class_or_sentinel": 356
+        },
+        {
+          "code": 794623,
+          "class_or_sentinel": 3741
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_187",
+      "source_line": 389,
+      "bit_range_inclusive": [
+        9502716,
+        9519099
+      ],
+      "intersecting_code_range_inclusive": [
+        791893,
+        793258
+      ],
+      "intersecting_codes": 1366,
+      "raw_codes": 209,
+      "invalid_codes": 1157,
+      "distinct_classes": 173,
+      "admissible_edges_by_kind": {
+        "0": 181,
+        "1": 362,
+        "2": 33
+      },
+      "coverage_errors": [],
+      "row_errors": [],
+      "first_valid_examples": [
+        {
+          "code": 791893,
+          "directions": "SEENNNNNNN",
+          "class": 115,
+          "representative": 341
+        },
+        {
+          "code": 791894,
+          "directions": "SEENNNNNNW",
+          "class": 289,
+          "representative": 1366
+        },
+        {
+          "code": 791897,
+          "directions": "SEENNNNNWN",
+          "class": 117,
+          "representative": 345
+        }
+      ],
+      "boundary_lanes": [
+        {
+          "code": 791893,
+          "class_or_sentinel": 115
+        },
+        {
+          "code": 793258,
+          "class_or_sentinel": 356
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_188",
+      "source_line": 391,
+      "bit_range_inclusive": [
+        9486332,
+        9502715
+      ],
+      "intersecting_code_range_inclusive": [
+        790527,
+        791892
+      ],
+      "intersecting_codes": 1366,
+      "raw_codes": 317,
+      "invalid_codes": 1049,
+      "distinct_classes": 275,
+      "admissible_edges_by_kind": {
+        "0": 285,
+        "1": 570,
+        "2": 36
+      },
+      "coverage_errors": [],
+      "row_errors": [],
+      "first_valid_examples": [
+        {
+          "code": 790527,
+          "directions": "SEEESSSSSS",
+          "class": 218,
+          "representative": 1023
+        },
+        {
+          "code": 790528,
+          "directions": "SEENEEEEEE",
+          "class": 0,
+          "representative": 0
+        },
+        {
+          "code": 790529,
+          "directions": "SEENEEEEEN",
+          "class": 1,
+          "representative": 1
+        }
+      ],
+      "boundary_lanes": [
+        {
+          "code": 790527,
+          "class_or_sentinel": 218
+        },
+        {
+          "code": 791892,
+          "class_or_sentinel": 114
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_189",
+      "source_line": 393,
+      "bit_range_inclusive": [
+        9469948,
+        9486331
+      ],
+      "intersecting_code_range_inclusive": [
+        789162,
+        790527
+      ],
+      "intersecting_codes": 1366,
+      "raw_codes": 201,
+      "invalid_codes": 1165,
+      "distinct_classes": 201,
+      "admissible_edges_by_kind": {
+        "0": 181,
+        "1": 362,
+        "2": 22
+      },
+      "coverage_errors": [],
+      "row_errors": [],
+      "first_valid_examples": [
+        {
+          "code": 789504,
+          "directions": "SEEESEEEEE",
+          "class": 0,
+          "representative": 0
+        },
+        {
+          "code": 789505,
+          "directions": "SEEESEEEEN",
+          "class": 371,
+          "representative": 3073
+        },
+        {
+          "code": 789507,
+          "directions": "SEEESEEEES",
+          "class": 2,
+          "representative": 3
+        }
+      ],
+      "boundary_lanes": [
+        {
+          "code": 789162,
+          "class_or_sentinel": 3741
+        },
+        {
+          "code": 790527,
+          "class_or_sentinel": 218
+        }
+      ]
+    }
+  ]
+}

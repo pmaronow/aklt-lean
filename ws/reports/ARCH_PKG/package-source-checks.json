@@ -1,0 +1,2492 @@
+{
+  "scope": "local source/config checks; not full preparation",
+  "summary": {
+    "schema_version": 1,
+    "module_required": true,
+    "maximum_lines": 10000,
+    "files_checked": 3
+  },
+  "configuration": {
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "AKLTPalomar.aklt_gap_of_inputs"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ]
+  },
+  "passed": false,
+  "issues": [
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/Definitions.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/NodesFinite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/NodesMain.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/NodesPeriodic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Gap/NodesShell.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/H3/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/H3/Positivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesConsequences.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesCore.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesExact.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesFinite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Mom/NodesMoments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/Definitions.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesEnergy.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesFrames.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesPolynomial.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesQuantum.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesSplits.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesStar.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Q/NodesTight.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/AssemblyV2.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/Counterexample.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/Definitions.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesClosure.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesKernel.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesLocal.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesLogMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesRecursion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesRenewal.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesResponse.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesV2Closure.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesV2Handoff.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesV2Local.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesV2Ordering.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesV2Walk.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Rec/NodesWalk.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Coefficients.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Common.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Computation.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/ComputationV2.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/InputsV2.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Operator.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Quantum.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Response.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Top/Windows.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/Assembly.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/Defs.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/Leaves.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesCut.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesRemoval.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesShell.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesTail.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesTaper.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Blueprint/Win/NodesTopology.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Check.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Data.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Finite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Frames.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Growth.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Mass.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Trails.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Cert/H2/Words.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Challenge/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Challenge/MainV2.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Challenge/Sanity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Automaton.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Automaton10Data.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Computational.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Domain.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/FiniteNetwork.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Frame.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/FrameModel.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Kernel.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Moment.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Operator.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/OperatorContracts.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Pattern.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/PinModel.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Polynomial.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Probability.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Quantum.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/RealOperator.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Response.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Specification.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Stationary.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Defs/Trails.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Final/Inputs.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Certificates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Extension.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Growth.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Gen/Bellman/Quotient.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Blueprint.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/BondAlgebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Casimir.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/CasimirAction.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Divisibility.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Edge.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Hamiltonian.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Polynomial.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/SpinCoordinates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Uniq/Transvectant.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Vendor/QICLean/Analysis/EuclideanEigenvectorBasis.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Vendor/QICLean/Analysis/KernelSpectralGap.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Vendor/QICLean/Analysis/LowEnergyPerturbation.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/Vendor/QICLean/Analysis/ViableSubspace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP018/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP019/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP021/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP022/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP023/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP024/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP025/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP026/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP027/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP028/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP029/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP030/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP031/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP032/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP033/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP034/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP035/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP036/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP037/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP037/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP037/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP037/Weights.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP038/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP039/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP040/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP041/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP042/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Finite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Match.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Patch.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Plane.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Rows.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP045/Window.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP046/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP046/TraceHelpers.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP047/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP048/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP049/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP050/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP052/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP053/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP054/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP055/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP056/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP057/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/GAP058/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM001/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM002/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM003/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM004/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM005/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM006/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM007/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM008/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM009/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM010/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM011/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM012/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM013/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM014/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM015/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM016/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM017/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM018/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM019/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM020/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM021/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM022/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM023/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM024/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM025/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM026/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM027/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM028/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM029/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM030/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/MOM031/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q001/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q002/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q003/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q004/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q005/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q006/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q007/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q008/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q009/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q010/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q011/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q012/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q013/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q014/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q015/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q016/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q017/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q018/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q019/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q020/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q021/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q022/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q023/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q024/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q025/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q026/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q027/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q028/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q029/Coordinates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q029/Diagonal.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q029/Eigenvectors.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q029/Ladder.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q029/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q030/Blocks.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q030/Coordinates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q030/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q031/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q032/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q033/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q034/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q035/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q036/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q037/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q038/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q039/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q040/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q041/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q042/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q043/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q044/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q045/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q046/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q047/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q048/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q049/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q050/Edges.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q050/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q051/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q052/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q053/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q054/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q055/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q056/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q057/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q058/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q059/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q060/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q061/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q061/Product.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q061/Projections.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/Q061/Tensorization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC001/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Bonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Integration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Sums.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC002/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Finite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Integration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC003/Weights.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Algebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Conditioning.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Expansion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/FibreExpansion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Free.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Local.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC004/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Bounds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Fibres.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Free.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Graph.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Local.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Means.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC005/Network.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC010/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC010/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC010/Positive.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC011/Comparison.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC011/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC011/Monotone.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC011/Reindex.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Ambient.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Comparison.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Fibres.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Local.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/LocalProducts.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC012/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/Eliminate.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/NetworkFacts.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/Positive.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/SpinFacts.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC013/Split.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Integral.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Positive.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Sum.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC014/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC015/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Analysis.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Bridge.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Conditioning.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Free.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Graph.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Intervals.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Model.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC016/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Bonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Bounds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Factorization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Network.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Quadrature.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC017/Sums.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC018/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC018/LogMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC018/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC018/Network.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/Conditioning.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/DepartureGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/FreePositive.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/LocalBound.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/LogMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/NetworkBounds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Algebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Conditioning.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Expansion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/FibreExpansion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Free.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Local.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/R4/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/SiteMoments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/SpinGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC019/ThreeMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC020/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Conditioning.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/DepartureBound.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Disintegration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Fibres.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/FreePositivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/LocalBounds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/LogMean.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC021/NetworkFactors.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Factorization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Integrate.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Normalize.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Spin.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Sum.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC022/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC024/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC025/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC027/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC028/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC034/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC035/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC036/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC039/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC041/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC041/Positivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Bonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Enumeration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Factors.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Fibres.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Iteration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/LocalStep.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Normalization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Padding.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/SetMoments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC043/Trails.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC046/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC050/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC054/LocalRules.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC054/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC062/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC064/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC065/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC066/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC067/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC069/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Budget.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Foundations.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Increment.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Mass.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Regroup.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/Shift.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC070/TrailBound.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC071/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC072/Estimates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC072/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC073/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC078/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/Closure.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/ExposureAlgebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/KernelAlgebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/KernelSupport.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/LocalComparison.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/LocalInputs.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/LocalLogComparison.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/OrderedExposure.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/Ordering.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/TraceGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/TraceStatus.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC079/TrailComparison.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Exceptions.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Expansion.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Pointwise.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/SharedCover.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/Summation.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC080/TerminalGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC081/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC081/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC081/Normalization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC081/Positivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC081/Summation.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/IndependentSite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/LocalMoments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Normalization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Bonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Enumeration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Factors.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Fibres.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Iteration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/LocalStep.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Normalization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Padding.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/SetMoments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/PE/Trails.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Partition.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Terminal.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC082/Trail.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC083/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC085/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC086/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC087/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC088/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/ActualDisintegration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/ActualFactorization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Basic.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/CutBonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/CutGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Disintegration.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/ExternalFields.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/FibreFactors.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/FiniteSums.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/InteriorCoordinates.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/InternalBonds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Mixtures.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/PatternFactorization.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Slots.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Template.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/TemplateGeometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC089/Tips.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC090/BallPatterns.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC090/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC090/Mixtures.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC090/Positivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC090/Slots.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Departure.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Factorizations.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Graph.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Integrals.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/OneSite.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Positive.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Remove.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC091/Spin.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC094/Dynamics.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC094/LocalBounds.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC094/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC094/Positivity.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC094/TraceAlgebra.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC096/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC096/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC096/Prefix.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC096/Template.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/REC096/Trace.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/UNIQ_TOP/TorusKernel.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN001/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN002/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN003/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN004/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN005/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN006/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN007/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN008/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN009/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN010/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN011/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN012/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN013/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN014/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN015/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN016/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN017/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN018/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN019/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN020/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN021/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN022/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN023/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN024/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN025/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN026/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN027/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN028/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN029/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN030/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN031/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN032/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN033/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN034/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN035/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN035/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN035/Paths.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN036/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN037/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN038/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN039/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN040/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN041/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN042/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN043/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN044/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN045/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN046/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN047/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN048/Helpers.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN048/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN049/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN050/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN051/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN052/Fiber.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN052/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN052/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN052/Moments.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN052/Polynomial.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN053/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN054/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN055/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN056/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN057/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN058/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN059/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN060/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN061/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN062/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN063/Edges.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN063/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN064/Geometry.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN064/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN064/Polynomial.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN064/Quadrature.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN065/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN066/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN067/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN068/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN069/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN070/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN071/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN072/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN073/Main.lean"
+    },
+    {
+      "code": "package.source_missing",
+      "path": "AKLT/W/WIN074/Main.lean"
+    },
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ]
+}

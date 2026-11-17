@@ -1,0 +1,53 @@
+def AKLT.Blueprint.Q.StarWitnessStatement : Prop :=
+AKLT.Defs.starHamiltonian.HasEigenvalue 4
+def AKLT.Blueprint.Q.PositiveSpectralMinimumStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)),
+  LinearMap.IsSymmetric T →
+    (∀ (ψ : EuclideanSpace ℂ ι), 0 ≤ (inner ℂ ψ (T ψ)).re) →
+      (∃ μ, 0 < μ ∧ T.HasEigenvalue ↑μ) →
+        have g := sInf {μ | 0 < μ ∧ T.HasEigenvalue ↑μ};
+        0 < g ∧ T.HasEigenvalue ↑g ∧ ∀ (μ : ℝ), 0 < μ → T.HasEigenvalue ↑μ → g ≤ μ
+def AKLT.Blueprint.Q.SpectralKernelCoercivityStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)),
+  LinearMap.IsSymmetric T →
+    (∀ (ψ : EuclideanSpace ℂ ι), 0 ≤ (inner ℂ ψ (T ψ)).re) →
+      ∀ (g : ℝ), 0 < g → (∀ (μ : ℝ), 0 < μ → T.HasEigenvalue ↑μ → g ≤ μ) → AKLT.Blueprint.Q.kernelCoercivity T g
+def AKLT.Blueprint.Q.StarAmplificationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)) (n : ℕ)
+  (U : EuclideanSpace ℂ ι ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))),
+  AKLT.Blueprint.Q.amplifiesStar T n U →
+    ∀ (g : ℝ), AKLT.Blueprint.Q.kernelCoercivity AKLT.Defs.starHamiltonian g → AKLT.Blueprint.Q.kernelCoercivity T g
+def AKLT.Blueprint.Q.StateEvaluationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (ψ : AKLT.Challenge.Hilbert L N) (z : AKLT.Challenge.Site L N → AKLT.Defs.Spinor),
+  (MvPolynomial.eval fun v => z v.1 v.2) (AKLT.Blueprint.Q.statePolynomial ψ) = AKLT.Defs.physicalEval ψ z
+def AKLT.Blueprint.Q.VbsHomogeneityStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size), AKLT.Blueprint.Q.siteHomogeneous (AKLT.Challenge.vbsPolynomial L N) fun x => 4
+def AKLT.Blueprint.Q.CoefficientReconstructionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (p : AKLT.Challenge.SpinorPolynomial L N),
+  (AKLT.Blueprint.Q.siteHomogeneous p fun x => 4) → AKLT.Blueprint.Q.statePolynomial (AKLT.Defs.polynomialState p) = p
+def AKLT.Blueprint.Q.PairDiagonalDivisionStatement : Prop :=
+∀ (ψ : AKLT.Blueprint.Q.PairHilbert),
+  AKLT.Blueprint.Q.pairDiagonal ψ = 0 → AKLT.Blueprint.Q.pairSinglet ∣ AKLT.Blueprint.Q.pairPolynomial ψ
+def AKLT.Defs.physicalEval : {L N : AKLT.Challenge.Size} →
+  AKLT.Challenge.Hilbert L N → (AKLT.Challenge.Site L N → AKLT.Defs.Spinor) → ℂ :=
+fun {L N} ψ z => ∑ σ, ψ.ofLp σ * ∏ x, ↑√↑(Nat.choose 4 ↑(σ x)) * z x 0 ^ (4 - ↑(σ x)) * z x 1 ^ ↑(σ x)
+def AKLT.Defs.polynomialState : {L N : AKLT.Challenge.Size} →
+  AKLT.Challenge.SpinorPolynomial L N → AKLT.Challenge.Hilbert L N :=
+fun {L N} p => WithLp.toLp 2 fun σ => p.coeff (AKLT.Challenge.monomialDegree σ) / ∏ x, ↑√↑(Nat.choose 4 ↑(σ x))
+def AKLT.Challenge.monomialDegree : {L N : AKLT.Challenge.Size} →
+  AKLT.Challenge.Configuration L N → AKLT.Challenge.Site L N × Fin 2 →₀ ℕ :=
+fun {L N} σ => Finsupp.equivFunOnFinite.symm fun p => if p.2 = 0 then 4 - ↑(σ p.1) else ↑(σ p.1)
+Module.End.finite_hasEigenvalue.{v, w} {R : Type v} {M : Type w} [CommRing R] [AddCommGroup M] [Module R M]
+  (f : Module.End R M) [IsDomain R] [Module.Finite R M] [Module.IsTorsionFree R M] : {μ | f.HasEigenvalue μ}.Finite
+LinearMap.IsSymmetric.eigenvectorBasis.{u_3, u_4} {𝕜 : Type u_3} [RCLike 𝕜] {E : Type u_4} [NormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] {T : E →ₗ[𝕜] E} [FiniteDimensional 𝕜 E] {n : ℕ} (hT : T.IsSymmetric)
+  (hn : Module.finrank 𝕜 E = n) : OrthonormalBasis (Fin n) 𝕜 E
+eigenvalue_nonneg_of_nonneg.{u_1, u_2} {𝕜 : Type u_1} [RCLike 𝕜] {E : Type u_2} [NormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] {μ : ℝ} {T : E →ₗ[𝕜] E} (hμ : Module.End.HasEigenvalue T ↑μ)
+  (hnn : ∀ (x : E), 0 ≤ RCLike.re (inner 𝕜 x (T x))) : 0 ≤ μ
+Submodule.starProjection_map_apply.{u_1, u_3, u_4} {𝕜 : Type u_1} [RCLike 𝕜] {E : Type u_3} {E' : Type u_4}
+  [NormedAddCommGroup E] [NormedAddCommGroup E'] [InnerProductSpace 𝕜 E] [InnerProductSpace 𝕜 E'] (f : E ≃ₗᵢ[𝕜] E')
+  (p : Submodule 𝕜 E) [p.HasOrthogonalProjection] (x : E') :
+  (Submodule.map (↑f.toLinearEquiv) p).starProjection x = f (p.starProjection (f.symm x))
+Matrix.toEuclideanLin.{u_3, u_7, u_8} {𝕜 : Type u_3} [RCLike 𝕜] {m : Type u_7} {n : Type u_8} [Fintype n]
+  [DecidableEq n] : Matrix m n 𝕜 ≃ₗ[𝕜] EuclideanSpace 𝕜 n →ₗ[𝕜] EuclideanSpace 𝕜 m

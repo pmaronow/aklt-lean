@@ -1,282 +1,273 @@
 STATUS: COMPLETE
 
-| Open leaf (namespace `AKLT.Blueprint.H3`) | Paper label / source lines | Difficulty | Estimated proof lines |
-|---|---|---|---:|
-| [RawSuccessorStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:12) | `l:automaton-quotient` / 315–354 | medium | 180 |
-| [ProjectionRealizationStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:19) | `l:automaton-quotient` / 315–339 | easy | 130 |
-| [PhaseFoldExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:12) | `l:phase-expansion` / 473–506 | medium | 250 |
-| [SingleChangeFactorStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:21) | `l:phase-expansion` / 480–505 | medium | 220 |
-| [ExposureListExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:30) | `l:phase-expansion` / 490–508 | medium | 130 |
-| [LongOrderingMultiplierStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:37) | `l:phase-expansion` / 490–508 | medium | 240 |
-| [PrefixCoefficientCausalityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:53) | `l:phase-expansion` / 509–515 | medium | 220 |
-| [PhaseSplitAlgebraStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:62) | `l:phase-expansion` / 509–515 | medium | 180 |
-| [SuffixWindowValidityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:11) | `l:stationary-domination` / 574–582 | medium | 240 |
-| [SuffixWindowLabelsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:18) | `l:stationary-domination` / 574–582, 612–619 | medium | 280 |
-| [IncidentBondBudgetStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:29) | `l:stationary-domination` / 596–608 | medium | 260 |
-| [DepartureBalanceStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:36) | `l:stationary-domination` / 596–608 | easy | 100 |
-| [KnownSiteMemoryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:44) | `l:stationary-domination` / 584–610 | medium | 300 |
-| [TrueRewardIdentityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:58) | `l:stationary-domination` / 621–639 | medium | 160 |
-| [RewardForgettingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:67) | `l:stationary-domination` / 621–639 | medium | 200 |
-| [LocalCoefficientComparisonStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:94) | `l:stationary-domination` / 612–639 | medium | 200 |
-| [ClosedTrailStepGeometryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:104) | `l:stationary-domination` / 578–582 | easy | 120 |
-| [SuffixWordComparisonStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:115) | `l:stationary-domination` / 641–647 | medium | 320 |
-| [StationaryWordExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:133) | `l:stationary-domination` / 641–647; 677–684 | medium | 180 |
-| [StationaryFreeEdgeStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:13) | `l:stationary-local-global` / 800–813 | medium | 260 |
-| [LongTrailPrefixStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:13) | `l:prefix-domination` / 996–1003 | medium | 170 |
-| [LongRowRegroupingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:49) | `l:prefix-domination` / 996–1006 | medium | 340 |
-| [ReflectionGeometryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:12) | `l:kernel-reflection` / 1035–1044 | medium | 280 |
-| [ReflectionLivePairsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:23) | `l:kernel-reflection` / 1045–1052 | medium | 220 |
-| [ReflectionPairLabelsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:30) | `l:kernel-reflection` / 1050–1059 | medium | 200 |
-| [FirstDirectionPartitionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:12) | `l:stationary-assembly` / 1188–1196 | easy | 150 |
-| [LengthShiftSupportStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:20) | `h:H3` / PLAN:2146–2164 | easy | 110 |
-| [LengthRewardPartitionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:27) | `h:H3` / PLAN:2146–2164 | medium | 240 |
-| [KernelSeriesRegroupingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:52) | `h:H3` / PLAN:2146–2164 | medium | 180 |
-| [CutoffSeriesLiftStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:63) | `h:H3` / PLAN:2146–2164 | easy | 90 |
+| Open leaf (namespace `AKLT.Blueprint.H3`) | Adaptation | Paper label | Difficulty |
+|---|---|---|---|
+| [RawSuccessorStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:12) | kept | `l:automaton-quotient` | medium |
+| [ProjectionRealizationStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:19) | kept | `l:automaton-quotient` | easy |
+| [PhaseFoldExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:12) | kept | `l:phase-expansion` | medium |
+| [SingleChangeFactorStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:21) | kept | `l:phase-expansion` | medium |
+| [ExposureListExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:30) | kept | `l:phase-expansion` | medium |
+| [LongOrderingMultiplierStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:37) | kept | `l:phase-expansion` | medium |
+| [PrefixCoefficientCausalityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:53) | kept | `l:phase-expansion` | medium |
+| [PhaseSplitAlgebraStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean:62) | kept | `l:phase-expansion` | medium |
+| [SuffixWindowValidityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:11) | kept | `l:stationary-domination` | medium |
+| [SuffixWindowLabelsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:18) | kept | `l:stationary-domination` | medium |
+| [IncidentBondBudgetStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:29) | kept | `l:stationary-domination` | medium |
+| [DepartureBalanceStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:36) | kept | `l:stationary-domination` | easy |
+| [KnownSiteMemoryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:44) | kept | `l:stationary-domination` | medium |
+| [TrueRewardIdentityStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:58) | kept | `l:stationary-domination` | medium |
+| [RewardForgettingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:67) | kept | `l:stationary-domination` | medium |
+| [LocalCoefficientComparisonStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:94) | kept | `l:stationary-domination` | medium |
+| [ClosedTrailStepGeometryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:104) | kept | `l:stationary-domination` | easy |
+| [SuffixWordComparisonStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:115) | kept | `l:stationary-domination` | medium |
+| [StationaryWordExpansionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean:133) | kept | `l:stationary-domination` | medium |
+| [StationaryFreeEdgeStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:13) | kept | `l:stationary-local-global` | medium |
+| [LongTrailPrefixStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:13) | kept | `l:prefix-domination` | medium |
+| [LongRowRegroupingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:49) | kept | `l:prefix-domination` | medium |
+| [ReflectionGeometryStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:12) | kept | `l:kernel-reflection` | medium |
+| [ReflectionLivePairsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:23) | kept | `l:kernel-reflection` | medium |
+| [ReflectionPairLabelsStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:30) | kept | `l:kernel-reflection` | medium |
+| [FirstDirectionPartitionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:12) | kept | `l:stationary-assembly` | easy |
+| [LengthShiftSupportStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:20) | kept | `h:H3` | easy |
+| [LengthRewardPartitionStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:27) | kept | `h:H3` | medium |
+| [KernelSeriesRegroupingStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:52) | kept | `h:H3` | medium |
+| [CutoffSeriesLiftStatement](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:63) | kept | `h:H3` | easy |
+| [StationaryCoefficientOffCentreStatementV2](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Stationary.lean:16) | new | `d:stationary-walk` | easy |
+| [StationaryCentreZeroOperatorStatementV2](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Stationary.lean:26) | new | `l:stationary-local-global` | easy |
+| [StationaryContinuationBridgeStatementV2](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Stationary.lean:35) | new | `l:stationary-domination` | medium |
+| [StationaryCertificateBridgeStatementV2](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Stationary.lean:45) | new | `d:stationary-certificate` | medium |
+| [StoppedQuotientIntertwiningStatementV2](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Quotient.lean:38) | new | `l:automaton-quotient` | medium |
 
-Thirty open leaves: 6 easy and 24 medium. Each has an estimated proof size below 400 lines and a suggested 1–2 hour writer route. These are proof-planning estimates, not completed proofs. The heavier exposure, reflection, known-site, and prefix arguments have been split again before reaching this table.
+Current handoff: **30 old leaves kept, 0 superseded, 5 new open leaves**. All thirteen pre-adaptation Lean files, including every existing leaf file, are byte-identical to the adaptation baseline. No new leaf proof was attempted. The first attempt for every remaining proof belongs to a different, cheaper model.
 
-The design task is complete. The AKLT mathematical proof still depends on these thirty closed propositions and on the two finite data checks owned by the computational agent. No unproved fact has been declared as a theorem.
+## Adaptation
 
-## Files
+The repaired shared statement layer is merged into this worktree. This adaptation follows [ARCH_0/stmt-fix.md](/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md) and the whole-paper referee findings in [REF2_5](/home/ubuntu/aklt/reports/REF2_5/report.md), [REF2_6](/home/ubuntu/aklt/reports/REF2_6/report.md), and [REF2_7](/home/ubuntu/aklt/reports/REF2_7/report.md). The old nodes remain true and useful supporting facts; the operator repair is handled by explicit new bridges rather than editing or weakening frozen statements.
 
-| File | Contents |
-|---|---|
-| [Basic.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean) | Phase folds/products, actual suffix windows, finite stationary word weights, finite shift support, reflection and exact concatenation helpers. |
-| [Positivity.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean) | Proved coefficient/reward/product nonnegativity, positive exact witness, and 0<kernelRho<1. |
-| [Bellman.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean) | Proved real-list and rational-stationary adapters to `AKLT.Gen.Bellman.System`, plus the entire Top Bellman interface. |
-| [NodesAutomaton.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean) | Two quotient leaves and proved exact one-row pullback/congruence. |
-| [NodesPhase.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPhase.lean) | Six phase leaves, one derived exposure node, and its proved refinement. |
-| [NodesDomination.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesDomination.lean) | Eleven geometry/counting/reward/path leaves and the explicit scalar predicate `TrueStepFacts`. |
-| [NodesCertificate.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean) | One free-edge comparison leaf; proved ceiling, scaled rational rows, caps, and inside/free certificate soundness. |
-| [NodesPrefix.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean) | Two prefix leaves, proved word equivalence and cutoff monotonicity. |
-| [NodesReflection.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean) | Three reflection leaves, pair refinement, and proved ordering algebra. |
-| [NodesKernel.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean) | Five finite-row/nonnegative-series leaves and proved zero-length normalization. |
-| [Nodes.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Nodes.lean) | `AnalyticLeavesStatement`, the conjunction indexing exactly the thirty open leaves; this aggregate is not an extra leaf. |
-| [Assembly.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean) | All nine target implications and the combined theorem from the leaf package and the two finite checks. |
-| [Audit.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Audit.lean) | Kernel-checked closed-Prop checks, exact declaration inventory, and axiom checks for every exported theorem. |
-| [leaves.json](/home/ubuntu/aklt/reports/BP_H3M/leaves.json) | Full Lean statements, definitions/library dependencies, paper pointers, suggested proof routes, budgets, and eight trap checks for each open leaf. |
-| [declarations.log](/home/ubuntu/aklt/reports/BP_H3M/declarations.log) | Exact Lean-printed statements/types of every exported declaration and all theorem axiom reports. |
-| [axioms.json](/home/ubuntu/aklt/reports/BP_H3M/axioms.json) | Machine-readable axiom inventory for all 52 exported theorems. |
-| [retained-proofs.json](/home/ubuntu/aklt/reports/BP_H3M/retained-proofs.json) | Author-rule policy, exact inventory of the forty preexisting leaf/supporting proofs, assembly classification, and unchanged Lean source hashes. |
-| [build.log](/home/ubuntu/aklt/reports/BP_H3M/build.log), [audit.log](/home/ubuntu/aklt/reports/BP_H3M/audit.log), [dependency-check.log](/home/ubuntu/aklt/reports/BP_H3M/dependency-check.log) | Successful build, full audit, and checked library-reference logs. |
-| [source-sha256.txt](/home/ubuntu/aklt/reports/BP_H3M/source-sha256.txt) | Paper/plan/fallback/reuse-map snapshot hashes. |
+Names in the target table are in `AKLT.Blueprint.Top` unless explicitly marked H3-local. “New leaves” means additional open obligations; no old leaf body was changed.
 
-All source changes are under `AKLT/Blueprint/H3/`, with namespace `AKLT.Blueprint.H3`. No existing Top, Defs, Gen, Vendor, or other owner source file was edited. `make_manifest.py` and `make_report.py` reproduce the manifest/audit source and report artifacts in this report directory.
-
-## Author rule and proofs retained from before it
-
-From the author-rule message onward, every first Lean leaf-proof attempt belongs to a different, cheaper model. This includes short proofs and checker soundness. This blueprint architect only writes statements, definitions, designs, executable computations/prototypes and proved assembly implications. Proofs already written before that message are retained.
-
-This update changes the report and manifest metadata only. No Lean proof was added, extended, or attempted after the new instruction. All thirty remaining proof obligations stay open in `leaves.json`, each with the cheaper-model-first assignment rule. No executable checker with an unlisted pending soundness obligation was added.
-
-The following forty existing leaf or supporting proofs are retained under the explicit exception. Names use namespace `AKLT.Blueprint.H3`; exact statements and axiom lists are in `retained-proofs.json` and `declarations.log`. Implication-only target/refinement assemblies and the existing Bellman alias are inventoried separately in `retained-proofs.json`.
-
-| Existing proof | Module | Role |
+| Old target | New target | Changed/new leaves and adaptation |
 |---|---|---|
-| [reflectPair_injective](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean:209) | `Assembly` | supporting proof |
-| [ceiling_rows](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean:261) | `Assembly` | supporting proof |
-| [reflectSite_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:84) | `Basic` | supporting proof |
-| [reflectDirection_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:88) | `Basic` | supporting proof |
-| [reflectWord_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:91) | `Basic` | supporting proof |
-| [takeWord_append](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:101) | `Basic` | supporting proof |
-| [listSystem_step](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:17) | `Bellman` | supporting proof |
-| [listSystem_exact](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:47) | `Bellman` | supporting proof |
-| [bellmanSoundness_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:71) | `Bellman` | leaf / Top witness |
-| [stationarySystem_step](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:103) | `Bellman` | supporting proof |
-| [stationary_finite_le](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:123) | `Bellman` | supporting proof |
-| [rawBackward_pullback](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:26) | `NodesAutomaton` | supporting proof |
-| [rawBackward_congr](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:55) | `NodesAutomaton` | supporting proof |
-| [coefficientCeiling_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:24) | `NodesCertificate` | leaf / Top witness |
-| [rational_scaled_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:32) | `NodesCertificate` | supporting proof |
-| [potential_bounds](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:46) | `NodesCertificate` | supporting proof |
-| [checked_free_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:64) | `NodesCertificate` | supporting proof |
-| [checked_inside_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:79) | `NodesCertificate` | supporting proof |
-| [kernelLengthRow_zero](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:33) | `NodesKernel` | supporting proof |
-| [kernelPartialRow_eq_sum](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:42) | `NodesKernel` | supporting proof |
-| [wordSplit_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:25) | `NodesPrefix` | leaf / Top witness |
-| [firstDirectionPartialRow_mono](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:63) | `NodesPrefix` | supporting proof |
-| [reflectionOrderingAlgebra_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:66) | `NodesReflection` | leaf / Top witness |
-| [passageFactor_pos](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:9) | `Positivity` | supporting proof |
-| [kernelRho_pos_lt_one](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:12) | `Positivity` | supporting proof |
-| [kernelWitness_pos](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:15) | `Positivity` | supporting proof |
-| [pairCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:18) | `Positivity` | supporting proof |
-| [witnessKappa_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:24) | `Positivity` | supporting proof |
-| [relaxedReward_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:30) | `Positivity` | supporting proof |
-| [phaseTransition_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:39) | `Positivity` | supporting proof |
-| [truePhaseCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:44) | `Positivity` | supporting proof |
-| [stationaryCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:48) | `Positivity` | supporting proof |
-| [freeCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:55) | `Positivity` | supporting proof |
-| [prefixPhases_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:62) | `Positivity` | supporting proof |
-| [exposureSum_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:78) | `Positivity` | supporting proof |
-| [closedContribution_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:85) | `Positivity` | supporting proof |
-| [responseKappa_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:92) | `Positivity` | supporting proof |
-| [kernelLengthCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:101) | `Positivity` | supporting proof |
-| [kernelLengthRow_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:115) | `Positivity` | supporting proof |
-| [stationaryWordValue_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:124) | `Positivity` | supporting proof |
+| `AutomatonQuotientStatement` | Same shared Top target, plus H3-local `AutomatonQuotientPaperStatementV2` | Add `StoppedQuotientIntertwiningStatementV2`; state both terminal-indicator and terminal-reward pullbacks and use frozen raw-successor closure. |
+| `Automaton10Statement` | `Automaton10StatementV2` | External finite-check owner supplies the designated `Automaton10Data.supplied` archive checks. No local numeric proof or existential substitute. |
+| `PhaseExpansionStatement` | `PhaseExpansionStatementV2`, plus H3-local `LongTrailPhaseExpansionStatementV2` | No new leaf: restrict the frozen general algebra to `ClosedTrail X w`; use the actual kernel contribution only for n>12. Chronological order within each type is `longOrdering`, not merely a type-order predicate. |
+| `StationaryDominationStatement` | `StationaryDominationStatementV2` | Add `StationaryCoefficientOffCentreStatementV2` and `StationaryContinuationBridgeStatementV2`; the frozen closed-trail geometry supplies non-centre destinations. |
+| `BellmanSoundnessStatement` | Unchanged | Reuse the preexisting proved generic Bellman interface and its frozen adapters. No new Bellman leaf proof. |
+| `StationaryLocalGlobalStatement` | `StationaryLocalGlobalStatementV2` | Add `StationaryCertificateBridgeStatementV2`, `StationaryCentreZeroOperatorStatementV2`, and the continuation bridge. PassesV2 supplies the checked zero centre value. |
+| `PrefixDominationStatement` | `PrefixDominationStatementV2` | Certificate bridge transfers the premise to the frozen prefix assembly; prefix expressions and true rows are unchanged. |
+| `KernelReflectionStatement` | Unchanged | All reflection leaves and the existing B-only assembly are kept. |
+| `StationaryCheckStatement` | `StationaryCheckStatementV2` | External finite-check owner supplies full PassesV2 tables for the same designated quotient as Automaton10StatementV2. |
+| `StationaryAssemblyStatement` | `StationaryAssemblyStatementV2` | Certificate bridge transfers all five cases; exact prefix ceilings, row partitions, reflection and ENNReal assembly remain unchanged. |
+| `H3Statement` | Unchanged semantic `H3Statement` | Obtain it from the repaired stationary assembly with both archive-bound V2 finite checks. No `Top.H3StatementV2` exists or is needed. |
+| `InputsStatement` | `InputsStatementV2` | New `inputs_of_leaves_and_other_partsV2` supplies H3 and retains both V2 finite checks; H1, H2, the rate comparisons and H1 finite-data coverage remain explicit other-lane inputs. |
+| `mainV2_of_parts` | `mainV2_of_partsV2` | New `mainV2_of_H3_and_other_partsV2` calls the repaired Top assembly with all foreign Rec/window/quantum/uniqueness contracts explicit. |
 
-The explicit closed leaf witnesses already proved are `coefficientCeiling_proved : CoefficientCeilingStatement`, `wordSplit_proved : WordSplitStatement`, and `reflectionOrderingAlgebra_proved : ReflectionOrderingAlgebraStatement`. The preexisting `bellmanSoundness_proved` proves the requested Top Bellman interface outright. Their proofs are kept; they are not reopened or reattempted.
+### Referee findings and their disposition
 
-## Target assembly and exported statements
+- **Closure neighbour pairs (REF2_5 finding 1):** the Rec lane owns the ordinary-domain closure statement and must restrict it to distinct nonremoved non-arrival neighbours. H3 already erases the arrival neighbour in `responseNeighbours`; its frozen live-pair/reward leaves do not claim closure for all neighbours. No broader pair-domain claim is added here.
+- **Short-trail domain (REF2_5 finding 2):** `ClosedTrail X w` is the existing first-hit kernel-trail predicate, not a graph-theoretic cycle. The V2 phase target binds X and assumes that predicate. The existing short ordering remains the exact rational-key ordering, including zero-key and index tie branches.
+- **Phase ordering (REF2_6 finding 2):** `longOrdering` filters `List.finRange n`, so straight visits and then turns are each chronological. The extra assembled `LongTrailPhaseExpansionStatementV2` identifies the phase fold with `closedContribution` only when 12<n. For shorter kernel trails the shared Top V2 formula concerns the separate longOrdering, not the prescribed short kernelOrdering. A length-twelve prefix of a long trail retains the long-trail phase weights.
+- **Terminal data (REF2_6 finding 3):** the shared Top quotient contract already takes a quotient G and a position-only terminal test. The new general stopped leaf separately quantifies raw and quotient tests/rewards, assumes both pullbacks on RawWindow states, and requires the quotient reward to vanish off the stopping set. Its R=0 case explicitly uses reward descent; raw-only rewards of the referee counterexample are excluded.
+- **Missing numerical witnesses (REF2_6 critical finding):** no finite witness existence is inferred from soundness or enumeration. Automaton10StatementV2 and StationaryCheckStatementV2 are hypotheses. Their concrete quotient is the same `Automaton10Data.supplied`. Compiling its literal definition is not claimed to prove raw coverage or Correct. The H1 handoff explicitly retains H1FiniteDataStatementV2.
+- **Appendix D (REF2_7):** its sufficient certificate implication needs no H3 mathematical change. H1 finite-data/sector coverage remains an external input; this lane does not claim to discharge it.
 
-All assembly hypotheses are closed Props. The combined export has exactly the following type (the local namespace resolves the short names):
+### Why the frozen graph still suffices
 
-```lean
-theorem allTargets_of_leaves_and_checks (h : AnalyticLeavesStatement)
-    (hAutomaton : Top.Automaton10Statement) (hCheck : Top.StationaryCheckStatement) :
-    Top.AutomatonQuotientStatement ∧ Top.PhaseExpansionStatement ∧
-    Top.StationaryDominationStatement ∧ Top.BellmanSoundnessStatement ∧
-    Top.StationaryLocalGlobalStatement ∧ Top.PrefixDominationStatement ∧
-    Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatement ∧ Top.H3Statement
-```
+The repair moves the centre-destination zero test before the known-site branch. The operators can therefore differ on arbitrary functions. The new leaves state only the correct restricted identities: coefficient equality off centre, operator equality on centre-zero functions, equality of fixed-target-reward continuation sums, and transfer of passing integer rows whose centre entries are checked zero. The V2 assemblies explicitly consume these identities; none is silently assumed or proved here.
 
-The eight analytic interfaces also have separate assemblies, so they can be used before the finite data checks are available. Exact types for these exports follow; helper signatures and every leaf body are also in `declarations.log`.
+A V2 certificate maps to a legacy passing certificate through the new open certificate bridge. The existing local/global theorem then provides its nonnegative capped potential and legacy Bellman row. The centre-zero operator bridge transfers that row to stationaryApplyV2, while the continuation bridge transfers every finite horizon. True closed trails avoid centre-destination edges by the frozen geometric leaf, which transfers their pointwise coefficient bound. This preserves every true path and prefix multiplicity without copying the old eleven domination leaves.
+
+All thirty old leaves are therefore `kept`; none is `superseded`. Their exact statements, modules and source bytes are unchanged. `status`/`adaptation_status` in leaves.json record kept/new disposition, and `proof_status: open` records their unproved mathematical status.
+
+## Files and reproduction
+
+| New or updated artifact | Contents |
+|---|---|
+| [NodesV2Stationary.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Stationary.lean) | Four closed open bridges to the corrected coefficient/operator, finite continuation sum and passing integer certificate. |
+| [NodesV2Quotient.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2Quotient.lean) | Two stopped operator definitions, one closed open terminal-data intertwining leaf, and the assembled paper-facing quotient target. |
+| [NodesV2.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesV2.lean) | Five-leaf index package and the explicit long-trail phase target; these packages/targets are not additional leaves. |
+| [AssemblyV2.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/AssemblyV2.lean) | Thirteen proved assembly implications, including all nine repaired/unchanged H3 targets, referee clarifications, InputsStatementV2 and mainV2_of_partsV2 handoffs. |
+| [AuditV2.lean](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/AuditV2.lean) | New closed-Prop/type/axiom audit; frozen Audit.lean is retained unchanged and was freshly rechecked. |
+| [leaves.json](/home/ubuntu/aklt/reports/BP_H3M/leaves.json) | All 35 open statements, with each old leaf marked kept, each new leaf marked new/open, exact statements, paper/reuse pointers, budgets and eight trap categories. |
+| [frozen-v1-files.json](/home/ubuntu/aklt/reports/BP_H3M/frozen-v1-files.json) | Baseline SHA-256 for all thirteen pre-adaptation Lean files. |
+| [declarations-v2.log](/home/ubuntu/aklt/reports/BP_H3M/declarations-v2.log), [axioms-v2.json](/home/ubuntu/aklt/reports/BP_H3M/axioms-v2.json) | Exact new declarations and fresh axiom inventory for all 65 old/new exported theorems. |
+| [build_adaptation.py](/home/ubuntu/aklt/reports/BP_H3M/build_adaptation.py) | Sequential, cached olean-only builder. It compiles imported AKLT modules only, uses prebuilt Mathlib and emits no C for the large archive literal. |
+| [make_adaptation.py](/home/ubuntu/aklt/reports/BP_H3M/make_adaptation.py), [make_adaptation_report.py](/home/ubuntu/aklt/reports/BP_H3M/make_adaptation_report.py) | Current manifest/new audit and report generators. They never regenerate frozen leaf or audit sources. |
+| [adaptation-sources-sha256.json](/home/ubuntu/aklt/reports/BP_H3M/adaptation-sources-sha256.json) | Hashes for repaired source contracts and all three referee reports. |
+| [report-pre-adaptation.md](/home/ubuntu/aklt/reports/BP_H3M/report-pre-adaptation.md), [leaves-pre-adaptation.json](/home/ubuntu/aklt/reports/BP_H3M/leaves-pre-adaptation.json) | Archived original handoff, including the prior build-scheduling note and leaf designs. The older make_manifest.py/make_report.py are V1-only archive generators; use the new adaptation generators. |
+
+Only the five new Lean files named above were written. No existing Lean file or Top/Defs/Gen/Vendor source was edited. No sub-agent or new leaf proof was used. All forty preexisting leaf/supporting proofs are retained under the author exception and listed below.
+
+## Exported V2 assembly statements
+
+All assembly hypotheses are closed Props. The combined declaration is:
 
 ```lean
-theorem automatonQuotient_of_nodes (hRaw : RawSuccessorStatement)
-    (hProjection : ProjectionRealizationStatement) : Top.AutomatonQuotientStatement
-
-theorem phaseExpansion_of_nodes (hFold : PhaseFoldExpansionStatement)
-    (hFactor : SingleChangeFactorStatement) (hExposure : LongExposureExpansionStatement)
-    (hCausal : PrefixCoefficientCausalityStatement) (hSplit : PhaseSplitAlgebraStatement) :
-    Top.PhaseExpansionStatement
-
-theorem stationaryDomination_of_nodes
-    (hValid : SuffixWindowValidityStatement) (hLabels : SuffixWindowLabelsStatement)
-    (hIncident : IncidentBondBudgetStatement) (hBalance : DepartureBalanceStatement)
-    (hKnown : KnownSiteMemoryStatement) (hReward : TrueRewardIdentityStatement)
-    (hForget : RewardForgettingStatement) (hLocal : LocalCoefficientComparisonStatement)
-    (hGeometry : ClosedTrailStepGeometryStatement) (hWord : SuffixWordComparisonStatement)
-    (hExpansion : StationaryWordExpansionStatement) : Top.StationaryDominationStatement
-
-theorem bellmanSoundness : Top.BellmanSoundnessStatement
-
-theorem stationaryLocalGlobal_of_nodes (hFree : StationaryFreeEdgeStatement) :
-    Top.StationaryLocalGlobalStatement
-
-theorem prefixDomination_of_nodes (hPhase : Top.PhaseExpansionStatement)
-    (hDomination : Top.StationaryDominationStatement) (hGlobal : Top.StationaryLocalGlobalStatement)
-    (hPrefix : LongTrailPrefixStatement) (hRegroup : LongRowRegroupingStatement) :
-    Top.PrefixDominationStatement
-
-theorem kernelReflection_of_nodes (hGeometry : ReflectionGeometryStatement)
-    (hPairs : ReflectionPairsStatement) : Top.KernelReflectionStatement
-
-theorem stationaryAssembly_of_nodes (hPrefix : Top.PrefixDominationStatement)
-    (hReflection : Top.KernelReflectionStatement) (hPartition : FirstDirectionPartitionStatement)
-    (hSupport : LengthShiftSupportStatement) (hLength : LengthRewardPartitionStatement)
-    (hSeries : KernelSeriesRegroupingStatement) (hLift : CutoffSeriesLiftStatement) :
-    Top.StationaryAssemblyStatement
-
-theorem h3_of_checks (_hAutomaton : Top.Automaton10Statement)
-    (hCheck : Top.StationaryCheckStatement) (hAssembly : Top.StationaryAssemblyStatement) :
-    Top.H3Statement
-
+theorem allTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement)
+    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)
+    (hCheck : Top.StationaryCheckStatementV2) :
+    Top.AutomatonQuotientStatement ∧ Top.PhaseExpansionStatementV2 ∧
+    Top.StationaryDominationStatementV2 ∧ Top.BellmanSoundnessStatement ∧
+    Top.StationaryLocalGlobalStatementV2 ∧ Top.PrefixDominationStatementV2 ∧
+    Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatementV2 ∧ Top.H3Statement
 ```
 
-`longExposureExpansion_of_nodes` proves the internal exposure node from the two smaller list/order leaves. `reflectionPairs_of_nodes` proves the internal pair node from the live-pair bijection and scalar labels. `CoefficientCeilingStatement`, `WordSplitStatement`, and `ReflectionOrderingAlgebraStatement` have proved witnesses in their node files and are not open leaves.
+`paperTargets_of_leaves_and_checksV2` adds the stopped-terminal and long-order qualifications. The other-lane handoffs are explicit:
 
-## Reuse and assembly reasoning
+```lean
+theorem paperTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement)
+    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)
+    (hCheck : Top.StationaryCheckStatementV2) :
+    (Top.AutomatonQuotientStatement ∧ Top.PhaseExpansionStatementV2 ∧
+      Top.StationaryDominationStatementV2 ∧ Top.BellmanSoundnessStatement ∧
+      Top.StationaryLocalGlobalStatementV2 ∧ Top.PrefixDominationStatementV2 ∧
+      Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatementV2 ∧ Top.H3Statement) ∧
+    AutomatonQuotientPaperStatementV2 ∧ LongTrailPhaseExpansionStatementV2
 
-`Bellman.lean` encodes a real edge list with natural-number labels, including repeated edges by their list indices. Its exact step and iterate bridges transfer `System.horizon_le` and `System.total_le` to the Top real-list statement. Terminal support is retained in the Top interface; the bound itself is stronger and does not need that support premise. `System` already supplies the generic first-hit path interpretation. No normalization, resolvent, eigenvalue, or stochasticity premise was added.
+theorem inputs_of_leaves_and_other_partsV2 (h : AnalyticLeavesStatement)
+    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)
+    (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement) (hH2 : Top.H2Statement)
+    (hRates : certifiedRate < (2499 / 2500 : ℚ) ∧ (2499 / 2500 : ℚ) < 1)
+    (hH1Data : Top.H1FiniteDataStatementV2) : Top.InputsStatementV2
 
-`NodesCertificate.rational_scaled_row` specializes the already proved `Gen.Bellman.scaled_row_sound`. The assembly applies that result to every free and inside row, uses caps and the one open model-specific free-edge inequality outside the square, and then applies `System.horizon_le` through the rational stationary adapter. The local/global and prefix sums are therefore actual lattice operators with exact rational weights. No periodic spatial identification is introduced.
+theorem mainV2_of_H3_and_other_partsV2 (h : AnalyticLeavesStatement)
+    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)
+    (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement) (hH2 : Top.H2Statement)
+    (hRates : certifiedRate < (2499 / 2500 : ℚ) ∧ (2499 / 2500 : ℚ) < 1)
+    (hH1Data : Top.H1FiniteDataStatementV2) (hRec : Top.RecStatement)
+    (hCut : Top.CutMOSStatement) (hMainW : Top.MainWStatement) (hKernel : Top.TorusKernelStatement) :
+    AKLT.Challenge.MainStatementV2
+```
 
-The domination assembly derives the at-most-two-departures budget from two smaller counting leaves, supplies every field of `TrueStepFacts`, transfers quotient successors through `Correct`, compares each concrete suffix word, and only then sums over words and horizons. The prefix assembly uses exact short ordering through twelve and splits every longer contribution at twelve; surviving prefixes and quotient multiplicities are explicitly preserved.
+Exact signatures for the component assemblies and definitions are in `declarations-v2.log`. The H1/H2 rate conjunction is a closed other-lane numerical input, not an additional H3 leaf. The five V2 leaf definitions have no theorem witnesses; each first proof attempt remains assigned to a future different, cheaper model.
 
-The final assembly partitions each row by its first direction, uses only B north/south reflection, and proves the final ceiling arithmetic by rational `norm_num`/`linarith`. It then obtains the full ENNReal row by finite type/shift partition plus nonnegative series regrouping and lifting from all finite cutoffs. The exact dyadic `kernelWitness .C` is used throughout.
+## New leaf statements and trap review
 
-## Trap review
+Every new leaf has its full exact closed statement, a proof estimate no larger than 220 lines, library/definition dependencies and suggested route in leaves.json. No new leaf type takes another leaf Statement as a hypothesis. The stopped leaf takes an explicit mathematical raw-successor closure premise, supplied by RawSuccessorStatement in the proved paper-facing quotient assembly.
 
-Each of the thirty entries in `leaves.json` contains separate checks for missing premises, vacuity, empty/degenerate cases, coercions, Finset/Fintype/list sums, natural subtraction, zero denominators, and instances. These are design reviews, not substitute proofs of the open leaves. The manifest validator checks that every leaf occurs exactly once in the aggregate, has no other open-leaf constant in its type, has all eight trap fields, and has a proof-size estimate at most 400.
+| New leaf | Principal missing-premise/degenerate-case trap checked |
+|---|---|
+| `StationaryCoefficientOffCentreStatementV2` | Non-centre destination is indispensable; no arbitrary-edge equality is stated. Memory zero and malformed quotient fields are allowed because the literal guard identity remains valid. |
+| `StationaryCentreZeroOperatorStatementV2` | F must vanish at the centre for every phase/class. Signed rational F is allowed because this is equality, not a monotonicity argument. |
+| `StationaryContinuationBridgeStatementV2` | Uses exactly stationaryReward X, which is zero at the centre. R=0 includes the zero-step reward. It is not an arbitrary-initial-data assertion. |
+| `StationaryCertificateBridgeStatementV2` | Centre-zero extended values are part of PassesV2. Rounded natural coefficients multiply zero there; both integer scales remain distinct. No passing data is constructed. |
+| `StoppedQuotientIntertwiningStatementV2` | Both terminal tests and rewards descend on all valid raw states. Reward support, raw-successor closure, m≥1 and revisit arrival-independence are explicit; directions/phases retain multiplicity. |
 
-- Positive memory is explicit for raw successor closure; every suffix window is used only at i≥10. The permanent known-site argument has L≥12, which forces i−10≥2 before remembered indices are compared to the two initial departures.
-- Cutoff zero, zero-length paths, empty phase products, empty live-pair sets, zero rewards, the split L=0 or L=n, and the exact hit at length twelve are covered. A length-twelve hit belongs only to the short sum. The generic phase identities allow signed rewards and never divide by a reward.
-- The coefficient-comparison leaf requires actual raw validity, non-revisit arrival consistency, one-way revisit detection, first-visit labels, reward domination, current/next terminal exclusions, and known-site safety through `TrueStepFacts`. The assembly constructs this predicate from the smaller leaves; its definition does not repeat the desired inequality.
-- Directions and next phases remain separate labels, including parallel quotient successors and duplicate list edges. Prefix words remain individually indexed; passing to a quotient never divides by a fibre size. Every use of a list-to-Finset conversion has explicit Nodup.
-- Rational sums are converted to ENNReal only after proved nonnegativity. Full series use ENNReal, whose divergent sum cannot silently collapse to zero. The zero-length row is proved zero before converting Icc 1 R cutoff bounds into an all-length tsum.
-- All divisions use fixed positive denominators: the two local thresholds, 3, 5, the dyadic witness denominator, 2^16, and 2^48. This route does not divide by 1 minus a numerically estimated spectral radius.
-- The type/shift decomposition keeps `kernelOrdering w` fixed; it does not optimize the ordering again for each component reward. Only the B target is reflection-fixed, so no C-row reflection claim enters any leaf.
-- Lake compiled the files with the project’s `autoImplicit = false` and `relaxedAutoImplicit = false`. All leaf parameters are quantified within the definitions; no section variable or extra instance parameter is inferred. Fintypes are the concrete Defs instances.
+The complete per-leaf review retains all eight original categories: missing premises, vacuity, empty/degenerate cases, coercions, finite/list sums, natural subtraction, zero denominators and instances. New equalities are rational and finite, add no variable division and no extra natural subtraction, and introduce no dropped instance binder. Existing cutoff-zero, length-twelve-hit, B-only reflection, integer ceiling and nonnegative ENNReal series checks are unchanged.
 
-## Top / Defs problems found
+## Retained pre-rule proofs
 
-No false, ill-typed, or paper-divergent target declaration was found in this review. No V2 replacement was needed, and no Top or Defs declaration was changed.
+These forty leaf/supporting proofs were already written before the author’s cheaper-model-first rule. They remain byte-identical, were freshly rechecked against the repaired layer, and have not been reopened or extended. Exact types and the original retention inventory are in [retained-proofs.json](/home/ubuntu/aklt/reports/BP_H3M/retained-proofs.json); the new fresh axiom inventory is axioms-v2.json.
 
-`StationaryCheckStatement` itself includes a quotient and its `Correct` proof. Consequently the automaton cardinality/edge-count check is logically redundant once this stronger stationary check is supplied. `h3_of_checks` and the combined theorem retain `Automaton10Statement` as an explicit requested provenance input, but do not consume its counts a second time or assume an unprovided equality between two quotient witnesses. This is interface redundancy, not a counterexample.
+| Existing proof | Module |
+|---|---|
+| [reflectPair_injective](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean:209) | `Assembly` |
+| [ceiling_rows](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean:261) | `Assembly` |
+| [reflectSite_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:84) | `Basic` |
+| [reflectDirection_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:88) | `Basic` |
+| [reflectWord_involutive](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:91) | `Basic` |
+| [takeWord_append](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean:101) | `Basic` |
+| [listSystem_step](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:17) | `Bellman` |
+| [listSystem_exact](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:47) | `Bellman` |
+| [bellmanSoundness_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:71) | `Bellman` |
+| [stationarySystem_step](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:103) | `Bellman` |
+| [stationary_finite_le](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean:123) | `Bellman` |
+| [rawBackward_pullback](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:26) | `NodesAutomaton` |
+| [rawBackward_congr](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean:55) | `NodesAutomaton` |
+| [coefficientCeiling_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:24) | `NodesCertificate` |
+| [rational_scaled_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:32) | `NodesCertificate` |
+| [potential_bounds](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:46) | `NodesCertificate` |
+| [checked_free_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:64) | `NodesCertificate` |
+| [checked_inside_row](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean:79) | `NodesCertificate` |
+| [kernelLengthRow_zero](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:33) | `NodesKernel` |
+| [kernelPartialRow_eq_sum](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean:42) | `NodesKernel` |
+| [wordSplit_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:25) | `NodesPrefix` |
+| [firstDirectionPartialRow_mono](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean:63) | `NodesPrefix` |
+| [reflectionOrderingAlgebra_proved](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean:66) | `NodesReflection` |
+| [passageFactor_pos](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:9) | `Positivity` |
+| [kernelRho_pos_lt_one](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:12) | `Positivity` |
+| [kernelWitness_pos](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:15) | `Positivity` |
+| [pairCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:18) | `Positivity` |
+| [witnessKappa_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:24) | `Positivity` |
+| [relaxedReward_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:30) | `Positivity` |
+| [phaseTransition_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:39) | `Positivity` |
+| [truePhaseCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:44) | `Positivity` |
+| [stationaryCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:48) | `Positivity` |
+| [freeCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:55) | `Positivity` |
+| [prefixPhases_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:62) | `Positivity` |
+| [exposureSum_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:78) | `Positivity` |
+| [closedContribution_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:85) | `Positivity` |
+| [responseKappa_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:92) | `Positivity` |
+| [kernelLengthCoefficient_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:101) | `Positivity` |
+| [kernelLengthRow_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:115) | `Positivity` |
+| [stationaryWordValue_nonneg](/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean:124) | `Positivity` |
 
-## Axiom audit
+The explicit old leaf/Top witnesses include coefficientCeiling_proved, wordSplit_proved, reflectionOrderingAlgebra_proved and bellmanSoundness_proved. New proofs occur only in AssemblyV2.lean and derive targets from supplied closed Props and existing proved assemblies.
 
-All 52 exported theorems were checked. Each uses a subset of `[propext, Classical.choice, Quot.sound]`; no additional axiom is present. The exact output for every assembly/refinement theorem is:
+## Axiom audit and builds
+
+All 65 exported theorems (52 frozen, 13 new assemblies) were freshly checked against the merged statement layer. Every axiom set is a subset of propext, Classical.choice and Quot.sound. New assembly output:
 
 ```text
-'AKLT.Blueprint.H3.automatonQuotient_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.phaseExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.stationaryDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.bellmanSoundness' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.stationaryLocalGlobal_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.prefixDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.kernelReflection_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.stationaryAssembly_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.h3_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.allTargets_of_leaves_and_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.reflectPair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.ceiling_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.longExposureExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.H3.reflectionPairs_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.automatonQuotient_of_nodesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.phaseExpansion_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.longTrailPhaseExpansion_of_phaseV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.stationaryDomination_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.stationaryLocalGlobal_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.prefixDomination_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.stationaryAssembly_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.h3_of_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.allTargets_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.paperTargets_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.h3_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.inputs_of_leaves_and_other_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H3.mainV2_of_H3_and_other_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-A source scan found no forbidden proof escape, kernel-check bypass, effectful Lean command, or unbounded heartbeat setting in the delivered Lean files. The complete audited output and machine-readable inventory are linked above.
+The sequential builder uses the pinned Lake environment, explicit autoImplicit=false/relaxedAutoImplicit=false, and an isolated report-directory olean root. It never invokes a Mathlib source build, lake update or C generation. This entire adaptation used at most one Lean process at once. The older, unmeasured V1 dependency-warmup scheduling deviation remains documented in the archived V1 report; it is not repeated in this round.
 
-## Build commands and timings
-
-Run from `/home/ubuntu/aklt/wt/BP_H3M`:
+Commands run from the worktree:
 
 ```bash
 export PATH="$HOME/.elan/bin:$PATH"
-lake build AKLT.Blueprint.H3.Assembly
-lake build AKLT.Blueprint.H3.Audit
+lake env python3 /home/ubuntu/aklt/reports/BP_H3M/build_adaptation.py AKLT.Blueprint.H3.NodesV2 AKLT.Blueprint.Top.Assembly
+lake env python3 /home/ubuntu/aklt/reports/BP_H3M/build_adaptation.py AKLT.Blueprint.H3.AuditV2
+lake env python3 /home/ubuntu/aklt/reports/BP_H3M/build_adaptation.py AKLT.Blueprint.H3.Audit AKLT.Blueprint.H3.AuditV2
 ```
 
-Every imported local dependency was built through named module targets using the existing toolchain and prebuilt Mathlib. No `lake update`, Mathlib source build, package edit, or sub-agent was used. Later module rebuilds were staged in groups with at most four requested leaf-module jobs; the final Assembly and Audit builds were sequential named targets.
-
-Initial dependency-warmup scheduling deviation: the first named dependency build used Lake’s default scheduler and was not manually bounded to four Lean processes. Its peak was not measured. All subsequent blueprint builds were explicitly staged to stay within four. No claim of a measured four-process peak is made for that initial warmup.
-
-Final recorded successful builds (dependencies already compiled; Lake time includes checking the prebuilt dependency graph):
-
-| Command | real | user | sys |
+| Build stage | Modules compiled | Wall time | Parallel limit |
 |---|---:|---:|---:|
-| `lake build AKLT.Blueprint.H3.Assembly` | 13.16 s | 10.93 s | 2.94 s |
-| `lake build AKLT.Blueprint.H3.Audit` | 10.35 s | 8.26 s | 9.99 s |
+| Repaired dependencies, frozen nodes, new node definitions and Top assembly | 53 | 203.36 s | 1 |
+| Bellman/frozen assembly, new assembly and V2 audit | 4 | 13.37 s | 1 |
+| Fresh full frozen Audit (V2 audit cached) | 1 | 3.61 s | 1 |
 
-Both builds completed with no warnings or errors. A separate `lake env lean` check verified every definition/library identifier cited in the dependency manifest. No numerical certificate data was executed or assumed to have passed.
+Per-module commands, exit codes, source/dependency signatures and timings are in [adaptation-build-state.json](/home/ubuntu/aklt/reports/BP_H3M/adaptation-build-state.json) and [adaptation-build-logs](/home/ubuntu/aklt/reports/BP_H3M/adaptation-build-logs). All stages passed without warnings or errors. Frozen-file hash validation passed. A source scan found no forbidden proof escape or effectful Lean command.
 
-## Open issues
+## Open issues and handoff
 
-The thirty table entries are the complete remaining analytic obligations. They are definitions of closed propositions, not incomplete proofs. The two external finite checks remain hypotheses and belong to their assigned computational owner. The checked implications prove that these obligations suffice for every requested Top target. There is no remaining assembly hole or required Top/Defs change.
+Thirty kept and five new analytic leaves remain open, all with exact names/types in leaves.json. The two designated V2 finite checks remain external proof obligations. H1 semantic/finite data, H2/rates, Rec, CutMOS, MainW and TorusKernel remain explicit other-lane inputs of the optional headline assembly. No unconditional H1, H3 or gap theorem is claimed.
+
+No additional Top/Defs repair was required. The statement fixes and the two referee scope qualifications are reflected in the V2 assemblies and handoff. The orchestrator should assign all remaining first proof attempts to a different, cheaper model; this architect has supplied no new leaf proof.
 
 ## ORCH-SUMMARY
 
-Delivered: 13 Lean modules in AKLT/Blueprint/H3, leaves.json, full declaration/axiom audits and this report.
-All nine requested Top targets have proved assembly implications.
-BellmanSoundnessStatement is proved outright from Gen.Bellman; ceiling, row scaling, caps, word split and ordering algebra are proved.
-Combined export: AKLT.Blueprint.H3.allTargets_of_leaves_and_checks.
-Open exact names below use prefix AKLT.Blueprint.H3:
-RawSuccessorStatement; ProjectionRealizationStatement.
-PhaseFoldExpansionStatement; SingleChangeFactorStatement.
-ExposureListExpansionStatement; LongOrderingMultiplierStatement.
-PrefixCoefficientCausalityStatement; PhaseSplitAlgebraStatement.
-SuffixWindowValidityStatement; SuffixWindowLabelsStatement.
-IncidentBondBudgetStatement; DepartureBalanceStatement.
-KnownSiteMemoryStatement; TrueRewardIdentityStatement.
-RewardForgettingStatement; LocalCoefficientComparisonStatement.
-ClosedTrailStepGeometryStatement; SuffixWordComparisonStatement; StationaryWordExpansionStatement.
-StationaryFreeEdgeStatement; LongTrailPrefixStatement; LongRowRegroupingStatement.
-ReflectionGeometryStatement; ReflectionLivePairsStatement; ReflectionPairLabelsStatement.
-FirstDirectionPartitionStatement; LengthShiftSupportStatement; LengthRewardPartitionStatement.
-KernelSeriesRegroupingStatement; CutoffSeriesLiftStatement.
-External inputs: Top.Automaton10Statement and Top.StationaryCheckStatement; not proved here.
-No Top/Defs mismatch found; no V2 or shared-source edit. Automaton counts are redundant given StationaryCheck’s Correct quotient.
-All exported theorem axioms are subsets of propext, Classical.choice, Quot.sound; builds and audits pass.
-Deviation: initial dependency warmup used unbounded default Lake job scheduling; later blueprint builds were staged within four.
-Orchestrator: assign the thirty leaves to a different, cheaper model using leaves.json; obtain both finite checks from their owner.
-Author rule: all thirty first proof attempts go to a different, cheaper model; forty prior leaf/helper proofs are retained and listed.
+Adaptation COMPLETE: five new Lean files; all thirteen pre-adaptation Lean files are byte-identical.
+Old leaves: 30 kept, 0 superseded. New open leaves (prefix AKLT.Blueprint.H3):
+StationaryCoefficientOffCentreStatementV2.
+StationaryCentreZeroOperatorStatementV2.
+StationaryContinuationBridgeStatementV2.
+StationaryCertificateBridgeStatementV2.
+StoppedQuotientIntertwiningStatementV2.
+Exact kept names/statements and all five new statements are in leaves.json (35 open obligations).
+No leaf proof attempted; retain the forty existing leaf/helper proofs listed in this report.
+All new proof declarations are assembly implications in AssemblyV2.lean.
+allTargets_of_leaves_and_checksV2 derives all nine repaired/unchanged Top targets.
+paperTargets_of_leaves_and_checksV2 adds explicit terminal pullbacks and the n>12 phase/kernel identity.
+Both finite-check inputs are V2 and refer to the same designated Automaton10Data.supplied quotient.
+inputs_of_leaves_and_other_partsV2 supplies InputsStatementV2 with other-lane inputs explicit.
+mainV2_of_H3_and_other_partsV2 calls Top.mainV2_of_partsV2; this is conditional only.
+Arrival pairs were already excluded in H3; Rec owns the ordinary-domain closure repair.
+All 65 old/new theorem audits use only allowed axioms; builds passed with one Lean process.
+V1 generators are archived; use make_adaptation.py and make_adaptation_report.py for this handoff.
+Orchestrator: assign the 35 leaves to a different, cheaper model; obtain both V2 finite checks from CERT_H3.
+No new shared-statement repair or mathematical replacement decision is required.

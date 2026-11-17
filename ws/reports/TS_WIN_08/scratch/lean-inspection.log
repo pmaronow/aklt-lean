@@ -1,0 +1,117 @@
+AKLT.Blueprint.Win.RemovedPairResponseStatement : Prop
+AKLT.Blueprint.Win.PairDifferenceStatement : Prop
+AKLT.Blueprint.Win.LogStepIdentityStatement : Prop
+AKLT.Blueprint.Win.LocalLogEstimateStatement : Prop
+AKLT.Blueprint.Win.RemovalTelescopeStatement : Prop
+AKLT.Blueprint.Win.RemovalCostSumStatement : Prop
+AKLT.Blueprint.Win.FrameFibreSumStatement : Prop
+AKLT.Blueprint.Win.ComplementQuadratureStatement : Prop
+structure AKLT.Blueprint.Win.RemovalEnumeration (X : Finset.{0} AKLT.Defs.Plane) : Type
+number of parameters: 1
+fields:
+  AKLT.Blueprint.Win.RemovalEnumeration.last : ℕ
+  AKLT.Blueprint.Win.RemovalEnumeration.site : Fin (HAdd.hAdd.{0, 0, 0} self.last 1) → AKLT.Defs.Plane
+  AKLT.Blueprint.Win.RemovalEnumeration.injective : Function.Injective.{1, 1} self.site
+  AKLT.Blueprint.Win.RemovalEnumeration.image_eq : Eq.{1} (Finset.image.{0, 0} self.site Finset.univ.{0}) X
+  AKLT.Blueprint.Win.RemovalEnumeration.previous : ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} self.last 1)),
+      LT.lt.{0} 0 ↑j → ∃ k, LT.lt.{0} ↑k ↑j ∧ AKLT.Defs.Adjacent (self.site j) (self.site k)
+constructor:
+  AKLT.Blueprint.Win.RemovalEnumeration.mk {X : Finset.{0} AKLT.Defs.Plane} (last : ℕ)
+    (site : Fin (HAdd.hAdd.{0, 0, 0} last 1) → AKLT.Defs.Plane) (injective : Function.Injective.{1, 1} site)
+    (image_eq : Eq.{1} (Finset.image.{0, 0} site Finset.univ.{0}) X)
+    (previous :
+      ∀ (j : Fin (HAdd.hAdd.{0, 0, 0} last 1)),
+        LT.lt.{0} 0 ↑j → ∃ k, LT.lt.{0} ↑k ↑j ∧ AKLT.Defs.Adjacent (site j) (site k)) :
+    AKLT.Blueprint.Win.RemovalEnumeration X
+def AKLT.Blueprint.Win.PairDifferenceStatement : Prop :=
+∀ (G Y : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (_x : AKLT.Defs.Plane)
+  (V : Finset.{0} AKLT.Defs.Plane),
+  LE.le.{0} (Finset.card.{0} V) 4 →
+    ∀ (d : ℝ),
+      LE.le.{0} 0 d →
+        (∀ (z : AKLT.Defs.Plane),
+            Membership.mem.{0, 0} V z →
+              ∀ (w : AKLT.Defs.Plane),
+                Membership.mem.{0, 0} V w →
+                  Ne.{1} z w →
+                    LE.le.{0}
+                      (abs.{0}
+                        (HSub.hSub.{0, 0, 0} (AKLT.Blueprint.Win.partMean true G Y τ fun n => AKLT.Defs.dot (n z) (n w))
+                          (AKLT.Blueprint.Win.partMean false G Y τ fun n => AKLT.Defs.dot (n z) (n w))))
+                      d) →
+          LE.le.{0}
+            (abs.{0}
+              (HSub.hSub.{0, 0, 0} (AKLT.Blueprint.Win.partMean true G Y τ (AKLT.Blueprint.Win.pairSum V))
+                (AKLT.Blueprint.Win.partMean false G Y τ (AKLT.Blueprint.Win.pairSum V))))
+            (HMul.hMul.{0, 0, 0} (ite.{1} (Eq.{1} (Finset.card.{0} V) 4) 6 3) d)
+def AKLT.Blueprint.Win.RemovalTelescopeStatement : Prop :=
+∀ (G X : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (e : AKLT.Blueprint.Win.RemovalEnumeration X),
+  Eq.{1} (AKLT.Blueprint.Win.removedPrefix e 0) EmptyCollection.emptyCollection.{0} →
+    Eq.{1} (AKLT.Blueprint.Win.removedPrefix e (HAdd.hAdd.{0, 0, 0} e.last 1)) X →
+      ∀ (A θ : ℝ),
+        (∀ (j : Fin (HAdd.hAdd.{0, 0, 0} e.last 1)),
+            LE.le.{0}
+              (abs.{0}
+                (HSub.hSub.{0, 0, 0} (AKLT.Blueprint.Win.logRatio G (AKLT.Blueprint.Win.removedPrefix e ↑j) τ)
+                  (AKLT.Blueprint.Win.logRatio G (AKLT.Blueprint.Win.removedPrefix e (HAdd.hAdd.{0, 0, 0} (↑j) 1)) τ)))
+              (ite.{1} (Eq.{1} (↑j) 0)
+                (HAdd.hAdd.{0, 0, 0} 1
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 A)
+                    (HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site j)))))
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 A)
+                  (HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site j)))))) →
+          LE.le.{0} (abs.{0} (AKLT.Blueprint.Win.cutError G X τ))
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} 1
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 A)
+                  (HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site 0)))))
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 A)
+                (∑ j, HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site j.succ)))))
+def AKLT.Blueprint.Win.RemovalCostSumStatement : Prop :=
+∀ (G X : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (e : AKLT.Blueprint.Win.RemovalEnumeration X),
+  (∀ (x : AKLT.Defs.Plane), Membership.mem.{0, 0} X x → LE.le.{0} 3 (AKLT.Defs.boundaryDepth G x)) →
+    ∀ (A θ : ℝ),
+      LE.le.{0} 0 A →
+        LT.lt.{0} 0 θ →
+          LT.lt.{0} θ 1 →
+            LE.le.{0} (abs.{0} (AKLT.Blueprint.Win.cutError G X τ))
+                (HAdd.hAdd.{0, 0, 0}
+                  (HAdd.hAdd.{0, 0, 0} 1
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 A)
+                      (HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site 0)))))
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 A)
+                    (∑ j, HPow.hPow.{0, 0, 0} θ (AKLT.Blueprint.Win.depthShift G (e.site j.succ))))) →
+              LE.le.{0} (abs.{0} (AKLT.Blueprint.Win.cutError G X τ))
+                (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 4 A))
+                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 A) (HPow.hPow.{0, 0, 0} θ (-3)))
+                    (∑ z ∈ X, AKLT.Defs.decay θ (AKLT.Defs.boundaryDepth G z))))
+def AKLT.Blueprint.Win.FrameFibreSumStatement : Prop :=
+AKLT.Blueprint.Top.ThreeFramesStatement →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (F B : Finset.{0} AKLT.Defs.Plane),
+        B ⊆ F →
+          AKLT.Blueprint.Win.NoBond (↑B) (Set.ofPred.{0} fun z => z ∉ F) →
+            ∀ (unit : ∀ (j : Fin 3) (a : AKLT.Defs.IcoLetter), Eq.{1} (AKLT.Defs.normSq (AKLT.Defs.frameVector j a)) 1)
+              (η : AKLT.Defs.FrameBoundary F) (s : AKLT.Defs.PlaneConfiguration B),
+              Eq.{1} (AKLT.Blueprint.Win.marginalNumerator κ F B η s)
+                (HMul.hMul.{0, 0, 0} (AKLT.Blueprint.Win.windowWeight κ B s)
+                  (AKLT.Blueprint.Win.framePinnedSum κ (sdiff.{0} F B) EmptyCollection.emptyCollection.{0}
+                    (AKLT.Blueprint.Win.cutPins κ (sdiff.{0} F B) F B unit η s)))
+def AKLT.Blueprint.Win.ComplementQuadratureStatement : Prop :=
+AKLT.Blueprint.Top.ThreeFramesStatement →
+  AKLT.Blueprint.Top.ExactStatement →
+    ∀ (κ : AKLT.Defs.Plane → Fin 3) (G Y : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G),
+      Eq.{1} (AKLT.Blueprint.Win.framePinnedSum κ G Y τ) (AKLT.Defs.pinnedSum G Y τ fun x => 1)
+fun X e => e.site 0 : (X : Finset.{0} AKLT.Defs.Plane) → AKLT.Blueprint.Win.RemovalEnumeration X → AKLT.Defs.Plane
+fun X e j =>
+  e.site
+    j.succ : (X : Finset.{0} AKLT.Defs.Plane) →
+  (e : AKLT.Blueprint.Win.RemovalEnumeration X) → Fin e.last → AKLT.Defs.Plane
+Pi.instFintype.{0, 0}
+fun a b => Fintype.decidablePiFintype.{0, 0} a b
+Finset.Subtype.fintype.{0} (AKLT.Defs.originalLegs EmptyCollection.emptyCollection.{0})
+fun θ => HPow.hPow.{0, 0, 0} θ (-3) : ℝ → ℝ
+fun θ n => HPow.hPow.{0, 0, 0} θ (HSub.hSub.{0, 0, 0} n 3) : ℝ → ℕ → ℝ
+0
+0

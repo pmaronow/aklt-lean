@@ -1,0 +1,57 @@
+{
+  "scope": "Finite diagnostics, not proofs of the universally quantified Lean leaves.",
+  "trail_checks": {
+    "raw_trail_counts_by_length": [
+      1,
+      4,
+      12,
+      36,
+      108,
+      316,
+      916,
+      2628,
+      7500,
+      21268,
+      60092,
+      169092,
+      474924
+    ],
+    "incident_and_balance_extensions": 736896,
+    "raw_windows": 229184,
+    "suffix_steps_including_final_departures": 644016
+  },
+  "reward_and_phase_checks": {
+    "nested_dead_set_comparisons": 2916,
+    "scalar_phase_entries": 27648
+  },
+  "reward_identity_checks": {
+    "random_word_reward_identities": 12571,
+    "seed": 20261116
+  },
+  "nonvacuous_known_site_examples": [
+    {
+      "X": "B",
+      "d0": "west",
+      "L": 12,
+      "word": "WWWNNNEEESSSSEEN",
+      "n": 16,
+      "suffix_departure_index": 12,
+      "site": [
+        -1,
+        0
+      ]
+    },
+    {
+      "X": "B",
+      "d0": "west",
+      "L": 12,
+      "word": "WWWWNNNEEESSSSEEEN",
+      "n": 18,
+      "suffix_departure_index": 13,
+      "site": [
+        -2,
+        0
+      ]
+    }
+  ]
+}

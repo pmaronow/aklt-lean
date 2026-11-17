@@ -1,0 +1,403 @@
+diff --git a/app-input-contracts.tex b/app-input-contracts.tex
+index b3af002..4cb5e0f 100644
+--- a/app-input-contracts.tex
++++ b/app-input-contracts.tex
+@@ -13,10 +13,11 @@ of \(\mathbb Z^2\).
+ The finite assertions in Propositions~\ref{p:H2-test},
+ \ref{p:automaton10} and \ref{p:stationary-check} specify exact checks
+ of the archived witnesses. The arguments below prove the soundness
+-of those checks. The finite checks themselves are stated with their
+-full arithmetic contracts, for separate verification; an executable's
+-exit code or a floating approximation is not an additional hypothesis
+-of any soundness lemma.
++of those checks. The accompanying formalization verifies these finite
++assertions by proofs checked by the Lean kernel; pending checks are
++marked at their full arithmetic specifications. An executable's exit
++code or a floating approximation is not an additional hypothesis of
++any soundness lemma.
+ 
+ \begin{definition}\label{d:memory-automaton}
+ Let \(\mathcal E=\{{\rm E}=(1,0),{\rm N}=(0,1),
+@@ -237,8 +238,10 @@ so induction on its length proves that every window is generated
+ exactly once. Lemma~\ref{l:H2-dihedral} proves that the canonical
+ codes give exactly the needed orbits. The finite data checks are:
+ the stored codes are precisely those \(115\) canonical codes,
+-without repetition; their integer values are positive; and every
+-regenerated row satisfies the displayed integer inequality.
++without repetition, and their integer values are positive.
++\certpending{h2-vector-indexing}
++Every regenerated row satisfies the displayed integer inequality.
++\certpending{h2-row-inequalities}
+ In the three cases the weights are exactly
+ \[
+  \frac{1000}{2883}=\frac{935000}{2695605},\qquad
+@@ -254,6 +257,7 @@ extremum checks are
+  \min v=186377076276\quad(\text{canonical code }441),\qquad
+  \max v=1000000000000\quad(\text{canonical code }0).
+ \]
++\certpending{h2-vector-extrema}
+ At canonical code \(428\), the regenerated row has
+ \[
+  v_{428}=224087522845,\qquad
+@@ -264,6 +268,7 @@ Exact cancellation gives
+  \frac{603787640626036713}{2695605\cdot224087522845}
+  =\frac{1119948287353}{1120437614225}=q_*.
+ \]
++\certpending{h2-maximizing-row}
+ The upper row checks and this equality establish the asserted
+ maximum; the two extremum checks establish its asserted vector
+ ratio. The remaining strict comparisons follow by multiplying
+@@ -325,7 +330,9 @@ depend only on the absolute direction, kind, position, and final
+ direction on non-revisit edges factors through this automaton.
+ For every function \(G(\varphi,q,x)\), its pullback by \(\pi\)
+ intertwines the raw and quotient backward operators. This
+-intertwining also holds for each finite stopped continuation sum.
++intertwining also holds for each finite stopped continuation sum,
++provided that the raw terminal indicator and terminal reward are
++pullbacks of their quotient counterparts.
+ \end{lemma}
+ 
+ \begin{proof}
+@@ -398,12 +405,14 @@ are
+  |\Omega_j|&4&12&36&108&316&916&2628&7500&21268&60092.
+  \end{array}
+ \]
++\certpending{h3-window-enumeration}
+ As proved for that recursion, no word is missing or duplicated.
+ The remaining finite assertions are these: the map rows list exactly
+ these words in that order; all class numbers lie in
+ \(\{0,\ldots,3740\}\); each representative is a generated word
+ and maps to its own class; and the file has exactly the stated
+ number of rows.
++\certpending{h3-quotient-indexing}
+ 
+ For every raw word, regenerate its endpoint, its used bonds, and its
+ earlier departure vertices. For each of its four directions, compare
+@@ -415,6 +424,7 @@ the hypotheses of Lemma~\ref{l:automaton-quotient}, including the
+ final-direction condition. Representatives mapping to their classes
+ prove surjectivity. Counting the admitted directions in the class
+ rows gives the integer assertions \(2516,5032,1872\), respectively.
++\certpending{h3-quotient-transitions}
+ This specifies the finite automaton check completely and makes no
+ minimality or spatial-symmetry assertion.
+ \end{proof}
+@@ -455,9 +465,11 @@ case, and one is opposite in the turning case. A sole surviving
+ pair instead gives \(b'_\tau h_Y\) with its actual pair type \(Y\).
+ 
+ \begin{lemma}\label{l:phase-expansion}
+-For a true closed trail \(w\) ordered with straight first visits
+-before turning first visits, its \(h\)-weighted contribution to
+-\(M_1\) equals the sum over phase histories starting in
++Let \(w\in\mathcal T_n^X\) with \(n>12\), and let \(\sigma_w\)
++be the ordering of Definition~\ref{d:kernel-order}: straight first
++departures in increasing path order, followed by turning first
++departures in increasing path order. Then its \(h\)-weighted
++contribution to \(M_1\) equals the sum over phase histories starting in
+ \({\rm A}\) or \({\rm B}\) and ending in \({\rm C}\) or \({\rm D}\)
+ of the products of the weights in Definition~\ref{d:phaseweights}.
+ Equivalently this sum is
+@@ -500,10 +512,9 @@ the same ordering. No revisit can be the changing departure.
+ There is thus one allowed history for each candidate responding
+ first departure; if its reward is zero both corresponding terms
+ are zero. Summing over all such departures gives the displayed
+-identity. For long trails it is the ordering fixed in
++identity. Since \(n>12\), this is the ordering fixed in
+ Definition~\ref{d:kernel-order}, hence the claimed contribution
+-to \(M_1h\). For other trails this identity concerns their stated
+-straight-first ordering.
++to \(M_1h\).
+ 
+ Finally split a history after \(r\) departures, \(0\le r\le n\).
+ Its edge-weight product is the product of the factors with indices
+@@ -759,6 +770,7 @@ In particular the diagonal ceiling numerators, in the order
+ All response ceilings are specified by the same rational formula
+ with the exact constants of Lemma~\ref{l:log-mean-bounds} and the
+ exact dyadic \(h_C\); a decimal replacement of \(h_C\) is not used.
++\certpending{h3-transition-ceilings}
+ 
+ \begin{lemma}\label{l:stationary-local-global}
+ Every certificate of Definition~\ref{d:stationary-certificate}
+@@ -828,7 +840,8 @@ the target reward never exceeds its corresponding outside cap.
+ 
+ \begin{definition}\label{d:prefix-bound}
+ For each case \((X,d_0)\), let \(S_{X,d_0}\) be the exact
+-\(h\)-weighted kernel sum over closed trails of lengths \(1\le n\le L=12\)
++\(h\)-weighted kernel sum over trails in \(\mathcal T_n^X\) of lengths
++\(1\le n\le L=12\)
+ with first direction \(d_0\), using their prescribed short-trail orderings.
+ Let \(\mathcal P_{X,d_0,L}\) be all true length-\(L\) prefixes
+ avoiding \(c\) and \(v\), with first direction \(d_0\).
+@@ -960,7 +973,8 @@ It is divisible by the denominators of \(1/3,1/5,x_{\rm s}/3,
+ x_{\rm t}/3\) and of every possible
+ \(x_\tau\kappa_h/3\) from the two types and the four choices of
+ dead non-outgoing neighbours. This is a finite rational divisibility
+-check with the displayed constants. Multiplying phase weights by
++check with the displayed constants. \certpending{h3-prefix-denominator}
++Multiplying phase weights by
+ \(\Delta^j\) makes every update integral. If \(A\) is the sum
+ of the resulting length-twelve phase numerators times the
+ corresponding stored \(U\) entries, its exact tail contribution is
+@@ -980,7 +994,7 @@ to identify possible endpoints, and introduces no numerical factor.
+ 
+ \begin{lemma}\label{l:prefix-domination}
+ For every case whose integer certificate passes, the \(h\)-weighted
+-contribution of all true closed trails of that first direction,
++contribution of all kernel trails of that first direction,
+ over every length, is at most \(J_{X,d_0}\).
+ This holds uniformly for every finite length cutoff, with the same
+ upper bound. The short part uses the exact order through \(12\);
+@@ -1106,15 +1120,18 @@ Proposition~\ref{p:automaton10}; for \(U\), the last index is
+ \((x_1+70)141+(x_2+70)\). This identifies each supplied literal
+ with a mathematical array index. In particular,
+ \(19881=141^2\), rather than a periodic spatial state count.
++\certpending{h3-array-indexing}
+ 
+ The finite assertions on these arrays are exactly every integer
+ inequality and equality in Definition~\ref{d:stationary-certificate}.
+ For each of the \(4\cdot3741\) phase/class indices, require
+ \(Z>0\), its free row inequality, and the C,D lower terminal
+-bounds. For each of the \(4\cdot3741\cdot19881\) stored
+-phase/class/site indices, require \(0\le U\le Z\), the specified
+-centre and target equalities, and the nonterminal stationary row
+-inequality when appropriate. The coefficients are regenerated
++bounds. \certpending{h3-free-rows}
++For each of the \(4\cdot3741\cdot19881\) stored
++phase/class/site indices, require \(0\le U\le Z\) and the specified
++center and target equalities. \certpending{h3-caps-and-terminals}
++Require the nonterminal stationary row inequality when appropriate.
++The coefficients are regenerated
+ from the exact formulas following that definition, not inferred
+ from floating values stored in a program.
+ 
+@@ -1136,6 +1153,7 @@ local component inequalities per file, as well as all the free,
+ cap and terminal checks just specified. These are exact integer
+ inequalities over the five supplied arrays; gzip checksums or the
+ termination status of a native checker are not substitutes for them.
++\certpending{h3-local-rows}
+ 
+ Evaluate the finite recursion following
+ Definition~\ref{d:prefix-bound} against these same arrays, retaining
+@@ -1151,6 +1169,7 @@ order of the proposition, are
+  \text{short first hits}&937&922&715&1036&861.
+  \end{array}
+ \]
++\certpending{h3-prefix-enumeration}
+ Counts alone are not the prefix assertion: the check must also
+ evaluate every rational summand. If the exact short sum is
+ \(s/d\), \(d>0\), and the nonnegative integer prefix accumulator
+@@ -1163,13 +1182,17 @@ there, the displayed bound \(10^9J\le K\) means exactly
+ Use respectively
+ \(K=351207554,290599163,527872005,380754375,273048088\).
+ This gives the finite rational prefix tests without a decimal
+-rounding convention. A compact lookup is accepted only with the
++rounding convention. \certpending{h3-prefix-values}
++A compact lookup is accepted only with the
+ entry-by-entry identity with the full potential described after
+ Definition~\ref{d:prefix-bound}.
++\certpending{h3-prefix-lookup}
+ The archived exact fractions in the five prefix records identify
+ the values of these finite expressions; the expressions and the
+ cleared inequalities above, together with all the array checks,
+-are the numerical assertions to be verified separately.
++constitute the stationary certificates. Their proofs are checked by
++the Lean kernel in the accompanying formalization, with pending
++checks marked above.
+ \end{proof}
+ 
+ \begin{lemma}\label{l:stationary-assembly}
+diff --git a/main.pdf b/main.pdf
+index ece9afd..1ecaa9a 100644
+Binary files a/main.pdf and b/main.pdf differ
+diff --git a/main.tex b/main.tex
+index 0d570ab..8658038 100644
+--- a/main.tex
++++ b/main.tex
+@@ -20,6 +20,7 @@
+ \newcommand{\ct}{c_{\mathrm{t}}}
+ \newcommand{\Pext}{\mathcal{P}_{\mathrm{ext}}}
+ \newcommand{\Dcons}{\mathcal{D}_{\mathrm{cons}}}
++\newcommand{\certpending}[1]{\textbf{[certificate check pending]}}
+ 
+ \theoremstyle{plain}
+ \newtheorem{theorem}{Theorem}[section]
+@@ -48,7 +49,9 @@ are local operator inequalities, an open-trail growth bound, and a
+ type-dependent positive-vector bound for a response kernel. These
+ inputs are checked using exact matrix positivity certificates, a
+ finite-memory test, and stationary Bellman inequalities with finite
+-prefix sums. All computations are checked in exact arithmetic.
++prefix sums. The accompanying formalization uses the Lean kernel
++to verify the finite certificate checks; pending checks are marked
++explicitly.
+ Three finite coherent-state frames compare the quantum gap with the
+ gap of a finite-state heat-bath dynamics. A sign change on each lifted
+ square permits arbitrary torus parities. A direct periodic block
+diff --git a/sec1-result.tex b/sec1-result.tex
+index 70e2fb9..a1ed27b 100644
+--- a/sec1-result.tex
++++ b/sec1-result.tex
+@@ -7,8 +7,9 @@ positive spectral gap for all integers \(L,N\ge L_0\), with no parity
+ restriction, for one fixed threshold \(L_0\). The computational inputs
+ are local operator inequalities, an open-trail growth bound, and a
+ type-dependent positive-vector bound obtained from stationary Bellman
+-inequalities and finite prefix sums. All computations are checked in
+-exact arithmetic. The polynomial realization of the spin space,
++inequalities and finite prefix sums. The accompanying formalization
++uses the Lean kernel to verify the finite certificate checks; pending
++checks are marked explicitly. The polynomial realization of the spin space,
+ including its Hilbert space normalization, is fixed in
+ Definition~\ref{d:poly}.
+ 
+diff --git a/sec7-recursion.tex b/sec7-recursion.tex
+index 2f4bc4c..7e4d480 100644
+--- a/sec7-recursion.tex
++++ b/sec7-recursion.tex
+@@ -77,8 +77,11 @@ kept bonds, while a live \(\mathrm D\) site retains its two kept
+ bonds but has at most one present bond.
+ Whenever \(y\notin S\), removing \(y\) yields an ordinary member
+ of \(\mathcal D_{\rm cons}(G)\). Every \(\mathrm U\) departure
+-before stopping has a covered pattern, and its nonremoved neighbour
+-pairs belong to \(P_B\) or \(P_C\) of that ordinary domain.
++at \(y\) before stopping has a covered pattern. In the ordinary
++domain obtained by removing the live site \(y\) from the pre-step
++network, every ordered pair of distinct nonremoved non-arrival
++neighbors of \(y\) belongs to \(P_B\) or \(P_C\), with designated
++center \(y\).
+ If the endpoint is \(e\in S\), it is \(\mathrm U\) with just its
+ arrival bond lost. This is the sole kept-set defect in the terminal
+ auxiliary network; all original legs remain. No removal of \(e\)
+@@ -576,12 +579,13 @@ Fix
+  \qquad \rho_0=\frac{993015}{10^6},\qquad L=12 .
+ \]
+ For a first visit set \(\kappa_h(i)=\sum_{Y,s}\kappa_{Y,s}(i)h_Y\).
+-For a closed trail of length \(n\le L\), let \(\sigma_w\) order its
+-first visits by increasing
+-\((x_i-1)/(x_i\kappa_h(i))\), with value \(+\infty\) when
+-\(\kappa_h(i)=0\), breaking ties by increasing path index.
+-For \(n>L\), list straight first visits in path order and then
+-turning first visits in path order.
++For each \(X\in\{B,C\}\) and \(w\in\mathcal T_n^X\), define
++\(\sigma_w\) as follows. If \(n\le L\), order its lattice
++first-departure indices by increasing
++\((x_i-1)/(x_i\kappa_h(i))\), assigning value \(+\infty\) when
++\(\kappa_h(i)=0\), and break ties by increasing path index.
++If \(n>L\), list straight first departures in path order and
++then turning first departures in path order.
+ Hereafter \(M_{XY,s}\) and \(M_\theta\) use exactly these orderings.
+ They do not depend on \(\theta\).
+ \end{definition}
+diff --git a/sec8-inputs.tex b/sec8-inputs.tex
+index 4d6a718..ec24ea6 100644
+--- a/sec8-inputs.tex
++++ b/sec8-inputs.tex
+@@ -4,19 +4,23 @@
+ The computational inputs have three finite certificates. The local
+ input tests integer Hermitian-form matrices reconstructed from the
+ covered patterns. The open-trail input tests a positive integer
+-vector for a memory-six one-step matrix. The closed-trail input
++vector for a memory-six one-step matrix. The kernel input
+ tests five stationary lattice supersolutions and their exact
+-length-twelve prefixes. All numerical checks below are finite
+-integer inequalities, with positive rational denominators cleared.
+-Their separate Lean verification is not used as a mathematical
+-assumption in the soundness arguments.
++length-twelve prefixes. The certificates consist of the finite
++integer equalities, inequalities, and divisibility tests specified
++below and in Appendix C, with positive rational denominators cleared.
++The accompanying formalization uses proofs checked by the Lean
++kernel to verify these assertions. Each check whose kernel proof is
++pending is marked \textbf{[certificate check pending]}. The soundness
++arguments prove deterministic implications from these finite assertions.
+ 
+ For the local input we use the archived representation and inversion
+ choices, and the division-free Gram/residual format wherever its
+ witness is available. For a block without a supplied nonzero Gram
+ factor which is not directly diagonally dominant, we use the
+-Bareiss fallback permitted by Lemma~\ref{l:integercheck}. Thus the
+-complete local input is specified by the supplied data.
++Bareiss fallback permitted by Lemma~\ref{l:integercheck}. The local
++certificate consists of the coverage, reconstruction, and positivity
++checks on these data specified below.
+ 
+ \subsection*{The finite local verification}
+ The pattern data are \texttt{pext7962.json}, under
+@@ -49,6 +53,7 @@ among E,N,W. The finite enumeration assertions are
+  \text{marked assignments with out-neighbour N or E}&123339.
+  \end{array}
+ \]
++\certpending{h1-pattern-enumeration}
+ In forming an effective record retain the present internal bonds
+ and the status of every non-tip site incident to such a bond.
+ Discard isolated factors as justified below. Identify records under
+@@ -61,6 +66,7 @@ pattern, use the covered model and tip radius \(3/5\), have the
+ correct out-neighbour, and use threshold \(961/1000\) for a
+ straight pattern and \(187/200\) for a turn. Each of the \(7962\)
+ pattern indices must occur exactly once in that choice file.
++\certpending{h1-pattern-coverage}
+ 
+ For every record, reconstruct its chosen reduced or unreduced
+ representation and its vector groups using Lemma~\ref{l:leaf}.
+@@ -92,12 +98,14 @@ A supplied matrix or a claimed list of sector sizes is not an
+ input to this reconstruction. Zero-dimensional sectors impose no
+ row tests. The finite construction yields \(12173\) supported
+ nonzero-dimensional blocks, all of size at most \(179\).
++\certpending{h1-sector-reconstruction}
+ 
+ Of these blocks, \(8439\) satisfy the direct integer inequalities
+ \[
+  (M_\epsilon)_{ii}>
+        \sum_{j\ne i}|(M_\epsilon)_{ij}|\quad\text{for every }i.
+ \]
++\certpending{h1-direct-dominance}
+ They use the Gram/residual certificate with \(L=0\) and
+ \(g=d=S=1\). The two archived nonzero factors match the regenerated
+ \(131\)-dimensional central sectors of their respective patterns.
+@@ -118,6 +126,7 @@ and minimum residual margins are
+ Check each supplied \(L\) to be an integer lower-triangular matrix
+ of the correct size and check every residual row, not just the
+ displayed minimum. These are the only two nonzero factors used.
++\certpending{h1-gram-residual}
+ 
+ For each of the remaining \(3732\) blocks use the following exact
+ fallback. One may remove a positive integer common scalar
+@@ -141,9 +150,10 @@ these matrices are symmetric. At the last stage there are no
+ trailing entries to update. These requirements are finite integer
+ divisibility and strict positivity assertions over matrices
+ regenerated from the archived choices. No stored pivot or floating
+-eigenvalue replaces any requirement. As additional native evidence,
++eigenvalue replaces any requirement. As an additional finite check,
+ all \(3734\) blocks failing the direct dominance test, including
+ the two with supplied nonzero factors, pass this fallback too.
++\certpending{h1-bareiss}
+ 
+ \begin{theorem}\label{t:H1}
+ For every \(\pi\in\mathcal P_{\rm ext}\) and every
+@@ -159,9 +169,9 @@ For every \(\pi\in\mathcal P_{\rm ext}\) and every
+ 
+ \begin{proof}
+ We first justify the finite reduction and the implication of its
+-arithmetic tests. The finite counts and inequalities specified
+-above are the numerical local assertions; their verification uses
+-only the archived pattern, choice and factor data.
++arithmetic tests. The finite assertions specified above constitute
++the local certificate, verified by the Lean kernel in the accompanying
++formalization, with pending checks marked at their specifications.
+ 
+ The pattern enumeration is exhaustive because every free status
+ and kept-set choice in Definition~\ref{d:pattern} appears in its
+@@ -329,10 +339,9 @@ improvement enters these input theorems.
+ 
+ The finite assertions require regenerated mathematical index sets
+ and coefficients. Supplied matrices, sector counts, numerical
+-eigenvalues, file hashes and native exit codes do not replace
+-the prescribed comparisons. The native exact reruns provide
+-reproducibility evidence; separate Lean verification must check
+-the same finite assertions against their mathematical definitions.
+-No completed Lean verification is claimed here. None of these
+-arguments assumes a physical window estimate, a frame finite-energy
+-bound or a spectral-gap conclusion.
++eigenvalues, file hashes, and native exit codes do not replace
++the prescribed comparisons. Each certificate is a proof of the
++specified finite assertions checked by the Lean kernel in the
++accompanying formalization. The placeholders identify the pending
++kernel checks. None of these arguments assumes a physical window
++estimate, a frame finite-energy bound, or a spectral-gap conclusion.

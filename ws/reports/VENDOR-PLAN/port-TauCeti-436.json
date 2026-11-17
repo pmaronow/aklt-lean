@@ -1,0 +1,2405 @@
+{
+  "label": "port-TauCeti-436",
+  "seconds": 112.05809545516968,
+  "results": {
+    "TauCeti.Analysis.Analytic.OfScalars": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.1312229633331299,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_eq_nnNorm`",
+          "endPos": {
+            "column": 59,
+            "line": 170
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Analytic/OfScalars.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 44,
+            "line": 170
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `nnNorm_pow_le`",
+          "endPos": {
+            "column": 89,
+            "line": 170
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Analytic/OfScalars.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 76,
+            "line": 170
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown constant `NormedField.exists_lt_nnNorm_lt`",
+          "endPos": {
+            "column": 57,
+            "line": 189
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Analytic/OfScalars.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 26,
+            "line": 189
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Tactic `rcases` failed: `x\u271d : ?m.62` is not an inductive datatype",
+          "endPos": {
+            "column": 22,
+            "line": 189
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Analytic/OfScalars.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 9,
+            "line": 189
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Calculus.ContinuousLinearMapInverse": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Normed.Operator.Basic"
+      ]
+    },
+    "TauCeti.Analysis.Calculus.FDeriv.Equiv": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.099170207977295,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Calculus.FDeriv.Norm": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.InnerProductSpace.Orthonormal.Multilinear"
+      ]
+    },
+    "TauCeti.Analysis.Calculus.InverseFunctionTheorem": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Calculus.ContinuousLinearMapInverse"
+      ]
+    },
+    "TauCeti.Analysis.Calculus.RealCharts": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.9103059768676758,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `div_left_inj\u2080`",
+          "endPos": {
+            "column": 19,
+            "line": 95
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Calculus/RealCharts.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 6,
+            "line": 95
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Calculus.TangentCone.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0251028537750244,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Calculus.TangentCone.Chart": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4160091876983643,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Complex.Circle": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1958892345428467,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Convex.Continuous": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9223928451538086,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Convex.Segment": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.296421766281128,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.Adjoint": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Normed.Operator.Basic"
+      ]
+    },
+    "TauCeti.Analysis.InnerProductSpace.Compression": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8633670806884766,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.LinearIsometry": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.3869447708129883,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.NormDet": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.InnerProductSpace.Parseval"
+      ]
+    },
+    "TauCeti.Analysis.InnerProductSpace.Orthonormal.Multilinear": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.LinearAlgebra.Multilinear.Basis"
+      ]
+    },
+    "TauCeti.Analysis.InnerProductSpace.Parseval": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.0187559127807617,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown constant `FiniteDimensional.completeSpace`",
+          "endPos": {
+            "column": 59,
+            "line": 79
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/InnerProductSpace/Parseval.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 28,
+            "line": 79
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.Projection.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9180164337158203,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.QuadraticForm.Bounds": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0603907108306885,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.Reflection": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 5.711916208267212,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Matrix.EuclideanLin": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 4.2690606117248535,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Matrix.Sqrt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.459502696990967,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Group.BallSphere": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9174983501434326,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Lp.GraphDomain": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9660320281982422,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Lp.PiLp": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1121010780334473,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Module.Ball.Action": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0382170677185059,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Module.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9460115432739258,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Module.FiniteDimension": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Topology.Algebra.Module.FiniteDimension"
+      ]
+    },
+    "TauCeti.Analysis.Normed.Module.Normalize": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9210500717163086,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Module.Normalize.Measurable": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.7998600006103516,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Module.RieszLemma": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8833391666412354,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Operator.Basic": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 2.1110756397247314,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `coe_nnNorm`",
+          "endPos": {
+            "column": 46,
+            "line": 190
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 36,
+            "line": 190
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Type mismatch: After simplification, term\n  opNorm_zero_iff' f\n has type\n  Iff (\u2016f\u2016 = 0) (f = 0)\nbut is expected to have type\n  Iff (\u2191\u2016f\u2016\u208a = 0) (f = 0)",
+          "endPos": {
+            "column": 72,
+            "line": 190
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 2,
+            "line": 190
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_eq_nnNorm`",
+          "endPos": {
+            "column": 29,
+            "line": 195
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 14,
+            "line": 195
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Type mismatch: After simplification, term\n  opNNNorm_eq_zero_iff f\n has type\n  \u2016f\u2016\u208a = 0 \u2194 f = 0\nbut is expected to have type\n  \u2016f\u2016\u2091 = 0 \u2194 f = 0",
+          "endPos": {
+            "column": 80,
+            "line": 195
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 2,
+            "line": 195
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_add_le`",
+          "endPos": {
+            "column": 21,
+            "line": 249
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 9,
+            "line": 249
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `coe_nnNorm`",
+          "endPos": {
+            "column": 63,
+            "line": 475
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/Normed/Operator/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 53,
+            "line": 475
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Normed.Operator.ClosedRange": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5021541118621826,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.Real.Sqrt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8964571952819824,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Beta.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Calculus.RealCharts"
+      ]
+    },
+    "TauCeti.Analysis.SpecialFunctions.Complex.Arg": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2243051528930664,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Erf.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2120771408081055,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Gamma.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.278141736984253,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.IncompleteGamma.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4258551597595215,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Pow.Integral": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Integral.Average"
+      ]
+    },
+    "TauCeti.Analysis.SpecialFunctions.Pow.NNReal": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.2776896953582764,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown constant `Real.eNorm_of_nonneg`",
+          "endPos": {
+            "column": 74,
+            "line": 313
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/SpecialFunctions/Pow/NNReal.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 54,
+            "line": 313
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\ncase inr\nx : \u211d\nhx : 0 < x\n\u22a2 ENNReal.ofReal x ^ (-1 / 2) \u2264 \u2016x\u2016\u2091 ^ (-2\u207b\u00b9)",
+          "endPos": {
+            "column": 10,
+            "line": 314
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/SpecialFunctions/Pow/NNReal.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 93,
+            "line": 310
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `continuous_nnNorm`",
+          "endPos": {
+            "column": 85,
+            "line": 502
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Analysis/SpecialFunctions/Pow/NNReal.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 68,
+            "line": 502
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Pow.Real": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0957372188568115,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecialFunctions.Sqrt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.2938547134399414,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.SpecificLimits.DyadicSum": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.4833180904388428,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Data.ENNReal.Inv": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8156826496124268,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Euclidean.Volume.Sphere": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.InnerProductSpace.NormDet"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.ChartedSpace": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.7042443752288818,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.ContMDiff.Atlas": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1723947525024414,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.ContMDiff.Groupoid": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8878467082977295,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.ContMDiff.Subtype": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9833621978759766,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.Diffeomorph.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1195499897003174,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.Diffeomorph.NormedSpace": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.19366455078125,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.ExtChartAt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8729686737060547,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.Immersion.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Normed.Module.FiniteDimension"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.Immersion.Differential": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Calculus.InverseFunctionTheorem"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.Instances.Sphere": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Geometry.Manifold.Immersion.Differential"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.IsManifold.InteriorChart": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9904968738555908,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.IsManifold.Prod": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9376850128173828,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.LocalDiffeomorph.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Calculus.InverseFunctionTheorem"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.LocalDiffeomorph.Composition": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0219299793243408,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.LocalDiffeomorph.Constructions": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.14404296875,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.LocalDiffeomorph.Injective": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9711160659790039,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.LocalDiffeomorph.OpenSubset": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2338778972625732,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.LocallyFlat.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4226868152618408,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.MFDeriv.Chart.Basic": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 2.501936197280884,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Invalid field `hasStrictFDerivAt_fderiv`: The environment does not contain `Function.hasStrictFDerivAt_fderiv`, so it is not possible to project the field `hasStrictFDerivAt_fderiv` from an expression\n  ContMDiffAt.contDiffAt_writtenInExtChartAt hf\nof type\n  \u2200 (m : \u2115),\n    \u2191m \u2264 1 \u2192\n      \u2203 u \u2208 \ud835\udcdd[insert (\u2191(extChartAt I y) y) univ] \u2191(extChartAt I y) y,\n        \u2203 p, HasFTaylorSeriesUpToOn (\u2191m) (writtenInExtChartAt I I' y f) p u",
+          "endPos": {
+            "column": 60,
+            "line": 929
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Geometry/Manifold/MFDeriv/Chart/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.invalidField._namedError",
+          "pos": {
+            "column": 36,
+            "line": 929
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.MFDeriv.ModelChart": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.2690837383270264,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Application type mismatch: The argument\n  hA\nhas type\n  HasFDerivAt (\u2191(q.symm \u226b\u2095 q')) (\u2191A) z\nbut is expected to have type\n  n \u2260 0\nin the application\n  ContDiffAt.hasStrictFDerivAt (contDiffAt_symm_trans_of_mem_maximalAtlas hq hq' hz) hA",
+          "endPos": {
+            "column": 86,
+            "line": 283
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Geometry/Manifold/MFDeriv/ModelChart.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 84,
+            "line": 283
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Invalid field `hasStrictFDerivAt_fderiv`: The environment does not contain `ContDiffWithinAt.match_1.hasStrictFDerivAt_fderiv`, so it is not possible to project the field `hasStrictFDerivAt_fderiv` from an expression\n  contDiffAt_symm_trans_of_mem_maximalAtlas hq hq' hy\u03c4\nof type\n  match n with\n  | none =>\n    \u2203 u \u2208 \ud835\udcdd[insert (\u2191q y) univ] \u2191q y,\n      \u2203 p, HasFTaylorSeriesUpToOn \u03c9 (\u2191(q.symm \u226b\u2095 q')) p u \u2227 \u2200 (i : \u2115), AnalyticOn \ud835\udd5c (fun x => p x i) u\n  | some n =>\n    \u2200 (m : \u2115), \u2191m \u2264 n \u2192 \u2203 u \u2208 \ud835\udcdd[insert (\u2191q y) univ] \u2191q y, \u2203 p, HasFTaylorSeriesUpToOn (\u2191m) (\u2191(q.symm \u226b\u2095 q')) p u",
+          "endPos": {
+            "column": 95,
+            "line": 298
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Geometry/Manifold/MFDeriv/ModelChart.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.invalidField._namedError",
+          "pos": {
+            "column": 71,
+            "line": 298
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Manifold.MFDeriv.NormedSpace": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Geometry.Manifold.MFDeriv.Chart.Basic"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.MFDeriv.Prod": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Geometry.Manifold.MFDeriv.NormedSpace"
+      ]
+    },
+    "TauCeti.Geometry.Manifold.PullbackGroupoid": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0897669792175293,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Geometry.Sphere.LinearIsometry": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6754953861236572,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.LinearAlgebra.Multilinear.Basis": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.6041853427886963,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Application type mismatch: The argument\n  RingHom.id R\nhas type\n  R \u2192+* R\nof sort `Type u_1` but is expected to have type\n  Type ?u.38\nof sort `Type (?u.38 + 1)` in the application\n  @MultilinearMap (RingHom.id R)",
+          "endPos": {
+            "column": 70,
+            "line": 32
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/LinearAlgebra/Multilinear/Basis.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 56,
+            "line": 32
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Logic.Equiv.PartialEquiv": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.4368617534637451,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Constructions.HaarToSphere": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5409328937530518,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Constructions.Pi": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0731916427612305,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Function.AreaFormula.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.InnerProductSpace.NormDet"
+      ]
+    },
+    "TauCeti.MeasureTheory.Function.L1Space.Integrable": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.274620532989502,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Invalid field `mono_eNorm`: The environment does not contain `WithTop.LT.mono_eNorm`, so it is not possible to project the field `mono_eNorm` from an expression\n  hasFiniteIntegral hf\nof type\n  WithTop.LT (\u222b\u207b (a : X), \u2016f a\u2016\u2091 \u2202\u03bc) \u22a4",
+          "endPos": {
+            "column": 35,
+            "line": 81
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/L1Space/Integrable.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.invalidField._namedError",
+          "pos": {
+            "column": 25,
+            "line": 81
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Invalid field `of_le_eNorm`: The environment does not contain `WithTop.LT.of_le_eNorm`, so it is not possible to project the field `of_le_eNorm` from an expression\n  h\u03bd\nof type\n  WithTop.LT (eLpNorm id (ENNReal.ofReal p) \u03bd) \u22a4",
+          "endPos": {
+            "column": 19,
+            "line": 133
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/L1Space/Integrable.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.invalidField._namedError",
+          "pos": {
+            "column": 8,
+            "line": 133
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Function.LocallyIntegrable": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7085940837860107,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Function.Lp.Iterated": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.Lp.TendstoExponentTop"
+      ]
+    },
+    "TauCeti.MeasureTheory.Function.Lp.LIntegralRpow": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.LpSeminorm.Lintegral"
+      ]
+    },
+    "TauCeti.MeasureTheory.Function.Lp.Norm": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.LpSeminorm.AddMeasure"
+      ]
+    },
+    "TauCeti.MeasureTheory.Function.Lp.TendstoExponentTop": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.SpecialFunctions.Pow.NNReal"
+      ]
+    },
+    "TauCeti.MeasureTheory.Function.LpSeminorm.AddMeasure": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.9429898262023926,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_eq_lintegral_rpow_eNorm_toReal`",
+          "endPos": {
+            "column": 46,
+            "line": 67
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/AddMeasure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 8,
+            "line": 67
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_eq_lintegral_rpow_eNorm_toReal`",
+          "endPos": {
+            "column": 48,
+            "line": 98
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/AddMeasure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 10,
+            "line": 98
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_lt_top_iff_lintegral_rpow_eNorm_lt_top`",
+          "endPos": {
+            "column": 50,
+            "line": 150
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/AddMeasure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 4,
+            "line": 150
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\ncase inr.inr\n\u03b1 : Type u_1\n\u03b5 : Type u_2\nm : MeasurableSpace \u03b1\ninst\u271d\u00b3 : TopologicalSpace \u03b5\ninst\u271d\u00b2 : ContinuousENorm \u03b5\ninst\u271d\u00b9 : TopologicalSpace.PseudoMetrizableSpace \u03b5\np : \u211d\u22650\u221e\n\u03bc : Measure \u03b1\n\u03b9 : Type u_3\ninst\u271d : Finite \u03b9\nf : \u03b1 \u2192 \u03b5\ns : Set \u03b1\nt : \u03b9 \u2192 Set \u03b1\nhs : s \u2286 \u22c3 i, t i\nhf : \u2200 (i : \u03b9), MemLp f p (\u03bc.restrict (t i))\nthis : Fintype \u03b9\nhp : p < 1\nhm : AEStronglyMeasurable f (\u03bc.restrict (\u22c3 i, t i))\nhp0 : p \u2260 0\n\u22a2 MemLp f p (\u03bc.restrict (\u22c3 i, t i))",
+          "endPos": {
+            "column": 62,
+            "line": 154
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/AddMeasure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 32,
+            "line": 138
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Function.LpSeminorm.Lintegral": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.8763363361358643,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_lt_top_iff_lintegral_rpow_eNorm_lt_top`",
+          "endPos": {
+            "column": 63,
+            "line": 76
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 17,
+            "line": 76
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03b1 : Type u_1\ninst\u271d\u00b2 : MeasurableSpace \u03b1\n\u03bc : Measure \u03b1\n\u03b5 : Type u_3\ninst\u271d\u00b9 : TopologicalSpace \u03b5\ninst\u271d : ENorm \u03b5\nf : \u03b1 \u2192 \u03b5\nhf : AEStronglyMeasurable f \u03bc\n\u22a2 eLpNorm f 2 \u03bc < \u221e \u2194 \u222b\u207b (x : \u03b1), \u2016f x\u2016\u2091 ^ 2 \u2202\u03bc < \u221e",
+          "endPos": {
+            "column": 56,
+            "line": 78
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 45,
+            "line": 75
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `lintegral_rpow_eNorm_eq_rpow_eLpNorm'`",
+          "endPos": {
+            "column": 41,
+            "line": 85
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 4,
+            "line": 85
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03b1 : Type u_1\n\u03b5 : Type u_2\ninst\u271d\u00b2 : MeasurableSpace \u03b1\n\u03bc : Measure \u03b1\ninst\u271d\u00b9 : TopologicalSpace \u03b5\ninst\u271d : ContinuousENorm \u03b5\nf : \u03b1 \u2192 \u03b5\np : \u211d\u22650\u221e\nhp0 : p \u2260 0\nhp : p \u2260 \u221e\nhf : AEStronglyMeasurable f \u03bc\n\u22a2 \u222b\u207b (x : \u03b1), \u2016f x\u2016\u2091 ^ p.toReal \u2202\u03bc = eLpNorm' f p.toReal \u03bc ^ p.toReal",
+          "endPos": {
+            "column": 70,
+            "line": 85
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 61,
+            "line": 83
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_mono_eNorm`",
+          "endPos": {
+            "column": 24,
+            "line": 125
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 6,
+            "line": 125
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_eq_self`",
+          "endPos": {
+            "column": 30,
+            "line": 129
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 17,
+            "line": 129
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "`simp` made no progress",
+          "endPos": {
+            "column": 39,
+            "line": 129
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 6,
+            "line": 129
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "No goals to be solved",
+          "endPos": {
+            "column": 64,
+            "line": 132
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 4,
+            "line": 132
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_eq_lintegral_rpow_eNorm_toReal`",
+          "endPos": {
+            "column": 49,
+            "line": 137
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 11,
+            "line": 137
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "`simp` made no progress",
+          "endPos": {
+            "column": 49,
+            "line": 138
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 11,
+            "line": 137
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `lintegral_rpow_eNorm_lt_top_of_eLpNorm_lt_top`",
+          "endPos": {
+            "column": 59,
+            "line": 155
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 14,
+            "line": 155
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\ncase inr\n\u03b1 : Type u_1\n\u03b5 : Type u_2\ninst\u271d\u00b2 : MeasurableSpace \u03b1\n\u03bc : Measure \u03b1\ninst\u271d\u00b9 : TopologicalSpace \u03b5\ninst\u271d : ContinuousENorm \u03b5\nf : \u03b1 \u2192 \u03b5\np : \u211d\u22650\u221e\nhf : MemLp f p \u03bc\nhp : p \u2260 0\nhp_top : p \u2260 \u221e\n\u22a2 \u2200\u1d50 (x : \u03b1) \u2202\u03bc, \u2016f x\u2016\u2091 < \u221e",
+          "endPos": {
+            "column": 76,
+            "line": 157
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Function/LpSeminorm/Lintegral.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 27,
+            "line": 151
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Function.Monotone": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.873833179473877,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Group.Arithmetic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8583719730377197,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Group.Convolution.Power": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1059439182281494,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Group.Convolution.Translation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9652230739593506,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Group.Measure": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.4258017539978027,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Application type mismatch: The argument\n  Measurable.aemeasurable (Continuous.measurable (continuous_mul_const g\u207b\u00b9))\nhas type\n  AEMeasurable (fun x => x * g\u207b\u00b9) ?m.80\nbut is expected to have type\n  Measurable fun x => x * g\u207b\u00b9\nin the application\n  QuasiMeasurePreserving.mk (Measurable.aemeasurable (Continuous.measurable (continuous_mul_const g\u207b\u00b9)))",
+          "endPos": {
+            "column": 66,
+            "line": 338
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Group/Measure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 16,
+            "line": 338
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "declaration uses `sorry`",
+          "endPos": {
+            "column": 13,
+            "line": 327
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Group/Measure.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "hasSorry",
+          "pos": {
+            "column": 2,
+            "line": 327
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "TauCeti.MeasureTheory.Integral.Average": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.L1Space.Integrable"
+      ]
+    },
+    "TauCeti.MeasureTheory.Integral.Bochner.Basic": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.8951599597930908,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_lt_top`",
+          "endPos": {
+            "column": 72,
+            "line": 242
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 60,
+            "line": 242
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_lt_top`",
+          "endPos": {
+            "column": 59,
+            "line": 252
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 47,
+            "line": 252
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_integral_le_lintegral_eNorm`",
+          "endPos": {
+            "column": 43,
+            "line": 292
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 10,
+            "line": 292
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown constant `Real.eNorm_eq_ofReal_abs`",
+          "endPos": {
+            "column": 30,
+            "line": 549
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 6,
+            "line": 549
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03a9 : Type u_1\ninst\u271d : MeasurableSpace \u03a9\n\u03bc : Measure \u03a9\nh : \u03a9 \u2192 \u211d\nC : \u211d\nhb : \u2200\u1d50 (x : \u03a9) \u2202\u03bc, |h x| \u2264 C\nhC : 0 < C\nx : \u03a9\nhx : |h x| \u2264 C\n\u22a2 ENNReal.ofReal (h x ^ 2 / C) \u2264 \u2016h x\u2016\u2091",
+          "endPos": {
+            "column": 30,
+            "line": 552
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 64,
+            "line": 541
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eLpNorm_one_eq_lintegral_eNorm`",
+          "endPos": {
+            "column": 36,
+            "line": 626
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 6,
+            "line": 626
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03a9 : Type u_1\nE : Type u_2\n\u03b9 : Type u_3\ninst\u271d\u00b9 : MeasurableSpace \u03a9\ninst\u271d : NormedAddCommGroup E\n\u03bc : Measure \u03a9\nl : Filter \u03b9\nf : \u03b9 \u2192 \u03a9 \u2192 E\ng : \u03a9 \u2192 E\nhf : \u2200\u1da0 (i : \u03b9) in l, Integrable (f i - g) \u03bc\nh : Tendsto (fun i => \u222b (\u03c9 : \u03a9), \u2016f i \u03c9 - g \u03c9\u2016 \u2202\u03bc) l (\ud835\udcdd 0)\ni : \u03b9\nhi : Integrable (f i - g) \u03bc\n\u22a2 (ENNReal.ofReal \u2218 fun i => \u222b (\u03c9 : \u03a9), \u2016f i \u03c9 - g \u03c9\u2016 \u2202\u03bc) i = eLpNorm (f i - g) 1 \u03bc",
+          "endPos": {
+            "column": 47,
+            "line": 628
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 56,
+            "line": 622
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `ofReal_integral_norm_eq_lintegral_eNorm`",
+          "endPos": {
+            "column": 49,
+            "line": 639
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 10,
+            "line": 639
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `eNorm_smul`",
+          "endPos": {
+            "column": 50,
+            "line": 698
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Integral/Bochner/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 40,
+            "line": 698
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Integral.ContinuousMap": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6840119361877441,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Integral.IntegralEqImproper": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.226231575012207,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Integral.OddSymmetric": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9170475006103516,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Integral.Pi": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.Lp.Iterated"
+      ]
+    },
+    "TauCeti.MeasureTheory.MeasurableSpace.Pi": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.5674898624420166,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.AEMeasurable": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.7152688503265381,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.Dirac": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.8408205509185791,
+      "errors": [
+        {
+          "caption": "",
+          "data": "`simp` made no progress",
+          "endPos": {
+            "column": 12,
+            "line": 236
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 2,
+            "line": 235
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "failed to synthesize instance of type class\n  IsZeroApply (Measure X)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+          "endPos": {
+            "column": 23,
+            "line": 288
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.synthInstanceFailed._namedError",
+          "pos": {
+            "column": 8,
+            "line": 288
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "failed to synthesize instance of type class\n  IsAddApply (Measure X)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+          "endPos": {
+            "column": 23,
+            "line": 288
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.synthInstanceFailed._namedError",
+          "pos": {
+            "column": 8,
+            "line": 288
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\nX : Type u_1\ninst\u271d\u00b9 : MeasurableSpace X\ninst\u271d : MeasurableSingletonClass X\nS : Finset X\nm : X \u2192 \u2115\n\u22a2 IsZeroApply (Measure X)\n\nX : Type u_1\ninst\u271d\u00b9 : MeasurableSpace X\ninst\u271d : MeasurableSingletonClass X\nS : Finset X\nm : X \u2192 \u2115\n\u22a2 IsAddApply (Measure X)",
+          "endPos": {
+            "column": 78,
+            "line": 290
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 79,
+            "line": 287
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "failed to synthesize instance of type class\n  IsSMulApply \u211d\u22650\u221e (Measure X)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+          "endPos": {
+            "column": 23,
+            "line": 291
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.synthInstanceFailed._namedError",
+          "pos": {
+            "column": 6,
+            "line": 291
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\nX : Type u_1\ninst\u271d\u00b9 : MeasurableSpace X\ninst\u271d : MeasurableSingletonClass X\nS : Finset X\nm : X \u2192 \u2115\nhzero : (\u2211 x \u2208 S, \u2191(m x) \u2022 Measure.dirac x) (\u2191S)\u1d9c = 0\n\u22a2 IsSMulApply \u211d\u22650\u221e (Measure X)",
+          "endPos": {
+            "column": 42,
+            "line": 291
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Dirac.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 28,
+            "line": 286
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.Haar.Lipschitz": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.0625245571136475,
+      "errors": [
+        {
+          "caption": "",
+          "data": "`simp` made no progress",
+          "endPos": {
+            "column": 59,
+            "line": 66
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Haar/Lipschitz.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 42,
+            "line": 66
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.Haar.NormedSpace": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.Lp.Norm"
+      ]
+    },
+    "TauCeti.MeasureTheory.Measure.Haar.Unique": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.208974838256836,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Application type mismatch: The argument\n  Measurable.aemeasurable (Continuous.measurable (Homeomorph.continuous e.toHomeomorph))\nhas type\n  AEMeasurable \u21d1e.toHomeomorph ?m.55\nbut is expected to have type\n  Measurable \u21d1e\nin the application\n  MeasureTheory.QuasiMeasurePreserving.mk\n    (Measurable.aemeasurable (Continuous.measurable (Homeomorph.continuous e.toHomeomorph)))",
+          "endPos": {
+            "column": 39,
+            "line": 60
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Haar/Unique.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 3,
+            "line": 60
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "declaration uses `sorry`",
+          "endPos": {
+            "column": 13,
+            "line": 49
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Haar/Unique.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "hasSorry",
+          "pos": {
+            "column": 2,
+            "line": 49
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "TauCeti.MeasureTheory.Measure.Measurability": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1344373226165771,
+      "errors": [],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  _root_.smul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Measure.sum_apply _ hs, smul_eq_mul, Measure.dirac_apply' _ hs]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 54,
+            "line": 91
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Measurability.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 37,
+            "line": 91
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Measure.sum_apply _ hs, _root_.smul_apply, Measure.dirac_apply' _ hs]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 67,
+            "line": 91
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Measurability.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 56,
+            "line": 91
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  Measure.dirac_apply' _ hs\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Measure.sum_apply _ hs, _root_.smul_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 94,
+            "line": 91
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Measurability.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 69,
+            "line": 91
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "TauCeti.MeasureTheory.Measure.Mod0MeasureIso": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0184788703918457,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.OpenPos": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.7629427909851074,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression\n  h\nhas type\n  (fun x => x \u2208 s) x\u271d = (fun x => x \u2208 t) x\u271d\nwhich has no fields.",
+          "endPos": {
+            "column": 72,
+            "line": 70
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/OpenPos.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 69,
+            "line": 70
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression\n  h\nhas type\n  (fun x => x \u2208 s) x\u271d = (fun x => x \u2208 t) x\u271d\nwhich has no fields.",
+          "endPos": {
+            "column": 72,
+            "line": 71
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/OpenPos.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 69,
+            "line": 71
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.PiWithDensity": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Integral.Pi"
+      ]
+    },
+    "TauCeti.MeasureTheory.Measure.Real": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.066471815109253,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `ae_subset`",
+          "endPos": {
+            "column": 14,
+            "line": 90
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Real.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 5,
+            "line": 90
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "failed to synthesize instance of type class\n  IsAddApply (Measure \u211d)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+          "endPos": {
+            "column": 72,
+            "line": 137
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Real.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.synthInstanceFailed._namedError",
+          "pos": {
+            "column": 56,
+            "line": 137
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03bc \u03bd : Measure \u211d\nh\u03bcneg : map (fun x => -x) \u03bc = \u03bc\nh\u03bdneg : map (fun x => -x) \u03bd = \u03bd\nhsq : map (fun x => x ^ 2) \u03bc = map (fun x => x ^ 2) \u03bd\nhmeas : Measurable fun x => x ^ 2\nhsplit :\n  \u2200 (\u03c1 : Measure \u211d),\n    map (fun x => -x) \u03c1 = \u03c1 \u2192 \u2200 (s : Set \u211d), MeasurableSet s \u2192 \u03c1 s = \u03c1 (s \u2229 Ioi 0) + \u03c1 (-s \u2229 Ioi 0) + \u03c1 (s \u2229 {0})\nhfold : \u2200 (\u03c1 : Measure \u211d), map Real.sqrt (map (fun x => x ^ 2) \u03c1) = map (fun x => |x|) \u03c1\n\u03c1 : Measure \u211d\nh\u03c1 : map (fun x => -x) \u03c1 = \u03c1\nt : Set \u211d\nhts : t \u2286 Ioi 0\nhneg : \u03c1.neg = \u03c1\n\u22a2 IsAddApply (Measure \u211d)",
+          "endPos": {
+            "column": 14,
+            "line": 139
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/MeasureTheory/Measure/Real.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 33,
+            "line": 134
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.Support": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.848475456237793,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.Tilted": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.WithDensity"
+      ]
+    },
+    "TauCeti.MeasureTheory.Measure.Typeclasses.Probability": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8216979503631592,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.MeasureTheory.Measure.WithDensity": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.Haar.NormedSpace"
+      ]
+    },
+    "TauCeti.Probability.Cdf": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Group.Measure"
+      ]
+    },
+    "TauCeti.Probability.Cdf.Density": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Cdf"
+      ]
+    },
+    "TauCeti.Probability.Density": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9792463779449463,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Affine": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.WithDensity"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Bernoulli.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.GeneratingFunction"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Bernoulli.Cdf": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9459855556488037,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Beta.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.SpecialFunctions.Beta.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Beta.PDF": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9548139572143555,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Binomial.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.GeneratingFunction",
+        "TauCeti.Probability.Distributions.Bernoulli.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Chi.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Gamma.Sqrt"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Chi.Gaussian": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Tilted"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Chi.Moments": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Chi.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.ChiSquared.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Integral.Pi"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Dirac": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.Dirac"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Dirichlet.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Gamma.Pi"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Dirichlet.Density": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Dirichlet.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Dirichlet.Factorization": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Dirichlet.Density"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Dirichlet.Marginal": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Gamma.Beta"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gamma.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5026512145996094,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gamma.Beta": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Beta.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gamma.Cdf": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Cdf"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gamma.CharFun": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.080354928970337,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gamma.Measurability": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9394347667694092,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gamma.PDF": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0297822952270508,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gamma.Pi": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.PiWithDensity"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gamma.Sqrt": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.ChiSquared.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gamma.Sum": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0288524627685547,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2104856967926025,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Cdf": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Cdf.Density"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.ChiSquared": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.ChiSquared.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Density": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Gaussian.Pi"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Maximum": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Function.L1Space.Integrable"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Multivariate": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0074756145477295,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Norm": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Rademacher.Norm"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Pi": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.MeasureTheory.Measure.PiWithDensity"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Gaussian.Symmetry": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1798288822174072,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Poisson.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.GeneratingFunction"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Rademacher.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Bernoulli.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Rademacher.Norm": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Rademacher.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Relations": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0285847187042236,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Distributions.Tilted": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Binomial.Basic",
+        "TauCeti.Probability.Distributions.Poisson.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Uniform.Sphere.Basic": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Chi.Gaussian"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Uniform.Sphere.Dirichlet": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Dirichlet.Marginal"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Uniform.Sphere.Moments": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Uniform.Sphere.Basic"
+      ]
+    },
+    "TauCeti.Probability.Distributions.Uniform.Sphere.Norm": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Distributions.Uniform.Sphere.Basic",
+        "TauCeti.Probability.Distributions.Gaussian.Norm"
+      ]
+    },
+    "TauCeti.Probability.GeneratingFunction": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.Analytic.OfScalars"
+      ]
+    },
+    "TauCeti.Probability.Independence.ConvolutionPower": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0143775939941406,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Moments.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3268318176269531,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Moments.ComplexMGF": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0498669147491455,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Moments.Covariance": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.775724172592163,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Moments.Determinacy": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0364806652069092,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Moments.Pi": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1406009197235107,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Probability.Quantile": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Probability.Cdf"
+      ]
+    },
+    "TauCeti.RingTheory.Norm.RCLike": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9168062210083008,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.Complement": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8737032413482666,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.ContinuousLinearMap.Invertible": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2339961528778076,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.ContinuousLinearMap.LeftInverse": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0360407829284668,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.ContinuousLinearMap.RealAlgebra": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.6651153564453125,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.Determinant": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4884965419769287,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.Equiv.SMul": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.6996631622314453,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Algebra.Module.FiniteDimension": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.LinearAlgebra.Multilinear.Basis"
+      ]
+    },
+    "TauCeti.Topology.Algebra.Support": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.74924635887146,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.ContinuousOn.PuncturedNhds": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.5325284004211426,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.Homeomorph.SetCongr": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.5536098480224609,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.IsLocalHomeomorph": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8024356365203857,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.MetricSpace.Holder": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.3952178955078125,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `nnDist_eq_nnNorm`",
+          "endPos": {
+            "column": 20,
+            "line": 335
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Topology/MetricSpace/Holder.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 4,
+            "line": 335
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\nX : Type u_3\nY : Type u_4\ninst\u271d\u00b9 : PseudoEMetricSpace X\ninst\u271d : SeminormedAddCommGroup Y\nf : X \u2192 Y\nM : \u211d\u22650\nhf : \u2200 (x : X), \u2016f x\u2016\u208a \u2264 M\nx y : X\n\u22a2 nndist (f x) (f y) \u2264 2 * M",
+          "endPos": {
+            "column": 60,
+            "line": 336
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Topology/MetricSpace/Holder.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 40,
+            "line": 333
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Unknown identifier `coe_nnNorm`",
+          "endPos": {
+            "column": 65,
+            "line": 374
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Topology/MetricSpace/Holder.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 55,
+            "line": 374
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\nX : Type u_3\nY : Type u_4\ninst\u271d\u00b9 : PseudoMetricSpace X\ninst\u271d : SeminormedAddCommGroup Y\nK : Set X\nhK : IsCompact K\n\u03b1 : \u211d\u22650\nf : X \u2192 Y\nr : X \u2192 \u211d\nhr : \u2200 x \u2208 K, r x > 0\nL : X \u2192 \u211d\u22650\nhL : \u2200 x \u2208 K, HolderOnWith (L x) \u03b1 f (Metric.ball x (r x))\nt : Finset X\nhtK : \u2200 x \u2208 t, x \u2208 K\nhcover : K \u2286 \u22c3 x \u2208 t, Metric.ball x (r x)\n\u03b4\u2080 : \u211d\nh\u03b4\u2080 : \u03b4\u2080 > 0\nh\u03b4\u2080K : \u2200 x \u2208 K, \u2203 i, Metric.ball x \u03b4\u2080 \u2286 Metric.ball (\u2191i) (r \u2191i)\nhball :\n  \u2200 y \u2208 Metric.thickening (\u03b4\u2080 / 2) K,\n    \u2200 (y' : X), dist y y' < \u03b4\u2080 / 2 \u2192 \u2203 z \u2208 t, y \u2208 Metric.ball z (r z) \u2227 y' \u2208 Metric.ball z (r z)\nM : \u211d\u22650 := \u2211 z \u2208 t, (\u2016f z\u2016\u208a + L z * (r z).toNNReal ^ \u2191\u03b1)\ny : X\nhy : y \u2208 Metric.thickening (\u03b4\u2080 / 2) K\nz : X\nhzt : z \u2208 t\nhyz : y \u2208 Metric.ball z (r z)\n\u22a2 \u2016f z\u2016 + \u2191(L z) * r z ^ \u2191\u03b1 = \u2191\u2016f z\u2016\u208a + \u2191(L z) * r z ^ \u2191\u03b1",
+          "endPos": {
+            "column": 66,
+            "line": 374
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-436/TauCeti/Topology/MetricSpace/Holder.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 67,
+            "line": 372
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Topology.OpenPartialHomeomorph.Box": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.7932963371276855,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.OpenPartialHomeomorph.Composition": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.590233325958252,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.OpenPartialHomeomorph.Constructions": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.6908130645751953,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.OpenPartialHomeomorph.Continuity": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.6335210800170898,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Topology.SeparatedMap": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.5635645389556885,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "error_count": 64,
+  "ok": 98,
+  "failed": 19,
+  "blocked": 63
+}

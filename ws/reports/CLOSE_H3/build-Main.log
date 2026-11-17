@@ -1,0 +1,7 @@
+theorem CertData.H3.Close.automaton10 : AKLT.Blueprint.Top.Automaton10StatementV2 :=
+Bridge.automatonV2_from_leaves Graph.packed automatonLeaves Check.SuppliedTables.checked Check.BlockLookup.checked
+  GraphAssembly.raw_receipt GraphAssembly.representative_receipt GraphAssembly.field_receipt Check.EdgeCounts.checked
+theorem CertData.H3.Close.stationaryCheck : AKLT.Blueprint.Top.StationaryCheckStatementV2 :=
+Bridge.All.stationary_from_leaves ⟨automatonLeaves, productionCaseLeaves⟩
+'CertData.H3.Close.automaton10' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertData.H3.Close.stationaryCheck' depends on axioms: [propext, Classical.choice, Quot.sound]

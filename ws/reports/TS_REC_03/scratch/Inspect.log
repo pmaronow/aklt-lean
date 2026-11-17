@@ -1,0 +1,74 @@
+def AKLT.Blueprint.Rec.TwoLogIdentityStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f} →
+        a.o ≠ f →
+          Real.log (AKLT.Defs.stepRatio a.D a.τ false a.y a.o) - Real.log (AKLT.Defs.stepRatio a.D a.τ true a.y a.o) =
+            AKLT.Defs.responseBetaPrime a.D a.τ a.y a.o f * AKLT.Blueprint.Rec.pairResponse a.D a.τ a.y f a.o
+def AKLT.Blueprint.Rec.AlphaPositiveStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f g : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f → a.o ≠ g → f ≠ g → 0 < AKLT.Defs.responseAlpha a.D a.τ a.y a.o f g
+def AKLT.Blueprint.Rec.AlphaUniformStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f g : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f → a.o ≠ g → f ≠ g → AKLT.Defs.responseAlpha a.D a.τ a.y a.o f g ≤ 18094 / 100000
+def AKLT.Blueprint.Rec.BetaPositiveStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f g : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f → a.o ≠ g → f ≠ g → 0 < AKLT.Defs.responseBeta a.D a.τ a.y a.o f g
+def AKLT.Blueprint.Rec.BetaUniformStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f g : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f → a.o ≠ g → f ≠ g → AKLT.Defs.responseBeta a.D a.τ a.y a.o f g ≤ 36751 / 100000
+def AKLT.Blueprint.Rec.ThreeLogIdentityStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f g : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f →
+          a.o ≠ g →
+            f ≠ g →
+              Real.log (AKLT.Defs.stepRatio a.D a.τ false a.y a.o) -
+                  Real.log (AKLT.Defs.stepRatio a.D a.τ true a.y a.o) =
+                AKLT.Defs.responseAlpha a.D a.τ a.y a.o f g * AKLT.Blueprint.Rec.pairResponse a.D a.τ a.y f g +
+                  AKLT.Defs.responseBeta a.D a.τ a.y a.o f g *
+                    (AKLT.Blueprint.Rec.pairResponse a.D a.τ a.y f a.o +
+                      AKLT.Blueprint.Rec.pairResponse a.D a.τ a.y g a.o)
+def AKLT.Blueprint.Rec.ReciprocalIntegralStatement : Prop :=
+∀ (x y : ℝ), 0 < x → 0 < y → (AKLT.Defs.logarithmicMean x y)⁻¹ = ∫ (t : ℝ) in 0..1, ((1 - t) * x + t * y)⁻¹
+def AKLT.Blueprint.Rec.LogCoefficientMonoXStatement : Prop :=
+∀ (c x x' y : ℝ),
+  3 / 5 ≤ c →
+    c ≤ 1 →
+      0 < x →
+        x ≤ x' →
+          0 < y →
+            1 / (3 * AKLT.Defs.logarithmicMean (c * x') y) - 1 / (5 * AKLT.Defs.logarithmicMean x' y) ≤
+              1 / (3 * AKLT.Defs.logarithmicMean (c * x) y) - 1 / (5 * AKLT.Defs.logarithmicMean x y)
+structure AKLT.Blueprint.Rec.Departure : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.Departure.G : Finset AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.Departure.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.Departure.y : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.o : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.auxiliary : self.D.Auxiliary
+  AKLT.Blueprint.Rec.Departure.start : self.D.AdmissibleStart self.y
+  AKLT.Blueprint.Rec.Departure.present : self.o ∈ self.D.presentNeighbours self.y
+constructor:
+  AKLT.Blueprint.Rec.Departure.mk (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G)
+    (y o : AKLT.Defs.Plane) (auxiliary : D.Auxiliary) (start : D.AdmissibleStart y)
+    (present : o ∈ D.presentNeighbours y) : AKLT.Blueprint.Rec.Departure
+def AKLT.Defs.logarithmicMean : ℝ → ℝ → ℝ :=
+fun x y => if x = y then x else (x - y) / (Real.log x - Real.log y)

@@ -1,0 +1,155 @@
+\section{Coherent-state frames and the reduction to a classical heat bath}\label{s:frames}
+
+In this section we prove that the gap of $H_{L, N}$ is bounded below by a multiple of the spectral gap of the single-site heat-bath dynamics of a finite-state Markov field (Theorem~\ref{t:QD}). The argument compares the quantum Dirichlet form with a classical one through coherent states, as in the classical representation of the valence-bond-solid state \cite{AKLT88, KLT88}, with the sphere of coherent states replaced by a finite frame.
+
+\subsection{Polynomial representation and the edge lemma}\label{s:poly}
+
+For $a \in \Sph$ fix a unit vector $\zeta(a) \in \C^2$ such that
+\begin{equation}\label{e:zeta}
+\zeta(a) \zeta(a)^* = \tfrac12 (1 + a \cdot \sigma),
+\end{equation}
+where $\sigma = (\sigma_1, \sigma_2, \sigma_3)$ are the Pauli matrices; $\zeta(a)$ is determined up to a phase, which we fix once and for all. Let $V$ be the space of homogeneous polynomials of degree $4$ in $z = (z_1, z_2) \in \C^2$, with the inner product
+\begin{equation}\label{e:Vinner}
+\langle \varphi, \psi \rangle_V = 5 \int_{\Sph} \overline{\varphi(\zeta(a))} \, \psi(\zeta(a)) \, \dd a .
+\end{equation}
+The integrand does not depend on the phases of $\zeta(a)$, since $\varphi$ and $\psi$ are homogeneous of the same degree. The group $\mathrm{SU}(2)$ acts on $V$ by $(U_g \varphi)(z) = \varphi(g^{-1} z)$. Since $g^{-1} \zeta(a)$ is a phase times $\zeta(R_g^{-1} a)$, where $R_g \in \mathrm{SO}(3)$ is the rotation associated with $g$, the inner product \eqref{e:Vinner} is invariant, and it is positive definite because a homogeneous polynomial that vanishes on the unit sphere of $\C^2$ vanishes identically. Hence $V$ is the spin-$2$ representation. For a finite set $\Lambda$, the space $\mathcal H_\Lambda = \bigotimes_{x \in \Lambda} V$ is the space of polynomials in $z_\Lambda = (z_x)_{x \in \Lambda}$ that are homogeneous of degree $4$ in each $z_x$, with the product of the inner products \eqref{e:Vinner}.
+
+For an ordered pair $(x, y)$ set
+\begin{equation*}
+q_{xy}(z_x, z_y) = z_{x, 1} z_{y, 2} - z_{x, 2} z_{y, 1} .
+\end{equation*}
+It is invariant under $(z_x, z_y) \mapsto (g z_x, g z_y)$ for $g \in \mathrm{SU}(2)$. For a bond $e$ we write $q_e$ for $q_{xy}$ with a fixed orientation of $e$; the orientation only changes signs below. On the torus $\Lambda_{L, N}$ define the valence-bond-solid state
+\begin{equation}\label{e:B}
+B = \prod_{e \in E} q_e \in \mathcal H_\Lambda .
+\end{equation}
+It is homogeneous of degree $4$ in every $z_x$ because every site has four bonds, and $B \neq 0$ since $\C[z_\Lambda]$ is an integral domain.
+
+\begin{lemma}\label{l:edge}
+Let $e = \{x, y\}$. Then $P_e \varphi = 0$ if and only if $\varphi = q_e \chi$ for a polynomial $\chi$ that is homogeneous of degree $3$ in $z_x$ and in $z_y$ and of degree $4$ in every other $z_u$.
+\end{lemma}
+
+\begin{proof}
+It suffices to consider $V_x \otimes V_y$, the polynomials of bidegree $(4, 4)$ in $(z_x, z_y)$. Multiplication by $q_e$ maps the polynomials of bidegree $(3, 3)$ injectively into $V_x \otimes V_y$, and it commutes with the action of $\mathrm{SU}(2)$ because $q_e$ is invariant. By the Clebsch--Gordan rule, the domain is the direct sum of the spins $0, 1, 2, 3$, each with multiplicity one, and $V_x \otimes V_y$ is the direct sum of the spins $0, \dots, 4$, each with multiplicity one. The image is therefore an invariant subspace isomorphic to the spins $0, \dots, 3$, and by multiplicity one it is the sum of the corresponding isotypic components of $V_x \otimes V_y$, which is $\ker P_e$.
+\end{proof}
+
+\begin{lemma}\label{l:divisibility}
+Let $G = (\Lambda, E)$ be a finite simple graph in which every vertex has degree $4$, let $R \subset \Lambda$, and let $E_R$ be the set of bonds meeting $R$. If $\varphi \in \mathcal H_\Lambda$ satisfies $P_e \varphi = 0$ for all $e \in E_R$, then $\varphi = b_R \chi$ with $b_R = \prod_{e \in E_R} q_e$ and a polynomial $\chi$ that does not depend on $z_x$ for $x \in R$.
+\end{lemma}
+
+\begin{proof}
+Each $q_e$ is a quadratic form of rank $4$ in the four variables $z_{x, 1}, z_{x, 2}, z_{y, 1}, z_{y, 2}$, hence irreducible. Two distinct bonds of a simple graph do not have the same pair of endpoints, so $q_e$ and $q_{e'}$ depend on different sets of variables and are not associate. By Lemma~\ref{l:edge}, every $q_e$ with $e \in E_R$ divides $\varphi$, and since $\C[z_\Lambda]$ is a unique factorization domain, so does their product $b_R$. For $x \in R$ all four bonds at $x$ belong to $E_R$, so $b_R$ has degree $4$ in $z_x$, which is the degree of $\varphi$; the quotient has degree $0$ in $z_x$.
+\end{proof}
+
+By Lemma~\ref{l:edge}, $P_e B = 0$ for every bond, so $H_{L, N} B = 0$. For $x \in \Lambda$ let $H_x = \sum_{e \ni x} P_e$ and $\mathcal S_x = \ker H_x$, and let $\Pi_{\mathcal S_x}$ be the orthogonal projection onto $\mathcal S_x$. When $L, N \ge 3$ the four neighbours of $x$ are distinct, so $H_x$ acts on the five sites $\{x\} \cup N(x)$ as one fixed operator $h_\star$ on $V^{\otimes 5}$, the star Hamiltonian, tensored with the identity. Let $g_\star > 0$ be the smallest nonzero eigenvalue of $h_\star$. Then
+\begin{equation}\label{e:star}
+H_x \ge g_\star (1 - \Pi_{\mathcal S_x}), \qquad \sum_{x \in \Lambda} H_x = 2 H_{L, N} .
+\end{equation}
+The number $g_\star$ does not depend on $L$ and $N$; only $g_\star > 0$ is used below. (A numerical diagonalization gives $g_\star \approx 0.047238$.)
+
+\subsection{Tight frames of coherent states}\label{s:tight}
+
+\begin{definition}\label{d:frame}
+A \emph{frame} is a pair $(D, w)$ of a finite set $D \subset \Sph$ and weights $w \colon D \to (0, \infty)$ such that $\sum_{a \in D} w(a) p(a) = \int_{\Sph} p(a) \, \dd a$ for all polynomials $p$ on $\R^3$ of degree at most $4$, that is, a positive weighted spherical $4$-design.
+\end{definition}
+
+\begin{lemma}\label{l:tight}
+If $(D, w)$ is a frame, then $\sum_{a \in D} 5 w(a) \, |\varphi(\zeta(a))|^2 = \|\varphi\|_V^2$ for all $\varphi \in V$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{e:zeta}, $\zeta_j(a) \overline{\zeta_i(a)}$ is an affine function of $a$ for all $i, j$. Every monomial of $\overline{\varphi(\zeta(a))} \varphi(\zeta(a))$ is a product of four such factors, so this function is the restriction to $\Sph$ of a polynomial of degree at most $4$. The claim follows from \eqref{e:Vinner} and Definition~\ref{d:frame}.
+\end{proof}
+
+Let $D_{\mathrm I} \subset \Sph$ be the twelve vertices of a regular icosahedron and $D_{\mathrm{II}} \subset \Sph$ the twenty normalized centers of its faces, the vertices of the dual dodecahedron. Here is an exact verification of the design property. Put $\phi=(1+\sqrt5)/2$, and let $\operatorname{cyc}$ denote the three cyclic coordinate permutations, with independent indicated signs. In a common orientation the unnormalized vertex sets are
+\begin{equation*}
+I_0=\{\operatorname{cyc}(0,\pm1,\pm\phi)\},\qquad
+D_0=\{(\pm1,\pm1,\pm1)\}\cup
+\{\operatorname{cyc}(0,\pm\phi,\pm\phi^{-1})\},
+\end{equation*}
+and $D_{\mathrm I}=I_0/\sqrt{\phi+2}$, $D_{\mathrm{II}}=D_0/\sqrt3$. For each $b_0\in D_0$, the three $a_0\in I_0$ with $a_0\cdot b_0=1+\phi$ have pairwise dot product $\phi$ and sum $(1+\phi)b_0$, so these are the corresponding face-center directions. Both sets are invariant under independent coordinate sign changes and cyclic permutations. Using $\phi^2=\phi+1$, their uniform averages satisfy, for $i\ne j$,
+\begin{equation*}
+\frac1{|D|}\sum_{a\in D}a_i^2=\frac13,\qquad
+\frac1{|D|}\sum_{a\in D}a_i^4=\frac15,\qquad
+\frac1{|D|}\sum_{a\in D}a_i^2a_j^2=\frac1{15},
+\quad D=D_{\mathrm I},D_{\mathrm{II}}.
+\end{equation*}
+Every monomial with an odd coordinate exponent has average zero. Together with the constant moment, these are all the moments through total degree $5$, and they equal the normalized spherical moments. Thus the uniform weights $w_{\mathrm I}\equiv1/12$ and $w_{\mathrm{II}}\equiv1/20$ make both sets spherical $5$-designs, and hence frames. Both sets are invariant under $a\mapsto-a$. The same coordinates give the following cross-frame inner products:
+\begin{equation}\label{e:icodod}
+a \cdot b \in \{ \pm \gamma_+, \pm \gamma_- \}, \qquad \gamma_\pm = \Bigl( \frac{5 \pm 2 \sqrt 5}{15} \Bigr)^{1/2}, \qquad \gamma_+ = 0.7946\ldots, \quad \gamma_- = 0.1875\ldots
+\end{equation}
+In particular $1 \pm a \cdot b \ge 1 - \gamma_+ > 0.205$ for all such pairs.
+
+\subsection{The frame model}\label{s:framemodel}
+
+From now on $L$ and $N$ are even, and we use the \emph{checkerboard frame}: $D_x = D_{\mathrm I}$, $w_x = w_{\mathrm I}$ if $x_1 + x_2$ is even and $D_x = D_{\mathrm{II}}$, $w_x = w_{\mathrm{II}}$ otherwise. Every bond of $\Lambda_{L, N}$ joins an icosahedron site to a dodecahedron site. Let $\Omega = \prod_{x \in \Lambda} D_x$ and $\pi(s) = \prod_{x} 5 w_x(s_x)$ for $s \in \Omega$. The \emph{frame map} is
+\begin{equation*}
+\iota \colon \mathcal H_\Lambda \to \ell^2(\Omega, \pi), \qquad (\iota \varphi)(s) = \varphi\bigl( (\zeta(s_x))_{x \in \Lambda} \bigr).
+\end{equation*}
+It is the tensor product of the single-site maps $\varphi \mapsto (\varphi(\zeta(a)))_{a \in D_x}$, which are isometries by Lemma~\ref{l:tight}, so $\iota$ is an isometry. Evaluation at a point is multiplicative, so $\iota(\varphi \chi) = \iota(\varphi) \iota(\chi)$ whenever $\varphi \chi \in \mathcal H_\Lambda$ is a product of polynomials, each evaluated at the same point. For unit vectors $\zeta, \zeta' \in \C^2$ we have $|\langle \zeta, \zeta' \rangle|^2 + |\zeta_1 \zeta'_2 - \zeta_2 \zeta'_1|^2 = 1$, and by \eqref{e:zeta}, $|\langle \zeta(a), \zeta(b) \rangle|^2 = \operatorname{tr}(\zeta(a) \zeta(a)^* \zeta(b) \zeta(b)^*) = (1 + a \cdot b)/2$. Therefore
+\begin{equation}\label{e:qmod}
+|q_{xy}(\zeta(a), \zeta(b))|^2 = \tfrac12 (1 - a \cdot b) \qquad \text{for all } a, b \in \Sph .
+\end{equation}
+Define the probability measure $\mu^\circ(s) = \pi(s) |\iota B(s)|^2 / \|B\|^2$ on $\Omega$. Since $\iota B(s) = \prod_{e = \{x, y\}} q_e(\zeta(s_x), \zeta(s_y))$, we obtain
+\begin{equation}\label{e:mucirc}
+\mu^\circ(s) = \frac{1}{Z^\circ} \prod_{x \in \Lambda} w_x(s_x) \prod_{\{x, y\} \in E} (1 - s_x \cdot s_y),
+\end{equation}
+where $Z^\circ$ is the normalization; $\sum_s \mu^\circ(s) = \|\iota B\|^2 / \|B\|^2 = 1$ because $\iota$ is an isometry. By \eqref{e:icodod}, every factor $1 - s_x \cdot s_y$ is at least $0.205$, so $\mu^\circ(s) > 0$ and $\iota B(s) \neq 0$ for all $s \in \Omega$.
+
+For a probability measure $\mu$ on $\Omega$ with full support and $x \in \Lambda$, let $E_x F(s) = \sum_{t \in D_x} \mu(t \mid s_{\Lambda \setminus x}) F(t, s_{\Lambda \setminus x})$ be the conditional expectation given the spins off $x$, and $\Var_x F = E_x |F - E_x F|^2$. The generator of the single-site heat-bath dynamics is $\mathcal L = \sum_x (E_x - 1)$; $E_x$ is an orthogonal projection on $L^2(\mu)$, and the Dirichlet form is $\sum_x \mu(\Var_x F) = \sum_x \|(1 - E_x) F\|^2_{L^2(\mu)}$. We write
+\begin{equation}\label{e:lambdaHB}
+\lambda(\mu) = \inf \Bigl\{ \frac{\sum_{x \in \Lambda} \mu(\Var_x F)}{\Var_\mu(F)} : F \colon \Omega \to \C \text{ not constant} \Bigr\}
+\end{equation}
+for its spectral gap. If $\mu$ has full support, the heat-bath chain is irreducible, so $\lambda(\mu) > 0$.
+
+\begin{theorem}\label{t:QD}
+Let $L, N \ge 4$ be even. Then $\ker H_{L, N} = \C B$ and
+\begin{equation*}
+\gap(H_{L, N}) \ge \frac{g_\star}{2} \, \lambda(\mu^\circ) .
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+For $x \in \Lambda$ and $\sigma \in \prod_{y \in N(x)} D_y$ set $\beta_x(t; \sigma) = \prod_{y \in N(x)} q_{xy}(\zeta(t), \zeta(\sigma_y))$, $t \in D_x$. By \eqref{e:qmod} and \eqref{e:icodod} it does not vanish. Let $P_x$ be the operator on $\ell^2(\Omega, \pi)$ that, for every fixed $s_{\Lambda \setminus x}$, acts on the function $t \mapsto f(t, s_{\Lambda \setminus x})$ as the orthogonal projection of $\ell^2(D_x, 5 w_x)$ onto $\C \beta_x(\, \cdot \,; s_{N(x)})$. It is an orthogonal projection.
+
+We first show that $U F = F \, \iota B / \|B\|$ defines a unitary map $U \colon L^2(\mu^\circ) \to \ell^2(\Omega, \pi)$ with $U E_x = P_x U$. Unitarity follows from \eqref{e:mucirc} and $\iota B(s) \neq 0$. For $e=\{x,y\}$ write $q_e=\epsilon_{e,x}q_{xy}$, with $\epsilon_{e,x}\in\{\pm1\}$, and set $c_x=\prod_{e\ni x}\epsilon_{e,x}$. Define
+\begin{equation*}
+\rho_x(s_{\Lambda\setminus x})
+=c_x\prod_{e\not\ni x}q_e\bigl((\zeta(s_z))_{z\in e}\bigr).
+\end{equation*}
+Then $\iota B(s)=\beta_x(s_x;s_{N(x)})\rho_x(s_{\Lambda\setminus x})$. By \eqref{e:mucirc}, $\mu^\circ(t \mid s_{\Lambda \setminus x})$ is proportional to $w_x(t) |\beta_x(t; s_{N(x)})|^2$. Hence, for fixed $s_{\Lambda \setminus x}$,
+\begin{equation*}
+P_x (U F)(t, s_{\Lambda \setminus x}) = \frac{\beta_x(t; s_{N(x)}) \rho_x(s_{\Lambda \setminus x})}{\|B\|} \, \frac{\sum_{t'} 5 w_x(t') |\beta_x(t'; s_{N(x)})|^2 F(t', s_{\Lambda \setminus x})}{\sum_{t'} 5 w_x(t') |\beta_x(t'; s_{N(x)})|^2} = U(E_x F)(t, s_{\Lambda \setminus x}).
+\end{equation*}
+
+Next we show that for all $\varphi \in \mathcal H_\Lambda$,
+\begin{equation}\label{e:QDcomp}
+\|(1 - P_x) \iota \varphi\| \le \|(1 - \Pi_{\mathcal S_x}) \varphi\| .
+\end{equation}
+Let $\psi \in \mathcal S_x$. By Lemma~\ref{l:divisibility} with $R = \{x\}$, $\psi = b_{\{x\}} \chi$ with $\chi$ independent of $z_x$, so $\iota \psi(t, s_{\Lambda \setminus x}) = c_x\,\beta_x(t; s_{N(x)}) \, \chi((\zeta(s_y))_{y \neq x})$. For fixed $s_{\Lambda \setminus x}$ this is a multiple of $\beta_x(\, \cdot \,; s_{N(x)})$, so $\iota \psi \in \Ran P_x$. Hence $\|(1 - P_x) \iota \varphi\| \le \|\iota \varphi - \iota \Pi_{\mathcal S_x} \varphi\| = \|(1 - \Pi_{\mathcal S_x}) \varphi\|$, where we used that $\iota$ is an isometry.
+
+Now let $\varphi \perp B$ and $F = U^{-1} \iota \varphi$. Since $U 1 = \iota B / \|B\|$ and $\iota$ is an isometry, $\mu^\circ(F) = \langle \iota B, \iota \varphi \rangle / \|B\| = \langle B, \varphi \rangle / \|B\| = 0$, so $\Var_{\mu^\circ}(F) = \|F\|^2_{L^2(\mu^\circ)} = \|\varphi\|^2$. By the definition of $\lambda(\mu^\circ)$, the intertwining $U E_x = P_x U$, \eqref{e:QDcomp} and \eqref{e:star}, we have
+\begin{equation*}
+\lambda(\mu^\circ) \|\varphi\|^2 \le \sum_{x} \|(1 - E_x) F\|^2_{L^2(\mu^\circ)} = \sum_x \|(1 - P_x) \iota \varphi\|^2 \le \sum_x \langle \varphi, (1 - \Pi_{\mathcal S_x}) \varphi \rangle \le \frac{2}{g_\star} \langle \varphi, H_{L, N} \varphi \rangle .
+\end{equation*}
+Since $\mu^\circ$ has full support, $\lambda(\mu^\circ) > 0$. Together with $H_{L, N} B = 0$ and $B \neq 0$ this shows that $\ker H_{L, N} = \C B$ and that every eigenvalue of $H_{L, N}$ on $B^\perp$ is at least $g_\star \lambda(\mu^\circ)/2$.
+\end{proof}
+
+\begin{remark}\label{r:QDgeneral}
+The argument uses the torus only through Lemma~\ref{l:divisibility}, which holds on every simple $4$-regular graph, and through the positivity of all the weights $\iota B(s)$. For other graphs or other assignments of frames, the configurations at which some bond weight vanishes would have to be treated separately; we do not need this, since the checkerboard frame on even tori has no zero weights.
+\end{remark}
+
+\subsection{The rotated convention}\label{s:rotated}
+
+The remaining sections work with the measure in which neighbouring spins prefer to be aligned. For $x \in \Lambda$ let $\epsilon_x = (-1)^{x_1 + x_2}$; this is well defined because $L$ and $N$ are even. Since $D_{\mathrm I} = -D_{\mathrm I}$ and $D_{\mathrm{II}} = -D_{\mathrm{II}}$, the map $(R s)_x = \epsilon_x s_x$ is a bijection of $\Omega$, and $\epsilon_x \epsilon_y = -1$ for every bond $\{x, y\}$. Define $\mu_D = \mu^\circ \circ R^{-1}$, that is,
+\begin{equation}\label{e:muD}
+\mu_D(n) = \frac{1}{Z_D} \prod_{x \in \Lambda} w_x(n_x) \prod_{\{x, y\} \in E} (1 + n_x \cdot n_y), \qquad n \in \Omega .
+\end{equation}
+Since $R$ acts site by site, it intertwines the conditional expectations $E_x$ of the two measures, and therefore $\lambda(\mu_D) = \lambda(\mu^\circ)$. Theorem~\ref{t:QD} reads
+\begin{equation}\label{e:QDrot}
+\gap(H_{L, N}) \ge \frac{g_\star}{2} \, \lambda(\mu_D) \qquad \text{for all even } L, N \ge 4 .
+\end{equation}
+We call $\mu_D$ the \emph{frame model}. The same formula with $\Lambda$ replaced by $\Z^2$ defines its finite-volume Gibbs measures: for a finite $W \subset \Z^2$ and a configuration $\eta$ on $\Z^2 \setminus W$ (with $\eta_y \in D_y$),
+\begin{equation}\label{e:muDW}
+\mu^{\eta}_{D, W}(n_W) = \frac{1}{Z^\eta_{D, W}} \prod_{x \in W} w_x(n_x) \prod_{\substack{\{x, y\} \subset W \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{\substack{x \in W, \, y \notin W \\ x \sim y}} (1 + n_x \cdot \eta_y) .
+\end{equation}
+Every internal bond factor and every boundary bond factor in \eqref{e:muD} and \eqref{e:muDW} lies in $[1-\gamma_+,1+\gamma_+]$, and all site weights are positive.

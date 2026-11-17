@@ -1,0 +1,80 @@
+{
+  "author_rule": "Every future written leaf proof, including checker soundness, must receive its first attempt from a different, cheaper model. Architect may continue statements, definitions, designs, computations and assembly theorems.",
+  "new_leaf_proofs_since_rule": 0,
+  "retained_existing_proofs": [
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.GroundOrthogonalityStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.groundOrthogonality",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 32,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.RayleighBoundStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.rayleighBound",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 43,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.PositiveToProbabilityStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.positiveToProbability",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 105,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.IndependentPairsStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.independentPairsProbability",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 114,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.DiagonalCouplingStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.diagonalCoupling",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 124,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.DeltaBoundsStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.deltaBounds",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 142,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.PowerCountStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.powerCount",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 153,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.PoincareMonotoneStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.poincareMonotone",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 164,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    },
+    {
+      "lean_statement": "AKLT.Blueprint.Gap.PeriodicBudgetStatement",
+      "lean_proof": "AKLT.Blueprint.Gap.periodicBudget",
+      "file": "AKLT/Blueprint/Gap/NodesMain.lean",
+      "line": 170,
+      "written_before_new_author_rule": true,
+      "retained_under_explicit_exception": true
+    }
+  ],
+  "remaining_open_leaf_count": 58,
+  "orchestrator_action": "Assign the first written proof attempt of each remaining open leaf to a different, cheaper model. No model assignment or proof attempt has been performed here."
+}

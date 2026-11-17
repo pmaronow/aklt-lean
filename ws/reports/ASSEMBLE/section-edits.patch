@@ -1,0 +1,136 @@
+--- /home/ubuntu/aklt/reports/REV_A1/sec1-result.tex
++++ /home/ubuntu/aklt/manuscript-v2/sec1-result.tex
+@@ -1,8 +1,16 @@
+ \section{The result and conventions}\label{s:result}
+ 
+-We study the spin-\(2\) AKLT Hamiltonian on the square-lattice torus.
+-The polynomial realization of the spin space, including its Hilbert
+-space normalization, is fixed in Definition~\ref{d:poly}.
++We study the spin-\(2\) square-lattice AKLT model of Affleck, Kennedy,
++Lieb, and Tasaki~\cite{AKLT88,KLT88}. We prove uniqueness of its ground
++state on every torus with integer periods \(L,N\ge3\) and a uniform
++positive spectral gap for all integers \(L,N\ge L_0\), with no parity
++restriction, for one fixed threshold \(L_0\). The computational inputs
++are local operator inequalities, an open-trail growth bound, and a
++type-dependent positive-vector bound obtained from stationary Bellman
++inequalities and finite prefix sums. All computations are checked in
++exact arithmetic. The polynomial realization of the spin space,
++including its Hilbert space normalization, is fixed in
++Definition~\ref{d:poly}.
+ 
+ \begin{definition}\label{d:model}
+ For integers \(L,N\ge3\), let \(\Lambda=\Lambda_{L,N}=\mathbb Z_L\times\mathbb Z_N\)
+--- /home/ubuntu/aklt/reports/REV_A2/sec4-periodic-gap.tex
++++ /home/ubuntu/aklt/manuscript-v2/sec4-periodic-gap.tex
+@@ -399,8 +399,8 @@
+ and the final stated lower bound follows.
+ \end{proof}
+ 
+-% Same-lane results l:colour, l:boxlift, l:star, t:QD and p:toruskernel
+-% are stated and proved in sec3-quantum-frames.tex, as assigned by PLAN.md.
++
++
+ \begin{theorem}\label{t:mainW}
+ If the plane frame family satisfies (W), there exist \(c>0\) and
+ an integer \(L_0\ge3\) such that
+@@ -527,7 +527,7 @@
+ argument applies to both even and odd periods.
+ \end{proof}
+ 
+-% Theorem t:main is stated in sec1-result.tex; its final assembly is below.
++
+ We now prove the two conclusions of Theorem~\ref{t:main}, stated in
+ the result section: nonvanishing of \(B_{L,N}\) and the kernel
+ identity for every \(L,N\ge3\), and the existence of one
+--- /home/ubuntu/aklt/reports/REV_C1b/sec7-recursion.tex
++++ /home/ubuntu/aklt/manuscript-v2/sec7-recursion.tex
+@@ -165,7 +165,7 @@
+ None of this reasoning used avoidance of \(v\).
+ \end{proof}
+ 
+-% Deviation from the registry: v must be outside S for the second start.
++
+ \begin{lemma}\label{l:terminalcover}
+ In the first expansion of a pair of Definition~\ref{d:pairenv},
+ assume also that \(v\notin S\), and
+@@ -549,8 +549,7 @@
+ \]
+ These are nonnegative series. The identity
+ \(3^{-n}(3/5)^r=3^{-(n-r)}5^{-r}\) retains the mass-free
+-trace coefficients. This \(M\) is the modified type-dependent kernel,
+-not the original uniform-coefficient matrix.
++trace coefficients. This \(M\) is the type-dependent response kernel.
+ \end{definition}
+ 
+ Until finiteness is proved, each series is understood in
+@@ -604,9 +603,8 @@
+        \le\rho_0h_X .
+ \]
+ Equivalently, the full nonnegative sums satisfy \(M_1h\le\rho_0h\).
+-No bound for the former uniform-coefficient matrix is part of this
+-contract. Its proof in this revision uses the stationary lattice
+-Bellman certificates, with no periodic spatial walk or remainder.
++The assertion is proved using the stationary lattice Bellman
++certificates, with no periodic spatial walk or remainder.
+ \end{definition}
+ 
+ The equivalence follows directly by taking increasing finite
+--- /home/ubuntu/aklt/reports/REV_C2/sec8-inputs.tex
++++ /home/ubuntu/aklt/manuscript-v2/sec8-inputs.tex
+@@ -1,4 +1,4 @@
+-%% REV_C2: section file; no preamble or document environment.
++
+ \section{Exact computational inputs}
+ 
+ The computational inputs have three finite certificates. The local
+@@ -16,8 +16,7 @@
+ witness is available. For a block without a supplied nonzero Gram
+ factor which is not directly diagonally dominant, we use the
+ Bareiss fallback permitted by Lemma~\ref{l:integercheck}. Thus the
+-complete local input can be specified with the supplied data,
+-without finding any new inversion or Gram factor.
++complete local input is specified by the supplied data.
+ 
+ \subsection*{The finite local verification}
+ The pattern data are \texttt{pext7962.json}, under
+@@ -314,10 +313,9 @@
+ input and the two all-length trail inputs. The H1 calculation uses
+ the frozen representation and inversion records. Its residual
+ tests require all rows, and its fallback requires every division
+-exact and every pivot positive. The full nonzero Gram-factor
+-family was not retained by the feasibility study; the stated
+-fallback discharges exactly the blocks lacking those factors.
+-No new representation, inversion or factor search is needed.
++exact and every pivot positive. The fallback discharges exactly
++the blocks without supplied nonzero Gram factors, using the fixed
++representation and inversion records.
+ 
+ Appendix C tests the true H2 revisit coefficient \(1/5\) and
+ the stated rate \(q_*\). Its H3 assertion concerns the kernel of
+--- /home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex
++++ /home/ubuntu/aklt/manuscript-v2/app-input-contracts.tex
+@@ -1,4 +1,4 @@
+-%% REV_C2: section file; no preamble or document environment.
++
+ \section{Finite trail and stationary Bellman certificates}
+ 
+ Throughout this appendix the thresholds are
+@@ -1182,7 +1182,7 @@
+ where \(h_C=5404319552844595/4503599627370496\) and
+ \(\rho_0=993015/10^6<1\).
+ The same inequalities hold for every finite true-trail cutoff;
+-therefore (H3\(_h\)) holds for the modified kernel.
++therefore (H3\(_h\)) holds for the type-dependent kernel.
+ \end{lemma}
+ 
+ \begin{proof}
+--- /home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex
++++ /home/ubuntu/aklt/manuscript-v2/app-local-operator.tex
+@@ -1,5 +1,5 @@
+-% Appendix D.  Statement text follows the amended REV-PLAN contract.
+-% This is a section file: no document class, packages, or theorem declarations.
++
++
+ \section{Operator certificates for the local inequalities}\label{s:local-operator}
+ 
+ Fix a covered pattern \(\pi\in\mathcal P_{\rm ext}\) from

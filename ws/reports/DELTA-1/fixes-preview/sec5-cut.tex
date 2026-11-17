@@ -1,0 +1,230 @@
+\section{The cut lemma and the window estimate}\label{s:cut}
+
+In this section we prove the window estimate of Definition~\ref{d:W} for both cell models, assuming a decay estimate for pair correlations next to removed sites in the continuous model (Hypothesis~(P) below). The reduction rests on an exact factorization of the window law over a cut that separates the window from the boundary (Lemma~\ref{l:cut}). The point of the factorization is that it compares two boundary conditions of a \emph{hard} type (pinned spins) without telescoping over the pins: the boundary condition enters only through the response of a \emph{soft} modification, the removal of the cut, which is far from all pins.
+
+\subsection{The continuous model with pins}\label{s:contmodel}
+
+Let $G \subset \Z^2$ be finite. A \emph{leg} of $G$ is a pair $(x, z)$ with $x \in G$, $z \notin G$ and $x \sim z$. A \emph{pin configuration} $\tau$ assigns a unit vector $\tau_{xz}$ to every leg. For $Y \subset G$ we consider the domain $D = G \setminus Y$, in which the sites of $Y$ are \emph{removed}: they carry no spin, and the bonds and legs at them are absent. The pinned and free partition functions of $D$ are
+\begin{equation}\label{e:Zpin}
+Z^\tau_D = \int \prod_{\substack{\{x, y\} \subset D \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{\substack{(x, z) \text{ leg of } G \\ x \in D}} (1 + \tau_{xz} \cdot n_x) \prod_{x \in D} \dd n_x, \qquad Z^0_D = \int \prod_{\substack{\{x, y\} \subset D \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{x \in D} \dd n_x ,
+\end{equation}
+Both partition functions in \eqref{e:Zpin} are finite and strictly positive. For $D\ne\emptyset$, choose $q\in\Sph$ different from the negatives of all surviving pins and put every spin equal to $q$. Every bond factor is then $2$ and every leg factor is positive. By continuity, the integrand is positive on a product of open spherical neighborhoods of positive product measure. The integrand is bounded, so its integral is finite. For $D=\emptyset$, the partition functions equal $1$. The same argument applies to any retained subsets of bonds and legs, and to site measures with positive uniform components; a positive scalar trace mass also preserves positivity. We write $\E^\tau_D$ and $\E^0_D$ for the corresponding probability measures on $(\Sph)^D$, and $\Psi_D(\tau) = Z^\tau_D / Z^0_D$. Note that the legs of $D$ into $Y$ carry no factor. We will use three elementary facts.
+
+\emph{Moments.} For the uniform measure on $\Sph$ and indices $a_1, \dots, a_{2k} \in \{1, 2, 3\}$,
+\begin{equation}\label{e:moments}
+\int n^{a_1} \cdots n^{a_{2k}} \, \dd n = \frac{1}{3 \cdot 5 \cdots (2k + 1)} \sum_{\text{pairings } \pi} \prod_{\{i, j\} \in \pi} \delta_{a_i a_j},
+\end{equation}
+and odd moments vanish. This follows from the corresponding Gaussian formula, since a standard Gaussian vector $g \in \R^3$ is the product of the independent variables $|g|$ and $g / |g|$, and $\E |g|^{2k} = 3 \cdot 5 \cdots (2k + 1)$. In particular $\int (a \cdot n)(b \cdot n) \, \dd n = a \cdot b / 3$.
+
+\emph{Free positivity.} If $f$ is a product of factors $n_x \cdot n_y$ with $x, y \in D$, then $\E^0_D[f] \ge 0$. Indeed, expanding the bond factors of $Z^0_D$, the integral of $f$ times the bond factors is a sum of integrals of products of scalar products, and by \eqref{e:moments}, integrating site by site, each of these is a sum of products of Kronecker deltas with positive coefficients, summed over indices, hence nonnegative.
+
+\emph{Conditional independence.} Two sites of $D$ that are not neighbours are conditionally independent under $\E^\tau_D$ and $\E^0_D$ given the spins of all other sites.
+
+\begin{lemma}\label{l:35}
+Let $a, b, c \in \Sph$. The probability measure proportional to $(1 + n \cdot a)(1 + n \cdot b)(1 + n \cdot c) \, \dd n$ has mean of norm at most $3/5$. Consequently, if a site $u \in D$ has at most three factors (bonds and pinned legs) in \eqref{e:Zpin}, then under $\E^\tau_D$ and under $\E^0_D$ the conditional mean of $n_u$ given all other spins has norm at most $3/5$.
+\end{lemma}
+
+\begin{proof}
+Let $\mathsf p = a \cdot b + a \cdot c + b \cdot c$, so that $\mathsf p \ge -3/2$ because $|a + b + c|^2 = 3 + 2 \mathsf p$. By \eqref{e:moments}, $\int \prod (1 + n \cdot a) \, \dd n = 1 + \mathsf p/3$ and $15 \int n \prod (1 + n \cdot a) \, \dd n = \mathsf V$ with $\mathsf V = 5(a + b + c) + a (b \cdot c) + b (a \cdot c) + c (a \cdot b)$. The mean is $\mathsf V / (5 (3 + \mathsf p))$, so it suffices to show $|\mathsf V| \le 9 + 3 \mathsf p$. With $\mathsf X = 1 - b \cdot c$, $\mathsf Y = 1 - a \cdot c$, $\mathsf Z = 1 - a \cdot b \in [0, 2]$, a direct expansion gives
+\begin{equation*}
+(9 + 3 \mathsf p)^2 - |\mathsf V|^2 = 4 \bigl[ (\mathsf X - \mathsf Y)^2 + (\mathsf X - \mathsf Z)^2 + (\mathsf Y - \mathsf Z)^2 \bigr] + 6 \, \mathsf X \mathsf Y \mathsf Z \ge 0,
+\end{equation*}
+and $9 + 3 \mathsf p > 0$. For the second claim, the conditional law of $n_u$ given the other spins is proportional to the product of its factors $1 + n_u \cdot v$, with $v$ the neighbouring spins or pins. If there are fewer than three factors, we write $1 = \frac12 (1 + n_u \cdot p) + \frac12 (1 - n_u \cdot p)$ for a unit vector $p$; the conditional law is then a mixture of laws with three factors, and its mean is a convex combination of vectors of norm at most $3/5$.
+\end{proof}
+
+\subsection{Exactness of partition functions}\label{s:exact}
+
+\begin{lemma}\label{l:exact}
+Let $D \subset \Z^2$ be finite, let $(D_x, w_x)$ be a frame (Definition~\ref{d:frame}) for every $x \in D$, and let $\Phi(n)$ be a product of factors $1 + n_x \cdot v$, where $x \in D$ and $v$ is either a spin $n_y$, $y \in D$, or a fixed unit vector, such that every $x \in D$ appears in at most four factors. Then
+\begin{equation*}
+\sum_{n \in \prod_x D_x} \prod_{x \in D} w_x(n_x) \, \Phi(n) = \int \Phi(n) \prod_{x \in D} \dd n_x .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Order the sites of $D$ as $x_1, \dots, x_p$ and replace the sum over $n_{x_j}$ by the integral, one site at a time. At step $j$ the summand is a polynomial of degree at most $4$ in $n_{x_j}$, whose coefficients are functions of the spins summed or integrated at the other steps; integrating out other spins does not raise the degree in $n_{x_j}$. By Definition~\ref{d:frame}, the sum over $n_{x_j} \in D_{x_j}$ with weights $w_{x_j}$ equals the integral, and Fubini's theorem completes the induction.
+\end{proof}
+
+On $\Z^2$ every site has four neighbours. So for a domain $D \subset G$ with pins on legs, as in \eqref{e:Zpin}, every site appears in at most four factors, and the frame sums with the checkerboard frames $(D_{\mathrm I}, w_{\mathrm I})$, $(D_{\mathrm{II}}, w_{\mathrm{II}})$ equal $Z^\tau_D$ and $Z^0_D$, for all pins. Only partition functions are transferred between the frame model and the continuous model in this paper; expectations are not.
+
+\subsection{The cut lemma}\label{s:cutlemma}
+
+Let $F \subset \Z^2$ be finite and let $\eta$ be a configuration of the frame model on $\Z^2 \setminus F$, in the rotated convention \eqref{e:muDW}. Let $B \subset F$ be a \emph{window} that is not adjacent to $\Z^2 \setminus F$, and set $G = F \setminus B$. For a configuration $\mathsf s$ of the window, we write $\eta \mathsf s$ for the pin configuration on the legs of $G$ given by $\eta$ on the legs into $\Z^2 \setminus F$ and by $\mathsf s$ on the legs into $B$; these are unit vectors, since the letters are unit vectors. For $X \subset G$ define
+\begin{equation}\label{e:cutcost}
+e(\eta, \mathsf s) = \log \Psi_{G \setminus X}(\eta \mathsf s) - \log \Psi_G(\eta \mathsf s),
+\end{equation}
+with $\Psi$ as in \S\ref{s:contmodel}. This is the change of the logarithm of the pinned-to-free ratio when the sites of $X$ are removed.
+
+\begin{lemma}\label{l:cut}
+Suppose that $G \setminus X = G_1 \cup G_2$ with $G_1 \cap G_2 = \emptyset$, such that no bond joins $G_1$ to $G_2$, no site of $G_1$ is adjacent to $\Z^2 \setminus F$, and no site of $G_2$ is adjacent to $B$. Let $\varepsilon \ge 0$ be such that $|e(\eta, \mathsf s)| \le \varepsilon$ for all $\eta$ and $\mathsf s$. Then there is a probability measure $\nu$ on the window configurations, not depending on $\eta$, such that for all $\eta$ and $\mathsf s$
+\begin{equation}\label{e:cutratio}
+e^{-2 \varepsilon} \le \frac{\mu^\eta_{D, F}(n_B = \mathsf s)}{\nu(\mathsf s)} \le e^{2 \varepsilon} .
+\end{equation}
+Consequently, for all $\eta, \xi$, the total variation distance between the laws of $n_B$ under $\mu^\eta_{D, F}$ and $\mu^\xi_{D, F}$ is at most $\tanh(2 \varepsilon)$.
+\end{lemma}
+
+\begin{proof}
+Let $W_B(\mathsf s)$ be the product of the site weights $w_x(\mathsf s_x)$, $x \in B$, and of the bond weights $1 + \mathsf s_x \cdot \mathsf s_y$ inside $B$. Since $B$ is not adjacent to $\Z^2 \setminus F$, summing \eqref{e:muDW} over the spins of $G$ and using Lemma~\ref{l:exact}, we have
+\begin{equation}\label{e:windowlaw}
+\mu^\eta_{D, F}(n_B = \mathsf s) = \frac{W_B(\mathsf s) \, Z^{\eta \mathsf s}_G}{Z^\eta_{D, F}} .
+\end{equation}
+Since no bond joins $G_1$ to $G_2$, the sites of $G_1$ carry only pins from $\mathsf s$, the sites of $G_2$ only pins from $\eta$, and the legs into $X$ carry no factor, the partition functions of $G \setminus X$ factorize:
+\begin{equation*}
+Z^{\eta \mathsf s}_{G \setminus X} = Z^{\mathsf s}_{G_1} Z^{\eta}_{G_2}, \qquad Z^0_{G \setminus X} = Z^0_{G_1} Z^0_{G_2},
+\end{equation*}
+where $Z^{\mathsf s}_{G_1}$ and $Z^\eta_{G_2}$ are the partition functions of $G_1$ and $G_2$ with the pins from $\mathsf s$, respectively from $\eta$. By the definition \eqref{e:cutcost},
+\begin{equation*}
+Z^{\eta \mathsf s}_G = \Psi_G(\eta \mathsf s) Z^0_G = e^{-e(\eta, \mathsf s)} \, \Psi_{G \setminus X}(\eta \mathsf s) Z^0_G = e^{-e(\eta, \mathsf s)} \, \frac{Z^{\mathsf s}_{G_1} Z^\eta_{G_2} Z^0_G}{Z^0_{G_1} Z^0_{G_2}} .
+\end{equation*}
+Inserting this into \eqref{e:windowlaw}, we obtain $\mu^\eta_{D, F}(n_B = \mathsf s) = c(\eta) \, \nu(\mathsf s) \, e^{-e(\eta, \mathsf s)}$, where $\nu(\mathsf s)$ is proportional to $W_B(\mathsf s) Z^{\mathsf s}_{G_1}$ and normalized, and $c(\eta)$ does not depend on $\mathsf s$. Every weight of $\nu$ is strictly positive: $W_B(\mathsf s)>0$ by the positive site weights and \eqref{e:icodod}, and $Z^{\mathsf s}_{G_1}>0$ by the positivity just established, also when $G_1=\emptyset$. Summing over $\mathsf s$ gives $c(\eta)^{-1} = \sum_{\mathsf s} \nu(\mathsf s) e^{-e(\eta, \mathsf s)} \in [e^{-\varepsilon}, e^{\varepsilon}]$, which proves \eqref{e:cutratio}.
+
+For the second claim, let $p$ and $p'$ be the two window laws. By \eqref{e:cutratio}, $p \le \varrho p'$ and $p' \le \varrho p$ with $\varrho = e^{4 \varepsilon}$. Let $\mathcal A = \{p > p'\}$, $x = p'(\mathcal A)$ and $y = p(\mathcal A)$. Then $y \le \varrho x$ and $1 - y \ge (1 - x)/\varrho$, so
+\begin{equation*}
+\TV(p, p') = y - x \le \min\bigl( (\varrho - 1) x, \, (\varrho - 1)(1 - x)/\varrho \bigr) \le \frac{\varrho - 1}{\varrho + 1} = \tanh(2 \varepsilon),
+\end{equation*}
+where the maximum over $x$ is attained at $x = 1/(\varrho + 1)$.
+\end{proof}
+
+\subsection{Hypothesis (P) and the cost of removing a cut}\label{s:P}
+
+For finite $G \subset \Z^2$ let $S(G) = \{ z \in G : d(z, \Z^2 \setminus G) \le 2 \}$.
+
+\begin{hypothesis}[P]\label{h:P}
+There exist $A \ge 2$ and $\theta \in (0, 1)$ such that for every finite $G \subset \Z^2$, every pin configuration $\tau$ on the legs of $G$, every $Y \subset G \setminus S(G)$, and all $u, v \in G \setminus Y$ with $d(u, v) = 2$ that have a common neighbour in $Y$,
+\begin{equation}\label{e:P}
+\bigl| \E^\tau_{G \setminus Y}[n_u \cdot n_v] - \E^0_{G \setminus Y}[n_u \cdot n_v] \bigr| \le A \, \theta^{\min(d(u, S(G)), \, d(v, S(G)))} .
+\end{equation}
+\end{hypothesis}
+
+The removed set $Y$ does not count as boundary: the distance in \eqref{e:P} is to $S(G)$, which depends on $G$ only. For $d \in \Z$ we write $\mathsf F(d) = A \theta^{\max(d, 0)}$.
+
+\begin{lemma}\label{l:removal}
+Assume Hypothesis~(P). Let $G$ and $\tau$ be as in \eqref{e:P}, and let $p\ge1$ and $x_1,\dots,x_p$ be distinct sites of $G$ with $b(x_j) = d(x_j, \Z^2 \setminus G) \ge 3$, such that every $x_j$ with $j \ge 2$ has a neighbour among $x_1, \dots, x_{j - 1}$. Let $X = \{x_1, \dots, x_p\}$. Then
+\begin{equation}\label{e:removal}
+\bigl| \log \Psi_{G \setminus X}(\tau) - \log \Psi_G(\tau) \bigr| \le 0.0707 + 2.73 \, \mathsf F(b(x_1) - 3) + 1.22 \sum_{j = 2}^p \mathsf F(b(x_j) - 3) .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $Y_j = \{x_1, \dots, x_j\}$ and $D_j = G \setminus Y_j$. Since $b(x_j) \ge 3$, the site $x_j$ has no leg, all its neighbours lie in $G$, and $x_j \notin S(G)$. Let $u_1, \dots, u_k$ be the neighbours of $x_j$ in $D_{j - 1}$; then $k = 4$ for $j = 1$ and $k \le 3$ for $j \ge 2$. Integrating out $n_{x_j}$, we have $Z^\tau_{D_{j - 1}} = Z^\tau_{D_j} \E^\tau_{D_j}[I_j]$ and $Z^0_{D_{j - 1}} = Z^0_{D_j} \E^0_{D_j}[I_j]$, where by \eqref{e:moments}
+\begin{equation}\label{e:Ij}
+I_j = \int \prod_{i = 1}^k (1 + n \cdot n_{u_i}) \, \dd n = 1 + \frac13 \sum_{i < i'} n_{u_i} \cdot n_{u_{i'}} + \frac{\mathbf 1_{k = 4}}{15} \bigl[ (n_{u_1} \cdot n_{u_2})(n_{u_3} \cdot n_{u_4}) + (n_{u_1} \cdot n_{u_3})(n_{u_2} \cdot n_{u_4}) + (n_{u_1} \cdot n_{u_4})(n_{u_2} \cdot n_{u_3}) \bigr].
+\end{equation}
+Therefore
+\begin{equation}\label{e:telescope}
+\log \Psi_G(\tau) - \log \Psi_{G \setminus X}(\tau) = \sum_{j = 1}^p \bigl( \log \E^\tau_{D_j}[I_j] - \log \E^0_{D_j}[I_j] \bigr).
+\end{equation}
+The sites $u_i$ are pairwise at distance $2$, hence conditionally independent given the other spins. Each has $d(u_i, \Z^2 \setminus G) \ge 2$, so it carries no leg and has at most three bonds in $D_j$. By Lemma~\ref{l:35}, under $\E^\tau_{D_j}$ and $\E^0_{D_j}$ their conditional means $m_i$ given all other spins satisfy $|m_i| \le 3/5$, and since $\sum_{i < i'} m_i \cdot m_{i'} \ge -\frac12 \sum_i |m_i|^2$,
+\begin{equation*}
+\E^\tau_{D_j}[I_j] \ge 1 - \frac{k}{6} \cdot \frac{9}{25} - \frac{3 \cdot \mathbf 1_{k = 4}}{15} \cdot \Bigl( \frac{9}{25} \Bigr)^2 \ge \begin{cases} 0.82, & k \le 3, \\ 0.734, & k = 4 . \end{cases}
+\end{equation*}
+By free positivity, $\E^0_{D_j}[I_j] \ge 1$, and $\E^0_{D_j}$ of the bracket in \eqref{e:Ij} lies in $[0, 0.3888]$, while its $\E^\tau_{D_j}$-expectation lies in $[-0.3888, 0.3888]$.
+
+Each pair $(u_i, u_{i'})$ consists of two sites of $D_j = G \setminus Y_j$ at distance $2$ with the common neighbour $x_j \in Y_j$, and $Y_j \subset G \setminus S(G)$. Since $d(\cdot, \Z^2 \setminus G)$ is $1$-Lipschitz and at most $2$ on $S(G)$, we have $d(u_i, S(G)) \ge d(u_i, \Z^2 \setminus G) - 2 \ge b(x_j) - 3$. By \eqref{e:P}, the response $r_{ii'} = \E^\tau_{D_j}[n_{u_i} \cdot n_{u_{i'}}] - \E^0_{D_j}[n_{u_i} \cdot n_{u_{i'}}]$ satisfies $|r_{ii'}| \le \mathsf F(b(x_j) - 3)$. Using $|\log x - \log y| \le |x - y| / \min(x, y)$, for $j \ge 2$ we obtain
+\begin{equation*}
+\bigl| \log \E^\tau_{D_j}[I_j] - \log \E^0_{D_j}[I_j] \bigr| \le \frac{1}{0.82} \cdot \frac{1}{3} \cdot 3 \, \mathsf F(b(x_j) - 3) \le 1.22 \, \mathsf F(b(x_j) - 3),
+\end{equation*}
+and for $j = 1$, with six pairs and the bracket,
+\begin{equation*}
+\bigl| \log \E^\tau_{D_1}[I_1] - \log \E^0_{D_1}[I_1] \bigr| \le \frac{1}{0.734} \Bigl( 2 \, \mathsf F(b(x_1) - 3) + \frac{0.7776}{15} \Bigr) \le 2.73 \, \mathsf F(b(x_1) - 3) + 0.0707 .
+\end{equation*}
+Summing over $j$ in \eqref{e:telescope} proves \eqref{e:removal}.
+\end{proof}
+
+Only the finiteness of the constants in \eqref{e:removal} matters below: the window estimate needs the cut cost to be bounded uniformly in the size of the square, not small.
+
+\subsection{The cut for the shells of the coupling argument}\label{s:cutgeom}
+
+We now construct, for the sets $F_i$ and $B_i$ of \eqref{e:shells}, a cut to which Lemma~\ref{l:cut} and Lemma~\ref{l:removal} apply with a cost bounded uniformly in $M$. A cut that closes around the ends of the shell segment $B_i$ must pass between these ends and the boundary of the square, at a distance of order $l_0$ from the pins; to keep the number of such cut sites bounded, the cut widens linearly away from the boundary of the square.
+
+Fix $o \in \{0, 1\}$, an even integer $l_0 \ge 20$, and $M$, $y$, $i$ as in Definition~\ref{d:W}, with $s = M^{1/4}$ and $k = k_i = \lfloor i s \rfloor$. For a cell $c$ let $t(c) = \bigl| |c - y|_\infty - k \bigr|$ and $h(c) = \operatorname{dist}_\infty(c, \Z^2 \setminus \mathcal C_M)$, so that $h(c) = 0$ for $c \notin \mathcal C_M$. Both are $1$-Lipschitz for the $\ell^\infty$ distance of cells, $D_i = \{ c \in \mathcal C_M : t(c) = 0 \}$ and $B_i = \{ c \in D_i : h(c) \ge l_0 + 1\}$. Define the set of cells
+\begin{equation}\label{e:Ucut}
+U = \bigl\{ c \in \mathcal C_M : t(c) \le \min\bigl( h(c) - l_0/2, \, s/12 \bigr) \bigr\},
+\end{equation}
+let $U'$ be the set of sites of the cells of $U$, and let $F$ and $B$ be the sets of sites of the cells of $F_i$ and $B_i$, and $G = F \setminus B$. Define
+\begin{equation}\label{e:Xcut}
+X = \{ x \in \Z^2 \setminus U' : \operatorname{dist}_\infty(x, U') = 1 \}, \qquad G_1 = U' \setminus B, \qquad G_2 = G \setminus (U' \cup X),
+\end{equation}
+where the distance is the $\ell^\infty$ distance of sites.
+
+\begin{lemma}\label{l:cutgeom}
+There exists $s_0(l_0)$ such that for $s \ge s_0(l_0)$ the following hold, uniformly in $y$ and in $i \notin I_0$ with $2 \le i \le s$.
+\begin{enumerate}
+\item $B \subset U' \subset F$, every site adjacent to $B$ lies in $U'$, and no site of $U'$ is adjacent to $\Z^2 \setminus F$. In particular $B$ is not adjacent to $\Z^2 \setminus F$.
+\item $X \subset G$, $G \setminus X = G_1 \cup G_2$ is a disjoint union, no bond joins $G_1$ to $G_2$, no site of $G_1$ is adjacent to $\Z^2 \setminus F$, and no site of $G_2$ is adjacent to $B$.
+\item Every $x \in X$ satisfies $b(x) = d(x, \Z^2 \setminus G) \ge 3$, and for every $\vartheta \in (0, 1)$,
+\begin{equation}\label{e:cutsum}
+\sum_{x \in X} \vartheta^{b(x)} \le 192 \, \vartheta^{l_0/2 - 5} \Bigl( \frac{l_0}{4} + 1 + \frac{1}{1 - \vartheta^2} \Bigr) + 4 (2M + 1)^2 \vartheta^{s/6 - 7} .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Cells of $B_i$ have $t = 0$ and $h \ge l_0 + 1$. A site adjacent to a site of $B$ lies in a cell $c$ at cell distance at most $1$ from $B_i$, so $t(c) \le 1$ and $h(c) \ge l_0$, and $c \in U$ because $1 \le l_0/2$ and $1 \le s/12$. A site adjacent to $\Z^2 \setminus F$ lies either in a cell with $h = 1$, which is not in $U$ since $1 - l_0/2 < 0$, or in a cell $c$ at cell distance at most $1$ from $\mathcal C_M \setminus F_i$, for which $|c - y|_\infty \le (i - 1)s + 1$ and $t(c) \ge s - 2 > s/12$. Finally, every $c \in U$ has $h(c) \ge l_0/2 \ge 1$ and $|c - y|_\infty \ge k - s/12 > (i - 1) s$, so $U \subset F_i$.
+
+(2) Let $x \in X$ and let $c$ be its cell. Then $c \notin U$ and $c$ is at cell distance $1$ from a cell $c' \in U$, so $h(c) \ge h(c') - 1 \ge l_0/2 - 1 \ge 1$ and $|c - y|_\infty \ge k - s/12 - 1 > (i - 1) s$; hence $c \in F_i$, and $x \notin B$ because $B \subset U'$. So $X \subset G$. Since $U' \subset F$, $G \cap U' = G_1$, and $G \setminus X$ is the disjoint union of $G_1$ and $G_2$. If a bond joined $p \in G_1$ to $p' \in G_2$, then $p' \notin U'$ and $\operatorname{dist}_\infty(p', U') = 1$, so $p' \in X$, which is impossible. The last two claims follow from (1).
+
+(3) Let $x \in X$ with cell $c \notin U$, and $c' \in U$ at cell distance $1$ from $c$. We bound the cell distance $\mathsf d(c)$ from $c$ to $B_i \cup (\Z^2 \setminus F_i)$, using $\operatorname{dist}(c, B_i) \ge \max(t(c), l_0 + 1 - h(c))$, $\operatorname{dist}(c, \Z^2 \setminus \mathcal C_M) = h(c)$ and $\operatorname{dist}(c, \mathcal C_M \setminus F_i) \ge s - 1 - t(c)$. Write $t = t(c)$.
+
+\emph{Case $t > s/12$.} Then $t \le t(c') + 1 \le s/12 + 1$ and $h(c) \ge h(c') - 1 \ge l_0/2 + t(c') - 1 \ge l_0/2 + s/12 - 2$, so $\mathsf d(c) \ge s/12 - 1$ for $s$ large.
+
+\emph{Case $t \le s/12$.} Since $c \notin U$, $t > h(c) - l_0/2$, and since $c' \in U$, $t \le t(c') + 1 \le h(c') - l_0/2 + 1 \le h(c) - l_0/2 + 2$. So $h(c) \in [l_0/2 + t - 2, \, l_0/2 + t)$, and
+\begin{equation*}
+\mathsf d(c) \ge \min\bigl( \max(t, \, l_0/2 + 1 - t), \, l_0/2 + t - 2, \, s - 1 - t \bigr) \ge \max(t, l_0/4) - 2,
+\end{equation*}
+where we used $\max(t, l_0/2 + 1 - t) \ge \max(t, l_0/4)$ and $s - 1 - t \ge s/2$.
+
+Two sites in cells at cell distance $\mathsf d \ge 1$ are at $\ell^\infty$ distance at least $2 \mathsf d - 1$, and $d \ge \operatorname{dist}_\infty$. Hence $b(x) \ge 2 \max(t, l_0/4) - 5 \ge l_0/2 - 5 \ge 3$ in the second case, and $b(x) \ge s/6 - 3$ in the first. The sites of the first case contribute at most $|X| \vartheta^{s/6 - 3} \le 4 (2M + 1)^2 \vartheta^{s/6 - 7}$.
+
+It remains to count the cells of the second case with a given $t = j$. Such a cell lies on the $\ell^\infty$ sphere of radius $k \pm j$ around $y$ and on the ring $\{c : h(c) = h'\}$ for one of at most three integers $h' \in [l_0/2 + j - 2, l_0/2 + j)$. Both are boundaries of axis-parallel squares, so they meet in at most $8$ cells unless a side of the sphere lies on a side of the ring, that is, unless a side of the sphere of radius $k \pm j$ that meets $\mathcal C_M$ is parallel to an edge $\mathcal E$ of $\mathcal C_M$ at distance exactly $h'$ from the half-plane beyond $\mathcal E$. Use signed inward depths of the supporting lines: for a vertical line $x_1=a$, set $\delta_{\rm L}=a+M+1$ and $\delta_{\rm R}=M+1-a$, and define the bottom and top depths analogously. Changing the radius from $k$ to $k\pm j$ changes each signed depth by at most $j$. Since $y\in[-M-1,M+1]^2$ and $k-j\ge1$, the varying-coordinate intervals of the original and shifted sides meet $[-M,M]$. Thus an original side either meets $\mathcal C_M$, lies beyond the specified edge $\mathcal E$, or lies beyond the opposite edge. In the first case Lemma~\ref{l:shellgeom} gives signed depth at least $s/3$, so the shifted depth is at least $s/3-j>l_0/2+j$ for $j\le s/12$ and $s>3l_0$. In the second case the original depth is at most $0$, so the shifted depth is at most $j<l_0/2+j-2$. In the third case the original depth is at least $2M+2$, so the shifted depth is at least $2M+2-j>l_0/2+j$ for $s$ large. None can equal $h'$. Hence there are at most $2 \cdot 3 \cdot 8 = 48$ cells, that is, at most $192$ sites, with $t = j$, and their contribution is at most
+\begin{equation*}
+\sum_{j \ge 0} 192 \, \vartheta^{2 \max(j, l_0/4) - 5} \le 192 \, \vartheta^{l_0/2 - 5} \Bigl( \frac{l_0}{4} + 1 + \frac{1}{1 - \vartheta^2} \Bigr).
+\end{equation*}
+This proves \eqref{e:cutsum}.
+\end{proof}
+
+\begin{lemma}\label{l:Xconn}
+Enlarging $s_0(l_0)$ if necessary, under the hypotheses of Lemma~\ref{l:cutgeom} the set $X$ is connected for the nearest-neighbour adjacency.
+\end{lemma}
+
+\begin{proof}
+Since $X = \partial_\infty U'$ in the notation of Appendix~\ref{s:topology}, it suffices to check the hypotheses of Lemma~\ref{l:boundaryconn} for $A = U'$. We first work on the lattice of cells, with the notions of Appendix~\ref{s:topology} (neighbours, $*$-neighbours, blocks) applied to cells. Let $\rho(c) = |c - y|_\infty$, so that $t(c) = |\rho(c) - k|$. Since $h(c) \ge l_0/2 + t(c) \ge 1$ forces $c \in \mathcal C_M$,
+\begin{equation}\label{e:Ualt}
+U = \bigl\{ c \in \Z^2 : t(c) \le s/12, \ h(c) - t(c) \ge l_0/2 \bigr\} .
+\end{equation}
+We take $s_0(l_0) \ge 3 l_0$; then $l_0/2 \le k \le s^2 \le M + 1 - l_0/2$ for $s \ge s_0(l_0)$, since $k \ge \lfloor 2 s \rfloor$ and $M = s^4$.
+
+(a) \emph{Radial paths.} For a cell $c \neq y$, moving every coordinate $j$ with $|c_j - y_j| = \rho(c)$ one step towards $y_j$ gives a $*$-neighbour $c^-$ of $c$ with $\rho(c^-) = \rho(c) - 1$, and moving one such coordinate one step away from $y_j$ gives a neighbour $c^+$ with $\rho(c^+) = \rho(c) + 1$. Since $h$ is $1$-Lipschitz, if $\rho(c) > k$ then $t(c^-) = t(c) - 1$ and $h(c^-) - t(c^-) \ge h(c) - t(c)$, and if $\rho(c) < k$ the same holds for $c^+$. Starting from $c \in U$ and taking $t(c)$ such steps, we obtain by \eqref{e:Ualt} a path of $*$-neighbours in $U$ from $c$ to a cell $z$ with $\rho(z) = k$, $h(z) \ge l_0/2$ and $|z - c|_\infty = t(c) \le s/12$. Then $z \in D_i$, and since $i \notin I_0$, $z$ is at distance at least $s/3$ from the corner cells of $\mathcal C_M$. Hence every cell of $U$ is at $\ell^\infty$ distance at least $s/4$ from the corner cells of $\mathcal C_M$.
+
+(b) \emph{$U$ is $*$-connected.} Let $\mathcal K = \{ c : \rho(c) = k, \, h(c) \ge l_0/2 \}$, a subset of $U$. By (a) every cell of $U$ is joined to $\mathcal K$ by a path of $*$-neighbours in $U$, so it suffices to show that $\mathcal K$ is nonempty and connected. Let $m = M + 1 - l_0/2$, so that $h(c) \ge l_0/2$ if and only if $|c|_\infty \le m$, and let $I_j = [y_j - k, y_j + k] \cap [-m, m]$ for $j = 1, 2$. Since $|y_j| \le M + 1$ and $l_0/2 \le k \le m$, we have $y_j - k \le m$ and $y_j + k \ge -m$, so $I_j$ is nonempty; and $I_j$ contains $y_j - k$ or $y_j + k$, since otherwise $[-m, m] \subset (y_j - k, y_j + k)$, which is impossible because $[-m, m]$ contains $2m + 1 > 2k - 1$ integers. Hence the rectangle $P = I_1 \times I_2$ contains a corner of the square $y + [-k, k]^2$, and $\mathcal K$ is the set of cells of $P$ on the sides of this square. By symmetry let $P$ contain the corner $y - (k, k)$. Then the cells of $\mathcal K$ on the left and on the bottom side form two segments through $y - (k, k)$; the cells on the right side form a segment through $y + (k, -k)$, which lies on the bottom segment, if $y_1 + k \in I_1$, and there are none otherwise; and the cells on the top side form a segment through $y + (-k, k)$, which lies on the left segment, or there are none. So $\mathcal K$ is connected, and it is nonempty.
+
+(c) \emph{$\Z^2 \setminus U$ is connected.} The set $\Z^2 \setminus \mathcal C_M$ is connected and disjoint from $U$, and we join every $c \in \mathcal C_M \setminus U$ to it by a path of neighbours outside $U$. If $\rho(c) > k + s/12$, we use the path $c, c^+, (c^+)^+, \dots$, along which $\rho$ increases by one at each step; it stays outside $U$ and leaves the finite set $\mathcal C_M$. If $\rho(c) < k - s/12$, we move at each step one coordinate $j$ with $|c_j - y_j|$ maximal one step towards $y_j$; $\rho$ does not increase, so the path stays outside $U$, and it reaches $y \notin \mathcal C_M$. Otherwise $t(c) \le s/12$ and $h(c) - t(c) < l_0/2$; then $c \neq 0$, since $h(0) - t(0) \ge M + 1 - s/12 > l_0/2$, and we move a coordinate $j$ with $|c_j| = |c|_\infty$ away from $0$ step by step. Each step increases $|c|_\infty$ by one, so $h$ decreases by one until the path leaves $\mathcal C_M$; since $t$ is $1$-Lipschitz, $h - t$ does not increase, and the path stays outside $U$.
+
+(d) \emph{No block of cells meets $U$ in two diagonally opposite cells.} Let $Q$ be a block of cells and $z \in \Z^2$. The function $c \mapsto |c_1 - z_1|$ takes two consecutive values on the first coordinates of the cells of $Q$, and likewise for the second coordinate; hence $c \mapsto |c - z|_\infty$ takes two consecutive values on $Q$, and the set where it takes the smaller one is the intersection of $Q$ with a square, that is, a single cell, a row or a column of $Q$ (it is not all of $Q$). Apply this with $z = y$ and $z = 0$: $\rho$ takes the values $\rho_0, \rho_0 + 1$ on $Q$, and $|\cdot|_\infty$ the values $m_0, m_0 + 1$; let $R_\rho$ and $R_h$ be the sets where $\rho = \rho_0$ and $|\cdot|_\infty = m_0$. If $R_h$ is a single cell $c_*$, then $|c_{*, 1}| = |c_{*, 2}| = m_0$: if, say, the minimum $\beta$ of $|c_2|$ over $Q$ were larger than the minimum of $|c_1|$, then $\beta = m_0$, and both cells of $Q$ with $|c_2| = \beta$ would lie in $R_h$, since their first coordinates satisfy $|c_1| \le \beta$; so both minima equal $m_0$, and $c_*$ is the cell where both are attained. By \eqref{e:Ualt}, whether $c \in U$ depends only on $\rho(c)$ and $h(c) = \max(0, M + 1 - |c|_\infty)$, and monotonically in $h$, so:
+\begin{equation*}
+\text{if } c, c' \in Q, \ \rho(c) = \rho(c'), \ |c'|_\infty \le |c|_\infty \text{ and } c \in U, \text{ then } c' \in U. \tag{$\diamond$}
+\end{equation*}
+Suppose that $U \cap Q = \{x, x'\}$ with $x, x'$ diagonally opposite, and let $Q \setminus U = \{z, z'\}$. If $R_\rho$ is a row or a column, it contains one cell of each diagonal, say $x$ and $z$, and $\rho = \rho_0 + 1$ at $x'$ and $z'$; by ($\diamond$), $|z|_\infty > |x|_\infty$ and $|z'|_\infty > |x'|_\infty$, so $R_h = \{x, x'\}$, which is impossible. If $R_\rho = \{z\}$ (or $\{z'\}$), then $\rho = \rho_0 + 1$ at $x$, $x'$, $z'$, and ($\diamond$) gives $|z'|_\infty > |x|_\infty$ and $|z'|_\infty > |x'|_\infty$, so $R_h$ contains $x$ and $x'$, which is impossible. If $R_\rho = \{x\}$ (the case $\{x'\}$ is symmetric), then $\rho = \rho_0 + 1$ at $x'$, $z$, $z'$, and ($\diamond$) gives $|z|_\infty, |z'|_\infty > |x'|_\infty$. Hence $R_h = \{x'\}$, so $x' = (\pm m_0, \pm m_0)$, and $h(z) = h(x') - 1$. Since $\rho(z) = \rho(x')$, $x' \in U$ and $z \notin U$, \eqref{e:Ualt} gives $h(x') - 1 - t(x') < l_0/2 \le h(x') - t(x')$, so $h(x') = l_0/2 + t(x') \le l_0/2 + s/12$. Thus $x'$ is at $\ell^\infty$ distance $M - m_0 = h(x') - 1 < l_0/2 + s/12 \le s/4$ from a corner cell of $\mathcal C_M$, which contradicts (a).
+
+(e) \emph{Conclusion.} A block of sites is either the set of sites of one cell, or meets two neighbouring cells in a row or a column of the block each, or meets the four cells of a block of cells in one site each, placed as these cells are placed in their block. In the first two cases it meets $U'$ in a union of rows or of columns of the block, and in the third case it meets $U'$ in two diagonally opposite sites only if the block of cells meets $U$ in two diagonally opposite cells. Hence, by (d), no block of sites meets $U'$ in exactly two diagonally opposite sites. The sites of a cell are connected, and neighbouring ($*$-neighbouring) cells contain neighbouring ($*$-neighbouring) sites, so $U'$ is $*$-connected and nonempty by (b), and $\Z^2 \setminus U'$, the set of sites of the cells of $\Z^2 \setminus U$, is connected by (c). Lemma~\ref{l:boundaryconn} applies to $A = U'$ and shows that $X$ is connected.
+\end{proof}
+
+The conclusions of Lemmas~\ref{l:cutgeom} and~\ref{l:Xconn} were also checked by an exact computation for $430$ configurations of $(M, s, y, i)$ with $l_0 = 20$, among them configurations with $s = M^{1/4}$ for both cell offsets; the proofs do not use this.
+
+\subsection{The window estimate}\label{s:windowproof}
+
+\begin{theorem}\label{t:cutMOS}
+Assume Hypothesis~(P). Then the window estimate (Definition~\ref{d:W}) holds for both cell models $\hat\mu^{(0)}$ and $\hat\mu^{(1)}$, with $l_0 = 20$, with $1 - p_0 = \tanh(2 \varepsilon_{\max})$ for a constant $\varepsilon_{\max} < \infty$ depending only on $A$ and $\theta$, and with $M_\star$ depending only on $A$ and $\theta$.
+\end{theorem}
+
+\begin{proof}
+Fix $o$, $l_0 = 20$, and $M$, $y$, $i$ as in Definition~\ref{d:W} with $M$ so large that $s \ge s_0(l_0)$ and $M \ge M_{\mathrm g}(l_0)$. Let $F$, $B$, $G$, $X$, $G_1$, $G_2$ be as in \eqref{e:Xcut}. Let $\eta$ be a configuration outside $F_i$ and $\mathsf s$ a window configuration. The pin configuration $\eta \mathsf s$ on the legs of $G$ consists of letters of the frames, which are unit vectors. The proof of Lemma~\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbor outside $U'$, so $X\ne\emptyset$. By Lemma~\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbor, and by Lemma~\ref{l:cutgeom}(3), $b(x) \ge 3$ on $X$. Lemma~\ref{l:removal} and \eqref{e:cutsum} with $\vartheta = \theta$ give
+\begin{equation*}
+|e(\eta, \mathsf s)| \le 0.0707 + 2.73 A + 1.22 A \theta^{-3} \sum_{x \in X} \theta^{b(x)} \le 0.0707 + 2.73 A + 1.22 A \theta^{-3} \Bigl[ 192 \, \theta^{5} \Bigl( 6 + \frac{1}{1 - \theta^2} \Bigr) + 4 (2M + 1)^2 \theta^{s/6 - 7} \Bigr].
+\end{equation*}
+The last term tends to $0$ as $M \to \infty$, so for $M \ge M_\star(A, \theta)$ the right side is at most a constant $\varepsilon_{\max}(A, \theta)$. By Lemma~\ref{l:cutgeom}(1)--(2), the hypotheses of Lemma~\ref{l:cut} hold, and the law of $n_B$ under $\mu^\eta_{D, F}$ is the law of the cell configuration of $B_i$ under $\hat\mu^{(o), \eta}_{F_i}$. Hence \eqref{e:W} holds with $1 - p_0 = \tanh(2 \varepsilon_{\max}) < 1$.
+\end{proof}
+
+\begin{remark}\label{r:Pweak}
+The proof uses \eqref{e:P} only through the bound \eqref{e:cutsum}. The same argument works if $A \theta^d$ in \eqref{e:P} is replaced by any function $\mathsf F(d)$ with $\sum_d \mathsf F(d) < \infty$ and $\sup_d d^2 \mathsf F(d) < \infty$, the latter for the $O(M^{1/2})$ sites of the long sides of the cut, which are at distance of order $M^{1/4}$ from the pins; with the crude count $|X|\le4(2M+1)^2$ used above, $\mathsf F(d)=O(d^{-8})$ suffices for a uniform bound, while $\mathsf F(d)=o(d^{-8})$ makes the long-part contribution tend to zero. Theorem~\ref{t:rec} gives exponential decay.
+\end{remark}

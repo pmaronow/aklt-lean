@@ -1,0 +1,204 @@
+AKLT.Defs.geometryThreshold (l₀ : ℕ) : ℕ
+AKLT.Defs.shellSpacing (u : ℕ) : ℝ
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x
+Int.sub_one_lt_floor.{u_2} {R : Type u_2} [Ring R] [LinearOrder R] [FloorRing R] [IsOrderedRing R] (a : R) :
+  a - 1 < ↑⌊a⌋
+AKLT.Defs.squareCorners (a : Plane) (u : ℕ) : Finset Plane
+AKLT.Defs.setDistance (metric : Plane → Plane → ℕ) (x : Plane) (S : Set Plane) : ℕ∞
+AKLT.Defs.supDist (x y : Plane) : ℕ
+Int.natAbs_neg (a : ℤ) : (-a).natAbs = a.natAbs
+AKLT.Defs.exceptionalIndices (a y : Plane) (u : ℕ) : Finset ℤ
+Int.floor_le.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [FloorRing α] (a : α) : ↑⌊a⌋ ≤ a
+AKLT.Defs.shellRadius (u : ℕ) (i : ℤ) : ℤ
+Int.le_floor_add.{u_2} {R : Type u_2} [Ring R] [LinearOrder R] [FloorRing R] [IsOrderedRing R] (a b : R) :
+  ⌊a⌋ + ⌊b⌋ ≤ ⌊a + b⌋
+Finset.card_le_one.{u_1} {α : Type u_1} {s : Finset α} : s.card ≤ 1 ↔ ∀ a ∈ s, ∀ b ∈ s, a = b
+abs_sub_le_iff.{u_1} {G : Type u_1} [AddCommGroup G] [LinearOrder G] [IsOrderedAddMonoid G] {a b c : G} :
+  |a - b| ≤ c ↔ a - b ≤ c ∧ b - a ≤ c
+AKLT.Defs.ParallelClearance (a y : Plane) (u : ℕ) (i : ℤ) : Prop
+AKLT.Blueprint.Win.ShellSetup (l : ℕ) (a y : Plane) (u : ℕ) : Prop
+AKLT.Defs.nearShell (a y : Plane) (u l₀ : ℕ) (i : ℤ) : Finset Plane
+Finset.card_biUnion_le.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [DecidableEq M] {s : Finset ι} {t : ι → Finset M} :
+  (s.biUnion t).card ≤ ∑ a ∈ s, (t a).card
+AKLT.Defs.shell (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+AKLT.Defs.farVolume (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+Int.lt_floor_add_one.{u_2} {R : Type u_2} [Ring R] [LinearOrder R] [FloorRing R] (a : R) : a < ↑⌊a⌋ + 1
+ENat : Type
+Int.floor_eq_iff.{u_2} {R : Type u_2} [Ring R] [LinearOrder R] [FloorRing R] {z : ℤ} {a : R} :
+  ⌊a⌋ = z ↔ ↑z ≤ a ∧ a < ↑z + 1
+iInf_le.{u_1, u_4} {α : Type u_1} {ι : Sort u_4} [CompleteLattice α] (f : ι → α) (i : ι) : iInf f ≤ f i
+AKLT.Defs.latticeDist (x y : Plane) : ℕ
+AKLT.Defs.boundaryDepth (G : Finset Plane) (x : Plane) : ℕ∞
+iInf.{u, v} {α : Type u} {ι : Sort v} [InfSet α] (s : ι → α) : α
+AKLT.Blueprint.Win.rawBoundary (U : Finset Plane) : Finset Plane
+AKLT.Blueprint.Win.starBall (x : Plane) : Finset Plane
+AKLT.Blueprint.Win.EdgeChain : Type
+AKLT.Blueprint.Win.ChainInBox (c : EdgeChain) (R : ℤ) : Prop
+Finsupp.support.{u_8, u_9} {α : Type u_8} {M : Type u_9} [Zero M] (self : α →₀ M) : Finset α
+AKLT.Blueprint.Win.triangle (x y z : Plane) : EdgeChain
+AKLT.Blueprint.Win.triangleSpan : Submodule (ZMod 2) EdgeChain
+AKLT.Blueprint.Win.ChainEven (c : EdgeChain) : Prop
+AKLT.Blueprint.Win.horizontal (c : EdgeChain) (i j : ℤ) : ZMod 2
+Finset.sum_comm.{u_3, u_4, u_5} {α : Type u_3} {β : Type u_4} {γ : Type u_5} [AddCommMonoid β] {s : Finset γ}
+  {t : Finset α} {f : γ → α → β} : ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+AKLT.Blueprint.Win.tailCoefficient (c : EdgeChain) (R i j : ℤ) : ZMod 2
+Finset.Icc.{u_1} {α : Type u_1} [Preorder α] [LocallyFiniteOrder α] (a b : α) : Finset α
+Finsupp.ext.{u_1, u_4} {α : Type u_1} {M : Type u_4} [Zero M] {f g : α →₀ M} (h : ∀ (a : α), f a = g a) : f = g
+AKLT.Blueprint.Win.plaquette (p : Plane) : EdgeChain
+Finset.sum_range_sub.{u_3} {G : Type u_3} [AddCommGroup G] (f : ℕ → G) (n : ℕ) :
+  ∑ i ∈ Finset.range n, (f (i + 1) - f i) = f n - f 0
+Submodule.subset_span.{u_1, u_2} {R : Type u_1} {M : Type u_2} [Semiring R] [AddCommMonoid M] [Module R M] {s : Set M} :
+  s ⊆ ↑(Submodule.span R s)
+Sym2.eq_swap.{u_1} {α : Type u_1} {a b : α} : s(a, b) = s(b, a)
+AKLT.Blueprint.Win.cutEdges (A : Finset Plane) : Finset LatticeEdge
+Finset.exists_max_image.{u_1, u_2} {α : Type u_1} {β : Type u_2} [LinearOrder α] (s : Finset β) (f : β → α)
+  (h : s.Nonempty) : ∃ x ∈ s, ∀ x' ∈ s, f x' ≤ f x
+AKLT.Blueprint.Win.JoinedIn.{u_1} {α : Type u_1} (R : α → α → Prop) (S : Set α) (x y : α) : Prop
+AKLT.Blueprint.Win.Linked (e f : LatticeEdge) : Prop
+AKLT.Blueprint.Win.LinkClosed (A : Finset Plane) (E : Finset LatticeEdge) : Prop
+Relation.ReflTransGen.{u_1} {α : Type u_1} (r : α → α → Prop) (a : α) : α → Prop
+AKLT.Blueprint.Win.cutParity (E : Finset LatticeEdge) (c : EdgeChain) : ZMod 2
+Submodule.span_induction.{u_1, u_2} {R : Type u_1} {M : Type u_2} [Semiring R] [AddCommMonoid M] [Module R M]
+  {s : Set M} {p : (x : M) → x ∈ Submodule.span R s → Prop} (mem : ∀ (x : M) (h : x ∈ s), p x ⋯) (zero : p 0 ⋯)
+  (add : ∀ (x y : M) (hx : x ∈ Submodule.span R s) (hy : y ∈ Submodule.span R s), p x hx → p y hy → p (x + y) ⋯)
+  (smul : ∀ (a : R) (x : M) (hx : x ∈ Submodule.span R s), p x hx → p (a • x) ⋯) {x : M} (hx : x ∈ Submodule.span R s) :
+  p x hx
+Finset.sum_add_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [AddCommMonoid M] {f g : ι → M} :
+  ∑ x ∈ s, (f x + g x) = ∑ x ∈ s, f x + ∑ x ∈ s, g x
+AKLT.Blueprint.Win.TwoCrossings (A : Finset Plane) (e f : LatticeEdge) (c : EdgeChain) : Prop
+Finset.sum_eq_single.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [AddCommMonoid M] {s : Finset ι} {f : ι → M} (a : ι)
+  (h₀ : ∀ b ∈ s, b ≠ a → f b = 0) (h₁ : a ∉ s → f a = 0) : ∑ x ∈ s, f x = f a
+Sym2.{u} (α : Type u) : Type u
+AKLT.Blueprint.Win.cross (x : Plane) : Finset Plane
+AKLT.Defs.Compass.step : Compass → Plane
+AKLT.Blueprint.Win.StarAdjacent (x y : Plane) : Prop
+Int.natCast_natAbs (n : ℤ) : ↑n.natAbs = |n|
+AKLT.Blueprint.Win.thicken (X₀ : Finset Plane) : Finset Plane
+AKLT.Defs.decay (θ : ℝ) (r : ℕ∞) : ℝ
+pow_le_pow_right_of_le_one'.{u_3} {M : Type u_3} [Monoid M] [Preorder M] [MulLeftMono M] {a : M} {n m : ℕ} (ha : a ≤ 1)
+  (h : n ≤ m) : a ^ m ≤ a ^ n
+Finset.sum_le_sum.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N] {f g : ι → N} {s : Finset ι}
+  [AddLeftMono N] (h : ∀ i ∈ s, f i ≤ g i) : ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+AKLT.Blueprint.Win.RemovalEnumeration (X : Finset Plane) : Type
+SimpleGraph.Reachable.exists_isPath.{u} {V : Type u} {G : SimpleGraph V} {u v : V} (hr : G.Reachable u v) :
+  ∃ p, p.IsPath
+AKLT.Blueprint.Win.CutSetup (a y : Plane) (u : ℕ) (i : ℤ) : Prop
+AKLT.Blueprint.Win.core (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+AKLT.Blueprint.Win.taper (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+AKLT.Blueprint.Win.squareDepth (a : Plane) (u : ℕ) (z : Plane) : ℤ
+AKLT.Blueprint.Win.radialOffset (y : Plane) (u : ℕ) (i : ℤ) (z : Plane) : ℕ
+AKLT.Defs.square (a : Plane) (u : ℕ) : Finset Plane
+Finset.mem_Icc.{u_1} {α : Type u_1} [Preorder α] [LocallyFiniteOrder α] {a b x : α} : x ∈ Finset.Icc a b ↔ a ≤ x ∧ x ≤ b
+AKLT.Defs.window (a y : Plane) (u l₀ : ℕ) (i : ℤ) : Finset Plane
+AKLT.Blueprint.Win.NoBond (S T : Set Plane) : Prop
+AKLT.Blueprint.Win.cutRaw (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+AKLT.Blueprint.Win.cutVolume (a y : Plane) (u : ℕ) (i : ℤ) : Finset Plane
+min_le_iff.{u_1} {α : Type u_1} [LinearOrder α] {a b c : α} : min a b ≤ c ↔ a ≤ c ∨ b ≤ c
+max_le_iff.{u_1} {α : Type u_1} [LinearOrder α] {a b c : α} : max a b ≤ c ↔ a ≤ c ∧ b ≤ c
+AKLT.Blueprint.Win.NoCoincidence (a y : Plane) (u : ℕ) (i : ℤ) : Prop
+AKLT.Blueprint.Win.coord (axis : Fin 2) (z : Plane) : ℤ
+AKLT.Blueprint.Win.SignedUnit (ε : ℤ) : Prop
+AKLT.Blueprint.Win.sphere (a : Plane) (r : ℤ) : Finset Plane
+hasSum_geometric_of_lt_one {r : ℝ} (h₁ : 0 ≤ r) (h₂ : r < 1) : HasSum (fun n => r ^ n) (1 - r)⁻¹
+Summable.tsum_le_tsum.{u_1, u_3} {ι : Type u_1} {α : Type u_3} {L : SummationFilter ι} [AddCommMonoid α] [Preorder α]
+  [IsOrderedAddMonoid α] [TopologicalSpace α] [OrderClosedTopology α] {f g : ι → α} [L.NeBot] (h : ∀ (i : ι), f i ≤ g i)
+  (hf : Summable f L) (hg : Summable g L) : ∑'[L] (i : ι), f i ≤ ∑'[L] (i : ι), g i
+AKLT.Blueprint.Win.nearCost (θ : ℝ) : ℝ
+Real.rpow_natCast (x : ℝ) (n : ℕ) : x ^ ↑n = x ^ n
+Finset.sum_fiberwise.{u_1, u_2, u_4} {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [AddCommMonoid M] [DecidableEq κ]
+  [Fintype κ] (s : Finset ι) (g : ι → κ) (f : ι → M) : ∑ j, ∑ i ∈ s with g i = j, f i = ∑ i ∈ s, f i
+AKLT.Blueprint.Win.tailCost (θ : ℝ) (u : ℕ) : ℝ
+AKLT.Defs.protectedSites (G : Finset Plane) : Finset Plane
+AKLT.Blueprint.Win.SeparatingCut (F B X G₁ G₂ : Finset Plane) : Prop
+Finset.ext.{u_1} {α : Type u_1} {s₁ s₂ : Finset α} (h : ∀ (a : α), a ∈ s₁ ↔ a ∈ s₂) : s₁ = s₂
+AKLT.Blueprint.Top.FiniteFactsStatement : Prop
+AKLT.Defs.FiniteSpinNetwork.Valid {n : ℕ} (D : FiniteSpinNetwork n) : Prop
+AKLT.Defs.pinnedSum (G Y : Finset Plane) (τ : PinAssignment G) (f : (Plane → Vec3) → ℝ) : ℝ
+AKLT.Defs.freeSum (G Y : Finset Plane) (f : (Plane → Vec3) → ℝ) : ℝ
+Fintype.equivFin.{u_3} (α : Type u_3) [Fintype α] : α ≃ Fin (Fintype.card α)
+AKLT.Blueprint.Top.MomentsStatement : Prop
+AKLT.Blueprint.Win.partLaw (pinned : Bool) (G Y : Finset Plane) (τ : PinAssignment G) :
+  Weight (PlaneConfiguration (G \ Y))
+AKLT.Blueprint.Win.partMean (pinned : Bool) (G Y : Finset Plane) (τ : PinAssignment G) (f : (Plane → Vec3) → ℝ) : ℝ
+AKLT.Defs.normalize.{u_1} {Ω : Type u_1} [Fintype Ω] (w : Weight Ω) : Weight Ω
+Finset.sum_div.{u_1, u_2} {ι : Type u_1} {K : Type u_2} [DivisionSemiring K] (s : Finset ι) (f : ι → K) (a : K) :
+  (∑ i ∈ s, f i) / a = ∑ i ∈ s, f i / a
+AKLT.Blueprint.Win.removedPrefix {X : Finset Plane} (e : RemovalEnumeration X) (j : ℕ) : Finset Plane
+Finset.mem_image.{u_1, u_2} {α : Type u_1} {β : Type u_2} [DecidableEq β] {f : α → β} {s : Finset α} {b : β} :
+  b ∈ Finset.image f s ↔ ∃ a ∈ s, f a = b
+AKLT.Blueprint.Win.survivors (G Y : Finset Plane) (x : Plane) : Finset Plane
+AKLT.Blueprint.Win.RemovalStep (G Y : Finset Plane) (x : Plane) : Prop
+AKLT.Defs.neighbours (x : Plane) : Finset Plane
+AKLT.Defs.Compass : Type
+AKLT.Blueprint.Win.partSum (pinned : Bool) (G Y : Finset Plane) (τ : PinAssignment G) (f : (Plane → Vec3) → ℝ) : ℝ
+AKLT.Blueprint.Win.removalPolynomial (x : Plane) (V : Finset Plane) (n : Plane → Vec3) : ℝ
+Fintype.prod_sum.{u_5, u_7, u_8} {ι : Type u_5} {R : Type u_7} [Fintype ι] [CommSemiring R] [DecidableEq ι]
+  {κ : ι → Type u_8} [(i : ι) → Fintype (κ i)] (f : (i : ι) → κ i → R) : ∏ i, ∑ j, f i j = ∑ x, ∏ i, f i (x i)
+AKLT.Blueprint.Top.ThreeFactorMeanStatement : Prop
+AKLT.Blueprint.Win.NeighbourControl {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane) : Prop
+AKLT.Blueprint.Win.restEvent {D : Finset Plane} (V : Finset Plane) (σ ω : PlaneConfiguration D) : Prop
+AKLT.Blueprint.Win.fibreMean {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane)
+  (σ : PlaneConfiguration D) (f : PlaneConfiguration D → ℝ) : ℝ
+AKLT.Defs.normSq (a : Vec3) : ℝ
+AKLT.Defs.dot (a b : Vec3) : ℝ
+AKLT.Blueprint.Win.quartic (x : Plane) (n : Plane → Vec3) : ℝ
+Finset.abs_sum_le_sum_abs.{u_1, u_8} {ι : Type u_1} {G : Type u_8} [AddCommGroup G] [LinearOrder G]
+  [IsOrderedAddMonoid G] (f : ι → G) (s : Finset ι) : |∑ i ∈ s, f i| ≤ ∑ i ∈ s, |f i|
+AKLT.Defs.expectation.{u_1} {Ω : Type u_1} [Fintype Ω] (p : Weight Ω) (f : Ω → ℝ) : ℝ
+AKLT.Defs.Probability.{u_1} {Ω : Type u_1} [Fintype Ω] (p : Weight Ω) : Prop
+AKLT.Defs.ResponseProperty (A θ : ℝ) : Prop
+AKLT.Blueprint.Win.depthShift (G : Finset Plane) (x : Plane) : ℕ
+AKLT.Blueprint.Win.pairSum (V : Finset Plane) (n : Plane → Vec3) : ℝ
+Finset.offDiag.{u_1} {α : Type u_1} (s : Finset α) : Finset (α × α)
+Real.log_le_sub_one_of_pos {x : ℝ} (hx : 0 < x) : Real.log x ≤ x - 1
+Real.log_div {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) : Real.log (x / y) = Real.log x - Real.log y
+abs_sub_comm.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] (a b : α) : |a - b| = |b - a|
+Real.log_mul {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) : Real.log (x * y) = Real.log x + Real.log y
+AKLT.Defs.partitionRatio (G Y : Finset Plane) (τ : PinAssignment G) : ℝ
+Real.log (x : ℝ) : ℝ
+abs_add_le.{u_1} {α : Type u_1} [Lattice α] [AddCommGroup α] [AddLeftMono α] (a b : α) : |a + b| ≤ |a| + |b|
+Fin.sum_univ_succ.{u_2} {M : Type u_2} [AddCommMonoid M] {n : ℕ} (f : Fin (n + 1) → M) : ∑ i, f i = f 0 + ∑ i, f i.succ
+AKLT.Blueprint.Win.cutError (G X : Finset Plane) (τ : PinAssignment G) : ℝ
+zpow_sub₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a : G₀} (ha : a ≠ 0) (m n : ℤ) : a ^ (m - n) = a ^ m / a ^ n
+Finset.sum_le_sum_of_subset_of_nonneg.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N]
+  {f : ι → N} {s t : Finset ι} [AddLeftMono N] (h : s ⊆ t) (hf : ∀ i ∈ t, i ∉ s → 0 ≤ f i) : ∑ i ∈ s, f i ≤ ∑ i ∈ t, f i
+AKLT.Blueprint.Top.ThreeFramesStatement : Prop
+AKLT.Blueprint.Win.marginalNumerator (κ : Plane → Fin 3) (F B : Finset Plane) (η : FrameBoundary F)
+  (s : PlaneConfiguration B) : ℝ
+AKLT.Blueprint.Win.framePinnedSum (κ : Plane → Fin 3) (G Y : Finset Plane) (τ : PinAssignment G) : ℝ
+Equiv.piCongrLeft.{w, u_1, u_4} {α : Sort u_1} {β : Sort u_4} (P : β → Sort w) (e : α ≃ β) :
+  ((a : α) → P (e a)) ≃ ((b : β) → P b)
+AKLT.Blueprint.Top.ExactStatement : Prop
+AKLT.Defs.SeparateDegreeFour.{u_1} {ι : Type u_1} (p : MvPolynomial (ι × Fin 3) ℝ) : Prop
+AKLT.Defs.planeMarginal (κ : Plane → Fin 3) (W B : Finset Plane) (η : FrameBoundary W) : Weight (PlaneConfiguration B)
+AKLT.Blueprint.Win.componentSum (G H : Finset Plane) (τ : PinAssignment G) : ℝ
+AKLT.Blueprint.Win.cutPins (κ : Plane → Fin 3) (G F B : Finset Plane)
+  (unit : ∀ (j : Fin 3) (a : IcoLetter), normSq (frameVector j a) = 1) (η : FrameBoundary F)
+  (s : PlaneConfiguration B) : PinAssignment G
+AKLT.Defs.originalLegs (G : Finset Plane) : Finset (Plane × Plane)
+AKLT.Blueprint.Win.windowWeight (κ : Plane → Fin 3) (B : Finset Plane) (s : PlaneConfiguration B) : ℝ
+Finset.prod_pos.{u_1, u_2} {ι : Type u_1} {R : Type u_2} [CommMonoidWithZero R] [PartialOrder R] [ZeroLEOneClass R]
+  [PosMulStrictMono R] [Nontrivial R] {f : ι → R} {s : Finset ι} (h0 : ∀ i ∈ s, 0 < f i) : 0 < ∏ i ∈ s, f i
+Real.exp_log {x : ℝ} (hx : 0 < x) : Real.exp (Real.log x) = x
+AKLT.Defs.PositiveProbability.{u_1} {Ω : Type u_1} [Fintype Ω] (p : Weight Ω) : Prop
+Real.exp_le_exp {x y : ℝ} : Real.exp x ≤ Real.exp y ↔ x ≤ y
+Finset.sum_pos.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [AddCommMonoid M] [Preorder M] [IsOrderedCancelAddMonoid M]
+  {f : ι → M} {s : Finset ι} [AddLeftStrictMono M] (h : ∀ i ∈ s, 0 < f i) (hs : s.Nonempty) : 0 < ∑ i ∈ s, f i
+AKLT.Defs.totalVariation.{u_1} {Ω : Type u_1} [Fintype Ω] (p q : Weight Ω) : ℝ
+min_le_min.{u} {α : Type u} [LinearOrder α] {a b c d : α} : c ≤ a → d ≤ b → min c d ≤ min a b
+abs_sub.{u_1} {G : Type u_1} [AddCommGroup G] [LinearOrder G] [IsOrderedAddMonoid G] (a b : G) : |a - b| ≤ |a| + |b|
+AKLT.Blueprint.Win.tailConstant (θ : ℝ) : ℝ
+Real.rpow_def_of_pos {x : ℝ} (hx : 0 < x) (y : ℝ) : x ^ y = Real.exp (Real.log x * y)
+Real.pow_div_factorial_le_exp (x : ℝ) (hx : 0 ≤ x) (n : ℕ) : x ^ n / ↑n.factorial ≤ Real.exp x
+Nat.ceil_le.{u_1} {α : Type u_1} [Semiring α] [PartialOrder α] [FloorSemiring α] {a : α} {n : ℕ} : ⌈a⌉₊ ≤ n ↔ a ≤ ↑n
+AKLT.Defs.cutCost (A θ : ℝ) : ℝ
+zpow_pos.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [PosMulReflectLT G₀] {a : G₀} [ZeroLEOneClass G₀]
+  (ha : 0 < a) (n : ℤ) : 0 < a ^ n
+div_nonneg.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [PosMulReflectLT G₀] {a b : G₀} (ha : 0 ≤ a)
+  (hb : 0 ≤ b) : 0 ≤ a / b
+zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹
+zpow_add₀.{u_2} {G₀ : Type u_2} [GroupWithZero G₀] {a : G₀} (ha : a ≠ 0) (m n : ℤ) : a ^ (m + n) = a ^ m * a ^ n
+mul_le_mul_of_nonneg_left.{u_1} {α : Type u_1} [Mul α] [Zero α] [Preorder α] {a b c : α} [PosMulMono α] (hbc : b ≤ c)
+  (ha : 0 ≤ a) : a * b ≤ a * c
+AKLT.Defs.planeWeight (κ : Plane → Fin 3) (W : Finset Plane) (η : FrameBoundary W) (σ : PlaneConfiguration W) : ℝ
+AKLT.Defs.ProperPlaneColouring (κ : Plane → Fin 3) : Prop

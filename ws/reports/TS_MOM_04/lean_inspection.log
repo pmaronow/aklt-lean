@@ -1,0 +1,95 @@
+def AKLT.Blueprint.Mom.DepletedContractionStatement : Prop :=
+∀ (k : ℕ) (a : Fin k → AKLT.Defs.Vec3),
+  LT.lt.{0} 0 (AKLT.Defs.siteFunctional AKLT.Defs.Status.U (AKLT.Defs.localProduct a)) →
+    LT.lt.{0} 0 (AKLT.Defs.siteFunctional AKLT.Defs.Status.D (AKLT.Defs.localProduct a)) ∧
+      LE.le.{0} (AKLT.Defs.normSq (AKLT.Defs.localMean AKLT.Defs.Status.D a))
+        (AKLT.Defs.normSq (AKLT.Defs.localMean AKLT.Defs.Status.U a))
+def AKLT.Blueprint.Mom.MeanPathContinuityStatement : Prop :=
+ContinuousOn.{0, 0}
+  (fun (t : ℝ) => AKLT.Defs.normSq (AKLT.Defs.localMean AKLT.Defs.Status.U (AKLT.Blueprint.Mom.meanPath t)))
+  (Set.Icc.{0} 0 AKLT.Blueprint.Mom.meanPathEnd)
+def AKLT.Blueprint.Mom.MeanPathEndpointsStatement : Prop :=
+Eq.{1} (AKLT.Defs.normSq (AKLT.Defs.localMean AKLT.Defs.Status.U (AKLT.Blueprint.Mom.meanPath 0)))
+    (HPow.hPow.{0, 0, 0} (3 / 5) 2) ∧
+  Eq.{1}
+    (AKLT.Defs.normSq
+      (AKLT.Defs.localMean AKLT.Defs.Status.U (AKLT.Blueprint.Mom.meanPath AKLT.Blueprint.Mom.meanPathEnd)))
+    0
+def AKLT.Blueprint.Mom.MeanCovarianceStatement : Prop :=
+∀ (a : Fin 3 → AKLT.Defs.Vec3),
+  (∀ (j : Fin 3), Eq.{1} (AKLT.Defs.normSq (a j)) 1) →
+    ∀ (R : Matrix.{0, 0, 0} (Fin 3) (Fin 3) ℝ),
+      Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.transpose.{0, 0, 0} R) R) 1 →
+        Eq.{1} (AKLT.Defs.localMean AKLT.Defs.Status.U fun (j : Fin 3) => Matrix.mulVec.{0, 0, 0} R (a j))
+          (Matrix.mulVec.{0, 0, 0} R (AKLT.Defs.localMean AKLT.Defs.Status.U a))
+def AKLT.Blueprint.Mom.OrthogonalNormStatement : Prop :=
+∀ (R : Matrix.{0, 0, 0} (Fin 3) (Fin 3) ℝ),
+  Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.transpose.{0, 0, 0} R) R) 1 →
+    ∀ (v : AKLT.Defs.Vec3), Eq.{1} (AKLT.Defs.normSq (Matrix.mulVec.{0, 0, 0} R v)) (AKLT.Defs.normSq v)
+def AKLT.Blueprint.Mom.OrthogonalTransportStatement : Prop :=
+∀ (v w : AKLT.Defs.Vec3),
+  Eq.{1} (AKLT.Defs.normSq v) (AKLT.Defs.normSq w) →
+    ∃ (R : Matrix.{0, 0, 0} (Fin 3) (Fin 3) ℝ),
+      Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.transpose.{0, 0, 0} R) R) 1 ∧ Eq.{1} (Matrix.mulVec.{0, 0, 0} R v) w
+def AKLT.Blueprint.Mom.SingleSiteQuadratureStatement : Prop :=
+∀ (k : ℕ) (F : AKLT.Defs.FrameData k),
+  AKLT.Defs.MomentLaw F →
+    ∀ (s : AKLT.Defs.Status),
+      Eq.{1} s AKLT.Defs.Status.U ∨ Eq.{1} s AKLT.Defs.Status.D →
+        ∀ (m : Fin 3 → ℕ),
+          LE.le.{0} (∑ i : Fin 3, m i) 4 →
+            Eq.{1} (AKLT.Defs.momentLawFunctional F s (AKLT.Blueprint.Mom.mono m))
+              (AKLT.Defs.siteFunctional s (AKLT.Blueprint.Mom.mono m))
+def AKLT.Blueprint.Mom.InteractionDegreeStatement : Prop :=
+∀ (n : ℕ) (bonds : List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) (Fin n)) ℝ))
+  (pins : List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) AKLT.Defs.Vec3) ℝ))
+  (p : MvPolynomial.{0, 0} (Prod.{0, 0} (Fin n) (Fin 3)) ℝ),
+  (∀ (m : Finsupp.{0, 0} (Prod.{0, 0} (Fin n) (Fin 3)) ℕ),
+      Membership.mem.{0, 0} (MvPolynomial.support.{0, 0} p) m →
+        ∀ (x : Fin n),
+          LE.le.{0}
+            (HAdd.hAdd.{0, 0, 0} (∑ i : Fin 3, m (Prod.mk.{0, 0} x i))
+              (AKLT.Blueprint.Mom.interactionOccurrences bonds pins x))
+            4) →
+    AKLT.Defs.SeparateDegreeFour.{0} (AKLT.Blueprint.Mom.interactionPolynomial bonds pins p)
+def AKLT.Defs.localProduct : {k : ℕ} → (Fin k → AKLT.Defs.Vec3) → AKLT.Defs.Vec3 → ℝ :=
+fun {k : ℕ} (a : Fin k → AKLT.Defs.Vec3) (n : AKLT.Defs.Vec3) =>
+  ∏ j : Fin k, HAdd.hAdd.{0, 0, 0} 1 (AKLT.Defs.dot n (a j))
+def AKLT.Defs.localMean : {k : ℕ} → AKLT.Defs.Status → (Fin k → AKLT.Defs.Vec3) → AKLT.Defs.Vec3 :=
+fun {k : ℕ} (s : AKLT.Defs.Status) (a : Fin k → AKLT.Defs.Vec3) (i : Fin 3) =>
+  HDiv.hDiv.{0, 0, 0}
+    (AKLT.Defs.siteFunctional s fun (n : AKLT.Defs.Vec3) => HMul.hMul.{0, 0, 0} (n i) (AKLT.Defs.localProduct a n))
+    (AKLT.Defs.siteFunctional s (AKLT.Defs.localProduct a))
+def AKLT.Defs.MomentLaw : {n : ℕ} → AKLT.Defs.FrameData n → Prop :=
+fun {n : ℕ} (F : AKLT.Defs.FrameData n) =>
+  (∀ (j : Fin n), Eq.{1} (AKLT.Defs.normSq (F.point j)) 1) ∧
+    (∀ (j : Fin n), LT.lt.{0} 0 (F.weight j)) ∧
+      Eq.{1} (∑ j : Fin n, F.weight j) 1 ∧
+        ∀ (p : MvPolynomial.{0, 0} (Fin 3) ℝ),
+          AKLT.Defs.DegreeFour p →
+            Eq.{1} (∑ j : Fin n, HMul.hMul.{0, 0, 0} (F.weight j) ((MvPolynomial.eval.{0, 0} (F.point j)) p))
+              (AKLT.Defs.moment fun (a : AKLT.Defs.Vec3) => (MvPolynomial.eval.{0, 0} a) p)
+def AKLT.Defs.momentLawFunctional : {n : ℕ} → AKLT.Defs.FrameData n → AKLT.Defs.Status → (AKLT.Defs.Vec3 → ℝ) → ℝ :=
+fun {n : ℕ} (F : AKLT.Defs.FrameData n) (s : AKLT.Defs.Status) (f : AKLT.Defs.Vec3 → ℝ) =>
+  ite.{1} (Eq.{1} s AKLT.Defs.Status.D)
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (3 / 5) (∑ j : Fin n, HMul.hMul.{0, 0, 0} (F.weight j) (f (F.point j))))
+      (HMul.hMul.{0, 0, 0} (2 / 5) (f 0)))
+    (∑ j : Fin n, HMul.hMul.{0, 0, 0} (F.weight j) (f (F.point j)))
+def AKLT.Defs.SeparateDegreeFour.{u_1} : {ι : Type u_1} → MvPolynomial.{u_1, 0} (Prod.{u_1, 0} ι (Fin 3)) ℝ → Prop :=
+fun {ι : Type u_1} (p : MvPolynomial.{u_1, 0} (Prod.{u_1, 0} ι (Fin 3)) ℝ) =>
+  ∀ (m : Finsupp.{u_1, 0} (Prod.{u_1, 0} ι (Fin 3)) ℕ),
+    Membership.mem.{u_1, u_1} (MvPolynomial.support.{0, u_1} p) m →
+      ∀ (x : ι), LE.le.{0} (∑ k : Fin 3, m (Prod.mk.{u_1, 0} x k)) 4
+def AKLT.Blueprint.Mom.interactionOccurrences : {n : ℕ} →
+  List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) (Fin n)) ℝ) →
+    List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) AKLT.Defs.Vec3) ℝ) → Fin n → ℕ :=
+fun {n : ℕ} (bonds : List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) (Fin n)) ℝ))
+    (pins : List.{0} (Prod.{0, 0} (Prod.{0, 0} (Fin n) AKLT.Defs.Vec3) ℝ)) (x : Fin n) =>
+  HAdd.hAdd.{0, 0, 0}
+    (HAdd.hAdd.{0, 0, 0}
+      (List.length.{0}
+        (List.filter.{0} (fun (e : Prod.{0, 0} (Prod.{0, 0} (Fin n) (Fin n)) ℝ) => decide (Eq.{1} e.1.1 x)) bonds))
+      (List.length.{0}
+        (List.filter.{0} (fun (e : Prod.{0, 0} (Prod.{0, 0} (Fin n) (Fin n)) ℝ) => decide (Eq.{1} e.1.2 x)) bonds)))
+    (List.length.{0}
+      (List.filter.{0} (fun (e : Prod.{0, 0} (Prod.{0, 0} (Fin n) AKLT.Defs.Vec3) ℝ) => decide (Eq.{1} e.1.1 x)) pins))

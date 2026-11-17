@@ -1,0 +1,306 @@
+\section{The local inequalities}\label{s:local}
+
+In this appendix we prove Theorem~\ref{t:H1}. Throughout, $\pi \in \Pext$ is a pattern (Definition~\ref{d:pattern}) and $c = p/q \in (0, 1)$ is rational; for Theorem~\ref{t:H1}, $c = 961/1000$ if $\pi$ is straight and $c = 187/200$ if $\pi$ is a turn. We write $o$ for the out-neighbour of $\pi$, $f$ and $g$ for the other two sites of $\{\mathsf e, \mathsf N, \mathsf W\}$, and
+\begin{equation}\label{e:Fc}
+F_c(m) = Z_{\mathrm{cur}}(\pi; m) - c \, Z_{\mathrm{next}}(\pi; m), \qquad m \in (\Sph)^{20} .
+\end{equation}
+Since $Z_{\mathrm{next}}(\pi; m) > 0$ (Lemma~\ref{l:Iw} below), Theorem~\ref{t:H1} is the statement that $F_c \ge 0$ on $(\Sph)^{20}$ for every $\pi$. In \S\ref{s:localred} we integrate out the passage site $y$, the tips and the corners with a single present bond. The main proof, in \S\ref{s:inversion}, writes the resulting function as the expectation of an explicit operator in products of spin-$\frac12$ coherent states and verifies positive definiteness of that operator in integer arithmetic. The closed forms of \S\ref{s:closed} give a second proof for a subclass of the patterns, and \S\ref{s:localcomp} describes the computation and what must be trusted.
+
+\subsection{Integrating out the passage site and the leaves}\label{s:localred}
+
+For a function $h$ of the spins of the non-removed sites of $\mathsf T(y) \setminus \{y\}$, let
+\begin{equation}\label{e:Zw}
+Z_w[h] = \int h \prod_{\{a, b\}} (1 + n_a \cdot n_b) \prod_{\ell} (1 + m_\ell \cdot n_{z(\ell)}) \prod_{x} \lambda_{\mathrm{st}(x)}(\dd n_x),
+\end{equation}
+where the first product runs over the present bonds of the template that do not contain $y$, the second over the slots $\ell$ at non-removed sites $z(\ell)$, and the third over the non-removed sites $x \neq y$ of $\mathsf T(y)$.
+
+\begin{lemma}\label{l:Iw}
+Let $I$ and $J$ be as in \eqref{e:IJ}, where $P_{ab} = n_a \cdot n_b$ if $a$ and $b$ are not removed and $P_{ab} = 0$ otherwise. Then $Z_{\mathrm{cur}}(\pi; m) = Z_w[I]$ and $Z_{\mathrm{next}}(\pi; m) = Z_w[J]$, so that
+\begin{equation}\label{e:IcJ}
+F_c(m) = Z_w[I - cJ], \qquad I - cJ = (1 - c) + \frac13 (P_{fo} + P_{go}) + \Bigl( \frac13 - \frac c5 \Bigr) P_{fg} .
+\end{equation}
+Moreover $Z_{\mathrm{next}}(\pi; m) > 0$, and $Z_{\mathrm{cur}}(\pi; m)$ and $Z_{\mathrm{next}}(\pi; m)$ are affine in each slot vector and do not change if all slot vectors are transformed by the same element of $\mathrm O(3)$.
+\end{lemma}
+
+\begin{proof}
+In a pattern of $\Pext$, the site $y$ has status $\mathrm U$ and keeps all its bonds other than $\{y, \mathsf s\}$, and every non-removed site of $\{\mathsf e, \mathsf N, \mathsf W\}$ keeps its bond to $y$. The present bonds of $y$ therefore join it to the non-removed sites among $f, g, o$ in $Z_{\mathrm{cur}}$, and to those among $f, g$ in $Z_{\mathrm{next}}$. Integrating out $n_y$ with \eqref{e:moments}, as in the derivation of \eqref{e:IJ}, gives the factor $I$ in $Z_{\mathrm{cur}}$ and $J$ in $Z_{\mathrm{next}}$. The integrand of $Z_{\mathrm{next}}$ is nonnegative and continuous, and positive when all spins are equal to a unit vector that is not opposite to any slot vector. Since every site measure gives mass at least $3/5$ to the uniform measure, we obtain $Z_{\mathrm{next}} > 0$. Every slot vector occurs in exactly one factor, linearly. The measures $\dd n$ and $\lambda_{\mathrm D}$ are invariant under $\mathrm O(3)$, and the change of variables $n_x \mapsto R n_x$ at all sites gives the last statement.
+\end{proof}
+
+We now integrate out the tips and some corners. Recall from Definition~\ref{d:pattern} that a tip has three slots and a single bond inside the template, to its neighbour among $\mathsf e, \mathsf N, \mathsf W, \mathsf s$, and that a corner has two slots and two bonds inside the template, to two sites of $\{\mathsf e, \mathsf N, \mathsf W, \mathsf s\}$.
+
+\begin{lemma}\label{l:leaf}
+Fix all spins except the spin of a non-removed tip or corner $z$, and let $\lambda = \lambda_{\mathrm{st}(z)}$.
+\begin{enumerate}
+\item If $z$ has no present bond, the integral over $n_z$ of the factors containing $n_z$ is positive and depends only on the slot vectors at $z$.
+\item If $z$ is a tip with a present bond $\{z, x\}$, then $\int (1 + n \cdot n_x) \prod_{\ell \text{ at } z} (1 + m_\ell \cdot n) \, \dd n = A (1 + \frac35 u \cdot n_x)$ with $A > 0$ and $|u| \le 1$, where $A$ and $u$ depend only on the slot vectors at $z$.
+\item If $z$ is a corner with exactly one present bond $\{z, x\}$, then $\int (1 + n \cdot n_x) \prod_{\ell \text{ at } z} (1 + m_\ell \cdot n) \, \lambda(\dd n) = A (1 + \rho \, u \cdot n_x)$ with $A > 0$ and $|u| \le 1$ depending only on the slot vectors at $z$, where $\rho = 1/2$ if $z$ has status $\mathrm U$ and $\rho = 1/3$ if it has status $\mathrm D$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The first statement holds because the integrand is nonnegative, continuous and not identically $0$. To prove the second, let $m_1, m_2, m_3$ be the slot vectors at $z$. By \eqref{e:moments}, the integral equals $A + V \cdot n_x$ with
+\begin{equation*}
+A = \int \prod_{i \le 3} (1 + m_i \cdot n) \, \dd n = 1 + \frac13 (m_1 \cdot m_2 + m_1 \cdot m_3 + m_2 \cdot m_3) \ge \frac12, \qquad V = \int n \prod_{i \le 3} (1 + m_i \cdot n) \, \dd n ,
+\end{equation*}
+where the lower bound on $A$ follows from $|m_1 + m_2 + m_3|^2 \ge 0$. By Lemma~\ref{l:35}, $|V| \le \frac35 A$, and we set $u = 5V/(3A)$.
+
+We now prove the third statement. Let $m_1, m_2$ be the slot vectors at $z$ and $t = m_1 \cdot m_2$. If $\lambda = \dd n$, \eqref{e:moments} gives the integral $A + V \cdot n_x$ with $A = 1 + t/3$ and $V = (m_1 + m_2)/3$. We have $2/3 \le A \le 4/3$ and
+\begin{equation*}
+A^2 - 4 |V|^2 = \Bigl( 1 + \frac t3 \Bigr)^2 - \frac{4 (2 + 2t)}{9} = \frac{(1 - t)^2}{9} \ge 0 ,
+\end{equation*}
+which gives $|V| \le A/2$. If $\lambda = \lambda_{\mathrm D}$, the integral is
+\begin{equation*}
+\frac35 (A + V \cdot n_x) + \frac25 = A'(1 + V' \cdot n_x), \qquad A' = \frac35 A + \frac25, \quad V' = \frac{3V}{5A'} ,
+\end{equation*}
+and we obtain
+\begin{equation*}
+|V'| \le \frac{3A/10}{3A/5 + 2/5} = \frac{A}{2A + 4/3} \le \frac13 ,
+\end{equation*}
+where we used that the middle term is increasing in $A$ and $A \le 4/3$.
+\end{proof}
+
+A \emph{leaf corner} is a non-removed corner with exactly one present bond. We use two representations of $F_c$ by functions of fewer vectors. In each of them, every tip with a present bond $\{z, x\}$ is replaced by a vector $u \in \R^3$ and the factor $1 + \frac35 u \cdot n_x$, and the tips and corners without present bonds are deleted. In the \emph{reduced} representation, every leaf corner with present bond $\{z, x\}$ is moreover replaced by a vector $u$ and the factor $1 + \rho \, u \cdot n_x$, with $\rho$ as in Lemma~\ref{l:leaf}(3); in the \emph{unreduced} representation, the leaf corners keep their spins and their two slot vectors. The vectors of the representation are one vector for each tip with a present bond, one for each leaf corner in the reduced representation, and the two slot vectors of every other corner with a present bond; we denote them by $u = (u_1, \dots, u_k)$. We call a vector of the first two kinds a \emph{single vector}, and the two slot vectors of a corner a \emph{pair}. Let $\hat Z_{\mathrm{cur}}(u)$ and $\hat Z_{\mathrm{next}}(u)$ be defined as $Z_{\mathrm{cur}}(\pi; m)$ and $Z_{\mathrm{next}}(\pi; m)$ with these replacements, for all $u \in (\R^3)^k$, and
+\begin{equation}\label{e:hatF}
+\hat F_c(u) = \hat Z_{\mathrm{cur}}(u) - c \, \hat Z_{\mathrm{next}}(u) .
+\end{equation}
+As in Lemma~\ref{l:Iw}, $\hat F_c$ is a polynomial that is affine in each $u_i$ and invariant under the simultaneous action of $\mathrm O(3)$ on $u_1, \dots, u_k$. Let $\mathbb B = \{ b \in \R^3 : |b| \le 1 \}$.
+
+\begin{corollary}\label{c:reduce}
+In either representation, if $\hat F_c \ge 0$ on $(\Sph)^k$, then $F_c \ge 0$ on $(\Sph)^{20}$.
+\end{corollary}
+
+\begin{proof}
+Fix $m \in (\Sph)^{20}$. Since no two tips or corners are adjacent, we may integrate out the deleted sites and the replaced sites one at a time, with all other spins fixed. Lemma~\ref{l:leaf} gives
+\begin{equation*}
+Z_{\mathrm{cur}}(\pi; m) = K \hat Z_{\mathrm{cur}}(\hat u), \qquad Z_{\mathrm{next}}(\pi; m) = K \hat Z_{\mathrm{next}}(\hat u),
+\end{equation*}
+where $K > 0$ is the product of the factors $A$ and of the integrals of Lemma~\ref{l:leaf}(1), and $\hat u \in \mathbb B^k$ consists of the vectors $u$ of Lemma~\ref{l:leaf}(2) and~(3) and of the remaining slot vectors. The same $K$ and $\hat u$ serve for $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$, since the factors that contain the integrated spins do not contain $n_y$. Since $\hat F_c$ is affine in each argument and every point of $\mathbb B$ is a convex combination of two points of $\Sph$, the minimum of $\hat F_c$ over $\mathbb B^k$ is attained on $(\Sph)^k$. We conclude that $F_c(m) = K \hat F_c(\hat u) \ge 0$.
+\end{proof}
+
+\subsection{The inversion certificate}\label{s:inversion}
+
+Recall the Pauli matrices $\sigma_1, \sigma_2, \sigma_3$ and the spin-$\frac12$ coherent states $\zeta(b) \in \C^2$, $b \in \Sph$, of \eqref{e:zeta}, and let $\sigma_0$ be the $2 \times 2$ identity matrix. Let $F$ be a real polynomial on $(\R^3)^k$ that is affine in each of its arguments. It has a unique expansion
+\begin{equation}\label{e:Fexp}
+F(u) = \sum_{a \in \{0, 1, 2, 3\}^k} f_a \prod_{i = 1}^k u_i^{a_i}, \qquad u_i^0 = 1 ,
+\end{equation}
+where $u_i^1, u_i^2, u_i^3$ are the coordinates of $u_i$, and we define the Hermitian operator on $(\C^2)^{\otimes k}$
+\begin{equation}\label{e:OF}
+\mathcal O(F) = \sum_{a \in \{0, 1, 2, 3\}^k} f_a \, \sigma_{a_1} \otimes \sigma_{a_2} \otimes \cdots \otimes \sigma_{a_k} .
+\end{equation}
+For $\mathcal I \subset \{1, \dots, k\}$ and $u \in (\R^3)^k$, let $u^{\mathcal I}$ be obtained from $u$ by replacing $u_i$ with $-u_i$ for $i \in \mathcal I$, and let $F^{\mathcal I}(u) = F(u^{\mathcal I})$. The coefficients of $F^{\mathcal I}$ are $(-1)^{|\{i \in \mathcal I : a_i \neq 0\}|} f_a$.
+
+\begin{lemma}\label{l:inversion}
+For all $u \in (\Sph)^k$ and $\mathcal I \subset \{1, \dots, k\}$, with $\zeta(u) = \zeta(u_1) \otimes \cdots \otimes \zeta(u_k)$,
+\begin{equation}\label{e:inversion}
+F(u) = \bigl\langle \zeta(u^{\mathcal I}), \mathcal O(F^{\mathcal I}) \, \zeta(u^{\mathcal I}) \bigr\rangle .
+\end{equation}
+In particular, if $\mathcal O(F^{\mathcal I})$ is positive semidefinite for some $\mathcal I$, then $F \ge 0$ on $(\Sph)^k$ and on $\mathbb B^k$.
+\end{lemma}
+
+\begin{proof}
+Let $b \in \Sph$ and $j \in \{0, 1, 2, 3\}$. By \eqref{e:zeta}, we have
+\begin{equation*}
+\langle \zeta(b), \sigma_j \zeta(b) \rangle = \operatorname{tr} \Bigl( \sigma_j \, \frac{1 + b \cdot \sigma}{2} \Bigr) = b^j .
+\end{equation*}
+For every polynomial $G$ that is affine in each argument and every $v \in (\Sph)^k$, this implies that
+\begin{equation*}
+\langle \zeta(v), \mathcal O(G) \, \zeta(v) \rangle = \sum_a g_a \prod_{i = 1}^k \langle \zeta(v_i), \sigma_{a_i} \zeta(v_i) \rangle = G(v) .
+\end{equation*}
+Applying this with $G = F^{\mathcal I}$ and $v = u^{\mathcal I}$, and using $F^{\mathcal I}(u^{\mathcal I}) = F(u)$, we obtain \eqref{e:inversion}. The extension to $\mathbb B^k$ follows as in the proof of Corollary~\ref{c:reduce}.
+\end{proof}
+
+The inversion is what makes the lemma useful. For $k = 2$ and $F(u) = 1 + u_1 \cdot u_2$, which is nonnegative on $(\Sph)^2$, the operator $\mathcal O(F) = 1 + \sum_{j \le 3} \sigma_j \otimes \sigma_j$ has the eigenvalue $-2$ on the antisymmetric vector, whereas $\mathcal O(F^{\{1\}}) = 1 - \sum_{j \le 3} \sigma_j \otimes \sigma_j$ has the eigenvalues $0$ and $4$.
+
+We apply Lemma~\ref{l:inversion} to $F = \hat F_c$. The inversion set $\mathcal I$ is always a union of groups, where a \emph{group} is a single vector or a pair.
+
+\begin{lemma}\label{l:Ostruct}
+Let $\hat F_c$ be as in \eqref{e:hatF}, in one of the two representations, let $\mathcal I$ be a union of groups, and let $\mathcal O = \mathcal O(\hat F_c^{\mathcal I})$.
+\begin{enumerate}
+\item In the basis of tensor products of $e_+ = (1, 0)$ and $e_- = (0, 1)$, $\mathcal O$ is a real symmetric matrix.
+\item $\mathcal O$ commutes with $U^{\otimes k}$ for every $U \in \mathrm{SU}(2)$.
+\item If $u_i, u_{i'}$ is the pair of a corner of status $\mathrm U$, then $\mathcal O = \Pi \mathcal O \Pi$, where $\Pi$ is the orthogonal projection of the factor $\C^2 \otimes \C^2$ of the pair onto its symmetric subspace $\mathrm{Sym}^2 \C^2$, tensored with the identity on the other factors.
+\item If $u_i, u_{i'}$ is the pair of a corner of status $\mathrm D$, then $\mathcal O$ commutes with the exchange of the two factors $\C^2$ of the pair.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We will use two properties of the linear map $G \mapsto \mathcal O(G)$. It commutes with integrals over parameters, and if $G$ is the product of two functions of disjoint sets of the vectors, $\mathcal O(G)$ is the tensor product of their operators. Let $G = \hat F_c^{\mathcal I}$ and let $g_a$ be its coefficients. Recall that $\hat F_c$ is invariant under simultaneous orthogonal transformations of its arguments. Since these transformations commute with the inversions, $G$ is invariant as well.
+
+We first prove (2). Let $U \in \mathrm{SU}(2)$, and let $R \in \mathrm{SO}(3)$ be the rotation such that
+\begin{equation*}
+U \sigma_j U^* = \sum_{l = 1}^3 R_{lj} \sigma_l, \qquad j = 1, 2, 3 .
+\end{equation*}
+We set $R_{00} = 1$ and $R_{0j} = R_{j0} = 0$. Then we have
+\begin{equation*}
+U^{\otimes k} \mathcal O(G) (U^*)^{\otimes k} = \sum_{b \in \{0, 1, 2, 3\}^k} \Bigl( \sum_a g_a \prod_{i = 1}^k R_{b_i a_i} \Bigr) \sigma_{b_1} \otimes \cdots \otimes \sigma_{b_k} = \mathcal O(G_R),
+\end{equation*}
+where $G_R(u) = G(R^{\mathsf T} u_1, \dots, R^{\mathsf T} u_k)$, and the second equality follows from
+\begin{equation*}
+\prod_{i = 1}^k (R^{\mathsf T} u_i)^{a_i} = \prod_{i = 1}^k \sum_{b_i = 0}^3 R_{b_i a_i} u_i^{b_i} .
+\end{equation*}
+Since $G_R = G$, this gives (2).
+
+We now prove (1). The operator $\mathcal O$ is Hermitian, since its coefficients are real. In the basis $e_\pm$, complex conjugation fixes $\sigma_0, \sigma_1, \sigma_3$ and changes the sign of $\sigma_2$. The complex conjugate of $\mathcal O(G)$ is therefore $\mathcal O(G')$, where $G'$ is $G$ with the second coordinate of every argument reversed. This reversal is an orthogonal transformation, which gives $G' = G$, and $\mathcal O$ is real and symmetric.
+
+To prove (3), let $z$ be the corner, and let the sign $\pm$ be $-$ if the pair lies in $\mathcal I$ and $+$ otherwise. Writing $\hat F_c$ as an integral over all spins and separating the two slot factors of $z$, we obtain
+\begin{equation*}
+G(u) = \int (1 \pm u_i \cdot n_z)(1 \pm u_{i'} \cdot n_z) H(n_z, u) \, \dd n_z ,
+\end{equation*}
+where $H$ does not depend on $u_i$ and $u_{i'}$. Ordering the factors so that the pair comes first, we find
+\begin{equation*}
+\mathcal O(G) = \int (1 \pm n_z \cdot \sigma) \otimes (1 \pm n_z \cdot \sigma) \otimes \mathcal O(H(n_z, \cdot)) \, \dd n_z .
+\end{equation*}
+For a unit vector $n_z$, \eqref{e:zeta} gives $1 \pm n_z \cdot \sigma = 2 \zeta(\pm n_z) \zeta(\pm n_z)^*$, and the first two factors are $4$ times the projection onto $\zeta(\pm n_z) \otimes \zeta(\pm n_z) \in \mathrm{Sym}^2 \C^2$. The measure $\dd n_z$ is carried by $\Sph$, which gives $\Pi \mathcal O = \mathcal O = \mathcal O \Pi$. (For a corner of status $\mathrm D$, the atom of $\lambda_{\mathrm D}$ at $0$ contributes $\sigma_0 \otimes \sigma_0$, and (3) fails.) Finally, we prove (4). The function $G$ is symmetric in $(u_i, u_{i'})$, since these vectors appear only in the factor $(1 \pm u_i \cdot n_z)(1 \pm u_{i'} \cdot n_z)$, and exchanging two arguments of $G$ conjugates $\mathcal O(G)$ by the exchange of the corresponding factors.
+\end{proof}
+
+Lemma~\ref{l:Ostruct}(2) also explains how $\mathcal I$ should be chosen. Let $u$ be a configuration in which every vector is $e$ or $-e$, for a unit vector $e$, and let $\mathcal I$ be the set of $i$ with $u_i = -e$. Then $\zeta(u^{\mathcal I}) = \zeta(e)^{\otimes k}$ spans the eigenspace of $\frac12 \sum_i (e \cdot \sigma)^{(i)}$ for its largest eigenvalue $k/2$, and this operator commutes with $\mathcal O(G^{\mathcal I})$ for every rotation-invariant $G$; hence $\zeta(e)^{\otimes k}$ is an eigenvector of $\mathcal O(G^{\mathcal I})$ with eigenvalue $G(u)$. If $u$ minimizes the ratio $\hat Z_{\mathrm{cur}} / \hat Z_{\mathrm{next}}$, the test of Lemma~\ref{l:inversion} with this $\mathcal I$ can therefore be sharp. In the computation, $\mathcal I$ is chosen from a numerical minimizer in this way (\S\ref{s:localcomp}). The choice of $\mathcal I$ affects only whether the test succeeds, not its validity.
+
+Let $\Sigma_3 = \frac12 \sum_{i = 1}^k \sigma_3^{(i)}$ be the total spin component, where $\sigma_3^{(i)}$ acts as $\sigma_3$ on the $i$-th factor of $(\C^2)^{\otimes k}$. The next lemma lets us test positive definiteness on a single eigenspace of $\Sigma_3$. It applies to a subspace $V'$ of $(\C^2)^{\otimes k}$ that is a tensor product, over the groups, of factors $\C^2$ (single vectors) and $\mathrm{Sym}^2 \C^2$ or $\bigwedge^2 \C^2$ (pairs), where $\bigwedge^2 \C^2$ is spanned by $e_+ \otimes e_- - e_- \otimes e_+$. Such a space is invariant under $U^{\otimes k}$, $U \in \mathrm{SU}(2)$, and under $\Sigma_3$. Let $V'^{\circ}$ be the eigenspace of $\Sigma_3$ on $V'$ for the eigenvalue $0$ if the number of single vectors is even, and $\frac12$ if it is odd.
+
+\begin{lemma}\label{l:sector}
+Let $V'$ be as above, and let $\mathcal O'$ be a Hermitian operator on $V'$ that commutes with $U^{\otimes k}$ for all $U \in \mathrm{SU}(2)$. Then $\mathcal O'$ maps $V'^{\circ}$ into itself, and its restriction to $V'^{\circ}$ has the same eigenvalues as $\mathcal O'$. In particular, $\mathcal O'$ is positive definite if and only if its restriction to $V'^{\circ}$ is positive definite.
+\end{lemma}
+
+\begin{proof}
+The eigenvalues of $\Sigma_3$ on a factor $\C^2$ are $\pm \frac12$, on $\mathrm{Sym}^2 \C^2$ (spanned by $e_+ \otimes e_+$, $e_+ \otimes e_- + e_- \otimes e_+$, $e_- \otimes e_-$) they are $1, 0, -1$, and on $\bigwedge^2 \C^2$ it is $0$. All eigenvalues of $\Sigma_3$ on $V'$ therefore lie in $\kappa + \Z$, where $\kappa \in \{0, \frac12\}$ is the eigenvalue that defines $V'^{\circ}$. Since $\exp(\mathrm i t \sigma_3 / 2)^{\otimes k} = \exp(\mathrm i t \Sigma_3)$, the operator $\mathcal O'$ commutes with $\Sigma_3$ and maps $V'^{\circ}$ into itself, and every eigenvalue of the restriction is an eigenvalue of $\mathcal O'$. Conversely, every eigenspace of $\mathcal O'$ is invariant under $\mathrm{SU}(2)$, hence a direct sum of irreducible representations. An irreducible representation of spin $j$ contained in $V'$ has the $\Sigma_3$-eigenvalues $j, j - 1, \dots, -j$, which lie in $\kappa + \Z$. Thus $j - \kappa$ is a nonnegative integer, and the representation contains a nonzero vector of $V'^{\circ}$. We conclude that every eigenvalue of $\mathcal O'$ has an eigenvector in $V'^{\circ}$.
+\end{proof}
+
+For a representation of $F_c$ as above, let $V \subset (\C^2)^{\otimes k}$ be the tensor product, over the groups, of $\C^2$ for a single vector, $\mathrm{Sym}^2 \C^2$ for the pair of a corner of status $\mathrm U$, and $\C^2 \otimes \C^2$ for the pair of a corner of status $\mathrm D$. For every assignment $\epsilon$ of a sign to each corner of status $\mathrm D$ that has a pair, let $V_\epsilon$ be the tensor product in which the factor of such a corner is replaced by $\mathrm{Sym}^2 \C^2$ if its sign is $+$ and by $\bigwedge^2 \C^2$ if its sign is $-$, and let $V_\epsilon^{\circ}$ be as above. Then $V$ is the orthogonal direct sum of the spaces $V_\epsilon$.
+
+\begin{proposition}\label{p:certificate}
+Let $\mathcal I$ be a union of groups. If the restriction of $\mathcal O(\hat F_c^{\mathcal I})$ to $V_\epsilon^{\circ}$ is positive definite for every $\epsilon$, then $F_c \ge 0$ on $(\Sph)^{20}$.
+\end{proposition}
+
+\begin{proof}
+Let $\mathcal O = \mathcal O(\hat F_c^{\mathcal I})$ and let $\Pi_V$ be the orthogonal projection onto $V$, the product of the projections $\Pi$ of Lemma~\ref{l:Ostruct}(3). Lemma~\ref{l:Ostruct}(3) gives $\mathcal O = \Pi_V \mathcal O \Pi_V$, which implies that $\mathcal O$ maps $V$ into itself. By Lemma~\ref{l:Ostruct}(4), it maps each $V_\epsilon$ into itself. Since $V_\epsilon$ is invariant under $U^{\otimes k}$, Lemma~\ref{l:Ostruct}(2) and Lemma~\ref{l:sector} show that $\mathcal O$ is positive definite on $V_\epsilon$ for every $\epsilon$, hence on $V$. For $u \in (\Sph)^k$, Lemma~\ref{l:inversion} and $\mathcal O = \Pi_V \mathcal O \Pi_V$ give
+\begin{equation*}
+\hat F_c(u) = \bigl\langle \Pi_V \zeta(u^{\mathcal I}), \mathcal O \, \Pi_V \zeta(u^{\mathcal I}) \bigr\rangle \ge 0 ,
+\end{equation*}
+and Corollary~\ref{c:reduce} concludes the proof.
+\end{proof}
+
+\emph{The test in integer arithmetic.} Let $D$ be a positive integer such that $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ have integer coefficients; the factors $3$ and $5$ clear the denominators of $I$ and $J$ in \eqref{e:IJ}, and one can take for $D$ the product, over the sites other than $y$ that are integrated in $\hat Z_{\mathrm{cur}}$, of the common denominators of the moments of their measures (which divide $15$ for $\dd n$ and $25$ for $\lambda_{\mathrm D}$), and of the denominators of the radii $3/5$, $1/2$ and $1/3$. Then
+\begin{equation}\label{e:intscale}
+15 D q \, \hat F_c = 5 q \, (3 D \hat Z_{\mathrm{cur}}) - 3 p \, (5 D \hat Z_{\mathrm{next}}) .
+\end{equation}
+
+
+In $V$ we use the basis of tensor products of the vectors $e_+$, $e_-$ for a single vector and $e_+ \otimes e_+$, $e_+ \otimes e_- + e_- \otimes e_+$, $e_- \otimes e_-$ for a pair, with the vector $e_+ \otimes e_- - e_- \otimes e_+$ in addition for the pair of a corner of status $\mathrm D$. These basis vectors have integer coordinates and are eigenvectors of $\Sigma_3$ and of the exchanges of Lemma~\ref{l:Ostruct}(4). For each $\epsilon$, a subset $\mathcal B_\epsilon$ of them is a basis of $V_\epsilon^{\circ}$. Let $A_\epsilon$ and $A'_\epsilon$ be the matrices $(\langle b, \mathcal O(G) b' \rangle)_{b, b' \in \mathcal B_\epsilon}$ for $G = (3 D \hat Z_{\mathrm{cur}})^{\mathcal I}$ and $G = (5 D \hat Z_{\mathrm{next}})^{\mathcal I}$. Their entries lie in $\Z[\mathrm i]$, since the entries of $\sigma_0, \dots, \sigma_3$ do, and they are real by Lemma~\ref{l:Ostruct}(1). Thus $A_\epsilon$ and $A'_\epsilon$ are symmetric integer matrices. By \eqref{e:intscale}, the restriction of $\mathcal O(\hat F_c^{\mathcal I})$ to $V_\epsilon^{\circ}$ is positive definite if and only if the symmetric integer matrix
+\begin{equation}\label{e:Meps}
+M_\epsilon = 5 q A_\epsilon - 3 p A'_\epsilon
+\end{equation}
+is positive definite, since $M_\epsilon$ is $15 D q$ times the matrix of a congruence of that restriction by an invertible matrix. By Sylvester's criterion, $M_\epsilon$ is positive definite if and only if all its leading principal minors are positive. Fraction-free Gaussian elimination \cite{Bar68} computes these minors in integer arithmetic. As long as the pivots are positive, the $j$-th pivot is the $j$-th leading principal minor, and all divisions are exact. Proposition~\ref{p:certificate} therefore reduces each inequality of (H1) to a finite computation with integers, once the representation and the inversion set $\mathcal I$ are chosen.
+
+\subsection{Closed forms for decoupled patterns}\label{s:closed}
+
+For many patterns, every site other than $y$ and its neighbours hangs on the rest by a single bond, possibly through a chain of such sites. For these patterns the infimum $c(\pi)$ has a closed form, which gives a second proof of Theorem~\ref{t:H1} on them, independent of \S\ref{s:inversion}, and the exact values of $c(\pi)$ for the examples below. The main input is a sharp bound on the mean of a spin under several fields. For $r = (r_1, r_2, r_3) \in [0, 1]^3$ let $s_1 = r_1 + r_2 + r_3$, $s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3$, $s_3 = r_1 r_2 r_3$, and
+\begin{equation}\label{e:rhoUD}
+\rho_{\mathrm U}(r) = \frac{s_1/3 + s_3/5}{1 + s_2/3}, \qquad \rho_{\mathrm D}(r) = \frac{s_1/3 + s_3/5}{5/3 + s_2/3} .
+\end{equation}
+For example, $\rho_{\mathrm U}(1, 1, 1) = 3/5$, $\rho_{\mathrm U}(1, 1, 0) = 1/2$ and $\rho_{\mathrm D}(1, 1, 0) = 1/3$ are the radii of Lemma~\ref{l:leaf}.
+
+\begin{lemma}\label{l:radius}
+Let $\mathrm{st} \in \{\mathrm U, \mathrm D\}$, $r \in [0, 1]^3$, and $\beta_1, \beta_2, \beta_3 \in \R^3$ with $|\beta_j| \le r_j$. Then the mean $\mu$ of $n$ under the probability measure proportional to $\prod_{j \le 3} (1 + \beta_j \cdot n) \, \lambda_{\mathrm{st}}(\dd n)$ satisfies $|\mu| \le \rho_{\mathrm{st}}(r)$, with equality if $\beta_j = r_j e$ for a unit vector $e$ and $j = 1, 2, 3$.
+\end{lemma}
+
+\begin{proof}
+Let $Z(\beta) = \int \prod_j (1 + \beta_j \cdot n) \, \dd n$ and $V(\beta) = \int n \prod_j (1 + \beta_j \cdot n) \, \dd n$. By \eqref{e:moments},
+\begin{equation}\label{e:ZVbeta}
+Z(\beta) = 1 + \frac13 \sum_{j < j'} \beta_j \cdot \beta_{j'}, \qquad V(\beta) = \frac13 \sum_j \beta_j + \frac1{15} \bigl( \beta_1 (\beta_2 \cdot \beta_3) + \beta_2 (\beta_1 \cdot \beta_3) + \beta_3 (\beta_1 \cdot \beta_2) \bigr),
+\end{equation}
+so that for $\beta_j = r_j e$ we have $Z = 1 + s_2/3$ and $V = (s_1/3 + s_3/5) e$. The mean is $\mu = V/Z$ for $\mathrm{st} = \mathrm U$ and $\mu = \frac35 V / (\frac35 Z + \frac25) = V / (Z + \frac23)$ for $\mathrm{st} = \mathrm D$, which gives the case of equality. It remains to show that $e \cdot V(\beta) \le \rho_{\mathrm U}(r) Z(\beta)$ and $e \cdot V(\beta) \le \rho_{\mathrm D}(r) (Z(\beta) + \frac23)$ for every unit vector $e$. By continuity in $(\beta, r)$, we may assume $0 < r_j < 1$. Since the differences of the two sides are affine in each $\beta_j$, their minima over $|\beta_j| \le r_j$ are attained at $|\beta_j| = r_j$, and we may write $\beta_j = r_j u_j$ with unit vectors $u_j$.
+
+Writing $1 + r_j u_j \cdot n = (1 - r_j) + r_j (1 + u_j \cdot n)$ and expanding the product, we obtain
+\begin{equation}\label{e:subsets}
+(Z, V) = \sum_{T \subset \{1, 2, 3\}} w_T \, (Z_T, V_T), \qquad w_T = \prod_{j \in T} r_j \prod_{j \notin T} (1 - r_j) > 0 ,
+\end{equation}
+where $(Z_T, V_T) = \int (1, n) \prod_{j \in T} (1 + u_j \cdot n) \, \dd n$. We first bound each term. Let $\rho_0 = 0$, $\rho_1 = 1/3$, $\rho_2 = 1/2$ and $\rho_3 = 3/5$. We claim that $e \cdot V_T \le \rho_{|T|} Z_T$. This is clear for $|T| \le 1$, since $V_\emptyset = 0$ and $(Z_{\{j\}}, V_{\{j\}}) = (1, u_j/3)$. For $|T| = 2$ it is the bound $|V| \le A/2$ in the proof of Lemma~\ref{l:leaf}(3), and for $|T| = 3$ it is Lemma~\ref{l:35}.
+
+Next, let $Z^\parallel_m = 1 + m(m - 1)/6$, so that $Z^\parallel_0 = Z^\parallel_1 = 1$, $Z^\parallel_2 = 4/3$ and $Z^\parallel_3 = 2$; this is the value of $Z_T$ when $|T| = m$ and all $u_j$, $j \in T$, are equal, and in that case $e \cdot V_T = \rho_{|T|} Z^\parallel_{|T|}$ for $e = u_j$. Let $L_T = Z_T / Z^\parallel_{|T|} > 0$. We claim that $T \mapsto L_T$ is decreasing for inclusion. With $t_{jj'} = u_j \cdot u_{j'}$, we have $L_\emptyset = L_{\{j\}} = 1$, $L_{\{j, j'\}} = (3 + t_{jj'})/4 \le 1$, and
+\begin{equation*}
+L_{\{1, 2, 3\}} = \frac{3 + t_{12} + t_{13} + t_{23}}{6} \le L_{\{j, j'\}} \iff 2 (t_{jj''} + t_{j'j''}) - t_{jj'} \le 3 ,
+\end{equation*}
+where $\{j, j', j''\} = \{1, 2, 3\}$. Since $t_{jj''} + t_{j'j''} = u_{j''} \cdot (u_j + u_{j'}) \le (2 + 2 t_{jj'})^{1/2}$, the last inequality follows from $4 (2 + 2t) \le (3 + t)^2$ with $t = t_{jj'}$, which is equivalent to $(1 - t)^2 \ge 0$.
+
+Let $\pi_r$ be the probability measure on the subsets of $\{1, 2, 3\}$ proportional to $w_T Z^\parallel_{|T|}$. It satisfies the lattice condition $\pi_r(T \cup T') \pi_r(T \cap T') \ge \pi_r(T) \pi_r(T')$, since $w_{T \cup T'} w_{T \cap T'} = w_T w_{T'}$ and $m \mapsto Z^\parallel_m$ is log-convex (the ratios $Z^\parallel_{m + 1}/Z^\parallel_m$ are $1, 4/3, 3/2$). The function $T \mapsto \rho_{|T|}$ is increasing and $T \mapsto L_T$ is decreasing. By the FKG inequality \cite{FKG71}, we have $\E_{\pi_r}[\rho_{|T|} L_T] \le \E_{\pi_r}[\rho_{|T|}] \, \E_{\pi_r}[L_T]$. Using \eqref{e:subsets} and the bound on each term, we obtain
+\begin{equation}\label{e:FKGstep}
+\frac{e \cdot V}{Z} \le \frac{\sum_T w_T \rho_{|T|} Z_T}{\sum_T w_T Z_T} = \frac{\E_{\pi_r}[\rho_{|T|} L_T]}{\E_{\pi_r}[L_T]} \le \E_{\pi_r}[\rho_{|T|}] = \frac{\sum_T w_T \rho_{|T|} Z^\parallel_{|T|}}{\sum_T w_T Z^\parallel_{|T|}} .
+\end{equation}
+The right side is the value of $e \cdot V / Z$ at $u_1 = u_2 = u_3 = e$, which is $\rho_{\mathrm U}(r)$.
+
+We now prove the bound with $\rho_{\mathrm D}$, and we may assume $e \cdot V > 0$. Let
+\begin{equation*}
+X = \sum_T w_T \rho_{|T|} Z^\parallel_{|T|} L_T, \qquad Y = \sum_T w_T Z^\parallel_{|T|} L_T = Z ,
+\end{equation*}
+and let $X', Y'$ be the same sums without the factor $L_T$. Then $e \cdot V \le X$, $X/Y \le X'/Y'$ by \eqref{e:FKGstep}, and $Y \le Y'$ since $L_T \le 1$. Since $x \mapsto x/(x + \frac23)$ is increasing, we obtain
+\begin{equation*}
+\frac{e \cdot V}{Z + 2/3} \le \frac XY \cdot \frac{Y}{Y + 2/3} \le \frac{X'}{Y'} \cdot \frac{Y'}{Y' + 2/3} = \frac{X'}{Y' + 2/3} ,
+\end{equation*}
+and $X' / (Y' + \frac23)$ is the value of $e \cdot V / (Z + \frac23)$ at $u_1 = u_2 = u_3 = e$, which is $\rho_{\mathrm D}(r)$.
+\end{proof}
+
+We now define the class of patterns to which the closed form applies. Consider the graph whose vertices are the non-removed sites of $\mathsf T(y) \setminus \{y\}$ and whose edges are the present bonds that do not contain $y$. We \emph{prune} it by deleting, one at a time, a vertex not in $\{\mathsf e, \mathsf N, \mathsf W\}$ that has at most one edge to the vertices not yet deleted. The pattern $\pi$ is \emph{decoupled} if it can be pruned until no edge joins two undeleted vertices. A deleted vertex $z$ whose remaining edge at the time of its deletion joins it to a vertex $x$ is said to \emph{hang} on $x$. In the order of deletion, we assign to such a vertex $z$ the radius $r_z = \rho_{\mathrm{st}(z)}(r)$, where the entries of $r$ are $1$ for each slot at $z$ and $r_{z'}$ for each vertex $z'$ that hangs on $z$, completed by zeros. There are at most three entries, since one of the four lattice neighbours of $z$ is $x$. Similarly, for a non-removed $x \in \{f, g, o\}$ let $\rho_x = \rho_{\mathrm{st}(x)}(r)$, with the entries $r_{z'}$ for the vertices $z'$ that hang on $x$ (the sites of $\{\mathsf e, \mathsf N, \mathsf W\}$ have no slots, and their fourth neighbour is $y$), and let $\rho_x = 0$ if $x$ is removed. All these radii are rational.
+
+\begin{proposition}\label{p:closed}
+Let $\pi \in \Pext$ be decoupled, and let $a = \rho_f \rho_g$. Then
+\begin{equation}\label{e:closed}
+c(\pi) = \min_{t \in [-1, 1]} \frac{1 + at/3 - (\rho_o/3) (\rho_f^2 + \rho_g^2 + 2at)^{1/2}}{1 + at/5} .
+\end{equation}
+Moreover, let $c \in \R$, $L(t) = (1 - c) + (\frac13 - \frac c5) at$ and $Q(t) = L(t)^2 - \frac{\rho_o^2}{9} (\rho_f^2 + \rho_g^2 + 2at)$. Then $c(\pi) \ge c$ if and only if $L(-1) \ge 0$, $L(1) \ge 0$ and $Q \ge 0$ on $[-1, 1]$.
+\end{proposition}
+
+\begin{proof}
+Fix $m \in (\Sph)^{20}$, and integrate out the deleted vertices in the order of deletion. Before vertex $z$ is integrated, it carries its slot factors and, for each $z'$ that hangs on it, a factor $1 + b_{z'} \cdot n_z$ with $|b_{z'}| \le r_{z'}$. If $z$ hangs on $x$, Lemma~\ref{l:radius} shows that the integral over $n_z$ is $A_z (1 + b_z \cdot n_x)$ with $A_z > 0$ and $|b_z| \le r_z$; otherwise it is a positive constant. After all deletions, no edge joins the remaining vertices, which we may take to be the non-removed sites among $f, g, o$, and their spins are independent under the remaining weight. Since $I$ and $J$ are affine in each of $n_f, n_g, n_o$, Lemma~\ref{l:Iw} gives
+\begin{equation}\label{e:Rmu}
+\frac{Z_{\mathrm{cur}}(\pi; m)}{Z_{\mathrm{next}}(\pi; m)} = \mathsf R(\mu_f, \mu_g, \mu_o), \qquad \mathsf R(\mu_f, \mu_g, \mu_o) = \frac{1 + \frac13 (\mu_f \cdot \mu_o + \mu_g \cdot \mu_o + \mu_f \cdot \mu_g)}{1 + \frac15 \mu_f \cdot \mu_g} ,
+\end{equation}
+where $\mu_x$ is the mean of $n_x$ under its normalized measure with the factors $1 + b_{z'} \cdot n_x$, and $\mu_x = 0$ if $x$ is removed. By Lemma~\ref{l:radius}, $|\mu_x| \le \rho_x$.
+
+The numerator and the denominator of $\mathsf R$ are affine in each $\mu_x$, and the denominator is positive. Hence, if $\mathsf R \ge c'$ on the product of the spheres $|\mu_x| = \rho_x$, then the numerator minus $c'$ times the denominator is nonnegative there, hence on the product of the balls $|\mu_x| \le \rho_x$, and $\mathsf R \ge c'$ on the balls. Therefore $c(\pi)$ is at least the minimum of $\mathsf R$ over the spheres.
+
+Conversely, the vertices that hang on $x$, directly or through a chain of such vertices, form disjoint sets for different $x$. If all slot vectors at the vertices of the set of $x$ are equal to a unit vector $d_x$, the case of equality of Lemma~\ref{l:radius} shows by induction that $b_z = r_z d_x$ for these vertices and $\mu_x = \rho_x d_x$. Every point of the product of the spheres is therefore attained, and $c(\pi)$ is the minimum of $\mathsf R$ over it.
+
+For fixed $\mu_f, \mu_g$, the minimum over $|\mu_o| = \rho_o$ of $\mu_o \cdot (\mu_f + \mu_g)$ is $-\rho_o |\mu_f + \mu_g|$. Write $\mu_x = \rho_x d_x$ for $x \in \{f,g\}$, with $d_x$ a unit vector chosen arbitrarily when $\rho_x = 0$, and put $t = d_f \cdot d_g$. Then $\mu_f \cdot \mu_g = at$ and $|\mu_f + \mu_g|^2 = \rho_f^2 + \rho_g^2 + 2at$; every $t \in [-1,1]$ occurs in this parametrization. Minimizing over $t$, we obtain \eqref{e:closed}.
+
+For the second statement, multiplying by $1 + at/5 > 0$, the quotient in \eqref{e:closed} is at least $c$ if and only if $L(t) \ge \frac{\rho_o}{3} (\rho_f^2 + \rho_g^2 + 2at)^{1/2}$, where the right side is real and nonnegative because $\rho_f^2 + \rho_g^2 + 2at \ge (\rho_f - \rho_g)^2$. If this holds for all $t \in [-1, 1]$, then $L(\pm 1) \ge 0$ and $Q \ge 0$ on $[-1, 1]$. Conversely, since $L$ is affine, $L(\pm 1) \ge 0$ implies $L \ge 0$ on $[-1, 1]$. The inequality then follows from $Q(t) \ge 0$, since its two sides are nonnegative.
+\end{proof}
+
+The polynomial $Q$ is quadratic with leading coefficient $a^2 (\frac13 - \frac c5)^2 \ge 0$. Therefore $Q \ge 0$ on $[-1, 1]$ if and only if $Q(\pm 1) \ge 0$ and, when the leading coefficient is positive and the vertex $t_*$ of $Q$ lies in $(-1, 1)$, $Q(t_*) \ge 0$. For rational $c$, the test of Proposition~\ref{p:closed} is therefore a finite computation in rational arithmetic.
+
+Of the $7{,}962$ patterns of $\Pext$, $4{,}735$ are decoupled ($1{,}553$ straight and $3{,}182$ turns), including the following three examples. For these three the minimum in \eqref{e:closed} is rational, since $a = 0$ or the minimum is attained at $t = 1$, where the square root is $\rho_f + \rho_g$. The values are as follows; in each case the test of Proposition~\ref{p:closed}, in rational arithmetic, holds at the stated value of $c(\pi)$ and fails at that value plus $10^{-12}$.
+\begin{itemize}
+\item The straight example in the first row of Table~\ref{tab:H1}: $\mathsf e$, $\mathsf N$ and the corner $(1, -1)$ have status $\mathrm U$; $\mathsf W$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; $\mathsf s$ has status $\mathrm D$ and keeps its bonds to $(1, -1)$ and to its tip; the corner $(-1, 1)$ has status $\mathrm D$ and keeps its bond to $\mathsf N$; the corners $(1, 1)$ and $(-1, -1)$ are removed. Here $\rho_o = \rho_{\mathsf N} = 7/24$, $\rho_{\mathsf e} = 740/2193$, $\rho_{\mathsf W} = 3/25$, and $c(\pi) = 3825127/3979368 = 0.961240\ldots$
+\item The turn example in the second row of Table~\ref{tab:H1} ($o = \mathsf e$): $\mathsf s$ is removed; $\mathsf N$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; the corners $(1, 1)$ and $(-1, 1)$ have status $\mathrm D$ and keep their bonds to $\mathsf e$ and $\mathsf W$, respectively; all other sites have status $\mathrm U$. Here $\rho_{\mathsf e} = \rho_{\mathsf W} = 112/275$, $\rho_{\mathsf N} = 3/25$, and $c(\pi) = 1071655/1145463 = 0.935565\ldots$
+\item The turn ($o = \mathsf e$) in which $\mathsf N$ and $\mathsf s$ are removed and all other sites have status $\mathrm U$. Each of $\mathsf e$, $\mathsf W$ carries the field of its tip and of two leaf corners, which gives $\rho_{\mathsf e} = \rho_{\mathsf W} = \rho_{\mathrm U}(3/5, 1/2, 1/2) = 169/385$. Since $\rho_{\mathsf N} = 0$, we have
+\begin{equation}\label{e:5469}
+c(\pi) = 1 - \frac13 \Bigl( \frac{169}{385} \Bigr)^2 = \frac{416114}{444675} = 0.935771\ldots
+\end{equation}
+\end{itemize}
+
+\subsection{The computation, and what must be trusted}\label{s:localcomp}
+
+\emph{Patterns.} The reflection $x_1 \mapsto -x_1$ maps $\Pext$ onto itself, preserves the type of a step, permutes the slots, and leaves $c(\pi)$ unchanged. The list of patterns is produced by a computer enumeration of the rules of Definition~\ref{d:pattern}, modulo this reflection (the turns are stored with $o = \mathsf e$) and modulo patterns that give the same functions $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ up to a common positive factor (the factor of the sites without present bonds, Lemma~\ref{l:leaf}(1)). A second enumeration, written independently from Definition~\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbor, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak enum\_\allowbreak pext.py} and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak enum\_\allowbreak pext.txt}, relative to \texttt{agents/\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle. The reduced representation of \S\ref{s:localred} always has $k \le 11$. The unreduced representation can have $k = 12$, but every representation selected in the two certificate files has $k \le 11$.
+
+\emph{Programs.} The program \texttt{cert.py} computes, for a pattern, a representation and an inversion set $\mathcal I$, the integer coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$. It integrates out $y$ by Lemma~\ref{l:Iw} and contracts the remaining sites as the ring $\mathsf e, (1, 1), \mathsf N, (-1, 1), \mathsf W, (-1, -1), \mathsf s, (1, -1)$, with the exact moment tensors of the site measures. All tensors in this contraction have nonnegative integer entries. The contraction is carried out in $64$-bit integer arithmetic, with binary64 shadow computations used for conservative overflow guards. The small integer moment tensors are first stored exactly in binary64 arrays and then converted to integers. Assume binary64 round-to-nearest arithmetic, let $u=2^{-53}$, $\gamma_{32}=32u/(1-32u)$, and $\eta=(1-u)^2(1-\gamma_{32})>1-10^{-12}>3/4$. Each contracted entry is a sum of at most sixteen nonnegative products, so its shadow $\widehat s$ and exact value $s$ satisfy $\widehat s\ge\eta s$ (two input conversions and at most thirty-two arithmetic roundings suffice). Thus a passing shadow guard $\widehat s<2^{61}$ implies $s<2^{61}/\eta$, and a sum of three such contraction entries is smaller than $2^{63}$. The subsequent shadow bounds for the current and next coefficient sums are computed from these nonnegative integer arrays; their passing threshold $2^{58}$ implies exact sums smaller than $2^{58}/\eta<2^{59}$. Consequently every accepted coefficient computation is free of integer overflow, including its intermediate sums. The program then forms the matrices $A_\epsilon$, $A'_\epsilon$ of \S\ref{s:inversion}: it changes the signs of the coefficients according to $\mathcal I$, substitutes the Pauli matrices with real and imaginary parts kept separately, and passes to the basis of \S\ref{s:inversion} for the pairs, again with assertions on the magnitudes and with a fallback to unbounded integers. It checks exactly that the imaginary parts vanish, that the matrices are symmetric, that the antisymmetric vector of every pair of a corner of status $\mathrm U$ is annihilated from the left and from the right, and that no entry joins two basis vectors with different eigenvalues of $\Sigma_3$ or different exchange signs. Finally it tests $M_\epsilon$ on $V_\epsilon^{\circ}$, for every $\epsilon$, by fraction-free elimination in unbounded integers.
+
+The program \texttt{closed\_exact.py} carries out the pruning of \S\ref{s:closed} and the test of Proposition~\ref{p:closed} in rational arithmetic. The program \texttt{run\_prod.py} chooses the representation and $\mathcal I$ for each pattern. It minimizes $\hat Z_{\mathrm{cur}} / \hat Z_{\mathrm{next}}$ numerically and lets $\mathcal I$ consist of the groups whose vectors have a negative total component along the principal axis of the minimizer, using floating-point eigenvalues to discard choices that cannot succeed. Floating-point arithmetic is used for this choice, for the conservative overflow guards just described, and for diagnostics. Positivity is decided in unbounded integer arithmetic, and the closed-form tests use exact rational arithmetic. The program \texttt{verify\_all.py} re-derives every certificate of a file from the stored data alone, without any optimization.
+
+\emph{Certificate files.} The file \texttt{certificates\_\allowbreak covered\_\allowbreak operator\_\allowbreak only.jsonl} contains an inversion certificate for each of the $7{,}962$ patterns, consisting of the index of the pattern, its threshold $c$, the representation and $\mathcal I$. The reduced representation is used for all patterns but two. The file \texttt{certificates\_\allowbreak covered.jsonl} contains closed-form certificates (Proposition~\ref{p:closed}) for the $4{,}735$ decoupled patterns, and for the other $3{,}227$ patterns the same inversion certificates as the first file. Both files also record floating-point information, such as the value of $c$ at which some $M_\epsilon$ becomes singular, which the checker does not use.
+
+\emph{Checks.} The program \texttt{verify\_all.py} accepts all $7{,}962$ certificates of each file, in about $15$ to $30$ CPU-minutes per file; producing them took about $34$ CPU-minutes. That each file contains each of the $7{,}962$ patterns exactly once, with the threshold $961/1000$ for straight steps and $187/200$ for turns, was checked separately. The matrices $M_\epsilon$ have size at most $245$. We also made the following checks, which are not part of the proof.
+\begin{enumerate}
+\item An independent evaluator keeps the passage site, tips, and corners as spins and compares the ratio $Z_{\mathrm{cur}}/Z_{\mathrm{next}}$ with the ratio obtained from the integer coefficients, at three random points with untied slot vectors for every pattern. There are $23{,}893$ comparisons, including seven additional zero-slot cases, and the largest observed relative discrepancy is less than $2.4\cdot10^{-15}$. The programs are \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak brute.py} and \texttt{xcheck\_\allowbreak brute.py} in the same directory; the output is \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak xcheck\_\allowbreak brute\_\allowbreak all.json}.
+\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators in the basis of \S\ref{s:inversion}; see \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak su2check.py} and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak su2check\_\allowbreak all\_\allowbreak summary.json}. The archived output \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak unitpert.txt} records detection of a change by $1$ to a single non-constant coefficient of $3D\hat Z_{\mathrm{cur}}$ in all $30$ trials; its generating driver is not archived.
+\item Positive definiteness was verified on all eigenspaces of $\Sigma_3$, not only on $V_\epsilon^{\circ}$, for $63$ patterns.
+\item On the decoupled patterns, the floating-point value of $c$ at which the inversion test fails exceeds the closed form \eqref{e:closed} by at most $2.5 \cdot 10^{-15}$, and the two agree to $10^{-7}$ on $4{,}250$ of the $4{,}735$ patterns.
+\item The stored certificates of the numerically selected patterns are rejected at thresholds obtained by adding $2\cdot10^{-5}$ to the numerical minimum and rounding upward to a multiple of $10^{-5}$; see \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\linebreak[1]negctl.py}\linebreak
+and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak negctl\_\allowbreak hard.json}.
+\end{enumerate}
+A second implementation, in \texttt{73-\allowbreak reimplement-\allowbreak H1/\allowbreak code/\linebreak[1]wick.py},\linebreak
+\texttt{opcert.py}, \texttt{run\_\allowbreak opall.py}, \texttt{closed.py}, \texttt{run\_\allowbreak k1.py}, \texttt{numeval.py}, and \texttt{run\_\allowbreak k1b.py} in the same directory, re-verifies the certificates of both files independently of the programs above. It computes $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ by exact symbolic integration over the sites of the patch, using the moment formulas of the uniform measure on $S^2$ in integer arithmetic; it assembles the operators from exchange operators; and it proves positivity by an exact integer congruence followed by a test of strict diagonal dominance. It confirms all $7{, }962$ certificates of the operator-only file, with the threshold of each pattern determined from the pattern itself, and without the reduction to one sector of Lemma~\ref{l:sector}: the operator is assembled on the whole space $(\C^2)^{\otimes n}$, it is checked exactly to have no entries between different values of the total $S^z$, and positivity is proved on every block. For the $4{, }992$ patterns without an unvisited corner with two slots the operator is positive definite on the whole space; for the other $2{, }970$ it annihilates the antisymmetric vectors of each such corner pair and is positive definite on their complement in every block, so it is positive semidefinite on the whole space. The same implementation confirms the $4{, }735$ closed-form certificates, with the same decoupled patterns and the same radii, and its numerical minimization over the full set of slot vectors reaches the closed-form minimum on each of these patterns to within $1.4 \cdot 10^{-8}$ and never goes below it. The corresponding outputs are \texttt{operator\_\allowbreak only\_\allowbreak results.jsonl}, \texttt{k1\_\allowbreak exact.jsonl}, \texttt{k1b\_\allowbreak numerics.jsonl}, and \texttt{summary.txt} under \texttt{73-\allowbreak reimplement-\allowbreak H1/\allowbreak out/\allowbreak }.
+
+\emph{What must be trusted.} A reader who accepts the lemmas of this appendix must trust that the list of patterns is $\Pext$ modulo the reflection and duplicates, which two independent enumerations confirm, and four pieces of code. The program \texttt{cert.py} must compute the coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ correctly (about $100$ lines, compared with the independent evaluator in check (1)), and it must assemble the matrices and their eigenspaces correctly (about $90$ lines, whose output satisfies the exact structural checks above). The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\mathsf T}$ decomposition on $600$ random symmetric test matrices; the test is \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak test\_\allowbreak bareiss72.py}, and its result is recorded in \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak NOTES.md} and \texttt{LOG.md} in that directory. For the second proof, \texttt{closed\_exact.py} (about $70$ lines) must implement Proposition~\ref{p:closed}. Finally, the reader must trust the integer and rational arithmetic of Python and the integer tensor contraction of numpy in the absence of overflow. The binary64 error bounds above and the run-time assertions exclude overflow for accepted certificates; therefore the checker must not be run with assertions disabled, and the tip radius, a parameter of the programs, must be left at its value $3/5$.
+
+\begin{proof}[Proof of Theorem~\ref{t:H1}]
+By the first paragraph of this subsection, it suffices to consider the $7{,}962$ patterns of the list. For each of them, \texttt{verify\_all.py} verifies that the certificate in \texttt{certificates\_\allowbreak covered\_\allowbreak operator\_\allowbreak only.jsonl} satisfies the hypothesis of Proposition~\ref{p:certificate}, in the form \eqref{e:Meps}, with $c = 961/1000$ if the pattern is straight and $c = 187/200$ if it is a turn. Proposition~\ref{p:certificate} gives $Z_{\mathrm{cur}}(\pi; m) \ge c \, Z_{\mathrm{next}}(\pi; m)$ for all $m \in (\Sph)^{20}$, and since $Z_{\mathrm{next}} > 0$ by Lemma~\ref{l:Iw}, $c(\pi) \ge c$. For the $4{,}735$ decoupled patterns, Proposition~\ref{p:closed} and the closed-form certificates in \texttt{certificates\_\allowbreak covered.jsonl} give a second proof.
+\end{proof}

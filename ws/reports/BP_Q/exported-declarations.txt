@@ -1,0 +1,603 @@
+def AKLT.Blueprint.Q.FrameWeightsPositiveStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  (∀ (κ : AKLT.Defs.Plane → Fin 3),
+      AKLT.Defs.ProperPlaneColouring κ →
+        ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W) (σ : AKLT.Defs.PlaneConfiguration W),
+          0 < AKLT.Defs.planeWeight κ W η σ) ∧
+    ∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+      AKLT.Defs.ProperTorusColouring κ → ∀ (σ : AKLT.Defs.TorusConfiguration L N), 0 < AKLT.Defs.torusWeight L N κ σ
+def AKLT.Blueprint.Q.PositiveNormalizationStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] [Nonempty Ω] (w : AKLT.Defs.Weight Ω),
+  (∀ (σ : Ω), 0 < w σ) → AKLT.Defs.PositiveProbability (AKLT.Defs.normalize w)
+def AKLT.Blueprint.Q.PlaneConditioningStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        ∀ V ⊆ W,
+          ∀ (σ : AKLT.Defs.PlaneConfiguration W),
+            AKLT.Defs.conditionalPlaneLaw κ W V η σ = AKLT.Defs.planeLaw κ V (AKLT.Defs.inducedBoundary W V η σ)
+def AKLT.Blueprint.Q.TorusMarkovStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+    AKLT.Defs.ProperTorusColouring κ →
+      ∀ (U : Finset (AKLT.Challenge.Site L N)) (σ ξ : AKLT.Defs.TorusConfiguration L N),
+        (∀ z ∈ U.biUnion AKLT.Defs.torusNeighbours \ U, σ z = ξ z) →
+          AKLT.Defs.conditionalTorusLaw L N κ U σ = AKLT.Defs.conditionalTorusLaw L N κ U ξ
+def AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W) (x : ↥W) (σ : AKLT.Defs.PlaneConfiguration W)
+        (a : AKLT.Defs.IcoLetter),
+        AKLT.Defs.frameEnergy ≤
+          AKLT.Defs.conditionalProbability (AKLT.Defs.planeLaw κ W η) (AKLT.Blueprint.Q.fullFibreEvent x σ) fun τ =>
+            τ x = a
+def AKLT.Blueprint.Q.TorusOneSiteEnergyStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+    AKLT.Defs.ProperTorusColouring κ →
+      ∀ (x : AKLT.Challenge.Site L N) (σ : AKLT.Defs.TorusConfiguration L N) (a : AKLT.Defs.IcoLetter),
+        AKLT.Defs.frameEnergy ≤
+          AKLT.Defs.conditionalProbability (AKLT.Defs.torusLaw L N κ) (AKLT.Blueprint.Q.fullFibreEvent x σ) fun τ =>
+            τ x = a
+def AKLT.Blueprint.Q.PartialAssignmentStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x)),
+  (∀ (x : ι), Nonempty (S x)) →
+    ∀ (p : AKLT.Defs.Weight ((x : ι) → S x)),
+      AKLT.Defs.PositiveProbability p →
+        ∀ (α : ℝ),
+          0 < α →
+            α ≤ 1 →
+              (∀ (x_2 : ι) (σ : (x : ι) → S x) (a : S x_2),
+                  α ≤ AKLT.Defs.conditionalProbability p (AKLT.Blueprint.Q.fullFibreEvent x_2 σ) fun τ => τ x_2 = a) →
+                ∀ (U J : Finset ι),
+                  Disjoint U J →
+                    ∀ (a b : (x : ι) → S x),
+                      (AKLT.Defs.conditionalProbability p (fun σ => ∀ x ∈ J, σ x = a x) fun σ => ∀ x ∈ U, σ x = b x) ≥
+                        α ^ U.card
+def AKLT.Blueprint.Q.PlaneAssignmentReindexStatement : Prop :=
+∀ (W : Finset AKLT.Defs.Plane) (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration W)) (α : ℝ),
+  (∀ (U J : Finset ↥W),
+      Disjoint U J →
+        ∀ (a b : AKLT.Defs.PlaneConfiguration W),
+          (AKLT.Defs.conditionalProbability p (fun σ => ∀ x ∈ J, σ x = a x) fun σ => ∀ x ∈ U, σ x = b x) ≥ α ^ U.card) →
+    ∀ (U J : Finset AKLT.Defs.Plane),
+      U ⊆ W →
+        J ⊆ W →
+          Disjoint U J →
+            ∀ (a b : AKLT.Defs.Plane → AKLT.Defs.IcoLetter),
+              (AKLT.Defs.conditionalProbability p (fun σ => ∀ x ∈ J, AKLT.Defs.extendLetters σ x = a x) fun σ =>
+                  ∀ x ∈ U, AKLT.Defs.extendLetters σ x = b x) ≥
+                α ^ U.card
+def AKLT.Blueprint.Q.PlaneProductReferenceStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        (∀ (x : ↥W), AKLT.Defs.PositiveProbability (AKLT.Defs.normalize (AKLT.Blueprint.Q.planeSiteWeight κ W η x))) ∧
+          AKLT.Defs.PositiveProbability (AKLT.Blueprint.Q.planeProductReference κ W η)
+def AKLT.Blueprint.Q.BoundaryAbsorptionStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        AKLT.Defs.planeLaw κ W η =
+          AKLT.Defs.normalize fun σ =>
+            AKLT.Blueprint.Q.planeProductReference κ W η σ * AKLT.Blueprint.Q.planeInteraction κ W σ
+def AKLT.Blueprint.Q.PlaneDensityBoundsStatement : Prop :=
+AKLT.Blueprint.Q.interactionBounds →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        AKLT.Defs.PositiveProbability (AKLT.Blueprint.Q.planeProductReference κ W η) →
+          (AKLT.Defs.planeLaw κ W η =
+              AKLT.Defs.normalize fun σ =>
+                AKLT.Blueprint.Q.planeProductReference κ W η σ * AKLT.Blueprint.Q.planeInteraction κ W σ) →
+            0 < AKLT.Blueprint.Q.planeInteractionMean κ W η ∧
+              0 < AKLT.Blueprint.Q.planeDensityLower κ W η ∧
+                0 < AKLT.Blueprint.Q.planeDensityUpper κ W η ∧
+                  (∀ (σ : AKLT.Defs.PlaneConfiguration W),
+                      AKLT.Blueprint.Q.planeDensityLower κ W η * AKLT.Blueprint.Q.planeProductReference κ W η σ ≤
+                        AKLT.Defs.planeLaw κ W η σ) ∧
+                    (∀ (σ : AKLT.Defs.PlaneConfiguration W),
+                        AKLT.Defs.planeLaw κ W η σ ≤
+                          AKLT.Blueprint.Q.planeDensityUpper κ W η * AKLT.Blueprint.Q.planeProductReference κ W η σ) ∧
+                      AKLT.Blueprint.Q.planeDensityLower κ W η / AKLT.Blueprint.Q.planeDensityUpper κ W η =
+                        AKLT.Defs.frameRatio ^ (AKLT.Defs.internalBonds W).card
+def AKLT.Blueprint.Q.DensityVarianceStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p q : AKLT.Defs.Weight Ω),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Defs.PositiveProbability q →
+      ∀ (M : ℝ), 0 ≤ M → (∀ (σ : Ω), q σ ≤ M * p σ) → ∀ (f : Ω → ℂ), AKLT.Defs.variance q f ≤ M * AKLT.Defs.variance p f
+def AKLT.Blueprint.Q.DensityDirichletStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x))
+  (p q : AKLT.Defs.Weight ((x : ι) → S x)),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Defs.PositiveProbability q →
+      ∀ (m : ℝ),
+        0 ≤ m →
+          (∀ (σ : (x : ι) → S x), m * p σ ≤ q σ) →
+            ∀ (f : ((x : ι) → S x) → ℂ), m * AKLT.Defs.dirichlet p f ≤ AKLT.Defs.dirichlet q f
+def AKLT.Blueprint.Q.ProductPoincareStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x))
+  (p : (x : ι) → AKLT.Defs.Weight (S x)),
+  (∀ (x_1 : ι), AKLT.Defs.PositiveProbability (p x_1)) → AKLT.Defs.PoincareLower (fun σ => ∏ x, p x (σ x)) 1
+def AKLT.Blueprint.Q.RotationStatement : Prop :=
+AKLT.Defs.frameRotation.transpose * AKLT.Defs.frameRotation = 1 ∧ AKLT.Defs.frameRotation.det = 1
+def AKLT.Blueprint.Q.RotationPowersStatement : Prop :=
+∀ (j : Fin 3), (AKLT.Defs.frameRotation ^ ↑j).transpose * AKLT.Defs.frameRotation ^ ↑j = 1
+def AKLT.Blueprint.Q.FrameScalarsStatement : Prop :=
+0 < AKLT.Defs.frameBound ∧
+  AKLT.Defs.frameBound < 1 ∧
+    AKLT.Defs.frameBound < 9 / 50 ∧
+      0 < AKLT.Defs.frameRatio ∧ AKLT.Defs.frameRatio < 1 ∧ 0 < AKLT.Defs.frameEnergy ∧ AKLT.Defs.frameEnergy ≤ 1
+def AKLT.Blueprint.Q.OrthogonalFamilyStatement : Prop :=
+∀ (R : Matrix (Fin 3) (Fin 3) ℝ),
+  R.transpose * R = 1 →
+    ∀ (v : AKLT.Defs.IcoLetter → AKLT.Defs.Vec3),
+      Function.Injective v →
+        (∀ (a : AKLT.Defs.IcoLetter), AKLT.Defs.normSq (v a) = 1) →
+          (∀ (a : AKLT.Defs.IcoLetter), ∃ b, v b = -v a) →
+            (Function.Injective fun a => R.mulVec (v a)) ∧
+              (∀ (a : AKLT.Defs.IcoLetter), AKLT.Defs.normSq (R.mulVec (v a)) = 1) ∧
+                ∀ (a : AKLT.Defs.IcoLetter), ∃ b, R.mulVec (v b) = -R.mulVec (v a)
+def AKLT.Blueprint.Q.OneSiteMomentEncodingStatement : Prop :=
+∀ (p : MvPolynomial (Fin 3) ℝ),
+  AKLT.Defs.DegreeFour p →
+    ∃ q,
+      AKLT.Defs.SeparateDegreeFour q ∧
+        ((AKLT.Defs.productFunctional (fun x => AKLT.Defs.Status.U) fun a => (MvPolynomial.eval fun v => a v.1 v.2) q) =
+            AKLT.Defs.moment fun a => (MvPolynomial.eval a) p) ∧
+          ∀ (R : Matrix (Fin 3) (Fin 3) ℝ),
+            (AKLT.Defs.productFunctional (fun x => AKLT.Defs.Status.U) fun a =>
+                (MvPolynomial.eval fun v => R.mulVec (a v.1) v.2) q) =
+              AKLT.Defs.moment fun a => (MvPolynomial.eval (R.mulVec a)) p
+def AKLT.Blueprint.Q.IcoDistanceStatement : Prop :=
+∀ (a b : AKLT.Defs.IcoLetter), a ≠ b → 1 < AKLT.Defs.normSq (AKLT.Defs.icoVector a - AKLT.Defs.icoVector b)
+def AKLT.Blueprint.Q.RotationDisplacementStatement : Prop :=
+∀ (k : ℕ),
+  1 ≤ k →
+    k ≤ 2 →
+      ∀ (v : AKLT.Defs.Vec3),
+        AKLT.Defs.normSq v = 1 → AKLT.Defs.normSq ((AKLT.Defs.frameRotation ^ k).mulVec v - v) ≤ (40 / 101) ^ 2
+def AKLT.Blueprint.Q.SelfRotationStatement : Prop :=
+(∀ (k : ℕ),
+    1 ≤ k →
+      k ≤ 2 →
+        ∀ (a : AKLT.Defs.IcoLetter),
+          AKLT.Defs.frameBound ≤
+            1 - AKLT.Defs.dot (AKLT.Defs.icoVector a) ((AKLT.Defs.frameRotation ^ k).mulVec (AKLT.Defs.icoVector a))) ∧
+  1 - AKLT.Defs.dot (AKLT.Defs.frameVector 0 (0, 0, 0)) (AKLT.Defs.frameVector 1 (0, 0, 0)) = AKLT.Defs.frameBound
+def AKLT.Blueprint.Q.DisplacedDistanceStatement : Prop :=
+∀ (u v w : AKLT.Defs.Vec3),
+  AKLT.Defs.normSq u = 1 →
+    AKLT.Defs.normSq v = 1 →
+      AKLT.Defs.normSq w = 1 →
+        1 < AKLT.Defs.normSq (u - v) → AKLT.Defs.normSq (w - v) ≤ (40 / 101) ^ 2 → 9 / 50 < 1 - AKLT.Defs.dot u w
+def AKLT.Blueprint.Q.RelativeRotationStatement : Prop :=
+∀ (i j : Fin 3),
+  i ≠ j →
+    ∀ (a b : AKLT.Defs.IcoLetter),
+      ∃ k,
+        1 ≤ k ∧
+          k ≤ 2 ∧
+            ∃ u v,
+              AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) =
+                AKLT.Defs.dot (AKLT.Defs.icoVector u) ((AKLT.Defs.frameRotation ^ k).mulVec (AKLT.Defs.icoVector v))
+def AKLT.Blueprint.Q.StateEvaluationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (ψ : AKLT.Challenge.Hilbert L N) (z : AKLT.Challenge.Site L N → AKLT.Defs.Spinor),
+  (MvPolynomial.eval fun v => z v.1 v.2) (AKLT.Blueprint.Q.statePolynomial ψ) = AKLT.Defs.physicalEval ψ z
+def AKLT.Blueprint.Q.VbsHomogeneityStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size), AKLT.Blueprint.Q.siteHomogeneous (AKLT.Challenge.vbsPolynomial L N) fun x => 4
+def AKLT.Blueprint.Q.CoefficientReconstructionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (p : AKLT.Challenge.SpinorPolynomial L N),
+  (AKLT.Blueprint.Q.siteHomogeneous p fun x => 4) → AKLT.Blueprint.Q.statePolynomial (AKLT.Defs.polynomialState p) = p
+def AKLT.Blueprint.Q.PairSpinFourStatement : Prop :=
+AKLT.Blueprint.Q.pairCasimir.eigenspace 20 = AKLT.Blueprint.Q.pairDiagonal.kerᗮ
+def AKLT.Blueprint.Q.PairDiagonalDivisionStatement : Prop :=
+∀ (ψ : AKLT.Blueprint.Q.PairHilbert),
+  AKLT.Blueprint.Q.pairDiagonal ψ = 0 → AKLT.Blueprint.Q.pairSinglet ∣ AKLT.Blueprint.Q.pairPolynomial ψ
+def AKLT.Blueprint.Q.SpectatorDivisibilityStatement : Prop :=
+(∀ (v : AKLT.Blueprint.Q.PairHilbert),
+    AKLT.Blueprint.Q.pairProjector v = 0 → AKLT.Blueprint.Q.pairSinglet ∣ AKLT.Blueprint.Q.pairPolynomial v) →
+  ∀ (L N : AKLT.Challenge.Size) (e : AKLT.Challenge.Bond L N) (ψ : AKLT.Challenge.Hilbert L N),
+    (AKLT.Challenge.P e) ψ = 0 → AKLT.Challenge.singlet e ∣ AKLT.Blueprint.Q.statePolynomial ψ
+def AKLT.Blueprint.Q.SingletPrimeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (e : AKLT.Challenge.Bond L N), Prime (AKLT.Challenge.singlet e)
+def AKLT.Blueprint.Q.SingletNonassociateStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (e f : AKLT.Challenge.Bond L N),
+  e ≠ f → ¬Associated (AKLT.Challenge.singlet e) (AKLT.Challenge.singlet f)
+def AKLT.Blueprint.Q.PrimeProductStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (R : Type) [inst_1 : CommRing R] [IsDomain R] (q : ι → R),
+  (∀ (i : ι), Prime (q i)) →
+    (∀ (i j : ι), i ≠ j → ¬Associated (q i) (q j)) → ∀ (p : R), (∀ (i : ι), q i ∣ p) → ∏ i, q i ∣ p
+def AKLT.Blueprint.Q.IncidentKernelStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (ψ : AKLT.Challenge.Hilbert L N),
+  (AKLT.Defs.siteHamiltonian x) ψ = 0 →
+    ∀ (e : AKLT.Challenge.Bond L N), x ∈ AKLT.Challenge.bondSites e → (AKLT.Challenge.P e) ψ = 0
+def AKLT.Blueprint.Q.IncidentDegreeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (ψ : AKLT.Challenge.Hilbert L N)
+  (χ : AKLT.Challenge.SpinorPolynomial L N),
+  AKLT.Blueprint.Q.statePolynomial ψ = AKLT.Blueprint.Q.incidentProduct x * χ → AKLT.Blueprint.Q.independentAt x χ
+def AKLT.Blueprint.Q.DeterminantModulusStatement : Prop :=
+∀ (a b : AKLT.Defs.Vec3) (z w : AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.compatible a z →
+    AKLT.Blueprint.Q.compatible b w → Complex.normSq (AKLT.Blueprint.Q.determinant z w) = (1 - AKLT.Defs.dot a b) / 2
+def AKLT.Blueprint.Q.GroundProductWeightStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+      AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ =
+        ∏ e,
+          AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+            (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) →
+    (∀ (e : AKLT.Challenge.Bond L N) (σ : AKLT.Defs.TorusConfiguration L N),
+        Complex.normSq
+            (AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+              (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) =
+          (1 -
+              AKLT.Defs.dot (AKLT.Defs.frameVector (κ e.1) (σ e.1))
+                (AKLT.Defs.frameVector (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) /
+            2) →
+      ∀ (σ : AKLT.Defs.TorusConfiguration L N),
+        AKLT.Defs.torusReference L N σ * Complex.normSq (AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ) =
+          AKLT.Blueprint.Q.groundScale L N * AKLT.Defs.torusWeight L N κ σ
+def AKLT.Blueprint.Q.IncidentEvaluationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3) (x : AKLT.Challenge.Site L N)
+  (ψ : AKLT.Challenge.Hilbert L N) (χ : AKLT.Challenge.SpinorPolynomial L N),
+  AKLT.Blueprint.Q.statePolynomial ψ = AKLT.Blueprint.Q.incidentProduct x * χ →
+    AKLT.Blueprint.Q.independentAt x χ →
+      (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+          AKLT.Defs.frameEval κ ψ σ =
+            AKLT.Blueprint.Q.centreSign x * AKLT.Blueprint.Q.beta κ x σ *
+              (MvPolynomial.eval fun v => AKLT.Defs.frameSpinor (κ v.1) (σ v.1) v.2) χ) ∧
+        AKLT.Blueprint.Q.inFibreSpan κ x (AKLT.Defs.frameEval κ ψ)
+def AKLT.Blueprint.Q.GroundFibreFactorizationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+      AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ =
+        ∏ e,
+          AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+            (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) →
+    ∀ (x : AKLT.Challenge.Site L N),
+      (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+          AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ = AKLT.Blueprint.Q.beta κ x σ * AKLT.Blueprint.Q.rho κ x σ) ∧
+        ∀ (σ : AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter) (a : AKLT.Defs.IcoLetter),
+          AKLT.Blueprint.Q.rho κ x (Function.update σ x a) = AKLT.Blueprint.Q.rho κ x σ
+def AKLT.Blueprint.Q.GroundTransformStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  AKLT.Challenge.B L N ≠ 0 →
+    (∀ (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ ≠ 0) →
+      (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+          AKLT.Defs.torusLaw L N κ σ =
+            AKLT.Defs.torusReference L N σ * Complex.normSq (AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ) /
+              ‖AKLT.Challenge.B L N‖ ^ 2) →
+        (∀ (f : AKLT.Defs.TorusConfiguration L N → ℂ),
+            AKLT.Blueprint.Q.weightedNorm (AKLT.Defs.torusReference L N) (AKLT.Blueprint.Q.groundTransform κ f) =
+              AKLT.Blueprint.Q.weightedNorm (AKLT.Defs.torusLaw L N κ) f) ∧
+          (∀ (ψ : AKLT.Challenge.Hilbert L N),
+              AKLT.Blueprint.Q.groundTransform κ (AKLT.Blueprint.Q.groundQuotient κ ψ) = AKLT.Defs.frameEval κ ψ) ∧
+            ∀ (f : AKLT.Defs.TorusConfiguration L N → ℂ) (σ : AKLT.Defs.TorusConfiguration L N),
+              ↑‖AKLT.Challenge.B L N‖ * AKLT.Blueprint.Q.groundTransform κ f σ /
+                  AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ =
+                f σ
+def AKLT.Blueprint.Q.FibreIntertwiningStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3) (x : AKLT.Challenge.Site L N),
+  AKLT.Challenge.B L N ≠ 0 →
+    (∀ (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Blueprint.Q.beta κ x σ ≠ 0) →
+      (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+          AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ = AKLT.Blueprint.Q.beta κ x σ * AKLT.Blueprint.Q.rho κ x σ) →
+        (∀ (σ : AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter) (a : AKLT.Defs.IcoLetter),
+            AKLT.Blueprint.Q.rho κ x (Function.update σ x a) = AKLT.Blueprint.Q.rho κ x σ) →
+          (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+              AKLT.Defs.torusLaw L N κ σ =
+                AKLT.Defs.torusReference L N σ * Complex.normSq (AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ) /
+                  ‖AKLT.Challenge.B L N‖ ^ 2) →
+            (∀ (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ ≠ 0) →
+              (∀ (f : (AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter) → ℂ),
+                  AKLT.Blueprint.Q.groundTransform κ
+                      (AKLT.Defs.conditionalExpectation (AKLT.Defs.torusLaw L N κ) {x} f) =
+                    AKLT.Blueprint.Q.fibreProjection κ x (AKLT.Blueprint.Q.groundTransform κ f)) ∧
+                ∀ (f : (AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter) → ℂ),
+                  AKLT.Defs.blockDirichlet (AKLT.Defs.torusLaw L N κ) {x} f =
+                    AKLT.Blueprint.Q.weightedNorm (AKLT.Defs.torusReference L N)
+                      (AKLT.Blueprint.Q.groundTransform κ f -
+                        AKLT.Blueprint.Q.fibreProjection κ x (AKLT.Blueprint.Q.groundTransform κ f))
+def AKLT.Blueprint.Q.FibreProjectionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3) (x : AKLT.Challenge.Site L N),
+  (∀ (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Blueprint.Q.beta κ x σ ≠ 0) →
+    (∀ (σ : AKLT.Defs.TorusConfiguration L N), 0 < AKLT.Blueprint.Q.fibreDenominator κ x σ) ∧
+      (∀ (h : AKLT.Defs.TorusConfiguration L N → ℂ),
+          AKLT.Blueprint.Q.inFibreSpan κ x (AKLT.Blueprint.Q.fibreProjection κ x h)) ∧
+        (∀ (h : AKLT.Defs.TorusConfiguration L N → ℂ),
+            AKLT.Blueprint.Q.inFibreSpan κ x h → AKLT.Blueprint.Q.fibreProjection κ x h = h) ∧
+          ∀ (h k : AKLT.Defs.TorusConfiguration L N → ℂ),
+            AKLT.Blueprint.Q.inFibreSpan κ x k →
+              AKLT.Blueprint.Q.weightedNorm (AKLT.Defs.torusReference L N)
+                  (h - AKLT.Blueprint.Q.fibreProjection κ x h) ≤
+                AKLT.Blueprint.Q.weightedNorm (AKLT.Defs.torusReference L N) (h - k)
+def AKLT.Blueprint.Q.WeightedPolarizationStatement : Prop :=
+∀ (ι Ω : Type) [inst : Fintype ι] [inst_1 : Fintype Ω] (w : AKLT.Defs.Weight Ω) (E : EuclideanSpace ℂ ι →ₗ[ℂ] Ω → ℂ),
+  (∀ (ψ : EuclideanSpace ℂ ι), AKLT.Blueprint.Q.weightedNorm w (E ψ) = ‖ψ‖ ^ 2) →
+    ∀ (ψ φ : EuclideanSpace ℂ ι), AKLT.Blueprint.Q.weightedInner w (E ψ) (E φ) = inner ℂ ψ φ
+def AKLT.Blueprint.Q.GroundQuotientVarianceStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  AKLT.Challenge.B L N ≠ 0 →
+    (∀ (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ ≠ 0) →
+      (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+          AKLT.Defs.torusLaw L N κ σ =
+            AKLT.Defs.torusReference L N σ * Complex.normSq (AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ) /
+              ‖AKLT.Challenge.B L N‖ ^ 2) →
+        (∀ (ψ φ : AKLT.Challenge.Hilbert L N),
+            AKLT.Blueprint.Q.weightedInner (AKLT.Defs.torusReference L N) (AKLT.Defs.frameEval κ ψ)
+                (AKLT.Defs.frameEval κ φ) =
+              inner ℂ ψ φ) →
+          ∀ (ψ : AKLT.Challenge.Hilbert L N),
+            inner ℂ (AKLT.Challenge.B L N) ψ = 0 →
+              AKLT.Defs.complexMean (AKLT.Defs.torusLaw L N κ) (AKLT.Blueprint.Q.groundQuotient κ ψ) = 0 ∧
+                AKLT.Defs.variance (AKLT.Defs.torusLaw L N κ) (AKLT.Blueprint.Q.groundQuotient κ ψ) = ‖ψ‖ ^ 2
+def AKLT.Blueprint.Q.BetaNonzeroStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (e : AKLT.Challenge.Bond L N) (σ : AKLT.Defs.TorusConfiguration L N),
+      0 <
+        Complex.normSq
+          (AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+            (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2))))) →
+    ∀ (x : AKLT.Challenge.Site L N) (σ : AKLT.Defs.TorusConfiguration L N), AKLT.Blueprint.Q.beta κ x σ ≠ 0
+def AKLT.Blueprint.Q.PairDiagonalRankStatement : Prop :=
+Module.finrank ℂ ↥AKLT.Blueprint.Q.pairDiagonal.ker = 16
+def AKLT.Blueprint.Q.PairTopInclusionStatement : Prop :=
+AKLT.Blueprint.Q.pairDiagonal.kerᗮ ≤ AKLT.Blueprint.Q.pairCasimir.eigenspace 20
+def AKLT.Blueprint.Q.PairTopDimensionStatement : Prop :=
+Module.finrank ℂ ↥(AKLT.Blueprint.Q.pairCasimir.eigenspace 20) = 9
+def AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement : Prop :=
+Prime (MvPolynomial.X 0 * MvPolynomial.X 3 - MvPolynomial.X 1 * MvPolynomial.X 2)
+def AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement : Prop :=
+Prime (MvPolynomial.X 0 * MvPolynomial.X 3 - MvPolynomial.X 1 * MvPolynomial.X 2) →
+  ∀ (L N : AKLT.Challenge.Size) (e : AKLT.Challenge.Bond L N), Prime (AKLT.Challenge.singlet e)
+def AKLT.Blueprint.Q.CentreDegreeCancellationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (p χ : AKLT.Challenge.SpinorPolynomial L N),
+  p ≠ 0 →
+    (∀ m ∈ MvPolynomial.support p, m (x, 0) + m (x, 1) = 4) →
+      (∀ m ∈ MvPolynomial.support (p * χ), m (x, 0) + m (x, 1) = 4) → AKLT.Blueprint.Q.independentAt x χ
+def AKLT.Blueprint.Q.IncidentProductDegreeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N),
+  AKLT.Blueprint.Q.incidentProduct x ≠ 0 ∧
+    ∀ m ∈ MvPolynomial.support (AKLT.Blueprint.Q.incidentProduct x), m (x, 0) + m (x, 1) = 4
+def AKLT.Blueprint.Q.StateCentreDegreeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (ψ : AKLT.Challenge.Hilbert L N) (x : AKLT.Challenge.Site L N),
+  ∀ m ∈ MvPolynomial.support (AKLT.Blueprint.Q.statePolynomial ψ), m (x, 0) + m (x, 1) = 4
+def AKLT.Blueprint.Q.StarEdgeEnumerationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N),
+  Function.Injective (AKLT.Blueprint.Q.starEdge x) ∧
+    Finset.image (AKLT.Blueprint.Q.starEdge x) Finset.univ = {e | x ∈ AKLT.Challenge.bondSites e}
+def AKLT.Blueprint.Q.StarCasimirChartStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N), ∃ n U, AKLT.Blueprint.Q.casimirCopies x n U
+def AKLT.Blueprint.Q.StarProjectorTransportStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (n : ℕ)
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))),
+  AKLT.Blueprint.Q.casimirCopies x n U →
+    ∀ (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) (r : Fin n) (s : Fin 5 → Fin 5),
+      (U ((AKLT.Challenge.P (AKLT.Blueprint.Q.starEdge x j)) ψ)).ofLp (r, s) =
+        (((AKLT.Defs.starCasimir j).eigenspace 20).starProjection (WithLp.toLp 2 fun t => (U ψ).ofLp (r, t))).ofLp s
+def AKLT.Blueprint.Q.StarPositiveStatement : Prop :=
+LinearMap.IsSymmetric AKLT.Defs.starHamiltonian ∧
+  ∀ (ψ : AKLT.Defs.StarHilbert), 0 ≤ (inner ℂ ψ (AKLT.Defs.starHamiltonian ψ)).re
+def AKLT.Blueprint.Q.StarWitnessStatement : Prop :=
+AKLT.Defs.starHamiltonian.HasEigenvalue 4
+def AKLT.Blueprint.Q.PositiveSpectralMinimumStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)),
+  LinearMap.IsSymmetric T →
+    (∀ (ψ : EuclideanSpace ℂ ι), 0 ≤ (inner ℂ ψ (T ψ)).re) →
+      (∃ μ, 0 < μ ∧ T.HasEigenvalue ↑μ) →
+        have g := sInf {μ | 0 < μ ∧ T.HasEigenvalue ↑μ};
+        0 < g ∧ T.HasEigenvalue ↑g ∧ ∀ (μ : ℝ), 0 < μ → T.HasEigenvalue ↑μ → g ≤ μ
+def AKLT.Blueprint.Q.SpectralKernelCoercivityStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)),
+  LinearMap.IsSymmetric T →
+    (∀ (ψ : EuclideanSpace ℂ ι), 0 ≤ (inner ℂ ψ (T ψ)).re) →
+      ∀ (g : ℝ), 0 < g → (∀ (μ : ℝ), 0 < μ → T.HasEigenvalue ↑μ → g ≤ μ) → AKLT.Blueprint.Q.kernelCoercivity T g
+def AKLT.Blueprint.Q.StarRelabellingStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N),
+  ∃ n U, AKLT.Blueprint.Q.amplifiesStar (AKLT.Defs.siteHamiltonian x) n U
+def AKLT.Blueprint.Q.StarAmplificationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] (T : Module.End ℂ (EuclideanSpace ℂ ι)) (n : ℕ)
+  (U : EuclideanSpace ℂ ι ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))),
+  AKLT.Blueprint.Q.amplifiesStar T n U →
+    ∀ (g : ℝ), AKLT.Blueprint.Q.kernelCoercivity AKLT.Defs.starHamiltonian g → AKLT.Blueprint.Q.kernelCoercivity T g
+def AKLT.Blueprint.Q.IncidentDoubleCountStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size),
+  (∀ (e : AKLT.Challenge.Bond L N), (AKLT.Challenge.bondSites e).card = 2) →
+    ∑ x, AKLT.Defs.siteHamiltonian x = 2 • AKLT.Challenge.H L N
+def AKLT.Blueprint.Q.SpinorChoiceStatement : Prop :=
+∀ (v : AKLT.Defs.Vec3), AKLT.Defs.normSq v = 1 → AKLT.Blueprint.Q.compatible v (AKLT.Blueprint.Q.chosenSpinor v)
+def AKLT.Blueprint.Q.QuarticKernelDegreeStatement : Prop :=
+∀ (j k : Fin 5), (AKLT.Blueprint.Q.quarticKernel j k).totalDegree ≤ 4
+def AKLT.Blueprint.Q.QuarticKernelEvaluationStatement : Prop :=
+∀ (v : AKLT.Defs.Vec3) (z : AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.compatible v z →
+    ∀ (j k : Fin 5),
+      star (AKLT.Blueprint.Q.quarticMonomial j z) * AKLT.Blueprint.Q.quarticMonomial k z =
+        (MvPolynomial.eval fun i => ↑(v i)) (AKLT.Blueprint.Q.quarticKernel j k)
+def AKLT.Blueprint.Q.ComplexQuadratureStatement : Prop :=
+∀ (A : Type) [inst : Fintype A] (v : A → AKLT.Defs.Vec3) (w : A → ℝ),
+  AKLT.Blueprint.Q.quadrature v w →
+    ∀ (p : MvPolynomial (Fin 3) ℂ),
+      p.totalDegree ≤ 4 → ∑ a, ↑(w a) * (MvPolynomial.eval fun i => ↑(v a i)) p = AKLT.Blueprint.Q.complexMoment p
+def AKLT.Blueprint.Q.QuarticOffDiagonalStatement : Prop :=
+∀ (j k : Fin 5), j ≠ k → AKLT.Blueprint.Q.complexMoment (AKLT.Blueprint.Q.quarticKernel j k) = 0
+def AKLT.Blueprint.Q.QuarticDiagonalStatement : Prop :=
+∀ (j : Fin 5), 5 * AKLT.Blueprint.Q.complexMoment (AKLT.Blueprint.Q.quarticKernel j j) = (↑(Nat.choose 4 ↑j))⁻¹
+def AKLT.Blueprint.Q.ResolutionExpansionStatement : Prop :=
+∀ (A : Type) [inst : Fintype A] (w : A → ℝ) (z : A → AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.resolution w z →
+    ∀ (p : AKLT.Defs.BinaryForm 4),
+      ∑ a, 5 * w a * Complex.normSq (AKLT.Defs.binaryEval 4 p (z a)) = AKLT.Defs.binaryNormSq 4 p
+def AKLT.Blueprint.Q.TensorResolutionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (S : AKLT.Challenge.Site L N → Type) (x : (x : AKLT.Challenge.Site L N) → Fintype (S x))
+  (w : (x : AKLT.Challenge.Site L N) → S x → ℝ) (z : (x : AKLT.Challenge.Site L N) → S x → AKLT.Defs.Spinor),
+  (∀ (x_1 : AKLT.Challenge.Site L N), AKLT.Blueprint.Q.resolution (w x_1) (z x_1)) →
+    ∀ (ψ : AKLT.Challenge.Hilbert L N),
+      ∑ σ, (∏ x, 5 * w x (σ x)) * Complex.normSq (AKLT.Defs.physicalEval ψ fun x => z x (σ x)) = ‖ψ‖ ^ 2
+def AKLT.Blueprint.Q.FramesInputs : Prop :=
+AKLT.Blueprint.Q.OrthogonalFamilyStatement ∧
+  AKLT.Blueprint.Q.OneSiteMomentEncodingStatement ∧
+    AKLT.Blueprint.Q.IcoDistanceStatement ∧
+      AKLT.Blueprint.Q.RotationDisplacementStatement ∧
+        AKLT.Blueprint.Q.SelfRotationStatement ∧
+          AKLT.Blueprint.Q.DisplacedDistanceStatement ∧ AKLT.Blueprint.Q.RelativeRotationStatement
+def AKLT.Blueprint.Q.TightInputs : Prop :=
+AKLT.Blueprint.Q.SpinorChoiceStatement ∧
+  AKLT.Blueprint.Q.QuarticKernelDegreeStatement ∧
+    AKLT.Blueprint.Q.QuarticKernelEvaluationStatement ∧
+      AKLT.Blueprint.Q.ComplexQuadratureStatement ∧
+        AKLT.Blueprint.Q.QuarticOffDiagonalStatement ∧
+          AKLT.Blueprint.Q.QuarticDiagonalStatement ∧
+            AKLT.Blueprint.Q.ResolutionExpansionStatement ∧ AKLT.Blueprint.Q.TensorResolutionStatement
+def AKLT.Blueprint.Q.StarInputs : Prop :=
+AKLT.Blueprint.Q.StarPositiveStatement ∧
+  AKLT.Blueprint.Q.StarWitnessStatement ∧
+    AKLT.Blueprint.Q.PositiveSpectralMinimumStatement ∧
+      AKLT.Blueprint.Q.SpectralKernelCoercivityStatement ∧
+        AKLT.Blueprint.Q.StarAmplificationStatement ∧
+          AKLT.Blueprint.Q.StarEdgeEnumerationStatement ∧
+            AKLT.Blueprint.Q.StarCasimirChartStatement ∧ AKLT.Blueprint.Q.StarProjectorTransportStatement
+def AKLT.Blueprint.Q.PolynomialInputs : Prop :=
+AKLT.Blueprint.Q.StateEvaluationStatement ∧
+  AKLT.Blueprint.Q.VbsHomogeneityStatement ∧
+    AKLT.Blueprint.Q.CoefficientReconstructionStatement ∧
+      AKLT.Blueprint.Q.PairDiagonalDivisionStatement ∧
+        AKLT.Blueprint.Q.SpectatorDivisibilityStatement ∧
+          AKLT.Blueprint.Q.SingletNonassociateStatement ∧
+            AKLT.Blueprint.Q.IncidentKernelStatement ∧
+              AKLT.Blueprint.Q.PairDiagonalRankStatement ∧
+                AKLT.Blueprint.Q.PairTopInclusionStatement ∧
+                  AKLT.Blueprint.Q.PairTopDimensionStatement ∧
+                    AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement ∧
+                      AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement ∧
+                        AKLT.Blueprint.Q.CentreDegreeCancellationStatement ∧
+                          AKLT.Blueprint.Q.IncidentProductDegreeStatement ∧ AKLT.Blueprint.Q.StateCentreDegreeStatement
+def AKLT.Blueprint.Q.QuantumInputs : Prop :=
+AKLT.Blueprint.Q.DeterminantModulusStatement ∧
+  AKLT.Blueprint.Q.GroundProductWeightStatement ∧
+    AKLT.Blueprint.Q.IncidentEvaluationStatement ∧
+      AKLT.Blueprint.Q.GroundFibreFactorizationStatement ∧
+        AKLT.Blueprint.Q.GroundTransformStatement ∧
+          AKLT.Blueprint.Q.FibreIntertwiningStatement ∧
+            AKLT.Blueprint.Q.FibreProjectionStatement ∧
+              AKLT.Blueprint.Q.WeightedPolarizationStatement ∧
+                AKLT.Blueprint.Q.GroundQuotientVarianceStatement ∧ AKLT.Blueprint.Q.BetaNonzeroStatement
+def AKLT.Blueprint.Q.EnergyInputs : Prop :=
+AKLT.Blueprint.Q.FrameWeightsPositiveStatement ∧
+  AKLT.Blueprint.Q.PlaneConditioningStatement ∧
+    AKLT.Blueprint.Q.TorusMarkovStatement ∧
+      AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement ∧
+        AKLT.Blueprint.Q.TorusOneSiteEnergyStatement ∧
+          AKLT.Blueprint.Q.PartialAssignmentStatement ∧
+            AKLT.Blueprint.Q.PlaneAssignmentReindexStatement ∧
+              AKLT.Blueprint.Q.PlaneProductReferenceStatement ∧
+                AKLT.Blueprint.Q.BoundaryAbsorptionStatement ∧
+                  AKLT.Blueprint.Q.PlaneDensityBoundsStatement ∧
+                    AKLT.Blueprint.Q.DensityVarianceStatement ∧
+                      AKLT.Blueprint.Q.DensityDirichletStatement ∧ AKLT.Blueprint.Q.ProductPoincareStatement
+AKLT.Blueprint.Q.threeFrames_of_leaves (hMom : AKLT.Blueprint.Top.MomentsStatement)
+  (hFamily : AKLT.Blueprint.Q.OrthogonalFamilyStatement) (hEncoding : AKLT.Blueprint.Q.OneSiteMomentEncodingStatement)
+  (hDistance : AKLT.Blueprint.Q.IcoDistanceStatement) (hDisplacement : AKLT.Blueprint.Q.RotationDisplacementStatement)
+  (hSelf : AKLT.Blueprint.Q.SelfRotationStatement) (hMetric : AKLT.Blueprint.Q.DisplacedDistanceStatement)
+  (hRelative : AKLT.Blueprint.Q.RelativeRotationStatement) : AKLT.Blueprint.Top.ThreeFramesStatement
+AKLT.Blueprint.Q.resolution_of_leaves (hDegree : AKLT.Blueprint.Q.QuarticKernelDegreeStatement)
+  (hEval : AKLT.Blueprint.Q.QuarticKernelEvaluationStatement) (hComplex : AKLT.Blueprint.Q.ComplexQuadratureStatement)
+  (hOff : AKLT.Blueprint.Q.QuarticOffDiagonalStatement) (hDiag : AKLT.Blueprint.Q.QuarticDiagonalStatement) (A : Type)
+  [Fintype A] (v : A → AKLT.Defs.Vec3) (w : A → ℝ) :
+  AKLT.Blueprint.Q.quadrature v w →
+    ∀ (z : A → AKLT.Defs.Spinor), (∀ (a : A), AKLT.Blueprint.Q.compatible (v a) (z a)) → AKLT.Blueprint.Q.resolution w z
+AKLT.Blueprint.Q.tight_of_leaves (hThree : AKLT.Blueprint.Top.ThreeFramesStatement)
+  (hChoice : AKLT.Blueprint.Q.SpinorChoiceStatement) (hDegree : AKLT.Blueprint.Q.QuarticKernelDegreeStatement)
+  (hEval : AKLT.Blueprint.Q.QuarticKernelEvaluationStatement) (hComplex : AKLT.Blueprint.Q.ComplexQuadratureStatement)
+  (hOff : AKLT.Blueprint.Q.QuarticOffDiagonalStatement) (hDiag : AKLT.Blueprint.Q.QuarticDiagonalStatement)
+  (hExpansion : AKLT.Blueprint.Q.ResolutionExpansionStatement) (hTensor : AKLT.Blueprint.Q.TensorResolutionStatement) :
+  AKLT.Blueprint.Top.TightStatement
+AKLT.Blueprint.Q.star_of_leaves (hKernel : AKLT.Blueprint.Top.TorusKernelStatement)
+  (hPositive : AKLT.Blueprint.Q.StarPositiveStatement) (hWitness : AKLT.Blueprint.Q.StarWitnessStatement)
+  (hMinimum : AKLT.Blueprint.Q.PositiveSpectralMinimumStatement)
+  (hCoercive : AKLT.Blueprint.Q.SpectralKernelCoercivityStatement)
+  (hRelabel : AKLT.Blueprint.Q.StarRelabellingStatement) (hAmplify : AKLT.Blueprint.Q.StarAmplificationStatement) :
+  AKLT.Blueprint.Top.StarStatement
+AKLT.Blueprint.Q.density_poincare_of_leaves (hVar : AKLT.Blueprint.Q.DensityVarianceStatement)
+  (hDir : AKLT.Blueprint.Q.DensityDirichletStatement) (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type)
+  (x✝ : (x : ι) → Fintype (S x)) (p q : AKLT.Defs.Weight ((x : ι) → S x)) :
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Defs.PositiveProbability q →
+      AKLT.Defs.PoincareLower p 1 →
+        ∀ (m M : ℝ),
+          0 < m →
+            0 < M →
+              (∀ (σ : (x : ι) → S x), m * p σ ≤ q σ) →
+                (∀ (σ : (x : ι) → S x), q σ ≤ M * p σ) → AKLT.Defs.PoincareLower q (m / M)
+AKLT.Blueprint.Q.planeEnergy_of_leaves (hThree : AKLT.Blueprint.Top.ThreeFramesStatement)
+  (hWeights : AKLT.Blueprint.Q.FrameWeightsPositiveStatement) (hCondition : AKLT.Blueprint.Q.PlaneConditioningStatement)
+  (hMarkov : AKLT.Blueprint.Q.TorusMarkovStatement) (hPlaneSite : AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement)
+  (hTorusSite : AKLT.Blueprint.Q.TorusOneSiteEnergyStatement) (hPartial : AKLT.Blueprint.Q.PartialAssignmentStatement)
+  (hReindex : AKLT.Blueprint.Q.PlaneAssignmentReindexStatement)
+  (hReference : AKLT.Blueprint.Q.PlaneProductReferenceStatement)
+  (hAbsorb : AKLT.Blueprint.Q.BoundaryAbsorptionStatement) (hBounds : AKLT.Blueprint.Q.PlaneDensityBoundsStatement)
+  (hVar : AKLT.Blueprint.Q.DensityVarianceStatement) (hDir : AKLT.Blueprint.Q.DensityDirichletStatement)
+  (hProduct : AKLT.Blueprint.Q.ProductPoincareStatement) : AKLT.Blueprint.Top.PlaneEnergyStatement
+AKLT.Blueprint.Q.localKernelFactorization_of_leaves (hPair : AKLT.Blueprint.Q.PairSpinFourStatement)
+  (hDivision : AKLT.Blueprint.Q.PairDiagonalDivisionStatement)
+  (hSpectator : AKLT.Blueprint.Q.SpectatorDivisibilityStatement) (hPrime : AKLT.Blueprint.Q.SingletPrimeStatement)
+  (hNonassoc : AKLT.Blueprint.Q.SingletNonassociateStatement) (hProduct : AKLT.Blueprint.Q.PrimeProductStatement)
+  (hIncident : AKLT.Blueprint.Q.IncidentKernelStatement) (hDegree : AKLT.Blueprint.Q.IncidentDegreeStatement)
+  (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (ψ : AKLT.Challenge.Hilbert L N) :
+  (AKLT.Defs.siteHamiltonian x) ψ = 0 →
+    ∃ χ,
+      AKLT.Blueprint.Q.statePolynomial ψ = AKLT.Blueprint.Q.incidentProduct x * χ ∧ AKLT.Blueprint.Q.independentAt x χ
+AKLT.Blueprint.Q.groundEvaluation_of_leaves (hEval : AKLT.Blueprint.Q.StateEvaluationStatement)
+  (hHom : AKLT.Blueprint.Q.VbsHomogeneityStatement) (hReconstruct : AKLT.Blueprint.Q.CoefficientReconstructionStatement)
+  (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3) (σ : AKLT.Defs.TorusConfiguration L N) :
+  AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ =
+    ∏ e,
+      AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+        (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))
+AKLT.Blueprint.Q.normalize_from_scaled (Ω : Type) [Fintype Ω] (w r : AKLT.Defs.Weight Ω) (c n : ℝ) :
+  0 < c → 0 < n → (∀ (σ : Ω), r σ = c * w σ) → ∑ σ, r σ = n → AKLT.Defs.normalize w = fun σ => r σ / n
+AKLT.Blueprint.Q.qd_of_leaves (hThree : AKLT.Blueprint.Top.ThreeFramesStatement)
+  (hTight : AKLT.Blueprint.Top.TightStatement) (hStar : AKLT.Blueprint.Top.StarStatement)
+  (hKernel : AKLT.Blueprint.Top.TorusKernelStatement) (hEval : AKLT.Blueprint.Q.StateEvaluationStatement)
+  (hHom : AKLT.Blueprint.Q.VbsHomogeneityStatement) (hReconstruct : AKLT.Blueprint.Q.CoefficientReconstructionStatement)
+  (hPair : AKLT.Blueprint.Q.PairSpinFourStatement) (hDivision : AKLT.Blueprint.Q.PairDiagonalDivisionStatement)
+  (hSpectator : AKLT.Blueprint.Q.SpectatorDivisibilityStatement) (hPrime : AKLT.Blueprint.Q.SingletPrimeStatement)
+  (hNonassoc : AKLT.Blueprint.Q.SingletNonassociateStatement) (hProduct : AKLT.Blueprint.Q.PrimeProductStatement)
+  (hIncident : AKLT.Blueprint.Q.IncidentKernelStatement) (hDegree : AKLT.Blueprint.Q.IncidentDegreeStatement)
+  (hModulus : AKLT.Blueprint.Q.DeterminantModulusStatement) (hWeight : AKLT.Blueprint.Q.GroundProductWeightStatement)
+  (hLocalEval : AKLT.Blueprint.Q.IncidentEvaluationStatement)
+  (hFactor : AKLT.Blueprint.Q.GroundFibreFactorizationStatement)
+  (hTransform : AKLT.Blueprint.Q.GroundTransformStatement) (hIntertwine : AKLT.Blueprint.Q.FibreIntertwiningStatement)
+  (hProjection : AKLT.Blueprint.Q.FibreProjectionStatement) (hPolar : AKLT.Blueprint.Q.WeightedPolarizationStatement)
+  (hVariance : AKLT.Blueprint.Q.GroundQuotientVarianceStatement) (hBeta : AKLT.Blueprint.Q.BetaNonzeroStatement) :
+  AKLT.Blueprint.Top.QDStatement
+AKLT.Blueprint.Q.pairSpinFour_of_leaves (hRank : AKLT.Blueprint.Q.PairDiagonalRankStatement)
+  (hInclusion : AKLT.Blueprint.Q.PairTopInclusionStatement) (hDimension : AKLT.Blueprint.Q.PairTopDimensionStatement) :
+  AKLT.Blueprint.Q.PairSpinFourStatement
+AKLT.Blueprint.Q.singletPrime_of_leaves (hFour : AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement)
+  (hEmbed : AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement) : AKLT.Blueprint.Q.SingletPrimeStatement
+AKLT.Blueprint.Q.incidentDegree_of_leaves (hCancellation : AKLT.Blueprint.Q.CentreDegreeCancellationStatement)
+  (hProduct : AKLT.Blueprint.Q.IncidentProductDegreeStatement) (hState : AKLT.Blueprint.Q.StateCentreDegreeStatement) :
+  AKLT.Blueprint.Q.IncidentDegreeStatement
+AKLT.Blueprint.Q.starRelabelling_of_leaves (hEnumeration : AKLT.Blueprint.Q.StarEdgeEnumerationStatement)
+  (hChart : AKLT.Blueprint.Q.StarCasimirChartStatement)
+  (hTransport : AKLT.Blueprint.Q.StarProjectorTransportStatement) : AKLT.Blueprint.Q.StarRelabellingStatement
+AKLT.Blueprint.Q.allTargets_of_leaves (hMom : AKLT.Blueprint.Top.MomentsStatement)
+  (hKernel : AKLT.Blueprint.Top.TorusKernelStatement) (hFrames : AKLT.Blueprint.Q.FramesInputs)
+  (hTight : AKLT.Blueprint.Q.TightInputs) (hStar : AKLT.Blueprint.Q.StarInputs)
+  (hPoly : AKLT.Blueprint.Q.PolynomialInputs) (hQuantum : AKLT.Blueprint.Q.QuantumInputs)
+  (hEnergy : AKLT.Blueprint.Q.EnergyInputs) :
+  AKLT.Blueprint.Top.ThreeFramesStatement ∧
+    AKLT.Blueprint.Top.TightStatement ∧
+      AKLT.Blueprint.Top.StarStatement ∧ AKLT.Blueprint.Top.QDStatement ∧ AKLT.Blueprint.Top.PlaneEnergyStatement
+AKLT.Blueprint.Q.positiveNormalization : AKLT.Blueprint.Q.PositiveNormalizationStatement
+AKLT.Blueprint.Q.rotation : AKLT.Blueprint.Q.RotationStatement
+AKLT.Blueprint.Q.rotationPowers : AKLT.Blueprint.Q.RotationPowersStatement
+AKLT.Blueprint.Q.frameScalars : AKLT.Blueprint.Q.FrameScalarsStatement
+AKLT.Blueprint.Q.primeProduct : AKLT.Blueprint.Q.PrimeProductStatement
+AKLT.Blueprint.Q.incidentDoubleCount : AKLT.Blueprint.Q.IncidentDoubleCountStatement

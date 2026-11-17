@@ -1,0 +1,82 @@
+AKLT.Blueprint.Mom.BallDotBoundsStatement : Prop
+AKLT.Blueprint.Mom.BallFieldSplitStatement : Prop
+AKLT.Blueprint.Mom.DepletedContractionStatement : Prop
+AKLT.Blueprint.Mom.EmptyPartitionStatement : Prop
+AKLT.Blueprint.Mom.FactorizedConditioningStatement : Prop
+AKLT.Blueprint.Mom.FourthScalarMomentStatement : Prop
+AKLT.Blueprint.Mom.FrameOptionSumStatement : Prop
+AKLT.Blueprint.Mom.FreeCoefficientsStatement : Prop
+AKLT.Blueprint.Mom.FreeDegreeStatement : Prop
+AKLT.Blueprint.Mom.FreeEvaluationStatement : Prop
+AKLT.Blueprint.Mom.GreedyAssignmentStatement : Prop
+AKLT.Blueprint.Mom.IcoAntipodalStatement : Prop
+AKLT.Blueprint.Mom.IcoInjectivityStatement : Prop
+AKLT.Blueprint.Mom.IcoUnitStatement : Prop
+AKLT.Blueprint.Mom.InteractionDegreeStatement : Prop
+AKLT.Blueprint.Mom.LetterAvoidanceStatement : Prop
+AKLT.Blueprint.Mom.MeanCovarianceStatement : Prop
+AKLT.Blueprint.Mom.MeanPathContinuityStatement : Prop
+AKLT.Blueprint.Mom.MeanPathEndpointsStatement : Prop
+AKLT.Blueprint.Mom.MeanPathUnitStatement : Prop
+AKLT.Blueprint.Mom.MixedScalarMomentStatement : Prop
+AKLT.Blueprint.Mom.MomentConstantStatement : Prop
+AKLT.Blueprint.Mom.OddMonomialStatement : Prop
+AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement : Prop
+AKLT.Blueprint.Mom.OrthogonalNormStatement : Prop
+AKLT.Blueprint.Mom.OrthogonalTensorStatement : Prop
+AKLT.Blueprint.Mom.OrthogonalTransportStatement : Prop
+AKLT.Blueprint.Mom.PolynomialExpansionStatement : Prop
+AKLT.Blueprint.Mom.PositiveMixtureEstimateStatement : Prop
+AKLT.Blueprint.Mom.ProductFactorizationStatement : Prop
+AKLT.Blueprint.Mom.ProductMixtureStatement : Prop
+AKLT.Blueprint.Mom.ScalarTensorReconstructionStatement : Prop
+AKLT.Blueprint.Mom.SecondScalarMomentStatement : Prop
+AKLT.Blueprint.Mom.SingleSiteQuadratureStatement : Prop
+AKLT.Blueprint.Mom.SiteLawDecompositionStatement : Prop
+AKLT.Blueprint.Mom.SiteWeightStatement : Prop
+AKLT.Blueprint.Mom.TensorMonomialStatement : Prop
+AKLT.Blueprint.Mom.TensorZeroMixtureStatement : Prop
+AKLT.Blueprint.Mom.TripleGeometryStatement : Prop
+AKLT.Blueprint.Mom.TripleNormalizerStatement : Prop
+AKLT.Blueprint.Mom.TripleNumeratorStatement : Prop
+AKLT.Blueprint.Mom.TripleSOSIdentityStatement : Prop
+AKLT.Blueprint.Mom.TwoSiteFactorizationStatement : Prop
+'AKLT.Blueprint.Mom.productFactorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.tensorZeroMixture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.rationalStatusMoment_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.frameOptionSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.freeEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.normSq_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.emptyPartition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.meanPathUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.icoAntipodal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.momentConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.siteLawDecomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.siteWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.productFunctional_eq_productSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.quadrature_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.scaledMoment_status' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.moments_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.spinVector_normSq_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.network_weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.network_partition_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.finiteFacts_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.normSq_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.siteFunctional_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.siteFunctional_mixture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.unitTriple_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.threeFactorMean_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.exact_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.all_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.icoSet_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.freeMean_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.normalize_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.conditionOn_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.network_probability_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.probability_mean_normSq_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.conditioned_spin_mean_normSq_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.conditional_threeFactorMean_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Mom.interaction_exact_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 3.52
+user 2.50
+sys 3.31

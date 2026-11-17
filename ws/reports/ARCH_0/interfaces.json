@@ -1,0 +1,698 @@
+{
+  "d:model": {
+    "latex": "\\begin{definition}\\label{d:model}\nFor integers \\(L,N\\ge3\\), let \\(\\Lambda=\\Lambda_{L,N}=\\mathbb Z_L\\times\\mathbb Z_N\\)\nwith its simple, unoriented nearest-neighbour edge set \\(E_{L,N}\\).\nThe Hilbert space is \\(\\mathcal H_\\Lambda=\\bigotimes_{x\\in\\Lambda}V_4\\).\nEach site carries the spin-\\(2\\) space \\(V_4\\), and \\(P_{\\{x,y\\}}\\)\nis the orthogonal projection onto total spin \\(4\\) in \\(V_4\\otimes V_4\\).\nFix one orientation of each edge and set\n\\[\n q_{xy}=z_{x,1}z_{y,2}-z_{x,2}z_{y,1},\\qquad\n B_{L,N}=\\prod_{e\\in E_{L,N}}q_e,\\qquad\n H_{L,N}=\\sum_{e\\in E_{L,N}}P_e.\n\\]\nEvery edge is counted once. The spectral gap of \\(H_{L,N}\\) means its\nsmallest positive eigenvalue.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.hamiltonian",
+      "AKLT.Defs.vbs"
+    ]
+  },
+  "d:moment": {
+    "latex": "\\begin{definition}\\label{d:moment}\nWrite \\(\\mathbb S^2=\\{a\\in\\mathbb R^3:|a|=1\\}\\), put\n\\(\\phi=(1+\\sqrt5)/2\\), \\(r=\\sqrt{\\phi+2}\\), and set\n\\[\n D=\\frac1r\\{(0,\\pm1,\\pm\\phi),(\\pm1,\\pm\\phi,0),(\\pm\\phi,0,\\pm1)\\},\n \\qquad\n \\mathcal M(f)=\\frac1{12}\\sum_{a\\in D}f(a).\n\\]\nAll indicated signs are independent. Define finite probability laws\n\\(\\lambda_{\\mathrm U}=\\frac1{12}\\sum_{a\\in D}\\delta_a\\) and\n\\(\\lambda_{\\mathrm D}=\\frac35\\lambda_{\\mathrm U}+\\frac25\\delta_0\\).\nProducts of these functionals always mean finite sums.\nFor plane sites, \\(d\\) denotes ambient \\(\\ell^1\\) distance and\n\\(\\operatorname{dist}_\\infty\\) denotes ambient \\(\\ell^\\infty\\) distance.\nDistances to an empty set are \\(+\\infty\\); a product over an empty site\nset has its one empty configuration. For finite probabilities, use\n\\[\n d_{\\rm TV}(p,p')=\\tfrac12\\sum_z|p(z)-p'(z)|,\\qquad\n \\operatorname{Var}_\\mu f=\\mu(|f-\\mu f|^2),\\qquad\n d_H(n,n')=\\sum_x\\mathbf1_{\\{n_x\\ne n'_x\\}} .\n\\]\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.Plane",
+      "AKLT.Defs.latticeDist",
+      "AKLT.Defs.supDist",
+      "AKLT.Defs.Adjacent",
+      "AKLT.Defs.neighbours",
+      "AKLT.Defs.setDistance",
+      "AKLT.Defs.Vec3",
+      "AKLT.Defs.dot",
+      "AKLT.Defs.normSq",
+      "AKLT.Defs.UnitVector",
+      "AKLT.Defs.BallVector",
+      "AKLT.Defs.goldenRatio",
+      "AKLT.Defs.icoRadius",
+      "AKLT.Defs.IcoLetter",
+      "AKLT.Defs.signValue",
+      "AKLT.Defs.icoVector",
+      "AKLT.Defs.icoSet",
+      "AKLT.Defs.moment",
+      "AKLT.Defs.SpinLetter",
+      "AKLT.Defs.spinVector",
+      "AKLT.Defs.spinWeight",
+      "AKLT.Defs.siteFunctional",
+      "AKLT.Defs.totalVariation",
+      "AKLT.Defs.hamming"
+    ]
+  },
+  "l:moments": {
+    "latex": "\\begin{lemma}\\label{l:moments}\nThe set \\(D\\) has twelve distinct unit vectors and is antipodal.\nFor \\(i,j,k,l\\in\\{1,2,3\\}\\),\n\\[\n \\begin{gathered}\n \\mathcal M(1)=1,\\qquad \\mathcal M(n_i)=\\mathcal M(n_in_jn_k)=0,\\qquad\n \\mathcal M(n_in_j)=\\delta_{ij}/3,\\\\\n \\mathcal M(n_in_jn_kn_l)=\n (\\delta_{ij}\\delta_{kl}+\\delta_{ik}\\delta_{jl}+\\delta_{il}\\delta_{jk})/15.\n \\end{gathered}\n\\]\nFor every polynomial \\(p\\) of total degree at most four and every\n\\(R\\in\\mathrm O(3)\\), \\(\\mathcal M(p\\circ R)=\\mathcal M(p)\\).\nThe same covariance holds for \\(\\lambda_{\\mathrm D}\\); its constant\nmoment is one and its moments of positive degree at most four are\n\\(3/5\\) times those displayed above.\nThese assertions hold site by site for polynomials of separate degree\nat most four in a finite product of spins.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.DegreeFour",
+      "AKLT.Defs.SeparateDegreeFour",
+      "AKLT.Defs.productFunctional",
+      "AKLT.Defs.rationalMoment",
+      "AKLT.Defs.rationalStatusMoment",
+      "AKLT.Defs.contractSpins",
+      "AKLT.Blueprint.Top.MomentsStatement"
+    ]
+  },
+  "d:pinmodel": {
+    "latex": "\\begin{definition}\\label{d:pinmodel}\nFor finite \\(G\\subset\\mathbb Z^2\\), let\n\\[\n \\mathcal L(G)=\\{(x,z):x\\in G,\\ z\\notin G,\\ d(x,z)=1\\},\\qquad\n S(G)=\\{x\\in G:d(x,\\mathbb Z^2\\setminus G)\\le2\\}.\n\\]\nA pin assignment is \\(\\tau\\in(\\mathbb S^2)^{\\mathcal L(G)}\\).\nFor \\(Y\\subset G\\), write \\(D_Y=G\\setminus Y\\) and define\n\\[\n Z^\\tau_{D_Y}[f]=\n \\sum_{n\\in D^{D_Y}}12^{-|D_Y|}f(n)\n \\prod_{\\substack{\\{x,y\\}\\subset D_Y\\\\d(x,y)=1}}(1+n_x\\cdot n_y)\n \\prod_{\\substack{(x,z)\\in\\mathcal L(G)\\\\x\\in D_Y}}\n       (1+\\tau_{xz}\\cdot n_x).\n\\]\nThe free sum \\(Z^0_{D_Y}[f]\\) omits all leg factors.\nWrite \\(Z^\\bullet_{D_Y}=Z^\\bullet_{D_Y}[1]\\),\n\\(\\mathbb E^\\bullet_{D_Y}f=Z^\\bullet_{D_Y}[f]/Z^\\bullet_{D_Y}\\),\nand \\(\\Psi_{D_Y}(\\tau)=Z^\\tau_{D_Y}/Z^0_{D_Y}\\).\nHere and below \\(\\bullet\\) is either \\(\\tau\\) or \\(0\\).\nThe empty partition sum is one. There are no new factors on legs into \\(Y\\).\nDifferent original legs may carry unrelated unit pins, even if their\noutside endpoints coincide.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.positiveNeighbours",
+      "AKLT.Defs.internalBonds",
+      "AKLT.Defs.originalLegs",
+      "AKLT.Defs.boundaryDepth",
+      "AKLT.Defs.protectedSites",
+      "AKLT.Defs.PinAssignment",
+      "AKLT.Defs.extendIcoSpins",
+      "AKLT.Defs.pinnedSum",
+      "AKLT.Defs.freeSum",
+      "AKLT.Defs.pinnedExpectation",
+      "AKLT.Defs.freeExpectation",
+      "AKLT.Defs.partitionRatio"
+    ]
+  },
+  "l:finitefacts": {
+    "latex": "\\begin{lemma}\\label{l:finitefacts}\nConsider a finite network with site laws \\(\\lambda_{\\mathrm U}\\) or\n\\(\\lambda_{\\mathrm D}\\), retained distinct-endpoint bonds\n\\(1+n_x\\cdot n_y\\), and retained original unit-pin factors\n\\(1+\\tau_\\ell\\cdot n_x\\), with at most four factors incident to each site.\nIts pinned and free partition sums are strictly positive, including\nthe empty network. Non-neighbours are conditionally independent given\nthe other spins on every conditioning event of positive probability.\nIf \\(f\\) is a product of scalar products of spins and the product of\n\\(f\\) with the bond factors has separate degree at most four at every\nsite, then \\(Z^0[f]\\ge0\\), hence \\(\\mathbb E^0 f\\ge0\\).\nAll normalized spins have norm at most one.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.FiniteSpinNetwork",
+      "AKLT.Defs.FiniteSpinNetwork.Valid",
+      "AKLT.Defs.FiniteSpinNetwork.weight",
+      "AKLT.Defs.FiniteSpinNetwork.partition",
+      "AKLT.Blueprint.Top.FiniteFactsStatement"
+    ]
+  },
+  "l:35": {
+    "latex": "\\begin{lemma}\\label{l:35}\nFor \\(0\\le k\\le3\\) and \\(|a_j|\\le1\\), the probability law proportional to\n\\(\\prod_{j=1}^k(1+n\\cdot a_j)\\lambda_{\\mathrm U}(\\mathrm dn)\\)\nhas mean of norm at most \\(3/5\\). The same bound holds with\n\\(\\lambda_{\\mathrm D}\\) in place of \\(\\lambda_{\\mathrm U}\\).\nMoreover,\n\\[\n \\left\\{\n \\frac{\\mathcal M\\!\\left(n\\prod_{j=1}^3(1+n\\cdot a_j)\\right)}\n      {\\mathcal M\\!\\left(\\prod_{j=1}^3(1+n\\cdot a_j)\\right)}\n       :a_1,a_2,a_3\\in\\mathbb S^2\n \\right\\}=\\{b\\in\\mathbb R^3:|b|\\le3/5\\}.\n\\]\nConsequently an unpinned site having at most three present factors\nhas conditional mean of norm at most \\(3/5\\), on every positive\nconditioning fibre.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.localProduct",
+      "AKLT.Defs.localMean",
+      "AKLT.Blueprint.Top.ThreeFactorMeanStatement"
+    ]
+  },
+  "l:exact": {
+    "latex": "\\begin{lemma}\\label{l:exact}\nAt each site of a finite set choose any positive weighted unit-vector\nlaw whose moments through degree four equal those of \\(\\mathcal M\\).\nA polynomial of separate degree at most four has the same product\nfunctional under these laws as under \\(\\lambda_{\\mathrm U}\\) at all\nsites. The analogous assertion holds after replacing any chosen site\nlaws by \\(3/5\\) times that law plus \\(2/5\\,\\delta_0\\).\nIn particular this applies to partition products of factors\n\\(1\\pm n_x\\cdot n_y\\) and \\(1\\pm n_x\\cdot a\\), \\(|a|=1\\), whenever\neach variable occurs at most four times, and to inserted observables\nonly when their degrees are included in this same bound.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.MomentLaw",
+      "AKLT.Defs.momentLawFunctional",
+      "AKLT.Blueprint.Top.ExactStatement"
+    ]
+  },
+  "h:P": {
+    "latex": "\\begin{definition}[(P)]\\label{h:P}\nFor \\(A\\ge2\\) and \\(0<\\theta<1\\), property \\(\\mathsf P(A,\\theta)\\)\nmeans that, for every finite \\(G\\subset\\mathbb Z^2\\), every unit-pin\nassignment on \\(\\mathcal L(G)\\), every\n\\(Y\\subset G\\setminus S(G)\\), and all \\(u,v\\in G\\setminus Y\\) with\n\\(d(u,v)=2\\) and a common neighbour in \\(Y\\),\n\\[\n \\left|\\mathbb E^\\tau_{G\\setminus Y}(n_u\\cdot n_v)\n             -\\mathbb E^0_{G\\setminus Y}(n_u\\cdot n_v)\\right|\n \\le A\\theta^{\\min\\{d(u,S(G)),d(v,S(G))\\}} .\n\\]\nThe distances are ambient plane distances to the original \\(S(G)\\);\nremoved sites are not added to the boundary.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.decay",
+      "AKLT.Defs.ResponseProperty",
+      "AKLT.Blueprint.Top.PStatement"
+    ]
+  },
+  "d:poly": {
+    "latex": "\\begin{definition}\\label{d:poly}\nLet \\(V_d\\) be the homogeneous binary polynomials of degree \\(d\\).\nIts monomials \\(z_1^{d-j}z_2^j\\), \\(0\\le j\\le d\\), are orthogonal with\nsquared norms \\(\\binom dj^{-1}\\). The action is\n\\((U_gp)(z)=p(g^{-1}z)\\). Use \\(V_4\\) at each physical site.\nFor each of the finitely many frame letters \\(a\\) choose one unit\nspinor \\(\\zeta(a)\\in\\mathbb C^2\\) with\n\\(\\zeta(a)\\zeta(a)^*=(I+a\\cdot\\sigma)/2\\).\nNo spinor choice on the whole sphere is part of the definitions.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.Spinor",
+      "AKLT.Defs.frameSpinor",
+      "AKLT.Defs.BinaryForm",
+      "AKLT.Defs.binaryNormSq",
+      "AKLT.Defs.binaryEval",
+      "AKLT.Defs.binaryPolynomial",
+      "AKLT.Defs.binaryActionPolynomial",
+      "AKLT.Defs.physicalEval",
+      "AKLT.Defs.polynomialState"
+    ]
+  },
+  "d:frame": {
+    "latex": "\\begin{definition}\\label{d:frame}\nA frame is a finite set \\(A\\subset\\mathbb S^2\\) with positive weights\n\\(w(a)\\) summing to one such that\n\\(\\sum_{a\\in A}w(a)p(a)=\\mathcal M(p)\\)\nfor every real polynomial \\(p\\) of degree at most four.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.FrameData",
+      "AKLT.Defs.IsFrame"
+    ]
+  },
+  "l:tight": {
+    "latex": "\\begin{lemma}\\label{l:tight}\nFor every frame \\((A,w)\\) and every \\(p\\in V_4\\),\n\\[\n \\sum_{a\\in A}5w(a)|p(\\zeta(a))|^2=\\|p\\|_{V_4}^2.\n\\]\nFor site frames \\((D_x,w_x)\\), set \\(\\Omega=\\prod_xD_x\\),\n\\(\\pi(s)=\\prod_x5w_x(s_x)\\), and\n\\(\\iota\\varphi(s)=\\varphi((\\zeta(s_x))_x)\\).\nThen \\(\\iota:\\mathcal H_\\Lambda\\to\\ell^2(\\Omega,\\pi)\\) is an isometry.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.torusReference",
+      "AKLT.Defs.frameEval",
+      "AKLT.Blueprint.Top.TightStatement"
+    ]
+  },
+  "l:threeframes": {
+    "latex": "\\begin{lemma}\\label{l:threeframes}\nLet\n\\[\n T=\\begin{pmatrix}99/101&-20/101&0\\\\20/101&99/101&0\\\\0&0&1\\end{pmatrix},\n \\quad D^{(j)}=T^jD\\ (j=0,1,2),\\quad\n b=\\frac{5-\\sqrt5}{505},\\quad r_b=\\frac b{2-b}.\n\\]\nThe matrix \\(T\\) is in \\(\\mathrm{SO}(3)\\).\nEach \\(D^{(j)}\\), with uniform weights \\(1/12\\), is an antipodal frame.\nFor \\(i\\ne j\\), \\(a\\in D^{(i)}\\), \\(a'\\in D^{(j)}\\),\n\\[\n 0<b<1,\\qquad b\\le1\\pm a\\cdot a'\\le2-b,\\qquad0<r_b<1.\n\\]\nThe common lower bound \\(b\\) is attained, and distinct frames are\ndisjoint even up to antipodal signs.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.frameRotation",
+      "AKLT.Defs.frameVector",
+      "AKLT.Defs.frameBound",
+      "AKLT.Defs.frameRatio",
+      "AKLT.Blueprint.Top.ThreeFramesStatement"
+    ]
+  },
+  "d:framemodel": {
+    "latex": "\\begin{definition}\\label{d:framemodel}\nGiven any proper three-colouring \\(\\kappa\\) of a plane or torus,\nput \\(D_x=D^{(\\kappa(x))}\\), with weights \\(1/12\\).\nOn the torus define\n\\[\n \\mu^{\\mathrm{af}}_{\\kappa,L,N}(s)=\n \\frac1{Z^{\\mathrm{af}}}\\prod_x\\frac1{12}\n       \\prod_{\\{x,y\\}\\in E_{L,N}}(1-s_x\\cdot s_y).\n\\]\nOn the plane, for finite \\(W\\subset\\mathbb Z^2\\) and\n\\(\\eta_z\\in D_z\\) at exterior neighbour sites, define\n\\[\n \\mu^{+,\\eta}_{\\kappa,W}(n)=\\frac1{Z^{+,\\eta}_{\\kappa,W}}\n \\prod_{x\\in W}\\frac1{12}\n \\prod_{\\substack{\\{x,y\\}\\subset W\\\\d(x,y)=1}}(1+n_x\\cdot n_y)\n \\prod_{\\substack{x\\in W,z\\notin W\\\\d(x,z)=1}}(1+n_x\\cdot\\eta_z).\n\\]\nOnly the finitely many needed exterior letters are specified.\nThese laws have full support. Write \\(E_U\\) for conditioning off \\(U\\),\n\\(\\operatorname{Var}_U f=E_U|f-E_Uf|^2\\), and\n\\[\n \\mathcal D_\\mu(f)=\\sum_x\\mu(\\operatorname{Var}_x f),\\qquad\n \\lambda(\\mu)=\\inf_{\\operatorname{Var}_\\mu f>0}\n             \\frac{\\mathcal D_\\mu(f)}{\\operatorname{Var}_\\mu f}.\n\\]\nAll generators have one update per physical site. A gap lower bound is\nalways equivalently a Poincare inequality, including one-point spaces.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.ProperPlaneColouring",
+      "AKLT.Defs.ProperTorusColouring",
+      "AKLT.Defs.PlaneConfiguration",
+      "AKLT.Defs.exteriorSites",
+      "AKLT.Defs.FrameBoundary",
+      "AKLT.Defs.extendLetters",
+      "AKLT.Defs.extendBoundary",
+      "AKLT.Defs.planeWeight",
+      "AKLT.Defs.planeLaw",
+      "AKLT.Defs.marginal",
+      "AKLT.Defs.TorusConfiguration",
+      "AKLT.Defs.torusWeight",
+      "AKLT.Defs.torusLaw",
+      "AKLT.Defs.Weight",
+      "AKLT.Defs.normalize",
+      "AKLT.Defs.PositiveProbability",
+      "AKLT.Defs.Probability",
+      "AKLT.Defs.expectation",
+      "AKLT.Defs.complexMean",
+      "AKLT.Defs.variance",
+      "AKLT.Defs.conditionalVariance",
+      "AKLT.Defs.dirichlet",
+      "AKLT.Defs.PoincareLower",
+      "AKLT.Defs.heatBathGap",
+      "AKLT.Defs.Coupling"
+    ]
+  },
+  "l:planeenergy": {
+    "latex": "\\begin{lemma}\\label{l:planeenergy}\nAll the frame specifications above are consistent under conditioning\nand have nearest-neighbour Markov dependence. Uniformly over proper\ncolourings, finite volumes, admissible frame-valued boundaries, and\nfully specified one-site fibres, every letter has conditional\nprobability at least\n\\[\n \\alpha=\\frac1{12}r_b^4\\in(0,1].\n\\]\nThe same lower bound holds after conditioning on fewer letters.\nAny prescribed assignment on \\(k\\) sites, under arbitrary consistent\npartial conditioning off those sites, has conditional probability\nat least \\(\\alpha^k\\).\nFor a finite plane block \\(Q\\), the single-site heat bath of every conditional block law in \\(Q\\) has Poincare gap at least\n\\(r_b^{|E(Q)|}\\), where \\(E(Q)\\) is its internal edge set.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.frameEnergy",
+      "AKLT.Defs.inducedBoundary",
+      "AKLT.Defs.conditionalPlaneLaw",
+      "AKLT.Defs.conditionalTorusLaw",
+      "AKLT.Defs.sitesInVolume",
+      "AKLT.Blueprint.Top.PlaneEnergyStatement"
+    ]
+  },
+  "d:shells": {
+    "latex": "\\begin{definition}\\label{d:shells}\nFor \\(a\\in\\mathbb Z^2\\), integer \\(u\\ge1\\), put\n\\(C_u(a)=a+\\{-u,\\ldots,u\\}^2\\).\nFor \\(\\operatorname{dist}_\\infty(y,C_u(a))=1\\), let\n\\(s=u^{1/4}\\), \\(k_i=\\lfloor is\\rfloor\\), \\(i_1=\\lfloor s\\rfloor+1\\).\nFor an integer \\(l_0\\ge1\\) define\n\\[\n \\begin{split}\n F_i&=\\{x\\in C_u(a):|x-y|_\\infty>(i-1)s\\},\\\\\n D_i&=\\{x\\in C_u(a):|x-y|_\\infty=k_i\\},\\\\\n A_i&=\\{x\\in D_i:\\operatorname{dist}_\\infty\n                    (x,\\mathbb Z^2\\setminus C_u(a))\\le l_0\\},\\qquad\n B_i=D_i\\setminus A_i .\n \\end{split}\n\\]\nLet \\(I_0\\) consist of the integers \\(2\\le i\\le i_1\\) for which\nsome point of \\(D_i\\) is at distance strictly less than \\(s/3\\)\nfrom a corner site of \\(C_u(a)\\).\nAll these are sets of physical sites.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.square",
+      "AKLT.Defs.squareCorners",
+      "AKLT.Defs.shellSpacing",
+      "AKLT.Defs.shellRadius",
+      "AKLT.Defs.lastShellIndex",
+      "AKLT.Defs.farVolume",
+      "AKLT.Defs.shell",
+      "AKLT.Defs.nearShell",
+      "AKLT.Defs.window",
+      "AKLT.Defs.exceptionalIndices"
+    ]
+  },
+  "d:W": {
+    "latex": "\\begin{definition}[(W)]\\label{d:W}\nThe family of plane frame specifications has \\(\\mathsf W(l_0,p_0,M_\\star)\\)\nif \\(l_0,M_\\star\\) are positive integers, \\(0<p_0\\le1\\), and,\nfor every proper plane three-colouring, every translate \\(C_u(a)\\)\nwith integer \\(u\\ge M_\\star\\), every \\(y\\) as in Definition~\\ref{d:shells},\nevery integer \\(2\\le i\\le u^{1/4}\\) outside \\(I_0\\), and every two\nadmissible frame-valued boundary conditions \\(\\eta,\\xi\\) for \\(F_i\\),\n\\[\n d_{\\mathrm{TV}}\\!\\left(\n       \\mu^{+,\\eta}_{\\kappa,F_i,B_i},\n       \\mu^{+,\\xi}_{\\kappa,F_i,B_i}\\right)\\le1-p_0 .\n\\]\nThe subscript \\(B_i\\) denotes a marginal. Boundaries are arbitrary\nwithin their site alphabets; they need not agree anywhere.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.planeMarginal",
+      "AKLT.Defs.WindowProperty"
+    ]
+  },
+  "l:shellgeom": {
+    "latex": "\\begin{lemma}\\label{l:shellgeom}\nFor \\(u\\ge M_{\\mathrm g}(l_0)=\\max\\{16,6(l_0+1)\\}^4\\),\n\\(|I_0|\\le1\\), and \\(D_i\\subset F_i\\) for \\(2\\le i\\le i_1\\).\nFor \\(2\\le i\\le i_1\\) outside \\(I_0\\), \\(|A_i|\\le8l_0\\).\nEvery side of \\(y+[-k_i,k_i]^2\\) parallel to an edge of \\(C_u(a)\\)\nand meeting \\(C_u(a)\\) is at distance at least \\(s/3\\) from the\nexterior half-plane beyond that edge.\nFor \\(i\\ge2\\), every point of \\(C_u(a)\\setminus F_i\\)\nwithin \\(\\ell^\\infty\\) distance one of \\(F_i\\) lies in \\(D_{i-1}\\);\n\\(y\\) is not within that distance of \\(F_i\\).\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.geometryThreshold",
+      "AKLT.Defs.ParallelClearance",
+      "AKLT.Blueprint.Top.ShellGeometryStatement"
+    ]
+  },
+  "t:cutMOS": {
+    "latex": "\\begin{theorem}\\label{t:cutMOS}\nIf \\(\\mathsf P(A,\\theta)\\) holds, then the family of plane frame\nspecifications has \\(\\mathsf W(64,p_0,M_\\star)\\), with common\n\\(p_0\\in(0,1]\\) and integer \\(M_\\star\\ge1\\) depending only on\n\\(A,\\theta\\). The constants work for every proper plane\nthree-colouring and every translate.\nSpecifically, let\n\\[\n E=1+4A+10A\\theta^{-4}\n       \\left[48\\theta^{14}\\left(17+\\frac1{1-\\theta}\\right)+1\\right],\n \\qquad p_0=e^{-2E}.\n\\]\nThere exists an integer \\(M_\\star\\ge1\\) for which (W) holds\nwith this displayed choice of \\(p_0\\).\n\\end{theorem}",
+    "declarations": [
+      "AKLT.Defs.cutCost",
+      "AKLT.Defs.cutProbability",
+      "AKLT.Blueprint.Top.CutMOSStatement"
+    ]
+  },
+  "d:domain": {
+    "latex": "\\begin{definition}\\label{d:domain}\nFix finite \\(G\\), \\(S=S(G)\\), and original unit pins \\(\\tau\\).\nA domain assigns statuses \\(\\mathrm U,\\mathrm D,\\mathrm X\\);\n\\(\\mathrm X\\) sites are removed. Each nonremoved site has a kept\nsubset of its incident bonds inside \\(G\\). A bond is present if both\nends are nonremoved and both keep it. A \\(\\mathrm D\\) site has at\nmost two present bonds. Protected sites in \\(S\\) have status\n\\(\\mathrm U\\) and keep every incident bond inside \\(G\\).\nUse \\(\\lambda_{\\mathrm U},\\lambda_{\\mathrm D}\\) at the corresponding\nsites and define\n\\[\n Z_D^\\tau[f]=\\sum_n f(n)\n       \\prod_{\\text{present }\\{x,y\\}}(1+n_x\\cdot n_y)\n       \\prod_{\\substack{(x,z)\\in\\mathcal L(G)\\\\x\\in S}}\n                   (1+\\tau_{xz}\\cdot n_x)\n       \\prod_{x:\\,\\mathrm{st}(x)\\ne\\mathrm X}\\lambda_{\\mathrm{st}(x)}(n_x).\n\\]\nThe sum is over the product of the supports \\(D\\) at \\(\\mathrm U\\)\nsites and \\(D\\cup\\{0\\}\\) at \\(\\mathrm D\\) sites.\nDefine the free sum, normalized expectations and \\(\\Psi_D\\) as before.\nThe class \\(\\mathcal D_{\\mathrm{cons}}(G)\\) consists of domains in\nwhich every \\(\\mathrm U\\) site keeps all its bonds, every \\(\\mathrm D\\)\nsite keeps exactly two, and every bond between nonremoved sites is\nkept by both ends or by neither.\nAn auxiliary network has the same data but permits protected\n\\(\\mathrm U\\) sites to have arbitrary kept subsets. It retains every\noriginal leg factor. Neither domains nor auxiliary networks carry\na scalar trace mass. Only the networks occurring below, with at most\nfour factors at each site, are used.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.Network",
+      "AKLT.Defs.Network.active",
+      "AKLT.Defs.Network.Present",
+      "AKLT.Defs.Network.bonds",
+      "AKLT.Defs.Network.presentNeighbours",
+      "AKLT.Defs.Network.LocalRules",
+      "AKLT.Defs.Network.Ordinary",
+      "AKLT.Defs.Network.Auxiliary",
+      "AKLT.Defs.Network.Consistent",
+      "AKLT.Defs.Network.spins",
+      "AKLT.Defs.Network.partition",
+      "AKLT.Defs.Network.expectation",
+      "AKLT.Defs.Network.ratio",
+      "AKLT.Defs.Status"
+    ]
+  },
+  "l:response": {
+    "latex": "\\begin{lemma}\\label{l:response}\nAt a \\(\\mathrm U\\) departure \\(y\\notin S\\), write\n\\(r_{ab}=\\mathbb E^\\tau_{E'}P_{ab}-\\mathbb E^0_{E'}P_{ab}\\).\nWith three present neighbours,\n\\[\n \\log\\rho_j^0-\\log\\rho_j^\\tau\n       =\\alpha_jr_{fg}+\\beta_j(r_{fo}+r_{go}),\\qquad\n 0<\\alpha_j\\le\\bar\\alpha=\\frac{18094}{100000},\\quad\n 0<\\beta_j\\le\\bar\\beta=\\frac{36751}{100000}.\n\\]\nWith two present neighbours the response is \\(\\beta_j'r_{fo}\\),\nwhere \\(0<\\beta_j'\\le35510/100000\\le\\bar\\beta\\);\nwith one it is zero. Also \\(\\rho_j^0\\le1\\) and\n\\(\\rho_j^\\tau\\le12/5\\).\nA \\(\\mathrm D\\) departure has zero logarithmic response.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.responseBeta",
+      "AKLT.Defs.responseAlpha",
+      "AKLT.Defs.responseBetaPrime",
+      "AKLT.Blueprint.Top.ResponseStatement"
+    ]
+  },
+  "d:pattern": {
+    "latex": "\\begin{definition}\\label{d:pattern}\nLet \\(\\mathsf T=\\{z:d(z,0)\\le2\\}\\), with passage site \\(0\\),\narrival site \\(\\mathsf s=(0,-1)\\), other neighbours\n\\(\\mathsf e=(1,0),\\mathsf N=(0,1),\\mathsf W=(-1,0)\\),\nfour corners \\((\\pm1,\\pm1)\\), and tips \\((\\pm2,0),(0,\\pm2)\\).\nThe external slots are the two external bonds at each corner and\nthe three at each tip, twenty in total.\nA pattern chooses an out-neighbour \\(o\\in\\{\\mathsf e,\\mathsf N,\\mathsf W\\}\\)\nand statuses/kept sets with the following rules.\nThe passage site is \\(\\mathrm U\\) and keeps precisely its three\nnon-arrival bonds. The arrival site is removed or is \\(\\mathrm D\\)\nkeeping two of its three non-passage bonds.\nEach other neighbour is \\(\\mathrm U,\\mathrm X\\), or \\(\\mathrm D\\)\nkeeping its passage bond and one other bond; \\(o\\) is not removed.\nEach corner is \\(\\mathrm U,\\mathrm X\\), or \\(\\mathrm D\\) keeping\ntwo of its four bonds. Every \\(\\mathrm U\\) site other than the\npassage site keeps all four bonds.\nBetween nonremoved non-tip sites, a bond is kept by both ends or\nby neither. Tips are covering \\(\\mathrm U\\) sites; their bond to\na neighbour \\(z\\) is present exactly when \\(z\\) is nonremoved and\nkeeps that bond. No consistency condition with a global tip kept\nset is imposed.\nFor \\(m\\in(\\mathbb S^2)^{20}\\), include every external slot factor\nat every nonremoved corner and tip, including both corner slots\nwhen the corresponding actual external bonds are missing.\nLet \\(Z_{\\rm cur}(\\pi;m)\\) be the finite product functional of\nall present template bonds and these slots, using the status laws.\nLet \\(Z_{\\rm next}(\\pi;m)\\) change the passage law to\n\\(\\lambda_{\\mathrm D}\\) and drop its out-bond.\nThe resulting class is \\(\\mathcal P_{\\rm ext}\\); it is straight\nwhen \\(o=\\mathsf N\\), and turning otherwise.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.templateSites",
+      "AKLT.Defs.templateTips",
+      "AKLT.Defs.templateCorners",
+      "AKLT.Defs.externalSlot",
+      "AKLT.Defs.PatternData",
+      "AKLT.Defs.PatternData.statusAt",
+      "AKLT.Defs.PatternData.keptAt",
+      "AKLT.Defs.PatternData.Covered",
+      "AKLT.Defs.PatternData.bonds",
+      "AKLT.Defs.PatternData.active",
+      "AKLT.Defs.PatternData.spins",
+      "AKLT.Defs.patternFunctional",
+      "AKLT.Defs.patternCurrent",
+      "AKLT.Defs.patternNext"
+    ]
+  },
+  "h:H1": {
+    "latex": "\\begin{definition}[(H1)]\\label{h:H1}\nFor \\(c_{\\mathrm s},c_{\\mathrm t}\\in(0,1]\\), (H1) means that\nfor every \\(\\pi\\in\\mathcal P_{\\rm ext}\\) and every\n\\(m\\in(\\mathbb S^2)^{20}\\),\n\\[\n Z_{\\rm cur}(\\pi;m)\\ge c_{\\rm type(\\pi)}Z_{\\rm next}(\\pi;m).\n\\]\nIn the paper the fixed thresholds are\n\\(c_{\\mathrm s}=961/1000\\), \\(c_{\\mathrm t}=187/200\\).\nNo minimum, minimizing pins, or optimal inversion is asserted.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.LocalPatternBound",
+      "AKLT.Blueprint.Top.H1Statement"
+    ]
+  },
+  "d:weights": {
+    "latex": "\\begin{definition}\\label{d:weights}\nPut \\(x_{\\mathrm s}=1/c_{\\mathrm s}\\), \\(x_{\\mathrm t}=1/c_{\\mathrm t}\\).\nA lattice trail \\(w=(v_0,\\ldots,v_n)\\) has distinct unoriented\nnearest-neighbour bonds. Give it a designated unit incoming direction\n\\(a\\), and forbid \\(v_1-v_0=-a\\) when \\(n\\ge1\\); the virtual\nincoming bond is not itself a used bond of the trail.\nFor departure \\(i\\), \\(0\\le i<n\\), give weight \\(1/5\\) if \\(v_i\\)\nhas been departed from earlier, and otherwise weight \\(x_{\\mathrm s}/3\\)\nfor continuing in the incoming direction and \\(x_{\\mathrm t}/3\\)\nfor a turn. Let \\(\\mathsf W(w)\\) be the product, with\n\\(\\mathsf W(\\varnothing)=1\\).\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.localThreshold",
+      "AKLT.Defs.passageFactor",
+      "AKLT.Defs.DirectionWord",
+      "AKLT.Defs.wordVertex",
+      "AKLT.Defs.wordBond",
+      "AKLT.Defs.IsTrail",
+      "AKLT.Defs.wordIncoming",
+      "AKLT.Defs.wordStraight",
+      "AKLT.Defs.departureCount",
+      "AKLT.Defs.wordRevisit",
+      "AKLT.Defs.trailWeight",
+      "AKLT.Defs.trailBaseWeight"
+    ]
+  },
+  "h:H2": {
+    "latex": "\\begin{definition}[(H2)]\\label{h:H2}\nFor \\(C_V\\ge1\\) and \\(0<q<1\\), (H2) means that for every\ninteger \\(n\\ge0\\), every start and every designated incoming direction,\n\\[\n \\sum_{\\substack{|w|=n\\\\\\text{initial reversal forbidden}}}\n                      \\mathsf W(w)\\le C_Vq^n .\n\\]\nThe sum is over plane lattice trails with those specified initial data.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.OpenTrailBound",
+      "AKLT.Blueprint.Top.H2Statement"
+    ]
+  },
+  "l:log-mean-bounds": {
+    "latex": "\\begin{lemma}\\label{l:log-mean-bounds}\nLet \\(\\mathcal L(x,y)=(x-y)/(\\log x-\\log y)\\) for \\(x\\ne y\\)\nand \\(\\mathcal L(x,x)=x\\), for positive \\(x,y\\).\nPut \\(f(s)=1/\\mathcal L(s,1)\\), so \\(f(1)=1\\).\nFor \\(3/5\\le c\\le1\\), the function\n\\[\n G_c(x,y)=\\frac1{3\\mathcal L(cx,y)}-\\frac1{5\\mathcal L(x,y)}\n\\]\nis nonincreasing in each positive variable. In particular,\nfor \\(x\\ge a=116/125\\), \\(y\\ge1\\),\n\\[\n G_c(x,y)\\le f(ac)/3-f(a)/5.\n\\]\nFor rational \\(0<s<1\\), put \\(t=(1-s)/(1+s)\\) and\n\\[\n f_-(s)=\\frac2{1-s}\\sum_{k=0}^{7}\\frac{t^{2k+1}}{2k+1},\n \\qquad\n f_+(s)=f_-(s)+\\frac{2t^{17}}{17(1-t^2)(1-s)}.\n\\]\nThen \\(f_-(s)\\le f(s)\\le f_+(s)\\).\nFor the two rows of the following table, all numbers are exact rationals:\n\\[\n \\begin{array}{c|c|ccc}\n \\tau&c_\\tau&a_\\tau&b_\\tau&b'_\\tau\\\\ \\hline\n {\\rm s}&961/1000&145217/10^6&352782/10^6&340008/10^6\\\\\n {\\rm t}&187/200&150000/10^6&357549/10^6&344661/10^6\n \\end{array}\n\\]\nThey satisfy\n\\[\n \\frac{f_+(ac_\\tau)}3-\\frac{f_-(a)}5\\le a_\\tau,\\qquad\n \\frac{f_+(ac_\\tau)}3\\le b_\\tau,\\qquad\n \\frac{f_+(c_\\tau)}3\\le b'_\\tau,\\qquad\n 0<b'_\\tau\\le b_\\tau .\n\\]\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.logarithmicMean",
+      "AKLT.Defs.reciprocalLogMean",
+      "AKLT.Defs.logMeanLower",
+      "AKLT.Defs.logMeanUpper",
+      "AKLT.Defs.alphaBound",
+      "AKLT.Defs.betaBound",
+      "AKLT.Defs.betaPrimeBound",
+      "AKLT.Blueprint.Top.LogMeanBoundsStatement"
+    ]
+  },
+  "l:response-typed": {
+    "latex": "\\begin{lemma}\\label{l:response-typed}\nFix \\(c_{\\rm s}=961/1000\\), \\(c_{\\rm t}=187/200\\) and assume (H1).\nAt a covered \\(\\mathrm U\\) departure of type \\(\\tau\\in\\{{\\rm s},{\\rm t}\\}\\),\nthe response coefficients in Lemma~\\ref{l:response} satisfy\n\\[\n 0<\\alpha_j\\le a_\\tau,\\qquad 0<\\beta_j\\le b_\\tau\n       \\quad\\hbox{with three present neighbours},\\qquad\n 0<\\beta'_j\\le b'_\\tau\\quad\\hbox{with two}.\n\\]\nHere the exact constants are those of Lemma~\\ref{l:log-mean-bounds};\nin particular \\(a_{\\rm t}=150000/10^6\\).\nWith \\(a=116/125\\), their analytic bounds are\n\\[\n \\beta_j\\le f(ac_\\tau)/3,\\qquad\n \\beta'_j\\le f(c_\\tau)/3,\\qquad\n \\alpha_j\\le f(ac_\\tau)/3-f(a)/5.\n\\]\nThese follow using \\(I^\\tau\\ge c_\\tau J^\\tau\\),\n\\(I^0\\ge J^0\\ge1\\), and \\(J^\\tau\\ge a\\).\nAlso \\(a_\\tau\\le18094/100000\\) and\n\\(b_\\tau,b'_\\tau\\le36751/100000\\).\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.ResponseTypedStatement"
+    ]
+  },
+  "d:kernel": {
+    "latex": "\\begin{definition}\\label{d:kernel}\nFor \\(X=B,C\\), fix \\(c=0\\), \\(u=(-1,0)\\), and \\(v=(1,0)\\)\nfor \\(B\\), \\(v=(0,1)\\) for \\(C\\).\nLet \\(\\mathcal T_n^X\\) be the length-\\(n\\) plane trails avoiding \\(c\\),\nfrom \\(u\\) to their first hit of \\(v\\), with incoming direction \\(u-c\\).\nA departure is a lattice revisit when its site was departed from earlier.\nAt a lattice first visit \\(i\\), put \\(x_i=x_{\\tau_i}\\) according to\nits straight/turn type. Of the three neighbours other than the arrival\nsite, write \\(o\\) for the outgoing neighbour and \\(f,g\\) for the others.\nA neighbour is dead if it is \\(c\\) or was departed from twice before \\(i\\).\nThe outgoing neighbour of a true trail is not dead.\nIf \\(f,g\\) are both live, assign coefficient \\(a_{\\tau_i}\\) to\n\\(\\{f,g\\}\\), and \\(b_{\\tau_i}\\) to each of \\(\\{f,o\\},\\{g,o\\}\\).\nIf exactly one of \\(f,g\\) is live, assign \\(b'_{\\tau_i}\\) to its\npair with \\(o\\); if neither is live there is no response pair.\nThe constants are those of Lemma~\\ref{l:log-mean-bounds}.\nA live pair \\(p\\) has type \\(Y=B,C\\) and shift\n\\[\n s(p)=\\max_{z\\in p}\\min\\{d(z,u),d(z,v)\\}.\n\\]\nLet \\(\\kappa_{Y,s}(i)\\) sum its assigned coefficients.\nFor any fixed, \\(\\theta\\)-independent orderings \\(\\sigma_w\\) of lattice\nfirst visits, define\n\\[\n \\begin{split}\n M_{XY,s}\n &=\\sum_{n\\ge1}\\sum_{w\\in\\mathcal T_n^X}\n     3^{-n}(3/5)^{\\operatorname{rev}(w)}\n     \\sum_k\\kappa_{Y,s}(\\sigma_w(k))\n                   \\prod_{l\\le k}x_{\\sigma_w(l)},\\\\\n M_\\theta[X,Y]&=\\sum_{s\\ge0}M_{XY,s}\\theta^{-s}.\n \\end{split}\n\\]\nThese are nonnegative series. The identity\n\\(3^{-n}(3/5)^r=3^{-(n-r)}5^{-r}\\) retains the mass-free\ntrace coefficients. This \\(M\\) is the modified type-dependent kernel,\nnot the original uniform-coefficient matrix.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.kernelStart",
+      "AKLT.Defs.kernelCentre",
+      "AKLT.Defs.kernelTarget",
+      "AKLT.Defs.kernelIncoming",
+      "AKLT.Defs.ClosedTrail",
+      "AKLT.Defs.deadAt",
+      "AKLT.Defs.responseNeighbours",
+      "AKLT.Defs.liveOtherNeighbours",
+      "AKLT.Defs.responsePairs",
+      "AKLT.Defs.pairCoefficient",
+      "AKLT.Defs.responsePairType",
+      "AKLT.Defs.pairShift",
+      "AKLT.Defs.responseKappa",
+      "AKLT.Defs.exposureSum",
+      "AKLT.Defs.closedContribution",
+      "AKLT.Defs.kernelLengthCoefficient",
+      "AKLT.Defs.shiftKernel",
+      "AKLT.Defs.shiftedKernel"
+    ]
+  },
+  "d:kernel-order": {
+    "latex": "\\begin{definition}\\label{d:kernel-order}\nFix\n\\[\n h=(1,h_C),\\quad h_C=\\frac{5404319552844595}{4503599627370496},\n \\qquad \\rho_0=\\frac{993015}{10^6},\\qquad L=12 .\n\\]\nFor a first visit set \\(\\kappa_h(i)=\\sum_{Y,s}\\kappa_{Y,s}(i)h_Y\\).\nFor a closed trail of length \\(n\\le L\\), let \\(\\sigma_w\\) order its\nfirst visits by increasing\n\\((x_i-1)/(x_i\\kappa_h(i))\\), with value \\(+\\infty\\) when\n\\(\\kappa_h(i)=0\\), breaking ties by increasing path index.\nFor \\(n>L\\), list straight first visits in path order and then\nturning first visits in path order.\nHereafter \\(M_{XY,s}\\) and \\(M_\\theta\\) use exactly these orderings.\nThey do not depend on \\(\\theta\\).\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.longOrdering",
+      "AKLT.Defs.kernelWitness",
+      "AKLT.Defs.kernelRho",
+      "AKLT.Defs.witnessKappa",
+      "AKLT.Defs.firstVisitList",
+      "AKLT.Defs.shortOrderLE",
+      "AKLT.Defs.kernelOrdering"
+    ]
+  },
+  "h:H3": {
+    "latex": "\\begin{definition}[(H3\\(_h\\))]\\label{h:H3}\nFor the type-dependent kernel and fixed orderings of\nDefinitions~\\ref{d:kernel}--\\ref{d:kernel-order}, (H3\\(_h\\)) is the\nfollowing mathematical assertion, with the specified \\(h,\\rho_0\\):\nfor \\(X=B,C\\) and every integer \\(R_0\\ge0\\),\n\\[\n \\sum_{n=1}^{R_0}\\sum_{w\\in\\mathcal T_n^X}\n 3^{-n}(3/5)^{\\operatorname{rev}(w)}\n \\sum_k\\kappa_h(\\sigma_w(k))\\prod_{l\\le k}x_{\\sigma_w(l)}\n       \\le\\rho_0h_X .\n\\]\nEquivalently, the full nonnegative sums satisfy \\(M_1h\\le\\rho_0h\\).\nNo bound for the former uniform-coefficient matrix is part of this\ncontract. Its proof in this revision uses the stationary lattice\nBellman certificates, with no periodic spatial walk or remainder.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.kernelPartialRow",
+      "AKLT.Defs.PositiveVectorBound",
+      "AKLT.Blueprint.Top.H3Statement"
+    ]
+  },
+  "l:Mtheta": {
+    "latex": "\\begin{lemma}\\label{l:Mtheta}\nAssume (H2) and (H3\\(_h\\)) for the type-dependent kernel.\nFor every \\(q^2<\\theta\\le1\\), all entries of \\(M_\\theta\\) are\nfinite. There exist \\(q^2<\\theta<1\\) and \\(\\rho_0<\\rho<1\\)\nsuch that the same vector \\(h\\) satisfies \\(M_\\theta h\\le\\rho h\\).\nEvery shift of a length-\\(n\\) trail is at most \\(n/2+1\\), and\neach matrix entry is bounded by\n\\[\n \\sum_{n\\ge1} n(\\bar\\alpha+2\\bar\\beta)\n                      C_V q^n\\theta^{-n/2-1}.\n\\]\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.shiftedKernel",
+      "AKLT.Blueprint.Top.ShiftedWitness",
+      "AKLT.Blueprint.Top.MThetaStatement"
+    ]
+  },
+  "t:rec": {
+    "latex": "\\begin{theorem}\\label{t:rec}\nFix \\((c_{\\rm s},c_{\\rm t})=(961/1000,187/200)\\).\nAssume (H1), (H2) with any \\(C_V\\ge1\\), \\(0<q<1\\), and\n(H3\\(_h\\)) for the type-dependent kernel and fixed orderings above.\nThen there exist \\(A\\ge2\\) and \\(0<\\theta<1\\) such that\n\\(\\mathsf P(A,\\theta)\\) holds.\nOne may take the \\(\\theta,\\rho,h\\) supplied by the shifted-witness\nlemma and\n\\[\n A=\\frac{\\max h}{\\min h}\\,\n       \\frac{\\max\\{2,\\,2(12/5)^{24}(C_V/(1-q))^2\\}}{1-\\rho}.\n\\]\n\\end{theorem}",
+    "declarations": [
+      "AKLT.Blueprint.Top.renewalAmplitude",
+      "AKLT.Blueprint.Top.RecStatement"
+    ]
+  },
+  "t:H1": {
+    "latex": "\\begin{theorem}\\label{t:H1}\nFor every \\(\\pi\\in\\mathcal P_{\\rm ext}\\) and every\n\\(m\\in(\\mathbb S^2)^{20}\\),\n\\[\n Z_{\\rm cur}(\\pi;m)\\ge\n \\begin{cases}\n (961/1000)Z_{\\rm next}(\\pi;m),&\\pi\\text{ straight},\\\\\n (187/200)Z_{\\rm next}(\\pi;m),&\\pi\\text{ turning}.\n \\end{cases}\n\\]\n\\end{theorem}",
+    "declarations": [
+      "AKLT.Blueprint.Top.H1TheoremStatement"
+    ]
+  },
+  "t:inputs": {
+    "latex": "\\begin{theorem}\\label{t:inputs}\nAt \\(c_{\\rm s}=961/1000\\), \\(c_{\\rm t}=187/200\\), (H1) holds\nby the operator-only Gram/residual certificates of Appendix D.\nProperty (H2) holds with\n\\[\n q=\\frac{1119948287353}{1120437614225}<\\frac{2499}{2500}<1,\n \\qquad C_V=10 .\n\\]\nFor the type-dependent coefficients of Lemma~\\ref{l:log-mean-bounds},\nthe orderings and vector \\(h\\) of Definition~\\ref{d:kernel-order},\nand \\(\\rho_0=993015/10^6\\), property (H3\\(_h\\)) holds.\nThe latter assertion is supplied by five stationary lattice Bellman\ncertificates with memory \\(m=10\\), exact prefix \\(L=12\\ge m+2\\),\nradius \\(R=70\\), value scale \\(2^{16}\\), and coefficient scale\n\\(2^{48}\\), using the checked 3741-state automaton quotient.\n\\end{theorem}",
+    "declarations": [
+      "AKLT.Defs.certifiedRate",
+      "AKLT.Blueprint.Top.InputsStatement"
+    ]
+  },
+  "d:memory-automaton": {
+    "latex": "\\begin{definition}\\label{d:memory-automaton}\nLet \\(\\mathcal E=\\{{\\rm E}=(1,0),{\\rm N}=(0,1),\n{\\rm W}=(-1,0),{\\rm S}=(0,-1)\\}\\).\nFor \\(m\\ge1\\), \\(\\Omega_m\\) consists of sequences\n\\(\\omega=(d_1,\\ldots,d_m)\\in\\mathcal E^m\\) whose path from zero\nuses distinct unoriented bonds. Write \\(z_0=0\\),\n\\(z_j=\\sum_{i\\le j}d_i\\), and \\(a(\\omega)=d_m\\).\nA direction \\(d\\) is admissible if \\(d\\ne-d_m\\) and\n\\(\\{z_m,z_m+d\\}\\) is not a used bond of this window.\nIts successor is \\(\\omega d=(d_2,\\ldots,d_m,d)\\).\nIts kind \\(k(\\omega,d)\\) is \\({\\rm r}\\) if\n\\(z_m\\in\\{z_0,\\ldots,z_{m-1}\\}\\), otherwise \\({\\rm s}\\)\nif \\(d=d_m\\), and \\({\\rm t}\\) otherwise.\nDirection labels remain absolute lattice directions.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.RawWindow",
+      "AKLT.Defs.MemoryWindow",
+      "AKLT.Defs.windowArrival",
+      "AKLT.Defs.windowSuccessor",
+      "AKLT.Defs.WindowAdmissible",
+      "AKLT.Defs.StepKind",
+      "AKLT.Defs.windowKind",
+      "AKLT.Defs.Compass",
+      "AKLT.Defs.Compass.step",
+      "AKLT.Defs.Compass.reverse"
+    ]
+  },
+  "d:memorygrowth": {
+    "latex": "\\begin{definition}\\label{d:memorygrowth}\nOn \\(\\Omega_m\\), define the nonnegative one-step matrix\n\\[\n \\mathsf A_m(\\omega,\\omega')=\n \\sum_{\\substack{d\\ {\\rm admissible}\\\\\\omega d=\\omega'}}\n \\gamma(\\omega,d),\\qquad\n \\gamma(\\omega,d)=\n \\begin{cases}1/5,&k={\\rm r},\\\\\n x_{\\rm s}/3,&k={\\rm s},\\\\x_{\\rm t}/3,&k={\\rm t}.\n \\end{cases}\n\\]\nFor a prescribed start and incoming direction with initial reversal\nforbidden, let \\(A_n(\\omega)\\) be the true total \\(\\mathsf W\\)-weight\nof length-\\(n\\) trails whose last \\(m\\) steps form \\(\\omega\\),\nfor \\(n\\ge m\\), and let \\(W_n=\\sum_{|w|=n}\\mathsf W(w)\\).\nThe adopted finite test is \\(m=6\\) and extension length \\(1\\).\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.kindWeight",
+      "AKLT.Defs.memoryMatrix",
+      "AKLT.Defs.lastWindowWord",
+      "AKLT.Defs.memoryTrailMass"
+    ]
+  },
+  "l:alm": {
+    "latex": "\\begin{lemma}\\label{l:alm}\nFor \\(n\\ge m\\),\n\\[\n A_{n+1}(\\omega')\\le\\sum_\\omega A_n(\\omega)\\mathsf A_m(\\omega,\\omega').\n\\]\nIf \\(v_\\omega>0\\), \\(0<q<1\\), and \\(\\mathsf A_mv\\le qv\\),\nthen (H2) holds with\n\\[\n C_V=\\max\\left\\{\n      \\max_{0\\le r<m}W_rq^{-r},\\\n      \\frac{\\max v}{\\min v}W_mq^{-m}\\right\\}.\n\\]\nAny larger finite constant is also valid.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.openTrailTotal",
+      "AKLT.Defs.memoryWitnessRatio",
+      "AKLT.Defs.memoryBaseConstant",
+      "AKLT.Blueprint.Top.ALMStatement"
+    ]
+  },
+  "l:H2-dihedral": {
+    "latex": "\\begin{lemma}\\label{l:H2-dihedral}\nThe dihedral group of the square acts on \\(\\Omega_m\\) by applying\nthe same lattice symmetry to every direction. This action preserves\nadmissibility, kind, successor and the weights of \\(\\mathsf A_m\\);\nthus \\(\\mathsf A_m(g\\omega,g\\omega')=\\mathsf A_m(\\omega,\\omega')\\).\nFor any positive vector constant on these orbits, a row inequality\n\\((\\mathsf A_mv)_\\omega\\le qv_\\omega\\) checked at one representative\nof every orbit holds on every raw window.\nFor \\(m=6\\), \\(|\\Omega_6|=916\\) and there are \\(115\\) orbits.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.SquareSymmetry",
+      "AKLT.Defs.turnLeft",
+      "AKLT.Defs.reflectDirection",
+      "AKLT.Defs.symmetryDirection",
+      "AKLT.Defs.symmetryWord",
+      "AKLT.Defs.SameWindowOrbit",
+      "AKLT.Blueprint.Top.H2DihedralStatement"
+    ]
+  },
+  "p:H2-test": {
+    "latex": "\\begin{proposition}\\label{p:H2-test}\nAt the two fixed H1 thresholds there exists a positive integer\nvector \\(v\\) on \\(\\Omega_6\\), constant on dihedral orbits, with\n\\[\n \\frac{\\max v}{\\min v}=\\frac{250000000000}{46594269069}<6,\\qquad\n \\max_\\omega\\frac{(\\mathsf A_6v)_\\omega}{v_\\omega}\n       =q_*:=\\frac{1119948287353}{1120437614225}<\\frac{2499}{2500}.\n\\]\nThe weights have common denominator \\(D_2=2695605\\), with\nnumerators \\(935000,961000,539121\\) for \\({\\rm s},{\\rm t},{\\rm r}\\).\nFor \\(q_*=q_{\\rm num}/q_{\\rm den}\\), the required row test is\n\\[\n q_{\\rm den}\\sum_{d\\ {\\rm admissible}}n_{k(\\omega,d)}v_{\\omega d}\n          \\le q_{\\rm num}D_2v_\\omega .\n\\]\nIt suffices to check the \\(115\\) orbit rows after proving\nLemma~\\ref{l:H2-dihedral}; checking all \\(916\\) raw rows is also valid.\n\\end{proposition}",
+    "declarations": [
+      "AKLT.Blueprint.Top.H2TestStatement"
+    ]
+  },
+  "l:H2-CV": {
+    "latex": "\\begin{lemma}\\label{l:H2-CV}\nWith \\(m=6\\), \\(q=q_*\\), and the vector in Proposition~\\ref{p:H2-test},\nthe constant supplied by Lemma~\\ref{l:alm} is at most \\(10\\).\nIndeed, uniformly over the prescribed start and incoming direction,\n\\[\n W_r\\le x_{\\rm t}^r\\quad(0\\le r\\le6),\\qquad\n \\max\\left\\{\\max_{r<6}W_rq^{-r},\\\n                 \\frac{\\max v}{\\min v}W_6q^{-6}\\right\\}\n \\le6\\left(\\frac{200}{187q}\\right)^6<10.\n\\]\nConsequently (H2) holds with the explicit rational constants\n\\(q=q_*\\) and \\(C_V=10\\).\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.H2CVStatement"
+    ]
+  },
+  "l:automaton-quotient": {
+    "latex": "\\begin{lemma}\\label{l:automaton-quotient}\nLet \\(\\pi:\\Omega_m\\to Q\\) be a surjection onto a finite set.\nSuppose that windows with the same image have, for each absolute\ndirection, identical admissibility and kind, and their admissible\nsuccessors have the same image. Suppose also that two such windows\nhave the same final direction whenever their class has an admissible\nnon-revisit transition.\nThen admissibility, kind and successor define a well-defined automaton\non \\(Q\\). Every phase-and-position transition whose coefficients\ndepend only on the absolute direction, kind, position, and final\ndirection on non-revisit edges factors through this automaton.\nFor every function \\(G(\\varphi,q,x)\\), its pullback by \\(\\pi\\)\nintertwines the raw and quotient backward operators. This\nintertwining also holds for each finite stopped continuation sum.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.MemoryQuotient",
+      "AKLT.Defs.MemoryQuotient.Correct",
+      "AKLT.Defs.CompatibleProjection",
+      "AKLT.Defs.rawBackward",
+      "AKLT.Defs.quotientBackward",
+      "AKLT.Blueprint.Top.AutomatonQuotientStatement"
+    ]
+  },
+  "p:automaton10": {
+    "latex": "\\begin{proposition}\\label{p:automaton10}\nThere are \\(60092\\) raw windows in \\(\\Omega_{10}\\).\nThe supplied map to \\(Q=\\{0,\\ldots,3740\\}\\), with its supplied\nrepresentative per class, is surjective and satisfies every\nhypothesis of Lemma~\\ref{l:automaton-quotient}.\nIts admissible labelled edges consist of \\(2516\\) straight,\n\\(5032\\) turning and \\(1872\\) revisit edges.\n\\end{proposition}",
+    "declarations": [
+      "AKLT.Defs.quotientEdgeCount",
+      "AKLT.Blueprint.Top.Automaton10Statement"
+    ]
+  },
+  "d:phaseweights": {
+    "latex": "\\begin{definition}\\label{d:phaseweights}\nThe phases are \\({\\rm A},{\\rm B},{\\rm C},{\\rm D}\\). Their\ndiagonal transition weights, in kind order \\({\\rm s},{\\rm t},{\\rm r}\\), are\n\\[\n \\begin{array}{c|ccc}\n {\\rm A}&x_{\\rm s}/3&x_{\\rm t}/3&1/5\\\\\n {\\rm B}&x_{\\rm s}/3&1/3&1/5\\\\\n {\\rm C}&x_{\\rm s}/3&1/3&1/5\\\\\n {\\rm D}&1/3&1/3&1/5\n \\end{array}\n\\]\nAt a first visit with reward \\(\\kappa_h\\), additionally allow\n\\({\\rm A}\\to{\\rm C}\\) with weight \\(x_{\\rm t}\\kappa_h/3\\) on a turn,\nor \\({\\rm B}\\to{\\rm D}\\) with weight \\(x_{\\rm s}\\kappa_h/3\\)\non a straight passage. No other phase change is allowed.\nAt a revisit there is no phase change.\nStart with weight one in each of \\({\\rm A},{\\rm B}\\);\nthe terminal reward is \\(g=(0,0,1,1)\\).\nFor a true trail, use its actual revisit kinds and its actual\ntype-dependent live-pair reward from Definition~\\ref{d:kernel}.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.Phase",
+      "AKLT.Defs.phaseTerminal",
+      "AKLT.Defs.phaseInitial",
+      "AKLT.Defs.phaseDiagonal",
+      "AKLT.Defs.phaseTransition"
+    ]
+  },
+  "l:phase-expansion": {
+    "latex": "\\begin{lemma}\\label{l:phase-expansion}\nFor a true closed trail \\(w\\) ordered with straight first visits\nbefore turning first visits, its \\(h\\)-weighted contribution to\n\\(M_1\\) equals the sum over phase histories starting in\n\\({\\rm A}\\) or \\({\\rm B}\\) and ending in \\({\\rm C}\\) or \\({\\rm D}\\)\nof the products of the weights in Definition~\\ref{d:phaseweights}.\nEquivalently this sum is\n\\[\n 3^{-|w|}(3/5)^{\\operatorname{rev}(w)}\n       \\sum_k\\kappa_h(\\sigma_w(k))\\prod_{l\\le k}x_{\\sigma_w(l)}.\n\\]\nSplitting such a phase history at any prefix length gives the\nproduct of its exact prefix weight and its corresponding suffix weight.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.finiteOperatorSum",
+      "AKLT.Defs.appendWords",
+      "AKLT.Defs.takeWord",
+      "AKLT.Defs.truePhaseCoefficient",
+      "AKLT.Defs.truePhaseSuffix",
+      "AKLT.Blueprint.Top.PhaseExpansionStatement"
+    ]
+  },
+  "d:stationary-walk": {
+    "latex": "\\begin{definition}\\label{d:stationary-walk}\nFix \\(X=B,C\\), \\(d_0\\in\\{{\\rm N},{\\rm W},{\\rm S}\\}\\),\nthe sites \\(u,c,v\\) of Definition~\\ref{d:kernel}, and \\(a=u+d_0\\).\nThe state space is\n\\(\\{{\\rm A},{\\rm B},{\\rm C},{\\rm D}\\}\\times Q\\times\\mathbb Z^2\\).\nAt positions \\(c,v\\) there are no outgoing transitions.\nAt any other position \\(x\\), an admissible automaton direction \\(d\\)\ngoes to position \\(x+d\\) and the quotient successor window.\nAt \\(x=u\\) or \\(a\\), forbid reuse of \\(\\{u,a\\}\\) in either\ndirection and kill every memory-detected revisit departure;\nevery other allowed departure there has weight \\(1/5\\),\nin the same phase and with no response.\nAt other positions use the automaton kind and the phase weights.\nFor a non-revisit response, declare only \\(c\\) dead among the three\nneighbours other than the arrival site, and use the type-dependent\nthree-neighbour or two-neighbour reward rule of Definition~\\ref{d:kernel}.\nA transition into \\(c\\) has zero contribution.\nLet \\(T_{X,d_0}\\) be this nonnegative backward operator, with zero\nterminal rows, and \\(g(\\varphi,q,x)=\\mathbf1_{\\{x=v\\}}g_\\varphi\\).\nThe free operator \\(\\mathsf W\\) omits positions and special-site\nrules, uses the same quotient automaton and phase weights, and\ntreats all three response neighbours as live.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.stationaryReward",
+      "AKLT.Defs.relaxedReward",
+      "AKLT.Defs.freeCoefficient",
+      "AKLT.Defs.stationaryCoefficient",
+      "AKLT.Defs.stationaryApply",
+      "AKLT.Defs.freeApply"
+    ]
+  },
+  "l:stationary-domination": {
+    "latex": "\\begin{lemma}\\label{l:stationary-domination}\nLet \\(P=(v_0,\\ldots,v_L)\\) be a true prefix avoiding \\(c,v\\),\nwith \\(v_0=u\\), \\(v_1=u+d_0\\), and \\(L\\ge m+2\\), \\(m=10\\).\nEvery true continuation to its first hit of \\(v\\), together with\neach phase history, is dominated by the corresponding path of\n\\(T_{X,d_0}\\) from its prefix phase, last-window class and endpoint.\nThe comparison holds for every finite suffix horizon and hence\nfor their nonnegative suprema.\nIn this comparison:\nforgotten true revisits have weight \\(1/5\\) no greater than any\nrelaxed first-visit diagonal weight; forgetting dead non-outgoing\nneighbours only increases the reward, using \\(b'_\\tau\\le b_\\tau\\);\nand the known-site killing rules cannot kill a true continuation.\nIndeed, the known initial departures at times \\(0,1\\) are outside\nthe memory at every suffix time, and a memory-detected additional\ndeparture at \\(u\\) or \\(u+d_0\\) would be a forbidden third departure.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.trueContinuationSum",
+      "AKLT.Defs.stationaryContinuationSum",
+      "AKLT.Blueprint.Top.StationaryDominationStatement"
+    ]
+  },
+  "l:Bellman-soundness": {
+    "latex": "\\begin{lemma}\\label{l:Bellman-soundness}\nLet \\(T\\) be a nonnegative, finitely branching weighted transition\noperator on a set of states, with zero rows on a terminal set.\nLet \\(g\\ge0\\) be supported on that terminal set.\nIf a finite-valued function \\(F\\ge0\\) satisfies\n\\(g+TF\\le F\\), then for every integer \\(n\\ge0\\),\n\\[\n \\sum_{j=0}^{n}T^jg\\le F .\n\\]\nConsequently the nonnegative sum of all finite first-hit path\nweights times their terminal rewards is finite and at most \\(F\\).\nIt suffices that \\(F=g\\) on terminal states and \\(TF\\le F\\)\nelsewhere.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.listBackward",
+      "AKLT.Blueprint.Top.BellmanSoundnessStatement"
+    ]
+  },
+  "d:stationary-certificate": {
+    "latex": "\\begin{definition}\\label{d:stationary-certificate}\nFor a case \\((X,d_0)\\), fix \\(R=70\\),\n\\(B_R=\\{-R,\\ldots,R\\}^2\\), \\(V=2^{16}\\), and \\(D_3=2^{48}\\).\nSupply integers \\(Z_{\\varphi,q}>0\\) and\n\\(U_{\\varphi,q,x}\\ge0\\), \\(x\\in B_R\\).\nSet \\(\\widetilde U_{\\varphi,q,x}=U_{\\varphi,q,x}\\) inside \\(B_R\\)\nand \\(Z_{\\varphi,q}\\) outside, and \\(F=\\widetilde U/V\\), \\(z=Z/V\\).\nFor each individual transition coefficient \\(t\\) of the exact\nstationary or free operator, use the proved rational ceiling\n\\(\\widehat t=p(t)/D_3\\), \\(p(t)=\\lceil D_3t\\rceil\\);\nzero coefficients may be omitted.\nThe certificate checks all the following:\n\\[\n \\begin{gathered}\n \\sum_{\\text{free edges }e\\text{ from }(\\varphi,q)}\n       p(t_e)Z_{\\operatorname{dest}(e)}\n       \\le D_3Z_{\\varphi,q},\\qquad Z_{{\\rm C},q},Z_{{\\rm D},q}\\ge V,\\\\\n 0\\le U_{\\varphi,q,x}\\le Z_{\\varphi,q},\\qquad\n U_{\\varphi,q,c}=0,\\qquad U_{\\varphi,q,v}=Vg_\\varphi,\\\\\n \\sum_{\\text{stationary edges }e\\text{ from }(\\varphi,q,x)}\n       p(t_e)\\widetilde U_{\\operatorname{dest}(e)}\n       \\le D_3 U_{\\varphi,q,x}\n       \\quad(x\\in B_R\\setminus\\{c,v\\}).\n \\end{gathered}\n\\]\nAll tests are integer inequalities on the regenerated automaton,\ndirections, phases and lattice sites, not on a trusted supplied matrix.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.certificateRadius",
+      "AKLT.Defs.certificateValueScale",
+      "AKLT.Defs.certificateCoefficientScale",
+      "AKLT.Defs.coefficientCeiling",
+      "AKLT.Defs.StationaryData",
+      "AKLT.Defs.StationaryData.extended",
+      "AKLT.Defs.StationaryData.potential",
+      "AKLT.Defs.StationaryData.Passes"
+    ]
+  },
+  "l:stationary-local-global": {
+    "latex": "\\begin{lemma}\\label{l:stationary-local-global}\nEvery certificate of Definition~\\ref{d:stationary-certificate}\ndefines a finite-valued \\(F\\) on the entire lattice with\n\\(F=z\\) outside \\(B_R\\), \\(F\\le z\\), and\n\\[\n g+T_{X,d_0}F\\le F .\n\\]\nFor an inside site this follows from its checked integer row and\ncoefficient ceilings. For an outside site every successor value\nis at most its corresponding \\(z\\), and the exact stationary row\nis dominated by the free row; the checked free inequality\nimplies \\(\\mathsf Wz\\le z\\).\nThus \\(F\\) bounds every stopped continuation as in\nLemma~\\ref{l:Bellman-soundness}.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.StationaryLocalGlobalStatement"
+    ]
+  },
+  "d:prefix-bound": {
+    "latex": "\\begin{definition}\\label{d:prefix-bound}\nFor each case \\((X,d_0)\\), let \\(S_{X,d_0}\\) be the exact\n\\(h\\)-weighted kernel sum over closed trails of lengths \\(1\\le n\\le L=12\\)\nwith first direction \\(d_0\\), using their prescribed short-trail orderings.\nLet \\(\\mathcal P_{X,d_0,L}\\) be all true length-\\(L\\) prefixes\navoiding \\(c\\) and \\(v\\), with first direction \\(d_0\\).\nFor \\(P\\) in this set, let \\(p_\\varphi(P)\\) be the sum of its\nexact phase-history products ending in phase \\(\\varphi\\), starting\nwith weights one in A and B. Use actual trail revisits, actual dead\nneighbours and the type-dependent rewards, with the long-trail\nstraight-first phase weights.\nWrite \\(x(P)\\) for its endpoint and \\(q(P)\\) for its last-window class.\nFor the potential of its case define the rational number\n\\[\n J_{X,d_0}=S_{X,d_0}\n       +\\sum_{P\\in\\mathcal P_{X,d_0,12}}\\sum_\\varphi\n                    p_\\varphi(P)F(\\varphi,q(P),x(P)).\n\\]\nA hit at time \\(12\\) is in \\(S_{X,d_0}\\), not in the prefix sum.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.prefixPhases",
+      "AKLT.Defs.FirstDirection",
+      "AKLT.Defs.SurvivingPrefix",
+      "AKLT.Defs.firstDirectionPartialRow",
+      "AKLT.Defs.stationaryPrefixBound"
+    ]
+  },
+  "l:prefix-domination": {
+    "latex": "\\begin{lemma}\\label{l:prefix-domination}\nFor every case whose integer certificate passes, the \\(h\\)-weighted\ncontribution of all true closed trails of that first direction,\nover every length, is at most \\(J_{X,d_0}\\).\nThis holds uniformly for every finite length cutoff, with the same\nupper bound. The short part uses the exact order through \\(12\\);\nall longer trails split uniquely into a surviving length-\\(12\\)\nprefix and a dominated stopped suffix.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.PrefixDominationStatement"
+    ]
+  },
+  "l:kernel-reflection": {
+    "latex": "\\begin{lemma}\\label{l:kernel-reflection}\nFor row B, reflection \\((x_1,x_2)\\mapsto(x_1,-x_2)\\) fixes\n\\(c,u,v\\), interchanges the first directions N and S, and preserves\nevery trail weight, type, dead pair, shift, \\(h\\)-reward and\nprescribed ordering. Hence the true B/N and B/S kernel contributions\nare equal at every length and every finite cutoff.\nNo corresponding reduction is asserted for row C.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.KernelReflectionStatement"
+    ]
+  },
+  "p:stationary-check": {
+    "latex": "\\begin{proposition}\\label{p:stationary-check}\nFor the five cases B/N, B/W, C/N, C/W, C/S, there exist\ninteger arrays \\(Z,U\\) satisfying every check in\nDefinition~\\ref{d:stationary-certificate}, with\n\\(m=10,L=12,R=70\\) and the specified scales.\nTheir regenerated quotient has \\(3741\\) states and the spatial\nsquare has \\(19881\\) sites. Their exact rational prefix evaluations obey\n\\[\n \\begin{array}{c|ccccc}\n (X,d_0)&(B,{\\rm N})&(B,{\\rm W})&(C,{\\rm N})&(C,{\\rm W})&(C,{\\rm S})\\\\ \\hline\n 10^9J_{X,d_0}\\ \\le&\n 351207554&290599163&527872005&380754375&273048088\n \\end{array}\n\\]\nEach displayed upper bound denotes an exact integer inequality\nafter clearing the rational prefix denominator.\n\\end{proposition}",
+    "declarations": [
+      "AKLT.Defs.stationaryCases",
+      "AKLT.Defs.stationaryPrefixCeiling",
+      "AKLT.Blueprint.Top.StationaryCheckStatement"
+    ]
+  },
+  "l:stationary-assembly": {
+    "latex": "\\begin{lemma}\\label{l:stationary-assembly}\nWith the five certified potentials and their exact prefix bounds,\n\\[\n (M_1h)_B\\le2J_{B,{\\rm N}}+J_{B,{\\rm W}}\\le\\rho_0h_B,\\qquad\n (M_1h)_C\\le J_{C,{\\rm N}}+J_{C,{\\rm W}}+J_{C,{\\rm S}}\n                                      \\le\\rho_0h_C ,\n\\]\nwhere \\(h_C=5404319552844595/4503599627370496\\) and\n\\(\\rho_0=993015/10^6<1\\).\nThe same inequalities hold for every finite true-trail cutoff;\ntherefore (H3\\(_h\\)) holds for the modified kernel.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.StationaryAssemblyStatement"
+    ]
+  },
+  "l:Iw": {
+    "latex": "\\begin{lemma}\\label{l:Iw}\nLet \\(Z_w\\) be the finite template functional after deleting\nthe passage site and its incident factors, retaining all other\npresent bonds and all covered slot factors. Put \\(P_{ab}=n_a\\cdot n_b\\)\nfor nonremoved sites and zero if either is removed.\nFor the out-neighbour \\(o\\) and the other two neighbours \\(f,g\\),\n\\[\n Z_{\\rm cur}=Z_w[I],\\qquad Z_{\\rm next}=Z_w[J]>0,\\qquad\n I=1+\\tfrac13(P_{fg}+P_{fo}+P_{go}),\\quad J=1+\\tfrac15P_{fg}.\n\\]\nFor \\(0<c<1\\), \\(F_c=Z_{\\rm cur}-cZ_{\\rm next}=Z_w[I-cJ]\\), with\n\\[\n I-cJ=(1-c)+\\tfrac13(P_{fo}+P_{go})+(\\tfrac13-\\tfrac c5)P_{fg}.\n\\]\nBoth partition polynomials are affine in each slot vector and\ninvariant under simultaneous orthogonal transformations of the slots.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.supportSpins",
+      "AKLT.Defs.withoutPassageFunctional",
+      "AKLT.Defs.originalPatternPolynomial",
+      "AKLT.Blueprint.Top.IntegratePassageStatement"
+    ]
+  },
+  "l:leaf": {
+    "latex": "\\begin{lemma}\\label{l:leaf}\nIn a covered template, integrating a nonremoved tip or corner\nwith no present internal bond gives a positive factor depending\nonly on its own slots.\nA tip with its one internal bond to \\(x\\) gives\n\\(A(1+(3/5)u\\cdot n_x)\\), \\(A>0,\\ |u|\\le1\\).\nA corner with exactly one internal bond to \\(x\\) gives\n\\(A(1+\\rho u\\cdot n_x)\\), \\(A>0,\\ |u|\\le1\\), where\n\\(\\rho=1/2\\) for status \\(\\mathrm U\\) and \\(\\rho=1/3\\)\nfor status \\(\\mathrm D\\).\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.coveredSiteField",
+      "AKLT.Blueprint.Top.LeafStatement"
+    ]
+  },
+  "d:reduction": {
+    "latex": "\\begin{definition}\\label{d:reduction}\nDelete tips and corners with no present internal bond, dropping\ntheir common positive factors. Replace every bonded tip by a\nsingle vector and radius \\(3/5\\).\nIn the reduced representation also replace each one-bond corner\nby a single vector of radius \\(1/2\\) or \\(1/3\\) according to\nLemma~\\ref{l:leaf}; in the unreduced representation retain its spin\nand two slots. Other bonded corners retain their two slots.\nLet \\(u=(u_1,\\ldots,u_k)\\) list these remaining vectors, and define\n\\(\\widehat Z_{\\rm cur},\\widehat Z_{\\rm next}\\) by these replacements,\n\\(\\widehat F_c=\\widehat Z_{\\rm cur}-c\\widehat Z_{\\rm next}\\).\nA group is one single vector or the two slots of a retained corner.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.evaluateReduced",
+      "AKLT.Defs.Representation",
+      "AKLT.Defs.patternDegree",
+      "AKLT.Defs.SingleReplacement",
+      "AKLT.Defs.reducedSpinSites",
+      "AKLT.Defs.reductionGroups",
+      "AKLT.Defs.groupLeader",
+      "AKLT.Defs.groupSecond",
+      "AKLT.Defs.groupIsPair",
+      "AKLT.Defs.reductionVectors",
+      "AKLT.Defs.replacementRadius",
+      "AKLT.Defs.leafNeighbour",
+      "AKLT.Defs.LocalVariable",
+      "AKLT.Defs.formalDot",
+      "AKLT.Defs.reducedIntegrand",
+      "AKLT.Defs.reducedPolynomial",
+      "AKLT.Defs.reducedDifference",
+      "AKLT.Defs.GroupInversion",
+      "AKLT.Defs.leaderToken",
+      "AKLT.Defs.secondToken"
+    ]
+  },
+  "c:reduce": {
+    "latex": "\\begin{corollary}\\label{c:reduce}\nIn either representation, \\(\\widehat F_c\\) is real, affine in\neach vector and invariant under simultaneous \\(\\mathrm O(3)\\).\nIf \\(\\widehat F_c\\ge0\\) on \\((\\mathbb S^2)^k\\), then\n\\(F_c\\ge0\\) on \\((\\mathbb S^2)^{20}\\).\nFor each original slot assignment there are a common \\(K>0\\)\nand vectors \\(\\widehat u\\) in the closed unit ball such that\n\\(Z_{\\rm cur}=K\\widehat Z_{\\rm cur}(\\widehat u)\\) and\n\\(Z_{\\rm next}=K\\widehat Z_{\\rm next}(\\widehat u)\\).\n\\end{corollary}",
+    "declarations": [
+      "AKLT.Blueprint.Top.ReduceStatement"
+    ]
+  },
+  "d:Pauli": {
+    "latex": "\\begin{definition}\\label{d:Pauli}\nFor a real polynomial affine in each vector, expand uniquely\n\\[\n F(u)=\\sum_{a\\in\\{0,1,2,3\\}^k}f_a\\prod_i u_i^{a_i},\n \\qquad u_i^0=1,\\qquad\n \\mathcal O(F)=\\sum_a f_a\\bigotimes_i\\sigma_{a_i},\\quad\\sigma_0=I.\n\\]\nFor \\(\\mathcal I\\subset\\{1,\\ldots,k\\}\\), invert those vectors,\nwriting \\(u^{\\mathcal I}\\) and \\(F^{\\mathcal I}(u)=F(u^{\\mathcal I})\\).\nFor \\(|a|\\le1\\), put \\(\\rho(a)=(I+a\\cdot\\sigma)/2\\).\nSet \\(S_z=\\frac12\\sum_i\\sigma_3^{(i)}\\) and\n\\(S_\\pm=\\sum_i(\\sigma_1^{(i)}\\pm\\mathrm i\\sigma_2^{(i)})/2\\).\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.productDensity",
+      "AKLT.Defs.invertVectors",
+      "AKLT.Defs.tokenMatrix",
+      "AKLT.Defs.totalSpinZ",
+      "AKLT.Defs.totalSpinPlus",
+      "AKLT.Defs.totalSpinMinus",
+      "AKLT.Defs.pauli",
+      "AKLT.Defs.spinDensity",
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.invertPolynomial",
+      "AKLT.Defs.pauliExponent",
+      "AKLT.Defs.pauliOperator",
+      "AKLT.Defs.ratComplexMul",
+      "AKLT.Defs.rationalPauli",
+      "AKLT.Defs.rationalOperatorEntry",
+      "AKLT.Defs.SupportedVectors",
+      "AKLT.Defs.tensorPowerMatrix"
+    ]
+  },
+  "l:inversion": {
+    "latex": "\\begin{lemma}\\label{l:inversion}\nFor \\(|u_i|\\le1\\), each \\(\\rho(u_i)\\) is positive semidefinite\nof trace one, and\n\\[\n F(u)=\\operatorname{Tr}\\!\\left[\n      \\mathcal O(F^{\\mathcal I})\n                 \\bigotimes_i\\rho((u^{\\mathcal I})_i)\\right].\n\\]\nThus a single inversion \\(\\mathcal I\\) with\n\\(\\mathcal O(F^{\\mathcal I})\\ge0\\) implies \\(F\\ge0\\)\non the product of closed unit balls, in particular on unit vectors.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.InversionStatement"
+    ]
+  },
+  "l:Ostruct": {
+    "latex": "\\begin{lemma}\\label{l:Ostruct}\nFor \\(\\mathcal I\\) a union of vector groups and\n\\(\\mathcal O=\\mathcal O(\\widehat F_c^{\\mathcal I})\\),\nthe matrix in the standard tensor basis is real symmetric.\nIt commutes with \\(U^{\\otimes k}\\) for every \\(U\\in\\mathrm{SU}(2)\\)\nand with \\(S_z,S_+,S_-\\).\nFor a retained \\(\\mathrm U\\)-corner pair, if \\(\\Pi\\) projects that\npair onto \\(\\operatorname{Sym}^2\\mathbb C^2\\), then\n\\(\\mathcal O=\\Pi\\mathcal O\\Pi\\).\nFor a retained \\(\\mathrm D\\)-corner pair, \\(\\mathcal O\\) commutes\nwith exchange of its two factors.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Blueprint.Top.OperatorStructureStatement"
+    ]
+  },
+  "d:exchange": {
+    "latex": "\\begin{definition}\\label{d:exchange}\nLet \\(V\\) be the tensor product of \\(\\mathbb C^2\\) for singles,\n\\(\\operatorname{Sym}^2\\mathbb C^2\\) for retained \\(\\mathrm U\\)-pairs,\nand \\(\\mathbb C^2\\otimes\\mathbb C^2\\) for retained \\(\\mathrm D\\)-pairs.\nFor each assignment \\(\\epsilon\\) of exchange signs to the\n\\(\\mathrm D\\)-pairs, let \\(V_\\epsilon\\) replace each of those\npair factors by its symmetric or exterior square.\nIf there are \\(t\\) singles, let \\(\\kappa=0\\) for even \\(t\\),\n\\(\\kappa=1/2\\) for odd \\(t\\), and\n\\(V_\\epsilon^\\circ=\\ker(S_z-\\kappa I)|_{V_\\epsilon}\\).\nThe standard sector basis uses \\(e_\\pm\\) for singles and\n\\(e_+\\otimes e_+\\), \\(e_+\\otimes e_-+e_-\\otimes e_+\\),\n\\(e_-\\otimes e_-\\) for symmetric pairs, with\n\\(e_+\\otimes e_--e_-\\otimes e_+\\) for antisymmetric pairs.\n\\end{definition}",
+    "declarations": [
+      "AKLT.Defs.exchangeSpace",
+      "AKLT.Defs.centralSpace",
+      "AKLT.Defs.ExchangeSigns",
+      "AKLT.Defs.GroupBasis",
+      "AKLT.Defs.ExchangeBasis",
+      "AKLT.Defs.exchangeWeight",
+      "AKLT.Defs.centralWeight",
+      "AKLT.Defs.CentralBasis",
+      "AKLT.Defs.exchangeBasisVector",
+      "AKLT.Defs.exchangeOperator",
+      "AKLT.Defs.symmetricPairProjection"
+    ]
+  },
+  "l:sector": {
+    "latex": "\\begin{lemma}\\label{l:sector}\nLet \\(V'\\) be any tensor sector formed from singles and\nsymmetric or exterior pair factors as above.\nIf a Hermitian \\(\\mathcal O'\\) on \\(V'\\) commutes with\n\\(S_z,S_+,S_-\\), then it preserves the central-weight space\n\\(V'^\\circ\\), and its restriction there has the same set of\neigenvalues as \\(\\mathcal O'\\).\nIn particular \\(\\mathcal O'\\) is positive definite if and only if\nthat restriction is positive definite.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.PositiveOn",
+      "AKLT.Defs.eigenvaluesOn",
+      "AKLT.Blueprint.Top.SectorStatement"
+    ]
+  },
+  "l:gram-residual": {
+    "latex": "\\begin{lemma}\\label{l:gram-residual}\nLet \\(M\\) be a symmetric integer matrix of size \\(n\\).\nLet \\(g,d,S\\) be positive integers and \\(L\\) an integer\nlower-triangular \\(n\\times n\\) matrix; no invertibility is required.\nDefine the symmetric integer residual\n\\[\n E=dS^2M-gLL^{\\mathsf T}.\n\\]\nIf, for every row,\n\\[\n E_{ii}>0,\\qquad E_{ii}>\\sum_{j\\ne i}|E_{ij}|,\n\\]\nthen \\(E\\) and \\(M\\) are positive definite over \\(\\mathbb R\\)\nand, as Hermitian matrices, over \\(\\mathbb C\\).\nThe case \\(L=0\\), \\(g=d=S=1\\), is the direct strict\ndiagonal-dominance certificate.\nAll hypotheses can be checked with integer sums, products,\nabsolute values and comparisons, without division or determinants.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.gramResidual",
+      "AKLT.Defs.GramResidualRows",
+      "AKLT.Blueprint.Top.GramResidualStatement"
+    ]
+  },
+  "l:integercheck": {
+    "latex": "\\begin{lemma}\\label{l:integercheck}\nFor \\(c=p/q\\in(0,1)\\) rational with positive integers \\(p,q\\),\nchoose a positive integer \\(D_0\\) clearing the coefficients of\n\\(3D_0\\widehat Z_{\\rm cur}\\) and \\(5D_0\\widehat Z_{\\rm next}\\).\nIn the integer-coordinate central-sector basis, let \\(A_\\epsilon\\)\nand \\(A'_\\epsilon\\) be the Hermitian-form matrices of their\ninverted Pauli operators. These are symmetric integer matrices.\nThe form of \\(\\mathcal O(\\widehat F_c^{\\mathcal I})\\) on the sector\nis positive definite if and only if\n\\[\n M_\\epsilon=5qA_\\epsilon-3pA'_\\epsilon\n\\]\nis positive definite. The primary verification uses the integer\nGram/residual witness of Lemma~\\ref{l:gram-residual}.\nAs an optional fallback only, positivity is equivalent to positivity of all its\nleading principal minors. More explicitly, for a size-\\(t\\) matrix\nset \\(A^{(0)}=M_\\epsilon\\), \\(p_{-1}=1\\), and for \\(0\\le j<t\\)\nset \\(p_j=A^{(j)}_{jj}\\) and update the trailing entries by\n\\[\n A^{(j+1)}_{il}\n    =\\frac{p_jA^{(j)}_{il}-A^{(j)}_{ij}A^{(j)}_{jl}}{p_{j-1}}\n       \\quad(i,l>j).\n\\]\nAs long as preceding pivots are nonzero, each division is exact\nin the integers and \\(p_j\\) is the leading principal minor of\norder \\(j+1\\). Acceptance requires every division exact and every\npivot positive.\n\\end{lemma}",
+    "declarations": [
+      "AKLT.Defs.rationalSectorEntry",
+      "AKLT.Defs.ClearsDenominator",
+      "AKLT.Defs.integerSectorMatrix",
+      "AKLT.Defs.thresholdSectorMatrix",
+      "AKLT.Defs.complexSectorMatrix",
+      "AKLT.Defs.indexedSectorMatrix",
+      "AKLT.Defs.leadingMinor",
+      "AKLT.Defs.bareissState",
+      "AKLT.Defs.bareissPivot",
+      "AKLT.Blueprint.Top.IntegerCheckStatement"
+    ]
+  },
+  "p:certificate": {
+    "latex": "\\begin{proposition}\\label{p:certificate}\nLet \\(c=p/q\\in(0,1)\\), with \\(p,q\\in\\mathbb Z_{>0}\\).\nChoose either allowed representation, an inversion which is a\nunion of groups, and a justified positive denominator \\(D_0\\).\nFor every supported central exchange sector reconstruct\n\\(M_\\epsilon=5qA_\\epsilon-3pA'_\\epsilon\\) as in\nLemma~\\ref{l:integercheck}.\nSuppose that for each sector there are positive integers\n\\(g_\\epsilon,d_\\epsilon,S_\\epsilon\\) and an integer lower-triangular\nmatrix \\(L_\\epsilon\\) of its dimension such that\n\\[\n E_\\epsilon=d_\\epsilon S_\\epsilon^2M_\\epsilon\n                  -g_\\epsilon L_\\epsilon L_\\epsilon^{\\mathsf T},\n \\qquad\n (E_\\epsilon)_{ii}>\n          \\sum_{j\\ne i}|(E_\\epsilon)_{ij}|\\quad\\text{for every }i.\n\\]\nThen \\(F_c(m)\\ge0\\) for every \\(m\\in(\\mathbb S^2)^{20}\\).\nThe operator may vanish on the discarded antisymmetric\n\\(\\mathrm U\\)-pair subspaces; positive definiteness is required\nonly on the supported exchange sectors.\n\\end{proposition}",
+    "declarations": [
+      "AKLT.Blueprint.Top.CertificateStatement"
+    ]
+  }
+}

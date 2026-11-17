@@ -1,0 +1,83 @@
+{
+  "id": "h1-gram-heavy",
+  "module": "CertData.H1.Generated.Pilot.Gramrows0005",
+  "family": "H1",
+  "roots": [
+    "CertData.H1.Generated.Check.P0711B00.rows012_checked"
+  ],
+  "source_sha256": "644fd6fd9c03bf1a58e1bbb62bc4b8f291c9ef69b6767686dcecac28b05f7d41",
+  "lean": {
+    "command": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+      "-DautoImplicit=false",
+      "-DrelaxedAutoImplicit=false",
+      "-DElab.async=false",
+      "-o",
+      "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/CertData/H1/Generated/Pilot/Gramrows0005.olean",
+      "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/CertData/H1/Generated/Pilot/Gramrows0005.lean"
+    ],
+    "exit": 0,
+    "wall_s": 22.619744038995123,
+    "sampled_peak_bytes": 6671122432,
+    "limit": null,
+    "rss_cap_gib": 22,
+    "timeout_s": 300,
+    "user_s": 20.72,
+    "system_s": 1.87,
+    "rss_kib": 6512948.0
+  },
+  "export": {
+    "command": [
+      "/home/ubuntu/aklt/reports/REL_FEAS/fast-leanexport",
+      "CertData.H1.Generated.Pilot.Gramrows0005",
+      "--",
+      "CertData.H1.Generated.Check.P0711B00.rows012_checked"
+    ],
+    "exit": 0,
+    "wall_s": 3.3172867050016066,
+    "sampled_peak_bytes": 3849355264,
+    "limit": null,
+    "rss_cap_gib": 22,
+    "timeout_s": 240,
+    "user_s": 2.16,
+    "system_s": 1.04,
+    "rss_kib": 3756952.0
+  },
+  "export_bytes": 5742868,
+  "export_sha256": "811813dc215f5f4eb5715b5ecac898b4e691620d04b50542bfbb8bb967c060b8",
+  "conron": {
+    "command": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+      "--verified",
+      "--jobs=1",
+      "--progress=1",
+      "/home/ubuntu/aklt/reports/REL_FEAS/measurements/h1-gram-heavy/export.ndjson"
+    ],
+    "exit": 0,
+    "wall_s": 36.68206393599394,
+    "sampled_peak_bytes": 5218865152,
+    "limit": null,
+    "rss_cap_gib": 20,
+    "timeout_s": 180,
+    "user_s": 35.44,
+    "system_s": 1.21,
+    "rss_kib": 5094568.0,
+    "accepts": true
+  },
+  "nanoda": {
+    "command": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+      "/home/ubuntu/aklt/reports/REL_FEAS/measurements/h1-gram-heavy/nanoda-config.json"
+    ],
+    "exit": 0,
+    "wall_s": 31.65558278399112,
+    "sampled_peak_bytes": 1552879616,
+    "limit": null,
+    "rss_cap_gib": 20,
+    "timeout_s": 180,
+    "user_s": 30.72,
+    "system_s": 0.89,
+    "rss_kib": 1514844.0,
+    "accepts": true
+  }
+}

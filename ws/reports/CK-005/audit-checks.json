@@ -1,0 +1,18 @@
+{
+  "and_list_budget_rejection": {
+    "exit": 0,
+    "stdout": "LAUNCHED\n",
+    "shell": "set -e; reject() { return 1; }; reject >/dev/null && echo ok; printf \"LAUNCHED\\n\""
+  },
+  "pipeline_budget_rejection": {
+    "exit": 0,
+    "stdout": "\"allowed\": false\nLAUNCHED\n",
+    "shell": "set -e; reject() { printf '\"allowed\": false\\n'; return 1; }; reject | grep -E '\"allowed\"|remaining'; printf \"LAUNCHED\\n\""
+  },
+  "failed_merge_predecessor_marks_done": {
+    "validator_exit": 7,
+    "wrapper_exit": 0,
+    "done_exists": true,
+    "source": "/home/ubuntu/aklt/bin/merge-after.sh (only campaign root replaced by disposable fixture)"
+  }
+}

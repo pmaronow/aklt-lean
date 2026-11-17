@@ -1,0 +1,203 @@
+{
+  "registry": {
+    "statements": [
+      {
+        "label": "d:pairenv",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:closure",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:terminalcover",
+        "exact_registry_text": false
+      },
+      {
+        "label": "l:log-mean-bounds",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:response-typed",
+        "exact_registry_text": true
+      },
+      {
+        "label": "d:kernel",
+        "exact_registry_text": true
+      },
+      {
+        "label": "d:kernel-order",
+        "exact_registry_text": true
+      },
+      {
+        "label": "h:H3",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:Mtheta",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:recineq",
+        "exact_registry_text": true
+      },
+      {
+        "label": "l:renewal",
+        "exact_registry_text": true
+      },
+      {
+        "label": "t:rec",
+        "exact_registry_text": true
+      }
+    ],
+    "external_labels": [
+      "d:domain",
+      "d:moment",
+      "d:pattern",
+      "d:pinmodel",
+      "d:ratios",
+      "d:trace",
+      "d:weights",
+      "h:H1",
+      "h:H2",
+      "h:P",
+      "l:35",
+      "l:exposure",
+      "l:finitefacts",
+      "l:local",
+      "l:onepoint",
+      "l:response",
+      "p:pairwalk"
+    ],
+    "complete_proof_environments": 8
+  },
+  "arithmetic": {
+    "logarithm_endpoints": [
+      {
+        "s": "116/125",
+        "t": "9/241",
+        "lower": "558231955833520980925540586886924934400/537885350283325012978101989201877172601",
+        "upper": "2201666833807406748770333929555240981966441/2121419821517433851185634245412203568738344",
+        "lower_integer_residual": 108729590293615045480561714563556251962850,
+        "upper_integer_residual": 107586380899135554782799201418168995649387230000
+      },
+      {
+        "s": "27869/31250",
+        "t": "3381/59119",
+        "lower": "56999272856770054892316141173638038740848099713218073550624234171722800000/53857008604185192548632723566189436323251185408525457258704059674725116257",
+        "upper": "54009432998341038433036282884416108007440787806823421787504912557493741389797583/51031993074861262458686742684248535630351367729106662923655996928547085008855322",
+        "lower_integer_residual": 30522629830841632309979315476682063191308554941544060523688758784321394686237230,
+        "upper_integer_residual": 1589265143680268680354019888344471456385763475486516610693024799081777039537231776390625000
+      },
+      {
+        "s": "5423/6250",
+        "t": "827/11673",
+        "lower": "32790523542635559076537625181302309911077557556388172087809040000/30569801242015904127867491277848553324412807499212710911526563571",
+        "upper": "549634755621657241253992927329750650672631772655360057898849956876753/512411008418670584991314888799297450823807479301803460299008258577102",
+        "lower_integer_residual": 368518564941895519739138104451513789146082646788751992832671717829675,
+        "upper_integer_residual": 24660676385871873678950295322832733131470563201955774046857057903341469500000
+      },
+      {
+        "s": "961/1000",
+        "t": "39/1961",
+        "lower": "1915421245042234571228233258572449039523153590502400/1877822896643667218485754054643077299793571369759877",
+        "upper": "62584473760509972380311293492801788157948647715218472397/61355985324935182696803527981407907693455150935534221098",
+        "lower_integer_residual": 42671774659080488853971354768930287762310050865858107215,
+        "upper_integer_residual": 11158479955200600725183898934417104701023742819220918415920000
+      },
+      {
+        "s": "187/200",
+        "t": "13/387",
+        "lower": "156238807199895230113263226512184286325760/151104171916813894448613788614781837189133",
+        "upper": "90306030561539443005466158897791310343065941/87338211367918430991298769819343901895318874",
+        "lower_integer_residual": 197123260641666912940020969660588203091653580,
+        "upper_integer_residual": 472846533133874730424691113111207086843693335940000
+      }
+    ],
+    "coefficient_rows": [
+      {
+        "type": "s",
+        "residuals": [
+          13215,
+          1425,
+          1692
+        ]
+      },
+      {
+        "type": "t",
+        "residuals": [
+          259510,
+          2684,
+          2235
+        ]
+      }
+    ],
+    "additional_removal_cases": 18,
+    "canonical_alpha_positive_lower_bound": "175/5916",
+    "example_explicit_shift": {
+      "theta": "869963180173300384562852338610197785794078734852799556677/869963180173301824300689743891414508376288625368321453125",
+      "epsilon": "1439737837405281216722582209890515521896448/869963180173301824300689743891414508376288625368321453125",
+      "rho": "398603/400000",
+      "A": "613163751055650912835196477541807202384202228679/1276011582805031678955078125"
+    }
+  },
+  "geometry": {
+    "closed_trails_through_length_12": {
+      "B": {
+        "north_west_south": [
+          937,
+          922,
+          937
+        ],
+        "total": 2796
+      },
+      "C": {
+        "north_west_south": [
+          715,
+          1036,
+          861
+        ],
+        "total": 2612
+      }
+    },
+    "checked_first_visits": 60468,
+    "terminal_counterexample_verified": true,
+    "exceptional_site_count": 12
+  },
+  "imported_contracts": {
+    "d:trace": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 50,
+      "matches_exact_plan_statement": true
+    },
+    "d:ratios": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 240,
+      "matches_exact_plan_statement": true
+    },
+    "p:pairwalk": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 148,
+      "matches_exact_plan_statement": true,
+      "proof_line": 166
+    },
+    "l:local": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 546,
+      "matches_exact_plan_statement": true,
+      "proof_line": 555
+    },
+    "l:exposure": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 437,
+      "matches_exact_plan_statement": true,
+      "proof_line": 452
+    },
+    "l:onepoint": {
+      "file": "/home/ubuntu/aklt/reports/REV_C1a/sec6-walks.tex",
+      "line": 695,
+      "matches_exact_plan_statement": true,
+      "proof_line": 709
+    }
+  }
+}

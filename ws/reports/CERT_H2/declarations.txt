@@ -1,0 +1,312 @@
+AKLT.Cert.H2.complete_checked : AKLT.Cert.H2.completeCheck = true
+
+AKLT.Cert.H2.raw_codes_count : AKLT.Cert.H2.rawCodes.card = 916
+
+AKLT.Cert.H2.vertex_zero {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) : AKLT.Defs.wordVertex u w 0 = u
+
+AKLT.Cert.H2.vertex_succ {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (j : ℕ) (hj : j < n) :
+  AKLT.Defs.wordVertex u w (j + 1) = AKLT.Defs.wordVertex u w j + (w ⟨j, hj⟩).step
+
+AKLT.Cert.H2.vertex_translate {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (j : ℕ) :
+  AKLT.Defs.wordVertex u w j = u + AKLT.Defs.wordVertex (0, 0) w j
+
+AKLT.Cert.H2.slice_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (a l : ℕ) (h : a + l ≤ n)
+  (j : ℕ) (hj : j ≤ l) :
+  AKLT.Defs.wordVertex (0, 0) (AKLT.Cert.H2.slice w a l h) j =
+    AKLT.Defs.wordVertex u w (a + j) - AKLT.Defs.wordVertex u w a
+
+AKLT.Cert.H2.slice_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (a l : ℕ) (h : a + l ≤ n)
+  (i : Fin l) :
+  AKLT.Defs.wordBond (0, 0) (AKLT.Cert.H2.slice w a l h) i =
+    Finset.image (fun x => x - AKLT.Defs.wordVertex u w a) (AKLT.Defs.wordBond u w ⟨a + ↑i, ⋯⟩)
+
+AKLT.Cert.H2.raw_slice {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (hw : Function.Injective (AKLT.Defs.wordBond u w)) (a l : ℕ) (h : a + l ≤ n) :
+  AKLT.Defs.RawWindow (AKLT.Cert.H2.slice w a l h)
+
+AKLT.Cert.H2.initWord_snoc {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Cert.H2.initWord (AKLT.Cert.H2.snoc w d) = w
+
+AKLT.Cert.H2.snoc_last {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Cert.H2.snoc w d (Fin.last n) = d
+
+AKLT.Cert.H2.snoc_initWord {n : ℕ} (w : AKLT.Defs.DirectionWord (n + 1)) :
+  AKLT.Cert.H2.snoc (AKLT.Cert.H2.initWord w) (w (Fin.last n)) = w
+
+AKLT.Cert.H2.sum_snoc.{u_1} {n : ℕ} {R : Type u_1} [AddCommMonoid R] (f : AKLT.Defs.DirectionWord (n + 1) → R) :
+  ∑ w, f w = ∑ w, ∑ d, f (AKLT.Cert.H2.snoc w d)
+
+AKLT.Cert.H2.initWord_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord (n + 1)) (j : ℕ) (hj : j ≤ n) :
+  AKLT.Defs.wordVertex u (AKLT.Cert.H2.initWord w) j = AKLT.Defs.wordVertex u w j
+
+AKLT.Cert.H2.initWord_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord (n + 1)) (i : Fin n) :
+  AKLT.Defs.wordBond u (AKLT.Cert.H2.initWord w) i = AKLT.Defs.wordBond u w i.castSucc
+
+AKLT.Cert.H2.trail_initWord {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord (n + 1)) (hw : AKLT.Defs.IsTrail u incoming w) :
+  AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.initWord w)
+
+AKLT.Cert.H2.snoc_apply_lt {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (j : ℕ) (hj : j < n) :
+  AKLT.Cert.H2.snoc w d ⟨j, ⋯⟩ = w ⟨j, hj⟩
+
+AKLT.Cert.H2.snoc_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (j : ℕ)
+  (hj : j ≤ n) : AKLT.Defs.wordVertex u (AKLT.Cert.H2.snoc w d) j = AKLT.Defs.wordVertex u w j
+
+AKLT.Cert.H2.snoc_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (i : Fin n) : AKLT.Defs.wordBond u (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordBond u w i
+
+AKLT.Cert.H2.snoc_departure {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (j : ℕ) (hj : j ≤ n) (x : AKLT.Defs.Plane) :
+  AKLT.Defs.departureCount u (AKLT.Cert.H2.snoc w d) j x = AKLT.Defs.departureCount u w j x
+
+AKLT.Cert.H2.snoc_old_revisit {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (i : Fin n) : AKLT.Defs.wordRevisit u (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordRevisit u w i
+
+AKLT.Cert.H2.snoc_old_straight {n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) (i : Fin n) :
+  AKLT.Defs.wordStraight incoming (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordStraight incoming w i
+
+AKLT.Cert.H2.snoc_factor {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) :
+  AKLT.Defs.trailWeight u incoming (AKLT.Cert.H2.snoc w d) =
+    AKLT.Defs.trailWeight u incoming w * AKLT.Cert.H2.nextFactor u incoming w d
+
+AKLT.Cert.H2.factor_nonneg {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) : 0 ≤ AKLT.Cert.H2.nextFactor u incoming w d
+
+AKLT.Cert.H2.factor_le {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) : AKLT.Cert.H2.nextFactor u incoming w d ≤ AKLT.Defs.passageFactor false / 3
+
+AKLT.Cert.H2.weight_nonneg {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) : 0 ≤ AKLT.Defs.trailWeight u incoming w
+
+AKLT.Cert.H2.snoc_last_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Defs.wordBond u (AKLT.Cert.H2.snoc w d) (Fin.last n) =
+    {AKLT.Defs.wordVertex u w n, AKLT.Defs.wordVertex u w n + d.step}
+
+AKLT.Cert.H2.snoc_fresh {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) (i : Fin n) :
+  AKLT.Defs.wordBond u w i ≠ {AKLT.Defs.wordVertex u w n, AKLT.Defs.wordVertex u w n + d.step}
+
+AKLT.Cert.H2.reverse_step (d : AKLT.Defs.Compass) : d.reverse.step = -d.step
+
+AKLT.Cert.H2.snoc_nonreverse {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) :
+  d ≠ (AKLT.Cert.H2.nextIncoming incoming w).reverse
+
+AKLT.Cert.H2.raw_snoc {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.RawWindow w)
+  (hf :
+    ∀ (i : Fin n),
+      AKLT.Defs.wordBond (0, 0) w i ≠ {AKLT.Defs.wordVertex (0, 0) w n, AKLT.Defs.wordVertex (0, 0) w n + d.step}) :
+  AKLT.Defs.RawWindow (AKLT.Cert.H2.snoc w d)
+
+AKLT.Cert.H2.successor_raw {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.RawWindow w)
+  (hd : AKLT.Defs.WindowAdmissible w d) : AKLT.Defs.RawWindow (AKLT.Defs.windowSuccessor w d)
+
+AKLT.Cert.H2.lastWindow_slice {m n : ℕ} (w : AKLT.Defs.DirectionWord n) (hm : m ≤ n) :
+  AKLT.Defs.lastWindowWord m w = AKLT.Cert.H2.slice w (n - m) m ⋯
+
+AKLT.Cert.H2.lastWindow_raw {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (hw : AKLT.Defs.IsTrail u incoming w) (hm : m ≤ n) :
+  AKLT.Defs.RawWindow (AKLT.Defs.lastWindowWord m w)
+
+AKLT.Cert.H2.lastWindow_snoc {m n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (_hm : 1 ≤ m)
+  (hmn : m ≤ n) :
+  AKLT.Defs.lastWindowWord m (AKLT.Cert.H2.snoc w d) = AKLT.Defs.windowSuccessor (AKLT.Defs.lastWindowWord m w) d
+
+AKLT.Cert.H2.lastWindow_arrival {m n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) (hm : 1 ≤ m)
+  (hmn : m ≤ n) : AKLT.Defs.windowArrival (AKLT.Defs.lastWindowWord m w) = AKLT.Cert.H2.nextIncoming incoming w
+
+AKLT.Cert.H2.frame_vertex (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (j : ℕ) (hj : j ≤ n) : AKLT.Defs.wordVertex (F.point u) (F.word w) j = F.point (AKLT.Defs.wordVertex u w j)
+
+AKLT.Cert.H2.frame_bond (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (i : Fin n) : AKLT.Defs.wordBond (F.point u) (F.word w) i = Finset.image (⇑F.point) (AKLT.Defs.wordBond u w i)
+
+AKLT.Cert.H2.frame_trail (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.IsTrail (F.point u) (F.direction incoming) (F.word w) ↔ AKLT.Defs.IsTrail u incoming w
+
+AKLT.Cert.H2.frame_revisit (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (i : Fin n) : AKLT.Defs.wordRevisit (F.point u) (F.word w) i = AKLT.Defs.wordRevisit u w i
+
+AKLT.Cert.H2.frame_incoming (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (i : Fin n) :
+  AKLT.Defs.wordIncoming (F.direction incoming) (F.word w) i = F.direction (AKLT.Defs.wordIncoming incoming w i)
+
+AKLT.Cert.H2.frame_weight (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.trailWeight (F.point u) (F.direction incoming) (F.word w) = AKLT.Defs.trailWeight u incoming w
+
+AKLT.Cert.H2.frame_total (F : AKLT.Cert.H2.FrameChange) (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n (F.point u) (F.direction incoming) = AKLT.Defs.openTrailTotal n u incoming
+
+AKLT.Cert.H2.total_uniform (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n u incoming = AKLT.Defs.openTrailTotal n (0, 0) AKLT.Defs.Compass.east
+
+AKLT.Cert.H2.total_nonneg (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  0 ≤ AKLT.Defs.openTrailTotal n u incoming
+
+AKLT.Cert.H2.total_zero (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) : AKLT.Defs.openTrailTotal 0 u incoming = 1
+
+AKLT.Cert.H2.total_step (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal (n + 1) u incoming ≤ AKLT.Defs.openTrailTotal n u incoming * AKLT.Defs.passageFactor false
+
+AKLT.Cert.H2.total_majorant (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n u incoming ≤ AKLT.Defs.passageFactor false ^ n
+
+AKLT.Cert.H2.lastWindow_admissible {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hm : 1 ≤ m) (hmn : m ≤ n)
+  (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) :
+  AKLT.Defs.WindowAdmissible (AKLT.Defs.lastWindowWord m w) d
+
+AKLT.Cert.H2.window_revisit_true {m n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (hmn : m ≤ n)
+  (hr :
+    0 <
+      AKLT.Defs.departureCount (0, 0) (AKLT.Defs.lastWindowWord m w) m
+        (AKLT.Defs.wordVertex (0, 0) (AKLT.Defs.lastWindowWord m w) m)) :
+  0 < AKLT.Defs.departureCount u w n (AKLT.Defs.wordVertex u w n)
+
+AKLT.Cert.H2.factor_memory_le {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hm : 1 ≤ m) (hmn : m ≤ n) :
+  AKLT.Cert.H2.nextFactor u incoming w d ≤ AKLT.Defs.kindWeight (AKLT.Defs.windowKind (AKLT.Defs.lastWindowWord m w) d)
+
+AKLT.Cert.H2.mass_nonneg (m n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (ω : AKLT.Defs.MemoryWindow m) :
+  0 ≤ AKLT.Defs.memoryTrailMass m n u incoming ω
+
+AKLT.Cert.H2.kind_nonneg (k : AKLT.Defs.StepKind) : 0 ≤ AKLT.Defs.kindWeight k
+
+AKLT.Cert.H2.matrix_nonneg (m : ℕ) (ω ω' : AKLT.Defs.MemoryWindow m) : 0 ≤ AKLT.Defs.memoryMatrix m ω ω'
+
+AKLT.Cert.H2.mass_pair {m n : ℕ} (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (f : AKLT.Defs.MemoryWindow m → ℚ) :
+  ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω * f ω =
+    ∑ w,
+      if h : AKLT.Defs.IsTrail u incoming w then
+        AKLT.Defs.trailWeight u incoming w * f ⟨AKLT.Defs.lastWindowWord m w, ⋯⟩
+      else 0
+
+AKLT.Cert.H2.mass_total {m n : ℕ} (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω = AKLT.Defs.openTrailTotal n u incoming
+
+AKLT.Cert.H2.mass_step {m n : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (ω' : AKLT.Defs.MemoryWindow m) :
+  AKLT.Defs.memoryTrailMass m (n + 1) u incoming ω' ≤
+    ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω * AKLT.Defs.memoryMatrix m ω ω'
+
+AKLT.Cert.H2.east_vertex (n j : ℕ) (hj : j ≤ n) :
+  AKLT.Defs.wordVertex (0, 0) (fun x => AKLT.Defs.Compass.east) j = (↑j, 0)
+
+AKLT.Cert.H2.east_raw (m : ℕ) : AKLT.Defs.RawWindow fun x => AKLT.Defs.Compass.east
+
+AKLT.Cert.H2.ratio_pos {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) :
+  0 < AKLT.Defs.memoryWitnessRatio v
+
+AKLT.Cert.H2.inf_pos {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) :
+  0 < sInf (Set.range v)
+
+AKLT.Cert.H2.prefix_set_finite (m : ℕ) (q : ℝ) :
+  {r | ∃ j < m, r = ↑(AKLT.Defs.openTrailTotal j (0, 0) AKLT.Defs.Compass.east) * q ^ (-↑j)}.Finite
+
+AKLT.Cert.H2.prefix_le_base {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (q : ℝ) (r : ℕ) (hr : r < m) :
+  ↑(AKLT.Defs.openTrailTotal r (0, 0) AKLT.Defs.Compass.east) * q ^ (-↑r) ≤ AKLT.Defs.memoryBaseConstant m q v
+
+AKLT.Cert.H2.base_ge_one {m : ℕ} (hm : 1 ≤ m) (v : AKLT.Defs.MemoryWindow m → ℝ) (q : ℝ) :
+  1 ≤ AKLT.Defs.memoryBaseConstant m q v
+
+AKLT.Cert.H2.total_cast (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ↑(AKLT.Defs.openTrailTotal n u incoming) =
+    ∑ w, if AKLT.Defs.IsTrail u incoming w then ↑(AKLT.Defs.trailWeight u incoming w) else 0
+
+AKLT.Cert.H2.base_trail_bound {m : ℕ} (hm : 1 ≤ m) (v : AKLT.Defs.MemoryWindow m → ℝ)
+  (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) (q : ℝ) (hq : 0 < q)
+  (hw : ∀ (ω : AKLT.Defs.MemoryWindow m), ∑ ω', ↑(AKLT.Defs.memoryMatrix m ω ω') * v ω' ≤ q * v ω) (n : ℕ)
+  (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ↑(AKLT.Defs.openTrailTotal n u incoming) ≤ AKLT.Defs.memoryBaseConstant m q v * q ^ n
+
+AKLT.Cert.H2.bound_mono {C D q : ℝ} (h : AKLT.Defs.OpenTrailBound C q) (hCD : C ≤ D) : AKLT.Defs.OpenTrailBound D q
+
+AKLT.Cert.H2.alm : AKLT.Blueprint.Top.ALMStatement
+
+AKLT.Cert.H2.digit_lt (d : AKLT.Defs.Compass) : AKLT.Cert.H2.directionDigit d < 4
+
+AKLT.Cert.H2.direction_digit (d : AKLT.Defs.Compass) : AKLT.Cert.H2.digitDirection (AKLT.Cert.H2.directionDigit d) = d
+
+AKLT.Cert.H2.code_lt (w : AKLT.Defs.DirectionWord 6) : AKLT.Cert.H2.wordCode w < 4096
+
+AKLT.Cert.H2.decode_code (w : AKLT.Defs.DirectionWord 6) : AKLT.Cert.H2.decodeSix (AKLT.Cert.H2.wordCode w) = w
+
+AKLT.Cert.H2.digit_direction (c : ℕ) : AKLT.Cert.H2.directionDigit (AKLT.Cert.H2.digitDirection c) = c % 4
+
+AKLT.Cert.H2.code_decode (c : ℕ) (hc : c < 4096) : AKLT.Cert.H2.wordCode (AKLT.Cert.H2.decodeSix c) = c
+
+AKLT.Cert.H2.raw_count : Fintype.card (AKLT.Defs.MemoryWindow 6) = 916
+
+AKLT.Cert.H2.checked_rows (w : AKLT.Defs.DirectionWord 6) (hw : AKLT.Defs.RawWindow w) :
+  186377076276 ≤ AKLT.Cert.H2.witnessNat w ∧
+    AKLT.Cert.H2.witnessNat w ≤ 1000000000000 ∧
+      1120437614225 * AKLT.Cert.H2.rowNumerator w ≤ 1119948287353 * 2695605 * AKLT.Cert.H2.witnessNat w ∧
+        ∀ (g : AKLT.Defs.SquareSymmetry),
+          AKLT.Cert.H2.witnessNat (AKLT.Defs.symmetryWord g w) = AKLT.Cert.H2.witnessNat w
+
+AKLT.Cert.H2.kind_numerator (k : AKLT.Defs.StepKind) :
+  ↑(AKLT.Cert.H2.kindNumerator k) = 2695605 * AKLT.Defs.kindWeight k
+
+AKLT.Cert.H2.matrix_row {m : ℕ} (ω : AKLT.Defs.MemoryWindow m) (f : AKLT.Defs.MemoryWindow m → ℚ) :
+  ∑ ω', AKLT.Defs.memoryMatrix m ω ω' * f ω' =
+    ∑ d,
+      if h : AKLT.Defs.WindowAdmissible (↑ω) d then
+        AKLT.Defs.kindWeight (AKLT.Defs.windowKind (↑ω) d) * f ⟨AKLT.Defs.windowSuccessor (↑ω) d, ⋯⟩
+      else 0
+
+AKLT.Cert.H2.witness_row (ω : AKLT.Defs.MemoryWindow 6) :
+  ∑ ω', AKLT.Defs.memoryMatrix 6 ω ω' * ↑(AKLT.Cert.H2.integerWitness ω') = ↑(AKLT.Cert.H2.rowNumerator ↑ω) / 2695605
+
+AKLT.Cert.H2.witness_positive (ω : AKLT.Defs.MemoryWindow 6) : 0 < AKLT.Cert.H2.integerWitness ω
+
+AKLT.Cert.H2.witness_ratio_bound (ω : AKLT.Defs.MemoryWindow 6) :
+  (∑ ω', AKLT.Defs.memoryMatrix 6 ω ω' * ↑(AKLT.Cert.H2.integerWitness ω')) / ↑(AKLT.Cert.H2.integerWitness ω) ≤
+    AKLT.Defs.certifiedRate
+
+AKLT.Cert.H2.witness_orbit (ω ω' : AKLT.Defs.MemoryWindow 6) (h : AKLT.Defs.SameWindowOrbit ↑ω ↑ω') :
+  AKLT.Cert.H2.integerWitness ω = AKLT.Cert.H2.integerWitness ω'
+
+AKLT.Cert.H2.matrix_numerator {m : ℕ} (ω ω' : AKLT.Defs.MemoryWindow m) :
+  ↑(AKLT.Cert.H2.matrixNumerator ω ω') = 2695605 * AKLT.Defs.memoryMatrix m ω ω'
+
+AKLT.Cert.H2.floor_matrix {m : ℕ} (ω ω' : AKLT.Defs.MemoryWindow m) :
+  ⌊2695605 * AKLT.Defs.memoryMatrix m ω ω'⌋ = ↑(AKLT.Cert.H2.matrixNumerator ω ω')
+
+AKLT.Cert.H2.integer_row (ω : AKLT.Defs.MemoryWindow 6) :
+  ∑ ω', ⌊2695605 * AKLT.Defs.memoryMatrix 6 ω ω'⌋ * AKLT.Cert.H2.integerWitness ω' = ↑(AKLT.Cert.H2.rowNumerator ↑ω)
+
+AKLT.Cert.H2.witness_low : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.lowWindow = 186377076276
+
+AKLT.Cert.H2.witness_high : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.highWindow = 1000000000000
+
+AKLT.Cert.H2.witness_tight : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.tightWindow = 224087522845
+
+AKLT.Cert.H2.row_tight : AKLT.Cert.H2.rowNumerator ↑AKLT.Cert.H2.tightWindow = 603787640626036713
+
+AKLT.Cert.H2.h2Test : AKLT.Blueprint.Top.H2TestStatement
+
+AKLT.Cert.H2.rate_pos : 0 < AKLT.Defs.certifiedRate
+
+AKLT.Cert.H2.rate_lt_one : AKLT.Defs.certifiedRate < 1
+
+AKLT.Cert.H2.cv_numeric : 6 * (200 / (187 * AKLT.Defs.certifiedRate)) ^ 6 < 10
+
+AKLT.Cert.H2.scaled_total (r : ℕ) :
+  ↑(AKLT.Defs.openTrailTotal r (0, 0) AKLT.Defs.Compass.east) * ↑AKLT.Defs.certifiedRate ^ (-↑r) ≤
+    (200 / (187 * ↑AKLT.Defs.certifiedRate)) ^ r
+
+AKLT.Cert.H2.cv_base (v : AKLT.Defs.MemoryWindow 6 → ℝ) (_hv : ∀ (ω : AKLT.Defs.MemoryWindow 6), 0 < v ω)
+  (hr : AKLT.Defs.memoryWitnessRatio v ≤ 6) :
+  AKLT.Defs.memoryBaseConstant 6 (↑AKLT.Defs.certifiedRate) v ≤ 6 * (200 / (187 * ↑AKLT.Defs.certifiedRate)) ^ 6 ∧
+    AKLT.Defs.memoryBaseConstant 6 (↑AKLT.Defs.certifiedRate) v < 10
+
+AKLT.Cert.H2.h2_of_test (ht : AKLT.Blueprint.Top.H2TestStatement) : AKLT.Blueprint.Top.H2Statement
+
+AKLT.Cert.H2.h2CV : AKLT.Blueprint.Top.H2CVStatement
+
+AKLT.Cert.H2.h2 : AKLT.Blueprint.Top.H2Statement

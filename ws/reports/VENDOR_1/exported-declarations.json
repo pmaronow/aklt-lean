@@ -1,0 +1,3830 @@
+[
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Mate"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.MateConn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.NN"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Pt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.StarConn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.StarNear"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.box"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.corners"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.edgeInd"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.primFn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreDirichlet"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreMean"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreVariance"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.dirichlet"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.indicator"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.lowerCut"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.negativePart"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.positivePart"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.upperCut"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.variation"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weakLowerCut"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedMass"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedMean"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedVariance"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.Spin"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.binaryKL"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.cutMass"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteAveragedTV"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageMixing"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageRegularizedDirichlet"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageRegularizedRetainedVariance"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainGenerator"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteDirichletForm"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteEntropyProduction"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteRetainedSqrtMean"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteRetainedSqrtVariance"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteShannonEntropy"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.gibbsPartition"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.gibbsProbability"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.quadraticHamiltonian"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.FiniteChain.signedSpin"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey._sizeOf_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey._sizeOf_inst"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.ctorIdx"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.noConfusionType"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.value"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.ValueEq"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic._sizeOf_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic._sizeOf_inst"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.abs"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.add"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.bitLength"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.compare"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.ctorIdx"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.exponent"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.hasLowBits"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instAdd"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instBEqCanonicalKey"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instBEqCanonicalKey.beq"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instBEqCanonicalKey.beq.match_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instCoeRat"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instCoeReal"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq.match_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableRelLe"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableRelLt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableValueEq"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableValueEq._aux_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instHashableCanonicalKey"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instHashableCanonicalKey.hash"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instHashableCanonicalKey.hash.match_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instLE"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instLT"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instMul"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instNeg"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instOne"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instOrd"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instReprCanonicalKey"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instReprCanonicalKey.repr"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instSetoid"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instSub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instZero"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrtNat"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.le"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.lt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mantissa"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.max"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.max4"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min4"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mul"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.neg"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.noConfusionType"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.normalize"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.normalizeDown"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.normalizeUp"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.ofInt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.one"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.pow2"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.pow2Nat"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.scale2"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftDown"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftLeftInt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftRightInt"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftUp"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toReal"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.zero"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq.match_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instInhabitedDyadic"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instInhabitedDyadic.default"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instReprDyadic"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.LeanCert.Core.instReprDyadic.repr"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta._aux_AKLT_Vendor_Physlib_Mathematics_KroneckerDelta_Basic___unexpand_AKLT_Vendor_Physlib_KroneckerDelta_kroneckerDelta_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.generalizedKroneckerDelta"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.\u00ab_aux_AKLT_Vendor_Physlib_Mathematics_KroneckerDelta_Basic___macroRules_AKLT_Vendor_Physlib_KroneckerDelta_term\u03b4[_,_]_1\u00bb"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.\u00abterm\u03b4[_,_]\u00bb"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.E"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.N"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem._sizeOf_1"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem._sizeOf_inst"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.a"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.ac"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.ctorIdx"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.noConfusion"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.noConfusionType"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHom"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toLieRingModule"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.totalN"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.CGSum"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.CGSummand"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.casesOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.mk._flat_ctor"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.recOn"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.JointlyIrreducible"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.v"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.StringIndex"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgCoeff"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgRestrict"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.eSub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.efhSub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.fSub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridFun"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridVec"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.hSub"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.hwVec"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.instAddCommGroupStandardSl2Module"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.primSpace"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.sepVal"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringBasis"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringSpan"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVec"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVecs"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumBasis"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumEnd"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumVec"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorE"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorF"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorH"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorStringBasis"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.bracketLeft"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.Physlib.bracketRight"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo"
+  },
+  {
+    "kind": "definition",
+    "name": "AKLT.Vendor.QICLean.Submodule.spectralSpanLE"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.LadderSystem"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.rec"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.mk"
+  },
+  {
+    "kind": "generated",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.rec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.mem_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.mem_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.mono"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.refl"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.single"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.tail"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.trans"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Conn.update"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.esc"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.step"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.tail"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.conn_path"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.cons"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.not_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.of_conn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.shift"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Mate.starNear"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.MateConn.starConn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.NN.starNear"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.NN.symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.NN_add_single"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.Set.Finite.subset_box"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.StarNear.symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.boundary_clopen"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.box.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.box_finite"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.box_mono"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.conn_filled"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.conn_joined"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.conn_shell"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.corners.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.edgeInd_closed"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.edgeInd_comm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exists_primitive"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_mateConn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.joinedToInf_iff_infinite"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.joinedToInf_of_far"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_mateConn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.primFn_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_apply_self"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_esc"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_isEscPath"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_nn"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_not_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Balaban.LatticeGeom.ray_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coarea_support"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreDirichlet_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreMean.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.coreVariance.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.cutFlow_swap"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.cutMass_add_compl"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.exists_weighted_median"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.finite_cheeger"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.half_supported_cheeger"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.indicator.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.indicator.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.lowerCut.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.map_core_compl"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.negativePart.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.parts_dirichlet_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.parts_edge_sq_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.parts_sq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.positivePart.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.retained_core_cheeger"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.retained_core_cheeger_full"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.square_variation_cauchy"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.sum_core_subtype"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.sum_plus_sq_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.sum_symmetric_second"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.upperCut.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.variation._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.variation.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.variation_indicator"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.variation_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weakLowerCut.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedMass.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedMass_indicator"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.Cheeger.weightedVariance_le_center"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.binaryKL_exp_coverage"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.binaryKL_log_coverage"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.continuous_finiteChainAverageRegularizedDirichlet"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_empty_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_empty_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_mono_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_remove_union_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutFlow_union_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_compl"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_empty"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_le_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_mono"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.cutMass_union"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteAveragedTV_le_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteAveragedTV_mul_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteAveragedTV_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageMixing.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageMixing_add_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageMixing_antitone"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainAverageRegularizedDirichlet.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity_generator"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity_hasDerivAt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity_stationary_average"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainDensity_sum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainGenerator.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainGenerator.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainGenerator_regularized"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_hasDerivAt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_stationary_average"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_sum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_detailed_balance"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_entry_hasDerivAt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_hasDerivAt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_stationary"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_stochastic"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_uniformization"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChainSemigroup_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_generator_pairing"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_integrated_entropy_dissipation"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_mixing_of_balanced_flow"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_mixing_of_retained_poincare"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_pair_sum_diagonal"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_pair_sum_swap"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_pow_detailed_balance"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_regularized_average_dissipation"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_regularized_dissipation_bound"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_regularized_mixing_of_retained_poincare"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_regularized_tv_core_bound"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteChain_summation_by_parts"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy_hasDerivAt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy_regularization_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDensityEntropy_regularized_atom_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDirichletForm._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDirichletForm.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDirichletForm_eq_neg_generator"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteDirichletForm_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteEntropyProduction._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteEntropyProduction.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteEntropyProduction_ge_four_dirichlet"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteEntropyProduction_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteGibbs_entropy_coverage"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteGibbs_positive_normalized"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL_exp_coverage"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL_partition"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteKL_uniform_coverage"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteRetainedSqrtMean.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteRetainedSqrtVariance.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteShannonEntropy.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteShannonEntropy_le_log_card"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteShannonEntropy_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation_contraction"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation_density_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation_le_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finiteTotalVariation_stationary_mixture"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_average_sqrt_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_balanced_flow_pruning"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_density_average_tv_core_bound"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_density_core_l1_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_density_retained_mass_error"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_density_tv_core_bound"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_log_sum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_sqrt_mean_sq_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.finite_weighted_cauchy_schwarz"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsPartition_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsProbability_add_diagonal"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsProbability_constant_shift"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsProbability_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsProbability_sum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.gibbsShannonEntropy_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.log_ratio_lower_bound"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.log_sqrt_dissipation"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.matrix_exp_smul_detailed_balance"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.matrix_exp_smul_hasSum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.matrix_exp_smul_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.matrix_exp_smul_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.matrix_exp_smul_row_sum"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.quadraticHamiltonian.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.quadraticHamiltonian_add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.quadraticHamiltonian_add_diagonal"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.quadraticHamiltonian_diagonal"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.signedSpin.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteChain.signedSpin_sq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condExp_on_fiber"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.FiniteConditioning.condIndep_of_fiber_indep"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.inj"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.injEq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.sizeOf_spec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.ValueEq.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey_eq_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey_value"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.compare_eq_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.compare_gt_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.compare_lt_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.hasLowBits.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.instSetoid._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrtNat.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt_sq_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.int_lt_succ_sqrt_sq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.le_max_toRat_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.le_max_toRat_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.max_toRat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min4_le_max4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat_le_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat_le_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk.inj"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk.injEq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.mk.sizeOf_spec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.neg.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.ofInt.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.pow2Nat.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftDown.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftLeftInt.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftRightInt.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.shiftUp.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown_le_sqrtUp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp_nonneg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp_nonneg._proof_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_5"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_eq._proof_1_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_neg"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_ofInt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_ofInt._simp_1_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_scale2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_scale2_le_scale2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le._proof_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le._proof_1_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._proof_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._proof_1_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._simp_1_6"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_iff._simp_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_of_toRat_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.eq_of_coe"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.eq_one_of_same"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.eq_zero_of_ne"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.eq_zero_of_not"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.finset_sum_smul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.finset_sum_sum_smul_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.generalizedKroneckerDelta_comp_perm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.generalizedKroneckerDelta_swap"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta_finSumFinEquiv"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff'"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff''"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_of_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_sub_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.smul_symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.sum_mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.sum_smul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.sum_sum_smul_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.symmetrize"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.KroneckerDelta.symmetrize'"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.E.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.assoc_leibniz"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.assoc_leibniz'"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.comm_a_a"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.comm_a_ac"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.comm_ac_ac"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_N_N"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_N_a"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_N_ac"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_single"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.lie_totalN_E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk.inj"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk.injEq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.mk.sizeOf_spec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHom._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_lie"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_single"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_stdBasis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.toLieModule"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LadderSystem.totalN.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LinearMap.lie_apply_eq_of_lie_basis_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.LinearMap.lie_apply_eq_of_lie_span_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e1_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e1_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e2_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e2_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f1_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f1_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f2_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f2_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.h1_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.h2_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_vNat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_vNat_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_\u03c1E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_\u03c1F"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_\u03c1F_pow"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_\u03c1H"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.coeff_eq_zero_of_ne"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_\u03c1E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_\u03c1F"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_\u03c1H"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.eq_smul_id"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.eq_zero_of_ne"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.id"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsIntertwiner.smul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.cgRestrict_isIntertwiner"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_F"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_H"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_of_cgRestrict_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.exists_eq_smul_cgProj"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.smul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.linearMap_ext_vNat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.v.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_eq_v"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_eq_v._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_of_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StringIndex.le_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.StringIndex.le_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.apply_pow_comm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.card_stringIndex"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cast_pred"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgCoeff.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgCoeff_rec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_stringVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_E"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_F"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_H"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj_cgEquiv_symm_lof"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj_isTensorIntertwiner"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgProj_ne_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgRestrict.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.cgRestrict.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.classification"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.classification_n_eq_finrank_sub_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.clebsch_gordan"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.clebsch_gordan_finrank"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.clebsch_gordan_finrank_aux"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.commute_of_hcomm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.commute_of_lie_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.commuting_classification"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.commuting_classification_finrank"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.component_sumEnd"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd_add"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd_smul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd_sub"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.diagEnd_tmul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.eSub.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.eSub_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.e_mem_subalgebra"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.efhSub._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.efhSub.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.efhSub_span_top"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.endAddLie"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.endLieAdd"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.endLieSkew"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.endLieSmul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.endSmulLie"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.eq_smul_vNat_zero_of_\u03c1E_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.eq_zero_of_sub_eq_mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.equiv_comm_of_basis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.exists_bivariate_basis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.exists_decomp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.exists_joint_primitive"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.exists_primitive_in_invariant"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.exists_stringLieSubmodule"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.fSub.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.fSub_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.f_mem_subalgebra"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.finrank_eq_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.finrank_standardSl2Module"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.finrank_standardSl2Module_tensor"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.generators_eigenvectors"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridFun_isBivariateGrid"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_eq_top"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_e1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_e2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_f1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_f2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_h1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridSpan_stable_h2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.gridVec.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e1_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e1_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e1_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e2_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e2_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_e2_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_f1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_f1_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_f2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_f2_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_h1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_h2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_hasEigenvector"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_linearIndependent"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_mem_gridSpan"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_ne"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.grid_primitive1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hSub.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hSub_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.h_mem_subalgebra"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hasPrimitiveVectorWith_of_mem_primSpace"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hasPrimitiveVectorWith_of_sub"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hwVec.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hwVec_hasPrimitiveVectorWith"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.hwVec_ne_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.instAddCommGroupStandardSl2Module._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.instNonemptyStringIndex"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.int_weight_inj"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.isSl2Triple_sub"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.isSl2Triple_tensor"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_diagEnd"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_e_string_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_f_string_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_generator_string_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_h_string_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_mem_of_generators"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.lie_subalgebraBasis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.linearIndependent_efh"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.linearIndependent_efhSub"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.map_mem_span_of_range"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.mem_primSpace"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.nontrivial_of_isSl2Triple"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.pow_apply_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.pred_succ_index"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.pred_succ_index._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.primSpace._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.primSpace.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.primSpace_map_mem"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.primSpace_stable"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_e"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_e_pow_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_f_pow_ne_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_f_pow_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_h"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.prim_h_pow"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_ef"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_ef_first"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_ef_last_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_ef_last_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_ef_middle"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_he"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.rel_hf"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sepVal.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sepVal_injective"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sepVal_int_injective"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.separator_stringVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.span_efh_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieModule"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_5"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_pos._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_lt._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_h_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringBasis._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringBasis._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringBasis.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_e"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_e_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_e_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_e_succ._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_e_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_f"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_f_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_f_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_h"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_h_basis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_lie"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringEquiv_lie_of_basis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringPow_mem_span"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringSpan.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringSpan.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringSpan_eq_top"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVec.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVec_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVec_linearIndependent"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVec_ne_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVecs._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVecs._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVecs.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.stringVecs.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.string_hasEigenvector"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.string_isBasis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.string_linearIndependent"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.string_weight_injective"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.subalgebraBasis_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumBasis._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumBasis.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumBasis_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumEnd_lof"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumVec.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sumVec_linearIndependent"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.sum_arithmetic_progression"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorCoord_tmul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorE.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorE_hwVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorE_stringVec_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorE_stringVec_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorF.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorF_pow_hwVec_eq_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorF_pow_hwVec_ne_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorF_stringVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorH.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorH_hwVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorH_stringVec"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorH_tmul_vNat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorStringBasis._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorStringBasis.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorStringBasis.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.tensorStringBasis_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.toEnd_ambient_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.toEnd_ambient_pow"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.top_le_span_gridFun"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.weight_pair_injective"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_apply"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_basis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_ef"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_he"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_hf"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_refl"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_bracket_swap"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_leibniz"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03a6_lie"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E._proof_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E_vNat_succ"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E_vNat_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E_v_pos"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E_v_pos._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1E_v_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F._proof_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F_pow_vNat_zero"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F_vNat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F_v_last"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F_v_lt"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1F_v_lt._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H_v"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.Sl2.\u03c1H_vNat"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.bracketLeft._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.bracketLeft._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.bracketRight._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.Physlib.bracketRight._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.card_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.conjTranspose"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.isUnitaryBetween_of_card_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.rank_eq_card"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsCoisometry.reindex"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.card_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.conjTranspose"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.eq_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.rank_eq_card"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsIsometry.reindex"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.conjTranspose"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.mul"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.of_mul_left"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.of_mul_right"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.reindex"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.conjTranspose_mul_mul_eq_conjTranspose_mul_iff_of_mul_eq_one"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Matrix.isUnitaryBetween_iff_mem_unitaryGroup"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.OrthonormalBasis.norm_sq_repr_symm"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.OrthonormalBasis.re_inner_apply_eq_sum_of_eigen"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.OrthonormalBasis.repr_apply_of_eigen"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.OrthonormalBasis.sub_smul_eq_repr_symm_of_eigen"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.congr_simp"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.exists_mem_starProjection_eq"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.exists_mem_starProjection_eq_and_norm_sq_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.inf_of_commute"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans_weighted"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans_weighted._abel_1_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.commute_starProjection_spectralSpanLE"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_3"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_4"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff._simp_1_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff._simp_1_2"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le_of_window"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le_of_window._abel_1_1"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.norm_sq_starProjection_orthogonal_spectralSpanLE"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.re_inner_apply_le_of_mem_spectralSpanLE"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.starProjection_inf_of_commute"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.Submodule.starProjection_orthogonal_spectralSpanLE"
+  },
+  {
+    "kind": "theorem",
+    "name": "AKLT.Vendor.QICLean.instCompleteSpace_aKLT"
+  }
+]

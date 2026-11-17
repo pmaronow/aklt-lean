@@ -1,0 +1,708 @@
+{
+  "counts": {
+    "BUNDLE": 2,
+    "DERIVED_AFTER_LEAVES": 1,
+    "OPEN": 33
+  },
+  "format": "cert-h1-production-leaves-v2",
+  "leaves": [
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.integerEntries",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.integerEntries",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.integerEntries",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.thresholdScale",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.thresholdScale",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.thresholdScale",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.positiveScale",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.positiveScale",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.positiveScale",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.sylvester",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.sylvester",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.sylvester",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.bareiss",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.bareiss",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.bareiss",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.sectorPositiveImpliesBound",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.TopLeaves.sectorPositiveImpliesBound",
+      "kind": "proof",
+      "renamed_from": "AKLT.Cert.H1.LeafStatements.sectorPositiveImpliesBound",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "note": "Exact rational target unchanged; generic analytic proofs should use Reduce/Inversion/OperatorStructure V2.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "F2",
+          "F3",
+          "F4"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "OPEN",
+      "suggested_lane": "BP_H1M"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.integerCheckPremises",
+      "dependencies": [],
+      "id": "AKLT.Cert.H1.Production.TopLeaves.integerCheckPremises",
+      "kind": "assembly_interface",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "BUNDLE"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.TopLeaves.certificatePremises",
+      "dependencies": [],
+      "id": "AKLT.Cert.H1.Production.TopLeaves.certificatePremises",
+      "kind": "assembly_interface",
+      "statement_file": "AKLT/Cert/H1/Production/TopLeaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.TopLeaves",
+      "status": "BUNDLE"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.inputCovered",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.inputCovered",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.compilerInversion",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.compilerInversion",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.compilerGeometry",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.inputCovered",
+        "AKLT.Cert.H1.Production.Leaves.compilerInversion"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.compilerGeometry",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.denominator",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.momentPolynomial"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.denominator",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.acceptedLookup",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.acceptedLookup",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.parityCoverage",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.parityCoverage",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "All ExchangeSigns remain quantified; ignored signs repeat a basis. No all-sign orthogonality premise.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A2"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.basisIndexing",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry",
+        "AKLT.Cert.H1.Production.Leaves.parityCoverage"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.basisIndexing",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "All ExchangeSigns remain quantified; ignored signs repeat a basis. No all-sign orthogonality premise.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A2"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.acceptedDecode",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.signedPacking"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.acceptedDecode",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.sectorPackingExpansion",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.sectorPackingExpansion",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.sectorCoefficientBound",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.sectorCoefficientBound",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.signedPacking",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.signedPacking",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.packingDecode",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.sectorPackingExpansion",
+        "AKLT.Cert.H1.Production.Leaves.sectorCoefficientBound",
+        "AKLT.Cert.H1.Production.Leaves.signedPacking"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.packingDecode",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.paritySlice",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.paritySlice",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.momentPolynomial",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.momentPolynomial",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.tensorSubstitution",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.compilerGeometry"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.tensorSubstitution",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.sectorLinearity",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.sectorLinearity",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "assembly": "AKLT.Cert.H1.Production.Assembly.rationalCurrent_of_leaves",
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.rationalCurrent",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.momentPolynomial",
+        "AKLT.Cert.H1.Production.Leaves.tensorSubstitution",
+        "AKLT.Cert.H1.Production.Leaves.sectorLinearity"
+      ],
+      "id": "AKLT.Cert.H1.Production.Leaves.rationalCurrent",
+      "kind": "assembly_interface",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "DERIVED_AFTER_LEAVES"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.directRowsEntry",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.directRowsEntry",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.metadataFacts",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.metadataFacts",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.rawEncoding",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.rawEncoding",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.enumerationSoundness",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.enumerationSoundness",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.representativeLookup",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.representativeLookup",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.representativeCode",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.inputCovered"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.representativeCode",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.representativeWitnessLookup",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.representativeWitnessLookup",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "RawWitness uses the new shared H1SectorWitnesses existence handoff.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A1"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.representativesAppend",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.representativesAppend",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "RawWitness uses the new shared H1SectorWitnesses existence handoff.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A1"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.effectiveCodeClassification",
+      "dependencies": [],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.effectiveCodeClassification",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": []
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.sameDataWitness",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.effectiveCodeClassification"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.sameDataWitness",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "RawWitness uses the new shared H1SectorWitnesses existence handoff.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A1"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Production.Leaves.mirrorDataWitness",
+      "dependencies": [
+        "AKLT.Cert.H1.Production.Leaves.effectiveCodeClassification"
+      ],
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Production.Leaves.mirrorDataWitness",
+      "kind": "proof",
+      "statement_file": "AKLT/Cert/H1/Production/Leaves.lean",
+      "statement_layer_dependencies": {
+        "note": "RawWitness uses the new shared H1SectorWitnesses existence handoff.",
+        "rational_matrix_definitions_unchanged": true,
+        "repairs": [
+          "A1"
+        ]
+      },
+      "statement_module": "AKLT.Cert.H1.Production.Leaves",
+      "status": "OPEN"
+    }
+  ]
+}

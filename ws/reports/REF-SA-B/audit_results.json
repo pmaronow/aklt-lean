@@ -1,0 +1,84 @@
+{
+  "frames": {
+    "base_design_monomials_through_degree_5": 56,
+    "cross_frame_pair_counts": [
+      144,
+      144,
+      144
+    ],
+    "cross_frame_minimum_weights_as_a_plus_b_sqrt5": [
+      [
+        "1/101",
+        "-1/505"
+      ],
+      [
+        "400/10201",
+        "-80/10201"
+      ],
+      [
+        "1/101",
+        "-1/505"
+      ]
+    ]
+  },
+  "finite_size": {
+    "circular_autocorrelations_checked": 1872,
+    "ell_range_inclusive": [
+      2,
+      40
+    ],
+    "weighted_constants_checked": 39
+  },
+  "lifts": {
+    "translated_box_lifts_checked": 1944,
+    "cases_with_repeated_exterior_images": 964,
+    "cases_with_oppositely_signed_repeated_pins": 964,
+    "ell_values": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "periods": "ell+1 through ell+3, independently"
+  },
+  "clamped_counts": {
+    "rectangle_site_cases": 187496,
+    "M_range_inclusive": [
+      1,
+      8
+    ],
+    "min_T_over_M3": "5865/512",
+    "max_T_over_M3": "208",
+    "max_S_over_M2": "160"
+  },
+  "scalar_bounds": {
+    "four_neighbour_integral_lower_bound": "2294/3125",
+    "removal_decimal_upper_bounds": "all exact rational comparisons passed",
+    "binomial_n_range_inclusive": [
+      44,
+      200
+    ],
+    "rational_tail_cases": 628
+  },
+  "cut_geometry": {
+    "cuts_checked": 60,
+    "exceptional_shells_skipped": 12,
+    "cuts_with_noninteger_fourth_root": 39,
+    "largest_cells_per_short_ring": 8,
+    "minimum_physical_graph_depth_on_X": 18,
+    "u_values": [
+      303595775,
+      303595776,
+      303595777
+    ],
+    "shell_indices": [
+      2,
+      3,
+      4
+    ]
+  },
+  "source_sha256": {
+    "/home/ubuntu/aklt/review/REF-SA/proof.tex": "ea425ca0f19bf5c0dbe697627fddbe2487d739eb7cb25dbdc269b95336e70561",
+    "/home/ubuntu/aklt/review/REF-SA/mosproof.tex": "72d5a49f437f247f38d6b0b82bea5be84132cd75dfd9f206879afed08825582b"
+  }
+}

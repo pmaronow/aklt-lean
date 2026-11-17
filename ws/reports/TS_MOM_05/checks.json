@@ -1,0 +1,231 @@
+{
+  "kind": "floating-point sanity checks, not a formal proof",
+  "roundoff_policy": "Clamp negative interaction factors of magnitude at most 1e-14 to zero; exclude fibre masses at most 1e-14.",
+  "networks_checked": 20,
+  "positive_fibres_checked": 7304,
+  "zero_fibres_excluded": 2268,
+  "max_coordinate_error": 2.220446049250313e-16,
+  "max_atom_normSq_error": 0.0,
+  "cases": [
+    {
+      "n": 1,
+      "root": 0,
+      "root_status": "U",
+      "degree": 0,
+      "pinned": false,
+      "positive_fibres_checked": 1,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 0.0
+    },
+    {
+      "n": 2,
+      "root": 0,
+      "root_status": "U",
+      "degree": 1,
+      "pinned": false,
+      "positive_fibres_checked": 12,
+      "zero_fibres_excluded": 1,
+      "min_local_normalizer": 0.9999999999999999,
+      "max_coordinate_error": 1.1102230246251565e-16
+    },
+    {
+      "n": 2,
+      "root": 1,
+      "root_status": "U",
+      "degree": 1,
+      "pinned": false,
+      "positive_fibres_checked": 13,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 0.9999999999999999,
+      "max_coordinate_error": 5.551115123125783e-17
+    },
+    {
+      "n": 3,
+      "root": 1,
+      "root_status": "U",
+      "degree": 2,
+      "pinned": false,
+      "positive_fibres_checked": 144,
+      "zero_fibres_excluded": 25,
+      "min_local_normalizer": 0.8509288015000138,
+      "max_coordinate_error": 1.6653345369377348e-16
+    },
+    {
+      "n": 4,
+      "root": 1,
+      "root_status": "U",
+      "degree": 3,
+      "pinned": false,
+      "positive_fibres_checked": 1872,
+      "zero_fibres_excluded": 325,
+      "min_local_normalizer": 0.5527864045000419,
+      "max_coordinate_error": 2.220446049250313e-16
+    },
+    {
+      "n": 1,
+      "root": 0,
+      "root_status": "U",
+      "degree": 0,
+      "pinned": true,
+      "positive_fibres_checked": 1,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 0.0
+    },
+    {
+      "n": 2,
+      "root": 0,
+      "root_status": "U",
+      "degree": 1,
+      "pinned": true,
+      "positive_fibres_checked": 12,
+      "zero_fibres_excluded": 1,
+      "min_local_normalizer": 0.9999999999999999,
+      "max_coordinate_error": 1.1102230246251565e-16
+    },
+    {
+      "n": 2,
+      "root": 1,
+      "root_status": "U",
+      "degree": 1,
+      "pinned": true,
+      "positive_fibres_checked": 13,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 0.9999999999999999,
+      "max_coordinate_error": 5.551115123125783e-17
+    },
+    {
+      "n": 3,
+      "root": 1,
+      "root_status": "U",
+      "degree": 2,
+      "pinned": true,
+      "positive_fibres_checked": 132,
+      "zero_fibres_excluded": 37,
+      "min_local_normalizer": 0.8509288015000138,
+      "max_coordinate_error": 1.6653345369377348e-16
+    },
+    {
+      "n": 4,
+      "root": 1,
+      "root_status": "U",
+      "degree": 3,
+      "pinned": true,
+      "positive_fibres_checked": 1452,
+      "zero_fibres_excluded": 745,
+      "min_local_normalizer": 0.5527864045000419,
+      "max_coordinate_error": 2.220446049250313e-16
+    },
+    {
+      "n": 1,
+      "root": 0,
+      "root_status": "D",
+      "degree": 0,
+      "pinned": false,
+      "positive_fibres_checked": 1,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 0.0
+    },
+    {
+      "n": 2,
+      "root": 0,
+      "root_status": "D",
+      "degree": 1,
+      "pinned": false,
+      "positive_fibres_checked": 12,
+      "zero_fibres_excluded": 1,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 1.3877787807814457e-17
+    },
+    {
+      "n": 2,
+      "root": 1,
+      "root_status": "D",
+      "degree": 1,
+      "pinned": false,
+      "positive_fibres_checked": 13,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 5.551115123125783e-17
+    },
+    {
+      "n": 3,
+      "root": 1,
+      "root_status": "D",
+      "degree": 2,
+      "pinned": false,
+      "positive_fibres_checked": 144,
+      "zero_fibres_excluded": 25,
+      "min_local_normalizer": 0.9105572809000084,
+      "max_coordinate_error": 1.6653345369377348e-16
+    },
+    {
+      "n": 4,
+      "root": 1,
+      "root_status": "D",
+      "degree": 3,
+      "pinned": false,
+      "positive_fibres_checked": 1872,
+      "zero_fibres_excluded": 325,
+      "min_local_normalizer": 0.7316718427000252,
+      "max_coordinate_error": 1.6653345369377348e-16
+    },
+    {
+      "n": 1,
+      "root": 0,
+      "root_status": "D",
+      "degree": 0,
+      "pinned": true,
+      "positive_fibres_checked": 1,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 0.0
+    },
+    {
+      "n": 2,
+      "root": 0,
+      "root_status": "D",
+      "degree": 1,
+      "pinned": true,
+      "positive_fibres_checked": 12,
+      "zero_fibres_excluded": 1,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 1.3877787807814457e-17
+    },
+    {
+      "n": 2,
+      "root": 1,
+      "root_status": "D",
+      "degree": 1,
+      "pinned": true,
+      "positive_fibres_checked": 13,
+      "zero_fibres_excluded": 0,
+      "min_local_normalizer": 1.0,
+      "max_coordinate_error": 5.551115123125783e-17
+    },
+    {
+      "n": 3,
+      "root": 1,
+      "root_status": "D",
+      "degree": 2,
+      "pinned": true,
+      "positive_fibres_checked": 132,
+      "zero_fibres_excluded": 37,
+      "min_local_normalizer": 0.9105572809000084,
+      "max_coordinate_error": 1.6653345369377348e-16
+    },
+    {
+      "n": 4,
+      "root": 1,
+      "root_status": "D",
+      "degree": 3,
+      "pinned": true,
+      "positive_fibres_checked": 1452,
+      "zero_fibres_excluded": 745,
+      "min_local_normalizer": 0.7316718427000252,
+      "max_coordinate_error": 1.6653345369377348e-16
+    }
+  ]
+}

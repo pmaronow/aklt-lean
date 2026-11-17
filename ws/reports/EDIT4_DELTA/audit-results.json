@@ -1,0 +1,383 @@
+{
+  "edit_delta": {
+    "touched": {
+      "main.tex": {
+        "replacements": 2,
+        "exact_editor_replay": true,
+        "preexisting_math_segments_unchanged": 3,
+        "numbered_statements_unchanged": 0
+      },
+      "sec1-result.tex": {
+        "replacements": 1,
+        "exact_editor_replay": true,
+        "preexisting_math_segments_unchanged": 58,
+        "numbered_statements_unchanged": 2
+      },
+      "sec8-inputs.tex": {
+        "replacements": 10,
+        "exact_editor_replay": true,
+        "preexisting_math_segments_unchanged": 77,
+        "numbered_statements_unchanged": 2
+      },
+      "app-input-contracts.tex": {
+        "replacements": 15,
+        "exact_editor_replay": true,
+        "preexisting_math_segments_unchanged": 522,
+        "numbered_statements_unchanged": 20
+      }
+    },
+    "untouched": {
+      "sec2-moments.tex": "same diff against HEAD as pre-edit snapshot",
+      "sec6-walks.tex": "same diff against HEAD as pre-edit snapshot",
+      "sec3-quantum-frames.tex": "same diff against HEAD as pre-edit snapshot",
+      "sec4-periodic-gap.tex": "same diff against HEAD as pre-edit snapshot",
+      "sec7-recursion.tex": "same diff against HEAD as pre-edit snapshot",
+      "app-finite.tex": "same diff against HEAD as pre-edit snapshot",
+      "app-local-operator.tex": "same diff against HEAD as pre-edit snapshot",
+      "app-topology.tex": "same diff against HEAD as pre-edit snapshot",
+      "sec5-window.tex": "same diff against HEAD as pre-edit snapshot"
+    },
+    "pending_uses_removed": 22
+  },
+  "H1": {
+    "input_files": {
+      "pext7962.json": {
+        "sha256": "fd0866f455505e2cd6317f4a5cc4ec45a1f7d6ed5816786cb6500c3b773caba2",
+        "input_copy_equal": true,
+        "paper_bundle_copy_equal": true
+      },
+      "certificates_covered_operator_only.jsonl": {
+        "sha256": "a3e83622530be8383c9a7989dc78461d76fda512025b458a6d61ead8d49bf309",
+        "input_copy_equal": true,
+        "paper_bundle_copy_equal": true
+      }
+    },
+    "input_chunk_hashes_match_receipt": 17,
+    "archived_pattern_and_choice_values_compared": 7962,
+    "counts": {
+      "patterns": 7962,
+      "blocks": 12173,
+      "zero_Gram": 8439,
+      "max_dimension": 179,
+      "nonzero_Gram": 3734
+    },
+    "archived_factors": {
+      "h1_chol_5420_131.json": {
+        "sha256": "1609c19ee853b214ca6a7e62a0a9695d2ac8f973d11bba672cf64528ea910358",
+        "matrix_entries_compared": 17161,
+        "factor_entries_compared": 8646,
+        "factor_equal": true,
+        "matrix_equal_after_scale_1600": true,
+        "witness_parameters_equal": true,
+        "residual_minimum": 6820166897600
+      },
+      "h1_chol_7697_131.json": {
+        "sha256": "ba87ecf182c8f6f1b00178138dfbe21ae510ac6e2d2a060d6c57399ad6a0f313",
+        "matrix_entries_compared": 17161,
+        "factor_entries_compared": 8646,
+        "factor_equal": true,
+        "matrix_equal_after_scale_1600": true,
+        "witness_parameters_equal": true,
+        "residual_minimum": 27361669345600
+      }
+    }
+  },
+  "H2": {
+    "archive_sha256": "ed486e175631deb207ba11a354016aa94854a4932e899b8c0c1fdfc56b3e6771",
+    "lean_source_sha256": "a8b6ef1a0057266b742a50d8a7a7fdab1d1e914cf8d42ed32042bef9029b9644",
+    "raw_codes": 916,
+    "orbit_entries": 115,
+    "all_values_equal": true,
+    "minimum": 186377076276,
+    "maximum": 1000000000000,
+    "value_at_428": 224087522845
+  },
+  "H3": {
+    "graph": {
+      "sha256": "671475d3333b646b3ace22a555f9a63a74f7bb076f0454f5b480c1e444a95785",
+      "raw_states": 60092,
+      "quotient_states": 3741,
+      "all_map_representative_destination_kind_values_equal": true,
+      "edge_counts": [
+        2516,
+        5032,
+        1872
+      ]
+    },
+    "potentials": [
+      {
+        "case": "B1",
+        "file": "stationary_B_m10_R70_d1_coarse.bin.gz",
+        "sha256": "3bdc2f5cfe54b15548ccf4b40384ab9585938385bb7860cf94ad1706239293a2",
+        "bytes": 519220825,
+        "header": [
+          10,
+          12,
+          70,
+          3741,
+          19881,
+          1,
+          0,
+          16,
+          1
+        ],
+        "all_14964_cap_values_equal": true,
+        "prefix_fraction_matches_archived_record": true,
+        "prefix_ceiling": 351207554,
+        "prefix_counts": {
+          "tail": 535667006910801841389162352908487939151396071463531370205679928169100716189258745563995935698595909858952198436837697625305782663557092031373773335804524889059260371095171760268979087407196171744961713710569630974483085964447181693855041665475456547603711511250966937600000000000000000000000000000000000000000000000000000000000000000,
+          "short": 11568359504065419799533662965388658495889746701342788718637385618917856199359571067960346389998632326623746795428730794671636334217451164188216841358773069118407386866103300969750233852835661984587704033173081847592433548503391675224735535553926690830179784502158994539389079977033365975627251107440526289477581696564284434943873467506884056703648510444563619655944025385244380910778734949838262010196505339967784725728804399166673045611155388524028572815687231286421886982307163968913770024518248691250181789828197919409301323943722637428104350670313019077535890905490537621335267818823970586439380370359001159529021536974343336191900018075593089863499102709832040527157799871911160226998098682586358240662007931372487957385777568948984443129793475925004727968592489210707968000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          "leaves": 89150,
+          "closed": 937,
+          "nodes": 141451,
+          "stems": 1466,
+          "ok": true
+        },
+        "plane_count": 14964,
+        "full_spatial_payload_comparison": "production input hash plus exporter and accepted source/olean receipts; compacted literal sources not regenerated"
+      },
+      {
+        "case": "B2",
+        "file": "stationary_B_m10_R70_d2_coarse.bin.gz",
+        "sha256": "6303cba2e5ae59f1ba80ba52b2017a243e362a2ccea44ca776f04e166b8a679b",
+        "bytes": 519332467,
+        "header": [
+          10,
+          12,
+          70,
+          3741,
+          19881,
+          1,
+          0,
+          16,
+          2
+        ],
+        "all_14964_cap_values_equal": true,
+        "prefix_fraction_matches_archived_record": true,
+        "prefix_ceiling": 290599163,
+        "prefix_counts": {
+          "tail": 568993092487550991604108401891522407438473963926544651374652246064942946082810912289873963097562241050324230249467067640117943501236319107109089135021339410963366546686785501061502179809441611703867584299476775653310002797534371567872794652413887133517741392067035136000000000000000000000000000000000000000000000000000000000000000000,
+          "short": 6191412689835837916198347794855793227282305791741069552771539529133156658398223725321404180367965420408913605300363709586105987229965027942596301224122044248441063668151868453305545282337553836287869108224068044894380893514026425696171825708819730797913794912106404811271712524957904912254468231742487953260598947596356951863601196247267095861309059093333625340252219979980427140595557706762656061272346843629565380453762212026712804597022180724152694506393180312693278063840972628070456143840428685114524618017467860062149600158920053621923094590574728213592078883442356362403337402739602535523018941261333609776841679885242636137464928945137344408834814316969025018749097875852552127327285845189912843658777431228938693789915158085177984888423167673762898489741887196364800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          "leaves": 103257,
+          "closed": 922,
+          "nodes": 163632,
+          "stems": 1703,
+          "ok": true
+        },
+        "plane_count": 14964,
+        "full_spatial_payload_comparison": "production input hash plus exporter and accepted source/olean receipts; compacted literal sources not regenerated"
+      },
+      {
+        "case": "C1",
+        "file": "stationary_C_m10_R70_d1_coarse.bin.gz",
+        "sha256": "2aabb88c464f3c3181fa92300548d6ea466321fccab09d32b654b8f0a07a8a6f",
+        "bytes": 518111962,
+        "header": [
+          10,
+          12,
+          70,
+          3741,
+          19881,
+          0,
+          1,
+          16,
+          1
+        ],
+        "all_14964_cap_values_equal": true,
+        "prefix_fraction_matches_archived_record": true,
+        "prefix_ceiling": 527872005,
+        "prefix_counts": {
+          "tail": 386260709444228880785170926928365164518729050383770869202696215810952685097446115697056031915790514228028964027184299547017930521305511565633752188523100095872054317933569768684060757053074220772603295131204692285591640628095442795885137522878322888423982173058917990400000000000000000000000000000000000000000000000000000000000000000,
+          "short": 28646247636921685115377729950826661252839658683903422532560032451474371294400199253334845690872652331688652032169486541319911308641391213419909762763217323907033078540167368045048716425151124952723131132974416796671917956152210635352587463698087145313327886185531571976279099499731877226713816015830114246191642061363018375112232804989960560911838872561781764392810530966935612007801426912910198960678209190954387317536531171760756063274190431354633734114099812378248509828701995734970673966331143956043159018734266097330110097803071571405387143040269578219693136145476941942074137526499031140571137016594275593351474995084170571256507892146716741775146523308767003335171248399523790256856194042373476980251843895338398719304162832425869189889625279189808222307784010296721408000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          "leaves": 66947,
+          "closed": 715,
+          "nodes": 106120,
+          "stems": 1095,
+          "ok": true
+        },
+        "plane_count": 14964,
+        "full_spatial_payload_comparison": "production input hash plus exporter and accepted source/olean receipts; compacted literal sources not regenerated"
+      },
+      {
+        "case": "C2",
+        "file": "stationary_C_m10_R70_d2_coarse.bin.gz",
+        "sha256": "0f75d0d12cc3d1c75f18fe68f7f81e78792ef671eda85688c2538ff9c35f352b",
+        "bytes": 519265291,
+        "header": [
+          10,
+          12,
+          70,
+          3741,
+          19881,
+          0,
+          1,
+          16,
+          2
+        ],
+        "all_14964_cap_values_equal": true,
+        "prefix_fraction_matches_archived_record": true,
+        "prefix_ceiling": 380754375,
+        "prefix_counts": {
+          "tail": 560364023701000684029783418193843054341275363247053800321207742654224708420741962508294865946860131066400730106598908284462072417382269694170318625241474372954164642300864162873340569907552128197525751033820460661216491422445774007373463921324974289359438944667697152000000000000000000000000000000000000000000000000000000000000000000,
+          "short": 13089088990303413188744661259896757158075757362252948555848776974330713262793772204692765699397344696516868429199114870409524440234558547849978052389103740298182453326925324980915384827622954303818411909361892935990251512728067016373600700811756480685072012457208264963825768806421491737154521262957802134235365227112692523148759197653288043769550130620992680483407084990088326088624898610987068338725515415527144140408021685746366911891106441312510877300315005858499870426396438341921105972817805145814165378604364779183365786637172611715904116149572531653261842759317050845563800504013803761664750850223597282694971833034185686476223133282149961161322643289572168543241520391244272700756404342362636312208748935120420107487524583780268350875766331260757202762770874305085440000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          "leaves": 99168,
+          "closed": 1036,
+          "nodes": 157304,
+          "stems": 1631,
+          "ok": true
+        },
+        "plane_count": 14964,
+        "full_spatial_payload_comparison": "production input hash plus exporter and accepted source/olean receipts; compacted literal sources not regenerated"
+      },
+      {
+        "case": "C3",
+        "file": "stationary_C_m10_R70_d3_coarse.bin.gz",
+        "sha256": "6f709cca42dc57a5e52755767eea6af9e6527804661699a4e37f8796ede020e7",
+        "bytes": 519388981,
+        "header": [
+          10,
+          12,
+          70,
+          3741,
+          19881,
+          0,
+          1,
+          16,
+          3
+        ],
+        "all_14964_cap_values_equal": true,
+        "prefix_fraction_matches_archived_record": true,
+        "prefix_ceiling": 273048088,
+        "prefix_counts": {
+          "tail": 519346210632655828344380418411173227289356113765472710744452917555265363554541057786026033389224612589230035036359821800143167172141752670306587162588062110838890132556238144939671133353304772151875002619276053294493440340039435283902672399148596101496931559234391244800000000000000000000000000000000000000000000000000000000000000000,
+          "short": 6228247651163547267110842045673625339960185235185699818635586267464861025977909092060125606813692655502532569359408890788005481949028877217519809397518094592474996795109393585921993626939824770790282936680464554152437655075611252051818276387074713533509641618566258517769549652067244342747123810252275963728949052913549799576794426992691229132460524055958725609696389296822547464295847970120544484045509285292510645797016003742443586261755349597084916481224034974985066870498610530265350934576321333949888273603118688111922768322461385133296459416739380345556401737159175587247656897434845675193206947810037030594901041746186125876214338413906262272183947341165589892798703133095109989794980925192635664586548054672894715591154758278376038363863311413836806070024174582104064000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+          "leaves": 92748,
+          "closed": 861,
+          "nodes": 147010,
+          "stems": 1525,
+          "ok": true
+        },
+        "plane_count": 14964,
+        "full_spatial_payload_comparison": "production input hash plus exporter and accepted source/olean receipts; compacted literal sources not regenerated"
+      }
+    ]
+  },
+  "closing": {
+    "current_sources_match_receipt": true,
+    "output_olean_hash_match": true,
+    "source_merge_set_count": 6,
+    "theorem_types": [
+      {
+        "name": "CertData.Close.h1",
+        "module": "CertData.Close.All",
+        "type": "AKLT.Blueprint.Top.H1Statement",
+        "printed_declaration": "theorem CertData.Close.h1 : AKLT.Blueprint.Top.H1Statement :=",
+        "hypothesis_free": true,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      {
+        "name": "CertData.Close.h2",
+        "module": "CertData.Close.All",
+        "type": "AKLT.Blueprint.Top.H2Statement",
+        "printed_declaration": "theorem CertData.Close.h2 : AKLT.Blueprint.Top.H2Statement :=",
+        "hypothesis_free": true,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      {
+        "name": "CertData.Close.h3",
+        "module": "CertData.Close.All",
+        "type": "AKLT.Blueprint.Top.H3Statement",
+        "printed_declaration": "theorem CertData.Close.h3 : AKLT.Blueprint.Top.H3Statement :=",
+        "hypothesis_free": true,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      {
+        "name": "CertData.Close.main",
+        "module": "CertData.Close.All",
+        "type": "AKLT.Challenge.MainStatementV2",
+        "printed_declaration": "theorem CertData.Close.main : AKLT.Challenge.MainStatementV2 :=",
+        "hypothesis_free": true,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    ],
+    "H3_generated_modules": 5032,
+    "H3_production_manifest_modules": 5035,
+    "H3_handwritten_manifest_modules": [
+      "CertData.H3.Bridge.Production",
+      "CertData.H3.Bridge.LegacyTargets",
+      "CertData.H3.Bridge.FamilyAssembly"
+    ],
+    "current_core_matches_closing": {
+      "AKLT/Cert/H1": 36,
+      "AKLT/Cert/H2": 11,
+      "AKLT/Cert/H3": 8,
+      "CertData/H3/Kernel": 12,
+      "CertData/H3/Bridge": 5
+    }
+  },
+  "build": {
+    "command": "latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex",
+    "output_pdf_sha256": "1c492810aecd6af86c86ad33140a59137ab47fb7501018596a71af1e69fd0381",
+    "source_pdf_sha256": "6f93d10226f0efd57f7a29cd4ff86c7577d1b01e7c49bab609a76f8b48082073",
+    "pdf_equal_to_paper": false,
+    "undefined_references_or_citations": false,
+    "pdflatex_passes": 3,
+    "final_underfull_vboxes": 1
+  },
+  "source_snapshot": {
+    "formalization_main": "d77c3ca85754582f91354dd848ac5a830f73727d",
+    "independent_recheck_base": "63d176add85a0eae6c862c54849a495434b7d438",
+    "protected_closing_and_certificate_sources_unchanged_since_486b316": true,
+    "previously_validated_sources_unchanged": true,
+    "post_validation_changes": [
+      "A\tAKLT/Final/Inputs.lean",
+      "A\tCertData/Close/All.lean",
+      "A\tCertData/H1/Close/Audit.lean",
+      "A\tCertData/H1/Close/Main.lean",
+      "A\tCertData/H3/Close/Leaves.lean",
+      "A\tCertData/H3/Close/Main.lean",
+      "M\tlakefile.toml",
+      "A\tpalomar/Audit.lean",
+      "A\tpalomar/Challenge.lean",
+      "A\tpalomar/FIDELITY.md",
+      "A\tpalomar/README.md",
+      "A\tpalomar/Solution.lean",
+      "A\tpalomar/comparator.json",
+      "A\tpalomar/direct-leaves.txt",
+      "A\tpalomar/formalization.yaml",
+      "A\tpalomar/lake-manifest.json",
+      "A\tpalomar/lakefile.toml",
+      "A\tpalomar/lean-toolchain",
+      "A\tpalomar/port-list.tsv",
+      "A\tpalomar/reachable-leaves.txt",
+      "A\tpalomar/scripts/check_axioms.py",
+      "A\tpalomar/scripts/inventory.py",
+      "A\tpalomar/scripts/make_challenge.py",
+      "A\tpalomar/scripts/verify.sh",
+      "A\tpalomar/scripts/verify_sources.py",
+      "A\tpalomar/statement-sources.json",
+      "A\tpalomar/verification/README.md",
+      "A\tpalomar/verification/axioms-compat.log",
+      "A\tpalomar/verification/local-receipt.json",
+      "A\treceipts/closing/final-receipt.json",
+      "A\treceipts/closing/h1-manifest.json",
+      "A\treceipts/closing/h3-manifest.json"
+    ]
+  }
+}

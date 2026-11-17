@@ -1,0 +1,113 @@
+{
+  "rule": "No new leaf proofs by the blueprint architect; first attempt assigned to a different, cheaper model.",
+  "retained_inventory": "proof-ownership.json",
+  "new_declarations_proved": [
+    {
+      "lean_name": "AKLT.Blueprint.H1.rationalPartitionsStructure_of_nodesV2",
+      "signature": "theorem rationalPartitionsStructure_of_nodesV2 : Top.MomentsStatement \u2192 ReducedDegreeStatement \u2192\n    ReducedFactorStructureStatement \u2192 MomentCovarianceTransferStatement \u2192 ContractionAffineStatement \u2192\n    ContractionSupportStatement \u2192 RationalPartitionsStructureStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 14,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.reducedStructure_of_nodesV2",
+      "signature": "theorem reducedStructure_of_nodesV2 : RationalPartitionsStructureStatementV2 \u2192\n    RationalEmbeddingStructureStatementV2 \u2192 RationalEmbeddingEvaluationStatementV2 \u2192\n    DifferenceStructureStatementV2 \u2192 ReducedStructureStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 26,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.reduce_of_nodesV2",
+      "signature": "theorem reduce_of_nodesV2 : Top.MomentsStatement \u2192 Top.LeafStatement \u2192 ReducedDegreeStatement \u2192\n    MomentContractionStatement \u2192 SimultaneousLeafReconstructionStatement \u2192 ReducedStructureStatementV2 \u2192\n    BallChordStatement \u2192 AffineEvaluationStatementV2 \u2192 ProductBallNonnegativeStatement \u2192\n    DifferenceEvaluationStatementV2 \u2192 Top.ReduceStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 45,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.inversion_of_nodesV2",
+      "signature": "theorem inversion_of_nodesV2 : BlochAlgebraStatement \u2192 BlochPositivityStatement \u2192\n    PauliExpansionStatementV2 \u2192 PauliProductTraceStatementV2 \u2192 InversionPolynomialStatementV2 \u2192\n    ProductDensityPositiveStatementV2 \u2192 InversionBallStatementV2 \u2192 TraceProductPositiveStatement \u2192\n    Top.InversionStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 71,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.operatorStructure_of_legacyV2",
+      "signature": "theorem operatorStructure_of_legacyV2 : Top.OperatorStructureStatement \u2192\n    RealDifferencePauliInterpolationStatementV2 \u2192 OperatorStructureLinearCombinationStatementV2 \u2192\n    Top.OperatorStructureStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 107,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.h1Theorem_of_shared_partsV2",
+      "signature": "theorem h1Theorem_of_shared_partsV2 : Top.IntegerCheckStatement \u2192 Top.CertificateStatement \u2192\n    Top.H1FiniteDataStatementV2 \u2192 Top.H1TheoremStatement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 124,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.h1_of_shared_partsV2",
+      "signature": "theorem h1_of_shared_partsV2 : Top.IntegerCheckStatement \u2192 Top.CertificateStatement \u2192\n    Top.H1FiniteDataStatementV2 \u2192 Top.H1Statement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 129,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.h1_of_shared_certificateV2",
+      "signature": "theorem h1_of_shared_certificateV2 : Top.CertificateStatementV2 \u2192 Top.H1Statement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 134,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.inputs_of_shared_partsV2",
+      "signature": "theorem inputs_of_shared_partsV2 : Top.CertificateStatementV2 \u2192 OtherInputPartsV2 \u2192\n    Top.InputsStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 140,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.main_of_shared_partsV2",
+      "signature": "theorem main_of_shared_partsV2 : Top.CertificateStatementV2 \u2192 OtherInputPartsV2 \u2192\n    Top.RecStatement \u2192 Top.CutMOSStatement \u2192 Top.MainWStatement \u2192 Top.TorusKernelStatement \u2192\n    AKLT.Challenge.MainStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 148,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.integratePassage_of_nodesV2",
+      "signature": "theorem integratePassage_of_nodesV2 : Top.MomentsStatement \u2192 Top.FiniteFactsStatement \u2192\n    PassageSiteMomentsStatement \u2192 PassageFubiniStatement \u2192 PassageNetworkPositiveStatement \u2192\n    PassageNextLowerBoundStatement \u2192\n    OriginalDegreeStatement \u2192 OriginalFactorStructureStatement \u2192 OriginalRawEvaluationStatement \u2192\n    MomentContractionStatement \u2192 MomentCovarianceTransferStatement \u2192 ContractionAffineStatement \u2192\n    Top.IntegratePassageStatement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 155,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.leaf_of_nodesV2",
+      "signature": "theorem leaf_of_nodesV2 : Top.MomentsStatement \u2192 Top.ThreeFactorMeanStatement \u2192\n    CoveredSlotEnumerationStatement \u2192 CornerMeanBoundsStatement \u2192 NormalizedMeanFactorStatement \u2192\n    Top.LeafStatement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 163,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.sector_of_nodesV2",
+      "signature": "theorem sector_of_nodesV2 : SectorSpinStableStatement \u2192 SectorWeightBasisStatement \u2192\n    SpanWeightLatticeStatement \u2192 SpinAdjointStatement \u2192 SpinCommutatorStatement \u2192\n    WeightLadderTransferStatement \u2192 CommonWeightEigenvectorStatement \u2192 LadderWalkStatement \u2192\n    PositiveSpectrumStatement \u2192 Top.SectorStatement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 168,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.gramResidualV2",
+      "signature": "theorem gramResidualV2 : Top.GramResidualStatement",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 174,
+      "classification": "proved assembly; no leaf proof"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H1.operatorStructure_of_nodesV2",
+      "signature": "theorem operatorStructure_of_nodesV2 : Top.MomentsStatement \u2192 ReducedDegreeStatement \u2192\n    ReducedStructureStatement \u2192 InversionPolynomialStatement \u2192\n    InversionCovarianceStatement \u2192 PauliHermitianStatement \u2192 ReflectionParityStatement \u2192\n    PauliRealityStatement \u2192 AdjointPauliCoordinatesStatement \u2192 AdjointPauliOrthogonalStatement \u2192\n    PauliRotationTransferStatement \u2192 CayleyTensorCommutationStatement \u2192 TensorLinearCoefficientStatement \u2192\n    SpinGeneratorTransferStatement \u2192 RetainedPairExpansionStatement \u2192 UnitPairSupportStatement \u2192\n    EqualPairExchangeStatement \u2192 PairExpansionTransferStatement \u2192\n    RealDifferencePauliInterpolationStatementV2 \u2192 OperatorStructureLinearCombinationStatementV2 \u2192\n    Top.OperatorStructureStatementV2",
+      "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/AssemblyV2.lean",
+      "line": 177,
+      "classification": "proved assembly; no leaf proof"
+    }
+  ],
+  "all_new_proofs_are_assemblies": true,
+  "new_leaf_proofs_written": 0
+}

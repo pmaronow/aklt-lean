@@ -1,0 +1,27 @@
+import took 2.46s
+type checking took 203s
+'CompfeasGeometry.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 4.5ms
+	attribute application 0.0719ms
+	compilation (IR) 0.218ms
+	compilation (LCNF base) 4.61ms
+	compilation (LCNF impure) 1.36ms
+	compilation (LCNF mono) 2.05ms
+	elaboration 13.4ms
+	fix level params 0.0374ms
+	import 2.46s
+	initialization 26.7ms
+	instantiate metavars 0.0614ms
+	interpretation 250ms
+	let-to-have transformation 0.184ms
+	linting 2.36ms
+	module linting 0.00139ms
+	overlappingInstancesLinter 1.07ms
+	parsing 1.41ms
+	process pre-definitions 7.83ms
+	share common exprs 0.208ms
+	tactic execution 0.336ms
+	tacticAnalysis 4.04ms
+	type checking 203s
+	typeclass inference 6.17ms

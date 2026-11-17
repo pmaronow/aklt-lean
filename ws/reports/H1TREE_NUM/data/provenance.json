@@ -1,0 +1,129 @@
+{
+  "inputs": [
+    {
+      "path": "/home/ubuntu/aklt/reports/MATH_FIT/data/cores_universal_final.json",
+      "bytes": 8876,
+      "sha256": "5fc87b2effda9fcd0fec8de3c841b680ae0f26434836ddd3c95663bab4d801ef"
+    },
+    {
+      "path": "/home/ubuntu/aklt/reports/MATH_FIT/data/universal_certificates.jsonl",
+      "bytes": 226935,
+      "sha256": "1cd6b2a04b76e8abd484b68fc7b5fcd85a6459df636dd909446a40854e3b7f49"
+    },
+    {
+      "path": "/home/ubuntu/aklt/reports/MATH_FIT/data/universal_mean_checks.json",
+      "bytes": 16548,
+      "sha256": "06cbdc5f86f8d2bc1b99218a17ffd56064ceceea3ee048df170b27bb6e7d4a55"
+    },
+    {
+      "path": "/home/ubuntu/aklt/reports/MATH_FIT/data/mean_unit_pair.json",
+      "bytes": 415,
+      "sha256": "349387a476153bc7cf796d065c593d48fa1cbf8f8a2288795f58fac53295b58a"
+    },
+    {
+      "path": "/home/ubuntu/aklt/reports/MATH_FIT/data/universal_exact_summary.json",
+      "bytes": 389,
+      "sha256": "ff17bd41b80f719287535866771d87fc422e0d2f0f4ee29a42562717db97665d"
+    },
+    {
+      "path": "/home/ubuntu/aklt/data/h1/inputs/pext7962.json",
+      "bytes": 2316400,
+      "sha256": "fd0866f455505e2cd6317f4a5cc4ec45a1f7d6ed5816786cb6500c3b773caba2"
+    },
+    {
+      "path": "/home/ubuntu/aklt/manuscript-v2/sec2-moments.tex",
+      "bytes": 15925,
+      "sha256": "12e131252fb9c832a0449da92a482629ffb0ef199a3f516bd2f301271386fd98"
+    },
+    {
+      "path": "/home/ubuntu/aklt/manuscript-v2/sec6-walks.tex",
+      "bytes": 32556,
+      "sha256": "2210a9ba388df9a57e09f234572ffd572a60250c6341771f0bae6508e620dbcd"
+    },
+    {
+      "path": "/home/ubuntu/aklt/manuscript-v2/sec8-inputs.tex",
+      "bytes": 17160,
+      "sha256": "aa8f4b920fcbb4e249cd6a46f3649d92bdf4f557cbd1d1ca3c128d12e6ee64f4"
+    },
+    {
+      "path": "/home/ubuntu/aklt/manuscript-v2/app-input-contracts.tex",
+      "bytes": 57597,
+      "sha256": "6b9763663799ee8f060a66aee5c93d191c1ad4403e0e5866d751a955a8759e26"
+    },
+    {
+      "path": "/home/ubuntu/aklt/manuscript-v2/app-local-operator.tex",
+      "bytes": 38538,
+      "sha256": "900af0cebdd2a3f8c0107cf6a81b1d1541a6e50e0d354c74d3eef48332329f90"
+    }
+  ],
+  "programs": [
+    {
+      "path": "programs/actual_traces.py",
+      "sha256": "926e251ce9212c32094a085048e46e6f8ef92804cd1a147ebdd8d009a3fdb1bc"
+    },
+    {
+      "path": "programs/common.py",
+      "sha256": "408f2e874e4726bb0da0b1ccc97e039fb3b88092d20fa15f34d67c9fb832bd21"
+    },
+    {
+      "path": "programs/cross_check.py",
+      "sha256": "7633e8afdd36e32e29c50d9dc4bbb178aa0348e06af4010b13425bafa5fe532b"
+    },
+    {
+      "path": "programs/definition_identities.py",
+      "sha256": "6509eae90c26f64c43cddd310ce0d6928f73acfeecda1daec69c5c9135579ac6"
+    },
+    {
+      "path": "programs/derived_mean_check.py",
+      "sha256": "e3ee72840ac2f2dfb08b1cc2d155d91a19e16affd05718acbfc5c7ebbac3afc8"
+    },
+    {
+      "path": "programs/exact_check.py",
+      "sha256": "bea590c48259685df0910f4ac45d8e3a59078d9f1c9efbf881284d4e3763e59e"
+    },
+    {
+      "path": "programs/explicit_examples.py",
+      "sha256": "4a08d8a6b128eb77a9d633c60931cab983f853d7573ca5221315b776c319a45d"
+    },
+    {
+      "path": "programs/geometry.py",
+      "sha256": "6877315fce9b861a41fcc2e335ec3a23307eae77514dbaa7e21e56a00e0cebec"
+    },
+    {
+      "path": "programs/model_search.py",
+      "sha256": "d16852eb0d451daebc93510e9c2d3eeab20f5e0eefd331bac6c8af7dda528de3"
+    },
+    {
+      "path": "programs/passage_check.py",
+      "sha256": "96b128b24d350911efe877bbb1d2f09d7c4a142e99b6f9fe010cdf2f1199a8d0"
+    },
+    {
+      "path": "programs/run_all.sh",
+      "sha256": "2308992c9af4dd6a067c8938b0424d731e46f0d915c48482030eb628e5b620da"
+    },
+    {
+      "path": "programs/write_report.py",
+      "sha256": "46885ca5fd1442c7fa3bdcc75fa5d097f3398daaebfc7d7cdba89e515c33f2a2"
+    }
+  ],
+  "python": "3.12.3",
+  "dependencies": {
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "numba": "0.68.1",
+    "mpmath": "1.3.0"
+  },
+  "claim_report": {
+    "source_path": "/home/ubuntu/aklt/reports/MATH_FIT/report.md",
+    "snapshot_path": "data/claim_report_snapshot.txt",
+    "sha256": "19f39f36c4c0e218cc7710a0fdf6ded4741e61527463c1a6be2d623821511e1b"
+  },
+  "initial_numeric_input_hashes": {
+    "cores_universal_final.json": "5fc87b2effda9fcd0fec8de3c841b680ae0f26434836ddd3c95663bab4d801ef",
+    "universal_certificates.jsonl": "1cd6b2a04b76e8abd484b68fc7b5fcd85a6459df636dd909446a40854e3b7f49",
+    "universal_mean_checks.json": "06cbdc5f86f8d2bc1b99218a17ffd56064ceceea3ee048df170b27bb6e7d4a55",
+    "mean_unit_pair.json": "349387a476153bc7cf796d065c593d48fa1cbf8f8a2288795f58fac53295b58a",
+    "pext7962.json": "fd0866f455505e2cd6317f4a5cc4ec45a1f7d6ed5816786cb6500c3b773caba2"
+  }
+}

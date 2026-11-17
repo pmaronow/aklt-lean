@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "counts": {
+    "finite_energy_assignment_inequalities": 5450,
+    "trial_count_cases": 9125,
+    "nesting_threshold_cases": 588,
+    "window_containment_threshold_cases": 25,
+    "absorption_radial_skip_cases": 963,
+    "trace_lengths_checked": 4,
+    "trace_support_sizes_h_0_to_3": [
+      16,
+      54,
+      54,
+      190
+    ]
+  },
+  "sharp_trial_examples": [
+    {
+      "h": 4,
+      "exceptions": [
+        3
+      ],
+      "trial_j": [
+        2
+      ]
+    },
+    {
+      "h": 4,
+      "exceptions": [
+        4
+      ],
+      "trial_j": [
+        0
+      ]
+    }
+  ],
+  "scope": "Exact finite/rational diagnostics only; these checks do not constitute formal proofs of the leaves."
+}

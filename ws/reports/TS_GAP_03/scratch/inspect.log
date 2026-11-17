@@ -1,0 +1,164 @@
+def AKLT.Blueprint.Gap.DensityComparisonStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (π : (x : ι) → AKLT.Defs.Weight.{0} (S x))
+  (μ : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  (∀ (x : ι), AKLT.Defs.PositiveProbability.{0} (π x)) →
+    AKLT.Defs.PositiveProbability.{0} μ →
+      ∀ (m M : ℝ),
+        LT.lt.{0} 0 m →
+          LT.lt.{0} 0 M →
+            (∀ (σ : AKLT.Blueprint.Gap.Config S),
+                LE.le.{0} (HMul.hMul.{0, 0, 0} m (∏ x : ι, π x (σ x))) (μ σ) ∧
+                  LE.le.{0} (μ σ) (HMul.hMul.{0, 0, 0} M (∏ x : ι, π x (σ x)))) →
+              (∀ (f : ((x : ι) → S x) → ℂ),
+                  LE.le.{0}
+                      (HMul.hMul.{0, 0, 0} m
+                        (AKLT.Defs.dirichlet.{0, 0} (fun (σ : (x : ι) → S x) => ∏ x : ι, π x (σ x)) f))
+                      (AKLT.Defs.dirichlet.{0, 0} μ f) ∧
+                    LE.le.{0} (AKLT.Defs.variance.{0} μ f)
+                      (HMul.hMul.{0, 0, 0} M
+                        (AKLT.Defs.variance.{0} (fun (σ : (x : ι) → S x) => ∏ x : ι, π x (σ x)) f))) ∧
+                AKLT.Defs.PoincareLower.{0, 0} μ (HDiv.hDiv.{0, 0, 0} m M)
+def AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] [inst_2 : Fintype.{0} J] (S : ι → Type)
+  [inst_3 : (x : ι) → Fintype.{0} (S x)] [∀ (x : ι), Nonempty.{1} (S x)]
+  (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (B : J → Finset.{0} ι) (g : ℝ),
+      LT.lt.{0} 0 g →
+        (∀ (a : J) (σ : AKLT.Blueprint.Gap.Config S),
+            AKLT.Defs.PoincareLower.{0, 0} (AKLT.Blueprint.Gap.blockLaw p (B a) σ) g) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+            LE.le.{0} (HMul.hMul.{0, 0, 0} g (AKLT.Blueprint.Gap.blockForm p B f))
+              (∑ x : ι,
+                HMul.hMul.{0, 0, 0} (↑(Finset.card.{0} {a : J | Membership.mem.{0, 0} (B a) x}))
+                  (AKLT.Defs.blockDirichlet.{0, 0} p (singleton.{0, 0} x) f))
+def AKLT.Blueprint.Gap.MultiplicityEstimateStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] [inst_2 : Fintype.{0} J] (S : ι → Type)
+  [inst_3 : (x : ι) → Fintype.{0} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (B : J → Finset.{0} ι) (t : ℕ),
+      (∀ (x : ι), LE.le.{0} (Finset.card.{0} {a : J | Membership.mem.{0, 0} (B a) x}) t) →
+        ∀ (f : ((x : ι) → S x) → ℂ),
+          LE.le.{0}
+            (∑ x : ι,
+              HMul.hMul.{0, 0, 0} (↑(Finset.card.{0} {a : J | Membership.mem.{0, 0} (B a) x}))
+                (AKLT.Defs.blockDirichlet.{0, 0} p (singleton.{0, 0} x) f))
+            (HMul.hMul.{0, 0, 0} (↑t) (AKLT.Defs.dirichlet.{0, 0} p f))
+def AKLT.Blueprint.Gap.HammingPathStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (f : AKLT.Blueprint.Gap.Config S → ℝ),
+  LE.le.{0} 0 (AKLT.Blueprint.Gap.lipschitz f) ∧
+    (∀ (σ τ : AKLT.Blueprint.Gap.Config S),
+        LE.le.{0} (abs.{0} (HSub.hSub.{0, 0, 0} (f σ) (f τ)))
+          (HMul.hMul.{0, 0, 0} (AKLT.Blueprint.Gap.lipschitz f) ↑(AKLT.Defs.hamming.{0, 0} σ τ))) ∧
+      (Eq.{1} (AKLT.Blueprint.Gap.lipschitz f) 0 ↔ ∃ (c : ℝ), ∀ (σ : AKLT.Blueprint.Gap.Config S), Eq.{1} (f σ) c)
+def AKLT.Blueprint.Gap.LipschitzCouplingStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)]
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  (∀ (σ : AKLT.Blueprint.Gap.Config S), AKLT.Defs.Probability.{0} (K σ)) →
+    ∀ (r : ℝ),
+      LE.le.{0} 0 r →
+        (∀ (σ τ : (x : ι) → S x),
+            Eq.{1} (AKLT.Defs.hamming.{0, 0} σ τ) 1 →
+              ∃ (c : AKLT.Defs.Coupling.{0, 0} (K σ) (K τ)), LE.le.{0} (AKLT.Blueprint.Gap.couplingCost c) r) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℝ),
+            LE.le.{0} (AKLT.Blueprint.Gap.lipschitz (AKLT.Blueprint.Gap.kernelMean K f))
+              (HMul.hMul.{0, 0, 0} r (AKLT.Blueprint.Gap.lipschitz f))
+def AKLT.Blueprint.Gap.LipschitzEigenvalueStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S))
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (r : ℝ),
+      LE.le.{0} 0 r →
+        (∀ (f : AKLT.Blueprint.Gap.Config S → ℝ),
+            LE.le.{0} (AKLT.Blueprint.Gap.lipschitz (AKLT.Blueprint.Gap.kernelMean K f))
+              (HMul.hMul.{0, 0, 0} r (AKLT.Blueprint.Gap.lipschitz f))) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℝ) (eigenvalue : ℝ),
+            Eq.{1} (AKLT.Defs.expectation.{0} p f) 0 →
+              (∃ (σ : AKLT.Blueprint.Gap.Config S), Ne.{1} (f σ) 0) →
+                (∀ (σ : AKLT.Blueprint.Gap.Config S),
+                    Eq.{1} (AKLT.Blueprint.Gap.kernelMean K f σ) (HMul.hMul.{0, 0, 0} eigenvalue (f σ))) →
+                  LE.le.{0} eigenvalue r
+def AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S))
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    AKLT.Blueprint.Gap.Reversible p K →
+      ∀ (A c : ℝ),
+        LT.lt.{0} 0 A →
+          LT.lt.{0} 0 c →
+            LE.le.{0} c A →
+              (∀ (f : AKLT.Blueprint.Gap.Config S → ℝ) (eigenvalue : ℝ),
+                  Eq.{1} (AKLT.Defs.expectation.{0} p f) 0 →
+                    (∃ (σ : AKLT.Blueprint.Gap.Config S), Ne.{1} (f σ) 0) →
+                      (∀ (σ : AKLT.Blueprint.Gap.Config S),
+                          Eq.{1} (AKLT.Blueprint.Gap.kernelMean K f σ) (HMul.hMul.{0, 0, 0} eigenvalue (f σ))) →
+                        LE.le.{0} eigenvalue (HSub.hSub.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} c A))) →
+                ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+                  LE.le.{0} (HMul.hMul.{0, 0, 0} c (AKLT.Defs.variance.{0} p f)) (AKLT.Blueprint.Gap.kernelForm p K A f)
+def AKLT.Blueprint.Gap.BlockAverageFormStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] [inst_2 : Fintype.{0} J] [Nonempty.{1} J]
+  (S : ι → Type) [inst_4 : (x : ι) → Fintype.{0} (S x)] [∀ (x : ι), Nonempty.{1} (S x)]
+  (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (B : J → Finset.{0} ι),
+      AKLT.Blueprint.Gap.Reversible p (AKLT.Blueprint.Gap.blockAverage p B) ∧
+        ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+          Eq.{1} (AKLT.Blueprint.Gap.kernelForm p (AKLT.Blueprint.Gap.blockAverage p B) (↑(Fintype.card.{0} J)) f)
+            (AKLT.Blueprint.Gap.blockForm p B f)
+def AKLT.Blueprint.Gap.lipschitz : {ι : Type} →
+  [Fintype.{0} ι] →
+    [DecidableEq.{1} ι] → {S : ι → Type} → [(x : ι) → Fintype.{0} (S x)] → (AKLT.Blueprint.Gap.Config S → ℝ) → ℝ :=
+fun {ι : Type} [Fintype.{0} ι] [DecidableEq.{1} ι] {S : ι → Type} [(x : ι) → Fintype.{0} (S x)]
+    (f : AKLT.Blueprint.Gap.Config S → ℝ) =>
+  sSup.{0}
+    (insert.{0, 0} 0
+      (Set.ofPred.{0} fun (r : ℝ) =>
+        ∃ (σ : AKLT.Blueprint.Gap.Config S) (τ : AKLT.Blueprint.Gap.Config S),
+          Eq.{1} (AKLT.Defs.hamming.{0, 0} σ τ) 1 ∧ Eq.{1} r (abs.{0} (HSub.hSub.{0, 0, 0} (f σ) (f τ)))))
+def AKLT.Blueprint.Gap.Reversible : {Ω : Type} →
+  [Fintype.{0} Ω] → AKLT.Defs.Weight.{0} Ω → (Ω → AKLT.Defs.Weight.{0} Ω) → Prop :=
+fun {Ω : Type} [Fintype.{0} Ω] (p : AKLT.Defs.Weight.{0} Ω) (K : Ω → AKLT.Defs.Weight.{0} Ω) =>
+  (∀ (σ : Ω), AKLT.Defs.Probability.{0} (K σ)) ∧
+    ∀ (σ τ : Ω), Eq.{1} (HMul.hMul.{0, 0, 0} (p σ) (K σ τ)) (HMul.hMul.{0, 0, 0} (p τ) (K τ σ))
+def AKLT.Blueprint.Gap.blockLaw : {ι : Type} →
+  [Fintype.{0} ι] →
+    [DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [(x : ι) → Fintype.{0} (S x)] →
+          AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) →
+            (U : Finset.{0} ι) → AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} ((x : ↥U) → S ↑x) :=
+fun {ι : Type} [Fintype.{0} ι] [DecidableEq.{1} ι] {S : ι → Type} [(x : ι) → Fintype.{0} (S x)]
+    (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)) (U : Finset.{0} ι) (σ : AKLT.Blueprint.Gap.Config S) =>
+  AKLT.Defs.marginal.{0, 0} (AKLT.Blueprint.Gap.fibre p U σ) (AKLT.Blueprint.Gap.restrict U)
+def AKLT.Blueprint.Gap.blockAverage : {ι J : Type} →
+  [Fintype.{0} ι] →
+    [DecidableEq.{1} ι] →
+      [Fintype.{0} J] →
+        {S : ι → Type} →
+          [(x : ι) → Fintype.{0} (S x)] →
+            AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) →
+              (J → Finset.{0} ι) → AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) :=
+fun {ι J : Type} [Fintype.{0} ι] [DecidableEq.{1} ι] [Fintype.{0} J] {S : ι → Type} [(x : ι) → Fintype.{0} (S x)]
+    (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)) (B : J → Finset.{0} ι)
+    (σ τ : AKLT.Blueprint.Gap.Config S) =>
+  HDiv.hDiv.{0, 0, 0} (∑ a : J, AKLT.Blueprint.Gap.fibre p (B a) σ τ) ↑(Fintype.card.{0} J)
+def AKLT.Blueprint.Gap.kernelForm : {Ω : Type} →
+  [Fintype.{0} Ω] → AKLT.Defs.Weight.{0} Ω → (Ω → AKLT.Defs.Weight.{0} Ω) → ℝ → (Ω → ℂ) → ℝ :=
+fun {Ω : Type} [Fintype.{0} Ω] (p : AKLT.Defs.Weight.{0} Ω) (K : Ω → AKLT.Defs.Weight.{0} Ω) (A : ℝ) (f : Ω → ℂ) =>
+  HMul.hMul.{0, 0, 0} A
+    (AKLT.Blueprint.Gap.weightedInner p f fun (σ : Ω) =>
+        HSub.hSub.{0, 0, 0} (f σ) (∑ τ : Ω, HMul.hMul.{0, 0, 0} (↑(K σ τ)) (f τ))).re
+@Fintype.card_pos.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α] [h : Nonempty.{u_1 + 1} α],
+  LT.lt.{0} 0 (Fintype.card.{u_1} α)
+@Set.Finite.bddAbove.{u_1} : ∀ {α : Type u_1} [inst : Preorder.{u_1} α] [IsDirectedOrder.{u_1} α] [Nonempty.{u_1 + 1} α]
+  {s : Set.{u_1} α}, Set.Finite.{u_1} s → BddAbove.{u_1} s
+@le_csSup.{u_1} : ∀ {α : Type u_1} [inst : ConditionallyCompleteLattice.{u_1} α] {s : Set.{u_1} α} {a : α},
+  BddAbove.{u_1} s → Membership.mem.{u_1, u_1} s a → LE.le.{u_1} a (sSup.{u_1} s)
+@csSup_le.{u_1} : ∀ {α : Type u_1} [inst : ConditionallyCompleteLattice.{u_1} α] {s : Set.{u_1} α} {a : α},
+  Set.Nonempty.{u_1} s → (∀ (b : α), Membership.mem.{u_1, u_1} s b → LE.le.{u_1} b a) → LE.le.{u_1} (sSup.{u_1} s) a
+Complex.normSq_nonneg : ∀ (z : ℂ), LE.le.{0} 0 (Complex.normSq z)

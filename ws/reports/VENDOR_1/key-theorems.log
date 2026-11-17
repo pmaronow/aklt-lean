@@ -1,0 +1,179 @@
+@AKLT.Vendor.FiniteConditioning.condExp_on_fiber : ∀ {Ω : Type u_1} {B : Type u_2} [mΩ : MeasurableSpace Ω]
+  [mB : MeasurableSpace B] [MeasurableSingletonClass B] (μ : MeasureTheory.Measure Ω) [MeasureTheory.IsFiniteMeasure μ]
+  (X : Ω → B),
+  Measurable X →
+    ∀ (x : B) (f : Ω → ℝ),
+      MeasureTheory.Integrable f μ →
+        μ[f | MeasurableSpace.comap X inferInstance] =ᵐ[μ.restrict {s | X s = x}] fun x_1 =>
+          ∫ (s : Ω), f s ∂μ[|{s | X s = x}]
+'AKLT.Vendor.FiniteConditioning.condExp_on_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals : ∀ {Ω : Type u_1} {B : Type u_2}
+  [inst : MeasurableSpace Ω] [inst_1 : MeasurableSpace B] [MeasurableSingletonClass B] (μ : MeasureTheory.Measure Ω)
+  [MeasureTheory.IsFiniteMeasure μ] (X : Ω → B),
+  Measurable X →
+    ∀ (S : Finset B),
+      (∀ᵐ (ω : Ω) ∂μ, X ω ∈ S) →
+        ∀ (f : Ω → ℝ),
+          MeasureTheory.Integrable f μ →
+            ∀ (m : B → ℝ),
+              (∀ x ∈ S, ∫ (ω : Ω), f ω ∂μ[|{s | X s = x}] = m x) →
+                μ[f | MeasurableSpace.comap X inferInstance] =ᵐ[μ] fun ω => m (X ω)
+'AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.FiniteConditioning.condIndep_of_fiber_indep : ∀ {Ω : Type u_1} {B : Type u_2} {E : Type u_3} {F : Type u_4}
+  [mΩ : MeasurableSpace Ω] [inst : MeasurableSpace B] [MeasurableSingletonClass B] [inst_2 : MeasurableSpace E]
+  [inst_3 : MeasurableSpace F] [inst_4 : StandardBorelSpace Ω] (μ : MeasureTheory.Measure Ω)
+  [inst_5 : MeasureTheory.IsProbabilityMeasure μ] (X : Ω → B) (hX : Measurable X) (S : Finset B),
+  (∀ᵐ (ω : Ω) ∂μ, X ω ∈ S) →
+    ∀ (f : Ω → E) (g : Ω → F),
+      Measurable f →
+        Measurable g →
+          (∀ x ∈ S, ProbabilityTheory.IndepFun f g μ[|{ω | X ω = x}]) →
+            ProbabilityTheory.CondIndepFun (MeasurableSpace.comap X inferInstance) ⋯ f g μ
+'AKLT.Vendor.FiniteConditioning.condIndep_of_fiber_indep' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.FiniteChain.finiteTotalVariation_contraction : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  [inst_1 : DecidableEq Ω],
+  ∀ K ∈ Matrix.rowStochastic ℝ Ω,
+    ∀ (p q : Ω → ℝ),
+      AKLT.Vendor.FiniteChain.finiteTotalVariation (Matrix.vecMul p K) (Matrix.vecMul q K) ≤
+        AKLT.Vendor.FiniteChain.finiteTotalVariation p q
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.FiniteChain.Cheeger.weightedVariance_le_center : ∀ {V : Type u_1} [inst : Fintype V] (pi u : V → ℝ)
+  (m : ℝ),
+  0 < AKLT.Vendor.FiniteChain.cutMass pi Finset.univ →
+    AKLT.Vendor.FiniteChain.Cheeger.weightedVariance pi u ≤
+      AKLT.Vendor.FiniteChain.Cheeger.weightedMass pi fun x => (u x - m) ^ 2
+'AKLT.Vendor.FiniteChain.Cheeger.weightedVariance_le_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.FiniteChain.finiteDirichletForm_eq_neg_generator : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  [inst_1 : DecidableEq Ω],
+  ∀ K ∈ Matrix.rowStochastic ℝ Ω,
+    ∀ (pi : Ω → ℝ),
+      (∀ (x y : Ω), pi x * K x y = pi y * K y x) →
+        ∀ (u : Ω → ℝ),
+          AKLT.Vendor.FiniteChain.finiteDirichletForm pi K u =
+            -∑ x, pi x * u x * (AKLT.Vendor.FiniteChain.finiteChainGenerator K).mulVec u x
+'AKLT.Vendor.FiniteChain.finiteDirichletForm_eq_neg_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.FiniteChain.finiteChainSemigroup_detailed_balance : ∀ {Ω : Type u_1} [inst : Fintype Ω]
+  [inst_1 : DecidableEq Ω] (K : Matrix Ω Ω ℝ) (pi : Ω → ℝ),
+  (∀ (x y : Ω), pi x * K x y = pi y * K y x) →
+    ∀ (t : ℝ) (x y : Ω),
+      pi x * AKLT.Vendor.FiniteChain.finiteChainSemigroup K t x y =
+        pi y * AKLT.Vendor.FiniteChain.finiteChainSemigroup K t y x
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_detailed_balance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq : ∀ {m : Type u_1} {n : Type u_2} [inst : Fintype m]
+  [inst_1 : Fintype n] [inst_2 : DecidableEq m] [inst_3 : DecidableEq n] (A : Matrix m n ℂ),
+  AKLT.Vendor.QICLean.Matrix.IsIsometry A →
+    Fintype.card m = Fintype.card n → AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween A
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis : ∀ {𝕜 : Type u_1} {n : Type u_2}
+  [inst : RCLike 𝕜] [inst_1 : Fintype n] [inst_2 : DecidableEq n] {A : Matrix n n 𝕜} (hA : A.IsHermitian) (j : n),
+  (Matrix.toEuclideanCLM A) (hA.eigenvectorBasis j) = ↑(hA.eigenvalues j) • hA.eigenvectorBasis j
+'AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap : ∀ {n : Type u_1} [inst : Fintype n]
+  [inst_1 : DecidableEq n] {A : Matrix n n ℂ},
+  A.IsHermitian →
+    ∀ {γ : ℝ},
+      (∀ e ∈ spectrum ℝ A, e = 0 ∨ γ ≤ e) →
+        ∀ (x : EuclideanSpace ℂ n),
+          (∀ (z : EuclideanSpace ℂ n), (Matrix.toEuclideanCLM A) z = 0 → inner ℂ z x = 0) →
+            γ * ‖x‖ ^ 2 ≤ (inner ℂ x ((Matrix.toEuclideanCLM A) x)).re
+'AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE : ∀ {K : Type u_1} [inst : Field K] [inst_1 : CharZero K] {m n : ℕ}
+  (hmn : 0 < m + n)
+  (x : TensorProduct K (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K m) (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K n)),
+  (AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) ((AKLT.Vendor.Physlib.Sl2.tensorE m n) x) =
+    (AKLT.Vendor.Physlib.Sl2.sumEnd fun x => AKLT.Vendor.Physlib.Sl2.ρE) ((AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) x)
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF : ∀ {K : Type u_1} [inst : Field K] [inst_1 : CharZero K] {m n : ℕ}
+  (hmn : 0 < m + n)
+  (x : TensorProduct K (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K m) (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K n)),
+  (AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) ((AKLT.Vendor.Physlib.Sl2.tensorF m n) x) =
+    (AKLT.Vendor.Physlib.Sl2.sumEnd fun x => AKLT.Vendor.Physlib.Sl2.ρF) ((AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) x)
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH : ∀ {K : Type u_1} [inst : Field K] [inst_1 : CharZero K] {m n : ℕ}
+  (hmn : 0 < m + n)
+  (x : TensorProduct K (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K m) (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K n)),
+  (AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) ((AKLT.Vendor.Physlib.Sl2.tensorH m n) x) =
+    (AKLT.Vendor.Physlib.Sl2.sumEnd fun x => AKLT.Vendor.Physlib.Sl2.ρH) ((AKLT.Vendor.Physlib.Sl2.cgEquiv hmn) x)
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.cgProj_isTensorIntertwiner : ∀ {K : Type u_1} [inst : Field K] {m n : ℕ} [inst_1 : CharZero K]
+  (hmn : 0 < m + n) (j : Fin (min m n + 1)),
+  AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner (AKLT.Vendor.Physlib.Sl2.cgProj hmn j)
+'AKLT.Vendor.Physlib.Sl2.cgProj_isTensorIntertwiner' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne : ∀ {K : Type u_1} [inst : Field K] {m n p : ℕ}
+  [CharZero K],
+  0 < m + n →
+    ∀
+      {φ :
+        TensorProduct K (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K m)
+            (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K n) →ₗ[K]
+          AKLT.Vendor.Physlib.Sl2.StandardSl2Module K p},
+      AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner φ → (∀ (j : Fin (min m n + 1)), m + n - 2 * ↑j ≠ p) → φ = 0
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.exists_eq_smul_cgProj : ∀ {K : Type u_1} [inst : Field K] {m n : ℕ}
+  [inst_1 : CharZero K] (hmn : 0 < m + n) {j : Fin (min m n + 1)}
+  {φ :
+    TensorProduct K (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K m)
+        (AKLT.Vendor.Physlib.Sl2.StandardSl2Module K n) →ₗ[K]
+      AKLT.Vendor.Physlib.Sl2.StandardSl2Module K (m + n - 2 * ↑j)},
+  AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner φ → ∃ c, φ = c • AKLT.Vendor.Physlib.Sl2.cgProj hmn j
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.exists_eq_smul_cgProj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed : ∀ {d : ℕ}
+  (f : AKLT.Vendor.Balaban.LatticeGeom.Pt d → Fin d → ZMod 2),
+  (∀ (x : AKLT.Vendor.Balaban.LatticeGeom.Pt d) (i j : Fin d),
+      i ≠ j → f x i + f (x + Pi.single i 1) j = f x j + f (x + Pi.single j 1) i) →
+    ∃ h, ∀ (x : AKLT.Vendor.Balaban.LatticeGeom.Pt d) (i : Fin d), h (x + Pi.single i 1) = h x + f x i
+'AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn : ∀ {d : ℕ} {S : Set (AKLT.Vendor.Balaban.LatticeGeom.Pt d)},
+  (∀ a ∈ S, ∀ b ∈ S, AKLT.Vendor.Balaban.LatticeGeom.Conn S a b) →
+    (∀ a ∈ Sᶜ, ∀ b ∈ Sᶜ, AKLT.Vendor.Balaban.LatticeGeom.Conn Sᶜ a b) →
+      ∀ {x y : AKLT.Vendor.Balaban.LatticeGeom.Pt d},
+        x ∈ AKLT.Vendor.Balaban.LatticeGeom.outerBoundary S →
+          y ∈ AKLT.Vendor.Balaban.LatticeGeom.outerBoundary S →
+            AKLT.Vendor.Balaban.LatticeGeom.StarConn (AKLT.Vendor.Balaban.LatticeGeom.outerBoundary S) x y
+'AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+@AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn : ∀ {d : ℕ} {A : Set (AKLT.Vendor.Balaban.LatticeGeom.Pt d)},
+  2 ≤ d →
+    A.Finite →
+      (∀ a ∈ A, ∀ b ∈ A, AKLT.Vendor.Balaban.LatticeGeom.Conn A a b) →
+        ∀ {x y : AKLT.Vendor.Balaban.LatticeGeom.Pt d},
+          x ∈ AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary A →
+            y ∈ AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary A →
+              AKLT.Vendor.Balaban.LatticeGeom.StarConn (AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary A) x y
+'AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add : ∀ (d₁ d₂ : AKLT.Vendor.LeanCert.Core.Dyadic),
+  (d₁.add d₂).toRat = d₁.toRat + d₂.toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul : ∀ (d₁ d₂ : AKLT.Vendor.LeanCert.Core.Dyadic),
+  (d₁.mul d₂).toRat = d₁.toRat * d₂.toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le : ∀ (d : AKLT.Vendor.LeanCert.Core.Dyadic) (newExp : ℤ),
+  (d.shiftDown newExp).toRat ≤ d.toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge : ∀ (d : AKLT.Vendor.LeanCert.Core.Dyadic) (newExp : ℤ),
+  d.toRat ≤ (d.shiftUp newExp).toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le : ∀ (d₁ d₂ : AKLT.Vendor.LeanCert.Core.Dyadic),
+  d₁.le d₂ = true ↔ d₁.toRat ≤ d₂.toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le : ∀ (d : AKLT.Vendor.LeanCert.Core.Dyadic) (maxBits : ℕ),
+  (d.normalizeDown maxBits).toRat ≤ d.toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge : ∀ (d : AKLT.Vendor.LeanCert.Core.Dyadic) (maxBits : ℕ),
+  d.toRat ≤ (d.normalizeUp maxBits).toRat
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge' depends on axioms: [propext, Classical.choice, Quot.sound]

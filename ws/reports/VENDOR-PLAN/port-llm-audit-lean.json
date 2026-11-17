@@ -1,0 +1,52 @@
+{
+  "label": "port-llm-audit-lean",
+  "seconds": 2.322927474975586,
+  "results": {
+    "AronowAudit.P015.P015_FiniteConditioning": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9082908630371094,
+      "errors": [],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "`Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n\nHint: Replace the deprecated name:\n  m\u0335e\u0335m\u0335_\u0335s\u0335e\u0335t\u0335O\u0335f\u0335_\u0335e\u0335q\u0335m\u0332e\u0332m\u0332_\u0332o\u0332f\u0332P\u0332r\u0332e\u0332d\u0332_\u0332e\u0332q\u0332",
+          "endPos": {
+            "column": 58,
+            "line": 45
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-llm-audit-lean/AronowAudit/P015/P015_FiniteConditioning.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.Linter.deprecatedAttr",
+          "pos": {
+            "column": 46,
+            "line": 45
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "`Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead\n\nHint: Replace the deprecated name:\n  m\u0335e\u0335m\u0335_\u0335s\u0335e\u0335t\u0335O\u0335f\u0335_\u0335e\u0335q\u0335m\u0332e\u0332m\u0332_\u0332o\u0332f\u0332P\u0332r\u0332e\u0332d\u0332_\u0332e\u0332q\u0332",
+          "endPos": {
+            "column": 58,
+            "line": 57
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-llm-audit-lean/AronowAudit/P015/P015_FiniteConditioning.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.Linter.deprecatedAttr",
+          "pos": {
+            "column": 46,
+            "line": 57
+          },
+          "severity": "warning"
+        }
+      ]
+    }
+  },
+  "error_count": 0,
+  "ok": 1,
+  "failed": 0,
+  "blocked": 0
+}

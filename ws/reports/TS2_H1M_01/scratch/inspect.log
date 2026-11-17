@@ -1,0 +1,70 @@
+def AKLT.Blueprint.H1.PauliExpansionStatementV2 : Prop :=
+∀ (n : ℕ) (J : Finset (Fin n)) (p : AKLT.Defs.RealVectorPolynomial n),
+  AKLT.Defs.VectorAffineReal p →
+    AKLT.Defs.SupportedVectorsReal J p →
+      ∀ (u : Fin n → AKLT.Defs.Vec3),
+        AKLT.Defs.evaluateRealPolynomial p u =
+          ∑ a, p.coeff (AKLT.Defs.pauliExponentReal J a) * ∏ j, AKLT.Blueprint.H1.pauliCoordinate (u ↑j) (a j)
+def AKLT.Blueprint.H1.PauliProductTraceStatementV2 : Prop :=
+(∀ (a : Fin 4) (u : AKLT.Defs.Vec3),
+    (AKLT.Defs.pauli a * AKLT.Defs.spinDensity u).trace = ↑(AKLT.Blueprint.H1.pauliCoordinate u a)) →
+  ∀ (n : ℕ) (J : Finset (Fin n)) (p : AKLT.Defs.RealVectorPolynomial n) (u : Fin n → AKLT.Defs.Vec3),
+    (AKLT.Defs.pauliOperatorReal J p * AKLT.Defs.productDensityReal J u).trace =
+      ↑(∑ a, p.coeff (AKLT.Defs.pauliExponentReal J a) * ∏ j, AKLT.Blueprint.H1.pauliCoordinate (u ↑j) (a j))
+def AKLT.Blueprint.H1.InversionPolynomialStatementV2 : Prop :=
+∀ (n : ℕ) (J I : Finset (Fin n)) (p : AKLT.Defs.RealVectorPolynomial n),
+  AKLT.Defs.VectorAffineReal p →
+    AKLT.Defs.SupportedVectorsReal J p →
+      AKLT.Defs.VectorAffineReal (AKLT.Defs.invertPolynomialReal I p) ∧
+        AKLT.Defs.SupportedVectorsReal J (AKLT.Defs.invertPolynomialReal I p) ∧
+          ∀ (u : Fin n → AKLT.Defs.Vec3),
+            AKLT.Defs.evaluateRealPolynomial (AKLT.Defs.invertPolynomialReal I p) (AKLT.Defs.invertVectorsReal I u) =
+              AKLT.Defs.evaluateRealPolynomial p u
+def AKLT.Blueprint.H1.ProductDensityPositiveStatementV2 : Prop :=
+∀ (n : ℕ) (J : Finset (Fin n)) (u : Fin n → AKLT.Defs.Vec3),
+  (∀ j ∈ J, (AKLT.Defs.spinDensity (u j)).PosSemidef) → (AKLT.Defs.productDensityReal J u).PosSemidef
+def AKLT.Blueprint.H1.InversionBallStatementV2 : Prop :=
+∀ (n : ℕ) (I : Finset (Fin n)) (u : Fin n → AKLT.Defs.Vec3) (j : Fin n),
+  AKLT.Defs.normSq (AKLT.Defs.invertVectorsReal I u j) = AKLT.Defs.normSq (u j)
+def AKLT.Blueprint.H1.RationalEmbeddingStructureStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.H1.VectorPolynomial) (J : Finset (Fin 20)),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.SupportedVectors J p →
+      AKLT.Defs.VectorAffineReal ((MvPolynomial.map (Rat.castHom ℝ)) p) ∧
+        AKLT.Defs.SupportedVectorsReal J ((MvPolynomial.map (Rat.castHom ℝ)) p)
+def AKLT.Blueprint.H1.RationalEmbeddingEvaluationStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.H1.VectorPolynomial) (u : Fin 20 → AKLT.Defs.Vec3),
+  AKLT.Defs.evaluateRealPolynomial ((MvPolynomial.map (Rat.castHom ℝ)) p) u = AKLT.Defs.evaluateReduced p u
+def AKLT.Blueprint.H1.DifferenceStructureStatementV2 : Prop :=
+∀ (J : Finset (Fin 20)) (p q : AKLT.Defs.RealVectorPolynomial 20) (c : ℝ),
+  AKLT.Defs.VectorAffineReal p →
+    AKLT.Defs.VectorAffineReal q →
+      AKLT.Blueprint.H1.OrthogonalInvariantV2 p →
+        AKLT.Blueprint.H1.OrthogonalInvariantV2 q →
+          AKLT.Defs.SupportedVectorsReal J p →
+            AKLT.Defs.SupportedVectorsReal J q →
+              AKLT.Defs.VectorAffineReal (p - MvPolynomial.C c * q) ∧
+                AKLT.Blueprint.H1.OrthogonalInvariantV2 (p - MvPolynomial.C c * q) ∧
+                  AKLT.Defs.SupportedVectorsReal J (p - MvPolynomial.C c * q)
+MvPolynomial.support_map_subset.{u, v, u_1} {R : Type u} {S₁ : Type v} {σ : Type u_1} [CommSemiring R] [CommSemiring S₁]
+  (f : R →+* S₁) (p : MvPolynomial σ R) : ((MvPolynomial.map f) p).support ⊆ p.support
+MvPolynomial.eval_map.{u, v, u_1} {R : Type u} {S₁ : Type v} {σ : Type u_1} [CommSemiring R] [CommSemiring S₁]
+  (f : R →+* S₁) (g : σ → S₁) (p : MvPolynomial σ R) :
+  (MvPolynomial.eval g) ((MvPolynomial.map f) p) = MvPolynomial.eval₂ f g p
+MvPolynomial.support_sub.{u, u_1} {R : Type u} (σ : Type u_1) [CommRing R] [DecidableEq σ] (p q : MvPolynomial σ R) :
+  (p - q).support ⊆ p.support ∪ q.support
+MvPolynomial.C_mul'.{u, u_1} {R : Type u} {σ : Type u_1} {a : R} [CommSemiring R] {p : MvPolynomial σ R} :
+  MvPolynomial.C a * p = a • p
+Matrix.PosSemidef.kronecker.{u_1, u_2, u_3} {𝕜 : Type u_1} {n : Type u_2} [RCLike 𝕜] [Finite n] {m : Type u_3}
+  [Finite m] {x : Matrix n n 𝕜} {y : Matrix m m 𝕜} (hx : x.PosSemidef) (hy : y.PosSemidef) :
+  (Matrix.kroneckerMap (fun x1 x2 => x1 * x2) x y).PosSemidef
+Matrix.PosSemidef.submatrix.{u_1, u_2, u_3} {m : Type u_1} {n : Type u_2} {R : Type u_3} [Ring R] [PartialOrder R]
+  [StarRing R] {M : Matrix n n R} (hM : M.PosSemidef) (e : m → n) : (M.submatrix e e).PosSemidef
+Matrix.trace_kronecker.{u_3, u_10, u_11} {α : Type u_3} {m : Type u_10} {n : Type u_11} [Fintype m] [Fintype n]
+  [Semiring α] (A : Matrix m m α) (B : Matrix n n α) :
+  (Matrix.kroneckerMap (fun x1 x2 => x1 * x2) A B).trace = A.trace * B.trace
+AKLT.Blueprint.H1.singlePauliTrace : AKLT.Blueprint.H1.SinglePauliTraceStatement
+1
+1
+1
+1

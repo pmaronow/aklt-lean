@@ -1,0 +1,443 @@
+[
+  {
+    "name": "AKLT.Cert.H3.rawRowCheck_sound",
+    "file": "AKLT/Cert/H3/Automaton.lean",
+    "line": 28,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.rawRowCheck_sound {m q code : \u2115} {Q : AKLT.Defs.MemoryQuotient m q}\n  (h : AKLT.Cert.H3.rawRowCheck Q code = true) : AKLT.Cert.H3.CorrectAt Q (AKLT.Cert.H3.decodeWord m code)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Attachments64.checked",
+    "file": "AKLT/Cert/H3/Check/Attachments64.lean",
+    "line": 22,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Attachments64.checked : (List.range 64).all AKLT.Cert.H3.Check.Attachments64.attachments = true"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Attachments64.terminal_caps",
+    "file": "AKLT/Cert/H3/Check/Attachments64.lean",
+    "line": 24,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Attachments64.terminal_caps (i : Fin 16) :\n  65536 \u2264 AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.Phase.C \u27e8\u2191i, \u22ef\u27e9 \u2227\n    65536 \u2264 AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.Phase.D \u27e8\u2191i, \u22ef\u27e9"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Attachments64.finite_rows",
+    "file": "AKLT/Cert/H3/Check/Attachments64.lean",
+    "line": 28,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Attachments64.finite_rows (i : \u2115) (hi : i < 64) :\n  have \u03c6 := AKLT.Cert.H3.Check.PackedRows64.phase (i % 4);\n  have a := AKLT.Cert.H3.Check.PackedRows64.state i;\n  have U := AKLT.Cert.H3.Data.BNPrototype.plane \u03c6 a;\n  have Z := AKLT.Cert.H3.Data.BNPrototype.cap \u03c6 a;\n  (0 < Z \u2227 Z < 2 ^ 26) \u2227\n    AKLT.Gen.Packed.lane U 80 (AKLT.Cert.H3.siteIndex AKLT.Defs.kernelCentre) = 0 \u2227\n      (AKLT.Gen.Packed.lane U 80 (AKLT.Cert.H3.siteIndex (AKLT.Defs.kernelTarget AKLT.Defs.PairType.B)) =\n          if \u03c6 = AKLT.Defs.Phase.C \u2228 \u03c6 = AKLT.Defs.Phase.D then 65536 else 0) \u2227\n        \u2211 d,\n            \u2211 \u03c8,\n              AKLT.Defs.coefficientCeiling (AKLT.Defs.freeCoefficient AKLT.Cert.H3.Data.quotient \u03c6 a d \u03c8) *\n                AKLT.Cert.H3.Data.BNPrototype.cap \u03c8 (AKLT.Cert.H3.Data.quotient.successor a d) \u2264\n          AKLT.Defs.certificateCoefficientScale * Z"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Attachments64.cap_rows",
+    "file": "AKLT/Cert/H3/Check/Attachments64.lean",
+    "line": 42,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Attachments64.cap_rows (i : \u2115) (hi : i < 64) (s : \u2115) :\n  s < 19881 \u2192\n    AKLT.Gen.Packed.lane\n        (AKLT.Cert.H3.Data.BNPrototype.plane (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))\n          (AKLT.Cert.H3.Check.PackedRows64.state i))\n        80 s \u2264\n      AKLT.Cert.H3.Data.BNPrototype.cap (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))\n        (AKLT.Cert.H3.Check.PackedRows64.state i)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.AutomatonShard.checked",
+    "file": "AKLT/Cert/H3/Check/AutomatonShard.lean",
+    "line": 11,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.AutomatonShard.checked (i : Fin 16) :\n  AKLT.Cert.H3.CorrectAt AKLT.Cert.H3.Data.quotient\n      (AKLT.Cert.H3.Data.quotient.representative (AKLT.Cert.H3.Check.AutomatonShard.state i)) \u2227\n    AKLT.Cert.H3.Data.quotient.project\n          (AKLT.Cert.H3.Data.quotient.representative (AKLT.Cert.H3.Check.AutomatonShard.state i)) =\n        AKLT.Cert.H3.Check.AutomatonShard.state i \u2227\n      AKLT.Cert.H3.CorrectAt AKLT.Cert.H3.Data.quotient (AKLT.Cert.H3.Check.AutomatonShard.other i) \u2227\n        AKLT.Cert.H3.Data.quotient.project (AKLT.Cert.H3.Check.AutomatonShard.other i) =\n          AKLT.Cert.H3.Check.AutomatonShard.state i"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Baseline.checked",
+    "file": "AKLT/Cert/H3/Check/Baseline.lean",
+    "line": 3,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Baseline.checked : 0 = 0"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Coefficients.diagonal_checked",
+    "file": "AKLT/Cert/H3/Check/Coefficients.lean",
+    "line": 7,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Coefficients.diagonal_checked (\u03c6 : AKLT.Defs.Phase) (k : AKLT.Defs.StepKind) :\n  AKLT.Cert.H3.diagonal \u03c6 k = AKLT.Defs.coefficientCeiling (AKLT.Defs.phaseDiagonal \u03c6 k)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Coefficients.response_checked",
+    "file": "AKLT/Cert/H3/Check/Coefficients.lean",
+    "line": 10,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Coefficients.response_checked (a d : Fin 4) :\n  AKLT.Cert.H3.direction \u2191d \u2260 (AKLT.Cert.H3.direction \u2191a).reverse \u2192\n    \u2200 (j : Fin 5),\n      have x := if \u2191j < 4 then -(AKLT.Cert.H3.direction \u2191j).step else (10, 10);\n      AKLT.Cert.H3.response \u2191a \u2191d \u2191j =\n        AKLT.Defs.coefficientCeiling\n          (AKLT.Defs.passageFactor (decide (AKLT.Cert.H3.direction \u2191d = AKLT.Cert.H3.direction \u2191a)) *\n              AKLT.Defs.relaxedReward x (AKLT.Cert.H3.direction \u2191a) (AKLT.Cert.H3.direction \u2191d)\n                {AKLT.Defs.kernelCentre} /\n            3)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Counts.square_card",
+    "file": "AKLT/Cert/H3/Check/Counts.lean",
+    "line": 6,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Counts.square_card : (AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius).card = 19881"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.Counts.edge_counts",
+    "file": "AKLT/Cert/H3/Check/Counts.lean",
+    "line": 8,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.Counts.edge_counts :\n  AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.straight = 2516 \u2227\n    AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.turn = 5032 \u2227\n      AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.revisit = 1872"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PackedRows64.checked",
+    "file": "AKLT/Cert/H3/Check/PackedRows64.lean",
+    "line": 17,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PackedRows64.checked : AKLT.Cert.H3.Check.PackedRows64.shardCheck = true"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PackedRows64.component_rows",
+    "file": "AKLT/Cert/H3/Check/PackedRows64.lean",
+    "line": 20,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PackedRows64.component_rows (i : \u2115) (hi : i < 64) (s : \u2115) :\n  s < 19881 \u2192\n    AKLT.Cert.H3.component 80 s\n        (AKLT.Cert.H3.rowTerms AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.plane\n          AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.PairType.B AKLT.Defs.Compass.north\n          (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4)) (AKLT.Cert.H3.Check.PackedRows64.state i)) \u2264\n      AKLT.Cert.H3.coefficientScale *\n        AKLT.Gen.Packed.lane\n          (AKLT.Cert.H3.Data.BNPrototype.plane (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))\n            (AKLT.Cert.H3.Check.PackedRows64.state i))\n          80 s"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.stem_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 14,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.stem_checked (e : Fin 16) :\n  AKLT.Defs.takeWord (AKLT.Cert.H3.Data.PrefixBN.word e) 10 =\n    AKLT.Cert.H3.decodeWord 10 AKLT.Cert.H3.Data.PrefixBN.stemCode"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.words_injective",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 16,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.words_injective : Function.Injective AKLT.Cert.H3.Data.PrefixBN.word"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.first_direction_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 20,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.first_direction_checked :\n  (\u2200 (e : Fin 4), AKLT.Defs.FirstDirection (AKLT.Cert.H3.Data.PrefixBN.word11 e) AKLT.Defs.Compass.north) \u2227\n    \u2200 (e : Fin 16), AKLT.Defs.FirstDirection (AKLT.Cert.H3.Data.PrefixBN.word e) AKLT.Defs.Compass.north"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.closed_classification",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 23,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.closed_classification :\n  (\u2200 (e : Fin 4), \u00acAKLT.Defs.ClosedTrail AKLT.Defs.PairType.B (AKLT.Cert.H3.Data.PrefixBN.word11 e)) \u2227\n    \u2200 (e : Fin 16), AKLT.Defs.ClosedTrail AKLT.Defs.PairType.B (AKLT.Cert.H3.Data.PrefixBN.word e) \u2194 \u2191e = 1"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.classification_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 26,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.classification_checked (e : Fin 16) :\n  AKLT.Cert.H3.Data.PrefixBN.survives e = true \u2194\n    AKLT.Defs.SurvivingPrefix AKLT.Defs.PairType.B AKLT.Defs.Compass.north (AKLT.Cert.H3.Data.PrefixBN.word e)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.endpoints_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 30,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.endpoints_checked (e : Fin 16) :\n  AKLT.Cert.H3.Data.PrefixBN.survives e = true \u2192\n    AKLT.Cert.H3.Data.quotient.project (AKLT.Defs.lastWindowWord 10 (AKLT.Cert.H3.Data.PrefixBN.word e)) =\n        AKLT.Cert.H3.Data.PrefixBN.endpointClass e \u2227\n      AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Cert.H3.Data.PrefixBN.word e) 12 =\n          AKLT.Cert.H3.gridSite (AKLT.Cert.H3.Data.PrefixBN.endpointSite e) \u2227\n        \u2200 (\u03c6 : AKLT.Defs.Phase),\n          AKLT.Cert.H3.Data.PrefixBN.endpointValue e \u03c6 =\n            AKLT.Cert.H3.valueAt AKLT.Cert.H3.Data.BNPrototype.plane AKLT.Cert.H3.Data.BNPrototype.cap \u03c6\n              (AKLT.Cert.H3.Data.PrefixBN.endpointClass e)\n              (AKLT.Cert.H3.gridSite (AKLT.Cert.H3.Data.PrefixBN.endpointSite e))"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.endpoint_table_verified",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 36,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.endpoint_table_verified (e : Fin 16) (h : AKLT.Cert.H3.Data.PrefixBN.survives e = true)\n  (\u03c6 : AKLT.Defs.Phase) :\n  AKLT.Cert.H3.Data.PrefixBN.endpointValue e \u03c6 =\n    AKLT.Cert.H3.Data.BNPrototype.certificate.extended \u03c6\n      (AKLT.Cert.H3.Data.quotient.project (AKLT.Defs.lastWindowWord 10 (AKLT.Cert.H3.Data.PrefixBN.word e)))\n      (AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Cert.H3.Data.PrefixBN.word e) 12)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.phases_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 46,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.phases_checked (e : Fin 16) :\n  AKLT.Cert.H3.Data.PrefixBN.survives e = true \u2192\n    \u2200 (\u03c6 : AKLT.Defs.Phase),\n      AKLT.Defs.prefixPhases (AKLT.Cert.H3.Data.PrefixBN.word e) \u03c6 =\n        \u2191(AKLT.Cert.H3.Data.PrefixBN.phaseNumerator e \u03c6) / \u2191(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.numerator_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 51,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.numerator_checked :\n  AKLT.Cert.H3.Data.PrefixBN.shardNumerator = AKLT.Cert.H3.Data.PrefixBN.expectedNumerator"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.tail_from_defs",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 54,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.tail_from_defs :\n  AKLT.Cert.H3.prefixShard AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B\n      AKLT.Defs.Compass.north AKLT.Cert.H3.Data.PrefixBN.word =\n    \u2191AKLT.Cert.H3.Data.PrefixBN.expectedNumerator / \u2191(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12 * 65536)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.closed_checked",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 82,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.closed_checked :\n  AKLT.Cert.H3.Check.PrefixShard.closedPart =\n    \u2191AKLT.Cert.H3.Data.PrefixBN.shortNumerator / \u2191AKLT.Cert.H3.Data.PrefixBN.shortDenominator"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.PrefixShard.complete_shard",
+    "file": "AKLT/Cert/H3/Check/PrefixShard.lean",
+    "line": 86,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.PrefixShard.complete_shard :\n  AKLT.Cert.H3.Check.PrefixShard.closedPart +\n      AKLT.Cert.H3.prefixShard AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B\n        AKLT.Defs.Compass.north AKLT.Cert.H3.Data.PrefixBN.word =\n    \u2191AKLT.Cert.H3.Data.PrefixBN.shortNumerator / \u2191AKLT.Cert.H3.Data.PrefixBN.shortDenominator +\n      \u2191AKLT.Cert.H3.Data.PrefixBN.expectedNumerator / \u2191(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12 * 65536)"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.SemanticRows64.checked_view",
+    "file": "AKLT/Cert/H3/Check/SemanticRows64.lean",
+    "line": 17,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "kernel_computation",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.SemanticRows64.checked_view (i : Fin 64) :\n  AKLT.Cert.H3.viewRow AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.plane AKLT.Cert.H3.Data.BNPrototype.cap\n    AKLT.Defs.PairType.B AKLT.Defs.Compass.north (AKLT.Cert.H3.Check.SemanticRows64.phase (\u2191i % 4))\n    (AKLT.Cert.H3.Check.SemanticRows64.state i) (AKLT.Cert.H3.Check.SemanticRows64.sampleSite (\u2191i / 4 % 8))"
+  },
+  {
+    "name": "AKLT.Cert.H3.Check.SemanticRows64.checked",
+    "file": "AKLT/Cert/H3/Check/SemanticRows64.lean",
+    "line": 17,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.Check.SemanticRows64.checked (i : Fin 64) :\n  AKLT.Cert.H3.DefRow AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B\n    AKLT.Defs.Compass.north (AKLT.Cert.H3.Check.SemanticRows64.phase (\u2191i % 4))\n    (AKLT.Cert.H3.Check.SemanticRows64.state i) (AKLT.Cert.H3.Check.SemanticRows64.sampleSite (\u2191i / 4 % 8))"
+  },
+  {
+    "name": "AKLT.Cert.H3.grid_index_law",
+    "file": "AKLT/Cert/H3/Grid.lean",
+    "line": 5,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.grid_index_law : AKLT.Cert.H3.GridIndexLaw"
+  },
+  {
+    "name": "AKLT.Cert.H3.prototype",
+    "file": "AKLT/Cert/H3/Main.lean",
+    "line": 37,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.prototype : AKLT.Cert.H3.PrototypeStatement"
+  },
+  {
+    "name": "AKLT.Cert.H3.automaton_target_of_checks",
+    "file": "AKLT/Cert/H3/Obligations.lean",
+    "line": 96,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.automaton_target_of_checks (hcard : Fintype.card (AKLT.Defs.MemoryWindow 10) = 60092)\n  (hQ : AKLT.Cert.H3.Data.quotient.Correct)\n  (hs : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.straight = 2516)\n  (ht : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.turn = 5032)\n  (hr : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.revisit = 1872) :\n  AKLT.Blueprint.Top.Automaton10Statement"
+  },
+  {
+    "name": "AKLT.Cert.H3.stationary_target_of_checks",
+    "file": "AKLT/Cert/H3/Obligations.lean",
+    "line": 103,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.stationary_target_of_checks (hcard : (AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius).card = 19881)\n  (Q : AKLT.Defs.MemoryQuotient 10 3741) (hQ : Q.Correct)\n  (C : AKLT.Defs.PairType \u00d7 AKLT.Defs.Compass \u2192 AKLT.Defs.StationaryData 3741)\n  (checks :\n    \u2200 k \u2208 AKLT.Defs.stationaryCases,\n      (C k).Passes Q k.1 k.2 \u2227\n        10 ^ 9 * AKLT.Defs.stationaryPrefixBound Q k.1 k.2 (C k) \u2264 \u2191(AKLT.Defs.stationaryPrefixCeiling k.1 k.2)) :\n  AKLT.Blueprint.Top.StationaryCheckStatement"
+  },
+  {
+    "name": "AKLT.Cert.H3.weighted_pack",
+    "file": "AKLT/Cert/H3/Packed.lean",
+    "line": 12,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.weighted_pack (b n : \u2115) (ts : List AKLT.Cert.H3.PackedTerm) (h : \u2200 e \u2208 ts, AKLT.Gen.Packed.Fits e.2 b n) :\n  AKLT.Cert.H3.weighted ts = AKLT.Gen.Packed.packFn b n fun s => AKLT.Cert.H3.component b s ts"
+  },
+  {
+    "name": "AKLT.Cert.H3.component_le",
+    "file": "AKLT/Cert/H3/Packed.lean",
+    "line": 29,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.component_le (b s k : \u2115) (ts : List AKLT.Cert.H3.PackedTerm)\n  (h : \u2200 e \u2208 ts, AKLT.Gen.Packed.lane e.2 b s \u2264 2 ^ k) :\n  AKLT.Cert.H3.component b s ts \u2264 AKLT.Cert.H3.coefficientSum ts * 2 ^ k"
+  },
+  {
+    "name": "AKLT.Cert.H3.packedRowCheck_sound",
+    "file": "AKLT/Cert/H3/Packed.lean",
+    "line": 46,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.packedRowCheck_sound {g n k D U : \u2115} {ts : List AKLT.Cert.H3.PackedTerm}\n  (h : AKLT.Cert.H3.packedRowCheck g n k D U ts = true) (s : \u2115) :\n  s < n \u2192 AKLT.Cert.H3.component (g + 1) s ts \u2264 D * AKLT.Gen.Packed.lane U (g + 1) s"
+  },
+  {
+    "name": "AKLT.Cert.H3.integer_table_sum",
+    "file": "AKLT/Cert/H3/Prefix.lean",
+    "line": 27,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.integer_table_sum.{u_1} {I : Type u_1} [Fintype I] (valid : I \u2192 Bool) (p v : I \u2192 AKLT.Defs.Phase \u2192 \u2115)\n  (D V : \u2115) :\n  (\u2211 i, if valid i = true then \u2211 \u03c6, \u2191(p i \u03c6) / \u2191D * (\u2191(v i \u03c6) / \u2191V) else 0) =\n    \u2191(\u2211 i, if valid i = true then \u2211 \u03c6, p i \u03c6 * v i \u03c6 else 0) / (\u2191D * \u2191V)"
+  },
+  {
+    "name": "AKLT.Cert.H3.mergeFuel_eq",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 14,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.mergeFuel_eq.{u_1} {\u03b1 : Type u_1} (le : \u03b1 \u2192 \u03b1 \u2192 Bool) (f : \u2115) (xs ys : List \u03b1)\n  (h : xs.length + ys.length \u2264 f) : AKLT.Cert.H3.mergeFuel le f xs ys = xs.merge ys le"
+  },
+  {
+    "name": "AKLT.Cert.H3.mergeFuel_full",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 34,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.mergeFuel_full.{u_1} {\u03b1 : Type u_1} (le : \u03b1 \u2192 \u03b1 \u2192 Bool) (xs ys : List \u03b1) :\n  AKLT.Cert.H3.mergeFuel le (xs.length + ys.length) xs ys = xs.merge ys le"
+  },
+  {
+    "name": "AKLT.Cert.H3.mergeSortFuel_eq",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 48,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.mergeSortFuel_eq.{u_1} {\u03b1 : Type u_1} (le : \u03b1 \u2192 \u03b1 \u2192 Bool) (fuel : \u2115) (xs : List \u03b1) (h : xs.length \u2264 fuel) :\n  AKLT.Cert.H3.mergeSortFuel le fuel xs = xs.mergeSort le"
+  },
+  {
+    "name": "AKLT.Cert.H3.liveOther_view",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 79,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.liveOther_view {n : \u2115} (w : AKLT.Defs.DirectionWord n) (i : Fin n) :\n  AKLT.Defs.liveOtherNeighbours w i = AKLT.Cert.H3.liveOtherView w i"
+  },
+  {
+    "name": "AKLT.Cert.H3.witnessKappa_view",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 93,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.witnessKappa_view {n : \u2115} (w : AKLT.Defs.DirectionWord n) (i : Fin n) :\n  AKLT.Defs.witnessKappa w i = AKLT.Cert.H3.kappaView w i"
+  },
+  {
+    "name": "AKLT.Cert.H3.prefixPhases_view",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 103,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.prefixPhases_view {n : \u2115} (w : AKLT.Defs.DirectionWord n) :\n  AKLT.Defs.prefixPhases w = AKLT.Cert.H3.prefixPhasesView w"
+  },
+  {
+    "name": "AKLT.Cert.H3.closedContribution_view",
+    "file": "AKLT/Cert/H3/PrefixView.lean",
+    "line": 123,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.closedContribution_view {n : \u2115} (w : AKLT.Defs.DirectionWord n) :\n  AKLT.Defs.closedContribution w = AKLT.Cert.H3.closedView w"
+  },
+  {
+    "name": "AKLT.Cert.H3.localRowCheck_sound",
+    "file": "AKLT/Cert/H3/Rows.lean",
+    "line": 80,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.localRowCheck_sound {m q : \u2115} {Q : AKLT.Defs.MemoryQuotient m q} {plane cap : AKLT.Defs.Phase \u2192 Fin q \u2192 \u2115}\n  {X : AKLT.Defs.PairType} {d\u2080 : AKLT.Defs.Compass} {\u03c6 : AKLT.Defs.Phase} {a : Fin q}\n  (h : AKLT.Cert.H3.localRowCheck Q plane cap X d\u2080 \u03c6 a = true) (s : \u2115) :\n  s < 19881 \u2192\n    AKLT.Cert.H3.component 80 s (AKLT.Cert.H3.rowTerms Q plane cap X d\u2080 \u03c6 a) \u2264\n      AKLT.Cert.H3.coefficientScale * AKLT.Gen.Packed.lane (plane \u03c6 a) 80 s"
+  },
+  {
+    "name": "AKLT.Cert.H3.quotient_assembly",
+    "file": "AKLT/Cert/H3/Soundness.lean",
+    "line": 9,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "assembly",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.quotient_assembly (m q : \u2115) (Q : AKLT.Defs.MemoryQuotient m q)\n  (representatives : \u2200 (a : Fin q), AKLT.Defs.RawWindow (Q.representative a) \u2227 Q.project (Q.representative a) = a)\n  (rows : \u2200 (w : AKLT.Defs.DirectionWord m), AKLT.Defs.RawWindow w \u2192 AKLT.Cert.H3.CorrectAt Q w) : Q.Correct"
+  },
+  {
+    "name": "AKLT.Cert.H3.coefficientCeiling_bound",
+    "file": "AKLT/Cert/H3/Soundness.lean",
+    "line": 15,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.coefficientCeiling_bound (t : \u211a) :\n  t \u2264 \u2191(AKLT.Defs.coefficientCeiling t) / \u2191AKLT.Defs.certificateCoefficientScale"
+  },
+  {
+    "name": "AKLT.Cert.H3.scaled_row_real",
+    "file": "AKLT/Cert/H3/Soundness.lean",
+    "line": 23,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.scaled_row_real.{u_1} {E : Type u_1} (edges : Finset E) (t : E \u2192 \u211a) (v : E \u2192 \u2115) (u : \u2115)\n  (h : \u2211 e \u2208 edges, AKLT.Defs.coefficientCeiling (t e) * v e \u2264 AKLT.Defs.certificateCoefficientScale * u) :\n  \u2211 e \u2208 edges, \u2191(t e) * (\u2191(v e) / \u2191AKLT.Defs.certificateValueScale) \u2264 \u2191u / \u2191AKLT.Defs.certificateValueScale"
+  },
+  {
+    "name": "AKLT.Cert.H3.mem_square_iff",
+    "file": "AKLT/Cert/H3/View.lean",
+    "line": 14,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.mem_square_iff (x : AKLT.Defs.Plane) :\n  x \u2208 AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius \u2194 AKLT.Cert.H3.inBox x"
+  },
+  {
+    "name": "AKLT.Cert.H3.extended_view",
+    "file": "AKLT/Cert/H3/View.lean",
+    "line": 18,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.extended_view {q : \u2115} (plane cap : AKLT.Defs.Phase \u2192 Fin q \u2192 \u2115) (\u03c6 : AKLT.Defs.Phase) (a : Fin q)\n  (x : AKLT.Defs.Plane) : (AKLT.Cert.H3.dataOf plane cap).extended \u03c6 a x = AKLT.Cert.H3.valueAt plane cap \u03c6 a x"
+  },
+  {
+    "name": "AKLT.Cert.H3.viewRow_iff",
+    "file": "AKLT/Cert/H3/View.lean",
+    "line": 36,
+    "author_rule_status": "PRE_RULE_RETAINED",
+    "classification": "written_leaf_proof",
+    "first_attempt": "completed before the author rule was received; retained under the explicit exception",
+    "kernel_printed_statement": "AKLT.Cert.H3.viewRow_iff {m q : \u2115} (Q : AKLT.Defs.MemoryQuotient m q) (plane cap : AKLT.Defs.Phase \u2192 Fin q \u2192 \u2115)\n  (X : AKLT.Defs.PairType) (d\u2080 : AKLT.Defs.Compass) (\u03c6 : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) :\n  AKLT.Cert.H3.viewRow Q plane cap X d\u2080 \u03c6 a x \u2194 AKLT.Cert.H3.DefRow Q (AKLT.Cert.H3.dataOf plane cap) X d\u2080 \u03c6 a x"
+  }
+]

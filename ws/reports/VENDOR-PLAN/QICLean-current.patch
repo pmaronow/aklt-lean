@@ -1,0 +1,16 @@
+--- upstream/QICLean/Algebra/MatrixUnitaryBetween.lean
++++ ported/QICLean/Algebra/MatrixUnitaryBetween.lean
+@@ -143,8 +143,11 @@
+ theorem isUnitaryBetween_of_card_eq (A : Matrix m n ℂ) (hA : A.IsIsometry)
+     (hcard : Fintype.card m = Fintype.card n) : A.IsUnitaryBetween := by
+   have hAeq : Aᴴ * A = 1 := hA
+-  have hsurjective : Function.Surjective A.mulVec :=
+-    Matrix.mulVec_surjective_iff_rank_eq_card.mpr
++  have hsurjective : Function.Surjective A.mulVec := by
++    change Function.Surjective A.mulVecLin
++    rw [← LinearMap.range_eq_top]
++    apply Submodule.eq_top_of_finrank_eq
++    simpa only [Matrix.rank, Module.finrank_pi] using
+       ((hA.rank_eq_card A).trans hcard.symm)
+   obtain ⟨B, hB⟩ := mulVec_surjective_iff_exists_right_inverse.mp hsurjective
+   have hBA : B = Aᴴ := by

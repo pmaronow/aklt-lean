@@ -1,0 +1,142 @@
+def AKLT.Blueprint.H1.TensorLinearCoefficientStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (M : Matrix.{0, 0, 0} (↥J → Fin 2) (↥J → Fin 2) ℂ) (A : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+  (∀ (t : ℝ), Commute.{0} M (AKLT.Defs.tensorPowerMatrix J (HAdd.hAdd.{0, 0, 0} 1 (HSMul.hSMul.{0, 0, 0} (↑t) A)))) →
+    Commute.{0} M (∑ j, AKLT.Defs.tokenMatrix J j A)
+def AKLT.Blueprint.H1.SpinGeneratorTransferStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (M : Matrix.{0, 0, 0} (↥J → Fin 2) (↥J → Fin 2) ℂ),
+  (∀ (k : Fin 3),
+      Commute.{0} M
+        (∑ j,
+          AKLT.Defs.tokenMatrix J j
+            (HSMul.hSMul.{0, 0, 0} (Neg.neg.{0} Complex.I) (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑k) 1, ⋯⟩)))) →
+    Commute.{0} (Matrix.toEuclideanLin.{0, 0, 0} M) (AKLT.Defs.totalSpinZ J) ∧
+      Commute.{0} (Matrix.toEuclideanLin.{0, 0, 0} M) (AKLT.Defs.totalSpinPlus J) ∧
+        Commute.{0} (Matrix.toEuclideanLin.{0, 0, 0} M) (AKLT.Defs.totalSpinMinus J)
+def AKLT.Blueprint.H1.MomentPauliInterchangeStatement : Prop :=
+AKLT.Blueprint.H1.MonomialMoments →
+  ∀ (V : Finset.{0} AKLT.Defs.Plane) (s : AKLT.Defs.Plane → AKLT.Defs.Status),
+    (∀ (x : AKLT.Defs.Plane),
+        Membership.mem.{0, 0} V x → Eq.{1} (s x) AKLT.Defs.Status.U ∨ Eq.{1} (s x) AKLT.Defs.Status.D) →
+      ∀ (p : AKLT.Blueprint.H1.LocalPolynomial),
+        AKLT.Blueprint.H1.InternalAdmissible V p →
+          ∀ (J I : Finset.{0} (Fin 20)),
+            Eq.{1} (AKLT.Defs.pauliOperator J (AKLT.Defs.invertPolynomial I (AKLT.Defs.contractSpins V s p)))
+              (AKLT.Blueprint.H1.rawPauliFunctional V s J I p)
+def AKLT.Blueprint.H1.PairExpansionFromRealizationStatement : Prop :=
+(∀ (j : AKLT.Defs.IcoLetter), Eq.{1} (AKLT.Defs.normSq (AKLT.Defs.icoVector j)) 1) →
+  ∀ (π : AKLT.Defs.PatternData),
+    π.Covered →
+      ∀ (r : AKLT.Defs.Representation) (I : Finset.{0} (Fin 20)),
+        AKLT.Defs.GroupInversion π r I →
+          (∀ (next : Bool),
+              Eq.{1}
+                (AKLT.Defs.pauliOperator (AKLT.Defs.reductionVectors π r)
+                  (AKLT.Defs.invertPolynomial I (AKLT.Defs.reducedPolynomial π r next)))
+                (AKLT.Blueprint.H1.rawPauliFunctional (AKLT.Defs.reducedSpinSites π r)
+                  (AKLT.Blueprint.H1.nextStatus π next) (AKLT.Defs.reductionVectors π r) I
+                  (AKLT.Defs.reducedIntegrand π r next))) →
+            ∀ (c : ℚ) (x : ↥(AKLT.Defs.reductionGroups π)) (h : Eq.{1} (AKLT.Defs.groupIsPair π r ↑x) true),
+              AKLT.Blueprint.H1.PairExpansion (AKLT.Defs.reductionVectors π r) (AKLT.Defs.leaderToken π r x)
+                (AKLT.Defs.secondToken π r x h)
+                (Matrix.toEuclideanLin.{0, 0, 0}
+                  (AKLT.Defs.pauliOperator (AKLT.Defs.reductionVectors π r)
+                    (AKLT.Defs.invertPolynomial I (AKLT.Defs.reducedDifference π r c))))
+                (Eq.{1} (π.statusAt ↑x) AKLT.Defs.Status.U)
+def AKLT.Blueprint.H1.UnitPairSupportStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (j k : ↥J),
+  Ne.{1} j k →
+    ∀ (η : ℝ),
+      Eq.{1} (HPow.hPow.{0, 0, 0} η 2) 1 →
+        ∀ (n : AKLT.Defs.Vec3),
+          Eq.{1} (AKLT.Defs.normSq n) 1 →
+            Eq.{1}
+                (HMul.hMul.{0, 0, 0} (AKLT.Defs.symmetricPairProjection J j k) (AKLT.Blueprint.H1.pairTerm J j k η n))
+                (AKLT.Blueprint.H1.pairTerm J j k η n) ∧
+              Eq.{1}
+                (HMul.hMul.{0, 0, 0} (AKLT.Blueprint.H1.pairTerm J j k η n) (AKLT.Defs.symmetricPairProjection J j k))
+                (AKLT.Blueprint.H1.pairTerm J j k η n)
+def AKLT.Blueprint.H1.EqualPairExchangeStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (j k : ↥J) (η : ℝ) (n : AKLT.Defs.Vec3),
+  Commute.{0} (AKLT.Blueprint.H1.pairTerm J j k η n) (AKLT.Defs.exchangeOperator J j k)
+def AKLT.Blueprint.H1.PairExpansionTransferStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (j k : ↥J) (O : Module.End.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J)) (unitOnly : Prop),
+  AKLT.Blueprint.H1.PairExpansion J j k O unitOnly →
+    (∀ (η : ℝ),
+        Eq.{1} (HPow.hPow.{0, 0, 0} η 2) 1 →
+          ∀ (n : AKLT.Defs.Vec3),
+            Eq.{1} (AKLT.Defs.normSq n) 1 →
+              Eq.{1}
+                  (HMul.hMul.{0, 0, 0} (AKLT.Defs.symmetricPairProjection J j k) (AKLT.Blueprint.H1.pairTerm J j k η n))
+                  (AKLT.Blueprint.H1.pairTerm J j k η n) ∧
+                Eq.{1}
+                  (HMul.hMul.{0, 0, 0} (AKLT.Blueprint.H1.pairTerm J j k η n) (AKLT.Defs.symmetricPairProjection J j k))
+                  (AKLT.Blueprint.H1.pairTerm J j k η n)) →
+      (∀ (η : ℝ) (n : AKLT.Defs.Vec3),
+          Commute.{0} (AKLT.Blueprint.H1.pairTerm J j k η n) (AKLT.Defs.exchangeOperator J j k)) →
+        (unitOnly →
+            Eq.{1} O
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (AKLT.Defs.symmetricPairProjection J j k) O)
+                (AKLT.Defs.symmetricPairProjection J j k))) ∧
+          Commute.{0} O (AKLT.Defs.exchangeOperator J j k)
+def AKLT.Blueprint.H1.InternalAdmissible : Finset.{0} AKLT.Defs.Plane → AKLT.Blueprint.H1.LocalPolynomial → Prop :=
+fun V p =>
+  (∀ (m : Finsupp.{0, 0} AKLT.Defs.LocalVariable ℕ),
+      Membership.mem.{0, 0} (MvPolynomial.support.{0, 0} p) m →
+        ∀ x ∉ V, ∀ (k : Fin 3), Eq.{1} (m (Sum.inl.{0, 0} (Prod.mk.{0, 0} x k))) 0) ∧
+    ∀ (m : Finsupp.{0, 0} AKLT.Defs.LocalVariable ℕ),
+      Membership.mem.{0, 0} (MvPolynomial.support.{0, 0} p) m →
+        ∀ (x : AKLT.Defs.Plane), LE.le.{0} (∑ k, m (Sum.inl.{0, 0} (Prod.mk.{0, 0} x k))) 4
+def AKLT.Blueprint.H1.MonomialMoments : Prop :=
+∀ (m : Fin 3 → ℕ),
+  LE.le.{0} (∑ i, m i) 4 →
+    ∀ (s : AKLT.Defs.Status),
+      Eq.{1} s AKLT.Defs.Status.U ∨ Eq.{1} s AKLT.Defs.Status.D →
+        Eq.{1} (AKLT.Defs.siteFunctional s fun n => ∏ i, HPow.hPow.{0, 0, 0} (n i) (m i))
+          ↑(AKLT.Defs.rationalStatusMoment s m)
+def AKLT.Blueprint.H1.PairExpansion : (J : Finset.{0} (Fin 20)) →
+  ↥J → ↥J → Module.End.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J) → Prop → Prop :=
+fun J j k O unitOnly =>
+  ∃ t η,
+    Eq.{1} (HPow.hPow.{0, 0, 0} η 2) 1 ∧
+      ∃ w n H,
+        (∀ (a : Fin t), LE.le.{0} (AKLT.Defs.normSq (n a)) 1 ∧ (unitOnly → Eq.{1} (AKLT.Defs.normSq (n a)) 1)) ∧
+          (∀ (a : Fin t),
+              Commute.{0} (H a) (AKLT.Defs.exchangeOperator J j k) ∧
+                Commute.{0} (H a) (AKLT.Defs.symmetricPairProjection J j k)) ∧
+            Eq.{1} O
+              (∑ a, HSMul.hSMul.{0, 0, 0} (w a) (HMul.hMul.{0, 0, 0} (AKLT.Blueprint.H1.pairTerm J j k η (n a)) (H a)))
+def AKLT.Defs.tokenMatrix : (J : Finset.{0} (Fin 20)) →
+  ↥J → Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ → Matrix.{0, 0, 0} (↥J → Fin 2) (↥J → Fin 2) ℂ :=
+fun J j A σ τ => ite.{1} (∀ (k : ↥J), Ne.{1} k j → Eq.{1} (σ k) (τ k)) (A (σ j) (τ j)) 0
+def AKLT.Defs.tensorPowerMatrix : (J : Finset.{0} (Fin 20)) →
+  Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ → Matrix.{0, 0, 0} (↥J → Fin 2) (↥J → Fin 2) ℂ :=
+fun J g σ τ => ∏ j, g (σ j) (τ j)
+def AKLT.Defs.exchangeOperator : (J : Finset.{0} (Fin 20)) →
+  ↥J → ↥J → Module.End.{0, 0} ℂ (EuclideanSpace.{0, 0} ℂ (↥J → Fin 2)) :=
+fun J j k => Matrix.toEuclideanLin.{0, 0, 0} fun σ τ => ite.{1} (Eq.{1} σ fun x => τ ((Equiv.swap.{1} j k) x)) 1 0
+def AKLT.Defs.symmetricPairProjection : (J : Finset.{0} (Fin 20)) →
+  ↥J → ↥J → Module.End.{0, 0} ℂ (EuclideanSpace.{0, 0} ℂ (↥J → Fin 2)) :=
+fun J j k => HSMul.hSMul.{0, 0, 0} (1 / 2) (HAdd.hAdd.{0, 0, 0} 1 (AKLT.Defs.exchangeOperator J j k))
+@[reducible] def Matrix.toEuclideanLin.{u_3, u_7, u_8} : {𝕜 : Type u_3} →
+  [inst : RCLike.{u_3} 𝕜] →
+    {m : Type u_7} →
+      {n : Type u_8} →
+        [Fintype.{u_8} n] →
+          [DecidableEq.{u_8 + 1} n] →
+            LinearEquiv.{u_3, u_3, max (max u_3 u_8) u_7, max (max u_7 u_3) u_8 u_3} (RingHom.id.{u_3} 𝕜)
+              (Matrix.{u_7, u_8, u_3} m n 𝕜)
+              (LinearMap.{u_3, u_3, max u_8 u_3, max u_7 u_3} (RingHom.id.{u_3} 𝕜) (EuclideanSpace.{u_3, u_8} 𝕜 n)
+                (EuclideanSpace.{u_3, u_7} 𝕜 m)) :=
+fun {𝕜} [RCLike.{u_3} 𝕜] {m} {n} [Fintype.{u_8} n] [DecidableEq.{u_8 + 1} n] => Matrix.toLpLin.{u_7, u_8, u_3} 2 2
+Matrix.toLpLin_mul_same.{u_1, u_2, u_3, u_4} {m : Type u_1} {n : Type u_2} {o : Type u_3} {R : Type u_4}
+  [Fintype.{u_2} n] [DecidableEq.{u_2 + 1} n] [CommRing.{u_4} R] (p : ENNReal) [Fintype.{u_3} o]
+  [DecidableEq.{u_3 + 1} o] (A : Matrix.{u_1, u_2, u_4} m n R) (B : Matrix.{u_2, u_3, u_4} n o R) :
+  Eq.{max (max (u_1 + 1) (u_3 + 1)) (u_4 + 1)}
+    ((Matrix.toLpLin.{u_1, u_3, u_4} p p)
+      (HMul.hMul.{max (max u_1 u_2) u_4, max (max u_2 u_3) u_4, max (max u_1 u_3) u_4} A B))
+    ((Matrix.toLpLin.{u_1, u_2, u_4} p p) A ∘ₗ (Matrix.toLpLin.{u_2, u_3, u_4} p p) B)
+Matrix.toLpLinAlgEquiv.{u_2, u_4} {n : Type u_2} {R : Type u_4} [Fintype.{u_2} n] [DecidableEq.{u_2 + 1} n]
+  [CommRing.{u_4} R] (p : ENNReal) :
+  AlgEquiv.{u_4, max u_4 u_2, max u_2 u_4} R (Matrix.{u_2, u_2, u_4} n n R)
+    (Module.End.{u_4, max u_2 u_4} R (WithLp.{max u_2 u_4} p (n → R)))
+AKLT.Blueprint.H1.pairTokensDistinct : AKLT.Blueprint.H1.PairTokensDistinctStatement

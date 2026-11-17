@@ -1,0 +1,351 @@
+\section{Finite probability and operator tools}
+\label{a:finite}
+
+Throughout this appendix, \(V\) is finite, each \(S_x\) is a
+nonempty finite set, and \(\Omega=\prod_{x\in V}S_x\).
+An empty product has its one empty configuration.  For a strictly
+positive probability \(\mu\) on \(\Omega\), use
+\(\langle f,h\rangle_\mu=\sum_\omega\mu(\omega)
+\overline{f(\omega)}h(\omega)\).  If \(U\subset V\), write
+\(\mu_{-U}\) for the marginal on \(V\setminus U\), and define
+\[
+ (E_Uf)(a,b)=\sum_{t\in\prod_{x\in U}S_x}
+       \frac{\mu(t,b)}{\mu_{-U}(b)}f(t,b),\qquad
+ \operatorname{Var}_U f=E_U|f-E_Uf|^2.
+\]
+All denominators here are positive.  We use the single-site Dirichlet
+form and Poincare-gap convention of Definition~\ref{d:framemodel}.
+More generally, a Poincare gap at least \(c\) for an operator \(H\)
+means \(\langle f,Hf\rangle_\mu\ge c\operatorname{Var}_\mu f\)
+for every \(f\).  This convention includes one-point spaces.
+
+\begin{lemma}\label{l:CE}
+For a positive probability \(\mu\) on a finite product
+\(\Omega=\prod_{x\in V}S_x\), with nonempty finite alphabets,
+\(E_U\) is a self-adjoint orthogonal projection preserving constants
+and \(\mu\). For real or complex \(f\),
+\[
+ \langle f,(I-E_U)f\rangle_\mu
+   =\mu(\operatorname{Var}_U f)=\|f-E_Uf\|_\mu^2,\qquad
+ \operatorname{Var}_\mu f=\mu(\operatorname{Var}_U f)
+                          +\operatorname{Var}_\mu(E_Uf).
+\]
+A finite sum \(\sum_a(I-E_{B_a})\), allowing repeated blocks,
+has quadratic form \(\sum_a\mu(\operatorname{Var}_{B_a}f)\).
+\end{lemma}
+
+\begin{proof}
+Fix a complement configuration \(b\) and put
+\(p_b(t)=\mu(t,b)/\mu_{-U}(b)\).
+On this fibre, \(E_Uf\) is the constant \(p_b(f)\).  Consequently
+\(E_U^2=E_U\), \(E_U1=1\), and grouping the finite sum by \(b\)
+gives
+\[
+ \langle f,E_Uh\rangle_\mu
+   =\sum_b\mu_{-U}(b)\overline{p_b(f)}p_b(h)
+   =\langle E_Uf,h\rangle_\mu,
+ \qquad \mu(E_Uf)=\mu(f).
+\]
+Thus \(E_U\) is the orthogonal projection onto the functions of
+the complement of \(U\).  Orthogonality of \(f-E_Uf\) and \(E_Uf\)
+proves
+\[
+ \langle f,(I-E_U)f\rangle_\mu
+   =\|f-E_Uf\|_\mu^2
+   =\sum_b\mu_{-U}(b)p_b(|f-p_b(f)|^2).
+\]
+This is the first asserted identity.  Since \(\mu(E_Uf)=\mu(f)\),
+the decomposition
+\(f-\mu(f)=(f-E_Uf)+(E_Uf-\mu(f))\) is also orthogonal.
+Its squared norm is the total-variance identity.  Summing the first
+identity over block labels gives the last assertion, including repeated
+blocks.  The argument uses complex conjugates as displayed and therefore
+applies to complex functions.  For \(U=\varnothing\) it gives \(E_U=I\);
+for \(U=V\) it gives the projection onto constants, also when \(V\)
+is empty.
+\end{proof}
+
+\begin{lemma}\label{l:finitecoupling}
+For probabilities \(p,p'\) on a finite set,
+\[
+ d_{\rm TV}(p,p')=\tfrac12\sum_z|p(z)-p'(z)|
+          =1-\sum_z\min\{p(z),p'(z)\}.
+\]
+There exists a coupling with disagreement probability equal to this
+quantity; every coupling has at least that disagreement probability.
+Marginalization cannot increase total variation.
+For laws on configurations in a finite \(V\), a marginal coupling
+on \(Q\subset V\) can be completed to a coupling of the full laws.
+If its disagreement probability on \(Q\) is at most \(\varepsilon\),
+the completion can have expected Hamming cost at most
+\(|V\setminus Q|+|V|\varepsilon\).
+If both laws dominate \(p_0\nu\) for a common probability \(\nu\)
+and \(0\le p_0\le1\), their total variation is at most \(1-p_0\).
+\end{lemma}
+
+\begin{proof}
+For each state \(z\) put \(a(z)=\min\{p(z),p'(z)\}\) and
+\(t=\sum_z a(z)\).  The equality
+\(|p(z)-p'(z)|=p(z)+p'(z)-2a(z)\), summed over \(z\), proves
+the formula for total variation.  If \(t<1\), define a joint law by
+\[
+ \gamma(z,z')=a(z)\mathbf1_{\{z=z'\}}
+       +\frac{(p(z)-a(z))(p'(z')-a(z'))}{1-t}.
+\]
+Its two marginals are \(p,p'\).  At each \(z\), at least one of
+\(p(z)-a(z)\) and \(p'(z)-a(z)\) is zero, so the second term
+has no diagonal mass.  Hence its disagreement probability is \(1-t\).
+This formula includes \(t=0\); if \(t=1\), use only the diagonal
+law \(\gamma(z,z)=p(z)=p'(z)\).  In any coupling, the mass at
+\((z,z)\) is at most \(a(z)\), proving optimality.
+
+For a map \(T\) to a finite set, summing over its fibres gives
+\[
+ \sum_b\left|\sum_{z:Tz=b}(p(z)-p'(z))\right|
+       \le\sum_z|p(z)-p'(z)|.
+\]
+Taking \(T\) to be a coordinate restriction proves the marginalization
+claim.
+
+Let \(\gamma_Q\) be any coupling of the two \(Q\) marginals.
+After sampling \((a,a')\) from \(\gamma_Q\), sample the remaining
+coordinates independently with laws
+\(p(\,\cdot\mid n_Q=a)\) and \(p'(\,\cdot\mid n'_Q=a')\).
+A zero-probability conditioning value has zero probability of being
+sampled; its conditional law may be chosen arbitrarily.  Summing out
+the other component verifies both full marginals.  Pointwise in this
+completion,
+\[
+ d_H(n,n')\le |V\setminus Q|
+                      +|V|\mathbf1_{\{n_Q\ne n'_Q\}}.
+\]
+Taking expectations proves the requested bound.  Empty coordinate sets
+and one-point configuration spaces are included in this construction.
+Finally, domination by \(p_0\nu\) implies
+\[
+ \sum_z\min\{p(z),p'(z)\}\ge p_0\sum_z\nu(z)=p_0.
+\]
+The total-variation formula gives the last assertion, also for
+\(p_0=0\) or \(p_0=1\).
+\end{proof}
+
+\begin{lemma}\label{l:surgery}
+Let \(\nu\) couple two positive finite-volume specification laws.
+Fix a set \(F\) in the volume. For every input pair, resample \(F\)
+from any coupling whose first and second marginals are the two
+respective conditional laws given their own complements, and keep
+the complements fixed. The resulting law still couples the original
+two laws. The chosen coupling may depend on the entire input pair.
+A finite composition of such kernels has the same property.
+\end{lemma}
+
+\begin{proof}
+Write the two original laws as \(\mu,\mu'\), and an input pair as
+\((\omega,\omega')\).  For any test function \(f\) of the first
+output alone, its conditional expectation after the operation is
+\((E_F^\mu f)(\omega)\): by the stipulated marginal of the chosen
+coupling this value does not depend on \(\omega'\), even when the
+joint coupling does.  Integrating against \(\nu\) therefore gives
+\[
+ \sum_{\omega,\omega'}\nu(\omega,\omega')
+                  (E_F^\mu f)(\omega)
+       =\mu(E_F^\mu f)=\mu(f),
+\]
+where the last equality is Lemma~\ref{l:CE}.  The same calculation
+with a function of the second output gives its law \(\mu'\).
+Consistency identifies these conditional laws with the specification
+laws on \(F\) with their respective complements fixed.  Applying the
+calculation at each stage proves the assertion about finite compositions.
+If \(F\) is empty, its unique resampling is the identity, so this case
+is included.
+\end{proof}
+
+\begin{lemma}\label{l:density}
+Let \(\pi\) be a positive product probability on a finite product,
+and \(d\mu=\varrho\,d\pi\), with \(0<m\le\varrho\le M<\infty\).
+Then for every \(f\),
+\[
+ \mathcal D_\mu(f)\ge m\mathcal D_\pi(f),\qquad
+ \operatorname{Var}_\mu f\le M\operatorname{Var}_\pi f,\qquad
+ \mathcal D_\pi(f)\ge\operatorname{Var}_\pi f .
+\]
+Thus \(\lambda(\mu)\ge m/M\).
+In a conditional frame block, absorbing site weights and every
+fixed boundary factor into \(\pi\) gives
+\(\lambda(\mu)\ge r_b^{|E(Q)|}\).
+\end{lemma}
+
+\begin{proof}
+For any positive probability \(\nu\), Lemma~\ref{l:CE} gives the
+following variational formulas, with the infima taken over complex
+functions or constants when \(f\) is complex:
+\[
+ \nu(\operatorname{Var}_x f)
+   =\min_{h:\,h\text{ depends only on }V\setminus\{x\}}
+                      \nu(|f-h|^2),\qquad
+ \operatorname{Var}_\nu f=\min_{z\in\mathbb C}\nu(|f-z|^2).
+\]
+Indeed the two minimizers are \(E_x^\nu f\) and \(\nu(f)\),
+respectively; subtracting either minimizer splits the squared norm
+orthogonally.  For every admissible \(h\), the lower density bound
+implies \(\mu(|f-h|^2)\ge m\pi(|f-h|^2)\).
+Taking the first minimum, and then summing over sites, gives
+\(\mathcal D_\mu(f)\ge m\mathcal D_\pi(f)\).
+Using the constant \(z=\pi(f)\) in the second minimum gives
+\[
+ \operatorname{Var}_\mu f\le\mu(|f-\pi(f)|^2)
+                         \le M\operatorname{Var}_\pi f.
+\]
+
+For completeness, the product-law inequality follows from finite
+orthogonal projections.  Enumerate \(V=\{x_1,\ldots,x_v\}\) and let
+\(R_j=E_{x_j}^\pi\).  These projections commute because \(\pi\) is
+a product probability.  Put \(f_0=f\) and
+\(f_j=R_1\cdots R_jf\).  Then \(f_v=\pi(f)\).
+The differences \(f_{j-1}-f_j\) are mutually orthogonal: for \(j<k\)
+the former is killed by \(R_j\), whereas the latter is fixed by
+\(R_j\).  Also
+\[
+ \|f_{j-1}-f_j\|_\pi
+   =\|R_1\cdots R_{j-1}(I-R_j)f\|_\pi
+   \le\|(I-R_j)f\|_\pi.
+\]
+Each projection has norm at most one by Lemma~\ref{l:CE}.
+Adding the squared bounds proves
+\(\operatorname{Var}_\pi f\le\mathcal D_\pi(f)\).
+For \(v=0\) both sides vanish.  Combining all three inequalities
+yields
+\(\mathcal D_\mu(f)\ge(m/M)\operatorname{Var}_\mu f\).
+
+We spell out the frame application.  By
+Definitions~\ref{d:framemodel} and~\ref{d:frame}, and
+Lemma~\ref{l:threeframes}, each conditional block law has the form
+\[
+ \mu(n)=\frac1{Z_Q}
+       \prod_{x\in Q}h_x(n_x)
+       \prod_{e=\{x,z\}\in E(Q)}(1+\varepsilon_e n_x\cdot n_z),
+ \qquad h_x(t)>0.
+\]
+Here \(h_x\) is the site weight times all fixed boundary factors
+incident to \(x\); the signs are \(+1\) for the plane law and
+\(-1\) for the antiferromagnetic law.  Define
+\(\pi_x(t)=h_x(t)/\sum_{a\in S_x}h_x(a)\) and
+\(\pi=\bigotimes_{x\in Q}\pi_x\).
+Proper colouring ensures that both endpoints of every internal or
+boundary bond use distinct frames.  Thus all boundary factors are
+positive, and every internal factor is between \(b\) and \(2-b\).
+With \(e_Q=|E(Q)|\), set
+\[
+ \psi(n)=\prod_{e=\{x,z\}\in E(Q)}
+                     (1+\varepsilon_e n_x\cdot n_z).
+\]
+Then \(d\mu/d\pi=\psi/\pi(\psi)\), and
+\[
+ \frac{b^{e_Q}}{\pi(\psi)}
+      \le\frac{d\mu}{d\pi}
+      \le\frac{(2-b)^{e_Q}}{\pi(\psi)}.
+\]
+The ratio of these bounds is \(r_b^{e_Q}\), proving the frame claim.
+For an empty block the empty product is one and the Poincare inequality
+is automatic.  Only internal bonds have entered this density ratio.
+\end{proof}
+
+\begin{lemma}\label{l:comparison}
+Let \(\mu>0\) be on a finite product, and let \((B_a)\) be a
+nonempty finite labelled family of nonempty blocks.
+Suppose the single-site heat bath of every conditional law on each
+\(B_a\) has Poincare gap at least \(g>0\), uniformly in its exterior fibre,
+and \(\sum_a(I-E_{B_a})\) has Poincare gap at least \(c>0\).
+If \(t_{\max}=\max_x\#\{a:x\in B_a\}\), then
+\[
+ \operatorname{Var}_\mu f\le
+             \frac{t_{\max}}{cg}\mathcal D_\mu(f).
+\]
+Repeated blocks are counted with multiplicity.
+\end{lemma}
+
+\begin{proof}
+Fix a block label \(a\) and a complement configuration \(b\).
+Apply its assumed Poincare inequality to
+\(f_b(t)=f(t,b)\) in the conditional probability
+\(\mu(\,\cdot\mid n_{V\setminus B_a}=b)\).
+If \(x\in B_a\), further conditioning on \(B_a\setminus\{x\}\)
+fixes precisely all coordinates other than \(x\).  The one-site
+conditional variance in this fibre is therefore the restriction of
+\(\operatorname{Var}_x f\) for the original law.  Consequently,
+\[
+ \operatorname{Var}_{B_a}f
+      \le\frac1g\sum_{x\in B_a}E_{B_a}
+                                      (\operatorname{Var}_x f).
+\]
+Integrate and sum over labels.  Lemma~\ref{l:CE} and the finiteness
+of all sums give
+\[
+ \begin{split}
+ c\operatorname{Var}_\mu f
+ &\le\sum_a\mu(\operatorname{Var}_{B_a}f)\\
+ &\le\frac1g\sum_x\#\{a:x\in B_a\}
+                         \mu(\operatorname{Var}_x f)
+ \le\frac{t_{\max}}g\mathcal D_\mu(f).
+ \end{split}
+\]
+Division by \(c>0\) proves the assertion.  Every sum is over labels,
+so repetitions contribute their full multiplicity.  Conditional laws
+on one-point spaces cause no exception because their variances vanish.
+\end{proof}
+
+\begin{lemma}\label{l:contraction}
+Let \(P=A^{-1}\sum_aE_{B_a}\), where \(A\ge1\) is the number
+of labels. Suppose \(0<c\le A\) and that for every two input
+configurations at Hamming distance one, their \(P\)-output laws
+have a coupling of expected Hamming distance at most \(1-c/A\).
+Then \(\sum_a(I-E_{B_a})=A(I-P)\) has Poincare gap at least \(c\).
+This applies to site-dependent finite alphabets and also to a
+one-point product space.
+\end{lemma}
+
+\begin{proof}
+If \(\Omega\) has one point, every variance is zero and the conclusion
+holds.  Otherwise, for a real function \(f\) define
+\[
+ \operatorname{Lip}(f)=
+   \max_{d_H(\omega,\omega')=1}|f(\omega)-f(\omega')|.
+\]
+Any pair can be joined by changing its disagreeing coordinates one at
+a time.  This path has length \(d_H(\omega,\omega')\), so
+\[
+ |f(\omega)-f(\omega')|
+            \le\operatorname{Lip}(f)d_H(\omega,\omega').
+\]
+In particular a nonconstant function has positive Lipschitz seminorm,
+even if some site alphabets are singletons.  For an input pair at
+distance one, apply the assumed coupling to this inequality and take
+expectations.  With \(r=1-c/A\in[0,1)\), it gives
+\[
+ |Pf(\omega)-Pf(\omega')|\le r\operatorname{Lip}(f),
+ \qquad \operatorname{Lip}(Pf)\le r\operatorname{Lip}(f).
+\]
+
+Lemma~\ref{l:CE} shows that \(P\) is real, self-adjoint, preserves
+constants and \(\mu\), and is a positive contraction on \(L^2(\mu)\).
+Indeed it is an average of orthogonal projections.  The real subspace
+\(\{f:\mu(f)=0\}\) is invariant.  On it choose a real orthonormal
+eigenbasis: conjugation by
+\(\operatorname{diag}(\sqrt{\mu(\omega)})\) makes the matrix real
+symmetric, so finite-dimensional orthogonal diagonalization applies.
+If \(Pf=\lambda f\) is a nonzero vector of that subspace, it is
+nonconstant and hence
+\[
+ |\lambda|\operatorname{Lip}(f)
+       =\operatorname{Lip}(Pf)\le r\operatorname{Lip}(f).
+\]
+It follows that \(A(1-\lambda)\ge A(1-r)=c\).
+Expanding \(f-\mu(f)\) in this eigenbasis proves
+\[
+ \langle f,A(I-P)f\rangle_\mu\ge c\operatorname{Var}_\mu f.
+\]
+Constants are annihilated by \(A(I-P)\), and applying the real
+inequality to the real and imaginary parts proves the complex version.
+The argument also covers \(c=A\), when \(r=0\).
+\end{proof}
+

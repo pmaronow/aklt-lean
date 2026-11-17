@@ -1,0 +1,537 @@
+ℹ [8970/8971] Replayed AKLT.Blueprint.H3.Assembly
+info: AKLT/Blueprint/H3/Assembly.lean:359:0: 'AKLT.Blueprint.H3.automatonQuotient_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:360:0: 'AKLT.Blueprint.H3.phaseExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:361:0: 'AKLT.Blueprint.H3.stationaryDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:362:0: 'AKLT.Blueprint.H3.bellmanSoundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:363:0: 'AKLT.Blueprint.H3.stationaryLocalGlobal_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:364:0: 'AKLT.Blueprint.H3.prefixDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:365:0: 'AKLT.Blueprint.H3.kernelReflection_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:366:0: 'AKLT.Blueprint.H3.stationaryAssembly_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:367:0: 'AKLT.Blueprint.H3.h3_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:368:0: 'AKLT.Blueprint.H3.allTargets_of_leaves_and_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:369:0: 'AKLT.Blueprint.H3.reflectPair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Assembly.lean:370:0: 'AKLT.Blueprint.H3.ceiling_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8971/8971] Built AKLT.Blueprint.H3.Audit (3.3s)
+info: AKLT/Blueprint/H3/Audit.lean:5:0: AKLT.Blueprint.H3.automatonQuotient_of_nodes (hRaw : RawSuccessorStatement)
+  (hProjection : ProjectionRealizationStatement) : Top.AutomatonQuotientStatement
+info: AKLT/Blueprint/H3/Audit.lean:6:0: 'AKLT.Blueprint.H3.automatonQuotient_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:7:0: AKLT.Blueprint.H3.phaseExpansion_of_nodes (hFold : PhaseFoldExpansionStatement) (hFactor : SingleChangeFactorStatement)
+  (hExposure : LongExposureExpansionStatement) (hCausal : PrefixCoefficientCausalityStatement)
+  (hSplit : PhaseSplitAlgebraStatement) : Top.PhaseExpansionStatement
+info: AKLT/Blueprint/H3/Audit.lean:8:0: 'AKLT.Blueprint.H3.phaseExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:9:0: AKLT.Blueprint.H3.stationaryDomination_of_nodes (hValid : SuffixWindowValidityStatement)
+  (hLabels : SuffixWindowLabelsStatement) (hIncident : IncidentBondBudgetStatement)
+  (hBalance : DepartureBalanceStatement) (hKnown : KnownSiteMemoryStatement) (hReward : TrueRewardIdentityStatement)
+  (hForget : RewardForgettingStatement) (hLocal : LocalCoefficientComparisonStatement)
+  (hGeometry : ClosedTrailStepGeometryStatement) (hWord : SuffixWordComparisonStatement)
+  (hExpansion : StationaryWordExpansionStatement) : Top.StationaryDominationStatement
+info: AKLT/Blueprint/H3/Audit.lean:10:0: 'AKLT.Blueprint.H3.stationaryDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:11:0: AKLT.Blueprint.H3.bellmanSoundness : Top.BellmanSoundnessStatement
+info: AKLT/Blueprint/H3/Audit.lean:12:0: 'AKLT.Blueprint.H3.bellmanSoundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:13:0: AKLT.Blueprint.H3.stationaryLocalGlobal_of_nodes (hFree : StationaryFreeEdgeStatement) :
+  Top.StationaryLocalGlobalStatement
+info: AKLT/Blueprint/H3/Audit.lean:14:0: 'AKLT.Blueprint.H3.stationaryLocalGlobal_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:15:0: AKLT.Blueprint.H3.prefixDomination_of_nodes (hPhase : Top.PhaseExpansionStatement)
+  (hDomination : Top.StationaryDominationStatement) (hGlobal : Top.StationaryLocalGlobalStatement)
+  (hPrefix : LongTrailPrefixStatement) (hRegroup : LongRowRegroupingStatement) : Top.PrefixDominationStatement
+info: AKLT/Blueprint/H3/Audit.lean:16:0: 'AKLT.Blueprint.H3.prefixDomination_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:17:0: AKLT.Blueprint.H3.reflectPair_injective : Function.Injective fun p => Finset.image reflectSite p
+info: AKLT/Blueprint/H3/Audit.lean:18:0: 'AKLT.Blueprint.H3.reflectPair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:19:0: AKLT.Blueprint.H3.kernelReflection_of_nodes (hGeometry : ReflectionGeometryStatement)
+  (hPairs : ReflectionPairsStatement) : Top.KernelReflectionStatement
+info: AKLT/Blueprint/H3/Audit.lean:20:0: 'AKLT.Blueprint.H3.kernelReflection_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:21:0: AKLT.Blueprint.H3.ceiling_rows (bN bW cN cW cS : ℚ)
+  (hbN : 10 ^ 9 * bN ≤ ↑(Defs.stationaryPrefixCeiling Defs.PairType.B Defs.Compass.north))
+  (hbW : 10 ^ 9 * bW ≤ ↑(Defs.stationaryPrefixCeiling Defs.PairType.B Defs.Compass.west))
+  (hcN : 10 ^ 9 * cN ≤ ↑(Defs.stationaryPrefixCeiling Defs.PairType.C Defs.Compass.north))
+  (hcW : 10 ^ 9 * cW ≤ ↑(Defs.stationaryPrefixCeiling Defs.PairType.C Defs.Compass.west))
+  (hcS : 10 ^ 9 * cS ≤ ↑(Defs.stationaryPrefixCeiling Defs.PairType.C Defs.Compass.south)) :
+  2 * bN + bW ≤ Defs.kernelRho * Defs.kernelWitness Defs.PairType.B ∧
+    cN + cW + cS ≤ Defs.kernelRho * Defs.kernelWitness Defs.PairType.C
+info: AKLT/Blueprint/H3/Audit.lean:22:0: 'AKLT.Blueprint.H3.ceiling_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:23:0: AKLT.Blueprint.H3.stationaryAssembly_of_nodes (hPrefix : Top.PrefixDominationStatement)
+  (hReflection : Top.KernelReflectionStatement) (hPartition : FirstDirectionPartitionStatement)
+  (hSupport : LengthShiftSupportStatement) (hLength : LengthRewardPartitionStatement)
+  (hSeries : KernelSeriesRegroupingStatement) (hLift : CutoffSeriesLiftStatement) : Top.StationaryAssemblyStatement
+info: AKLT/Blueprint/H3/Audit.lean:24:0: 'AKLT.Blueprint.H3.stationaryAssembly_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:25:0: AKLT.Blueprint.H3.h3_of_checks (_hAutomaton : Top.Automaton10Statement) (hCheck : Top.StationaryCheckStatement)
+  (hAssembly : Top.StationaryAssemblyStatement) : Top.H3Statement
+info: AKLT/Blueprint/H3/Audit.lean:26:0: 'AKLT.Blueprint.H3.h3_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:27:0: AKLT.Blueprint.H3.allTargets_of_leaves_and_checks (h : AnalyticLeavesStatement) (hAutomaton : Top.Automaton10Statement)
+  (hCheck : Top.StationaryCheckStatement) :
+  Top.AutomatonQuotientStatement ∧
+    Top.PhaseExpansionStatement ∧
+      Top.StationaryDominationStatement ∧
+        Top.BellmanSoundnessStatement ∧
+          Top.StationaryLocalGlobalStatement ∧
+            Top.PrefixDominationStatement ∧
+              Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatement ∧ Top.H3Statement
+info: AKLT/Blueprint/H3/Audit.lean:28:0: 'AKLT.Blueprint.H3.allTargets_of_leaves_and_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:29:0: AKLT.Blueprint.H3.trueKind {n : ℕ} (w : Defs.DirectionWord n) (i : Fin n) : Defs.StepKind
+info: AKLT/Blueprint/H3/Audit.lean:30:0: AKLT.Blueprint.H3.phaseUpdate (M : Defs.Phase → Defs.Phase → ℚ) (p : Defs.Phase → ℚ) : Defs.Phase → ℚ
+info: AKLT/Blueprint/H3/Audit.lean:31:0: AKLT.Blueprint.H3.phaseRun {ι : Type} (M : ι → Defs.Phase → Defs.Phase → ℚ) (indices : List ι) (p : Defs.Phase → ℚ) :
+  Defs.Phase → ℚ
+info: AKLT/Blueprint/H3/Audit.lean:32:0: AKLT.Blueprint.H3.singleChange {n : ℕ} (k : Fin n → Defs.StepKind) (r : Fin n → ℚ) (j : Fin n) (φ ψ : Defs.Phase) : ℚ
+info: AKLT/Blueprint/H3/Audit.lean:33:0: AKLT.Blueprint.H3.longMultiplier {n : ℕ} (w : Defs.DirectionWord n) (j : Fin n) : ℚ
+info: AKLT/Blueprint/H3/Audit.lean:34:0: AKLT.Blueprint.H3.orderedMultiplier {n : ℕ} (w : Defs.DirectionWord n) (l : List (Fin n)) (j : Fin n) : ℚ
+info: AKLT/Blueprint/H3/Audit.lean:35:0: AKLT.Blueprint.H3.longRewardTerm {n : ℕ} (w : Defs.DirectionWord n) (j : Fin n) : ℚ
+info: AKLT/Blueprint/H3/Audit.lean:36:0: AKLT.Blueprint.H3.arrivalCount {n : ℕ} (w : Defs.DirectionWord n) (z : Defs.Plane) : ℕ
+info: AKLT/Blueprint/H3/Audit.lean:37:0: AKLT.Blueprint.H3.trueDeadSet {n : ℕ} (w : Defs.DirectionWord n) (i : Fin n) : Finset Defs.Plane
+info: AKLT/Blueprint/H3/Audit.lean:38:0: AKLT.Blueprint.H3.suffixWindow {n : ℕ} (w : Defs.DirectionWord n) (j : ℕ) : Defs.DirectionWord 10
+info: AKLT/Blueprint/H3/Audit.lean:39:0: AKLT.Blueprint.H3.stationaryWordValue (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass) :
+  List Defs.Compass → Defs.Phase → Fin 3741 → Defs.Plane → ℚ
+info: AKLT/Blueprint/H3/Audit.lean:40:0: AKLT.Blueprint.H3.kernelLengthRow (X : Defs.PairType) (n : ℕ) : ℚ
+info: AKLT/Blueprint/H3/Audit.lean:41:0: AKLT.Blueprint.H3.lengthShifts (X : Defs.PairType) (n : ℕ) : Finset ℕ
+info: AKLT/Blueprint/H3/Audit.lean:42:0: AKLT.Blueprint.H3.reflectSite (x : Defs.Plane) : Defs.Plane
+info: AKLT/Blueprint/H3/Audit.lean:43:0: AKLT.Blueprint.H3.reflectWord {n : ℕ} (w : Defs.DirectionWord n) : Defs.DirectionWord n
+info: AKLT/Blueprint/H3/Audit.lean:44:0: AKLT.Blueprint.H3.reflectWordEquiv (n : ℕ) : Defs.DirectionWord n ≃ Defs.DirectionWord n
+info: AKLT/Blueprint/H3/Audit.lean:45:0: AKLT.Blueprint.H3.reflectSite_involutive (x : Defs.Plane) : reflectSite (reflectSite x) = x
+info: AKLT/Blueprint/H3/Audit.lean:46:0: 'AKLT.Blueprint.H3.reflectSite_involutive' depends on axioms: [propext]
+info: AKLT/Blueprint/H3/Audit.lean:47:0: AKLT.Blueprint.H3.reflectDirection_involutive (d : Defs.Compass) : Defs.reflectDirection (Defs.reflectDirection d) = d
+info: AKLT/Blueprint/H3/Audit.lean:48:0: 'AKLT.Blueprint.H3.reflectDirection_involutive' depends on axioms: [propext]
+info: AKLT/Blueprint/H3/Audit.lean:49:0: AKLT.Blueprint.H3.reflectWord_involutive {n : ℕ} (w : Defs.DirectionWord n) : reflectWord (reflectWord w) = w
+info: AKLT/Blueprint/H3/Audit.lean:50:0: 'AKLT.Blueprint.H3.reflectWord_involutive' depends on axioms: [propext, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:51:0: AKLT.Blueprint.H3.takeWord_append {L r : ℕ} (P : Defs.DirectionWord L) (v : Defs.DirectionWord r) :
+  Defs.takeWord (Defs.appendWords P v) L = P
+info: AKLT/Blueprint/H3/Audit.lean:52:0: 'AKLT.Blueprint.H3.takeWord_append' depends on axioms: [propext, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:53:0: AKLT.Blueprint.H3.listSystem {α : Type} (edges : α → List (α × ℝ)) : Gen.Bellman.System α ℕ
+info: AKLT/Blueprint/H3/Audit.lean:54:0: AKLT.Blueprint.H3.stationarySystem (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass) :
+  Gen.Bellman.System (Defs.Phase × Fin 3741 × Defs.Plane) (Defs.Compass × Defs.Phase)
+info: AKLT/Blueprint/H3/Audit.lean:55:0: AKLT.Blueprint.H3.listSystem_step {α : Type} (edges : α → List (α × ℝ)) (he : ∀ (s : α), ∀ e ∈ edges s, 0 ≤ e.2)
+  (f : α → ℝ) (hf : ∀ (s : α), 0 ≤ f s) (s : α) :
+  (listSystem edges).step (fun x => ENNReal.ofReal (f x)) s = ENNReal.ofReal (Defs.listBackward edges f s)
+info: AKLT/Blueprint/H3/Audit.lean:56:0: 'AKLT.Blueprint.H3.listSystem_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:57:0: AKLT.Blueprint.H3.listSystem_exact {α : Type} (edges : α → List (α × ℝ)) (he : ∀ (s : α), ∀ e ∈ edges s, 0 ≤ e.2)
+  (g : α → ℝ) (hg : ∀ (s : α), 0 ≤ g s) (n : ℕ) :
+  (∀ (s : α), 0 ≤ (Defs.listBackward edges)^[n] g s) ∧
+    ∀ (s : α),
+      (listSystem edges).exact (fun x => ENNReal.ofReal (g x)) n s = ENNReal.ofReal ((Defs.listBackward edges)^[n] g s)
+info: AKLT/Blueprint/H3/Audit.lean:58:0: 'AKLT.Blueprint.H3.listSystem_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:59:0: AKLT.Blueprint.H3.bellmanSoundness_proved : Top.BellmanSoundnessStatement
+info: AKLT/Blueprint/H3/Audit.lean:60:0: 'AKLT.Blueprint.H3.bellmanSoundness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:61:0: AKLT.Blueprint.H3.stationarySystem_step (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (f : Defs.Phase → Fin 3741 → Defs.Plane → ℚ) (hf : ∀ (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane), 0 ≤ f φ a x)
+  (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane) :
+  (stationarySystem Q X d₀).step (fun s => ENNReal.ofReal ↑(f s.1 s.2.1 s.2.2)) (φ, a, x) =
+    ENNReal.ofReal ↑(Defs.stationaryApply Q X d₀ f φ a x)
+info: AKLT/Blueprint/H3/Audit.lean:62:0: 'AKLT.Blueprint.H3.stationarySystem_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:63:0: AKLT.Blueprint.H3.stationary_finite_le (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (F : Defs.Phase → Fin 3741 → Defs.Plane → ℚ) (hF : ∀ (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane), 0 ≤ F φ a x)
+  (hrow :
+    ∀ (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane),
+      Defs.stationaryReward X φ a x + Defs.stationaryApply Q X d₀ F φ a x ≤ F φ a x)
+  (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane) (R : ℕ) : Defs.stationaryContinuationSum Q X d₀ φ a x R ≤ F φ a x
+info: AKLT/Blueprint/H3/Audit.lean:64:0: 'AKLT.Blueprint.H3.stationary_finite_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:65:0: AnalyticLeavesStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:66:0: def AKLT.Blueprint.H3.AnalyticLeavesStatement : Prop :=
+RawSuccessorStatement ∧
+  ProjectionRealizationStatement ∧
+    PhaseFoldExpansionStatement ∧
+      SingleChangeFactorStatement ∧
+        ExposureListExpansionStatement ∧
+          LongOrderingMultiplierStatement ∧
+            PrefixCoefficientCausalityStatement ∧
+              PhaseSplitAlgebraStatement ∧
+                SuffixWindowValidityStatement ∧
+                  SuffixWindowLabelsStatement ∧
+                    IncidentBondBudgetStatement ∧
+                      DepartureBalanceStatement ∧
+                        KnownSiteMemoryStatement ∧
+                          TrueRewardIdentityStatement ∧
+                            RewardForgettingStatement ∧
+                              LocalCoefficientComparisonStatement ∧
+                                ClosedTrailStepGeometryStatement ∧
+                                  SuffixWordComparisonStatement ∧
+                                    StationaryWordExpansionStatement ∧
+                                      StationaryFreeEdgeStatement ∧
+                                        LongTrailPrefixStatement ∧
+                                          LongRowRegroupingStatement ∧
+                                            ReflectionGeometryStatement ∧
+                                              ReflectionLivePairsStatement ∧
+                                                ReflectionPairLabelsStatement ∧
+                                                  FirstDirectionPartitionStatement ∧
+                                                    LengthShiftSupportStatement ∧
+                                                      LengthRewardPartitionStatement ∧
+                                                        KernelSeriesRegroupingStatement ∧ CutoffSeriesLiftStatement
+info: AKLT/Blueprint/H3/Audit.lean:67:0: RawSuccessorStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:68:0: def AKLT.Blueprint.H3.RawSuccessorStatement : Prop :=
+∀ (m : ℕ),
+  1 ≤ m →
+    ∀ (w : Defs.DirectionWord m),
+      Defs.RawWindow w → ∀ (d : Defs.Compass), Defs.WindowAdmissible w d → Defs.RawWindow (Defs.windowSuccessor w d)
+info: AKLT/Blueprint/H3/Audit.lean:69:0: ProjectionRealizationStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:70:0: def AKLT.Blueprint.H3.ProjectionRealizationStatement : Prop :=
+∀ (m q : ℕ),
+  1 ≤ m →
+    ∀ (π : Defs.DirectionWord m → Fin q),
+      Defs.CompatibleProjection m q π →
+        ∃ Q, Q.Correct ∧ ∀ (w : Defs.DirectionWord m), Defs.RawWindow w → Q.project w = π w
+info: AKLT/Blueprint/H3/Audit.lean:71:0: AKLT.Blueprint.H3.rawBackward_pullback {m q : ℕ} (Q : Defs.MemoryQuotient m q) (hQ : Q.Correct) (p : ℕ)
+  (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ)
+  (hweight :
+    ∀ (φ ψ : Fin p) (d a a' : Defs.Compass) (x : Defs.Plane),
+      weight φ ψ Defs.StepKind.revisit d a x = weight φ ψ Defs.StepKind.revisit d a' x)
+  (terminal : Defs.Plane → Bool) (G : Fin p → Fin q → Defs.Plane → ℚ) (w : Defs.DirectionWord m) (hw : Defs.RawWindow w)
+  (φ : Fin p) (x : Defs.Plane) :
+  Defs.rawBackward m p weight terminal (fun ψ ω y => G ψ (Q.project ω) y) φ w x =
+    Defs.quotientBackward Q p weight terminal G φ (Q.project w) x
+info: AKLT/Blueprint/H3/Audit.lean:72:0: 'AKLT.Blueprint.H3.rawBackward_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:73:0: AKLT.Blueprint.H3.rawBackward_congr {m p : ℕ}
+  (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ) (terminal : Defs.Plane → Bool)
+  (F H : Fin p → Defs.DirectionWord m → Defs.Plane → ℚ) (φ : Fin p) (w : Defs.DirectionWord m) (x : Defs.Plane)
+  (h :
+    ∀ (ψ : Fin p) (d : Defs.Compass),
+      Defs.WindowAdmissible w d →
+        F ψ (Defs.windowSuccessor w d) (x + d.step) = H ψ (Defs.windowSuccessor w d) (x + d.step)) :
+  Defs.rawBackward m p weight terminal F φ w x = Defs.rawBackward m p weight terminal H φ w x
+info: AKLT/Blueprint/H3/Audit.lean:74:0: 'AKLT.Blueprint.H3.rawBackward_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:75:0: StationaryFreeEdgeStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:76:0: def AKLT.Blueprint.H3.StationaryFreeEdgeStatement : Prop :=
+∀ (Q : Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : Defs.PairType) (d₀ : Defs.Compass),
+      d₀ ≠ Defs.Compass.east →
+        ∀ (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane) (d : Defs.Compass) (ψ : Defs.Phase),
+          Defs.stationaryCoefficient Q X d₀ φ a x d ψ ≤ Defs.freeCoefficient Q φ a d ψ
+info: AKLT/Blueprint/H3/Audit.lean:77:0: CoefficientCeilingStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:78:0: def AKLT.Blueprint.H3.CoefficientCeilingStatement : Prop :=
+∀ (t : ℚ), 0 ≤ t → t ≤ ↑(Defs.coefficientCeiling t) / ↑Defs.certificateCoefficientScale
+info: AKLT/Blueprint/H3/Audit.lean:79:0: AKLT.Blueprint.H3.coefficientCeiling_proved : CoefficientCeilingStatement
+info: AKLT/Blueprint/H3/Audit.lean:80:0: 'AKLT.Blueprint.H3.coefficientCeiling_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:81:0: AKLT.Blueprint.H3.rational_scaled_row {E : Type} (s : Finset E) (t : E → ℚ) (p v : E → ℕ) (D V u : ℕ) (hD : 0 < D)
+  (hV : 0 < V) (hceil : ∀ e ∈ s, t e ≤ ↑(p e) / ↑D) (hcheck : ∑ e ∈ s, p e * v e ≤ D * u) :
+  ∑ e ∈ s, t e * (↑(v e) / ↑V) ≤ ↑u / ↑V
+info: AKLT/Blueprint/H3/Audit.lean:82:0: 'AKLT.Blueprint.H3.rational_scaled_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:83:0: AKLT.Blueprint.H3.potential_bounds {q m : ℕ} (C : Defs.StationaryData q) (Q : Defs.MemoryQuotient m q)
+  (X : Defs.PairType) (d₀ : Defs.Compass) (hC : C.Passes Q X d₀) (φ : Defs.Phase) (a : Fin q) (x : Defs.Plane) :
+  0 ≤ C.potential φ a x ∧
+    C.potential φ a x ≤ ↑(C.cap φ a) / ↑Defs.certificateValueScale ∧
+      (x ∉ Defs.square (0, 0) Defs.certificateRadius → C.potential φ a x = ↑(C.cap φ a) / ↑Defs.certificateValueScale)
+info: AKLT/Blueprint/H3/Audit.lean:84:0: 'AKLT.Blueprint.H3.potential_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:85:0: AKLT.Blueprint.H3.checked_free_row (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (C : Defs.StationaryData 3741) (hC : C.Passes Q X d₀) (φ : Defs.Phase) (a : Fin 3741) :
+  Defs.freeApply Q (fun ψ b => ↑(C.cap ψ b) / ↑Defs.certificateValueScale) φ a ≤
+    ↑(C.cap φ a) / ↑Defs.certificateValueScale
+info: AKLT/Blueprint/H3/Audit.lean:86:0: 'AKLT.Blueprint.H3.checked_free_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:87:0: AKLT.Blueprint.H3.checked_inside_row (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (C : Defs.StationaryData 3741) (hC : C.Passes Q X d₀) (φ : Defs.Phase) (a : Fin 3741)
+  (x : ↥(Defs.square (0, 0) Defs.certificateRadius)) (hc : ↑x ≠ Defs.kernelCentre) (hv : ↑x ≠ Defs.kernelTarget X) :
+  Defs.stationaryApply Q X d₀ C.potential φ a ↑x ≤ C.potential φ a ↑x
+info: AKLT/Blueprint/H3/Audit.lean:88:0: 'AKLT.Blueprint.H3.checked_inside_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:89:0: SuffixWindowValidityStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:90:0: def AKLT.Blueprint.H3.SuffixWindowValidityStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.IsTrail Defs.kernelStart Defs.kernelIncoming w →
+    ∀ (i : Fin n), 10 ≤ ↑i → Defs.RawWindow (suffixWindow w ↑i) ∧ Defs.WindowAdmissible (suffixWindow w ↑i) (w i)
+info: AKLT/Blueprint/H3/Audit.lean:91:0: SuffixWindowLabelsStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:92:0: def AKLT.Blueprint.H3.SuffixWindowLabelsStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.IsTrail Defs.kernelStart Defs.kernelIncoming w →
+    ∀ (i : Fin n),
+      10 ≤ ↑i →
+        Defs.windowSuccessor (suffixWindow w ↑i) (w i) = suffixWindow w (↑i + 1) ∧
+          Defs.windowArrival (suffixWindow w ↑i) = Defs.wordIncoming Defs.kernelIncoming w i ∧
+            (Defs.windowKind (suffixWindow w ↑i) (w i) = Defs.StepKind.revisit →
+                Defs.wordRevisit Defs.kernelStart w i = true) ∧
+              (Defs.wordRevisit Defs.kernelStart w i = false → Defs.windowKind (suffixWindow w ↑i) (w i) = trueKind w i)
+info: AKLT/Blueprint/H3/Audit.lean:93:0: IncidentBondBudgetStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:94:0: def AKLT.Blueprint.H3.IncidentBondBudgetStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.IsTrail Defs.kernelStart Defs.kernelIncoming w →
+    ∀ (z : Defs.Plane), Defs.departureCount Defs.kernelStart w n z + arrivalCount w z ≤ 4
+info: AKLT/Blueprint/H3/Audit.lean:95:0: DepartureBalanceStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:96:0: def AKLT.Blueprint.H3.DepartureBalanceStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (z : Defs.Plane), Defs.departureCount Defs.kernelStart w n z ≤ arrivalCount w z + 1
+info: AKLT/Blueprint/H3/Audit.lean:97:0: KnownSiteMemoryStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:98:0: def AKLT.Blueprint.H3.KnownSiteMemoryStatement : Prop :=
+∀ (X : Defs.PairType) (d₀ : Defs.Compass),
+  d₀ ≠ Defs.Compass.east →
+    ∀ (n L : ℕ),
+      12 ≤ L →
+        L ≤ n →
+          ∀ (w : Defs.DirectionWord n),
+            Defs.ClosedTrail X w →
+              Defs.SurvivingPrefix X d₀ (Defs.takeWord w L) →
+                (∀ (z : Defs.Plane), Defs.departureCount Defs.kernelStart w n z ≤ 2) →
+                  ∀ (i : Fin n),
+                    L ≤ ↑i →
+                      Defs.wordVertex Defs.kernelStart w ↑i = Defs.kernelStart ∨
+                          Defs.wordVertex Defs.kernelStart w ↑i = Defs.kernelStart + d₀.step →
+                        Defs.wordRevisit Defs.kernelStart w i = true ∧
+                          Defs.windowKind (suffixWindow w ↑i) (w i) ≠ Defs.StepKind.revisit ∧
+                            {Defs.wordVertex Defs.kernelStart w ↑i,
+                                Defs.wordVertex Defs.kernelStart w ↑i + (w i).step} ≠
+                              {Defs.kernelStart, Defs.kernelStart + d₀.step}
+info: AKLT/Blueprint/H3/Audit.lean:99:0: TrueRewardIdentityStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:100:0: def AKLT.Blueprint.H3.TrueRewardIdentityStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.IsTrail Defs.kernelStart Defs.kernelIncoming w →
+    ∀ (i : Fin n),
+      w i ≠ (Defs.wordIncoming Defs.kernelIncoming w i).reverse ∧
+        Defs.witnessKappa w i =
+          Defs.relaxedReward (Defs.wordVertex Defs.kernelStart w ↑i) (Defs.wordIncoming Defs.kernelIncoming w i) (w i)
+            (trueDeadSet w i)
+info: AKLT/Blueprint/H3/Audit.lean:101:0: RewardForgettingStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:102:0: def AKLT.Blueprint.H3.RewardForgettingStatement : Prop :=
+∀ (x : Defs.Plane) (incoming outgoing : Defs.Compass),
+  outgoing ≠ incoming.reverse →
+    ∀ (dead₁ dead₂ : Finset Defs.Plane),
+      dead₁ ⊆ dead₂ → Defs.relaxedReward x incoming outgoing dead₂ ≤ Defs.relaxedReward x incoming outgoing dead₁
+info: AKLT/Blueprint/H3/Audit.lean:103:0: AKLT.Blueprint.H3.TrueStepFacts {n : ℕ} (X : Defs.PairType) (d₀ : Defs.Compass) (w : Defs.DirectionWord n) (i : Fin n) :
+  Prop
+info: AKLT/Blueprint/H3/Audit.lean:104:0: LocalCoefficientComparisonStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:105:0: def AKLT.Blueprint.H3.LocalCoefficientComparisonStatement : Prop :=
+∀ (Q : Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : Defs.PairType) (d₀ : Defs.Compass) (n : ℕ) (w : Defs.DirectionWord n) (i : Fin n),
+      TrueStepFacts X d₀ w i →
+        ∀ (φ ψ : Defs.Phase),
+          Defs.truePhaseCoefficient w i φ ψ ≤
+            Defs.stationaryCoefficient Q X d₀ φ (Q.project (suffixWindow w ↑i)) (Defs.wordVertex Defs.kernelStart w ↑i)
+              (w i) ψ
+info: AKLT/Blueprint/H3/Audit.lean:106:0: ClosedTrailStepGeometryStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:107:0: def AKLT.Blueprint.H3.ClosedTrailStepGeometryStatement : Prop :=
+∀ (X : Defs.PairType) (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.ClosedTrail X w →
+    ∀ (i : Fin n),
+      Defs.wordVertex Defs.kernelStart w (↑i + 1) = Defs.wordVertex Defs.kernelStart w ↑i + (w i).step ∧
+        Defs.wordVertex Defs.kernelStart w ↑i ≠ Defs.kernelCentre ∧
+          Defs.wordVertex Defs.kernelStart w ↑i ≠ Defs.kernelTarget X ∧
+            Defs.wordVertex Defs.kernelStart w (↑i + 1) ≠ Defs.kernelCentre
+info: AKLT/Blueprint/H3/Audit.lean:108:0: SuffixWordComparisonStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:109:0: def AKLT.Blueprint.H3.SuffixWordComparisonStatement : Prop :=
+∀ (Q : Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : Defs.PairType) (d₀ : Defs.Compass) (L : ℕ),
+      12 ≤ L →
+        ∀ (P : Defs.DirectionWord L) (r : ℕ) (v : Defs.DirectionWord r),
+          Defs.ClosedTrail X (Defs.appendWords P v) →
+            (∀ (i : Fin (L + r)),
+                L ≤ ↑i →
+                  ∀ (φ ψ : Defs.Phase),
+                    Defs.truePhaseCoefficient (Defs.appendWords P v) i φ ψ ≤
+                      Defs.stationaryCoefficient Q X d₀ φ (Q.project (suffixWindow (Defs.appendWords P v) ↑i))
+                        (Defs.wordVertex Defs.kernelStart (Defs.appendWords P v) ↑i) (Defs.appendWords P v i) ψ) →
+              (∀ (i : Fin (L + r)),
+                  L ≤ ↑i →
+                    Q.successor (Q.project (suffixWindow (Defs.appendWords P v) ↑i)) (Defs.appendWords P v i) =
+                      Q.project (suffixWindow (Defs.appendWords P v) (↑i + 1))) →
+                ∀ (φ : Defs.Phase),
+                  Defs.truePhaseSuffix (Defs.appendWords P v) L φ ≤
+                    stationaryWordValue Q X d₀ (List.ofFn v) φ (Q.project (Defs.lastWindowWord 10 P))
+                      (Defs.wordVertex Defs.kernelStart P L)
+info: AKLT/Blueprint/H3/Audit.lean:110:0: StationaryWordExpansionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:111:0: def AKLT.Blueprint.H3.StationaryWordExpansionStatement : Prop :=
+∀ (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass) (r : ℕ) (φ : Defs.Phase) (a : Fin 3741)
+  (x : Defs.Plane),
+  (Defs.stationaryApply Q X d₀)^[r] (Defs.stationaryReward X) φ a x =
+    ∑ v, stationaryWordValue Q X d₀ (List.ofFn v) φ a x
+info: AKLT/Blueprint/H3/Audit.lean:112:0: FirstDirectionPartitionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:113:0: def AKLT.Blueprint.H3.FirstDirectionPartitionStatement : Prop :=
+∀ (X : Defs.PairType) (R : ℕ),
+  Defs.kernelPartialRow X R =
+    Defs.firstDirectionPartialRow X Defs.Compass.north R + Defs.firstDirectionPartialRow X Defs.Compass.west R +
+      Defs.firstDirectionPartialRow X Defs.Compass.south R
+info: AKLT/Blueprint/H3/Audit.lean:114:0: LengthShiftSupportStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:115:0: def AKLT.Blueprint.H3.LengthShiftSupportStatement : Prop :=
+∀ (X Y : Defs.PairType) (n s : ℕ), s ∉ lengthShifts X n → Defs.kernelLengthCoefficient X Y s n = 0
+info: AKLT/Blueprint/H3/Audit.lean:116:0: LengthRewardPartitionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:117:0: def AKLT.Blueprint.H3.LengthRewardPartitionStatement : Prop :=
+∀ (X : Defs.PairType) (n : ℕ),
+  kernelLengthRow X n = ∑ Y, ∑ s ∈ lengthShifts X n, Defs.kernelLengthCoefficient X Y s n * Defs.kernelWitness Y
+info: AKLT/Blueprint/H3/Audit.lean:118:0: KernelSeriesRegroupingStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:119:0: def AKLT.Blueprint.H3.KernelSeriesRegroupingStatement : Prop :=
+∀ (X : Defs.PairType),
+  (∀ (Y : Defs.PairType) (n s : ℕ), s ∉ lengthShifts X n → Defs.kernelLengthCoefficient X Y s n = 0) →
+    (∀ (n : ℕ),
+        kernelLengthRow X n =
+          ∑ Y, ∑ s ∈ lengthShifts X n, Defs.kernelLengthCoefficient X Y s n * Defs.kernelWitness Y) →
+      ∑ Y, Defs.shiftedKernel 1 X Y * ENNReal.ofReal ↑(Defs.kernelWitness Y) =
+        ∑' (n : ℕ), ENNReal.ofReal ↑(kernelLengthRow X n)
+info: AKLT/Blueprint/H3/Audit.lean:120:0: CutoffSeriesLiftStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:121:0: def AKLT.Blueprint.H3.CutoffSeriesLiftStatement : Prop :=
+∀ (f : ℕ → ℚ),
+  (∀ (n : ℕ), 0 ≤ f n) →
+    f 0 = 0 →
+      ∀ (B : ℚ), (∀ (R : ℕ), ∑ n ∈ Finset.Icc 1 R, f n ≤ B) → ∑' (n : ℕ), ENNReal.ofReal ↑(f n) ≤ ENNReal.ofReal ↑B
+info: AKLT/Blueprint/H3/Audit.lean:122:0: AKLT.Blueprint.H3.kernelLengthRow_zero (X : Defs.PairType) : kernelLengthRow X 0 = 0
+info: AKLT/Blueprint/H3/Audit.lean:123:0: 'AKLT.Blueprint.H3.kernelLengthRow_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:124:0: AKLT.Blueprint.H3.kernelPartialRow_eq_sum (X : Defs.PairType) (R : ℕ) :
+  Defs.kernelPartialRow X R = ∑ n ∈ Finset.Icc 1 R, kernelLengthRow X n
+info: AKLT/Blueprint/H3/Audit.lean:125:0: 'AKLT.Blueprint.H3.kernelPartialRow_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:126:0: PhaseFoldExpansionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:127:0: def AKLT.Blueprint.H3.PhaseFoldExpansionStatement : Prop :=
+∀ (n : ℕ) (k : Fin n → Defs.StepKind) (r : Fin n → ℚ),
+  ∑ φ,
+      phaseRun (fun i => Defs.phaseTransition (k i) (r i)) (List.finRange n) Defs.phaseInitial φ *
+        Defs.phaseTerminal φ =
+    ∑ j, (singleChange k r j Defs.Phase.A Defs.Phase.C + singleChange k r j Defs.Phase.B Defs.Phase.D)
+info: AKLT/Blueprint/H3/Audit.lean:128:0: SingleChangeFactorStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:129:0: def AKLT.Blueprint.H3.SingleChangeFactorStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (j : Fin n),
+  singleChange (trueKind w) (Defs.witnessKappa w) j Defs.Phase.A Defs.Phase.C +
+      singleChange (trueKind w) (Defs.witnessKappa w) j Defs.Phase.B Defs.Phase.D =
+    Defs.trailBaseWeight Defs.kernelStart w * longRewardTerm w j
+info: AKLT/Blueprint/H3/Audit.lean:130:0: ExposureListExpansionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:131:0: def AKLT.Blueprint.H3.ExposureListExpansionStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (reward : Fin n → ℚ) (l : List (Fin n)),
+  l.Nodup → Defs.exposureSum w reward l = ∑ j ∈ l.toFinset, reward j * orderedMultiplier w l j
+info: AKLT/Blueprint/H3/Audit.lean:132:0: LongOrderingMultiplierStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:133:0: def AKLT.Blueprint.H3.LongOrderingMultiplierStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  (Defs.longOrdering w).Nodup ∧
+    (Defs.longOrdering w).toFinset = {j | Defs.wordRevisit Defs.kernelStart w j = false} ∧
+      ∀ j ∈ Defs.longOrdering w, orderedMultiplier w (Defs.longOrdering w) j = longMultiplier w j
+info: AKLT/Blueprint/H3/Audit.lean:134:0: LongExposureExpansionStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:135:0: def AKLT.Blueprint.H3.LongExposureExpansionStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  Defs.exposureSum w (Defs.witnessKappa w) (Defs.longOrdering w) = ∑ j, longRewardTerm w j
+info: AKLT/Blueprint/H3/Audit.lean:136:0: PrefixCoefficientCausalityStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:137:0: def AKLT.Blueprint.H3.PrefixCoefficientCausalityStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (L : ℕ) (hL : L ≤ n) (i : Fin L) (φ ψ : Defs.Phase),
+  Defs.truePhaseCoefficient (Defs.takeWord w L) i φ ψ = Defs.truePhaseCoefficient w ⟨↑i, ⋯⟩ φ ψ
+info: AKLT/Blueprint/H3/Audit.lean:138:0: PhaseSplitAlgebraStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:139:0: def AKLT.Blueprint.H3.PhaseSplitAlgebraStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (L : ℕ) (hL : L ≤ n),
+  (∀ (i : Fin L) (φ ψ : Defs.Phase),
+      Defs.truePhaseCoefficient (Defs.takeWord w L) i φ ψ = Defs.truePhaseCoefficient w ⟨↑i, ⋯⟩ φ ψ) →
+    ∑ φ, Defs.prefixPhases w φ * Defs.phaseTerminal φ =
+      ∑ φ, Defs.prefixPhases (Defs.takeWord w L) φ * Defs.truePhaseSuffix w L φ
+info: AKLT/Blueprint/H3/Audit.lean:140:0: AKLT.Blueprint.H3.longExposureExpansion_of_nodes (hList : ExposureListExpansionStatement)
+  (hOrder : LongOrderingMultiplierStatement) : LongExposureExpansionStatement
+info: AKLT/Blueprint/H3/Audit.lean:141:0: 'AKLT.Blueprint.H3.longExposureExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:142:0: LongTrailPrefixStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:143:0: def AKLT.Blueprint.H3.LongTrailPrefixStatement : Prop :=
+∀ (X : Defs.PairType) (d₀ : Defs.Compass) (n : ℕ),
+  12 < n →
+    ∀ (w : Defs.DirectionWord n),
+      Defs.ClosedTrail X w → Defs.FirstDirection w d₀ → Defs.SurvivingPrefix X d₀ (Defs.takeWord w 12)
+info: AKLT/Blueprint/H3/Audit.lean:144:0: WordSplitStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:145:0: def AKLT.Blueprint.H3.WordSplitStatement : Prop :=
+∀ (L r : ℕ),
+  ∃ e,
+    (∀ (w : Defs.DirectionWord (L + r)), (e w).1 = Defs.takeWord w L) ∧
+      ∀ (P : Defs.DirectionWord L) (v : Defs.DirectionWord r), e.symm (P, v) = Defs.appendWords P v
+info: AKLT/Blueprint/H3/Audit.lean:146:0: LongRowRegroupingStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:147:0: def AKLT.Blueprint.H3.LongRowRegroupingStatement : Prop :=
+∀ (X : Defs.PairType) (d₀ : Defs.Compass) (R : ℕ),
+  12 < R →
+    (∀ (r : ℕ),
+        ∃ e,
+          (∀ (w : Defs.DirectionWord (12 + r)), (e w).1 = Defs.takeWord w 12) ∧
+            ∀ (P : Defs.DirectionWord 12) (v : Defs.DirectionWord r), e.symm (P, v) = Defs.appendWords P v) →
+      (∀ (n : ℕ),
+          12 < n →
+            ∀ (w : Defs.DirectionWord n),
+              Defs.ClosedTrail X w → Defs.FirstDirection w d₀ → Defs.SurvivingPrefix X d₀ (Defs.takeWord w 12)) →
+        (∀ (n : ℕ),
+            12 < n →
+              n ≤ R →
+                ∀ (w : Defs.DirectionWord n),
+                  Defs.ClosedTrail X w →
+                    Defs.FirstDirection w d₀ →
+                      Defs.closedContribution w =
+                        ∑ φ, Defs.prefixPhases (Defs.takeWord w 12) φ * Defs.truePhaseSuffix w 12 φ) →
+          Defs.firstDirectionPartialRow X d₀ R =
+            Defs.firstDirectionPartialRow X d₀ 12 +
+              ∑ P,
+                if Defs.SurvivingPrefix X d₀ P then ∑ φ, Defs.prefixPhases P φ * Defs.trueContinuationSum X P φ (R - 12)
+                else 0
+info: AKLT/Blueprint/H3/Audit.lean:148:0: AKLT.Blueprint.H3.wordSplit_proved : WordSplitStatement
+info: AKLT/Blueprint/H3/Audit.lean:149:0: 'AKLT.Blueprint.H3.wordSplit_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:150:0: AKLT.Blueprint.H3.firstDirectionPartialRow_mono (X : Defs.PairType) (d₀ : Defs.Compass) {R S : ℕ} (hRS : R ≤ S) :
+  Defs.firstDirectionPartialRow X d₀ R ≤ Defs.firstDirectionPartialRow X d₀ S
+info: AKLT/Blueprint/H3/Audit.lean:151:0: 'AKLT.Blueprint.H3.firstDirectionPartialRow_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:152:0: ReflectionGeometryStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:153:0: def AKLT.Blueprint.H3.ReflectionGeometryStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  (∀ (j : ℕ), Defs.wordVertex Defs.kernelStart (reflectWord w) j = reflectSite (Defs.wordVertex Defs.kernelStart w j)) ∧
+    (Defs.ClosedTrail Defs.PairType.B w ↔ Defs.ClosedTrail Defs.PairType.B (reflectWord w)) ∧
+      (Defs.FirstDirection w Defs.Compass.north ↔ Defs.FirstDirection (reflectWord w) Defs.Compass.south) ∧
+        ∀ (i : Fin n),
+          Defs.wordStraight Defs.kernelIncoming w i = Defs.wordStraight Defs.kernelIncoming (reflectWord w) i ∧
+            Defs.wordRevisit Defs.kernelStart w i = Defs.wordRevisit Defs.kernelStart (reflectWord w) i
+info: AKLT/Blueprint/H3/Audit.lean:154:0: ReflectionLivePairsStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:155:0: def AKLT.Blueprint.H3.ReflectionLivePairsStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (i : Fin n),
+  Finset.image (fun p => Finset.image reflectSite p) (Defs.responsePairs w i) = Defs.responsePairs (reflectWord w) i
+info: AKLT/Blueprint/H3/Audit.lean:156:0: ReflectionPairLabelsStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:157:0: def AKLT.Blueprint.H3.ReflectionPairLabelsStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (i : Fin n),
+  ∀ p ∈ Defs.responsePairs w i,
+    Defs.pairCoefficient w i p = Defs.pairCoefficient (reflectWord w) i (Finset.image reflectSite p) ∧
+      Defs.responsePairType p = Defs.responsePairType (Finset.image reflectSite p) ∧
+        Defs.pairShift Defs.PairType.B p = Defs.pairShift Defs.PairType.B (Finset.image reflectSite p)
+info: AKLT/Blueprint/H3/Audit.lean:158:0: ReflectionPairsStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:159:0: def AKLT.Blueprint.H3.ReflectionPairsStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n) (i : Fin n),
+  Finset.image (fun p => Finset.image reflectSite p) (Defs.responsePairs w i) = Defs.responsePairs (reflectWord w) i ∧
+    ∀ p ∈ Defs.responsePairs w i,
+      Defs.pairCoefficient w i p = Defs.pairCoefficient (reflectWord w) i (Finset.image reflectSite p) ∧
+        Defs.responsePairType p = Defs.responsePairType (Finset.image reflectSite p) ∧
+          Defs.pairShift Defs.PairType.B p = Defs.pairShift Defs.PairType.B (Finset.image reflectSite p)
+info: AKLT/Blueprint/H3/Audit.lean:160:0: ReflectionOrderingAlgebraStatement : Prop
+info: AKLT/Blueprint/H3/Audit.lean:161:0: def AKLT.Blueprint.H3.ReflectionOrderingAlgebraStatement : Prop :=
+∀ (n : ℕ) (w : Defs.DirectionWord n),
+  (∀ (i : Fin n),
+      Defs.wordStraight Defs.kernelIncoming w i = Defs.wordStraight Defs.kernelIncoming (reflectWord w) i ∧
+        Defs.wordRevisit Defs.kernelStart w i = Defs.wordRevisit Defs.kernelStart (reflectWord w) i ∧
+          Defs.witnessKappa w i = Defs.witnessKappa (reflectWord w) i) →
+    Defs.trailWeight Defs.kernelStart Defs.kernelIncoming w =
+        Defs.trailWeight Defs.kernelStart Defs.kernelIncoming (reflectWord w) ∧
+      Defs.kernelOrdering w = Defs.kernelOrdering (reflectWord w) ∧
+        Defs.closedContribution w = Defs.closedContribution (reflectWord w)
+info: AKLT/Blueprint/H3/Audit.lean:162:0: AKLT.Blueprint.H3.reflectionPairs_of_nodes (hLive : ReflectionLivePairsStatement)
+  (hLabels : ReflectionPairLabelsStatement) : ReflectionPairsStatement
+info: AKLT/Blueprint/H3/Audit.lean:163:0: 'AKLT.Blueprint.H3.reflectionPairs_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:164:0: AKLT.Blueprint.H3.reflectionOrderingAlgebra_proved : ReflectionOrderingAlgebraStatement
+info: AKLT/Blueprint/H3/Audit.lean:165:0: 'AKLT.Blueprint.H3.reflectionOrderingAlgebra_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:166:0: AKLT.Blueprint.H3.passageFactor_pos (b : Bool) : 0 < Defs.passageFactor b
+info: AKLT/Blueprint/H3/Audit.lean:167:0: 'AKLT.Blueprint.H3.passageFactor_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:168:0: AKLT.Blueprint.H3.kernelRho_pos_lt_one : 0 < Defs.kernelRho ∧ Defs.kernelRho < 1
+info: AKLT/Blueprint/H3/Audit.lean:169:0: 'AKLT.Blueprint.H3.kernelRho_pos_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:170:0: AKLT.Blueprint.H3.kernelWitness_pos (X : Defs.PairType) : 0 < Defs.kernelWitness X
+info: AKLT/Blueprint/H3/Audit.lean:171:0: 'AKLT.Blueprint.H3.kernelWitness_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:172:0: AKLT.Blueprint.H3.pairCoefficient_nonneg {n : ℕ} (w : Defs.DirectionWord n) (i : Fin n) (p : Finset Defs.Plane) :
+  0 ≤ Defs.pairCoefficient w i p
+info: AKLT/Blueprint/H3/Audit.lean:173:0: 'AKLT.Blueprint.H3.pairCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:174:0: AKLT.Blueprint.H3.witnessKappa_nonneg {n : ℕ} (w : Defs.DirectionWord n) (i : Fin n) : 0 ≤ Defs.witnessKappa w i
+info: AKLT/Blueprint/H3/Audit.lean:175:0: 'AKLT.Blueprint.H3.witnessKappa_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:176:0: AKLT.Blueprint.H3.relaxedReward_nonneg (x : Defs.Plane) (incoming outgoing : Defs.Compass) (dead : Finset Defs.Plane) :
+  0 ≤ Defs.relaxedReward x incoming outgoing dead
+info: AKLT/Blueprint/H3/Audit.lean:177:0: 'AKLT.Blueprint.H3.relaxedReward_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:178:0: AKLT.Blueprint.H3.phaseTransition_nonneg (k : Defs.StepKind) (r : ℚ) (hr : 0 ≤ r) (φ ψ : Defs.Phase) :
+  0 ≤ Defs.phaseTransition k r φ ψ
+info: AKLT/Blueprint/H3/Audit.lean:179:0: 'AKLT.Blueprint.H3.phaseTransition_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:180:0: AKLT.Blueprint.H3.truePhaseCoefficient_nonneg {n : ℕ} (w : Defs.DirectionWord n) (i : Fin n) (φ ψ : Defs.Phase) :
+  0 ≤ Defs.truePhaseCoefficient w i φ ψ
+info: AKLT/Blueprint/H3/Audit.lean:181:0: 'AKLT.Blueprint.H3.truePhaseCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:182:0: AKLT.Blueprint.H3.stationaryCoefficient_nonneg {m q : ℕ} (Q : Defs.MemoryQuotient m q) (X : Defs.PairType)
+  (d₀ : Defs.Compass) (φ : Defs.Phase) (a : Fin q) (x : Defs.Plane) (d : Defs.Compass) (ψ : Defs.Phase) :
+  0 ≤ Defs.stationaryCoefficient Q X d₀ φ a x d ψ
+info: AKLT/Blueprint/H3/Audit.lean:183:0: 'AKLT.Blueprint.H3.stationaryCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:184:0: AKLT.Blueprint.H3.freeCoefficient_nonneg {m q : ℕ} (Q : Defs.MemoryQuotient m q) (φ : Defs.Phase) (a : Fin q)
+  (d : Defs.Compass) (ψ : Defs.Phase) : 0 ≤ Defs.freeCoefficient Q φ a d ψ
+info: AKLT/Blueprint/H3/Audit.lean:185:0: 'AKLT.Blueprint.H3.freeCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:186:0: AKLT.Blueprint.H3.prefixPhases_nonneg {n : ℕ} (w : Defs.DirectionWord n) (φ : Defs.Phase) : 0 ≤ Defs.prefixPhases w φ
+info: AKLT/Blueprint/H3/Audit.lean:187:0: 'AKLT.Blueprint.H3.prefixPhases_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:188:0: AKLT.Blueprint.H3.exposureSum_nonneg {n : ℕ} (w : Defs.DirectionWord n) (r : Fin n → ℚ) (hr : ∀ (i : Fin n), 0 ≤ r i)
+  (l : List (Fin n)) : 0 ≤ Defs.exposureSum w r l
+info: AKLT/Blueprint/H3/Audit.lean:189:0: 'AKLT.Blueprint.H3.exposureSum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:190:0: AKLT.Blueprint.H3.closedContribution_nonneg {n : ℕ} (w : Defs.DirectionWord n) : 0 ≤ Defs.closedContribution w
+info: AKLT/Blueprint/H3/Audit.lean:191:0: 'AKLT.Blueprint.H3.closedContribution_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:192:0: AKLT.Blueprint.H3.responseKappa_nonneg {n : ℕ} (X Y : Defs.PairType) (s : ℕ) (w : Defs.DirectionWord n) (i : Fin n) :
+  0 ≤ Defs.responseKappa X Y s w i
+info: AKLT/Blueprint/H3/Audit.lean:193:0: 'AKLT.Blueprint.H3.responseKappa_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:194:0: AKLT.Blueprint.H3.kernelLengthCoefficient_nonneg (X Y : Defs.PairType) (s n : ℕ) :
+  0 ≤ Defs.kernelLengthCoefficient X Y s n
+info: AKLT/Blueprint/H3/Audit.lean:195:0: 'AKLT.Blueprint.H3.kernelLengthCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:196:0: AKLT.Blueprint.H3.kernelLengthRow_nonneg (X : Defs.PairType) (n : ℕ) : 0 ≤ kernelLengthRow X n
+info: AKLT/Blueprint/H3/Audit.lean:197:0: 'AKLT.Blueprint.H3.kernelLengthRow_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Blueprint/H3/Audit.lean:198:0: AKLT.Blueprint.H3.stationaryWordValue_nonneg (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (l : List Defs.Compass) (φ : Defs.Phase) (a : Fin 3741) (x : Defs.Plane) : 0 ≤ stationaryWordValue Q X d₀ l φ a x
+info: AKLT/Blueprint/H3/Audit.lean:199:0: 'AKLT.Blueprint.H3.stationaryWordValue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8971 jobs).
+real 10.35
+user 8.26
+sys 9.99

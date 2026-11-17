@@ -1,0 +1,355 @@
+
+\section{Exact computational inputs}\label{s:inputs}
+
+The computational inputs have three finite certificates. The local
+input tests integer Hermitian-form matrices reconstructed from the
+covered patterns. The open-trail input tests a positive integer
+vector for a memory-six one-step matrix. The kernel input
+tests five stationary lattice supersolutions and their exact
+length-twelve prefixes. The certificates consist of the finite
+integer equalities, inequalities, and divisibility tests specified
+below and in Appendix C, with positive rational denominators cleared.
+The soundness arguments prove deterministic implications from these
+finite assertions.
+
+Theorem~\ref{t:main}, including the three inputs (H1), (H2), and
+(H3\(_h\)) and their certificates, has been formalized in Lean~4
+(version 4.35.0-rc2, with Mathlib) and checked by the Lean kernel.
+The accompanying Lean formalization % CHECK: add repository reference
+uses only the standard axioms \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}, and it does not
+use \texttt{native\_decide}. The certificates are checked inside the
+Lean kernel, not by external programs. The certificate for (H1)
+covers all \(7962\) local patterns and their \(12173\) sector
+blocks; its kernel check took about \(139\) CPU-hours. The
+certificate for (H3\(_h\)) consists of \(5035\) generated modules;
+its kernel check took about \(19.5\) CPU-hours. The kernel check
+for (H2) took seconds. Everything in the formalization except the
+certificates for (H1) and (H3\(_h\)), in particular the derivation
+of Theorem~\ref{t:main} from the three inputs, has also been checked
+by two independent implementations of the Lean kernel.
+
+For the local input we use the archived representation and inversion
+choices, and the division-free Gram/residual format wherever its
+witness is available. For a block without a supplied nonzero Gram
+factor which is not directly diagonally dominant, we use the
+Bareiss fallback permitted by Lemma~\ref{l:integercheck}. The local
+certificate consists of the coverage, reconstruction, and positivity
+checks on these data specified below.
+
+\subsection*{The finite local verification}
+The pattern data are \texttt{pext7962.json}, under
+\texttt{programs/data/pext}, and
+\texttt{certificates\_covered\_operator\_only.jsonl}, under
+\texttt{programs/h1-local/out}, relative to the archive root.
+The two supplied nonzero factors are
+\texttt{h1\_chol\_\allowbreak5420\_\allowbreak131.json} and
+\texttt{h1\_chol\_\allowbreak7697\_\allowbreak131.json} in \texttt{data}.
+The finite assertions to be checked from these data are as follows.
+
+First enumerate the patterns from Definition~\ref{d:pattern},
+rather than assuming that the supplied pattern list is exhaustive.
+Encode a kept set by a four-bit mask in direction order E,N,W,S.
+Each of the three non-arrival neighbours has five choices: U
+keeping all four bonds, X, or D keeping its passage bond and one
+of its three other bonds. The arrival site has four choices: X,
+or D keeping two of its three non-passage bonds. Each corner has
+eight choices: U, X, or one of the six two-bond D kept sets.
+The passage site's kept set and status, and all covering U tips,
+are fixed. There are therefore
+\(4\cdot5^3\cdot8^4=2048000\) assignments before consistency is
+tested. Retain exactly those satisfying the nonremoved non-tip
+bond consistency rule. Choose every nonremoved out-neighbour
+among E,N,W. The finite enumeration assertions are
+\[
+ \begin{array}{c|r}
+ \text{consistent status/kept-set assignments}&106101\\
+ \text{such assignments with a marked out-neighbour}&184914\\
+ \text{marked assignments with out-neighbour N or E}&123339.
+ \end{array}
+\]
+In forming an effective record retain the present internal bonds
+and the status of every non-tip site incident to such a bond.
+Discard isolated factors as justified below. Identify records under
+reflection \((x_1,x_2)\mapsto(-x_1,x_2)\), which fixes the arrival
+site and interchanges the two turning directions. The finite
+coverage test requires that their canonical keys are precisely
+the \(7962\) distinct keys in the supplied pattern file. Every
+entry in the operator-choice file must refer to the corresponding
+pattern, use the covered model and tip radius \(3/5\), have the
+correct out-neighbour, and use threshold \(961/1000\) for a
+straight pattern and \(187/200\) for a turn. Each of the \(7962\)
+pattern indices must occur exactly once in that choice file.
+
+For every record, reconstruct its chosen reduced or unreduced
+representation and its vector groups using Lemma~\ref{l:leaf}.
+The group's order is the ring-site order
+\[
+ (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
+\]
+omitting empty groups. A neighbour contributes its single bonded-tip
+vector when that bond is present. A corner contributes its single
+leaf vector in the reduced one-bond case, and its two slot vectors
+otherwise. The inversion field lists zero-based vector indices;
+check that it is a union of whole groups and that all its indices
+are in range. Reconstruct every coefficient from the finite moments
+of Lemma~\ref{l:moments}, the passage identity of
+Lemma~\ref{l:Iw}, and these leaf replacements. The positive
+denominator \(D_0\) is the product of the positive denominators in
+this reconstruction, not an unverified matrix scale.
+Construct the inverted Pauli operators of
+\(3D_0\widehat Z_{\rm cur}\) and
+\(5D_0\widehat Z_{\rm next}\), and their Hermitian forms
+\(A_\epsilon,A'_\epsilon\) on every supported central exchange
+sector, as in Lemma~\ref{l:integercheck}. In particular these are
+forms in the unnormalized integer-coordinate sector bases.
+At threshold \(c=p/q\), reconstruct
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon .
+\]
+A supplied matrix or a claimed list of sector sizes is not an
+input to this reconstruction. Zero-dimensional sectors impose no
+row tests. The finite construction yields \(12173\) supported
+nonzero-dimensional blocks, all of size at most \(179\).
+
+Of these blocks, \(8439\) satisfy the direct integer inequalities
+\[
+ (M_\epsilon)_{ii}>
+       \sum_{j\ne i}|(M_\epsilon)_{ij}|\quad\text{for every }i.
+\]
+They use the Gram/residual certificate with \(L=0\) and
+\(g=d=S=1\). The two archived nonzero factors match the regenerated
+\(131\)-dimensional central sectors of their respective patterns.
+Their supplied matrix arrays are compared entry by entry with the
+regenerated matrix divided by their checked positive scalar
+\(1600\); they are not trusted as matrices of the polynomial.
+For the actual regenerated matrices, their certificate parameters
+and minimum residual margins are
+\[
+ \begin{array}{c|r|rrr|r}
+ \text{pattern}&\dim M&g&d&S&
+       \min_i(E_{ii}-\sum_{j\ne i}|E_{ij}|)\\ \hline
+ 5420&131&1600&1&1&6820166897600\\
+ 7697&131&1600&1&1&27361669345600
+ \end{array}
+ \qquad E=dS^2M-gLL^{\mathsf T}.
+\]
+Check each supplied \(L\) to be an integer lower-triangular matrix
+of the correct size and check every residual row, not just the
+displayed minimum. These are the only two nonzero factors used.
+
+For each of the remaining \(3732\) blocks use the following exact
+fallback. One may remove a positive integer common scalar
+\(a_\epsilon\), checking every entry of
+\(M_\epsilon=a_\epsilon B^{(0)}\) in the integers.
+Set \(b_{-1}=1\). For \(0\le j<t=\dim M_\epsilon\), require
+\(b_j=B^{(j)}_{jj}>0\), and, for every \(i,l>j\), require
+\[
+ \begin{gathered}
+ b_{j-1}\mid
+   \bigl(b_jB^{(j)}_{il}-B^{(j)}_{ij}B^{(j)}_{jl}\bigr),\\
+ B^{(j+1)}_{il}
+   =\frac{b_jB^{(j)}_{il}-B^{(j)}_{ij}B^{(j)}_{jl}}{b_{j-1}}.
+ \end{gathered}
+\]
+Only the upper triangle need be stored: symmetry is preserved by
+the recursion, so each lower-triangle numerator and quotient equals
+its transposed upper-triangle entry.
+It is enough to compute the upper triangle and reflect it, because
+these matrices are symmetric. At the last stage there are no
+trailing entries to update. These requirements are finite integer
+divisibility and strict positivity assertions over matrices
+regenerated from the archived choices. No stored pivot or floating
+eigenvalue replaces any requirement. As an additional finite check,
+all \(3734\) blocks failing the direct dominance test, including
+the two with supplied nonzero factors, pass this fallback too.
+
+\begin{theorem}\label{t:H1}
+For every \(\pi\in\mathcal P_{\rm ext}\) and every
+\(m\in(\mathbb S^2)^{20}\),
+\[
+ Z_{\rm cur}(\pi;m)\ge
+ \begin{cases}
+ (961/1000)Z_{\rm next}(\pi;m),&\pi\text{ straight},\\
+ (187/200)Z_{\rm next}(\pi;m),&\pi\text{ turning}.
+ \end{cases}
+\]
+\end{theorem}
+
+\begin{proof}
+We first justify the finite reduction and the implication of its
+arithmetic tests. The finite assertions specified above constitute
+the local certificate, verified by the Lean kernel.
+
+The pattern enumeration is exhaustive because every free status
+and kept-set choice in Definition~\ref{d:pattern} appears in its
+indicated finite option list. Each complete assignment appears
+exactly once in their Cartesian product. The consistency predicate
+is precisely the requirement that both nonremoved non-tip ends
+make the same keep decision. A permitted out-neighbour is exactly
+a nonremoved E,N or W neighbour: it keeps its passage bond, and
+the passage site keeps that bond, so the out-bond is present.
+These observations prove that filtering and marking produce
+exactly all raw patterns, without a geometric or boundary assumption.
+
+A nonremoved isolated tip or corner contributes a positive factor
+depending only on its own slots, by Lemma~\ref{l:leaf}. It is
+the same factor in the current and next partition polynomials,
+because the only change is at the passage site and its out-bond.
+An isolated arrival site has no slot factors, and its probability
+functional applied to \(1\) is \(1\). The other nonremoved
+non-arrival neighbours are incident to their passage bonds and
+are not isolated. Removed sites contribute no factor. Thus all
+discarded factors are common and positive. Every remaining factor
+is determined by the present internal bonds, the remaining statuses
+and the prescribed external slots. In particular, two kept sets
+which give the same effective record cannot differ in a remaining
+factor: both corner slots are included independently of whether
+their original external bonds were kept.
+
+The reflection used for effective keys only renames template sites
+and external slot indices. Relabeling the finite product variables
+is a bijection preserving their U and D laws and every scalar
+product factor. It also preserves straight versus turning type.
+Consequently the checked effective record covers its entire
+reflection class, for arbitrary original unit slots, with the
+common positive factors just described. This proves the coverage
+implication of the finite key comparison, rather than inferring it
+from a list of pattern IDs.
+
+All moment contractions used in the reconstruction have separate
+degree at most four. A bonded tip has its three slots and its one
+bond. A corner has its two slots and at most two internal bonds.
+After passage integration, a neighbouring site has at most its
+three remaining factors and one inserted coordinate from a passage
+pair; the two members of such a pair are distinct. The arrival
+site has at most two present bonds and no passage insertion.
+Leaf replacements are exactly those of Lemma~\ref{l:leaf}.
+Thus Lemmas~\ref{l:moments} and \ref{l:Iw} justify the rational
+coefficient tensors, and Lemma~\ref{l:integercheck} identifies each
+reconstructed \(M_\epsilon\) with \(15D_0q\) times its inverted
+Pauli Hermitian-form matrix. Every scale here is positive.
+
+For a directly dominant block the first set of inequalities is
+Lemma~\ref{l:gram-residual} with \(L=0\). For either supplied
+nonzero factor, the checked residual inequalities and positive
+scales give the same conclusion by that lemma. In both cases
+\(M_\epsilon\) is positive definite.
+
+We justify also the optional removal of a common scalar in a
+fallback block. Put \(a=a_\epsilon>0\), and compare the displayed
+Bareiss recursion on \(B^{(0)}=M_\epsilon/a\) with the recursion
+of Lemma~\ref{l:integercheck} on \(A^{(0)}=M_\epsilon\).
+Induction on \(j\) gives, on the trailing entries,
+\[
+ A^{(j)}=a^{j+1}B^{(j)},\qquad
+ p_j=a^{j+1}b_j>0.
+\]
+For the induction step the numerator scales by \(a^{2j+2}\)
+and the preceding pivot scales by \(a^j\); the quotient is
+\(a^{j+2}B^{(j+1)}_{il}\). At \(j=0\) the preceding pivot
+is \(p_{-1}=b_{-1}=1\), so this calculation includes the initial
+step. Every normalized division is exact by its checked
+divisibility assertion, and therefore every unnormalized division
+is also exact and gives the displayed integer quotient. All
+unnormalized pivots are positive. Lemma~\ref{l:integercheck}
+therefore proves positivity of the actual \(M_\epsilon\).
+The trailing matrices remain symmetric: the two products in each
+numerator are unchanged when \(i,l\) are interchanged. Hence a
+checker may store and test their upper triangles and recover the
+lower triangles by symmetry, without omitting a distinct division.
+This argument requires neither a numerical factorization nor a
+claim that a supplied matrix has the required origin.
+
+For each pattern, all supported central exchange-sector forms are
+now positive definite. By the positive scale in
+Lemma~\ref{l:integercheck}, the same holds for the inverted Pauli
+operator on each central-weight space. Lemma~\ref{l:Ostruct}
+gives its Hermitian symmetry, the required commutators and the
+exchange-sector decomposition. Lemma~\ref{l:sector} extends
+positivity from each central-weight space to its full supported
+sector. The operator vanishes on discarded antisymmetric U-pair
+subspaces, by Lemma~\ref{l:Ostruct}; those zero subspaces do not
+require strict positivity. Hence the full inverted operator is
+positive semidefinite.
+
+Lemma~\ref{l:inversion} yields
+\(\widehat F_c\ge0\) on the product of closed unit balls, for
+the chosen groupwise inversion. Corollary~\ref{c:reduce} transfers
+this to \(F_c=Z_{\rm cur}-cZ_{\rm next}\ge0\) on the original
+twenty unit slots. Equivalently, on an assignment to the raw
+pattern, the common positive reduction factor multiplies a
+nonnegative reduced value. The preceding coverage argument proves
+this for every raw pattern and every unit slot assignment.
+Choosing its correct straight or turning threshold proves the
+two displayed inequalities.
+\end{proof}
+
+\begin{theorem}\label{t:inputs}
+At \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\), (H1) holds
+by the operator-only certificates of Appendix D, using the supplied
+Gram/residual checks and its Bareiss fallback.
+Property (H2) holds with
+\[
+ q=\frac{1119948287353}{1120437614225}<\frac{2499}{2500}<1,
+ \qquad C_V=10 .
+\]
+For the type-dependent coefficients of Lemma~\ref{l:log-mean-bounds},
+the orderings and vector \(h\) of Definition~\ref{d:kernel-order},
+and \(\rho_0=993015/10^6\), property (H3\(_h\)) holds.
+The latter assertion is supplied by five stationary lattice Bellman
+certificates with memory \(m=10\), exact prefix \(L=12\ge m+2\),
+radius \(R=70\), value scale \(2^{16}\), and coefficient scale
+\(2^{48}\), using the checked 3741-state automaton quotient.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+Proposition~\ref{p:automaton10} checks the labelled memory-ten
+quotient. Proposition~\ref{p:stationary-check} gives the five
+finite supersolution and exact-prefix assertions at
+\(L=12\ge10+2\), \(R=70\) and the stated two scales.
+Lemma~\ref{l:stationary-assembly} proves
+\(M_1h\le(993015/10^6)h\), uniformly for every finite
+true-trail cutoff. This is Definition~\ref{h:H3} for the stated
+type-dependent coefficients and fixed orderings.
+\end{proof}
+
+\subsection*{Certification scope}
+The mathematical reductions prove deterministic implications from
+the specified finite integer assertions to the pointwise local
+input and the two all-length trail inputs. The H1 calculation uses
+the frozen representation and inversion records. Its residual
+tests require all rows, and its fallback requires every division
+exact and every pivot positive. The fallback discharges exactly
+the blocks without supplied nonzero Gram factors, using the fixed
+representation and inversion records.
+
+Appendix C tests the true H2 revisit coefficient \(1/5\) and
+the stated rate \(q_*\). Its H3 assertion concerns the kernel of
+Definition~\ref{d:kernel}, with turning coefficient
+\(a_{\rm t}=150000/10^6\), the exact dyadic vector and the
+fixed orderings of Definition~\ref{d:kernel-order}. The stationary
+certificates retain the initial bond and initial-site rules,
+centre exclusion and first-hit target stopping at every suffix
+time. No periodic spatial walk, long-time remainder or parity
+improvement enters these input theorems.
+
+The finite assertions require regenerated mathematical index sets
+and coefficients. Supplied matrices, sector counts, numerical
+eigenvalues, file hashes, and native exit codes do not replace
+the prescribed comparisons. Each certificate is a proof of the
+specified finite assertions, checked by the Lean kernel as described
+at the beginning of this section. None of these arguments assumes
+a physical window estimate, a frame finite-energy bound, or a
+spectral-gap conclusion.

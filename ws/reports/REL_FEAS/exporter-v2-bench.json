@@ -1,0 +1,50 @@
+[
+  {
+    "command": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+      "--run",
+      "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/FastMainV2.lean",
+      "CertData.H3.Check.Raw.R0008",
+      "--",
+      "CertData.H3.Check.Raw.R0008.result",
+      "CertData.H3.Check.Raw.R0008.expected",
+      "CertData.H3.Check.Raw.R0008.checked"
+    ],
+    "exit": 0,
+    "wall_s": 35.418984314004774,
+    "sampled_peak_bytes": 9338216448,
+    "limit": null,
+    "rss_cap_gib": 22,
+    "timeout_s": 300,
+    "user_s": 13.54,
+    "system_s": 3.95,
+    "rss_kib": 9114384.0,
+    "sample": "h3-raw-small",
+    "byte_identical": true,
+    "sha256": "8a017d6b08c81d4b08092eee5e5a2b34d0cfa13719f625b01dd53305648cc4f8"
+  },
+  {
+    "command": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+      "--run",
+      "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/FastMainV2.lean",
+      "CertData.H3.B1.Check.Prefix.P0043",
+      "--",
+      "CertData.H3.B1.Check.Prefix.P0043.result",
+      "CertData.H3.B1.Check.Prefix.P0043.expected",
+      "CertData.H3.B1.Check.Prefix.P0043.checked"
+    ],
+    "exit": 0,
+    "wall_s": 180.03164303499216,
+    "sampled_peak_bytes": 9468411904,
+    "limit": null,
+    "rss_cap_gib": 22,
+    "timeout_s": 300,
+    "user_s": 83.98,
+    "system_s": 4.72,
+    "rss_kib": 9241868.0,
+    "sample": "h3-prefix-empty",
+    "byte_identical": true,
+    "sha256": "7ef5c33f15c001b8e012ffb5f92c3aa79e3795aa2c75883b300b035377d3fb56"
+  }
+]

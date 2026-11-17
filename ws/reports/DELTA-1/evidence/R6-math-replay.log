@@ -1,0 +1,21 @@
+ENUM raw configurations: 106101
+ENUM effective: 7962 straight: 2696 turn: 5266
+ENUM records: 7962 distinct: 7962 missing: 0 extra: 0
+NUMERICAL stored minimum: straight pid 7645 min57 0.961239825
+NUMERICAL stored minimum: turn pid 1382 min57 0.93556492
+DIM all records: max unreduced 12 max reduced 11 unreduced=12 records 36
+DIM pid 113: unreduced 12 reduced 9 groups [('single', (1, 0)), ('dpair', (1, 1)), ('single', (0, 1)), ('dpair', (-1, 1)), ('single', (-1, 0)), ('dpair', (-1, -1)), ('single', (0, -1)), ('dpair', (1, -1))]
+CERT certificates_covered_operator_only.jsonl coverage/threshold/model/tipradius/inversion groups: PASS; operator 7962 closed 0 unreduced [(3596, 11), (7725, 11)] max selected n 11
+BLOCK pid 711 split dimensions [179, 66, 66, 25, 66, 25, 25, 10] stored [10, 25, 25, 25, 66, 66, 66, 179]
+BLOCK pid 3596 split dimensions [131, 48, 48, 18] stored [245]
+BLOCK pid 7725 split dimensions [131, 48, 48, 18] stored [18, 48, 48, 131]
+BLOCK max selected: 179 central exchange blocks: 12173 combined diagnostics: 141
+CERT certificates_covered.jsonl coverage/threshold/model/tipradius/inversion groups: PASS; operator 3227 closed 4735 unreduced [(3596, 11)] max selected n 11
+CLOSED exact H1 tests/radii: 4735 {'turn': 3182, 'straight': 1553} all PASS
+VALUE pid 7645 radii {'(1, 0)': '740/2193', '(-1, 0)': '3/25', '(0, 1)': '7/24'} exact 3825127/3979368 attained at t=1; test at value PASS; value+1e-12 FAIL
+VALUE pid 1382 radii {'(1, 0)': '112/275', '(-1, 0)': '112/275', '(0, 1)': '3/25'} exact 1071655/1145463 attained at t=1; test at value PASS; value+1e-12 FAIL
+VALUE pid 5469 radii {'(1, 0)': '169/385', '(-1, 0)': '169/385'} exact 416114/444675 attained at t=1; test at value PASS; value+1e-12 FAIL
+WITNESS direct moment messages: tip 3/5 corner 1/2 E/W 169/385 N 1/5
+WITNESS ratio: 1040285/1131207 decimal 0.9196239061462668 187/200 minus ratio 3478709/226241400
+WITNESS broad-reading consistency (C): PASS; key in frozen records: False
+GUARD exact lower factor > 1/2: True and > 1-1/10^12: True

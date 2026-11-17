@@ -1,0 +1,94 @@
+def AKLT.Blueprint.Q.IncidentEvaluationStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3) (x : Site L N) (ψ : Hilbert L N) (χ : SpinorPolynomial L N),
+  statePolynomial ψ = incidentProduct x * χ →
+    independentAt x χ →
+      (∀ (σ : TorusConfiguration L N),
+          frameEval κ ψ σ =
+            centreSign x * beta κ x σ * (MvPolynomial.eval fun v => frameSpinor (κ v.1) (σ v.1) v.2) χ) ∧
+        inFibreSpan κ x (frameEval κ ψ)
+def AKLT.Blueprint.Q.GroundFibreFactorizationStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3),
+  (∀ (σ : TorusConfiguration L N),
+      frameEval κ (B L N) σ =
+        ∏ e, determinant (frameSpinor (κ e.1) (σ e.1)) (frameSpinor (κ (nextSite e.1 e.2)) (σ (nextSite e.1 e.2)))) →
+    ∀ (x : Site L N),
+      (∀ (σ : TorusConfiguration L N), frameEval κ (B L N) σ = beta κ x σ * rho κ x σ) ∧
+        ∀ (σ : Site L N → IcoLetter) (a : IcoLetter), rho κ x (Function.update σ x a) = rho κ x σ
+def AKLT.Blueprint.Q.GroundTransformStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3),
+  B L N ≠ 0 →
+    (∀ (σ : TorusConfiguration L N), frameEval κ (B L N) σ ≠ 0) →
+      (∀ (σ : TorusConfiguration L N),
+          torusLaw L N κ σ = torusReference L N σ * Complex.normSq (frameEval κ (B L N) σ) / ‖B L N‖ ^ 2) →
+        (∀ (f : TorusConfiguration L N → ℂ),
+            weightedNorm (torusReference L N) (groundTransform κ f) = weightedNorm (torusLaw L N κ) f) ∧
+          (∀ (ψ : Hilbert L N), groundTransform κ (groundQuotient κ ψ) = frameEval κ ψ) ∧
+            ∀ (f : TorusConfiguration L N → ℂ) (σ : TorusConfiguration L N),
+              ↑‖B L N‖ * groundTransform κ f σ / frameEval κ (B L N) σ = f σ
+def AKLT.Blueprint.Q.FibreIntertwiningStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3) (x : Site L N),
+  B L N ≠ 0 →
+    (∀ (σ : TorusConfiguration L N), beta κ x σ ≠ 0) →
+      (∀ (σ : TorusConfiguration L N), frameEval κ (B L N) σ = beta κ x σ * rho κ x σ) →
+        (∀ (σ : Site L N → IcoLetter) (a : IcoLetter), rho κ x (Function.update σ x a) = rho κ x σ) →
+          (∀ (σ : TorusConfiguration L N),
+              torusLaw L N κ σ = torusReference L N σ * Complex.normSq (frameEval κ (B L N) σ) / ‖B L N‖ ^ 2) →
+            (∀ (σ : TorusConfiguration L N), frameEval κ (B L N) σ ≠ 0) →
+              (∀ (f : (Site L N → IcoLetter) → ℂ),
+                  groundTransform κ (conditionalExpectation (torusLaw L N κ) {x} f) =
+                    fibreProjection κ x (groundTransform κ f)) ∧
+                ∀ (f : (Site L N → IcoLetter) → ℂ),
+                  blockDirichlet (torusLaw L N κ) {x} f =
+                    weightedNorm (torusReference L N) (groundTransform κ f - fibreProjection κ x (groundTransform κ f))
+def AKLT.Blueprint.Q.FibreProjectionStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3) (x : Site L N),
+  (∀ (σ : TorusConfiguration L N), beta κ x σ ≠ 0) →
+    (∀ (σ : TorusConfiguration L N), 0 < fibreDenominator κ x σ) ∧
+      (∀ (h : TorusConfiguration L N → ℂ), inFibreSpan κ x (fibreProjection κ x h)) ∧
+        (∀ (h : TorusConfiguration L N → ℂ), inFibreSpan κ x h → fibreProjection κ x h = h) ∧
+          ∀ (h k : TorusConfiguration L N → ℂ),
+            inFibreSpan κ x k →
+              weightedNorm (torusReference L N) (h - fibreProjection κ x h) ≤ weightedNorm (torusReference L N) (h - k)
+def AKLT.Blueprint.Q.WeightedPolarizationStatement : Prop :=
+∀ (ι Ω : Type) [inst : Fintype ι] [inst_1 : Fintype Ω] (w : Weight Ω) (E : EuclideanSpace ℂ ι →ₗ[ℂ] Ω → ℂ),
+  (∀ (ψ : EuclideanSpace ℂ ι), weightedNorm w (E ψ) = ‖ψ‖ ^ 2) →
+    ∀ (ψ φ : EuclideanSpace ℂ ι), weightedInner w (E ψ) (E φ) = inner ℂ ψ φ
+def AKLT.Blueprint.Q.GroundQuotientVarianceStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3),
+  B L N ≠ 0 →
+    (∀ (σ : TorusConfiguration L N), frameEval κ (B L N) σ ≠ 0) →
+      (∀ (σ : TorusConfiguration L N),
+          torusLaw L N κ σ = torusReference L N σ * Complex.normSq (frameEval κ (B L N) σ) / ‖B L N‖ ^ 2) →
+        (∀ (ψ φ : Hilbert L N), weightedInner (torusReference L N) (frameEval κ ψ) (frameEval κ φ) = inner ℂ ψ φ) →
+          ∀ (ψ : Hilbert L N),
+            inner ℂ (B L N) ψ = 0 →
+              complexMean (torusLaw L N κ) (groundQuotient κ ψ) = 0 ∧
+                variance (torusLaw L N κ) (groundQuotient κ ψ) = ‖ψ‖ ^ 2
+def AKLT.Blueprint.Q.BetaNonzeroStatement : Prop :=
+∀ (L N : Size) (κ : Site L N → Fin 3),
+  (∀ (e : Bond L N) (σ : TorusConfiguration L N),
+      0 <
+        Complex.normSq
+          (determinant (frameSpinor (κ e.1) (σ e.1)) (frameSpinor (κ (nextSite e.1 e.2)) (σ (nextSite e.1 e.2))))) →
+    ∀ (x : Site L N) (σ : TorusConfiguration L N), beta κ x σ ≠ 0
+def AKLT.Defs.physicalEval : {L N : Size} → Hilbert L N → (Site L N → Spinor) → ℂ :=
+fun {L N} ψ z => ∑ σ, ψ.ofLp σ * ∏ x, ↑√↑(Nat.choose 4 ↑(σ x)) * z x 0 ^ (4 - ↑(σ x)) * z x 1 ^ ↑(σ x)
+def AKLT.Challenge.monomialDegree : {L N : Size} → Configuration L N → Site L N × Fin 2 →₀ ℕ :=
+fun {L N} σ => Finsupp.equivFunOnFinite.symm fun p => if p.2 = 0 then 4 - ↑(σ p.1) else ↑(σ p.1)
+@weightedNorm : {A : Type u_1} → [Fintype A] → Weight A → (A → ℂ) → ℝ
+@weightedInner : {A : Type u_1} → [Fintype A] → Weight A → (A → ℂ) → (A → ℂ) → ℂ
+@conditionalExpectation : {ι : Type u_1} →
+  [Fintype ι] →
+    [DecidableEq ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype (S x)] → Weight ((x : ι) → S x) → Finset ι → (((x : ι) → S x) → ℂ) → ((x : ι) → S x) → ℂ
+@inFibreSpan : {L N : Size} → (Site L N → Fin 3) → Site L N → (TorusConfiguration L N → ℂ) → Prop
+@inner_smul_left : ∀ {𝕜 : Type u_1} {E : Type u_2} [inst : RCLike 𝕜] [inst_1 : SeminormedAddCommGroup E]
+  [inst_2 : InnerProductSpace 𝕜 E] (x y : E) (r : 𝕜), inner 𝕜 (r • x) y = (starRingEnd 𝕜) r * inner 𝕜 x y
+@inner_smul_right : ∀ {𝕜 : Type u_1} {E : Type u_2} [inst : RCLike 𝕜] [inst_1 : SeminormedAddCommGroup E]
+  [inst_2 : InnerProductSpace 𝕜 E] (x y : E) (r : 𝕜), inner 𝕜 x (r • y) = r * inner 𝕜 x y
+@Complex.normSq_eq_conj_mul_self : ∀ {z : ℂ}, ↑(Complex.normSq z) = (starRingEnd ℂ) z * z
+instFintypeProd (ZMod ↑L) (ZMod ↑N)
+fun a b => instDecidableEqProd a b
+Pi.instFintype
+instFintypeProd (Fin 3) (Fin 2 × Fin 2)

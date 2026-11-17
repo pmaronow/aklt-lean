@@ -1,0 +1,124 @@
+AKLT.Blueprint.Rec.CoveredDepartureV2 {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y : AKLT.Defs.Plane)
+  (incoming outgoing : AKLT.Defs.Compass) : Prop
+AKLT.Blueprint.Rec.PairData : Type
+AKLT.Blueprint.Rec.PairData.normalized (p : AKLT.Blueprint.Rec.PairData) : AKLT.Defs.Network p.G
+AKLT.Blueprint.Rec.PairSetup : Type
+AKLT.Blueprint.Rec.RenewalRows (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (h : AKLT.Defs.PairType → ℝ)
+  (θ ρ : ℝ) : Prop
+AKLT.Blueprint.Rec.firstLength (p : AKLT.Blueprint.Rec.PairData) (n : ℕ) : ℝ
+AKLT.Blueprint.Rec.firstTerm (p : AKLT.Blueprint.Rec.PairData) : ℝ
+AKLT.Blueprint.Rec.genericAmplitude (h : AKLT.Defs.PairType → ℝ) (CT ρ : ℝ) : ℝ
+AKLT.Blueprint.Rec.hmax (h : AKLT.Defs.PairType → ℝ) : ℝ
+AKLT.Blueprint.Rec.hmin (h : AKLT.Defs.PairType → ℝ) : ℝ
+AKLT.Blueprint.Rec.kernelMajorant (CV q θ : ℝ) (n : ℕ) : ℝ
+AKLT.Blueprint.Rec.normalizeStart {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (u c : AKLT.Defs.Plane) :
+  AKLT.Defs.Network G
+AKLT.Blueprint.Rec.prefixNetwork {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (w : AKLT.Defs.DirectionWord n) (j : ℕ) : AKLT.Defs.Network G
+AKLT.Blueprint.Rec.protectedDistance (G : Finset AKLT.Defs.Plane) (x : AKLT.Defs.Plane) : ℕ
+AKLT.Blueprint.Rec.recursionSeries (X : AKLT.Defs.PairType) (d : ℤ) : ℝ
+AKLT.Blueprint.Rec.renewalIterate (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ)
+  (f : AKLT.Defs.PairType → ℤ → ℝ) : ℕ → AKLT.Defs.PairType → ℤ → ℝ
+AKLT.Blueprint.Rec.renewalOp (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (f : AKLT.Defs.PairType → ℤ → ℝ)
+  (X : AKLT.Defs.PairType) (d : ℤ) : ℝ
+AKLT.Blueprint.Rec.renewalSource (CT q : ℝ) (_X : AKLT.Defs.PairType) (d : ℤ) : ℝ
+AKLT.Blueprint.Rec.secondTerm (p : AKLT.Blueprint.Rec.PairData) : ℝ
+AKLT.Blueprint.Rec.shiftedLength (θ : ℝ) (X Y : AKLT.Defs.PairType) (n : ℕ) : ENNReal
+AKLT.Blueprint.Rec.sourceConstant (CV q : ℝ) : ℝ
+AKLT.Blueprint.Rec.stoppedSum {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (T : Finset AKLT.Defs.Plane) (f : (n : ℕ) → AKLT.Defs.DirectionWord n → ℝ) : ℝ
+AKLT.Blueprint.Rec.transportRho : ℝ
+AKLT.Blueprint.Rec.transportTheta (CV q : ℝ) : ℝ
+AKLT.Blueprint.Rec.uncoveredCount {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) : ℕ
+AKLT.Defs.AdmissibleTarget {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (v : AKLT.Defs.Plane) : Prop
+AKLT.Defs.ClosedTrail {n : ℕ} (X : AKLT.Defs.PairType) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.FiniteSpinNetwork.Valid {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) : Prop
+AKLT.Defs.Network.Auxiliary {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) : Prop
+AKLT.Defs.Network.Consistent {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) : Prop
+AKLT.Defs.Network.ResponsePair {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (X : AKLT.Defs.PairType)
+  (u v c : AKLT.Defs.Plane) : Prop
+AKLT.Defs.Network.partition {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (f : (AKLT.Defs.Plane → AKLT.Defs.Vec3) → ℝ) : ℝ
+AKLT.Defs.PatternData.Covered (π : AKLT.Defs.PatternData) : Prop
+AKLT.Defs.StoppedNetworkTrail {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (T : Finset AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.alphaBound (straight : Bool) : ℚ
+AKLT.Defs.betaBound (straight : Bool) : ℚ
+AKLT.Defs.betaPrimeBound (straight : Bool) : ℚ
+AKLT.Defs.kernelLengthCoefficient (X Y : AKLT.Defs.PairType) (s n : ℕ) : ℚ
+AKLT.Defs.kernelOrdering {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.localMean {k : ℕ} (s : AKLT.Defs.Status) (a : Fin k → AKLT.Defs.Vec3) : AKLT.Defs.Vec3
+AKLT.Defs.localThreshold : Bool → ℚ
+AKLT.Defs.logMeanLower (s : ℚ) : ℚ
+AKLT.Defs.logMeanUpper (s : ℚ) : ℚ
+AKLT.Defs.logarithmicMean (x y : ℝ) : ℝ
+AKLT.Defs.pairShift (X : AKLT.Defs.PairType) (p : Finset AKLT.Defs.Plane) : ℕ
+AKLT.Defs.patternCurrent (π : AKLT.Defs.PatternData) (m : Fin 20 → AKLT.Defs.UnitVector) : ℝ
+AKLT.Defs.patternNext (π : AKLT.Defs.PatternData) (m : Fin 20 → AKLT.Defs.UnitVector) : ℝ
+AKLT.Defs.reciprocalLogMean (s : ℝ) : ℝ
+AKLT.Defs.removedPairMean {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y a b : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.responseEnvelope (X : AKLT.Defs.PairType) (d : ℤ) : ℝ
+AKLT.Defs.responseI {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y o f g : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.responseJ {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y f g : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.responsePairs {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset (Finset AKLT.Defs.Plane)
+AKLT.Defs.shiftKernel (X Y : AKLT.Defs.PairType) (s : ℕ) : ENNReal
+AKLT.Defs.shiftedKernel (θ : ℝ) (X Y : AKLT.Defs.PairType) : ENNReal
+AKLT.Defs.siteFunctional (s : AKLT.Defs.Status) (f : AKLT.Defs.Vec3 → ℝ) : ℝ
+AKLT.Defs.stepRatio {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y o : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.stoppedNetworkTrails {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (T : Finset AKLT.Defs.Plane) (n : ℕ) : Finset (AKLT.Defs.DirectionWord n)
+AKLT.Defs.traceCoefficient {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) : List AKLT.Defs.Plane → ℚ
+AKLT.Defs.traceNetwork {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) :
+  List AKLT.Defs.Plane → AKLT.Defs.Network G
+AKLT.Defs.traceStep {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y o : AKLT.Defs.Plane) : AKLT.Defs.Network G
+ENNReal.ofReal_tsum_of_nonneg.{u_1} {α : Type u_1} {f : α → ℝ} (hf_nonneg : ∀ (n : α), 0 ≤ f n) (hf : Summable f) :
+  ENNReal.ofReal (∑' (n : α), f n) = ∑' (n : α), ENNReal.ofReal (f n)
+ENNReal.tsum_eq_iSup_sum.{u_1} {α : Type u_1} {f : α → ENNReal} : ∑' (a : α), f a = ⨆ s, ∑ a ∈ s, f a
+ENNReal.tsum_le_tsum.{u_1} {α : Type u_1} {f g : α → ENNReal} (h : ∀ (a : α), f a ≤ g a) :
+  ∑' (a : α), f a ≤ ∑' (a : α), g a
+Finset.abs_sum_le_sum_abs.{u_1, u_8} {ι : Type u_1} {G : Type u_8} [AddCommGroup G] [LinearOrder G]
+  [IsOrderedAddMonoid G] (f : ι → G) (s : Finset ι) : |∑ i ∈ s, f i| ≤ ∑ i ∈ s, |f i|
+Finset.card_image_iff.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Finset α} {f : α → β} [DecidableEq β] :
+  (Finset.image f s).card = s.card ↔ Set.InjOn f ↑s
+Finset.card_le_card.{u_1} {α : Type u_1} {s t : Finset α} : s ⊆ t → s.card ≤ t.card
+Finset.mem_erase.{u_1} {α : Type u_1} [DecidableEq α] {a b : α} {s : Finset α} : a ∈ s.erase b ↔ a ≠ b ∧ a ∈ s
+Finset.mem_sdiff.{u_1} {α : Type u_1} [DecidableEq α] {s t : Finset α} {a : α} : a ∈ s \ t ↔ a ∈ s ∧ a ∉ t
+Finset.mul_sum.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+Finset.prod_mul_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [CommMonoid M] {f g : ι → M} :
+  ∏ x ∈ s, f x * g x = (∏ x ∈ s, f x) * ∏ x ∈ s, g x
+Finset.sum_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f g : ι → M}
+  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+Finset.sum_mul.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+Finset.sum_range_succ.{u_4} {M : Type u_4} [AddCommMonoid M] (f : ℕ → M) (n : ℕ) :
+  ∑ x ∈ Finset.range (n + 1), f x = ∑ x ∈ Finset.range n, f x + f n
+Real.hasDerivAt_log {x : ℝ} (hx : x ≠ 0) : HasDerivAt Real.log x⁻¹ x
+Real.log_div {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) : Real.log (x / y) = Real.log x - Real.log y
+Summable.tsum_add.{u_1, u_2} {α : Type u_1} {β : Type u_2} [AddCommMonoid α] [TopologicalSpace α] {f g : β → α}
+  {L : SummationFilter β} [T2Space α] [ContinuousAdd α] [L.NeBot] (hf : Summable f L) (hg : Summable g L) :
+  ∑'[L] (b : β), (f b + g b) = ∑'[L] (b : β), f b + ∑'[L] (b : β), g b
+Summable.tsum_le_tsum.{u_1, u_3} {ι : Type u_1} {α : Type u_3} {L : SummationFilter ι} [AddCommMonoid α] [Preorder α]
+  [IsOrderedAddMonoid α] [TopologicalSpace α] [OrderClosedTopology α] {f g : ι → α} [L.NeBot] (h : ∀ (i : ι), f i ≤ g i)
+  (hf : Summable f L) (hg : Summable g L) : ∑'[L] (i : ι), f i ≤ ∑'[L] (i : ι), g i
+csSup_le.{u_1} {α : Type u_1} [ConditionallyCompleteLattice α] {s : Set α} {a : α} (h₁ : s.Nonempty)
+  (h₂ : ∀ b ∈ s, b ≤ a) : sSup s ≤ a
+hasSum_coe_mul_geometric_of_norm_lt_one.{u_5} {𝕜 : Type u_5} [NormedDivisionRing 𝕜] {r : 𝕜} (hr : ‖r‖ < 1) :
+  HasSum (fun n => ↑n * r ^ n) (r / (1 - r) ^ 2)
+hasSum_geometric_of_lt_one {r : ℝ} (h₁ : 0 ≤ r) (h₂ : r < 1) : HasSum (fun n => r ^ n) (1 - r)⁻¹
+hasSum_sq_mul_geometric_of_norm_lt_one.{u_5} {𝕜 : Type u_5} [NormedDivisionRing 𝕜] {r : 𝕜} (hr : ‖r‖ < 1) :
+  HasSum (fun n => ↑n ^ 2 * r ^ n) (r * (1 + r) / (1 - r) ^ 3)
+intervalIntegral.integral_mono_on {f g : ℝ → ℝ} {a b : ℝ} {μ : MeasureTheory.Measure ℝ} (hab : a ≤ b)
+  (hf : IntervalIntegrable f μ a b) (hg : IntervalIntegrable g μ a b) (h : ∀ x ∈ Set.Icc a b, f x ≤ g x) :
+  ∫ (u : ℝ) in a..b, f u ∂μ ≤ ∫ (u : ℝ) in a..b, g u ∂μ
+le_csSup.{u_1} {α : Type u_1} [ConditionallyCompleteLattice α] {s : Set α} {a : α} (h₁ : BddAbove s) (h₂ : a ∈ s) :
+  a ≤ sSup s
+tendsto_pow_atTop_nhds_zero_of_lt_one.{u_4} {𝕜 : Type u_4} [Semifield 𝕜] [LinearOrder 𝕜] [IsStrictOrderedRing 𝕜]
+  [ExistsAddOfLE 𝕜] [Archimedean 𝕜] [TopologicalSpace 𝕜] [OrderTopology 𝕜] {r : 𝕜} (h₁ : 0 ≤ r) (h₂ : r < 1) :
+  Filter.Tendsto (fun n => r ^ n) Filter.atTop (nhds 0)
+elapsed_seconds=3.50

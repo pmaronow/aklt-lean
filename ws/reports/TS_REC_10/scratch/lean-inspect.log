@@ -1,0 +1,146 @@
+def AKLT.Blueprint.Rec.EnvelopeBoundsStatement : Prop :=
+∀ (X : AKLT.Defs.PairType) (d : ℤ), 0 ≤ AKLT.Defs.responseEnvelope X d ∧ AKLT.Defs.responseEnvelope X d ≤ 2
+def AKLT.Blueprint.Rec.EnvelopeOrderStatement : Prop :=
+(∀ (X : AKLT.Defs.PairType), ∀ d < 0, AKLT.Defs.responseEnvelope X d = AKLT.Defs.responseEnvelope X 0) ∧
+  ∀ (X : AKLT.Defs.PairType), Antitone (AKLT.Defs.responseEnvelope X)
+def AKLT.Blueprint.Rec.ProtectedDistanceFiniteStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane),
+  G.Nonempty →
+    (AKLT.Defs.protectedSites G).Nonempty ∧
+      ∀ (x : AKLT.Defs.Plane), AKLT.Defs.setDistance AKLT.Defs.latticeDist x ↑(AKLT.Defs.protectedSites G) ≠ ⊤
+def AKLT.Blueprint.Rec.PairCanonicalGeometryStatement : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairData),
+  ∃ φ,
+    φ p.c = AKLT.Defs.kernelCentre ∧
+      φ p.u = AKLT.Defs.kernelStart ∧
+        φ p.v = AKLT.Defs.kernelTarget p.X ∧
+          ∀ (x y : AKLT.Defs.Plane), AKLT.Defs.latticeDist (φ x) (φ y) = AKLT.Defs.latticeDist x y
+def AKLT.Blueprint.Rec.TraceExposureStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        ∀ (T : Finset AKLT.Defs.Plane) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+          AKLT.Defs.StoppedNetworkTrail D u T w →
+            ∀ (σ : Equiv.Perm (Fin n)) (x : Fin n → ℝ),
+              (∀ (i : Fin n),
+                  1 ≤ x i ∧
+                    AKLT.Defs.stepRatio (AKLT.Blueprint.Rec.prefixNetwork D u w ↑i) τ Bool.true
+                        (AKLT.Defs.wordVertex u w ↑i) (AKLT.Defs.wordVertex u w (↑i + 1)) ≤
+                      x i) →
+                |AKLT.Defs.traceRatio D τ Bool.true (AKLT.Defs.wordVertices u w) -
+                      AKLT.Defs.traceRatio D τ Bool.false (AKLT.Defs.wordVertices u w)| ≤
+                  ∑ k,
+                    |Real.log
+                            (AKLT.Defs.stepRatio (AKLT.Blueprint.Rec.prefixNetwork D u w ↑(σ k)) τ Bool.false
+                              (AKLT.Defs.wordVertex u w ↑(σ k)) (AKLT.Defs.wordVertex u w (↑(σ k) + 1))) -
+                          Real.log
+                            (AKLT.Defs.stepRatio (AKLT.Blueprint.Rec.prefixNetwork D u w ↑(σ k)) τ Bool.true
+                              (AKLT.Defs.wordVertex u w ↑(σ k)) (AKLT.Defs.wordVertex u w (↑(σ k) + 1)))| *
+                      ∏ l with ↑l ≤ ↑k, x (σ l)
+def AKLT.Blueprint.Rec.PairEnvelopeShiftStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (E : AKLT.Defs.Network G) (X : AKLT.Defs.PairType)
+  (a b c : AKLT.Defs.Plane),
+  E.ResponsePair X a b c →
+    ∀ (u v : AKLT.Defs.Plane) (d : ℕ),
+      ↑d ≤
+          Min.min (AKLT.Defs.setDistance AKLT.Defs.latticeDist u ↑(AKLT.Defs.protectedSites G))
+            (AKLT.Defs.setDistance AKLT.Defs.latticeDist v ↑(AKLT.Defs.protectedSites G)) →
+        have s :=
+          Max.max (Min.min (AKLT.Defs.latticeDist a u) (AKLT.Defs.latticeDist a v))
+            (Min.min (AKLT.Defs.latticeDist b u) (AKLT.Defs.latticeDist b v));
+        |(E.expectation τ Bool.true fun n => AKLT.Defs.dot (n a) (n b)) -
+              E.expectation τ Bool.false fun n => AKLT.Defs.dot (n a) (n b)| ≤
+          AKLT.Defs.responseEnvelope X (↑d - ↑s)
+def AKLT.Blueprint.Rec.TraceKernelLengthStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (p : AKLT.Blueprint.Rec.PairData) (d : ℕ),
+    1 ≤ d →
+      ↑d ≤ p.depth →
+        ∀ (n : ℕ),
+          |AKLT.Blueprint.Rec.firstLength p n| ≤
+            ∑ Y,
+              ∑ s ∈ Finset.range (n + 2),
+                ↑(AKLT.Defs.kernelLengthCoefficient p.X Y s n) * AKLT.Defs.responseEnvelope Y (↑d - ↑s)
+def AKLT.Blueprint.Rec.ResidualTargetBoundStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (CV q : ℝ),
+    AKLT.Defs.OpenTrailBound CV q →
+      ∀ (p : AKLT.Blueprint.Rec.PairData),
+        p.u ∉ AKLT.Defs.protectedSites p.G →
+          p.v ∉ AKLT.Defs.protectedSites p.G →
+            ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+              AKLT.Defs.StoppedNetworkTrail p.normalized p.u (Insert.insert p.v (AKLT.Defs.protectedSites p.G)) w →
+                AKLT.Defs.wordVertex p.u w n ∈ AKLT.Defs.protectedSites p.G →
+                  ∀ (b : Bool),
+                    |(AKLT.Defs.traceNetwork p.normalized (AKLT.Defs.wordVertices p.u w)).expectation p.τ b fun a =>
+                          AKLT.Defs.dot (a (AKLT.Defs.wordVertex p.u w n)) (a p.v)| ≤
+                      AKLT.Blueprint.Rec.onePointConstant CV q * q ^ AKLT.Blueprint.Rec.protectedDistance p.G p.v
+structure AKLT.Blueprint.Rec.PairData : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.PairData.G : Finset AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.PairData.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.PairData.X : AKLT.Defs.PairType
+  AKLT.Blueprint.Rec.PairData.u : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.v : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.c : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.pair : self.D.ResponsePair self.X self.u self.v self.c
+constructor:
+  AKLT.Blueprint.Rec.PairData.mk (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G)
+    (X : AKLT.Defs.PairType) (u v c : AKLT.Defs.Plane) (pair : D.ResponsePair X u v c) : AKLT.Blueprint.Rec.PairData
+def AKLT.Defs.Network.ResponsePair : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.PairType → AKLT.Defs.Plane → AKLT.Defs.Plane → AKLT.Defs.Plane → Prop :=
+fun {G} D X u v c =>
+  D.Consistent ∧
+    u ∈ D.active ∧
+      v ∈ D.active ∧
+        c ∈ G ∧
+          D.status c = AKLT.Defs.Status.X ∧
+            AKLT.Defs.Adjacent u c ∧
+              AKLT.Defs.Adjacent v c ∧
+                AKLT.Defs.HasPairType X u v ∧
+                  (D.status u = AKLT.Defs.Status.U ∨
+                      D.status u = AKLT.Defs.Status.D ∧ (D.presentNeighbours u).card ≤ 1) ∧
+                    (D.status v = AKLT.Defs.Status.U ∨
+                      D.status v = AKLT.Defs.Status.D ∧ (D.presentNeighbours v).card ≤ 1)
+def AKLT.Defs.OpenTrailBound : ℝ → ℝ → Prop :=
+fun CV q =>
+  1 ≤ CV ∧
+    0 < q ∧
+      q < 1 ∧
+        ∀ (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass),
+          (∑ w, if AKLT.Defs.IsTrail u incoming w then ↑(AKLT.Defs.trailWeight u incoming w) else 0) ≤ CV * q ^ n
+def AKLT.Blueprint.Top.H1Statement : Prop :=
+AKLT.Defs.LocalPatternBound (961 / 1000) (187 / 200)
+def AKLT.Blueprint.Rec.firstLength : AKLT.Blueprint.Rec.PairData → ℕ → ℝ :=
+fun p n =>
+  ∑ w ∈ AKLT.Defs.stoppedNetworkTrails p.normalized p.u (Insert.insert p.v (AKLT.Defs.protectedSites p.G)) n,
+    if AKLT.Defs.wordVertex p.u w n = p.v then
+      ↑(AKLT.Defs.traceCoefficient p.normalized (AKLT.Defs.wordVertices p.u w)) *
+          (AKLT.Defs.traceRatio p.normalized p.τ Bool.true (AKLT.Defs.wordVertices p.u w) -
+            AKLT.Defs.traceRatio p.normalized p.τ Bool.false (AKLT.Defs.wordVertices p.u w)) *
+        AKLT.Blueprint.Rec.targetFactor p.D p.v
+    else 0
+def AKLT.Defs.responseEnvelope : AKLT.Defs.PairType → ℤ → ℝ :=
+fun X d =>
+  SupSet.sSup
+    ({0} ∪
+      {r |
+        ∃ G τ D u v c,
+          D.ResponsePair X u v c ∧
+            ↑d.toNat ≤
+                Min.min (AKLT.Defs.setDistance AKLT.Defs.latticeDist u ↑(AKLT.Defs.protectedSites G))
+                  (AKLT.Defs.setDistance AKLT.Defs.latticeDist v ↑(AKLT.Defs.protectedSites G)) ∧
+              r =
+                |(D.expectation τ Bool.true fun n => AKLT.Defs.dot (n u) (n v)) -
+                    D.expectation τ Bool.false fun n => AKLT.Defs.dot (n u) (n v)|})
+AKLT.Defs.PairType : Type
+AKLT.Defs.instFintypePairType
+Pi.instFintype
+AKLT.Blueprint.Rec.protectedDistance (G : Finset AKLT.Defs.Plane) (x : AKLT.Defs.Plane) : ℕ
+AKLT.Blueprint.Rec.kernelMajorant (CV q θ : ℝ) (n : ℕ) : ℝ
+0
+0
+{ val := Quot.mk List.Perm [0, 1], nodup := ⋯ }

@@ -1,0 +1,163 @@
+AKLT/W/Q027/Main.lean:23:        (Submodule.re_inner_starProjection_nonneg (spin4Space f) ψ)
+AKLT/W/Q027/Main.lean:29:    rw [← Submodule.re_inner_starProjection_eq_normSq (spin4Space e) ψ]
+AKLT/W/Q027/Main.lean:33:  simp [P, Submodule.starProjection_apply, hproj]
+AKLT/W/Q020/Main.lean:48:    WithLp.toLp 2 (fun p => Ks.starProjection (fibre u p.1) p.2)
+AKLT/W/Q020/Main.lean:50:  have hfibq (r : Fin n) : fibre q r = Ks.starProjection (fibre u r) := by
+AKLT/W/Q020/Main.lean:60:    have hfiber : fibre (U v) r = Ks.starProjection (fibre u r) := by
+AKLT/W/Q020/Main.lean:63:        Ks.starProjection (fibre u r) := by simpa [fibre] using hfiber
+AKLT/W/Q020/Main.lean:65:    have hproj : Ks.starProjection (fibre u r) ∈ Ks := Ks.starProjection_apply_mem _
+AKLT/W/Q020/Main.lean:66:    have hzero : starHamiltonian (Ks.starProjection (fibre u r)) = 0 :=
+AKLT/W/Q020/Main.lean:86:    have hzero := Ks.starProjection_inner_eq_zero (fibre u r) (fibre (U w) r) hwfib
+AKLT/W/Q020/Main.lean:87:    have hdiff : fibre (u - q) r = fibre u r - Ks.starProjection (fibre u r) := by
+AKLT/W/Q020/Main.lean:91:  have hproj : K.starProjection ψ = v :=
+AKLT/W/Q020/Main.lean:92:    K.eq_starProjection_of_mem_of_inner_eq_zero hvK hvOrth
+AKLT/W/Q020/Main.lean:93:  have hnorm : ‖ψ - K.starProjection ψ‖ ^ 2 =
+AKLT/W/Q020/Main.lean:94:      ∑ r : Fin n, ‖fibre u r - Ks.starProjection (fibre u r)‖ ^ 2 := by
+AKLT/W/Q020/Main.lean:114:    g * ‖ψ - K.starProjection ψ‖ ^ 2 =
+AKLT/W/Q020/Main.lean:115:        ∑ r : Fin n, g * ‖fibre u r - Ks.starProjection (fibre u r)‖ ^ 2 := by
+AKLT/W/Q016/Main.lean:18:      (Module.End.eigenspace (starCasimir j) (20 : ℂ)).starProjection ψ) χ =
+AKLT/W/Q016/Main.lean:20:        (Module.End.eigenspace (starCasimir j) (20 : ℂ)).starProjection χ)
+AKLT/W/Q016/Main.lean:24:    exact (Module.End.eigenspace (starCasimir j) (20 : ℂ)).starProjection_isSymmetric ψ χ
+AKLT/W/Q016/Main.lean:27:      (Module.End.eigenspace (starCasimir j) (20 : ℂ)).starProjection ψ)).re
+AKLT/W/Q016/Main.lean:31:    let E := Module.End.eigenspace (starCasimir j) (20 : ℂ)
+AKLT/W/Q016/Main.lean:32:    change 0 ≤ (inner ℂ ψ (E.starProjection ψ)).re
+AKLT/W/Q016/Main.lean:33:    rw [← E.inner_starProjection_left_eq_right ψ ψ]
+AKLT/W/Q016/Main.lean:34:    exact E.re_inner_starProjection_nonneg ψ
+AKLT/W/Q029/Main.lean:11:  change (LinearMap.ker pairDiagonal)ᗮ ≤ Module.End.eigenspace pairCasimir 20
+AKLT/W/H1M034/Main.lean:15:    ⨆ a ∈ W, T.eigenspace a
+AKLT/W/H1M034/Main.lean:19:    have hv : v b ∈ T.eigenspace (w b : ℂ) := by
+AKLT/W/H1M034/Main.lean:20:      rw [Module.End.eigenspace_def]
+AKLT/W/H1M034/Main.lean:29:  have hψE : ψ ∈ T.eigenspace (m : ℂ) := by
+AKLT/W/H1M034/Main.lean:30:    rw [Module.End.eigenspace_def]
+AKLT/W/H1M034/Main.lean:41:  · have hdis : Disjoint (T.eigenspace (m : ℂ)) S := by
+AKLT/W/H1M034/Main.lean:43:        (T.eigenspaces_iSupIndep.disjoint_biSup (x := (m : ℂ)) (y := W) hmW)
+AKLT/W/Q029/Eigenvectors.lean:30:    diagonalAdjointVector m.val ∈ Module.End.eigenspace pairCasimir 20 := by
+AKLT/W/Q029/Eigenvectors.lean:31:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q037/Main.lean:198:private theorem starAtSite_apply (A : Matrix (Fin 5) (Fin 5) ℂ) (i : Fin 5)
+AKLT/W/Q037/Main.lean:200:    starAtSite A i v s = ∑ k : Fin 5, A (s i) k * v (Function.update s i k) := by
+AKLT/W/Q037/Main.lean:227:      starAtSite A i (WithLp.toLp 2 (fun t => starChartIso x ψ (r, t))) s := by
+AKLT/W/Q037/Main.lean:229:  rw [starAtSite_apply]
+AKLT/W/Q037/Main.lean:282:      (starAtSite A 0 + starAtSite A (starLeaf (L := L) (N := N) j)) := by
+AKLT/W/Q037/Main.lean:292:private theorem starCasimir_formula (j : Fin 4) :
+AKLT/W/Q037/Main.lean:293:    starCasimir j =
+AKLT/W/Q037/Main.lean:294:      (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) *
+AKLT/W/Q037/Main.lean:295:        (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) +
+AKLT/W/Q037/Main.lean:297:        ((starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j)) *
+AKLT/W/Q037/Main.lean:298:          (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) +
+AKLT/W/Q037/Main.lean:299:         (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) *
+AKLT/W/Q037/Main.lean:300:          (starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j))) := by
+AKLT/W/Q037/Main.lean:301:  refine (starCasimir.eq_1 j).trans ?_
+AKLT/W/Q037/Main.lean:303:    (starAtSite spinZ z + starAtSite spinZ y) *
+AKLT/W/Q037/Main.lean:304:      (starAtSite spinZ z + starAtSite spinZ y) +
+AKLT/W/Q037/Main.lean:306:      ((starAtSite spinPlus z + starAtSite spinPlus y) *
+AKLT/W/Q037/Main.lean:307:        (starAtSite spinMinus z + starAtSite spinMinus y) +
+AKLT/W/Q037/Main.lean:308:       (starAtSite spinMinus z + starAtSite spinMinus y) *
+AKLT/W/Q037/Main.lean:309:        (starAtSite spinPlus z + starAtSite spinPlus y))) (Fin.ext rfl) (Fin.ext rfl)
+AKLT/W/Q037/Main.lean:312:private theorem chartTransports_starCasimir (x : Site L N) (j : Fin 4) :
+AKLT/W/Q037/Main.lean:313:    ChartTransports x (bondCasimir (starEdge x j)) (starCasimir j) := by
+AKLT/W/Q037/Main.lean:317:  let Z' : Module.End ℂ StarLocal := starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)
+AKLT/W/Q037/Main.lean:318:  let U' : Module.End ℂ StarLocal := starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j)
+AKLT/W/Q037/Main.lean:319:  let D' : Module.End ℂ StarLocal := starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)
+AKLT/W/Q037/Main.lean:332:  have hStar : starCasimir j = Z' * Z' + (1 / 2 : ℂ) • (U' * D' + D' * U') :=
+AKLT/W/Q037/Main.lean:333:    starCasimir_formula (L := L) (N := N) j
+AKLT/W/Q037/Main.lean:344:  exact (chartTransports_starCasimir x j ψ r s).trans
+AKLT/W/Q037/Main.lean:345:    (congrArg (fun v : StarLocal => starCasimir j v s) hSlice)
+AKLT/W/Q019/Main.lean:40:          ⟨Module.End.mem_eigenspace_iff.mpr (hdiag i), b.orthonormal.ne_zero i⟩
+AKLT/W/Q019/Main.lean:43:  let p : EuclideanSpace ℂ ι := (LinearMap.ker T).starProjection ψ
+AKLT/W/Q019/Main.lean:48:    exact Submodule.starProjection_apply_mem _ _
+AKLT/W/Q019/Main.lean:57:      exact Submodule.starProjection_inner_eq_zero ψ z (LinearMap.mem_ker.mpr hz)
+AKLT/W/H1M038/Main.lean:16:    S ⊓ Module.End.eigenspace O μ
+AKLT/W/H1M038/Main.lean:18:    change ψ ∈ S ∧ ψ ∈ Module.End.eigenspace O μ
+AKLT/W/H1M038/Main.lean:19:    exact ⟨hψS, Module.End.mem_eigenspace_iff.mpr hOψ⟩
+AKLT/W/H1M038/Main.lean:22:    change totalSpinZ J x ∈ S ∧ totalSpinZ J x ∈ Module.End.eigenspace O μ
+AKLT/W/H1M038/Main.lean:23:    refine ⟨hZinv x hx.1, Module.End.mem_eigenspace_iff.mpr ?_⟩
+AKLT/W/H1M038/Main.lean:26:      _ = totalSpinZ J (μ • x) := congrArg (totalSpinZ J) (Module.End.mem_eigenspace_iff.mp hx.2)
+AKLT/W/H1M038/Main.lean:55:  · exact Module.End.mem_eigenspace_iff.mp v.2.2
+AKLT/W/Q017/Main.lean:12:private def basisVector (s : Fin 5 → Fin 5) : StarHilbert :=
+AKLT/W/Q017/Main.lean:15:private def vacuum : StarHilbert := basisVector zeroConfig
+AKLT/W/Q017/Main.lean:30:private lemma starAtSite_basis (A : Matrix (Fin 5) (Fin 5) ℂ) (x : Fin 5)
+AKLT/W/Q017/Main.lean:32:    starAtSite A x (basisVector s) =
+AKLT/W/Q017/Main.lean:46:    starAtSite spinZ x vacuum = (2 : ℂ) • vacuum := by
+AKLT/W/Q017/Main.lean:47:  change starAtSite spinZ x (basisVector zeroConfig) = _
+AKLT/W/Q017/Main.lean:48:  rw [starAtSite_basis]
+AKLT/W/Q017/Main.lean:67:    starAtSite spinPlus x vacuum = 0 := by
+AKLT/W/Q017/Main.lean:68:  change starAtSite spinPlus x (basisVector zeroConfig) = 0
+AKLT/W/Q017/Main.lean:69:  rw [starAtSite_basis]
+AKLT/W/Q017/Main.lean:77:    starAtSite spinMinus x vacuum = (2 : ℂ) • basisVector (oneExcitation x) := by
+AKLT/W/Q017/Main.lean:78:  change starAtSite spinMinus x (basisVector zeroConfig) = _
+AKLT/W/Q017/Main.lean:79:  rw [starAtSite_basis]
+AKLT/W/Q017/Main.lean:115:    starAtSite spinPlus x (basisVector (oneExcitation y)) =
+AKLT/W/Q017/Main.lean:117:  rw [starAtSite_basis]
+AKLT/W/Q017/Main.lean:155:private lemma starCasimir_vacuum (j : Fin 4) :
+AKLT/W/Q017/Main.lean:156:    starCasimir j vacuum = (20 : ℂ) • vacuum := by
+AKLT/W/Q017/Main.lean:158:  let Z := starAtSite spinZ 0 + starAtSite spinZ y
+AKLT/W/Q017/Main.lean:159:  let U := starAtSite spinPlus 0 + starAtSite spinPlus y
+AKLT/W/Q017/Main.lean:160:  let D := starAtSite spinMinus 0 + starAtSite spinMinus y
+AKLT/W/Q017/Main.lean:198:    ((Module.End.eigenspace (starCasimir j) 20).starProjection) vacuum =
+AKLT/W/Q017/Main.lean:200:  apply (Submodule.starProjection_eq_self_iff).2
+AKLT/W/Q017/Main.lean:201:  change vacuum ∈ (starCasimir j).eigenspace 20
+AKLT/W/Q017/Main.lean:202:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q017/Main.lean:203:  exact starCasimir_vacuum j
+AKLT/W/Q017/Main.lean:225:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q030/Main.lean:9:    v ∈ Module.End.eigenspace pairCasimir (20 : ℂ) ↔
+AKLT/W/Q030/Main.lean:11:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q030/Main.lean:21:def eigenspaceParameters :
+AKLT/W/Q030/Main.lean:22:    Module.End.eigenspace pairCasimir (20 : ℂ) →ₗ[ℂ] (Fin 9 → ℂ) :=
+AKLT/W/Q030/Main.lean:25:theorem eigenspaceParameters_injective : Function.Injective eigenspaceParameters := by
+AKLT/W/Q030/Main.lean:42:theorem eigenspaceParameters_surjective : Function.Surjective eigenspaceParameters := by
+AKLT/W/Q030/Main.lean:51:def eigenspaceEquiv :
+AKLT/W/Q030/Main.lean:52:    Module.End.eigenspace pairCasimir (20 : ℂ) ≃ₗ[ℂ] (Fin 9 → ℂ) :=
+AKLT/W/Q030/Main.lean:53:  LinearEquiv.ofBijective eigenspaceParameters
+AKLT/W/Q030/Main.lean:54:    ⟨eigenspaceParameters_injective, eigenspaceParameters_surjective⟩
+AKLT/W/Q030/Main.lean:57:  change Module.finrank ℂ (Module.End.eigenspace pairCasimir (20 : ℂ)) = 9
+AKLT/W/Q030/Main.lean:59:    _ = Module.finrank ℂ (Fin 9 → ℂ) := eigenspaceEquiv.finrank_eq
+AKLT/W/Q038/Main.lean:11:def starRow {n : ℕ} (v : StarChart n) (r : Fin n) : AKLT.Defs.StarHilbert :=
+AKLT/W/Q038/Main.lean:23:  change (0 : StarChart n) (r, s) = (0 : AKLT.Defs.StarHilbert) s
+AKLT/W/Q038/Main.lean:27:  carrier := {v | ∀ r, starRow v r ∈ Module.End.eigenspace (starCasimir j) 20}
+AKLT/W/Q038/Main.lean:31:    exact (Module.End.eigenspace (starCasimir j) 20).zero_mem
+AKLT/W/Q038/Main.lean:34:    exact (Module.End.eigenspace (starCasimir j) 20).add_mem (hv r) (hw r)
+AKLT/W/Q038/Main.lean:37:    exact (Module.End.eigenspace (starCasimir j) 20).smul_mem c (hv r)
+AKLT/W/Q038/Main.lean:41:    (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v p.1) p.2)
+AKLT/W/Q038/Main.lean:46:      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) s := rfl
+AKLT/W/Q038/Main.lean:54:      starCasimir j (starRow (U ψ) r) s :=
+AKLT/W/Q038/Main.lean:56:    (congrArg (fun v : AKLT.Defs.StarHilbert => starCasimir j v s) (starRow_eq (U ψ) r).symm)
+AKLT/W/Q038/Main.lean:62:      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) := by
+AKLT/W/Q038/Main.lean:66:  exact (Module.End.eigenspace (starCasimir j) 20).starProjection_apply_mem _
+AKLT/W/Q038/Main.lean:71:  let K : Submodule ℂ AKLT.Defs.StarHilbert := Module.End.eigenspace (starCasimir j) 20
+AKLT/W/Q038/Main.lean:73:      ∑ r : Fin n, inner ℂ (starRow v r - K.starProjection (starRow v r)) (starRow w r) := by
+AKLT/W/Q038/Main.lean:78:  exact K.starProjection_inner_eq_zero (starRow v r) (starRow w r) (hw r)
+AKLT/W/Q038/Main.lean:82:    (starFibreSpace n j).starProjection v (r, s) =
+AKLT/W/Q038/Main.lean:83:      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) s := by
+AKLT/W/Q038/Main.lean:84:  let K : Submodule ℂ AKLT.Defs.StarHilbert := Module.End.eigenspace (starCasimir j) 20
+AKLT/W/Q038/Main.lean:89:    have hrow : starRow p t = K.starProjection (starRow v t) := by
+AKLT/W/Q038/Main.lean:93:    exact K.starProjection_apply_mem (starRow v t)
+AKLT/W/Q038/Main.lean:96:        ∑ t : Fin n, inner ℂ (starRow v t - K.starProjection (starRow v t))
+AKLT/W/Q038/Main.lean:104:    exact K.starProjection_inner_eq_zero (starRow v t) (starRow w t) (hw t)
+AKLT/W/Q038/Main.lean:105:  have heq := F.eq_starProjection_of_mem_of_inner_eq_zero hp horth
+AKLT/W/Q038/Main.lean:114:  let K : Submodule ℂ (Hilbert L N) := Module.End.eigenspace (bondCasimir e) 20
+AKLT/W/Q038/Main.lean:117:    change K.starProjection ψ ∈ K
+AKLT/W/Q038/Main.lean:118:    exact K.starProjection_apply_mem ψ
+AKLT/W/Q038/Main.lean:120:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q038/Main.lean:121:  have he := Module.End.mem_eigenspace_iff.mp hPmem
+AKLT/W/Q038/Main.lean:123:  have hc : U (bondCasimir e (P e ψ)) (t, u) = starCasimir j (starRow q t) u := by
+AKLT/W/Q038/Main.lean:126:    starCasimir j (starRow q t) u = U (bondCasimir e (P e ψ)) (t, u) := hc.symm
+AKLT/W/Q038/Main.lean:130:theorem chart_eigenspace_preimage {L N : Size} (x : Site L N) {n : ℕ}
+AKLT/W/Q038/Main.lean:134:    U.symm z ∈ Module.End.eigenspace (bondCasimir (AKLT.Blueprint.Q.starEdge x j)) 20 := by
+AKLT/W/Q038/Main.lean:136:  change ∀ t, starRow z t ∈ Module.End.eigenspace (starCasimir j) 20 at hz
+AKLT/W/Q038/Main.lean:137:  have hrow t := Module.End.mem_eigenspace_iff.mp (hz t)
+AKLT/W/Q038/Main.lean:143:        starCasimir j (starRow (U (U.symm z)) t) u :=
+AKLT/W/Q038/Main.lean:145:      _ = starCasimir j (starRow z t) u :=
+AKLT/W/Q038/Main.lean:146:        congrArg (fun w : StarChart n => starCasimir j (starRow w t) u)
+AKLT/W/Q038/Main.lean:149:        have hu := congrArg (fun w : AKLT.Defs.StarHilbert => w u) (hrow t)
+AKLT/W/Q038/Main.lean:152:  rw [Module.End.mem_eigenspace_iff]
+AKLT/W/Q038/Main.lean:162:  let K : Submodule ℂ (Hilbert L N) := Module.End.eigenspace (bondCasimir e) 20
+AKLT/W/Q038/Main.lean:163:  have hzK := chart_eigenspace_preimage x U hCopies j z hz
+AKLT/W/Q038/Main.lean:164:  have horth := K.starProjection_inner_eq_zero ψ (U.symm z) hzK
+AKLT/W/Q038/Main.lean:172:    (starFibreSpace n j).starProjection v = starRowProjection j v :=
+AKLT/W/Q038/Main.lean:173:  (starFibreSpace n j).eq_starProjection_of_mem_of_inner_eq_zero
+AKLT/W/Q038/Main.lean:180:  have hqproj : F.starProjection (U ψ) = U (P e ψ) :=
+AKLT/W/Q038/Main.lean:181:    F.eq_starProjection_of_mem_of_inner_eq_zero (chart_projector_mem x U hCopies j ψ)
+AKLT/W/Q038/Main.lean:188:    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow (U ψ) r) s :=
+AKLT/W/Q038/Main.lean:190:    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection
+AKLT/W/Q038/Main.lean:192:      congrArg (fun v : AKLT.Defs.StarHilbert =>
+AKLT/W/Q038/Main.lean:193:        (Module.End.eigenspace (starCasimir j) 20).starProjection v s) (starRow_eq (U ψ) r)

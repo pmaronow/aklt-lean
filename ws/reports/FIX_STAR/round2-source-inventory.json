@@ -1,0 +1,411 @@
+{
+  "lean_files_searched": 791,
+  "modules": [
+    {
+      "file": "AKLT/W/Q016/Main.lean",
+      "module": "AKLT.W.Q016.Main",
+      "matches": [
+        {
+          "line": 18,
+          "text": "      (Module.End.eigenspace (starCasimir j) (20 : \u2102)).starProjection \u03c8) \u03c7 ="
+        },
+        {
+          "line": 20,
+          "text": "        (Module.End.eigenspace (starCasimir j) (20 : \u2102)).starProjection \u03c7)"
+        },
+        {
+          "line": 24,
+          "text": "    exact (Module.End.eigenspace (starCasimir j) (20 : \u2102)).starProjection_isSymmetric \u03c8 \u03c7"
+        },
+        {
+          "line": 27,
+          "text": "      (Module.End.eigenspace (starCasimir j) (20 : \u2102)).starProjection \u03c8)).re"
+        },
+        {
+          "line": 31,
+          "text": "    let E := Module.End.eigenspace (starCasimir j) (20 : \u2102)"
+        }
+      ]
+    },
+    {
+      "file": "AKLT/W/Q017/Main.lean",
+      "module": "AKLT.W.Q017.Main",
+      "matches": [
+        {
+          "line": 12,
+          "text": "private def basisVector (s : Fin 5 \u2192 Fin 5) : StarHilbert :="
+        },
+        {
+          "line": 15,
+          "text": "private def vacuum : StarHilbert := basisVector zeroConfig"
+        },
+        {
+          "line": 32,
+          "text": "    starAtSite A x (basisVector s) ="
+        },
+        {
+          "line": 46,
+          "text": "    starAtSite spinZ x vacuum = (2 : \u2102) \u2022 vacuum := by"
+        },
+        {
+          "line": 47,
+          "text": "  change starAtSite spinZ x (basisVector zeroConfig) = _"
+        },
+        {
+          "line": 67,
+          "text": "    starAtSite spinPlus x vacuum = 0 := by"
+        },
+        {
+          "line": 68,
+          "text": "  change starAtSite spinPlus x (basisVector zeroConfig) = 0"
+        },
+        {
+          "line": 77,
+          "text": "    starAtSite spinMinus x vacuum = (2 : \u2102) \u2022 basisVector (oneExcitation x) := by"
+        },
+        {
+          "line": 78,
+          "text": "  change starAtSite spinMinus x (basisVector zeroConfig) = _"
+        },
+        {
+          "line": 115,
+          "text": "    starAtSite spinPlus x (basisVector (oneExcitation y)) ="
+        },
+        {
+          "line": 160,
+          "text": "    starCasimir j ="
+        },
+        {
+          "line": 161,
+          "text": "      (starAtSite spinZ 0 + starAtSite spinZ (starLeaf j)) *"
+        },
+        {
+          "line": 162,
+          "text": "        (starAtSite spinZ 0 + starAtSite spinZ (starLeaf j)) +"
+        },
+        {
+          "line": 164,
+          "text": "        ((starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf j)) *"
+        },
+        {
+          "line": 165,
+          "text": "          (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf j)) +"
+        },
+        {
+          "line": 166,
+          "text": "         (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf j)) *"
+        },
+        {
+          "line": 167,
+          "text": "          (starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf j))) := by"
+        },
+        {
+          "line": 168,
+          "text": "  refine (starCasimir.eq_1 j).trans ?_"
+        },
+        {
+          "line": 170,
+          "text": "    (starAtSite spinZ z + starAtSite spinZ y) *"
+        },
+        {
+          "line": 171,
+          "text": "      (starAtSite spinZ z + starAtSite spinZ y) +"
+        },
+        {
+          "line": 173,
+          "text": "      ((starAtSite spinPlus z + starAtSite spinPlus y) *"
+        },
+        {
+          "line": 174,
+          "text": "        (starAtSite spinMinus z + starAtSite spinMinus y) +"
+        },
+        {
+          "line": 175,
+          "text": "       (starAtSite spinMinus z + starAtSite spinMinus y) *"
+        },
+        {
+          "line": 176,
+          "text": "        (starAtSite spinPlus z + starAtSite spinPlus y))) (Fin.ext rfl) (Fin.ext rfl)"
+        },
+        {
+          "line": 178,
+          "text": "private lemma casimirFormula_apply (Z U D : Module.End \u2102 StarHilbert) (v : StarHilbert) :"
+        },
+        {
+          "line": 184,
+          "text": "    starCasimir j vacuum = (20 : \u2102) \u2022 vacuum := by"
+        },
+        {
+          "line": 186,
+          "text": "  let Z := starAtSite spinZ 0 + starAtSite spinZ y"
+        },
+        {
+          "line": 187,
+          "text": "  let U := starAtSite spinPlus 0 + starAtSite spinPlus y"
+        },
+        {
+          "line": 188,
+          "text": "  let D := starAtSite spinMinus 0 + starAtSite spinMinus y"
+        },
+        {
+          "line": 220,
+          "text": "  have hCasimir : starCasimir j = Z * Z + (1 / 2 : \u2102) \u2022 (U * D + D * U) :="
+        },
+        {
+          "line": 226,
+          "text": "    ((Module.End.eigenspace (starCasimir j) 20).starProjection) vacuum ="
+        },
+        {
+          "line": 229,
+          "text": "  change vacuum \u2208 (starCasimir j).eigenspace 20"
+        },
+        {
+          "line": 234,
+          "text": "    starHamiltonian vacuum = (4 : \u2102) \u2022 vacuum := by"
+        },
+        {
+          "line": 236,
+          "text": "    starHamiltonian vacuum = \u2211 j : Fin 4, vacuum := by"
+        },
+        {
+          "line": 237,
+          "text": "      simp [starHamiltonian, projector_fixes_vacuum]"
+        }
+      ]
+    },
+    {
+      "file": "AKLT/W/Q020/Main.lean",
+      "module": "AKLT.W.Q020.Main",
+      "matches": [
+        {
+          "line": 45,
+          "text": "  let Ks : Submodule \u2102 StarSpace := LinearMap.ker starHamiltonian"
+        },
+        {
+          "line": 66,
+          "text": "    have hzero : starHamiltonian (Ks.starProjection (fibre u r)) = 0 :="
+        },
+        {
+          "line": 103,
+          "text": "        (starHamiltonian (fibre u r))).re := by"
+        },
+        {
+          "line": 109,
+          "text": "    have hfib : fibre (U (T \u03c8)) r = starHamiltonian (fibre u r) := by"
+        },
+        {
+          "line": 118,
+          "text": "        (starHamiltonian (fibre u r))).re := by"
+        }
+      ]
+    },
+    {
+      "file": "AKLT/W/Q037/Main.lean",
+      "module": "AKLT.W.Q037.Main",
+      "matches": [
+        {
+          "line": 200,
+          "text": "    starAtSite A i v s = \u2211 k : Fin 5, A (s i) k * v (Function.update s i k) := by"
+        },
+        {
+          "line": 227,
+          "text": "      starAtSite A i (WithLp.toLp 2 (fun t => starChartIso x \u03c8 (r, t))) s := by"
+        },
+        {
+          "line": 282,
+          "text": "      (starAtSite A 0 + starAtSite A (starLeaf (L := L) (N := N) j)) := by"
+        },
+        {
+          "line": 293,
+          "text": "    starCasimir j ="
+        },
+        {
+          "line": 294,
+          "text": "      (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) *"
+        },
+        {
+          "line": 295,
+          "text": "        (starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)) +"
+        },
+        {
+          "line": 297,
+          "text": "        ((starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j)) *"
+        },
+        {
+          "line": 298,
+          "text": "          (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) +"
+        },
+        {
+          "line": 299,
+          "text": "         (starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)) *"
+        },
+        {
+          "line": 300,
+          "text": "          (starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j))) := by"
+        },
+        {
+          "line": 301,
+          "text": "  refine (starCasimir.eq_1 j).trans ?_"
+        },
+        {
+          "line": 303,
+          "text": "    (starAtSite spinZ z + starAtSite spinZ y) *"
+        },
+        {
+          "line": 304,
+          "text": "      (starAtSite spinZ z + starAtSite spinZ y) +"
+        },
+        {
+          "line": 306,
+          "text": "      ((starAtSite spinPlus z + starAtSite spinPlus y) *"
+        },
+        {
+          "line": 307,
+          "text": "        (starAtSite spinMinus z + starAtSite spinMinus y) +"
+        },
+        {
+          "line": 308,
+          "text": "       (starAtSite spinMinus z + starAtSite spinMinus y) *"
+        },
+        {
+          "line": 309,
+          "text": "        (starAtSite spinPlus z + starAtSite spinPlus y))) (Fin.ext rfl) (Fin.ext rfl)"
+        },
+        {
+          "line": 313,
+          "text": "    ChartTransports x (bondCasimir (starEdge x j)) (starCasimir j) := by"
+        },
+        {
+          "line": 317,
+          "text": "  let Z' : Module.End \u2102 StarLocal := starAtSite spinZ 0 + starAtSite spinZ (starLeaf (L := L) (N := N) j)"
+        },
+        {
+          "line": 318,
+          "text": "  let U' : Module.End \u2102 StarLocal := starAtSite spinPlus 0 + starAtSite spinPlus (starLeaf (L := L) (N := N) j)"
+        },
+        {
+          "line": 319,
+          "text": "  let D' : Module.End \u2102 StarLocal := starAtSite spinMinus 0 + starAtSite spinMinus (starLeaf (L := L) (N := N) j)"
+        },
+        {
+          "line": 332,
+          "text": "  have hStar : starCasimir j = Z' * Z' + (1 / 2 : \u2102) \u2022 (U' * D' + D' * U') :="
+        },
+        {
+          "line": 345,
+          "text": "    (congrArg (fun v : StarLocal => starCasimir j v s) hSlice)"
+        }
+      ]
+    },
+    {
+      "file": "AKLT/W/Q038/Main.lean",
+      "module": "AKLT.W.Q038.Main",
+      "matches": [
+        {
+          "line": 11,
+          "text": "def starRow {n : \u2115} (v : StarChart n) (r : Fin n) : AKLT.Defs.StarHilbert :="
+        },
+        {
+          "line": 23,
+          "text": "  change (0 : StarChart n) (r, s) = (0 : AKLT.Defs.StarHilbert) s"
+        },
+        {
+          "line": 27,
+          "text": "  carrier := {v | \u2200 r, starRow v r \u2208 Module.End.eigenspace (starCasimir j) 20}"
+        },
+        {
+          "line": 31,
+          "text": "    exact (Module.End.eigenspace (starCasimir j) 20).zero_mem"
+        },
+        {
+          "line": 34,
+          "text": "    exact (Module.End.eigenspace (starCasimir j) 20).add_mem (hv r) (hw r)"
+        },
+        {
+          "line": 37,
+          "text": "    exact (Module.End.eigenspace (starCasimir j) 20).smul_mem c (hv r)"
+        },
+        {
+          "line": 41,
+          "text": "    (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v p.1) p.2)"
+        },
+        {
+          "line": 46,
+          "text": "      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) s := rfl"
+        },
+        {
+          "line": 54,
+          "text": "      starCasimir j (starRow (U \u03c8) r) s :="
+        },
+        {
+          "line": 56,
+          "text": "    (congrArg (fun v : AKLT.Defs.StarHilbert => starCasimir j v s) (starRow_eq (U \u03c8) r).symm)"
+        },
+        {
+          "line": 62,
+          "text": "      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) := by"
+        },
+        {
+          "line": 66,
+          "text": "  exact (Module.End.eigenspace (starCasimir j) 20).starProjection_apply_mem _"
+        },
+        {
+          "line": 71,
+          "text": "  let K : Submodule \u2102 AKLT.Defs.StarHilbert := Module.End.eigenspace (starCasimir j) 20"
+        },
+        {
+          "line": 83,
+          "text": "      (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow v r) s := by"
+        },
+        {
+          "line": 84,
+          "text": "  let K : Submodule \u2102 AKLT.Defs.StarHilbert := Module.End.eigenspace (starCasimir j) 20"
+        },
+        {
+          "line": 123,
+          "text": "  have hc : U (bondCasimir e (P e \u03c8)) (t, u) = starCasimir j (starRow q t) u := by"
+        },
+        {
+          "line": 126,
+          "text": "    starCasimir j (starRow q t) u = U (bondCasimir e (P e \u03c8)) (t, u) := hc.symm"
+        },
+        {
+          "line": 136,
+          "text": "  change \u2200 t, starRow z t \u2208 Module.End.eigenspace (starCasimir j) 20 at hz"
+        },
+        {
+          "line": 143,
+          "text": "        starCasimir j (starRow (U (U.symm z)) t) u :="
+        },
+        {
+          "line": 145,
+          "text": "      _ = starCasimir j (starRow z t) u :="
+        },
+        {
+          "line": 146,
+          "text": "        congrArg (fun w : StarChart n => starCasimir j (starRow w t) u)"
+        },
+        {
+          "line": 149,
+          "text": "        have hu := congrArg (fun w : AKLT.Defs.StarHilbert => w u) (hrow t)"
+        },
+        {
+          "line": 188,
+          "text": "    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection (starRow (U \u03c8) r) s :="
+        },
+        {
+          "line": 190,
+          "text": "    _ = (Module.End.eigenspace (starCasimir j) 20).starProjection"
+        },
+        {
+          "line": 192,
+          "text": "      congrArg (fun v : AKLT.Defs.StarHilbert =>"
+        },
+        {
+          "line": 193,
+          "text": "        (Module.End.eigenspace (starCasimir j) 20).starProjection v s) (starRow_eq (U \u03c8) r)"
+        }
+      ]
+    }
+  ]
+}

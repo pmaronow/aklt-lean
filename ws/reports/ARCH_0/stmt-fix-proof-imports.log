@@ -1,0 +1,10 @@
+AKLT.Cert.H2.h2 : AKLT.Blueprint.Top.H2Statement
+AKLT.Cert.H2.alm : AKLT.Blueprint.Top.ALMStatement
+AKLT.Cert.H2.h2Test : AKLT.Blueprint.Top.H2TestStatement
+AKLT.Cert.H2.h2CV : AKLT.Blueprint.Top.H2CVStatement
+AKLT.Uniq.uniqueness (L N : AKLT.Challenge.Size) :
+  AKLT.Challenge.B L N ≠ 0 ∧ LinearMap.ker (AKLT.Challenge.H L N) = ℂ ∙ AKLT.Challenge.B L N
+'AKLT.Cert.H2.h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Uniq.uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+seconds: 3.00

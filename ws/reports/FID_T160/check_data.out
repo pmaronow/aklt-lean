@@ -1,0 +1,21 @@
+Parsed all 790 natural-number data declarations.
+PACK rawClass bits 12582908 capacity 12582912 leaves 768 overflows []
+TARGET rawClass_767 line 1549 offset 0 bits 16375 lane quotient/remainder (0, 0)
+TARGET rawClass_766 line 1547 offset 16380 bits 16384 lane quotient/remainder (1365, 0)
+TARGET rawClass_765 line 1545 offset 32764 bits 16384 lane quotient/remainder (2730, 4)
+PACK representatives bits 74820 capacity 74820 leaves 5 overflows []
+TARGET representatives_0 line 1553 offset 58436 bits 16384 lane quotient/remainder (2921, 16)
+PACK destinations bits 179542 capacity 179568 leaves 11 overflows []
+PACK edgeKinds bits 29928 capacity 29928 leaves 2 overflows []
+raw lane histogram: [(0, 219), (1, 148), (2, 148), (3, 217)] ... [(3738, 1), (3739, 1), (3740, 1), (3741, 988484)]
+raw lane range: 0 3741 sentinels: 988484
+Independent raw counts: [1, 4, 12, 36, 108, 316, 916, 2628, 7500, 21268, 60092]
+COVERAGE missing 0 [] extra 0 [] out of range 0 []
+REPRESENTATIVES errors 0 [] distinct 3741 code range 0 1042000
+REPRESENTATIVE ROW errors 0 [] edge counts {0: 2516, 1: 5032, 2: 1872}
+ALL RAW ROW errors {} examples {} covered classes 3741
+TARGET COVERAGE rawClass_765 codes 2730 4095 raw windows {'raw_windows': 201} first lanes [(2730, 3741), (2731, 3741), (2732, 3741)]
+TARGET COVERAGE rawClass_766 codes 1365 2730 raw windows {'raw_windows': 90} first lanes [(1365, 115), (1366, 289), (1367, 3741)]
+TARGET COVERAGE rawClass_767 codes 0 1364 raw windows {'raw_windows': 330} first lanes [(0, 0), (1, 1), (2, 3741)]
+First representative lane touching representatives_0: 2921 values around boundary [(2920, 371652), (2921, 371717), (2922, 371718), (2923, 371726)]
+Representative lanes touching representatives_0: 820 range 2921 3740

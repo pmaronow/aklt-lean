@@ -1,0 +1,40 @@
+import took 2.6s
+.olean serialization took 2.5s
+compilation (LCNF base) took 830ms
+compilation (LCNF mono) took 234ms
+compilation (LCNF mono) took 662ms
+compilation (LCNF impure) took 649ms
+compilation (IR) took 4.08s
+process pre-definitions took 437ms
+compilation (LCNF base) took 521ms
+compilation (LCNF mono) took 139ms
+compilation (LCNF mono) took 464ms
+compilation (LCNF impure) took 397ms
+compilation (IR) took 1.72s
+process pre-definitions took 341ms
+type checking took 105s
+'checked' depends on axioms: [propext]
+cumulative profiling times:
+	.olean serialization 2.5s
+	attribute application 0.0904ms
+	compilation (IR) 5.8s
+	compilation (LCNF base) 1.35s
+	compilation (LCNF impure) 1.05s
+	compilation (LCNF mono) 1.5s
+	elaboration 48.9ms
+	fix level params 3.27ms
+	import 2.6s
+	initialization 26.2ms
+	instantiate metavars 0.0486ms
+	interpretation 271ms
+	let-to-have transformation 4.72ms
+	linting 3.03ms
+	module linting 0.00157ms
+	overlappingInstancesLinter 1.48ms
+	parsing 2.52ms
+	process pre-definitions 788ms
+	share common exprs 29ms
+	tactic execution 0.282ms
+	tacticAnalysis 4.49ms
+	type checking 105s
+	typeclass inference 5.03ms

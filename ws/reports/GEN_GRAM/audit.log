@@ -1,0 +1,480 @@
+AKLT.Gen.Gram.getD_transposeRows (n : ℕ) (M : AKLT.Gen.Gram.IntRows) (i j : ℕ) (hi : i < n) :
+  (List.getD (AKLT.Gen.Gram.transposeRows n M) i []).getD j 0 = (List.getD M j []).getD i 0
+'AKLT.Gen.Gram.getD_transposeRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.dotI_eq_sum (n : ℕ) (a b : List ℤ) (ha : a.length ≤ n) (hb : b.length ≤ n) :
+  AKLT.Gen.Gram.dotI a b = ∑ j, a.getD (↑j) 0 * b.getD (↑j) 0
+'AKLT.Gen.Gram.dotI_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.absSum_eq_sum (a : List ℤ) : AKLT.Gen.Gram.absSum a = ∑ j, |a.getD (↑j) 0|
+'AKLT.Gen.Gram.absSum_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_length {whole ms ls : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i : ℕ}
+  (h : AKLT.Gen.Gram.checkRows whole c g i ms ls = true) : List.length ms = List.length ls
+'AKLT.Gen.Gram.checkRows_length' depends on axioms: [propext]
+AKLT.Gen.Gram.checkRows_getD {whole ms ls : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i : ℕ}
+  (h : AKLT.Gen.Gram.checkRows whole c g i ms ls = true) (j : ℕ) (hj : j < List.length ms) :
+  AKLT.Gen.Gram.rowOK whole c g (i + j) (List.getD ms j []) (List.getD ls j []) = true
+'AKLT.Gen.Gram.checkRows_getD' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_append (whole ms mt ls lt : AKLT.Gen.Gram.IntRows) (c g : ℤ) (i : ℕ)
+  (hlen : List.length ms = List.length ls) :
+  AKLT.Gen.Gram.checkRows whole c g i (ms ++ mt) (ls ++ lt) =
+    (AKLT.Gen.Gram.checkRows whole c g i ms ls && AKLT.Gen.Gram.checkRows whole c g (i + List.length ms) mt lt)
+'AKLT.Gen.Gram.checkRows_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.header_spec {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.header M L g d S = true) :
+  (∀ r ∈ M, r.length = List.length M) ∧
+    List.length L = List.length M ∧
+      (∀ r ∈ L, r.length ≤ List.length M) ∧ (AKLT.Gen.Gram.matrix (List.length M) M).IsSymm ∧ 0 < g ∧ 0 < d ∧ 0 < S
+'AKLT.Gen.Gram.header_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.residualRow_entry {whole : AKLT.Gen.Gram.IntRows} {mr lr : List ℤ} {c g : ℤ} {n : ℕ}
+  (hw : List.length whole = n) (hm : mr.length = n) (j : Fin n) :
+  (AKLT.Gen.Gram.residualRow whole c g mr lr).getD (↑j) 0 =
+    c * mr.getD (↑j) 0 - g * AKLT.Gen.Gram.dotI lr (List.getD whole ↑j [])
+'AKLT.Gen.Gram.residualRow_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_strictDiagDominant {M L : AKLT.Gen.Gram.IntRows} {c g : ℤ}
+  (hm : ∀ r ∈ M, r.length = List.length M) (hl : List.length L = List.length M)
+  (hls : ∀ r ∈ L, r.length ≤ List.length M) (h : AKLT.Gen.Gram.checkRows L c g 0 M L = true) (i : Fin (List.length M)) :
+  ∑ j ∈ Finset.univ.erase i,
+      |(c • AKLT.Gen.Gram.matrix (List.length M) M -
+            g • (AKLT.Gen.Gram.matrix (List.length M) L * (AKLT.Gen.Gram.matrix (List.length M) L).transpose))
+          i j| <
+    (c • AKLT.Gen.Gram.matrix (List.length M) M -
+        g • (AKLT.Gen.Gram.matrix (List.length M) L * (AKLT.Gen.Gram.matrix (List.length M) L).transpose))
+      i i
+'AKLT.Gen.Gram.checkRows_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.toMatrix M).PosDef
+'AKLT.Gen.Gram.checker_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound_complex {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ}
+  (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.castMatrix (AKLT.Gen.Gram.matrix (List.length M) M)).PosDef
+'AKLT.Gen.Gram.checker_sound_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound_rat {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.castMatrix (AKLT.Gen.Gram.matrix (List.length M) M)).PosDef
+'AKLT.Gen.Gram.checker_sound_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_append_true {whole ms mt ls lt : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i t : ℕ}
+  (hm : List.length ms = t) (hl : List.length ls = t) (hs : AKLT.Gen.Gram.checkRows whole c g i ms ls = true)
+  (ht : AKLT.Gen.Gram.checkRows whole c g (i + t) mt lt = true) :
+  AKLT.Gen.Gram.checkRows whole c g i (ms ++ mt) (ls ++ lt) = true
+'AKLT.Gen.Gram.checkRows_append_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.direct_example : (AKLT.Gen.Gram.toMatrix [[2, 1], [1, 2]]).PosDef
+'AKLT.Gen.Gram.direct_example' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.scaled_example : (AKLT.Gen.Gram.toMatrix [[2, 1], [1, 2]]).PosDef
+'AKLT.Gen.Gram.scaled_example' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.rows_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 0 AKLT.Gen.Gram.Random179.mData
+      AKLT.Gen.Gram.Random179.lData =
+    true
+'AKLT.Gen.Gram.Random179.rows_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.checked :
+  AKLT.Gen.Gram.checker AKLT.Gen.Gram.Random179.mData AKLT.Gen.Gram.Random179.lData 1 1 1 = true
+'AKLT.Gen.Gram.Random179.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.posDef_real : (AKLT.Gen.Gram.toMatrix AKLT.Gen.Gram.Random179.mData).PosDef
+'AKLT.Gen.Gram.Random179.posDef_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.posDef_complex :
+  (AKLT.Gen.Gram.castMatrix
+      (AKLT.Gen.Gram.matrix (List.length AKLT.Gen.Gram.Random179.mData) AKLT.Gen.Gram.Random179.mData)).PosDef
+'AKLT.Gen.Gram.Random179.posDef_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.posDef_rat :
+  (AKLT.Gen.Gram.castMatrix
+      (AKLT.Gen.Gram.matrix (List.length AKLT.Gen.Gram.Random179.mData) AKLT.Gen.Gram.Random179.mData)).PosDef
+'AKLT.Gen.Gram.Random179.posDef_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.m0_length : List.length AKLT.Gen.Gram.Random179.m0 = 8
+'AKLT.Gen.Gram.Random179.m0_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l0_length : List.length AKLT.Gen.Gram.Random179.l0 = 8
+'AKLT.Gen.Gram.Random179.l0_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m1_length : List.length AKLT.Gen.Gram.Random179.m1 = 8
+'AKLT.Gen.Gram.Random179.m1_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l1_length : List.length AKLT.Gen.Gram.Random179.l1 = 8
+'AKLT.Gen.Gram.Random179.l1_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m2_length : List.length AKLT.Gen.Gram.Random179.m2 = 8
+'AKLT.Gen.Gram.Random179.m2_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l2_length : List.length AKLT.Gen.Gram.Random179.l2 = 8
+'AKLT.Gen.Gram.Random179.l2_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m3_length : List.length AKLT.Gen.Gram.Random179.m3 = 8
+'AKLT.Gen.Gram.Random179.m3_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l3_length : List.length AKLT.Gen.Gram.Random179.l3 = 8
+'AKLT.Gen.Gram.Random179.l3_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m4_length : List.length AKLT.Gen.Gram.Random179.m4 = 8
+'AKLT.Gen.Gram.Random179.m4_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l4_length : List.length AKLT.Gen.Gram.Random179.l4 = 8
+'AKLT.Gen.Gram.Random179.l4_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m5_length : List.length AKLT.Gen.Gram.Random179.m5 = 8
+'AKLT.Gen.Gram.Random179.m5_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l5_length : List.length AKLT.Gen.Gram.Random179.l5 = 8
+'AKLT.Gen.Gram.Random179.l5_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m6_length : List.length AKLT.Gen.Gram.Random179.m6 = 8
+'AKLT.Gen.Gram.Random179.m6_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l6_length : List.length AKLT.Gen.Gram.Random179.l6 = 8
+'AKLT.Gen.Gram.Random179.l6_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m7_length : List.length AKLT.Gen.Gram.Random179.m7 = 8
+'AKLT.Gen.Gram.Random179.m7_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l7_length : List.length AKLT.Gen.Gram.Random179.l7 = 8
+'AKLT.Gen.Gram.Random179.l7_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m8_length : List.length AKLT.Gen.Gram.Random179.m8 = 8
+'AKLT.Gen.Gram.Random179.m8_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l8_length : List.length AKLT.Gen.Gram.Random179.l8 = 8
+'AKLT.Gen.Gram.Random179.l8_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m9_length : List.length AKLT.Gen.Gram.Random179.m9 = 8
+'AKLT.Gen.Gram.Random179.m9_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l9_length : List.length AKLT.Gen.Gram.Random179.l9 = 8
+'AKLT.Gen.Gram.Random179.l9_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m10_length : List.length AKLT.Gen.Gram.Random179.m10 = 8
+'AKLT.Gen.Gram.Random179.m10_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l10_length : List.length AKLT.Gen.Gram.Random179.l10 = 8
+'AKLT.Gen.Gram.Random179.l10_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m11_length : List.length AKLT.Gen.Gram.Random179.m11 = 8
+'AKLT.Gen.Gram.Random179.m11_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l11_length : List.length AKLT.Gen.Gram.Random179.l11 = 8
+'AKLT.Gen.Gram.Random179.l11_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m12_length : List.length AKLT.Gen.Gram.Random179.m12 = 8
+'AKLT.Gen.Gram.Random179.m12_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l12_length : List.length AKLT.Gen.Gram.Random179.l12 = 8
+'AKLT.Gen.Gram.Random179.l12_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m13_length : List.length AKLT.Gen.Gram.Random179.m13 = 8
+'AKLT.Gen.Gram.Random179.m13_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l13_length : List.length AKLT.Gen.Gram.Random179.l13 = 8
+'AKLT.Gen.Gram.Random179.l13_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m14_length : List.length AKLT.Gen.Gram.Random179.m14 = 8
+'AKLT.Gen.Gram.Random179.m14_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l14_length : List.length AKLT.Gen.Gram.Random179.l14 = 8
+'AKLT.Gen.Gram.Random179.l14_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m15_length : List.length AKLT.Gen.Gram.Random179.m15 = 8
+'AKLT.Gen.Gram.Random179.m15_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l15_length : List.length AKLT.Gen.Gram.Random179.l15 = 8
+'AKLT.Gen.Gram.Random179.l15_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m16_length : List.length AKLT.Gen.Gram.Random179.m16 = 8
+'AKLT.Gen.Gram.Random179.m16_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l16_length : List.length AKLT.Gen.Gram.Random179.l16 = 8
+'AKLT.Gen.Gram.Random179.l16_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m17_length : List.length AKLT.Gen.Gram.Random179.m17 = 8
+'AKLT.Gen.Gram.Random179.m17_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l17_length : List.length AKLT.Gen.Gram.Random179.l17 = 8
+'AKLT.Gen.Gram.Random179.l17_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m18_length : List.length AKLT.Gen.Gram.Random179.m18 = 8
+'AKLT.Gen.Gram.Random179.m18_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l18_length : List.length AKLT.Gen.Gram.Random179.l18 = 8
+'AKLT.Gen.Gram.Random179.l18_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m19_length : List.length AKLT.Gen.Gram.Random179.m19 = 8
+'AKLT.Gen.Gram.Random179.m19_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l19_length : List.length AKLT.Gen.Gram.Random179.l19 = 8
+'AKLT.Gen.Gram.Random179.l19_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m20_length : List.length AKLT.Gen.Gram.Random179.m20 = 8
+'AKLT.Gen.Gram.Random179.m20_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l20_length : List.length AKLT.Gen.Gram.Random179.l20 = 8
+'AKLT.Gen.Gram.Random179.l20_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m21_length : List.length AKLT.Gen.Gram.Random179.m21 = 8
+'AKLT.Gen.Gram.Random179.m21_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l21_length : List.length AKLT.Gen.Gram.Random179.l21 = 8
+'AKLT.Gen.Gram.Random179.l21_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.m22_length : List.length AKLT.Gen.Gram.Random179.m22 = 3
+'AKLT.Gen.Gram.Random179.m22_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.l22_length : List.length AKLT.Gen.Gram.Random179.l22 = 3
+'AKLT.Gen.Gram.Random179.l22_length' does not depend on any axioms
+AKLT.Gen.Gram.Random179.header_checked :
+  AKLT.Gen.Gram.header AKLT.Gen.Gram.Random179.mData AKLT.Gen.Gram.Random179.lData 1 1 1 = true
+'AKLT.Gen.Gram.Random179.header_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Random179.rows0_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 0 AKLT.Gen.Gram.Random179.m0 AKLT.Gen.Gram.Random179.l0 =
+    true
+'AKLT.Gen.Gram.Random179.rows0_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows1_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 8 AKLT.Gen.Gram.Random179.m1 AKLT.Gen.Gram.Random179.l1 =
+    true
+'AKLT.Gen.Gram.Random179.rows1_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows2_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 16 AKLT.Gen.Gram.Random179.m2 AKLT.Gen.Gram.Random179.l2 =
+    true
+'AKLT.Gen.Gram.Random179.rows2_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows3_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 24 AKLT.Gen.Gram.Random179.m3 AKLT.Gen.Gram.Random179.l3 =
+    true
+'AKLT.Gen.Gram.Random179.rows3_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows4_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 32 AKLT.Gen.Gram.Random179.m4 AKLT.Gen.Gram.Random179.l4 =
+    true
+'AKLT.Gen.Gram.Random179.rows4_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows5_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 40 AKLT.Gen.Gram.Random179.m5 AKLT.Gen.Gram.Random179.l5 =
+    true
+'AKLT.Gen.Gram.Random179.rows5_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows6_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 48 AKLT.Gen.Gram.Random179.m6 AKLT.Gen.Gram.Random179.l6 =
+    true
+'AKLT.Gen.Gram.Random179.rows6_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows7_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 56 AKLT.Gen.Gram.Random179.m7 AKLT.Gen.Gram.Random179.l7 =
+    true
+'AKLT.Gen.Gram.Random179.rows7_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows8_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 64 AKLT.Gen.Gram.Random179.m8 AKLT.Gen.Gram.Random179.l8 =
+    true
+'AKLT.Gen.Gram.Random179.rows8_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows9_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 72 AKLT.Gen.Gram.Random179.m9 AKLT.Gen.Gram.Random179.l9 =
+    true
+'AKLT.Gen.Gram.Random179.rows9_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows10_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 80 AKLT.Gen.Gram.Random179.m10 AKLT.Gen.Gram.Random179.l10 =
+    true
+'AKLT.Gen.Gram.Random179.rows10_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows11_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 88 AKLT.Gen.Gram.Random179.m11 AKLT.Gen.Gram.Random179.l11 =
+    true
+'AKLT.Gen.Gram.Random179.rows11_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows12_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 96 AKLT.Gen.Gram.Random179.m12 AKLT.Gen.Gram.Random179.l12 =
+    true
+'AKLT.Gen.Gram.Random179.rows12_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows13_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 104 AKLT.Gen.Gram.Random179.m13
+      AKLT.Gen.Gram.Random179.l13 =
+    true
+'AKLT.Gen.Gram.Random179.rows13_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows14_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 112 AKLT.Gen.Gram.Random179.m14
+      AKLT.Gen.Gram.Random179.l14 =
+    true
+'AKLT.Gen.Gram.Random179.rows14_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows15_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 120 AKLT.Gen.Gram.Random179.m15
+      AKLT.Gen.Gram.Random179.l15 =
+    true
+'AKLT.Gen.Gram.Random179.rows15_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows16_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 128 AKLT.Gen.Gram.Random179.m16
+      AKLT.Gen.Gram.Random179.l16 =
+    true
+'AKLT.Gen.Gram.Random179.rows16_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows17_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 136 AKLT.Gen.Gram.Random179.m17
+      AKLT.Gen.Gram.Random179.l17 =
+    true
+'AKLT.Gen.Gram.Random179.rows17_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows18_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 144 AKLT.Gen.Gram.Random179.m18
+      AKLT.Gen.Gram.Random179.l18 =
+    true
+'AKLT.Gen.Gram.Random179.rows18_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows19_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 152 AKLT.Gen.Gram.Random179.m19
+      AKLT.Gen.Gram.Random179.l19 =
+    true
+'AKLT.Gen.Gram.Random179.rows19_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows20_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 160 AKLT.Gen.Gram.Random179.m20
+      AKLT.Gen.Gram.Random179.l20 =
+    true
+'AKLT.Gen.Gram.Random179.rows20_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows21_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 168 AKLT.Gen.Gram.Random179.m21
+      AKLT.Gen.Gram.Random179.l21 =
+    true
+'AKLT.Gen.Gram.Random179.rows21_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Random179.rows22_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Random179.lData 1 1 176 AKLT.Gen.Gram.Random179.m22
+      AKLT.Gen.Gram.Random179.l22 =
+    true
+'AKLT.Gen.Gram.Random179.rows22_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 0 AKLT.Gen.Gram.Sample131.mData
+      AKLT.Gen.Gram.Sample131.lData =
+    true
+'AKLT.Gen.Gram.Sample131.rows_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.checked :
+  AKLT.Gen.Gram.checker AKLT.Gen.Gram.Sample131.mData AKLT.Gen.Gram.Sample131.lData 1 1 1 = true
+'AKLT.Gen.Gram.Sample131.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.posDef_real : (AKLT.Gen.Gram.toMatrix AKLT.Gen.Gram.Sample131.mData).PosDef
+'AKLT.Gen.Gram.Sample131.posDef_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.posDef_complex :
+  (AKLT.Gen.Gram.castMatrix
+      (AKLT.Gen.Gram.matrix (List.length AKLT.Gen.Gram.Sample131.mData) AKLT.Gen.Gram.Sample131.mData)).PosDef
+'AKLT.Gen.Gram.Sample131.posDef_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.posDef_rat :
+  (AKLT.Gen.Gram.castMatrix
+      (AKLT.Gen.Gram.matrix (List.length AKLT.Gen.Gram.Sample131.mData) AKLT.Gen.Gram.Sample131.mData)).PosDef
+'AKLT.Gen.Gram.Sample131.posDef_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.m0_length : List.length AKLT.Gen.Gram.Sample131.m0 = 8
+'AKLT.Gen.Gram.Sample131.m0_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l0_length : List.length AKLT.Gen.Gram.Sample131.l0 = 8
+'AKLT.Gen.Gram.Sample131.l0_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m1_length : List.length AKLT.Gen.Gram.Sample131.m1 = 8
+'AKLT.Gen.Gram.Sample131.m1_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l1_length : List.length AKLT.Gen.Gram.Sample131.l1 = 8
+'AKLT.Gen.Gram.Sample131.l1_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m2_length : List.length AKLT.Gen.Gram.Sample131.m2 = 8
+'AKLT.Gen.Gram.Sample131.m2_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l2_length : List.length AKLT.Gen.Gram.Sample131.l2 = 8
+'AKLT.Gen.Gram.Sample131.l2_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m3_length : List.length AKLT.Gen.Gram.Sample131.m3 = 8
+'AKLT.Gen.Gram.Sample131.m3_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l3_length : List.length AKLT.Gen.Gram.Sample131.l3 = 8
+'AKLT.Gen.Gram.Sample131.l3_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m4_length : List.length AKLT.Gen.Gram.Sample131.m4 = 8
+'AKLT.Gen.Gram.Sample131.m4_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l4_length : List.length AKLT.Gen.Gram.Sample131.l4 = 8
+'AKLT.Gen.Gram.Sample131.l4_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m5_length : List.length AKLT.Gen.Gram.Sample131.m5 = 8
+'AKLT.Gen.Gram.Sample131.m5_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l5_length : List.length AKLT.Gen.Gram.Sample131.l5 = 8
+'AKLT.Gen.Gram.Sample131.l5_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m6_length : List.length AKLT.Gen.Gram.Sample131.m6 = 8
+'AKLT.Gen.Gram.Sample131.m6_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l6_length : List.length AKLT.Gen.Gram.Sample131.l6 = 8
+'AKLT.Gen.Gram.Sample131.l6_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m7_length : List.length AKLT.Gen.Gram.Sample131.m7 = 8
+'AKLT.Gen.Gram.Sample131.m7_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l7_length : List.length AKLT.Gen.Gram.Sample131.l7 = 8
+'AKLT.Gen.Gram.Sample131.l7_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m8_length : List.length AKLT.Gen.Gram.Sample131.m8 = 8
+'AKLT.Gen.Gram.Sample131.m8_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l8_length : List.length AKLT.Gen.Gram.Sample131.l8 = 8
+'AKLT.Gen.Gram.Sample131.l8_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m9_length : List.length AKLT.Gen.Gram.Sample131.m9 = 8
+'AKLT.Gen.Gram.Sample131.m9_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l9_length : List.length AKLT.Gen.Gram.Sample131.l9 = 8
+'AKLT.Gen.Gram.Sample131.l9_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m10_length : List.length AKLT.Gen.Gram.Sample131.m10 = 8
+'AKLT.Gen.Gram.Sample131.m10_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l10_length : List.length AKLT.Gen.Gram.Sample131.l10 = 8
+'AKLT.Gen.Gram.Sample131.l10_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m11_length : List.length AKLT.Gen.Gram.Sample131.m11 = 8
+'AKLT.Gen.Gram.Sample131.m11_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l11_length : List.length AKLT.Gen.Gram.Sample131.l11 = 8
+'AKLT.Gen.Gram.Sample131.l11_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m12_length : List.length AKLT.Gen.Gram.Sample131.m12 = 8
+'AKLT.Gen.Gram.Sample131.m12_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l12_length : List.length AKLT.Gen.Gram.Sample131.l12 = 8
+'AKLT.Gen.Gram.Sample131.l12_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m13_length : List.length AKLT.Gen.Gram.Sample131.m13 = 8
+'AKLT.Gen.Gram.Sample131.m13_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l13_length : List.length AKLT.Gen.Gram.Sample131.l13 = 8
+'AKLT.Gen.Gram.Sample131.l13_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m14_length : List.length AKLT.Gen.Gram.Sample131.m14 = 8
+'AKLT.Gen.Gram.Sample131.m14_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l14_length : List.length AKLT.Gen.Gram.Sample131.l14 = 8
+'AKLT.Gen.Gram.Sample131.l14_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m15_length : List.length AKLT.Gen.Gram.Sample131.m15 = 8
+'AKLT.Gen.Gram.Sample131.m15_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l15_length : List.length AKLT.Gen.Gram.Sample131.l15 = 8
+'AKLT.Gen.Gram.Sample131.l15_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.m16_length : List.length AKLT.Gen.Gram.Sample131.m16 = 3
+'AKLT.Gen.Gram.Sample131.m16_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.l16_length : List.length AKLT.Gen.Gram.Sample131.l16 = 3
+'AKLT.Gen.Gram.Sample131.l16_length' does not depend on any axioms
+AKLT.Gen.Gram.Sample131.header_checked :
+  AKLT.Gen.Gram.header AKLT.Gen.Gram.Sample131.mData AKLT.Gen.Gram.Sample131.lData 1 1 1 = true
+'AKLT.Gen.Gram.Sample131.header_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.Sample131.rows0_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 0 AKLT.Gen.Gram.Sample131.m0 AKLT.Gen.Gram.Sample131.l0 =
+    true
+'AKLT.Gen.Gram.Sample131.rows0_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows1_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 8 AKLT.Gen.Gram.Sample131.m1 AKLT.Gen.Gram.Sample131.l1 =
+    true
+'AKLT.Gen.Gram.Sample131.rows1_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows2_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 16 AKLT.Gen.Gram.Sample131.m2 AKLT.Gen.Gram.Sample131.l2 =
+    true
+'AKLT.Gen.Gram.Sample131.rows2_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows3_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 24 AKLT.Gen.Gram.Sample131.m3 AKLT.Gen.Gram.Sample131.l3 =
+    true
+'AKLT.Gen.Gram.Sample131.rows3_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows4_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 32 AKLT.Gen.Gram.Sample131.m4 AKLT.Gen.Gram.Sample131.l4 =
+    true
+'AKLT.Gen.Gram.Sample131.rows4_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows5_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 40 AKLT.Gen.Gram.Sample131.m5 AKLT.Gen.Gram.Sample131.l5 =
+    true
+'AKLT.Gen.Gram.Sample131.rows5_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows6_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 48 AKLT.Gen.Gram.Sample131.m6 AKLT.Gen.Gram.Sample131.l6 =
+    true
+'AKLT.Gen.Gram.Sample131.rows6_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows7_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 56 AKLT.Gen.Gram.Sample131.m7 AKLT.Gen.Gram.Sample131.l7 =
+    true
+'AKLT.Gen.Gram.Sample131.rows7_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows8_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 64 AKLT.Gen.Gram.Sample131.m8 AKLT.Gen.Gram.Sample131.l8 =
+    true
+'AKLT.Gen.Gram.Sample131.rows8_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows9_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 72 AKLT.Gen.Gram.Sample131.m9 AKLT.Gen.Gram.Sample131.l9 =
+    true
+'AKLT.Gen.Gram.Sample131.rows9_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows10_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 80 AKLT.Gen.Gram.Sample131.m10 AKLT.Gen.Gram.Sample131.l10 =
+    true
+'AKLT.Gen.Gram.Sample131.rows10_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows11_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 88 AKLT.Gen.Gram.Sample131.m11 AKLT.Gen.Gram.Sample131.l11 =
+    true
+'AKLT.Gen.Gram.Sample131.rows11_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows12_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 96 AKLT.Gen.Gram.Sample131.m12 AKLT.Gen.Gram.Sample131.l12 =
+    true
+'AKLT.Gen.Gram.Sample131.rows12_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows13_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 104 AKLT.Gen.Gram.Sample131.m13
+      AKLT.Gen.Gram.Sample131.l13 =
+    true
+'AKLT.Gen.Gram.Sample131.rows13_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows14_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 112 AKLT.Gen.Gram.Sample131.m14
+      AKLT.Gen.Gram.Sample131.l14 =
+    true
+'AKLT.Gen.Gram.Sample131.rows14_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows15_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 120 AKLT.Gen.Gram.Sample131.m15
+      AKLT.Gen.Gram.Sample131.l15 =
+    true
+'AKLT.Gen.Gram.Sample131.rows15_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.Sample131.rows16_checked :
+  AKLT.Gen.Gram.checkRows AKLT.Gen.Gram.Sample131.lData 1 1 128 AKLT.Gen.Gram.Sample131.m16
+      AKLT.Gen.Gram.Sample131.l16 =
+    true
+'AKLT.Gen.Gram.Sample131.rows16_checked' depends on axioms: [propext]
+AKLT.Gen.Gram.posDef_of_strictDiagDominant.{u_1, u_3} {n : Type u_1} [Fintype n] [DecidableEq n] {K : Type u_3}
+  [RCLike K] {A : Matrix n n K} (hA : A.IsHermitian)
+  (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, ‖A i j‖ < RCLike.re (A i i)) : A.PosDef
+'AKLT.Gen.Gram.posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.real_posDef_of_strictDiagDominant.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] {A : Matrix n n ℝ}
+  (hA : A.IsSymm) (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, |A i j| < A i i) : A.PosDef
+'AKLT.Gen.Gram.real_posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.posDef_of_gram_residual.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {K : Type u_3} [RCLike K] {M : Matrix n n K} {L : Matrix n k K} {c g : ℝ} (hc : 0 < c) (hg : 0 ≤ g)
+  (hE : (c • M - g • (L * L.conjTranspose)).PosDef) : M.PosDef
+'AKLT.Gen.Gram.posDef_of_gram_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.gram_residual_posDef.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n] [Fintype k]
+  {K : Type u_3} [RCLike K] {M : Matrix n n K} {L : Matrix n k K} {g d S : ℝ} (hg : 0 ≤ g) (hd : 0 < d) (hS : 0 < S)
+  (hE : ((d * S ^ 2) • M - g • (L * L.conjTranspose)).IsHermitian)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, ‖((d * S ^ 2) • M - g • (L * L.conjTranspose)) i j‖ <
+        RCLike.re (((d * S ^ 2) • M - g • (L * L.conjTranspose)) i i)) :
+  ((d * S ^ 2) • M - g • (L * L.conjTranspose)).PosDef ∧ M.PosDef
+'AKLT.Gen.Gram.gram_residual_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_posDef_of_strictDiagDominant.{u_1, u_3} {n : Type u_1} [Fintype n] [DecidableEq n] {K : Type u_3}
+  [RCLike K] {A : Matrix n n ℤ} (hA : A.IsSymm) (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, |A i j| < A i i) :
+  (AKLT.Gen.Gram.castMatrix A).PosDef
+'AKLT.Gen.Gram.int_posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_gram_residual_posDef.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {K : Type u_3} [RCLike K] {M : Matrix n n ℤ} {L : Matrix n k ℤ} {g d S : ℤ} (hM : M.IsSymm) (hg : 0 < g)
+  (hd : 0 < d) (hS : 0 < S)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, |((d * S ^ 2) • M - g • (L * L.transpose)) i j| <
+        ((d * S ^ 2) • M - g • (L * L.transpose)) i i) :
+  (AKLT.Gen.Gram.castMatrix ((d * S ^ 2) • M - g • (L * L.transpose))).PosDef ∧ (AKLT.Gen.Gram.castMatrix M).PosDef
+'AKLT.Gen.Gram.int_gram_residual_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.rat_posDef_of_real.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] {A : Matrix n n ℚ} (hA : A.IsSymm)
+  (h : Matrix.PosDef fun i j => ↑(A i j)) : A.PosDef
+'AKLT.Gen.Gram.rat_posDef_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_gram_residual_posDef_rat.{u_1, u_2} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {M : Matrix n n ℤ} {L : Matrix n k ℤ} {g d S : ℤ} (hM : M.IsSymm) (hg : 0 < g) (hd : 0 < d) (hS : 0 < S)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, |((d * S ^ 2) • M - g • (L * L.transpose)) i j| <
+        ((d * S ^ 2) • M - g • (L * L.transpose)) i i) :
+  (AKLT.Gen.Gram.castMatrix ((d * S ^ 2) • M - g • (L * L.transpose))).PosDef ∧ (AKLT.Gen.Gram.castMatrix M).PosDef
+'AKLT.Gen.Gram.int_gram_residual_posDef_rat' depends on axioms: [propext, Classical.choice, Quot.sound]

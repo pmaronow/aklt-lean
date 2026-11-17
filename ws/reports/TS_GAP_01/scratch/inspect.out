@@ -1,0 +1,138 @@
+def AKLT.Blueprint.Gap.FibreNormalizationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (U : Finset.{0} ι) (σ : AKLT.Blueprint.Gap.Config S),
+      AKLT.Defs.Probability.{0} (AKLT.Blueprint.Gap.fibre p U σ) ∧
+        AKLT.Defs.PositiveProbability.{0} (AKLT.Blueprint.Gap.blockLaw p U σ) ∧
+          ∀ (f : ((x : ι) → S x) → ℂ),
+            Eq.{1} (AKLT.Defs.conditionalExpectation.{0, 0} p U f σ)
+              (AKLT.Defs.complexMean.{0} (AKLT.Blueprint.Gap.fibre p U σ) f)
+def AKLT.Blueprint.Gap.ConditionalProjectionStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (U : Finset.{0} ι),
+      (∀ (f : ((x : ι) → S x) → ℂ),
+          Eq.{1} (AKLT.Defs.conditionalExpectation.{0, 0} p U (AKLT.Defs.conditionalExpectation.{0, 0} p U f))
+            (AKLT.Defs.conditionalExpectation.{0, 0} p U f)) ∧
+        (Eq.{1} (AKLT.Defs.conditionalExpectation.{0, 0} p U fun x => 1) fun x => 1) ∧
+          (∀ (f : ((x : ι) → S x) → ℂ),
+              Eq.{1} (AKLT.Defs.complexMean.{0} p (AKLT.Defs.conditionalExpectation.{0, 0} p U f))
+                (AKLT.Defs.complexMean.{0} p f)) ∧
+            ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ) (h : ((x : ι) → S x) → ℂ),
+              Eq.{1} (AKLT.Blueprint.Gap.weightedInner p f (AKLT.Defs.conditionalExpectation.{0, 0} p U h))
+                (AKLT.Blueprint.Gap.weightedInner p (AKLT.Defs.conditionalExpectation.{0, 0} p U f) h)
+def AKLT.Blueprint.Gap.ConditionalVarianceStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  [∀ (x : ι), Nonempty.{1} (S x)] (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} p →
+    ∀ (U : Finset.{0} ι) (f : AKLT.Blueprint.Gap.Config S → ℂ),
+      Eq.{1}
+          (AKLT.Blueprint.Gap.weightedInner p f fun σ =>
+              HSub.hSub.{0, 0, 0} (f σ) (AKLT.Defs.conditionalExpectation.{0, 0} p U f σ)).re
+          (AKLT.Defs.blockDirichlet.{0, 0} p U f) ∧
+        Eq.{1} (AKLT.Defs.expectation.{0} p (AKLT.Defs.conditionalVariance.{0, 0} p U f))
+            (AKLT.Defs.blockDirichlet.{0, 0} p U f) ∧
+          Eq.{1} (AKLT.Defs.variance.{0} p f)
+            (HAdd.hAdd.{0, 0, 0} (AKLT.Defs.blockDirichlet.{0, 0} p U f)
+              (AKLT.Defs.variance.{0} p (AKLT.Defs.conditionalExpectation.{0, 0} p U f)))
+def AKLT.Blueprint.Gap.MaximalCouplingStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype.{0} Ω] (p q : AKLT.Defs.Weight.{0} Ω),
+  AKLT.Defs.Probability.{0} p →
+    AKLT.Defs.Probability.{0} q →
+      Eq.{1} (AKLT.Defs.totalVariation.{0} p q) (HSub.hSub.{0, 0, 0} 1 (∑ x, min.{0} (p x) (q x))) ∧
+        ∃ c,
+          Eq.{1} (∑ x, ∑ y, ite.{1} (Eq.{1} x y) 0 (AKLT.Defs.Coupling.mass.{0, 0} c x y))
+            (AKLT.Defs.totalVariation.{0} p q)
+def AKLT.Blueprint.Gap.CouplingMarginalTVStatement : Prop :=
+∀ (Ω Ξ : Type) [inst : Fintype.{0} Ω] [inst_1 : Fintype.{0} Ξ] (p q : AKLT.Defs.Weight.{0} Ω),
+  AKLT.Defs.Probability.{0} p →
+    AKLT.Defs.Probability.{0} q →
+      (∀ (c : AKLT.Defs.Coupling.{0, 0} p q),
+          LE.le.{0} (AKLT.Defs.totalVariation.{0} p q)
+            (∑ x, ∑ y, ite.{1} (Eq.{1} x y) 0 (AKLT.Defs.Coupling.mass.{0, 0} c x y))) ∧
+        ∀ (r : Ω → Ξ),
+          LE.le.{0} (AKLT.Defs.totalVariation.{0} (AKLT.Defs.marginal.{0, 0} p r) (AKLT.Defs.marginal.{0, 0} q r))
+            (AKLT.Defs.totalVariation.{0} p q)
+def AKLT.Blueprint.Gap.MarginalCompletionStatement : Prop :=
+∀ (Ω Ξ : Type) [inst : Fintype.{0} Ω] [inst_1 : Fintype.{0} Ξ] (p q : AKLT.Defs.Weight.{0} Ω),
+  AKLT.Defs.Probability.{0} p →
+    AKLT.Defs.Probability.{0} q →
+      ∀ (r : Ω → Ξ) (c : AKLT.Defs.Coupling.{0, 0} (AKLT.Defs.marginal.{0, 0} p r) (AKLT.Defs.marginal.{0, 0} q r)),
+        ∃ d,
+          ∀ (a b : Ξ),
+            Eq.{1} (∑ x, ∑ y, ite.{1} (Eq.{1} (r x) a ∧ Eq.{1} (r y) b) (AKLT.Defs.Coupling.mass.{0, 0} d x y) 0)
+              (AKLT.Defs.Coupling.mass.{0, 0} c a b)
+def AKLT.Blueprint.Gap.HammingLocalizationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype.{0} (S x)]
+  (p q : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.Probability.{0} p →
+    AKLT.Defs.Probability.{0} q →
+      ∀ (c : AKLT.Defs.Coupling.{0, 0} p q) (U : Finset.{0} ι),
+        LE.le.{0} (AKLT.Blueprint.Gap.couplingCost c)
+          (HAdd.hAdd.{0, 0, 0} (↑(Finset.card.{0} (sdiff.{0} Finset.univ.{0} U)))
+            (HMul.hMul.{0, 0, 0} (↑(Fintype.card.{0} ι)) (AKLT.Blueprint.Gap.disagreement c U)))
+def AKLT.Blueprint.Gap.CommonMinorizationStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype.{0} Ω] (p q ν : AKLT.Defs.Weight.{0} Ω),
+  AKLT.Defs.Probability.{0} p →
+    AKLT.Defs.Probability.{0} q →
+      AKLT.Defs.Probability.{0} ν →
+        ∀ (t : ℝ),
+          LE.le.{0} 0 t →
+            LE.le.{0} t 1 →
+              (∀ (x : Ω),
+                  LE.le.{0} (HMul.hMul.{0, 0, 0} t (ν x)) (p x) ∧ LE.le.{0} (HMul.hMul.{0, 0, 0} t (ν x)) (q x)) →
+                LE.le.{0} (AKLT.Defs.totalVariation.{0} p q) (HSub.hSub.{0, 0, 0} 1 t)
+def AKLT.Blueprint.Gap.fibre : {ι : Type} →
+  [Fintype.{0} ι] →
+    [DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [(x : ι) → Fintype.{0} (S x)] →
+          AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) →
+            Finset.{0} ι → AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) :=
+fun {ι} [Fintype.{0} ι] [DecidableEq.{1} ι] {S} [(x : ι) → Fintype.{0} (S x)] p U σ =>
+  AKLT.Defs.conditionOn.{0} p (AKLT.Defs.AgreeOutside.{0, 0} U σ)
+def AKLT.Blueprint.Gap.blockLaw : {ι : Type} →
+  [Fintype.{0} ι] →
+    [DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [(x : ι) → Fintype.{0} (S x)] →
+          AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) →
+            (U : Finset.{0} ι) → AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight.{0} ((x : ↥U) → S ↑x) :=
+fun {ι} [Fintype.{0} ι] [DecidableEq.{1} ι] {S} [(x : ι) → Fintype.{0} (S x)] p U σ =>
+  AKLT.Defs.marginal.{0, 0} (AKLT.Blueprint.Gap.fibre p U σ) (AKLT.Blueprint.Gap.restrict U)
+def AKLT.Defs.conditionalExpectation.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    [DecidableEq.{u_1 + 1} ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype.{u_2} (S x)] →
+          AKLT.Defs.Weight.{max u_1 u_2} ((x : ι) → S x) →
+            Finset.{u_1} ι → (((x : ι) → S x) → ℂ) → ((x : ι) → S x) → ℂ :=
+fun {ι} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {S} [(x : ι) → Fintype.{u_2} (S x)] p U f σ =>
+  HDiv.hDiv.{0, 0, 0} (∑ τ, ite.{1} (AKLT.Defs.AgreeOutside.{u_1, u_2} U σ τ) (HMul.hMul.{0, 0, 0} (↑(p τ)) (f τ)) 0)
+    (∑ τ, ite.{1} (AKLT.Defs.AgreeOutside.{u_1, u_2} U σ τ) (↑(p τ)) 0)
+def AKLT.Defs.conditionalVariance.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    [DecidableEq.{u_1 + 1} ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype.{u_2} (S x)] →
+          AKLT.Defs.Weight.{max u_1 u_2} ((x : ι) → S x) →
+            Finset.{u_1} ι → (((x : ι) → S x) → ℂ) → ((x : ι) → S x) → ℝ :=
+fun {ι} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {S} [(x : ι) → Fintype.{u_2} (S x)] p U f σ =>
+  HDiv.hDiv.{0, 0, 0}
+    (∑ τ,
+      ite.{1} (AKLT.Defs.AgreeOutside.{u_1, u_2} U σ τ)
+        (HMul.hMul.{0, 0, 0} (p τ)
+          (Complex.normSq (HSub.hSub.{0, 0, 0} (f τ) (AKLT.Defs.conditionalExpectation.{u_1, u_2} p U f τ))))
+        0)
+    (∑ τ, ite.{1} (AKLT.Defs.AgreeOutside.{u_1, u_2} U σ τ) (p τ) 0)
+def AKLT.Blueprint.Gap.disagreement : {ι : Type} →
+  [inst : Fintype.{0} ι] →
+    [inst_1 : DecidableEq.{1} ι] →
+      {S : ι → Type} →
+        [inst_2 : (x : ι) → Fintype.{0} (S x)] →
+          {p q : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)} →
+            AKLT.Defs.Coupling.{0, 0} p q → Finset.{0} ι → ℝ :=
+fun {ι} [Fintype.{0} ι] [DecidableEq.{1} ι] {S} [(x : ι) → Fintype.{0} (S x)] {p q} c U =>
+  ∑ σ, ∑ τ, ite.{1} (AKLT.Blueprint.Gap.AgreeOn U σ τ) 0 (AKLT.Defs.Coupling.mass.{0, 0} c σ τ)

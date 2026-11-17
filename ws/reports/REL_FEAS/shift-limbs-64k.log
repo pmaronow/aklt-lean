@@ -1,0 +1,10 @@
+PlaneShift64K macro-build exit 0 seconds 1.51 GiB 1.534 
+PlaneShift64K lean exit 0 seconds 22.42 GiB 1.719 
+PlaneShift64K export exit -15 seconds 120.09 GiB 1.604 TIMEOUT
+ShiftEquiv64K lean exit 0 seconds 6.34 GiB 6.818 
+ShiftEquiv64K export exit 0 seconds 14.98 GiB 6.523 
+Traceback (most recent call last):
+  File "/home/ubuntu/aklt/reports/REL_FEAS/shift_limbs_64k.py", line 53, in <module>
+    cfg['export_file_path']=str(e);(out/'nanoda-config.json').write_text(json.dumps(cfg))
+    ^^^
+NameError: name 'cfg' is not defined

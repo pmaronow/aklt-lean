@@ -1,0 +1,442 @@
+diff --git a/app-constants.tex b/app-constants.tex
+index 585a2d4..210eb1c 100644
+--- a/app-constants.tex
++++ b/app-constants.tex
+@@ -14,7 +14,7 @@ $0.0707$, $2.73$, $1.22$ & & Lemma~\ref{l:removal}; only finiteness is used \\
+ $0.82$, $0.928$, $1.36$, $1.072$ & exact & $3/5$ lemma (Lemma~\ref{l:35}) \\
+ $\bar\alpha$, $\bar\beta$ & $0.18094$, $0.36751$ & Lemma~\ref{l:response} \\
+ $\cs$, $\ct$ & $961/1000$, $187/200$ & (H1): exact arithmetic, all $7{,}962$ patterns (Theorem~\ref{t:H1}) \\
+-two displayed $c(\pi)$ & $0.961240\ldots$, $0.935565\ldots$ & straight, turn; exact values for the first two rows of Table~\ref{tab:H1} (\S\ref{s:closed}) \\
++$c(\pi)$ for two decoupled examples & $3825127/3979368$, $1071655/1145463$ & straight and turn examples; closed forms (Proposition~\ref{p:closed}, \S\ref{s:closed}) \\
+ $416114/444675$ & $0.935771\ldots$ & upper bound for $\ct$ in (H1) (Remark~\ref{r:H1sharp}) \\
+ $3/5$, $1/2$, $1/3$ & exact & fields of tips and leaf corners (Lemma~\ref{l:leaf}) \\
+ $q$ & $\le 0.98075$ & (H2): computer-assisted, directed rounding (\S\ref{s:H2}) \\
+diff --git a/app-local.tex b/app-local.tex
+index 44bf5f6..b40ff79 100644
+--- a/app-local.tex
++++ b/app-local.tex
+@@ -193,7 +193,7 @@ is positive definite, since $M_\epsilon$ is $15 D q$ times the matrix of a congr
+ 
+ \subsection{Closed forms for decoupled patterns}\label{s:closed}
+ 
+-For many patterns, every site other than $y$ and its neighbours hangs on the rest by a single bond, possibly through a chain of such sites. For these patterns the infimum $c(\pi)$ has a closed form, which gives a second proof of Theorem~\ref{t:H1} on them, independent of \S\ref{s:inversion}, and the exact values of $c(\pi)$ for the first three patterns of Table~\ref{tab:H1}. The main input is a sharp bound on the mean of a spin under several fields. For $r = (r_1, r_2, r_3) \in [0, 1]^3$ let $s_1 = r_1 + r_2 + r_3$, $s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3$, $s_3 = r_1 r_2 r_3$, and
++For many patterns, every site other than $y$ and its neighbours hangs on the rest by a single bond, possibly through a chain of such sites. For these patterns the infimum $c(\pi)$ has a closed form, which gives a second proof of Theorem~\ref{t:H1} on them, independent of \S\ref{s:inversion}, and the exact values of $c(\pi)$ for the examples below. The main input is a sharp bound on the mean of a spin under several fields. For $r = (r_1, r_2, r_3) \in [0, 1]^3$ let $s_1 = r_1 + r_2 + r_3$, $s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3$, $s_3 = r_1 r_2 r_3$, and
+ \begin{equation}\label{e:rhoUD}
+ \rho_{\mathrm U}(r) = \frac{s_1/3 + s_3/5}{1 + s_2/3}, \qquad \rho_{\mathrm D}(r) = \frac{s_1/3 + s_3/5}{5/3 + s_2/3} .
+ \end{equation}
+@@ -267,10 +267,10 @@ For the second statement, multiplying by $1 + at/5 > 0$, the quotient in \eqref{
+ 
+ The polynomial $Q$ is quadratic with leading coefficient $a^2 (\frac13 - \frac c5)^2 \ge 0$. Therefore $Q \ge 0$ on $[-1, 1]$ if and only if $Q(\pm 1) \ge 0$ and, when the leading coefficient is positive and the vertex $t_*$ of $Q$ lies in $(-1, 1)$, $Q(t_*) \ge 0$. For rational $c$, the test of Proposition~\ref{p:closed} is therefore a finite computation in rational arithmetic.
+ 
+-Of the $7{,}962$ patterns of $\Pext$, $4{,}735$ are decoupled ($1{,}553$ straight and $3{,}182$ turns), including the three examples below. For these three the minimum in \eqref{e:closed} is rational, since $a = 0$ or the minimum is attained at $t = 1$, where the square root is $\rho_f + \rho_g$. The values are as follows; in each case the test of Proposition~\ref{p:closed}, in rational arithmetic, holds at the stated value of $c(\pi)$ and fails at that value plus $10^{-12}$.
++Of the $7{,}962$ patterns of $\Pext$, $4{,}735$ are decoupled ($1{,}553$ straight and $3{,}182$ turns), including the following three examples. For these three the minimum in \eqref{e:closed} is rational, since $a = 0$ or the minimum is attained at $t = 1$, where the square root is $\rho_f + \rho_g$. The values are as follows; in each case the test of Proposition~\ref{p:closed}, in rational arithmetic, holds at the stated value of $c(\pi)$ and fails at that value plus $10^{-12}$.
+ \begin{itemize}
+-\item The straight pattern in the first row of Table~\ref{tab:H1}: $\mathsf e$, $\mathsf N$ and the corner $(1, -1)$ have status $\mathrm U$; $\mathsf W$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; $\mathsf s$ has status $\mathrm D$ and keeps its bonds to $(1, -1)$ and to its tip; the corner $(-1, 1)$ has status $\mathrm D$ and keeps its bond to $\mathsf N$; the corners $(1, 1)$ and $(-1, -1)$ are removed. Here $\rho_o = \rho_{\mathsf N} = 7/24$, $\rho_{\mathsf e} = 740/2193$, $\rho_{\mathsf W} = 3/25$, and $c(\pi) = 3825127/3979368 = 0.961240\ldots$
+-\item The turn in the second row of Table~\ref{tab:H1} ($o = \mathsf e$): $\mathsf s$ is removed; $\mathsf N$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; the corners $(1, 1)$ and $(-1, 1)$ have status $\mathrm D$ and keep their bonds to $\mathsf e$ and $\mathsf W$, respectively; all other sites have status $\mathrm U$. Here $\rho_{\mathsf e} = \rho_{\mathsf W} = 112/275$, $\rho_{\mathsf N} = 3/25$, and $c(\pi) = 1071655/1145463 = 0.935565\ldots$
++\item The straight example in the first row of Table~\ref{tab:H1}: $\mathsf e$, $\mathsf N$ and the corner $(1, -1)$ have status $\mathrm U$; $\mathsf W$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; $\mathsf s$ has status $\mathrm D$ and keeps its bonds to $(1, -1)$ and to its tip; the corner $(-1, 1)$ has status $\mathrm D$ and keeps its bond to $\mathsf N$; the corners $(1, 1)$ and $(-1, -1)$ are removed. Here $\rho_o = \rho_{\mathsf N} = 7/24$, $\rho_{\mathsf e} = 740/2193$, $\rho_{\mathsf W} = 3/25$, and $c(\pi) = 3825127/3979368 = 0.961240\ldots$
++\item The turn example in the second row of Table~\ref{tab:H1} ($o = \mathsf e$): $\mathsf s$ is removed; $\mathsf N$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; the corners $(1, 1)$ and $(-1, 1)$ have status $\mathrm D$ and keep their bonds to $\mathsf e$ and $\mathsf W$, respectively; all other sites have status $\mathrm U$. Here $\rho_{\mathsf e} = \rho_{\mathsf W} = 112/275$, $\rho_{\mathsf N} = 3/25$, and $c(\pi) = 1071655/1145463 = 0.935565\ldots$
+ \item The turn ($o = \mathsf e$) in which $\mathsf N$ and $\mathsf s$ are removed and all other sites have status $\mathrm U$. Each of $\mathsf e$, $\mathsf W$ carries the field of its tip and of two leaf corners, which gives $\rho_{\mathsf e} = \rho_{\mathsf W} = \rho_{\mathrm U}(3/5, 1/2, 1/2) = 169/385$. Since $\rho_{\mathsf N} = 0$, we have
+ \begin{equation}\label{e:5469}
+ c(\pi) = 1 - \frac13 \Bigl( \frac{169}{385} \Bigr)^2 = \frac{416114}{444675} = 0.935771\ldots
+@@ -279,7 +279,7 @@ c(\pi) = 1 - \frac13 \Bigl( \frac{169}{385} \Bigr)^2 = \frac{416114}{444675} = 0
+ 
+ \subsection{The computation, and what must be trusted}\label{s:localcomp}
+ 
+-\emph{Patterns.} The reflection $x_1 \mapsto -x_1$ maps $\Pext$ onto itself, preserves the type of a step, permutes the slots, and leaves $c(\pi)$ unchanged. The list of patterns is produced by a computer enumeration of the rules of Definition~\ref{d:pattern}, modulo this reflection (the turns are stored with $o = \mathsf e$) and modulo patterns that give the same functions $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ up to a common positive factor (the factor of the sites without present bonds, Lemma~\ref{l:leaf}(1)). A second enumeration, written independently from Definition~\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbour, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak enum\_\allowbreak pext.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak enum\_\allowbreak pext.txt}, relative to \texttt{agents/\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle. The reduced representation of \S\ref{s:localred} always has $k \le 11$. The unreduced representation can have $k = 12$, but every representation selected in the two certificate files has $k \le 11$.
++\emph{Patterns.} The reflection $x_1 \mapsto -x_1$ maps $\Pext$ onto itself, preserves the type of a step, permutes the slots, and leaves $c(\pi)$ unchanged. The list of patterns is produced by a computer enumeration of the rules of Definition~\ref{d:pattern}, modulo this reflection (the turns are stored with $o = \mathsf e$) and modulo patterns that give the same functions $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ up to a common positive factor (the factor of the sites without present bonds, Lemma~\ref{l:leaf}(1)). A second enumeration, written independently from Definition~\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbor, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak enum\_\allowbreak pext.py} and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak enum\_\allowbreak pext.txt}, relative to \texttt{agents/\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle. The reduced representation of \S\ref{s:localred} always has $k \le 11$. The unreduced representation can have $k = 12$, but every representation selected in the two certificate files has $k \le 11$.
+ 
+ \emph{Programs.} The program \texttt{cert.py} computes, for a pattern, a representation and an inversion set $\mathcal I$, the integer coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$. It integrates out $y$ by Lemma~\ref{l:Iw} and contracts the remaining sites as the ring $\mathsf e, (1, 1), \mathsf N, (-1, 1), \mathsf W, (-1, -1), \mathsf s, (1, -1)$, with the exact moment tensors of the site measures. All tensors in this contraction have nonnegative integer entries. The contraction is carried out in $64$-bit integer arithmetic, with binary64 shadow computations used for conservative overflow guards. The small integer moment tensors are first stored exactly in binary64 arrays and then converted to integers. Assume binary64 round-to-nearest arithmetic, let $u=2^{-53}$, $\gamma_{32}=32u/(1-32u)$, and $\eta=(1-u)^2(1-\gamma_{32})>1-10^{-12}>3/4$. Each contracted entry is a sum of at most sixteen nonnegative products, so its shadow $\widehat s$ and exact value $s$ satisfy $\widehat s\ge\eta s$ (two input conversions and at most thirty-two arithmetic roundings suffice). Thus a passing shadow guard $\widehat s<2^{61}$ implies $s<2^{61}/\eta$, and a sum of three such contraction entries is smaller than $2^{63}$. The subsequent shadow bounds for the current and next coefficient sums are computed from these nonnegative integer arrays; their passing threshold $2^{58}$ implies exact sums smaller than $2^{58}/\eta<2^{59}$. Consequently every accepted coefficient computation is free of integer overflow, including its intermediate sums. The program then forms the matrices $A_\epsilon$, $A'_\epsilon$ of \S\ref{s:inversion}: it changes the signs of the coefficients according to $\mathcal I$, substitutes the Pauli matrices with real and imaginary parts kept separately, and passes to the basis of \S\ref{s:inversion} for the pairs, again with assertions on the magnitudes and with a fallback to unbounded integers. It checks exactly that the imaginary parts vanish, that the matrices are symmetric, that the antisymmetric vector of every pair of a corner of status $\mathrm U$ is annihilated from the left and from the right, and that no entry joins two basis vectors with different eigenvalues of $\Sigma_3$ or different exchange signs. Finally it tests $M_\epsilon$ on $V_\epsilon^{\circ}$, for every $\epsilon$, by fraction-free elimination in unbounded integers.
+ 
+@@ -289,15 +289,15 @@ The program \texttt{closed\_exact.py} carries out the pruning of \S\ref{s:closed
+ 
+ \emph{Checks.} The program \texttt{verify\_all.py} accepts all $7{,}962$ certificates of each file, in about $15$ to $30$ CPU-minutes per file; producing them took about $34$ CPU-minutes. That each file contains each of the $7{,}962$ patterns exactly once, with the threshold $961/1000$ for straight steps and $187/200$ for turns, was checked separately. The matrices $M_\epsilon$ have size at most $245$. We also made the following checks, which are not part of the proof.
+ \begin{enumerate}
+-\item An independent evaluator keeps the passage site, tips and corners as spins and compares the ratio $Z_{\mathrm{cur}}/Z_{\mathrm{next}}$ with the ratio obtained from the integer coefficients, at three random points with untied slot vectors for every pattern. There are $23{,}893$ comparisons, including seven additional zero-slot cases, and the largest observed relative discrepancy is less than $2.4\cdot10^{-15}$. The programs are \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak brute.py} and \texttt{xcheck\_\allowbreak brute.py} in the same directory; the output is \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak xcheck\_\allowbreak brute\_\allowbreak all.json}.
+-\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators in the basis of \S\ref{s:inversion}; see \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak su2check.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak su2check\_\allowbreak all\_\allowbreak summary.json}. The archived output \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak unitpert.txt} records detection of a change by $1$ to a single non-constant coefficient of $3D\hat Z_{\mathrm{cur}}$ in all $30$ trials; its generating driver is not archived.
++\item An independent evaluator keeps the passage site, tips, and corners as spins and compares the ratio $Z_{\mathrm{cur}}/Z_{\mathrm{next}}$ with the ratio obtained from the integer coefficients, at three random points with untied slot vectors for every pattern. There are $23{,}893$ comparisons, including seven additional zero-slot cases, and the largest observed relative discrepancy is less than $2.4\cdot10^{-15}$. The programs are \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak brute.py} and \texttt{xcheck\_\allowbreak brute.py} in the same directory; the output is \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak xcheck\_\allowbreak brute\_\allowbreak all.json}.
++\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators in the basis of \S\ref{s:inversion}; see \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak su2check.py} and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak su2check\_\allowbreak all\_\allowbreak summary.json}. The archived output \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak unitpert.txt} records detection of a change by $1$ to a single non-constant coefficient of $3D\hat Z_{\mathrm{cur}}$ in all $30$ trials; its generating driver is not archived.
+ \item Positive definiteness was verified on all eigenspaces of $\Sigma_3$, not only on $V_\epsilon^{\circ}$, for $63$ patterns.
+ \item On the decoupled patterns, the floating-point value of $c$ at which the inversion test fails exceeds the closed form \eqref{e:closed} by at most $2.5 \cdot 10^{-15}$, and the two agree to $10^{-7}$ on $4{,}250$ of the $4{,}735$ patterns.
+-\item The stored certificates of the three closed-form examples above are rejected at thresholds obtained by adding $2\cdot10^{-5}$ to the numerical minimum and rounding upward to a multiple of $10^{-5}$; see \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak negctl.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak negctl\_\allowbreak hard.json}.
++\item The stored certificates of the numerically selected patterns are rejected at thresholds obtained by adding $2\cdot10^{-5}$ to the numerical minimum and rounding upward to a multiple of $10^{-5}$; see \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\linebreak[1]negctl.py} and \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak out/\allowbreak negctl\_\allowbreak hard.json}.
+ \end{enumerate}
+-A second implementation, in \texttt{73-reimplement-H1/\allowbreak code/\allowbreak wick.py}, \texttt{opcert.py}, \texttt{run\_\allowbreak opall.py}, \texttt{closed.py}, \texttt{run\_\allowbreak k1.py}, \texttt{numeval.py} and \texttt{run\_\allowbreak k1b.py} in the same directory, re-verifies the certificates of both files independently of the programs above. It computes $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ by exact symbolic integration over the sites of the patch, using the moment formulas of the uniform measure on $S^2$ in integer arithmetic; it assembles the operators from exchange operators; and it proves positivity by an exact integer congruence followed by a test of strict diagonal dominance. It confirms all $7{, }962$ certificates of the operator-only file, with the threshold of each pattern determined from the pattern itself, and without the reduction to one sector of Lemma~\ref{l:sector}: the operator is assembled on the whole space $(\C^2)^{\otimes n}$, it is checked exactly to have no entries between different values of the total $S^z$, and positivity is proved on every block. For the $4{, }992$ patterns without an unvisited corner with two slots the operator is positive definite on the whole space; for the other $2{, }970$ it annihilates the antisymmetric vectors of each such corner pair and is positive definite on their complement in every block, so it is positive semidefinite on the whole space. The same implementation confirms the $4{, }735$ closed-form certificates, with the same decoupled patterns and the same radii, and its numerical minimization over the full set of slot vectors reaches the closed-form minimum on each of these patterns to within $1.4 \cdot 10^{-8}$ and never goes below it. The corresponding outputs are \texttt{operator\_\allowbreak only\_\allowbreak results.jsonl}, \texttt{k1\_\allowbreak exact.jsonl}, \texttt{k1b\_\allowbreak numerics.jsonl} and \texttt{summary.txt} under \texttt{73-reimplement-H1/\allowbreak out/\allowbreak }.
++A second implementation, in \texttt{73-\allowbreak reimplement-\allowbreak H1/\allowbreak code/\linebreak[1]wick.py}, \texttt{opcert.py}, \texttt{run\_\allowbreak opall.py}, \texttt{closed.py}, \texttt{run\_\allowbreak k1.py}, \texttt{numeval.py}, and \texttt{run\_\allowbreak k1b.py} in the same directory, re-verifies the certificates of both files independently of the programs above. It computes $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ by exact symbolic integration over the sites of the patch, using the moment formulas of the uniform measure on $S^2$ in integer arithmetic; it assembles the operators from exchange operators; and it proves positivity by an exact integer congruence followed by a test of strict diagonal dominance. It confirms all $7{, }962$ certificates of the operator-only file, with the threshold of each pattern determined from the pattern itself, and without the reduction to one sector of Lemma~\ref{l:sector}: the operator is assembled on the whole space $(\C^2)^{\otimes n}$, it is checked exactly to have no entries between different values of the total $S^z$, and positivity is proved on every block. For the $4{, }992$ patterns without an unvisited corner with two slots the operator is positive definite on the whole space; for the other $2{, }970$ it annihilates the antisymmetric vectors of each such corner pair and is positive definite on their complement in every block, so it is positive semidefinite on the whole space. The same implementation confirms the $4{, }735$ closed-form certificates, with the same decoupled patterns and the same radii, and its numerical minimization over the full set of slot vectors reaches the closed-form minimum on each of these patterns to within $1.4 \cdot 10^{-8}$ and never goes below it. The corresponding outputs are \texttt{operator\_\allowbreak only\_\allowbreak results.jsonl}, \texttt{k1\_\allowbreak exact.jsonl}, \texttt{k1b\_\allowbreak numerics.jsonl}, and \texttt{summary.txt} under \texttt{73-\allowbreak reimplement-\allowbreak H1/\allowbreak out/\allowbreak }.
+ 
+-\emph{What must be trusted.} A reader who accepts the lemmas of this appendix must trust that the list of patterns is $\Pext$ modulo the reflection and duplicates, which two independent enumerations confirm, and four pieces of code. The program \texttt{cert.py} must compute the coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ correctly (about $100$ lines, compared with the independent evaluator in check (1)), and it must assemble the matrices and their eigenspaces correctly (about $90$ lines, whose output satisfies the exact structural checks above). The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\mathsf T}$ decomposition on $600$ random symmetric test matrices; the test is \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak test\_\allowbreak bareiss72.py}, and its result is recorded in \texttt{72-audit-H1-certificates/\allowbreak NOTES.md} and \texttt{LOG.md} in that directory. For the second proof, \texttt{closed\_exact.py} (about $70$ lines) must implement Proposition~\ref{p:closed}. Finally, the reader must trust the integer and rational arithmetic of Python and the integer tensor contraction of numpy in the absence of overflow. The binary64 error bounds above and the run-time assertions exclude overflow for accepted certificates; therefore the checker must not be run with assertions disabled, and the tip radius, a parameter of the programs, must be left at its value $3/5$.
++\emph{What must be trusted.} A reader who accepts the lemmas of this appendix must trust that the list of patterns is $\Pext$ modulo the reflection and duplicates, which two independent enumerations confirm, and four pieces of code. The program \texttt{cert.py} must compute the coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ correctly (about $100$ lines, compared with the independent evaluator in check (1)), and it must assemble the matrices and their eigenspaces correctly (about $90$ lines, whose output satisfies the exact structural checks above). The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\mathsf T}$ decomposition on $600$ random symmetric test matrices; the test is \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak code/\allowbreak test\_\allowbreak bareiss72.py}, and its result is recorded in \texttt{72-\allowbreak audit-\allowbreak H1-\allowbreak certificates/\allowbreak NOTES.md} and \texttt{LOG.md} in that directory. For the second proof, \texttt{closed\_exact.py} (about $70$ lines) must implement Proposition~\ref{p:closed}. Finally, the reader must trust the integer and rational arithmetic of Python and the integer tensor contraction of numpy in the absence of overflow. The binary64 error bounds above and the run-time assertions exclude overflow for accepted certificates; therefore the checker must not be run with assertions disabled, and the tip radius, a parameter of the programs, must be left at its value $3/5$.
+ 
+ \begin{proof}[Proof of Theorem~\ref{t:H1}]
+ By the first paragraph of this subsection, it suffices to consider the $7{,}962$ patterns of the list. For each of them, \texttt{verify\_all.py} verifies that the certificate in \texttt{certificates\_\allowbreak covered\_\allowbreak operator\_\allowbreak only.jsonl} satisfies the hypothesis of Proposition~\ref{p:certificate}, in the form \eqref{e:Meps}, with $c = 961/1000$ if the pattern is straight and $c = 187/200$ if it is a turn. Proposition~\ref{p:certificate} gives $Z_{\mathrm{cur}}(\pi; m) \ge c \, Z_{\mathrm{next}}(\pi; m)$ for all $m \in (\Sph)^{20}$, and since $Z_{\mathrm{next}} > 0$ by Lemma~\ref{l:Iw}, $c(\pi) \ge c$. For the $4{,}735$ decoupled patterns, Proposition~\ref{p:closed} and the closed-form certificates in \texttt{certificates\_\allowbreak covered.jsonl} give a second proof.
+diff --git a/app-tail.tex b/app-tail.tex
+index 938c549..c7afeb8 100644
+--- a/app-tail.tex
++++ b/app-tail.tex
+@@ -180,7 +180,7 @@ With the type-dependent coefficients of Remark~\ref{r:typedep} in place of $\bar
+ \texttt{c961\_935\_A\_B\_1.txt}, \texttt{c961\_935\_A\_B\_2.txt},
+ \texttt{c961\_935\_A\_C\_1.txt}, \texttt{c961\_935\_A\_C\_2.txt},
+ \texttt{c961\_935\_A\_C\_3.txt}, \texttt{c961\_935\_B\_B.txt},
+-\texttt{c961\_935\_B\_C.txt} in \texttt{agents/62-kernel-tail/out/}.
++\texttt{c961\_\allowbreak 935\_\allowbreak B\_\allowbreak C.txt} in \texttt{agents/\allowbreak 62-kernel-tail/\allowbreak out/}.
+ Their exact assembly, using the binary64 value of $1.20$, gives row bounds
+ $0.913009554182608$ and a quotient less than $0.918245584$.
+ The unsplit implementation uses the additional start-site deletion described in \S\ref{s:tailtrust}, justified by the same degree argument, and the remainder uses the nonnegative-vector formulation of Lemma~\ref{l:remainder}.
+diff --git a/sec1-intro-statement.tex b/sec1-intro-statement.tex
+index 451e50d..9f20460 100644
+--- a/sec1-intro-statement.tex
++++ b/sec1-intro-statement.tex
+@@ -15,21 +15,21 @@ There exist $c > 0$ and $L_0 \in \N$ such that for all even $L, N \ge L_0$ the k
+ \end{equation*}
+ \end{theorem}
+ 
+-The proof of Theorem~\ref{t:main} is computer-assisted. Three statements are verified by computer, all at the pair of constants $(\cs, \ct) = (0.961, 0.935)$ (Theorem~\ref{t:inputs}). Hypothesis~(H1) is a list of $7{,}962$ inequalities, one for each local configuration (``pattern'') in an explicit class $\Pext$ of radius-$2$ neighbourhoods of the square lattice. Each inequality asserts that a ratio of two functions of at most twenty unit vectors in $\R^3$, affine in each vector, is at least $\cs$ or $\ct$ on the whole product of spheres. We verify it in exact integer and rational arithmetic, with tests of positive definiteness of integer matrices for each pattern, one for each exchange-symmetry sector of the pattern (\S\ref{s:H1} and Appendix~\ref{s:local}); the margins on the first two patterns of Table~\ref{tab:H1}, which have the smallest values found numerically, are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. Hypothesis~(H2), a bound on the growth of weighted trail sums, and Hypothesis~(H3$'$), a bound on the spectral radius of a $2 \times 2$ kernel built from closed trails, are verified in floating-point arithmetic with upward rounding (\S\ref{s:H2}, \S\ref{s:H3} and Appendix~\ref{s:tail}); the bound for (H2) was also reproduced in exact rational arithmetic. These two hypotheses use (H1) only through the two numbers $\cs$ and $\ct$. Everything else is proved here or cited with a precise locator. One cited result, \cite[Theorem~4.1]{MO94} as it is invoked in \cite{MOS94}, is applied to a finite single-spin space larger than the two-valued one for which its proof is written out; Remark~\ref{r:finiteS} explains why the proof applies. The constants $c$ and $L_0$ are not explicit.
++The proof of Theorem~\ref{t:main} is computer-assisted. Three statements are verified by computer, all at the pair of constants $(\cs, \ct) = (0.961, 0.935)$ (Theorem~\ref{t:inputs}). Hypothesis~(H1) is a list of $7{,}962$ inequalities, one for each local configuration (``pattern'') in an explicit class $\Pext$ of radius-$2$ neighbourhoods of the square lattice. Each inequality asserts that a ratio of two functions of at most twenty unit vectors in $\R^3$, affine in each vector, is at least $\cs$ or $\ct$ on the whole product of spheres. We verify it in exact integer and rational arithmetic, with tests of positive definiteness of integer matrices for each pattern, one for each exchange-symmetry sector of the pattern (\S\ref{s:H1} and Appendix~\ref{s:local}); the margins on the first two decoupled examples of Table~\ref{tab:H1} are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. Hypothesis~(H2), a bound on the growth of weighted trail sums, and Hypothesis~(H3$'$), a bound on the spectral radius of a $2 \times 2$ kernel built from closed trails, are verified in floating-point arithmetic with upward rounding (\S\ref{s:H2}, \S\ref{s:H3} and Appendix~\ref{s:tail}); the bound for (H2) was also reproduced in exact rational arithmetic. These two hypotheses use (H1) only through the two numbers $\cs$ and $\ct$. Everything else is proved here or cited with a precise locator. One cited result, \cite[Theorem~4.1]{MO94} as it is invoked in \cite{MOS94}, is applied to a finite single-spin space larger than the two-valued one for which its proof is written out; Remark~\ref{r:finiteS} explains why the proof applies. The constants $c$ and $L_0$ are not explicit.
+ 
+ \subsection{Structure of the proof}
+ 
+ The proof is a chain of five reductions. We describe them in the order in which they are used; each is proved in the section indicated, and \S\ref{s:mixing} assembles the proof of Theorem~\ref{t:main}.
+ 
+-\emph{From the quantum gap to a classical heat bath} (\S\ref{s:frames}). Replace each spin by the twelve vertices of an icosahedron on one sublattice and the twenty vertices of a dodecahedron on the other. Both are spherical $5$-designs, so the corresponding spin-$2$ coherent states form tight frames, and the frame map is an isometry from $\mathcal H_\Lambda$ into a space of functions of a finite-state configuration. The ground state $B$ becomes a nowhere-vanishing function whose square is a nearest-neighbour Gibbs measure $\mu_D$ with strictly positive weights. Theorem~\ref{t:QD} shows that $\gap(H_{L, N})$ is bounded below by a fixed multiple of the spectral gap of the single-site heat-bath dynamics of $\mu_D$, and that the ground state is unique.
++\emph{From the quantum gap to a classical heat bath} (\S\ref{s:frames}). Replace each spin by the twelve vertices of an icosahedron on one sublattice and the twenty vertices of a dodecahedron on the other. Both are spherical $5$-designs, so the corresponding spin-$2$ coherent states form tight frames, and the frame map is an isometry from $\mathcal H_\Lambda$ into a space of functions of a finite-state configuration. The frame image of $B$ is nowhere vanishing; its normalized squared modulus, weighted by the frame reference measure and followed by the checkerboard change of variables, gives the nearest-neighbor Gibbs measure $\mu_D$ with strictly positive weights. Theorem~\ref{t:QD} shows that $\gap(H_{L, N})$ is bounded below by a fixed multiple of the spectral gap of the single-site heat-bath dynamics of $\mu_D$, and that the ground state is unique.
+ 
+ \emph{A finite-size criterion} (\S\ref{s:knabe}). By a Knabe-type argument for the heat-bath generator, which is a frustration-free sum of projections, the heat-bath gap on every torus of sides at least $\ell + 1$ is bounded below as soon as the smallest heat-bath gap of an $\ell \times \ell$ box, over all placements and all boundary conditions, exceeds $1/\ell$ (Theorem~\ref{t:K}).
+ 
+ \emph{From a mixing estimate to box gaps} (\S\ref{s:mixing}). After blocking $2 \times 2$ cells, $\mu_D$ becomes a translation-invariant, nearest-neighbour model with a finite single-cell space and positive weights, to which the theory of \cite{MOS94, MO94} applies. We reproduce the coupling argument of \cite[Proposition~2.1]{MOS94} in a form that consumes only one estimate, a uniform bound below $1$ on the total variation distance between the laws of a shell segment $B_i$ in a notched square $F_i$ under two boundary conditions (Proposition~\ref{p:surgery}). With \cite[Theorem~2.1]{MOS94} and \cite[Theorem~4.1]{MO94} this gives a uniform gap of the cell heat bath on large squares, and hence the input of the finite-size criterion.
+ 
+-\emph{The cut lemma} (\S\ref{s:cut}). The window law of $B_i$ in $F_i$ is a ratio of partition functions, and these are the same for the frame model and the continuous model on $\Sph$ because every site has at most four factors and the frames are $4$-designs. Removing a closed cut $X$ that separates $B_i$ from the boundary factorizes the partition function, and Lemma~\ref{l:cut} shows that the window law differs from a law that does not depend on the boundary condition by a factor $e^{\pm 2 \varepsilon}$, where $\varepsilon$ is the change of $\log$ of a ratio of pinned and free partition functions under the soft removal of $X$. Removing $X$ one site at a time, $\varepsilon$ is bounded by a sum over the cut of pair-correlation responses $|\E^\tau[n_u \cdot n_v] - \E^0[n_u \cdot n_v]|$ at pairs of sites next to a removed site. Hypothesis (P), decay of these responses in the distance to the pins, therefore implies the estimate of the previous step (Theorem~\ref{t:cutMOS}).
++\emph{The cut lemma} (\S\ref{s:cut}). The window law of $B_i$ in $F_i$ is a ratio of partition functions, and these are the same for the frame model and the continuous model on $\Sph$ because every site has at most four factors and the frames are $4$-designs. Removing a closed cut $X$ that separates $B_i$ from the boundary factorizes the partition function, and Lemma~\ref{l:cut} shows that the window law differs from a law that does not depend on the boundary condition by a factor $e^{\pm 2 \varepsilon}$, where $\varepsilon$ is the change of $\log$ of a ratio of pinned and free partition functions under the soft removal of $X$. Removing $X$ one site at a time, $\varepsilon$ is bounded by a fixed additive constant plus a sum over the cut of pair-correlation responses $|\E^\tau[n_u \cdot n_v] - \E^0[n_u \cdot n_v]|$ at pairs of sites next to a removed site. Hypothesis (P), decay of these responses in the distance to the pins, therefore implies the estimate of the previous step (Theorem~\ref{t:cutMOS}).
+ 
+-\emph{The pair recursion} (\S\ref{s:walks}--\S\ref{s:recursion}). Hypothesis (P) is proved by a walk expansion. A pair correlation is a sum over trails from one site of the pair to the other, weighted by $3^{-|w|}$ and by ratios of partition functions of traced domains. The difference between the pinned and the free ratio telescopes over the steps of the trail, and the response of each step is, exactly, a linear combination of pair responses of the same type around the removed passage site. This closes into a linear recursion for the worst pair response at distance $d$, with a nonnegative $2 \times 2$ kernel built from closed trails. The recursion contracts if the per-step ratios are bounded by the constants $\cs, \ct$ of (H1), if the weighted trail sums decay geometrically (H2), and if the kernel has spectral radius below $1$ (H3$'$) (Theorem~\ref{t:rec}).
++\emph{The pair recursion} (\S\ref{s:walks}--\S\ref{s:recursion}). Hypothesis (P) is proved by a walk expansion. A pair correlation is expanded over trails from one site of the pair, stopped at the other site or at the protected boundary layer, weighted by $3^{-|w|}$ and by ratios of partition functions of traced spin networks, with their terminal correlation factors. In the response, trails ending at the other site give the closed-trail kernel, while trails ending at the protected layer give an exponentially decaying error. The difference between the pinned and the free ratio telescopes over the steps of the trail, and the response of each step is, exactly, a linear combination of pair responses of the same type around the removed passage site. This closes into a linear recursion for the worst pair response at distance $d$, with a nonnegative $2 \times 2$ kernel built from closed trails. The recursion contracts if the per-step ratios are bounded by the constants $\cs, \ct$ of (H1), if the weighted trail sums decay geometrically (H2), and if the kernel has spectral radius below $1$ (H3$'$) (Theorem~\ref{t:rec}).
+ 
+ \emph{Computer-assisted inputs} (\S\ref{s:computer}). We state (H1), (H2) and (H3$'$) in the form used and describe their certificates. The proofs for (H1), by positive definiteness of integer matrices and, for part of the patterns, by closed forms, are in Appendix~\ref{s:local}; the tail estimate for (H3$'$) is in Appendix~\ref{s:tail}.
+ 
+@@ -41,4 +41,4 @@ and the constants are chosen in this order. The third implication uses \cite{MOS
+ 
+ \subsection{Conventions}
+ 
+-Throughout, $\Sph$ is the unit sphere in $\R^3$ and $\dd n$ is the normalized uniform measure on it. On $\Z^2$ we write $d(x, y) = |x_1 - y_1| + |x_2 - y_2|$ for the graph distance and $|x - y|_\infty$ for the $\ell^\infty$ distance; $x \sim y$ means $d(x, y) = 1$. For probability measures $\nu, \nu'$ on a finite set, $\TV(\nu, \nu') = \sup_A |\nu(A) - \nu'(A)|$. For a reversible Markov generator $\mathcal L$ on $L^2(\nu)$ with Dirichlet form $\mathcal E$, the spectral gap is $\gap = \inf \{ \mathcal E(F, F) / \Var_\nu(F) : F \text{ not constant} \}$. All spin configurations are of unit vectors; a ``pin'' is a unit vector attached to a boundary bond.
++Throughout, $\Sph$ is the unit sphere in $\R^3$ and $\dd n$ is the normalized uniform measure on it. On $\Z^2$ we write $d(x, y) = |x_1 - y_1| + |x_2 - y_2|$ for the graph distance and $|x - y|_\infty$ for the $\ell^\infty$ distance; $x \sim y$ means $d(x, y) = 1$. For probability measures $\nu, \nu'$ on a finite set, $\TV(\nu, \nu') = \sup_A |\nu(A) - \nu'(A)|$. For a reversible Markov generator $\mathcal L$ on $L^2(\nu)$ with Dirichlet form $\mathcal E$, the spectral gap is $\gap = \inf \{ \mathcal E(F, F) / \Var_\nu(F) : F \text{ not constant} \}$. Physical frame spins, ordinary continuous spins, and pins are unit vectors. Auxiliary traced spins may lie in $\Sph \cup \{0\}$, as in Definition~\ref{d:domain}; a ``pin'' is always a unit vector attached to a boundary bond.
+diff --git a/sec2-frames-Q.tex b/sec2-frames-Q.tex
+index 884bc16..f8e7229 100644
+--- a/sec2-frames-Q.tex
++++ b/sec2-frames-Q.tex
+@@ -60,7 +60,20 @@ If $(D, w)$ is a frame, then $\sum_{a \in D} 5 w(a) \, |\varphi(\zeta(a))|^2 = \
+ By \eqref{e:zeta}, $\zeta_j(a) \overline{\zeta_i(a)}$ is an affine function of $a$ for all $i, j$. Every monomial of $\overline{\varphi(\zeta(a))} \varphi(\zeta(a))$ is a product of four such factors, so this function is the restriction to $\Sph$ of a polynomial of degree at most $4$. The claim follows from \eqref{e:Vinner} and Definition~\ref{d:frame}.
+ \end{proof}
+ 
+-Let $D_{\mathrm I} \subset \Sph$ be the twelve vertices of a regular icosahedron and $D_{\mathrm{II}} \subset \Sph$ the twenty normalized centres of its faces, the vertices of the dual dodecahedron. With uniform weights $w_{\mathrm I} \equiv 1/12$ and $w_{\mathrm{II}} \equiv 1/20$, both are spherical $5$-designs (see \cite{DGS77}; we also checked the moments up to degree $6$ numerically, with errors below $10^{-15}$ up to degree $5$), so both are frames. Both sets are invariant under $a \mapsto -a$. A direct computation shows that for $a \in D_{\mathrm I}$ and $b \in D_{\mathrm{II}}$,
++Let $D_{\mathrm I} \subset \Sph$ be the twelve vertices of a regular icosahedron and $D_{\mathrm{II}} \subset \Sph$ the twenty normalized centers of its faces, the vertices of the dual dodecahedron. Here is an exact verification of the design property. Put $\phi=(1+\sqrt5)/2$, and let $\operatorname{cyc}$ denote the three cyclic coordinate permutations, with independent indicated signs. In a common orientation the unnormalized vertex sets are
++\begin{equation*}
++I_0=\{\operatorname{cyc}(0,\pm1,\pm\phi)\},\qquad
++D_0=\{(\pm1,\pm1,\pm1)\}\cup
++\{\operatorname{cyc}(0,\pm\phi,\pm\phi^{-1})\},
++\end{equation*}
++and $D_{\mathrm I}=I_0/\sqrt{\phi+2}$, $D_{\mathrm{II}}=D_0/\sqrt3$. For each $b_0\in D_0$, the three $a_0\in I_0$ with $a_0\cdot b_0=1+\phi$ have pairwise dot product $\phi$ and sum $(1+\phi)b_0$, so these are the corresponding face-center directions. Both sets are invariant under independent coordinate sign changes and cyclic permutations. Using $\phi^2=\phi+1$, their uniform averages satisfy, for $i\ne j$,
++\begin{equation*}
++\frac1{|D|}\sum_{a\in D}a_i^2=\frac13,\qquad
++\frac1{|D|}\sum_{a\in D}a_i^4=\frac15,\qquad
++\frac1{|D|}\sum_{a\in D}a_i^2a_j^2=\frac1{15},
++\quad D=D_{\mathrm I},D_{\mathrm{II}}.
++\end{equation*}
++Every monomial with an odd coordinate exponent has average zero. Together with the constant moment, these are all the moments through total degree $5$, and they equal the normalized spherical moments. Thus the uniform weights $w_{\mathrm I}\equiv1/12$ and $w_{\mathrm{II}}\equiv1/20$ make both sets spherical $5$-designs, and hence frames. Both sets are invariant under $a\mapsto-a$. The same coordinates give the following cross-frame inner products:
+ \begin{equation}\label{e:icodod}
+ a \cdot b \in \{ \pm \gamma_+, \pm \gamma_- \}, \qquad \gamma_\pm = \Bigl( \frac{5 \pm 2 \sqrt 5}{15} \Bigr)^{1/2}, \qquad \gamma_+ = 0.7946\ldots, \quad \gamma_- = 0.1875\ldots
+ \end{equation}
+@@ -98,7 +111,12 @@ Let $L, N \ge 4$ be even. Then $\ker H_{L, N} = \C B$ and
+ \begin{proof}
+ For $x \in \Lambda$ and $\sigma \in \prod_{y \in N(x)} D_y$ set $\beta_x(t; \sigma) = \prod_{y \in N(x)} q_{xy}(\zeta(t), \zeta(\sigma_y))$, $t \in D_x$. By \eqref{e:qmod} and \eqref{e:icodod} it does not vanish. Let $P_x$ be the operator on $\ell^2(\Omega, \pi)$ that, for every fixed $s_{\Lambda \setminus x}$, acts on the function $t \mapsto f(t, s_{\Lambda \setminus x})$ as the orthogonal projection of $\ell^2(D_x, 5 w_x)$ onto $\C \beta_x(\, \cdot \,; s_{N(x)})$. It is an orthogonal projection.
+ 
+-We first show that $U F = F \, \iota B / \|B\|$ defines a unitary map $U \colon L^2(\mu^\circ) \to \ell^2(\Omega, \pi)$ with $U E_x = P_x U$. Unitarity follows from \eqref{e:mucirc} and $\iota B(s) \neq 0$. Write $\iota B(s) = \beta_x(s_x; s_{N(x)}) \, \rho_x(s_{\Lambda \setminus x})$, where $\rho_x$ is the product of the factors of bonds not containing $x$. By \eqref{e:mucirc}, $\mu^\circ(t \mid s_{\Lambda \setminus x})$ is proportional to $w_x(t) |\beta_x(t; s_{N(x)})|^2$. Hence, for fixed $s_{\Lambda \setminus x}$,
++We first show that $U F = F \, \iota B / \|B\|$ defines a unitary map $U \colon L^2(\mu^\circ) \to \ell^2(\Omega, \pi)$ with $U E_x = P_x U$. Unitarity follows from \eqref{e:mucirc} and $\iota B(s) \neq 0$. For $e=\{x,y\}$ write $q_e=\epsilon_{e,x}q_{xy}$, with $\epsilon_{e,x}\in\{\pm1\}$, and set $c_x=\prod_{e\ni x}\epsilon_{e,x}$. Define
++\begin{equation*}
++\rho_x(s_{\Lambda\setminus x})
++=c_x\prod_{e\not\ni x}q_e\bigl((\zeta(s_z))_{z\in e}\bigr).
++\end{equation*}
++Then $\iota B(s)=\beta_x(s_x;s_{N(x)})\rho_x(s_{\Lambda\setminus x})$. By \eqref{e:mucirc}, $\mu^\circ(t \mid s_{\Lambda \setminus x})$ is proportional to $w_x(t) |\beta_x(t; s_{N(x)})|^2$. Hence, for fixed $s_{\Lambda \setminus x}$,
+ \begin{equation*}
+ P_x (U F)(t, s_{\Lambda \setminus x}) = \frac{\beta_x(t; s_{N(x)}) \rho_x(s_{\Lambda \setminus x})}{\|B\|} \, \frac{\sum_{t'} 5 w_x(t') |\beta_x(t'; s_{N(x)})|^2 F(t', s_{\Lambda \setminus x})}{\sum_{t'} 5 w_x(t') |\beta_x(t'; s_{N(x)})|^2} = U(E_x F)(t, s_{\Lambda \setminus x}).
+ \end{equation*}
+@@ -107,7 +125,7 @@ Next we show that for all $\varphi \in \mathcal H_\Lambda$,
+ \begin{equation}\label{e:QDcomp}
+ \|(1 - P_x) \iota \varphi\| \le \|(1 - \Pi_{\mathcal S_x}) \varphi\| .
+ \end{equation}
+-Let $\psi \in \mathcal S_x$. By Lemma~\ref{l:divisibility} with $R = \{x\}$, $\psi = b_{\{x\}} \chi$ with $\chi$ independent of $z_x$, so $\iota \psi(t, s_{\Lambda \setminus x}) = \beta_x(t; s_{N(x)}) \, \chi((\zeta(s_y))_{y \neq x})$. For fixed $s_{\Lambda \setminus x}$ this is a multiple of $\beta_x(\, \cdot \,; s_{N(x)})$, so $\iota \psi \in \Ran P_x$. Hence $\|(1 - P_x) \iota \varphi\| \le \|\iota \varphi - \iota \Pi_{\mathcal S_x} \varphi\| = \|(1 - \Pi_{\mathcal S_x}) \varphi\|$, where we used that $\iota$ is an isometry.
++Let $\psi \in \mathcal S_x$. By Lemma~\ref{l:divisibility} with $R = \{x\}$, $\psi = b_{\{x\}} \chi$ with $\chi$ independent of $z_x$, so $\iota \psi(t, s_{\Lambda \setminus x}) = c_x\,\beta_x(t; s_{N(x)}) \, \chi((\zeta(s_y))_{y \neq x})$. For fixed $s_{\Lambda \setminus x}$ this is a multiple of $\beta_x(\, \cdot \,; s_{N(x)})$, so $\iota \psi \in \Ran P_x$. Hence $\|(1 - P_x) \iota \varphi\| \le \|\iota \varphi - \iota \Pi_{\mathcal S_x} \varphi\| = \|(1 - \Pi_{\mathcal S_x}) \varphi\|$, where we used that $\iota$ is an isometry.
+ 
+ Now let $\varphi \perp B$ and $F = U^{-1} \iota \varphi$. Since $U 1 = \iota B / \|B\|$ and $\iota$ is an isometry, $\mu^\circ(F) = \langle \iota B, \iota \varphi \rangle / \|B\| = \langle B, \varphi \rangle / \|B\| = 0$, so $\Var_{\mu^\circ}(F) = \|F\|^2_{L^2(\mu^\circ)} = \|\varphi\|^2$. By the definition of $\lambda(\mu^\circ)$, the intertwining $U E_x = P_x U$, \eqref{e:QDcomp} and \eqref{e:star}, we have
+ \begin{equation*}
+@@ -134,4 +152,4 @@ We call $\mu_D$ the \emph{frame model}. The same formula with $\Lambda$ replaced
+ \begin{equation}\label{e:muDW}
+ \mu^{\eta}_{D, W}(n_W) = \frac{1}{Z^\eta_{D, W}} \prod_{x \in W} w_x(n_x) \prod_{\substack{\{x, y\} \subset W \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{\substack{x \in W, \, y \notin W \\ x \sim y}} (1 + n_x \cdot \eta_y) .
+ \end{equation}
+-All weights in \eqref{e:muD} and \eqref{e:muDW} lie in $[1 - \gamma_+, 1 + \gamma_+]$ times the site weights.
++Every internal bond factor and every boundary bond factor in \eqref{e:muD} and \eqref{e:muDW} lies in $[1-\gamma_+,1+\gamma_+]$, and all site weights are positive.
+diff --git a/sec3-knabe.tex b/sec3-knabe.tex
+index 68ffa2e..2f72c9b 100644
+--- a/sec3-knabe.tex
++++ b/sec3-knabe.tex
+@@ -4,7 +4,7 @@ In this section we bound the heat-bath gap $\lambda(\mu)$ on a torus from below
+ 
+ \subsection{Statement}
+ 
+-Let $L, N \ge 3$ and $\Lambda = \Z_L \times \Z_N$, let $(S_x)_{x \in \Lambda}$ be finite sets, and let $\mu$ be a probability measure on $\prod_x S_x$ of the form
++Let $L, N \ge 3$ and $\Lambda = \Z_L \times \Z_N$, let $(S_x)_{x \in \Lambda}$ be finite sets with $|S_x|\ge2$, and let $\mu$ be a probability measure on $\prod_x S_x$ of the form
+ \begin{equation}\label{e:MRF}
+ \mu(s) = \frac{1}{Z} \prod_{x \in \Lambda} \phi_x(s_x) \prod_{\{x, y\} \in E} \phi_{xy}(s_x, s_y), \qquad \phi_x, \phi_{xy} > 0 .
+ \end{equation}
+@@ -102,7 +102,13 @@ where we used that the terms of neighbouring pairs cancel and that $Q_x Q_y \ge
+ \mathcal L^2 \ge \Bigl( 1 + \frac{\ell^2 (g(\ell) - 1)}{\ell(\ell - 1)} \Bigr) \mathcal L = \frac{\ell}{\ell - 1} \Bigl( g(\ell) - \frac1\ell \Bigr) \mathcal L .
+ \end{equation*}
+ 
+-\emph{Weighted weights.} Let $\varphi \in L^2(\mu)$, and set $X_a = \langle \varphi, B_a \varphi \rangle$ and $Y_a = \langle \varphi, A_a \varphi \rangle$. Let $G_a$ be the orthogonal projection onto $\ker A_a$. Since $Q_x \ge 0$ and $w > 0$ on $R$, $\ker B_a = \bigcap_{x \in R + a} \ker Q_x = \ker A_a$, so $B_a = G_a^\perp B_a G_a^\perp$. If $G_a^\perp \varphi = 0$ then $X_a = Y_a = 0$. Otherwise, by Cauchy--Schwarz and Lemma~\ref{l:fibre},
++\emph{Weighted weights.} Let $\varphi \in L^2(\mu)$, and set $X_a = \langle \varphi, B_a \varphi \rangle$ and $Y_a = \langle \varphi, A_a \varphi \rangle$. If $\langle\varphi,\mathcal L\varphi\rangle=0$, positivity gives $Q_x\varphi=0$ for every $x$, hence $A_a\varphi=B_a\varphi=0$ for every $a$; the required bound
++\begin{equation*}
++\Bigl\langle\varphi,\sum_aB_a^2\varphi\Bigr\rangle
++\ge g(\ell)\frac{\mathsf s^4}{\ell^2}
++\langle\varphi,\mathcal L\varphi\rangle
++\end{equation*}
++then holds with both sides zero. In the remaining calculation assume $\langle\varphi,\mathcal L\varphi\rangle>0$, so $\sum_aY_a=\ell^2\langle\varphi,\mathcal L\varphi\rangle>0$. Let $G_a$ be the orthogonal projection onto $\ker A_a$. Since $Q_x \ge 0$ and $w > 0$ on $R$, $\ker B_a = \bigcap_{x \in R + a} \ker Q_x = \ker A_a$, so $B_a = G_a^\perp B_a G_a^\perp$. If $G_a^\perp \varphi = 0$ then $X_a = Y_a = 0$. Otherwise, by Cauchy--Schwarz and Lemma~\ref{l:fibre},
+ \begin{equation*}
+ X_a^2 = \langle G_a^\perp \varphi, B_a \varphi \rangle^2 \le \|G_a^\perp \varphi\|^2 \|B_a \varphi\|^2, \qquad Y_a \ge g(\ell) \|G_a^\perp \varphi\|^2,
+ \end{equation*}
+diff --git a/sec4-mixing-to-gap.tex b/sec4-mixing-to-gap.tex
+index 58ad33d..c5d7399 100644
+--- a/sec4-mixing-to-gap.tex
++++ b/sec4-mixing-to-gap.tex
+@@ -4,7 +4,7 @@ In this section we reduce the input of Theorem~\ref{t:K} to an estimate on windo
+ 
+ \subsection{The cell models}\label{s:cells}
+ 
+-Consider the frame model on $\Z^2$ with the checkerboard frame and the finite-volume measures $\mu^\eta_{D, W}$ of \eqref{e:muDW}. For $o \in \{0, 1\}$ and $c \in \Z^2$ let
++Consider the frame model on $\Z^2$ with the checkerboard frame and the finite-volume measures $\mu^\eta_{D, W}$ of \eqref{e:muDW}. Throughout this section, assertions about spectral gaps concern nonempty finite volumes and single-spin spaces with at least two elements. For $o \in \{0, 1\}$ and $c \in \Z^2$ let
+ \begin{equation*}
+ C^{(o)}_c = (2 c_1 + o, \, 2 c_2) + \{0, 1\}^2 .
+ \end{equation*}
+@@ -34,7 +34,7 @@ We use the notation of \cite{MOS94} for a model on $\Z^2$ with a finite single-s
+ \begin{equation}\label{e:SM}
+ \TV(\hat\mu^\eta_{W, \Delta}, \hat\mu^{\eta'}_{W, \Delta}) \le C e^{-\gamma \operatorname{dist}_\infty(\Delta, y)} .
+ \end{equation}
+-Let $\mathcal C_M = \{ c \in \Z^2 : |c|_\infty \le M\}$, a square of side $2M + 1$. For boundary conditions $\eta, \eta'$ outside $\mathcal C_M$ let $\mathcal Q_{M, \eta, \eta'} = \{ c \in \mathcal C_M : |c - z|_\infty > M^{1/2} \text{ for all } z \text{ with } \eta_z \neq \eta'_z \}$. A set $W$ is \emph{$M_0$-compatible} if it is a finite union of translates of $\mathcal C_{M_0}$ by vectors of $(2 M_0 + 1) \Z^2$; by translation invariance we may and do also call its translates $M_0$-compatible.
++All square-size parameters $M$, $M'$, and $M_0$ range over $\Z_{\ge0}$, and their thresholds are chosen integral. Let $\mathcal C_M = \{ c \in \Z^2 : |c|_\infty \le M\}$, a square of side $2M + 1$. For boundary conditions $\eta, \eta'$ outside $\mathcal C_M$ let $\mathcal Q_{M, \eta, \eta'} = \{ c \in \mathcal C_M : |c - z|_\infty > M^{1/2} \text{ for all } z \text{ with } \eta_z \neq \eta'_z \}$. A set $W$ is \emph{$M_0$-compatible} if it is a finite union of translates of $\mathcal C_{M_0}$ by vectors of $(2 M_0 + 1) \Z^2$; by translation invariance we may and do also call its translates $M_0$-compatible.
+ 
+ \begin{theorem}[{\cite[Theorem~2.1]{MOS94}}]\label{t:MOS21}
+ There exists $\bar M$ such that the following holds. If for some $M > \bar M$
+@@ -65,7 +65,7 @@ F_i &= \{ c \in \mathcal C_M : |c - y|_\infty > (i - 1) s \}, & D_i &= \{ c \in
+ A_i &= \{ c \in D_i : \operatorname{dist}_\infty(c, \Z^2 \setminus \mathcal C_M) \le l_0 \}, & B_i &= D_i \setminus A_i ,
+ \end{aligned}
+ \end{equation}
+-where $l_0 \in \N$ is a parameter. The set $D_i$ is the intersection of $\mathcal C_M$ with the $\ell^\infty$ sphere of radius $k_i = \lfloor i s \rfloor$ around $y$, and $D_i \subset F_i$. Only the indices $i \le i_1$, where $i_1 = \lfloor s \rfloor + 1$, will be used. Let $I_0$ be the set of $i \in \{2, \dots, i_1\}$ such that $D_i$ is at $\ell^\infty$ distance less than $s/3$ from one of the four corner cells of $\mathcal C_M$. (Without the restriction $i \le i_1$, the set $I_0$ could have two elements: for $y = (0, -M - 1)$, $D_i$ comes close to the two lower corner cells when $k_i \approx M$ and to the two upper ones when $k_i \approx 2M + 1$.)
++where $l_0 \in \Z_{\ge1}$ is a parameter; the shell indices $i$ are integers. The set $D_i$ is the intersection of $\mathcal C_M$ with the $\ell^\infty$ sphere of radius $k_i = \lfloor i s \rfloor$ around $y$, and $D_i \subset F_i$. Only the indices $i \le i_1$, where $i_1 = \lfloor s \rfloor + 1$, will be used. Let $I_0$ be the set of $i \in \{2, \dots, i_1\}$ such that $D_i$ is at $\ell^\infty$ distance less than $s/3$ from one of the four corner cells of $\mathcal C_M$. (Without the restriction $i \le i_1$, the set $I_0$ could have two elements: for $y = (0, -M - 1)$, $D_i$ comes close to the two lower corner cells when $k_i \approx M$ and to the two upper ones when $k_i \approx 2M + 1$.)
+ 
+ \begin{lemma}\label{l:shellgeom}
+ Let $l_0 \ge 1$. There exists $M_{\mathrm g}(l_0)$ such that for $M \ge M_{\mathrm g}(l_0)$ and all $y$ as above: $I_0$ has at most one element; and for every $i \in \{2, \dots, i_1\} \setminus I_0$, every side of the square $y + [-k_i, k_i]^2$ that is parallel to an edge $\mathcal E$ of $\mathcal C_M$ and meets $\mathcal C_M$ is at $\ell^\infty$ distance at least $s/3$ from the half-plane outside $\mathcal C_M$ beyond $\mathcal E$, and $|A_i| \le 8 l_0$.
+@@ -78,7 +78,7 @@ Let $2 \le i \le i_1$; then $k_i \le i_1 s \le M^{1/2} + s$. By symmetry let $y
+ We now state the hypothesis that the coupling argument consumes. It is the conclusion of Theorem~\ref{t:cutMOS} in \S\ref{s:cut}.
+ 
+ \begin{definition}\label{d:W}
+-We say that \emph{the window estimate holds for $\hat\mu$} if there exist $l_0 \in \N$, $p_0 \in (0, 1]$ and $M_\star$ such that for all $M \ge M_\star$, all $y$ with $\operatorname{dist}_\infty(y, \mathcal C_M) = 1$, all $i$ with $2 \le i \le s$ and $i \notin I_0$, and all configurations $\eta, \xi$ on $\Z^2 \setminus F_i$,
++We say that \emph{the window estimate holds for $\hat\mu$} if there exist $l_0 \in \Z_{\ge1}$, $p_0 \in (0, 1]$, and $M_\star\in\Z_{\ge1}$ such that for all $M \ge M_\star$, all $y$ with $\operatorname{dist}_\infty(y, \mathcal C_M) = 1$, all $i$ with $2 \le i \le s$ and $i \notin I_0$, and all configurations $\eta, \xi$ on $\Z^2 \setminus F_i$,
+ \begin{equation}\label{e:W}
+ \TV\bigl( \hat\mu^\eta_{F_i, B_i}, \hat\mu^\xi_{F_i, B_i} \bigr) \le 1 - p_0 .
+ \end{equation}
+@@ -98,7 +98,7 @@ If $\operatorname{dist}_\infty(y, \mathcal C_M) > 1$, then $\hat\mu^\tau_{\mathc
+ 
+ \emph{Surgery.} Let $F \subset \mathcal C_M$, let $\nu$ be a coupling of $\mu$ and $\mu'$, and let $T$ be a Markov kernel that maps a pair $(\omega, \omega')$ to a random pair $(\tilde \omega, \tilde \omega')$ with $\tilde \omega = \omega$ and $\tilde \omega' = \omega'$ off $F$, such that $\tilde \omega_F$ has law $\hat\mu^{\omega\tau}_F$ and $\tilde\omega'_F$ has law $\hat\mu^{\omega'\tau'}_F$. Then $\nu T$ is a coupling of $\mu$ and $\mu'$: its first marginal is $\sum_\omega \mu(\omega) \, \hat\mu^{\omega \tau}_F \otimes \delta_{\omega_{\mathcal C_M \setminus F}} = \mu$ by the DLR equations, and likewise for the second.
+ 
+-\emph{Step $i$.} Let $2 \le i \le i_1$. If $i \in I_0$, the pair is not changed. Otherwise we apply a surgery on $F_i$, with a kernel $T_i$ defined as follows. The cells within distance $1$ of $F_i$ lie in $F_i$, in $D_{i - 1}$, or outside $\mathcal C_M$ at distance more than $(i - 1)s - 1 \ge 1$ from $y$, where $\tau$ and $\tau'$ agree. Hence if $\omega_{D_{i - 1}} = \omega'_{D_{i - 1}}$, then $\hat\mu^{\omega\tau}_{F_i} = \hat\mu^{\omega'\tau'}_{F_i}$, and $T_i$ resamples $F_i$ from this measure with the same configuration for both components. If $\omega_{D_{i - 1}} \neq \omega'_{D_{i - 1}}$, $T_i$ first draws the two configurations on $B_i$ from a maximal coupling of the marginals $\hat\mu^{\omega\tau}_{F_i, B_i}$ and $\hat\mu^{\omega'\tau'}_{F_i, B_i}$, then completes each to $F_i$ independently from the conditional laws given $B_i$, and finally replaces the configurations on $A_i$ by independent samples from their conditional laws given the rest. Each of these operations preserves the laws $\hat\mu^{\omega\tau}_{F_i}$ and $\hat\mu^{\omega'\tau'}_{F_i}$. By \eqref{e:W}, the two configurations agree on $B_i$ with probability at least $p_0$ (if $i \le s$). The last operation does not change $B_i$, and for every configuration $\sigma$ of $A_i$ the conditional probability of $\sigma$ given the rest is at least $\alpha^{|A_i|}$, by the chain rule and finite energy. Hence, by Lemma~\ref{l:shellgeom}, the two configurations agree on $D_i = A_i \cup B_i$ after step $i$ with probability at least $p_0 \alpha^{2 |A_i|} \ge \delta$, conditionally on any configuration before step $i$.
++\emph{Step $i$.} Let $2 \le i \le i_1$. If $i \in I_0$, the pair is not changed. Otherwise we apply a surgery on $F_i$, with a kernel $T_i$ defined as follows. The cells within distance $1$ of $F_i$ lie in $F_i$, in $D_{i - 1}$, or outside $\mathcal C_M$ at distance more than $(i - 1)s - 1 \ge 1$ from $y$, where $\tau$ and $\tau'$ agree. Hence if $\omega_{D_{i - 1}} = \omega'_{D_{i - 1}}$, then $\hat\mu^{\omega\tau}_{F_i} = \hat\mu^{\omega'\tau'}_{F_i}$, and $T_i$ resamples $F_i$ from this measure with the same configuration for both components. If $\omega_{D_{i - 1}} \neq \omega'_{D_{i - 1}}$, $T_i$ first draws the two configurations on $B_i$ from a maximal coupling of the marginals $\hat\mu^{\omega\tau}_{F_i, B_i}$ and $\hat\mu^{\omega'\tau'}_{F_i, B_i}$, then completes each to $F_i$ independently from the conditional laws given $B_i$, and finally replaces the configurations on $A_i$ by independent samples from their conditional laws given the rest. Each of these operations preserves the laws $\hat\mu^{\omega\tau}_{F_i}$ and $\hat\mu^{\omega'\tau'}_{F_i}$. By \eqref{e:W}, the two configurations agree on $B_i$ with probability at least $p_0$ (if $i \le s$). The last operation does not change $B_i$, and for every configuration $\sigma$ of $A_i$ the conditional probability of $\sigma$ given the rest is at least $\alpha^{|A_i|}$, by the chain rule and finite energy. Hence, for $i\notin I_0$ with $i\le s$, Lemma~\ref{l:shellgeom} gives agreement on $D_i=A_i\cup B_i$ after step $i$ with probability at least $p_0\alpha^{2|A_i|}\ge\delta$, conditionally on any configuration before step $i$. At the final unskipped step $i_1>s$ we use the same kernel, retaining identical resampling when the incoming separator agrees, without asserting this success bound.
+ 
+ \emph{Propagation.} Start from the product coupling $\mu \otimes \mu'$ and apply steps $2, \dots, i_1$. Let $J$ be the set of $i \in \{2, \dots, i_1 - 1\}$ with $i \notin I_0$ and $i + 1 \notin I_0$; then $|J| \ge i_1 - 4 \ge s - 4$, and every $i \in J$ satisfies $i \le s$. Let $i \in J$, and suppose the pair agrees on $D_i$ after step $i$. Then step $i + 1$ makes it agree on $F_{i + 1}$. For $j > i + 1$, step $j$ changes only $F_j \subset F_{i + 1}$; if $j \notin I_0$, then $D_{j - 1} \subset F_{i + 1}$, so the pair agrees on $D_{j - 1}$ and step $j$ resamples $F_j$ identically. Hence the final pair agrees on $F_{i + 1} \supset F_{i_1} \supset \mathcal Q$, where the last inclusion holds because $(i_1 - 1) s \le s^2 = M^{1/2}$. Therefore disagreement on $\mathcal Q$ at the end requires disagreement on $D_i$ after step $i$ for every $i \in J$, and by the previous paragraph and the chain rule this has probability at most $(1 - \delta)^{|J|} \le (1 - \delta)^{s - 4}$. Since the final pair is a coupling of $\mu$ and $\mu'$, this bounds the total variation distance of the marginals on $\mathcal Q$.
+ \end{proof}
+@@ -135,4 +135,4 @@ By \eqref{e:QDrot} and Theorem~\ref{t:QD}, $\ker H_{L, N} = \C B$ and $\gap(H_{L
+ By Theorem~\ref{t:inputs}, hypotheses (H1), (H2) and (H3$'$) hold at the same pair $(\cs, \ct) = (0.961, 0.935)$, so Theorem~\ref{t:rec} gives Hypothesis~(P). By Theorem~\ref{t:cutMOS}, (P) implies the window estimate for $\hat\mu^{(0)}$ and $\hat\mu^{(1)}$, and Theorem~\ref{t:mainW} concludes the proof.
+ \end{proof}
+ 
+-The proof of Theorem~\ref{t:main} uses results of \S\ref{s:cut}--\S\ref{s:computer}; their proofs do not use \S\ref{s:frames}--\S\ref{s:mixing}, so the order of the argument is not circular.
++The proof of Theorem~\ref{t:main} uses results of \S\ref{s:cut}--\S\ref{s:computer}. Their proofs use earlier frame definitions and shell geometry, but do not use Theorem~\ref{t:main}, the conclusion of Theorem~\ref{t:mainW}, or any consequence of the window estimate. These dependencies are acyclic.
+diff --git a/sec5-cut.tex b/sec5-cut.tex
+index a96e8a7..77fe5b0 100644
+--- a/sec5-cut.tex
++++ b/sec5-cut.tex
+@@ -8,7 +8,7 @@ Let $G \subset \Z^2$ be finite. A \emph{leg} of $G$ is a pair $(x, z)$ with $x \
+ \begin{equation}\label{e:Zpin}
+ Z^\tau_D = \int \prod_{\substack{\{x, y\} \subset D \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{\substack{(x, z) \text{ leg of } G \\ x \in D}} (1 + \tau_{xz} \cdot n_x) \prod_{x \in D} \dd n_x, \qquad Z^0_D = \int \prod_{\substack{\{x, y\} \subset D \\ x \sim y}} (1 + n_x \cdot n_y) \prod_{x \in D} \dd n_x ,
+ \end{equation}
+-and we write $\E^\tau_D$ and $\E^0_D$ for the corresponding probability measures on $(\Sph)^D$, and $\Psi_D(\tau) = Z^\tau_D / Z^0_D$. Note that the legs of $D$ into $Y$ carry no factor. We will use three elementary facts.
++Both partition functions in \eqref{e:Zpin} are finite and strictly positive. For $D\ne\emptyset$, choose $q\in\Sph$ different from the negatives of all surviving pins and put every spin equal to $q$. Every bond factor is then $2$ and every leg factor is positive. By continuity, the integrand is positive on a product of open spherical neighborhoods of positive product measure. The integrand is bounded, so its integral is finite. For $D=\emptyset$, the partition functions equal $1$. The same argument applies to any retained subsets of bonds and legs, and to site measures with positive uniform components; a positive scalar trace mass also preserves positivity. We write $\E^\tau_D$ and $\E^0_D$ for the corresponding probability measures on $(\Sph)^D$, and $\Psi_D(\tau) = Z^\tau_D / Z^0_D$. Note that the legs of $D$ into $Y$ carry no factor. We will use three elementary facts.
+ 
+ \emph{Moments.} For the uniform measure on $\Sph$ and indices $a_1, \dots, a_{2k} \in \{1, 2, 3\}$,
+ \begin{equation}\label{e:moments}
+@@ -76,7 +76,7 @@ where $Z^{\mathsf s}_{G_1}$ and $Z^\eta_{G_2}$ are the partition functions of $G
+ \begin{equation*}
+ Z^{\eta \mathsf s}_G = \Psi_G(\eta \mathsf s) Z^0_G = e^{-e(\eta, \mathsf s)} \, \Psi_{G \setminus X}(\eta \mathsf s) Z^0_G = e^{-e(\eta, \mathsf s)} \, \frac{Z^{\mathsf s}_{G_1} Z^\eta_{G_2} Z^0_G}{Z^0_{G_1} Z^0_{G_2}} .
+ \end{equation*}
+-Inserting this into \eqref{e:windowlaw}, we obtain $\mu^\eta_{D, F}(n_B = \mathsf s) = c(\eta) \, \nu(\mathsf s) \, e^{-e(\eta, \mathsf s)}$, where $\nu(\mathsf s)$ is proportional to $W_B(\mathsf s) Z^{\mathsf s}_{G_1}$ and normalized, and $c(\eta)$ does not depend on $\mathsf s$. Summing over $\mathsf s$ gives $c(\eta)^{-1} = \sum_{\mathsf s} \nu(\mathsf s) e^{-e(\eta, \mathsf s)} \in [e^{-\varepsilon}, e^{\varepsilon}]$, which proves \eqref{e:cutratio}.
++Inserting this into \eqref{e:windowlaw}, we obtain $\mu^\eta_{D, F}(n_B = \mathsf s) = c(\eta) \, \nu(\mathsf s) \, e^{-e(\eta, \mathsf s)}$, where $\nu(\mathsf s)$ is proportional to $W_B(\mathsf s) Z^{\mathsf s}_{G_1}$ and normalized, and $c(\eta)$ does not depend on $\mathsf s$. Every weight of $\nu$ is strictly positive: $W_B(\mathsf s)>0$ by the positive site weights and \eqref{e:icodod}, and $Z^{\mathsf s}_{G_1}>0$ by the positivity just established, also when $G_1=\emptyset$. Summing over $\mathsf s$ gives $c(\eta)^{-1} = \sum_{\mathsf s} \nu(\mathsf s) e^{-e(\eta, \mathsf s)} \in [e^{-\varepsilon}, e^{\varepsilon}]$, which proves \eqref{e:cutratio}.
+ 
+ For the second claim, let $p$ and $p'$ be the two window laws. By \eqref{e:cutratio}, $p \le \varrho p'$ and $p' \le \varrho p$ with $\varrho = e^{4 \varepsilon}$. Let $\mathcal A = \{p > p'\}$, $x = p'(\mathcal A)$ and $y = p(\mathcal A)$. Then $y \le \varrho x$ and $1 - y \ge (1 - x)/\varrho$, so
+ \begin{equation*}
+@@ -99,7 +99,7 @@ There exist $A \ge 2$ and $\theta \in (0, 1)$ such that for every finite $G \sub
+ The removed set $Y$ does not count as boundary: the distance in \eqref{e:P} is to $S(G)$, which depends on $G$ only. For $d \in \Z$ we write $\mathsf F(d) = A \theta^{\max(d, 0)}$.
+ 
+ \begin{lemma}\label{l:removal}
+-Assume Hypothesis~(P). Let $G$ and $\tau$ be as in \eqref{e:P}, and let $x_1, \dots, x_p$ be distinct sites of $G$ with $b(x_j) = d(x_j, \Z^2 \setminus G) \ge 3$, such that every $x_j$ with $j \ge 2$ has a neighbour among $x_1, \dots, x_{j - 1}$. Let $X = \{x_1, \dots, x_p\}$. Then
++Assume Hypothesis~(P). Let $G$ and $\tau$ be as in \eqref{e:P}, and let $p\ge1$ and $x_1,\dots,x_p$ be distinct sites of $G$ with $b(x_j) = d(x_j, \Z^2 \setminus G) \ge 3$, such that every $x_j$ with $j \ge 2$ has a neighbour among $x_1, \dots, x_{j - 1}$. Let $X = \{x_1, \dots, x_p\}$. Then
+ \begin{equation}\label{e:removal}
+ \bigl| \log \Psi_{G \setminus X}(\tau) - \log \Psi_G(\tau) \bigr| \le 0.0707 + 2.73 \, \mathsf F(b(x_1) - 3) + 1.22 \sum_{j = 2}^p \mathsf F(b(x_j) - 3) .
+ \end{equation}
+@@ -176,7 +176,7 @@ where we used $\max(t, l_0/2 + 1 - t) \ge \max(t, l_0/4)$ and $s - 1 - t \ge s/2
+ 
+ Two sites in cells at cell distance $\mathsf d \ge 1$ are at $\ell^\infty$ distance at least $2 \mathsf d - 1$, and $d \ge \operatorname{dist}_\infty$. Hence $b(x) \ge 2 \max(t, l_0/4) - 5 \ge l_0/2 - 5 \ge 3$ in the second case, and $b(x) \ge s/6 - 3$ in the first. The sites of the first case contribute at most $|X| \vartheta^{s/6 - 3} \le 4 (2M + 1)^2 \vartheta^{s/6 - 7}$.
+ 
+-It remains to count the cells of the second case with a given $t = j$. Such a cell lies on the $\ell^\infty$ sphere of radius $k \pm j$ around $y$ and on the ring $\{c : h(c) = h'\}$ for one of at most three integers $h' \in [l_0/2 + j - 2, l_0/2 + j)$. Both are boundaries of axis-parallel squares, so they meet in at most $8$ cells unless a side of the sphere lies on a side of the ring, that is, unless a side of the sphere of radius $k \pm j$ that meets $\mathcal C_M$ is parallel to an edge $\mathcal E$ of $\mathcal C_M$ at distance exactly $h'$ from the half-plane beyond $\mathcal E$. When the radius changes from $k$ to $k \pm j$, the distance of such a side changes by $j$. By Lemma~\ref{l:shellgeom}, the sides of the sphere of radius $k$ that are parallel to an edge and meet $\mathcal C_M$ are at distance at least $s/3$; those of radius $k \pm j$ are therefore at distance at least $s/3 - j \ge s/3 - s/12 > l_0/2 + j$ when $s$ is large, or they come from a side of radius $k$ that does not meet $\mathcal C_M$ (distance at most $0$), and then their distance is at most $j < l_0/2 + j - 2$. In both cases it differs from $h'$. Hence there are at most $2 \cdot 3 \cdot 8 = 48$ cells, that is, at most $192$ sites, with $t = j$, and their contribution is at most
++It remains to count the cells of the second case with a given $t = j$. Such a cell lies on the $\ell^\infty$ sphere of radius $k \pm j$ around $y$ and on the ring $\{c : h(c) = h'\}$ for one of at most three integers $h' \in [l_0/2 + j - 2, l_0/2 + j)$. Both are boundaries of axis-parallel squares, so they meet in at most $8$ cells unless a side of the sphere lies on a side of the ring, that is, unless a side of the sphere of radius $k \pm j$ that meets $\mathcal C_M$ is parallel to an edge $\mathcal E$ of $\mathcal C_M$ at distance exactly $h'$ from the half-plane beyond $\mathcal E$. Use signed inward depths of the supporting lines: for a vertical line $x_1=a$, set $\delta_{\rm L}=a+M+1$ and $\delta_{\rm R}=M+1-a$, and define the bottom and top depths analogously. Changing the radius from $k$ to $k\pm j$ changes each signed depth by at most $j$. Since $y\in[-M-1,M+1]^2$ and $k-j\ge1$, the varying-coordinate intervals of the original and shifted sides meet $[-M,M]$. Thus an original side either meets $\mathcal C_M$, lies beyond the specified edge $\mathcal E$, or lies beyond the opposite edge. In the first case Lemma~\ref{l:shellgeom} gives signed depth at least $s/3$, so the shifted depth is at least $s/3-j>l_0/2+j$ for $j\le s/12$ and $s>3l_0$. In the second case the original depth is at most $0$, so the shifted depth is at most $j<l_0/2+j-2$. In the third case the original depth is at least $2M+2$, so the shifted depth is at least $2M+2-j>l_0/2+j$ for $s$ large. None can equal $h'$. Hence there are at most $2 \cdot 3 \cdot 8 = 48$ cells, that is, at most $192$ sites, with $t = j$, and their contribution is at most
+ \begin{equation*}
+ \sum_{j \ge 0} 192 \, \vartheta^{2 \max(j, l_0/4) - 5} \le 192 \, \vartheta^{l_0/2 - 5} \Bigl( \frac{l_0}{4} + 1 + \frac{1}{1 - \vartheta^2} \Bigr).
+ \end{equation*}
+@@ -218,7 +218,7 @@ Assume Hypothesis~(P). Then the window estimate (Definition~\ref{d:W}) holds for
+ \end{theorem}
+ 
+ \begin{proof}
+-Fix $o$, $l_0 = 20$, and $M$, $y$, $i$ as in Definition~\ref{d:W} with $M$ so large that $s \ge s_0(l_0)$ and $M \ge M_{\mathrm g}(l_0)$. Let $F$, $B$, $G$, $X$, $G_1$, $G_2$ be as in \eqref{e:Xcut}. Let $\eta$ be a configuration outside $F_i$ and $\mathsf s$ a window configuration. The pin configuration $\eta \mathsf s$ on the legs of $G$ consists of letters of the frames, which are unit vectors. By Lemma~\ref{l:Xconn}, we can order $X$ so that every site after the first has a previously listed neighbour, and by Lemma~\ref{l:cutgeom}(3), $b(x) \ge 3$ on $X$. Lemma~\ref{l:removal} and \eqref{e:cutsum} with $\vartheta = \theta$ give
++Fix $o$, $l_0 = 20$, and $M$, $y$, $i$ as in Definition~\ref{d:W} with $M$ so large that $s \ge s_0(l_0)$ and $M \ge M_{\mathrm g}(l_0)$. Let $F$, $B$, $G$, $X$, $G_1$, $G_2$ be as in \eqref{e:Xcut}. Let $\eta$ be a configuration outside $F_i$ and $\mathsf s$ a window configuration. The pin configuration $\eta \mathsf s$ on the legs of $G$ consists of letters of the frames, which are unit vectors. The proof of Lemma~\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbor outside $U'$, so $X\ne\emptyset$. By Lemma~\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbor, and by Lemma~\ref{l:cutgeom}(3), $b(x) \ge 3$ on $X$. Lemma~\ref{l:removal} and \eqref{e:cutsum} with $\vartheta = \theta$ give
+ \begin{equation*}
+ |e(\eta, \mathsf s)| \le 0.0707 + 2.73 A + 1.22 A \theta^{-3} \sum_{x \in X} \theta^{b(x)} \le 0.0707 + 2.73 A + 1.22 A \theta^{-3} \Bigl[ 192 \, \theta^{5} \Bigl( 6 + \frac{1}{1 - \theta^2} \Bigr) + 4 (2M + 1)^2 \theta^{s/6 - 7} \Bigr].
+ \end{equation*}
+@@ -226,5 +226,5 @@ The last term tends to $0$ as $M \to \infty$, so for $M \ge M_\star(A, \theta)$
+ \end{proof}
+ 
+ \begin{remark}\label{r:Pweak}
+-The proof uses \eqref{e:P} only through the bound \eqref{e:cutsum}. The same argument works if $A \theta^d$ in \eqref{e:P} is replaced by any function $\mathsf F(d)$ with $\sum_d \mathsf F(d) < \infty$ and $\sup_d d^2 \mathsf F(d) < \infty$, the latter for the $O(M^{1/2})$ sites of the long sides of the cut, which are at distance of order $M^{1/4}$ from the pins; with the crude count $|X| \le 4(2M + 1)^2$ used above one needs $\mathsf F(d) = o(d^{-8})$ instead. Theorem~\ref{t:rec} gives exponential decay.
++The proof uses \eqref{e:P} only through the bound \eqref{e:cutsum}. The same argument works if $A \theta^d$ in \eqref{e:P} is replaced by any function $\mathsf F(d)$ with $\sum_d \mathsf F(d) < \infty$ and $\sup_d d^2 \mathsf F(d) < \infty$, the latter for the $O(M^{1/2})$ sites of the long sides of the cut, which are at distance of order $M^{1/4}$ from the pins; with the crude count $|X|\le4(2M+1)^2$ used above, $\mathsf F(d)=O(d^{-8})$ suffices for a uniform bound, while $\mathsf F(d)=o(d^{-8})$ makes the long-part contribution tend to zero. Theorem~\ref{t:rec} gives exponential decay.
+ \end{remark}
+diff --git a/sec6-walks.tex b/sec6-walks.tex
+index 2ea5b61..5234afd 100644
+--- a/sec6-walks.tex
++++ b/sec6-walks.tex
+@@ -16,7 +16,7 @@ and let $Z^0_D[f]$ be the same integral without the leg factors. We write $Z^\cd
+ (C) \emph{every bond between two sites that are not removed is kept by both ends or by neither.}
+ \end{definition}
+ For tracing we also use an \emph{auxiliary spin network} on $G$. It has
+-the same statuses, site measures and kept-bond data as a domain, with at
++the same statuses, site measures, and kept-bond data as a domain, with at
+ most two present bonds at each $\mathrm D$ site, but the sites of $S$
+ may keep arbitrary subsets of their bonds; they still have status
+ $\mathrm U$. It also carries a scalar mass $\mu>0$. Its partition
+@@ -91,7 +91,7 @@ For $w\in\mathcal T_D(u,T)$ as in Proposition~\ref{p:pairwalk}, we have
+ $R^\cdot_D(w)=\prod_{j=1}^{|w|}\rho^\cdot_j$ with
+ $\rho^\cdot_j=Z^\cdot_{D;[w_j]}/Z^\cdot_{D;[w_{j-1}]}$.
+ Let $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the
+-out-neighbour, and $E'$ the auxiliary spin network obtained from
++out-neighbor, and $E'$ the auxiliary spin network obtained from
+ $D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is
+ a \emph{revisit} if $y$ has status $\mathrm D$ in $D;[w_{j-1}]$ and
+ a \emph{first visit} otherwise. Integrating out $y$, we find:
+@@ -100,7 +100,7 @@ a \emph{first visit} otherwise. Integrating out $y$, we find:
+ $\rho^\tau_j=\rho^0_j=3/5$, since
+ $\int(1+n\cdot n_o)\lambda_{\mathrm D}(\dd n)=1$.
+ The only possible two-bond $\mathrm D$ departure is the initial step.
+-If its present neighbours are $f,o$, then
++If its present neighbors are $f,o$, then
+ \[
+ \rho^\cdot_1=
+ \frac{3/5}{1+\frac15\E^\cdot_{E'}[P_{fo}]}\le\frac34.
+@@ -160,7 +160,7 @@ We have $a_j \le x_j$, $b_j \le 1$ by Lemma~\ref{l:response}, and $|a_j - b_j| \
+ To bound $\rho^\tau_j$ for a first-visit step at $y \notin S$, we localize to the \emph{template} $\mathsf T(y) = \{ z \in \Z^2 : d(z, y) \le 2 \}$, which lies in $G$. After a lattice symmetry fixing $y = 0$ we may assume that the arrival site is $\mathsf s = (0, -1)$; the other neighbours are $\mathsf e = (1, 0)$, $\mathsf N = (0, 1)$, $\mathsf W = (-1, 0)$, the corners are $(\pm 1, \pm 1)$, and the tips are $(\pm 2, 0)$, $(0, \pm 2)$. The out-neighbour is $\mathsf N$ for a straight step and $\mathsf e$ or $\mathsf W$ for a turn. Each corner has two lattice neighbours outside $\mathsf T(y)$, and each tip has three; we call these legs of the template \emph{slots}, $20$ in total.
+ 
+ \begin{definition}\label{d:pattern}
+-A \emph{pattern} $\pi$ consists of an out-neighbour
++A \emph{pattern} $\pi$ consists of an out-neighbor
+ $o\in\{\mathsf e,\mathsf N,\mathsf W\}$ and statuses and kept bonds
+ of the sites $\mathsf s,\mathsf e,\mathsf N,\mathsf W$ and of the
+ corners, with the site measures of Definition~\ref{d:domain}. The
+diff --git a/sec7-recursion.tex b/sec7-recursion.tex
+index 47c5e17..5da8ff6 100644
+--- a/sec7-recursion.tex
++++ b/sec7-recursion.tex
+@@ -15,7 +15,7 @@ The domains $G \setminus Y$ with $Y \subset G \setminus S$ belong to $\Dcons(G)$
+ \subsection{Closure of the class}\label{s:closure}
+ 
+ \begin{lemma}\label{l:closure}
+-Let $D\in\Dcons(G)$, $(u,v)\in P_X(D)$ with centre $c$, and
++Let $D\in\Dcons(G)$, $(u,v)\in P_X(D)$ with center $c$, and
+ $u\notin S$. Let $w=(v_0,\dots,v_m)$ be a trail from $u$ that does
+ not visit $S$ before its last site. Thus the lemma also applies when
+ the trail is required to avoid $v$ before its last site. Before forming
+@@ -48,13 +48,13 @@ after such a removal, is asserted.
+ Consequently, for $0\le j<m$, if step $j+1$ is a first visit at
+ $y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when
+ $j=0$, belongs to $\Pext$. The pairs among its non-removed remaining
+-neighbours belong to $P_B(E'_{j+1})\cup P_C(E'_{j+1})$, with
+-centre $y$.
++neighbors belong to $P_B(E'_{j+1})\cup P_C(E'_{j+1})$, with
++center $y$.
+ \end{lemma}
+ 
+ \begin{proof}
+ At $j=0$, condition (C) is unchanged by dropping a bond to the
+-removed centre. Removing the live endpoint restores the original
++removed center. Removing the live endpoint restores the original
+ kept-set conditions at every remaining site. For a later departure
+ from a live $\mathrm U$ site, its arrival bond (or its bond to $c$
+ at the initial departure) and its out-bond are distinct; dropping the
+@@ -76,14 +76,14 @@ and has status $\mathrm U$, so only its arrival bond is lost.
+ At a first-visit departure $y$, the arrival site is removed or has
+ status $\mathrm D$ with two kept bonds other than its bond to $y$.
+ Every other $\mathrm U$ site keeps all its bonds. By (C), each
+-other non-removed neighbour of $y$ that has status $\mathrm D$
++other non-removed neighbor of $y$ that has status $\mathrm D$
+ keeps its bond to $y$ and one other bond; every non-live
+ $\mathrm D$ corner keeps two bonds. These are the rules of
+ Definition~\ref{d:pattern}, with the tips replaced by their covering
+ tips and external slots filled as in Lemma~\ref{l:local}. Finally,
+-any two non-removed remaining neighbours of $y$ are at distance two
+-with common neighbour $y$, which is removed in $E'_{j+1}$.
+-A $\mathrm D$ neighbour has at most one present bond after this
++any two non-removed remaining neighbors of $y$ are at distance two
++with common neighbor $y$, which is removed in $E'_{j+1}$.
++A $\mathrm D$ neighbor has at most one present bond after this
+ removal, so the response pairs have the stated pair classes.
+ The argument uses no avoidance of the distinguished target $v$.
+ \end{proof}
+@@ -123,7 +123,7 @@ Let $\theta \in (q^2, 1)$ be as in Lemma~\ref{l:Mtheta}. We first prove the recu
+ \begin{equation}\label{e:recineq}
+ \mathsf F_X(d) \le \sum_{Y \in \{B, C\}} \sum_{s \ge 0} M_{XY, s} \, \mathsf F_Y(d - s) + C_T q^{2d}, \qquad d \ge 1, \qquad C_T = 2 \Bigl( \frac{12}{5} \Bigr)^{24} \Bigl( \frac{C_V}{1 - q} \Bigr)^2 .
+ \end{equation}
+-Let $G$, $\tau$, $D$ and $(u, v) \in P_X(D)$ with centre $c$ be as in \eqref{e:FX} with $d_0 = \min(d(u, S), d(v, S)) \ge d \ge 1$; in particular $u, v \notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\mathrm U$ by dropping its kept bond to the removed centre, as in Lemma~\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio or correlation. If the starting site has status $\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\ref{l:exposure} in $T_1$. By Proposition~\ref{p:pairwalk} with $T = S \cup \{v\}$, applied to $\tau$ and to $0$, the trails are the same in both expansions, and
++Let $G$, $\tau$, $D$, and $(u, v) \in P_X(D)$ with center $c$ be as in \eqref{e:FX} with $d_0 = \min(d(u, S), d(v, S)) \ge d \ge 1$; in particular $u, v \notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\mathrm U$ by dropping its kept bond to the removed center, as in Lemma~\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio, or correlation. If the starting site has status $\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\ref{l:exposure} in $T_1$. By Proposition~\ref{p:pairwalk} with $T = S \cup \{v\}$, applied to $\tau$ and to $0$, the trails are the same in both expansions, and
+ \begin{equation*}
+ \E^\tau_D[n_u \cdot n_v] - \E^0_D[n_u \cdot n_v] = \sum_{w \in \mathcal W_0} 3^{-|w|} \bigl( R^\tau_D(w) - R^0_D(w) \bigr) \kappa_v + \sum_{w \in \mathcal W_1} 3^{-|w|} \bigl( R^\tau_D(w) \mathcal X^\tau(w) - R^0_D(w) \mathcal X^0(w) \bigr) = T_1 + T_2,
+ \end{equation*}
+@@ -149,7 +149,7 @@ value at most one,
+ By Lemma~\ref{l:closure}, the underlying terminal trace satisfies the
+ consistent-domain rules except that $e$ has dropped its arrival bond.
+ Before the second expansion, if $v$ has status $\mathrm U$, drop
+-its kept bond to the removed centre $c$; this changes no partition
++its kept bond to the removed center $c$; this changes no partition
+ function or ratio. Repeat the kept-set induction of
+ Lemma~\ref{l:closure}, allowing this fixed defect at $e$ as well as
+ the current live endpoint. Before the second trail hits $S$, every
+diff --git a/sec8-computer-assisted.tex b/sec8-computer-assisted.tex
+index 5f74536..871c707 100644
+--- a/sec8-computer-assisted.tex
++++ b/sec8-computer-assisted.tex
+@@ -75,8 +75,8 @@ The proof is computer-assisted, in exact integer and rational arithmetic, and is
+ \small
+ \begin{tabular}{lll}
+ pattern & value & inversion bound \\ \hline
+-straight (ID 7645) & $c(\pi) = 3825127/3979368 = 0.961240\ldots$ & $0.961240$ \\
+-turn (ID 1382) & $c(\pi) = 1071655/1145463 = 0.935565\ldots$ & $0.935565$ \\
++straight example (ID 7645) & $c(\pi) = 3825127/3979368 = 0.961240\ldots$ & $0.961240$ \\
++turn example (ID 1382) & $c(\pi) = 1071655/1145463 = 0.935565\ldots$ & $0.935565$ \\
+ turn, $\mathsf N$ and $\mathsf s$ removed & $c(\pi) = 416114/444675 = 0.935771\ldots$ & $0.935771$ \\
+ generic straight ($k = 11$) & numerical minimum $1.001202$ & $0.992310$ \\
+ generic turn ($k = 11$) & numerical minimum $0.960973$ & $0.960973$ \\ \hline
+@@ -86,5 +86,5 @@ all $7{,}962$ patterns & closed form for $4{,}735$ & all; integer matrices of si
+ \end{table}
+ 
+ \begin{remark}\label{r:H1sharp}
+-The constants of Theorem~\ref{t:H1} cannot be raised much with the present template. For the third pattern of Table~\ref{tab:H1}, $c(\pi) = 416114/444675 = 0.935771\ldots$ exactly, by \eqref{e:5469}, so (H1) fails for every $\ct > 416114/444675$ with the template and the slots of Definition~\ref{d:pattern}. The margins of Theorem~\ref{t:H1} on the first two patterns of Table~\ref{tab:H1} are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. We also note that the method of \S\ref{s:H3} does not give $\rho(M_1) < 1$ at $(\cs, \ct) = (0.960, 0.925)$, so that the pair $(0.961, 0.935)$ leaves little room in either direction.
++The constants of Theorem~\ref{t:H1} cannot be raised much with the present template. For the third pattern of Table~\ref{tab:H1}, $c(\pi) = 416114/444675 = 0.935771\ldots$ exactly, by \eqref{e:5469}, so (H1) fails for every $\ct > 416114/444675$ with the template and the slots of Definition~\ref{d:pattern}. The margins of Theorem~\ref{t:H1} on the first two decoupled examples of Table~\ref{tab:H1} are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. We also note that the method of \S\ref{s:H3} does not give $\rho(M_1) < 1$ at $(\cs, \ct) = (0.960, 0.925)$, so that the pair $(0.961, 0.935)$ leaves little room in either direction.
+ \end{remark}

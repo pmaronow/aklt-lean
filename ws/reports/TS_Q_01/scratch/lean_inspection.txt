@@ -1,0 +1,107 @@
+def AKLT.Blueprint.Q.OrthogonalFamilyStatement : Prop :=
+∀ (R : Matrix (Fin 3) (Fin 3) ℝ),
+  R.transpose * R = 1 →
+    ∀ (v : IcoLetter → Vec3),
+      Function.Injective v →
+        (∀ (a : IcoLetter), normSq (v a) = 1) →
+          (∀ (a : IcoLetter), ∃ b, v b = -v a) →
+            (Function.Injective fun a => R.mulVec (v a)) ∧
+              (∀ (a : IcoLetter), normSq (R.mulVec (v a)) = 1) ∧
+                ∀ (a : IcoLetter), ∃ b, R.mulVec (v b) = -R.mulVec (v a)
+def AKLT.Blueprint.Q.OneSiteMomentEncodingStatement : Prop :=
+∀ (p : MvPolynomial (Fin 3) ℝ),
+  DegreeFour p →
+    ∃ q,
+      SeparateDegreeFour q ∧
+        ((productFunctional (fun x => Status.U) fun a => (MvPolynomial.eval fun v => a v.1 v.2) q) =
+            moment fun a => (MvPolynomial.eval a) p) ∧
+          ∀ (R : Matrix (Fin 3) (Fin 3) ℝ),
+            (productFunctional (fun x => Status.U) fun a => (MvPolynomial.eval fun v => R.mulVec (a v.1) v.2) q) =
+              moment fun a => (MvPolynomial.eval (R.mulVec a)) p
+def AKLT.Blueprint.Q.IcoDistanceStatement : Prop :=
+∀ (a b : IcoLetter), a ≠ b → 1 < normSq (icoVector a - icoVector b)
+def AKLT.Blueprint.Q.RotationDisplacementStatement : Prop :=
+∀ (k : ℕ), 1 ≤ k → k ≤ 2 → ∀ (v : Vec3), normSq v = 1 → normSq ((frameRotation ^ k).mulVec v - v) ≤ (40 / 101) ^ 2
+def AKLT.Blueprint.Q.SelfRotationStatement : Prop :=
+(∀ (k : ℕ),
+    1 ≤ k → k ≤ 2 → ∀ (a : IcoLetter), frameBound ≤ 1 - dot (icoVector a) ((frameRotation ^ k).mulVec (icoVector a))) ∧
+  1 - dot (frameVector 0 (0, 0, 0)) (frameVector 1 (0, 0, 0)) = frameBound
+def AKLT.Blueprint.Q.DisplacedDistanceStatement : Prop :=
+∀ (u v w : Vec3),
+  normSq u = 1 →
+    normSq v = 1 → normSq w = 1 → 1 < normSq (u - v) → normSq (w - v) ≤ (40 / 101) ^ 2 → 9 / 50 < 1 - dot u w
+def AKLT.Blueprint.Q.RelativeRotationStatement : Prop :=
+∀ (i j : Fin 3),
+  i ≠ j →
+    ∀ (a b : IcoLetter),
+      ∃ k,
+        1 ≤ k ∧
+          k ≤ 2 ∧
+            ∃ u v,
+              dot (frameVector i a) (frameVector j b) = dot (icoVector u) ((frameRotation ^ k).mulVec (icoVector v))
+def AKLT.Blueprint.Q.SpinorChoiceStatement : Prop :=
+∀ (v : Vec3), normSq v = 1 → compatible v (chosenSpinor v)
+def AKLT.Defs.DegreeFour : MvPolynomial (Fin 3) ℝ → Prop :=
+fun p => p.totalDegree ≤ 4
+def AKLT.Defs.SeparateDegreeFour.{u_1} : {ι : Type u_1} → MvPolynomial (ι × Fin 3) ℝ → Prop :=
+fun {ι} p => ∀ m ∈ p.support, ∀ (x : ι), ∑ k, m (x, k) ≤ 4
+def AKLT.Defs.productFunctional.{u_1} : {ι : Type u_1} → [Fintype ι] → (ι → Status) → ((ι → Vec3) → ℝ) → ℝ :=
+fun {ι} [Fintype ι] s f => ∑ n, (∏ x, spinWeight (s x) (n x)) * f fun x => spinVector (n x)
+def AKLT.Blueprint.Q.compatible : Vec3 → Spinor → Prop :=
+fun a z => ∑ k, Complex.normSq (z k) = 1 ∧ (fun k l => z k * star (z l)) = spinDensity a
+def AKLT.Blueprint.Q.chosenSpinor : Vec3 → Spinor :=
+fun v => if v 2 = -1 then ![0, 1] else ![↑√((1 + v 2) / 2), (↑(v 0) + Complex.I * ↑(v 1)) / ↑√(2 * (1 + v 2))]
+def AKLT.Defs.spinDensity : Vec3 → Matrix (Fin 2) (Fin 2) ℂ :=
+fun a => (1 / 2) • (1 + ∑ k, ↑(a k) • pauli ⟨↑k + 1, ⋯⟩)
+MvPolynomial.eval_rename.{u_1, u_2, u_4} {σ : Type u_1} {τ : Type u_2} {R : Type u_4} [CommSemiring R] (k : σ → τ)
+  (g : τ → R) (p : MvPolynomial σ R) : (MvPolynomial.eval g) ((MvPolynomial.rename k) p) = (MvPolynomial.eval (g ∘ k)) p
+MvPolynomial.totalDegree_rename_le.{u, u_1, u_2} {R : Type u} {σ : Type u_1} {τ : Type u_2} [CommSemiring R] (f : σ → τ)
+  (p : MvPolynomial σ R) : ((MvPolynomial.rename f) p).totalDegree ≤ p.totalDegree
+MvPolynomial.le_totalDegree.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] {p : MvPolynomial σ R} {s : σ →₀ ℕ}
+  (h : s ∈ p.support) : (s.sum fun x e => e) ≤ p.totalDegree
+Matrix.mulVec_mulVec.{v, u_2, u_3, u_4} {m : Type u_2} {n : Type u_3} {o : Type u_4} {α : Type v} [NonUnitalSemiring α]
+  [Fintype n] [Fintype o] (v : o → α) (M : Matrix m n α) (N : Matrix n o α) : M.mulVec (N.mulVec v) = (M * N).mulVec v
+Matrix.mulVec_neg.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} [NonUnitalNonAssocRing α] [Fintype n]
+  (v : n → α) (A : Matrix m n α) : A.mulVec (-v) = -A.mulVec v
+Matrix.dotProduct_transpose_mulVec.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} [NonUnitalCommSemiring α]
+  [Fintype m] [Fintype n] (A : Matrix m n α) (x : n → α) (y : m → α) : x ⬝ᵥ A.transpose.mulVec y = y ⬝ᵥ A.mulVec x
+Equiv.piUnique.{u, u_1} {α : Sort u} [Unique α] (β : α → Sort u_1) : ((i : α) → β i) ≃ β default
+instFintypeProd (Fin 3) (Fin 2 × Fin 2)
+Pi.instFintype
+12
+13
+13
+def AKLT.Blueprint.Q.DisplacedDistanceStatement : Prop :=
+∀ (u v w : Vec3),
+  @Eq Real (normSq u) (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+    @Eq Real (normSq v) (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+      @Eq Real (normSq w) (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+        @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+            (normSq
+              (@HSub.hSub Vec3 Vec3 Vec3
+                (@instHSub Vec3
+                  (@Pi.instSub (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (fun a => Real) fun i =>
+                    Real.instSub))
+                u v)) →
+          @LE.le Real Real.instLE
+              (normSq
+                (@HSub.hSub Vec3 Vec3 Vec3
+                  (@instHSub Vec3
+                    (@Pi.instSub (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) (fun a => Real)
+                      fun i => Real.instSub))
+                  w v))
+              (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat Real (nat_lit 40)
+                    (@instOfNatAtLeastTwo Real (nat_lit 40) Real.instNatCast RotationDisplacementStatement._proof_1))
+                  (@OfNat.ofNat Real (nat_lit 101)
+                    (@instOfNatAtLeastTwo Real (nat_lit 101) Real.instNatCast RotationDisplacementStatement._proof_2)))
+                (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+            @LT.lt Real Real.instLT
+              (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                (@OfNat.ofNat Real (nat_lit 9)
+                  (@instOfNatAtLeastTwo Real (nat_lit 9) Real.instNatCast FrameScalarsStatement._proof_1))
+                (@OfNat.ofNat Real (nat_lit 50)
+                  (@instOfNatAtLeastTwo Real (nat_lit 50) Real.instNatCast FrameScalarsStatement._proof_2)))
+              (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) (dot u w))

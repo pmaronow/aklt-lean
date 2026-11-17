@@ -1,0 +1,104 @@
+AKLT.Gen.Gram.posDef_of_strictDiagDominant.{u_1, u_3} {n : Type u_1} [Fintype n] [DecidableEq n] {K : Type u_3}
+  [RCLike K] {A : Matrix n n K} (hA : A.IsHermitian)
+  (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, ‖A i j‖ < RCLike.re (A i i)) : A.PosDef
+'AKLT.Gen.Gram.posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.real_posDef_of_strictDiagDominant.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] {A : Matrix n n ℝ}
+  (hA : A.IsSymm) (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, |A i j| < A i i) : A.PosDef
+'AKLT.Gen.Gram.real_posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.posDef_of_gram_residual.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {K : Type u_3} [RCLike K] {M : Matrix n n K} {L : Matrix n k K} {c g : ℝ} (hc : 0 < c) (hg : 0 ≤ g)
+  (hE : (c • M - g • (L * L.conjTranspose)).PosDef) : M.PosDef
+'AKLT.Gen.Gram.posDef_of_gram_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.gram_residual_posDef.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n] [Fintype k]
+  {K : Type u_3} [RCLike K] {M : Matrix n n K} {L : Matrix n k K} {g d S : ℝ} (hg : 0 ≤ g) (hd : 0 < d) (hS : 0 < S)
+  (hE : ((d * S ^ 2) • M - g • (L * L.conjTranspose)).IsHermitian)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, ‖((d * S ^ 2) • M - g • (L * L.conjTranspose)) i j‖ <
+        RCLike.re (((d * S ^ 2) • M - g • (L * L.conjTranspose)) i i)) :
+  ((d * S ^ 2) • M - g • (L * L.conjTranspose)).PosDef ∧ M.PosDef
+'AKLT.Gen.Gram.gram_residual_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_posDef_of_strictDiagDominant.{u_1, u_3} {n : Type u_1} [Fintype n] [DecidableEq n] {K : Type u_3}
+  [RCLike K] {A : Matrix n n ℤ} (hA : A.IsSymm) (hdd : ∀ (i : n), ∑ j ∈ Finset.univ.erase i, |A i j| < A i i) :
+  (AKLT.Gen.Gram.castMatrix A).PosDef
+'AKLT.Gen.Gram.int_posDef_of_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_gram_residual_posDef.{u_1, u_2, u_3} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {K : Type u_3} [RCLike K] {M : Matrix n n ℤ} {L : Matrix n k ℤ} {g d S : ℤ} (hM : M.IsSymm) (hg : 0 < g)
+  (hd : 0 < d) (hS : 0 < S)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, |((d * S ^ 2) • M - g • (L * L.transpose)) i j| <
+        ((d * S ^ 2) • M - g • (L * L.transpose)) i i) :
+  (AKLT.Gen.Gram.castMatrix ((d * S ^ 2) • M - g • (L * L.transpose))).PosDef ∧ (AKLT.Gen.Gram.castMatrix M).PosDef
+'AKLT.Gen.Gram.int_gram_residual_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.rat_posDef_of_real.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] {A : Matrix n n ℚ} (hA : A.IsSymm)
+  (h : Matrix.PosDef fun i j => ↑(A i j)) : A.PosDef
+'AKLT.Gen.Gram.rat_posDef_of_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.int_gram_residual_posDef_rat.{u_1, u_2} {n : Type u_1} {k : Type u_2} [Fintype n] [DecidableEq n]
+  [Fintype k] {M : Matrix n n ℤ} {L : Matrix n k ℤ} {g d S : ℤ} (hM : M.IsSymm) (hg : 0 < g) (hd : 0 < d) (hS : 0 < S)
+  (hdd :
+    ∀ (i : n),
+      ∑ j ∈ Finset.univ.erase i, |((d * S ^ 2) • M - g • (L * L.transpose)) i j| <
+        ((d * S ^ 2) • M - g • (L * L.transpose)) i i) :
+  (AKLT.Gen.Gram.castMatrix ((d * S ^ 2) • M - g • (L * L.transpose))).PosDef ∧ (AKLT.Gen.Gram.castMatrix M).PosDef
+'AKLT.Gen.Gram.int_gram_residual_posDef_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.getD_transposeRows (n : ℕ) (M : AKLT.Gen.Gram.IntRows) (i j : ℕ) (hi : i < n) :
+  (List.getD (AKLT.Gen.Gram.transposeRows n M) i []).getD j 0 = (List.getD M j []).getD i 0
+'AKLT.Gen.Gram.getD_transposeRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.dotI_eq_sum (n : ℕ) (a b : List ℤ) (ha : a.length ≤ n) (hb : b.length ≤ n) :
+  AKLT.Gen.Gram.dotI a b = ∑ j, a.getD (↑j) 0 * b.getD (↑j) 0
+'AKLT.Gen.Gram.dotI_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.absSum_eq_sum (a : List ℤ) : AKLT.Gen.Gram.absSum a = ∑ j, |a.getD (↑j) 0|
+'AKLT.Gen.Gram.absSum_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_length {whole ms ls : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i : ℕ}
+  (h : AKLT.Gen.Gram.checkRows whole c g i ms ls = true) : List.length ms = List.length ls
+'AKLT.Gen.Gram.checkRows_length' depends on axioms: [propext]
+AKLT.Gen.Gram.checkRows_getD {whole ms ls : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i : ℕ}
+  (h : AKLT.Gen.Gram.checkRows whole c g i ms ls = true) (j : ℕ) (hj : j < List.length ms) :
+  AKLT.Gen.Gram.rowOK whole c g (i + j) (List.getD ms j []) (List.getD ls j []) = true
+'AKLT.Gen.Gram.checkRows_getD' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_append (whole ms mt ls lt : AKLT.Gen.Gram.IntRows) (c g : ℤ) (i : ℕ)
+  (hlen : List.length ms = List.length ls) :
+  AKLT.Gen.Gram.checkRows whole c g i (ms ++ mt) (ls ++ lt) =
+    (AKLT.Gen.Gram.checkRows whole c g i ms ls && AKLT.Gen.Gram.checkRows whole c g (i + List.length ms) mt lt)
+'AKLT.Gen.Gram.checkRows_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.header_spec {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.header M L g d S = true) :
+  (∀ r ∈ M, r.length = List.length M) ∧
+    List.length L = List.length M ∧
+      (∀ r ∈ L, r.length ≤ List.length M) ∧ (AKLT.Gen.Gram.matrix (List.length M) M).IsSymm ∧ 0 < g ∧ 0 < d ∧ 0 < S
+'AKLT.Gen.Gram.header_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.residualRow_entry {whole : AKLT.Gen.Gram.IntRows} {mr lr : List ℤ} {c g : ℤ} {n : ℕ}
+  (hw : List.length whole = n) (hm : mr.length = n) (j : Fin n) :
+  (AKLT.Gen.Gram.residualRow whole c g mr lr).getD (↑j) 0 =
+    c * mr.getD (↑j) 0 - g * AKLT.Gen.Gram.dotI lr (List.getD whole ↑j [])
+'AKLT.Gen.Gram.residualRow_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_strictDiagDominant {M L : AKLT.Gen.Gram.IntRows} {c g : ℤ}
+  (hm : ∀ r ∈ M, r.length = List.length M) (hl : List.length L = List.length M)
+  (hls : ∀ r ∈ L, r.length ≤ List.length M) (h : AKLT.Gen.Gram.checkRows L c g 0 M L = true) (i : Fin (List.length M)) :
+  ∑ j ∈ Finset.univ.erase i,
+      |(c • AKLT.Gen.Gram.matrix (List.length M) M -
+            g • (AKLT.Gen.Gram.matrix (List.length M) L * (AKLT.Gen.Gram.matrix (List.length M) L).transpose))
+          i j| <
+    (c • AKLT.Gen.Gram.matrix (List.length M) M -
+        g • (AKLT.Gen.Gram.matrix (List.length M) L * (AKLT.Gen.Gram.matrix (List.length M) L).transpose))
+      i i
+'AKLT.Gen.Gram.checkRows_strictDiagDominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.toMatrix M).PosDef
+'AKLT.Gen.Gram.checker_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound_complex {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ}
+  (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.castMatrix (AKLT.Gen.Gram.matrix (List.length M) M)).PosDef
+'AKLT.Gen.Gram.checker_sound_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checker_sound_rat {M L : AKLT.Gen.Gram.IntRows} {g d S : ℤ} (h : AKLT.Gen.Gram.checker M L g d S = true) :
+  (AKLT.Gen.Gram.castMatrix (AKLT.Gen.Gram.matrix (List.length M) M)).PosDef
+'AKLT.Gen.Gram.checker_sound_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.checkRows_append_true {whole ms mt ls lt : AKLT.Gen.Gram.IntRows} {c g : ℤ} {i t : ℕ}
+  (hm : List.length ms = t) (hl : List.length ls = t) (hs : AKLT.Gen.Gram.checkRows whole c g i ms ls = true)
+  (ht : AKLT.Gen.Gram.checkRows whole c g (i + t) mt lt = true) :
+  AKLT.Gen.Gram.checkRows whole c g i (ms ++ mt) (ls ++ lt) = true
+'AKLT.Gen.Gram.checkRows_append_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.direct_example : (AKLT.Gen.Gram.toMatrix [[2, 1], [1, 2]]).PosDef
+'AKLT.Gen.Gram.direct_example' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Gram.scaled_example : (AKLT.Gen.Gram.toMatrix [[2, 1], [1, 2]]).PosDef
+'AKLT.Gen.Gram.scaled_example' depends on axioms: [propext, Classical.choice, Quot.sound]

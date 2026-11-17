@@ -1,5 +1,160 @@
 STATUS: COMPLETE
 
+Installed `tools/v5` and repointed `bin/aklt-tool`; the nineteen existing named command links use that dispatcher. Applied the orchestrator's exact **100 GB free-space floor / 350 GB campaign growth budget** with its matching operator record. V1–v4, the manual gate and both baselines are unchanged. All requested smoke checks and nine installed disk-policy regressions pass. Existing controllers remain running with their original panes; PORT1 did not restart or start any daemon or agent.
+
+## resume6
+
+The enlarged volume resolves resume5's development hold. Installation ran only after confirming defaults 150/20, no operator record, and approximately 667 GB free, above the original 150 GB development floor. The tested v5 sources were installed in one locked step, then the exact operator policy was applied under installation/launch/integrator/state locks. Only the two disk fields in `config.json` changed; every other configuration value is retained. Invalid intermediate record/config pairs fail closed. [Deployment log](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/deployment.log), [installation receipt](/home/ubuntu/aklt/state/installation-v5.json), [policy application evidence](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/policy-applied.json).
+
+The active [disk-policy.json](/home/ubuntu/aklt/state/disk-policy.json) is:
+
+```json
+{
+  "campaign_budget_gb": 350,
+  "disk_abort_gb": 100,
+  "reason": "production phase: leaf worktree builds (~1 GB each, up to 48 live) and H1/H3 certificate pilots/production; volume grown to 1.7 TB with the author's approval on 2026-11-16",
+  "set_by": "orchestrator",
+  "time": "2026-11-16T17:11:49.132697+00:00"
+}
+```
+
+Installation defaults remain **150/20** when no override record exists; the permitted bounds remain floor ≥40 GB and positive growth budget ≤400 GB. The override does not reset the accounting or credit baseline. Final verification observed **667.3 GB free**, **53.7 GB campaign growth** against 350 GB, and **1.364 GB PORT1 scratch** against the original 20 GB development budget. It found no disposable `.lake/build` residue and verified 2542 read-only package links. [Integrity/resource record](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/verification.json).
+
+### Post-install checks
+
+The commands below use the installed `/home/ubuntu/aklt/bin/` wrappers. Outputs and exit codes are retained in [smoke-results.json](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/smoke-results.json) and [smoke.log](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/smoke.log).
+
+| Command | Result |
+| --- | --- |
+| `aklt-status` | Exit 0; prints free space and `Disk policy: floor=100 GB; growth budget=350 GB [orchestrator]`; launch gate OPEN. |
+| `aklt-budget-check 1` | Exit 0; `allowed: true`, empty refusal reasons; no reset acknowledgement or model call. |
+| `aklt-queue tick --dry-run` | Exit 0; result `[]` (no eligible queued task at that instant); no reservation or agent/session launch. |
+| `AKLT_HOME=.../digest-home aklt-digest` | Exit 0; prints the same active policy/free space and writes a real digest log and cursor under scratch. |
+| Installed disk-policy regression suite | All 9 passed in 5.377 s, including a real tiny-Lean ladder registration; agents/tmux launches mocked. |
+| `python3 -B v5/verify.py` | Exit 0; installed/staged hashes, all five installation receipts, nineteen command links, historical versions, manual gate, baselines, remaining config, syntax, original auditor regressions and resource/cleanup checks pass. |
+| `bash -n v5/restart-v5-loops.sh` | Exit 0; syntax checked only; restart script was **not executed**. |
+
+The digest smoke uses [a private home](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/digest-home) containing a live-state snapshot and read-only symlinks to the production repo/flags. This sandbox excludes production `logs/` from its writable roots. The installed CLI ran unchanged; its actual log and cursor writes went to scratch, without changing the production digest cursor or starting a loop. Other smoke checks used the live campaign home. Existing quota observation/index bookkeeping remains enabled. The dry tick's empty result exercises admission without launching an agent; the retained unit suites exercise eligible launch boundaries with mocked starts.
+
+Reproduction from `/home/ubuntu/aklt/scratch/PORT1`:
+
+```sh
+python3 -B v5/deploy.py --install                 # already completed; refuses a second install
+python3 -B v5/apply_resume6_policy.py             # already completed; refuses an existing record
+python3 -B -u v5/post_install_smoke.py
+AKLT_TEST_TOOLS=/home/ubuntu/aklt/tools/v5 \
+  AKLT_TEST_BIN=/home/ubuntu/aklt/bin \
+  AKLT_TEST_INSTALLED_HOME=/home/ubuntu/aklt \
+  PYTHONDONTWRITEBYTECODE=1 GIT_OPTIONAL_LOCKS=0 PYTHONPATH=v5/tests \
+  python3 -B -u -m unittest test_resume5 -v
+python3 -B v5/verify.py
+bash -n v5/restart-v5-loops.sh
+```
+
+[Installed regression log](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/installed-disk-policy.log), [verification log](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/verification.log). The complete prior v5 runs remain **60 builder + 69 maintained audit + 16 focused + 4 race + 1 supplemental = 150 passing tests**. Installed sources match those tested sources byte-for-byte, including README; no production source changed during resume6. Only the nine directly affected policy tests were repeated after installation. The historical original-assertion replay retains its previously documented interface incompatibilities and is not counted as passing.
+
+### Operator restart instructions — not executed by PORT1
+
+The four existing `aklt-queue`, `aklt-integrator`, `aklt-ladder` and `aklt-cleaner` loops **must be restarted to use v5**. Repointing the dispatcher does not replace Python modules or the cached config in a process already running under v4. Its old 150/20 accounting can keep a controller held even though the new config/record is valid. The four pane PIDs/start commands were unchanged throughout installation and smoke checks. [Before](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/tmux-before.txt), [after](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/resume6/tmux-after.txt).
+
+A fifth existing loop, **`aklt-digest`**, explicitly invokes `tools/v4/aklt_cli.py digest --loop`; restart it as well to print the active policy in production digests. This was observed read-only and left running.
+
+The exact commands are in [restart-v5-loops.sh](/home/ubuntu/aklt/scratch/PORT1/v5/restart-v5-loops.sh), reproduced below. The operator can run:
+
+```sh
+bash /home/ubuntu/aklt/scratch/PORT1/v5/restart-v5-loops.sh
+```
+
+`flock -n` refuses immediately while a controller's mutation locks are held. Wait for its current tick to finish and rerun on refusal. Earlier commands may already have restarted their panes; repeating them when idle is safe. These checks keep active integration, ladder compilation and cleanup out of the restart. The commands respawn only the named controller panes; separate agent sessions and certificate/leaf-wave sessions are retained. The digest pane also switches to its v5 wrapper. PORT1 ran only the syntax check.
+
+```sh
+#!/usr/bin/env bash
+# Operator action only. PORT1 has NOT run this script.
+# Restart existing controller panes, keeping every agent session intact.
+# A busy launch/integration/ladder/cleanup lock causes an immediate refusal;
+# rerun this script after that controller's current tick has finished.
+set -euo pipefail
+aklt_root=/home/ubuntu/aklt
+
+test -f "$aklt_root/state/installation-v5.json"
+
+flock -n "$aklt_root/state/launch.lock" \
+  tmux respawn-pane -k -t '=aklt-queue:0.0' \
+  "env AKLT_HOME=$aklt_root $aklt_root/bin/aklt-queue --loop"
+
+flock -n "$aklt_root/state/integrator.lock" \
+  tmux respawn-pane -k -t '=aklt-integrator:0.0' \
+  "env AKLT_HOME=$aklt_root $aklt_root/bin/aklt-integrator --loop"
+
+flock -n "$aklt_root/state/ladder.lock" \
+  flock -n "$aklt_root/state/integrator.lock" \
+  tmux respawn-pane -k -t '=aklt-ladder:0.0' \
+  "env AKLT_HOME=$aklt_root $aklt_root/bin/aklt-ladder --loop"
+
+flock -n "$aklt_root/state/launch.lock" \
+  flock -n "$aklt_root/state/integrator.lock" \
+  flock -n "$aklt_root/state/worktree.lock" \
+  tmux respawn-pane -k -t '=aklt-cleaner:0.0' \
+  "env AKLT_HOME=$aklt_root $aklt_root/bin/aklt-cleaner --loop"
+
+# Also observed: the existing digest explicitly invokes tools/v4/aklt_cli.py.
+# Switch that existing pane to the installed wrapper so its output uses v5.
+tmux respawn-pane -k -t '=aklt-digest:0.0' \
+  "env AKLT_HOME=$aklt_root $aklt_root/bin/aklt-digest --loop"
+```
+
+### Scope and remaining limits
+
+The new release changes only `aklt_common.py`, `aklt_ops.py` and README from v4; the other eight modules are unchanged. Quota/credit/reset/concurrency rules, retry effort, exact-type checks, proof ladder, private integration, source/effect/resource guards, certificate cache, full validation and composition retain their tested v4 behavior. [Source diff](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/v4-to-v5.diff), [installed README](/home/ubuntu/aklt/tools/v5/README.md).
+
+The manual `aklt-gate` was not edited; its hash remains `23d218f12f4e7625fce58a648466b8edada9fcdd5c2fdfa61452c53969dfa107`. All five receipts match their installed file hashes. The existing installation-v4 receipt's historical version-field typo is preserved; none of its bytes or source hashes was changed. No production repo/ref, other campaign, production log, model session or operator pause/reset acknowledgement was changed by PORT1. Full production certificate/milestone validation was not rerun for this policy-only deployment. The pending operator restart is operational work explicitly reserved to the orchestrator, not an action performed by this task.
+
+## Historical resume5 staging report
+
+The following records the earlier 150 GB hold before the volume was enlarged. Its statements about pending installation and live v4 are historical; resume6 above records the completed deployment.
+
+V5 is implemented under `/home/ubuntu/aklt/scratch/PORT1/v5/stage/tools/` and its preview wrappers point to v5. All maintained suites pass. Installation is held because `/` dropped below the original PORT1 development abort floor. Live tools/wrappers remain v4; v1–v4 and `aklt-gate` are unchanged. No live config or operator record was changed, and no daemon or agent was started.
+
+## resume5
+
+Only `aklt_common.py`, `aklt_ops.py` and README change from v4. The other eight implementation modules match v4 byte-for-byte. [Exact diff](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/v4-to-v5.diff), [staged README](/home/ubuntu/aklt/scratch/PORT1/v5/stage/tools/README.md).
+
+Defaults remain floor 150 GB and campaign growth budget 20 GB with no record required. Nondefaults, including tighter settings, require `state/disk-policy.json`: numeric floor/budget matching the effective config, nonempty reason, exact `set_by: "orchestrator"`, and positive Unix seconds or an ISO-8601 timestamp with timezone. Hard bounds are floor ≥40 GB and a positive budget ≤400 GB. Booleans, numeric strings, nonfinite values, missing/malformed/mismatching records and incomplete metadata refuse. A record present alongside default config is also checked; it cannot be stale or malformed.
+
+Disk checks reread the pair and record, including in existing controller contexts. Policy errors use the existing infrastructure hold so validation is deferred rather than a writer proof being rejected. Status and digest print free space and the active floor/budget plus defaults/orchestrator source. Baseline subtraction, counted directories, the 120 GB alarm, quota/credit/concurrency controls, retry/ladder behavior and proof/validation gates are unchanged.
+
+Nine new regressions cover defaults without a record, every nondefault requiring a record, malformed/mismatching values, hard/type bounds, identity/reason/time, exact free/growth boundaries, hot reload/removal, status/digest public commands, and a real tiny-Lean `aklt-ladder add` under a recorded production policy with simulated 200 GB worktree growth and 100 GB free space. No large files or model agents were created.
+
+Run from `/home/ubuntu/aklt/scratch/PORT1`. All maintained runs set:
+
+```sh
+export AKLT_TEST_TOOLS=/home/ubuntu/aklt/scratch/PORT1/v5/stage/tools
+export AKLT_TEST_BIN=/home/ubuntu/aklt/scratch/PORT1/v5/preview/bin
+export AKLT_TEST_INSTALLED_HOME=/home/ubuntu/aklt/scratch/PORT1/v5/preview
+export PYTHONDONTWRITEBYTECODE=1 GIT_OPTIONAL_LOCKS=0
+python3 -B -u v5/run_suite.py v5/tests v5/evidence/builder
+python3 -B -u v5/run_suite.py v5/auditor/tests v5/auditor/evidence/maintained
+PYTHONPATH=v5/auditor/tests python3 -B -u v5/run_suite.py v5/auditor/focused v5/auditor/evidence/focused
+PYTHONPATH=v5/auditor/tests python3 -B -u v5/run_suite.py v5/auditor/races v5/auditor/evidence/races
+PYTHONPATH=v5/auditor/tests:v5/auditor/supplemental python3 -B -u -m unittest test_extra -v
+```
+
+| Suite | Outcome | Evidence |
+| --- | --- | --- |
+| builder | 60 passed; 435.005 s; exit 0 | [Log](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/builder.log) |
+| maintained | 69 passed; 325.126 s; exit 0 | [Log](/home/ubuntu/aklt/scratch/PORT1/v5/auditor/evidence/maintained.log) |
+| focused | 16 passed; 167.762 s; exit 0 | [Log](/home/ubuntu/aklt/scratch/PORT1/v5/auditor/evidence/focused.log) |
+| races | 4 passed; 96.045 s; exit 0 | [Log](/home/ubuntu/aklt/scratch/PORT1/v5/auditor/evidence/races.log) |
+| Supplemental public-budget matrix | 1 passed; exit 0 | [Log](/home/ubuntu/aklt/scratch/PORT1/v5/auditor/evidence/extra.log) |
+
+The copied suites retain v4's fixtures and assertions; only their default import fallback changes to v5. Lean, Git, leanexport, con-ron and NanoDa are real. Model/tmux launches are mocked. Tests used at most three concurrent sequential compiler/checker runners. Tiny-clone `.lake/build` directories are removed by teardown. Historical original-assertion replay was not repeated after the disk abort; its previous incompatibilities are recorded in the historical report and are not counted as passing here.
+
+**Installation hold:** the original [PORT1 brief](/home/ubuntu/aklt/briefs/PORT1.md) says “abort if free disk on `/` drops below 150 GB.” After all maintained suites completed, observed free space was 149.7 GB, then 149.0 GB. Development/test work stopped. The live config remains floor 150 / growth 20 and no `disk-policy.json` exists. Installing v5 at this space requires a lower recorded production policy and authorization to continue below the original development floor, or free space recovering to ≥150 GB. An asynchronous question requested that operator choice; no answer has been assumed. [Abort record](/home/ubuntu/aklt/scratch/PORT1/v5/evidence/abort-summary.json).
+
+The v5 installer is prepared to preserve config/record and atomically add tools/v5 plus repoint the dispatcher, keeping historical versions. Installation checks free space without the already-exceeded worker growth budget; worker accounting is unchanged. Deployment and post-install smoke checks have not run. No production values were guessed or attributed to the orchestrator.
+
+## Historical v4 report
+
 Installed `tools/v4` and repointed the shared dispatcher. Candidate integration now uses a fresh private disposable worktree, with publication tied to its exact validated HEAD/base. The validator works with both Lake globs settings. V1–v3 and the orchestrator-owned `aklt-gate` are retained unchanged. No daemon, tmux session, model agent or sub-agent was started.
 
 The installed release passes **51/51 builder/regression tests**, **69/69 maintained auditor tests**, **16/16 focused tests**, **4/4 interleaving/control/framing tests**, and **1/1 supplemental public-budget test**. The original-assertion replay is retained separately and is not counted as passing.
@@ -505,3 +660,16 @@ fixed point/term generation. It drops DBL's dynamic credit policies, multi-stage
 ladder, speculative pipelines, repair/profile/hold frameworks and vendor
 exceptions. The AKLT versions use one durable state document, short state locks,
 one integrator, and explicit controller loops.
+
+## ORCH-SUMMARY
+
+- COMPLETE: tools/v5 installed; shared dispatcher and nineteen command links use v5; v1–v4 retained.
+- Applied exact orchestrator policy: floor 100 GB, growth budget 350 GB; matching record time `2026-11-16T17:11:49.132697+00:00`.
+- Installation defaults remain 150/20; nondefaults require matching metadata; hard bounds ≥40 and ≤400 GB.
+- Status, budget-check, dry queue tick and private-log digest all passed; budget allowed; dry tick launched nothing.
+- All 9 installed policy regressions passed; 150 staged builder/maintained auditor checks had already passed.
+- Installed sources match the tested stage; all five receipts, historical sources, manual gate and baselines verified.
+- Free disk 667.3 GB; accounted growth 53.7/350 GB; PORT1 scratch 1.364/20 GB; no private build residue.
+- Four existing v4 controller loops need operator restart; observed v4 digest loop also needs restart.
+- Exact idle-checked commands: `bash /home/ubuntu/aklt/scratch/PORT1/v5/restart-v5-loops.sh`; NOT run by PORT1.
+- No daemon, tmux session, agent or sub-agent was started or stopped by this work.

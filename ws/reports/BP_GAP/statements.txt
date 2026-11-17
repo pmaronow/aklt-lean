@@ -1,0 +1,767 @@
+def AKLT.Blueprint.Gap.FibreNormalizationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (U : Finset ι) (σ : AKLT.Blueprint.Gap.Config S),
+      AKLT.Defs.Probability (AKLT.Blueprint.Gap.fibre p U σ) ∧
+        AKLT.Defs.PositiveProbability (AKLT.Blueprint.Gap.blockLaw p U σ) ∧
+          ∀ (f : ((x : ι) → S x) → ℂ),
+            AKLT.Defs.conditionalExpectation p U f σ = AKLT.Defs.complexMean (AKLT.Blueprint.Gap.fibre p U σ) f
+def AKLT.Blueprint.Gap.ConditionalProjectionStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (U : Finset ι),
+      (∀ (f : ((x : ι) → S x) → ℂ),
+          AKLT.Defs.conditionalExpectation p U (AKLT.Defs.conditionalExpectation p U f) =
+            AKLT.Defs.conditionalExpectation p U f) ∧
+        ((AKLT.Defs.conditionalExpectation p U fun x => 1) = fun x => 1) ∧
+          (∀ (f : ((x : ι) → S x) → ℂ),
+              AKLT.Defs.complexMean p (AKLT.Defs.conditionalExpectation p U f) = AKLT.Defs.complexMean p f) ∧
+            ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ) (h : ((x : ι) → S x) → ℂ),
+              AKLT.Blueprint.Gap.weightedInner p f (AKLT.Defs.conditionalExpectation p U h) =
+                AKLT.Blueprint.Gap.weightedInner p (AKLT.Defs.conditionalExpectation p U f) h
+def AKLT.Blueprint.Gap.ConditionalVarianceStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (U : Finset ι) (f : AKLT.Blueprint.Gap.Config S → ℂ),
+      (AKLT.Blueprint.Gap.weightedInner p f fun σ => f σ - AKLT.Defs.conditionalExpectation p U f σ).re =
+          AKLT.Defs.blockDirichlet p U f ∧
+        AKLT.Defs.expectation p (AKLT.Defs.conditionalVariance p U f) = AKLT.Defs.blockDirichlet p U f ∧
+          AKLT.Defs.variance p f =
+            AKLT.Defs.blockDirichlet p U f + AKLT.Defs.variance p (AKLT.Defs.conditionalExpectation p U f)
+def AKLT.Blueprint.Gap.MaximalCouplingStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p q : AKLT.Defs.Weight Ω),
+  AKLT.Defs.Probability p →
+    AKLT.Defs.Probability q →
+      AKLT.Defs.totalVariation p q = 1 - ∑ x, min (p x) (q x) ∧
+        ∃ c, (∑ x, ∑ y, if x = y then 0 else c.mass x y) = AKLT.Defs.totalVariation p q
+def AKLT.Blueprint.Gap.CouplingMarginalTVStatement : Prop :=
+∀ (Ω Ξ : Type) [inst : Fintype Ω] [inst_1 : Fintype Ξ] (p q : AKLT.Defs.Weight Ω),
+  AKLT.Defs.Probability p →
+    AKLT.Defs.Probability q →
+      (∀ (c : AKLT.Defs.Coupling p q), AKLT.Defs.totalVariation p q ≤ ∑ x, ∑ y, if x = y then 0 else c.mass x y) ∧
+        ∀ (r : Ω → Ξ),
+          AKLT.Defs.totalVariation (AKLT.Defs.marginal p r) (AKLT.Defs.marginal q r) ≤ AKLT.Defs.totalVariation p q
+def AKLT.Blueprint.Gap.MarginalCompletionStatement : Prop :=
+∀ (Ω Ξ : Type) [inst : Fintype Ω] [inst_1 : Fintype Ξ] (p q : AKLT.Defs.Weight Ω),
+  AKLT.Defs.Probability p →
+    AKLT.Defs.Probability q →
+      ∀ (r : Ω → Ξ) (c : AKLT.Defs.Coupling (AKLT.Defs.marginal p r) (AKLT.Defs.marginal q r)),
+        ∃ d, ∀ (a b : Ξ), (∑ x, ∑ y, if r x = a ∧ r y = b then d.mass x y else 0) = c.mass a b
+def AKLT.Blueprint.Gap.HammingLocalizationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  (p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.Probability p →
+    AKLT.Defs.Probability q →
+      ∀ (c : AKLT.Defs.Coupling p q) (U : Finset ι),
+        AKLT.Blueprint.Gap.couplingCost c ≤
+          ↑(Finset.univ \ U).card + ↑(Fintype.card ι) * AKLT.Blueprint.Gap.disagreement c U
+def AKLT.Blueprint.Gap.CommonMinorizationStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p q ν : AKLT.Defs.Weight Ω),
+  AKLT.Defs.Probability p →
+    AKLT.Defs.Probability q →
+      AKLT.Defs.Probability ν →
+        ∀ (t : ℝ), 0 ≤ t → t ≤ 1 → (∀ (x : Ω), t * ν x ≤ p x ∧ t * ν x ≤ q x) → AKLT.Defs.totalVariation p q ≤ 1 - t
+def AKLT.Blueprint.Gap.SurgeryPreservationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Defs.PositiveProbability q →
+      ∀ (U : Finset ι) (c : AKLT.Defs.Coupling p q)
+        (R :
+          (σ τ : AKLT.Blueprint.Gap.Config S) →
+            AKLT.Defs.Coupling (AKLT.Blueprint.Gap.fibre p U σ) (AKLT.Blueprint.Gap.fibre q U τ)),
+        ∃ d, ∀ (σ τ : AKLT.Blueprint.Gap.Config S), d.mass σ τ = ∑ a, ∑ b, c.mass a b * (R a b).mass σ τ
+def AKLT.Blueprint.Gap.ConditionalPatchCouplingStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Defs.PositiveProbability q →
+      ∀ (A B : Finset ι) (α t : ℝ),
+        Disjoint A B →
+          0 < α →
+            α ≤ 1 →
+              0 ≤ t →
+                t ≤ 1 →
+                  AKLT.Blueprint.Gap.AssignmentBound p α →
+                    AKLT.Blueprint.Gap.AssignmentBound q α →
+                      AKLT.Defs.totalVariation (AKLT.Defs.marginal p (AKLT.Blueprint.Gap.restrict B))
+                            (AKLT.Defs.marginal q (AKLT.Blueprint.Gap.restrict B)) ≤
+                          1 - t →
+                        ∃ c, AKLT.Blueprint.Gap.disagreement c (A ∪ B) ≤ 1 - t * α ^ (2 * A.card)
+def AKLT.Blueprint.Gap.FrameProductReferenceStatement : Prop :=
+(∀ (i j : Fin 3),
+    i ≠ j →
+      ∀ (a b : AKLT.Defs.IcoLetter), 0 < 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b)) →
+  ∀ (κ : AKLT.Defs.Plane → Fin 3),
+    AKLT.Defs.ProperPlaneColouring κ →
+      ∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        ∃ π,
+          (∀ (x : ↥W), AKLT.Defs.PositiveProbability (π x)) ∧
+            ∃ Z,
+              0 < Z ∧
+                Z = AKLT.Defs.expectation (fun σ => ∏ x, π x (σ x)) (AKLT.Blueprint.Gap.planeInteraction κ W) ∧
+                  ∀ (σ : AKLT.Defs.PlaneConfiguration W),
+                    AKLT.Defs.planeLaw κ W η σ = (∏ x, π x (σ x)) * AKLT.Blueprint.Gap.planeInteraction κ W σ / Z
+def AKLT.Blueprint.Gap.FrameInteractionBoundsStatement : Prop :=
+(∀ (i j : Fin 3),
+    i ≠ j →
+      ∀ (a b : AKLT.Defs.IcoLetter),
+        AKLT.Defs.frameBound ≤ 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+          1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ≤ 2 - AKLT.Defs.frameBound) →
+  0 < AKLT.Defs.frameBound →
+    AKLT.Defs.frameBound < 1 →
+      ∀ (κ : AKLT.Defs.Plane → Fin 3),
+        AKLT.Defs.ProperPlaneColouring κ →
+          ∀ (W : Finset AKLT.Defs.Plane) (σ : AKLT.Defs.PlaneConfiguration W),
+            AKLT.Defs.frameBound ^ (AKLT.Defs.internalBonds W).card ≤ AKLT.Blueprint.Gap.planeInteraction κ W σ ∧
+              AKLT.Blueprint.Gap.planeInteraction κ W σ ≤ (2 - AKLT.Defs.frameBound) ^ (AKLT.Defs.internalBonds W).card
+def AKLT.Blueprint.Gap.NormalizedInteractionStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (π : (x : ι) → AKLT.Defs.Weight (S x)),
+  (∀ (x : ι), AKLT.Defs.PositiveProbability (π x)) →
+    ∀ (ψ : AKLT.Blueprint.Gap.Config S → ℝ) (lo hi Z : ℝ),
+      0 < lo →
+        0 < hi →
+          (∀ (σ : AKLT.Blueprint.Gap.Config S), lo ≤ ψ σ ∧ ψ σ ≤ hi) →
+            0 < Z →
+              Z = AKLT.Defs.expectation (fun σ => ∏ x, π x (σ x)) ψ →
+                (AKLT.Defs.PositiveProbability fun σ => (∏ x, π x (σ x)) * ψ σ / Z) ∧
+                  ∀ (σ : AKLT.Blueprint.Gap.Config S),
+                    lo / Z * ∏ x, π x (σ x) ≤ (∏ x, π x (σ x)) * ψ σ / Z ∧
+                      (∏ x, π x (σ x)) * ψ σ / Z ≤ hi / Z * ∏ x, π x (σ x)
+def AKLT.Blueprint.Gap.SignedFrameBlockStatement : Prop :=
+0 < AKLT.Defs.frameBound →
+  AKLT.Defs.frameBound < 1 →
+    (∀ (i j : Fin 3),
+        i ≠ j →
+          ∀ (a b : AKLT.Defs.IcoLetter),
+            AKLT.Defs.frameBound ≤ 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+              1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ≤ 2 - AKLT.Defs.frameBound ∧
+                AKLT.Defs.frameBound ≤ 1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+                  1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ≤
+                    2 - AKLT.Defs.frameBound) →
+      ∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (κ : ι → Fin 3) (E : Finset (ι × ι)),
+        (∀ e ∈ E, κ e.1 ≠ κ e.2) →
+          ∀ (positiveSign : ι × ι → Bool) (h : ι → AKLT.Defs.Weight AKLT.Defs.IcoLetter),
+            (∀ (x : ι) (a : AKLT.Defs.IcoLetter), 0 < h x a) →
+              AKLT.Defs.PoincareLower
+                (AKLT.Defs.normalize fun σ =>
+                  (∏ x, h x (σ x)) *
+                    ∏ e ∈ E,
+                      if positiveSign e = true then
+                        1 +
+                          AKLT.Defs.dot (AKLT.Defs.frameVector (κ e.1) (σ e.1)) (AKLT.Defs.frameVector (κ e.2) (σ e.2))
+                      else
+                        1 -
+                          AKLT.Defs.dot (AKLT.Defs.frameVector (κ e.1) (σ e.1)) (AKLT.Defs.frameVector (κ e.2) (σ e.2)))
+                (AKLT.Defs.frameRatio ^ E.card)
+def AKLT.Blueprint.Gap.VariationalCenteringStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+      (∀ (z : ℂ), AKLT.Defs.variance p f ≤ ∑ σ, p σ * Complex.normSq (f σ - z)) ∧
+        ∀ (U : Finset ι) (h : AKLT.Blueprint.Gap.Config S → ℂ),
+          (∀ (σ τ : (x : ι) → S x), AKLT.Defs.AgreeOutside U σ τ → h σ = h τ) →
+            AKLT.Defs.blockDirichlet p U f ≤ ∑ σ, p σ * Complex.normSq (f σ - h σ)
+def AKLT.Blueprint.Gap.ProductTensorizationStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (π : (x : ι) → AKLT.Defs.Weight (S x)),
+  (∀ (x : ι), AKLT.Defs.PositiveProbability (π x)) → AKLT.Defs.PoincareLower (fun σ => ∏ x, π x (σ x)) 1
+def AKLT.Blueprint.Gap.DensityComparisonStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (π : (x : ι) → AKLT.Defs.Weight (S x))
+  (μ : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  (∀ (x : ι), AKLT.Defs.PositiveProbability (π x)) →
+    AKLT.Defs.PositiveProbability μ →
+      ∀ (m M : ℝ),
+        0 < m →
+          0 < M →
+            (∀ (σ : AKLT.Blueprint.Gap.Config S), m * ∏ x, π x (σ x) ≤ μ σ ∧ μ σ ≤ M * ∏ x, π x (σ x)) →
+              (∀ (f : ((x : ι) → S x) → ℂ),
+                  m * AKLT.Defs.dirichlet (fun σ => ∏ x, π x (σ x)) f ≤ AKLT.Defs.dirichlet μ f ∧
+                    AKLT.Defs.variance μ f ≤ M * AKLT.Defs.variance (fun σ => ∏ x, π x (σ x)) f) ∧
+                AKLT.Defs.PoincareLower μ (m / M)
+def AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype J] (S : ι → Type)
+  [inst_3 : (x : ι) → Fintype (S x)] [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (B : J → Finset ι) (g : ℝ),
+      0 < g →
+        (∀ (a : J) (σ : AKLT.Blueprint.Gap.Config S),
+            AKLT.Defs.PoincareLower (AKLT.Blueprint.Gap.blockLaw p (B a) σ) g) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+            g * AKLT.Blueprint.Gap.blockForm p B f ≤ ∑ x, ↑{a | x ∈ B a}.card * AKLT.Defs.blockDirichlet p {x} f
+def AKLT.Blueprint.Gap.MultiplicityEstimateStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype J] (S : ι → Type)
+  [inst_3 : (x : ι) → Fintype (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (B : J → Finset ι) (t : ℕ),
+      (∀ (x : ι), {a | x ∈ B a}.card ≤ t) →
+        ∀ (f : ((x : ι) → S x) → ℂ),
+          ∑ x, ↑{a | x ∈ B a}.card * AKLT.Defs.blockDirichlet p {x} f ≤ ↑t * AKLT.Defs.dirichlet p f
+def AKLT.Blueprint.Gap.HammingPathStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (f : AKLT.Blueprint.Gap.Config S → ℝ),
+  0 ≤ AKLT.Blueprint.Gap.lipschitz f ∧
+    (∀ (σ τ : AKLT.Blueprint.Gap.Config S), |f σ - f τ| ≤ AKLT.Blueprint.Gap.lipschitz f * ↑(AKLT.Defs.hamming σ τ)) ∧
+      (AKLT.Blueprint.Gap.lipschitz f = 0 ↔ ∃ c, ∀ (σ : AKLT.Blueprint.Gap.Config S), f σ = c)
+def AKLT.Blueprint.Gap.LipschitzCouplingStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  (∀ (σ : AKLT.Blueprint.Gap.Config S), AKLT.Defs.Probability (K σ)) →
+    ∀ (r : ℝ),
+      0 ≤ r →
+        (∀ (σ τ : (x : ι) → S x), AKLT.Defs.hamming σ τ = 1 → ∃ c, AKLT.Blueprint.Gap.couplingCost c ≤ r) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℝ),
+            AKLT.Blueprint.Gap.lipschitz (AKLT.Blueprint.Gap.kernelMean K f) ≤ r * AKLT.Blueprint.Gap.lipschitz f
+def AKLT.Blueprint.Gap.LipschitzEigenvalueStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S))
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (r : ℝ),
+      0 ≤ r →
+        (∀ (f : AKLT.Blueprint.Gap.Config S → ℝ),
+            AKLT.Blueprint.Gap.lipschitz (AKLT.Blueprint.Gap.kernelMean K f) ≤ r * AKLT.Blueprint.Gap.lipschitz f) →
+          ∀ (f : AKLT.Blueprint.Gap.Config S → ℝ) (eigenvalue : ℝ),
+            AKLT.Defs.expectation p f = 0 →
+              (∃ σ, f σ ≠ 0) →
+                (∀ (σ : AKLT.Blueprint.Gap.Config S), AKLT.Blueprint.Gap.kernelMean K f σ = eigenvalue * f σ) →
+                  eigenvalue ≤ r
+def AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S))
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Blueprint.Gap.Reversible p K →
+      ∀ (A c : ℝ),
+        0 < A →
+          0 < c →
+            c ≤ A →
+              (∀ (f : AKLT.Blueprint.Gap.Config S → ℝ) (eigenvalue : ℝ),
+                  AKLT.Defs.expectation p f = 0 →
+                    (∃ σ, f σ ≠ 0) →
+                      (∀ (σ : AKLT.Blueprint.Gap.Config S), AKLT.Blueprint.Gap.kernelMean K f σ = eigenvalue * f σ) →
+                        eigenvalue ≤ 1 - c / A) →
+                ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+                  c * AKLT.Defs.variance p f ≤ AKLT.Blueprint.Gap.kernelForm p K A f
+def AKLT.Blueprint.Gap.ReversibleSpectralStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S))
+  (K : AKLT.Blueprint.Gap.Config S → AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    AKLT.Blueprint.Gap.Reversible p K →
+      ∀ (A c : ℝ),
+        0 < A →
+          0 < c →
+            c ≤ A →
+              (∀ (f : AKLT.Blueprint.Gap.Config S → ℝ),
+                  AKLT.Blueprint.Gap.lipschitz (AKLT.Blueprint.Gap.kernelMean K f) ≤
+                    (1 - c / A) * AKLT.Blueprint.Gap.lipschitz f) →
+                ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+                  c * AKLT.Defs.variance p f ≤ AKLT.Blueprint.Gap.kernelForm p K A f
+def AKLT.Blueprint.Gap.BlockAverageFormStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype J] [Nonempty J] (S : ι → Type)
+  [inst_4 : (x : ι) → Fintype (S x)] [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (B : J → Finset ι),
+      AKLT.Blueprint.Gap.Reversible p (AKLT.Blueprint.Gap.blockAverage p B) ∧
+        ∀ (f : AKLT.Blueprint.Gap.Config S → ℂ),
+          AKLT.Blueprint.Gap.kernelForm p (AKLT.Blueprint.Gap.blockAverage p B) (↑(Fintype.card J)) f =
+            AKLT.Blueprint.Gap.blockForm p B f
+def AKLT.Blueprint.Gap.ProductPoincareTransportStatement : Prop :=
+∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype κ] [inst_3 : DecidableEq κ] (S : ι → Type)
+  (T : κ → Type) [inst_4 : (x : ι) → Fintype (S x)] [inst_5 : (y : κ) → Fintype (T y)]
+  (e : AKLT.Blueprint.Gap.ProductChange S T) (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S))
+  (q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config T)),
+  AKLT.Blueprint.Gap.Carries e p q → ∀ (g : ℝ), AKLT.Defs.PoincareLower q g → AKLT.Defs.PoincareLower p g
+def AKLT.Blueprint.Gap.ProductCouplingTransportStatement : Prop :=
+∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype κ] [inst_3 : DecidableEq κ] (S : ι → Type)
+  (T : κ → Type) [inst_4 : (x : ι) → Fintype (S x)] [inst_5 : (y : κ) → Fintype (T y)]
+  (e : AKLT.Blueprint.Gap.ProductChange S T) (p p' : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S))
+  (q q' : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config T)),
+  AKLT.Blueprint.Gap.Carries e p q →
+    AKLT.Blueprint.Gap.Carries e p' q' →
+      ∀ (c : AKLT.Defs.Coupling q q'), ∃ d, AKLT.Blueprint.Gap.couplingCost d = AKLT.Blueprint.Gap.couplingCost c
+def AKLT.Blueprint.Gap.ThresholdSpacingStatement : Prop :=
+∀ (l u : ℕ), AKLT.Defs.geometryThreshold l ≤ u → 16 ≤ AKLT.Defs.shellSpacing u
+def AKLT.Blueprint.Gap.GroundOrthogonalityStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size),
+  AKLT.Challenge.B L N ∈ LinearMap.ker (AKLT.Challenge.H L N) →
+    ∀ (μ : ℝ),
+      μ ≠ 0 →
+        ∀ (ψ : AKLT.Challenge.Hilbert L N), (AKLT.Challenge.H L N) ψ = ↑μ • ψ → inner ℂ (AKLT.Challenge.B L N) ψ = 0
+def AKLT.Blueprint.Gap.RayleighBoundStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (c : ℝ),
+  (∀ (ψ : AKLT.Challenge.Hilbert L N),
+      inner ℂ (AKLT.Challenge.B L N) ψ = 0 → c * ‖ψ‖ ^ 2 ≤ (inner ℂ ψ ((AKLT.Challenge.H L N) ψ)).re) →
+    ∀ (μ : ℝ),
+      (∀ (ψ : AKLT.Challenge.Hilbert L N), (AKLT.Challenge.H L N) ψ = ↑μ • ψ → inner ℂ (AKLT.Challenge.B L N) ψ = 0) →
+        (AKLT.Challenge.H L N).HasEigenvalue ↑μ → c ≤ μ
+def AKLT.Blueprint.Gap.StoppedCouplingStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          AKLT.Blueprint.Gap.SpecEnergy P α →
+            AKLT.Blueprint.Gap.SpecWindow P l p Mstar → AKLT.Blueprint.Gap.StoppedEstimate P l p Mstar α
+def AKLT.Blueprint.Gap.HammingAtScaleStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          AKLT.Blueprint.Gap.SpecEnergy P α →
+            AKLT.Blueprint.Gap.SpecWindow P l p Mstar →
+              ∀ (n : ℕ),
+                AKLT.Blueprint.Gap.ScaleConditions l Mstar (min (1 / 2) (p * α ^ (16 * l))) n →
+                  AKLT.Blueprint.Gap.HammingEstimate P (n ^ 8) (↑(n ^ 8) / 1000)
+def AKLT.Blueprint.Gap.FiniteContractionStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype J] [Nonempty J] (S : ι → Type)
+  [inst_4 : (x : ι) → Fintype (S x)] [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (B : J → Finset ι) (c : ℝ),
+      0 < c →
+        c ≤ ↑(Fintype.card J) →
+          (∀ (σ τ : (x : ι) → S x),
+              AKLT.Defs.hamming σ τ = 1 → ∃ d, AKLT.Blueprint.Gap.couplingCost d ≤ 1 - c / ↑(Fintype.card J)) →
+            AKLT.Blueprint.Gap.BlockGap p B c
+def AKLT.Blueprint.Gap.BlockComparisonStatement : Prop :=
+∀ (ι J : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype J] (S : ι → Type)
+  [inst_3 : (x : ι) → Fintype (S x)] [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (B : J → Finset ι) (t : ℕ) (g c : ℝ),
+      0 < t →
+        0 < g →
+          0 < c →
+            (∀ (x : ι), {a | x ∈ B a}.card ≤ t) →
+              (∀ (a : J) (σ : AKLT.Blueprint.Gap.Config S),
+                  AKLT.Defs.PoincareLower (AKLT.Blueprint.Gap.blockLaw p (B a) σ) g) →
+                AKLT.Blueprint.Gap.BlockGap p B c → AKLT.Defs.PoincareLower p (c * g / ↑t)
+def AKLT.Blueprint.Gap.PeriodicCriterionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (S : AKLT.Challenge.Site L N → Type)
+  [inst : (x : AKLT.Challenge.Site L N) → Fintype (S x)] [∀ (x : AKLT.Challenge.Site L N), Nonempty (S x)]
+  (μ : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability μ →
+    ∀ (M : ℕ) (g K : ℝ),
+      1 ≤ M →
+        2 * M + 3 ≤ ↑L →
+          2 * M + 3 ≤ ↑N →
+            0 < g →
+              0 ≤ K →
+                AKLT.Blueprint.Gap.TorusRangeOne μ M →
+                  AKLT.Blueprint.Gap.UniformBlockGap μ M g →
+                    AKLT.Blueprint.Gap.BlockInfluence μ M K →
+                      ↑(AKLT.Blueprint.Gap.haloCount M) * K < ↑(AKLT.Blueprint.Gap.volumeCount M) →
+                        AKLT.Blueprint.Gap.BlockGap μ (AKLT.Blueprint.Gap.torusSquare L N M)
+                            (↑(AKLT.Blueprint.Gap.volumeCount M) - ↑(AKLT.Blueprint.Gap.haloCount M) * K) ∧
+                          AKLT.Defs.PoincareLower μ
+                            (g * (1 - ↑(AKLT.Blueprint.Gap.haloCount M) * K / ↑(AKLT.Blueprint.Gap.volumeCount M)))
+def AKLT.Blueprint.Gap.PositiveToProbabilityStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p : AKLT.Defs.Weight Ω), AKLT.Defs.PositiveProbability p → AKLT.Defs.Probability p
+def AKLT.Blueprint.Gap.IndependentPairsStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (p q : AKLT.Defs.Weight Ω),
+  AKLT.Defs.Probability p → AKLT.Defs.Probability q → AKLT.Defs.Probability (AKLT.Blueprint.Gap.independentPairs p q)
+def AKLT.Blueprint.Gap.DiagonalCouplingStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.Probability p → ∃ c, AKLT.Blueprint.Gap.couplingCost c = 0
+def AKLT.Blueprint.Gap.DeltaBoundsStatement : Prop :=
+∀ (l : ℕ) (p α : ℝ),
+  0 < p →
+    p ≤ 1 →
+      0 < α →
+        α ≤ 1 →
+          0 < p * α ^ (16 * l) ∧
+            p * α ^ (16 * l) ≤ 1 ∧
+              0 < min (1 / 2) (p * α ^ (16 * l)) ∧
+                min (1 / 2) (p * α ^ (16 * l)) ≤ 1 / 2 ∧ min (1 / 2) (p * α ^ (16 * l)) ≤ p * α ^ (16 * l)
+def AKLT.Blueprint.Gap.PowerCountStatement : Prop :=
+∀ (b : ℝ), 0 ≤ b → b ≤ 1 → ∀ (m n : ℕ), m ≤ n → b ^ n ≤ b ^ m
+def AKLT.Blueprint.Gap.PoincareMonotoneStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.Probability p → ∀ (g h : ℝ), g ≤ h → AKLT.Defs.PoincareLower p h → AKLT.Defs.PoincareLower p g
+def AKLT.Blueprint.Gap.ContainingBlockCountStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (x : AKLT.Challenge.Site L N),
+          {a | x ∈ AKLT.Blueprint.Gap.torusSquare L N M a}.card = AKLT.Blueprint.Gap.volumeCount M
+def AKLT.Blueprint.Gap.ExteriorBlockCountStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (x : AKLT.Challenge.Site L N),
+          {a | x ∈ AKLT.Blueprint.Gap.torusHalo L N M a \ AKLT.Blueprint.Gap.torusSquare L N M a}.card =
+            AKLT.Blueprint.Gap.haloCount M
+def AKLT.Blueprint.Gap.BlockVolumeBoundStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M → 2 * M + 3 ≤ ↑L → 2 * M + 3 ≤ ↑N → AKLT.Blueprint.Gap.volumeCount M ≤ Fintype.card (AKLT.Challenge.Site L N)
+def AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (S : AKLT.Challenge.Site L N → Type)
+  [inst : (x : AKLT.Challenge.Site L N) → Fintype (S x)] [∀ (x : AKLT.Challenge.Site L N), Nonempty (S x)]
+  (μ : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability μ →
+    ∀ (M : ℕ) (K : ℝ),
+      1 ≤ M →
+        0 ≤ K →
+          AKLT.Blueprint.Gap.PeriodicCounts L N M →
+            AKLT.Blueprint.Gap.TorusRangeOne μ M →
+              AKLT.Blueprint.Gap.BlockInfluence μ M K →
+                ∀ (σ τ : (x : AKLT.Challenge.Site L N) → S x),
+                  AKLT.Defs.hamming σ τ = 1 →
+                    ∃ c,
+                      AKLT.Blueprint.Gap.couplingCost c ≤
+                        1 -
+                          (↑(AKLT.Blueprint.Gap.volumeCount M) - ↑(AKLT.Blueprint.Gap.haloCount M) * K) /
+                            ↑(Fintype.card (AKLT.Challenge.Site L N))
+def AKLT.Blueprint.Gap.PeriodicBudgetStatement : Prop :=
+∀ (M : ℕ),
+  1 ≤ M →
+    0 < ↑(AKLT.Blueprint.Gap.volumeCount M) ∧
+      0 < ↑(AKLT.Blueprint.Gap.volumeCount M) - ↑(AKLT.Blueprint.Gap.haloCount M) * (↑M / 1000) ∧
+        499 / 500 ≤ 1 - ↑(AKLT.Blueprint.Gap.haloCount M) * (↑M / 1000) / ↑(AKLT.Blueprint.Gap.volumeCount M)
+def AKLT.Blueprint.Gap.TorusColourStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size), AKLT.Defs.ProperTorusColouring (AKLT.Blueprint.Gap.torusColour L N)
+def AKLT.Blueprint.Gap.PullbackColourStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  AKLT.Defs.ProperTorusColouring κ → AKLT.Defs.ProperPlaneColouring (κ ∘ AKLT.Blueprint.Gap.reduction L N)
+def AKLT.Blueprint.Gap.HaloInjectionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (a : AKLT.Defs.Plane), Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1))
+def AKLT.Blueprint.Gap.LiftBondStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (a : AKLT.Defs.Plane),
+          Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1)) →
+            AKLT.Blueprint.Gap.LiftBonds L N M a
+def AKLT.Blueprint.Gap.BoxCoordinatesStatement : Prop :=
+(∀ (j : Fin 3),
+    Function.Injective (AKLT.Defs.frameVector j) ∧
+      ∀ (a : AKLT.Defs.IcoLetter), ∃ b, AKLT.Defs.frameVector j b = -AKLT.Defs.frameVector j a) →
+  ∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+    1 ≤ M →
+      2 * M + 3 ≤ ↑L →
+        2 * M + 3 ≤ ↑N →
+          (∀ (a : AKLT.Defs.Plane), Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1))) →
+            ∀ (κ : AKLT.Challenge.Site L N → Fin 3) (a : AKLT.Challenge.Site L N),
+              Nonempty (AKLT.Blueprint.Gap.BoxCoordinates L N M a κ)
+def AKLT.Blueprint.Gap.BoxGaugeLawStatement : Prop :=
+(∀ (i j : Fin 3),
+    i ≠ j →
+      ∀ (a b : AKLT.Defs.IcoLetter),
+        0 < 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+          0 < 1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b)) →
+  ∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+    1 ≤ M →
+      2 * M + 3 ≤ ↑L →
+        2 * M + 3 ≤ ↑N →
+          ∀ (κ : AKLT.Challenge.Site L N → Fin 3),
+            AKLT.Defs.ProperTorusColouring κ →
+              ∀ (a : AKLT.Challenge.Site L N) (C : AKLT.Blueprint.Gap.BoxCoordinates L N M a κ),
+                AKLT.Blueprint.Gap.LiftBonds L N M C.centre →
+                  ∀ (σ : AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter),
+                    AKLT.Blueprint.Gap.Carries C.change
+                      (AKLT.Blueprint.Gap.blockLaw (AKLT.Defs.torusLaw L N κ) (AKLT.Blueprint.Gap.torusSquare L N M a)
+                        σ)
+                      ((AKLT.Blueprint.Gap.frameSpec (κ ∘ AKLT.Blueprint.Gap.reduction L N)).law
+                        (AKLT.Defs.square C.centre M) (C.boundary σ))
+def AKLT.Blueprint.Gap.TorusRangeTransferStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (U : Finset (AKLT.Challenge.Site L N)) (σ τ : AKLT.Defs.TorusConfiguration L N),
+      (∀ z ∈ U.biUnion AKLT.Defs.torusNeighbours \ U, σ z = τ z) →
+        AKLT.Defs.conditionalTorusLaw L N κ U σ = AKLT.Defs.conditionalTorusLaw L N κ U τ) →
+    ∀ (M : ℕ), 1 ≤ M → AKLT.Blueprint.Gap.TorusRangeOne (AKLT.Defs.torusLaw L N κ) M
+def AKLT.Blueprint.Gap.SquareInternalEdgesStatement : Prop :=
+∀ (a : AKLT.Defs.Plane) (M : ℕ),
+  (AKLT.Defs.internalBonds (AKLT.Defs.square a M)).card = AKLT.Blueprint.Gap.internalCount M
+def AKLT.Blueprint.Gap.FrameSpecRegularityStatement : Prop :=
+∀ (κ : AKLT.Defs.Plane → Fin 3),
+  AKLT.Defs.ProperPlaneColouring κ →
+    (∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        AKLT.Defs.PositiveProbability (AKLT.Defs.planeLaw κ W η)) →
+      (∀ (W V : Finset AKLT.Defs.Plane),
+          V ⊆ W →
+            ∀ (η : AKLT.Defs.FrameBoundary W) (σ : AKLT.Defs.PlaneConfiguration W),
+              AKLT.Defs.conditionalPlaneLaw κ W V η σ = AKLT.Defs.planeLaw κ V (AKLT.Defs.inducedBoundary W V η σ)) →
+        AKLT.Blueprint.Gap.RegularSpec (AKLT.Blueprint.Gap.frameSpec κ)
+def AKLT.Blueprint.Gap.FrameSpecEnergyStatement : Prop :=
+∀ (κ : AKLT.Defs.Plane → Fin 3),
+  (∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W) (U J : Finset AKLT.Defs.Plane),
+      U ⊆ W →
+        J ⊆ W →
+          Disjoint U J →
+            ∀ (a b : AKLT.Defs.Plane → AKLT.Defs.IcoLetter),
+              AKLT.Defs.frameEnergy ^ U.card ≤
+                AKLT.Defs.conditionalProbability (AKLT.Defs.planeLaw κ W η)
+                  (fun σ => ∀ x ∈ J, AKLT.Defs.extendLetters σ x = a x) fun σ =>
+                  ∀ x ∈ U, AKLT.Defs.extendLetters σ x = b x) →
+    AKLT.Blueprint.Gap.SpecEnergy (AKLT.Blueprint.Gap.frameSpec κ) AKLT.Defs.frameEnergy
+def AKLT.Blueprint.Gap.FrameWindowTransferStatement : Prop :=
+∀ (l : ℕ) (p : ℝ) (Mstar : ℕ),
+  AKLT.Defs.WindowProperty l p Mstar →
+    ∀ (κ : AKLT.Defs.Plane → Fin 3),
+      AKLT.Defs.ProperPlaneColouring κ → AKLT.Blueprint.Gap.SpecWindow (AKLT.Blueprint.Gap.frameSpec κ) l p Mstar
+def AKLT.Blueprint.Gap.ShellNestingStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : ℕ),
+  16 ≤ AKLT.Defs.shellSpacing u →
+    ∀ (i j : ℤ),
+      i + 2 ≤ j →
+        AKLT.Defs.farVolume a y u j ⊆ AKLT.Defs.farVolume a y u (i + 1) ∧
+          AKLT.Defs.shell a y u (j - 1) ⊆ AKLT.Defs.farVolume a y u (i + 1)
+def AKLT.Blueprint.Gap.FiniteEnergyChainStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          (∀ (x : ι) (σ : (x : ι) → S x) (a : S x),
+              α ≤ AKLT.Defs.conditionalProbability p (AKLT.Defs.AgreeOutside {x} σ) fun τ => τ x = a) →
+            AKLT.Blueprint.Gap.AssignmentBound p α
+def AKLT.Blueprint.Gap.ShellRowStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          AKLT.Blueprint.Gap.SpecEnergy P α →
+            AKLT.Blueprint.Gap.SpecWindow P l p Mstar →
+              ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+                max Mstar (AKLT.Defs.geometryThreshold l) ≤ u →
+                  ∀ (y : AKLT.Defs.Plane),
+                    AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u) = 1 →
+                      AKLT.Blueprint.Gap.ShellGeometry l a y u →
+                        ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+                          (∀ (z : AKLT.Defs.Plane), z ≠ y → η z = ξ z) →
+                            ∀ (h : ℕ),
+                              4 ≤ h →
+                                ↑h ≤ AKLT.Defs.shellSpacing u →
+                                  ∀ (j : Fin h)
+                                    (ω :
+                                      AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                                        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+                                    ∃ r, AKLT.Blueprint.Gap.RowConditions P a y u l h p α η ξ j ω r
+def AKLT.Blueprint.Gap.TraceMarginalsStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ) (η ξ : AKLT.Blueprint.Gap.Config P.Letter)
+      (R : AKLT.Blueprint.Gap.SurgeryKernels P a y u l h p α η ξ),
+      AKLT.Defs.Probability (AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R) ∧
+        ∃ c,
+          ∀ (σ τ : (x : ↥(AKLT.Defs.square a u)) → P.Letter ↑x),
+            c.mass σ τ =
+              AKLT.Defs.marginal (AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R) (fun t => t (Fin.last h))
+                (σ, τ)
+def AKLT.Blueprint.Gap.TrialCountStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u h : ℕ),
+  4 ≤ h → (AKLT.Defs.exceptionalIndices a y u).card ≤ 1 → h - 3 ≤ (AKLT.Blueprint.Gap.trialTimes a y u h).card
+def AKLT.Blueprint.Gap.ShellAbsorptionStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec) (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ)
+  (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+  16 ≤ AKLT.Defs.shellSpacing u →
+    ∀ (R : AKLT.Blueprint.Gap.SurgeryKernels P a y u l h p α η ξ)
+      (t : AKLT.Blueprint.Gap.PairTrace (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)) h),
+      0 < AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R t →
+        (∃ j ∈ AKLT.Blueprint.Gap.trialTimes a y u h, AKLT.Blueprint.Gap.shellAgreement P a y u h j (t j.succ)) →
+          AKLT.Blueprint.Gap.AgreeOn (AKLT.Blueprint.Gap.farSites a y u (↑h * AKLT.Defs.shellSpacing u))
+            (t (Fin.last h)).1 (t (Fin.last h)).2
+def AKLT.Blueprint.Gap.FiniteTrialFailureStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] (m : ℕ) (initial : AKLT.Defs.Weight (Ω × Ω)),
+  AKLT.Defs.Probability initial →
+    ∀ (K : Fin m → Ω × Ω → AKLT.Defs.Weight (Ω × Ω)),
+      (∀ (j : Fin m) (ω : Ω × Ω), AKLT.Defs.Probability (K j ω)) →
+        ∀ (J : Finset (Fin m)) (E : Fin m → Ω × Ω → Prop) (δ : ℝ),
+          0 ≤ δ →
+            δ ≤ 1 →
+              (∀ j ∈ J, ∀ (ω : Ω × Ω), δ ≤ AKLT.Defs.eventMass (K j ω) (E j)) →
+                (AKLT.Defs.eventMass (AKLT.Blueprint.Gap.traceLaw m initial K) fun t => ∀ j ∈ J, ¬E j (t j.succ)) ≤
+                  (1 - δ) ^ J.card
+def AKLT.Blueprint.Gap.TraceDisagreementStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)] (m : ℕ)
+  (w : AKLT.Defs.Weight (AKLT.Blueprint.Gap.PairTrace (AKLT.Blueprint.Gap.Config S) m)),
+  AKLT.Defs.Probability w →
+    ∀ (p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)) (c : AKLT.Defs.Coupling p q),
+      (∀ (σ τ : AKLT.Blueprint.Gap.Config S), c.mass σ τ = AKLT.Defs.marginal w (fun t => t (Fin.last m)) (σ, τ)) →
+        ∀ (U : Finset ι) (J : Finset (Fin m))
+          (E : Fin m → AKLT.Blueprint.Gap.Config S × AKLT.Blueprint.Gap.Config S → Prop),
+          (∀ (t : AKLT.Blueprint.Gap.PairTrace (AKLT.Blueprint.Gap.Config S) m),
+              0 < w t →
+                (∃ j ∈ J, E j (t j.succ)) → AKLT.Blueprint.Gap.AgreeOn U (t (Fin.last m)).1 (t (Fin.last m)).2) →
+            AKLT.Blueprint.Gap.disagreement c U ≤ AKLT.Defs.eventMass w fun t => ∀ j ∈ J, ¬E j (t j.succ)
+def AKLT.Blueprint.Gap.TerminalRadiusStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ),
+  0 < α →
+    α ≤ 1 →
+      0 < p →
+        p ≤ 1 →
+          AKLT.Blueprint.Gap.StoppedEstimate P l p Mstar α →
+            ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+              max Mstar (AKLT.Defs.geometryThreshold l) ≤ u →
+                ∀ (y : AKLT.Defs.Plane),
+                  AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u) = 1 →
+                    ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+                      (∀ (z : AKLT.Defs.Plane), z ≠ y → η z = ξ z) →
+                        AKLT.Defs.totalVariation
+                            (AKLT.Blueprint.Gap.specMarginal P (AKLT.Defs.square a u)
+                              ({x ∈ AKLT.Defs.square a u | √↑u < ↑(AKLT.Defs.supDist x y)}) η)
+                            (AKLT.Blueprint.Gap.specMarginal P (AKLT.Defs.square a u)
+                              ({x ∈ AKLT.Defs.square a u | √↑u < ↑(AKLT.Defs.supDist x y)}) ξ) ≤
+                          (1 - p * α ^ (16 * l)) ^ (AKLT.Defs.shellSpacing u - 4)
+def AKLT.Blueprint.Gap.ScaleExistenceStatement : Prop :=
+∀ (l Mstar : ℕ) (d : ℝ), 0 < d → ∃ n, AKLT.Blueprint.Gap.ScaleConditions l Mstar d n
+def AKLT.Blueprint.Gap.BinomialTailStatement : Prop :=
+∀ (d : ℝ), 0 < d → d ≤ 1 / 2 → ∀ (n : ℕ), 44 ≤ n → (1 - d) ^ (n - 3) ≤ 2 ^ 20 * ↑(Nat.factorial 20) / (d ^ 20 * ↑n ^ 20)
+def AKLT.Blueprint.Gap.ScaleGeometryStatement : Prop :=
+∀ (l Mstar : ℕ) (d : ℝ) (n : ℕ),
+  AKLT.Blueprint.Gap.ScaleConditions l Mstar d n →
+    max Mstar (AKLT.Defs.geometryThreshold l) ≤ n ^ 8 ∧
+      4 ≤ n ∧
+        ↑n ≤ AKLT.Defs.shellSpacing (n ^ 8) ∧
+          ↑n * AKLT.Defs.shellSpacing (n ^ 8) = ↑n ^ 3 ∧ 16 ≤ AKLT.Defs.shellSpacing (n ^ 8)
+def AKLT.Blueprint.Gap.HammingCardinalityStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (n : ℕ),
+  1 ≤ n →
+    ↑(Finset.univ \ AKLT.Blueprint.Gap.farSites a y (n ^ 8) (↑n ^ 3)).card ≤ 25 * ↑n ^ 6 ∧
+      ↑(Fintype.card ↥(AKLT.Defs.square a (n ^ 8))) ≤ 25 * ↑n ^ 16
+def AKLT.Blueprint.Gap.HammingBudgetStatement : Prop :=
+∀ (l Mstar : ℕ) (d : ℝ) (n : ℕ),
+  0 < d →
+    d ≤ 1 / 2 →
+      AKLT.Blueprint.Gap.ScaleConditions l Mstar d n →
+        (1 - d) ^ (n - 3) ≤ 2 ^ 20 * ↑(Nat.factorial 20) / (d ^ 20 * ↑n ^ 20) →
+          25 * ↑n ^ 6 + 25 * ↑n ^ 16 * (1 - d) ^ (n - 3) ≤ ↑(n ^ 8) / 1000
+def AKLT.Blueprint.Gap.FarBoundaryEqualityStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+      ∀ y ∉ AKLT.Defs.square a u,
+        AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u) ≠ 1 →
+          ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+            (∀ (z : AKLT.Defs.Plane), z ≠ y → η z = ξ z) →
+              P.law (AKLT.Defs.square a u) η = P.law (AKLT.Defs.square a u) ξ
+def AKLT.Blueprint.Gap.StoppedHammingConversionStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ) (n : ℕ) (d : ℝ),
+  0 ≤ d →
+    d ≤ p * α ^ (16 * l) →
+      p * α ^ (16 * l) ≤ 1 →
+        max Mstar (AKLT.Defs.geometryThreshold l) ≤ n ^ 8 →
+          4 ≤ n →
+            ↑n ≤ AKLT.Defs.shellSpacing (n ^ 8) →
+              ↑n * AKLT.Defs.shellSpacing (n ^ 8) = ↑n ^ 3 →
+                AKLT.Blueprint.Gap.StoppedEstimate P l p Mstar α →
+                  (∀ (a y : AKLT.Defs.Plane),
+                      ↑(Finset.univ \ AKLT.Blueprint.Gap.farSites a y (n ^ 8) (↑n ^ 3)).card ≤ 25 * ↑n ^ 6 ∧
+                        ↑(Fintype.card ↥(AKLT.Defs.square a (n ^ 8))) ≤ 25 * ↑n ^ 16) →
+                    (∀ (a : AKLT.Defs.Plane) (η : AKLT.Blueprint.Gap.Config P.Letter),
+                        AKLT.Defs.Probability (P.law (AKLT.Defs.square a (n ^ 8)) η)) →
+                      ∀ (a y : AKLT.Defs.Plane),
+                        AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a (n ^ 8)) = 1 →
+                          ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+                            (∀ (z : AKLT.Defs.Plane), z ≠ y → η z = ξ z) →
+                              ∃ c, AKLT.Blueprint.Gap.couplingCost c ≤ 25 * ↑n ^ 6 + 25 * ↑n ^ 16 * (1 - d) ^ (n - 3)
+def AKLT.Blueprint.Gap.FiniteAssemblyLeaves : Prop :=
+AKLT.Blueprint.Gap.BlockAverageFormStatement ∧
+  AKLT.Blueprint.Gap.LipschitzCouplingStatement ∧
+    AKLT.Blueprint.Gap.LipschitzEigenvalueStatement ∧
+      AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement ∧
+        AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement ∧ AKLT.Blueprint.Gap.MultiplicityEstimateStatement
+def AKLT.Blueprint.Gap.ShellAssemblyLeaves : Prop :=
+AKLT.Blueprint.Gap.ShellRowStatement ∧
+  AKLT.Blueprint.Gap.TraceMarginalsStatement ∧
+    AKLT.Blueprint.Gap.TrialCountStatement ∧
+      AKLT.Blueprint.Gap.ShellAbsorptionStatement ∧
+        AKLT.Blueprint.Gap.FiniteTrialFailureStatement ∧
+          AKLT.Blueprint.Gap.TraceDisagreementStatement ∧
+            AKLT.Blueprint.Gap.ThresholdSpacingStatement ∧
+              AKLT.Blueprint.Gap.ScaleGeometryStatement ∧
+                AKLT.Blueprint.Gap.BinomialTailStatement ∧
+                  AKLT.Blueprint.Gap.HammingCardinalityStatement ∧
+                    AKLT.Blueprint.Gap.HammingBudgetStatement ∧
+                      AKLT.Blueprint.Gap.StoppedHammingConversionStatement ∧
+                        AKLT.Blueprint.Gap.FarBoundaryEqualityStatement ∧ AKLT.Blueprint.Gap.ScaleExistenceStatement
+def AKLT.Blueprint.Gap.PeriodicAssemblyLeaves : Prop :=
+AKLT.Blueprint.Gap.ContainingBlockCountStatement ∧
+  AKLT.Blueprint.Gap.ExteriorBlockCountStatement ∧
+    AKLT.Blueprint.Gap.BlockVolumeBoundStatement ∧
+      AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement ∧
+        AKLT.Blueprint.Gap.FrameSpecRegularityStatement ∧
+          AKLT.Blueprint.Gap.FrameSpecEnergyStatement ∧
+            AKLT.Blueprint.Gap.FrameWindowTransferStatement ∧
+              AKLT.Blueprint.Gap.TorusColourStatement ∧
+                AKLT.Blueprint.Gap.PullbackColourStatement ∧
+                  AKLT.Blueprint.Gap.HaloInjectionStatement ∧
+                    AKLT.Blueprint.Gap.LiftBondStatement ∧
+                      AKLT.Blueprint.Gap.BoxCoordinatesStatement ∧
+                        AKLT.Blueprint.Gap.BoxGaugeLawStatement ∧
+                          AKLT.Blueprint.Gap.TorusRangeTransferStatement ∧
+                            AKLT.Blueprint.Gap.SquareInternalEdgesStatement ∧
+                              AKLT.Blueprint.Gap.ProductPoincareTransportStatement ∧
+                                AKLT.Blueprint.Gap.ProductCouplingTransportStatement
+AKLT.Blueprint.Gap.reversibleSpectral_of_parts (hEigen : AKLT.Blueprint.Gap.LipschitzEigenvalueStatement)
+  (hGap : AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement) : AKLT.Blueprint.Gap.ReversibleSpectralStatement
+AKLT.Blueprint.Gap.finiteContraction_of_parts (hForm : AKLT.Blueprint.Gap.BlockAverageFormStatement)
+  (hLip : AKLT.Blueprint.Gap.LipschitzCouplingStatement) (hSpec : AKLT.Blueprint.Gap.ReversibleSpectralStatement) :
+  AKLT.Blueprint.Gap.FiniteContractionStatement
+AKLT.Blueprint.Gap.blockComparison_of_parts (hCond : AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement)
+  (hMult : AKLT.Blueprint.Gap.MultiplicityEstimateStatement) : AKLT.Blueprint.Gap.BlockComparisonStatement
+AKLT.Blueprint.Gap.periodicCriterion_of_parts (hInside : AKLT.Blueprint.Gap.ContainingBlockCountStatement)
+  (hOutside : AKLT.Blueprint.Gap.ExteriorBlockCountStatement) (hVolume : AKLT.Blueprint.Gap.BlockVolumeBoundStatement)
+  (hNeighbour : AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement)
+  (hContract : AKLT.Blueprint.Gap.FiniteContractionStatement) (hCompare : AKLT.Blueprint.Gap.BlockComparisonStatement) :
+  AKLT.Blueprint.Gap.PeriodicCriterionStatement
+AKLT.Blueprint.Gap.stoppedCoupling_of_parts (hRows : AKLT.Blueprint.Gap.ShellRowStatement)
+  (hTrace : AKLT.Blueprint.Gap.TraceMarginalsStatement) (hCount : AKLT.Blueprint.Gap.TrialCountStatement)
+  (hAbsorb : AKLT.Blueprint.Gap.ShellAbsorptionStatement) (hFailure : AKLT.Blueprint.Gap.FiniteTrialFailureStatement)
+  (hEndpoint : AKLT.Blueprint.Gap.TraceDisagreementStatement) (hSpacing : AKLT.Blueprint.Gap.ThresholdSpacingStatement)
+  (hGeometry : AKLT.Blueprint.Top.ShellGeometryStatement) : AKLT.Blueprint.Gap.StoppedCouplingStatement
+AKLT.Blueprint.Gap.hammingAtScale_of_parts (hStopped : AKLT.Blueprint.Gap.StoppedCouplingStatement)
+  (hScale : AKLT.Blueprint.Gap.ScaleGeometryStatement) (hTail : AKLT.Blueprint.Gap.BinomialTailStatement)
+  (hCard : AKLT.Blueprint.Gap.HammingCardinalityStatement) (hBudget : AKLT.Blueprint.Gap.HammingBudgetStatement)
+  (hConvert : AKLT.Blueprint.Gap.StoppedHammingConversionStatement)
+  (hFar : AKLT.Blueprint.Gap.FarBoundaryEqualityStatement) : AKLT.Blueprint.Gap.HammingAtScaleStatement
+AKLT.Blueprint.Gap.mainW_of_core (hChoose : AKLT.Blueprint.Gap.ScaleExistenceStatement)
+  (hHamming : AKLT.Blueprint.Gap.HammingAtScaleStatement) (hRegular : AKLT.Blueprint.Gap.FrameSpecRegularityStatement)
+  (hEnergyTransfer : AKLT.Blueprint.Gap.FrameSpecEnergyStatement)
+  (hWindow : AKLT.Blueprint.Gap.FrameWindowTransferStatement) (hColour : AKLT.Blueprint.Gap.TorusColourStatement)
+  (hPullback : AKLT.Blueprint.Gap.PullbackColourStatement) (hInject : AKLT.Blueprint.Gap.HaloInjectionStatement)
+  (hBonds : AKLT.Blueprint.Gap.LiftBondStatement) (hCoordinates : AKLT.Blueprint.Gap.BoxCoordinatesStatement)
+  (hGauge : AKLT.Blueprint.Gap.BoxGaugeLawStatement) (hRange : AKLT.Blueprint.Gap.TorusRangeTransferStatement)
+  (hEdges : AKLT.Blueprint.Gap.SquareInternalEdgesStatement)
+  (hTransportGap : AKLT.Blueprint.Gap.ProductPoincareTransportStatement)
+  (hTransportCost : AKLT.Blueprint.Gap.ProductCouplingTransportStatement)
+  (hPeriodic : AKLT.Blueprint.Gap.PeriodicCriterionStatement) (hBudget : AKLT.Blueprint.Gap.PeriodicBudgetStatement)
+  (hFrames : AKLT.Blueprint.Top.ThreeFramesStatement) (hStar : AKLT.Blueprint.Top.StarStatement)
+  (hEnergy : AKLT.Blueprint.Top.PlaneEnergyStatement) (hQD : AKLT.Blueprint.Top.QDStatement)
+  (hKernel : AKLT.Blueprint.Top.TorusKernelStatement) : AKLT.Blueprint.Top.MainWStatement
+AKLT.Blueprint.Gap.mainW_of_parts (hFinite : AKLT.Blueprint.Gap.FiniteAssemblyLeaves)
+  (hShell : AKLT.Blueprint.Gap.ShellAssemblyLeaves) (hLocal : AKLT.Blueprint.Gap.PeriodicAssemblyLeaves)
+  (hGeometry : AKLT.Blueprint.Top.ShellGeometryStatement) (hFrames : AKLT.Blueprint.Top.ThreeFramesStatement)
+  (hStar : AKLT.Blueprint.Top.StarStatement) (hEnergy : AKLT.Blueprint.Top.PlaneEnergyStatement)
+  (hQD : AKLT.Blueprint.Top.QDStatement) (hKernel : AKLT.Blueprint.Top.TorusKernelStatement) :
+  AKLT.Blueprint.Top.MainWStatement
+AKLT.Blueprint.Gap.groundOrthogonality : AKLT.Blueprint.Gap.GroundOrthogonalityStatement
+AKLT.Blueprint.Gap.rayleighBound : AKLT.Blueprint.Gap.RayleighBoundStatement
+AKLT.Blueprint.Gap.positiveToProbability : AKLT.Blueprint.Gap.PositiveToProbabilityStatement
+AKLT.Blueprint.Gap.independentPairsProbability : AKLT.Blueprint.Gap.IndependentPairsStatement
+AKLT.Blueprint.Gap.diagonalCoupling : AKLT.Blueprint.Gap.DiagonalCouplingStatement
+AKLT.Blueprint.Gap.deltaBounds : AKLT.Blueprint.Gap.DeltaBoundsStatement
+AKLT.Blueprint.Gap.powerCount : AKLT.Blueprint.Gap.PowerCountStatement
+AKLT.Blueprint.Gap.poincareMonotone : AKLT.Blueprint.Gap.PoincareMonotoneStatement
+AKLT.Blueprint.Gap.periodicBudget : AKLT.Blueprint.Gap.PeriodicBudgetStatement
+real 3.69
+user 2.69
+sys 5.02

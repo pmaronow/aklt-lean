@@ -1,0 +1,75 @@
+def AKLT.Blueprint.Rec.CoveredIntegratedLowerStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (a : AKLT.Blueprint.Rec.Departure),
+    a.D.status a.y = AKLT.Defs.Status.U →
+      ∀ (incoming outgoing : AKLT.Defs.Compass),
+        a.o = a.y + outgoing.step →
+          AKLT.Blueprint.Rec.CoveredDepartureV2 a.D a.y incoming outgoing →
+            have c := ↑(AKLT.Defs.localThreshold (decide (outgoing = incoming)));
+            (∀ (f : AKLT.Defs.Plane),
+                a.D.presentNeighbours a.y = {a.o, f} →
+                  a.o ≠ f → c ≤ AKLT.Blueprint.Rec.responseI₂ a.D a.τ true a.y a.o f) ∧
+              ∀ (f g : AKLT.Defs.Plane),
+                a.D.presentNeighbours a.y = {a.o, f, g} →
+                  a.o ≠ f →
+                    a.o ≠ g →
+                      f ≠ g →
+                        c * AKLT.Defs.responseJ a.D a.τ true a.y f g ≤ AKLT.Defs.responseI a.D a.τ true a.y a.o f g
+def AKLT.Blueprint.Rec.BetaPrimeAnalyticStatement : Prop :=
+∀ (c It I₀ : ℝ), 0 < c → c ≤ It → 1 ≤ I₀ → 1 / (3 * AKLT.Defs.logarithmicMean It I₀) ≤ AKLT.Defs.reciprocalLogMean c / 3
+def AKLT.Blueprint.Rec.BetaAnalyticStatement : Prop :=
+∀ (c It I₀ Jt J₀ : ℝ),
+  3 / 5 ≤ c →
+    c ≤ 1 →
+      c * Jt ≤ It →
+        J₀ ≤ I₀ →
+          116 / 125 ≤ Jt →
+            1 ≤ J₀ → 1 / (3 * AKLT.Defs.logarithmicMean It I₀) ≤ AKLT.Defs.reciprocalLogMean (116 / 125 * c) / 3
+def AKLT.Blueprint.Rec.AlphaAnalyticStatement : Prop :=
+∀ (c It I₀ Jt J₀ : ℝ),
+  3 / 5 ≤ c →
+    c ≤ 1 →
+      c * Jt ≤ It →
+        J₀ ≤ I₀ →
+          116 / 125 ≤ Jt →
+            1 ≤ J₀ →
+              1 / (3 * AKLT.Defs.logarithmicMean It I₀) - 1 / (5 * AKLT.Defs.logarithmicMean Jt J₀) ≤
+                AKLT.Defs.reciprocalLogMean (116 / 125 * c) / 3 - AKLT.Defs.reciprocalLogMean (116 / 125) / 5
+def AKLT.Blueprint.Rec.UStepMomentStatement : Prop :=
+∀ k ≤ 3,
+  ∀ (a : AKLT.Defs.Vec3) (u : Fin k → AKLT.Defs.Vec3),
+    (AKLT.Defs.siteFunctional AKLT.Defs.Status.U fun n => AKLT.Defs.dot a n * ∏ i, (1 + AKLT.Defs.dot n (u i))) =
+      1 / 3 *
+        ∑ i,
+          AKLT.Defs.dot a (u i) *
+            AKLT.Defs.siteFunctional AKLT.Defs.Status.D fun n => ∏ j ∈ Finset.univ.erase i, (1 + AKLT.Defs.dot n (u j))
+def AKLT.Blueprint.Rec.DStepMomentStatement : Prop :=
+∀ k ≤ 1,
+  ∀ (a : AKLT.Defs.Vec3) (u : Fin k → AKLT.Defs.Vec3),
+    (AKLT.Defs.siteFunctional AKLT.Defs.Status.D fun n => AKLT.Defs.dot a n * ∏ i, (1 + AKLT.Defs.dot n (u i))) =
+      1 / 5 * ∑ i, AKLT.Defs.dot a (u i)
+def AKLT.Blueprint.Rec.TraceDynamicsStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        ∀ (T : Finset AKLT.Defs.Plane) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+          AKLT.Defs.StoppedNetworkTrail D u T w →
+            (∀ j ≤ n, (AKLT.Blueprint.Rec.prefixNetwork D u w j).Auxiliary) ∧
+              ∀ (i : Fin n),
+                (AKLT.Blueprint.Rec.prefixNetwork D u w ↑i).AdmissibleStart (AKLT.Defs.wordVertex u w ↑i) ∧
+                  (AKLT.Blueprint.Rec.prefixNetwork D u w ↑i).Present (AKLT.Defs.wordVertex u w ↑i)
+                    (AKLT.Defs.wordVertex u w (↑i + 1))
+def AKLT.Blueprint.Rec.TraceCoefficientStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        ∀ (T : Finset AKLT.Defs.Plane) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+          AKLT.Defs.StoppedNetworkTrail D u T w →
+            have ND :=
+              {i |
+                  (AKLT.Blueprint.Rec.prefixNetwork D u w ↑i).status (AKLT.Defs.wordVertex u w ↑i) =
+                    AKLT.Defs.Status.D}.card;
+            0 < AKLT.Defs.traceCoefficient D (AKLT.Defs.wordVertices u w) ∧
+              AKLT.Defs.traceCoefficient D (AKLT.Defs.wordVertices u w) = (1 / 3) ^ n * (3 / 5) ^ ND

@@ -1,0 +1,729 @@
+{
+  "seconds": 388.63153759398847,
+  "totals": {
+    "0": {
+      "blocks": 12173,
+      "dd": 8439,
+      "wdd": 9350,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2964,
+      "fallback_cells_after_scalar_and_dd": 3900872
+    },
+    "0.0002": {
+      "blocks": 12173,
+      "dd": 8447,
+      "wdd": 9353,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2958,
+      "fallback_cells_after_scalar_and_dd": 3899140
+    },
+    "0.0005": {
+      "blocks": 12173,
+      "dd": 8451,
+      "wdd": 9370,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2955,
+      "fallback_cells_after_scalar_and_dd": 3898891
+    },
+    "0.001": {
+      "blocks": 12173,
+      "dd": 8475,
+      "wdd": 9400,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2950,
+      "fallback_cells_after_scalar_and_dd": 3898218
+    },
+    "0.002": {
+      "blocks": 12173,
+      "dd": 8541,
+      "wdd": 9447,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2906,
+      "fallback_cells_after_scalar_and_dd": 3893112
+    },
+    "0.005": {
+      "blocks": 12173,
+      "dd": 8639,
+      "wdd": 9566,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2838,
+      "fallback_cells_after_scalar_and_dd": 3882666
+    },
+    "0.01": {
+      "blocks": 12173,
+      "dd": 8803,
+      "wdd": 9786,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2739,
+      "fallback_cells_after_scalar_and_dd": 3864441
+    },
+    "0.02": {
+      "blocks": 12173,
+      "dd": 9107,
+      "wdd": 10088,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2571,
+      "fallback_cells_after_scalar_and_dd": 3838213
+    },
+    "0.05": {
+      "blocks": 12173,
+      "dd": 9710,
+      "wdd": 10675,
+      "fallback_blocks_after_scalar": 6551,
+      "fallback_blocks_after_scalar_and_dd": 2152,
+      "fallback_cells_after_scalar_and_dd": 3751160
+    }
+  },
+  "shared_table_count": 41,
+  "shared_table_cells": 15040,
+  "repeated_table_cells": 14385472,
+  "tensor_d4_classes": 7905,
+  "normalized_matrix_classes": 5569,
+  "full_sector_dimensions": {
+    "1": 26,
+    "2": 232,
+    "3": 49,
+    "4": 819,
+    "6": 367,
+    "8": 1476,
+    "9": 23,
+    "12": 1052,
+    "16": 1408,
+    "18": 169,
+    "24": 1621,
+    "32": 784,
+    "36": 450,
+    "48": 1165,
+    "54": 24,
+    "64": 212,
+    "72": 745,
+    "96": 577,
+    "108": 72,
+    "128": 35,
+    "144": 323,
+    "192": 68,
+    "216": 200,
+    "288": 188,
+    "384": 12,
+    "432": 24,
+    "648": 28,
+    "864": 24
+  },
+  "local_specs": [
+    {
+      "key": [
+        1,
+        false,
+        false,
+        false,
+        0,
+        "x",
+        "",
+        false,
+        1
+      ],
+      "count": 18291,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        false,
+        false,
+        true,
+        0,
+        "d",
+        "",
+        false,
+        1
+      ],
+      "count": 2336,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        false,
+        true,
+        false,
+        0,
+        "d",
+        "",
+        false,
+        1
+      ],
+      "count": 791,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        false,
+        true,
+        true,
+        0,
+        "d",
+        "",
+        false,
+        5
+      ],
+      "count": 3371,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        true,
+        false,
+        false,
+        0,
+        "d",
+        "",
+        false,
+        1
+      ],
+      "count": 779,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        true,
+        false,
+        true,
+        0,
+        "d",
+        "",
+        false,
+        5
+      ],
+      "count": 3110,
+      "cells": 64
+    },
+    {
+      "key": [
+        1,
+        true,
+        true,
+        false,
+        0,
+        "d",
+        "",
+        false,
+        5
+      ],
+      "count": 1388,
+      "cells": 64
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        false,
+        1,
+        "d",
+        "tip",
+        false,
+        1
+      ],
+      "count": 449,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        false,
+        1,
+        "d",
+        "tip",
+        true,
+        1
+      ],
+      "count": 450,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        true,
+        1,
+        "d",
+        "tip",
+        false,
+        5
+      ],
+      "count": 1311,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        true,
+        1,
+        "d",
+        "tip",
+        true,
+        5
+      ],
+      "count": 1337,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        true,
+        1,
+        "u",
+        "tip",
+        false,
+        3
+      ],
+      "count": 565,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        false,
+        true,
+        1,
+        "u",
+        "tip",
+        true,
+        3
+      ],
+      "count": 583,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "d",
+        "leaf",
+        false,
+        3
+      ],
+      "count": 2161,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "d",
+        "leaf",
+        true,
+        3
+      ],
+      "count": 2157,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "d",
+        "tip",
+        false,
+        5
+      ],
+      "count": 598,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "d",
+        "tip",
+        true,
+        5
+      ],
+      "count": 566,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "u",
+        "leaf",
+        false,
+        2
+      ],
+      "count": 602,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        false,
+        1,
+        "u",
+        "leaf",
+        true,
+        2
+      ],
+      "count": 649,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        true,
+        1,
+        "u",
+        "tip",
+        false,
+        3
+      ],
+      "count": 1061,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        false,
+        true,
+        true,
+        1,
+        "u",
+        "tip",
+        true,
+        3
+      ],
+      "count": 1001,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "d",
+        "leaf",
+        false,
+        3
+      ],
+      "count": 2247,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "d",
+        "leaf",
+        true,
+        3
+      ],
+      "count": 2271,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "d",
+        "tip",
+        false,
+        5
+      ],
+      "count": 562,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "d",
+        "tip",
+        true,
+        5
+      ],
+      "count": 608,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "u",
+        "leaf",
+        false,
+        2
+      ],
+      "count": 574,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        false,
+        1,
+        "u",
+        "leaf",
+        true,
+        2
+      ],
+      "count": 599,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        true,
+        1,
+        "u",
+        "tip",
+        false,
+        3
+      ],
+      "count": 1116,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        false,
+        true,
+        1,
+        "u",
+        "tip",
+        true,
+        3
+      ],
+      "count": 1091,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        true,
+        true,
+        1,
+        "u",
+        "tip",
+        false,
+        15
+      ],
+      "count": 1990,
+      "cells": 256
+    },
+    {
+      "key": [
+        2,
+        true,
+        true,
+        true,
+        1,
+        "u",
+        "tip",
+        true,
+        15
+      ],
+      "count": 2002,
+      "cells": 256
+    },
+    {
+      "key": [
+        3,
+        false,
+        true,
+        false,
+        2,
+        "u",
+        "slot",
+        true,
+        3
+      ],
+      "count": 1,
+      "cells": 576
+    },
+    {
+      "key": [
+        3,
+        true,
+        false,
+        false,
+        2,
+        "u",
+        "slot",
+        true,
+        3
+      ],
+      "count": 1,
+      "cells": 576
+    },
+    {
+      "key": [
+        3,
+        true,
+        true,
+        false,
+        2,
+        "u",
+        "slot",
+        false,
+        15
+      ],
+      "count": 1764,
+      "cells": 576
+    },
+    {
+      "key": [
+        3,
+        true,
+        true,
+        false,
+        2,
+        "u",
+        "slot",
+        true,
+        15
+      ],
+      "count": 1773,
+      "cells": 576
+    },
+    {
+      "key": [
+        4,
+        false,
+        true,
+        false,
+        2,
+        "d",
+        "slot",
+        false,
+        5
+      ],
+      "count": 1,
+      "cells": 1024
+    },
+    {
+      "key": [
+        4,
+        false,
+        true,
+        false,
+        2,
+        "d",
+        "slot",
+        true,
+        5
+      ],
+      "count": 1,
+      "cells": 1024
+    },
+    {
+      "key": [
+        4,
+        true,
+        false,
+        false,
+        2,
+        "d",
+        "slot",
+        false,
+        5
+      ],
+      "count": 1,
+      "cells": 1024
+    },
+    {
+      "key": [
+        4,
+        true,
+        false,
+        false,
+        2,
+        "d",
+        "slot",
+        true,
+        5
+      ],
+      "count": 1,
+      "cells": 1024
+    },
+    {
+      "key": [
+        4,
+        true,
+        true,
+        false,
+        2,
+        "d",
+        "slot",
+        false,
+        25
+      ],
+      "count": 1768,
+      "cells": 1024
+    },
+    {
+      "key": [
+        4,
+        true,
+        true,
+        false,
+        2,
+        "d",
+        "slot",
+        true,
+        25
+      ],
+      "count": 1769,
+      "cells": 1024
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+
+% ---------------------------------------------------------------------------
+% Macros (kept minimal; every macro used in the section files is defined here)
+% ---------------------------------------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Sph}{\mathbb{S}^2}
+\newcommand{\TV}{d_{\mathrm{TV}}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\cs}{c_{\mathrm{s}}}
+\newcommand{\ct}{c_{\mathrm{t}}}
+\newcommand{\Pext}{\mathcal{P}_{\mathrm{ext}}}
+\newcommand{\Dcons}{\mathcal{D}_{\mathrm{cons}}}
+\newcommand{\gapnote}[1]{\textbf{[GAP: #1]}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{The spectral gap of the spin-2 AKLT model on the square lattice}
+
+\begin{abstract}
+We prove that the spin-2 AKLT Hamiltonian on the $L \times N$ square-lattice torus has a unique ground state and a spectral gap bounded below uniformly in all even $L, N$ larger than a fixed constant. The proof is computer-assisted. A finite family of local inequalities is verified by computer in exact integer and rational arithmetic, and two bounds on weighted sums over lattice trails in floating-point arithmetic with upward rounding. The proof replaces each spin by a finite tight frame of coherent states, which turns the quantum problem into the spectral gap of a heat-bath dynamics for a finite-state Markov field. A finite-size criterion and the theory of Martinelli, Olivieri and Schonmann reduce this gap to a coupling estimate for window marginals in large squares. We prove that estimate with an exact factorization over a separating cut, which converts it into bounds on pair correlations next to removed sites, and these bounds are obtained from a walk expansion and a linear recursion whose kernel is controlled by computer-assisted estimates.
+\end{abstract}
+
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\input{sec1-intro-statement}
+\input{sec2-frames-Q}
+\input{sec3-knabe}
+\input{sec4-mixing-to-gap}
+\input{sec5-cut}
+\input{sec6-walks}
+\input{sec7-recursion}
+\input{sec8-computer-assisted}
+
+\appendix
+\input{app-constants}
+\input{app-lattice-topology}
+\input{app-tail}
+\input{app-local}
+
+\begin{thebibliography}{99}
+
+\bibitem{AKLT88}
+I.~Affleck, T.~Kennedy, E.~H.~Lieb and H.~Tasaki,
+\emph{Valence bond ground states in isotropic quantum antiferromagnets},
+Comm.\ Math.\ Phys.\ \textbf{115} (1988), 477--528.
+
+\bibitem{Bar68}
+E.~H.~Bareiss,
+\emph{Sylvester's identity and multistep integer-preserving Gaussian elimination},
+Math.\ Comp.\ \textbf{22} (1968), 565--578.
+
+\bibitem{DGS77}
+P.~Delsarte, J.-M.~Goethals and J.~J.~Seidel,
+\emph{Spherical codes and designs},
+Geom.\ Dedicata \textbf{6} (1977), 363--388.
+
+\bibitem{FKG71}
+C.~M.~Fortuin, P.~W.~Kasteleyn and J.~Ginibre,
+\emph{Correlation inequalities on some partially ordered sets},
+Comm.\ Math.\ Phys.\ \textbf{22} (1971), 89--103.
+
+\bibitem{GM16}
+D.~Gosset and E.~Mozgunov,
+\emph{Local gap threshold for frustration-free spin systems},
+J.\ Math.\ Phys.\ \textbf{57} (2016), 091901; arXiv:1512.00088.
+
+\bibitem{Kes82}
+H.~Kesten,
+\emph{Percolation theory for mathematicians},
+Birkh\"auser, Boston, 1982.
+
+\bibitem{KLT88}
+T.~Kennedy, E.~H.~Lieb and H.~Tasaki,
+\emph{A two-dimensional isotropic quantum antiferromagnet with unique disordered ground state},
+J.\ Statist.\ Phys.\ \textbf{53} (1988), 383--415.
+
+\bibitem{Kna88}
+S.~Knabe,
+\emph{Energy gaps and elementary excitations for certain VBS-quantum antiferromagnets},
+J.\ Statist.\ Phys.\ \textbf{52} (1988), 627--638.
+
+\bibitem{MO94}
+F.~Martinelli and E.~Olivieri,
+\emph{Approach to equilibrium of Glauber dynamics in the one phase region. I. The attractive case},
+Comm.\ Math.\ Phys.\ \textbf{161} (1994), 447--486.
+
+\bibitem{MOS94}
+F.~Martinelli, E.~Olivieri and R.~H.~Schonmann,
+\emph{For 2-D lattice spin systems weak mixing implies strong mixing},
+Comm.\ Math.\ Phys.\ \textbf{165} (1994), 33--47.
+
+\bibitem{Tim13}
+\'A.~Tim\'ar,
+\emph{Boundary-connectivity via graph theory},
+Proc.\ Amer.\ Math.\ Soc.\ \textbf{141} (2013), 475--480.
+
+\end{thebibliography}
+
+\end{document}

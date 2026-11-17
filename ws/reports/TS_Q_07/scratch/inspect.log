@@ -1,0 +1,106 @@
+def AKLT.Blueprint.Q.FrameWeightsPositiveStatement : Prop :=
+interactionBounds →
+  (∀ (κ : Plane → Fin 3),
+      ProperPlaneColouring κ →
+        ∀ (W : Finset Plane) (η : FrameBoundary W) (σ : PlaneConfiguration W), 0 < planeWeight κ W η σ) ∧
+    ∀ (L N : Size) (κ : Site L N → Fin 3),
+      ProperTorusColouring κ → ∀ (σ : TorusConfiguration L N), 0 < torusWeight L N κ σ
+def AKLT.Blueprint.Q.PlaneConditioningStatement : Prop :=
+interactionBounds →
+  ∀ (κ : Plane → Fin 3),
+    ProperPlaneColouring κ →
+      ∀ (W : Finset Plane) (η : FrameBoundary W),
+        ∀ V ⊆ W, ∀ (σ : PlaneConfiguration W), conditionalPlaneLaw κ W V η σ = planeLaw κ V (inducedBoundary W V η σ)
+def AKLT.Blueprint.Q.TorusMarkovStatement : Prop :=
+interactionBounds →
+  ∀ (L N : Size) (κ : Site L N → Fin 3),
+    ProperTorusColouring κ →
+      ∀ (U : Finset (Site L N)) (σ ξ : TorusConfiguration L N),
+        (∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z) → conditionalTorusLaw L N κ U σ = conditionalTorusLaw L N κ U ξ
+def AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement : Prop :=
+interactionBounds →
+  ∀ (κ : Plane → Fin 3),
+    ProperPlaneColouring κ →
+      ∀ (W : Finset Plane) (η : FrameBoundary W) (x : ↥W) (σ : PlaneConfiguration W) (a : IcoLetter),
+        frameEnergy ≤ conditionalProbability (planeLaw κ W η) (fullFibreEvent x σ) fun τ => τ x = a
+def AKLT.Blueprint.Q.TorusOneSiteEnergyStatement : Prop :=
+interactionBounds →
+  ∀ (L N : Size) (κ : Site L N → Fin 3),
+    ProperTorusColouring κ →
+      ∀ (x : Site L N) (σ : TorusConfiguration L N) (a : IcoLetter),
+        frameEnergy ≤ conditionalProbability (torusLaw L N κ) (fullFibreEvent x σ) fun τ => τ x = a
+def AKLT.Blueprint.Q.PartialAssignmentStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x)),
+  (∀ (x : ι), Nonempty (S x)) →
+    ∀ (p : Weight ((x : ι) → S x)),
+      PositiveProbability p →
+        ∀ (α : ℝ),
+          0 < α →
+            α ≤ 1 →
+              (∀ (x_2 : ι) (σ : (x : ι) → S x) (a : S x_2),
+                  α ≤ conditionalProbability p (fullFibreEvent x_2 σ) fun τ => τ x_2 = a) →
+                ∀ (U J : Finset ι),
+                  Disjoint U J →
+                    ∀ (a b : (x : ι) → S x),
+                      (conditionalProbability p (fun σ => ∀ x ∈ J, σ x = a x) fun σ => ∀ x ∈ U, σ x = b x) ≥ α ^ U.card
+def AKLT.Blueprint.Q.PlaneAssignmentReindexStatement : Prop :=
+∀ (W : Finset Plane) (p : Weight (PlaneConfiguration W)) (α : ℝ),
+  (∀ (U J : Finset ↥W),
+      Disjoint U J →
+        ∀ (a b : PlaneConfiguration W),
+          (conditionalProbability p (fun σ => ∀ x ∈ J, σ x = a x) fun σ => ∀ x ∈ U, σ x = b x) ≥ α ^ U.card) →
+    ∀ (U J : Finset Plane),
+      U ⊆ W →
+        J ⊆ W →
+          Disjoint U J →
+            ∀ (a b : Plane → IcoLetter),
+              (conditionalProbability p (fun σ => ∀ x ∈ J, extendLetters σ x = a x) fun σ =>
+                  ∀ x ∈ U, extendLetters σ x = b x) ≥
+                α ^ U.card
+def AKLT.Blueprint.Q.PlaneProductReferenceStatement : Prop :=
+interactionBounds →
+  ∀ (κ : Plane → Fin 3),
+    ProperPlaneColouring κ →
+      ∀ (W : Finset Plane) (η : FrameBoundary W),
+        (∀ (x : ↥W), PositiveProbability (AKLT.Defs.normalize (planeSiteWeight κ W η x))) ∧
+          PositiveProbability (planeProductReference κ W η)
+def AKLT.Blueprint.Q.PartialAssignmentStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) (x : (x : ι) → Fintype (S x)),
+  (∀ (x : ι), Nonempty (S x)) →
+    ∀ (p : Weight ((x : ι) → S x)),
+      @PositiveProbability ((x : ι) → S x) (@Pi.instFintype ι S inst_1 inst x) p →
+        ∀ (α : Real),
+          @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) α →
+            @LE.le Real Real.instLE α (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+              (∀ (x_2 : ι) (σ : (x : ι) → S x) (a : S x_2),
+                  @LE.le Real Real.instLE α
+                    (@conditionalProbability ((x : ι) → S x) (@Pi.instFintype ι S inst_1 inst x) p
+                      (@fullFibreEvent ι inst_1 S x_2 σ) fun τ => @Eq (S x_2) (τ x_2) a)) →
+                ∀ (U J : Finset ι),
+                  @Disjoint (Finset ι) (@Finset.instPartialOrder ι) (@Finset.instOrderBot ι) U J →
+                    ∀ (a b : (x : ι) → S x),
+                      @GE.ge Real Real.instLE
+                        (@conditionalProbability ((x : ι) → S x) (@Pi.instFintype ι S inst_1 inst x) p
+                          (fun σ =>
+                            ∀ (x : ι),
+                              @Membership.mem ι (Finset ι)
+                                  (@SetLike.instMembership (Finset ι) ι (@Finset.instSetLike ι)) J x →
+                                @Eq (S x) (σ x) (a x))
+                          fun σ =>
+                          ∀ (x : ι),
+                            @Membership.mem ι (Finset ι) (@SetLike.instMembership (Finset ι) ι (@Finset.instSetLike ι))
+                                U x →
+                              @Eq (S x) (σ x) (b x))
+                        (@HPow.hPow Real Nat Real
+                          (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) α
+                          (@Finset.card ι U))
+'AKLT.Blueprint.Q.PartialAssignmentStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.PlaneAssignmentReindexStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.PlaneProductReferenceStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+12
+0
+4
+1
+6
+1
+4

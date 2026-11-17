@@ -1,0 +1,1249 @@
+\section{A line-potential certificate for the true-trail kernel}
+\label{sec:h3line}
+
+This section gives a finite replacement for the stationary-square input
+in Appendix C.  Distances are lattice graph distances.  An unoriented
+bond is an unordered pair of nearest-neighbour vertices; a trail never
+uses the same such bond twice.  Revisiting a site means an earlier
+\emph{departure} from it.  In particular, the incoming bond at the start
+is not a used bond.  All sums below have nonnegative terms; an infinite
+sum means the supremum of its finite partial sums until finiteness is
+proved.  The result concerns the plane true-trail kernel, with the centre
+excluded and the target stopped at its first hit.
+
+The constants and the orderings in the present section replace those in
+the kernel-order definition of Section 7.  The local thresholds, the
+response coefficients, the meaning of a trail, and the kernel definition
+itself are unchanged.  No change of the local input (H1) is needed for
+this replacement.
+
+\subsection{The kernel and the finite state space}
+
+Encode the four absolute directions by
+\[
+ 0=\mathrm E=(1,0),\quad 1=\mathrm N=(0,1),\quad
+ 2=\mathrm W=(-1,0),\quad 3=\mathrm S=(0,-1).
+\]
+Direction addition is modulo four; the opposite of $a$ is $a+2$.
+Set
+\begin{equation}\label{hl:constants}
+\begin{gathered}
+ x_{\rm s}=\frac{1000}{961},\qquad x_{\rm t}=\frac{200}{187},\qquad
+ h_B=1,\quad h_C=\frac65,\quad \rho_0=\frac{967725}{10^6}
+             =\frac{38709}{40000},\\
+\begin{array}{c|ccc}
+ \tau&a_\tau&b_\tau&b'_\tau\\\hline
+ \mathrm s&145217/10^6&352782/10^6&340008/10^6\\
+ \mathrm t&150000/10^6&357549/10^6&344661/10^6
+\end{array}
+\end{gathered}
+\end{equation}
+These are the rational ceilings justified by the logarithmic-mean
+lemma in Section 7; in particular $0<b'_\tau\le b_\tau$.
+For distinct directions $e,e'$ write
+\[
+ H(e,e')=\begin{cases}1,&e'=e+2,\\6/5,&e'\ne e+2.\end{cases}
+\]
+Thus $H$ is the $h$-weight of the pair of neighbours in these directions.
+
+For row $X=B,C$ fix $c=(0,0)$, $u=(-1,0)$, and respectively
+$v=(1,0)$ or $v=(0,1)$.  Let $\mathcal T_n^X$ be the length-$n$
+trails from $u$, avoiding $c$, ending at their first hit of $v$.
+The incoming direction at $u$ is W; at other departures it is the
+preceding step.  At departure $i$ let $N_i(y)$ count departures from
+$y$ at indices strictly less than $i$.  A neighbour is dead at that
+time if it is $c$ or $N_i(y)\ge2$.  A first departure is one with
+$N_i(v_i)=0$.  For a first departure with incoming $a$, outgoing $d$,
+and $\{f,g\}=\{0,1,2,3\}\setminus\{a+2,d\}$, put $\tau=\mathrm s$
+if $d=a$, otherwise $\tau=\mathrm t$.  Give the pair $\{f,g\}$
+coefficient $a_\tau$ and each of $\{f,d\},\{g,d\}$ coefficient
+$b_\tau$ when both $f,g$ are live.  When only one of $f,g$ is live,
+give its pair with $d$ coefficient $b'_\tau$.  When neither is live
+give no pair.  There is no response at a revisit.  The notation for a
+pair of directions also denotes its pair of neighbour vertices.
+For a live pair $p$ put
+\[
+ s(p)=\max_{z\in p}\min\{|z-u|_1,|z-v|_1\},
+\]
+and let $\kappa_{Y,s}(i)$ sum its coefficients of type $Y$ and shift
+$s$.  Put $\kappa_i=\sum_{Y,s}\kappa_{Y,s}(i)h_Y$.
+
+The outgoing neighbour is live on any such trail.  A noninitial site
+departed from twice has used two arrival and two departure bonds, hence
+all four incident bonds; it cannot be entered again.  At $u$, two
+departures have used its three bonds other than $\{u,c\}$, also
+precluding a further arrival.  The target has no previous departure.
+This argument also applies to every centre-avoiding prefix generated
+below, before any future completion is required.
+
+Fix $L=12$.  For $n\le12$ order first departures by increasing
+\begin{equation}\label{hl:order}
+ \frac{x_i-1}{x_i\kappa_i},\qquad x_i=x_{\tau_i},
+\end{equation}
+using $+\infty$ when $\kappa_i=0$ and increasing path index to break
+ties.  For $n>12$ order straight first departures in path order,
+then turning first departures in path order.  Write this fixed,
+$\theta$-independent ordering as $\sigma_w$.  The kernel is
+\begin{equation}\label{hl:kernel}
+\begin{split}
+ M_{XY,s}&=\sum_{n\ge1}\sum_{w\in\mathcal T_n^X}
+   3^{-n}(3/5)^{\operatorname{rev}(w)}
+   \sum_k\kappa_{Y,s}(\sigma_w(k))
+                      \prod_{l\le k}x_{\sigma_w(l)},\\
+ M_\theta[X,Y]&=\sum_{s\ge0}M_{XY,s}\theta^{-s}.
+\end{split}
+\end{equation}
+Here $\operatorname{rev}(w)$ counts revisit departures.  In particular
+$3^{-n}(3/5)^{\operatorname{rev}(w)}$ gives coefficient $1/3$ at
+each first departure and $1/5$ at each revisit.
+
+The memory state space is obtained as follows.  Let $\Omega_{10}$ be
+the direction words $\omega=(d_1,\ldots,d_{10})$ whose path
+$z_0=0,z_j=\sum_{i\le j}d_i$ has distinct unoriented bonds.
+At its endpoint, $d$ is admitted precisely when $d\ne d_{10}+2$
+and $\{z_{10},z_{10}+d\}$ is not one of these bonds.  Its successor
+is $(d_2,\ldots,d_{10},d)$ and its kind is
+\[
+ k(\omega,d)=\begin{cases}
+ \mathrm r,&z_{10}\in\{z_0,\ldots,z_9\},\\
+ \mathrm s,&z_{10}\notin\{z_0,\ldots,z_9\},\ d=d_{10},\\
+ \mathrm t,&\text{otherwise}.
+ \end{cases}
+\]
+The successor is in $\Omega_{10}$ because its bonds are a subset
+of the distinct bonds of the admitted extended word, translated.
+
+The quotient data are a map $\pi:\Omega_{10}\to Q$, with
+$Q=\{0,\ldots,3740\}$, a representative $\omega_q$ for each
+class, and four labelled successor/kind entries per class.
+The following are part of the finite assertion, not assumptions
+about a minimization algorithm.  Enumerate all words by trying all
+four directions recursively, rejecting exactly a previously used
+unoriented bond.  At depths $1,\ldots,10$ their counts must be
+\begin{equation}\label{hl:windowcounts}
+ 4,12,36,108,316,916,2628,7500,21268,60092.
+\end{equation}
+Require that the map lists exactly these depth-ten words in
+lexicographic order, with codes
+$e(\omega)=\sum_{i=1}^{10}d_i4^{10-i}$, and valid class numbers.
+Require $\pi(\omega_q)=q$.  For \emph{every} raw word and direction
+require that admission and kind agree with the stored class row,
+and that an admitted successor has the stored image under $\pi$.
+For every admitted non-revisit direction also require that the raw
+word and its representative have the same final direction.
+Inadmissibility is recorded by successor and kind both $-1$;
+kind codes $0,1,2$ mean s,t,r.  Require exactly $2516,5032,1872$
+admitted class directions of these three kinds.  Write $q d$ for
+the admitted successor and $k(q,d)$ for its kind.
+
+These tests imply all the needed quotient properties.  Representatives
+give surjectivity.  The coefficient of a non-revisit edge can use
+$a_q$, the final direction of $\omega_q$, independently of the
+raw representative.  A class with several possible final directions
+has only revisit edges, where no such direction is used.  For any
+function of phase, class and position, its pullback by $\pi$ has
+exactly the same backward row as the raw operator: every direction
+and next phase has the same coefficient, position and successor
+image.  Directions remain distinct summation indices even if
+their successor classes coincide.  There is no class-size factor.
+The same identity for finite stopped sums follows by induction.
+
+\subsection{The free and stationary operators}
+
+The four phases are A,B,C,D, in this order.  The diagonal weights
+$d_p(k)$ of an admitted direction are
+\begin{equation}\label{hl:diagonals}
+\begin{array}{c|ccc}
+ p\backslash k&\mathrm s&\mathrm t&\mathrm r\\\hline
+ \mathrm A&x_{\rm s}/3&x_{\rm t}/3&1/5\\
+ \mathrm B&x_{\rm s}/3&1/3&1/5\\
+ \mathrm C&x_{\rm s}/3&1/3&1/5\\
+ \mathrm D&1/3&1/3&1/5
+\end{array}.
+\end{equation}
+In addition there can be a change A$\to$C on a turning first
+departure, or B$\to$D on a straight first departure.  Its coefficient
+is $x_\tau K/3$.  No phase change is allowed at a revisit.  For
+non-revisit incoming $a$, outgoing $d$, the free reward is
+\begin{equation}\label{hl:freereward}
+ K^\circ(a,d)=a_\tau H(f,g)+b_\tau\{H(f,d)+H(g,d)\}.
+\end{equation}
+In particular it is
+$a_{\rm s}+2b_{\rm s}(6/5)$ on a straight passage and
+$b_{\rm t}+(a_{\rm t}+b_{\rm t})(6/5)$ on a turn.
+
+An individual edge $e$ specifies an absolute direction and a next
+phase.  Its destination phase and class will be denoted $p_e,q_e$,
+its displacement $d_e$, and its exact rational coefficient $t_e$.
+The free operator, including its position displacement, is
+\begin{equation}\label{hl:free}
+ (\mathcal W H)(p,q,x)=\sum_{e\text{ free from }(p,q)}
+                         t_e H(p_e,q_e,x+d_e).
+\end{equation}
+On position-independent functions this is the free operator
+$\mathsf W$ in Appendix C.  All three response neighbours are live
+in this definition.  The diagonal edge and change-of-phase edge
+are separate; all pair contributions to one change-of-phase edge
+are summed \emph{before} rounding its coefficient.
+
+For a case $(X,d_0)$ with $d_0\in\{\mathrm N,\mathrm W,\mathrm S\}$,
+put $a=u+d_0$.  Define $T=T_{X,d_0}$ on phases, $Q$, and
+$\mathbb Z^2$ by the following permanent rules.
+At $c$ and $v$ the row is zero.  At $u$ and $a$, forbid either
+direction using $\{u,a\}$, kill every memory-detected revisit
+departure, give every remaining admitted direction weight $1/5$
+in the same phase, and give no response edge.  At other positions
+use \eqref{hl:diagonals}; for the response declare just $c$ dead.
+More explicitly, if $c$ is a neighbour in direction $\delta$, use
+that $\delta$, otherwise use $\delta=4$.  For a direction not
+entering $c$ its response reward is
+\begin{equation}\label{hl:stationaryreward}
+ K(a_q,d,\delta)=\begin{cases}
+ b'_\tau H(g,d),&\delta=f,\\
+ b'_\tau H(f,d),&\delta=g,\\
+ a_\tau H(f,g)+b_\tau\{H(f,d)+H(g,d)\},&\delta\notin\{f,g\}.
+ \end{cases}
+\end{equation}
+The response coefficient is again $x_\tau K/3$ on the indicated
+phase change.  Directions entering $c$ have zero contribution and
+may be deleted.  Keeping them with a zero continuation gives the
+same patch rows.  The reward function on the state space is
+\begin{equation}\label{hl:g}
+  g(p,q,x)=\mathbf1_{\{x=v\}}g_p,\qquad(g_{\rm A},g_{\rm B},g_{\rm C},g_{\rm D})=(0,0,1,1).
+\end{equation}
+In particular $c$ is a zero-reward terminal.  These rules are never
+released at a later suffix time.
+
+For every nonnegative $H$,
+\begin{equation}\label{hl:entrywise}
+ TH\le\mathcal WH
+\end{equation}
+pointwise, matching each retained direction and next phase.
+Indeed the usual diagonal coefficients agree.  Replacing one
+dead non-outgoing neighbour by a live one increases a sole surviving
+pair coefficient from $b'_\tau$ to $b_\tau$ and adds only
+nonnegative pair terms.  At a known site $1/5$ is at most every
+free diagonal coefficient, all response edges disappear, and more
+directions can be killed.  Terminal rows and edges into $c$ only
+decrease the operator.  This comparison retains positions; it is
+valid on position-dependent functions as well as on constants.
+
+\subsection{The exact finite assertion H3-line}
+
+Fix
+\begin{equation}\label{hl:scales}
+ m=10,\quad L=12,\quad R=70,\quad B=20,\quad
+ V=2^{20},\quad D=2^{48},\quad r=12/13.
+\end{equation}
+Here $B$ denotes the patch radius, not a pair or phase type.  For
+any rational $t=A/B_0\ge0$ with integer $B_0>0$ define
+\begin{equation}\label{hl:rounding}
+ P(t)=\left\lceil Dt\right\rceil
+ =\left\lfloor\frac{DA+B_0-1}{B_0}\right\rfloor.
+\end{equation}
+The defining integer enclosure is $DA\le B_0P(t)$ and, for
+$A>0$, $B_0(P(t)-1)<DA$; for $A=0$ use $P(t)=0$.
+Thus $t\le P(t)/D$.  Each coefficient is regenerated from
+\eqref{hl:constants}--\eqref{hl:stationaryreward}.  For reference,
+the four diagonal ceiling numerators, in order
+$x_{\rm s}/3,x_{\rm t}/3,1/3,1/5$, are
+\[
+ 97632666219444,\quad100347585280092,\quad
+ 93824992236886,\quad56294995342132.
+\]
+
+\begin{definition}[H3-line]\label{hl:finite}
+The quotient checks above and all of the following finite
+equalities and inequalities are required.
+
+\smallskip\noindent
+\textup{(i) Tilted vectors.}
+Supply positive integers $Z^\sigma_{p,q}$ for
+$\sigma\in\{+e_1,-e_1,+e_2,-e_2\}$, all phases $p$ and $q\in Q$,
+and a positive integer $\eta$.  Require, for every such triple,
+\begin{equation}\label{hl:tiltcheck}
+ \sum_{e\text{ free from }(p,q)}P(t_e r^{\sigma\cdot d_e})
+                         Z^\sigma_{p_e,q_e}+\eta
+             \le D Z^\sigma_{p,q},
+ \qquad Z^\sigma_{\mathrm C,q},Z^\sigma_{\mathrm D,q}\ge V.
+\end{equation}
+The tilt coefficients are exactly rational: $r^{-1}=13/12$,
+$r^0=1$, $r^1=12/13$; round the \emph{product} $t_e r^{\sigma\cdot d_e}$
+upward using \eqref{hl:rounding}.  Do not tilt a previously rounded
+coefficient.  Require also the finite tail comparison
+\begin{equation}\label{hl:tailbound}
+ Z_{\max}12^{71}\le V13^{71},\qquad
+ Z_{\max}=\max_{\sigma,p,q}Z^\sigma_{p,q}.
+\end{equation}
+
+\smallskip\noindent
+\textup{(ii) Lines, caps, and both interfaces.}
+For axis $j=1,2$, supply nonnegative integers
+$E^j_{p,q,k}$ for $-70\le k\le70$.  Define the exact rational
+cap numerator and its two finite roundings by
+\begin{equation}\label{hl:cap}
+ C^j_{p,q}(k)=\min\{Z^{+e_j}_{p,q}r^k,Z^{-e_j}_{p,q}r^{-k}\},
+ \quad A^j_{p,q,k}=\lfloor C^j_{p,q}(k)\rfloor\ (|k|\le70),
+ \quad B^j_{p,q,\pm}=\lceil C^j_{p,q}(\pm71)\rceil.
+\end{equation}
+These are derived numbers.  If stored, compare every one with
+the displayed rational formula.  Require
+\begin{equation}\label{hl:linecaps}
+ \begin{gathered}
+ 0\le E^j_{p,q,k}\le A^j_{p,q,k}\qquad(|k|\le70),\\
+ E^j_{\mathrm C,q,0}=E^j_{\mathrm D,q,0}=V,\qquad
+ E^j_{\mathrm C,q,k},E^j_{\mathrm D,q,k}\le V\qquad(0<|k|\le70).
+ \end{gathered}
+\end{equation}
+For the finite line rows set
+\[
+ \widehat E^j_{p,q,k}=
+ \begin{cases}
+ E^j_{p,q,k},&|k|\le70,\\
+ B^j_{p,q,-},&k=-71,\\ B^j_{p,q,+},&k=71.
+ \end{cases}
+\]
+For every $p,q,k$ with $|k|\le70$, except $p\in\{\mathrm C,\mathrm D\}$
+and $k=0$, require
+\begin{equation}\label{hl:linerow}
+ \sum_{e\text{ free from }(p,q)}P(t_e)
+             \widehat E^j_{p_e,q_e,k+(d_e)_j}
+                    \le D E^j_{p,q,k}.
+\end{equation}
+Thus all A,B rows at zero and both endpoint rows $k=\pm70$ are
+checked.  The cap inequalities at $k=\pm70$ control rows immediately
+\emph{outside} the stored interval; the cap ceilings at $\pm71$
+control rows leaving it.  Requiring the caps at every interior $k$
+is a harmless strengthening matching the supplied data.
+
+The mathematical line potential is defined without further rounding:
+\begin{equation}\label{hl:ell}
+ \ell^j_{p,q}(k)=\begin{cases}
+ E^j_{p,q,k}/V,&|k|\le70,\\
+ C^j_{p,q}(k)/V,&|k|>70.
+ \end{cases}
+\end{equation}
+For a target $v$ put
+\begin{equation}\label{hl:Finfty}
+ F^v_\infty(p,q,x)=
+     \min\{\ell^1_{p,q}(x_1-v_1),\ell^2_{p,q}(x_2-v_2)\}.
+\end{equation}
+The same $Z,E$ are shared by all five cases.
+
+\smallskip\noindent
+\textup{(iii) Five patches.}
+For $(X,d_0)=(B,\mathrm N),(B,\mathrm W),(C,\mathrm N),
+(C,\mathrm W),(C,\mathrm S)$, supply integers
+$U^{X,d_0}_{p,q,x}$ on $P=[-20,20]^2\cap\mathbb Z^2$.
+Require, for every index,
+\begin{equation}\label{hl:patchcaps}
+ 0\le U_{p,q,x}\le V F^v_\infty(p,q,x),\qquad
+ U_{p,q,c}=0,\qquad U_{p,q,v}=Vg_p.
+\end{equation}
+There is no outgoing row to check at $c$ or $v$.  Define for a
+successor $y$ of a site in $P$
+\[
+ \widehat U_{p,q,y}=\begin{cases}
+ U_{p,q,y},&y\in P,\\
+ V F^v_\infty(p,q,y),&y\notin P.
+ \end{cases}
+\]
+All coordinates $y_j-v_j$ in this formula have absolute value at
+most $22<70$.  Consequently its outside value is the integer
+$\min\{E^1_{p,q,y_1-v_1},E^2_{p,q,y_2-v_2}\}$, with no rounding.
+Require every stationary nonterminal row
+\begin{equation}\label{hl:patchrow}
+ \sum_{e\text{ stationary from }(p,q,x)}P(t_e)
+                  \widehat U_{p_e,q_e,x+d_e}
+                    \le D U_{p,q,x},\qquad x\in P\setminus\{c,v\}.
+\end{equation}
+In particular this includes every boundary site of $P$ and every
+edge leaving it, and uses the permanent known-site rules above.
+
+\smallskip\noindent
+\textup{(iv) Exact prefixes.}
+Define a full-lattice function for each case by
+\begin{equation}\label{hl:Fpatch}
+ F(p,q,x)=\begin{cases}U_{p,q,x}/V,&x\in P,\\F^v_\infty(p,q,x),&x\notin P.\end{cases}
+\end{equation}
+Let $S_{X,d_0}$ be the exact sum of the $h$-weighted expressions
+in \eqref{hl:kernel} over first-hit trails with $1\le n\le12$
+and first direction $d_0$, using \eqref{hl:order}.
+Let $\mathcal P_{X,d_0}$ consist of all length-twelve true prefixes
+from $u$, avoiding both $c$ and $v$, with that first direction.
+For such a prefix, propagate a phase vector $(p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})$
+starting at $(1,1,0,0)$, using its actual revisits, actual dead
+neighbours and actual reward $\kappa$, as follows:
+\begin{equation}\label{hl:phaseupdate}
+\begin{array}{ll}
+ \mathrm r:&p\longmapsto p/5,\\[2pt]
+ \mathrm s:&p\longmapsto
+ (x_{\rm s}p_{\rm A}/3,\ x_{\rm s}p_{\rm B}/3,\ x_{\rm s}p_{\rm C}/3,
+             (p_{\rm D}+x_{\rm s}\kappa p_{\rm B})/3),\\[2pt]
+ \mathrm t:&p\longmapsto
+ (x_{\rm t}p_{\rm A}/3,\ p_{\rm B}/3,
+             (p_{\rm C}+x_{\rm t}\kappa p_{\rm A})/3,\ p_{\rm D}/3).
+\end{array}
+\end{equation}
+All right sides use the old components.  The phase weights in a
+prefix use the straight-first construction even if its length is
+at most twelve.  For a \emph{short hit}, use the sorted kernel
+expression, not its phase-vector terminal reward.  If $q(P)$ is
+the image of the last ten directions and $x(P)$ the endpoint, set
+\begin{equation}\label{hl:J}
+ J_{X,d_0}=S_{X,d_0}+\sum_{P\in\mathcal P_{X,d_0}}\sum_p
+                    p_p(P)F(p,q(P),x(P)).
+\end{equation}
+Require the five exact inequalities
+\begin{equation}\label{hl:prefixceil}
+\begin{array}{c|rrrrr}
+ (X,d_0)&B/\mathrm N&B/\mathrm W&C/\mathrm N&C/\mathrm W&C/\mathrm S\\\hline
+ 10^9 J_{X,d_0}\le&343236463&281251920&522717990&372660908&264538742.
+\end{array}
+\end{equation}
+There are no floating-point comparisons in this assertion.
+\end{definition}
+
+Here is a precise integer interpretation of part (iv), including
+an enumeration contract.  Start a recursive node at
+$j=0,x=u$, incoming W, no used bonds, and departure counts zero.
+Try directions in E,N,W,S order, retaining just $d_0$ at $j=0$.
+Reject a move to $c$, a used unoriented bond, and the initial
+reverse direction.  For each admitted move, compute the revisit
+flag and all dead-neighbour flags from the predeparture counts,
+then increment the count at $x$, add its bond, move, and recurse
+with a copy of the data.  Keep each first departure's
+$(i,x_i,\kappa_i)$ recorded at its departure time.  Test $x=v$
+\emph{before} $j=12$: a hit, including a hit at twelve, contributes
+its sorted short value and has no children.  A node at $j=12$
+that is not a hit contributes its phase dot product in
+\eqref{hl:J} and has no children.  All other nodes continue.
+The induction proving completeness is elementary: every retained
+word has the stated used bonds and departure counts; conversely
+each permitted word has a unique parent and passes precisely
+these tests.  This proves both exhaustion and absence of duplicates.
+
+For this $h$, a common denominator, in fact the least common
+multiple of the relevant reduced edge denominators, is
+\begin{equation}\label{hl:Delta}
+ \Delta=13478025000.
+\end{equation}
+This is checked by regenerating $1/3,1/5,x_{\rm s}/3,x_{\rm t}/3$
+and $x_\tau\kappa/3$ for all nonreversing incoming/outgoing
+directions and all four choices of dead flags on $f,g$, using
+\eqref{hl:constants}.  Require divisibility of $\Delta$ by
+every reduced denominator; the least-common-multiple equality
+can also be checked and is used by the replay.  In units of
+$\Delta^{-j}$ the phase vector is integral.  A revisit multiplies
+each numerator by $\Delta/5$.  For a straight departure, if
+$A,B,C,D_0$ denote the four old numerators, put
+\[
+ (A,B,C,D_0)\longmapsto
+ (n_{\rm s}A,n_{\rm s}B,n_{\rm s}C,n_3D_0+n_\kappa B),
+ \quad
+ n_{\rm s}=\Delta x_{\rm s}/3,\quad n_3=\Delta/3,\quad
+ n_\kappa=\Delta x_{\rm s}\kappa/3;
+\]
+for a turn replace this by
+$(n_{\rm t}A,n_3B,n_3C+n_\kappa A,n_3D_0)$, with the analogous
+$n_{\rm t},n_\kappa$.  All these integers are regenerated exactly.
+
+Every twelve-step endpoint has $|x-u|_1\le12$, hence lies in
+$[-13,11]\times[-12,12]\subset P$.  It also has
+$x_1+1+x_2\equiv0\pmod2$.  If $A_{X,d_0}$ denotes the sum of
+the four resulting phase numerators times the corresponding
+stored $U$ values, and $S_{X,d_0}=s/d$ with $d>0$, then
+\eqref{hl:prefixceil} with bound $K$ means exactly
+\begin{equation}\label{hl:clearedprefix}
+ 10^9\{s\Delta^{12}V+A_{X,d_0}d\}
+                       \le Kd\Delta^{12}V.
+\end{equation}
+The endpoint is looked up in the full patch.  Any compact lookup
+must agree entry by entry with that full lookup for every used
+phase, class, and coordinate.  Parity is only an index restriction,
+and introduces no factor of two.
+
+For completeness, the short sorting also has an exact integer
+interpretation: for positive rewards compare
+$(x_i-1)x_j\kappa_j$ and $(x_j-1)x_i\kappa_i$ by clearing
+positive rational denominators, and use path index on equality.
+With preceding product $P_0$, the difference between the
+contributions in orders $i,j$ and $j,i$ is
+\begin{equation}\label{hl:exchange}
+ P_0\{x_j\kappa_j(x_i-1)-x_i\kappa_i(x_j-1)\}.
+\end{equation}
+The product after both entries agrees.  Thus increasing
+\eqref{hl:order} minimizes the expression by adjacent exchanges;
+an equal-key exchange changes no value.  A zero-reward entry is
+placed last because moving it past a positive-reward entry decreases
+the value.  None of this uses a dyadic approximation to $6/5$.
+The optimality observation explains the ordering, while the proof
+below only needs that this is the exact ordering defining $M$.
+
+\subsection{From the finite line tests to an infinite potential}
+
+\begin{lemma}[Exact tails and interfaces]\label{hl:taillemma}
+For each axis $j$, the line potentials of \eqref{hl:ell} are
+nonnegative and finite-valued.  They satisfy
+\begin{equation}\label{hl:lineexact}
+ \sum_{e\text{ free from }(p,q)}t_e
+             \ell^j_{p_e,q_e}(k+(d_e)_j)\le\ell^j_{p,q}(k)
+\end{equation}
+for all $k\in\mathbb Z$ when $p$ is A or B, and for every
+$k\ne0$ when $p$ is C or D.  In the latter two phases the values
+are at most one for every $k$ and equal one at $k=0$.
+\end{lemma}
+
+\begin{proof}
+First use the exact exponentials on the whole integer line,
+\[
+ E^+_{p,q}(k)=Z^{+e_j}_{p,q}r^k/V,\qquad
+ E^-_{p,q}(k)=Z^{-e_j}_{p,q}r^{-k}/V.
+\]
+Divide \eqref{hl:tiltcheck} by $DV$ and use
+$t_e r^{\pm(d_e)_j}\le P(t_e r^{\pm(d_e)_j})/D$.  Multiplying
+by $r^{\pm k}$ gives, for either sign and every integer $k$,
+\[
+ \sum_e t_e E^\pm_{p_e,q_e}(k+(d_e)_j)
+ \le E^\pm_{p,q}(k)-\frac{\eta r^{\pm k}}{DV}
+ \le E^\pm_{p,q}(k).
+\]
+All signs are rational powers, so no limiting or rounding error
+is involved.  The positive residual is more than is needed here.
+
+For a nonnegative linear row operator $S$ and functions $f,g$,
+monotonicity gives
+\begin{equation}\label{hl:min}
+ S(\min(f,g))\le Sf,\quad S(\min(f,g))\le Sg,
+ \quad\text{hence}\quad S(\min(f,g))\le\min(Sf,Sg).
+\end{equation}
+The minimum is componentwise, so the minimizing branch can vary
+with phase and class.  Applying this to the two exponentials
+proves that $C^j/V$ is a free supersolution on the entire line,
+in all four phases.
+
+At a stored coordinate where a row is required, each actual
+successor value is at most $\widehat E/V$: equality holds inside,
+and outside $C^j/V\le\lceil C^j\rceil/V$.
+Multiplying this by the nonnegative coefficients and their
+upper ceilings, \eqref{hl:linerow} divided by $DV$ proves
+\eqref{hl:lineexact}.  This includes the rows at $70$ and $-70$;
+a step parallel to the other axis has coordinate displacement zero.
+
+At $|k|\ge71$, every neighbour coordinate is either outside the
+stored interval or is $70$ or $-70$.  Outside, $\ell^j=C^j/V$;
+at the possible stored neighbour the floor cap in
+\eqref{hl:linecaps} gives $\ell^j\le C^j/V$.  Thus
+\[
+ \sum_e t_e\ell^j_{p_e,q_e}(k+(d_e)_j)
+ \le\sum_e t_e C^j_{p_e,q_e}(k+(d_e)_j)/V
+ \le C^j_{p,q}(k)/V=\ell^j_{p,q}(k).
+\]
+This proves the first outside rows $k=\pm71$ as well as all
+farther ones; it explains why an inequality on only the inside
+outgoing row would not suffice.
+
+Finally the stored C,D bounds are \eqref{hl:linecaps}.  If
+$k\ge71$, choose the decaying positive branch, obtaining
+$C^j_{p,q}(k)/V\le Z_{\max}r^{71}/V\le1$ by
+\eqref{hl:tailbound}; if $k\le-71$ use the negative branch.
+This actually bounds all phases in these tails by one.  All
+values are finite and nonnegative because the data and every
+fixed rational power of $r$ are finite and nonnegative.
+\end{proof}
+
+\begin{lemma}[Lines in the plane]\label{hl:planelemma}
+The function $F^v_\infty$ satisfies
+\[
+ \mathcal WF^v_\infty(p,q,x)\le F^v_\infty(p,q,x)
+        \quad(x\ne v),\qquad
+ F^v_\infty(p,q,v)\ge g_p.
+\]
+Consequently $g+T_{X,d_0}F^v_\infty\le F^v_\infty$ for each case.
+The free inequality is not asserted at the target.
+\end{lemma}
+
+\begin{proof}
+Lift the $j$th line to $f_j(p,q,x)=\ell^j_{p,q}(x_j-v_j)$.
+For each free edge its next coordinate is exactly
+$x_j-v_j+(d_e)_j$.  Therefore its two-dimensional free row
+\eqref{hl:free} is exactly the left side of
+\eqref{hl:lineexact}.  In particular, edges perpendicular to
+that axis retain their multiplicity, displacement zero in that
+coordinate, and their next phase and class; they are not omitted.
+This proves the free row for $f_j$ in A,B everywhere and in C,D
+whenever $x_j-v_j\ne0$.
+
+At an A,B state choose any line attaining the minimum in
+\eqref{hl:Finfty}.  By \eqref{hl:min},
+$\mathcal WF^v_\infty\le\mathcal Wf_j\le f_j=F^v_\infty$ there.
+At a C,D state with $x\ne v$, if a minimizing line has nonzero
+coordinate the same argument applies.  Otherwise its value is
+one.  The other coordinate is nonzero and its line value is at
+most one by Lemma~\ref{hl:taillemma}.  Since the zero-coordinate
+line was minimizing, this other value must equal one as well.
+It is therefore also a minimizing line and its row is available.
+This proves the asserted free inequality at every non-target state.
+
+At $x=v$ the two C,D values are exactly one, and the two A,B
+values are nonnegative.  Thus $F^v_\infty\ge g$ there.
+At $c$ and $v$ the stationary row is zero.  At every other site
+$g=0$, so \eqref{hl:entrywise} and the proved free inequality give
+$TF^v_\infty\le F^v_\infty$.  At $c$ the reward is zero; at $v$
+the terminal domination just proved applies.  This establishes
+the stopped supersolution on the whole state space.
+\end{proof}
+
+\begin{lemma}[Patching without a boundary gap]\label{hl:patchlemma}
+For each case the function $F$ in \eqref{hl:Fpatch} satisfies
+\[
+ 0\le F\le F^v_\infty,\qquad F=g\text{ at }c,v,
+                  \qquad g+TF\le F
+\]
+on the entire lattice.
+\end{lemma}
+
+\begin{proof}
+Nonnegativity, the cap, and the terminal values follow from
+\eqref{hl:patchcaps}.  At an inside nonterminal state the exact
+successor value is $\widehat U/V$, including every outside
+successor.  Divide \eqref{hl:patchrow} by $DV$ and use the
+coefficient ceilings to obtain $TF\le F$.  This proves every
+inside boundary row without identifying opposite sides or
+discarding an outgoing edge.  At an outside state, monotonicity
+and Lemma~\ref{hl:planelemma} give
+\[
+ TF\le TF^v_\infty\le F^v_\infty=F.
+\]
+This includes rows entering the patch, since the cap holds at
+every possible inside successor.  Both terminals are inside $P$,
+so outside $g=0$.  At either terminal $TF=0$ and $F=g$, proving
+the assertion everywhere.
+\end{proof}
+
+\subsection{True suffixes and exact prefixes}
+
+\begin{lemma}[Finite horizons]\label{hl:bellman}
+For each case, phase, class, position, and integer $n\ge0$,
+\[
+ \sum_{j=0}^{n}T^jg\le F.
+\]
+The left side counts the relaxed first-hit paths of length at
+most $n$ and terminal reward $g$.  Their all-length sum is also
+bounded by $F$.
+\end{lemma}
+
+\begin{proof}
+There are finitely many outgoing directions and phases at each
+state, so each finite-horizon value is a finite sum.  For $n=0$,
+$g\le g+TF\le F$.  If $H_n=\sum_{j=0}^nT^jg\le F$, then
+$H_{n+1}=g+TH_n\le g+TF\le F$ by positivity and
+Lemma~\ref{hl:patchlemma}.  This is the induction.  Expanding
+$T^jg$ counts every path once with its edge product and terminal
+reward.  A path hitting a terminal earlier has a zero outgoing
+factor.  Thus nonzero terms are precisely the first-hit paths
+with nonzero terminal reward.  Taking the increasing supremum
+over $n$ proves the all-length statement.  In particular no
+stationary uniqueness or convergence rate is needed.
+\end{proof}
+
+We next check that this relaxed bound applies to the paper's
+true suffixes with their full history.  This is also a direct
+proof of the part of Appendix C's stationary-domination lemma
+used here; changing the potential does not change that lemma.
+
+\begin{lemma}[Permanent initial data and true suffix domination]
+\label{hl:suffix}
+Fix a true length-twelve prefix in $\mathcal P_{X,d_0}$.
+For a specified phase at its endpoint, the total weight of its
+true continuations to their first hit of $v$, with the actual
+past retained, is at most $F(p,q(P),x(P))$.  This holds first
+at every finite suffix horizon and then for their supremum.
+\end{lemma}
+
+\begin{proof}
+At a suffix departure time $j\ge12$, the previous ten steps
+form a raw window in $\Omega_{10}$.  The next true bond is
+not used in that window and cannot reverse the last step, so
+the direction is admitted.  Its new class is precisely the
+quotient successor.  The true trail avoids $c$ and stops on its
+first hit of $v$, so it satisfies the two terminal rules.
+
+Write $a=u+d_0$.  The true initial bond $\{u,a\}$ was used at
+time zero and can never be used again in either direction.
+Both known sites have been departed from, at times zero and
+one respectively.  These departures exist in a surviving
+length-twelve prefix and neither site is $v$.  At every suffix
+time the remembered departure indices are $j-10,\ldots,j-1$,
+all at least two.  Thus the known initial departures are
+\emph{outside} the window for the whole suffix, not merely at
+the split.  If the memory detects a revisit at either known
+site, it detects a further departure in addition to its initial
+departure and the proposed current departure.  This would be a
+third departure, which is impossible: at $u$ it would need at
+least five distinct incident bonds, whereas only three avoid
+$c$; at $a$ its initial arrival/departure and two additional
+arrival/departure pairs would need six among four bonds.
+Here $a$ is one of $(-1,1),(-2,0),(-1,-1)$, distinct from
+$u,c,v$ in each case.  The killing rule therefore kills no
+true continuation.  Every remaining true departure at a known
+site is a revisit, with exactly the retained $1/5$ diagonal
+weight and zero response.
+
+At any other site, a memory-detected revisit is a true revisit,
+so the weights agree.  A true revisit forgotten by memory has
+weight $1/5$ in the same phase and no response; choose that
+diagonal edge in the relaxed history, whose coefficient is at
+least $1/3$.  At a true first departure, memory also sees a
+first departure, with the same incoming/outgoing directions
+and the same diagonal coefficient.  If the phase responds,
+only $c$ is kept dead in the relaxed reward.  When the other
+dead neighbours have been forgotten, an existing sole pair's
+coefficient can increase from $b'_\tau$ to $b_\tau$, and the
+remaining added pairs have nonnegative coefficients.  If no
+true pair survives the true reward is zero.  Since the
+outgoing true neighbour is live and the two $h$ entries are
+positive, these cases prove that each true responding weight
+is at most its relaxed weight.
+
+Map a true suffix and its phase history to this relaxed
+position/phase path.  Its successive positions determine
+every absolute direction, and its phases determine the phase
+history.  The map is injective for a fixed prefix and initial
+phase even though window classes have been identified.  The
+edge comparisons above therefore bound the sum over true
+histories at any finite horizon by the relaxed stopped sum.
+Lemma~\ref{hl:bellman} bounds the latter by $F$.  Taking
+suprema proves the all-length assertion.  The finite-horizon
+argument retains all true prefix history; it does not assert
+that the quotient decides actual dead sites or actual revisits.
+\end{proof}
+
+\begin{lemma}[The four phases realize the long ordering]
+\label{hl:phaseidentity}
+For a true trail $w$ of length $n>12$, its contribution to
+$(M_1h)_X$ is exactly the sum of its phase-history products
+starting with one unit in each of A and B and terminal reward
+$(0,0,1,1)$, using its actual $\kappa_i$ in the phase changes.
+Splitting any such history after twelve departures factors its
+product into the exact prefix factor and true suffix factor.
+\end{lemma}
+
+\begin{proof}
+A nonzero rewarded history starting in A changes exactly once,
+from A to C, at a turning first departure $i$.  Its product is
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}\kappa_i
+ x_{\rm s}^{\#\{\text{all straight first departures}\}}
+ x_{\rm t}^{\#\{\text{turning first departures at indices }j\le i\}}.
+\]
+This contains exactly the $x$ factors up to that turning
+departure in the straight-first ordering.  A rewarded history
+starting in B changes exactly once, B to D, at a straight
+first departure $i$.  Its product is
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}\kappa_i
+ x_{\rm s}^{\#\{\text{straight first departures at indices }j\le i\}},
+\]
+again exactly the corresponding ordered kernel term.  There
+are no other rewarded histories.  Zero rewards give zero
+terms.  Summing gives \eqref{hl:kernel} contracted with $h$.
+Each edge product factors at twelve, and grouping the prefix
+histories by their phase gives exactly \eqref{hl:phaseupdate}.
+This factorization is algebraic; no independence of suffix
+weights from the full true past is assumed.
+\end{proof}
+
+\begin{theorem}[Finite-to-global implication]\label{hl:theorem}
+H3-line implies, for the true-trail kernel
+\eqref{hl:kernel} with exactly \eqref{hl:order}, that
+\begin{equation}\label{hl:result}
+  M_1h\le\rho_0h,\qquad h=(1,6/5),\quad\rho_0=967725/10^6.
+\end{equation}
+The same bound holds for every finite true-trail length cutoff,
+as required by (H3$_h$) in Section 7.
+\end{theorem}
+
+\begin{proof}
+Fix a finite cutoff $R_0$ and a first-direction case.  Trails of
+length at most $\min\{R_0,12\}$ contribute a subsum of
+$S_{X,d_0}$, because their ordering is exactly the short
+ordering used there.  A longer trail has a unique surviving
+length-twelve prefix.  By Lemma~\ref{hl:phaseidentity}, split
+its phase histories at twelve and group by the phase at that
+point.  Lemma~\ref{hl:suffix} bounds the true suffix sum of
+length at most $R_0-12$ by the corresponding $F$ value.
+Multiplying by its nonnegative exact prefix weight and summing
+over the finitely many prefixes gives \eqref{hl:J} as an upper
+bound.  If $R_0\le12$, the nonnegative prefix term can simply
+be added to the short bound.  This covers $R_0=0$ also.
+Coincident quotient/endpoint states do not remove any
+multiplicity: every distinct prefix still appears separately
+with its own weight.
+
+For row B the reflection $(x_1,x_2)\mapsto(x_1,-x_2)$ fixes
+$c,u,v$ and the incoming W direction.  It interchanges initial
+N and S and is a bijection on true trails at every length.
+It preserves all used bonds, departure counts, dead flags,
+straight/turn/revisit kinds, opposite/perpendicular pair types,
+and graph distances defining the shifts.  It also preserves
+the path indices.  Thus it preserves both the short rational
+keys, including their index tie rule, and the long
+straight-first order.  Every kernel term agrees.  The B/N
+and B/S true sums are therefore equal.  This needs no symmetry
+of the quotient numbering or the arrays.  For C keep all
+three first-direction cases.  Initial E enters $c$ and is
+forbidden.  We obtain, at every cutoff,
+\begin{align*}
+ (M_1h)_B&\le2J_{B,\mathrm N}+J_{B,\mathrm W}
+ \le\frac{967724846}{10^9}
+ <\frac{967725000}{10^9}=\rho_0h_B,\\
+ (M_1h)_C&\le J_{C,\mathrm N}+J_{C,\mathrm W}+J_{C,\mathrm S}
+ \le\frac{1159917640}{10^9}
+ <\frac{1161270000}{10^9}=\rho_0h_C.
+\end{align*}
+The integer differences in the strict comparisons are $154$
+and $1352360$, respectively.  Here the notation on the left
+initially denotes the cutoff sum.  Taking its increasing
+supremum gives the full nonnegative series.  Regrouping by
+$Y,s$ then gives precisely $M_1h$ in \eqref{hl:kernel}.
+This proves its finiteness and \eqref{hl:result}, without a
+prior summability assumption.
+\end{proof}
+
+\subsection{Literal data contract and exact replay}
+
+The source directory for the literals below is
+\texttt{/home/ubuntu/aklt/reports/MATH\_FIT/data}.
+The following description fixes their mathematical meaning;
+generation histories and fixed-point iteration logs are not
+part of the hypothesis.  All binary integers are little-endian.
+All array payload values are unsigned 32-bit integers.  Header
+integers are signed 64-bit integers.  Exact lengths, headers,
+and absence of trailing payload are checked.
+
+The text file \texttt{windows\_m10\_min.txt} starts with
+$(60092,3741)$, followed by $60092$ pairs $(e(\omega),\pi(\omega))$
+and then $3741$ rows consisting of a representative code,
+four successors and four kinds, in E,N,W,S order.
+It is verified by the raw reconstruction preceding
+\eqref{hl:windowcounts}.
+
+The file \texttt{axis\_z\_integer.bin} contains $16\cdot3741$
+values, no header, in order $\sigma,p,q$, with
+$\sigma=+e_1,-e_1,+e_2,-e_2$ and $p=\mathrm A,\mathrm B,\mathrm C,\mathrm D$.
+The certified extrema and a valid uniform residual are
+\begin{equation}\label{hl:eta}
+ Z_{\min}=10486,\qquad Z_{\max}=83704870,\qquad
+ \eta=2951081685866839636.
+\end{equation}
+Every row residual is at least this $\eta$; the replay computes
+the minimum over all rows.  The tail comparison is exactly
+$83704870\cdot12^{71}\le2^{20}\cdot13^{71}$, whose ratio
+of the two sides is approximately $0.271670<1$.
+
+The file \texttt{line\_integer.bin} has header
+$[10,70,3741,20,48]$ and then the $E$ array in order
+$j,p,q,k$, with $j=1,2$ and $k=-70,\ldots,70$.
+Its zero-based index is
+\[
+ (((j-1)4+p)3741+q)141+(k+70),\quad p=0,1,2,3.
+\]
+The files \texttt{line\_init\_integer.bin} and
+\texttt{line\_tails\_integer.bin} have no header.  The former
+contains the derived cap floors $A$ in the same order; the
+latter contains the derived cap ceilings $B$ in order
+$j,p,q,-,+$.  The replay recomputes these numbers from $Z$
+and exact powers of $12/13$, comparing every entry.  These
+auxiliary files can be omitted by a checker that regenerates
+the tables directly; their values are not independent witnesses.
+
+The five patch files are
+\[
+ \texttt{line\_}X\texttt{\_m10\_R20\_d}j\texttt{\_integer.bin.gz},
+ \qquad (X,j)=(B,1),(B,2),(C,1),(C,2),(C,3).
+\]
+Their decompressed header is
+$[10,12,20,3741,1681,v_1,v_2,20,j]$.
+It is followed first by $4\cdot3741$ values copying
+$E^1_{p,q,0}$, which the replay checks entry by entry, and
+then by $4\cdot3741\cdot1681$ patch values $U$ in order
+$p,q,x$, with spatial index $(x_1+20)41+(x_2+20)$.
+The copied line-zero vector is redundant metadata, \emph{not}
+the old constant exterior cap of Appendix C; it must not be
+used to extend the patch.  There are no further values.
+
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule
+Object&Values&Required row inequalities&Maximum value&Bits\\
+\midrule
+Four tilted vectors&59856&59856&83704870&27\\
+Two stored lines&4219848&4204884&10768774&24\\
+One patch&25154484&25124556&1066965\text{ (at most)}&21\\
+Five patches&125772420&125622780&1066965&21\\
+\bottomrule
+\end{tabular}
+\end{center}
+Every line value is also subjected to its cap check; all
+$14964$ C,D zero-coordinate values and $2094960$ C,D
+nonzero-coordinate values are checked as specified.
+The line row count is $2\cdot4\cdot3741\cdot141-2\cdot2\cdot3741$.
+Each patch has $29928$ terminal values and $2394240$ rows
+on its spatial boundary; these are included in the displayed
+counts.  The main row count is
+$59856+4204884+125622780=129887520$, before cap,
+terminal, indexing, and prefix checks.
+
+The exact prefix enumeration gives, in the same five-case order,
+\[
+\begin{array}{c|rrrrr}
+ &B/\mathrm N&B/\mathrm W&C/\mathrm N&C/\mathrm W&C/\mathrm S\\\hline
+ \text{nodes}&139985&161929&105025&155673&145485\\
+ \text{surviving prefixes}&89150&103257&66947&99168&92748\\
+ \text{short first hits}&937&922&715&1036&861\\
+ \text{bits of }A_{X,d_0}&422&422&421&422&422
+\end{array}
+\]
+Counts are diagnostics in addition to the rational comparisons
+\eqref{hl:clearedprefix}; counts alone do not prove those
+comparisons.  The exact rational values are printed in
+\texttt{replay.log}.  Their B row and C row divided by $h_C$
+are approximately $0.9677248435916523$ and
+$0.9665980319004569$, respectively.  The proof uses the
+integer ceilings in \eqref{hl:prefixceil} instead of decimals.
+
+The supplied \texttt{replay.cpp} is an implementation of this
+finite statement: it reconstructs all raw words and verifies
+the quotient, regenerates rational coefficients and both kinds
+of ceilings, verifies every line/patch/interface inequality,
+and enumerates the prefixes with ungrouped exact short sorting.
+It reads these literals but includes or calls no checker from
+\texttt{MATH\_FIT/programs}.  Coefficient and row arithmetic
+uses exact integers, and cap and prefix arithmetic uses
+arbitrary-precision rationals/integers.  Fixed-width row sums
+use unsigned 128-bit integers: every input value is at most
+$2^{32}-1$.  The two free rewards are $9918938/10^7$ and
+$9666078/10^7$, both less than one, and every reduced reward
+is no larger.  Thus every coefficient, even after tilting,
+is at most $(x_{\rm t}/3)(13/12)=650/1683<1/2$;
+its rounded numerator is at most $D/2<2^{48}$.
+A row has at most six individual edges, so
+its sum is less than $2^{83}$.  There is no possible overflow
+in these rows.  Prefix accumulators use arbitrary precision.
+The maximum observed sum widths are $75$ bits (tilts), $72$
+bits (lines), and $69$ bits (patches).
+
+As additional checks of the delicate interfaces, the replay
+directly evaluates the exact, unrounded free rows at
+$k=-100,-71,71,100$ on both axes for every phase and class:
+all $119712$ inequalities hold, including the rows at $\pm71$
+whose successors can be stored values at $\pm70$.
+It also evaluates all $14964$ C,D rows at coordinate zero,
+which the certificate does not require.  For these particular
+data even those rows hold; their largest exact ratio of left
+side to value is $328000259/377880576<1$, at axis 1,
+phase C, class 0.  This stronger observed property is not
+used in the minimizing-line argument.  The finite tail probes
+are supplementary tests, not a replacement for the proof at
+all integer distances.
+
+Running \texttt{bash replay.sh} builds and executes that replay.
+The accompanying log records successful checks of the displayed
+finite assertions.  This is an exact arithmetic replay and a
+written soundness proof; it is not a claim of a new Lean-kernel
+verification.  The hypothesis and every finite assertion remain
+the explicit mathematical ones above, not a hash or exit status.
+
+\subsection{Optional deduction of (H2) from the same vectors}
+
+The following three additional integer comparisons are satisfied
+by \eqref{hl:eta}:
+\begin{equation}\label{hl:foldedtests}
+ 8000\eta\ge D Z_{\max},\qquad
+ Z_{\max}<8000 Z_{\min},\qquad
+ 1600000^{10}<2\cdot1495813^{10}.
+\end{equation}
+They are checked by the replay.  They are unnecessary if the
+original memory-six (H2) input is retained.
+
+\begin{proposition}\label{hl:H2}
+H3-line together with \eqref{hl:foldedtests} implies the paper's
+open-trail input (H2) with $q=7999/8000$ and $C_V=16000$.
+\end{proposition}
+
+\begin{proof}
+Let $\gamma(i,d)$ be the A-phase diagonal weight at class $i$, namely
+$x_{\rm s}/3,x_{\rm t}/3,1/5$ according to kind, and define
+$A_\pm f(i)=\sum_d\gamma(i,d)r^{\pm(d)_1}f(id)$.
+Discarding the nonnegative A$\to$C edges from
+\eqref{hl:tiltcheck}, dividing by $D$, and using the exact
+coefficient bounds gives
+\[
+ A_\pm Z^{\pm e_1}_{\mathrm A,\cdot}
+ \le Z^{\pm e_1}_{\mathrm A,\cdot}-\eta/D
+ \le (7999/8000)Z^{\pm e_1}_{\mathrm A,\cdot}.
+\]
+The last step uses $\eta/D\ge Z_{\max}/8000$.
+Put $v_i=\sqrt{Z^{+e_1}_{\mathrm A,i}Z^{-e_1}_{\mathrm A,i}}>0$
+for a class $i\in Q$.  For the untilted A diagonal matrix
+$A_0$, finite-sum Cauchy--Schwarz yields
+\[
+\begin{split}
+ (A_0v)_i
+ &=\sum_d\sqrt{\gamma(i,d)r^{(d)_1}Z^{+e_1}_{\mathrm A,id}}
+             \sqrt{\gamma(i,d)r^{-(d)_1}Z^{-e_1}_{\mathrm A,id}}\\
+ &\le\sqrt{(A_+Z^{+e_1}_{\mathrm A})_i
+                 (A_-Z^{-e_1}_{\mathrm A})_i}
+ \le qv_i,\qquad q=7999/8000.
+\end{split}
+\]
+Also $\max v/\min v\le Z_{\max}/Z_{\min}<8000$.
+Let $\widehat A_0$ be the raw diagonal memory-ten matrix.
+The verified quotient gives
+$\widehat A_0(\pi^*v)=\pi^*(A_0v)\le q\pi^*v$;
+surjectivity preserves the extrema of $v$.
+
+For clarity, the open-trail argument works for this possibly
+irrational vector.  Let $a_n(\omega)$ be the true total
+open-trail weight with last window $\omega$, for $n\ge10$,
+and $W_n$ its total weight, with any fixed start/incoming
+direction and initial reversal forbidden.  A true extension
+is admitted by its window.  A detected revisit has exactly
+weight $1/5$; a forgotten true revisit has weight $1/5$ no
+greater than either relaxed first-departure weight.  First
+departures otherwise agree.  The injective map to prefix and
+last direction therefore gives $a_{n+1}\le a_n\widehat A_0$.
+Iteration with the positive raw vector $\pi^*v$ proves
+\[
+ W_{10+j}\le(\max v/\min v)q^jW_{10}.
+\]
+At each true prefix there are at most three next directions,
+including at the initial step because reversal is forbidden,
+and each has weight at most $x_{\rm t}/3$.  Consequently
+$W_t\le x_{\rm t}^t$ for every $t\ge0$.  Since
+$x_{\rm t}/q>1$, the constants for lengths below ten and
+for lengths at least ten are bounded respectively by
+$(x_{\rm t}/q)^{10}$ and
+$8000(x_{\rm t}/q)^{10}<16000$.
+The last inequality is the final comparison in
+\eqref{hl:foldedtests}, since $187\cdot7999=1495813$.
+Thus $W_n\le16000q^n$ at all lengths, uniformly in the
+start and incoming direction.  This is exactly (H2).
+\end{proof}
+
+\subsection{The modified Section 7 closing inequalities}
+
+Assume (H1) at $961/1000,187/200$, and either retain the
+original (H2) constants or use Proposition~\ref{hl:H2}.
+The exposure/response recursion in Section 7 allows arbitrary
+fixed orderings and uses the same type-dependent coefficients.
+It therefore applies to \eqref{hl:order}, \eqref{hl:kernel}.
+Here we give all constants in its witness shift and renewal.
+Use
+\begin{equation}\label{hl:closingconstants}
+ \bar\alpha=\frac{18094}{100000},\qquad
+ \bar\beta=\frac{36751}{100000},\qquad
+ C=\bar\alpha+2\bar\beta=\frac{22899}{25000},\qquad H=\frac65.
+\end{equation}
+For either chosen $q,C_V$, put
+\begin{equation}\label{hl:shiftconstants}
+\begin{gathered}
+ b=\frac{1+q}{2},\quad r_0=\frac qb,\quad
+ B_*=2HCC_V b^{-2}\frac{r_0}{(1-r_0)^3}
+             =\frac{16HCC_Vq}{(1-q)^3},\\
+ \varepsilon=\min\left\{\frac{1-q}{4},\frac{1291}{80000B_*}\right\},
+ \qquad\theta=1-\varepsilon,\qquad
+ \rho=\frac{1+\rho_0}{2}=\frac{78709}{80000},\\
+ C_T=2(12/5)^{24}\left(\frac{C_V}{1-q}\right)^2,\qquad
+ A=\frac65\frac{\max\{2,C_T\}}{1-\rho}
+   =\frac{96000}{1291}C_T.
+\end{gathered}
+\end{equation}
+The last equality uses $C_T>2$, valid for both choices below.
+The exact values are
+\begin{equation}\label{hl:closingtable}
+\begin{array}{c|c|c}
+ &\text{retained (H2)}&\text{folded (H2)}\\\hline
+ q&1119948287353/1120437614225&7999/8000\\
+ C_V&10&16000\\
+ \varepsilon&
+ \displaystyle\frac{295429241889217285418799689}
+ {38634126128180928127866293784580458800250}&
+ \displaystyle\frac{1291}{11524003395010560000000}\\[6pt]
+ C_T&\displaystyle2(12/5)^{24}
+                  (5602188071125/244663436)^2&
+       \displaystyle2(12/5)^{24}(128000000)^2\\
+ A&(96000/1291)C_T&(96000/1291)C_T
+\end{array}
+\end{equation}
+In both columns the second candidate in the minimum for
+$\varepsilon$ is the smaller; these comparisons, the fractions,
+and $C_T>2$ are checked by exact rational arithmetic in the
+replay.  Approximately, the retained column has
+$\varepsilon=7.64685\cdot10^{-15}$,
+$C_T=1.39855\cdot10^{18}$, $A=1.03997\cdot10^{20}$;
+the folded column has $\varepsilon=1.12027\cdot10^{-19}$,
+$C_T=4.37039\cdot10^{25}$, $A=3.24986\cdot10^{27}$.
+These approximations are not used as inequalities.
+
+Here are the summability and shift bounds explicitly.
+A response pair of a length-$n$ trail has shift at most
+$n/2+1$: at departure $i$ its site is within $i$ of $u$ and
+within $n-i$ of $v$, and each response vertex is its neighbour.
+There are at most $n$ first departures and total response
+coefficient at most $C$ at each.  All $x_i\ge1$, so every
+ordered partial product is at most the full product.  With
+(H2), each entry of $M_\theta$ is therefore bounded by
+\begin{equation}\label{hl:entries}
+ CC_V\sum_{n\ge1}nq^n\theta^{-n/2-1}
+ =CC_V\theta^{-1}\frac{q/\sqrt\theta}{(1-q/\sqrt\theta)^2}<\infty
+       \quad(q^2<\theta\le1).
+\end{equation}
+Our choice gives $q^2<q<b<\theta<1$.  For any integer
+$0\le s\le n/2+1\le n+1$, the mean value theorem and
+$\theta>b$ give
+\[
+ 0\le\theta^{-s}-1\le\varepsilon s b^{-s-1}
+                       \le\varepsilon(n+1)b^{-n-2}.
+\]
+On multiplying each pair reward by $h_Y/h_X\le H$ and
+using (H2), this yields
+\begin{equation}\label{hl:shiftineq}
+ \frac{((M_\theta-M_1)h)_X}{h_X}
+ \le\varepsilon HCC_V b^{-2}\sum_{n\ge1}n(n+1)r_0^n
+ =\varepsilon B_*\le\frac{1291}{80000}.
+\end{equation}
+The identity in the sum is
+$\sum_{n\ge1}n(n+1)r_0^n=2r_0/(1-r_0)^3$.
+Together with Theorem~\ref{hl:theorem},
+\begin{equation}\label{hl:shifted}
+ M_\theta h\le(38709/40000+1291/80000)h
+                   =(78709/80000)h=\rho h.
+\end{equation}
+Thus the Section 7 pair envelopes, denoted here by
+$\mathcal F_X(d)$ to distinguish them from the Bellman
+potential, obey exactly
+\begin{equation}\label{hl:recursion}
+ \mathcal F_X(d)\le\sum_{Y\in\{B,C\}}\sum_{s\ge0}
+     M_{XY,s}\mathcal F_Y(d-s)+C_Tq^{2d}\qquad(d\ge1),
+\end{equation}
+with $0\le\mathcal F_X\le2$ and constant extension for $d<0$.
+The factor $(12/5)^{24}$ and the count of twelve exceptional
+U departures in the second trace are unchanged.
+
+To see the renewal bound directly, let
+$(Kf)_X(d)=\sum_{Y,s}M_{XY,s}f_Y(d-s)$ and
+$G_X(d)=2$ for $d\le0$, $C_Tq^{2d}$ for $d\ge1$.
+Then $\mathcal F\le K\mathcal F+G$ on all integers, and
+\eqref{hl:shifted} implies $K^kh\le\rho^kh$ when $h$ is
+constant in $d$.  Also, for $e_X(d)=h_X\theta^d$,
+$Ke\le\rho e$.  Since $\min h=1$,
+$\mathcal F\le2h$ and $G\le\max\{2,C_T\}e$.
+Finite iteration and positivity give
+\[
+ \mathcal F_X(d)\le2\rho^kh_X+
+ \max\{2,C_T\}h_X\theta^d\frac{1-\rho^k}{1-\rho}.
+\]
+The unshifted and shifted row bounds justify every application
+and every nonnegative rearrangement, including negative $d$.
+Letting $k\to\infty$ proves
+\begin{equation}\label{hl:decay}
+ \mathcal F_X(d)\le A\theta^d\quad(d\ge0),\qquad A\ge2,
+\end{equation}
+with the explicit constants above.  This is the pair property
+$\mathsf P(A,\theta)$ used in Section 5, by the same
+ordinary-domain specialization in Section 7.
+
+For reference the later choices can also remain literally
+those of the paper: take $l_0=64$ and
+\[
+ E_0=1+4A+10A\theta^{-4}
+       \left[48\theta^{14}\left(17+\frac1{1-\theta}\right)+1\right],
+ \quad p_0=e^{-2E_0}>0,
+\]
+\[
+ K_\theta=36\theta^{-1}10!\left(\frac{12}{-\log\theta}\right)^{10},
+ \qquad M_\star=\left\lceil\max\{390^4,K_\theta^2,1\}\right\rceil.
+\]
+These are finite.  The Section 4 constant is then
+$\delta=p_0\alpha^{1024}>0$, with the paper's unchanged
+frame finite-energy $\alpha$.  The ensuing choice of one
+sufficiently large square and the spectral-gap argument need
+no further finite trail certificate.
+
+\subsection{Scope of the replacement}
+
+The following specifies precisely how this section relates to
+the present Appendix C, using its source labels to avoid any
+dependence on theorem numbering.
+\begin{itemize}
+\item The raw memory-automaton definition, quotient lemma
+\texttt{l:automaton-quotient}, and quotient reconstruction
+\texttt{p:automaton10} are unchanged.  All original H2
+definitions, tests, symmetry reductions, and the open-trail
+lemma \texttt{l:alm} remain valid if H2 is retained.  If it is
+folded, Proposition~\ref{hl:H2} replaces the need for the
+memory-six numerical input and its $C_V=10$ corollary;
+the general lemmas are still valid.
+\item The phase-weight definition \texttt{d:phaseweights},
+phase-expansion lemma \texttt{l:phase-expansion}, stationary
+walk \texttt{d:stationary-walk}, and stationary domination
+\texttt{l:stationary-domination} remain valid with the newly
+specified $h_C=6/5$ in every reward.  Their proofs use only
+positivity, $b'_\tau\le b_\tau$, and the indicated long
+ordering, and are proved again here where needed.  The
+Bellman lemma \texttt{l:Bellman-soundness} is unchanged.
+\item Replace \texttt{d:stationary-certificate}, its
+dyadic-$h$ response-ceiling specialization, and
+\texttt{l:stationary-local-global} by Definition~\ref{hl:finite}
+and Lemmas~\ref{hl:taillemma}--\ref{hl:patchlemma}.
+The old lemma itself remains true for its old constant-cap
+certificates, but those are no longer the input used here.
+In particular the old $V=2^{16}$, radius-70 spatial arrays
+and constant exterior $Z/V$ cannot be reused as the new
+array contract.
+\item The mathematical definition \texttt{d:prefix-bound},
+its exhaustive recursion and short sorting, and
+\texttt{l:prefix-domination} remain valid with the new $h$,
+the new $F$ and $V$, and the same cutoff $12$.
+Replace the old numerical denominator by
+\eqref{hl:Delta}, the full spatial lookup by the radius-20
+lookup specified here, and every numerical prefix
+evaluation by \eqref{hl:prefixceil}.  The enumeration counts
+are unchanged because they depend only on trails, not on
+$h$ or the potential.
+\item The kernel reflection lemma
+\texttt{l:kernel-\allowbreak reflection} is unchanged.  Replace
+\texttt{p:stationary-\allowbreak check} and its binary/indexing contract
+by the literal and finite contracts here, and replace the
+numerical part of \texttt{l:stationary-\allowbreak assembly} by
+Theorem~\ref{hl:theorem}.  Its split-by-first-direction
+argument remains valid.
+\end{itemize}
+In Section 8 the H3 assertion and its last proof paragraph
+must cite H3-line with $V=2^{20}$, the two one-dimensional
+radius-70 arrays and the five radius-20 patches, and use
+$h=(1,6/5)$ and $\rho_0=967725/10^6$.  In Section 7 change
+the kernel-order constants and the numerical witness shift
+as above; its response derivation, recursion and renewal
+proofs are otherwise valid.  H1 and Appendix D can be kept
+as written.  None of the finite checks in this section
+establishes the separate H1-tree proposal in the report.
+
+The sketch in the report needs the following qualifications
+to be a complete certificate.  Floors are upper-cap tests
+on stored line values and ceilings are used on outside
+successors; the infinite tail itself is the exact rational
+minimum of exponentials.  C,D zero-coordinate lines need
+no free row, and the free inequality at the target is neither
+asserted nor needed.  The terminal reward is dealt with by
+zero terminal rows.  Both patch boundary directions must be
+handled with the global cap and with all inside boundary
+rows.  The known initial sites and edge are permanent and
+depend on the first direction; they cannot be dropped or
+replaced by an unsplit potential.  All $h$-dependent
+coefficients, ordering keys, and denominators must be
+recomputed for exact $6/5$.  The proof above and the replay
+implement these qualifications without changing any witness
+array or any claimed contraction constant.

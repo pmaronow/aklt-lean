@@ -1,0 +1,236 @@
+{
+  "source_sha256": "3d2733c5734d0e4cddc155959af2a75370207db61d9f895cb4d054a2882d8503",
+  "raw_windows_by_length": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "raw_class_range": [
+    0,
+    3740
+  ],
+  "class_count": 3741,
+  "nonraw_sentinel": [
+    3741
+  ],
+  "checks": {
+    "raw_direction_comparisons": 240368,
+    "admissible_raw_edges": 169092
+  },
+  "quotient_edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "chunks": [
+    {
+      "name": "rawClass_620",
+      "line": 1255,
+      "bit_range_inclusive": [
+        2408444,
+        2424827
+      ],
+      "word_code_range_inclusive": [
+        200703,
+        202068
+      ],
+      "raw_words": 311,
+      "nonraw_words": 1055,
+      "class_count": 269,
+      "class_range": [
+        0,
+        2306
+      ],
+      "split_boundaries": [
+        {
+          "code": 200703,
+          "value": 218,
+          "raw": true,
+          "low_part_bits": 8
+        }
+      ],
+      "sample_raw_codes_and_classes": [
+        [
+          200703,
+          218
+        ],
+        [
+          200704,
+          0
+        ],
+        [
+          200705,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_621",
+      "line": 1257,
+      "bit_range_inclusive": [
+        2392060,
+        2408443
+      ],
+      "word_code_range_inclusive": [
+        199338,
+        200703
+      ],
+      "raw_words": 201,
+      "nonraw_words": 1165,
+      "class_count": 201,
+      "class_range": [
+        0,
+        2290
+      ],
+      "split_boundaries": [
+        {
+          "code": 199338,
+          "value": 3741,
+          "raw": false,
+          "low_part_bits": 4
+        },
+        {
+          "code": 200703,
+          "value": 218,
+          "raw": true,
+          "low_part_bits": 8
+        }
+      ],
+      "sample_raw_codes_and_classes": [
+        [
+          199680,
+          0
+        ],
+        [
+          199681,
+          371
+        ],
+        [
+          199683,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_622",
+      "line": 1259,
+      "bit_range_inclusive": [
+        2375676,
+        2392059
+      ],
+      "word_code_range_inclusive": [
+        197973,
+        199338
+      ],
+      "raw_words": 74,
+      "nonraw_words": 1292,
+      "class_count": 74,
+      "class_range": [
+        115,
+        2275
+      ],
+      "split_boundaries": [
+        {
+          "code": 199338,
+          "value": 3741,
+          "raw": false,
+          "low_part_bits": 4
+        }
+      ],
+      "sample_raw_codes_and_classes": [
+        [
+          197973,
+          115
+        ],
+        [
+          197974,
+          289
+        ],
+        [
+          197977,
+          117
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_623",
+      "line": 1261,
+      "bit_range_inclusive": [
+        2359292,
+        2375675
+      ],
+      "word_code_range_inclusive": [
+        196607,
+        197972
+      ],
+      "raw_words": 328,
+      "nonraw_words": 1038,
+      "class_count": 287,
+      "class_range": [
+        0,
+        2265
+      ],
+      "split_boundaries": [
+        {
+          "code": 196607,
+          "value": 3741,
+          "raw": false,
+          "low_part_bits": 8
+        }
+      ],
+      "sample_raw_codes_and_classes": [
+        [
+          196608,
+          0
+        ],
+        [
+          196609,
+          1
+        ],
+        [
+          196611,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "rawClass_624",
+      "line": 1263,
+      "bit_range_inclusive": [
+        2342908,
+        2359291
+      ],
+      "word_code_range_inclusive": [
+        195242,
+        196607
+      ],
+      "raw_words": 0,
+      "nonraw_words": 1366,
+      "class_count": 0,
+      "class_range": null,
+      "split_boundaries": [
+        {
+          "code": 195242,
+          "value": 3741,
+          "raw": false,
+          "low_part_bits": 4
+        },
+        {
+          "code": 196607,
+          "value": 3741,
+          "raw": false,
+          "low_part_bits": 8
+        }
+      ],
+      "sample_raw_codes_and_classes": []
+    }
+  ],
+  "result": "all assertions passed"
+}

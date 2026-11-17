@@ -1,0 +1,87 @@
+ℹ [8954/8956] Replayed AKLT.Cert.H2.Check
+info: AKLT/Cert/H2/Check.lean:11:0: 'AKLT.Cert.H2.complete_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8955/8956] Replayed AKLT.Cert.H2.Words
+warning: AKLT/Cert/H2/Words.lean:122:75: This simp argument is unused:
+  initWord
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [slice]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/Cert/H2/Words.lean:122:85: This simp argument is unused:
+  slice
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initWord]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/Cert/H2/Words.lean:181:31: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: AKLT/Cert/H2/Words.lean:181:43: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:209:76: This simp argument is unused:
+  snoc_last
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [wordBond, Fin.val_last, vertex_succ u (snoc w d) n (by omega), snoc_vertex u w d n le_rfl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/Cert/H2/Words.lean:279:36: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:292:6: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:297:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:287:5: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: AKLT/Cert/H2/Words.lean:307:13: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:307:44: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Words.lean:308:4: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+⚠ [8956/8956] Built AKLT.Cert.H2.Finite (4.0s)
+warning: AKLT/Cert/H2/Finite.lean:50:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Finite.lean:70:8: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Finite.lean:91:19: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/Cert/H2/Finite.lean:91:28: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+warning: AKLT/Cert/H2/Finite.lean:91:37: This simp argument is unused:
+  Nat.cast_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hd, dif_pos, if_true, kind_numerator, integerWitness, Int.cast_natCast]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (8956 jobs).

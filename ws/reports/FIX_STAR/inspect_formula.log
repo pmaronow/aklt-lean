@@ -1,0 +1,25 @@
+/home/ubuntu/aklt/reports/FIX_STAR/InspectFormula.lean:2:7: error(lean.unknownIdentifier): Unknown constant `_private.AKLT.W.Q037.Main.«0».AKLT.W.Q037.starCasimir_formula`
+AKLT.Defs.starCasimir.eq_1 (j : Fin 4) :
+  AKLT.Defs.starCasimir j =
+    (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) *
+        (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) +
+      (1 / 2) •
+        ((AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) +
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩))
+@[backward_defeq] theorem AKLT.Defs.starCasimir.eq_1 : ∀ (j : Fin 4),
+  AKLT.Defs.starCasimir j =
+    (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) *
+        (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) +
+      (1 / 2) •
+        ((AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) +
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩)) :=
+fun j => Eq.refl (AKLT.Defs.starCasimir j)

@@ -1,0 +1,698 @@
+ THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY
+
+                STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+       Abstract. The evenness assumption on both torus periods can be removed. Three explicit, dis-
+       joint, antipodal spherical designs give positive classical weights on every torus. The sign change is
+       made only after lifting a conditional box to the plane. The existing continuous estimate then gives
+       a uniform window bound for the resulting inhomogeneous finite-state specifications. A finite-state
+       box-gap argument requires no translation invariance. Uniqueness holds for every pair of periods at
+       least three; more generally the ground space on every finite simple graph of maximum degree four
+       is computed exactly.
+
+
+
+
+        1. Replacement for the statement and proof structure in Section 1
+   We use the manuscript’s spin-2 polynomial Hilbert space, edge projections and normalization
+of the Hamiltonian. In particular a bond is an element of a simple edge set, and the heat-bath
+Dirichlet form has one update per site. For L, N ≥ 3, let E be the nearest-neighbour edge set of
+Λ = ZL × ZN , and fix an arbitrary orientation of every edge. Write
+                                                     Y                X
+                   qxy = zx,1 zy,2 − zx,2 zy,1 , B=      qe ,  HL,N =     Pe .
+                                                             e∈E                     e∈E
+
+Theorem 1.1 (Replacement for Theorem 1.1). There are c > 0 and L0 ∈ N such that, for every
+pair of integers L, N ≥ L0 , with no parity restriction,
+
+                                   ker HL,N = CB,           gap(HL,N ) ≥ c.
+
+In addition, ker HL,N = CB for every L, N ≥ 3.
+
+   The uniform-gap assertion uses the same computer-assisted inputs as the manuscript, at (cs , ct ) =
+(961/1000, 187/200). Throughout this text the unchanged analytic statements are understood with
+the adjudicated corrections in ADJ-R4, ADJ-R5, ADJ-R6 and ADJ-MINOR. Their corrected im-
+plication (H1), (H2), (H3′ )⇒(P) is retained. The present text proves every additional implication
+needed to remove parity. It does not assert an independent replay of the large certificates.
+   Replace the first three reductions in the introduction as follows. Assign one of three rotated
+icosahedral frames according to a proper three-colouring of the torus. The squared modulus of
+the frame image of B, multiplied by the reference weights and normalized, is a strictly positive
+antiferromagnetic measure. Its heat-bath gap bounds the quantum gap below. The classical finite-
+size criterion is already valid without parity or translation invariance. A conditional box lifts
+to the plane, where a sitewise sign change makes every interaction ferromagnetic. The resulting
+alphabets depend on the sites. Uniform quadrature and the continuous cut argument give the
+window estimate at every translate; the finite-state proof of MOSPROOF then gives uniform box
+gaps without translation invariance. There is no global sign change on an odd torus.
+   The uniqueness assertion is independent of all mixing estimates and computer-assisted inputs,
+by Proposition 2.1 below.
+
+  Date: November 16, 2026.
+                                                        1
+2                 STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+                         2. Replacement and additions in Section 2
+2.1. Ground spaces on simple graphs. The manuscript’s edge lemma remains unchanged: in the
+polynomial realization V = Sym4 (C2 ), P{x,y} φ = 0 if and only if qxy divides φ. For completeness,
+multiplication by qxy embeds the bidegree-(3, 3) polynomials equivariantly into the bidegree-(4, 4)
+polynomials. By Clebsch–Gordan its image consists precisely of spins 0, 1, 2, 3, the orthogonal
+complement of spin 4. Tensoring with the other sites proves the assertion for arbitrary φ.
+Proposition 2.1 (ExactQground space). Let G = (VG , EG ) be a finite simple graph with dx =
+degG (x) ≤ 4. Put BG = e∈EG qe , and let P(4−dx ) denote the polynomials homogeneous of degree
+4 − dx in each zx . Multiplication by BG is a linear isomorphism
+                                             X 
+                            P(4−dx ) −→ ker         Pe ,    χ 7−→ BG χ.                    (1)
+                                               e∈EG
+
+Consequently
+                                                      Y
+                                     dim ker HG =          (5 − dx ).
+                                                    x∈VG
+Every finite simple 4-regular graph has the unique ground state BG , up to a scalar, even when it is
+disconnected or nonbipartite.
+Proof. Each determinant qe is irreducible in C[zVG ]: as a quadratic form in its four endpoint vari-
+ables it has rank four, whereas a product of two linear forms has rank at most two. Irreducibility
+persists after adjoining the other variables, since the quotient by qe remains an integral domain.
+Distinct edges give nonassociate irreducibles because their endpoint variable sets differ. In the poly-
+nomial unique factorization
+                      P      domain,
+                               T      if every qe divides φ, their product divides φ. Positivity of the
+projections gives ker e Pe = e ker Pe , so the edge lemma proves that every ground state is BG χ.
+Multihomogeneity forces χ to have degrees exactly 4 − dx : decompose χ into its multihomogeneous
+components and use that multiplication by the nonzero multihomogeneous polynomial BG cannot
+annihilate any component. Conversely every such product is killed by each Pe . Q     Multiplication is
+injective in an integral domain. The residual polynomial space has dimension x (4 − dx + 1),
+proving all assertions.                                                                              □
+   For L, N ≥ 3 the four neighbours (i ± 1, j) and (i, j ± 1) are distinct and differ from (i, j). Thus
+the torus is simple and 4-regular, also when a period is three. Proposition 2.1 proves uniqueness
+for all sizes under consideration. Reversing an edge orientation multiplies B by −1 and does not
+change its span.
+
+2.2. Three exact frames and their separation. Keep the definition of a positive weighted spher-
+ical 4-design and the tight-frame lemma of the manuscript. Replace the checkerboard construction
+and its icosahedron–dodecahedron bound by the following construction. Let
+                     √
+                 1+ 5                          1
+             ϕ=          , r2 = ϕ + 2, D = {(0, ±1, ±ϕ), (±1, ±ϕ, 0), (±ϕ, 0, ±1)},
+                    2                         r
+                                               
+                          99/101 −20/101 0                                                   (2)
+                   T = 20/101 99/101 0 ,          D(j) = T j D (0 ≤ j ≤ 2).
+                             0        0      1
+All signs in the displayed vertices are independent; all frames have uniform weights 1/12.
+Lemma 2.2 (Designs and exact minimum weight). Each D(j) is an antipodal spherical 5-design.
+Set                            √
+                            5− 5         2
+                        b=        =            ,   Γ = 1 − b.                           (3)
+                             505    101(ϕ + 2)
+                  THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                                 3
+
+
+For distinct i, j and a ∈ D(i) , a′ ∈ D(j) ,
+                               |a · a′ | ≤ Γ < 1,       b ≤ 1 ± a · a′ ≤ 2 − b.                            (4)
+The lower bound b is attained. In particular the three designs are pairwise disjoint, including up to
+an antipodal sign.
+Proof. The independent coordinate sign changes in D annihilate every monomial with an odd co-
+ordinate exponent. Cyclic symmetry and ϕ2 = ϕ + 1 give
+                  1                     1 + ϕ4     1                            ϕ2        1
+         ⟨x2i ⟩D = ,       ⟨x4i ⟩D =            2
+                                                  = ,        ⟨x2i x2j ⟩D =            2
+                                                                                        =      (i ̸= j).
+                  3                    3(ϕ + 2)    5                         3(ϕ + 2)     15
+Together with the constant moment these exhaust the monomials of degree at most five and equal
+the spherical moments. Thus D is a 5-design. The matrix T is orthogonal of determinant one, so
+rotation preserves all design identities and antipodality.
+   It remains to compare a, T k a′ for a, a′ ∈ D and k = 1, 2. The rotation angle ϑ satisfies cos ϑ =
+99/101, sin ϑ = 20/101. For a = a′ ,
+
+                                    1 − a · T k a = (1 − cos(kϑ))(a21 + a22 ).
+The smallest possible a21 +a22 is 1/(ϕ+2). Moreover 1−cos ϑ = 2/101 and 1−cos(2ϑ) = 800/10201 ≥
+2/101. The minimum
+                 √     in this case is exactly b. For distinct vertices of D, direct substitution gives
+a · a′ ∈ {−1, ±1/ 5}, so |a − a′ | > 1. For k = 1, 2, ∥T k − I∥ ≤ 40/101 < 2/5. Hence
+
+               |a − T k a′ | ≥ |a − a′ | − |(T k − I)a′ | > 3/5,      1 − a · T k a′ > 9/50 > b.
+This proves the lower bound for every pair. Replacing a′ by −a′ , which is again in D, proves the
+upper bound 2 − b. Taking a = (0, 1, ϕ)/r and k = 1 attains the lower bound.                   □
+Lemma 2.3 (A proper three-colouring). Every ZL ×ZN with L, N ≥ 3 has a proper three-colouring.
+Proof. On the representatives 0, . . . , m − 1 of Zm define
+                                        (
+                                          2,        m odd and i = m − 1,
+                           am (i) =
+                                          i mod 2, otherwise.
+
+Adjacent vertices of the cycle have different colours: the usual alternation works when m is even;
+when m is odd the last vertex has colour two and its two neighbours have colours zero and one.
+Then
+                                      κ(i, j) = aL (i) + aN (j)    (mod 3)
+is proper on the torus, since an edge changes exactly one summand by a nonzero residue. This
+includes m = 3.                                                                               □
+
+   Assign Dx = D(κ(x)) and wx ≡ 1/12, and set Ω = x Dx , π(s) = x 5wx (sx ). The coherent-
+                                                     Q              Q
+state frame map ι is the same tensor evaluation map as in the manuscript and is isometric by the
+tight-frame lemma. Its ground-state measure is
+                                    π(s)|ιB(s)|2   1 Y 1             Y
+                        µaf (s) =          2
+                                                 = af                        (1 − sx · sy ).               (5)
+                                       ∥B∥        Z x 12
+                                                                   {x,y}∈E
+
+Here |qxy (ζ(a), ζ(a′ ))|2 = (1−a·a′ )/2 as before. Every factor is at least b, so µaf has full support and
+ιB never vanishes. Bounds in (4) apply to individual bond factors; products have the corresponding
+powers.
+4                  STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+2.3. The frame comparison, including orientation signs.
+Theorem 2.4 (Replacement for Theorem QD). For every L, N ≥ 3 and every proper colouring
+used above,
+                                                    g⋆
+                                      HL,N B ⊥ ≥       λ(µaf )I.                               (6)
+                                                     2
+Thus ker HL,N = CB and gap(HL,N ) ≥ (g⋆ /2)λ(µaf ). More generally the same assertion holds on
+every nonempty finite simple 4-regular graph equipped with positive 4-design frames whose adjacent
+alphabets are disjoint.
+                   P
+Proof. Let Hx = e∋x Pe , Sx = ker Hx . There are four distinct neighbours, so Hx is the same
+star operator on five tensor factors at every x, irrespective of edges between its neighbours. Its
+smallest positive eigenvalue g⋆ is positive and independent of the graph. The operator is nonzero,
+for instance on the aligned highest-weight vector. Thus
+                                                        X
+                                Hx ≥ g⋆ (1 − ΠSx ),        Hx = 2H.
+                                                                 x
+                              Q
+For fixed x put βx (t; σ) =       y∼x qxy (ζ(t), ζ(σy )). Every factor is nonzero. Write
+                                                    Y                                     Y                    
+        qe = ϵe,x qxy   (e = {x, y}),        cx =         ϵe,x ∈ {±1},          ρx = cx          qe (ζ(sz ))z∈e .   (7)
+                                                    e∋x                                   e̸∋x
+
+Then ιB(s) = βx (sx ; sN (x) )ρx (sΛ\x ). The local projection Px            in ℓ2 (Ω, π) is the fibrewise projection
+onto Cβx in ℓ2 (Dx , 5wx ). The map
+                              U : L2 (µaf ) −→ ℓ2 (Ω, π),        U F = F ιB/∥B∥
+is unitary, because its multiplier is nowhere zero and its squared modulus gives exactly (5). Con-
+ditional probabilities at x are proportional to wx (t)|βx (t; σ)|2 , so the fibrewise projection formula
+gives U Ex = Px U .                                                              Q
+   If ψ ∈ Sx , divisibility by the four incident determinants gives ψ = ( e∋x qe )χ, where χ is
+independent of zx . Therefore
+                          ιψ(t, sΛ\x ) = cx βx (t; sN (x) )χ((ζ(sy ))y̸=x ) ∈ Ran Px .
+The isometry of ι implies ∥(1 − Px )ιφ∥ ≤ ∥(1 − ΠSx )φ∥. For φ ⊥ B, let F = U −1 ιφ. Then
+µaf (F ) = 0 and Varµaf F = ∥φ∥2 . Consequently
+                              X                    X                   2
+                λ(µaf )∥φ∥2 ≤     ∥(1 − Px )ιφ∥2 ≤   ⟨φ, (1 − ΠSx )φ⟩ ≤ ⟨φ, Hφ⟩.
+                              x                    x
+                                                                       g⋆
+This proves (6). Full support makes the finite single-site chain irreducible: coordinates can be
+changed successively with positive transition probabilities. Its gap is positive, giving uniqueness
+again. Every step in this proof applies to the general graph in the statement.                   □
+2.4. The replacement for the rotated convention. The torus measure is always (5); remove
+the global definition nx = (−1)x1 +x2 sx on the torus. On the plane, however, the sign εz = (−1)z1 +z2
+is well defined. For any proper colouring κ : Z2 → {0, 1, 2} define the ferromagnetic specification
+                       1 Y 1
+        µf,η
+                                      Y                         Y
+         κ,W (nW ) =   f,η
+                                            (1 + nz · nz ′ )          (1 + nz · ηz ′ ), nz ∈ D(κ(z)) . (8)
+                      Zκ,W z∈W 12      ′                          ′
+                                   {z,z }⊂W                  z∈W,z ∈W
+                                                                    /
+                                         z∼z ′                       z∼z ′
+Antipodality ensures that sz 7→ εz sz preserves every alphabet and its uniform weights. It changes
+a plane antiferromagnetic law into (8), with boundary letters ηz ′ = εz ′ sz ′ , and intertwines every
+single-site conditional expectation. Hence it preserves the heat-bath gap. This statement is local to
+the plane and does not require a periodic sign.
+                 THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                           5
+
+
+                   3. Section 3: the finite-size criterion is unchanged
+   Use manuscript Theorem t:K for the positive measure µaf of (5). Its hypotheses already allow
+site-dependent alphabets, arbitrary positive nearest-neighbour weights, and all integers L, N ≥ ℓ+1,
+ℓ ≥ 2. In particular, writing g(ℓ) for the minimum of all conditional ℓ × ℓ box gaps,
+                                                             
+                                         af     ℓ           1
+                                     λ(µ ) ≥         g(ℓ) −     .                                (9)
+                                              ℓ−1           ℓ
+The weighted version and its constants t(ℓ), κℓ also retain exactly their statements. Neither proof
+uses global bipartiteness. The parity of superlevel interval lengths in the autocorrelation lemma
+is a property of symmetric intervals on Z, independent of L, N . Retain the ADJ-MINOR correc-
+tions: nontrivial site alphabets, and the separate zero-total-Dirichlet-form case before division in
+the weighted Cauchy–Schwarz step. Our alphabets all have twelve letters.
+Remark 3.1 (Replacement for Remark r:Kpins). The minimum in g(ℓ) runs only over outside
+configurations that occur on the torus. If a period is ℓ + 1, opposite exterior pins can represent the
+same torus spin. After lifting and making the local gauge they can have opposite signs. Lemma 4.2
+realizes them as admissible, separately specified plane boundary letters. The uniform bound for all
+such boundary conditions therefore covers this case without requiring independent boundary spins
+on the torus.
+
+          4. Replacement for Section 4: inhomogeneous cells and box gaps
+4.1. Cells and uniform finite energy. Fix any proper colouring κ : Z2 → {0, 1, 2}. For any
+a ∈ Z2 use the cells
+                                     Cc = a + 2c + {0, 1}2 ,    c ∈ Z2 .
+The cell alphabet is Sc = z∈Cc D(κ(z)) ; it has 124 = 20736 elements. There are four internal bonds
+                             Q
+per cell and eight bonds crossing its boundary. Formula (8) becomes a strictly positive nearest-
+neighbour cell specification with site-dependent single-cell and pair potentials. It has range one in
+the cell ℓ∞ metric. No invariance of the colouring is assumed.
+   Fix an enumeration of the twelve vertices of each frame. This identifies every Sc with the same
+                                      2
+abstract alphabet {1, . . . , 12}{0,1} , of size 20736. All inhomogeneity can therefore be placed in
+the potentials, even if a formulation of a finite-state lemma uses a single alphabet. Equality and
+Hamming distance compare letters at the same site, so these identifications preserve them.
+   Put
+                                b               1             1               β5
+                       rb =        ,     β = rb4 ,      α = 4 rb12 ,     c0 =    .                (10)
+                              2−b              12            12                4
+Every physical single-site conditional letter probability is at least β; every conditional cell letter
+probability is at least α. Indeed, for a physical letter at most four factors depend on it, and each is
+in [b, 2 − b]. For a cell, at most twelve factors depend on its configuration and all 124 letters have
+the same product site weight. Dividing the least possible weight by the number of letters times the
+largest possible weight proves the bounds. The same bounds hold in every finite-volume conditional
+law. Conditioning on fewer spins gives a weighted average of fully specified one-site conditional
+probabilities, so a prescribed assignment on k cells has conditional probability at least αk , by the
+chain rule.
+   These finite-energy bounds concern admissible frame-valued boundary letters. We do not assert
+them for arbitrary unit-vector boundary pins; such pins occur only in the separate continuous
+estimates.
+Lemma 4.1 (Replacement for Lemma 4.2). On any finite union of these cells, under every ad-
+missible boundary condition, the physical single-site gap is at least c0 times the cell heat-bath gap,
+uniformly in κ and a.
+6                  STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+Proof. We use the following elementary bound, valid for different finite alphabets at different sites.
+On k ≥ 1 sites, if all one-site conditionals are at least β, the single-site gap is at least β k+1 /k.
+Here is a direct proof. The chain rule gives every configuration probability at least β k . In the
+conditional-variance expansion the coefficient of every directed single-coordinate edge is at least
+β k+1 /2. Join any ordered pair of configurations by changing their coordinates in a fixed order.
+The path has length at most k, so Cauchy–Schwarz bounds its squared increment by k times the
+sum of squared edge increments. In the pair expansion of the variance, the total probability of
+pairs using any Pgiven directed edge is at most one. Comparison of these two finite sums gives
+Var f ≤ kβ −k−1 x µ(Varx f ).
+   Condition on the exterior of one four-site cell. Its physical gap is at least β 5 /4 = c0 , so
+                                                       X
+                                    µ(VarC f ) ≤ c−1
+                                                  0          µ(Varx f ).
+                                                       x∈C
+
+
+Sum over the disjoint cells and apply the cell Poincaré inequality. Every physical site is counted
+once, proving the comparison without an additional factor of four.                              □
+
+Lemma 4.2 (Replacement for Lemma 4.1, including equality at the threshold). Let ℓ = 2t ≥ 2,
+L, N ≥ ℓ + 1, and let Q be any translated ℓ × ℓ box in the torus. For any configuration σ outside Q,
+the conditional antiferromagnetic law µaf ( · | σ) is carried, by a sitewise bijection, to a law (8) on a
+plane box made of t × t cells, for a proper plane colouring and an admissible cell boundary condition.
+The bijection intertwines all single-site conditional expectations.
+
+Proof. Choose an integer lift Q′ ⊂ Z2 and let p : Z2 → ZL × ZN be the quotient map. It is injective
+on Q′ . It identifies exactly the internal nearest-neighbour bonds of Q′ with the torus bonds whose
+endpoints lie in Q. To check the second assertion, coordinate differences in Q′ have absolute value
+at most ℓ − 1 ≤ L − 2, N − 2 as appropriate. A difference congruent to ±1 modulo a period can thus
+be only ±1; a difference congruent to zero is zero. No extra wrap-around internal bond is possible.
+            e(z) = κ(p(z)) is a proper colouring on the whole plane. Let εz = (−1)z1 +z2 and set
+   The lift κ
+
+                   nz = εz sp(z)   (z ∈ Q′ ),    ηz ′ = εz ′ σp(z ′ )   (z ′ ∈
+                                                                             / Q′ , z ′ ∼ Q′ ).      (11)
+
+Every exterior site in this formula maps outside Q. By antipodality, all new letters belong to their
+prescribed frames. On an internal or boundary plane edge, εz εz ′ = −1, so each antiferromagnetic
+factor becomes exactly the corresponding positive factor 1 + nz · nz ′ or 1 + nz · ηz ′ . Site weights are
+unchanged. This gives precisely (8) after normalization.
+   If L = ℓ + 1 or N = ℓ + 1, different exterior plane sites may have the same torus image. They still
+receive separate, well-defined letters by (11). In an odd period those letters can differ by a sign. A
+boundary condition on the plane imposes no relation between distinct exterior sites. Each exterior
+nearest-neighbour site of a rectangle touches exactly one interior site; the two torus boundary bonds
+therefore remain two separate factors, even if they share an exterior torus endpoint. This proves
+the identification in these cases as well. Extend η arbitrarily on the unused exterior sites.
+   Choose the cell origin to be the lower left corner of Q′ . Then Q′ is exactly a t × t cell box.
+Finally, any coordinatewise bijection of a finite product that transports a probability law transports
+its conditional expectation at that coordinate, by the finite conditional probability formula. This
+proves the last assertion and preservation of the heat-bath gap.                                        □
+
+
+4.2. The uniform window hypothesis and its stopped coupling. Here all geometry uses
+cell coordinates. For a translate Cu = a + {−u, . . . , u}2 , with integer u ≥ 1, and y ∈
+                                                                                        / Cu with
+                  THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                               7
+
+
+dist∞ (y, Cu ) = 1, write
+                        s = u1/4 ,   ki = ⌊is⌋,     i1 = ⌊s⌋ + 1,
+                       Fi = {c ∈ Cu : |c − y|∞ > (i − 1)s},
+                      Di = {c ∈ Cu : |c − y|∞ = ki },
+                      Ai = {c ∈ Di : dist∞ (c, Z2 \ Cu ) ≤ l0 },              B i = D i \ Ai .
+Let I0 ⊂ {2, . . . , i1 } be the indices for which Di is at distance less than s/3 from a corner of Cu .
+Definition 4.3 (Replacement for Definition d:W). A family of specifications has the uniform window
+estimate if there are an integer l0 ≥ 1, p0 ∈ (0, 1] and an integer M⋆ ≥ 1 such that for every
+specification in the family, every translated Cu with integer u ≥ M⋆ , every y as above, every integer
+2 ≤ i ≤ s outside I0 , and every pair of admissible boundary conditions on Fi ,
+                                           µηFi ,Bi , µ
+                                      dTV (b          bξFi ,Bi ) ≤ 1 − p0 .                           (12)
+ The manuscript shell geometry (MOSPROOF Lemma 4.2) gives the following whenever u ≥
+Mg (l0 ), where
+                              Mg (l0 ) = max{16, 6(l0 + 1)}4 :
+                           |I0 | ≤ 1,     |Ai | ≤ 8l0 (i ∈
+                                                         / I0 ), Di ⊂ Fi .                      (13)
+Also, the neighbours of Fi in Cu \ Fi lie on Di−1 , and y does not neighbour Fi for i ≥ 2. These are
+geometric statements, valid in every translate and independent of the alphabets or the potential.
+Reflections used in their proof transform coordinates only; they require no reflection invariance of
+a specification.
+Lemma 4.4 (Stopped surgery, with no stationarity hypothesis). Suppose a positive, range-one
+finite-state specification has one-site conditional probabilities at least α and satisfies Definition 4.3
+at every translate. Put δ = p0 α16l0 . If u ≥ max{M⋆ , Mg (l0 )} and two boundary conditions of Cu
+agree off one exterior site y, then for every integer 4 ≤ h ≤ ⌊u1/4 ⌋ their full-volume laws have a
+coupling such that
+                Pr(nQh ̸= n′Qh ) ≤ (1 − δ)h−3 ,         Qh = {c ∈ Cu : |c − y|∞ > hu1/4 }.            (14)
+The assertion allows site-dependent finite alphabets and potentials.
+Proof. If dist∞ (y, Cu ) > 1, the two laws coincide by the range-one Markov property. Otherwise
+begin with any coupling, for example the product coupling, and resample Fi successively for i =
+2, . . . , h + 1, skipping indices in I0 . Conditional resampling leaves each marginal unchanged: on
+each exterior fibre its new law is precisely its old conditional law. This is a finite sum identity,
+independent of any translation invariance.
+    If the input pair agrees on Di−1 , the two conditional laws of Fi agree, by (13) and equality of
+the fixed exterior boundary off y. Use the same sample in both components. Otherwise maximally
+couple the two Bi marginals, complete each sample by its conditional law, and independently
+resample Ai in both components given their respective complements. For i ≤ h, (12) gives agreement
+on Bi with probability at least p0 . For any fixed assignment on Ai , both independent resamplings
+choose it with probability at least α2|Ai | . Thus agreement on Di has conditional probability at least
+δ at each such step. Each operation preserves both required marginals. At the final step h + 1 we
+need no new success bound if h + 1 > s.
+    Let J be the indices i ∈ {2, . . . , h} with both i and i + 1 outside I0 . There are at least h − 3
+of them. Success at any such i forces identical resampling on Fi+1 at the next step. Agreement
+there persists at later steps: they change only smaller Fj , and their separators Dj−1 are contained
+in Fi+1 . For j ≥ i + 2 the latter inclusion follows from ⌊(j − 1)s⌋ > is, since s ≥ 16. It gives
+final agreement on Qh = Fh+1 . By conditioning successively on the history at the trial indices, the
+8                     STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+probability that all trials fail is at most (1 − δ)|J| ≤ (1 − δ)h−3 . Independence between trials is not
+asserted. All couplings exist on finite sets. No operation compares letters at different sites.       □
+   Taking h = ⌊s⌋ also proves the original conclusion of Proposition p:surgery, with exponent s−4,
+for every translate and every specification in the family. The terminal step is a propagation step;
+its success probability is not inferred from a window estimate at an index greater than s.
+4.3. A box-gap theorem that consumes the uniform window estimate.
+Theorem 4.5 (Replacement for Corollary c:gapcell). Let a family of positive range-one finite-
+state specifications have a common conditional lower bound α ∈ (0, 1] and the uniform window
+estimate (l0 , p0 , M⋆ ). Neither a common spatial pattern of alphabets nor translation invariance is
+required. Set
+                                        d = min{1/2, p0 α16l0 }.
+Choose an integer n such that
+             n ≥ 44,        n8 ≥ M⋆ ,     n2 ≥ max{50000, 6(l0 + 1)},          n12 d20 ≥ 50000 220 20!.   (15)
+Put
+                                                                         αv+1
+                        M = n8 ,        Lcell = 4M + 1,      v = L2cell ,       > 0.
+                                                                             m0 =                     (16)
+                                                                        1000v
+Every translated rectangle with both cell sides at least Lcell has single-cell heat-bath gap at least m0 ,
+uniformly over the family and over all admissible boundary conditions.
+Proof. The choices in (15) exist by taking n sufficiently large. For each u ∈ [M, 2M ] apply
+Lemma 4.4 with h = n to every translated square Cu . Its hypotheses hold because u1/4 ≥ n2 ≥
+max{16, 6(l0 + 1)} and u ≥ M⋆ . The exceptional near region Cu \ Qn has at most 25n6 cells, since
+nu1/4 ≤ 2n3 . The whole square has at most 25n16 cells. In the actual coupling of that lemma, the
+expected Hamming distance is consequently at most
+                                    Kn = 25n6 + 25n16 (1 − d)n−3 ≤ M/1000.                                (17)
+For the last inequality, the finite binomial expansion gives
+                              220 20!                                          n − 3 20 (n/2)20 20
+                                                                                   
+                      n−3                                        −(n−3)
+            (1 − d)         ≤ 20 20      (n ≥ 44) :      (1 − d)            ≥        d ≥       d .
+                             d n                                                20        20!
+The first term in (17) is at most n8 /2000 by n2 ≥ 50000, and the second is at most n8 /2000 by the
+final inequality of (15). This supplies the square Hamming coupling criterion at every translate,
+directly, without transporting it by an invariance assumption.
+   Here is the finite-square gap step, included to specify precisely the part of MOSPROOF being
+used. In a rectangle W = {1, . . . , N1 } × {1, . . . , N2 } with both sides at least L = 4M + 1, use labels
+                            A = {M, . . . , 2M } × {1 − L, . . . , N1 } × {1 − L, . . . , N2 }.
+For a label (u, a1 , a2 ) take a square Ba of side l = 2u + 1 with lower left coordinates bj =
+min{max{aj , 1}, Nj − l + 1}. Retain multiplicities. The purely geometric counting lemma MO-
+SPROOF Lemma 6.1 gives, for each x ∈ W ,
+    4M 3 ≤ Tx := #{a : x ∈ Ba } ≤ 1000M 3 ,        Sx := #{a : x ∈/ Ba , dist∞ (x, Ba ) = 1} ≤ 1000M 2 .
+                                                                                                    (18)
+These counts do not refer to the Gibbs specification. In particular they do not use translation
+invariance. One way to see their uniformity at the boundary is that clamping preserves containment
+for the l nominal starts in [xj −l+1, xj ]. This gives the lower bound. An interval of starts containing
+xj has at most 3L preimages, giving Tx ≤ (M + 1)(3L)2 . For Sx , overcount by a directed side: the
+start in one coordinate must be xj + 1 or xj − l. A strictly interior such start has one preimage,
+and the other coordinate has at most 4L preimages, giving 16(M + 1)L. Endpoint starts can occur
+                 THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                          9
+
+
+for at most one u on each of the four directed sides, have at most 2L preimages in the constrained
+coordinate, and contribute at Pmost 32L2 . With L ≤ 5M and M + 1 ≤ 2M these are exactly (18).
+   Let A = |A| and P = A   −1
+                                 a EBa . Couple its output laws for two configurations differing just
+at x. If x ∈ Ba , use the same block sample, erasing the disagreement. If dist∞ (x, Ba ) > 1, use
+identical samples and retain just that disagreement. In the other Sx cases, (17) bounds the expected
+number of new disagreements in the block by Kn . Thus
+                                              Tx − Kn Sx            M3
+                                  EdH ≤ 1 −                 ≤1−        .
+                                                     A              A
+The Hamming Lipschitz seminorm consequently contracts by 1 − M 3 /A under P . Each EBa is
+an orthogonal projection in L2 (µW ), so P is self-adjoint. Apply the Lipschitz bound to each non-
+constant real eigenfunction; its seminorm is positive on the connected product space. Every such
+eigenvalue  of P has absolute value at most 1 − M 3 /A. Hence the unnormalized block generator
+                                                 3
+P
+   a (I − EBa ) = A(I − P ) has gap at least M .
+   Each conditional block law has at most v cells and its one-cell conditionals remain at least α.
+The elementary small-volume bound proved in Lemma 4.1, with k ≤ v and β replaced by α, gives
+its single-cell gap at least g = αv+1 /v. Integrating its Poincaré inequality over each exterior fibre
+and summing over blocks gives
+                           X                     X                    1000M 3 X
+            M 3 Varµ f ≤      µ(VarBa f ) ≤ g −1      Tx µ(Varx f ) ≤           µ(Varx f ).
+                            a                      x
+                                                                         g    x
+
+Thus the single-cell gap is at least g/1000 = m0 . This is MOSPROOF Theorem 6.3 with all
+its hypotheses verified. The preceding stopped argument is its window-to-coupling step with the
+translation-invariance sentence replaced by the all-translates quantifier. All sums, fibres, couplings
+and eigenvectors in the proof are finite. Bounds for complex functions follow by adding the real and
+imaginary Poincaré inequalities.                                                                    □
+  Theorems t:MOS21, t:MO41, Remark r:finiteS, and the compatible-set scales are removed from
+the proof chain. Their original translation-invariant formulations are not applied to the inhomo-
+geneous specification. The new conclusion is a gap on all sufficiently large rectangles; no claim on
+arbitrary compatible unions is needed here.
+
+4.4. Replacement proof of the main theorem from the window estimate.
+Theorem 4.6 (Replacement for Theorem t:mainW). Assume the uniform window estimate for the
+ferromagnetic cell models of every proper plane three-colouring, with the same parameters. Let
+m0 , Lcell be given by (16) using (10). Choose an integer
+           t ≥ max{Lcell , ⌈1/(c0 m0 )⌉, 1},   ℓ = 2t,     L0 = ℓ + 1,      c = g⋆ c0 m0 /4.     (19)
+For every L, N ≥ L0 , ker HL,N = CB and gap(HL,N ) ≥ c. The same constants work for every
+proper three-colouring of every such torus used to construct its frame measure.
+Proof. For every placement of an ℓ-box and every exterior configuration, Lemma 4.2 identifies its
+conditional law, up to the local gauge, with a t × t cell law of a proper plane colouring. Theorem 4.5
+gives its cell gap at least m0 , and Lemma 4.1 gives its physical gap at least c0 m0 . Consequently
+g(ℓ) ≥ c0 m0 and 1/ℓ ≤ c0 m0 /2. The finite-size criterion (9) now gives
+                                                            
+                                   af      ℓ               1
+                                λ(µ ) ≥          c0 m0 −       ≥ c0 m0 /2.                        (20)
+                                         ℓ−1               ℓ
+Theorem 2.4 proves the stated quantum gap, with the constant in (19). Uniqueness also follows inde-
+pendently from Proposition 2.1. Every constant was chosen before the periods, the torus colouring,
+the box placement and its boundary data.                                                         □
+10                 STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+               5. Section 5: uniformity of the cut and window estimates
+5.1. Quadrature for different frames.
+Lemma 5.1 (Replacement for the exactness lemma and its following paragraph). Assign any posi-
+tive weighted 4-design to each site of a finite set. A product of factors 1 ± nx · ny and 1 ± nx · v, with
+fixed unit pins v, has the same frame sum as its spherical integral whenever each variable occurs in
+at most four factors. The assertion permits a different frame and a different sign choice at every
+site or factor.
+Proof. The integrand is a polynomial of separate degree at most four. Replace each frame sum
+by the spherical integral at that site in a fixed order. The design identity applies with all other
+variables held fixed. Summation or integration in other variables cannot raise the degree of the
+variable being treated. Finite Fubini, or ordinary Fubini for a bounded polynomial on a compact
+product, completes the proof. The application here has distinct endpoints on every bond; if a
+self-factor were allowed in the general wording, it is first replaced by its constant value on unit
+spins.                                                                                           □
+  In particular every partition function in the cut construction for (8) equals its continuous counter-
+part, independently of the proper colouring. The pins can be arbitrary unit vectors in this equality.
+This does not assert equality of window measures for different frames: the sample spaces and the
+window’s own weight can differ. Only the summed-out partition functions are transferred.
+5.2. The cut ratio with arbitrary site frames. We retain the continuous ferromagnetic model,
+its original legs and removed-site convention, and Hypothesis (P) of the manuscript. Explicitly, for
+every finite G ⊂ Z2 , every unit-vector pin assignment τ on its original legs, every Y ⊂ G \ S(G),
+where S(G) = {x ∈ G : d(x, Z2 \ G) ≤ 2}, and every pair u, v ∈ G \ Y at distance two with a
+common neighbour in Y ,
+      EτG\Y (nu · nv ) − E0G\Y (nu · nv ) ≤ Aθmin{d(u,S(G)),d(v,S(G))} ,   A ≥ 2,   0 < θ < 1.       (21)
+All expectations in this hypothesis are continuous; there are no torus identifications.
+  The cut-ratio lemma of the manuscript holds for arbitrary site frames in (8). Here is the full
+verification of the additional uniformity being used. Let F be a finite physical domain and B ⊂ F
+a window not adjacent to its exterior. Put G = F \ B. For a window letter assignment s, define
+                                         Y           Y
+                               WB (s) =     wx (sx )      (1 + sx · sy ).
+                                          x∈B          {x,y}⊂B
+                                                         x∼y
+
+With pins ηs on the original legs of G, quadrature gives
+                                                            ηs
+                                        η            WB (s)ZG
+                                       µF (nB = s) =           .                                     (22)
+                                                       ZFη
+Let a cut X ⊂ G separate G \ X = G1 ⊔ G2 , with no bonds between the pieces, no exterior pins on
+G1 and no window pins on G2 . Write ΨD = ZD τ /Z 0 and
+                                                D
+                                 e(η, s) = log ΨG\X (ηs) − log ΨG (ηs).
+                     ηs     s Z η and Z 0     0   0
+Factorization gives ZG\X = ZG 1 G2     G\X = ZG1 ZG2 . Therefore
+
+                µηF (nB = s) = c(η)ν(s)e−e(η,s) ,                                   s
+                                                        ν(s) proportional to WB (s)ZG 1
+                                                                                        .            (23)
+The law ν depends on the chosen frames and the window, but not on η.
+  All continuous normalizers here are positive, also for arbitrary pins: choose a unit vector not
+antipodal to any of the finitely many pins and put every free spin in a sufficiently small neighbour-
+hood of it. All factors are strictly positive on this open product set. The empty-domain partition
+                 THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                         11
+
+
+function is one. For the actual frame model, WB (s) > 0 by (4), so ν(s) > 0. If |e(η, s)| ≤ ϵ
+uniformly, summing (23) shows e−ϵ ≤ c(η) ≤ eϵ . Thus
+                                              µηF (nB = s)
+                                     e−2ϵ ≤                ≤ e2ϵ .                               (24)
+                                                   ν(s)
+For two boundary conditions the density ratio is bounded in both directions by ρ = e4ϵ . If A is the
+set where the first law exceeds the second and x is the second law’s mass of A, their TV distance
+is at most min{(ρ − 1)x, (ρ − 1)(1 − x)/ρ} ≤ (ρ − 1)/(ρ + 1). It is therefore at most tanh(2ϵ).
+This proof involves the actual window weights and does not require the window itself to have a
+frame-independent law.
+Theorem 5.2 (Replacement for Theorem t:cutMOS). Assume (21). The cell models (8) for ev-
+ery proper plane three-colouring and every cell origin have the uniform window estimate of Defini-
+tion 4.3, with l0 = 20 and constants p0 > 0, M⋆ depending only on A, θ. In particular these constants
+are independent of colouring, alphabet cardinality, translation and torus periods.
+Proof. Use exactly the cell sets U, Fi , Bi and physical cut X = ∂∞ U ′ of manuscript Section 5.4. Its
+geometric lemmas apply after any translation and any choice of cell origin; their proofs use only the
+square grid, not the frames. With the ADJ-MINOR corrections, X is a nonempty connected finite
+set, bG (x) = d(x, Z2 \ G) ≥ 3 on X, and, for s = u1/4 ,
+                                                        
+                         X
+                              bG (x)        5        1
+                            θ        ≤ 192θ 6 +            + 4(2u + 1)2 θs/6−7 .                 (25)
+                                                  1 − θ2
+                       x∈X
+
+The connectedness is used to order the cut sites so that every site after the first has an earlier
+neighbour, by a spanning tree. The nonemptiness follows because U ′ is finite and nonempty and
+therefore has a nonempty exterior vertex boundary.
+   The unchanged removal lemma l:removal, applied to these sites and the continuous pins ηs,
+gives
+                                                                                     
+                                                         1                  2 u1/4 /6−7
+      |e(η, s)| ≤ 0.0707 + 2.73A + 1.22Aθ−3 192θ5 6 +           + 4(2u + 1)  θ            .  (26)
+                                                       1 − θ2
+Here the decimal constants denote the exact rational upper bounds in that lemma. Its additive
+0.0707 controls the four-spin term at the first removal; it is not omitted. Every remaining term is
+controlled by (21) in a continuous domain with its original legs. The lemma therefore applies to
+every frame-valued pin assignment encountered here, whatever its site type.
+   Choose a single integer threshold M⋆ so that all the unchanged geometric requirements hold and
+the last term inside the brackets of (26) is at most one for every u ≥ M⋆ . Such a threshold exists
+                                     1/4
+because a fixed polynomial times θu /6 tends to zero. Set
+                                                            
+                                  −3       5         1                           2
+ ϵmax = 0.0707 + 2.73A + 1.22Aθ        192θ 6 +        2
+                                                           +1 ,       p0 =                 > 0. (27)
+                                                  1−θ                      exp(4ϵmax ) + 1
+The cut-ratio proof (22)–(24) applies with the actual frames at each site, by Lemma 5.1. It gives
+(12) with 1 − p0 = tanh(2ϵmax ). All bounds used in this proof precede the choice of colouring or
+translate. The physical window configurations and their corresponding cell letters are in bijection,
+which preserves TV. This proves the full all-translates quantifier required in Definition 4.3.    □
+
+           6. Sections 6–8 and appendices: retained inputs and completion
+  The walk expansion, pair recursion and computer-assisted inputs remain statements about the
+continuous ferromagnetic model on finite subsets of Z2 , with arbitrary unit-vector pins. Keep their
+adjudicated versions, with the same constants and local certificate family. In particular no walk
+12                 STRENGTHEN-ALL: REPLACEMENT AND ADDED MANUSCRIPT TEXT
+
+
+expansion is performed directly on an odd torus. Here are the precise interfaces needed for the
+present proof.
+   In Section 6 use the ADJ-R6 definition of d:pattern: full kept sets at U sites, actual two-bond
+kept sets at D sites, and the stated special rule at tips. Use the ADJ-R4 auxiliary networks with
+positive scalar trace masses; terminal protected-boundary sites retain their original pin factors. A
+general initial two-bond D departure has ratio at most 3/4, whereas later D departures have ratio
+3/5. The exposure lemma is used only with at most one present initial D bond. The common
+one-point majorant bounds the sum of maxima of the pinned and free ratios. Impose ADJ-R5’s
+nonreversing initial arrival bond convention in (H2); the corresponding missing bond is available at
+every start used in the recursion.
+   In Section 7 retain the ADJ-R4 closure lemma, which distinguishes the live endpoint, the terminal
+boundary defect and the mass-one underlying consistent domains. Normalize an initial U site’s bond
+to the removed centre before tracing. These corrections prove the same recursion, with the same
+two pair classes and kernel. Its suprema already range over all finite plane domains and all unit
+pins, so they require no change when finite alphabets vary between sites.
+   In Section 8 and Appendix C retain ADJ-R5’s corrected memory-walk range, coefficient assembly,
+and nonnegative sub-invariant vector with its checked zero support. The quotient with periods
+(28, 28) and (28, −28) is a device for bounding trails on the plane, not the physical torus. A trail
+between the two distance-two endpoints has even length because the plane is bipartite; this remains
+true and does not restrict L or N . The local integer certificates and closed-form inequalities of
+Appendix D depend only on arbitrary unit vectors, not on frames. The total-spin weight parity
+in that appendix is representation-theoretic parity, unrelated to torus periods. Retain ADJ-R6’s
+corrections to certificate provenance and the qualification of selected numerical minima.
+   The mod-two even-edge-set argument in Appendix B is likewise entirely on the plane and is
+unchanged. The Section 5 geometry uses its adjudicated nonempty-set and coincident-side details.
+None of these inputs asserts translation invariance of a finite frame model.
+
+Proof of Theorem 1.1. The corrected computer-assisted Theorem t:inputs and corrected recursion
+theorem t:rec give (21), with some fixed A ≥ 2 and 0 < θ < 1. Theorem 5.2 gives the uniform
+window estimate at every translate for every proper plane colouring. Theorem 4.5 gives the common
+constants Lcell , m0 > 0. Lemma 2.3 supplies a torus colouring for every L, N ≥ 3, and Theorem 4.6
+proves the uniform gap with the constants (19). Finally, Proposition 2.1 proves uniqueness for
+every L, N ≥ 3, without any estimate from Sections 3–8. These dependencies are not circular: the
+analytic proof of (P) uses continuous moment identities and the elementary three-factor bound, not
+the frame construction or any finite-volume heat-bath gap.                                      □
+
+                   Appendix A. Additional consequences and small sizes
+Corollary A.1 (Rectangles, arbitrary colour patterns and classical gaps). The same constants yield
+all of the following.
+    (1) Every proper plane three-colouring, every cell origin, every rectangle whose physical side
+         lengths are 2t1 , 2t2 , with t1 , t2 ≥ Lcell , and every admissible boundary condition have physical
+         single-site ferromagnetic heat-bath gap at least c0 m0 . The same holds in the antiferromag-
+         netic convention after the local plane gauge.
+    (2) On every torus with L, N ≥ ℓ + 1, the antiferromagnetic frame heat bath of every proper
+         three-colouring has gap at least c0 m0 /2.
+    (3) On an open r × s square-lattice rectangle, r, s ≥ 2, the quantum ground-space dimension is
+         34 22r+2s−8 .
+Proof. For (1), choose the cell origin at the lower left corner, apply Theorem 4.5 to the cell rectangle
+and then Lemma 4.1; the local gauge preserves all single-site operators. Assertion (2) is (20), whose
+                  THE SPIN-2 SQUARE-LATTICE AKLT GAP ON TORI OF EVERY PARITY                              13
+
+
+proof was uniform over all proper colourings. For (3), the four corners have degree two, the other
+2r + 2s − 8 boundary sites degree three, and all remaining sites degree four. Apply (1).        □
+   There are no exceptions among L, N ≥ 3, including (3, 3) and arbitrarily long tori of width three,
+for the uniqueness assertion. No uniform gap for the infinitely many thin tori with 3 ≤ min(L, N ) <
+L0 is asserted by this argument.
+   Periods below three are outside the manuscript’s model convention: one must choose whether to
+suppress loops and repeated bonds or retain a multigraph. To make the degeneracy issue precise, if
+one extends by the simple-graph convention (distinct neighbours only, loops suppressed), then for
+L = 2, N ≥ 3 every degree is three and dim ker H = 22N ; for L = N = 2 it is 34 . For L = 1, N ≥ 3
+it is 3N , for (L, N ) = (1, 2) or (2, 1) it is 42 , and for (1, 1) it is 5. The corresponding swapped cases
+are identical. All follow from Proposition 2.1. In these cases BG alone has insufficient degree at
+some sites to be a vector of the spin-2 tensor product; the residual factors in (1) are essential. This
+is why they are not additional sizes of the theorem as originally defined.
+
+              Appendix B. Replacement constants and source convention
+    For the extension, delete the icosahedron–dodecahedron γ± from the chain of required constants
+and use (3), (10), (27), (15), (16) and (19), in that order after A, θ are available. The auxiliary
+physical box side ℓ is even because we choose to block it into cells; this places no parity restriction
+on the torus. The final torus threshold can be ℓ + 1, including the boundary-identification case
+formerly excluded by parity.
+    The unchanged constants are g⋆ , the two Knabe prefactors, all removal and response coefficients,
+cs , ct , CV , q, the kernel and its bound on ρ(M1 ), and the continuous A, θ. The new c, L0 need
+not equal the previous unspecified values. The gap bound is qualitative; the explicit finite-energy
+construction here gives very conservative constants.
+    This supplement uses these supplied local documents, with their source labels as stable locators:
+manuscript Sections 1–8 and Appendices A–D; MOSPROOF proof.tex, especially Lemmas 3.1,
+4.2, 4.3, 6.1 and Theorem 6.3; and the four adjudication reports ADJ-R4, ADJ-R5, ADJ-R6 and
+ADJ-MINOR. No MO94/MOS94 mixing theorem is invoked as an additional black box. The exact
+construction in Lemma 2.2 is proved above without a design citation or a numerical design test.
+The independent one-process
+                        √         script check_exact.py verifies all its degree-five moments and cross-
+frame bounds in Q( 5) and tests finite torus colourings and boundary-lift cases; these finite tests
+supplement, and do not replace, the universal proofs.
+

@@ -1,0 +1,33 @@
+import took 2.48s
+compilation (LCNF base) took 177ms
+process pre-definitions took 337ms
+tacticAnalysis took 129ms
+elaboration took 667ms
+type checking took 11.9s
+'CompfeasH2.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 54.9ms
+	attribute application 0.137ms
+	compilation (IR) 5.77ms
+	compilation (LCNF base) 186ms
+	compilation (LCNF impure) 47ms
+	compilation (LCNF mono) 100ms
+	congr simp thm 0.0531ms
+	elaboration 699ms
+	fix level params 0.625ms
+	import 2.48s
+	initialization 26ms
+	instantiate metavars 4.39ms
+	interpretation 456ms
+	let-to-have transformation 1.08ms
+	linting 36.1ms
+	module linting 0.00119ms
+	overlappingInstancesLinter 9.49ms
+	parsing 52ms
+	process pre-definitions 350ms
+	share common exprs 8.45ms
+	simp 0.176ms
+	tactic execution 0.291ms
+	tacticAnalysis 136ms
+	type checking 12s
+	typeclass inference 889ms

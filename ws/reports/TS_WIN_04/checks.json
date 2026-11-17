@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checks": {
+    "cross_centres": 25,
+    "cross_membership_pairs": 2025,
+    "star_overlap_pairs": 200,
+    "all_3x3_subsets": 512,
+    "star_connected_3x3_subsets": 388,
+    "adjacent_connected_enumerations": 218,
+    "exact_rational_weight_checks": 1536,
+    "exact_rational_neighbour_decay_checks": 192000,
+    "integer_fourth_root_scale_checks": 11860,
+    "reduced_core_geometry_checks": 1212,
+    "singleton_cores_in_reduced_checks": 20,
+    "threshold_example_core_cardinality": 3057
+  },
+  "scope": "Finite sanity checks and exact scale arithmetic; not formal proofs.",
+  "threshold_cutsetup_example": {
+    "a": [
+      0,
+      0
+    ],
+    "y": [
+      23134410001,
+      0
+    ],
+    "u": 23134410000,
+    "i": 2,
+    "s": 390,
+    "k": 780
+  }
+}

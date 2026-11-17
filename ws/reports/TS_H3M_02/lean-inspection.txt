@@ -1,0 +1,61 @@
+AKLT.Blueprint.H3.SuffixWindowValidityStatement : Prop
+AKLT.Blueprint.H3.SuffixWindowLabelsStatement : Prop
+AKLT.Blueprint.H3.IncidentBondBudgetStatement : Prop
+AKLT.Blueprint.H3.DepartureBalanceStatement : Prop
+AKLT.Blueprint.H3.KnownSiteMemoryStatement : Prop
+AKLT.Blueprint.H3.TrueRewardIdentityStatement : Prop
+AKLT.Blueprint.H3.RewardForgettingStatement : Prop
+AKLT.Blueprint.H3.LocalCoefficientComparisonStatement : Prop
+def AKLT.Blueprint.H3.TrueStepFacts : {n : ℕ} →
+  AKLT.Defs.PairType → AKLT.Defs.Compass → AKLT.Defs.DirectionWord n → Fin n → Prop :=
+fun {n} X d₀ w i =>
+  AKLT.Defs.RawWindow (AKLT.Blueprint.H3.suffixWindow w ↑i) ∧
+    AKLT.Defs.WindowAdmissible (AKLT.Blueprint.H3.suffixWindow w ↑i) (w i) ∧
+      Eq.{1} (AKLT.Defs.windowArrival (AKLT.Blueprint.H3.suffixWindow w ↑i))
+          (AKLT.Defs.wordIncoming AKLT.Defs.kernelIncoming w i) ∧
+        (Eq.{1} (AKLT.Defs.windowKind (AKLT.Blueprint.H3.suffixWindow w ↑i) (w i)) AKLT.Defs.StepKind.revisit →
+            Eq.{1} (AKLT.Defs.wordRevisit AKLT.Defs.kernelStart w i) true) ∧
+          (Eq.{1} (AKLT.Defs.wordRevisit AKLT.Defs.kernelStart w i) false →
+              Eq.{1} (AKLT.Defs.windowKind (AKLT.Blueprint.H3.suffixWindow w ↑i) (w i))
+                (AKLT.Blueprint.H3.trueKind w i)) ∧
+            LE.le.{0} (AKLT.Defs.witnessKappa w i)
+                (AKLT.Defs.relaxedReward (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i)
+                  (AKLT.Defs.wordIncoming AKLT.Defs.kernelIncoming w i) (w i)
+                  (singleton.{0, 0} AKLT.Defs.kernelCentre)) ∧
+              Ne.{1} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) AKLT.Defs.kernelCentre ∧
+                Ne.{1} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) (AKLT.Defs.kernelTarget X) ∧
+                  Ne.{1} (HAdd.hAdd.{0, 0, 0} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) (w i).step)
+                      AKLT.Defs.kernelCentre ∧
+                    (Eq.{1} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) AKLT.Defs.kernelStart ∨
+                        Eq.{1} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i)
+                          (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step) →
+                      Eq.{1} (AKLT.Defs.wordRevisit AKLT.Defs.kernelStart w i) true ∧
+                        Ne.{1} (AKLT.Defs.windowKind (AKLT.Blueprint.H3.suffixWindow w ↑i) (w i))
+                            AKLT.Defs.StepKind.revisit ∧
+                          Ne.{1}
+                            (insert.{0, 0} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i)
+                              (singleton.{0, 0}
+                                (HAdd.hAdd.{0, 0, 0} (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) (w i).step)))
+                            (insert.{0, 0} AKLT.Defs.kernelStart
+                              (singleton.{0, 0} (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step))))
+def AKLT.Defs.MemoryQuotient.Correct : {m q : ℕ} → AKLT.Defs.MemoryQuotient m q → Prop :=
+fun {m q} Q =>
+  (∀ (a : Fin q), AKLT.Defs.RawWindow (Q.representative a) ∧ Eq.{1} (Q.project (Q.representative a)) a) ∧
+    ∀ (w : AKLT.Defs.DirectionWord m),
+      AKLT.Defs.RawWindow w →
+        ∀ (d : AKLT.Defs.Compass),
+          (Eq.{1} (Q.allowed (Q.project w) d) true ↔ AKLT.Defs.WindowAdmissible w d) ∧
+            (AKLT.Defs.WindowAdmissible w d →
+              Eq.{1} (Q.kind (Q.project w) d) (AKLT.Defs.windowKind w d) ∧
+                Eq.{1} (Q.successor (Q.project w) d) (Q.project (AKLT.Defs.windowSuccessor w d)) ∧
+                  (Ne.{1} (AKLT.Defs.windowKind w d) AKLT.Defs.StepKind.revisit →
+                    Eq.{1} (Q.arrival (Q.project w)) (AKLT.Defs.windowArrival w)))
+def AKLT.Blueprint.H3.LocalCoefficientComparisonStatement : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (n : ℕ) (w : AKLT.Defs.DirectionWord n) (i : Fin n),
+      AKLT.Blueprint.H3.TrueStepFacts X d₀ w i →
+        ∀ (φ ψ : AKLT.Defs.Phase),
+          LE.le.{0} (AKLT.Defs.truePhaseCoefficient w i φ ψ)
+            (AKLT.Defs.stationaryCoefficient Q X d₀ φ (Q.project (AKLT.Blueprint.H3.suffixWindow w ↑i))
+              (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i) (w i) ψ)

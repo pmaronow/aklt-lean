@@ -1,0 +1,1040 @@
+[
+  {
+    "id": "R4-1",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Initial diluted departure",
+    "reason": "A starting D site can have two present bonds, and its first ratio depends on the pins: (3/5)/(1+E[P_fo]/5), rather than always 3/5. Restrict exposure to initial D degree at most one, check this in the recursion, and use the bound 3/4 in the common one-point majorant.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 53,
+        "frozen_end": 53,
+        "final_start": 90,
+        "final_end": 97
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 55,
+        "frozen_end": 55,
+        "final_start": 99,
+        "final_end": 109
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 85,
+        "frozen_end": 85,
+        "final_start": 139,
+        "final_end": 144
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 149,
+        "frozen_end": 149,
+        "final_start": 254,
+        "final_end": 276
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 68,
+        "frozen_end": 68,
+        "final_start": 126,
+        "final_end": 126
+      }
+    ]
+  },
+  {
+    "id": "R4-2",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Closure at the live endpoint",
+    "reason": "In the adjudicated eight-step trail, the live D endpoint has one kept bond at step four. Normalize the starting U bond to the removed center before the empty prefix, distinguish live from non-live sites, and assert consistent-domain membership only after permissible removals.",
+    "changed_spans": [
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 17,
+        "frozen_end": 31,
+        "final_start": 17,
+        "final_end": 89
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 68,
+        "frozen_end": 68,
+        "final_start": 126,
+        "final_end": 126
+      }
+    ]
+  },
+  {
+    "id": "R4-3",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Auxiliary networks and the second expansion",
+    "reason": "A stopped trace drops its arrival bond at a protected boundary site, so it need not be an original domain. Define networks with positive scalar trace mass and original leg factors, extend the pair expansion, and prove the second expansion has at most twelve exceptional first U departures in the radius-two neighborhood of its fixed boundary defect. The one-point bound controls the sum of pinned/free maxima.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 18,
+        "frozen_end": 18,
+        "final_start": 18,
+        "final_end": 32
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 37,
+        "frozen_end": 37,
+        "final_start": 51,
+        "final_end": 68
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 40,
+        "frozen_end": 40,
+        "final_start": 71,
+        "final_end": 74
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 53,
+        "frozen_end": 53,
+        "final_start": 90,
+        "final_end": 97
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 130,
+        "frozen_end": 130,
+        "final_start": 213,
+        "final_end": 222
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 142,
+        "frozen_end": 145,
+        "final_start": 239,
+        "final_end": 250
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 149,
+        "frozen_end": 149,
+        "final_start": 254,
+        "final_end": 276
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 68,
+        "frozen_end": 68,
+        "final_start": 126,
+        "final_end": 126
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 80,
+        "frozen_end": 80,
+        "final_start": 138,
+        "final_end": 168
+      }
+    ]
+  },
+  {
+    "id": "R4-4",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Endpoint independence",
+    "reason": "If the target is initially D with two present bonds, arrival leaves a bond to another spin. Its conditional mean is a/5, so the asserted independence is unjustified. Repeat the one-initial-present-bond qualification in the proof.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 48,
+        "frozen_end": 48,
+        "final_start": 82,
+        "final_end": 85
+      }
+    ]
+  },
+  {
+    "id": "R4-5",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Full U pattern data and covered slots",
+    "reason": "General domains allow partial U kept sets, but the local integral formulas and the 7,962 archived effective patterns require full U sets away from the passage site and exactly three non-arrival passage bonds. State those restrictions and the covering-tip/external-slot convention explicitly.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 104,
+        "frozen_end": 104,
+        "final_start": 163,
+        "final_end": 179
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 108,
+        "frozen_end": 108,
+        "final_start": 183,
+        "final_end": 191
+      }
+    ]
+  },
+  {
+    "id": "R7-1",
+    "report": "ADJ-R4",
+    "status": "CONFIRMED",
+    "title": "Terminal boundary closure",
+    "reason": "The allowed trail from (-1,0) through (-2,0) to (-3,0) in the square [-4,4]^2 ends in S and drops its arrival bond there. Removing that protected endpoint violates the original domain definition. Use the shared R4 closure lemma and auxiliary-network expansion instead.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 18,
+        "frozen_end": 18,
+        "final_start": 18,
+        "final_end": 32
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 37,
+        "frozen_end": 37,
+        "final_start": 51,
+        "final_end": 68
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 40,
+        "frozen_end": 40,
+        "final_start": 71,
+        "final_end": 74
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 130,
+        "frozen_end": 130,
+        "final_start": 213,
+        "final_end": 222
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 142,
+        "frozen_end": 145,
+        "final_start": 239,
+        "final_end": 250
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 17,
+        "frozen_end": 31,
+        "final_start": 17,
+        "final_end": 89
+      },
+      {
+        "file": "sec7-recursion.tex",
+        "frozen_start": 80,
+        "frozen_end": 80,
+        "final_start": 138,
+        "final_end": 168
+      }
+    ]
+  },
+  {
+    "id": "R5-1",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED",
+    "title": "Nonnegative remainder vector",
+    "reason": "There are 64 memory-10 windows with zero indegree; the constructed vector is zero there in every phase. Strict positivity and ratios over all coordinates fail. Allow z>=0, check terminal mass vanishes on its zero set, divide only where z>0, require finite data and successful inequalities, and use the actual stored lcheck.",
+    "changed_spans": [
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 76,
+        "frozen_end": 76,
+        "final_start": 76,
+        "final_end": 76
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 90,
+        "frozen_end": 90,
+        "final_start": 90,
+        "final_end": 96
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 114,
+        "frozen_end": 114,
+        "final_start": 120,
+        "final_end": 123
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 121,
+        "frozen_end": 121,
+        "final_start": 151,
+        "final_end": 164
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 125,
+        "frozen_end": 125,
+        "final_start": 176,
+        "final_end": 176
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 128,
+        "frozen_end": 128,
+        "final_start": 179,
+        "final_end": 187
+      }
+    ]
+  },
+  {
+    "id": "R5-2",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED-MODIFIED",
+    "title": "Tail archive and exact assembly",
+    "reason": "The frozen bundle omits production records that do exist in the full archive. Identify the seven corrected logs, commands, exact assembler, and exact dyadic denominator. Exact assembly retains Table C.1; the old B upper bound must be 0.987731 and the outward new/old ratio interval must end at 1.0000333.",
+    "changed_spans": [
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 119,
+        "frozen_end": 119,
+        "final_start": 128,
+        "final_end": 149
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 121,
+        "frozen_end": 121,
+        "final_start": 151,
+        "final_end": 164
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 123,
+        "frozen_end": 123,
+        "final_start": 166,
+        "final_end": 174
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 125,
+        "frozen_end": 125,
+        "final_start": 176,
+        "final_end": 176
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 128,
+        "frozen_end": 128,
+        "final_start": 179,
+        "final_end": 187
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 3,
+        "frozen_end": 3,
+        "final_start": 3,
+        "final_end": 3
+      }
+    ]
+  },
+  {
+    "id": "R5-3",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED",
+    "title": "H2 integer initialization",
+    "reason": "The frozen alm8.c forms 4^i in signed int through i=23, overflowing at i=16 even for m=8. Describe the existing corrected audit implementation that validates the fixed instance and initializes powers only through eight, and locate its exact checker and vector.",
+    "changed_spans": [
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 33,
+        "frozen_end": 33,
+        "final_start": 33,
+        "final_end": 45
+      }
+    ]
+  },
+  {
+    "id": "R5-4",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED",
+    "title": "H2 certified output",
+    "reason": "The nearest-rounded decimal 0.85594871 is smaller than the stored upper dyadic, and exp/log evaluation is not a certified eighth root. Use upward decimal output and hexadecimal output, then the exact rational inequality 0.85594872<(3923/4000)^8.",
+    "changed_spans": [
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 33,
+        "frozen_end": 33,
+        "final_start": 33,
+        "final_end": 45
+      }
+    ]
+  },
+  {
+    "id": "R5-5",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED",
+    "title": "Initial trail convention",
+    "reason": "With all four initial directions, the reproduced ratio-100 base-sum bound exceeds 201 and cannot give C_V<=153. Forbid only immediate initial reversal, designate an absent incoming bond in the one-point lemma, and state the restricted base sums that retain C_V<=153.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 135,
+        "frozen_end": 135,
+        "final_start": 227,
+        "final_end": 232
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 138,
+        "frozen_end": 138,
+        "final_start": 235,
+        "final_end": 235
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 142,
+        "frozen_end": 142,
+        "final_start": 239,
+        "final_end": 244
+      },
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 149,
+        "frozen_end": 149,
+        "final_start": 254,
+        "final_end": 276
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 16,
+        "frozen_end": 16,
+        "final_start": 16,
+        "final_end": 16
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 33,
+        "frozen_end": 33,
+        "final_start": 33,
+        "final_end": 45
+      }
+    ]
+  },
+  {
+    "id": "R5-6",
+    "report": "ADJ-R5",
+    "status": "CONFIRMED",
+    "title": "Tail cutoff and unsplit implementation",
+    "reason": "A genuine length-108 trail can encounter a false quotient image, so archived mode-A summaries through 109 do not certify every included trail length. Use mode-A outputs only through 106 and mode B from 108. Document the unused stronger unsplit start deletion and the optional archived variant without reinterpreting their output.",
+    "changed_spans": [
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 119,
+        "frozen_end": 119,
+        "final_start": 128,
+        "final_end": 149
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 125,
+        "frozen_end": 125,
+        "final_start": 176,
+        "final_end": 176
+      },
+      {
+        "file": "app-tail.tex",
+        "frozen_start": 128,
+        "frozen_end": 128,
+        "final_start": 179,
+        "final_end": 187
+      }
+    ]
+  },
+  {
+    "id": "R6-1",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Pattern restriction shared with R4",
+    "reason": "The broad U-kept-set reading permits a ratio 1040285/1131207<187/200. The full U and passage-site restrictions and filled corner slots already added for R4-5 exclude that counterexample and match all 7,962 records; do not duplicate the same restrictions.",
+    "changed_spans": [
+      {
+        "file": "sec6-walks.tex",
+        "frozen_start": 104,
+        "frozen_end": 108,
+        "final_start": 163,
+        "final_end": 191
+      }
+    ]
+  },
+  {
+    "id": "R6-2",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Reduced and unreduced dimensions",
+    "reason": "Pattern ID 113 has twelve unreduced vectors. The reduced representation always has at most eleven, and every representation actually selected in the two certificate files has at most eleven. Distinguish these claims.",
+    "changed_spans": [
+      {
+        "file": "app-local.tex",
+        "frozen_start": 282,
+        "frozen_end": 282,
+        "final_start": 282,
+        "final_end": 282
+      }
+    ]
+  },
+  {
+    "id": "R6-3",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Exact examples rather than global minima",
+    "reason": "Exact closed-form values for particular patterns do not certify global class minima. The archived H1 certificates assert only 961/1000 or 187/200. Replace global-ranking claims with selected examples while retaining their exact values, IDs, and the precise negative-control threshold convention.",
+    "changed_spans": [
+      {
+        "file": "app-constants.tex",
+        "frozen_start": 17,
+        "frozen_end": 17,
+        "final_start": 17,
+        "final_end": 17
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 196,
+        "frozen_end": 196,
+        "final_start": 196,
+        "final_end": 196
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 270,
+        "frozen_end": 270,
+        "final_start": 270,
+        "final_end": 270
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 272,
+        "frozen_end": 273,
+        "final_start": 272,
+        "final_end": 273
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 296,
+        "frozen_end": 296,
+        "final_start": 295,
+        "final_end": 296
+      },
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 18,
+        "frozen_end": 18,
+        "final_start": 18,
+        "final_end": 18
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 66,
+        "frozen_end": 67,
+        "final_start": 78,
+        "final_end": 79
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 73,
+        "frozen_end": 73,
+        "final_start": 85,
+        "final_end": 85
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 77,
+        "frozen_end": 77,
+        "final_start": 89,
+        "final_end": 89
+      }
+    ]
+  },
+  {
+    "id": "R6-4",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED-MODIFIED",
+    "title": "Validation provenance and precise claims",
+    "reason": "The full archive supplies the disputed independent enumerator, ratio comparisons, spin checks, second implementation, and 600-case test. Identify their locations and actual scope; disclose that the 30-trial mutation output has no archived generating driver. Round the recorded 2.4424906541753444e-15 excess upward to 2.5e-15.",
+    "changed_spans": [
+      {
+        "file": "app-local.tex",
+        "frozen_start": 282,
+        "frozen_end": 282,
+        "final_start": 282,
+        "final_end": 282
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 292,
+        "frozen_end": 293,
+        "final_start": 292,
+        "final_end": 293
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 295,
+        "frozen_end": 296,
+        "final_start": 295,
+        "final_end": 296
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 298,
+        "frozen_end": 298,
+        "final_start": 298,
+        "final_end": 298
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 300,
+        "frozen_end": 300,
+        "final_start": 300,
+        "final_end": 300
+      }
+    ]
+  },
+  {
+    "id": "R6-5",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Floating shadow guards",
+    "reason": "Floating point is also used for tensor overflow guards and diagnostics. Explain the binary64 lower error factor eta and why passing nonnegative shadow checks bound all accepted integer contractions and coefficient sums below overflow; retain unbounded-integer positivity and exact rational closed tests.",
+    "changed_spans": [
+      {
+        "file": "app-local.tex",
+        "frozen_start": 284,
+        "frozen_end": 284,
+        "final_start": 284,
+        "final_end": 284
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 286,
+        "frozen_end": 286,
+        "final_start": 286,
+        "final_end": 286
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 300,
+        "frozen_end": 300,
+        "final_start": 300,
+        "final_end": 300
+      }
+    ]
+  },
+  {
+    "id": "R6-6",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Zero-radius parametrization",
+    "reason": "The angle between mu_f and mu_g is undefined when a radius is zero, as in ID 5469. Write mu_x=rho_x d_x with an arbitrary unit d_x at zero radius and t=d_f dot d_g; the formulas then require no division by a radius.",
+    "changed_spans": [
+      {
+        "file": "app-local.tex",
+        "frozen_start": 263,
+        "frozen_end": 263,
+        "final_start": 263,
+        "final_end": 263
+      }
+    ]
+  },
+  {
+    "id": "R6-7",
+    "report": "ADJ-R6",
+    "status": "CONFIRMED",
+    "title": "Largest tested split block",
+    "reason": "The stored size 245 can combine exchange blocks (131+48+48+18). The largest individual matrix actually tested after exchange-sign splitting has size 179. Correct the exact-largest claim and retain the valid upper bounds of 245.",
+    "changed_spans": [
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 73,
+        "frozen_end": 73,
+        "final_start": 85,
+        "final_end": 85
+      }
+    ]
+  },
+  {
+    "id": "R1-1",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Edge-orientation signs",
+    "reason": "An oriented determinant changes sign on reversing its edge. Reversing one edge at a vertex gives B=-1 and the unsigned local product +1 in the adjudicated example. Include c_x, the product of incident orientation signs, in rho_x and in the second local factorization.",
+    "changed_spans": [
+      {
+        "file": "sec2-frames-Q.tex",
+        "frozen_start": 101,
+        "frozen_end": 101,
+        "final_start": 114,
+        "final_end": 119
+      },
+      {
+        "file": "sec2-frames-Q.tex",
+        "frozen_start": 110,
+        "frozen_end": 110,
+        "final_start": 128,
+        "final_end": 128
+      }
+    ]
+  },
+  {
+    "id": "R1-2",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Individual positive factors",
+    "reason": "For one site with four identical neighboring letters, Z=16/5 and mu(a)/w(a)=5(1+gamma_+)^4/16, exceeding the asserted one-factor upper bound. Bound each internal/boundary bond factor and assert positive site weights.",
+    "changed_spans": [
+      {
+        "file": "sec2-frames-Q.tex",
+        "frozen_start": 137,
+        "frozen_end": 137,
+        "final_start": 155,
+        "final_end": 155
+      }
+    ]
+  },
+  {
+    "id": "R1-3",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Exact internal frame proof",
+    "reason": "A citation without a locator and a numerical moment check do not supply the promised exact design input. Give explicit icosahedron/dodecahedron coordinates, exact second/fourth moments, odd-moment cancellation, and the dual-face calculation, proving the design property internally.",
+    "changed_spans": [
+      {
+        "file": "sec2-frames-Q.tex",
+        "frozen_start": 63,
+        "frozen_end": 63,
+        "final_start": 63,
+        "final_end": 76
+      }
+    ]
+  },
+  {
+    "id": "R2-1",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Zero total in Cauchy\u2013Schwarz",
+    "reason": "For the constant function, every X_a and Y_a is zero and the displayed total quotient is 0/0. Separate the zero Dirichlet-form case, then assume the total denominator is strictly positive.",
+    "changed_spans": [
+      {
+        "file": "sec3-knabe.tex",
+        "frozen_start": 105,
+        "frozen_end": 105,
+        "final_start": 105,
+        "final_end": 111
+      }
+    ]
+  },
+  {
+    "id": "R2-2",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Nontrivial gap spaces",
+    "reason": "A singleton product or empty volume has no nonconstant function and no smallest positive eigenvalue. Require coordinate alphabets of at least two elements and restrict spectral-gap assertions to nonempty finite volumes.",
+    "changed_spans": [
+      {
+        "file": "sec3-knabe.tex",
+        "frozen_start": 7,
+        "frozen_end": 7,
+        "final_start": 7,
+        "final_end": 7
+      },
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 7,
+        "frozen_end": 7,
+        "final_start": 7,
+        "final_end": 7
+      }
+    ]
+  },
+  {
+    "id": "R2-3",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Final surgery index",
+    "reason": "The window hypothesis is available only for integer i<=s, whereas i_1=floor(s)+1>s. Restrict the uniform success bound to the eligible indices and retain agreement-preserving resampling at the final step; the propagation proof already uses only eligible indices.",
+    "changed_spans": [
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 101,
+        "frozen_end": 101,
+        "final_start": 101,
+        "final_end": 101
+      }
+    ]
+  },
+  {
+    "id": "R2-4",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Integral geometric parameters",
+    "reason": "A nonintegral M need not give a square with (2M+1)^2 cells; for M=1/2 there is one cell. Make square sizes and thresholds integral, require l_0>=1, and specify integer shell indices while retaining the real scale s=M^(1/4).",
+    "changed_spans": [
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 37,
+        "frozen_end": 37,
+        "final_start": 37,
+        "final_end": 37
+      },
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 68,
+        "frozen_end": 68,
+        "final_start": 68,
+        "final_end": 68
+      },
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 81,
+        "frozen_end": 81,
+        "final_start": 81,
+        "final_end": 81
+      }
+    ]
+  },
+  {
+    "id": "R2-5",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Established local example values",
+    "reason": "The global minimum row and repeated tightest-pattern wording exceed the certificate targets. State exact values of two decoupled examples and consistently qualify all related labels, margins, and negative-control descriptions, merged with R6-3.",
+    "changed_spans": [
+      {
+        "file": "app-constants.tex",
+        "frozen_start": 17,
+        "frozen_end": 17,
+        "final_start": 17,
+        "final_end": 17
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 196,
+        "frozen_end": 196,
+        "final_start": 196,
+        "final_end": 196
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 270,
+        "frozen_end": 270,
+        "final_start": 270,
+        "final_end": 270
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 272,
+        "frozen_end": 273,
+        "final_start": 272,
+        "final_end": 273
+      },
+      {
+        "file": "app-local.tex",
+        "frozen_start": 296,
+        "frozen_end": 296,
+        "final_start": 295,
+        "final_end": 296
+      },
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 18,
+        "frozen_end": 18,
+        "final_start": 18,
+        "final_end": 18
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 66,
+        "frozen_end": 67,
+        "final_start": 78,
+        "final_end": 79
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 73,
+        "frozen_end": 73,
+        "final_start": 85,
+        "final_end": 85
+      },
+      {
+        "file": "sec8-computer-assisted.tex",
+        "frozen_start": 77,
+        "frozen_end": 77,
+        "final_start": 89,
+        "final_end": 89
+      }
+    ]
+  },
+  {
+    "id": "R3-1",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Positive normalizers",
+    "reason": "Nonnegative continuous factors may vanish pointwise; antipodal pins give a one-site density vanishing at two points but integral 2/3. Prove strictly positive finite partition functions using a common spin direction and an open product neighborhood, including diluted sites and positive trace mass, and prove the reference window law has full support.",
+    "changed_spans": [
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 11,
+        "frozen_end": 11,
+        "final_start": 11,
+        "final_end": 11
+      },
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 79,
+        "frozen_end": 79,
+        "final_start": 79,
+        "final_end": 79
+      }
+    ]
+  },
+  {
+    "id": "R3-2",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Nonempty removal list",
+    "reason": "The removal bound refers to x_1 even when the old hypotheses allow p=0. Require p>=1 and establish that the finite nonempty U-prime gives a nonempty cut X before choosing its connected ordering.",
+    "changed_spans": [
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 102,
+        "frozen_end": 102,
+        "final_start": 102,
+        "final_end": 102
+      },
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 221,
+        "frozen_end": 221,
+        "final_start": 221,
+        "final_end": 221
+      }
+    ]
+  },
+  {
+    "id": "R3-3",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Signed side depths",
+    "reason": "With y=(0,-M-1), the bottom side misses the square yet its distance to the half-plane beyond the top edge is 2M+2+k, not at most zero. Use signed inward depths and distinguish sides meeting the square, beyond the chosen edge, or beyond the opposite edge. The count of 48 cells/192 sites is retained.",
+    "changed_spans": [
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 179,
+        "frozen_end": 179,
+        "final_start": 179,
+        "final_end": 179
+      }
+    ]
+  },
+  {
+    "id": "R3-4",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Bounded cut cost",
+    "reason": "F(d)=(d+1)^(-8) is not o(d^(-8)) but still bounds the crude O(M^2) long-part cost uniformly. Big-O decay suffices for bounded cost; little-o additionally makes that contribution vanish.",
+    "changed_spans": [
+      {
+        "file": "sec5-cut.tex",
+        "frozen_start": 229,
+        "frozen_end": 229,
+        "final_start": 229,
+        "final_end": 229
+      }
+    ]
+  },
+  {
+    "id": "R7-2",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Overview residual and stopped trails",
+    "reason": "The first removal includes the quartic residual giving the fixed 0.0707 cost. Pair expansion also includes trails stopped at S and their terminal correlation factors. Restore both features in the overview, using the auxiliary-network terminology from R4.",
+    "changed_spans": [
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 30,
+        "frozen_end": 30,
+        "final_start": 30,
+        "final_end": 30
+      },
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 32,
+        "frozen_end": 32,
+        "final_start": 32,
+        "final_end": 32
+      }
+    ]
+  },
+  {
+    "id": "R7-3",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Auxiliary spin support",
+    "reason": "The diluted measure has mass 2/5 at zero and integral |n|^2 equal to 3/5. Qualify the unit-vector convention: physical/ordinary spins and pins are unit, while auxiliary traced spins may also be zero.",
+    "changed_spans": [
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 44,
+        "frozen_end": 44,
+        "final_start": 44,
+        "final_end": 44
+      }
+    ]
+  },
+  {
+    "id": "R7-4",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Acyclic dependencies",
+    "reason": "The cut proof invokes the earlier frame definition and shell geometry, contrary to the broad claim of no dependencies on Sections 2\u20134. State the actual acyclic dependency claim: those proofs do not use the main theorem, the concluding gap theorem, or consequences of the window estimate.",
+    "changed_spans": [
+      {
+        "file": "sec4-mixing-to-gap.tex",
+        "frozen_start": 138,
+        "frozen_end": 138,
+        "final_start": 138,
+        "final_end": 138
+      }
+    ]
+  },
+  {
+    "id": "R7-5",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Shared exact frame input",
+    "reason": "This duplicates R1-3: the required exact design fact lacked the promised locator. The same internal coordinate-and-moment proof resolves both findings once.",
+    "changed_spans": [
+      {
+        "file": "sec2-frames-Q.tex",
+        "frozen_start": 63,
+        "frozen_end": 63,
+        "final_start": 63,
+        "final_end": 76
+      }
+    ]
+  },
+  {
+    "id": "FN-R1-square",
+    "report": "ADJ-MINOR",
+    "status": "CONFIRMED",
+    "title": "Weighted squared modulus",
+    "reason": "Changing one spinor representative by exp(i*pi/8) can multiply the degree-four evaluation by i and its ordinary square by -1, while probabilities stay fixed. The Gibbs law uses the normalized squared modulus, reference weights, and checkerboard change of variables.",
+    "changed_spans": [
+      {
+        "file": "sec1-intro-statement.tex",
+        "frozen_start": 24,
+        "frozen_end": 24,
+        "final_start": 24,
+        "final_end": 24
+      }
+    ]
+  }
+]

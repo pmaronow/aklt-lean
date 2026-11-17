@@ -1,0 +1,33 @@
+AKLT.Blueprint.H3.ReflectionPairLabelsStatement : Prop
+AKLT.Blueprint.H3.FirstDirectionPartitionStatement : Prop
+AKLT.Blueprint.H3.LengthShiftSupportStatement : Prop
+AKLT.Blueprint.H3.LengthRewardPartitionStatement : Prop
+AKLT.Blueprint.H3.KernelSeriesRegroupingStatement : Prop
+AKLT.Blueprint.H3.CutoffSeriesLiftStatement : Prop
+Pi.instFintype
+Pi.instFintype
+AKLT.Defs.instFintypePairType
+def AKLT.Blueprint.H3.KernelSeriesRegroupingStatement : Prop :=
+∀ (X : AKLT.Defs.PairType),
+  (∀ (Y : AKLT.Defs.PairType) (n s : ℕ),
+      s ∉ AKLT.Blueprint.H3.lengthShifts X n → AKLT.Defs.kernelLengthCoefficient X Y s n = 0) →
+    (∀ (n : ℕ),
+        AKLT.Blueprint.H3.kernelLengthRow X n =
+          ∑ Y,
+            ∑ s ∈ AKLT.Blueprint.H3.lengthShifts X n,
+              AKLT.Defs.kernelLengthCoefficient X Y s n * AKLT.Defs.kernelWitness Y) →
+      ∑ Y, AKLT.Defs.shiftedKernel 1 X Y * ENNReal.ofReal ↑(AKLT.Defs.kernelWitness Y) =
+        ∑' (n : ℕ), ENNReal.ofReal ↑(AKLT.Blueprint.H3.kernelLengthRow X n)
+def AKLT.Blueprint.H3.CutoffSeriesLiftStatement : Prop :=
+∀ (f : ℕ → ℚ),
+  (∀ (n : ℕ), 0 ≤ f n) →
+    f 0 = 0 →
+      ∀ (B : ℚ), (∀ (R : ℕ), ∑ n ∈ Finset.Icc 1 R, f n ≤ B) → ∑' (n : ℕ), ENNReal.ofReal ↑(f n) ≤ ENNReal.ofReal ↑B
+AKLT.Blueprint.H3.kernelLengthCoefficient_nonneg (X Y : AKLT.Defs.PairType) (s n : ℕ) :
+  0 ≤ AKLT.Defs.kernelLengthCoefficient X Y s n
+AKLT.Blueprint.H3.kernelWitness_pos (X : AKLT.Defs.PairType) : 0 < AKLT.Defs.kernelWitness X
+ENNReal.tsum_comm.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β → ENNReal} :
+  ∑' (a : α) (b : β), f a b = ∑' (b : β) (a : α), f a b
+ENNReal.tsum_mul_right.{u_1} {α : Type u_1} {a : ENNReal} {f : α → ENNReal} :
+  ∑' (i : α), f i * a = (∑' (i : α), f i) * a
+ENNReal.tsum_eq_iSup_nat {f : ℕ → ENNReal} : ∑' (i : ℕ), f i = ⨆ i, ∑ a ∈ Finset.range i, f a

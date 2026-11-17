@@ -1,0 +1,128 @@
+def AKLT.Blueprint.Win.nearCost : Real → Real :=
+fun θ => HMul.hMul (HMul.hMul 48 (HPow.hPow θ 14)) (HAdd.hAdd 17 (HDiv.hDiv 1 (HSub.hSub 1 θ)))
+def AKLT.Blueprint.Win.tailCost : Real → Nat → Real :=
+fun θ u =>
+  HMul.hMul (HMul.hMul 4 (HPow.hPow (HAdd.hAdd (HMul.hMul 2 ↑u) 1) 2))
+    (HPow.hPow θ (HSub.hSub (HDiv.hDiv (AKLT.Defs.shellSpacing u) 12) 1))
+def AKLT.Blueprint.Win.NearSeriesStatement : Prop :=
+∀ (θ : Real),
+  LT.lt 0 θ →
+    LT.lt θ 1 →
+      And (Summable fun j => HPow.hPow θ (HSub.hSub (max j 16) 2))
+        (LE.le (HMul.hMul 48 (tsum fun j => HPow.hPow θ (HSub.hSub (max j 16) 2))) (AKLT.Blueprint.Win.nearCost θ))
+def AKLT.Blueprint.Win.SignedSideExclusionStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : ℕ) (i : ℤ),
+  AKLT.Blueprint.Win.CutSetup a y u i → AKLT.Defs.ParallelClearance a y u i → AKLT.Blueprint.Win.NoCoincidence a y u i
+def AKLT.Blueprint.Win.SquareIntersectionStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (r R : ℤ),
+  0 < r →
+    0 < R →
+      (∀ (axis : Fin 2) (ε δ : ℤ),
+          AKLT.Blueprint.Win.SignedUnit ε →
+            AKLT.Blueprint.Win.SignedUnit δ →
+              AKLT.Blueprint.Win.coord axis y + ε * r ≠ AKLT.Blueprint.Win.coord axis a + δ * R) →
+        (AKLT.Blueprint.Win.sphere y r ∩ AKLT.Blueprint.Win.sphere a R).card ≤ 8
+def AKLT.Blueprint.Win.RawLayerCountStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : ℕ) (i : ℤ),
+  AKLT.Blueprint.Win.CutSetup a y u i →
+    AKLT.Blueprint.Win.NoCoincidence a y u i →
+      (∀ x ∈ AKLT.Blueprint.Win.cutRaw a y u i,
+          ↑(AKLT.Blueprint.Win.radialOffset y u i x) ≤ AKLT.Defs.shellSpacing u / 12 →
+            30 + ↑(AKLT.Blueprint.Win.radialOffset y u i x) ≤ AKLT.Blueprint.Win.squareDepth a u x ∧
+              AKLT.Blueprint.Win.squareDepth a u x < 32 + ↑(AKLT.Blueprint.Win.radialOffset y u i x)) →
+        (∀ (a y : AKLT.Defs.Plane) (r R : ℤ),
+            0 < r →
+              0 < R →
+                (∀ (axis : Fin 2) (ε δ : ℤ),
+                    AKLT.Blueprint.Win.SignedUnit ε →
+                      AKLT.Blueprint.Win.SignedUnit δ →
+                        AKLT.Blueprint.Win.coord axis y + ε * r ≠ AKLT.Blueprint.Win.coord axis a + δ * R) →
+                  (AKLT.Blueprint.Win.sphere y r ∩ AKLT.Blueprint.Win.sphere a R).card ≤ 8) →
+          ∀ (j : ℕ),
+            ↑j ≤ AKLT.Defs.shellSpacing u / 12 →
+              {x ∈ AKLT.Blueprint.Win.cutRaw a y u i | AKLT.Blueprint.Win.radialOffset y u i x = j}.card ≤ 48
+def AKLT.Blueprint.Win.RawWeightSumStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : ℕ) (i : ℤ),
+  AKLT.Blueprint.Win.CutSetup a y u i →
+    AKLT.Blueprint.Win.cutRaw a y u i ⊆ AKLT.Defs.square a u →
+      (∀ x ∈ AKLT.Blueprint.Win.cutRaw a y u i,
+          (↑(AKLT.Blueprint.Win.radialOffset y u i x) ≤ AKLT.Defs.shellSpacing u / 12 →
+              max (AKLT.Blueprint.Win.radialOffset y u i x) 16 - 2 ≤
+                (AKLT.Defs.boundaryDepth (AKLT.Blueprint.Win.cutVolume a y u i) x).toNat) ∧
+            (AKLT.Defs.shellSpacing u / 12 < ↑(AKLT.Blueprint.Win.radialOffset y u i x) →
+              AKLT.Defs.shellSpacing u / 12 - 1 ≤
+                ↑(AKLT.Defs.boundaryDepth (AKLT.Blueprint.Win.cutVolume a y u i) x).toNat)) →
+        (∀ (j : ℕ),
+            ↑j ≤ AKLT.Defs.shellSpacing u / 12 →
+              {x ∈ AKLT.Blueprint.Win.cutRaw a y u i | AKLT.Blueprint.Win.radialOffset y u i x = j}.card ≤ 48) →
+          ∀ (θ : ℝ),
+            0 < θ →
+              θ < 1 →
+                (Summable fun j => θ ^ (max j 16 - 2)) →
+                  48 * ∑' (j : ℕ), θ ^ (max j 16 - 2) ≤ AKLT.Blueprint.Win.nearCost θ →
+                    ∑ x ∈ AKLT.Blueprint.Win.cutRaw a y u i,
+                        AKLT.Defs.decay θ (AKLT.Defs.boundaryDepth (AKLT.Blueprint.Win.cutVolume a y u i) x) ≤
+                      AKLT.Blueprint.Win.nearCost θ + AKLT.Blueprint.Win.tailCost θ u
+def AKLT.Blueprint.Win.ThickDepthStatement : Prop :=
+∀ (G X₀ : Finset AKLT.Defs.Plane),
+  (∀ x ∈ X₀, 14 ≤ AKLT.Defs.boundaryDepth G x) →
+    AKLT.Blueprint.Win.thicken X₀ ⊆ G ∧ ∀ z ∈ AKLT.Blueprint.Win.thicken X₀, 13 ≤ AKLT.Defs.boundaryDepth G z
+def AKLT.Blueprint.Win.CutSeparationStatement : Prop :=
+∀ (F B U X : Finset AKLT.Defs.Plane),
+  B ⊆ U →
+    U ⊆ F →
+      (∀ z ∈ B, ∀ (w : AKLT.Defs.Plane), AKLT.Defs.Adjacent z w → w ∈ U) →
+        AKLT.Blueprint.Win.NoBond ↑U {z | z ∉ F} →
+          AKLT.Blueprint.Win.rawBoundary U ⊆ X →
+            X ⊆ F \ B → AKLT.Blueprint.Win.SeparatingCut F B X ((U \ B) \ X) ((F \ B) \ (U ∪ X))
+def AKLT.Blueprint.Win.OriginalPositivityStatement : Prop :=
+AKLT.Blueprint.Top.FiniteFactsStatement →
+  ∀ (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G),
+    (0 < AKLT.Defs.pinnedSum G Y τ fun x => 1) ∧ 0 < AKLT.Defs.freeSum G Y fun x => 1
+AKLT.Defs.FiniteSpinNetwork.Valid {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) : Prop
+AKLT.Defs.FiniteSpinNetwork.partition {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) (pinned : Bool)
+  (f : (Fin n → AKLT.Defs.Vec3) → ℝ) : ℝ
+instFintypeProd (Fin 3) (Fin 2 × Fin 2)
+instFintypeOption
+Pi.instFintype
+14
+14
+15
+16
+1
+def AKLT.Blueprint.Win.nearCost : Real → Real :=
+fun θ =>
+  @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@OfNat.ofNat Real (nat_lit 48)
+        (@instOfNatAtLeastTwo Real (nat_lit 48) Real.instNatCast AKLT.Blueprint.Win.nearCost._proof_1))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) θ
+        (@OfNat.ofNat Nat (nat_lit 14) (instOfNatNat (nat_lit 14)))))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@OfNat.ofNat Real (nat_lit 17)
+        (@instOfNatAtLeastTwo Real (nat_lit 17) Real.instNatCast AKLT.Blueprint.Win.nearCost._proof_2))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) θ)))
+def AKLT.Blueprint.Win.tailCost : Real → Nat → Real :=
+fun θ u =>
+  @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@OfNat.ofNat Real (nat_lit 4)
+        (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast AKLT.Blueprint.Win.tailCost._proof_1))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 2)
+              (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast AKLT.Blueprint.Win.pairSum._proof_1))
+            (@Nat.cast Real Real.instNatCast u))
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) θ
+      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (AKLT.Defs.shellSpacing u)
+          (@OfNat.ofNat Real (nat_lit 12)
+            (@instOfNatAtLeastTwo Real (nat_lit 12) Real.instNatCast AKLT.Blueprint.Win.taper._proof_1)))
+        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))

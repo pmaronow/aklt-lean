@@ -1,0 +1,173 @@
+{
+  "result": "PASS",
+  "literal_declarations_parsed": 786,
+  "raw_code_lanes_checked": 1048576,
+  "depth_counts": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "raw_windows_checked": 60092,
+  "class_representatives_checked": 3741,
+  "raw_direction_checks": 240368,
+  "labelled_edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "assigned": [
+    {
+      "declaration": "rawClass_690",
+      "source_line": 1395,
+      "hex_digits": 4096,
+      "bit_range_inclusive": [
+        1261564,
+        1277947
+      ],
+      "intersecting_code_range_inclusive": [
+        105130,
+        106495
+      ],
+      "intersecting_code_count": 1366,
+      "raw_windows": 90,
+      "invalid_words": 1276,
+      "distinct_raw_classes": 90,
+      "boundary_lanes": [
+        {
+          "code": 105130,
+          "word": "ENWNWWWWWW",
+          "class": 356
+        },
+        {
+          "code": 106495,
+          "word": "ENWNSSSSSS",
+          "class": 3741
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_691",
+      "source_line": 1397,
+      "hex_digits": 4096,
+      "bit_range_inclusive": [
+        1245180,
+        1261563
+      ],
+      "intersecting_code_range_inclusive": [
+        103765,
+        105130
+      ],
+      "intersecting_code_count": 1366,
+      "raw_windows": 222,
+      "invalid_words": 1144,
+      "distinct_raw_classes": 187,
+      "boundary_lanes": [
+        {
+          "code": 103765,
+          "word": "ENWNNNNNNN",
+          "class": 115
+        },
+        {
+          "code": 105130,
+          "word": "ENWNWWWWWW",
+          "class": 356
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_692",
+      "source_line": 1399,
+      "hex_digits": 4096,
+      "bit_range_inclusive": [
+        1228796,
+        1245179
+      ],
+      "intersecting_code_range_inclusive": [
+        102399,
+        103764
+      ],
+      "intersecting_code_count": 1366,
+      "raw_windows": 270,
+      "invalid_words": 1096,
+      "distinct_raw_classes": 229,
+      "boundary_lanes": [
+        {
+          "code": 102399,
+          "word": "ENWESSSSSS",
+          "class": 3741
+        },
+        {
+          "code": 103764,
+          "word": "ENWNNNNNNE",
+          "class": 114
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_693",
+      "source_line": 1401,
+      "hex_digits": 4096,
+      "bit_range_inclusive": [
+        1212412,
+        1228795
+      ],
+      "intersecting_code_range_inclusive": [
+        101034,
+        102399
+      ],
+      "intersecting_code_count": 1366,
+      "raw_windows": 0,
+      "invalid_words": 1366,
+      "distinct_raw_classes": 0,
+      "boundary_lanes": [
+        {
+          "code": 101034,
+          "word": "ENWEWWWWWW",
+          "class": 3741
+        },
+        {
+          "code": 102399,
+          "word": "ENWESSSSSS",
+          "class": 3741
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_694",
+      "source_line": 1403,
+      "hex_digits": 4096,
+      "bit_range_inclusive": [
+        1196028,
+        1212411
+      ],
+      "intersecting_code_range_inclusive": [
+        99669,
+        101034
+      ],
+      "intersecting_code_count": 1366,
+      "raw_windows": 0,
+      "invalid_words": 1366,
+      "distinct_raw_classes": 0,
+      "boundary_lanes": [
+        {
+          "code": 99669,
+          "word": "ENWENNNNNN",
+          "class": 3741
+        },
+        {
+          "code": 101034,
+          "word": "ENWEWWWWWW",
+          "class": 3741
+        }
+      ]
+    }
+  ]
+}

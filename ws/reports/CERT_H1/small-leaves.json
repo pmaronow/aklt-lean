@@ -1,0 +1,42 @@
+{
+  "leaves": [
+    {
+      "block": 0,
+      "check_module": "AKLT.Cert.H1.Check.P2180B00",
+      "covered": {
+        "obligation": "AKLT.Cert.H1.Obligations.P2180_covered",
+        "status": "OPEN"
+      },
+      "data_module": "AKLT.Cert.H1.Data.P2180B00",
+      "factor_entries": 0,
+      "kernel_status": "NOT_RUN",
+      "label": 0,
+      "matrix_entries": 1,
+      "n": 1,
+      "pattern_module": "AKLT.Cert.H1.Data.P2180",
+      "pid": 2180,
+      "positivity_theorems": [
+        "AKLT.Cert.H1.Check.P2180B00.positive_real",
+        "AKLT.Cert.H1.Check.P2180B00.positive_complex"
+      ],
+      "reconstruction": {
+        "meaning": "explicit Fin n equivalence and exact equality to indexedSectorMatrix",
+        "obligation": "AKLT.Cert.H1.Obligations.P2180B00_fromDefs",
+        "status": "OPEN"
+      },
+      "shards": [
+        {
+          "dot_products": 0,
+          "module": "AKLT.Cert.H1.Check.P2180B00Rows000",
+          "row_end": 1,
+          "row_start": 0,
+          "theorem": "AKLT.Cert.H1.Check.P2180B00.rows000_checked"
+        }
+      ],
+      "threshold": [
+        187,
+        200
+      ]
+    }
+  ]
+}

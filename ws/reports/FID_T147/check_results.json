@@ -1,0 +1,189 @@
+{
+  "source_sha256": "3d2733c5734d0e4cddc155959af2a75370207db61d9f895cb4d054a2882d8503",
+  "raw_counts_by_length": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "total_lanes": 1048576,
+  "valid_lanes": 60092,
+  "invalid_lanes": 988484,
+  "classes": 3741,
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "coverage_errors": 0,
+  "quotient_errors": 0,
+  "kind_agreement_including_forbidden_errors": 0,
+  "chunks": [
+    {
+      "declaration": "rawClass_700",
+      "line": 1415,
+      "offset": 1097724,
+      "width": 16384,
+      "bits_in_first_lane": 12,
+      "code_first": 91477,
+      "code_last": 92842,
+      "complete_lanes": 1365,
+      "complete_raw_lanes": 221,
+      "complete_nonraw_lanes": 1144,
+      "touched_raw_lanes": 222,
+      "class_min": 87,
+      "class_max": 1963,
+      "examples": [
+        {
+          "code": 91477,
+          "word": "ENNWNNNNNN",
+          "class": 115
+        },
+        {
+          "code": 91478,
+          "word": "ENNWNNNNNW",
+          "class": 289
+        },
+        {
+          "code": 91481,
+          "word": "ENNWNNNNWN",
+          "class": 117
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_701",
+      "line": 1417,
+      "offset": 1081340,
+      "width": 16384,
+      "bits_in_first_lane": 4,
+      "code_first": 90111,
+      "code_last": 91476,
+      "complete_lanes": 1365,
+      "complete_raw_lanes": 95,
+      "complete_nonraw_lanes": 1270,
+      "touched_raw_lanes": 95,
+      "class_min": 0,
+      "class_max": 1945,
+      "examples": [
+        {
+          "code": 91136,
+          "word": "ENNWNEEEEE",
+          "class": 0
+        },
+        {
+          "code": 91137,
+          "word": "ENNWNEEEEN",
+          "class": 1
+        },
+        {
+          "code": 91139,
+          "word": "ENNWNEEEES",
+          "class": 1239
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_702",
+      "line": 1419,
+      "offset": 1064956,
+      "width": 16384,
+      "bits_in_first_lane": 8,
+      "code_first": 88746,
+      "code_last": 90111,
+      "complete_lanes": 1364,
+      "complete_raw_lanes": 88,
+      "complete_nonraw_lanes": 1276,
+      "touched_raw_lanes": 89,
+      "class_min": 188,
+      "class_max": 1941,
+      "examples": [
+        {
+          "code": 88746,
+          "word": "ENNNWWWWWW",
+          "class": 356
+        },
+        {
+          "code": 88747,
+          "word": "ENNNWWWWWS",
+          "class": 433
+        },
+        {
+          "code": 88748,
+          "word": "ENNNWWWWSE",
+          "class": 1206
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_703",
+      "line": 1421,
+      "offset": 1048572,
+      "width": 16384,
+      "bits_in_first_lane": 12,
+      "code_first": 87381,
+      "code_last": 88746,
+      "complete_lanes": 1365,
+      "complete_raw_lanes": 221,
+      "complete_nonraw_lanes": 1144,
+      "touched_raw_lanes": 222,
+      "class_min": 87,
+      "class_max": 1917,
+      "examples": [
+        {
+          "code": 87381,
+          "word": "ENNNNNNNNN",
+          "class": 115
+        },
+        {
+          "code": 87382,
+          "word": "ENNNNNNNNW",
+          "class": 289
+        },
+        {
+          "code": 87385,
+          "word": "ENNNNNNNWN",
+          "class": 117
+        }
+      ]
+    },
+    {
+      "declaration": "rawClass_704",
+      "line": 1423,
+      "offset": 1032188,
+      "width": 16384,
+      "bits_in_first_lane": 4,
+      "code_first": 86015,
+      "code_last": 87380,
+      "complete_lanes": 1365,
+      "complete_raw_lanes": 310,
+      "complete_nonraw_lanes": 1055,
+      "touched_raw_lanes": 311,
+      "class_min": 0,
+      "class_max": 1903,
+      "examples": [
+        {
+          "code": 86015,
+          "word": "ENNESSSSSS",
+          "class": 218
+        },
+        {
+          "code": 86016,
+          "word": "ENNNEEEEEE",
+          "class": 0
+        },
+        {
+          "code": 86017,
+          "word": "ENNNEEEEEN",
+          "class": 1
+        }
+      ]
+    }
+  ]
+}

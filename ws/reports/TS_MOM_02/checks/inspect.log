@@ -1,0 +1,150 @@
+def AKLT.Blueprint.Mom.OrthogonalTensorStatement : Prop :=
+∀ (α : Type) [inst : Fintype α] (w : α → ℝ) (v : α → AKLT.Defs.Vec3) (c : ℝ),
+  AKLT.Blueprint.Mom.TensorLaw (AKLT.Blueprint.Mom.finiteFunctional w v) c →
+    ∀ (R : Matrix (Fin 3) (Fin 3) ℝ),
+      R.transpose * R = 1 →
+        AKLT.Blueprint.Mom.TensorLaw (AKLT.Blueprint.Mom.finiteFunctional w fun a => R.mulVec (v a)) c
+def AKLT.Blueprint.Mom.PolynomialExpansionStatement : Prop :=
+∀ (n : ℕ) (α : Fin n → Type) [inst : (x : Fin n) → Fintype (α x)] (w : (x : Fin n) → α x → ℝ)
+  (v : (x : Fin n) → α x → AKLT.Defs.Vec3) (p : MvPolynomial (Fin n × Fin 3) ℝ),
+  (AKLT.Blueprint.Mom.productSum α w v fun a => (MvPolynomial.eval fun z => a z.1 z.2) p) =
+    ∑ m ∈ p.support,
+      p.coeff m * AKLT.Blueprint.Mom.productSum α w v fun a => ∏ x, AKLT.Blueprint.Mom.mono (fun i => m (x, i)) (a x)
+def AKLT.Blueprint.Mom.GreedyAssignmentStatement : Prop :=
+∀ (α : Type) [Fintype α] (v : α → AKLT.Defs.Vec3),
+  (∀ (a : α), AKLT.Defs.normSq (v a) ≤ 1) →
+    (∀ k ≤ 4,
+        ∀ (b : Fin k → AKLT.Defs.Vec3),
+          (∀ (i : Fin k), AKLT.Defs.normSq (b i) ≤ 1) → ∃ a, ∀ (i : Fin k), 0 < 1 + AKLT.Defs.dot (v a) (b i)) →
+      ∀ (n : ℕ) (D : AKLT.Defs.FiniteSpinNetwork n),
+        D.Valid →
+          ∃ σ,
+            (∀ e ∈ D.bonds, 0 < 1 + AKLT.Defs.dot (v (σ e.1)) (v (σ e.2))) ∧
+              ∀ (x : Fin n) (j : Fin (D.pinCount x)), 0 < 1 + AKLT.Defs.dot (↑(D.pin x j)) (v (σ x))
+def AKLT.Blueprint.Mom.BallDotBoundsStatement : Prop :=
+∀ (a b : AKLT.Defs.Vec3),
+  AKLT.Defs.normSq a ≤ 1 → AKLT.Defs.normSq b ≤ 1 → 0 ≤ 1 + AKLT.Defs.dot a b ∧ 1 + AKLT.Defs.dot a b ≤ 2
+def AKLT.Blueprint.Mom.LetterAvoidanceStatement : Prop :=
+∀ k ≤ 4,
+  ∀ (b : Fin k → AKLT.Defs.Vec3),
+    (∀ (i : Fin k), AKLT.Defs.normSq (b i) ≤ 1) →
+      ∃ j, ∀ (i : Fin k), 0 < 1 + AKLT.Defs.dot (AKLT.Defs.icoVector j) (b i)
+def AKLT.Blueprint.Mom.FreeCoefficientsStatement : Prop :=
+∀ (n : ℕ) (D : AKLT.Defs.FiniteSpinNetwork n) (pairs : List (Fin n × Fin n)) (m : Fin n × Fin 3 →₀ ℕ),
+  0 ≤ (AKLT.Blueprint.Mom.freePolynomial D pairs).coeff m
+def AKLT.Blueprint.Mom.FreeDegreeStatement : Prop :=
+∀ (n : ℕ) (D : AKLT.Defs.FiniteSpinNetwork n),
+  D.Valid →
+    ∀ (pairs : List (Fin n × Fin n)),
+      (∀ (x : Fin n),
+          {e ∈ D.bonds | e.1 = x ∨ e.2 = x}.card + (List.filter (fun e => decide (e.1 = x)) pairs).length +
+              (List.filter (fun e => decide (e.2 = x)) pairs).length ≤
+            4) →
+        AKLT.Defs.SeparateDegreeFour (AKLT.Blueprint.Mom.freePolynomial D pairs)
+def AKLT.Blueprint.Mom.TwoSiteFactorizationStatement : Prop :=
+∀ (n : ℕ) (D : AKLT.Defs.FiniteSpinNetwork n),
+  D.Valid →
+    ∀ (pinned : Bool) (x y : Fin n),
+      x ≠ y →
+        (x, y) ∉ D.bonds →
+          (y, x) ∉ D.bonds →
+            ∀ (σ : Fin n → AKLT.Defs.SpinLetter),
+              ∃ C u v,
+                0 ≤ C ∧
+                  (∀ (a : AKLT.Defs.SpinLetter), 0 ≤ u a) ∧
+                    (∀ (b : AKLT.Defs.SpinLetter), 0 ≤ v b) ∧
+                      ∀ (τ : Fin n → AKLT.Defs.SpinLetter),
+                        AKLT.Blueprint.Mom.twoSiteFibre x y σ τ → D.weight pinned τ = C * u (τ x) * v (τ y)
+def AKLT.Blueprint.Mom.TensorLaw : ((AKLT.Defs.Vec3 → ℝ) → ℝ) → ℝ → Prop :=
+fun L c =>
+  (L fun x => 1) = 1 ∧
+    (∀ (i : Fin 3), (L fun v => v i) = 0) ∧
+      (∀ (i j k : Fin 3), (L fun v => v i * v j * v k) = 0) ∧
+        (∀ (i j : Fin 3), (L fun v => v i * v j) = if i = j then c / 3 else 0) ∧
+          ∀ (i j k l : Fin 3),
+            (L fun v => v i * v j * v k * v l) =
+              c *
+                  (((if i = j ∧ k = l then 1 else 0) + if i = k ∧ j = l then 1 else 0) +
+                    if i = l ∧ j = k then 1 else 0) /
+                15
+def AKLT.Blueprint.Mom.mono : (Fin 3 → ℕ) → AKLT.Defs.Vec3 → ℝ :=
+fun m v => ∏ i, v i ^ m i
+def AKLT.Blueprint.Mom.finiteFunctional : {α : Type} →
+  [Fintype α] → (α → ℝ) → (α → AKLT.Defs.Vec3) → (AKLT.Defs.Vec3 → ℝ) → ℝ :=
+fun {α} [Fintype α] w v f => ∑ a, w a * f (v a)
+def AKLT.Blueprint.Mom.productSum : {n : ℕ} →
+  (α : Fin n → Type) →
+    [(x : Fin n) → Fintype (α x)] →
+      ((x : Fin n) → α x → ℝ) → ((x : Fin n) → α x → AKLT.Defs.Vec3) → ((Fin n → AKLT.Defs.Vec3) → ℝ) → ℝ :=
+fun {n} α [(x : Fin n) → Fintype (α x)] w v f => ∑ a, (∏ x, w x (a x)) * f fun x => v x (a x)
+def AKLT.Blueprint.Mom.dotPolynomial : {n : ℕ} → Fin n × Fin n → MvPolynomial (Fin n × Fin 3) ℝ :=
+fun {n} e => ∑ i, MvPolynomial.X (e.1, i) * MvPolynomial.X (e.2, i)
+def AKLT.Blueprint.Mom.freePolynomial : {n : ℕ} →
+  AKLT.Defs.FiniteSpinNetwork n → List (Fin n × Fin n) → MvPolynomial (Fin n × Fin 3) ℝ :=
+fun {n} D pairs =>
+  (∏ e ∈ D.bonds, (1 + AKLT.Blueprint.Mom.dotPolynomial e)) * (List.map AKLT.Blueprint.Mom.dotPolynomial pairs).prod
+def AKLT.Blueprint.Mom.twoSiteFibre : {n : ℕ} →
+  Fin n → Fin n → (Fin n → AKLT.Defs.SpinLetter) → (Fin n → AKLT.Defs.SpinLetter) → Prop :=
+fun {n} x y σ τ => ∀ (z : Fin n), z ≠ x → z ≠ y → τ z = σ z
+@[reducible] def AKLT.Defs.Vec3 : Type :=
+Fin 3 → ℝ
+def AKLT.Defs.dot : AKLT.Defs.Vec3 → AKLT.Defs.Vec3 → ℝ :=
+fun a b => ∑ i, a i * b i
+def AKLT.Defs.normSq : AKLT.Defs.Vec3 → ℝ :=
+fun a => AKLT.Defs.dot a a
+@[reducible] def AKLT.Defs.UnitVector : Type :=
+{ a // AKLT.Defs.normSq a = 1 }
+@[reducible] def AKLT.Defs.IcoLetter : Type :=
+Fin 3 × Fin 2 × Fin 2
+def AKLT.Defs.signValue : Fin 2 → ℝ :=
+fun j => if j = 0 then 1 else -1
+def AKLT.Defs.goldenRatio : ℝ :=
+(1 + √5) / 2
+def AKLT.Defs.icoRadius : ℝ :=
+√(AKLT.Defs.goldenRatio + 2)
+def AKLT.Defs.icoVector : AKLT.Defs.IcoLetter → AKLT.Defs.Vec3 :=
+fun j =>
+  have a := AKLT.Defs.signValue j.2.1;
+  have b := AKLT.Defs.signValue j.2.2 * AKLT.Defs.goldenRatio;
+  have v := if j.1 = 0 then ![0, a, b] else if j.1 = 1 then ![a, b, 0] else ![b, 0, a];
+  fun k => v k / AKLT.Defs.icoRadius
+inductive AKLT.Defs.Status : Type
+number of parameters: 0
+constructors:
+AKLT.Defs.Status.U : AKLT.Defs.Status
+AKLT.Defs.Status.D : AKLT.Defs.Status
+AKLT.Defs.Status.X : AKLT.Defs.Status
+@[reducible] def AKLT.Defs.SpinLetter : Type :=
+Option AKLT.Defs.IcoLetter
+def AKLT.Defs.spinVector : AKLT.Defs.SpinLetter → AKLT.Defs.Vec3 :=
+fun x =>
+  match x with
+  | none => 0
+  | some j => AKLT.Defs.icoVector j
+def AKLT.Defs.spinWeight : AKLT.Defs.Status → AKLT.Defs.SpinLetter → ℝ :=
+fun s x =>
+  match x with
+  | none => if s = AKLT.Defs.Status.D then 2 / 5 else 0
+  | some val => if s = AKLT.Defs.Status.U then 1 / 12 else if s = AKLT.Defs.Status.D then 1 / 20 else 0
+structure AKLT.Defs.FiniteSpinNetwork (n : ℕ) : Type
+number of parameters: 1
+fields:
+  AKLT.Defs.FiniteSpinNetwork.status : Fin n → AKLT.Defs.Status
+  AKLT.Defs.FiniteSpinNetwork.bonds : Finset (Fin n × Fin n)
+  AKLT.Defs.FiniteSpinNetwork.pinCount : Fin n → ℕ
+  AKLT.Defs.FiniteSpinNetwork.pin : (x : Fin n) → Fin (self.pinCount x) → AKLT.Defs.UnitVector
+constructor:
+  AKLT.Defs.FiniteSpinNetwork.mk {n : ℕ} (status : Fin n → AKLT.Defs.Status) (bonds : Finset (Fin n × Fin n))
+    (pinCount : Fin n → ℕ) (pin : (x : Fin n) → Fin (pinCount x) → AKLT.Defs.UnitVector) : AKLT.Defs.FiniteSpinNetwork n
+def AKLT.Defs.FiniteSpinNetwork.Valid : {n : ℕ} → AKLT.Defs.FiniteSpinNetwork n → Prop :=
+fun {n} D =>
+  (∀ (x : Fin n), D.status x = AKLT.Defs.Status.U ∨ D.status x = AKLT.Defs.Status.D) ∧
+    (∀ e ∈ D.bonds, e.1 < e.2) ∧ ∀ (x : Fin n), {e ∈ D.bonds | e.1 = x ∨ e.2 = x}.card + D.pinCount x ≤ 4
+def AKLT.Defs.FiniteSpinNetwork.weight : {n : ℕ} →
+  AKLT.Defs.FiniteSpinNetwork n → Bool → (Fin n → AKLT.Defs.SpinLetter) → ℝ :=
+fun {n} D pinned σ =>
+  ((∏ x, AKLT.Defs.spinWeight (D.status x) (σ x)) *
+      ∏ e ∈ D.bonds, (1 + AKLT.Defs.dot (AKLT.Defs.spinVector (σ e.1)) (AKLT.Defs.spinVector (σ e.2)))) *
+    ∏ x, ∏ j, if pinned = true then 1 + AKLT.Defs.dot (↑(D.pin x j)) (AKLT.Defs.spinVector (σ x)) else 1
+def AKLT.Defs.SeparateDegreeFour.{u_1} : {ι : Type u_1} → MvPolynomial (ι × Fin 3) ℝ → Prop :=
+fun {ι} p => ∀ m ∈ p.support, ∀ (x : ι), ∑ k, m (x, k) ≤ 4

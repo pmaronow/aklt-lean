@@ -1,0 +1,30 @@
+import took 2.45s
+elaboration took 15.4s
+elaboration took 15.6s
+'AKLT.Gen.Packed.Example.checked' depends on axioms: [propext]
+'AKLT.Gen.Packed.Example.all_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 1.91ms
+	attribute application 0.0257ms
+	blocked (unaccounted) 27.7ms
+	compilation (IR) 0.0354ms
+	compilation (LCNF base) 0.388ms
+	compilation (LCNF impure) 0.187ms
+	compilation (LCNF mono) 0.224ms
+	elaboration 31s
+	fix level params 0.0232ms
+	import 2.45s
+	initialization 26.8ms
+	instantiate metavars 0.02ms
+	interpretation 245ms
+	let-to-have transformation 0.0256ms
+	linting 1.83ms
+	module linting 0.00163ms
+	overlappingInstancesLinter 0.792ms
+	parsing 4.77ms
+	process pre-definitions 0.334ms
+	share common exprs 0.0674ms
+	tactic execution 0.275ms
+	tacticAnalysis 1.99ms
+	type checking 1.93ms
+	typeclass inference 2ms

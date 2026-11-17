@@ -1,0 +1,454 @@
+[
+  {
+    "tag": "full-hard-block",
+    "module": "AKLT.Cert.H1Fit.Pilot711",
+    "roots": [
+      "AKLT.Cert.H1Fit.Pilot711.finiteInputs"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "9d8d4cc8841f76a165a40925aaf7b235a7aea764fe0ecb73b75760613ab67c33",
+    "export_bytes": 8387048,
+    "export_seconds": 6.094405146010104,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/full-hard-block/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": false
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 55.78,
+        "system_seconds": 1.54,
+        "wall_seconds": 57.33,
+        "max_rss_kib": 1799544,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-hard-block/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 157.44,
+        "system_seconds": 1.85,
+        "wall_seconds": 159.32,
+        "max_rss_kib": 1281660,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-hard-block/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": -15,
+        "capacity": true,
+        "user_seconds": 0.0,
+        "system_seconds": 0.0,
+        "wall_seconds": 60.32389349899313,
+        "max_rss_kib": 6089792,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-hard-block/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "packed-gram-linked",
+    "module": "AKLT.Cert.H1Fit.Gram0711Row089",
+    "roots": [
+      "AKLT.Cert.H1Fit.Gram0711.header89",
+      "AKLT.Cert.H1Fit.Gram0711.matrixRow89",
+      "AKLT.Cert.H1Fit.Gram0711.factorRow89",
+      "AKLT.Cert.H1Fit.Gram0711.uniformRow89"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "a5fcc2b994ac9ecafdbf5e91133032844eaa19b57c52b234846a73abf4e175c7",
+    "export_bytes": 5765809,
+    "export_seconds": 0.9738866840052651,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-linked/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": false
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 1.14,
+        "system_seconds": 0.08,
+        "wall_seconds": 1.22,
+        "max_rss_kib": 200944,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-linked/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 6.83,
+        "system_seconds": 0.07,
+        "wall_seconds": 6.9,
+        "max_rss_kib": 88516,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-linked/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": -15,
+        "capacity": true,
+        "user_seconds": 0.0,
+        "system_seconds": 0.0,
+        "wall_seconds": 22.816616815995076,
+        "max_rss_kib": 6104312,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-linked/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "full-sparse-hard-block",
+    "module": "AKLT.Cert.H1Fit.Pilot711Sparse",
+    "roots": [
+      "AKLT.Cert.H1Fit.Pilot711.sparseFiniteInputs"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "6b80b012e5ee1ab2e5fdd04fafc73a3e60e9bc6a733db39ddd3cd8996d661e26",
+    "export_bytes": 8471523,
+    "export_seconds": 6.093319690000499,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/full-sparse-hard-block/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": false
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 33.7,
+        "system_seconds": 0.9,
+        "wall_seconds": 34.61,
+        "max_rss_kib": 1822696,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-sparse-hard-block/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 102.66,
+        "system_seconds": 1.57,
+        "wall_seconds": 104.25,
+        "max_rss_kib": 1301840,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-sparse-hard-block/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": -15,
+        "capacity": true,
+        "user_seconds": 0.0,
+        "system_seconds": 0.0,
+        "wall_seconds": 40.382805933011696,
+        "max_rss_kib": 6098580,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/full-sparse-hard-block/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "packed-gram-batch",
+    "module": "AKLT.Cert.H1Fit.Gram0711BatchCheck",
+    "roots": [
+      "AKLT.Cert.H1Fit.Gram0711Batch.checked"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "c7657bb03c55ee76b7ac89f860d42cd7160c206f4f5002a5c04971fb3fb3908b",
+    "export_bytes": 5682155,
+    "export_seconds": 0.9720959520054748,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-batch/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": false
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 0.98,
+        "system_seconds": 0.09,
+        "wall_seconds": 1.08,
+        "max_rss_kib": 436380,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-batch/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 2.95,
+        "system_seconds": 0.15,
+        "wall_seconds": 3.1,
+        "max_rss_kib": 298708,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-batch/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": -15,
+        "capacity": true,
+        "user_seconds": 0.0,
+        "system_seconds": 0.0,
+        "wall_seconds": 15.392067004999262,
+        "max_rss_kib": 6094752,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/packed-gram-batch/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "uniform-soundness",
+    "module": "AKLT.Cert.H1Fit.Uniform",
+    "roots": [
+      "AKLT.Cert.H1Fit.uniform_error_strictDD",
+      "AKLT.Cert.H1Fit.uniform_gram_posDef"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "f6c6f0a938961f75a5e31748e99566ceda0c65cbf91ea2f80b05fd0b8c297406",
+    "export_bytes": 199937445,
+    "export_seconds": 9.40834250599437,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/uniform-soundness/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": true
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 27.09,
+        "system_seconds": 0.09,
+        "wall_seconds": 27.19,
+        "max_rss_kib": 457124,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/uniform-soundness/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 17.25,
+        "system_seconds": 0.15,
+        "wall_seconds": 17.4,
+        "max_rss_kib": 210904,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/uniform-soundness/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 43.78,
+        "system_seconds": 0.56,
+        "wall_seconds": 44.34,
+        "max_rss_kib": 660748,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/uniform-soundness/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "final-easy-rect",
+    "module": "AKLT.Cert.H1Fit.P0010B00RectCheck",
+    "roots": [
+      "AKLT.Cert.H1Fit.P0010B00.Words.rectChecked"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "72eaca0622491b4221a5d195a8622769fa141a0f2741be1a58be2259e7f13fc9",
+    "export_bytes": 5359729,
+    "export_seconds": 0.7712226879957598,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/final-easy-rect/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": true
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 0.61,
+        "system_seconds": 0.01,
+        "wall_seconds": 0.63,
+        "max_rss_kib": 130984,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-easy-rect/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 0.31,
+        "system_seconds": 0.01,
+        "wall_seconds": 0.33,
+        "max_rss_kib": 26644,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-easy-rect/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 8.41,
+        "system_seconds": 0.04,
+        "wall_seconds": 8.46,
+        "max_rss_kib": 135860,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-easy-rect/export.ndjson"
+        ]
+      }
+    }
+  },
+  {
+    "tag": "final-local-tensors",
+    "module": "AKLT.Cert.H1Fit.All",
+    "roots": [
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked32",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked33",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked34",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked35",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked36",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked37",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked38",
+      "AKLT.Cert.H1Fit.Local.LocalTables04.checked39"
+    ],
+    "export_exit": 0,
+    "stderr_bytes": 0,
+    "current_export_sha256": "c13ffb6d4c4d2f12ca57c6655e5819e2b7f61be851bb45371b788cb61483d057",
+    "export_bytes": 5436124,
+    "export_seconds": 1.924457129003713,
+    "byte_identical_to_previous": true,
+    "previous_result": "/home/ubuntu/aklt/reports/H1_FIT/replays/final-local-tensors/result.json",
+    "source_manifest": "/home/ubuntu/aklt/reports/H1_FIT/build-validation.json",
+    "accepted": {
+      "lean": true,
+      "nanoda": true,
+      "conron": true
+    },
+    "replay_measurements": {
+      "lean": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 10.72,
+        "system_seconds": 0.14,
+        "wall_seconds": 10.87,
+        "max_rss_kib": 439208,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
+          "--silent",
+          "--from-export",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-local-tensors/export.ndjson"
+        ]
+      },
+      "nanoda": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 8.17,
+        "system_seconds": 0.45,
+        "wall_seconds": 8.63,
+        "max_rss_kib": 226280,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-local-tensors/nanoda.json"
+        ]
+      },
+      "conron": {
+        "exit": 0,
+        "capacity": false,
+        "user_seconds": 33.57,
+        "system_seconds": 0.44,
+        "wall_seconds": 34.03,
+        "max_rss_kib": 703204,
+        "command": [
+          "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--verified",
+          "--jobs=1",
+          "--progress=1",
+          "/home/ubuntu/aklt/reports/H1_FIT/replays/final-local-tensors/export.ndjson"
+        ]
+      }
+    }
+  }
+]

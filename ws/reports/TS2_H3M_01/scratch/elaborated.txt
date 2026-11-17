@@ -1,0 +1,244 @@
+def AKLT.Blueprint.H3.StationaryCoefficientOffCentreStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase)
+  (a : Fin q) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass) (ψ : AKLT.Defs.Phase),
+  Ne.{1} (HAdd.hAdd.{0, 0, 0} x d.step) AKLT.Defs.kernelCentre →
+    Eq.{1} (AKLT.Defs.stationaryCoefficientV2 Q X d₀ φ a x d ψ) (AKLT.Defs.stationaryCoefficient Q X d₀ φ a x d ψ)
+def AKLT.Blueprint.H3.StationaryCentreZeroOperatorStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass)
+  (F : AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ),
+  (∀ (φ : AKLT.Defs.Phase) (a : Fin q), Eq.{1} (F φ a AKLT.Defs.kernelCentre) 0) →
+    ∀ (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane),
+      Eq.{1} (AKLT.Defs.stationaryApplyV2 Q X d₀ F φ a x) (AKLT.Defs.stationaryApply Q X d₀ F φ a x)
+def AKLT.Blueprint.H3.StationaryContinuationBridgeStatementV2 : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase)
+  (a : Fin 3741) (x : AKLT.Defs.Plane) (R : ℕ),
+  Eq.{1} (AKLT.Defs.stationaryContinuationSumV2 Q X d₀ φ a x R) (AKLT.Defs.stationaryContinuationSum Q X d₀ φ a x R)
+def AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass)
+  (C : AKLT.Defs.StationaryData q), C.PassesV2 Q X d₀ → C.Passes Q X d₀
+def AKLT.Blueprint.H3.StoppedQuotientIntertwiningStatementV2 : Prop :=
+∀ (m q : ℕ),
+  LE.le.{0} 1 m →
+    ∀ (Q : AKLT.Defs.MemoryQuotient m q),
+      Q.Correct →
+        (∀ (w : AKLT.Defs.DirectionWord m),
+            AKLT.Defs.RawWindow w →
+              ∀ (d : AKLT.Defs.Compass),
+                AKLT.Defs.WindowAdmissible w d → AKLT.Defs.RawWindow (AKLT.Defs.windowSuccessor w d)) →
+          ∀ (p : ℕ)
+            (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ),
+            (∀ (φ ψ : Fin p) (d a a' : AKLT.Defs.Compass) (x : AKLT.Defs.Plane),
+                Eq.{1} (weight φ ψ AKLT.Defs.StepKind.revisit d a x) (weight φ ψ AKLT.Defs.StepKind.revisit d a' x)) →
+              ∀ (terminalRaw : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → Bool)
+                (terminalQuotient : Fin p → Fin q → AKLT.Defs.Plane → Bool),
+                (∀ (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                    AKLT.Defs.RawWindow w →
+                      ∀ (x : AKLT.Defs.Plane), Eq.{1} (terminalRaw φ w x) (terminalQuotient φ (Q.project w) x)) →
+                  ∀ (rewardRaw : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → ℚ)
+                    (rewardQuotient : Fin p → Fin q → AKLT.Defs.Plane → ℚ),
+                    (∀ (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                        AKLT.Defs.RawWindow w →
+                          ∀ (x : AKLT.Defs.Plane), Eq.{1} (rewardRaw φ w x) (rewardQuotient φ (Q.project w) x)) →
+                      (∀ (φ : Fin p) (a : Fin q) (x : AKLT.Defs.Plane),
+                          Eq.{1} (terminalQuotient φ a x) false → Eq.{1} (rewardQuotient φ a x) 0) →
+                        ∀ (R : ℕ) (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                          AKLT.Defs.RawWindow w →
+                            ∀ (x : AKLT.Defs.Plane),
+                              Eq.{1}
+                                (∑ j ∈ Finset.range (HAdd.hAdd.{0, 0, 0} R 1),
+                                  Nat.iterate.{1} (AKLT.Blueprint.H3.rawStoppedBackwardV2 m p weight terminalRaw) j
+                                    rewardRaw φ w x)
+                                (∑ j ∈ Finset.range (HAdd.hAdd.{0, 0, 0} R 1),
+                                  Nat.iterate.{1}
+                                    (AKLT.Blueprint.H3.quotientStoppedBackwardV2 Q p weight terminalQuotient) j
+                                    rewardQuotient φ (Q.project w) x)
+structure AKLT.Defs.MemoryQuotient (m q : ℕ) : Type
+number of parameters: 2
+fields:
+  AKLT.Defs.MemoryQuotient.project : AKLT.Defs.DirectionWord m → Fin q
+  AKLT.Defs.MemoryQuotient.representative : Fin q → AKLT.Defs.DirectionWord m
+  AKLT.Defs.MemoryQuotient.allowed : Fin q → AKLT.Defs.Compass → Bool
+  AKLT.Defs.MemoryQuotient.kind : Fin q → AKLT.Defs.Compass → AKLT.Defs.StepKind
+  AKLT.Defs.MemoryQuotient.successor : Fin q → AKLT.Defs.Compass → Fin q
+  AKLT.Defs.MemoryQuotient.arrival : Fin q → AKLT.Defs.Compass
+constructor:
+  AKLT.Defs.MemoryQuotient.mk {m q : ℕ} (project : AKLT.Defs.DirectionWord m → Fin q)
+    (representative : Fin q → AKLT.Defs.DirectionWord m) (allowed : Fin q → AKLT.Defs.Compass → Bool)
+    (kind : Fin q → AKLT.Defs.Compass → AKLT.Defs.StepKind) (successor : Fin q → AKLT.Defs.Compass → Fin q)
+    (arrival : Fin q → AKLT.Defs.Compass) : AKLT.Defs.MemoryQuotient m q
+def AKLT.Defs.MemoryQuotient.Correct : {m q : ℕ} → AKLT.Defs.MemoryQuotient m q → Prop :=
+fun {m q} Q =>
+  (∀ (a : Fin q), AKLT.Defs.RawWindow (Q.representative a) ∧ Eq.{1} (Q.project (Q.representative a)) a) ∧
+    ∀ (w : AKLT.Defs.DirectionWord m),
+      AKLT.Defs.RawWindow w →
+        ∀ (d : AKLT.Defs.Compass),
+          (Eq.{1} (Q.allowed (Q.project w) d) true ↔ AKLT.Defs.WindowAdmissible w d) ∧
+            (AKLT.Defs.WindowAdmissible w d →
+              Eq.{1} (Q.kind (Q.project w) d) (AKLT.Defs.windowKind w d) ∧
+                Eq.{1} (Q.successor (Q.project w) d) (Q.project (AKLT.Defs.windowSuccessor w d)) ∧
+                  (Ne.{1} (AKLT.Defs.windowKind w d) AKLT.Defs.StepKind.revisit →
+                    Eq.{1} (Q.arrival (Q.project w)) (AKLT.Defs.windowArrival w)))
+def AKLT.Defs.stationaryCoefficient : {m q : ℕ} →
+  AKLT.Defs.MemoryQuotient m q →
+    AKLT.Defs.PairType →
+      AKLT.Defs.Compass → AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.Phase → ℚ :=
+fun {m q} Q X d₀ φ a x d ψ =>
+  ite.{1} (Eq.{1} x AKLT.Defs.kernelCentre ∨ Eq.{1} x (AKLT.Defs.kernelTarget X) ∨ Eq.{1} (Q.allowed a d) false) 0
+    (ite.{1} (Eq.{1} x AKLT.Defs.kernelStart ∨ Eq.{1} x (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step))
+      (ite.{1}
+        (Eq.{1} (insert.{0, 0} x (singleton.{0, 0} (HAdd.hAdd.{0, 0, 0} x d.step)))
+            (insert.{0, 0} AKLT.Defs.kernelStart
+              (singleton.{0, 0} (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step))) ∨
+          Eq.{1} (Q.kind a d) AKLT.Defs.StepKind.revisit)
+        0 (ite.{1} (Eq.{1} φ ψ) (1 / 5) 0))
+      (ite.{1} (Eq.{1} (HAdd.hAdd.{0, 0, 0} x d.step) AKLT.Defs.kernelCentre) 0
+        (AKLT.Defs.phaseTransition (Q.kind a d)
+          (AKLT.Defs.relaxedReward x (Q.arrival a) d (singleton.{0, 0} AKLT.Defs.kernelCentre)) φ ψ)))
+def AKLT.Defs.stationaryCoefficientV2 : {m q : ℕ} →
+  AKLT.Defs.MemoryQuotient m q →
+    AKLT.Defs.PairType →
+      AKLT.Defs.Compass → AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.Phase → ℚ :=
+fun {m q} Q X d₀ φ a x d ψ =>
+  ite.{1}
+    (Eq.{1} x AKLT.Defs.kernelCentre ∨
+      Eq.{1} x (AKLT.Defs.kernelTarget X) ∨
+        Eq.{1} (Q.allowed a d) false ∨ Eq.{1} (HAdd.hAdd.{0, 0, 0} x d.step) AKLT.Defs.kernelCentre)
+    0
+    (ite.{1} (Eq.{1} x AKLT.Defs.kernelStart ∨ Eq.{1} x (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step))
+      (ite.{1}
+        (Eq.{1} (insert.{0, 0} x (singleton.{0, 0} (HAdd.hAdd.{0, 0, 0} x d.step)))
+            (insert.{0, 0} AKLT.Defs.kernelStart
+              (singleton.{0, 0} (HAdd.hAdd.{0, 0, 0} AKLT.Defs.kernelStart d₀.step))) ∨
+          Eq.{1} (Q.kind a d) AKLT.Defs.StepKind.revisit)
+        0 (ite.{1} (Eq.{1} φ ψ) (1 / 5) 0))
+      (AKLT.Defs.phaseTransition (Q.kind a d)
+        (AKLT.Defs.relaxedReward x (Q.arrival a) d (singleton.{0, 0} AKLT.Defs.kernelCentre)) φ ψ))
+def AKLT.Defs.stationaryApply : {m q : ℕ} →
+  AKLT.Defs.MemoryQuotient m q →
+    AKLT.Defs.PairType →
+      AKLT.Defs.Compass →
+        (AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ) → AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ :=
+fun {m q} Q X d₀ F φ a x =>
+  ∑ d,
+    ∑ ψ,
+      HMul.hMul.{0, 0, 0} (AKLT.Defs.stationaryCoefficient Q X d₀ φ a x d ψ)
+        (F ψ (Q.successor a d) (HAdd.hAdd.{0, 0, 0} x d.step))
+def AKLT.Defs.stationaryApplyV2 : {m q : ℕ} →
+  AKLT.Defs.MemoryQuotient m q →
+    AKLT.Defs.PairType →
+      AKLT.Defs.Compass →
+        (AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ) → AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ :=
+fun {m q} Q X d₀ F φ a x =>
+  ∑ d,
+    ∑ ψ,
+      HMul.hMul.{0, 0, 0} (AKLT.Defs.stationaryCoefficientV2 Q X d₀ φ a x d ψ)
+        (F ψ (Q.successor a d) (HAdd.hAdd.{0, 0, 0} x d.step))
+def AKLT.Defs.stationaryReward : AKLT.Defs.PairType → AKLT.Defs.Phase → Fin 3741 → AKLT.Defs.Plane → ℚ :=
+fun X φ _a x => ite.{1} (Eq.{1} x (AKLT.Defs.kernelTarget X)) (AKLT.Defs.phaseTerminal φ) 0
+def AKLT.Defs.stationaryContinuationSum : AKLT.Defs.MemoryQuotient 10 3741 →
+  AKLT.Defs.PairType → AKLT.Defs.Compass → AKLT.Defs.Phase → Fin 3741 → AKLT.Defs.Plane → ℕ → ℚ :=
+fun Q X d₀ φ a x R =>
+  ∑ j ∈ Finset.range (HAdd.hAdd.{0, 0, 0} R 1),
+    Nat.iterate.{1} (AKLT.Defs.stationaryApply Q X d₀) j (AKLT.Defs.stationaryReward X) φ a x
+def AKLT.Defs.stationaryContinuationSumV2 : AKLT.Defs.MemoryQuotient 10 3741 →
+  AKLT.Defs.PairType → AKLT.Defs.Compass → AKLT.Defs.Phase → Fin 3741 → AKLT.Defs.Plane → ℕ → ℚ :=
+fun Q X d₀ φ a x R =>
+  ∑ j ∈ Finset.range (HAdd.hAdd.{0, 0, 0} R 1),
+    Nat.iterate.{1} (AKLT.Defs.stationaryApplyV2 Q X d₀) j (AKLT.Defs.stationaryReward X) φ a x
+def AKLT.Defs.StationaryData.Passes : {m q : ℕ} →
+  AKLT.Defs.StationaryData q → AKLT.Defs.MemoryQuotient m q → AKLT.Defs.PairType → AKLT.Defs.Compass → Prop :=
+fun {m q} C Q X d₀ =>
+  (∀ (φ : AKLT.Defs.Phase) (a : Fin q), LT.lt.{0} 0 (C.cap φ a)) ∧
+    (∀ (a : Fin q),
+        LE.le.{0} AKLT.Defs.certificateValueScale (C.cap AKLT.Defs.Phase.C a) ∧
+          LE.le.{0} AKLT.Defs.certificateValueScale (C.cap AKLT.Defs.Phase.D a)) ∧
+      (∀ (φ : AKLT.Defs.Phase) (a : Fin q),
+          LE.le.{0}
+            (∑ d,
+              ∑ ψ,
+                HMul.hMul.{0, 0, 0} (AKLT.Defs.coefficientCeiling (AKLT.Defs.freeCoefficient Q φ a d ψ))
+                  (C.cap ψ (Q.successor a d)))
+            (HMul.hMul.{0, 0, 0} AKLT.Defs.certificateCoefficientScale (C.cap φ a))) ∧
+        (∀ (φ : AKLT.Defs.Phase) (a : Fin q) (x : ↥(AKLT.Defs.square (Prod.mk.{0, 0} 0 0) AKLT.Defs.certificateRadius)),
+            LE.le.{0} (C.value φ a x) (C.cap φ a)) ∧
+          (∀ (φ : AKLT.Defs.Phase) (a : Fin q),
+              Eq.{1} (C.extended φ a AKLT.Defs.kernelCentre) 0 ∧
+                Eq.{1} (↑(C.extended φ a (AKLT.Defs.kernelTarget X)))
+                  (HMul.hMul.{0, 0, 0} (↑AKLT.Defs.certificateValueScale) (AKLT.Defs.phaseTerminal φ))) ∧
+            ∀ (φ : AKLT.Defs.Phase) (a : Fin q)
+              (x : ↥(AKLT.Defs.square (Prod.mk.{0, 0} 0 0) AKLT.Defs.certificateRadius)),
+              Ne.{1} (↑x) AKLT.Defs.kernelCentre →
+                Ne.{1} (↑x) (AKLT.Defs.kernelTarget X) →
+                  LE.le.{0}
+                    (∑ d,
+                      ∑ ψ,
+                        HMul.hMul.{0, 0, 0}
+                          (AKLT.Defs.coefficientCeiling (AKLT.Defs.stationaryCoefficient Q X d₀ φ a (↑x) d ψ))
+                          (C.extended ψ (Q.successor a d) (HAdd.hAdd.{0, 0, 0} (↑x) d.step)))
+                    (HMul.hMul.{0, 0, 0} AKLT.Defs.certificateCoefficientScale (C.value φ a x))
+def AKLT.Defs.StationaryData.PassesV2 : {m q : ℕ} →
+  AKLT.Defs.StationaryData q → AKLT.Defs.MemoryQuotient m q → AKLT.Defs.PairType → AKLT.Defs.Compass → Prop :=
+fun {m q} C Q X d₀ =>
+  (∀ (φ : AKLT.Defs.Phase) (a : Fin q), LT.lt.{0} 0 (C.cap φ a)) ∧
+    (∀ (a : Fin q),
+        LE.le.{0} AKLT.Defs.certificateValueScale (C.cap AKLT.Defs.Phase.C a) ∧
+          LE.le.{0} AKLT.Defs.certificateValueScale (C.cap AKLT.Defs.Phase.D a)) ∧
+      (∀ (φ : AKLT.Defs.Phase) (a : Fin q),
+          LE.le.{0}
+            (∑ d,
+              ∑ ψ,
+                HMul.hMul.{0, 0, 0} (AKLT.Defs.coefficientCeiling (AKLT.Defs.freeCoefficient Q φ a d ψ))
+                  (C.cap ψ (Q.successor a d)))
+            (HMul.hMul.{0, 0, 0} AKLT.Defs.certificateCoefficientScale (C.cap φ a))) ∧
+        (∀ (φ : AKLT.Defs.Phase) (a : Fin q) (x : ↥(AKLT.Defs.square (Prod.mk.{0, 0} 0 0) AKLT.Defs.certificateRadius)),
+            LE.le.{0} (C.value φ a x) (C.cap φ a)) ∧
+          (∀ (φ : AKLT.Defs.Phase) (a : Fin q),
+              Eq.{1} (C.extended φ a AKLT.Defs.kernelCentre) 0 ∧
+                Eq.{1} (↑(C.extended φ a (AKLT.Defs.kernelTarget X)))
+                  (HMul.hMul.{0, 0, 0} (↑AKLT.Defs.certificateValueScale) (AKLT.Defs.phaseTerminal φ))) ∧
+            ∀ (φ : AKLT.Defs.Phase) (a : Fin q)
+              (x : ↥(AKLT.Defs.square (Prod.mk.{0, 0} 0 0) AKLT.Defs.certificateRadius)),
+              Ne.{1} (↑x) AKLT.Defs.kernelCentre →
+                Ne.{1} (↑x) (AKLT.Defs.kernelTarget X) →
+                  LE.le.{0}
+                    (∑ d,
+                      ∑ ψ,
+                        HMul.hMul.{0, 0, 0}
+                          (AKLT.Defs.coefficientCeiling (AKLT.Defs.stationaryCoefficientV2 Q X d₀ φ a (↑x) d ψ))
+                          (C.extended ψ (Q.successor a d) (HAdd.hAdd.{0, 0, 0} (↑x) d.step)))
+                    (HMul.hMul.{0, 0, 0} AKLT.Defs.certificateCoefficientScale (C.value φ a x))
+def AKLT.Blueprint.H3.rawStoppedBackwardV2 : (m p : ℕ) →
+  (Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ) →
+    (Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → Bool) →
+      (Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → ℚ) →
+        Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → ℚ :=
+fun m p weight terminal F φ w x =>
+  ite.{1} (Eq.{1} (terminal φ w x) true) 0
+    (∑ d,
+      ∑ ψ,
+        ite.{1} (AKLT.Defs.WindowAdmissible w d)
+          (HMul.hMul.{0, 0, 0} (weight φ ψ (AKLT.Defs.windowKind w d) d (AKLT.Defs.windowArrival w) x)
+            (F ψ (AKLT.Defs.windowSuccessor w d) (HAdd.hAdd.{0, 0, 0} x d.step)))
+          0)
+def AKLT.Blueprint.H3.quotientStoppedBackwardV2 : {m q : ℕ} →
+  AKLT.Defs.MemoryQuotient m q →
+    (p : ℕ) →
+      (Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ) →
+        (Fin p → Fin q → AKLT.Defs.Plane → Bool) →
+          (Fin p → Fin q → AKLT.Defs.Plane → ℚ) → Fin p → Fin q → AKLT.Defs.Plane → ℚ :=
+fun {m q} Q p weight terminal F φ a x =>
+  ite.{1} (Eq.{1} (terminal φ a x) true) 0
+    (∑ d,
+      ∑ ψ,
+        ite.{1} (Eq.{1} (Q.allowed a d) true)
+          (HMul.hMul.{0, 0, 0} (weight φ ψ (Q.kind a d) d (Q.arrival a) x)
+            (F ψ (Q.successor a d) (HAdd.hAdd.{0, 0, 0} x d.step)))
+          0)
+Function.iterate_zero_apply.{u} {α : Type u} (f : α → α) (x : α) : Eq.{u + 1} (Nat.iterate.{u + 1} f 0 x) x
+Function.iterate_succ_apply'.{u} {α : Type u} (f : α → α) (n : ℕ) (x : α) :
+  Eq.{u + 1} (Nat.iterate.{u + 1} f n.succ x) (f (Nat.iterate.{u + 1} f n x))
+Prod.mk.{0, 0} (Int.ofNat 1) (Int.ofNat 0)
+Prod.mk.{0, 0} (Int.ofNat 0) (Int.ofNat 1)
+Prod.mk.{0, 0} (Int.ofNat 0) (Int.ofNat 0)
+65536
+281474976710656

@@ -1,0 +1,69 @@
+{
+  "max_exhaustive_length": 10,
+  "open_trails_by_length": [
+    1,
+    3,
+    9,
+    27,
+    81,
+    237,
+    687,
+    1971,
+    5625,
+    15951,
+    45069
+  ],
+  "transport_samples": 21,
+  "shift_power_samples": 5292,
+  "rows": {
+    "B": {
+      "closed_trails_by_length": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        10,
+        0,
+        64,
+        0,
+        376
+      ],
+      "cutoff_row_exact": "237281363381855073816811560595187577323812302778015463996581240649/703591375382945265734433550834531241494216494787338446674329600000",
+      "cutoff_row_decimal": 0.3372431381108238,
+      "H3_ceiling_decimal": 0.993015,
+      "max_nonzero_shift": 6
+    },
+    "C": {
+      "closed_trails_by_length": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        13,
+        0,
+        62,
+        0,
+        372
+      ],
+      "cutoff_row_exact": "754065742713251889342179748149694032524840711600197583440719315055482959/1264402952959429448693378501198211058152011636287482302365037494272000000",
+      "cutoff_row_decimal": 0.5963808775899366,
+      "H3_ceiling_decimal": 1.191618,
+      "max_nonzero_shift": 6
+    }
+  },
+  "statistics": {
+    "first_visits": 8374,
+    "first_visits_live_other_2": 7952,
+    "turn_first_visits": 5429,
+    "first_visits_live_other_1": 422,
+    "straight_first_visits": 2945,
+    "closed_trails_checked": 904,
+    "revisit_departures": 298,
+    "long_order_trails": 2
+  },
+  "status": "PASS"
+}

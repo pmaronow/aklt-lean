@@ -1,0 +1,21 @@
+import took 213ms
+'power_checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 2.18ms
+	attribute application 0.00966ms
+	blocked (unaccounted) 2.11ms
+	elaboration 5.94ms
+	fix level params 0.00639ms
+	import 213ms
+	initialization 28.6ms
+	instantiate metavars 0.00852ms
+	interpretation 3.69ms
+	let-to-have transformation 0.0158ms
+	linting 0.399ms
+	module linting 0.00119ms
+	parsing 0.404ms
+	process pre-definitions 0.0706ms
+	share common exprs 0.0182ms
+	tactic execution 0.27ms
+	type checking 0.309ms
+	typeclass inference 2.34ms

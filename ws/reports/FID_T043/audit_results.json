@@ -1,0 +1,217 @@
+{
+  "literal_chunks": 786,
+  "raw_class_chunks": 768,
+  "raw_table_assembled_hex_bits": 12582908,
+  "raw_table_byte_capacity_bits": 12582912,
+  "raw_chunk_width_exceptions": {
+    "rawClass_767": 16380
+  },
+  "raw_coverage_errors": 0,
+  "raw_word_counts_by_depth": {
+    "0": 1,
+    "1": 4,
+    "2": 12,
+    "3": 36,
+    "4": 108,
+    "5": 316,
+    "6": 916,
+    "7": 2628,
+    "8": 7500,
+    "9": 21268,
+    "10": 60092
+  },
+  "class_representatives_checked": 3741,
+  "raw_rows_checked": 60092,
+  "labelled_raw_directions_checked": 240368,
+  "row_errors": 0,
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "focus": [
+    {
+      "declaration": "rawClass_180",
+      "line": 375,
+      "bits": 16384,
+      "lsb_offset": 9617404,
+      "first_code": 801450,
+      "last_code": 802815,
+      "start_bit_in_first_lane": 4,
+      "end_bit_in_last_lane_exclusive": 8,
+      "raw_windows": 321,
+      "invalid_words": 1045,
+      "distinct_classes": 278,
+      "valid_samples": [
+        [
+          801450,
+          "SEESWWWWWW",
+          356
+        ],
+        [
+          801451,
+          "SEESWWWWWS",
+          433
+        ],
+        [
+          801452,
+          "SEESWWWWSE",
+          862
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          801450,
+          356,
+          true
+        ],
+        [
+          802815,
+          218,
+          true
+        ]
+      ],
+      "sha256_big_endian_bytes": "b24942296d50fc6058f176a9c1f2b22a2e937e0fae89dceafaafa2104d3a0ab3"
+    },
+    {
+      "declaration": "rawClass_181",
+      "line": 377,
+      "bits": 16384,
+      "lsb_offset": 9601020,
+      "first_code": 800085,
+      "last_code": 801450,
+      "start_bit_in_first_lane": 0,
+      "end_bit_in_last_lane_exclusive": 4,
+      "raw_windows": 43,
+      "invalid_words": 1323,
+      "distinct_classes": 43,
+      "valid_samples": [
+        [
+          801088,
+          "SEESWNNEEE",
+          843
+        ],
+        [
+          801089,
+          "SEESWNNEEN",
+          844
+        ],
+        [
+          801091,
+          "SEESWNNEES",
+          845
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          800085,
+          3741,
+          false
+        ],
+        [
+          801450,
+          356,
+          true
+        ]
+      ],
+      "sha256_big_endian_bytes": "38fcb60d69812ade4f55e6b1ef3bb9ea0faa49691e57a658d6315550f6b39206"
+    },
+    {
+      "declaration": "rawClass_182",
+      "line": 379,
+      "bits": 16384,
+      "lsb_offset": 9584636,
+      "first_code": 798719,
+      "last_code": 800084,
+      "start_bit_in_first_lane": 8,
+      "end_bit_in_last_lane_exclusive": 12,
+      "raw_windows": 207,
+      "invalid_words": 1159,
+      "distinct_classes": 207,
+      "valid_samples": [
+        [
+          798720,
+          "SEESEEEEEE",
+          0
+        ],
+        [
+          798721,
+          "SEESEEEEEN",
+          1
+        ],
+        [
+          798723,
+          "SEESEEEEES",
+          2
+        ]
+      ],
+      "boundary_lanes": [
+        [
+          798719,
+          3741,
+          false
+        ],
+        [
+          800084,
+          3741,
+          false
+        ]
+      ],
+      "sha256_big_endian_bytes": "849a444622cf9f67712af5967ba35e58b7c3f9aace8aef87208dee216d803cab"
+    },
+    {
+      "declaration": "rawClass_183",
+      "line": 381,
+      "bits": 16384,
+      "lsb_offset": 9568252,
+      "first_code": 797354,
+      "last_code": 798719,
+      "start_bit_in_first_lane": 4,
+      "end_bit_in_last_lane_exclusive": 8,
+      "raw_windows": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "valid_samples": [],
+      "boundary_lanes": [
+        [
+          797354,
+          3741,
+          false
+        ],
+        [
+          798719,
+          3741,
+          false
+        ]
+      ],
+      "sha256_big_endian_bytes": "6b6564e11546942312073cdfb6024693df75b952b1858f995047324b5868678a"
+    },
+    {
+      "declaration": "rawClass_184",
+      "line": 383,
+      "bits": 16384,
+      "lsb_offset": 9551868,
+      "first_code": 795989,
+      "last_code": 797354,
+      "start_bit_in_first_lane": 0,
+      "end_bit_in_last_lane_exclusive": 4,
+      "raw_windows": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "valid_samples": [],
+      "boundary_lanes": [
+        [
+          795989,
+          3741,
+          false
+        ],
+        [
+          797354,
+          3741,
+          false
+        ]
+      ],
+      "sha256_big_endian_bytes": "ac8f061357a8172c37b1fe631087ded86a250d83eddd522a11e84b481794b1d4"
+    }
+  ]
+}

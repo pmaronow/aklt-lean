@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "source_sha256": "3d2733c5734d0e4cddc155959af2a75370207db61d9f895cb4d054a2882d8503",
+  "literal_counts": {
+    "rawClass": 768,
+    "representatives": 5,
+    "destinations": 11,
+    "edgeKinds": 2
+  },
+  "window_counts_m0_through_m10": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "invalid_raw_word_count": 988484,
+  "classes": 3741,
+  "admitted_class_edge_counts_straight_turn_revisit": [
+    2516,
+    5032,
+    1872
+  ],
+  "raw_direction_comparisons": 240368,
+  "all_raw_and_representative_checks_pass": true,
+  "targets": [
+    {
+      "name": "rawClass_175",
+      "lean_line": 365,
+      "bit_interval_inclusive": [
+        9699324,
+        9715707
+      ],
+      "code_interval_inclusive": [
+        808277,
+        809642
+      ],
+      "intersected_lanes": 1366,
+      "raw_window_lanes": 219,
+      "invalid_word_lanes": 1147,
+      "first_raw_example": {
+        "code": 808277,
+        "word": "SENNNNNNNN",
+        "class": 115,
+        "representative_code": 341
+      },
+      "sha256_hex_literal": "06bc412f90d40399e6bf6014a38ed969cceee16b7eb615123c1195a8fb94cc21"
+    },
+    {
+      "name": "rawClass_176",
+      "lean_line": 367,
+      "bit_interval_inclusive": [
+        9682940,
+        9699323
+      ],
+      "code_interval_inclusive": [
+        806911,
+        808276
+      ],
+      "intersected_lanes": 1366,
+      "raw_window_lanes": 310,
+      "invalid_word_lanes": 1056,
+      "first_raw_example": {
+        "code": 806911,
+        "word": "SENESSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      },
+      "sha256_hex_literal": "78c971199b81e1a04ffd616133dbc3a266dfea18b82be66f83ef2db7e5f0e0fa"
+    },
+    {
+      "name": "rawClass_177",
+      "lean_line": 369,
+      "bit_interval_inclusive": [
+        9666556,
+        9682939
+      ],
+      "code_interval_inclusive": [
+        805546,
+        806911
+      ],
+      "intersected_lanes": 1366,
+      "raw_window_lanes": 165,
+      "invalid_word_lanes": 1201,
+      "first_raw_example": {
+        "code": 805888,
+        "word": "SENESEEEEE",
+        "class": 0,
+        "representative_code": 0
+      },
+      "sha256_hex_literal": "feeeff31a421333f181fefd026de5bafba3ef2b43852929c7490cac2b77107c6"
+    },
+    {
+      "name": "rawClass_178",
+      "lean_line": 371,
+      "bit_interval_inclusive": [
+        9650172,
+        9666555
+      ],
+      "code_interval_inclusive": [
+        804181,
+        805546
+      ],
+      "intersected_lanes": 1366,
+      "raw_window_lanes": 90,
+      "invalid_word_lanes": 1276,
+      "first_raw_example": {
+        "code": 804181,
+        "word": "SENENNNNNN",
+        "class": 115,
+        "representative_code": 341
+      },
+      "sha256_hex_literal": "693bef024b7709fa8d2e9f4adeed9848518ca284e0c037e3025d0cf219e493a7"
+    },
+    {
+      "name": "rawClass_179",
+      "lean_line": 373,
+      "bit_interval_inclusive": [
+        9633788,
+        9650171
+      ],
+      "code_interval_inclusive": [
+        802815,
+        804180
+      ],
+      "intersected_lanes": 1366,
+      "raw_window_lanes": 327,
+      "invalid_word_lanes": 1039,
+      "first_raw_example": {
+        "code": 802815,
+        "word": "SEESSSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      },
+      "sha256_hex_literal": "de4a207df75874ca4949795b58044cb23f228e94f3a3686aa535d28aeae9171e"
+    }
+  ]
+}

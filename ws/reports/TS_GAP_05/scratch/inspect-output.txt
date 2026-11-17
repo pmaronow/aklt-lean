@@ -1,0 +1,127 @@
+def AKLT.Blueprint.Gap.PullbackColourStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  AKLT.Defs.ProperTorusColouring κ → AKLT.Defs.ProperPlaneColouring (κ ∘ AKLT.Blueprint.Gap.reduction L N)
+def AKLT.Blueprint.Gap.HaloInjectionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (a : AKLT.Defs.Plane), Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1))
+def AKLT.Blueprint.Gap.LiftBondStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  1 ≤ M →
+    2 * M + 3 ≤ ↑L →
+      2 * M + 3 ≤ ↑N →
+        ∀ (a : AKLT.Defs.Plane),
+          Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1)) →
+            AKLT.Blueprint.Gap.LiftBonds L N M a
+def AKLT.Blueprint.Gap.BoxCoordinatesStatement : Prop :=
+(∀ (j : Fin 3),
+    Function.Injective (AKLT.Defs.frameVector j) ∧
+      ∀ (a : AKLT.Defs.IcoLetter), ∃ b, AKLT.Defs.frameVector j b = -AKLT.Defs.frameVector j a) →
+  ∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+    1 ≤ M →
+      2 * M + 3 ≤ ↑L →
+        2 * M + 3 ≤ ↑N →
+          (∀ (a : AKLT.Defs.Plane), Set.InjOn (AKLT.Blueprint.Gap.reduction L N) ↑(AKLT.Defs.square a (M + 1))) →
+            ∀ (κ : AKLT.Challenge.Site L N → Fin 3) (a : AKLT.Challenge.Site L N),
+              Nonempty (AKLT.Blueprint.Gap.BoxCoordinates L N M a κ)
+def AKLT.Blueprint.Gap.BoxGaugeLawStatement : Prop :=
+(∀ (i j : Fin 3),
+    i ≠ j →
+      ∀ (a b : AKLT.Defs.IcoLetter),
+        0 < 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+          0 < 1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b)) →
+  ∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+    1 ≤ M →
+      2 * M + 3 ≤ ↑L →
+        2 * M + 3 ≤ ↑N →
+          ∀ (κ : AKLT.Challenge.Site L N → Fin 3),
+            AKLT.Defs.ProperTorusColouring κ →
+              ∀ (a : AKLT.Challenge.Site L N) (C : AKLT.Blueprint.Gap.BoxCoordinates L N M a κ),
+                AKLT.Blueprint.Gap.LiftBonds L N M C.centre →
+                  ∀ (σ : AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter),
+                    AKLT.Blueprint.Gap.Carries C.change
+                      (AKLT.Blueprint.Gap.blockLaw (AKLT.Defs.torusLaw L N κ) (AKLT.Blueprint.Gap.torusSquare L N M a)
+                        σ)
+                      ((AKLT.Blueprint.Gap.frameSpec (κ ∘ AKLT.Blueprint.Gap.reduction L N)).law
+                        (AKLT.Defs.square C.centre M) (C.boundary σ))
+def AKLT.Blueprint.Gap.TorusRangeTransferStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (U : Finset (AKLT.Challenge.Site L N)) (σ τ : AKLT.Defs.TorusConfiguration L N),
+      (∀ z ∈ U.biUnion AKLT.Defs.torusNeighbours \ U, σ z = τ z) →
+        AKLT.Defs.conditionalTorusLaw L N κ U σ = AKLT.Defs.conditionalTorusLaw L N κ U τ) →
+    ∀ (M : ℕ), 1 ≤ M → AKLT.Blueprint.Gap.TorusRangeOne (AKLT.Defs.torusLaw L N κ) M
+def AKLT.Blueprint.Gap.SquareInternalEdgesStatement : Prop :=
+∀ (a : AKLT.Defs.Plane) (M : ℕ),
+  (AKLT.Defs.internalBonds (AKLT.Defs.square a M)).card = AKLT.Blueprint.Gap.internalCount M
+def AKLT.Blueprint.Gap.FrameSpecRegularityStatement : Prop :=
+∀ (κ : AKLT.Defs.Plane → Fin 3),
+  AKLT.Defs.ProperPlaneColouring κ →
+    (∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W),
+        AKLT.Defs.PositiveProbability (AKLT.Defs.planeLaw κ W η)) →
+      (∀ (W V : Finset AKLT.Defs.Plane),
+          V ⊆ W →
+            ∀ (η : AKLT.Defs.FrameBoundary W) (σ : AKLT.Defs.PlaneConfiguration W),
+              AKLT.Defs.conditionalPlaneLaw κ W V η σ = AKLT.Defs.planeLaw κ V (AKLT.Defs.inducedBoundary W V η σ)) →
+        AKLT.Blueprint.Gap.RegularSpec (AKLT.Blueprint.Gap.frameSpec κ)
+structure AKLT.Blueprint.Gap.BoxCoordinates (L N : AKLT.Challenge.Size) (M : ℕ) (a : AKLT.Challenge.Site L N)
+  (κ : AKLT.Challenge.Site L N → Fin 3) : Type
+number of parameters: 5
+fields:
+  AKLT.Blueprint.Gap.BoxCoordinates.centre : AKLT.Defs.Plane
+  AKLT.Blueprint.Gap.BoxCoordinates.centre_reduces : AKLT.Blueprint.Gap.reduction L N self.centre = a
+  AKLT.Blueprint.Gap.BoxCoordinates.change : AKLT.Blueprint.Gap.ProductChange (fun x => AKLT.Defs.IcoLetter) fun x =>
+      AKLT.Defs.IcoLetter
+  AKLT.Blueprint.Gap.BoxCoordinates.site_reduces : ∀ (x : ↥(AKLT.Blueprint.Gap.torusSquare L N M a)),
+      AKLT.Blueprint.Gap.reduction L N ↑(self.change.sites x) = ↑x
+  AKLT.Blueprint.Gap.BoxCoordinates.vector_change : ∀ (ω : AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter)
+      (x : ↥(AKLT.Blueprint.Gap.torusSquare L N M a)),
+      AKLT.Defs.frameVector (κ ↑x) (self.change.configurations ω (self.change.sites x)) =
+        AKLT.Blueprint.Gap.paritySign ↑(self.change.sites x) • AKLT.Defs.frameVector (κ ↑x) (ω x)
+  AKLT.Blueprint.Gap.BoxCoordinates.boundary : AKLT.Defs.TorusConfiguration L N →
+      AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter
+  AKLT.Blueprint.Gap.BoxCoordinates.boundary_vector : ∀ (σ : AKLT.Defs.TorusConfiguration L N),
+      ∀ z ∈ AKLT.Defs.exteriorSites (AKLT.Defs.square self.centre M),
+        AKLT.Defs.frameVector (κ (AKLT.Blueprint.Gap.reduction L N z)) (self.boundary σ z) =
+          AKLT.Blueprint.Gap.paritySign z •
+            AKLT.Defs.frameVector (κ (AKLT.Blueprint.Gap.reduction L N z)) (σ (AKLT.Blueprint.Gap.reduction L N z))
+  AKLT.Blueprint.Gap.BoxCoordinates.boundary_change : ∀
+      y ∈ AKLT.Blueprint.Gap.torusHalo L N M a \ AKLT.Blueprint.Gap.torusSquare L N M a,
+      ∀ (σ τ : AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter),
+        AKLT.Defs.AgreeOutside {y} σ τ →
+          ∃ z ∉ AKLT.Defs.square self.centre M,
+            AKLT.Defs.setDistance AKLT.Defs.supDist z ↑(AKLT.Defs.square self.centre M) = 1 ∧
+              ∀ (w : AKLT.Defs.Plane), w ≠ z → self.boundary σ w = self.boundary τ w
+constructor:
+  AKLT.Blueprint.Gap.BoxCoordinates.mk {L N : AKLT.Challenge.Size} {M : ℕ} {a : AKLT.Challenge.Site L N}
+    {κ : AKLT.Challenge.Site L N → Fin 3} (centre : AKLT.Defs.Plane)
+    (centre_reduces : AKLT.Blueprint.Gap.reduction L N centre = a)
+    (change : AKLT.Blueprint.Gap.ProductChange (fun x => AKLT.Defs.IcoLetter) fun x => AKLT.Defs.IcoLetter)
+    (site_reduces :
+      ∀ (x : ↥(AKLT.Blueprint.Gap.torusSquare L N M a)), AKLT.Blueprint.Gap.reduction L N ↑(change.sites x) = ↑x)
+    (vector_change :
+      ∀ (ω : AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter) (x : ↥(AKLT.Blueprint.Gap.torusSquare L N M a)),
+        AKLT.Defs.frameVector (κ ↑x) (change.configurations ω (change.sites x)) =
+          AKLT.Blueprint.Gap.paritySign ↑(change.sites x) • AKLT.Defs.frameVector (κ ↑x) (ω x))
+    (boundary : AKLT.Defs.TorusConfiguration L N → AKLT.Blueprint.Gap.Config fun x => AKLT.Defs.IcoLetter)
+    (boundary_vector :
+      ∀ (σ : AKLT.Defs.TorusConfiguration L N),
+        ∀ z ∈ AKLT.Defs.exteriorSites (AKLT.Defs.square centre M),
+          AKLT.Defs.frameVector (κ (AKLT.Blueprint.Gap.reduction L N z)) (boundary σ z) =
+            AKLT.Blueprint.Gap.paritySign z •
+              AKLT.Defs.frameVector (κ (AKLT.Blueprint.Gap.reduction L N z)) (σ (AKLT.Blueprint.Gap.reduction L N z)))
+    (boundary_change :
+      ∀ y ∈ AKLT.Blueprint.Gap.torusHalo L N M a \ AKLT.Blueprint.Gap.torusSquare L N M a,
+        ∀ (σ τ : AKLT.Challenge.Site L N → AKLT.Defs.IcoLetter),
+          AKLT.Defs.AgreeOutside {y} σ τ →
+            ∃ z ∉ AKLT.Defs.square centre M,
+              AKLT.Defs.setDistance AKLT.Defs.supDist z ↑(AKLT.Defs.square centre M) = 1 ∧
+                ∀ (w : AKLT.Defs.Plane), w ≠ z → boundary σ w = boundary τ w) :
+    AKLT.Blueprint.Gap.BoxCoordinates L N M a κ
+AKLT.Defs.conditionalTorusLaw (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3)
+  (U : Finset (AKLT.Challenge.Site L N)) (σ : AKLT.Defs.TorusConfiguration L N) :
+  AKLT.Defs.Weight (↥U → AKLT.Defs.IcoLetter)
+AKLT.Blueprint.Gap.blockLaw {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)) (U : Finset ι) (σ : AKLT.Blueprint.Gap.Config S) :
+  AKLT.Defs.Weight ((x : ↥U) → S ↑x)

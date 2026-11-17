@@ -1,0 +1,22 @@
+import took 2.63s
+'checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 1.61ms
+	attribute application 0.0119ms
+	elaboration 1.15ms
+	fix level params 0.00767ms
+	import 2.63s
+	initialization 26.1ms
+	instantiate metavars 0.0072ms
+	interpretation 237ms
+	let-to-have transformation 0.00728ms
+	linting 0.494ms
+	module linting 0.00137ms
+	overlappingInstancesLinter 0.391ms
+	parsing 0.208ms
+	process pre-definitions 0.0737ms
+	share common exprs 0.0129ms
+	tactic execution 0.266ms
+	tacticAnalysis 0.832ms
+	type checking 77.4ms
+	typeclass inference 0.903ms

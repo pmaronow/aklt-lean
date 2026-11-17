@@ -1,0 +1,24 @@
+--- PLAN.md
++++ PLAN.md
+@@ -1150,7 +1150,8 @@
+ For \(u\ge M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\),
+ \(|I_0|\le1\), and \(D_i\subset F_i\) for \(2\le i\le i_1\).
+ For \(2\le i\le i_1\) outside \(I_0\), \(|A_i|\le8l_0\).
+-Every side of \(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
++For the same indices \(2\le i\le i_1\) outside \(I_0\), every side of
++\(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
+ and meeting \(C_u(a)\) is at distance at least \(s/3\) from the
+ exterior half-plane beyond that edge.
+ For \(i\ge2\), every point of \(C_u(a)\setminus F_i\)
+--- interfaces.tex
++++ interfaces.tex
+@@ -335,7 +335,8 @@
+ For \(u\ge M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\),
+ \(|I_0|\le1\), and \(D_i\subset F_i\) for \(2\le i\le i_1\).
+ For \(2\le i\le i_1\) outside \(I_0\), \(|A_i|\le8l_0\).
+-Every side of \(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
++For the same indices \(2\le i\le i_1\) outside \(I_0\), every side of
++\(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
+ and meeting \(C_u(a)\) is at distance at least \(s/3\) from the
+ exterior half-plane beyond that edge.
+ For \(i\ge2\), every point of \(C_u(a)\setminus F_i\)

@@ -1,0 +1,79 @@
+{
+  "scope": "Hypothetical full all-operator generator with shared halves, sparse products, and batched checks. Generic soundness and full build are absent.",
+  "assumptions": {
+    "module_cpu_floor": 0.25,
+    "slabs_per_future_module": 32,
+    "gram_rows_per_packet": 8,
+    "exclusions": [
+      "generic proof-tree/source migration",
+      "setup/cache",
+      "H2",
+      "H3",
+      "independent replays",
+      "full export serialization"
+    ]
+  },
+  "exact_work": {
+    "blocks": 12173,
+    "weighted_tensor_cells": 8297235999,
+    "sample_weighted_tensor_cells": 119439360,
+    "two_row_slabs": 45497,
+    "half_instance_dimension_squared": 1199610,
+    "sample_half_dimension_squared": 15264,
+    "gram_rows": 93614,
+    "gram_bit_work": 48570903040,
+    "gram_factor_guard_cells": 6831576
+  },
+  "calibration": {
+    "hard_sparse_slabs_cpu": 39.46,
+    "half_proofs_cpu": 16.05,
+    "gram_small_eight_cpu": 0.28,
+    "gram_large_eight_cpu": 0.8200000000000001,
+    "gram_alpha_seconds_per_factor_guard_cell": 0.00010012135922330107,
+    "gram_beta_seconds_per_bit_work": 1.034311562224183e-08
+  },
+  "model_seconds": {
+    "constructor_arithmetic": 2428.6078770435474,
+    "constructor_module_floor": 355.5,
+    "sparse_schedule_checks": 333.3125,
+    "half_proofs": 1222.0869693396226,
+    "gram_arithmetic": 1186.3611407766994,
+    "gram_packet_module_floor": 731.5
+  },
+  "planning_ranges_seconds": {
+    "shared_local_and_half": [
+      1000,
+      2200
+    ],
+    "constructors": [
+      2500,
+      5000
+    ],
+    "gram": [
+      1000,
+      2500
+    ],
+    "direct_DD_and_layout": [
+      400,
+      1000
+    ],
+    "coverage": [
+      2850,
+      4000
+    ],
+    "data_and_assembly": [
+      800,
+      2000
+    ]
+  },
+  "caveats": [
+    "Two-point Gram calibration is underdetermined and sensitive to a 0.01-second timer/floor change.",
+    "Half dimension-squared scaling ignores sparsity/type/term-size differences.",
+    "Constructor model assumes fixed overhead removed by future batching; 45497 separate files would miss it.",
+    "No upper bound on full kernel cost or independent-checker cost is established."
+  ],
+  "planning_total_hours": [
+    2.375,
+    4.638888888888889
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "source_sha256": "3d2733c5734d0e4cddc155959af2a75370207db61d9f895cb4d054a2882d8503",
+  "source_lines_read": 1631,
+  "literal_count": 786,
+  "packing": {
+    "rawClass": {
+      "bit_length": 12582908,
+      "parts": 768,
+      "chunk_offsets": "768 checked"
+    },
+    "representatives": {
+      "bit_length": 74820,
+      "parts": 5,
+      "chunk_offsets": {
+        "representatives_0": 58436,
+        "representatives_1": 42052,
+        "representatives_2": 25668,
+        "representatives_3": 9284,
+        "representatives_4": 0
+      }
+    },
+    "destinations": {
+      "bit_length": 179542,
+      "parts": 11,
+      "chunk_offsets": {
+        "destinations_0": 163160,
+        "destinations_1": 146776,
+        "destinations_2": 130392,
+        "destinations_3": 114008,
+        "destinations_4": 97624,
+        "destinations_5": 81240,
+        "destinations_6": 64856,
+        "destinations_7": 48472,
+        "destinations_8": 32088,
+        "destinations_9": 15704,
+        "destinations_10": 0
+      }
+    },
+    "edgeKinds": {
+      "bit_length": 29928,
+      "parts": 2,
+      "chunk_offsets": {
+        "edgeKinds_0": 13544,
+        "edgeKinds_1": 0
+      }
+    }
+  },
+  "fragments": {
+    "destinations_10": {
+      "line": 1585,
+      "bits": 15704,
+      "matches_regenerated": true
+    },
+    "edgeKinds_0": {
+      "line": 1589,
+      "bits": 16384,
+      "matches_regenerated": true
+    },
+    "edgeKinds_1": {
+      "line": 1591,
+      "bits": 13544,
+      "matches_regenerated": true
+    }
+  },
+  "raw_counts": {
+    "1": 4,
+    "2": 12,
+    "3": 36,
+    "4": 108,
+    "5": 316,
+    "6": 916,
+    "7": 2628,
+    "8": 7500,
+    "9": 21268,
+    "10": 60092
+  },
+  "class_count": 3741,
+  "raw_lane_counts": {
+    "false": 60092,
+    "true": 988484
+  },
+  "destination_range": [
+    0,
+    3741
+  ],
+  "kind_lane_counts": {
+    "0": 2516,
+    "1": 5032,
+    "3": 5544,
+    "2": 1872
+  },
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "checks": {
+    "raw_direction_kind_invariance": 240368,
+    "raw_direction_admissibility": 240368,
+    "admitted_successor_and_kind": 169092,
+    "nonrevisit_arrival": 162372
+  },
+  "errors": [],
+  "destination_fragment_boundary": {
+    "complete_lanes": 1308,
+    "partial_lane_bits": 8,
+    "class": 327,
+    "direction": 0,
+    "destination_lane": 704
+  },
+  "highest_destination_lanes": [
+    700,
+    701,
+    0,
+    0
+  ]
+}

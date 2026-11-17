@@ -1,0 +1,8 @@
+/home/ubuntu/aklt/wt/PROBE2/AKLT/Probe2/IntRowsSyntax.lean:14:34: error: Application type mismatch: The argument
+  intRowExpr
+has type
+  String → MetaM Expr
+but is expected to have type
+  String → TermElabM Expr
+in the application
+  List.mapM intRowExpr

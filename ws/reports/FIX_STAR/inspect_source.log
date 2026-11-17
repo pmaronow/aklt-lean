@@ -1,0 +1,3175 @@
+private theorem _private._stdin.0.AKLT.W.Q037.starCasimir_formula : ∀ {L N : ⋯} (j : ⋯),
+  @Eq.{1}
+    (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+      (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+        (@WithLp.instAddCommGroup.{0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)))
+      (@WithLp.instModule.{0, 0}
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            PiLp.innerProductSpace._proof_1))
+        Complex
+        ((i :
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+          (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            i)
+        Complex.instSemiring
+        (@Pi.addCommGroup.{0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+          (fun
+              (x :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex)
+          fun
+            (i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+          Complex.addCommGroup)
+        (@Pi.Function.module.{0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+          Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+          (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+    (AKLT.Defs.starCasimir j)
+    (@HAdd.hAdd.{0, 0, 0}
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@instHAdd.{0}
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+          Complex.instSemiring Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+          (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+      (@HMul.hMul.{0, 0, 0}
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@instHMul.{0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.instMul.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring)))))
+        (@HAdd.hAdd.{0, 0, 0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@instHAdd.{0}
+            (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+            (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+              Complex.instSemiring Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ (@_private._stdin.0.AKLT.W.Q037.starLeaf L N j)))
+        (@HAdd.hAdd.{0, 0, 0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@instHAdd.{0}
+            (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+            (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+              Complex.instSemiring Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))) (nat_lit 0))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ (@_private._stdin.0.AKLT.W.Q037.starLeaf ⋯ ⋯ ⋯))))
+      ⋯) :=
+fun {L N : ⋯} (j : ⋯) =>
+  @Eq.trans.{1}
+    (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+      (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+        (@WithLp.instAddCommGroup.{0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)))
+      (@WithLp.instModule.{0, 0}
+        (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+          (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+            (@AddMonoidWithOne.toNatCast.{0} ENNReal
+              (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+            PiLp.innerProductSpace._proof_1))
+        Complex
+        ((i :
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+          (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            i)
+        Complex.instSemiring
+        (@Pi.addCommGroup.{0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+          (fun
+              (x :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex)
+          fun
+            (i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+          Complex.addCommGroup)
+        (@Pi.Function.module.{0, 0, 0}
+          (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+          Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+          (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+    (AKLT.Defs.starCasimir j)
+    (@HAdd.hAdd.{0, 0, 0}
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+        (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+          (@WithLp.instAddCommGroup.{0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)))
+        (@WithLp.instModule.{0, 0}
+          (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+              PiLp.innerProductSpace._proof_1))
+          Complex
+          ((i :
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+            (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              i)
+          Complex.instSemiring
+          (@Pi.addCommGroup.{0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            (fun
+                (x :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex)
+            fun
+              (i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+            Complex.addCommGroup)
+          (@Pi.Function.module.{0, 0, 0}
+            (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+            Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+            (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+      (@instHAdd.{0}
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+          Complex.instSemiring Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+          (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+      (@HMul.hMul.{0, 0, 0}
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+          (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+            (@WithLp.instAddCommGroup.{0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)))
+          (@WithLp.instModule.{0, 0}
+            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                PiLp.innerProductSpace._proof_1))
+            Complex
+            ((i :
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+              (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                i)
+            Complex.instSemiring
+            (@Pi.addCommGroup.{0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              (fun
+                  (x :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex)
+              fun
+                (i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+              Complex.addCommGroup)
+            (@Pi.Function.module.{0, 0, 0}
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+              (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+        (@instHMul.{0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.instMul.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring)))))
+        (@HAdd.hAdd.{0, 0, 0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@instHAdd.{0}
+            (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+            (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+              Complex.instSemiring Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) (nat_lit 0)
+              (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+                AKLT.Defs.starCasimir._proof_3 (nat_lit 0))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ
+            (@Fin.mk (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) j)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (AKLT.Defs.starCasimir._proof_2 j))))
+        (@HAdd.hAdd.{0, 0, 0}
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+            (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+              (@WithLp.instAddCommGroup.{0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)))
+            (@WithLp.instModule.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              Complex
+              ((i :
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  i)
+              Complex.instSemiring
+              (@Pi.addCommGroup.{0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun
+                    (x :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex)
+                fun
+                  (i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                Complex.addCommGroup)
+              (@Pi.Function.module.{0, 0, 0}
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                  Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+          (@instHAdd.{0}
+            (@Module.End.{0, 0} Complex AKLT.Defs.StarHilbert Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring))))
+            (@LinearMap.instAdd.{0, 0, 0, 0} Complex Complex AKLT.Defs.StarHilbert AKLT.Defs.StarHilbert
+              Complex.instSemiring Complex.instSemiring
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@AddCommGroup.toAddCommMonoid.{0} AKLT.Defs.StarHilbert
+                (@WithLp.instAddCommGroup.{0}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  ((i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                    (fun
+                          (x :
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                              Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                        Complex)
+                      i)
+                  (@Pi.addCommGroup.{0, 0}
+                    (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                    (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    fun
+                      (i :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex.addCommGroup)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@WithLp.instModule.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                    PiLp.innerProductSpace._proof_1))
+                Complex
+                ((i :
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+                  (fun
+                        (x :
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                            Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                      Complex)
+                    i)
+                Complex.instSemiring
+                (@Pi.addCommGroup.{0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  (fun
+                      (x :
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                          Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                    Complex)
+                  fun
+                    (i :
+                      Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                        Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) =>
+                  Complex.addCommGroup)
+                (@Pi.Function.module.{0, 0, 0}
+                  (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                  Complex Complex Complex.instSemiring Complex.instAddCommMonoid
+                  (@Semiring.toModule.{0} Complex Complex.instSemiring)))
+              (@RingHom.id.{0} Complex (@Semiring.toNonAssocSemiring.{0} Complex Complex.instSemiring))))
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinZ
+            (@OfNat.ofNat.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) ⋯ ⋯))
+          ⋯))
+      ⋯)
+    ⋯ ⋯ ⋯
+'AKLT.W.Q037.main' depends on axioms: [propext, Classical.choice, Quot.sound]

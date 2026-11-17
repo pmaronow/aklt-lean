@@ -1,0 +1,103 @@
+AKLT.Blueprint.Rec.PairSetup.mk : (toPairData : AKLT.Blueprint.Rec.PairData) →
+  (incoming : AKLT.Defs.Compass) →
+    toPairData.u = toPairData.c + incoming.step →
+      toPairData.u ∉ AKLT.Defs.protectedSites toPairData.G → AKLT.Blueprint.Rec.PairSetup
+AKLT.Blueprint.Rec.PairData.normalized : (p : AKLT.Blueprint.Rec.PairData) → AKLT.Defs.Network p.G
+@AKLT.Defs.StoppedNetworkTrail : {G : Finset AKLT.Defs.Plane} →
+  {n : ℕ} → AKLT.Defs.Network G → AKLT.Defs.Plane → Finset AKLT.Defs.Plane → AKLT.Defs.DirectionWord n → Prop
+@AKLT.Defs.Network.ResponsePair : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.PairType → AKLT.Defs.Plane → AKLT.Defs.Plane → AKLT.Defs.Plane → Prop
+@AKLT.Defs.CoveredDepartureV2 : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.Compass → Prop
+@AKLT.Blueprint.Rec.CoveredDepartureV2 : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.Compass → Prop
+@AKLT.Defs.MemoryQuotient.Correct : {m q : ℕ} → AKLT.Defs.MemoryQuotient m q → Prop
+@AKLT.Defs.finiteOperatorSum : {α : Type u_1} → ((α → ℚ) → α → ℚ) → (α → ℚ) → ℕ → α → ℚ
+@List.pairwise_mergeSort : ∀ {α : Type u_1} {le : α → α → Bool},
+  (∀ (a b c : α), le a b = true → le b c = true → le a c = true) →
+    (∀ (a b : α), (le a b || le b a) = true) → ∀ (l : List α), List.Pairwise (fun a b => le a b = true) (l.mergeSort le)
+def AKLT.Blueprint.Rec.PairClosureStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairSetup) (T : Finset AKLT.Defs.Plane) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+  AKLT.Defs.StoppedNetworkTrail p.normalized p.u T w →
+    ∀ (i : Fin n),
+      have E := AKLT.Blueprint.Rec.prefixNetwork p.normalized p.u w ↑i;
+      have y := AKLT.Defs.wordVertex p.u w ↑i;
+      have incoming := AKLT.Defs.wordIncoming p.incoming w i;
+      E.status y = AKLT.Defs.Status.U →
+        ∀ a ∈ AKLT.Blueprint.Rec.nonarrivalNeighboursV2 E y incoming,
+          ∀ b ∈ AKLT.Blueprint.Rec.nonarrivalNeighboursV2 E y incoming,
+            a ≠ b → (AKLT.Defs.removeSite E y).ResponsePair (AKLT.Defs.responsePairType {a, b}) a b y
+def AKLT.Blueprint.Rec.TerminalExceptionLocationStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairSetup),
+  p.v ∉ AKLT.Defs.protectedSites p.G →
+    ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+      AKLT.Defs.StoppedNetworkTrail p.normalized p.u (insert p.v (AKLT.Defs.protectedSites p.G)) w →
+        AKLT.Defs.wordVertex p.u w n ∈ AKLT.Defs.protectedSites p.G →
+          have E :=
+            AKLT.Blueprint.Rec.normalizeStart (AKLT.Defs.traceNetwork p.normalized (AKLT.Defs.wordVertices p.u w)) p.v
+              p.c;
+          ∀ (incoming : AKLT.Defs.Compass),
+            p.v = p.c + incoming.step →
+              ∀ (m : ℕ) (w' : AKLT.Defs.DirectionWord m),
+                AKLT.Defs.StoppedNetworkTrail E p.v (AKLT.Defs.protectedSites p.G) w' →
+                  ∀ (i : Fin m),
+                    (AKLT.Blueprint.Rec.prefixNetwork E p.v w' ↑i).status (AKLT.Defs.wordVertex p.v w' ↑i) =
+                        AKLT.Defs.Status.U →
+                      ¬AKLT.Defs.CoveredDepartureV2 (AKLT.Blueprint.Rec.prefixNetwork E p.v w' ↑i)
+                            (AKLT.Defs.wordVertex p.v w' ↑i) (AKLT.Defs.wordIncoming incoming w' i) (w' i) →
+                        0 < AKLT.Defs.latticeDist (AKLT.Defs.wordVertex p.v w' ↑i) (AKLT.Defs.wordVertex p.u w n) ∧
+                          AKLT.Defs.latticeDist (AKLT.Defs.wordVertex p.v w' ↑i) (AKLT.Defs.wordVertex p.u w n) ≤ 2
+def AKLT.Blueprint.Rec.TerminalExceptionCountStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairSetup),
+  p.v ∉ AKLT.Defs.protectedSites p.G →
+    ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+      AKLT.Defs.StoppedNetworkTrail p.normalized p.u (insert p.v (AKLT.Defs.protectedSites p.G)) w →
+        AKLT.Defs.wordVertex p.u w n ∈ AKLT.Defs.protectedSites p.G →
+          have E :=
+            AKLT.Blueprint.Rec.normalizeStart (AKLT.Defs.traceNetwork p.normalized (AKLT.Defs.wordVertices p.u w)) p.v
+              p.c;
+          ∀ (incoming : AKLT.Defs.Compass),
+            p.v = p.c + incoming.step →
+              ∀ (m : ℕ) (w' : AKLT.Defs.DirectionWord m),
+                AKLT.Defs.StoppedNetworkTrail E p.v (AKLT.Defs.protectedSites p.G) w' →
+                  AKLT.Blueprint.Rec.uncoveredCountV2 E p.v incoming w' ≤ 12
+def AKLT.Blueprint.Rec.ShortKernelOrderingStatementV2 : Prop :=
+∀ (n : ℕ) (X : AKLT.Defs.PairType) (w : AKLT.Defs.DirectionWord n),
+  AKLT.Defs.ClosedTrail X w →
+    n ≤ 12 →
+      AKLT.Defs.kernelOrdering w = (AKLT.Defs.firstVisitList w).mergeSort (AKLT.Defs.shortOrderLE w) ∧
+        List.Pairwise (fun i j => AKLT.Defs.shortOrderLE w i j = true) (AKLT.Defs.kernelOrdering w)
+def AKLT.Blueprint.Rec.LongKernelOrderingStatementV2 : Prop :=
+∀ (n : ℕ) (X : AKLT.Defs.PairType) (w : AKLT.Defs.DirectionWord n),
+  AKLT.Defs.ClosedTrail X w →
+    12 < n →
+      AKLT.Defs.kernelOrdering w = AKLT.Defs.longOrdering w ∧
+        List.Pairwise (fun i j => ↑i < ↑j)
+            (List.filter (AKLT.Defs.wordStraight AKLT.Defs.kernelIncoming w) (AKLT.Defs.firstVisitList w)) ∧
+          List.Pairwise (fun i j => ↑i < ↑j)
+            (List.filter (fun i => !AKLT.Defs.wordStraight AKLT.Defs.kernelIncoming w i) (AKLT.Defs.firstVisitList w))
+def AKLT.Blueprint.Rec.StoppedQuotientSumStatementV2 : Prop :=
+∀ (m q p : ℕ),
+  1 ≤ m →
+    ∀ (Q : AKLT.Defs.MemoryQuotient m q),
+      Q.Correct →
+        ∀ (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ),
+          (∀ (φ ψ : Fin p) (d a a' : AKLT.Defs.Compass) (x : AKLT.Defs.Plane),
+              weight φ ψ AKLT.Defs.StepKind.revisit d a x = weight φ ψ AKLT.Defs.StepKind.revisit d a' x) →
+            ∀ (rawStop : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → Bool)
+              (quotientStop : Fin p → Fin q → AKLT.Defs.Plane → Bool),
+              (∀ (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                  AKLT.Defs.RawWindow w → ∀ (x : AKLT.Defs.Plane), rawStop φ w x = quotientStop φ (Q.project w) x) →
+                ∀ (rawReward : Fin p × AKLT.Defs.DirectionWord m × AKLT.Defs.Plane → ℚ)
+                  (quotientReward : Fin p × Fin q × AKLT.Defs.Plane → ℚ),
+                  (∀ (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                      AKLT.Defs.RawWindow w →
+                        ∀ (x : AKLT.Defs.Plane), rawReward (φ, w, x) = quotientReward (φ, Q.project w, x)) →
+                    ∀ (R : ℕ) (φ : Fin p) (w : AKLT.Defs.DirectionWord m),
+                      AKLT.Defs.RawWindow w →
+                        ∀ (x : AKLT.Defs.Plane),
+                          AKLT.Defs.finiteOperatorSum (AKLT.Blueprint.Rec.rawStoppedOperatorV2 weight rawStop) rawReward
+                              R (φ, w, x) =
+                            AKLT.Defs.finiteOperatorSum
+                              (AKLT.Blueprint.Rec.quotientStoppedOperatorV2 Q weight quotientStop) quotientReward R
+                              (φ, Q.project w, x)

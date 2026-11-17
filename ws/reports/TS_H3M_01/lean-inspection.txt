@@ -1,0 +1,67 @@
+def AKLT.Blueprint.H3.RawSuccessorStatement : Prop :=
+∀ (m : ℕ),
+  LE.le.{0} 1 m →
+    ∀ (w : AKLT.Defs.DirectionWord m),
+      AKLT.Defs.RawWindow w →
+        ∀ (d : AKLT.Defs.Compass), AKLT.Defs.WindowAdmissible w d → AKLT.Defs.RawWindow (AKLT.Defs.windowSuccessor w d)
+def AKLT.Blueprint.H3.ProjectionRealizationStatement : Prop :=
+∀ (m q : ℕ),
+  LE.le.{0} 1 m →
+    ∀ (π : AKLT.Defs.DirectionWord m → Fin q),
+      AKLT.Defs.CompatibleProjection m q π →
+        ∃ Q, Q.Correct ∧ ∀ (w : AKLT.Defs.DirectionWord m), AKLT.Defs.RawWindow w → Eq.{1} (Q.project w) (π w)
+def AKLT.Blueprint.H3.PhaseFoldExpansionStatement : Prop :=
+∀ (n : ℕ) (k : Fin n → AKLT.Defs.StepKind) (r : Fin n → ℚ),
+  Eq.{1}
+    (∑ φ,
+      HMul.hMul.{0, 0, 0}
+        (AKLT.Blueprint.H3.phaseRun (fun i => AKLT.Defs.phaseTransition (k i) (r i)) (List.finRange n)
+          AKLT.Defs.phaseInitial φ)
+        (AKLT.Defs.phaseTerminal φ))
+    (∑ j,
+      HAdd.hAdd.{0, 0, 0} (AKLT.Blueprint.H3.singleChange k r j AKLT.Defs.Phase.A AKLT.Defs.Phase.C)
+        (AKLT.Blueprint.H3.singleChange k r j AKLT.Defs.Phase.B AKLT.Defs.Phase.D))
+def AKLT.Blueprint.H3.SingleChangeFactorStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n) (j : Fin n),
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (AKLT.Blueprint.H3.singleChange (AKLT.Blueprint.H3.trueKind w) (AKLT.Defs.witnessKappa w) j AKLT.Defs.Phase.A
+        AKLT.Defs.Phase.C)
+      (AKLT.Blueprint.H3.singleChange (AKLT.Blueprint.H3.trueKind w) (AKLT.Defs.witnessKappa w) j AKLT.Defs.Phase.B
+        AKLT.Defs.Phase.D))
+    (HMul.hMul.{0, 0, 0} (AKLT.Defs.trailBaseWeight AKLT.Defs.kernelStart w) (AKLT.Blueprint.H3.longRewardTerm w j))
+def AKLT.Blueprint.H3.ExposureListExpansionStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n) (reward : Fin n → ℚ) (l : List.{0} (Fin n)),
+  List.Nodup.{0} l →
+    Eq.{1} (AKLT.Defs.exposureSum w reward l)
+      (∑ j ∈ List.toFinset.{0} l, HMul.hMul.{0, 0, 0} (reward j) (AKLT.Blueprint.H3.orderedMultiplier w l j))
+def AKLT.Blueprint.H3.LongOrderingMultiplierStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+  List.Nodup.{0} (AKLT.Defs.longOrdering w) ∧
+    Eq.{1} (List.toFinset.{0} (AKLT.Defs.longOrdering w))
+        {j | Eq.{1} (AKLT.Defs.wordRevisit AKLT.Defs.kernelStart w j) false} ∧
+      ∀ (j : Fin n),
+        Membership.mem.{0, 0} (AKLT.Defs.longOrdering w) j →
+          Eq.{1} (AKLT.Blueprint.H3.orderedMultiplier w (AKLT.Defs.longOrdering w) j)
+            (AKLT.Blueprint.H3.longMultiplier w j)
+def AKLT.Blueprint.H3.PrefixCoefficientCausalityStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n) (L : ℕ) (hL : LE.le.{0} L n) (i : Fin L) (φ ψ : AKLT.Defs.Phase),
+  Eq.{1} (AKLT.Defs.truePhaseCoefficient (AKLT.Defs.takeWord w L) i φ ψ) (AKLT.Defs.truePhaseCoefficient w ⟨↑i, ⋯⟩ φ ψ)
+def AKLT.Blueprint.H3.PhaseSplitAlgebraStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n) (L : ℕ) (hL : LE.le.{0} L n),
+  (∀ (i : Fin L) (φ ψ : AKLT.Defs.Phase),
+      Eq.{1} (AKLT.Defs.truePhaseCoefficient (AKLT.Defs.takeWord w L) i φ ψ)
+        (AKLT.Defs.truePhaseCoefficient w ⟨↑i, ⋯⟩ φ ψ)) →
+    Eq.{1} (∑ φ, HMul.hMul.{0, 0, 0} (AKLT.Defs.prefixPhases w φ) (AKLT.Defs.phaseTerminal φ))
+      (∑ φ, HMul.hMul.{0, 0, 0} (AKLT.Defs.prefixPhases (AKLT.Defs.takeWord w L) φ) (AKLT.Defs.truePhaseSuffix w L φ))
+@AKLT.Defs.wordVertex : {n : ℕ} → AKLT.Defs.Plane → AKLT.Defs.DirectionWord n → ℕ → AKLT.Defs.Plane
+@AKLT.Defs.wordIncoming : {n : ℕ} → AKLT.Defs.Compass → AKLT.Defs.DirectionWord n → Fin n → AKLT.Defs.Compass
+@AKLT.Defs.wordRevisit : {n : ℕ} → AKLT.Defs.Plane → AKLT.Defs.DirectionWord n → Fin n → Bool
+@AKLT.Defs.witnessKappa : {n : ℕ} → AKLT.Defs.DirectionWord n → Fin n → ℚ
+@AKLT.Defs.truePhaseCoefficient : {n : ℕ} → AKLT.Defs.DirectionWord n → Fin n → AKLT.Defs.Phase → AKLT.Defs.Phase → ℚ
+@AKLT.Blueprint.H3.singleChange : {n : ℕ} →
+  (Fin n → AKLT.Defs.StepKind) → (Fin n → ℚ) → Fin n → AKLT.Defs.Phase → AKLT.Defs.Phase → ℚ
+@AKLT.Blueprint.H3.orderedMultiplier : {n : ℕ} → AKLT.Defs.DirectionWord n → List.{0} (Fin n) → Fin n → ℚ
+@AKLT.Blueprint.H3.longMultiplier : {n : ℕ} → AKLT.Defs.DirectionWord n → Fin n → ℚ
+@AKLT.Defs.prefixPhases : {n : ℕ} → AKLT.Defs.DirectionWord n → AKLT.Defs.Phase → ℚ
+@AKLT.Defs.truePhaseSuffix : {n : ℕ} → AKLT.Defs.DirectionWord n → ℕ → AKLT.Defs.Phase → ℚ

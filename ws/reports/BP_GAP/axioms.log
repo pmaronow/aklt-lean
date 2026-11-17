@@ -1,0 +1,102 @@
+AKLT.Blueprint.Gap.FibreNormalizationStatement : Prop
+AKLT.Blueprint.Gap.ConditionalProjectionStatement : Prop
+AKLT.Blueprint.Gap.ConditionalVarianceStatement : Prop
+AKLT.Blueprint.Gap.MaximalCouplingStatement : Prop
+AKLT.Blueprint.Gap.CouplingMarginalTVStatement : Prop
+AKLT.Blueprint.Gap.MarginalCompletionStatement : Prop
+AKLT.Blueprint.Gap.HammingLocalizationStatement : Prop
+AKLT.Blueprint.Gap.CommonMinorizationStatement : Prop
+AKLT.Blueprint.Gap.SurgeryPreservationStatement : Prop
+AKLT.Blueprint.Gap.ConditionalPatchCouplingStatement : Prop
+AKLT.Blueprint.Gap.FrameProductReferenceStatement : Prop
+AKLT.Blueprint.Gap.FrameInteractionBoundsStatement : Prop
+AKLT.Blueprint.Gap.NormalizedInteractionStatement : Prop
+AKLT.Blueprint.Gap.SignedFrameBlockStatement : Prop
+AKLT.Blueprint.Gap.VariationalCenteringStatement : Prop
+AKLT.Blueprint.Gap.ProductTensorizationStatement : Prop
+AKLT.Blueprint.Gap.DensityComparisonStatement : Prop
+AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement : Prop
+AKLT.Blueprint.Gap.MultiplicityEstimateStatement : Prop
+AKLT.Blueprint.Gap.HammingPathStatement : Prop
+AKLT.Blueprint.Gap.LipschitzCouplingStatement : Prop
+AKLT.Blueprint.Gap.LipschitzEigenvalueStatement : Prop
+AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement : Prop
+AKLT.Blueprint.Gap.ReversibleSpectralStatement : Prop
+AKLT.Blueprint.Gap.BlockAverageFormStatement : Prop
+AKLT.Blueprint.Gap.ProductPoincareTransportStatement : Prop
+AKLT.Blueprint.Gap.ProductCouplingTransportStatement : Prop
+AKLT.Blueprint.Gap.ThresholdSpacingStatement : Prop
+AKLT.Blueprint.Gap.GroundOrthogonalityStatement : Prop
+AKLT.Blueprint.Gap.RayleighBoundStatement : Prop
+AKLT.Blueprint.Gap.StoppedCouplingStatement : Prop
+AKLT.Blueprint.Gap.HammingAtScaleStatement : Prop
+AKLT.Blueprint.Gap.FiniteContractionStatement : Prop
+AKLT.Blueprint.Gap.BlockComparisonStatement : Prop
+AKLT.Blueprint.Gap.PeriodicCriterionStatement : Prop
+AKLT.Blueprint.Gap.PositiveToProbabilityStatement : Prop
+AKLT.Blueprint.Gap.IndependentPairsStatement : Prop
+AKLT.Blueprint.Gap.DiagonalCouplingStatement : Prop
+AKLT.Blueprint.Gap.DeltaBoundsStatement : Prop
+AKLT.Blueprint.Gap.PowerCountStatement : Prop
+AKLT.Blueprint.Gap.PoincareMonotoneStatement : Prop
+AKLT.Blueprint.Gap.ContainingBlockCountStatement : Prop
+AKLT.Blueprint.Gap.ExteriorBlockCountStatement : Prop
+AKLT.Blueprint.Gap.BlockVolumeBoundStatement : Prop
+AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement : Prop
+AKLT.Blueprint.Gap.PeriodicBudgetStatement : Prop
+AKLT.Blueprint.Gap.TorusColourStatement : Prop
+AKLT.Blueprint.Gap.PullbackColourStatement : Prop
+AKLT.Blueprint.Gap.HaloInjectionStatement : Prop
+AKLT.Blueprint.Gap.LiftBondStatement : Prop
+AKLT.Blueprint.Gap.BoxCoordinatesStatement : Prop
+AKLT.Blueprint.Gap.BoxGaugeLawStatement : Prop
+AKLT.Blueprint.Gap.TorusRangeTransferStatement : Prop
+AKLT.Blueprint.Gap.SquareInternalEdgesStatement : Prop
+AKLT.Blueprint.Gap.FrameSpecRegularityStatement : Prop
+AKLT.Blueprint.Gap.FrameSpecEnergyStatement : Prop
+AKLT.Blueprint.Gap.FrameWindowTransferStatement : Prop
+AKLT.Blueprint.Gap.ShellNestingStatement : Prop
+AKLT.Blueprint.Gap.FiniteEnergyChainStatement : Prop
+AKLT.Blueprint.Gap.ShellRowStatement : Prop
+AKLT.Blueprint.Gap.TraceMarginalsStatement : Prop
+AKLT.Blueprint.Gap.TrialCountStatement : Prop
+AKLT.Blueprint.Gap.ShellAbsorptionStatement : Prop
+AKLT.Blueprint.Gap.FiniteTrialFailureStatement : Prop
+AKLT.Blueprint.Gap.TraceDisagreementStatement : Prop
+AKLT.Blueprint.Gap.TerminalRadiusStatement : Prop
+AKLT.Blueprint.Gap.ScaleExistenceStatement : Prop
+AKLT.Blueprint.Gap.BinomialTailStatement : Prop
+AKLT.Blueprint.Gap.ScaleGeometryStatement : Prop
+AKLT.Blueprint.Gap.HammingCardinalityStatement : Prop
+AKLT.Blueprint.Gap.HammingBudgetStatement : Prop
+AKLT.Blueprint.Gap.FarBoundaryEqualityStatement : Prop
+AKLT.Blueprint.Gap.StoppedHammingConversionStatement : Prop
+AKLT.Blueprint.Gap.mainW_of_parts : AKLT.Blueprint.Gap.FiniteAssemblyLeaves →
+  AKLT.Blueprint.Gap.ShellAssemblyLeaves →
+    AKLT.Blueprint.Gap.PeriodicAssemblyLeaves →
+      AKLT.Blueprint.Top.ShellGeometryStatement →
+        AKLT.Blueprint.Top.ThreeFramesStatement →
+          AKLT.Blueprint.Top.StarStatement →
+            AKLT.Blueprint.Top.PlaneEnergyStatement →
+              AKLT.Blueprint.Top.QDStatement →
+                AKLT.Blueprint.Top.TorusKernelStatement → AKLT.Blueprint.Top.MainWStatement
+'AKLT.Blueprint.Gap.reversibleSpectral_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.finiteContraction_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.blockComparison_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.periodicCriterion_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.stoppedCoupling_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.hammingAtScale_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.mainW_of_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.mainW_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.groundOrthogonality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.rayleighBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.positiveToProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.independentPairsProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.diagonalCoupling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.deltaBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.powerCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.poincareMonotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Gap.periodicBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 3.45
+user 2.68
+sys 4.51

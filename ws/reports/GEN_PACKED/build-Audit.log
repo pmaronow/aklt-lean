@@ -1,0 +1,296 @@
+ℹ [8931/8939] Replayed AKLT.Gen.Packed.Basic
+info: AKLT/Gen/Packed/Basic.lean:176:0: 'AKLT.Gen.Packed.packFn_congr' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:177:0: 'AKLT.Gen.Packed.pack_eq_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:178:0: 'AKLT.Gen.Packed.lane_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:179:0: 'AKLT.Gen.Packed.repeatLane_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:180:0: 'AKLT.Gen.Packed.lane_zero' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:181:0: 'AKLT.Gen.Packed.lane_succ' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:182:0: 'AKLT.Gen.Packed.lane_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:183:0: 'AKLT.Gen.Packed.lane_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:184:0: 'AKLT.Gen.Packed.packFn_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:185:0: 'AKLT.Gen.Packed.packFn_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:186:0: 'AKLT.Gen.Packed.lane_eq_zero_of_fits' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:187:0: 'AKLT.Gen.Packed.lanes_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:188:0: 'AKLT.Gen.Packed.packFn_add' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:189:0: 'AKLT.Gen.Packed.packFn_mul' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:190:0: 'AKLT.Gen.Packed.lane_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:191:0: 'AKLT.Gen.Packed.lane_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/8939] Replayed AKLT.Gen.Packed.Construction
+info: AKLT/Gen/Packed/Construction.lean:32:0: 'AKLT.Gen.Packed.packFn_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Construction.lean:33:0: 'AKLT.Gen.Packed.pack_append' depends on axioms: [propext]
+⚠ [8933/8939] Replayed AKLT.Gen.Packed.Routing
+warning: AKLT/Gen/Packed/Routing.lean:23:40: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: AKLT/Gen/Packed/Routing.lean:98:39: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: AKLT/Gen/Packed/Routing.lean:135:0: 'AKLT.Gen.Packed.lane_truncate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:136:0: 'AKLT.Gen.Packed.lane_moveDown' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:137:0: 'AKLT.Gen.Packed.lane_moveUp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:138:0: 'AKLT.Gen.Packed.lane_rowMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:139:0: 'AKLT.Gen.Packed.lane_columnMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:140:0: 'AKLT.Gen.Packed.testBit_lane' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:141:0: 'AKLT.Gen.Packed.lane_land' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:142:0: 'AKLT.Gen.Packed.lane_shiftRight' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Routing.lean:143:0: 'AKLT.Gen.Packed.lane_shiftLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:144:0: 'AKLT.Gen.Packed.lane_laneMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:145:0: 'AKLT.Gen.Packed.lane_mask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:146:0: 'AKLT.Gen.Packed.lane_moveRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:147:0: 'AKLT.Gen.Packed.lane_moveLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/8939] Replayed AKLT.Gen.Packed.Guard
+info: AKLT/Gen/Packed/Guard.lean:115:0: 'AKLT.Gen.Packed.lane_guardMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Guard.lean:116:0: 'AKLT.Gen.Packed.guardMask_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Guard.lean:117:0: 'AKLT.Gen.Packed.lane_guard_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Guard.lean:118:0: 'AKLT.Gen.Packed.guard_compare' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Guard.lean:119:0: 'AKLT.Gen.Packed.guard_compare_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Guard.lean:120:0: 'AKLT.Gen.Packed.guardCheck_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8935/8939] Replayed AKLT.Gen.Packed.Check
+info: AKLT/Gen/Packed/Check.lean:113:0: 'AKLT.Gen.Packed.capCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Check.lean:114:0: 'AKLT.Gen.Packed.linearRHS_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Check.lean:115:0: 'AKLT.Gen.Packed.rowCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Check.lean:116:0: 'AKLT.Gen.Packed.rowsCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8936/8939] Replayed AKLT.Gen.Packed.Grid
+info: AKLT/Gen/Packed/Grid.lean:69:0: 'AKLT.Gen.Packed.moveRight_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:70:0: 'AKLT.Gen.Packed.moveLeft_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:71:0: 'AKLT.Gen.Packed.moveDown_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:72:0: 'AKLT.Gen.Packed.moveUp_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8938/8939] Replayed AKLT.Gen.Packed.Example
+info: AKLT/Gen/Packed/Example.lean:8:0: 'AKLT.Gen.Packed.Example.checked' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Example.lean:9:0: 'AKLT.Gen.Packed.Example.all_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8939] Built AKLT.Gen.Packed.Audit (3.3s)
+info: AKLT/Gen/Packed/Audit.lean:4:0: AKLT.Gen.Packed.lane : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:5:0: AKLT.Gen.Packed.packFn : ℕ → ℕ → (ℕ → ℕ) → ℕ
+info: AKLT/Gen/Packed/Audit.lean:6:0: AKLT.Gen.Packed.pack : ℕ → List ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:7:0: AKLT.Gen.Packed.Fits : ℕ → ℕ → ℕ → Prop
+info: AKLT/Gen/Packed/Audit.lean:8:0: AKLT.Gen.Packed.lane_zero : ∀ (P b : ℕ), AKLT.Gen.Packed.lane P b 0 = P % 2 ^ b
+info: AKLT/Gen/Packed/Audit.lean:9:0: 'AKLT.Gen.Packed.lane_zero' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:10:0: AKLT.Gen.Packed.lane_succ : ∀ (P b s : ℕ), AKLT.Gen.Packed.lane P b (s + 1) = AKLT.Gen.Packed.lane (P / 2 ^ b) b s
+info: AKLT/Gen/Packed/Audit.lean:11:0: 'AKLT.Gen.Packed.lane_succ' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:12:0: AKLT.Gen.Packed.lane_lt : ∀ (P b s : ℕ), AKLT.Gen.Packed.lane P b s < 2 ^ b
+info: AKLT/Gen/Packed/Audit.lean:13:0: 'AKLT.Gen.Packed.lane_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:14:0: AKLT.Gen.Packed.lane_packFn : ∀ (b n : ℕ) (f : ℕ → ℕ),
+  (∀ s < n, f s < 2 ^ b) → ∀ (s : ℕ), AKLT.Gen.Packed.lane (AKLT.Gen.Packed.packFn b n f) b s = if s < n then f s else 0
+info: AKLT/Gen/Packed/Audit.lean:15:0: 'AKLT.Gen.Packed.lane_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:16:0: AKLT.Gen.Packed.packFn_lt : ∀ (b n : ℕ) (f : ℕ → ℕ),
+  (∀ s < n, f s < 2 ^ b) → AKLT.Gen.Packed.Fits (AKLT.Gen.Packed.packFn b n f) b n
+info: AKLT/Gen/Packed/Audit.lean:17:0: 'AKLT.Gen.Packed.packFn_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:18:0: AKLT.Gen.Packed.packFn_lanes : ∀ (P b n : ℕ),
+  AKLT.Gen.Packed.Fits P b n → AKLT.Gen.Packed.packFn b n (AKLT.Gen.Packed.lane P b) = P
+info: AKLT/Gen/Packed/Audit.lean:19:0: 'AKLT.Gen.Packed.packFn_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:20:0: @AKLT.Gen.Packed.lane_eq_zero_of_fits : ∀ {P b n : ℕ},
+  AKLT.Gen.Packed.Fits P b n → ∀ (s : ℕ), n ≤ s → AKLT.Gen.Packed.lane P b s = 0
+info: AKLT/Gen/Packed/Audit.lean:21:0: 'AKLT.Gen.Packed.lane_eq_zero_of_fits' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:22:0: @AKLT.Gen.Packed.lanes_ext : ∀ {P Q b n : ℕ},
+  AKLT.Gen.Packed.Fits P b n →
+    AKLT.Gen.Packed.Fits Q b n → (∀ s < n, AKLT.Gen.Packed.lane P b s = AKLT.Gen.Packed.lane Q b s) → P = Q
+info: AKLT/Gen/Packed/Audit.lean:23:0: 'AKLT.Gen.Packed.lanes_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:24:0: AKLT.Gen.Packed.packFn_add : ∀ (b n : ℕ) (f g : ℕ → ℕ),
+  (AKLT.Gen.Packed.packFn b n fun s => f s + g s) = AKLT.Gen.Packed.packFn b n f + AKLT.Gen.Packed.packFn b n g
+info: AKLT/Gen/Packed/Audit.lean:25:0: 'AKLT.Gen.Packed.packFn_add' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:26:0: AKLT.Gen.Packed.packFn_mul : ∀ (b n c : ℕ) (f : ℕ → ℕ),
+  (AKLT.Gen.Packed.packFn b n fun s => c * f s) = c * AKLT.Gen.Packed.packFn b n f
+info: AKLT/Gen/Packed/Audit.lean:27:0: 'AKLT.Gen.Packed.packFn_mul' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:28:0: @AKLT.Gen.Packed.lane_add : ∀ {P Q b n : ℕ},
+  AKLT.Gen.Packed.Fits P b n →
+    AKLT.Gen.Packed.Fits Q b n →
+      (∀ s < n, AKLT.Gen.Packed.lane P b s + AKLT.Gen.Packed.lane Q b s < 2 ^ b) →
+        ∀ s < n, AKLT.Gen.Packed.lane (P + Q) b s = AKLT.Gen.Packed.lane P b s + AKLT.Gen.Packed.lane Q b s
+info: AKLT/Gen/Packed/Audit.lean:29:0: 'AKLT.Gen.Packed.lane_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:30:0: @AKLT.Gen.Packed.lane_mul : ∀ {P b n c : ℕ},
+  AKLT.Gen.Packed.Fits P b n →
+    (∀ s < n, c * AKLT.Gen.Packed.lane P b s < 2 ^ b) →
+      ∀ s < n, AKLT.Gen.Packed.lane (c * P) b s = c * AKLT.Gen.Packed.lane P b s
+info: AKLT/Gen/Packed/Audit.lean:31:0: 'AKLT.Gen.Packed.lane_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:32:0: AKLT.Gen.Packed.packFn_congr : ∀ (b n : ℕ) (f g : ℕ → ℕ),
+  (∀ s < n, f s = g s) → AKLT.Gen.Packed.packFn b n f = AKLT.Gen.Packed.packFn b n g
+info: AKLT/Gen/Packed/Audit.lean:33:0: 'AKLT.Gen.Packed.packFn_congr' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:34:0: AKLT.Gen.Packed.pack_eq_packFn : ∀ (b : ℕ) (xs : List ℕ),
+  AKLT.Gen.Packed.pack b xs = AKLT.Gen.Packed.packFn b xs.length fun s => xs[s]?.getD 0
+info: AKLT/Gen/Packed/Audit.lean:35:0: 'AKLT.Gen.Packed.pack_eq_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:36:0: AKLT.Gen.Packed.lane_pack : ∀ (b : ℕ) (xs : List ℕ),
+  (∀ a ∈ xs, a < 2 ^ b) → ∀ (s : ℕ), AKLT.Gen.Packed.lane (AKLT.Gen.Packed.pack b xs) b s = xs[s]?.getD 0
+info: AKLT/Gen/Packed/Audit.lean:37:0: 'AKLT.Gen.Packed.lane_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:38:0: AKLT.Gen.Packed.repeatLane : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:39:0: AKLT.Gen.Packed.repeatLane_eq : ∀ (b n v : ℕ),
+  0 < b → AKLT.Gen.Packed.repeatLane b n v = AKLT.Gen.Packed.packFn b n fun x => v
+info: AKLT/Gen/Packed/Audit.lean:40:0: 'AKLT.Gen.Packed.repeatLane_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:41:0: AKLT.Gen.Packed.packFn_eq_sum : ∀ (b n : ℕ) (f : ℕ → ℕ),
+  AKLT.Gen.Packed.packFn b n f = ∑ s ∈ Finset.range n, f s * 2 ^ (b * s)
+info: AKLT/Gen/Packed/Audit.lean:42:0: 'AKLT.Gen.Packed.packFn_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:43:0: AKLT.Gen.Packed.pack_append : ∀ (b : ℕ) (xs ys : List ℕ),
+  AKLT.Gen.Packed.pack b (xs ++ ys) = AKLT.Gen.Packed.pack b xs + 2 ^ (b * xs.length) * AKLT.Gen.Packed.pack b ys
+info: AKLT/Gen/Packed/Audit.lean:44:0: 'AKLT.Gen.Packed.pack_append' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:45:0: AKLT.Gen.Packed.testBit_lane : ∀ (P b s i : ℕ),
+  (AKLT.Gen.Packed.lane P b s).testBit i = (decide (i < b) && P.testBit (b * s + i))
+info: AKLT/Gen/Packed/Audit.lean:46:0: 'AKLT.Gen.Packed.testBit_lane' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:47:0: AKLT.Gen.Packed.lane_land : ∀ (P Q b s : ℕ),
+  AKLT.Gen.Packed.lane (P.land Q) b s = (AKLT.Gen.Packed.lane P b s).land (AKLT.Gen.Packed.lane Q b s)
+info: AKLT/Gen/Packed/Audit.lean:48:0: 'AKLT.Gen.Packed.lane_land' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:49:0: AKLT.Gen.Packed.lane_shiftRight : ∀ (P b k s : ℕ),
+  AKLT.Gen.Packed.lane (P >>> (b * k)) b s = AKLT.Gen.Packed.lane P b (s + k)
+info: AKLT/Gen/Packed/Audit.lean:50:0: 'AKLT.Gen.Packed.lane_shiftRight' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:51:0: AKLT.Gen.Packed.lane_shiftLeft : ∀ (P b k s : ℕ),
+  0 < b → AKLT.Gen.Packed.lane (P <<< (b * k)) b s = if k ≤ s then AKLT.Gen.Packed.lane P b (s - k) else 0
+info: AKLT/Gen/Packed/Audit.lean:52:0: 'AKLT.Gen.Packed.lane_shiftLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:53:0: AKLT.Gen.Packed.laneMask : ℕ → ℕ → (ℕ → Bool) → ℕ
+info: AKLT/Gen/Packed/Audit.lean:54:0: AKLT.Gen.Packed.lane_laneMask : ∀ (b n : ℕ) (p : ℕ → Bool) (s : ℕ),
+  AKLT.Gen.Packed.lane (AKLT.Gen.Packed.laneMask b n p) b s = if s < n ∧ p s = true then 2 ^ b - 1 else 0
+info: AKLT/Gen/Packed/Audit.lean:55:0: 'AKLT.Gen.Packed.lane_laneMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:56:0: AKLT.Gen.Packed.lane_mask : ∀ (P b n : ℕ) (p : ℕ → Bool) (s : ℕ),
+  AKLT.Gen.Packed.lane (P.land (AKLT.Gen.Packed.laneMask b n p)) b s =
+    if s < n ∧ p s = true then AKLT.Gen.Packed.lane P b s else 0
+info: AKLT/Gen/Packed/Audit.lean:57:0: 'AKLT.Gen.Packed.lane_mask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:58:0: AKLT.Gen.Packed.gridIndex : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:59:0: AKLT.Gen.Packed.rightMask : ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:60:0: AKLT.Gen.Packed.leftMask : ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:61:0: AKLT.Gen.Packed.rowMask : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:62:0: AKLT.Gen.Packed.columnMask : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:63:0: AKLT.Gen.Packed.moveRight : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:64:0: AKLT.Gen.Packed.moveLeft : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:65:0: AKLT.Gen.Packed.moveDown : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:66:0: AKLT.Gen.Packed.moveUp : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:67:0: AKLT.Gen.Packed.lane_moveRight : ∀ (P b w s : ℕ),
+  0 < b →
+    AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveRight P b w) b s =
+      if s < w * w ∧ 0 < s % w then AKLT.Gen.Packed.lane P b (s - 1) else 0
+info: AKLT/Gen/Packed/Audit.lean:68:0: 'AKLT.Gen.Packed.lane_moveRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:69:0: AKLT.Gen.Packed.lane_moveLeft : ∀ (P b w s : ℕ),
+  AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveLeft P b w) b s =
+    if s < w * w ∧ s % w + 1 < w then AKLT.Gen.Packed.lane P b (s + 1) else 0
+info: AKLT/Gen/Packed/Audit.lean:70:0: 'AKLT.Gen.Packed.lane_moveLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:71:0: AKLT.Gen.Packed.lane_truncate : ∀ (P b n s : ℕ),
+  0 < b → AKLT.Gen.Packed.lane (P.land (2 ^ (b * n) - 1)) b s = if s < n then AKLT.Gen.Packed.lane P b s else 0
+info: AKLT/Gen/Packed/Audit.lean:72:0: 'AKLT.Gen.Packed.lane_truncate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:73:0: AKLT.Gen.Packed.lane_moveDown : ∀ (P b w s : ℕ),
+  0 < b →
+    AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveDown P b w) b s =
+      if s < w * w ∧ w ≤ s then AKLT.Gen.Packed.lane P b (s - w) else 0
+info: AKLT/Gen/Packed/Audit.lean:74:0: 'AKLT.Gen.Packed.lane_moveDown' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:75:0: AKLT.Gen.Packed.lane_moveUp : ∀ (P b w s : ℕ),
+  0 < b →
+    AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveUp P b w) b s = if s < w * w then AKLT.Gen.Packed.lane P b (s + w) else 0
+info: AKLT/Gen/Packed/Audit.lean:76:0: 'AKLT.Gen.Packed.lane_moveUp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:77:0: AKLT.Gen.Packed.lane_rowMask : ∀ (P b w r s : ℕ),
+  AKLT.Gen.Packed.lane (P.land (AKLT.Gen.Packed.rowMask b w r)) b s =
+    if s < w * w ∧ s / w = r then AKLT.Gen.Packed.lane P b s else 0
+info: AKLT/Gen/Packed/Audit.lean:78:0: 'AKLT.Gen.Packed.lane_rowMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:79:0: AKLT.Gen.Packed.lane_columnMask : ∀ (P b w c s : ℕ),
+  AKLT.Gen.Packed.lane (P.land (AKLT.Gen.Packed.columnMask b w c)) b s =
+    if s < w * w ∧ s % w = c then AKLT.Gen.Packed.lane P b s else 0
+info: AKLT/Gen/Packed/Audit.lean:80:0: 'AKLT.Gen.Packed.lane_columnMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:81:0: @AKLT.Gen.Packed.moveRight_grid : ∀ {P b w r c : ℕ},
+  0 < b →
+    r < w →
+      c < w →
+        AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveRight P b w) b (AKLT.Gen.Packed.gridIndex w r c) =
+          if 0 < c then AKLT.Gen.Packed.lane P b (AKLT.Gen.Packed.gridIndex w r (c - 1)) else 0
+info: AKLT/Gen/Packed/Audit.lean:82:0: 'AKLT.Gen.Packed.moveRight_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:83:0: @AKLT.Gen.Packed.moveLeft_grid : ∀ {P b w r c : ℕ},
+  r < w →
+    c < w →
+      AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveLeft P b w) b (AKLT.Gen.Packed.gridIndex w r c) =
+        if c + 1 < w then AKLT.Gen.Packed.lane P b (AKLT.Gen.Packed.gridIndex w r (c + 1)) else 0
+info: AKLT/Gen/Packed/Audit.lean:84:0: 'AKLT.Gen.Packed.moveLeft_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:85:0: @AKLT.Gen.Packed.moveDown_grid : ∀ {P b w r c : ℕ},
+  0 < b →
+    r < w →
+      c < w →
+        AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveDown P b w) b (AKLT.Gen.Packed.gridIndex w r c) =
+          if 0 < r then AKLT.Gen.Packed.lane P b (AKLT.Gen.Packed.gridIndex w (r - 1) c) else 0
+info: AKLT/Gen/Packed/Audit.lean:86:0: 'AKLT.Gen.Packed.moveDown_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:87:0: @AKLT.Gen.Packed.moveUp_grid : ∀ {P b w r c : ℕ},
+  0 < b →
+    r < w →
+      c < w →
+        AKLT.Gen.Packed.Fits P b (w * w) →
+          AKLT.Gen.Packed.lane (AKLT.Gen.Packed.moveUp P b w) b (AKLT.Gen.Packed.gridIndex w r c) =
+            if r + 1 < w then AKLT.Gen.Packed.lane P b (AKLT.Gen.Packed.gridIndex w (r + 1) c) else 0
+info: AKLT/Gen/Packed/Audit.lean:88:0: 'AKLT.Gen.Packed.moveUp_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:89:0: AKLT.Gen.Packed.guardMask : ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:90:0: AKLT.Gen.Packed.lane_guardMask : ∀ (g n s : ℕ),
+  s < n → AKLT.Gen.Packed.lane (AKLT.Gen.Packed.guardMask g n) (g + 1) s = 2 ^ g
+info: AKLT/Gen/Packed/Audit.lean:91:0: 'AKLT.Gen.Packed.lane_guardMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:92:0: AKLT.Gen.Packed.guardMask_fits : ∀ (g n : ℕ), AKLT.Gen.Packed.Fits (AKLT.Gen.Packed.guardMask g n) (g + 1) n
+info: AKLT/Gen/Packed/Audit.lean:93:0: 'AKLT.Gen.Packed.guardMask_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:94:0: @AKLT.Gen.Packed.lane_guard_sub : ∀ {A B g n : ℕ},
+  AKLT.Gen.Packed.Fits A (g + 1) n →
+    AKLT.Gen.Packed.Fits B (g + 1) n →
+      (∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s < 2 ^ g) →
+        (∀ s < n, AKLT.Gen.Packed.lane B (g + 1) s < 2 ^ g) →
+          ∀ s < n,
+            AKLT.Gen.Packed.lane (AKLT.Gen.Packed.guardMask g n + B - A) (g + 1) s =
+              2 ^ g + AKLT.Gen.Packed.lane B (g + 1) s - AKLT.Gen.Packed.lane A (g + 1) s
+info: AKLT/Gen/Packed/Audit.lean:95:0: 'AKLT.Gen.Packed.lane_guard_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:96:0: @AKLT.Gen.Packed.guard_compare : ∀ {A B g n : ℕ},
+  AKLT.Gen.Packed.Fits A (g + 1) n →
+    AKLT.Gen.Packed.Fits B (g + 1) n →
+      (∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s < 2 ^ g) →
+        (∀ s < n, AKLT.Gen.Packed.lane B (g + 1) s < 2 ^ g) →
+          ((AKLT.Gen.Packed.guardMask g n + B - A).land (AKLT.Gen.Packed.guardMask g n) =
+              AKLT.Gen.Packed.guardMask g n ↔
+            ∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s ≤ AKLT.Gen.Packed.lane B (g + 1) s)
+info: AKLT/Gen/Packed/Audit.lean:97:0: 'AKLT.Gen.Packed.guard_compare' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:98:0: @AKLT.Gen.Packed.guard_compare_all : ∀ {A B g n : ℕ},
+  AKLT.Gen.Packed.Fits A (g + 1) n →
+    AKLT.Gen.Packed.Fits B (g + 1) n →
+      (∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s < 2 ^ g) →
+        (∀ s < n, AKLT.Gen.Packed.lane B (g + 1) s < 2 ^ g) →
+          ((AKLT.Gen.Packed.guardMask g n + B - A).land (AKLT.Gen.Packed.guardMask g n) =
+              AKLT.Gen.Packed.guardMask g n ↔
+            ∀ (s : ℕ), AKLT.Gen.Packed.lane A (g + 1) s ≤ AKLT.Gen.Packed.lane B (g + 1) s)
+info: AKLT/Gen/Packed/Audit.lean:99:0: 'AKLT.Gen.Packed.guard_compare_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:100:0: AKLT.Gen.Packed.guardCheck : ℕ → ℕ → ℕ → ℕ → Bool
+info: AKLT/Gen/Packed/Audit.lean:101:0: @AKLT.Gen.Packed.guardCheck_iff : ∀ {A B g n : ℕ},
+  AKLT.Gen.Packed.Fits A (g + 1) n →
+    AKLT.Gen.Packed.Fits B (g + 1) n →
+      (∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s < 2 ^ g) →
+        (∀ s < n, AKLT.Gen.Packed.lane B (g + 1) s < 2 ^ g) →
+          (AKLT.Gen.Packed.guardCheck g n A B = true ↔
+            ∀ s < n, AKLT.Gen.Packed.lane A (g + 1) s ≤ AKLT.Gen.Packed.lane B (g + 1) s)
+info: AKLT/Gen/Packed/Audit.lean:102:0: 'AKLT.Gen.Packed.guardCheck_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:103:0: AKLT.Gen.Packed.capMask : ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:104:0: AKLT.Gen.Packed.capCheck : ℕ → ℕ → ℕ → ℕ → Bool
+info: AKLT/Gen/Packed/Audit.lean:105:0: @AKLT.Gen.Packed.capCheck_sound : ∀ {P b n k : ℕ},
+  0 < b →
+    k ≤ b →
+      AKLT.Gen.Packed.capCheck b n k P = true → AKLT.Gen.Packed.Fits P b n ∧ ∀ s < n, AKLT.Gen.Packed.lane P b s < 2 ^ k
+info: AKLT/Gen/Packed/Audit.lean:106:0: 'AKLT.Gen.Packed.capCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:107:0: AKLT.Gen.Packed.linearRHS : ℕ → ℕ → ℕ → ℕ → ℕ
+info: AKLT/Gen/Packed/Audit.lean:108:0: @AKLT.Gen.Packed.linearRHS_pack : ∀ {B b n : ℕ},
+  AKLT.Gen.Packed.Fits B b n →
+    ∀ (c₁ c₂ : ℕ),
+      AKLT.Gen.Packed.linearRHS B b c₁ c₂ =
+        AKLT.Gen.Packed.packFn b n fun s => c₁ * AKLT.Gen.Packed.lane B b (s + 1) + c₂ * AKLT.Gen.Packed.lane B b s
+info: AKLT/Gen/Packed/Audit.lean:109:0: 'AKLT.Gen.Packed.linearRHS_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:110:0: AKLT.Gen.Packed.rowCheck : ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → Bool
+info: AKLT/Gen/Packed/Audit.lean:111:0: @AKLT.Gen.Packed.rowCheck_sound : ∀ {g n k c₁ c₂ A B : ℕ},
+  AKLT.Gen.Packed.rowCheck g n k c₁ c₂ A B = true →
+    ∀ (s : ℕ),
+      AKLT.Gen.Packed.lane A (g + 1) s ≤
+        c₁ * AKLT.Gen.Packed.lane B (g + 1) (s + 1) + c₂ * AKLT.Gen.Packed.lane B (g + 1) s
+info: AKLT/Gen/Packed/Audit.lean:112:0: 'AKLT.Gen.Packed.rowCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:113:0: AKLT.Gen.Packed.rowsCheck : ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → Bool
+info: AKLT/Gen/Packed/Audit.lean:114:0: @AKLT.Gen.Packed.rowsCheck_sound : ∀ {g n k c₁ c₂ r A B : ℕ},
+  AKLT.Gen.Packed.rowsCheck g n k c₁ c₂ r A B = true →
+    ∀ j < r,
+      ∀ (s : ℕ),
+        AKLT.Gen.Packed.lane A (g + 1) (s + j) ≤
+          c₁ * AKLT.Gen.Packed.lane B (g + 1) (s + j + 1) + c₂ * AKLT.Gen.Packed.lane B (g + 1) (s + j)
+info: AKLT/Gen/Packed/Audit.lean:115:0: 'AKLT.Gen.Packed.rowsCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Audit.lean:117:0: AKLT.Gen.Packed.Example.checked : AKLT.Gen.Packed.rowCheck 79 10000 24 3 2 AKLT.Gen.Packed.Example.A
+    AKLT.Gen.Packed.Example.B =
+  true
+info: AKLT/Gen/Packed/Audit.lean:118:0: AKLT.Gen.Packed.Example.all_lanes : ∀ (s : ℕ),
+  AKLT.Gen.Packed.lane AKLT.Gen.Packed.Example.A 80 s ≤
+    3 * AKLT.Gen.Packed.lane AKLT.Gen.Packed.Example.B 80 (s + 1) +
+      2 * AKLT.Gen.Packed.lane AKLT.Gen.Packed.Example.B 80 s
+info: AKLT/Gen/Packed/Audit.lean:119:0: 'AKLT.Gen.Packed.Example.checked' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Audit.lean:120:0: 'AKLT.Gen.Packed.Example.all_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8939 jobs).

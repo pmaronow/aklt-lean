@@ -1,0 +1,22 @@
+{
+  "template_sites": 13,
+  "template_edges": 16,
+  "edge_subsets_checked": 65536,
+  "graph_representation_cases_checked": 131072,
+  "max_spin_factor_degree": {
+    "reduced": 4,
+    "unreduced": 4
+  },
+  "max_tokens": {
+    "reduced": 12,
+    "unreduced": 12
+  },
+  "failures": 0,
+  "scope": "All edge subsets with all sites active; covers inactive sites by omission of isolated sites; next can only remove an internal bond.",
+  "checks": [
+    "Each internal coordinate in a factor belongs to the retained spin set.",
+    "Every retained spin has at most four linear incident factors.",
+    "Distinct groups use distinct vector tokens, including both slots of a retained corner.",
+    "Every singly replaced leaf has exactly one retained neighbor."
+  ]
+}

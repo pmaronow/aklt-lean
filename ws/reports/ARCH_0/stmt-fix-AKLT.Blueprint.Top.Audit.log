@@ -1,0 +1,109 @@
+AKLT.Blueprint.Top.LogMeanBoundsStatement : Prop
+AKLT.Blueprint.Top.ResponseStatement : Prop
+AKLT.Blueprint.Top.ResponseTypedStatement : Prop
+AKLT.Blueprint.Top.ResponseTypedStatementV2 : Prop
+AKLT.Blueprint.Top.MomentsStatement : Prop
+AKLT.Blueprint.Top.FiniteFactsStatement : Prop
+AKLT.Blueprint.Top.ThreeFactorMeanStatement : Prop
+AKLT.Blueprint.Top.ExactStatement : Prop
+AKLT.Blueprint.Top.ALMStatement : Prop
+AKLT.Blueprint.Top.H2DihedralStatement : Prop
+AKLT.Blueprint.Top.H2TestStatement : Prop
+AKLT.Blueprint.Top.H2CVStatement : Prop
+AKLT.Blueprint.Top.AutomatonQuotientStatement : Prop
+AKLT.Blueprint.Top.Automaton10Statement : Prop
+AKLT.Blueprint.Top.PhaseExpansionStatement : Prop
+AKLT.Blueprint.Top.StationaryDominationStatement : Prop
+AKLT.Blueprint.Top.BellmanSoundnessStatement : Prop
+AKLT.Blueprint.Top.StationaryLocalGlobalStatement : Prop
+AKLT.Blueprint.Top.PrefixDominationStatement : Prop
+AKLT.Blueprint.Top.KernelReflectionStatement : Prop
+AKLT.Blueprint.Top.StationaryCheckStatement : Prop
+AKLT.Blueprint.Top.StationaryAssemblyStatement : Prop
+AKLT.Blueprint.Top.Automaton10StatementV2 : Prop
+AKLT.Blueprint.Top.PhaseExpansionStatementV2 : Prop
+AKLT.Blueprint.Top.StationaryDominationStatementV2 : Prop
+AKLT.Blueprint.Top.StationaryLocalGlobalStatementV2 : Prop
+AKLT.Blueprint.Top.PrefixDominationStatementV2 : Prop
+AKLT.Blueprint.Top.StationaryCheckStatementV2 : Prop
+AKLT.Blueprint.Top.StationaryAssemblyStatementV2 : Prop
+AKLT.Blueprint.Top.InputsStatementV2 : Prop
+AKLT.Blueprint.Top.IntegratePassageStatement : Prop
+AKLT.Blueprint.Top.LeafStatement : Prop
+AKLT.Blueprint.Top.ReduceStatement : Prop
+AKLT.Blueprint.Top.InversionStatement : Prop
+AKLT.Blueprint.Top.OperatorStructureStatement : Prop
+AKLT.Blueprint.Top.SectorStatement : Prop
+AKLT.Blueprint.Top.GramResidualStatement : Prop
+AKLT.Blueprint.Top.IntegerCheckStatement : Prop
+AKLT.Blueprint.Top.CertificateStatement : Prop
+AKLT.Blueprint.Top.ReduceStatementV2 : Prop
+AKLT.Blueprint.Top.InversionStatementV2 : Prop
+AKLT.Blueprint.Top.OperatorStructureStatementV2 : Prop
+AKLT.Blueprint.Top.H1FiniteDataStatementV2 : Prop
+AKLT.Blueprint.Top.CertificateStatementV2 : Prop
+AKLT.Blueprint.Top.ThreeFramesStatement : Prop
+AKLT.Blueprint.Top.TightStatement : Prop
+AKLT.Blueprint.Top.TorusKernelStatement : Prop
+AKLT.Blueprint.Top.StarStatement : Prop
+AKLT.Blueprint.Top.QDStatement : Prop
+AKLT.Blueprint.Top.PlaneEnergyStatement : Prop
+AKLT.Blueprint.Top.H1Statement : Prop
+AKLT.Blueprint.Top.H1TheoremStatement : Prop
+AKLT.Blueprint.Top.H2Statement : Prop
+AKLT.Blueprint.Top.H3Statement : Prop
+AKLT.Blueprint.Top.InputsStatement : Prop
+AKLT.Blueprint.Top.PStatement : Prop
+AKLT.Blueprint.Top.RecStatement : Prop
+AKLT.Blueprint.Top.MThetaStatement : Prop
+AKLT.Blueprint.Top.ShellGeometryStatement : Prop
+AKLT.Blueprint.Top.CutMOSStatement : Prop
+AKLT.Blueprint.Top.MainWStatement : Prop
+AKLT.Defs.binaryActionPolynomial (d : ℕ) (g : ↥(Matrix.specialUnitaryGroup (Fin 2) ℂ)) (p : AKLT.Defs.BinaryForm d) :
+  MvPolynomial (Fin 2) ℂ
+AKLT.Defs.Automaton10Data.supplied : AKLT.Defs.MemoryQuotient 10 3741
+def AKLT.Challenge.MainStatementV2 : Prop :=
+(∀ (L N : AKLT.Challenge.Size),
+    AKLT.Challenge.B L N ≠ 0 ∧ LinearMap.ker (AKLT.Challenge.H L N) = ℂ ∙ AKLT.Challenge.B L N) ∧
+  ∃ c,
+    0 < c ∧
+      ∃ L₀,
+        3 ≤ L₀ ∧
+          ∀ (L N : AKLT.Challenge.Size),
+            L₀ ≤ ↑L → L₀ ≤ ↑N → ∀ (μ : ℝ), μ ≠ 0 → (AKLT.Challenge.H L N).HasEigenvalue ↑μ → c ≤ μ
+theorem AKLT.Blueprint.Top.mainV2_of_parts : AKLT.Blueprint.Top.InputsStatement →
+  AKLT.Blueprint.Top.RecStatement →
+    AKLT.Blueprint.Top.CutMOSStatement →
+      AKLT.Blueprint.Top.MainWStatement → AKLT.Blueprint.Top.TorusKernelStatement → AKLT.Challenge.MainStatementV2 :=
+fun hInputs hRec hCut hMainW hKernel =>
+  Exists.casesOn (hRec 10 (↑AKLT.Defs.certifiedRate) hInputs.left hInputs.right.left hInputs.right.right.left)
+    fun θ h =>
+    Exists.casesOn h fun ρ h =>
+      And.casesOn h fun left right =>
+        And.casesOn right fun left right =>
+          And.casesOn right fun left right =>
+            And.casesOn right fun left right =>
+              And.casesOn right fun left hP =>
+                Exists.casesOn (hCut (AKLT.Blueprint.Top.renewalAmplitude 10 (↑AKLT.Defs.certifiedRate) ρ) θ hP)
+                  fun Mstar hW =>
+                  Exists.casesOn
+                    (hMainW
+                      (Exists.intro 64
+                        (Exists.intro
+                          (AKLT.Defs.cutProbability
+                            (AKLT.Blueprint.Top.renewalAmplitude 10 (↑AKLT.Defs.certifiedRate) ρ) θ)
+                          (Exists.intro Mstar hW))))
+                    fun c h =>
+                    And.casesOn h fun hc right =>
+                      Exists.casesOn right fun L₀ h =>
+                        And.casesOn h fun hL₀ hEventual =>
+                          ⟨fun L N =>
+                            ⟨(hKernel L N).right.right.right.left, (hKernel L N).right.right.right.right.left⟩,
+                            Exists.intro c ⟨hc, Exists.intro L₀ ⟨hL₀, fun L N hL hN => (hEventual L N hL hN).right⟩⟩⟩
+'AKLT.Blueprint.Top.mainV2_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem AKLT.Blueprint.Top.mainV2_of_partsV2 : AKLT.Blueprint.Top.InputsStatementV2 →
+  AKLT.Blueprint.Top.RecStatement →
+    AKLT.Blueprint.Top.CutMOSStatement →
+      AKLT.Blueprint.Top.MainWStatement → AKLT.Blueprint.Top.TorusKernelStatement → AKLT.Challenge.MainStatementV2 :=
+fun hInputs hRec hCut hMainW hKernel => AKLT.Blueprint.Top.mainV2_of_parts hInputs.left hRec hCut hMainW hKernel
+'AKLT.Blueprint.Top.mainV2_of_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]

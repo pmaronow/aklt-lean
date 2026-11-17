@@ -1,0 +1,150 @@
+\section{Walk expansions in traced domains}\label{s:walks}
+
+This section and the next prove Hypothesis~(P) from three hypotheses, (H1), (H2) and (H3$'$), which are verified by computer in \S\ref{s:computer} (Theorem~\ref{t:inputs}). Here we set up the walk expansion of a pair correlation and its ingredients: traced domains, the step identity, the step ratios and their responses, and the reduction of the per-step bound to a finite list of local patterns. The recursion itself is in \S\ref{s:recursion}. Everything in these two sections concerns the continuous model of \S\ref{s:contmodel}.
+
+\subsection{Domains}\label{s:domains}
+
+Fix a finite $G \subset \Z^2$, let $S = S(G)$, and let $\tau$ be a pin configuration on all legs of $G$. Every site adjacent to $\Z^2 \setminus G$ lies in $S$.
+
+\begin{definition}\label{d:domain}
+A \emph{domain} on $G$ assigns to every $x \in G$ a status $\mathrm{U}$, $\mathrm{D}$ or $\mathrm{X}$, and to every site of status $\mathrm U$ or $\mathrm D$ a set of \emph{kept} bonds among the lattice bonds of $x$ inside $G$, such that the sites of $S$ have status $\mathrm U$ and keep all their bonds, and a site of status $\mathrm D$ has at most two present bonds (defined next). A bond is \emph{present} if neither end has status $\mathrm X$ and both ends keep it. The site measure is $\lambda_{\mathrm U} = \dd n$ for status $\mathrm U$ and $\lambda_{\mathrm D} = \frac35 \dd n + \frac25 \delta_0$ for status $\mathrm D$, a measure on $\Sph \cup \{0\}$; sites of status $\mathrm X$ are \emph{removed} and carry no variable. For a domain $D$ and a function $f$ of the spins, let
+\begin{equation}\label{e:ZD}
+Z^\tau_D[f] = \int f \prod_{\text{present bonds } \{x, y\}} (1 + n_x \cdot n_y) \prod_{\text{legs } (x, z), \ x \in S} (1 + \tau_{xz} \cdot n_x) \prod_{x \text{ not removed}} \lambda_{\mathrm{st}(x)}(\dd n_x),
+\end{equation}
+and let $Z^0_D[f]$ be the same integral without the leg factors. We write $Z^\cdot_D = Z^\cdot_D[1]$, $\E^\cdot_D[f] = Z^\cdot_D[f] / Z^\cdot_D$ and $\Psi_D(\tau) = Z^\tau_D / Z^0_D$, where the dot stands for $\tau$ or $0$. The class $\Dcons(G)$ consists of the domains in which every site of status $\mathrm U$ keeps all its bonds, every site of status $\mathrm D$ keeps exactly two bonds, and
+
+(C) \emph{every bond between two sites that are not removed is kept by both ends or by neither.}
+\end{definition}
+
+The domains $G \setminus Y$ of \S\ref{s:contmodel}, with $Y \subset G \setminus S$, are the domains of $\Dcons(G)$ with statuses $\mathrm U$ and $\mathrm X$ only. A site of status $\mathrm D$ will arise from a site through which a trail has passed once; the measure $\lambda_{\mathrm D}$ replaces the bonds used by the trail.
+
+The elementary facts of \S\ref{s:contmodel} extend to domains. The moments of $\lambda_{\mathrm D}$ of positive degree are $\frac35$ times those of $\dd n$, so free positivity holds: $\E^0_D[f] \ge 0$ for every product $f$ of scalar products $n_x \cdot n_y$. Non-adjacent sites are conditionally independent given the other spins. If a site has at most three present bonds and no leg, then by Lemma~\ref{l:35} its conditional mean given the other spins has norm at most $3/5$; for status $\mathrm D$ the conditional law is a mixture of such a law and $\delta_0$, and a neighbouring spin equal to $0$ is a degenerate pin.
+
+\subsection{The step identity and the pair walk identity}\label{s:stepid}
+
+\begin{lemma}\label{l:stepid}
+Let $a, u_1, \dots, u_k \in \R^3$. If $k \le 4$, then
+\begin{equation*}
+\int (a \cdot n) \prod_{i = 1}^k (1 + n \cdot u_i) \, \dd n = \sum_{i = 1}^k \frac{a \cdot u_i}{3} \int \prod_{i' \neq i} (1 + n \cdot u_{i'}) \, \lambda_{\mathrm D}(\dd n),
+\end{equation*}
+and if $k \le 2$, the same holds with $\dd n$ replaced by $\lambda_{\mathrm D}$ on the left and $\lambda_{\mathrm D}$ replaced by $\frac35 \delta_0$ on the right.
+\end{lemma}
+
+\begin{proof}
+By \eqref{e:moments}, for $k \le 4$ both sides of the first identity equal $\frac13 \sum_i a \cdot u_i + \frac1{15} \sum_{i < i' < i''} \bigl[ (a \cdot u_i)(u_{i'} \cdot u_{i''}) + (a \cdot u_{i'})(u_i \cdot u_{i''}) + (a \cdot u_{i''})(u_i \cdot u_{i'}) \bigr]$; on the right we used $\int \prod_{j \le 3} (1 + n \cdot u_j) \, \lambda_{\mathrm D}(\dd n) = 1 + \frac15 \sum_{j < j'} u_j \cdot u_{j'}$. For $k \le 2$ both sides of the second identity equal $\frac15 \sum_i a \cdot u_i$.
+\end{proof}
+
+A \emph{trail} in a domain $D$ from $u$ is a sequence $w = (v_0, \dots, v_m)$ with $v_0 = u$ such that $\{v_{i - 1}, v_i\}$ are distinct present bonds of $D$; $|w| = m$ is its length. For $T \subset G$ let $\mathcal T_D(u, T)$ be the set of trails with $v_m \in T$ and $v_i \notin T$ for $i < m$. The \emph{traced domain} $D;[w]$ is obtained from $D$ step by step: at step $j$ the bond $\{v_{j - 1}, v_j\}$ is dropped by both ends, and the status of $v_{j - 1}$ changes from $\mathrm U$ to $\mathrm D$ (keeping its remaining bonds) or from $\mathrm D$ to $\mathrm X$; in the latter case we multiply the partition function by $\frac35$, the mass of $\frac35 \delta_0$. We write $w_j = (v_0, \dots, v_j)$.
+
+\begin{proposition}\label{p:pairwalk}
+Let $D$ be a domain on $G$, let $u \in G \setminus S$ be a site that is not removed and has at most three present bonds, let $v \neq u$ be a site that is not removed, and $T = S \cup \{v\}$. Then, with the dot standing for $\tau$ or $0$,
+\begin{equation}\label{e:pairwalk}
+\E^\cdot_D[n_u \cdot n_v] = \sum_{w \in \mathcal T_D(u, T)} 3^{-|w|} \, R^\cdot_D(w) \, \E^\cdot_{D;[w]}[n_{v_{|w|}} \cdot n_v], \qquad R^\cdot_D(w) = \frac{Z^\cdot_{D;[w]}}{Z^\cdot_D},
+\end{equation}
+where for $v_{|w|} = v$ the last factor is $\E^\cdot_{D;[w]} [|n_v|^2]$, which equals $1$ if $v$ has status $\mathrm U$ and $3/5$ if it has status $\mathrm D$ with one present bond in $D$.
+\end{proposition}
+
+\begin{proof}
+Write $n_u \cdot n_v = \sum_{\beta = 1}^3 n_u^\beta n_v^\beta$ and fix $\beta$. In $Z^\cdot_D[n_u^\beta n_v^\beta]$, integrate the spin of $u$ using Lemma~\ref{l:stepid} with $a = e_\beta$; the site $u$ carries no leg because $u \notin S$, and the factor $n_v^\beta$ does not involve $n_u$. This gives a sum over the present bonds $\{u, v_1\}$ of $\frac13 Z^\cdot_{D;[(u, v_1)]}[n_{v_1}^\beta n_v^\beta]$. If $v_1 \notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\cdot_D[n_u^\beta n_v^\beta] = \sum_w 3^{-|w|} Z^\cdot_{D;[w]}[n_{v_{|w|}}^\beta n_v^\beta]$. Summing over $\beta$ and dividing by $Z^\cdot_D$ gives \eqref{e:pairwalk}. If $v_{|w|} = v$, the last bracket is $|n_v|^2$, and if $v$ has status $\mathrm D$ its only remaining bond was the arrival bond, so after arrival $n_v$ is independent of the rest with law $\lambda_{\mathrm D}$, and $\E|n_v|^2 = 3/5$.
+\end{proof}
+
+\subsection{Step ratios and their responses}\label{s:steps}
+
+For $w \in \mathcal T_D(u, T)$ we have $R^\cdot_D(w) = \prod_{j = 1}^{|w|} \rho^\cdot_j$ with $\rho^\cdot_j = Z^\cdot_{D;[w_j]} / Z^\cdot_{D;[w_{j - 1}]}$. Let $y = v_{j - 1}$ be the site left at step $j$, $o = v_j$ the out-neighbour, and $E'$ the domain $D;[w_{j - 1}]$ with $y$ removed. Step $j$ is a \emph{revisit} if $y$ has status $\mathrm D$ in $D;[w_{j - 1}]$ and a \emph{first visit} otherwise. Integrating out $y$, we find:
+\begin{itemize}
+\item for a revisit, $\rho^\tau_j = \rho^0_j = 3/5$, since $\int (1 + n \cdot n_o) \lambda_{\mathrm D}(\dd n) = 1$;
+\item for a first visit with remaining neighbours $f, g, o$, $1/\rho^\cdot_j = \E^\cdot_{E'}[I] / \E^\cdot_{E'}[J]$ with
+\begin{equation}\label{e:IJ}
+I = 1 + \tfrac13 (P_{fg} + P_{fo} + P_{go}), \qquad J = 1 + \tfrac15 P_{fg}, \qquad P_{ab} = n_a \cdot n_b ;
+\end{equation}
+\item for a first visit with remaining neighbours $f, o$, the same with $I = 1 + \frac13 P_{fo}$ and $J = 1$; with the single remaining neighbour $o$, $\rho^\cdot_j = 1$.
+\end{itemize}
+The first visit is \emph{straight} if $o - y = y - v_{j - 2}$ and a \emph{turn} otherwise; for $j = 1$ the role of $v_{-1}$ is played by a designated neighbour $c$ of $u$, which in \S\ref{s:recursion} is the removed centre of the pair.
+
+\begin{lemma}\label{l:response}
+Let step $j$ be a first visit at $y \notin S$, and let $r_{ab} = \E^\tau_{E'}[P_{ab}] - \E^0_{E'}[P_{ab}]$. With three remaining neighbours,
+\begin{equation}\label{e:lambda}
+\lambda_j := \log \rho^0_j - \log \rho^\tau_j = \alpha_j r_{fg} + \beta_j (r_{fo} + r_{go}), \qquad 0 < \alpha_j \le \bar\alpha, \quad 0 < \beta_j \le \bar\beta,
+\end{equation}
+where $\bar \alpha = 0.18094$ and $\bar \beta = 0.36751$. With two remaining neighbours, $\lambda_j = \beta'_j r_{fo}$ with $0 < \beta'_j \le 0.35510 \le \bar\beta$; with one, $\lambda_j = 0$. Moreover $\rho^0_j \le 1$ and $\rho^\tau_j \le 12/5$.
+\end{lemma}
+
+\begin{proof}
+For $x, x' > 0$ let $\mathrm L(x, x') = (x - x')/(\log x - \log x')$ be the logarithmic mean ($\mathrm L(x, x) = x$); it is increasing in both arguments. By the mean value form of $\log x - \log x'$,
+\begin{equation*}
+\lambda_j = \frac{\E^\tau_{E'}[I] - \E^0_{E'}[I]}{\mathrm L_I} - \frac{\E^\tau_{E'}[J] - \E^0_{E'}[J]}{\mathrm L_J}, \qquad \mathrm L_I = \mathrm L(\E^\tau_{E'}[I], \E^0_{E'}[I]), \quad \mathrm L_J = \mathrm L(\E^\tau_{E'}[J], \E^0_{E'}[J]),
+\end{equation*}
+which is \eqref{e:lambda} with $\alpha_j = 1/(3 \mathrm L_I) - 1/(5 \mathrm L_J)$ and $\beta_j = 1/(3 \mathrm L_I)$. Since $y \notin S$, its neighbours are at distance at least $2$ from $\Z^2 \setminus G$ and carry no legs; in $E'$ each has at most three present bonds. They are pairwise non-adjacent, hence conditionally independent given the other spins, with conditional means $m_f, m_g, m_o$ of norm at most $3/5$. Since $\sum_{\text{pairs}} m_a \cdot m_b = \frac12 (|\sum m_a|^2 - \sum |m_a|^2) \in [-\frac{27}{50}, \frac{27}{25}]$, conditioning on the other spins gives $\E^\cdot_{E'}[I] \in [0.82, 1.36]$ and $\E^\cdot_{E'}[J] \in [0.928, 1.072]$. By free positivity, $\E^0_{E'}[I] \ge 1$ and $\E^0_{E'}[J] \ge 1$. By monotonicity of $\mathrm L$, $\mathrm L_I \ge \mathrm L(0.82, 1) = 0.907025\ldots$ and $\mathrm L_J \in [\mathrm L(0.928, 1), 1.072]$ with $\mathrm L(0.928, 1) = 0.963551\ldots$ Hence
+\begin{equation*}
+\beta_j \le \frac{1}{3 \mathrm L(0.82, 1)} = 0.3675017\ldots, \qquad \alpha_j \le \frac{1}{3 \mathrm L(0.82, 1)} - \frac{1}{5 \cdot 1.072} = 0.1809346\ldots, \qquad \alpha_j \ge \frac{1}{3 \cdot 1.36} - \frac{1}{5 \mathrm L(0.928, 1)} > 0.0375 .
+\end{equation*}
+With two remaining neighbours, $J = 1$ and $\E^\cdot_{E'}[I] \in [0.88, 1.12]$, so $\lambda_j = \beta'_j r_{fo}$ with $\beta'_j = 1/(3 \mathrm L_I) \le 1/(3 \mathrm L(0.88, 1)) = 0.35509\ldots$ Free positivity gives $\E^0_{E'}[I] - \E^0_{E'}[J] = \frac2{15} \E^0_{E'}[P_{fg}] + \frac13 \E^0_{E'}[P_{fo} + P_{go}] \ge 0$, that is, $\rho^0_j \le 1$, and similarly with two neighbours. Finally, pointwise $I \ge 1/2$ and $J \le 6/5$ (with two neighbours $I \ge 2/3$ and $J = 1$), so $\rho^\tau_j \le 12/5$.
+\end{proof}
+
+\begin{lemma}\label{l:exposure}
+Let $w \in \mathcal T_D(u, T)$, let $\Phi$ be the set of its first-visit steps, and suppose that $\rho^\tau_j \le x_j$ for $j \in \Phi$, with numbers $x_j \ge 1$. Then for every ordering $\sigma$ of $\Phi$,
+\begin{equation}\label{e:exposure}
+\bigl| R^\tau_D(w) - R^0_D(w) \bigr| \le \Bigl( \frac35 \Bigr)^{|w| - |\Phi|} \sum_{k = 1}^{|\Phi|} |\lambda_{\sigma(k)}| \prod_{l \le k} x_{\sigma(l)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The revisit factors are $3/5$ in both products. For the first visits, with $a_j = \rho^\tau_j$ and $b_j = \rho^0_j$,
+\begin{equation*}
+\prod_{j \in \Phi} a_j - \prod_{j \in \Phi} b_j = \sum_{k} \Bigl( \prod_{l < k} a_{\sigma(l)} \Bigr) (a_{\sigma(k)} - b_{\sigma(k)}) \Bigl( \prod_{l > k} b_{\sigma(l)} \Bigr).
+\end{equation*}
+We have $a_j \le x_j$, $b_j \le 1$ by Lemma~\ref{l:response}, and $|a_j - b_j| \le |\log a_j - \log b_j| \max(a_j, b_j) \le |\lambda_j| x_j$.
+\end{proof}
+
+\subsection{Local patterns and Hypothesis (H1)}\label{s:patterns}
+
+To bound $\rho^\tau_j$ for a first-visit step at $y \notin S$, we localize to the \emph{template} $\mathsf T(y) = \{ z \in \Z^2 : d(z, y) \le 2 \}$, which lies in $G$. After a lattice symmetry fixing $y = 0$ we may assume that the arrival site is $\mathsf s = (0, -1)$; the other neighbours are $\mathsf e = (1, 0)$, $\mathsf N = (0, 1)$, $\mathsf W = (-1, 0)$, the corners are $(\pm 1, \pm 1)$, and the tips are $(\pm 2, 0)$, $(0, \pm 2)$. The out-neighbour is $\mathsf N$ for a straight step and $\mathsf e$ or $\mathsf W$ for a turn. Each corner has two lattice neighbours outside $\mathsf T(y)$, and each tip has three; we call these legs of the template \emph{slots}, $20$ in total.
+
+\begin{definition}\label{d:pattern}
+A \emph{pattern} $\pi$ consists of an out-neighbour $o \in \{\mathsf e, \mathsf N, \mathsf W\}$ and statuses and kept bonds of the sites $\mathsf s, \mathsf e, \mathsf N, \mathsf W$ and of the corners, as in Definition~\ref{d:domain}, with $y$ of status $\mathrm U$, the bond $\{y, \mathsf s\}$ dropped, and $o$ not removed. For unit vectors $m = (m_\ell)$ on the slots, let $Z_{\mathrm{cur}}(\pi; m)$ be the integral over the spins of $\mathsf T(y)$ minus the removed sites, with the site measures of the statuses, of the product of the factors of the present bonds inside $\mathsf T(y)$ and of $1 + m_\ell \cdot n_z$ for every slot $\ell$ at $z$; the tips have status $\mathrm U$. Let $Z_{\mathrm{next}}(\pi; m)$ be the same integral after the step, that is, with the measure of $y$ replaced by $\lambda_{\mathrm D}$ and the bond $\{y, o\}$ dropped. Define
+\begin{equation}\label{e:cpi}
+c(\pi) = \inf_{m \in (\Sph)^{20}} \frac{Z_{\mathrm{cur}}(\pi; m)}{Z_{\mathrm{next}}(\pi; m)} .
+\end{equation}
+The class $\Pext$ consists of the patterns in which: $\mathsf s$ is removed or has status $\mathrm D$ keeping two of its three bonds other than $\{y, \mathsf s\}$; each of $\mathsf e, \mathsf N, \mathsf W$ has status $\mathrm U$, $\mathrm X$, or $\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\mathrm U$, $\mathrm X$, or $\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.
+\end{definition}
+
+Up to the reflection $x_1 \mapsto -x_1$ and after removing duplicates that give the same function in \eqref{e:cpi} (a corner leg that is dropped becomes a slot, see the proof below, and a site without present bonds contributes a factor that does not depend on the other spins of the template and cancels in the ratio), the class $\Pext$ has $7{, }962$ elements, $2{, }696$ straight and $5{, }266$ turns; this count comes from a computer enumeration of the rules of Definition~\ref{d:pattern}.
+
+\begin{hypothesis}[H1]\label{h:H1}
+For constants $\cs, \ct \in (0, 1]$: $c(\pi) \ge \cs$ for every straight $\pi \in \Pext$ and $c(\pi) \ge \ct$ for every turn $\pi \in \Pext$.
+\end{hypothesis}
+
+By Theorem~\ref{t:H1} in \S\ref{s:H1}, Hypothesis~(H1) holds with $(\cs, \ct) = (0.961, 0.935)$.
+
+\begin{lemma}\label{l:local}
+Let step $j$ of a trail be a first visit at $y \notin S$, and suppose that, after the symmetry above, the statuses and kept bonds of $D;[w_{j - 1}]$ on $\mathsf T(y) \setminus \{\text{tips}\}$ form a pattern $\pi$. Then $1/\rho^\tau_j \ge c(\pi)$.
+\end{lemma}
+
+\begin{proof}
+Let $\omega$ denote the spins outside $\mathsf T(y)$. Both $Z^\tau_{D;[w_{j - 1}]}$ and $Z^\tau_{D;[w_j]}$ are integrals over $\omega$ of the same nonnegative weight of the factors outside $\mathsf T(y)$, times the integrals $Z_{\mathrm{cur}}(\omega)$ and $Z_{\mathrm{next}}(\omega)$ over the template spins of the remaining factors. A ratio of two such integrals is at least $\inf_\omega Z_{\mathrm{cur}}(\omega)/Z_{\mathrm{next}}(\omega)$. We now enlarge the set over which the infimum is taken, in three steps; each can only lower it.
+
+First, the dependence on $\omega$ is through the factors of the bonds from template sites to sites outside, each affine in an outside spin of norm at most $1$. Replacing these spins by independent vectors $m_\ell$ in the closed unit ball gives a ratio that is linear-fractional in each $m_\ell$ with positive denominator, so its infimum over the ball is attained on the sphere. A bond leaving the template that is absent contributes $1 = \frac12 (1 + n \cdot m) + \frac12 (1 - n \cdot m)$, and a ratio of averages is at least the smaller ratio; so we may assume a slot on every leg of the template. Second, consider a tip $t$ with its neighbour $z \in \mathsf T(y)$. Integrating the spin of $t$, in any status and with the actual outside spins, produces a factor $A (1 + b \cdot n_z)$ with $A \ge 0$ and $|b| \le 3/5$ by Lemma~\ref{l:35}, or a constant if the bond $\{t, z\}$ is absent. For a tip of status $\mathrm U$ with three slots the same integral gives $A(1 + b \cdot n_z)$ with $b = $ the mean of the three-factor law, and by Lemma~\ref{l:35}, rotation invariance and continuity, every $b$ with $|b| \le 3/5$ occurs. The ratio is linear-fractional and homogeneous in $(A, A b)$, so the infimum over all statuses is at least the infimum over $\mathrm U$-tips with three slots. Third, after these replacements the integrals are $Z_{\mathrm{cur}}(\pi; m)$ and $Z_{\mathrm{next}}(\pi; m)$.
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{l:local} applies to every first-visit step whose pattern is in $\Pext$. Lemma~\ref{l:closure} in \S\ref{s:recursion} shows that this is the case for every first-visit step of every trail used in the recursion, except at most $12$ steps near the end of the trails of the stopped term $T_2$, where only the crude bound $\rho^\tau_j \le 12/5$ of Lemma~\ref{l:response} is used.
+\end{remark}
+
+\subsection{Weighted trail sums and Hypothesis (H2)}\label{s:H2def}
+
+Let $x_{\mathrm s} = 1/\cs$ and $x_{\mathrm t} = 1/\ct$. For a trail $w = (v_0, \dots, v_m)$ of $\Z^2$ with a designated arrival direction at $v_0$, let $\mathsf W(w) = \prod_{j = 1}^m \omega_j$, where $\omega_j = 1/5$ if step $j$ leaves a site among $v_0, \dots, v_{j - 2}$ (a site left before), and $\omega_j = x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if it is a straight or turning first visit.
+
+\begin{hypothesis}[H2]\label{h:H2}
+There exist $C_V < \infty$ and $q < 1$ such that for all $n \ge 0$, all starting points and all arrival directions, $\sum_{|w| = n} \mathsf W(w) \le C_V q^n$, where the sum runs over the trails of $\Z^2$ of length $n$ with that start and arrival direction.
+\end{hypothesis}
+
+\begin{lemma}\label{l:onepoint}
+Assume (H1) and (H2). Let $D \in \Dcons(G)$ or $D = D_0;[w_0]$ for some $D_0 \in \Dcons(G)$ and a trail $w_0$, let $x \in G \setminus S$ be a site that is not removed and has at most three present bonds, with a designated arrival direction, and suppose that all first-visit steps of every trail in $\mathcal T_D(x, S)$, except at most $12$ steps of each trail, have their patterns in $\Pext$. Then
+\begin{equation*}
+\sum_{w \in \mathcal T_D(x, S)} 3^{-|w|} R^\tau_D(w) \le \Bigl( \frac{12}{5} \Bigr)^{12} \frac{C_V}{1 - q} \, q^{d(x, S)} .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Every trail of $D$ is a trail of $\Z^2$. A step that leaves a site visited before by $w$ is a revisit in $D;[w_{j - 1}]$, with $3^{-1} \rho^\tau_j = 1/5 = \omega_j$. A step that leaves a site of status $\mathrm D$ not visited before by $w$ has $3^{-1} \rho^\tau_j = 1/5 \le \omega_j$. A first-visit step with pattern $\pi \in \Pext$ has $\rho^\tau_j \le 1/c(\pi) \le x_{\mathrm{type}}$ by Lemma~\ref{l:local} and (H1), so $3^{-1} \rho^\tau_j \le \omega_j$. Any other first-visit step has $3^{-1} \rho^\tau_j \le 4/5 \le \frac{12}{5} \omega_j$ by Lemma~\ref{l:response}, since $\omega_j \ge 1/3$ for first visits. Hence $3^{-|w|} R^\tau_D(w) \le (12/5)^{12} \mathsf W(w)$, and since $|w| \ge d(x, S)$, (H2) gives the claim.
+\end{proof}

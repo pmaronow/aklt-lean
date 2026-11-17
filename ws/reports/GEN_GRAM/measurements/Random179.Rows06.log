@@ -1,0 +1,41 @@
+interpretation of Batteries.Tactic.Alias.aliasExt took 2.69ms
+interpretation of Mathlib.Tactic.ToAdditive.guessNameExt took 1.67ms
+interpretation of Mathlib.Tactic.ToDual.guessNameExt took 2.13ms
+interpretation of _private.Batteries.Tactic.Lint.Basic.0.Batteries.Tactic.Lint.initFn._lam_1._@.Batteries.Tactic.Lint.Basic.880347739._hygCtx._hyg.2._boxed took 1.2ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTacticExtension.0.Mathlib.Linter.UnusedTactic.initFn._lam_1._@.Mathlib.Tactic.Linter.UnusedTacticExtension.2679548081._hygCtx._hyg.2._boxed took 1.54ms
+interpretation of _private.Mathlib.Tactic.TacticAnalysis.0.Mathlib.TacticAnalysis.initFn._lam_4._@.Mathlib.Tactic.TacticAnalysis.358552301._hygCtx._hyg.2._boxed took 1.12ms
+interpretation of Mathlib.Tactic.UnfoldBoundary.registerUnfoldBoundaryExt._lam_0._boxed took 1.33ms
+interpretation of _private.Mathlib.Tactic.GCongr.ForwardAttr.0.Mathlib.Tactic.GCongr.initFn._lam_4._@.Mathlib.Tactic.GCongr.ForwardAttr.242967595._hygCtx._hyg.2._boxed took 1.28ms
+interpretation of Lean.mkStateFromImportedEntries._at_._private.Mathlib.Tactic.Hint.0.Mathlib.Tactic.Hint.initFn._@.Mathlib.Tactic.Hint.2826036628._hygCtx._hyg.2.spec_0._boxed took 1.15ms
+interpretation of _private.Batteries.CodeAction.Attr.0.Batteries.CodeAction.initFn._lam_4._@.Batteries.CodeAction.Attr.3685358032._hygCtx._hyg.2._boxed took 1.2ms
+interpretation of _private.Batteries.CodeAction.Attr.0.Batteries.CodeAction.initFn._lam_4._@.Batteries.CodeAction.Attr.2519722026._hygCtx._hyg.2._boxed took 1.32ms
+interpretation of Tactic.NormNum.evalJacobiSymNat took 2.3ms
+interpretation of _private.Mathlib.Tactic.Positivity.Core.0.Mathlib.Meta.Positivity.initFn._lam_4._@.Mathlib.Tactic.Positivity.Core.3395534674._hygCtx._hyg.2._boxed took 2.16ms
+interpretation of _private.Mathlib.Tactic.Polynomial.Core.0.Mathlib.Tactic.Polynomial.initFn._lam_4._@.Mathlib.Tactic.Polynomial.Core.2526669815._hygCtx._hyg.2._boxed took 1.21ms
+import took 1.26s
+.olean serialization took 1.1ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 1.21ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 1.7ms
+type checking took 5.42s
+'AKLT.Gen.Gram.Random179.rows6_checked' depends on axioms: [propext]
+cumulative profiling times:
+	.olean serialization 1.1ms
+	attribute application 0.0204ms
+	blocked (unaccounted) 5.43s
+	elaboration 2.56ms
+	fix level params 0.00728ms
+	import 1.26s
+	initialization 26.7ms
+	instantiate metavars 0.0094ms
+	interpretation 194ms
+	let-to-have transformation 0.0126ms
+	linting 1.82ms
+	module linting 0.00158ms
+	overlappingInstancesLinter 1.55ms
+	parsing 0.268ms
+	process pre-definitions 0.108ms
+	share common exprs 0.0207ms
+	tactic execution 0.542ms
+	tacticAnalysis 3.03ms
+	type checking 5.42s
+	typeclass inference 0.442ms

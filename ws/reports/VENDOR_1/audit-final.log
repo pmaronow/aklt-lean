@@ -1,0 +1,53 @@
+{
+  "commands": {
+    "Inventory.lean": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/home/ubuntu/aklt/reports/VENDOR_1/Inventory.lean"
+      ],
+      "seconds": 2.7025609649990656,
+      "returncode": 0
+    },
+    "Declarations.lean": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/home/ubuntu/aklt/reports/VENDOR_1/Declarations.lean"
+      ],
+      "seconds": 4.45618695200028,
+      "returncode": 0
+    },
+    "Axioms.lean": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean"
+      ],
+      "seconds": 2.8329740000008314,
+      "returncode": 0
+    }
+  },
+  "exported_constants": 957,
+  "exported_theorems": 708,
+  "axiom_checks": 708,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "per_donor": {
+    "Balaban": 52,
+    "FiniteChain": 154,
+    "FiniteConditioning": 6,
+    "LeanCert": 74,
+    "Physlib": 367,
+    "QICLean": 55
+  },
+  "scanned_files": 39,
+  "raw_forbidden_hits": [],
+  "manifest_hashes_verified": 32
+}

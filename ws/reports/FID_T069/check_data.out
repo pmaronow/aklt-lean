@@ -1,0 +1,26 @@
+PACKED rawClass bit_length 12582908
+PACKED representatives bit_length 74820
+PACKED destinations bit_length 179542
+PACKED edgeKinds bit_length 29928
+PIECE rawClass_310 source_line 635 bit_range [7487484, 7503868] code_range [623957, 625322] edge_bit_offsets [0, 4]
+PIECE rawClass_311 source_line 637 bit_range [7471100, 7487484] code_range [622591, 623956] edge_bit_offsets [8, 0]
+PIECE rawClass_312 source_line 639 bit_range [7454716, 7471100] code_range [621226, 622591] edge_bit_offsets [4, 8]
+PIECE rawClass_313 source_line 641 bit_range [7438332, 7454716] code_range [619861, 621226] edge_bit_offsets [0, 4]
+PIECE rawClass_314 source_line 643 bit_range [7421948, 7438332] code_range [618495, 619860] edge_bit_offsets [8, 0]
+PACKING: all 768 rawClass pieces fit contiguously without overlap
+COUNTS {0: 1, 1: 4, 2: 12, 3: 36, 4: 108, 5: 316, 6: 916, 7: 2628, 8: 7500, 9: 21268, 10: 60092}
+COVERAGE_ERRORS 0 []
+REP_ERRORS 0 []
+REP_ROW_ERRORS 0 []
+EDGE_COUNTS {0: 2516, 1: 5032, 2: 1872}
+CLASS_ERRORS 0 []
+ASSIGNED rawClass_310 raw words 0 value_counts {3741: 1366} coverage_errors [] class_errors []
+BOUNDARIES [(623956, 3741, 'WNWENNNNNE', False), (623957, 3741, 'WNWENNNNNN', False), (625322, 3741, 'WNWEWWWWWW', False), (625323, 3741, 'WNWEWWWWWS', False)]
+ASSIGNED rawClass_311 raw words 0 value_counts {3741: 1366} coverage_errors [] class_errors []
+BOUNDARIES [(622590, 3741, 'WNNSSSSSSW', False), (622591, 3741, 'WNNSSSSSSS', False), (623956, 3741, 'WNWENNNNNE', False), (623957, 3741, 'WNWENNNNNN', False)]
+ASSIGNED rawClass_312 raw words 0 value_counts {3741: 1366} coverage_errors [] class_errors []
+BOUNDARIES [(621225, 3741, 'WNNSWWWWWN', False), (621226, 3741, 'WNNSWWWWWW', False), (622591, 3741, 'WNNSSSSSSS', False), (622592, 3741, 'WNWEEEEEEE', False)]
+ASSIGNED rawClass_313 raw words 0 value_counts {3741: 1366} coverage_errors [] class_errors []
+BOUNDARIES [(619860, 3741, 'WNNSNNNNNE', False), (619861, 3741, 'WNNSNNNNNN', False), (621226, 3741, 'WNNSWWWWWW', False), (621227, 3741, 'WNNSWWWWWS', False)]
+ASSIGNED rawClass_314 raw words 1 value_counts {218: 1, 3741: 1365} coverage_errors [] class_errors []
+BOUNDARIES [(618494, 521, 'WNNWSSSSSW', True), (618495, 218, 'WNNWSSSSSS', True), (619860, 3741, 'WNNSNNNNNE', False), (619861, 3741, 'WNNSNNNNNN', False)]

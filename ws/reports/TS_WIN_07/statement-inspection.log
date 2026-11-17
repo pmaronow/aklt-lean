@@ -1,0 +1,181 @@
+def AKLT.Blueprint.Win.PartLawBridgeStatement : Prop :=
+AKLT.Blueprint.Top.MomentsStatement →
+  ∀ (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (pinned : Bool),
+    (0 < AKLT.Blueprint.Win.partSum pinned G Y τ fun x => 1) →
+      AKLT.Defs.Probability (AKLT.Blueprint.Win.partLaw pinned G Y τ) ∧
+        ∀ (f : (AKLT.Defs.Plane → AKLT.Defs.Vec3) → ℝ),
+          AKLT.Blueprint.Win.partMean pinned G Y τ f =
+            AKLT.Defs.expectation (AKLT.Blueprint.Win.partLaw pinned G Y τ) fun σ => f (AKLT.Defs.extendIcoSpins σ)
+def AKLT.Blueprint.Win.EnumerationStepsStatement : Prop :=
+∀ (G X : Finset AKLT.Defs.Plane),
+  X ⊆ G →
+    (∀ x ∈ X, 3 ≤ AKLT.Defs.boundaryDepth G x) →
+      ∀ (e : AKLT.Blueprint.Win.RemovalEnumeration X),
+        AKLT.Blueprint.Win.removedPrefix e 0 = ∅ ∧
+          AKLT.Blueprint.Win.removedPrefix e (e.last + 1) = X ∧
+            ∀ (j : Fin (e.last + 1)),
+              AKLT.Blueprint.Win.removedPrefix e (↑j + 1) = insert (e.site j) (AKLT.Blueprint.Win.removedPrefix e ↑j) ∧
+                AKLT.Blueprint.Win.RemovalStep G (AKLT.Blueprint.Win.removedPrefix e ↑j) (e.site j) ∧
+                  (0 < ↑j → ∃ c ∈ AKLT.Blueprint.Win.removedPrefix e ↑j, AKLT.Defs.Adjacent (e.site j) c)
+def AKLT.Blueprint.Win.SurvivorGeometryStatement : Prop :=
+∀ (G Y : Finset AKLT.Defs.Plane) (x : AKLT.Defs.Plane),
+  AKLT.Blueprint.Win.RemovalStep G Y x →
+    (AKLT.Blueprint.Win.survivors G Y x).card ≤ 4 ∧
+      (Y = ∅ → (AKLT.Blueprint.Win.survivors G Y x).card = 4) ∧
+        ((∃ c ∈ Y, AKLT.Defs.Adjacent x c) → (AKLT.Blueprint.Win.survivors G Y x).card ≤ 3) ∧
+          (∀ z ∈ AKLT.Blueprint.Win.survivors G Y x, 2 ≤ AKLT.Defs.boundaryDepth G z) ∧
+            ∀ z ∈ AKLT.Blueprint.Win.survivors G Y x,
+              ∀ w ∈ AKLT.Blueprint.Win.survivors G Y x, z ≠ w → AKLT.Defs.latticeDist z w = 2
+def AKLT.Blueprint.Win.RemovalIntegralStatement : Prop :=
+AKLT.Blueprint.Top.MomentsStatement →
+  ∀ (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (x : AKLT.Defs.Plane),
+    AKLT.Blueprint.Win.RemovalStep G Y x →
+      ∀ (pinned : Bool),
+        (AKLT.Blueprint.Win.partSum pinned G Y τ fun x => 1) =
+          AKLT.Blueprint.Win.partSum pinned G (insert x Y) τ
+            (AKLT.Blueprint.Win.removalPolynomial x (AKLT.Blueprint.Win.survivors G Y x))
+def AKLT.Blueprint.Win.NeighbourFibresStatement : Prop :=
+AKLT.Blueprint.Top.MomentsStatement →
+  AKLT.Blueprint.Top.ThreeFactorMeanStatement →
+    ∀ (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (x : AKLT.Defs.Plane),
+      AKLT.Blueprint.Win.RemovalStep G Y x →
+        ∀ (pinned : Bool),
+          AKLT.Blueprint.Win.NeighbourControl (AKLT.Blueprint.Win.partLaw pinned G (insert x Y) τ)
+            (AKLT.Blueprint.Win.survivors G Y x)
+def AKLT.Blueprint.Win.PairMeanAveragingStatement : Prop :=
+∀ (D V : Finset AKLT.Defs.Plane),
+  V ⊆ D →
+    ∀ (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D)),
+      AKLT.Defs.Probability p →
+        AKLT.Blueprint.Win.NeighbourControl p V →
+          -(9 / 50) * ↑V.card ≤
+            AKLT.Defs.expectation p fun σ => AKLT.Blueprint.Win.pairSum V (AKLT.Defs.extendIcoSpins σ)
+def AKLT.Blueprint.Win.QuarticMeanBoundStatement : Prop :=
+AKLT.Blueprint.Top.MomentsStatement →
+  ∀ (D : Finset AKLT.Defs.Plane) (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D)),
+    AKLT.Defs.Probability p →
+      ∀ (x : AKLT.Defs.Plane),
+        |AKLT.Defs.expectation p fun σ => AKLT.Blueprint.Win.quartic x (AKLT.Defs.extendIcoSpins σ)| ≤ 3
+def AKLT.Blueprint.Win.PolynomialLowerStatement : Prop :=
+∀ (D V : Finset AKLT.Defs.Plane) (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D)),
+  AKLT.Defs.Probability p →
+    ∀ (x : AKLT.Defs.Plane),
+      V.card ≤ 4 →
+        (-(9 / 50) * ↑V.card ≤
+            AKLT.Defs.expectation p fun σ => AKLT.Blueprint.Win.pairSum V (AKLT.Defs.extendIcoSpins σ)) →
+          |AKLT.Defs.expectation p fun σ => AKLT.Blueprint.Win.quartic x (AKLT.Defs.extendIcoSpins σ)| ≤ 3 →
+            (if V.card = 4 then 14 / 25 else 41 / 50) ≤
+              AKLT.Defs.expectation p fun σ => AKLT.Blueprint.Win.removalPolynomial x V (AKLT.Defs.extendIcoSpins σ)
+def AKLT.Blueprint.Win.NeighbourControl : {D : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D) → Finset AKLT.Defs.Plane → Prop :=
+fun {D} p V =>
+  ∀ (σ : AKLT.Defs.PlaneConfiguration D),
+    0 < AKLT.Defs.eventMass p (AKLT.Blueprint.Win.restEvent V σ) →
+      (∀ z ∈ V, AKLT.Defs.normSq (AKLT.Blueprint.Win.fibreSpinMean p V σ z) ≤ (3 / 5) ^ 2) ∧
+        ∀ z ∈ V,
+          ∀ w ∈ V,
+            z ≠ w →
+              (AKLT.Blueprint.Win.fibreMean p V σ fun ω =>
+                  AKLT.Defs.dot (AKLT.Defs.extendIcoSpins ω z) (AKLT.Defs.extendIcoSpins ω w)) =
+                AKLT.Defs.dot (AKLT.Blueprint.Win.fibreSpinMean p V σ z) (AKLT.Blueprint.Win.fibreSpinMean p V σ w)
+def AKLT.Blueprint.Win.partWeight : Bool →
+  (G Y : Finset AKLT.Defs.Plane) → AKLT.Defs.PinAssignment G → AKLT.Defs.PlaneConfiguration (G \ Y) → ℝ :=
+fun pinned G Y τ σ =>
+  ((1 / 12) ^ (G \ Y).card *
+      ∏ e ∈ AKLT.Defs.internalBonds (G \ Y),
+        (1 + AKLT.Defs.dot (AKLT.Defs.extendIcoSpins σ e.1) (AKLT.Defs.extendIcoSpins σ e.2))) *
+    ∏ e, if pinned = true ∧ (↑e).1 ∈ G \ Y then 1 + AKLT.Defs.dot (↑(τ e)) (AKLT.Defs.extendIcoSpins σ (↑e).1) else 1
+@[reducible] def AKLT.Defs.PlaneConfiguration : Finset AKLT.Defs.Plane → Type :=
+fun W => ↥W → AKLT.Defs.IcoLetter
+def AKLT.Defs.Probability.{u_1} : {Ω : Type u_1} → [Fintype Ω] → AKLT.Defs.Weight Ω → Prop :=
+fun {Ω} [Fintype Ω] p => (∀ (x : Ω), 0 ≤ p x) ∧ ∑ x, p x = 1
+AKLT.Defs.Probability.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) : Prop
+AKLT.Defs.expectation.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (f : Ω → ℝ) : ℝ
+AKLT.Defs.normalize.{u_1} {Ω : Type u_1} [Fintype Ω] (w : AKLT.Defs.Weight Ω) : AKLT.Defs.Weight Ω
+AKLT.Defs.eventMass.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (E : Ω → Prop) : ℝ
+AKLT.Blueprint.Win.fibreMean {D : Finset AKLT.Defs.Plane} (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D))
+  (V : Finset AKLT.Defs.Plane) (σ : AKLT.Defs.PlaneConfiguration D) (f : AKLT.Defs.PlaneConfiguration D → ℝ) : ℝ
+AKLT.Blueprint.Win.fibreSpinMean {D : Finset AKLT.Defs.Plane} (p : AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration D))
+  (V : Finset AKLT.Defs.Plane) (σ : AKLT.Defs.PlaneConfiguration D) (z : AKLT.Defs.Plane) : AKLT.Defs.Vec3
+AKLT.Blueprint.Win.partLaw (pinned : Bool) (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) :
+  AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration (G \ Y))
+AKLT.Defs.boundaryDepth (G : Finset AKLT.Defs.Plane) (x : AKLT.Defs.Plane) : ℕ∞
+def AKLT.Blueprint.Win.removalPolynomial : AKLT.Defs.Plane →
+  Finset AKLT.Defs.Plane → (AKLT.Defs.Plane → AKLT.Defs.Vec3) → Real :=
+fun x V n =>
+  @HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+        (AKLT.Blueprint.Win.pairSum V n)
+        (@OfNat.ofNat Real (nat_lit 3)
+          (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast AKLT.Blueprint.Win.removalPolynomial._proof_1))))
+    (@ite Real (@Eq Nat (@Finset.card AKLT.Defs.Plane V) (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+      (instDecidableEqNat (@Finset.card AKLT.Defs.Plane V) (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+        (AKLT.Blueprint.Win.quartic x n)
+        (@OfNat.ofNat Real (nat_lit 15)
+          (@instOfNatAtLeastTwo Real (nat_lit 15) Real.instNatCast AKLT.Blueprint.Win.removalPolynomial._proof_2)))
+      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+def AKLT.Blueprint.Win.partLaw : Bool →
+  (G Y : Finset AKLT.Defs.Plane) →
+    AKLT.Defs.PinAssignment G →
+      AKLT.Defs.Weight
+        (AKLT.Defs.PlaneConfiguration
+          (@sdiff (Finset AKLT.Defs.Plane)
+            (@Finset.instSDiff AKLT.Defs.Plane fun a b =>
+              @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+            G Y)) :=
+fun pinned G Y τ =>
+  @AKLT.Defs.normalize
+    (AKLT.Defs.PlaneConfiguration
+      (@sdiff (Finset AKLT.Defs.Plane)
+        (@Finset.instSDiff AKLT.Defs.Plane fun a b =>
+          @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+        G Y))
+    (@Pi.instFintype
+      (↥(@sdiff (Finset AKLT.Defs.Plane)
+          (@Finset.instSDiff AKLT.Defs.Plane fun a b =>
+            @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+          G Y))
+      (fun x => AKLT.Defs.IcoLetter)
+      (fun a b =>
+        @Subtype.instDecidableEq AKLT.Defs.Plane
+          (@Membership.mem AKLT.Defs.Plane (Finset AKLT.Defs.Plane)
+            (@SetLike.instMembership (Finset AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike AKLT.Defs.Plane))
+            (@sdiff (Finset AKLT.Defs.Plane)
+              (@Finset.instSDiff AKLT.Defs.Plane fun a b =>
+                @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+              G Y))
+          (fun a b => @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b) a b)
+      (@Finset.Subtype.fintype AKLT.Defs.Plane
+        (@sdiff (Finset AKLT.Defs.Plane)
+          (@Finset.instSDiff AKLT.Defs.Plane fun a b =>
+            @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+          G Y))
+      fun a =>
+      @instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (Prod (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (Fin.fintype (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+        (@instFintypeProd (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (AKLT.Blueprint.Win.partWeight pinned G Y τ)
+def AKLT.Blueprint.Win.removedPrefix : {X : Finset AKLT.Defs.Plane} →
+  AKLT.Blueprint.Win.RemovalEnumeration X → Nat → Finset AKLT.Defs.Plane :=
+fun {X} e j =>
+  @Finset.image
+    (Fin
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@AKLT.Blueprint.Win.RemovalEnumeration.last X e)
+        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    AKLT.Defs.Plane (fun a b => @instDecidableEqProd Int Int Int.instDecidableEq Int.instDecidableEq a b)
+    (@AKLT.Blueprint.Win.RemovalEnumeration.site X e)
+    {k |
+      @LT.lt Nat instLTNat
+        (@Fin.val
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) (@AKLT.Blueprint.Win.RemovalEnumeration.last X e)
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          k)
+        j}

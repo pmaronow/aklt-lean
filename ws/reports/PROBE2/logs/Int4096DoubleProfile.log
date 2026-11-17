@@ -1,0 +1,27 @@
+import took 2.47s
+type checking took 934ms
+'checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 1.23ms
+	attribute application 0.0251ms
+	compilation (IR) 0.0762ms
+	compilation (LCNF base) 0.81ms
+	compilation (LCNF impure) 0.353ms
+	compilation (LCNF mono) 0.426ms
+	elaboration 6.87ms
+	fix level params 0.0204ms
+	import 2.47s
+	initialization 26.2ms
+	instantiate metavars 0.0193ms
+	interpretation 243ms
+	let-to-have transformation 0.0179ms
+	linting 1.23ms
+	module linting 0.00153ms
+	overlappingInstancesLinter 0.727ms
+	parsing 0.63ms
+	process pre-definitions 2.45ms
+	share common exprs 0.117ms
+	tactic execution 0.306ms
+	tacticAnalysis 1.8ms
+	type checking 935ms
+	typeclass inference 2.46ms

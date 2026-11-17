@@ -1,0 +1,121 @@
+[
+  {
+    "id": "PlaneLiteral",
+    "module": "RELFEAS.PlaneLiteral",
+    "planes": 64,
+    "limb_bits": null,
+    "roots": [
+      "RELFEAS.PlaneLiteral.checked"
+    ],
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-DElab.async=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/PlaneLiteral.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/PlaneLiteral.lean"
+      ],
+      "exit": 0,
+      "wall_s": 33.56924922599865,
+      "sampled_peak_bytes": 7408009216,
+      "limit": null,
+      "rss_cap_gib": 20,
+      "timeout_s": 300,
+      "user_s": 31.77,
+      "system_s": 1.72,
+      "rss_kib": 7240296.0
+    },
+    "stock_export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.PlaneLiteral",
+        "--",
+        "RELFEAS.PlaneLiteral.checked"
+      ],
+      "exit": -15,
+      "wall_s": 120.0819782710023,
+      "sampled_peak_bytes": 7009329152,
+      "limit": "TIMEOUT",
+      "rss_cap_gib": 20,
+      "timeout_s": 120
+    },
+    "native_export": {
+      "command": [
+        "/home/ubuntu/aklt/reports/REL_FEAS/fast-leanexport",
+        "RELFEAS.PlaneLiteral",
+        "--",
+        "RELFEAS.PlaneLiteral.checked"
+      ],
+      "exit": 0,
+      "wall_s": 7.8401358039991464,
+      "sampled_peak_bytes": 6986563584,
+      "limit": null,
+      "rss_cap_gib": 20,
+      "timeout_s": 300,
+      "user_s": 6.45,
+      "system_s": 1.31,
+      "rss_kib": 6819708.0
+    },
+    "export_bytes": 31491381,
+    "export_sha256": "0d854916d7715c05e84130fedbaa6894b560172a3909b748cfb3128611c6c48a",
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/PlaneLiteral/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 18.178618999998434,
+      "sampled_peak_bytes": 61480960,
+      "limit": null,
+      "rss_cap_gib": 20,
+      "timeout_s": 300,
+      "user_s": 18.1,
+      "system_s": 0.02,
+      "rss_kib": 57496.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/PlaneLiteral/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 28.03846809300012,
+      "sampled_peak_bytes": 26214400,
+      "limit": null,
+      "rss_cap_gib": 20,
+      "timeout_s": 300,
+      "user_s": 27.93,
+      "system_s": 0.02,
+      "rss_kib": 23224.0,
+      "accepts": true
+    }
+  },
+  {
+    "id": "PlaneLimbs",
+    "module": "RELFEAS.PlaneLimbs",
+    "planes": 64,
+    "limb_bits": 8192,
+    "roots": [
+      "RELFEAS.PlaneLimbs.checked"
+    ],
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-DElab.async=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/PlaneLimbs.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/PlaneLimbs.lean"
+      ],
+      "exit": -15,
+      "wall_s": 300.013551557,
+      "sampled_peak_bytes": 7606382592,
+      "limit": "TIMEOUT",
+      "rss_cap_gib": 20,
+      "timeout_s": 300
+    }
+  }
+]

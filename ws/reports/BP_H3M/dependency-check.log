@@ -1,0 +1,193 @@
+AKLT.Blueprint.H3.TrueStepFacts {n : ℕ} (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Prop
+AKLT.Blueprint.H3.arrivalCount {n : ℕ} (w : AKLT.Defs.DirectionWord n) (z : AKLT.Defs.Plane) : ℕ
+AKLT.Blueprint.H3.kernelLengthCoefficient_nonneg (X Y : AKLT.Defs.PairType) (s n : ℕ) :
+  0 ≤ AKLT.Defs.kernelLengthCoefficient X Y s n
+AKLT.Blueprint.H3.kernelLengthRow (X : AKLT.Defs.PairType) (n : ℕ) : ℚ
+AKLT.Blueprint.H3.kernelLengthRow_nonneg (X : AKLT.Defs.PairType) (n : ℕ) : 0 ≤ AKLT.Blueprint.H3.kernelLengthRow X n
+AKLT.Blueprint.H3.kernelWitness_pos (X : AKLT.Defs.PairType) : 0 < AKLT.Defs.kernelWitness X
+AKLT.Blueprint.H3.lengthShifts (X : AKLT.Defs.PairType) (n : ℕ) : Finset ℕ
+AKLT.Blueprint.H3.longMultiplier {n : ℕ} (w : AKLT.Defs.DirectionWord n) (j : Fin n) : ℚ
+AKLT.Blueprint.H3.longRewardTerm {n : ℕ} (w : AKLT.Defs.DirectionWord n) (j : Fin n) : ℚ
+AKLT.Blueprint.H3.orderedMultiplier {n : ℕ} (w : AKLT.Defs.DirectionWord n) (l : List (Fin n)) (j : Fin n) : ℚ
+AKLT.Blueprint.H3.phaseRun {ι : Type} (M : ι → AKLT.Defs.Phase → AKLT.Defs.Phase → ℚ) (indices : List ι)
+  (p : AKLT.Defs.Phase → ℚ) : AKLT.Defs.Phase → ℚ
+AKLT.Blueprint.H3.phaseUpdate (M : AKLT.Defs.Phase → AKLT.Defs.Phase → ℚ) (p : AKLT.Defs.Phase → ℚ) :
+  AKLT.Defs.Phase → ℚ
+AKLT.Blueprint.H3.reflectSite (x : AKLT.Defs.Plane) : AKLT.Defs.Plane
+AKLT.Blueprint.H3.reflectWord {n : ℕ} (w : AKLT.Defs.DirectionWord n) : AKLT.Defs.DirectionWord n
+AKLT.Blueprint.H3.singleChange {n : ℕ} (k : Fin n → AKLT.Defs.StepKind) (r : Fin n → ℚ) (j : Fin n)
+  (φ ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Blueprint.H3.stationaryCoefficient_nonneg {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass)
+  (ψ : AKLT.Defs.Phase) : 0 ≤ AKLT.Defs.stationaryCoefficient Q X d₀ φ a x d ψ
+AKLT.Blueprint.H3.stationaryWordValue (Q : AKLT.Defs.MemoryQuotient 10 3741) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) : List AKLT.Defs.Compass → AKLT.Defs.Phase → Fin 3741 → AKLT.Defs.Plane → ℚ
+AKLT.Blueprint.H3.suffixWindow {n : ℕ} (w : AKLT.Defs.DirectionWord n) (j : ℕ) : AKLT.Defs.DirectionWord 10
+AKLT.Blueprint.H3.takeWord_append {L r : ℕ} (P : AKLT.Defs.DirectionWord L) (v : AKLT.Defs.DirectionWord r) :
+  AKLT.Defs.takeWord (AKLT.Defs.appendWords P v) L = P
+AKLT.Blueprint.H3.trueDeadSet {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset AKLT.Defs.Plane
+AKLT.Blueprint.H3.trueKind {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : AKLT.Defs.StepKind
+AKLT.Blueprint.H3.truePhaseCoefficient_nonneg {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n)
+  (φ ψ : AKLT.Defs.Phase) : 0 ≤ AKLT.Defs.truePhaseCoefficient w i φ ψ
+AKLT.Blueprint.H3.wordSplit_proved : AKLT.Blueprint.H3.WordSplitStatement
+AKLT.Defs.ClosedTrail {n : ℕ} (X : AKLT.Defs.PairType) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.Compass.step : AKLT.Defs.Compass → AKLT.Defs.Plane
+AKLT.Defs.CompatibleProjection (m q : ℕ) (π : AKLT.Defs.DirectionWord m → Fin q) : Prop
+AKLT.Defs.FirstDirection {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) : Prop
+AKLT.Defs.IsTrail {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.MemoryQuotient.Correct {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) : Prop
+AKLT.Defs.RawWindow {m : ℕ} (w : AKLT.Defs.DirectionWord m) : Prop
+AKLT.Defs.SurvivingPrefix {n : ℕ} (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) :
+  Prop
+AKLT.Defs.WindowAdmissible {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) : Prop
+AKLT.Defs.alphaBound (straight : Bool) : ℚ
+AKLT.Defs.appendWords {n r : ℕ} (w : AKLT.Defs.DirectionWord n) (v : AKLT.Defs.DirectionWord r) :
+  AKLT.Defs.DirectionWord (n + r)
+AKLT.Defs.betaBound (straight : Bool) : ℚ
+AKLT.Defs.betaPrimeBound (straight : Bool) : ℚ
+AKLT.Defs.deadAt {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) (z : AKLT.Defs.Plane) : Prop
+AKLT.Defs.departureCount {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (i : ℕ) (x : AKLT.Defs.Plane) : ℕ
+AKLT.Defs.exposureSum {n : ℕ} (w : AKLT.Defs.DirectionWord n) (reward : Fin n → ℚ) : List (Fin n) → ℚ
+AKLT.Defs.firstDirectionPartialRow (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (R : ℕ) : ℚ
+AKLT.Defs.firstVisitList {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.freeCoefficient {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (φ : AKLT.Defs.Phase) (a : Fin q)
+  (d : AKLT.Defs.Compass) (ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.kernelCentre : AKLT.Defs.Plane
+AKLT.Defs.kernelLengthCoefficient (X Y : AKLT.Defs.PairType) (s n : ℕ) : ℚ
+AKLT.Defs.kernelPartialRow (X : AKLT.Defs.PairType) (R : ℕ) : ℚ
+AKLT.Defs.kernelStart : AKLT.Defs.Plane
+AKLT.Defs.kernelWitness : AKLT.Defs.PairType → ℚ
+AKLT.Defs.lastWindowWord {n : ℕ} (m : ℕ) (w : AKLT.Defs.DirectionWord n) : AKLT.Defs.DirectionWord m
+AKLT.Defs.latticeDist (x y : AKLT.Defs.Plane) : ℕ
+AKLT.Defs.liveOtherNeighbours {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset AKLT.Defs.Plane
+AKLT.Defs.longOrdering {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.neighbours (x : AKLT.Defs.Plane) : Finset AKLT.Defs.Plane
+AKLT.Defs.pairCoefficient {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) (p : Finset AKLT.Defs.Plane) : ℚ
+AKLT.Defs.pairShift (X : AKLT.Defs.PairType) (p : Finset AKLT.Defs.Plane) : ℕ
+AKLT.Defs.phaseInitial : AKLT.Defs.Phase → ℚ
+AKLT.Defs.phaseTerminal : AKLT.Defs.Phase → ℚ
+AKLT.Defs.phaseTransition (k : AKLT.Defs.StepKind) (reward : ℚ) (φ ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.prefixPhases {n : ℕ} (w : AKLT.Defs.DirectionWord n) : AKLT.Defs.Phase → ℚ
+AKLT.Defs.relaxedReward (x : AKLT.Defs.Plane) (incoming outgoing : AKLT.Defs.Compass) (dead : Finset AKLT.Defs.Plane) :
+  ℚ
+AKLT.Defs.responseKappa {n : ℕ} (X Y : AKLT.Defs.PairType) (s : ℕ) (w : AKLT.Defs.DirectionWord n) (i : Fin n) : ℚ
+AKLT.Defs.responseNeighbours {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset AKLT.Defs.Plane
+AKLT.Defs.responsePairType (p : Finset AKLT.Defs.Plane) : AKLT.Defs.PairType
+AKLT.Defs.responsePairs {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset (Finset AKLT.Defs.Plane)
+AKLT.Defs.shiftKernel (X Y : AKLT.Defs.PairType) (s : ℕ) : ENNReal
+AKLT.Defs.shiftedKernel (θ : ℝ) (X Y : AKLT.Defs.PairType) : ENNReal
+AKLT.Defs.stationaryApply {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass)
+  (F : AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.stationaryCoefficient {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass)
+  (ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.stationaryReward (X : AKLT.Defs.PairType) (φ : AKLT.Defs.Phase) (_a : Fin 3741) (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.takeWord {n : ℕ} (w : AKLT.Defs.DirectionWord n) (L : ℕ) : AKLT.Defs.DirectionWord L
+AKLT.Defs.trailBaseWeight {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) : ℚ
+AKLT.Defs.trueContinuationSum {L : ℕ} (X : AKLT.Defs.PairType) (P : AKLT.Defs.DirectionWord L) (φ : AKLT.Defs.Phase)
+  (R : ℕ) : ℚ
+AKLT.Defs.truePhaseCoefficient {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) (φ ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.truePhaseSuffix {n : ℕ} (w : AKLT.Defs.DirectionWord n) (L : ℕ) (φ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.windowArrival {m : ℕ} (w : AKLT.Defs.DirectionWord m) : AKLT.Defs.Compass
+AKLT.Defs.windowKind {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) : AKLT.Defs.StepKind
+AKLT.Defs.windowSuccessor {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) : AKLT.Defs.DirectionWord m
+AKLT.Defs.witnessKappa {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) : ℚ
+AKLT.Defs.wordBond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Finset AKLT.Defs.Plane
+AKLT.Defs.wordIncoming {n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) (i : Fin n) :
+  AKLT.Defs.Compass
+AKLT.Defs.wordVertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (j : ℕ) : AKLT.Defs.Plane
+AKLT.Gen.Bellman.Automaton.arrivalCoeff_compatible.{u_1, u_2, u_3, u_4, u_5, u_6} {S : Type u_1} {Q : Type u_2}
+  {D : Type u_3} {K : Type u_4} {C : Type u_5} {R : Type u_6} (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q)
+  (hsurj : Function.Surjective π) (usesArrival : K → Prop) (arrival : S → R) (base : C → D → K → ENNReal)
+  (response : C → D → K → R → ENNReal)
+  (harrival :
+    ∀ (s t : S),
+      π s = π t → ∀ (d : D) (k : K) (u : S), A.trans s d = some (k, u) → usesArrival k → arrival s = arrival t)
+  (c : C) (s : S) (d : D) (k : K) (u : S) (he : A.trans s d = some (k, u)) :
+  AKLT.Gen.Bellman.Automaton.arrivalCoeff usesArrival arrival base response c s d k =
+    AKLT.Gen.Bellman.Automaton.quotientCoeff (AKLT.Gen.Bellman.Automaton.arrivalCoeff usesArrival arrival base response)
+      π hsurj c (π s) d k
+AKLT.Gen.Bellman.Automaton.quotient.{u_1, u_2, u_3, u_4} {S : Type u_1} {Q : Type u_2} {D : Type u_3} {K : Type u_4}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q) (hsurj : Function.Surjective π) : AKLT.Gen.Bellman.Automaton Q D K
+AKLT.Gen.Bellman.Automaton.quotient_compatible.{u_1, u_2, u_3, u_4} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q) (hsurj : Function.Surjective π)
+  (hfibre :
+    ∀ (s t : S),
+      π s = π t →
+        ∀ (d : D),
+          AKLT.Gen.Bellman.Automaton.project π (A.trans s d) = AKLT.Gen.Bellman.Automaton.project π (A.trans t d)) :
+  A.Compatible (A.quotient π hsurj) π
+AKLT.Gen.Bellman.System.exact_eq_tsum_paths.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (n : ℕ) (x : S) : T.exact g n x = ∑' (p : AKLT.Gen.Bellman.System.Words L n), T.pathWeight g n x p
+AKLT.Gen.Bellman.System.pathWeight.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g : S → ENNReal)
+  (n : ℕ) : S → AKLT.Gen.Bellman.System.Words L n → ENNReal
+AKLT.Gen.Bellman.patch_step_le_free.{u_1, u_2, u_3} {S : Type u_1} {Q : Type u_2} {L : Type u_3}
+  (T : AKLT.Gen.Bellman.System S L) (W : AKLT.Gen.Bellman.System Q L) (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (hcap : ∀ x ∈ box, u x ≤ z (π x)) {x : S} (hnext : ∀ (a : L), π (T.next x a) = W.next (π x) a)
+  (hweight : ∀ (a : L), T.weight x a ≤ W.weight (π x) a) : T.step (AKLT.Gen.Bellman.patch box π u z) x ≤ W.step z (π x)
+Classical.choose.{u} {α : Sort u} {p : α → Prop} (h : ∃ x, p x) : α
+ENNReal.ofReal_le_ofReal {p q : ℝ} (h : p ≤ q) : ENNReal.ofReal p ≤ ENNReal.ofReal q
+ENNReal.ofReal_sum_of_nonneg.{u_1} {α : Type u_1} {s : Finset α} {f : α → ℝ} (hf : ∀ i ∈ s, 0 ≤ f i) :
+  ENNReal.ofReal (∑ i ∈ s, f i) = ∑ i ∈ s, ENNReal.ofReal (f i)
+ENNReal.tsum_comm.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β → ENNReal} :
+  ∑' (a : α) (b : β), f a b = ∑' (b : β) (a : α), f a b
+ENNReal.tsum_eq_iSup_nat {f : ℕ → ENNReal} : ∑' (i : ℕ), f i = ⨆ i, ∑ a ∈ Finset.range i, f a
+ENNReal.tsum_mul_right.{u_1} {α : Type u_1} {a : ENNReal} {f : α → ENNReal} :
+  ∑' (i : α), f i * a = (∑' (i : α), f i) * a
+Finset.Icc.{u_1} {α : Type u_1} [Preorder α] [LocallyFiniteOrder α] (a b : α) : Finset α
+Finset.card_filter.{u_1} {ι : Type u_1} (p : ι → Prop) [DecidablePred p] (s : Finset ι) :
+  {i ∈ s | p i}.card = ∑ i ∈ s, if p i then 1 else 0
+Finset.card_le_card_of_injOn.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Finset α} {t : Finset β} (f : α → β)
+  (hf : Set.MapsTo f ↑s ↑t) (f_inj : Set.InjOn f ↑s) : s.card ≤ t.card
+Finset.image_image.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {γ : Type u_3} [DecidableEq β] {f : α → β}
+  {s : Finset α} [DecidableEq γ] {g : β → γ} : Finset.image g (Finset.image f s) = Finset.image (g ∘ f) s
+Finset.mem_biUnion.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Finset α} {t : α → Finset β} [DecidableEq β] {b : β} :
+  b ∈ s.biUnion t ↔ ∃ a ∈ s, b ∈ t a
+Finset.mem_image.{u_1, u_2} {α : Type u_1} {β : Type u_2} [DecidableEq β] {f : α → β} {s : Finset α} {b : β} :
+  b ∈ Finset.image f s ↔ ∃ a ∈ s, f a = b
+Finset.powersetCard.{u_1} {α : Type u_1} (n : ℕ) (s : Finset α) : Finset (Finset α)
+Finset.prod_filter.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [CommMonoid M] (p : ι → Prop)
+  [DecidablePred p] (f : ι → M) : ∏ a ∈ s with p a, f a = ∏ a ∈ s, if p a then f a else 1
+Finset.prod_mul_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [CommMonoid M] {f g : ι → M} :
+  ∏ x ∈ s, f x * g x = (∏ x ∈ s, f x) * ∏ x ∈ s, g x
+Finset.range (n : ℕ) : Finset ℕ
+Finset.sum_add_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [AddCommMonoid M] {f g : ι → M} :
+  ∑ x ∈ s, (f x + g x) = ∑ x ∈ s, f x + ∑ x ∈ s, g x
+Finset.sum_bij.{u_1, u_2, u_3} {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [AddCommMonoid M] {s : Finset ι}
+  {t : Finset κ} {f : ι → M} {g : κ → M} (i : (a : ι) → a ∈ s → κ) (hi : ∀ (a : ι) (ha : a ∈ s), i a ha ∈ t)
+  (i_inj : ∀ (a₁ : ι) (ha₁ : a₁ ∈ s) (a₂ : ι) (ha₂ : a₂ ∈ s), i a₁ ha₁ = i a₂ ha₂ → a₁ = a₂)
+  (i_surj : ∀ b ∈ t, ∃ a, ∃ (ha : a ∈ s), i a ha = b) (h : ∀ (a : ι) (ha : a ∈ s), f a = g (i a ha)) :
+  ∑ x ∈ s, f x = ∑ x ∈ t, g x
+Finset.sum_comm.{u_3, u_4, u_5} {α : Type u_3} {β : Type u_4} {γ : Type u_5} [AddCommMonoid β] {s : Finset γ}
+  {t : Finset α} {f : γ → α → β} : ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+Finset.sum_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f g : ι → M}
+  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+Finset.sum_insert.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} {a : ι} [AddCommMonoid M] {f : ι → M}
+  [DecidableEq ι] : a ∉ s → ∑ x ∈ insert a s, f x = f a + ∑ x ∈ s, f x
+Finset.sum_ite_eq.{u_1, u_2} {ι : Type u_1} {M : Type u_2} [AddCommMonoid M] [DecidableEq ι] (s : Finset ι) (a : ι)
+  (b : ι → M) : (∑ x ∈ s, if a = x then b x else 0) = if a ∈ s then b a else 0
+Finset.sum_le_sum_of_subset_of_nonneg.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N]
+  {f : ι → N} {s t : Finset ι} [AddLeftMono N] (h : s ⊆ t) (hf : ∀ i ∈ t, i ∉ s → 0 ≤ f i) : ∑ i ∈ s, f i ≤ ∑ i ∈ t, f i
+Finset.sum_range_succ.{u_4} {M : Type u_4} [AddCommMonoid M] (f : ℕ → M) (n : ℕ) :
+  ∑ x ∈ Finset.range (n + 1), f x = ∑ x ∈ Finset.range n, f x + f n
+Finset.sum_sigma.{u_3, u_4, u_6} {α : Type u_3} {β : Type u_4} [AddCommMonoid β] {σ : α → Type u_6} (s : Finset α)
+  (t : (a : α) → Finset (σ a)) (f : Sigma σ → β) : ∑ x ∈ s.sigma t, f x = ∑ a ∈ s, ∑ s ∈ t a, f ⟨a, s⟩
+Finset.sup_image.{u_2, u_3, u_4} {α : Type u_2} {β : Type u_3} {γ : Type u_4} [SemilatticeSup α] [OrderBot α]
+  [DecidableEq β] (s : Finset γ) (f : γ → β) (g : β → α) : (Finset.image f s).sup g = s.sup (g ∘ f)
+Fintype.sum_prod_type.{u_3, u_4, u_5} {γ : Type u_3} {α₁ : Type u_4} {α₂ : Type u_5} [Fintype α₁] [Fintype α₂]
+  [AddCommMonoid γ] (f : α₁ × α₂ → γ) : ∑ x, f x = ∑ x, ∑ y, f (x, y)
+List.Nodup.{u} {α : Type u} : List α → Prop
+List.filter.{u} {α : Type u} (p : α → Bool) (l : List α) : List α
+List.finRange (n : ℕ) : List (Fin n)
+List.foldl_append.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : β → α → β} {b : β} {l l' : List α} :
+  List.foldl f b (l ++ l') = List.foldl f (List.foldl f b l) l'
+List.foldl_cons.{u, v} {α : Type u} {β : Type v} {a : α} {l : List α} {f : β → α → β} {b : β} :
+  List.foldl f b (a :: l) = List.foldl f (f b a) l
+List.idxOf.{u} {α : Type u} [BEq α] (a : α) : List α → ℕ
+List.ofFn.{u_1} {α : Type u_1} {n : ℕ} (f : Fin n → α) : List α
+List.take.{u} {α : Type u} (n : ℕ) (xs : List α) : List α
+List.take_append_drop.{u_1} {α : Type u_1} (i : ℕ) (l : List α) : List.take i l ++ List.drop i l = l
+List.toFinset.{u_1} {α : Type u_1} [DecidableEq α] (l : List α) : Finset α
+tsum_eq_sum.{u_1, u_2} {α : Type u_1} {β : Type u_2} [AddCommMonoid α] [TopologicalSpace α] {f : β → α}
+  {L : SummationFilter β} [L.LeAtTop] {s : Finset β} (hf : ∀ b ∉ s, f b = 0) : ∑'[L] (b : β), f b = ∑ b ∈ s, f b

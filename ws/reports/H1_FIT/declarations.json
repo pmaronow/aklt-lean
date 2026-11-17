@@ -1,0 +1,2552 @@
+[
+  {
+    "name": "AKLT.Cert.H1Fit.Action000.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action000.lean",
+    "line": 73,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action000.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action000.lean",
+    "line": 76,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action000.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action000.lean",
+    "line": 79,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action000.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action000.lean",
+    "line": 82,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action001.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action001.lean",
+    "line": 73,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action001.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action001.lean",
+    "line": 76,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action001.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action001.lean",
+    "line": 79,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action001.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action001.lean",
+    "line": 82,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action002.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action002.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action003.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action003.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action004.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action004.lean",
+    "line": 73,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action004.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action004.lean",
+    "line": 76,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action004.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action004.lean",
+    "line": 79,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action004.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action004.lean",
+    "line": 82,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action005.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action005.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action006.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action006.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action007.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action007.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action008.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action008.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action009.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action009.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action010.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action010.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action011.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action011.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action012.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action012.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 201,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 204,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 207,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 210,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 213,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 216,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 219,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 222,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula20",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 225,
+    "source_statement": "theorem formula20 (sh : Nat) (b : FourS) :\n    (action 2 0 sh b).toFour = actionReference terms 2 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula21",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 228,
+    "source_statement": "theorem formula21 (sh : Nat) (b : FourS) :\n    (action 2 1 sh b).toFour = actionReference terms 2 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula22",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 231,
+    "source_statement": "theorem formula22 (sh : Nat) (b : FourS) :\n    (action 2 2 sh b).toFour = actionReference terms 2 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action013.formula23",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action013.lean",
+    "line": 234,
+    "source_statement": "theorem formula23 (sh : Nat) (b : FourS) :\n    (action 2 3 sh b).toFour = actionReference terms 2 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 201,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 204,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 207,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 210,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 213,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 216,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 219,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 222,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula20",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 225,
+    "source_statement": "theorem formula20 (sh : Nat) (b : FourS) :\n    (action 2 0 sh b).toFour = actionReference terms 2 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula21",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 228,
+    "source_statement": "theorem formula21 (sh : Nat) (b : FourS) :\n    (action 2 1 sh b).toFour = actionReference terms 2 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula22",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 231,
+    "source_statement": "theorem formula22 (sh : Nat) (b : FourS) :\n    (action 2 2 sh b).toFour = actionReference terms 2 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action014.formula23",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action014.lean",
+    "line": 234,
+    "source_statement": "theorem formula23 (sh : Nat) (b : FourS) :\n    (action 2 3 sh b).toFour = actionReference terms 2 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 137,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 140,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 143,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 146,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 149,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 152,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 155,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action015.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action015.lean",
+    "line": 158,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 201,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 204,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 207,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 210,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 213,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 216,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 219,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 222,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula20",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 225,
+    "source_statement": "theorem formula20 (sh : Nat) (b : FourS) :\n    (action 2 0 sh b).toFour = actionReference terms 2 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula21",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 228,
+    "source_statement": "theorem formula21 (sh : Nat) (b : FourS) :\n    (action 2 1 sh b).toFour = actionReference terms 2 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula22",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 231,
+    "source_statement": "theorem formula22 (sh : Nat) (b : FourS) :\n    (action 2 2 sh b).toFour = actionReference terms 2 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action016.formula23",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action016.lean",
+    "line": 234,
+    "source_statement": "theorem formula23 (sh : Nat) (b : FourS) :\n    (action 2 3 sh b).toFour = actionReference terms 2 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 201,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 204,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 207,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 210,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 213,
+    "source_statement": "theorem formula10 (sh : Nat) (b : FourS) :\n    (action 1 0 sh b).toFour = actionReference terms 1 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 216,
+    "source_statement": "theorem formula11 (sh : Nat) (b : FourS) :\n    (action 1 1 sh b).toFour = actionReference terms 1 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 219,
+    "source_statement": "theorem formula12 (sh : Nat) (b : FourS) :\n    (action 1 2 sh b).toFour = actionReference terms 1 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 222,
+    "source_statement": "theorem formula13 (sh : Nat) (b : FourS) :\n    (action 1 3 sh b).toFour = actionReference terms 1 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula20",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 225,
+    "source_statement": "theorem formula20 (sh : Nat) (b : FourS) :\n    (action 2 0 sh b).toFour = actionReference terms 2 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula21",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 228,
+    "source_statement": "theorem formula21 (sh : Nat) (b : FourS) :\n    (action 2 1 sh b).toFour = actionReference terms 2 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula22",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 231,
+    "source_statement": "theorem formula22 (sh : Nat) (b : FourS) :\n    (action 2 2 sh b).toFour = actionReference terms 2 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action017.formula23",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action017.lean",
+    "line": 234,
+    "source_statement": "theorem formula23 (sh : Nat) (b : FourS) :\n    (action 2 3 sh b).toFour = actionReference terms 2 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action018.formula00",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action018.lean",
+    "line": 73,
+    "source_statement": "theorem formula00 (sh : Nat) (b : FourS) :\n    (action 0 0 sh b).toFour = actionReference terms 0 0 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action018.formula01",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action018.lean",
+    "line": 76,
+    "source_statement": "theorem formula01 (sh : Nat) (b : FourS) :\n    (action 0 1 sh b).toFour = actionReference terms 0 1 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action018.formula02",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action018.lean",
+    "line": 79,
+    "source_statement": "theorem formula02 (sh : Nat) (b : FourS) :\n    (action 0 2 sh b).toFour = actionReference terms 0 2 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Action018.formula03",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Action018.lean",
+    "line": 82,
+    "source_statement": "theorem formula03 (sh : Nat) (b : FourS) :\n    (action 0 3 sh b).toFour = actionReference terms 0 3 sh b"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049Batch.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049BatchCheck.lean",
+    "line": 7,
+    "source_statement": "theorem checked : gramBatchCheck 33 64 32 25 64 7897 Gram0049.stack 200 1 1 419430400 1028800 inputs = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.header0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 7,
+    "source_statement": "theorem header0 : packedHeader 33 64 32 25 64 7897 stack 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.matrixRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow0 : packedMatrixRowHeader 64 25 m0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorLink0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink0 : packedFactorLink 33 64 32 25 0 stack directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorSmall0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall0 : smallFactorRowCheck 33 32 0 7897 directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow0 : packedFactorRowCheckAt 33 64 32 25 0 7897 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorBounds0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds0 : FactorRowBounds 33 64 32 25 0 7897 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.uniformRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row000.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow0 : packedUniformRowCheckAt 33 64 32 25 0 64 stack m0 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.header12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 7,
+    "source_statement": "theorem header12 : packedHeader 33 64 32 25 64 7897 stack 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.matrixRow12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow12 : packedMatrixRowHeader 64 25 m12 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorLink12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink12 : packedFactorLink 33 64 32 25 12 stack directL12 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorSmall12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall12 : smallFactorRowCheck 33 32 12 7897 directL12 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorRow12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow12 : packedFactorRowCheckAt 33 64 32 25 12 7897 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorBounds12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds12 : FactorRowBounds 33 64 32 25 12 7897 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.uniformRow12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row012.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow12 : packedUniformRowCheckAt 33 64 32 25 12 64 stack m12 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.header24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 7,
+    "source_statement": "theorem header24 : packedHeader 33 64 32 25 64 7897 stack 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.matrixRow24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow24 : packedMatrixRowHeader 64 25 m24 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorLink24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink24 : packedFactorLink 33 64 32 25 24 stack directL24 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorSmall24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall24 : smallFactorRowCheck 33 32 24 7897 directL24 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorRow24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow24 : packedFactorRowCheckAt 33 64 32 25 24 7897 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.factorBounds24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds24 : FactorRowBounds 33 64 32 25 24 7897 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0049.uniformRow24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0049Row024.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow24 : packedUniformRowCheckAt 33 64 32 25 24 64 stack m24 200 1 1 419430400 1028800 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.header0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 7,
+    "source_statement": "theorem header0 : packedHeader 40 224 128 91 64 35191 stack 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.matrixRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow0 : packedMatrixRowHeader 64 91 m0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorLink0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink0 : packedFactorLink 40 224 128 91 0 stack directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorSmall0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall0 : smallFactorRowCheck 40 128 0 35191 directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow0 : packedFactorRowCheckAt 40 224 128 91 0 35191 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorBounds0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds0 : FactorRowBounds 40 224 128 91 0 35191 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.uniformRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row000.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow0 : packedUniformRowCheckAt 40 224 128 91 0 64 stack m0 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.header45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 7,
+    "source_statement": "theorem header45 : packedHeader 40 224 128 91 64 35191 stack 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.matrixRow45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow45 : packedMatrixRowHeader 64 91 m45 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorLink45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink45 : packedFactorLink 40 224 128 91 45 stack directL45 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorSmall45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall45 : smallFactorRowCheck 40 128 45 35191 directL45 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorRow45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow45 : packedFactorRowCheckAt 40 224 128 91 45 35191 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorBounds45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds45 : FactorRowBounds 40 224 128 91 45 35191 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.uniformRow45",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row045.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow45 : packedUniformRowCheckAt 40 224 128 91 45 64 stack m45 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.header90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 7,
+    "source_statement": "theorem header90 : packedHeader 40 224 128 91 64 35191 stack 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.matrixRow90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow90 : packedMatrixRowHeader 64 91 m90 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorLink90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink90 : packedFactorLink 40 224 128 91 90 stack directL90 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorSmall90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall90 : smallFactorRowCheck 40 128 90 35191 directL90 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorRow90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow90 : packedFactorRowCheckAt 40 224 128 91 90 35191 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.factorBounds90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds90 : FactorRowBounds 40 224 128 91 90 35191 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0113.uniformRow90",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0113Row090.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow90 : packedUniformRowCheckAt 40 224 128 91 90 64 stack m90 1800 1 1 60397977600 57450600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.header0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 7,
+    "source_statement": "theorem header0 : packedHeader 43 256 128 66 64 129252 stack 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.matrixRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow0 : packedMatrixRowHeader 64 66 m0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorLink0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink0 : packedFactorLink 43 256 128 66 0 stack directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorSmall0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall0 : smallFactorRowCheck 43 128 0 129252 directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow0 : packedFactorRowCheckAt 43 256 128 66 0 129252 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorBounds0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds0 : FactorRowBounds 43 256 128 66 0 129252 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.uniformRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row000.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow0 : packedUniformRowCheckAt 43 256 128 66 0 64 stack m0 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.header33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 7,
+    "source_statement": "theorem header33 : packedHeader 43 256 128 66 64 129252 stack 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.matrixRow33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow33 : packedMatrixRowHeader 64 66 m33 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorLink33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink33 : packedFactorLink 43 256 128 66 33 stack directL33 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorSmall33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall33 : smallFactorRowCheck 43 128 33 129252 directL33 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorRow33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow33 : packedFactorRowCheckAt 43 256 128 66 33 129252 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorBounds33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds33 : FactorRowBounds 43 256 128 66 33 129252 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.uniformRow33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row033.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow33 : packedUniformRowCheckAt 43 256 128 66 33 64 stack m33 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.header65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 7,
+    "source_statement": "theorem header65 : packedHeader 43 256 128 66 64 129252 stack 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.matrixRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow65 : packedMatrixRowHeader 64 66 m65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorLink65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink65 : packedFactorLink 43 256 128 66 65 stack directL65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorSmall65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall65 : smallFactorRowCheck 43 128 65 129252 directL65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow65 : packedFactorRowCheckAt 43 256 128 66 65 129252 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.factorBounds65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds65 : FactorRowBounds 43 256 128 66 65 129252 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0114.uniformRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0114Row065.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow65 : packedUniformRowCheckAt 43 256 128 66 65 64 stack m65 400 1 1 107374182400 44265600 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711Batch.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711BatchCheck.lean",
+    "line": 7,
+    "source_statement": "theorem checked : gramBatchCheck 56 440 256 179 64 6139056 Gram0711.stack 80 1 1 21990232555520 489868240 inputs = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.header0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 7,
+    "source_statement": "theorem header0 : packedHeader 56 440 256 179 64 6139056 stack 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.matrixRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow0 : packedMatrixRowHeader 64 179 m0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorLink0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink0 : packedFactorLink 56 440 256 179 0 stack directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorSmall0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall0 : smallFactorRowCheck 56 256 0 6139056 directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow0 : packedFactorRowCheckAt 56 440 256 179 0 6139056 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorBounds0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds0 : FactorRowBounds 56 440 256 179 0 6139056 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.uniformRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row000.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow0 : packedUniformRowCheckAt 56 440 256 179 0 64 stack m0 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.header89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 7,
+    "source_statement": "theorem header89 : packedHeader 56 440 256 179 64 6139056 stack 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.matrixRow89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow89 : packedMatrixRowHeader 64 179 m89 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorLink89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink89 : packedFactorLink 56 440 256 179 89 stack directL89 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorSmall89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall89 : smallFactorRowCheck 56 256 89 6139056 directL89 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorRow89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow89 : packedFactorRowCheckAt 56 440 256 179 89 6139056 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorBounds89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds89 : FactorRowBounds 56 440 256 179 89 6139056 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.uniformRow89",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row089.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow89 : packedUniformRowCheckAt 56 440 256 179 89 64 stack m89 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.header178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 7,
+    "source_statement": "theorem header178 : packedHeader 56 440 256 179 64 6139056 stack 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.matrixRow178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow178 : packedMatrixRowHeader 64 179 m178 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorLink178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink178 : packedFactorLink 56 440 256 179 178 stack directL178 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorSmall178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall178 : smallFactorRowCheck 56 256 178 6139056 directL178 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorRow178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow178 : packedFactorRowCheckAt 56 440 256 179 178 6139056 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.factorBounds178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds178 : FactorRowBounds 56 440 256 179 178 6139056 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram0711.uniformRow178",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram0711Row178.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow178 : packedUniformRowCheckAt 56 440 256 179 178 64 stack m178 80 1 1 21990232555520 489868240 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.header0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 7,
+    "source_statement": "theorem header0 : packedHeader 51 448 256 131 64 1074080 stack 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.matrixRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow0 : packedMatrixRowHeader 64 131 m0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorLink0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink0 : packedFactorLink 51 448 256 131 0 stack directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorSmall0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall0 : smallFactorRowCheck 51 256 0 1074080 directL0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow0 : packedFactorRowCheckAt 51 448 256 131 0 1074080 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorBounds0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds0 : FactorRowBounds 51 448 256 131 0 1074080 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.uniformRow0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row000.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow0 : packedUniformRowCheckAt 51 448 256 131 0 64 stack m0 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.header65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 7,
+    "source_statement": "theorem header65 : packedHeader 51 448 256 131 64 1074080 stack 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.matrixRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow65 : packedMatrixRowHeader 64 131 m65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorLink65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink65 : packedFactorLink 51 448 256 131 65 stack directL65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorSmall65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall65 : smallFactorRowCheck 51 256 65 1074080 directL65 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow65 : packedFactorRowCheckAt 51 448 256 131 65 1074080 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorBounds65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds65 : FactorRowBounds 51 448 256 131 65 1074080 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.uniformRow65",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row065.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow65 : packedUniformRowCheckAt 51 448 256 131 65 64 stack m65 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.header130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 7,
+    "source_statement": "theorem header130 : packedHeader 51 448 256 131 64 1074080 stack 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.matrixRow130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 8,
+    "source_statement": "theorem matrixRow130 : packedMatrixRowHeader 64 131 m130 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorLink130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 9,
+    "source_statement": "theorem factorLink130 : packedFactorLink 51 448 256 131 130 stack directL130 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorSmall130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 10,
+    "source_statement": "theorem factorSmall130 : smallFactorRowCheck 51 256 130 1074080 directL130 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorRow130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 11,
+    "source_statement": "theorem factorRow130 : packedFactorRowCheckAt 51 448 256 131 130 1074080 stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.factorBounds130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 12,
+    "source_statement": "theorem factorBounds130 : FactorRowBounds 51 448 256 131 130 1074080 stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Gram5420.uniformRow130",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Gram5420Row130.lean",
+    "line": 13,
+    "source_statement": "theorem uniformRow130 : packedUniformRowCheckAt 51 448 256 131 130 64 stack m130 1600 1 1 6871947673600 1451168000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.gramBatchCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramBatch.lean",
+    "line": 25,
+    "source_statement": "theorem gramBatchCheck_sound (width lanes p n mwidth cap : Nat)\n    (stack g d S delta radius : Int) (xs : List GramRowInput)\n    (h : gramBatchCheck width lanes p n mwidth cap stack g d S delta radius xs = true) :\n    \u2200 x \u2208 xs,\n      packedMatrixRowHeader mwidth n x.matrixWord = true \u2227\n      packedFactorLink width lanes p n x.row stack x.factorWord = true \u2227\n      smallFactorRowCheck width p x.row cap x.factorWord = true \u2227\n      packedUniformRowCheckAt width lanes p n x.row mwidth stack x.matrixWord g d S delta radius = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.posDef_of_strictDiagDominant",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 22,
+    "source_statement": "theorem posDef_of_strictDiagDominant {A : Matrix n n K} (hA : A.IsHermitian)\n    (hdd : \u2200 i, \u2211 j \u2208 Finset.univ.erase i, \u2016A i j\u2016 < RCLike.re (A i i)) :\n    A.PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.real_posDef_of_strictDiagDominant",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 39,
+    "source_statement": "theorem real_posDef_of_strictDiagDominant {A : Matrix n n \u211d} (hA : A.IsSymm)\n    (hdd : \u2200 i, \u2211 j \u2208 Finset.univ.erase i, |A i j| < A i i) : A.PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.posDef_of_gram_residual",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 45,
+    "source_statement": "theorem posDef_of_gram_residual {M : Matrix n n K} {L : Matrix n k K}\n    {c g : \u211d} (hc : 0 < c) (hg : 0 \u2264 g)\n    (hE : (c \u2022 M - g \u2022 (L * L\u1d34)).PosDef) : M.PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.gram_residual_posDef",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 54,
+    "source_statement": "theorem gram_residual_posDef {M : Matrix n n K} {L : Matrix n k K}\n    {g d S : \u211d} (hg : 0 \u2264 g) (hd : 0 < d) (hS : 0 < S)\n    (hE : ((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d34)).IsHermitian)\n    (hdd : \u2200 i, \u2211 j \u2208 Finset.univ.erase i,\n      \u2016((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d34)) i j\u2016 <\n      RCLike.re (((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d34)) i i)) :\n    ((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d34)).PosDef \u2227 M.PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.int_posDef_of_strictDiagDominant",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 69,
+    "source_statement": "theorem int_posDef_of_strictDiagDominant {A : Matrix n n \u2124} (hA : A.IsSymm)\n    (hdd : \u2200 i, \u2211 j \u2208 Finset.univ.erase i, |A i j| < A i i) :\n    (castMatrix A : Matrix n n K).PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.GramTheory.int_gram_residual_posDef",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/GramTheory.lean",
+    "line": 84,
+    "source_statement": "theorem int_gram_residual_posDef {M : Matrix n n \u2124} {L : Matrix n k \u2124}\n    {g d S : \u2124} (hM : M.IsSymm) (hg : 0 < g) (hd : 0 < d) (hS : 0 < S)\n    (hdd : \u2200 i, \u2211 j \u2208 Finset.univ.erase i,\n      |((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d40)) i j| <\n      ((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d40)) i i) :\n    (castMatrix ((d * S ^ 2) \u2022 M - g \u2022 (L * L\u1d40)) : Matrix n n K).PosDef \u2227\n      (castMatrix M : Matrix n n K).PosDef"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 9,
+    "source_statement": "theorem checked0 : tableCheck spec0 table0 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked1",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 13,
+    "source_statement": "theorem checked1 : tableCheck spec1 table1 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked2",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 17,
+    "source_statement": "theorem checked2 : tableCheck spec2 table2 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked3",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 21,
+    "source_statement": "theorem checked3 : tableCheck spec3 table3 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked4",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 25,
+    "source_statement": "theorem checked4 : tableCheck spec4 table4 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked5",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 29,
+    "source_statement": "theorem checked5 : tableCheck spec5 table5 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked6",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 33,
+    "source_statement": "theorem checked6 : tableCheck spec6 table6 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables00.checked7",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables00.lean",
+    "line": 37,
+    "source_statement": "theorem checked7 : tableCheck spec7 table7 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked8",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 9,
+    "source_statement": "theorem checked8 : tableCheck spec8 table8 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked9",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 13,
+    "source_statement": "theorem checked9 : tableCheck spec9 table9 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked10",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 17,
+    "source_statement": "theorem checked10 : tableCheck spec10 table10 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked11",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 21,
+    "source_statement": "theorem checked11 : tableCheck spec11 table11 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked12",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 25,
+    "source_statement": "theorem checked12 : tableCheck spec12 table12 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked13",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 29,
+    "source_statement": "theorem checked13 : tableCheck spec13 table13 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked14",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 33,
+    "source_statement": "theorem checked14 : tableCheck spec14 table14 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables01.checked15",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables01.lean",
+    "line": 37,
+    "source_statement": "theorem checked15 : tableCheck spec15 table15 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked16",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 9,
+    "source_statement": "theorem checked16 : tableCheck spec16 table16 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked17",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 13,
+    "source_statement": "theorem checked17 : tableCheck spec17 table17 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked18",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 17,
+    "source_statement": "theorem checked18 : tableCheck spec18 table18 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked19",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 21,
+    "source_statement": "theorem checked19 : tableCheck spec19 table19 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked20",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 25,
+    "source_statement": "theorem checked20 : tableCheck spec20 table20 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked21",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 29,
+    "source_statement": "theorem checked21 : tableCheck spec21 table21 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked22",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 33,
+    "source_statement": "theorem checked22 : tableCheck spec22 table22 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables02.checked23",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables02.lean",
+    "line": 37,
+    "source_statement": "theorem checked23 : tableCheck spec23 table23 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked24",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 9,
+    "source_statement": "theorem checked24 : tableCheck spec24 table24 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked25",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 13,
+    "source_statement": "theorem checked25 : tableCheck spec25 table25 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked26",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 17,
+    "source_statement": "theorem checked26 : tableCheck spec26 table26 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked27",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 21,
+    "source_statement": "theorem checked27 : tableCheck spec27 table27 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked28",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 25,
+    "source_statement": "theorem checked28 : tableCheck spec28 table28 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked29",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 29,
+    "source_statement": "theorem checked29 : tableCheck spec29 table29 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked30",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 33,
+    "source_statement": "theorem checked30 : tableCheck spec30 table30 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables03.checked31",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables03.lean",
+    "line": 37,
+    "source_statement": "theorem checked31 : tableCheck spec31 table31 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked32",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 9,
+    "source_statement": "theorem checked32 : tableCheck spec32 table32 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked33",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 13,
+    "source_statement": "theorem checked33 : tableCheck spec33 table33 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked34",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 17,
+    "source_statement": "theorem checked34 : tableCheck spec34 table34 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked35",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 21,
+    "source_statement": "theorem checked35 : tableCheck spec35 table35 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked36",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 25,
+    "source_statement": "theorem checked36 : tableCheck spec36 table36 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked37",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 29,
+    "source_statement": "theorem checked37 : tableCheck spec37 table37 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked38",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 33,
+    "source_statement": "theorem checked38 : tableCheck spec38 table38 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables04.checked39",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables04.lean",
+    "line": 37,
+    "source_statement": "theorem checked39 : tableCheck spec39 table39 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.LocalTables05.checked40",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/LocalTables05.lean",
+    "line": 9,
+    "source_statement": "theorem checked40 : tableCheck spec40 table40 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0010B00.Words.rectChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0010B00RectCheck.lean",
+    "line": 7,
+    "source_statement": "theorem rectChecked : tensorRectCheck 32 32 4 8 joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0010B00.Words.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0010B00SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 32 4 8 0 4 products P0010B00.Words.rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0010B00.Words.scheduleChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0010B00SparseData.lean",
+    "line": 6,
+    "source_statement": "theorem scheduleChecked : compileProducts joinTerms = products"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0100B00.Words.rectChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0100B00RectCheck.lean",
+    "line": 7,
+    "source_statement": "theorem rectChecked : tensorRectCheck 32 64 16 8 joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0100B00.Words.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0100B00SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 16 8 0 16 products P0100B00.Words.rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0100B00.Words.scheduleChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0100B00SparseData.lean",
+    "line": 6,
+    "source_statement": "theorem scheduleChecked : compileProducts joinTerms = products"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab000R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab000R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 0 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab000R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab000R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 0 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab000R4.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab000R4Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 0 4 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab002R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab002R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 2 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab002R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab002R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 2 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab004R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab004R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 4 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab004R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab004R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 4 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab006R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab006R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 6 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab006R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab006R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 6 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab008R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab008R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 8 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab008R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab008R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 8 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab010R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab010R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 10 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab010R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab010R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 10 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab012R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab012R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 12 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab012R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab012R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 12 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab014R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab014R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 14 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab014R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab014R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 14 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab016R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab016R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 16 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab016R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab016R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 16 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab016R4.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab016R4Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 16 4 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab018R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab018R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 18 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab018R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab018R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 18 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab020R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab020R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 20 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab020R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab020R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 20 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab022R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab022R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 22 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab022R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab022R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 22 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab024R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab024R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 24 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab024R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab024R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 24 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab026R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab026R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 26 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab026R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab026R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 26 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab028R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab028R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 28 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab028R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab028R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 28 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab030R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab030R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 30 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab030R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab030R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 30 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab032R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab032R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 32 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab032R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab032R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 32 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab034R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab034R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 34 2 P0711B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00Slab034R2.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00Slab034R2SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 34 2 P0711B00.Words.products rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.sparseChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00SparseCheck.lean",
+    "line": 8,
+    "source_statement": "theorem sparseChecked : sparseSlabCheck 32 64 36 24 0 2 products P0711B00Slab000R2.rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.scheduleChecked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00SparseData.lean",
+    "line": 6,
+    "source_statement": "theorem scheduleChecked : compileProducts joinTerms = products"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half0Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 12,
+    "source_statement": "theorem half0Verified : fullProduct 36 32 sh0 [0, 0, 0, 0] = half0"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half2Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 14,
+    "source_statement": "theorem half2Verified : fullProduct 36 32 sh0 [1, 0, 1, 0] = half2"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half3Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 16,
+    "source_statement": "theorem half3Verified : fullProduct 36 32 sh0 [2, 0, 2, 0] = half3"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half4Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 18,
+    "source_statement": "theorem half4Verified : fullProduct 36 32 sh0 [3, 0, 3, 0] = half4"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half5Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 20,
+    "source_statement": "theorem half5Verified : fullProduct 36 32 sh0 [1, 0, 0, 0] = half5"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half7Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 22,
+    "source_statement": "theorem half7Verified : fullProduct 36 32 sh0 [2, 0, 0, 0] = half7"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half9Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 24,
+    "source_statement": "theorem half9Verified : fullProduct 36 32 sh0 [3, 0, 0, 0] = half9"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half11Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 26,
+    "source_statement": "theorem half11Verified : fullProduct 36 32 sh0 [0, 0, 1, 0] = half11"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half12Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 28,
+    "source_statement": "theorem half12Verified : fullProduct 36 32 sh0 [0, 0, 2, 0] = half12"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half13Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf0Verified.lean",
+    "line": 30,
+    "source_statement": "theorem half13Verified : fullProduct 36 32 sh0 [0, 0, 3, 0] = half13"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half1Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf1Verified.lean",
+    "line": 12,
+    "source_statement": "theorem half1Verified : fullProduct 24 32 sh1 [0, 0, 0, 0] = half1"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half6Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf1Verified.lean",
+    "line": 14,
+    "source_statement": "theorem half6Verified : fullProduct 24 32 sh1 [1, 0, 0, 0] = half6"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half8Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf1Verified.lean",
+    "line": 16,
+    "source_statement": "theorem half8Verified : fullProduct 24 32 sh1 [2, 0, 0, 0] = half8"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P0711B00.Words.half10Verified",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P0711B00WordHalf1Verified.lean",
+    "line": 18,
+    "source_statement": "theorem half10Verified : fullProduct 24 32 sh1 [3, 0, 0, 0] = half10"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P5420B00Slab000R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P5420B00Slab000R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 18 0 2 P5420B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.P7237B00Slab016R2.checked",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/P7237B00Slab016R2Check.lean",
+    "line": 7,
+    "source_statement": "theorem checked : tensorSlabCheck 32 64 36 24 16 2 P7237B00.Words.joinTerms rectTree = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.packedFactorRow_of_link",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/PackedGram.lean",
+    "line": 130,
+    "source_statement": "theorem packedFactorRow_of_link (width lanes p n row cap : Nat) (stack direct : Int)\n    (hl : packedFactorLink width lanes p n row stack direct = true)\n    (hs : smallFactorRowCheck width p row cap direct = true) :\n    packedFactorRowCheckAt width lanes p n row cap stack = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.factorBounds_of_link",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/PackedGram.lean",
+    "line": 148,
+    "source_statement": "theorem factorBounds_of_link (width lanes p n row cap : Nat) (stack direct : Int)\n    (hl : packedFactorLink width lanes p n row stack direct = true)\n    (hs : smallFactorRowCheck width p row cap direct = true) :\n    FactorRowBounds width lanes p n row cap stack"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Pilot711.halves",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Pilot711.lean",
+    "line": 60,
+    "source_statement": "theorem halves : HalfCertificates"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Pilot711.slabs",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Pilot711.lean",
+    "line": 61,
+    "source_statement": "theorem slabs : SlabCertificates"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Pilot711.finiteInputs",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Pilot711.lean",
+    "line": 62,
+    "source_statement": "theorem finiteInputs : HalfCertificates \u2227 SlabCertificates"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Pilot711.sparseSlabs",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Pilot711Sparse.lean",
+    "line": 43,
+    "source_statement": "theorem sparseSlabs : SparseSlabCertificates"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Pilot711.sparseFiniteInputs",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Pilot711Sparse.lean",
+    "line": 44,
+    "source_statement": "theorem sparseFiniteInputs : HalfCertificates \u2227 compileProducts P0711B00.Words.joinTerms = P0711B00.Words.products \u2227 SparseSlabCertificates"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.bernstein_nonneg",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Scalar.lean",
+    "line": 23,
+    "source_statement": "theorem bernstein_nonneg (a b c t : \u211d) (ht : -1 \u2264 t) (ht' : t \u2264 1)\n    (hl : 0 \u2264 c+a-b) (hm : 0 \u2264 c-a) (hr : 0 \u2264 c+a+b) :\n    0 \u2264 a*t^2+b*t+c"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.scalarCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Scalar.lean",
+    "line": 34,
+    "source_statement": "theorem scalarCheck_sound (on od fn fd gn gd p q : Nat)\n    (h : scalarCheck on od fn fd gn gd p q = true) :\n    let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 5,
+    "source_statement": "theorem straight0 : scalarCheck 3 25 147 395 15029 36595 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight0Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 6,
+    "source_statement": "theorem straight0Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight1",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 9,
+    "source_statement": "theorem straight1 : scalarCheck 3 25 112 275 112 275 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight1Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 10,
+    "source_statement": "theorem straight1Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight2",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 13,
+    "source_statement": "theorem straight2 : scalarCheck 1 5 7 24 740 2193 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight2Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 14,
+    "source_statement": "theorem straight2Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight3",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 17,
+    "source_statement": "theorem straight3 : scalarCheck 1 5 1 3 1 3 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight3Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 18,
+    "source_statement": "theorem straight3Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight4",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 21,
+    "source_statement": "theorem straight4 : scalarCheck 7 24 3 25 740 2193 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight4Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 22,
+    "source_statement": "theorem straight4Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight5",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 25,
+    "source_statement": "theorem straight5 : scalarCheck 1 3 0 1 740 2193 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight5Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 26,
+    "source_statement": "theorem straight5Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight6",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 29,
+    "source_statement": "theorem straight6 : scalarCheck 147 395 3 25 3 25 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight6Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 30,
+    "source_statement": "theorem straight6Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight7",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 33,
+    "source_statement": "theorem straight7 : scalarCheck 112 275 0 1 3 25 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight7Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 34,
+    "source_statement": "theorem straight7Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight8",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 37,
+    "source_statement": "theorem straight8 : scalarCheck 169 385 0 1 0 1 961 1000 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.straight8Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 38,
+    "source_statement": "theorem straight8Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn0",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 41,
+    "source_statement": "theorem turn0 : scalarCheck 3 25 7 24 740 2193 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn0Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 42,
+    "source_statement": "theorem turn0Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn1",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 45,
+    "source_statement": "theorem turn1 : scalarCheck 7 24 1 5 740 2193 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn1Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 46,
+    "source_statement": "theorem turn1Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn2",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 49,
+    "source_statement": "theorem turn2 : scalarCheck 1 3 1 5 1 3 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn2Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 50,
+    "source_statement": "theorem turn2Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn3",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 53,
+    "source_statement": "theorem turn3 : scalarCheck 740 2193 1 5 7 24 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn3Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 54,
+    "source_statement": "theorem turn3Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn4",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 57,
+    "source_statement": "theorem turn4 : scalarCheck 147 395 3 25 15029 36595 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn4Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 58,
+    "source_statement": "theorem turn4Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn5",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 61,
+    "source_statement": "theorem turn5 : scalarCheck 112 275 0 1 11329 25630 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn5Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 62,
+    "source_statement": "theorem turn5Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn6",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 65,
+    "source_statement": "theorem turn6 : scalarCheck 112 275 3 25 112 275 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn6Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 66,
+    "source_statement": "theorem turn6Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn7",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 69,
+    "source_statement": "theorem turn7 : scalarCheck 15029 36595 3 25 147 395 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn7Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 70,
+    "source_statement": "theorem turn7Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn8",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 73,
+    "source_statement": "theorem turn8 : scalarCheck 169 385 0 1 169 385 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn8Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 74,
+    "source_statement": "theorem turn8Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn9",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 77,
+    "source_statement": "theorem turn9 : scalarCheck 11329 25630 0 1 112 275 187 200 = true"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.ScalarFamilies.turn9Quadratic",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/ScalarFamilies.lean",
+    "line": 78,
+    "source_statement": "theorem turn9Quadratic : let (_,_,c,b,a)"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.natRowsMatch_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 16,
+    "source_statement": "theorem natRowsMatch_sound (a width D : Nat) (columns rows : List Nat) (M : List (List Int))\n    (h : natRowsMatch a width D columns rows M = true) :\n    M = extractedRows a width D columns rows"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.sparseFullCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 32,
+    "source_statement": "theorem sparseFullCheck_sound (ss : List Site) (D width out p q : Nat)\n    (indices : List Nat) (M : List (List Int))\n    (h : sparseFullCheck ss D width out p q indices M = true) :\n    let a"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.rectCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 56,
+    "source_statement": "theorem rectCheck_sound (width B word : Nat) (rows cols : List Nat) (expected : Nat)\n    (h : rectCheck width B word rows cols expected = true) :\n    RectAccepted width B word rows cols expected"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.rectTreeCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 61,
+    "source_statement": "theorem rectTreeCheck_sound (width B word : Nat) (tree : RectTree)\n    (h : rectTreeCheck width B word tree = true) : RectTreeAccepted width B word tree"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.tensorSlabCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 70,
+    "source_statement": "theorem tensorSlabCheck_sound (oldWidth newWidth A B start rows : Nat)\n    (terms : List JoinTerm) (tree : RectTree)\n    (h : tensorSlabCheck oldWidth newWidth A B start rows terms tree = true) :\n    let a"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.sparseSlabCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 83,
+    "source_statement": "theorem sparseSlabCheck_sound (oldWidth newWidth A B start rows : Nat)\n    (terms : List ProductTerm) (tree : RectTree)\n    (h : sparseSlabCheck oldWidth newWidth A B start rows terms tree = true) :\n    let a"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.Local.tableCheck_sound",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Soundness.lean",
+    "line": 95,
+    "source_statement": "theorem tableCheck_sound (s : SiteSpec) (t : TensorTable) (h : tableCheck s t = true) :\n    \u2200 vi \u2208 (localTable s).zipIdx, t.get vi.2 = vi.1"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.uniform_error_strictDD",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Uniform.lean",
+    "line": 11,
+    "source_statement": "theorem uniform_error_strictDD {n : Nat} (E : Matrix (Fin n) (Fin n) \u2124)\n    (delta radius : \u2124) (hr : 0 \u2264 radius) (hd : (n : \u2124)*radius < delta)\n    (he : \u2200 i j, |E i j - (if i = j then delta else 0)| \u2264 radius) :\n    \u2200 i, 0 < E i i \u2227 \u2211 j \u2208 Finset.univ.erase i, |E i j| < E i i"
+  },
+  {
+    "name": "AKLT.Cert.H1Fit.uniform_gram_posDef",
+    "file": "/home/ubuntu/aklt/wt/H1_FIT/AKLT/Cert/H1Fit/Uniform.lean",
+    "line": 38,
+    "source_statement": "theorem uniform_gram_posDef {n p : Nat} {K : Type*} [RCLike K]\n    (M : Matrix (Fin n) (Fin n) \u2124) (L : Matrix (Fin n) (Fin p) \u2124)\n    (g d S delta radius : \u2124) (hM : M.IsSymm) (hg : 0 < g) (hd : 0 < d) (hS : 0 < S)\n    (hr : 0 \u2264 radius) (hdelta : (n : \u2124)*radius < delta)\n    (he : \u2200 i j,\n      |((d*S^2) \u2022 M - g \u2022 (L*L\u1d40)) i j - (if i = j then delta else 0)| \u2264 radius) :\n    (AKLT.Cert.H1Fit.GramTheory.castMatrix M : Matrix (Fin n) (Fin n) K).PosDef"
+  }
+]

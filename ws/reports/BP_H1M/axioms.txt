@@ -1,0 +1,92 @@
+AKLT.Blueprint.H1.H1FiniteDataStatementV2 : Prop
+AKLT.Blueprint.H1.CertificateStatementV2 : Prop
+AKLT.Blueprint.H1.ThresholdSymmetryStatement : Prop
+AKLT.Blueprint.H1.CoveredSlotEnumerationStatement : Prop
+AKLT.Blueprint.H1.CornerMeanBoundsStatement : Prop
+AKLT.Blueprint.H1.NormalizedMeanFactorStatement : Prop
+AKLT.Blueprint.H1.PassageSiteMomentsStatement : Prop
+AKLT.Blueprint.H1.PassageFubiniStatement : Prop
+AKLT.Blueprint.H1.PassageNetworkPositiveStatement : Prop
+AKLT.Blueprint.H1.PassageNextLowerBoundStatement : Prop
+AKLT.Blueprint.H1.PassageSubtractionStatement : Prop
+AKLT.Blueprint.H1.OriginalDegreeStatement : Prop
+AKLT.Blueprint.H1.OriginalFactorStructureStatement : Prop
+AKLT.Blueprint.H1.OriginalRawEvaluationStatement : Prop
+AKLT.Blueprint.H1.MomentContractionStatement : Prop
+AKLT.Blueprint.H1.MomentCovarianceTransferStatement : Prop
+AKLT.Blueprint.H1.ContractionAffineStatement : Prop
+AKLT.Blueprint.H1.ContractionSupportStatement : Prop
+AKLT.Blueprint.H1.ActiveStatusesStatement : Prop
+AKLT.Blueprint.H1.BlochAlgebraStatement : Prop
+AKLT.Blueprint.H1.BlochPositivityStatement : Prop
+AKLT.Blueprint.H1.SinglePauliTraceStatement : Prop
+AKLT.Blueprint.H1.PauliExpansionStatement : Prop
+AKLT.Blueprint.H1.PauliProductTraceStatement : Prop
+AKLT.Blueprint.H1.InversionPolynomialStatement : Prop
+AKLT.Blueprint.H1.ProductDensityPositiveStatement : Prop
+AKLT.Blueprint.H1.TraceProductPositiveStatement : Prop
+AKLT.Blueprint.H1.InversionBallStatement : Prop
+AKLT.Blueprint.H1.ReducedDegreeStatement : Prop
+AKLT.Blueprint.H1.ReducedFactorStructureStatement : Prop
+AKLT.Blueprint.H1.PeripheralGeometryStatement : Prop
+AKLT.Blueprint.H1.PeripheralFubiniStatement : Prop
+AKLT.Blueprint.H1.PeripheralAssignmentStatement : Prop
+AKLT.Blueprint.H1.SimultaneousLeafReconstructionStatement : Prop
+AKLT.Blueprint.H1.BallChordStatement : Prop
+AKLT.Blueprint.H1.AffineEvaluationStatement : Prop
+AKLT.Blueprint.H1.ProductBallNonnegativeStatement : Prop
+AKLT.Blueprint.H1.DifferenceStructureStatement : Prop
+AKLT.Blueprint.H1.ReducedStructureStatement : Prop
+AKLT.Blueprint.H1.DifferenceEvaluationStatement : Prop
+AKLT.Blueprint.H1.SectorSpinStableStatement : Prop
+AKLT.Blueprint.H1.SectorWeightBasisStatement : Prop
+AKLT.Blueprint.H1.SpanWeightLatticeStatement : Prop
+AKLT.Blueprint.H1.SpinAdjointStatement : Prop
+AKLT.Blueprint.H1.SpinCommutatorStatement : Prop
+AKLT.Blueprint.H1.WeightLadderTransferStatement : Prop
+AKLT.Blueprint.H1.CommonWeightEigenvectorStatement : Prop
+AKLT.Blueprint.H1.LadderWalkStatement : Prop
+AKLT.Blueprint.H1.PositiveSpectrumStatement : Prop
+AKLT.Blueprint.H1.CentralWeightHalfStatement : Prop
+AKLT.Blueprint.H1.PauliHermitianStatement : Prop
+AKLT.Blueprint.H1.ReflectionParityStatement : Prop
+AKLT.Blueprint.H1.PauliRealityStatement : Prop
+AKLT.Blueprint.H1.InversionCovarianceStatement : Prop
+AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement : Prop
+AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement : Prop
+AKLT.Blueprint.H1.PauliRotationTransferStatement : Prop
+AKLT.Blueprint.H1.CayleyTensorCommutationStatement : Prop
+AKLT.Blueprint.H1.TensorLinearCoefficientStatement : Prop
+AKLT.Blueprint.H1.SpinGeneratorTransferStatement : Prop
+AKLT.Blueprint.H1.MomentPauliInterchangeStatement : Prop
+AKLT.Blueprint.H1.PairExpansionFromRealizationStatement : Prop
+AKLT.Blueprint.H1.RetainedPairExpansionStatement : Prop
+AKLT.Blueprint.H1.UnitPairSupportStatement : Prop
+AKLT.Blueprint.H1.EqualPairExchangeStatement : Prop
+AKLT.Blueprint.H1.PairExpansionTransferStatement : Prop
+AKLT.Blueprint.H1.PairTokensDistinctStatement : Prop
+'AKLT.Blueprint.H1.momentInputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.integratePassage_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.leaf_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.reducedStructure_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.simultaneousLeafReconstruction_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.reduce_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.inversion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.retainedPairExpansion_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.operatorStructure_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.sector_of_nodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.gramResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.thresholdSymmetry_of_integerCheck' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.h1Theorem_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.h1Theorem_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.h1_of_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.h1_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.h1_of_certificateV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.passageSubtraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.activeStatuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.singlePauliTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.inversionBall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.differenceEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.reducedStatuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.centralWeightHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1.pairTokensDistinct' depends on axioms: [propext, Classical.choice, Quot.sound]

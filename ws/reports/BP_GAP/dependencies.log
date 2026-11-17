@@ -1,0 +1,104 @@
+AKLT.Blueprint.Gap.BoxCoordinates (L N : AKLT.Challenge.Size) (M : ℕ) (a : AKLT.Challenge.Site L N)
+  (κ : AKLT.Challenge.Site L N → Fin 3) : Type
+AKLT.Blueprint.Gap.Carries {ι κ : Type} {S : ι → Type} {T : κ → Type} (e : AKLT.Blueprint.Gap.ProductChange S T)
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)) (q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config T)) : Prop
+AKLT.Blueprint.Gap.PlaneSpec : Type 1
+AKLT.Blueprint.Gap.ProductChange {ι κ : Type} (S : ι → Type) (T : κ → Type) : Type
+AKLT.Blueprint.Gap.RegularSpec (P : AKLT.Blueprint.Gap.PlaneSpec) : Prop
+AKLT.Blueprint.Gap.Reversible {Ω : Type} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (K : Ω → AKLT.Defs.Weight Ω) : Prop
+AKLT.Blueprint.Gap.RowConditions (P : AKLT.Blueprint.Gap.PlaneSpec) (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ)
+  (η ξ : AKLT.Blueprint.Gap.Config P.Letter) (j : Fin h)
+  (ω :
+    AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) × AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u))
+  (r :
+    AKLT.Defs.Weight
+      (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u))) :
+  Prop
+AKLT.Blueprint.Gap.ScaleConditions (l Mstar : ℕ) (d : ℝ) (n : ℕ) : Prop
+AKLT.Blueprint.Gap.SpecEnergy (P : AKLT.Blueprint.Gap.PlaneSpec) (α : ℝ) : Prop
+AKLT.Blueprint.Gap.SpecWindow (P : AKLT.Blueprint.Gap.PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) : Prop
+AKLT.Blueprint.Gap.StoppedEstimate (P : AKLT.Blueprint.Gap.PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ) : Prop
+AKLT.Blueprint.Gap.SurgeryKernels (P : AKLT.Blueprint.Gap.PlaneSpec) (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ)
+  (η ξ : AKLT.Blueprint.Gap.Config P.Letter) : Type
+AKLT.Blueprint.Gap.blockLaw {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)) (U : Finset ι) (σ : AKLT.Blueprint.Gap.Config S) :
+  AKLT.Defs.Weight ((x : ↥U) → S ↑x)
+AKLT.Blueprint.Gap.couplingCost {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  {p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)} (c : AKLT.Defs.Coupling p q) : ℝ
+AKLT.Blueprint.Gap.disagreement {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  {p q : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)} (c : AKLT.Defs.Coupling p q) (U : Finset ι) : ℝ
+AKLT.Blueprint.Gap.fibre {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)) (U : Finset ι) (σ : AKLT.Blueprint.Gap.Config S) :
+  AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)
+AKLT.Blueprint.Gap.frameSpec (κ : AKLT.Defs.Plane → Fin 3) : AKLT.Blueprint.Gap.PlaneSpec
+AKLT.Blueprint.Gap.kernelForm {Ω : Type} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (K : Ω → AKLT.Defs.Weight Ω) (A : ℝ)
+  (f : Ω → ℂ) : ℝ
+AKLT.Blueprint.Gap.kernelMean {Ω : Type} [Fintype Ω] (K : Ω → AKLT.Defs.Weight Ω) (f : Ω → ℝ) : Ω → ℝ
+AKLT.Blueprint.Gap.lipschitz {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} [(x : ι) → Fintype (S x)]
+  (f : AKLT.Blueprint.Gap.Config S → ℝ) : ℝ
+AKLT.Blueprint.Gap.planeInteraction (κ : AKLT.Defs.Plane → Fin 3) (W : Finset AKLT.Defs.Plane)
+  (σ : AKLT.Defs.PlaneConfiguration W) : ℝ
+AKLT.Blueprint.Gap.reduction (L N : AKLT.Challenge.Size) (z : AKLT.Defs.Plane) : AKLT.Challenge.Site L N
+AKLT.Blueprint.Gap.torusHalo (L N : AKLT.Challenge.Size) (M : ℕ) (a : AKLT.Challenge.Site L N) :
+  Finset (AKLT.Challenge.Site L N)
+AKLT.Blueprint.Gap.torusSquare (L N : AKLT.Challenge.Size) (M : ℕ) (a : AKLT.Challenge.Site L N) :
+  Finset (AKLT.Challenge.Site L N)
+AKLT.Blueprint.Gap.traceLaw {Ω : Type} [Fintype Ω] (m : ℕ) (initial : AKLT.Defs.Weight (Ω × Ω))
+  (K : Fin m → Ω × Ω → AKLT.Defs.Weight (Ω × Ω)) : AKLT.Defs.Weight (AKLT.Blueprint.Gap.PairTrace Ω m)
+AKLT.Blueprint.Gap.trialTimes (a y : AKLT.Defs.Plane) (u h : ℕ) : Finset (Fin h)
+AKLT.Defs.Coupling.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype Ω] [Fintype Ξ] (p : AKLT.Defs.Weight Ω)
+  (q : AKLT.Defs.Weight Ξ) : Type (max u_1 u_2)
+AKLT.Defs.PoincareLower.{u_1, u_2} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {S : ι → Type u_2}
+  [(x : ι) → Fintype (S x)] (p : AKLT.Defs.Weight ((x : ι) → S x)) (g : ℝ) : Prop
+AKLT.Defs.blockDirichlet.{u_1, u_2} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {S : ι → Type u_2}
+  [(x : ι) → Fintype (S x)] (p : AKLT.Defs.Weight ((x : ι) → S x)) (U : Finset ι) (f : ((x : ι) → S x) → ℂ) : ℝ
+AKLT.Defs.conditionalExpectation.{u_1, u_2} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {S : ι → Type u_2}
+  [(x : ι) → Fintype (S x)] (p : AKLT.Defs.Weight ((x : ι) → S x)) (U : Finset ι) (f : ((x : ι) → S x) → ℂ)
+  (σ : (x : ι) → S x) : ℂ
+AKLT.Defs.conditionalTorusLaw (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3)
+  (U : Finset (AKLT.Challenge.Site L N)) (σ : AKLT.Defs.TorusConfiguration L N) :
+  AKLT.Defs.Weight (↥U → AKLT.Defs.IcoLetter)
+AKLT.Defs.conditionalVariance.{u_1, u_2} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {S : ι → Type u_2}
+  [(x : ι) → Fintype (S x)] (p : AKLT.Defs.Weight ((x : ι) → S x)) (U : Finset ι) (f : ((x : ι) → S x) → ℂ)
+  (σ : (x : ι) → S x) : ℝ
+AKLT.Defs.dirichlet.{u_1, u_2} {ι : Type u_1} [Fintype ι] [DecidableEq ι] {S : ι → Type u_2} [(x : ι) → Fintype (S x)]
+  (p : AKLT.Defs.Weight ((x : ι) → S x)) (f : ((x : ι) → S x) → ℂ) : ℝ
+AKLT.Defs.eventMass.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (E : Ω → Prop) : ℝ
+AKLT.Defs.exceptionalIndices (a y : AKLT.Defs.Plane) (u : ℕ) : Finset ℤ
+AKLT.Defs.farVolume (a y : AKLT.Defs.Plane) (u : ℕ) (i : ℤ) : Finset AKLT.Defs.Plane
+AKLT.Defs.geometryThreshold (l₀ : ℕ) : ℕ
+AKLT.Defs.hamming.{u_1, u_2} {ι : Type u_1} [Fintype ι] {S : ι → Type u_2} (σ τ : (x : ι) → S x) : ℕ
+AKLT.Defs.internalBonds (G : Finset AKLT.Defs.Plane) : Finset (AKLT.Defs.Plane × AKLT.Defs.Plane)
+AKLT.Defs.marginal.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype Ω] [DecidableEq Ξ] (p : AKLT.Defs.Weight Ω)
+  (r : Ω → Ξ) : AKLT.Defs.Weight Ξ
+AKLT.Defs.normalize.{u_1} {Ω : Type u_1} [Fintype Ω] (w : AKLT.Defs.Weight Ω) : AKLT.Defs.Weight Ω
+AKLT.Defs.planeLaw (κ : AKLT.Defs.Plane → Fin 3) (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W) :
+  AKLT.Defs.Weight (AKLT.Defs.PlaneConfiguration W)
+AKLT.Defs.shell (a y : AKLT.Defs.Plane) (u : ℕ) (i : ℤ) : Finset AKLT.Defs.Plane
+AKLT.Defs.shellSpacing (u : ℕ) : ℝ
+AKLT.Defs.square (a : AKLT.Defs.Plane) (u : ℕ) : Finset AKLT.Defs.Plane
+AKLT.Defs.totalVariation.{u_1} {Ω : Type u_1} [Fintype Ω] (p q : AKLT.Defs.Weight Ω) : ℝ
+AKLT.Defs.variance.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (f : Ω → ℂ) : ℝ
+Finset.card_image_of_injective.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β} [DecidableEq β] (s : Finset α)
+  (H : Function.Injective f) : (Finset.image f s).card = s.card
+Finset.prod_le_prod.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [CommMonoid N] [Preorder N] {f g : ι → N} {s : Finset ι}
+  [MulLeftMono N] (h : ∀ i ∈ s, f i ≤ g i) : ∏ i ∈ s, f i ≤ ∏ i ∈ s, g i
+Finset.sum_comm.{u_3, u_4, u_5} {α : Type u_3} {β : Type u_4} {γ : Type u_5} [AddCommMonoid β] {s : Finset γ}
+  {t : Finset α} {f : γ → α → β} : ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+Finset.sum_equiv.{u_1, u_2, u_3} {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [AddCommMonoid M] {s : Finset ι}
+  {t : Finset κ} {f : ι → M} {g : κ → M} (e : ι ≃ κ) (hst : ∀ (i : ι), i ∈ s ↔ e i ∈ t) (hfg : ∀ i ∈ s, f i = g (e i)) :
+  ∑ i ∈ s, f i = ∑ i ∈ t, g i
+Fintype.sum_equiv.{u_1, u_2, u_3} {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [Fintype ι] [Fintype κ] [AddCommMonoid M]
+  (e : ι ≃ κ) (f : ι → M) (g : κ → M) (h : ∀ (x : ι), f x = g (e x)) : ∑ x, f x = ∑ x, g x
+Int.floor_le.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [FloorRing α] (a : α) : ↑⌊a⌋ ≤ a
+Int.lt_floor_add_one.{u_2} {R : Type u_2} [Ring R] [LinearOrder R] [FloorRing R] (a : R) : a < ↑⌊a⌋ + 1
+Nat.choose : ℕ → ℕ → ℕ
+Nat.factorial : ℕ → ℕ
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x
+Real.sqrt_sq {x : ℝ} (h : 0 ≤ x) : √(x ^ 2) = x
+ZMod.intCast_zmod_eq_zero_iff_dvd (a : ℤ) (b : ℕ) : ↑a = 0 ↔ ↑b ∣ a
+add_pow.{u_1} {R : Type u_1} [CommSemiring R] (x y : R) (n : ℕ) :
+  (x + y) ^ n = ∑ m ∈ Finset.range (n + 1), x ^ m * y ^ (n - m) * ↑(n.choose m)
+pow_le_pow_of_le_one.{u_2} {M₀ : Type u_2} [MonoidWithZero M₀] [Preorder M₀] {a : M₀} [PosMulMono M₀] (ha₀ : 0 ≤ a)
+  (ha₁ : a ≤ 1) {m n : ℕ} (hmn : m ≤ n) : a ^ n ≤ a ^ m

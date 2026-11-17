@@ -1,0 +1,179 @@
+def AKLT.Blueprint.H1.SectorWeightBasisStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData) (r : AKLT.Defs.Representation) (ε : AKLT.Defs.ExchangeSigns π)
+  (b : AKLT.Defs.ExchangeBasis π r ε),
+  Eq.{1} ((AKLT.Defs.totalSpinZ (AKLT.Defs.reductionVectors π r)) (AKLT.Blueprint.H1.sectorVector π r ε b))
+      (HSMul.hSMul.{0, 0, 0} (↑(AKLT.Defs.exchangeWeight π r ε b)) (AKLT.Blueprint.H1.sectorVector π r ε b)) ∧
+    ∃ z, Eq.{1} (↑(AKLT.Defs.exchangeWeight π r ε b)) (HAdd.hAdd.{0, 0, 0} ↑(AKLT.Defs.centralWeight π r) ↑z)
+def AKLT.Blueprint.H1.SpanWeightLatticeStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (β : Type) [Fintype.{0} β] (v : β → AKLT.Blueprint.H1.TensorSpace J) (w : β → ℝ) (κ : ℝ),
+  (∀ (b : β), Eq.{1} ((AKLT.Defs.totalSpinZ J) (v b)) (HSMul.hSMul.{0, 0, 0} (↑(w b)) (v b))) →
+    (∀ (b : β), ∃ z, Eq.{1} (w b) (HAdd.hAdd.{0, 0, 0} κ ↑z)) →
+      ∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} (Submodule.span.{0, 0} ℂ (Set.range.{0, 1} v)) ψ →
+          Ne.{1} ψ 0 →
+            ∀ (m : ℝ),
+              Eq.{1} ((AKLT.Defs.totalSpinZ J) ψ) (HSMul.hSMul.{0, 0, 0} (↑m) ψ) →
+                ∃ z, Eq.{1} m (HAdd.hAdd.{0, 0, 0} κ ↑z)
+def AKLT.Blueprint.H1.SpinAdjointStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (ψ χ : AKLT.Blueprint.H1.TensorSpace J),
+  Eq.{1} (inner.{0, 0} ℂ ((AKLT.Defs.totalSpinZ J) ψ) χ) (inner.{0, 0} ℂ ψ ((AKLT.Defs.totalSpinZ J) χ)) ∧
+    Eq.{1} (inner.{0, 0} ℂ ((AKLT.Defs.totalSpinPlus J) ψ) χ) (inner.{0, 0} ℂ ψ ((AKLT.Defs.totalSpinMinus J) χ))
+def AKLT.Blueprint.H1.SpinCommutatorStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (ψ : AKLT.Blueprint.H1.TensorSpace J),
+  Eq.{1}
+      (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinPlus J) ψ))
+        ((AKLT.Defs.totalSpinPlus J) ((AKLT.Defs.totalSpinZ J) ψ)))
+      ((AKLT.Defs.totalSpinPlus J) ψ) ∧
+    Eq.{1}
+        (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinMinus J) ψ))
+          ((AKLT.Defs.totalSpinMinus J) ((AKLT.Defs.totalSpinZ J) ψ)))
+        (Neg.neg.{0} ((AKLT.Defs.totalSpinMinus J) ψ)) ∧
+      Eq.{1}
+        (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinPlus J) ((AKLT.Defs.totalSpinMinus J) ψ))
+          ((AKLT.Defs.totalSpinMinus J) ((AKLT.Defs.totalSpinPlus J) ψ)))
+        (HSMul.hSMul.{0, 0, 0} 2 ((AKLT.Defs.totalSpinZ J) ψ))
+def AKLT.Blueprint.H1.WeightLadderTransferStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)),
+  (∀ (ψ χ : AKLT.Blueprint.H1.TensorSpace J),
+      Eq.{1} (inner.{0, 0} ℂ ((AKLT.Defs.totalSpinZ J) ψ) χ) (inner.{0, 0} ℂ ψ ((AKLT.Defs.totalSpinZ J) χ)) ∧
+        Eq.{1} (inner.{0, 0} ℂ ((AKLT.Defs.totalSpinPlus J) ψ) χ) (inner.{0, 0} ℂ ψ ((AKLT.Defs.totalSpinMinus J) χ))) →
+    (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Eq.{1}
+            (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinPlus J) ψ))
+              ((AKLT.Defs.totalSpinPlus J) ((AKLT.Defs.totalSpinZ J) ψ)))
+            ((AKLT.Defs.totalSpinPlus J) ψ) ∧
+          Eq.{1}
+              (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinMinus J) ψ))
+                ((AKLT.Defs.totalSpinMinus J) ((AKLT.Defs.totalSpinZ J) ψ)))
+              (Neg.neg.{0} ((AKLT.Defs.totalSpinMinus J) ψ)) ∧
+            Eq.{1}
+              (HSub.hSub.{0, 0, 0} ((AKLT.Defs.totalSpinPlus J) ((AKLT.Defs.totalSpinMinus J) ψ))
+                ((AKLT.Defs.totalSpinMinus J) ((AKLT.Defs.totalSpinPlus J) ψ)))
+              (HSMul.hSMul.{0, 0, 0} 2 ((AKLT.Defs.totalSpinZ J) ψ))) →
+      AKLT.Blueprint.H1.WeightLadder J
+def AKLT.Blueprint.H1.CommonWeightEigenvectorStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (S : Submodule.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J))
+  (O : Module.End.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J)),
+  (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J), Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S (O ψ)) →
+    (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ →
+          ∀ (χ : AKLT.Blueprint.H1.TensorSpace J),
+            Membership.mem.{0, 0} S χ → Eq.{1} (inner.{0, 0} ℂ (O ψ) χ) (inner.{0, 0} ℂ ψ (O χ))) →
+      (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+          Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinZ J) ψ)) →
+        (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+            Membership.mem.{0, 0} S ψ →
+              ∀ (χ : AKLT.Blueprint.H1.TensorSpace J),
+                Membership.mem.{0, 0} S χ →
+                  Eq.{1} (inner.{0, 0} ℂ ((AKLT.Defs.totalSpinZ J) ψ) χ)
+                    (inner.{0, 0} ℂ ψ ((AKLT.Defs.totalSpinZ J) χ))) →
+          (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+              Membership.mem.{0, 0} S ψ → Eq.{1} (O ((AKLT.Defs.totalSpinZ J) ψ)) ((AKLT.Defs.totalSpinZ J) (O ψ))) →
+            ∀ (μ : ℂ),
+              Membership.mem.{0, 0} (AKLT.Defs.eigenvaluesOn.{0} S O) μ →
+                ∃ v,
+                  Membership.mem.{0, 0} S v ∧
+                    Ne.{1} v 0 ∧
+                      Eq.{1} (O v) (HSMul.hSMul.{0, 0, 0} μ v) ∧
+                        ∃ m, Eq.{1} ((AKLT.Defs.totalSpinZ J) v) (HSMul.hSMul.{0, 0, 0} (↑m) v)
+def AKLT.Blueprint.H1.LadderWalkStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (S : Submodule.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J)) (κ : ℝ),
+  Eq.{1} κ 0 ∨ Eq.{1} κ (1 / 2) →
+    AKLT.Blueprint.H1.SpinStable J S →
+      AKLT.Blueprint.H1.WeightLadder J →
+        ∀ (O : Module.End.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J)),
+          (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+              Membership.mem.{0, 0} S ψ →
+                Eq.{1} (O ((AKLT.Defs.totalSpinPlus J) ψ)) ((AKLT.Defs.totalSpinPlus J) (O ψ))) →
+            (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+                Membership.mem.{0, 0} S ψ →
+                  Eq.{1} (O ((AKLT.Defs.totalSpinMinus J) ψ)) ((AKLT.Defs.totalSpinMinus J) (O ψ))) →
+              ∀ (μ : ℂ) (v : AKLT.Blueprint.H1.TensorSpace J),
+                Membership.mem.{0, 0} S v →
+                  Ne.{1} v 0 →
+                    Eq.{1} (O v) (HSMul.hSMul.{0, 0, 0} μ v) →
+                      ∀ (m : ℝ),
+                        Eq.{1} ((AKLT.Defs.totalSpinZ J) v) (HSMul.hSMul.{0, 0, 0} (↑m) v) →
+                          (∃ z, Eq.{1} m (HAdd.hAdd.{0, 0, 0} κ ↑z)) →
+                            ∃ w,
+                              Membership.mem.{0, 0} S w ∧
+                                Ne.{1} w 0 ∧
+                                  Eq.{1} (O w) (HSMul.hSMul.{0, 0, 0} μ w) ∧
+                                    Eq.{1} ((AKLT.Defs.totalSpinZ J) w) (HSMul.hSMul.{0, 0, 0} (↑κ) w)
+def AKLT.Blueprint.H1.PositiveSpectrumStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (S : Submodule.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J))
+  (O : Module.End.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J)),
+  (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J), Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S (O ψ)) →
+    (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ →
+          ∀ (χ : AKLT.Blueprint.H1.TensorSpace J),
+            Membership.mem.{0, 0} S χ → Eq.{1} (inner.{0, 0} ℂ (O ψ) χ) (inner.{0, 0} ℂ ψ (O χ))) →
+      (AKLT.Defs.PositiveOn.{0} S O ↔
+        ∀ (μ : ℂ), Membership.mem.{0, 0} (AKLT.Defs.eigenvaluesOn.{0} S O) μ → LT.lt.{0} 0 μ.re)
+def AKLT.Blueprint.H1.WeightLadder : Finset.{0} (Fin 20) → Prop :=
+fun J =>
+  ∀ (v : AKLT.Blueprint.H1.TensorSpace J) (m : ℝ),
+    Eq.{1} ((AKLT.Defs.totalSpinZ J) v) (HSMul.hSMul.{0, 0, 0} (↑m) v) →
+      Eq.{1} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinPlus J) v))
+          (HSMul.hSMul.{0, 0, 0} (↑(HAdd.hAdd.{0, 0, 0} m 1)) ((AKLT.Defs.totalSpinPlus J) v)) ∧
+        Eq.{1} ((AKLT.Defs.totalSpinZ J) ((AKLT.Defs.totalSpinMinus J) v))
+            (HSMul.hSMul.{0, 0, 0} (↑(HSub.hSub.{0, 0, 0} m 1)) ((AKLT.Defs.totalSpinMinus J) v)) ∧
+          (Ne.{1} v 0 → LT.lt.{0} 0 m → Ne.{1} ((AKLT.Defs.totalSpinMinus J) v) 0) ∧
+            (Ne.{1} v 0 → LT.lt.{0} m 0 → Ne.{1} ((AKLT.Defs.totalSpinPlus J) v) 0)
+def AKLT.Blueprint.H1.SpinStable : (J : Finset.{0} (Fin 20)) →
+  Submodule.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J) → Prop :=
+fun J S =>
+  (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+      Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinZ J) ψ)) ∧
+    (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinPlus J) ψ)) ∧
+      ∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinMinus J) ψ)
+def AKLT.Defs.PositiveOn.{u_1} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    Submodule.{0, u_1} ℂ (EuclideanSpace.{0, u_1} ℂ ι) → Module.End.{0, u_1} ℂ (EuclideanSpace.{0, u_1} ℂ ι) → Prop :=
+fun {ι} [Fintype.{u_1} ι] S O =>
+  ∀ (ψ : EuclideanSpace.{0, u_1} ℂ ι),
+    Membership.mem.{u_1, u_1} S ψ → Ne.{u_1 + 1} ψ 0 → LT.lt.{0} 0 (inner.{0, u_1} ℂ ψ (O ψ)).re
+def AKLT.Defs.eigenvaluesOn.{u_1} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    Submodule.{0, u_1} ℂ (EuclideanSpace.{0, u_1} ℂ ι) →
+      Module.End.{0, u_1} ℂ (EuclideanSpace.{0, u_1} ℂ ι) → Set.{0} ℂ :=
+fun {ι} [Fintype.{u_1} ι] S O =>
+  Set.ofPred.{0} fun μ =>
+    ∃ ψ, Membership.mem.{u_1, u_1} S ψ ∧ Ne.{u_1 + 1} ψ 0 ∧ Eq.{u_1 + 1} (O ψ) (HSMul.hSMul.{0, u_1, u_1} μ ψ)
+AKLT.Blueprint.H1.SectorWeightBasisStatement : Prop
+AKLT.Blueprint.H1.SpanWeightLatticeStatement : Prop
+AKLT.Blueprint.H1.CommonWeightEigenvectorStatement : Prop
+AKLT.Blueprint.H1.PositiveSpectrumStatement : Prop
+Module.End.eigenspaces_iSupIndep.{v, w} {R : Type v} {M : Type w} [CommRing.{v} R] [AddCommGroup.{w} M]
+  [Module.{v, w} R M] [IsDomain.{v} R] [Module.IsTorsionFree.{v, w} R M] (f : Module.End.{v, w} R M) :
+  iSupIndep.{v + 1, w} (Module.End.eigenspace.{v, w} f)
+LinearMap.IsSymmetric.apply_eigenvectorBasis.{u_1, u_2} {𝕜 : Type u_1} [RCLike.{u_1} 𝕜] {E : Type u_2}
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{u_1, u_2} 𝕜 E]
+  {T : LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} 𝕜) E E} [FiniteDimensional.{u_1, u_2} 𝕜 E] {n : ℕ}
+  (hT : LinearMap.IsSymmetric.{u_1, u_2} T) (hn : Eq.{1} (Module.finrank.{u_1, u_2} 𝕜 E) n) (i : Fin n) :
+  Eq.{u_2 + 1} (T ((LinearMap.IsSymmetric.eigenvectorBasis.{u_1, u_2} hT hn) i))
+    (HSMul.hSMul.{u_1, u_2, u_2} (↑(LinearMap.IsSymmetric.eigenvalues.{u_1, u_2} hT hn i))
+      ((LinearMap.IsSymmetric.eigenvectorBasis.{u_1, u_2} hT hn) i))
+LinearMap.IsSymmetric.hasEigenvalue_eigenvalues.{u_1, u_2} {𝕜 : Type u_1} [RCLike.{u_1} 𝕜] {E : Type u_2}
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{u_1, u_2} 𝕜 E]
+  {T : LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} 𝕜) E E} [FiniteDimensional.{u_1, u_2} 𝕜 E] {n : ℕ}
+  (hT : LinearMap.IsSymmetric.{u_1, u_2} T) (hn : Eq.{1} (Module.finrank.{u_1, u_2} 𝕜 E) n) (i : Fin n) :
+  Module.End.HasEigenvalue.{u_1, u_2} T ↑(LinearMap.IsSymmetric.eigenvalues.{u_1, u_2} hT hn i)
+LinearMap.IsSymmetric.conj_eigenvalue_eq_self.{u_1, u_2} {𝕜 : Type u_1} [RCLike.{u_1} 𝕜] {E : Type u_2}
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{u_1, u_2} 𝕜 E]
+  {T : LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} 𝕜) E E} (hT : LinearMap.IsSymmetric.{u_1, u_2} T) {μ : 𝕜}
+  (hμ : Module.End.HasEigenvalue.{u_1, u_2} T μ) : Eq.{u_1 + 1} ((starRingEnd.{u_1} 𝕜) μ) μ
+Matrix.toEuclideanLin_conjTranspose_eq_adjoint.{u_1, u_5, u_6} {𝕜 : Type u_1} [RCLike.{u_1} 𝕜] {m : Type u_5}
+  {n : Type u_6} [Fintype.{u_5} m] [DecidableEq.{u_5 + 1} m] [Fintype.{u_6} n] [DecidableEq.{u_6 + 1} n]
+  (A : Matrix.{u_5, u_6, u_1} m n 𝕜) :
+  Eq.{max (max (u_1 + 1) (u_5 + 1)) (u_6 + 1)}
+    (Matrix.toEuclideanLin.{u_1, u_6, u_5} (Matrix.conjTranspose.{u_1, u_5, u_6} A))
+    (LinearMap.adjoint.{u_1, max u_1 u_6, max u_1 u_5} (Matrix.toEuclideanLin.{u_1, u_5, u_6} A))
+Pi.instFintype.{0, 0}
+⋯
+Submodule.innerProductSpace.{0, 0} S
+⋯
+⋯
+Pi.instFintype.{0, 0}

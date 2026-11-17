@@ -1,0 +1,270 @@
+{
+  "label": "port-TNLean-small",
+  "seconds": 31.688415050506592,
+  "results": {
+    "QICLean.Algebra.FinSum": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3714382648468018,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixAux": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.406576633453369,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixGramUnitary": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.6523594856262207,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixIsometryEntries": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9507153034210205,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixKernelRigidity": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5217962265014648,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixTracePairing": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.593440055847168,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.SkolemNoether": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4010288715362549,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.992936134338379,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.KrausFreedom": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9921491146087646,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.KrausRepresentation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.989248514175415,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.Schwarz.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9554040431976318,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.Stinespring": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7748162746429443,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.Blocking": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.616659164428711,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.Injectivity": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.503058910369873,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.Tactic.Attr": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.3917109966278076,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.Transfer": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7087912559509277,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.Word": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.266404151916504,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Kraus.WordSpan": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1437437534332275,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.Algebra.CocycleCohomology": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7618448734283447,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.Algebra.ComplexSqrt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.018042802810669,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.Algebra.ListProduct": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9164862632751465,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.Algebra.ProjectiveRepresentation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4986259937286377,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.Algebra.SingletMatrix": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2381815910339355,
+      "errors": [],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "\n'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by\n\nimport Mathlib.Basic.Complex.Basic\n",
+          "endPos": null,
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TNLean-small/TNLean/Algebra/SingletMatrix.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.deprecatedModuleExt",
+          "pos": {
+            "column": 0,
+            "line": 6
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "TNLean.MPS.Chain.OneSidedInverse": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.440587043762207,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Core.Blocking": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.808955669403076,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Core.CyclicTrace": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.768083095550537,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Core.PhysicalRotation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6608076095581055,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Core.TracePairing": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7478973865509033,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Defs": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.033371925354004,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Examples.AKLT": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.9774162769317627,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Examples.ZMod2": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9211809635162354,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.FundamentalTheorem.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.392615556716919,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.RFP.Defs": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8402519226074219,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Structure.LinearExtension": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6701366901397705,
+      "errors": [],
+      "warnings": []
+    },
+    "TNLean.MPS.Symmetry.Defs": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.591329574584961,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "error_count": 0,
+  "ok": 35,
+  "failed": 0,
+  "blocked": 0
+}

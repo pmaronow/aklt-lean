@@ -1,0 +1,1240 @@
+
+\section{Finite trail and stationary Bellman certificates}
+
+Throughout this appendix the thresholds are
+\(c_{\rm s}=961/1000\) and \(c_{\rm t}=187/200\), so that
+\(x_{\rm s}=1000/961\) and \(x_{\rm t}=200/187\).
+The trail weights, response pairs, orderings and vector \(h\) are
+those of Definitions~\ref{d:weights}, \ref{d:kernel} and
+\ref{d:kernel-order}. In particular, a revisit means an earlier
+\emph{departure} from the same site. All positions below are points
+of \(\mathbb Z^2\).
+
+The finite assertions in Propositions~\ref{p:H2-test},
+\ref{p:automaton10} and \ref{p:stationary-check} specify exact checks
+of the archived witnesses. The arguments below prove the soundness
+of those checks. These finite assertions are verified by proofs
+checked by the Lean kernel, as described at the beginning of
+Section~\ref{s:inputs}. An executable's exit
+code or a floating approximation is not an additional hypothesis of
+any soundness lemma.
+
+\begin{definition}\label{d:memory-automaton}
+Let \(\mathcal E=\{{\rm E}=(1,0),{\rm N}=(0,1),
+{\rm W}=(-1,0),{\rm S}=(0,-1)\}\).
+For \(m\ge1\), \(\Omega_m\) consists of sequences
+\(\omega=(d_1,\ldots,d_m)\in\mathcal E^m\) whose path from zero
+uses distinct unoriented bonds. Write \(z_0=0\),
+\(z_j=\sum_{i\le j}d_i\), and \(a(\omega)=d_m\).
+A direction \(d\) is admissible if \(d\ne-d_m\) and
+\(\{z_m,z_m+d\}\) is not a used bond of this window.
+Its successor is \(\omega d=(d_2,\ldots,d_m,d)\).
+Its kind \(k(\omega,d)\) is \({\rm r}\) if
+\(z_m\in\{z_0,\ldots,z_{m-1}\}\), otherwise \({\rm s}\)
+if \(d=d_m\), and \({\rm t}\) otherwise.
+Direction labels remain absolute lattice directions.
+\end{definition}
+
+The successor belongs to \(\Omega_m\): the last \(m-1\) old bonds
+and the new bond are a subset of the distinct bonds of the extended
+window, and translation to a new initial point preserves bond equality.
+The explicit nonreversal condition is redundant with the used-bond
+test, since the last bond is used, but fixes the incoming-direction
+convention.
+
+\begin{definition}\label{d:memorygrowth}
+On \(\Omega_m\), define the nonnegative one-step matrix
+\[
+ \mathsf A_m(\omega,\omega')=
+ \sum_{\substack{d\ {\rm admissible}\\\omega d=\omega'}}
+ \gamma(\omega,d),\qquad
+ \gamma(\omega,d)=
+ \begin{cases}1/5,&k={\rm r},\\
+ x_{\rm s}/3,&k={\rm s},\\x_{\rm t}/3,&k={\rm t}.
+ \end{cases}
+\]
+For a prescribed start and incoming direction with initial reversal
+forbidden, let \(A_n(\omega)\) be the true total \(\mathsf W\)-weight
+of length-\(n\) trails whose last \(m\) steps form \(\omega\),
+for \(n\ge m\), and let \(W_n=\sum_{|w|=n}\mathsf W(w)\).
+The adopted finite test is \(m=6\) and extension length \(1\).
+\end{definition}
+
+There is no virtual incoming bond in the used-bond set. Only the
+initial reversal is forbidden. Thus the first departure has the same
+straight or turning convention as every later first departure.
+
+\begin{lemma}\label{l:alm}
+For \(n\ge m\),
+\[
+ A_{n+1}(\omega')\le\sum_\omega A_n(\omega)\mathsf A_m(\omega,\omega').
+\]
+If \(v_\omega>0\), \(0<q<1\), and \(\mathsf A_mv\le qv\),
+then (H2) holds with
+\[
+ C_V=\max\left\{
+      \max_{0\le r<m}W_rq^{-r},\
+      \frac{\max v}{\min v}W_mq^{-m}\right\}.
+\]
+Any larger finite constant is also valid.
+\end{lemma}
+
+\begin{proof}
+Fix the initial data and a true trail \(w\) of length \(n+1\).
+Its length-\(n\) prefix is a true trail with the same initial data.
+If its last window is \(\omega\), its next direction is admissible
+for \(\omega\): a used bond of this window is a used bond of the
+true trail, and reversal would reuse the last bond. The last window
+of the extension is exactly \(\omega d\). The map from \(w\) to its
+prefix and final direction is injective.
+
+Suppose first that the window detects a revisit. Its current endpoint
+then equals an earlier window vertex from which a window bond departs.
+This is also an earlier true departure. The new true and window
+weights are both \(1/5\). If the true departure is a revisit not
+detected by the window, its weight is \(1/5\), whereas the window
+uses \(x_{\rm s}/3\) or \(x_{\rm t}/3\), each at least \(1/3\).
+Otherwise both departures are first departures; their incoming
+direction is the last window direction, so their type and weight
+agree. These cases exhaust all departures. Multiplication by the
+nonnegative prefix weight and summation over the injective map give
+the asserted componentwise inequality.
+
+Write \(A_n\) as a row vector and put
+\(v_- =\min_\omega v_\omega>0\),
+\(v_+=\max_\omega v_\omega\). Nonnegativity of the matrix implies,
+by induction on \(j\),
+\[
+ A_{m+j}\le A_m\mathsf A_m^j,\qquad
+ \mathsf A_m^jv\le q^jv .
+\]
+Consequently
+\[
+ W_{m+j}\le v_-^{-1}A_m\mathsf A_m^jv
+       \le (v_+/v_-)q^jW_m .
+\]
+This proves the claimed bound for all lengths at least \(m\).
+For lengths less than \(m\) it is the defining finite maximum.
+The empty trail contributes \(W_0=1\), so \(C_V\ge1\).
+Translations and the eight symmetries of the square give
+weight-preserving bijections between the trail sets for any two
+prescribed starts and incoming directions. Thus all the base sums
+\(W_r\) in this formula are uniform over those initial data.
+Increasing \(C_V\) preserves the inequality, which proves
+\ref{h:H2} with the stated constants.
+\end{proof}
+
+\begin{lemma}\label{l:H2-dihedral}
+The dihedral group of the square acts on \(\Omega_m\) by applying
+the same lattice symmetry to every direction. This action preserves
+admissibility, kind, successor and the weights of \(\mathsf A_m\);
+thus \(\mathsf A_m(g\omega,g\omega')=\mathsf A_m(\omega,\omega')\).
+For any positive vector constant on these orbits, a row inequality
+\((\mathsf A_mv)_\omega\le qv_\omega\) checked at one representative
+of every orbit holds on every raw window.
+For \(m=6\), \(|\Omega_6|=916\) and there are \(115\) orbits.
+\end{lemma}
+
+\begin{proof}
+A square symmetry is an invertible linear map carrying the four
+unit directions to themselves. It carries vertices and unoriented
+bonds bijectively to vertices and bonds. It therefore preserves
+bond distinctness, occurrence of the endpoint among earlier
+departure vertices, equality of the outgoing and incoming directions,
+and the reversal relation. It also commutes with deleting the first
+direction and adjoining the last. This proves every asserted
+transition property, and hence the matrix identity, by the bijection
+\(d\mapsto gd\) in its defining sum. If \(v\) is constant on orbits,
+then
+\[
+ (\mathsf A_mv)_{g\omega}
+ =\sum_{\omega'}\mathsf A_m(g\omega,g\omega')v_{g\omega'}
+ =(\mathsf A_mv)_\omega ,\qquad v_{g\omega}=v_\omega .
+\]
+This proves the row reduction.
+
+Here is a direct count for memory six. Let \(N_j=|\Omega_j|\),
+with \(N_0=1\). There are \(N_1=4\) initial directions and
+three nonreversing choices at each later step before any additional
+bond obstruction. A nonreversing square-lattice path cannot reuse a
+bond before step five: such reuse would require a return to a previous
+vertex, and the shortest nonreversing cycle has length four.
+Thus \(N_2=12,N_3=36,N_4=108\).
+At step five the only additional obstruction is a four-step square
+starting at the initial vertex, followed by its first edge. There
+are four choices of first direction and two orientations of that
+square. Exactly these eight extensions must be deleted, giving
+\(N_5=3\cdot108-8=316\).
+
+For a valid length-five prefix, an additionally forbidden sixth
+step must start at its vertex of time one. Indeed, a repeat of an
+earlier vertex at time five has an even time difference at least
+four, and only time one qualifies; a difference two would already
+reverse a bond. Hence steps two through five form a square based at
+that vertex. There are initially \(4\cdot3\cdot2=24\) choices
+of the first direction, the square's first direction and its
+orientation. Of these, exactly eight have the square's last edge
+equal to the first bond of the entire path: for each first
+direction, the square's first direction must be one of its two
+perpendicular directions, and precisely one orientation then ends
+along that first bond. These eight are invalid length-five
+prefixes. Each of the remaining sixteen prefixes has precisely two
+used edges at the current vertex besides the reverse of the most
+recent edge: the initial bond and the first edge of the square.
+Both give distinct forbidden sixth directions. This gives
+\(N_6=3\cdot316-2\cdot16=916\).
+
+For completeness, count the orbits without a supplied representative
+list. The number of orbits is
+\(\frac18\sum_g|\{\omega:g\omega=\omega\}|\): to see this,
+sum the number of stabilizers over each orbit and use that the orbit
+size times its stabilizer size is eight. A nonidentity rotation, or
+a reflection in a diagonal, fixes no unit direction and hence no
+window. Reflection in either coordinate axis fixes two directions.
+A window using just those two opposite directions must use a single
+one throughout, since a change of sign immediately reverses a bond.
+Each such reflection therefore fixes exactly two windows. The orbit
+count is \((916+2+2)/8=115\).
+\end{proof}
+
+\begin{proposition}\label{p:H2-test}
+At the two fixed H1 thresholds there exists a positive integer
+vector \(v\) on \(\Omega_6\), constant on dihedral orbits, with
+\[
+ \frac{\max v}{\min v}=\frac{250000000000}{46594269069}<6,\qquad
+ \max_\omega\frac{(\mathsf A_6v)_\omega}{v_\omega}
+       =q_*:=\frac{1119948287353}{1120437614225}<\frac{2499}{2500}.
+\]
+The weights have common denominator \(D_2=2695605\), with
+numerators \(935000,961000,539121\) for \({\rm s},{\rm t},{\rm r}\).
+For \(q_*=q_{\rm num}/q_{\rm den}\), the required row test is
+\[
+ q_{\rm den}\sum_{d\ {\rm admissible}}n_{k(\omega,d)}v_{\omega d}
+          \le q_{\rm num}D_2v_\omega .
+\]
+It suffices to check the \(115\) orbit rows after proving
+Lemma~\ref{l:H2-dihedral}; checking all \(916\) raw rows is also valid.
+\end{proposition}
+
+\begin{proof}[Finite verification contract]
+Number the directions E,N,W,S by \(0,1,2,3\), and for this
+certificate use the least-significant-first code
+\[
+ e_6(d_1,\ldots,d_6)=\sum_{i=1}^6d_i4^{i-1}.
+\]
+The canonical code is the minimum of \(e_6\) over the eight images
+\(d_i\mapsto \varepsilon d_i+r\pmod4\),
+\(\varepsilon\in\{1,-1\}\), \(r\in\{0,1,2,3\}\).
+Use the integer field \texttt{h} indexed by the field \texttt{code}
+in \texttt{h2\_exact\_m6k1\_r5.json}; pull it back by this
+canonical-code map to obtain \(v\). The decimal vector files are
+not used to round or reconstruct these integers.
+
+Generate windows by starting with the empty word at zero and,
+at each stage, adjoining every direction whose unoriented bond has
+not yet been used. Each generated word is a trail. Conversely,
+deleting the last step of a trail gives a previously generated word,
+so induction on its length proves that every window is generated
+exactly once. Lemma~\ref{l:H2-dihedral} proves that the canonical
+codes give exactly the needed orbits. The finite data checks are:
+the stored codes are precisely those \(115\) canonical codes,
+without repetition; their integer values are positive; and every
+regenerated row satisfies the displayed integer inequality.
+In the three cases the weights are exactly
+\[
+ \frac{1000}{2883}=\frac{935000}{2695605},\qquad
+ \frac{200}{561}=\frac{961000}{2695605},\qquad
+ \frac15=\frac{539121}{2695605}.
+\]
+Thus the checked sums are the rows of the mathematically defined
+matrix, with no matrix supplied as an input.
+
+To specify also the equalities in the proposition, the integer
+extremum checks are
+\[
+ \min v=186377076276\quad(\text{canonical code }441),\qquad
+ \max v=1000000000000\quad(\text{canonical code }0).
+\]
+At canonical code \(428\), the regenerated row has
+\[
+ v_{428}=224087522845,\qquad
+ \sum_d n_{k(\omega,d)}v_{\omega d}=603787640626036713.
+\]
+Exact cancellation gives
+\[
+ \frac{603787640626036713}{2695605\cdot224087522845}
+ =\frac{1119948287353}{1120437614225}=q_*.
+\]
+The upper row checks and this equality establish the asserted
+maximum; the two extremum checks establish its asserted vector
+ratio. The remaining strict comparisons follow by multiplying
+positive integer denominators. These are finite integer checks on
+the archived witness, rather than assumptions about a computed
+eigenvalue or a numerical power iteration.
+\end{proof}
+
+\begin{lemma}\label{l:H2-CV}
+With \(m=6\), \(q=q_*\), and the vector in Proposition~\ref{p:H2-test},
+the constant supplied by Lemma~\ref{l:alm} is at most \(10\).
+Indeed, uniformly over the prescribed start and incoming direction,
+\[
+ W_r\le x_{\rm t}^r\quad(0\le r\le6),\qquad
+ \max\left\{\max_{r<6}W_rq^{-r},\
+                 \frac{\max v}{\min v}W_6q^{-6}\right\}
+ \le6\left(\frac{200}{187q}\right)^6<10.
+\]
+Consequently (H2) holds with the explicit rational constants
+\(q=q_*\) and \(C_V=10\).
+\end{lemma}
+
+\begin{proof}
+The first step has at most three choices because the designated
+initial reversal is forbidden. At every subsequent step the last
+bond is used, again leaving at most three choices. Every allowed
+weight is at most \(x_{\rm t}/3\), since
+\(1/5\le1/3\le x_{\rm s}/3\le x_{\rm t}/3\).
+For each prefix, its total extension weight is therefore at most
+\(x_{\rm t}\) times its weight. Induction, starting with \(W_0=1\),
+gives \(W_r\le x_{\rm t}^r\), in particular for \(0\le r\le6\).
+
+Put \(b=x_{\rm t}/q>1\). For \(r<6\),
+\(W_rq^{-r}\le b^r\le b^6\), and the second term in
+Lemma~\ref{l:alm} is at most \(6b^6\) by
+Proposition~\ref{p:H2-test}. This proves the non-strict bound
+in the statement. To verify its last inequality by small integer
+comparisons, cross multiplication gives
+\(q_*>999/1000\), and hence
+\[
+ \frac{200}{187q_*}<\frac{200000}{186813}<\frac{15}{14}.
+\]
+The second inequality is \(2800000<2802195\).
+Finally
+\(6\cdot15^6=68343750<75295360=10\cdot14^6\).
+Thus \(6b^6<10\), and Lemma~\ref{l:alm} permits \(C_V=10\).
+\end{proof}
+
+\begin{lemma}\label{l:automaton-quotient}
+Let \(\pi:\Omega_m\to Q\) be a surjection onto a finite set.
+Suppose that windows with the same image have, for each absolute
+direction, identical admissibility and kind, and their admissible
+successors have the same image. Suppose also that two such windows
+have the same final direction whenever their class has an admissible
+non-revisit transition.
+Then admissibility, kind and successor define a well-defined automaton
+on \(Q\). Every phase-and-position transition whose coefficients
+depend only on the absolute direction, kind, position, and final
+direction on non-revisit edges factors through this automaton.
+For every function \(G(\varphi,q,x)\), its pullback by \(\pi\)
+intertwines the raw and quotient backward operators. This
+intertwining also holds for each finite stopped continuation sum,
+provided that the raw terminal indicator and terminal reward are
+pullbacks of their quotient counterparts.
+\end{lemma}
+
+\begin{proof}
+For \(q\in Q\), choose any \(\omega\) with \(\pi(\omega)=q\).
+Declare direction \(d\) admissible at \(q\) exactly when it is
+admissible at \(\omega\), give it kind \(k(\omega,d)\), and give
+it successor \(\pi(\omega d)\). The hypotheses make all three
+choices independent of \(\omega\). When the coefficient of a
+non-revisit edge needs the incoming direction, use \(a(\omega)\).
+That direction is independent of the representative in every class
+with such an edge. In a class with only revisit edges no coefficient
+needs it. This proves well-definedness even when such a class
+contains several final directions.
+
+Here is the operator assertion including possible parallel edges.
+At a raw state \((\varphi,\omega,x)\), write its backward row as
+the finite sum over admissible directions \(d\) and allowed next
+phases \(\psi\), with coefficient
+\(t(\varphi,\omega,x;d,\psi)\). The quotient row has the same
+summation indices, coefficient and new position \(x+d\), and its
+new window is \(\pi(\omega d)\). If
+\(\pi^*G(\varphi,\omega,x)=G(\varphi,\pi(\omega),x)\), termwise
+comparison gives
+\[
+ T_{\rm raw}(\pi^*G)=\pi^*(T_QG).
+\]
+There is no division by a class size: this is an equality of
+backward rows, retaining every direction separately.
+
+For stopped sums the terminal reward and stopping rule must also
+factor through the displayed state, as they do for all the terminal
+sets used here. The zero-step reward then pulls back, and the
+intertwining identity inductively gives
+\(T_{\rm raw}^jg_{\rm raw}=\pi^*(T_Q^jg_Q)\) for each \(j\).
+Summing finitely many such identities proves the stopped-sum
+assertion. No property of a partition-minimization algorithm is used.
+\end{proof}
+
+\begin{proposition}\label{p:automaton10}
+There are \(60092\) raw windows in \(\Omega_{10}\).
+The supplied map to \(Q=\{0,\ldots,3740\}\), with its supplied
+representative per class, is surjective and satisfies every
+hypothesis of Lemma~\ref{l:automaton-quotient}.
+Its admissible labelled edges consist of \(2516\) straight,
+\(5032\) turning and \(1872\) revisit edges.
+\end{proposition}
+
+\begin{proof}[Finite reconstruction contract]
+For this file, in contrast to the H2 orbit file, the direction code
+is most-significant-first:
+\[
+ e_m(d_1,\ldots,d_m)=\sum_{i=1}^m d_i4^{m-i}.
+\]
+The header of \texttt{windows\_m10\_min.txt} is
+\((60092,3741)\). It is followed by \(60092\) pairs
+\((e_{10}(\omega),\pi(\omega))\), and then one row per class.
+A class row consists of its representative code, four successor
+class numbers and four kinds, in absolute order E,N,W,S.
+An inadmissible direction has successor and kind both \(-1\);
+the kind numbers \(0,1,2\) mean \({\rm s},{\rm t},{\rm r}\).
+
+The generating recursion in the proof of
+Proposition~\ref{p:H2-test}, now continued to depth ten and ordered
+lexicographically, defines the index set independently of the file.
+Its finite cardinality checks, including useful intermediate counts,
+are
+\[
+ \begin{array}{c|rrrrrrrrrr}
+ j&1&2&3&4&5&6&7&8&9&10\\ \hline
+ |\Omega_j|&4&12&36&108&316&916&2628&7500&21268&60092.
+ \end{array}
+\]
+As proved for that recursion, no word is missing or duplicated.
+The remaining finite assertions are these: the map rows list exactly
+these words in that order; all class numbers lie in
+\(\{0,\ldots,3740\}\); each representative is a generated word
+and maps to its own class; and the file has exactly the stated
+number of rows.
+
+For every raw word, regenerate its endpoint, its used bonds, and its
+earlier departure vertices. For each of its four directions, compare
+admissibility and kind with its representative, compare the image
+of its successor with the stored successor, and, for every admitted
+non-revisit direction, compare final directions. The finite check
+requires equality in each comparison. Thus it verifies precisely
+the hypotheses of Lemma~\ref{l:automaton-quotient}, including the
+final-direction condition. Representatives mapping to their classes
+prove surjectivity. Counting the admitted directions in the class
+rows gives the integer assertions \(2516,5032,1872\), respectively.
+This specifies the finite automaton check completely and makes no
+minimality or spatial-symmetry assertion.
+\end{proof}
+
+\begin{definition}\label{d:phaseweights}
+The phases are \({\rm A},{\rm B},{\rm C},{\rm D}\). Their
+diagonal transition weights, in kind order \({\rm s},{\rm t},{\rm r}\), are
+\[
+ \begin{array}{c|ccc}
+ {\rm A}&x_{\rm s}/3&x_{\rm t}/3&1/5\\
+ {\rm B}&x_{\rm s}/3&1/3&1/5\\
+ {\rm C}&x_{\rm s}/3&1/3&1/5\\
+ {\rm D}&1/3&1/3&1/5
+ \end{array}
+\]
+At a first visit with reward \(\kappa_h\), additionally allow
+\({\rm A}\to{\rm C}\) with weight \(x_{\rm t}\kappa_h/3\) on a turn,
+or \({\rm B}\to{\rm D}\) with weight \(x_{\rm s}\kappa_h/3\)
+on a straight passage. No other phase change is allowed.
+At a revisit there is no phase change.
+Start with weight one in each of \({\rm A},{\rm B}\);
+the terminal reward is \(g=(0,0,1,1)\).
+For a true trail, use its actual revisit kinds and its actual
+type-dependent live-pair reward from Definition~\ref{d:kernel}.
+\end{definition}
+
+Here \(\kappa_h=\sum_{Y,s}\kappa_{Y,s}h_Y\). In the free
+three-neighbour rule its two possible values are
+\[
+ \kappa_{h,\rm s}^{\circ}=a_{\rm s}+2b_{\rm s}h_C,
+ \qquad
+ \kappa_{h,\rm t}^{\circ}=b_{\rm t}+(a_{\rm t}+b_{\rm t})h_C.
+\]
+Indeed, the pair of non-outgoing neighbours is opposite on a
+straight passage and perpendicular on a turn; among the two pairs
+with the outgoing neighbour, both are perpendicular in the straight
+case, and one is opposite in the turning case. A sole surviving
+pair instead gives \(b'_\tau h_Y\) with its actual pair type \(Y\).
+
+\begin{lemma}\label{l:phase-expansion}
+Let \(w\in\mathcal T_n^X\) with \(n>12\), and let \(\sigma_w\)
+be the ordering of Definition~\ref{d:kernel-order}: straight first
+departures in increasing path order, followed by turning first
+departures in increasing path order. Then its \(h\)-weighted
+contribution to \(M_1\) equals the sum over phase histories starting in
+\({\rm A}\) or \({\rm B}\) and ending in \({\rm C}\) or \({\rm D}\)
+of the products of the weights in Definition~\ref{d:phaseweights}.
+Equivalently this sum is
+\[
+ 3^{-|w|}(3/5)^{\operatorname{rev}(w)}
+       \sum_k\kappa_h(\sigma_w(k))\prod_{l\le k}x_{\sigma_w(l)}.
+\]
+Splitting such a phase history at any prefix length gives the
+product of its exact prefix weight and its corresponding suffix weight.
+\end{lemma}
+
+\begin{proof}
+Put \(n=|w|\). An allowed phase history which starts in A and
+has nonzero terminal reward must change from A to C exactly once.
+There is no other way to enter C, and no transition leaves C.
+Its change occurs at a unique turning first departure \(j\).
+Before that departure the diagonal factors are
+\(x_{\rm s}/3,x_{\rm t}/3,1/5\) on straight, turning and revisit
+departures. At \(j\) the factor is
+\(x_{\rm t}\kappa_h(j)/3\). After it the factors are
+\(x_{\rm s}/3,1/3,1/5\). Their product is therefore
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}\kappa_h(j)
+ x_{\rm s}^{\#\{\text{straight first departures}\}}
+ x_{\rm t}^{\#\{\text{turning first departures at indices }i\le j\}}.
+\]
+These are precisely the first departures at or before \(j\) in
+the straight-first ordering, including all straight first departures
+even if their path indices exceed \(j\).
+
+A history starting in B with nonzero terminal reward changes from
+B to D exactly once, at a straight first departure \(j\). Its
+factors before, at and after that departure similarly give
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}\kappa_h(j)
+ x_{\rm s}^{\#\{\text{straight first departures at indices }i\le j\}}.
+\]
+These are exactly the first departures at or before that \(j\) in
+the same ordering. No revisit can be the changing departure.
+There is thus one allowed history for each candidate responding
+first departure; if its reward is zero both corresponding terms
+are zero. Summing over all such departures gives the displayed
+identity. Since \(n>12\), this is the ordering fixed in
+Definition~\ref{d:kernel-order}, hence the claimed contribution
+to \(M_1h\).
+
+Finally split a history after \(r\) departures, \(0\le r\le n\).
+Its edge-weight product is the product of the factors with indices
+less than \(r\) and those with indices at least \(r\).
+Grouping by the phase at the split proves the factorization.
+When used for a true suffix, its weights retain the prefix history
+in deciding revisits and dead neighbours. The assertion requires
+no independence or loss of that history.
+\end{proof}
+
+\begin{definition}\label{d:stationary-walk}
+Fix \(X=B,C\), \(d_0\in\{{\rm N},{\rm W},{\rm S}\}\),
+the sites \(u,c,v\) of Definition~\ref{d:kernel}, and \(a=u+d_0\).
+The state space is
+\(\{{\rm A},{\rm B},{\rm C},{\rm D}\}\times Q\times\mathbb Z^2\).
+At positions \(c,v\) there are no outgoing transitions.
+At any other position \(x\), an admissible automaton direction \(d\)
+goes to position \(x+d\) and the quotient successor window.
+At \(x=u\) or \(a\), forbid reuse of \(\{u,a\}\) in either
+direction and kill every memory-detected revisit departure;
+every other allowed departure there has weight \(1/5\),
+in the same phase and with no response.
+At other positions use the automaton kind and the phase weights.
+For a non-revisit response, declare only \(c\) dead among the three
+neighbours other than the arrival site, and use the type-dependent
+three-neighbour or two-neighbour reward rule of Definition~\ref{d:kernel}.
+A transition into \(c\) has zero contribution.
+Let \(T_{X,d_0}\) be this nonnegative backward operator, with zero
+terminal rows, and \(g(\varphi,q,x)=\mathbf1_{\{x=v\}}g_\varphi\).
+The free operator \(\mathsf W\) omits positions and special-site
+rules, uses the same quotient automaton and phase weights, and
+treats all three response neighbours as live.
+\end{definition}
+
+Directions remain separate summation indices even if two automaton
+edges share a successor class. The position displacement of an edge
+is its actual direction. Thus, for a function \(H\), the operator
+means the finite sum
+\[
+ (T_{X,d_0}H)(\varphi,q,x)
+   =\sum_{d,\psi}t_{X,d_0}(\varphi,q,x;d,\psi)
+                         H(\psi,q d,x+d),
+\]
+where forbidden transitions have coefficient zero. One may delete
+edges into the centre because its continuation value is zero.
+The quotient operator is well-defined by
+Lemma~\ref{l:automaton-quotient}.
+
+\begin{lemma}\label{l:stationary-domination}
+Let \(P=(v_0,\ldots,v_L)\) be a true prefix avoiding \(c,v\),
+with \(v_0=u\), \(v_1=u+d_0\), and \(L\ge m+2\), \(m=10\).
+Every true continuation to its first hit of \(v\), together with
+each phase history, is dominated by the corresponding path of
+\(T_{X,d_0}\) from its prefix phase, last-window class and endpoint.
+The comparison holds for every finite suffix horizon and hence
+for their nonnegative suprema.
+In this comparison:
+forgotten true revisits have weight \(1/5\) no greater than any
+relaxed first-visit diagonal weight; forgetting dead non-outgoing
+neighbours only increases the reward, using \(b'_\tau\le b_\tau\);
+and the known-site killing rules cannot kill a true continuation.
+Indeed, the known initial departures at times \(0,1\) are outside
+the memory at every suffix time, and a memory-detected additional
+departure at \(u\) or \(u+d_0\) would be a forbidden third departure.
+\end{lemma}
+
+\begin{proof}
+Fix a true completed trail extending \(P\), of length \(n>L\),
+and one of its phase histories. At a suffix departure time
+\(j\), \(L\le j<n\), its last \(m\) directions form a raw
+window. The next bond is not a used window bond, and reversing
+would reuse its last bond. Its direction is therefore admitted by
+the raw automaton and, by Lemma~\ref{l:automaton-quotient}, by the
+quotient. The new window class is the quotient successor.
+The centre is never visited. The target is not visited before time
+\(n\); its terminal reward is exactly the phase reward. Thus the
+centre and target stopping rules discard none of these histories.
+
+We verify the permanent initial-site rules explicitly. The bond
+\(\{u,a\}\) was used at time zero and cannot be reused in either
+direction by a true trail. Both \(u\) and \(a\) have already
+been departed from, at times zero and one respectively; these
+departures exist because \(L\ge12\), and neither site is the
+target. Any suffix departure from either site is consequently a
+true revisit and has diagonal weight \(1/5\) and no response.
+At a suffix time \(j\), the remembered departure indices are
+\(j-m,\ldots,j-1\). Since \(j-m\ge L-m\ge2\), these do not
+include times zero or one. A detected revisit at one of the two
+known sites would therefore certify another departure there in
+addition to its initial departure and its current departure.
+
+Such a third departure is impossible by distinctness of the used
+bonds. At \(u\), the first departure consumes one bond, and each
+later departure requires a distinct arrival bond and a distinct
+departure bond. Three departures would consume at least five
+bonds; only three are available when \(c\) is excluded.
+Here \(a\) is one of \((-1,1),(-2,0),(-1,-1)\), so it is distinct
+from \(u,c,v\) in both rows. At \(a\), the initial arrival and
+departure consume two
+bonds, and two further departures would each consume two additional
+bonds, requiring six among four. Consequently the detected-revisit
+killing rule cannot kill the chosen history. An allowed departure
+from a known site has exactly its true weight \(1/5\).
+
+Now suppose the departure site is neither known site. If the
+window detects a revisit, it contains an earlier departure from
+that site; this is a true revisit, so the diagonal factors agree
+and no phase change occurs. If the true departure is a revisit
+which the window has forgotten, keep the same phase in the relaxed
+history. Every relaxed first-visit diagonal factor is at least
+\(1/3\), and hence at least the true \(1/5\). No responding
+departure is lost in this case, because a true revisit never responds.
+
+At a true first departure the window also has a first departure,
+with the same incoming and outgoing directions. Its diagonal factors
+agree. For a responding departure compare the rewards as follows.
+The centre is truly dead, so every neighbour declared dead in the
+relaxation is truly dead. If both true non-outgoing neighbours are
+live, the relaxed and true pair rules coincide. If precisely one is
+live and the relaxation retains the other as dead, the rules again
+coincide. If the relaxation forgets that dead neighbour, its
+coefficient on the existing pair increases from \(b'_\tau\) to
+\(b_\tau\), and its other added pair coefficients are nonnegative.
+If both true non-outgoing neighbours are dead, the true reward is
+zero. These cases, together with \(0<b'_\tau\le b_\tau\) and
+\(h_B,h_C>0\), prove that the relaxed response factor is at least
+the true response factor. The outgoing neighbour cannot be dead
+on a true continuation, and a true transition never enters \(c\).
+
+Multiplying the comparisons proves domination of the chosen
+history. For a fixed prefix and a specified phase at the split,
+its lattice suffix and its suffix phase history are determined by
+the successive positions and phases of its relaxed path:
+consecutive positions determine the absolute direction. Thus the
+map from true suffix histories to relaxed histories is injective even
+though raw windows have been quotiented. Summing the comparisons
+over histories and lengths up to any finite suffix horizon proves
+the finite-horizon assertion. Taking suprema of these nonnegative
+finite sums proves the final assertion. No rule is released at a
+later time.
+\end{proof}
+
+\begin{lemma}\label{l:Bellman-soundness}
+Let \(T\) be a nonnegative, finitely branching weighted transition
+operator on a set of states, with zero rows on a terminal set.
+Let \(g\ge0\) be supported on that terminal set.
+If a finite-valued function \(F\ge0\) satisfies
+\(g+TF\le F\), then for every integer \(n\ge0\),
+\[
+ \sum_{j=0}^{n}T^jg\le F .
+\]
+Consequently the nonnegative sum of all finite first-hit path
+weights times their terminal rewards is finite and at most \(F\).
+It suffices that \(F=g\) on terminal states and \(TF\le F\)
+elsewhere.
+\end{lemma}
+
+\begin{proof}
+Write \(H_n=\sum_{j=0}^nT^jg\). Each value is a finite sum,
+because the operator is finitely branching and \(n\) is finite.
+Nonnegativity implies that \(T\) preserves pointwise inequalities.
+For \(n=0\), \(H_0=g\le g+TF\le F\). If \(H_n\le F\), then
+\[
+ H_{n+1}=g+TH_n\le g+TF\le F.
+\]
+This proves the assertion by induction.
+
+Expanding \(T^jg\) as a finite sum over its successive edges
+shows that it counts length-\(j\) paths ending at a state with
+terminal reward. A path visiting a terminal state earlier has a
+zero outgoing factor, so only first-hit paths have a nonzero
+contribution. Conversely each such path appears once, with its
+edge-weight product and its terminal reward. The nonnegative sum
+over all finite lengths is by definition \(\sup_n H_n\), bounded
+by the finite number \(F\) at each initial state. At a terminal
+state the row is zero, so \(F=g\) implies the supersolution
+inequality there; outside the terminal set \(g=0\), so it is just
+\(TF\le F\). This proves the sufficiency statement, including
+terminal states of reward zero.
+\end{proof}
+
+\begin{definition}\label{d:stationary-certificate}
+For a case \((X,d_0)\), fix \(R=70\),
+\(B_R=\{-R,\ldots,R\}^2\), \(V=2^{16}\), and \(D_3=2^{48}\).
+Supply integers \(Z_{\varphi,q}>0\) and
+\(U_{\varphi,q,x}\ge0\), \(x\in B_R\).
+Set \(\widetilde U_{\varphi,q,x}=U_{\varphi,q,x}\) inside \(B_R\)
+and \(Z_{\varphi,q}\) outside, and \(F=\widetilde U/V\), \(z=Z/V\).
+For each individual transition coefficient \(t\) of the exact
+stationary or free operator, use the proved rational ceiling
+\(\widehat t=p(t)/D_3\), \(p(t)=\lceil D_3t\rceil\);
+zero coefficients may be omitted.
+The certificate checks all the following:
+\[
+ \begin{gathered}
+ \sum_{\text{free edges }e\text{ from }(\varphi,q)}
+       p(t_e)Z_{\operatorname{dest}(e)}
+       \le D_3Z_{\varphi,q},\qquad Z_{{\rm C},q},Z_{{\rm D},q}\ge V,\\
+ 0\le U_{\varphi,q,x}\le Z_{\varphi,q},\qquad
+ U_{\varphi,q,c}=0,\qquad U_{\varphi,q,v}=Vg_\varphi,\\
+ \sum_{\text{stationary edges }e\text{ from }(\varphi,q,x)}
+       p(t_e)\widetilde U_{\operatorname{dest}(e)}
+       \le D_3 U_{\varphi,q,x}
+       \quad(x\in B_R\setminus\{c,v\}).
+ \end{gathered}
+\]
+All tests are integer inequalities on the regenerated automaton,
+directions, phases and lattice sites, not on a trusted supplied matrix.
+\end{definition}
+
+An individual transition here fixes a direction and a next phase;
+the response pairs belonging to that phase change are summed before
+its coefficient is rounded. The definition uses ceilings only for
+the finite check; the operators themselves retain their exact
+rational coefficients.
+
+For explicit reconstruction of those coefficients, encode directions
+by \(0,1,2,3=\mathrm E,\mathrm N,\mathrm W,\mathrm S\).
+For an admitted non-revisit edge with incoming direction \(a\)
+and outgoing direction \(d\), put
+\(\{f,g\}=\{0,1,2,3\}\setminus\{a+2,d\}\), with addition
+modulo four. For distinct directions define
+\(H(e,e')=1\) for opposite directions and \(H(e,e')=h_C\)
+for perpendicular directions. If \(\delta\) specifies the direction
+from the site to \(c\), use \(\delta=4\) when \(c\) is not a
+neighbour. For an edge not entering \(c\), its response reward is
+\[
+ K(a,d,\delta)=
+ \begin{cases}
+ b'_\tau H(g,d),&\delta=f,\\
+ b'_\tau H(f,d),&\delta=g,\\
+ a_\tau H(f,g)+b_\tau[H(f,d)+H(g,d)],&\delta\notin\{f,g\},
+ \end{cases}
+ \qquad \tau=\begin{cases}{\rm s},&d=a,\\{\rm t},&d\ne a.\end{cases}
+\]
+The change-of-phase coefficient is \(x_\tau K/3\). For the free
+operator use \(\delta=4\). Diagonal coefficients and revisit
+coefficients are those in Definition~\ref{d:phaseweights};
+at known sites apply the stated killing and \(1/5\) rules.
+If \(t=A/B\ge0\) with integers \(A\ge0,B>0\), its ceiling is
+\[
+ p(t)=\left\lfloor\frac{D_3A+B-1}{B}\right\rfloor,
+ \qquad D_3A\le Bp(t),
+\]
+and, when \(A>0\), \(B(p(t)-1)<D_3A\). These integer relations
+prove \(t\le p(t)/D_3\), including \(t=0\) with \(p(t)=0\).
+In particular the diagonal ceiling numerators, in the order
+\(x_{\rm s}/3,x_{\rm t}/3,1/3,1/5\), are
+\[
+ 97632666219444,\quad100347585280092,\quad
+ 93824992236886,\quad56294995342132 .
+\]
+All response ceilings are specified by the same rational formula
+with the exact constants of Lemma~\ref{l:log-mean-bounds} and the
+exact dyadic \(h_C\); a decimal replacement of \(h_C\) is not used.
+
+\begin{lemma}\label{l:stationary-local-global}
+Every certificate of Definition~\ref{d:stationary-certificate}
+defines a finite-valued \(F\) on the entire lattice with
+\(F=z\) outside \(B_R\), \(F\le z\), and
+\[
+ g+T_{X,d_0}F\le F .
+\]
+For an inside site this follows from its checked integer row and
+coefficient ceilings. For an outside site every successor value
+is at most its corresponding \(z\), and the exact stationary row
+is dominated by the free row; the checked free inequality
+implies \(\mathsf Wz\le z\).
+Thus \(F\) bounds every stopped continuation as in
+Lemma~\ref{l:Bellman-soundness}.
+\end{lemma}
+
+\begin{proof}
+There are finitely many phases and window classes and finitely many
+stored sites. Their integer values, and each positive integer
+\(Z_{\varphi,q}\), are finite, so the extension defines a
+nonnegative finite-valued \(F\) at every state. The caps prove
+\(F\le z\) everywhere; outside the square equality holds.
+
+Divide a checked free integer row by \(D_3V>0\). Since every
+coefficient is at most its ceiling and every \(Z\) is nonnegative,
+the result implies
+\[
+ (\mathsf Wz)_{\varphi,q}
+ \le\frac1{D_3V}\sum_{e}p(t_e)Z_{\operatorname{dest}(e)}
+ \le Z_{\varphi,q}/V=z_{\varphi,q}.
+\]
+At an inside nonterminal site the identical argument, with
+\(\widetilde U\) at each successor, gives \(TF\le F\).
+This includes every edge leaving the square; its successor is
+assigned the specified \(Z/V\), with no periodic identification.
+
+We justify also the free-row comparison used outside. Ignoring
+positions, a non-special stationary edge has the same diagonal
+coefficient as the corresponding free edge. Its response coefficient
+is no greater: when one non-outgoing neighbour is the centre the
+surviving coefficient \(b'_\tau\) is at most the free coefficient
+\(b_\tau\), and the other free pair contributions are nonnegative.
+Otherwise the response coefficients agree. Removing an edge into
+the centre can only decrease a row. At a known site the diagonal
+coefficient is reduced to \(1/5\), which is no larger than any
+free diagonal coefficient, all response coefficients are removed,
+and additional edges may be killed. At a terminal site all outgoing
+coefficients vanish. Thus every stationary row is dominated, after
+positions are forgotten, by the free row with the same phase and
+window, retaining directions and next phases separately.
+
+For an outside site, each successor value is at most its
+corresponding \(z_{\psi,q'}\). The preceding comparison therefore
+gives
+\[
+ (TF)(\varphi,q,x)\le(\mathsf Wz)_{\varphi,q}
+                       \le z_{\varphi,q}=F(\varphi,q,x).
+\]
+Both terminals \(c,v\) are inside \(B_{70}\). Their checked
+values give \(F=g\) there, with zero outgoing rows; at all other
+states \(g=0\). This proves \(g+TF\le F\) everywhere, and
+Lemma~\ref{l:Bellman-soundness} applies. The terminal lower bounds
+on \(Z\) are also consistent with the target caps and ensure that
+the target reward never exceeds its corresponding outside cap.
+\end{proof}
+
+\begin{definition}\label{d:prefix-bound}
+For each case \((X,d_0)\), let \(S_{X,d_0}\) be the exact
+\(h\)-weighted kernel sum over trails in \(\mathcal T_n^X\) of lengths
+\(1\le n\le L=12\)
+with first direction \(d_0\), using their prescribed short-trail orderings.
+Let \(\mathcal P_{X,d_0,L}\) be all true length-\(L\) prefixes
+avoiding \(c\) and \(v\), with first direction \(d_0\).
+For \(P\) in this set, let \(p_\varphi(P)\) be the sum of its
+exact phase-history products ending in phase \(\varphi\), starting
+with weights one in A and B. Use actual trail revisits, actual dead
+neighbours and the type-dependent rewards, with the long-trail
+straight-first phase weights.
+Write \(x(P)\) for its endpoint and \(q(P)\) for its last-window class.
+For the potential of its case define the rational number
+\[
+ J_{X,d_0}=S_{X,d_0}
+       +\sum_{P\in\mathcal P_{X,d_0,12}}\sum_\varphi
+                    p_\varphi(P)F(\varphi,q(P),x(P)).
+\]
+A hit at time \(12\) is in \(S_{X,d_0}\), not in the prefix sum.
+\end{definition}
+
+Here is a finite recursive definition of the enumeration and of all
+its rational summands. It also fixes precisely what is to be
+evaluated in Proposition~\ref{p:stationary-check}. A node at time
+\(j\le12\) records its full direction word, current position \(x\),
+used unoriented bonds \(E\), and counts \(N(y)\) of earlier
+departures from every encountered site. Initially these are
+\(j=0,x=u,E=\varnothing,N=0\), with incoming direction
+\(u-c=\mathrm W\). Its four phase weights are
+\((p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})=(1,1,0,0)\).
+There are three mutually exclusive terminal cases for a node:
+\begin{enumerate}
+\item If \(x=v\), add its exact short-trail value to \(S_{X,d_0}\)
+and produce no children. Test this case before the length cutoff.
+\item If \(j=12\) and \(x\ne v\), add its phase-vector dot product
+with \(F(\cdot,q(P),x)\) to the prefix sum, and produce no children.
+\item Otherwise, try each of the four directions \(d\). At
+\(j=0\) retain only \(d=d_0\). At every time discard a move to
+\(c\), a move along a used unoriented bond, and the initial
+reverse direction. For every remaining move, increment \(N(x)\),
+adjoin its bond to \(E\), move to \(x+d\), and recurse.
+\end{enumerate}
+All children use copies of the parent's data. At a noninitial node
+the reverse of its incoming direction is already excluded by the
+used-bond test. The true kind is a revisit exactly when the
+preincrement value \(N(x)\) is positive. On a first departure
+compute \(\kappa=\kappa_h\) using the predeparture counts: a
+neighbour \(y\) is dead exactly when \(y=c\) or \(N(y)\ge2\).
+The outgoing neighbour of an allowed true extension is not dead.
+Use the actual three-, two-, or zero-pair rule of
+Definition~\ref{d:kernel}, without a ceiling.
+
+The phase-vector update for a revisit divides all four components
+by five. For a straight first departure it is
+\[
+ (p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})\longmapsto
+ \left(\frac{x_{\rm s}p_{\rm A}}3,
+       \frac{x_{\rm s}p_{\rm B}}3,
+       \frac{x_{\rm s}p_{\rm C}}3,
+       \frac{p_{\rm D}+x_{\rm s}\kappa p_{\rm B}}3\right);
+\]
+for a turning first departure it is
+\[
+ (p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})\longmapsto
+ \left(\frac{x_{\rm t}p_{\rm A}}3,
+       \frac{p_{\rm B}}3,
+       \frac{p_{\rm C}+x_{\rm t}\kappa p_{\rm A}}3,
+       \frac{p_{\rm D}}3\right).
+\]
+These formulas use the old components on their right sides.
+For a hit at time \(n\le12\), recover the list of actual first
+departures \((x_i,\kappa_h(i))\), sort it by the key in
+Definition~\ref{d:kernel-order}, including its path-index tie rule,
+and evaluate
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}
+       \sum_k\kappa_h(\sigma_w(k))\prod_{l\le k}x_{\sigma_w(l)}.
+\]
+The phase weights of a short hit are not substituted for this
+short-trail expression.
+
+We record why this recursion is exact. Inductively, every generated
+node is a true bond trail avoiding \(c\), with no previous hit of
+\(v\), except for a terminal node whose endpoint is its first
+hit. The used set and departure counts agree with the word by
+their update rules. Conversely, every such word of positive length
+has its unique shorter parent, and its last direction passes
+exactly the tests above. Induction on length therefore proves
+completeness without duplication, including all first hits at
+length twelve. At any revisited noninitial site each previous
+arrival/departure pair uses two distinct bonds. A third departure
+would require six bonds. At \(u\), a third departure would require
+five, whereas only three avoid \(c\). Thus no branch can depart
+from a twice-departed neighbour; equivalently every allowed outgoing
+neighbour is live. These observations justify both the departure
+counts and the actual dead-site rule at every node. More explicitly,
+a twice-departed noninitial site has used all four of its incident
+bonds, so a further arrival there is impossible. A twice-departed
+\(u\) has used all three bonds available after exclusion of \(c\).
+This proves the asserted outgoing-neighbour property even for a
+move that would otherwise be the last step of a branch.
+
+Induction on length using the displayed updates proves that the
+phase vector is exactly the sum of phase-history products. Keeping
+the full word and counts makes each \(\kappa_h(i)\) its value at
+the time of that departure; later changes of a neighbour's status
+do not change an earlier reward. The short sorting is an exact
+comparison of rationals: for positive rewards compare
+\[
+ (x_i-1)x_j\kappa_h(j)\quad\hbox{and}\quad
+ (x_j-1)x_i\kappa_h(i).
+\]
+Zero rewards have key \(+\infty\). If equal-key entries are grouped
+in an implementation, their value is unchanged by exchanging
+them: with preceding product \(P\), the difference between the
+two orders is
+\[
+ P\bigl[x_j\kappa_h(j)(x_i-1)
+         -x_i\kappa_h(i)(x_j-1)\bigr]=0.
+\]
+The product following both entries is also unchanged. This proves
+agreement with the path-index tie rule even for a grouped evaluation.
+
+There are finitely many branches, of depth at most twelve.
+Every coefficient, every potential value and every summand is
+rational. For example a common denominator for all possible phase
+edge coefficients is
+\[
+ \Delta=12139925673538045870080000.
+\]
+It is divisible by the denominators of \(1/3,1/5,x_{\rm s}/3,
+x_{\rm t}/3\) and of every possible
+\(x_\tau\kappa_h/3\) from the two types and the four choices of
+dead non-outgoing neighbours. This is a finite rational divisibility
+check with the displayed constants. Multiplying phase weights by
+\(\Delta^j\) makes every update integral. If \(A\) is the sum
+of the resulting length-twelve phase numerators times the
+corresponding stored \(U\) entries, its exact tail contribution is
+\(A/(\Delta^{12}V)\). Adding the independently evaluated rational
+short part specifies \(J_{X,d_0}\) by finite integer arithmetic.
+
+For a compact endpoint lookup, every length-twelve endpoint satisfies
+\(|x-u|_1\le12\) and
+\((x_1-u_1)+(x_2-u_2)\equiv12\pmod2\): each nearest-neighbour
+step changes this parity and changes distance by at most one.
+All these sites lie in \(B_{70}\). A compact table must copy the
+entry with spatial index
+\((x_1+70)141+(x_2+70)\) from the full potential, for every phase
+and referenced window class. This identity, checked for every
+referenced coordinate, justifies the lookup. Parity is used only
+to identify possible endpoints, and introduces no numerical factor.
+
+\begin{lemma}\label{l:prefix-domination}
+For every case whose integer certificate passes, the \(h\)-weighted
+contribution of all kernel trails of that first direction,
+over every length, is at most \(J_{X,d_0}\).
+This holds uniformly for every finite length cutoff, with the same
+upper bound. The short part uses the exact order through \(12\);
+all longer trails split uniquely into a surviving length-\(12\)
+prefix and a dominated stopped suffix.
+\end{lemma}
+
+\begin{proof}
+Fix a finite total-length cutoff \(R_0\). Trails of length at most
+\(\min(R_0,12)\) contribute a sub-sum of \(S_{X,d_0}\), because
+their weights are nonnegative and their orderings are exactly the
+specified short orderings. This includes any hit at time twelve.
+
+If \(R_0>12\), every remaining true trail has a unique first twelve
+steps \(P\), which avoid \(c\) and \(v\), and a suffix of positive
+length at most \(R_0-12\), stopping at its first hit of \(v\).
+Its prescribed ordering is straight-first, so
+Lemma~\ref{l:phase-expansion} applies to its full contribution.
+Split each phase history after those twelve departures and group
+by its phase \(\varphi\). The sum of the prefix factors is exactly
+\(p_\varphi(P)\). Lemma~\ref{l:stationary-domination} bounds the
+sum of its true suffix factors and terminal rewards by the
+corresponding stationary stopped sum from
+\((\varphi,q(P),x(P))\). This comparison is valid for the chosen
+cutoff and with the full true prefix as initial history.
+Lemmas~\ref{l:stationary-local-global} and
+\ref{l:Bellman-soundness} bound that stopped sum by
+\(F(\varphi,q(P),x(P))\), independently of the cutoff.
+
+There are finitely many length-twelve prefixes. For each, multiplying
+by its nonnegative phase weights and then summing yields the prefix
+term in \(J_{X,d_0}\). Even if two prefixes have the same class,
+endpoint and phase, their separate prefix weights remain in the
+sum, so quotienting loses no multiplicity. Adding the short bound
+gives the assertion for \(R_0\). For \(R_0\le12\), including
+\(R_0=0\), the nonnegative prefix term may simply be added to the
+short bound. Taking the supremum over all finite cutoffs proves
+the all-length assertion.
+\end{proof}
+
+\begin{lemma}\label{l:kernel-reflection}
+For row B, reflection \((x_1,x_2)\mapsto(x_1,-x_2)\) fixes
+\(c,u,v\), interchanges the first directions N and S, and preserves
+every trail weight, type, dead pair, shift, \(h\)-reward and
+prescribed ordering. Hence the true B/N and B/S kernel contributions
+are equal at every length and every finite cutoff.
+No corresponding reduction is asserted for row C.
+\end{lemma}
+
+\begin{proof}
+Let \(r(x_1,x_2)=(x_1,-x_2)\). In row B it fixes the three
+specified sites and the incoming direction \(\mathrm W\), and
+interchanges \(\mathrm N\) and \(\mathrm S\). It maps each
+unoriented nearest-neighbour bond bijectively to such a bond. Thus
+\(w\mapsto rw\) is a bijection, inverse to itself, between the
+two first-direction classes, preserving length, centre avoidance,
+first-hit stopping and the set of path indices of earlier
+departures. At every index it preserves straightness, turning,
+revisit status and every departure count.
+
+It maps the three non-arrival neighbours to the corresponding
+neighbours of the reflected departure, and fixes the centre as a
+set. Hence a neighbour is dead if and only if its image is dead.
+It preserves the outgoing neighbour and may interchange the two
+other slots, whose rules are symmetric. The actual assigned
+coefficients \(a_\tau,b_\tau,b'_\tau\) therefore agree for each
+corresponding live pair. Opposite pairs remain opposite and
+perpendicular pairs remain perpendicular, so their types and
+\(h\)-weights agree. Since \(r\) is an isometry and fixes \(u,v\),
+\[
+ \max_{z\in p}\min\{d(z,u),d(z,v)\}
+ =\max_{z\in rp}\min\{d(z,u),d(z,v)\}.
+\]
+Thus shifts agree as well.
+
+Each first departure has the same rational ordering key on both
+trails. Its path index is unchanged, so the short ordering including
+tie breaking is preserved. The long straight-first ordering is
+preserved for the same reason. All products and response sums
+in Definition~\ref{d:kernel} consequently agree. Summing the
+bijection at a fixed length, and then over any finite length cutoff,
+proves the assertion. No equality of automaton classes or of
+stationary potentials under \(r\) is needed.
+\end{proof}
+
+\begin{proposition}\label{p:stationary-check}
+For the five cases B/N, B/W, C/N, C/W, C/S, there exist
+integer arrays \(Z,U\) satisfying every check in
+Definition~\ref{d:stationary-certificate}, with
+\(m=10,L=12,R=70\) and the specified scales.
+Their regenerated quotient has \(3741\) states and the spatial
+square has \(19881\) sites. Their exact rational prefix evaluations obey
+\[
+ \begin{array}{c|ccccc}
+ (X,d_0)&(B,{\rm N})&(B,{\rm W})&(C,{\rm N})&(C,{\rm W})&(C,{\rm S})\\ \hline
+ 10^9J_{X,d_0}\ \le&
+ 351207554&290599163&527872005&380754375&273048088
+ \end{array}
+\]
+Each displayed upper bound denotes an exact integer inequality
+after clearing the rational prefix denominator.
+\end{proposition}
+
+\begin{proof}[Finite data and evaluation contract]
+The five witnesses are the files
+\[
+ \texttt{stationary\_}\!X\texttt{\_m10\_R70\_d}j
+                  \texttt{\_coarse.bin.gz},
+ \qquad (X,j)=(B,1),(B,2),(C,1),(C,2),(C,3),
+\]
+in the archived data directory. Here \(1,2,3\) mean
+\(\mathrm N,\mathrm W,\mathrm S\). After decompression each file
+has nine little-endian signed 64-bit header integers
+\[
+ [10,12,70,3741,19881,v_1,v_2,16,j],
+\]
+where \((v_1,v_2)=(1,0)\) for B and \((0,1)\) for C.
+It then has \(4\cdot3741\) unsigned 32-bit integers for \(Z\),
+followed by \(4\cdot3741\cdot19881\) unsigned 32-bit integers
+for \(U\), and no other payload. Phases are ordered A,B,C,D,
+then class numbers in the order of
+Proposition~\ref{p:automaton10}; for \(U\), the last index is
+\((x_1+70)141+(x_2+70)\). This identifies each supplied literal
+with a mathematical array index. In particular,
+\(19881=141^2\), rather than a periodic spatial state count.
+
+The finite assertions on these arrays are exactly every integer
+inequality and equality in Definition~\ref{d:stationary-certificate}.
+For each of the \(4\cdot3741\) phase/class indices, require
+\(Z>0\), its free row inequality, and the C,D lower terminal
+bounds. For each of the \(4\cdot3741\cdot19881\) stored
+phase/class/site indices, require \(0\le U\le Z\), the specified
+center and target equalities, and the nonterminal stationary row
+inequality when appropriate. The coefficients are regenerated
+from the exact formulas following that definition, not inferred
+from floating values stored in a program.
+
+For clarity, all four direction choices, both diagonal and
+change-of-phase possibilities, and every admitted successor are
+included in those rows. At a known site remove the initial bond
+directions and every detected-revisit direction, use \(1/5\) on
+the remaining same-phase edges, and include no response edge.
+At the centre and target check the terminal values instead of an
+outgoing row. For an outside successor substitute its \(Z\) entry.
+The quotient transitions and representative incoming directions
+are justified by the raw reconstruction in
+Proposition~\ref{p:automaton10}. In particular a class with mixed
+incoming directions can be used only on revisit transitions, for
+which no response direction is needed.
+
+There are \(4\cdot3741\cdot(19881-2)=297469356\) nonterminal
+local component inequalities per file, as well as all the free,
+cap and terminal checks just specified. These are exact integer
+inequalities over the five supplied arrays; gzip checksums or the
+termination status of a native checker are not substitutes for them.
+
+Evaluate the finite recursion following
+Definition~\ref{d:prefix-bound} against these same arrays, retaining
+their exact class and coordinate indices. Completeness of that
+recursion and the phase-vector update have already been proved
+there. The resulting finite enumeration checks, in the column
+order of the proposition, are
+\[
+ \begin{array}{c|rrrrr}
+ &B/{\rm N}&B/{\rm W}&C/{\rm N}&C/{\rm W}&C/{\rm S}\\ \hline
+ \text{nodes}&139985&161929&105025&155673&145485\\
+ \text{surviving prefixes}&89150&103257&66947&99168&92748\\
+ \text{short first hits}&937&922&715&1036&861.
+ \end{array}
+\]
+Counts alone are not the prefix assertion: the check must also
+evaluate every rational summand. If the exact short sum is
+\(s/d\), \(d>0\), and the nonnegative integer prefix accumulator
+is \(A\) with common denominator \(\Delta^{12}V\) as specified
+there, the displayed bound \(10^9J\le K\) means exactly
+\[
+ 10^9\bigl(s\Delta^{12}V+Ad\bigr)
+                  \le Kd\Delta^{12}V .
+\]
+Use respectively
+\(K=351207554,290599163,527872005,380754375,273048088\).
+This gives the finite rational prefix tests without a decimal
+rounding convention. A compact lookup is accepted only with the
+entry-by-entry identity with the full potential described after
+Definition~\ref{d:prefix-bound}.
+The archived exact fractions in the five prefix records identify
+the values of these finite expressions; the expressions and the
+cleared inequalities above, together with all the array checks,
+constitute the stationary certificates. Their proofs are checked by
+the Lean kernel.
+\end{proof}
+
+\begin{lemma}\label{l:stationary-assembly}
+With the five certified potentials and their exact prefix bounds,
+\[
+ (M_1h)_B\le2J_{B,{\rm N}}+J_{B,{\rm W}}\le\rho_0h_B,\qquad
+ (M_1h)_C\le J_{C,{\rm N}}+J_{C,{\rm W}}+J_{C,{\rm S}}
+                                      \le\rho_0h_C ,
+\]
+where \(h_C=5404319552844595/4503599627370496\) and
+\(\rho_0=993015/10^6<1\).
+The same inequalities hold for every finite true-trail cutoff;
+therefore (H3\(_h\)) holds for the type-dependent kernel.
+\end{lemma}
+
+\begin{proof}
+Every true trail from \(u\) has first direction N, W or S: direction
+E enters the forbidden centre. For row B,
+Lemma~\ref{l:kernel-reflection} identifies the true N and S sums
+at every finite cutoff; apply Lemma~\ref{l:prefix-domination}
+to B/N and B/W. For row C apply that lemma separately to its
+three first-direction classes, with no symmetry reduction.
+This proves the first inequalities in the statement, uniformly in
+the total-length cutoff.
+
+The exact component ceilings of Proposition~\ref{p:stationary-check}
+give
+\[
+ 2J_{B,{\rm N}}+J_{B,{\rm W}}
+ \le\frac{2\cdot351207554+290599163}{10^9}
+ =\frac{993014271}{10^9}
+ <\frac{993015000}{10^9}=\rho_0h_B.
+\]
+For C their sum is
+\[
+ J_{C,{\rm N}}+J_{C,{\rm W}}+J_{C,{\rm S}}
+ \le\frac{1181674468}{10^9}
+ <\frac{119}{100}
+ <\frac{993015}{10^6}
+             \frac{5404319552844595}{4503599627370496}.
+\]
+The middle inequality is \(1181674468<1190000000\).
+For the last inequality, use the exact rational comparisons
+\[
+ h_C>1199/1000,\qquad
+ 993015\cdot1199=1190624985>1190000000.
+\]
+The first comparison is an exact comparison with the displayed
+dyadic fraction. These two inequalities imply
+\(\rho_0h_C>119/100\). All comparisons involve positive integer
+denominators. In particular they give the desired C-row bound.
+Finally \(0<\rho_0<1\) since \(0<993015<1000000\), and
+\(h_B,h_C>0\).
+
+The same upper bounds hold for every finite cutoff. By
+Definition~\ref{h:H3}, this proves (H3\(_h\)). Equivalently, taking
+suprema of the nonnegative row sums gives a finite \(M_1h\)
+with the asserted bound. Only a finite prefix was used in the
+numerical evaluation; the Bellman inequality controls all suffix
+horizons simultaneously.
+\end{proof}
+

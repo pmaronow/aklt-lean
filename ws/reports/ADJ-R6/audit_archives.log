@@ -1,0 +1,15 @@
+DATA frozen records = 63 records; structures = 57 merged: 7962/7962
+CODE frozen cert.py, ring.py, closed_exact.py = archived 70 copies: byte-identical
+CERT frozen two covered certificate files = archived 70 copies: byte-identical
+XCHECK three full untied points: {'part': 0, 'nparts': 1, 'points': 23893, 'max_rel_diff': 2.3418360722435107e-15, 'worst_pid': 5420, 'time': 538}
+SU2 archived summary: {'parts': [{'n': 3981, 'su2_checked': 3981, 'su2_fail': [], 'max_diff_used_minus_all': 3.3306690738754696e-15, 'allexact_fail': [], 'allexact_checked': 0, 'time': 833}, {'n': 3981, 'su2_checked': 3981, 'su2_fail': [], 'max_diff_used_minus_all': 4.3298697960381105e-15, 'allexact_fail': [], 'allexact_checked': 0, 'time': 896}], 'total': 7962, 'su2_fail': [], 'max_diff': 4.3298697960381105e-15}
+ALL-SECTOR negctl_hard.json positive target records: 8 ids [1383, 3596, 3626, 5287, 5420, 5441, 7697, 7863]
+ALL-SECTOR negctl_random.json positive target records: 20 ids [797, 1337, 1864, 2388, 3131, 3364, 3380, 3680, 5419, 5906, 5943, 6295, 6990, 7092, 7123, 7151, 7222, 7411, 7419, 7862]
+ALL-SECTOR 72 sample 50 union negative-control target checks: 77
+MUTATION archived output: 30 detected; final: undetected: 0 of 30
+SECOND OPERATOR archived coverage/choices/type-threshold/all-sector results: 7962 PASS
+SECOND OPERATOR fullspace: 4992 U-pair complement: 2970 all Sz blocks: 48672
+SECOND CLOSED archived coverage/radii/exact threshold results: 4735 PASS
+SECOND NUMERICS decoupled: 4735 max gap: 1.3660174214003007e-08 min(opt_min - closed): 0.0
+SHA256 /home/ubuntu/aklt/manuscript/bundle/programs/h1-local/code/cert.py 8ce45eb72fee7f9ca1f905f53ef3f86422a7f09c8bc891223bc7e07905cc696d
+SHA256 /home/ubuntu/aklt/manuscript/bundle/programs/h1-local/code/ring.py 35cb7713099877f04f7791399eb068d57b8e336b784efa93d7611e52a1fd3d10

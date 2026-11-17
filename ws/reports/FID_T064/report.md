@@ -1,0 +1,32 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: rawClass_285 PASS
+
+`AKLT/Defs/Automaton10Data.lean:585` defines an auxiliary natural-number literal, not a separate paper assertion. In the assembled `rawClass` (`:1551`), it occupies bits [7897084,7913468), intersecting the 12-bit lanes for codes 658090–659455. Its entire 16384-bit value agrees with the corresponding slice of repeated marker 3741 (`0xe9d`); all 1366 intersecting assembled lanes equal 3741, including boundary lanes. Every decoded word begins WWEE, so the third step repeats the second unoriented bond. These words are excluded by `app-input-contracts.tex:24–29`. Thus this fragment correctly extends the paper's partial class map (`app-input-contracts.tex:367–388,401–406`) to invalid codes. The checked arithmetic is exact `ℕ` shifting, addition, division and remainder, as detailed below.
+
+DECL: rawClass_286 PASS
+
+`AKLT/Defs/Automaton10Data.lean:587` supplies bits [7880700,7897084), intersecting codes 656725–658090. The exact literal is the appropriate slice of repeated 12-bit marker 3741; all 1366 intersecting assembled lanes, including the split boundary lane, equal 3741. Every word begins WWEE and repeats a bond at the third step. This is the correct invalid-code extension of the class-map data in `app-input-contracts.tex:367–388,401–406`, using precisely the raw domain at `:24–29`. Standard natural-number arithmetic gives the stated bit positions and lane values, without overflow or signed interpretation.
+
+DECL: rawClass_287 PASS
+
+`AKLT/Defs/Automaton10Data.lean:589` supplies bits [7864316,7880700), intersecting codes 655359–656724. The literal exactly matches the required slice of repeated marker 3741, and all 1366 intersecting assembled lanes equal that marker. Code 655359 begins WNSS, whose fourth step reverses its third; the remaining codes begin WWEE, whose third step reverses its second. All therefore repeat an unoriented bond and are outside the paper's domain (`app-input-contracts.tex:24–29`). This fragment correctly encodes their absence from the supplied map (`:367–388,401–406`). Natural-number lane extraction and the partial lane at the lower boundary were checked explicitly.
+
+DECL: rawClass_288 PASS
+
+`AKLT/Defs/Automaton10Data.lean:591` supplies bits [7847932,7864316), intersecting codes 653994–655359. Its literal exactly matches the corresponding slice of repeated marker 3741; all 1366 intersecting assembled lanes equal 3741, including both split boundary lanes. Every decoded word begins WNSS, so the fourth step repeats the third bond. The invalid marker is therefore correct for the raw domain of `app-input-contracts.tex:24–29` and the map reconstruction of `:367–388,401–406`. All arithmetic is over unbounded `ℕ`, with the actual assembly shifts respected.
+
+DECL: rawClass_289 PASS
+
+`AKLT/Defs/Automaton10Data.lean:593` supplies bits [7831548,7847932), intersecting codes 652629–653994. The literal exactly matches the appropriate slice of repeated marker 3741, and all 1366 intersecting assembled lanes equal 3741. Every word begins WNSS and repeats the third bond at its fourth step. This agrees with the paper's distinct-unoriented-bond domain (`app-input-contracts.tex:24–29`) and correctly totalizes the supplied map described at `:367–388,401–406`. Natural-number shifting and division/remainder extraction, including the split upper boundary lane, introduce no discrepancy.
+
+Non-blocking remarks:
+
+- These private literals have no individual paper counterparts. Their role is to store part of the designated map for Proposition `p:automaton10`. Bit intervals above are zero-based and upper-exclusive; code intervals are inclusive. The five chunks together intersect 6827 distinct codes, all invalid.
+- I read the complete data file, parsing all 786 literal declarations and all four assembly expressions, and its local import chain: `Automaton`, `Kernel`, `Trails`, `Domain`, `PinModel`, `Moment`, and `Geometry`. Verdicts concern only the five assigned declarations.
+- `ℕ` is unbounded, and `<<<` means multiplication by a power of two (`Mathlib/Data/Nat/Size.lean:18`). The assembled summands do not overlap, so addition introduces no carries into neighboring chunks. `lane` (`Automaton10Data.lean:1596`) is ordinary natural quotient followed by remainder. At width 12 its divisor and modulus are positive powers of two; it extracts exactly 12 bits. The marker 3741 fits below 4096 and lies outside the valid class range 0–3740.
+- Word coding uses E,N,W,S = 0,1,2,3 and most-significant-first order (`Automaton10Data.lean:1598–1609`), matching `app-input-contracts.tex:377–388` and the direction numbering at `:219`. `List.finRange` visits each finite index once (`Mathlib/Data/List/FinRange.lean:29–43`). For memory ten, `m-1-i.val` ranges from 9 to 0, so natural subtraction does not truncate an intended negative exponent. The four compass steps are the paper's absolute integer displacements (`Geometry.lean:16–36`).
+- `RawWindow` means injectivity of the function assigning an unoriented `Finset` bond to each step (`Automaton.lean:8–10`; `Trails.lean:24–32`). Finset pairs ignore endpoint order (`Mathlib/Data/Finset/Insert.lean:413–420`), so immediate reversal really repeats a bond. Integer coordinates prevent any wraparound. `MemoryWindow 10` is the actual subtype of all ten-direction words satisfying this predicate; its finite instance enumerates that subtype, rather than imposing an extra domain restriction.
+- `supplied.project` reduces the marker modulo 3741 (`Automaton10Data.lean:1624`), assigning invalid words class zero. This is a harmless totalization: correctness obligations restrict raw words (`Automaton.lean:78–84`), while `Automaton10StatementV2` separately requires the marker exactly for invalid codes (`ComputationV2.lean:13–17`). Thus these markers cannot make raw coverage vacuous. The declarations add no hypotheses or quantifiers, and introduce no sign convention, division by zero, or instance-dependent restriction.
+- Reproducible exact checks are in `audit_raw_classes.py`; run `python3 audit_raw_classes.py` from this directory. Independent distinct-bond generation reproduces the paper's depth counts through ten (`app-input-contracts.tex:390–406`), ending at 60092. A contextual full-table coverage check finds 60092 valid codes with values below 3741 and 988484 invalid codes with marker 3741, with no discrepancies. No Lean process was needed, and no input was modified. The archive provenance comment was not used as evidence, and no external archive was read.

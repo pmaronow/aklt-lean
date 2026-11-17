@@ -1,0 +1,24 @@
+{
+  "parallel_limit": 1,
+  "targets": [
+    "AKLT.Blueprint.H3.Audit",
+    "AKLT.Blueprint.H3.AuditV2"
+  ],
+  "results": [
+    {
+      "module": "AKLT.Blueprint.H3.Audit",
+      "exit_code": 0,
+      "seconds": 3.61,
+      "log": "/home/ubuntu/aklt/reports/BP_H3M/adaptation-build-logs/AKLT.Blueprint.H3.Audit.log",
+      "command": [
+        "lean",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/BP_H3M/adaptation-olean/AKLT/Blueprint/H3/Audit.olean",
+        "AKLT/Blueprint/H3/Audit.lean"
+      ]
+    }
+  ],
+  "wall_seconds": 3.61
+}

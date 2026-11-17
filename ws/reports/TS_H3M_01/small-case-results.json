@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact fractions.Fraction",
+  "bounds": {
+    "raw_memory": [
+      1,
+      7
+    ],
+    "abstract_phase_length": [
+      0,
+      6
+    ],
+    "exposure_indices": [
+      0,
+      5
+    ],
+    "all_lattice_word_lengths": [
+      0,
+      5
+    ]
+  },
+  "counts": {
+    "raw_windows_positive_memory": 4020,
+    "admissible_raw_successors": 11516,
+    "phase_fold_cases": 3279,
+    "long_order_member_cases": 12030,
+    "single_change_factor_cases": 18045,
+    "nodup_exposure_lists": 11625,
+    "prefix_departure_matrices": 18356,
+    "prefix_suffix_splits": 7737,
+    "lattice_words_including_nontrails": 1365
+  },
+  "limitation": "Bounded independent-model sanity checks, not formal proofs; projection realization was inspected by construction."
+}

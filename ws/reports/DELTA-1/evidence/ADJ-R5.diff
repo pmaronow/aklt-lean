@@ -1,0 +1,190 @@
+diff --git a/app-tail.tex b/app-tail.tex
+index 7766f32..938c549 100644
+--- a/app-tail.tex
++++ b/app-tail.tex
+@@ -73,7 +73,7 @@ Hence the weight of $\pi(w, j)$ from time $20$ to time $n$ is at least the produ
+ \end{proof}
+ 
+ \begin{lemma}\label{l:remainder}
+-Let $V_t$ be a memory walk with $t_* < T$, and let $\mathbb W$ be its weight matrix on $\Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\}$ without rules, $\mathbb W((\omega, \varphi), (\omega \cdot d, \varphi'))$ the weight of the step $d$ from phase $\varphi$ to phase $\varphi'$ in (II). Suppose that $z \colon \Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\} \to (0, \infty)$, $\lambda \in (0, 1)$ and $a \ge 0$ satisfy $z \mathbb W \le \lambda z$ and $V_T(\omega, \xi, \varphi) \le a \, z(\omega, \varphi)$ for all $\omega, \xi, \varphi$. Then
++Let $V_t$ be a memory walk with $t_* < T$, and let $\mathbb W$ be its weight matrix on $\Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\}$ without rules, $\mathbb W((\omega, \varphi), (\omega \cdot d, \varphi'))$ the weight of the step $d$ from phase $\varphi$ to phase $\varphi'$ in (II). Suppose that $z \colon \Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\} \to [0, \infty)$, $\lambda \in (0, 1)$ and $a \ge 0$ satisfy $z \mathbb W \le \lambda z$ and $V_T(\omega, \xi, \varphi) \le a \, z(\omega, \varphi)$ for all $\omega, \xi, \varphi$. Then
+ \begin{equation*}
+ \sum_{n > T} r(n) \le \frac{a \lambda}{1 - \lambda} \sum_{\omega \in \Omega} \bigl( z(\omega, \mathrm C) + z(\omega, \mathrm D) \bigr).
+ \end{equation*}
+@@ -87,7 +87,13 @@ V_{t + 1}(\omega', \xi', \varphi') = \sum_{\omega, \varphi} V_t(\omega, \xi' - d
+ where the sum runs over the $\omega$ with $\omega \cdot d'_m = \omega'$. By induction this holds for all $t \ge T$, and summing $r(t) \le a \lambda^{t - T} \sum_\omega (z(\omega, \mathrm C) + z(\omega, \mathrm D))$ over $t > T$ gives the claim.
+ \end{proof}
+ 
+-The matrix $\mathbb W$ is block triangular in the phases ($\mathrm A \to \mathrm A, \mathrm C$; $\mathrm B \to \mathrm B, \mathrm D$; $\mathrm C \to \mathrm C$; $\mathrm D \to \mathrm D$), and its spectral radius is that of the block $\mathrm A \to \mathrm A$, the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$. A sub-invariant $z$ is obtained from the left Perron vectors of the diagonal blocks and the solutions of $z_{\mathrm C} (\lambda - \mathbb W_{\mathrm{CC}}) = z_{\mathrm A} \mathbb W_{\mathrm{AC}}$, $z_{\mathrm D} (\lambda - \mathbb W_{\mathrm{DD}}) = z_{\mathrm B} \mathbb W_{\mathrm{BD}}$; only the inequality $z \mathbb W \le \lambda z$ is used, and it is checked directly.
++The matrix $\mathbb W$ is block triangular in the phases ($\mathrm A \to \mathrm A, \mathrm C$; $\mathrm B \to \mathrm B, \mathrm D$; $\mathrm C \to \mathrm C$; $\mathrm D \to \mathrm D$), and its spectral radius is that of the block $\mathrm A \to \mathrm A$, the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$. A nonnegative candidate $z$ is obtained by power iteration in the diagonal blocks and approximate solution of
++$z_{\mathrm C}(\lambda-\mathbb W_{\mathrm{CC}})=z_{\mathrm A}\mathbb W_{\mathrm{AC}}$ and
++$z_{\mathrm D}(\lambda-\mathbb W_{\mathrm{DD}})=z_{\mathrm B}\mathbb W_{\mathrm{BD}}$;
++only the inequality $z\mathbb W\le\lambda z$ is used, and it is checked directly.
++The constructed vector is zero in each phase at exactly the $64$ windows of indegree zero, and positive at every other window.
++No update can put mass at a window of indegree zero, so $V_T$ vanishes there for $T\ge21$.
++In applying Lemma~\ref{l:remainder}, we check this zero-support condition and take ratios only where $z>0$.
+ 
+ \subsection{The certified numbers}\label{s:tailnumbers}
+ 
+@@ -111,19 +117,72 @@ $(M_1 h)_X / h_X$ & $0.987763$ & $0.968624$
+ \end{table}
+ 
+ \begin{proof}
+-By Lemma~\ref{l:CW} it suffices to bound $(M_1 h)_X = \sum_n \mathsf m_X(n)$ for both rows, and we split the sum over the even $n$ as in Table~\ref{tab:tail}. The trails of length at most $20$ are enumerated exactly. For $22 \le n \le 106$ we use Lemma~\ref{l:memdom}(1) and $\mathcal T^X_n = \bigcup_{D_0} \mathcal T^{X, D_0}_n$, a disjoint union. For $108 \le n \le 260$ we use Lemma~\ref{l:memdom}(2); note that $n = 108$ is beyond the range of mode A, because the rules (R1) at $[u + D_0]$ and (R2) can act at images for closed trails of length $2P - 4 = 108$. For $n > 260$ we use Lemma~\ref{l:remainder} with $T = 260$ for the walk of mode B, with $\lambda = 0.97953279$ (the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$ has growth $0.9795328$), a vector $z$ for which $z \mathbb W \le \lambda z$ is verified, and $a = \max V_{260}/z$. The entries of the table are computed as described in \S\ref{s:tailtrust}.
++By Lemma~\ref{l:CW} it suffices to bound $(M_1 h)_X = \sum_n \mathsf m_X(n)$ for both rows, and we split the sum over the even $n$ as in Table~\ref{tab:tail}. The trails of length at most $20$ are enumerated exactly. For $22 \le n \le 106$ we use Lemma~\ref{l:memdom}(1) and $\mathcal T^X_n = \bigcup_{D_0} \mathcal T^{X, D_0}_n$, a disjoint union. For $108 \le n \le 260$ we use Lemma~\ref{l:memdom}(2); note that $n = 108$ is beyond the range of mode A, because the rules (R1) at $[u + D_0]$ and (R2) can act at images for closed trails of length $2P - 4 = 108$. For $n>260$ we use Lemma~\ref{l:remainder} with $T=260$ for the walk of mode B, taking $\lambda$ to be the stored binary64 value \texttt{lcheck} used in both the sub-invariance check and the remainder calculation, with $0<\lambda\le0.979532789<0.97953279$.
++The nonnegative vector $z$ satisfies the directly checked inequality $z\mathbb W\le\lambda z$.
++We verify $V_{260}(\omega,\xi,\varphi)=0$ whenever $z(\omega,\varphi)=0$, and choose $a$ as an upward-rounded upper bound for
++$\max_{z(\omega,\varphi)>0}V_{260}(\omega,\xi,\varphi)/z(\omega,\varphi)$. The entries of the table are computed as described in \S\ref{s:tailtrust}.
+ \end{proof}
+ 
+ \subsection{What is computed, and what must be trusted}\label{s:tailtrust}
+ 
+-\emph{Programs.} \texttt{tailmem5.c} computes, for one row and one class $D_0$, the exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$, $n \le 20$, by depth-first search with the per-trail optimal ordering, the initial vector (I), and the memory walk of mode A up to $t = 109$, printing $r^{\mathrm A}_{X, D_0}(n)$ for every $n$. \texttt{tailmem4.c} does the same without the class split for mode B up to $T = 260$, computes $z$ by power iteration, checks $z \mathbb W \le \lambda z$, and prints $a$, $\lambda$ and the bound of Lemma~\ref{l:remainder}. The table is assembled by summing the printed per-$n$ values. The state space of the walk has $60{,}092 \times 1{,}568 \times 4 \approx 3.8 \cdot 10^8$ entries (three gigabytes in single precision); each of the five mode-A runs takes about five minutes and each of the two mode-B runs about twenty minutes on one core.
+-
+-\emph{Arithmetic.} All quantities are sums of products of nonnegative numbers, and no subtraction occurs. The programs set the rounding mode upward before any computation; the constants $\cs, \ct$ are decreased and $\bar\alpha, \bar\beta$ increased by one unit in the last place after decimal conversion, and $1/3$, $1/5$, $1/\cs$, $1/\ct$ are computed by upward division. The walk is stored in binary32 and the enumeration in binary64; every product, sum and conversion is rounded upward, so every stored value is at least the exact one, and underflow produces a positive subnormal number, never $0$. In the check of $z \mathbb W \le \lambda z$ the left side is rounded upward and the right side downward, and $1 - \lambda$ is rounded downward. The output decimals are rounded upward as well (the C library rounds conversions in the current rounding mode), and the table sums them exactly as rational numbers. The programs must be compiled with \texttt{-frounding-math}: the compiler ignores the \texttt{FENV\_ACCESS} pragma, and without this option it may evaluate or move floating-point operations across the changes of the rounding mode. The hypothesis $\lambda < 1$ of Lemma~\ref{l:remainder} is not checked by the program and must be read off its output.
+-
+-\emph{Independent checks.} (1) An independent enumeration from the definition \eqref{e:kernel} reproduces, for every $n \le 20$ and every class, the exact sums used in the table to a relative error of $7 \cdot 10^{-13}$; it also reproduces, for every $n \le 22$, the kernel with the forward ordering computed by a third, symbolic enumeration (to $4 \cdot 10^{-10}$, the precision of its output), and for $n \le 16$ the trail counts and masses of a fourth implementation. (2) An independent implementation of the memory walk of \S\ref{s:memwalk}, run at memory $m = 4$ and $m = 6$ on the quotient by $\langle (9, 9), (9, -9) \rangle$, reproduces the output of \texttt{tailmem5.c} at the same parameters to a relative error of $10^{-5}$ for every $n$, both rows, all classes and both modes. (3) The exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$ with the straights-first ordering were enumerated up to $n = 26$; they are dominated by the memory walk at every $n$ and in every class, for $m = 4, 6$ and for $m = 10$. At $m = 10$ the ratio of the bound to the exact sum lies, in the five classes, between $1.03$ and $1.21$ at $n = 22$ and between $1.19$ and $1.81$ at $n = 26$; for the rows it is $1.05$ ($B$) and $1.08$ ($C$) at $n = 22$. (4) The numbers of Table~\ref{tab:tail} come from a recomputation from the source, compiled as above, with the coefficients $\bar\alpha = 0.18094$, $\bar\beta = 0.36751$ entered directly. An earlier run with the truncated values $0.18093$, $0.36750$ gave $0.987730$ and $0.968592$; every per-$n$ output of the two runs differs by a factor in $[1.0000322, 1.0000332]$. Since every term of \eqref{e:mT} carries exactly one of the coefficients, linearly and with a nonnegative weight, and the orderings may be kept, the earlier run alone also gives $\rho(M_1) \le 0.987730 \cdot 0.18094/0.18093 < 0.98779$.
+-
+-\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that \texttt{tailmem4.c} and \texttt{tailmem5.c} (about $360$ lines of C each) implement the walk of \S\ref{s:memwalk}, the exact enumeration and the check of Lemma~\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.
++\emph{Programs.} \texttt{tailmem5.c} computes, for one row and one class $D_0$, the exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$, $n \le 20$, by depth-first search with the per-trail optimal ordering, the initial vector (I), and the memory walk of mode A up to $t = 109$, printing $r^{\mathrm A}_{X, D_0}(n)$ for every $n$. \texttt{tailmem4.c} does the same without the class split for mode B up to $T = 260$, computes $z$ by power iteration, checks $z \mathbb W \le \lambda z$, and prints $a$, $\lambda$ and the bound of Lemma~\ref{l:remainder}.
++The archived mode-A summary through $109$ is a memory-walk mass, and includes the unproved-for-trails value at $108$; only its per-length outputs through $106$ are used in Table~\ref{tab:tail}.
++The unsplit mode-B production runs use \texttt{tailmem4.c}.
++The archived unused unsplit option of \texttt{tailmem5.c} additionally deletes a window-detected revisit at $[u]$ while the rules act, whereas (R1) with $D_0=\ast$ retains it with weight $1/5$.
++This additional deletion cannot remove a genuine trail in the valid range: the known time-$0$ visit, a window-detected later visit, and another departure would exceed the three available bonds at $u$.
++It defines a stronger auxiliary rule and is not used for the mode-B entries of the table.
++The obsolete validity comments and summary labels in the archived sources must not be used in place of Lemma~\ref{l:memdom}. The table is assembled from the five files
++\texttt{r961A\_B\_1.txt}, \texttt{r961A\_B\_2.txt},
++\texttt{r961A\_C\_1.txt}, \texttt{r961A\_C\_2.txt},
++\texttt{r961A\_C\_3.txt} and the two files
++\texttt{r961B\_B.txt}, \texttt{r961B\_C.txt}, archived in
++\texttt{agents/75-audit-tail/out/rerun/} in the full project.
++The commands are recorded in \texttt{agents/75-audit-tail/code/run\_all.sh}
++and \texttt{run\_rest1.sh}, \texttt{run\_rest2.sh}; the rerun used
++\texttt{gcc -O2 -frounding-math -ffp-contract=off}.
++The exact assembly is implemented in \texttt{agents/75-audit-tail/code/assemble75.py}:
++sum the printed decimals as rational numbers, using the class multiplicities in the caption,
++the mode-A values for $22\le n\le106$, the mode-B values for $108\le n\le260$,
++and the printed mode-B remainder, without subtracting any rounded tail totals.
++The denominator is the exact binary64 number $h_C=2769713770832855/2251799813685248$.
++The assembled numerators are $0.987762443170525$ and $1.1914067844431$;
++their quotients are at most $0.987763$ and $0.968624$. The state space of the walk has $60{,}092 \times 1{,}568 \times 4 \approx 3.8 \cdot 10^8$ entries (three gigabytes in single precision); each of the five mode-A runs takes about five minutes and each of the two mode-B runs about twenty minutes on one core.
++
++\emph{Arithmetic.}
++The enumeration and walk bounds are evaluated as sums of products of nonnegative quantities.
++The constants $\cs,\ct$ are decreased and $\bar\alpha,\bar\beta$ increased by one unit in the last place after decimal conversion;
++$1/3$, $1/5$, $1/\cs$ and $1/\ct$ are computed by upward division.
++The walk arrays are stored in binary32 and the enumeration in binary64.
++Bound-producing products, sums and conversions, and their output decimals, are rounded upward, with gradual underflow.
++The ordering search and the construction of a candidate $z$ need not use upward rounding: any chosen ordering gives an upper bound for the per-trail minimum, and the stored candidate is subsequently treated as an exact dyadic vector.
++In checking $z\mathbb W\le\lambda z$, the left side is rounded upward and the right side downward; $1-\lambda$ is rounded downward in the remainder formula.
++Acceptance requires finite nonnegative data, $0<\lambda<1$, the checked sub-invariance inequality, and $V_T=0$ wherever $z=0$.
++Ratios defining $a$ are taken only at positive coordinates of $z$, with upward rounding; nonfinite values or failed checks reject the certificate.
++The table uses exact rational sums of the upward-printed per-length bounds and the upward-printed remainder, followed by decimal ceilings.
++The programs must be compiled with \texttt{-frounding-math}, without unsafe reassociation; the archived rerun also used \texttt{-ffp-contract=off}.
++Correct directed arithmetic, conversions and decimal output, and gradual underflow, are part of the computational trust assumption.
++The explicit support and finiteness guards are implemented in \texttt{tailmem4\_checked.c} and \texttt{tailmem5\_checked.c}, archived under \texttt{reports/ADJ-R5/audit/} relative to the project root; the production records identified above were generated by the original sources. Their zero-support condition follows from the indegree argument above.
++
++\emph{Independent checks.} (1) An independent enumeration from the definition \eqref{e:kernel} reproduces, for every $n \le 20$ and every class, the exact sums used in the table to a relative error of $7 \cdot 10^{-13}$; it also reproduces, for every $n \le 22$, the kernel with the forward ordering computed by a third, symbolic enumeration (to $4 \cdot 10^{-10}$, the precision of its output), and for $n \le 16$ the trail counts and masses of a fourth implementation. (2) An independent implementation of the memory walk of \S\ref{s:memwalk}, run at memory $m = 4$ and $m = 6$ on the quotient by $\langle (9, 9), (9, -9) \rangle$, reproduces the output of \texttt{tailmem5.c} at the same parameters to a relative error of $10^{-5}$ for every $n$, both rows, all classes and both modes. (3) The exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$ with the straights-first ordering were enumerated up to $n = 26$; they are dominated by the memory walk at every $n$ and in every class, for $m = 4, 6$ and for $m = 10$. At $m = 10$ the ratio of the bound to the exact sum lies, in the five classes, between $1.03$ and $1.21$ at $n = 22$ and between $1.19$ and $1.81$ at $n = 26$; for the rows it is $1.05$ ($B$) and $1.08$ ($C$) at $n = 22$. (4) The numbers of Table~\ref{tab:tail} come from the archived recomputation with
++$\bar\alpha=0.18094$, $\bar\beta=0.36751$ entered directly, as identified above.
++Exact assembly of the earlier outputs with $0.18093$, $0.36750$ gives the row bounds
++$0.987731$ and $0.968592$.
++Every printed per-$n$ output of the two runs differs by a factor in
++$[1.0000322,1.0000333]$.
++Since every term of \eqref{e:mT} carries exactly one response coefficient, linearly and with a nonnegative weight,
++and the earlier orderings may be kept, the earlier run alone also gives
++$\rho(M_1)\le0.987731\cdot0.18094/0.18093<0.98779$.
++
++\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that the implementations and explicit checks identified above implement the walk of \S\ref{s:memwalk}, the exact enumeration and the support-aware check of Lemma~\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.
+ 
+ \begin{remark}\label{r:tailtypedep}
+-With the type-dependent coefficients of Remark~\ref{r:typedep} in place of $\bar\alpha, \bar\beta$ (and the coefficient $\beta'$ of the surviving pair when exactly one of $f, g$ is known to be removed), a variant of the same programs (\texttt{tailmem6.c}) with $h_C = 1.20$ gives $(M_1 h)_B \le 0.91301$ and $(M_1 h)_C / h_C \le 0.91825$, hence $\rho(M_1) \le 0.91825$. The six coefficient bounds of Remark~\ref{r:typedep} were confirmed by an independent interval branch and bound, and the exact part $n \le 20$ of this computation by the independent enumeration; the memory-walk part was not recomputed. This variant is not used in the main line.
++With the type-dependent coefficients of Remark~\ref{r:typedep} in place of $\bar\alpha, \bar\beta$ (and the coefficient $\beta'$ of the surviving pair when exactly one of $f, g$ is known to be removed), a variant of the same programs (\texttt{tailmem6.c}) with $h_C = 1.20$ gives $(M_1 h)_B \le 0.91301$ and $(M_1 h)_C / h_C \le 0.91825$, hence $\rho(M_1) \le 0.91825$. The six coefficient bounds of Remark~\ref{r:typedep} were confirmed by an independent interval branch and bound, and the exact part $n \le 20$ of this computation by the independent enumeration; the memory-walk part was not recomputed. The seven production records for this variant are
++\texttt{c961\_935\_A\_B\_1.txt}, \texttt{c961\_935\_A\_B\_2.txt},
++\texttt{c961\_935\_A\_C\_1.txt}, \texttt{c961\_935\_A\_C\_2.txt},
++\texttt{c961\_935\_A\_C\_3.txt}, \texttt{c961\_935\_B\_B.txt},
++\texttt{c961\_935\_B\_C.txt} in \texttt{agents/62-kernel-tail/out/}.
++Their exact assembly, using the binary64 value of $1.20$, gives row bounds
++$0.913009554182608$ and a quotient less than $0.918245584$.
++The unsplit implementation uses the additional start-site deletion described in \S\ref{s:tailtrust}, justified by the same degree argument, and the remainder uses the nonnegative-vector formulation of Lemma~\ref{l:remainder}.
++This variant is not used in the main line.
+ \end{remark}
+diff --git a/sec6-walks.tex b/sec6-walks.tex
+index af5e471..2ea5b61 100644
+--- a/sec6-walks.tex
++++ b/sec6-walks.tex
+@@ -224,16 +224,21 @@ the last departures of the second trail.
+ 
+ \subsection{Weighted trail sums and Hypothesis (H2)}\label{s:H2def}
+ 
+-Let $x_{\mathrm s} = 1/\cs$ and $x_{\mathrm t} = 1/\ct$. For a trail $w = (v_0, \dots, v_m)$ of $\Z^2$ with a designated arrival direction at $v_0$, let $\mathsf W(w) = \prod_{j = 1}^m \omega_j$, where $\omega_j = 1/5$ if step $j$ leaves a site among $v_0, \dots, v_{j - 2}$ (a site left before), and $\omega_j = x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if it is a straight or turning first visit.
++Let $x_{\mathrm s}=1/\cs$ and $x_{\mathrm t}=1/\ct$.
++For a trail $w=(v_0,\dots,v_m)$ of $\Z^2$ with a designated unit arrival direction $a$ at $v_0$, we require $v_1-v_0\ne-a$ when $m\ge1$.
++The arrival direction is used to classify the first passage; its virtual incoming bond is not otherwise included among the bonds of $w$.
++Let $\mathsf W(w)=\prod_{j=1}^m\omega_j$, with the empty product equal to $1$,
++where $\omega_j=1/5$ if step $j$ leaves a site among $v_0,\dots,v_{j-2}$,
++and otherwise $\omega_j=x_{\mathrm s}/3$ if $v_j-v_{j-1}$ equals the arrival direction ($a$ for $j=1$, $v_{j-1}-v_{j-2}$ for $j>1$), and $\omega_j=x_{\mathrm t}/3$ otherwise.
+ 
+ \begin{hypothesis}[H2]\label{h:H2}
+-There exist $C_V < \infty$ and $q < 1$ such that for all $n \ge 0$, all starting points and all arrival directions, $\sum_{|w| = n} \mathsf W(w) \le C_V q^n$, where the sum runs over the trails of $\Z^2$ of length $n$ with that start and arrival direction.
++There exist $C_V < \infty$ and $q < 1$ such that for all $n \ge 0$, all starting points and all arrival directions, $\sum_{|w| = n} \mathsf W(w) \le C_V q^n$, where the sum runs over the trails of $\Z^2$ of length $n$ with that start and arrival direction and with initial reversal forbidden as above.
+ \end{hypothesis}
+ 
+ \begin{lemma}\label{l:onepoint}
+ Assume (H1) and (H2). Let $D$ be a domain or auxiliary spin network
+ on $G$, let $x\in G\setminus S$ be a site that is not removed and
+-has at most three present bonds, with a designated arrival direction,
++has at most three present bonds, with a designated arrival direction $a$ such that the bond $\{x-a,x\}$ is absent in $D$,
+ and suppose that all first-visit steps of every trail in
+ $\mathcal T_D(x,S)$, except at most $12$ steps of each trail, have
+ their patterns in $\Pext$. Then
+@@ -246,7 +251,7 @@ their patterns in $\Pext$. Then
+ \end{lemma}
+ 
+ \begin{proof}
+-Every trail of $D$ is a trail of $\Z^2$. We prove the same pointwise
++Every trail of $D$ is a trail of $\Z^2$ with initial reversal forbidden for the designated arrival direction, since the bond $\{x-a,x\}$ is absent in $D$. We prove the same pointwise
+ bound for both dots $\tau$ and $0$. If the initial site has status
+ $\mathrm D$ and two present bonds, the formula above gives
+ $\rho^\cdot_1\le3/4$, hence
+diff --git a/sec8-computer-assisted.tex b/sec8-computer-assisted.tex
+index 608b623..c785a0c 100644
+--- a/sec8-computer-assisted.tex
++++ b/sec8-computer-assisted.tex
+@@ -1,6 +1,6 @@
+ \section{The computer-assisted inputs}\label{s:computer}
+ 
+-In this section we state the three computer-assisted inputs of the proof and describe how they are verified. Hypothesis~(H1) is a statement about the $7{,}962$ functions \eqref{e:cpi} of the local patterns; we verify it in exact integer and rational arithmetic. The hypotheses (H2) and (H3$'$) concern only the two numbers $\cs, \ct$; they are statements about weighted sums over trails of $\Z^2$, and we verify them in floating-point arithmetic with upward rounding. The programs and their output files are kept with the project; we refer to them by file name.
++In this section we state the three computer-assisted inputs of the proof and describe how they are verified. Hypothesis~(H1) is a statement about the $7{,}962$ functions \eqref{e:cpi} of the local patterns; we verify it in exact integer and rational arithmetic. The hypotheses (H2) and (H3$'$) concern only the two numbers $\cs, \ct$; they are statements about weighted sums over trails of $\Z^2$, and we verify them in floating-point arithmetic with upward rounding. The programs and output files are kept with the project; the production records and exact rational assembly for (H3$'$) are identified in \S\ref{s:tailtrust} and are to be included with the accompanying programs.
+ 
+ \begin{theorem}\label{t:inputs}
+ At $(\cs, \ct) = (0.961, 0.935)$, Hypothesis~(H1) holds, Hypothesis~(H2) holds with $q \le 0.98075$, and Hypothesis~(H3$'$) holds with $\rho(M_1) \le 0.98779$.
+@@ -13,7 +13,7 @@ The three parts are proved in \S\ref{s:H1}, \S\ref{s:H2} and \S\ref{s:H3}. The b
+ For $m \ge 1$, a \emph{window} is a sequence of $m$ unit steps of $\Z^2$ that forms a trail, up to translation. For windows $\varsigma, \varsigma'$ and $k \ge 1$, let $\mathsf M_k(\varsigma, \varsigma')$ be the sum, over the sequences of $k$ further steps that continue $\varsigma$ to a trail of length $m + k$ whose last $m$ steps form $\varsigma'$, of the product of the weights of the $k$ new steps, where a new step is weighted using $\varsigma$ and the earlier new steps as the only history: $x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if the site it leaves occurs in this history only as its last site (straight or turning according to the previous step), and $1/4$ if that site was already left earlier in this history.
+ 
+ \begin{lemma}\label{l:alm}
+-Let $\mathsf A_n(\varsigma)$ be the sum of $\mathsf W(w)$ over the trails $w$ of length $n \ge m$ with a fixed start and arrival direction whose last $m$ steps form $\varsigma$. Then $\mathsf A_{n + k}(\varsigma') \le \sum_\varsigma \mathsf A_n(\varsigma) \mathsf M_k(\varsigma, \varsigma')$. Consequently, let $h$ be any vector with positive entries and $\lambda = \max_\varsigma (\mathsf M_k h)_\varsigma / h_\varsigma$. Then, with $q = \lambda^{1/k}$ and $\mathsf W_n = \sum_{|w| = n} \mathsf W(w)$,
++Let $\mathsf A_n(\varsigma)$ be the sum of $\mathsf W(w)$ over the trails $w$ of length $n \ge m$ with a fixed start and arrival direction and with initial reversal forbidden as in \S\ref{s:H2def} whose last $m$ steps form $\varsigma$. Then $\mathsf A_{n + k}(\varsigma') \le \sum_\varsigma \mathsf A_n(\varsigma) \mathsf M_k(\varsigma, \varsigma')$. Consequently, let $h$ be any vector with positive entries and $\lambda = \max_\varsigma (\mathsf M_k h)_\varsigma / h_\varsigma$. Then, with $q = \lambda^{1/k}$ and $\mathsf W_n = \sum_{|w| = n} \mathsf W(w)$,
+ \begin{equation*}
+ \mathsf W_n \le C_V q^n \quad (n \ge 0), \qquad C_V = \max\Bigl( \max_{n < m} \mathsf W_n q^{-n}, \; \frac{\max_\varsigma h_\varsigma}{\min_\varsigma h_\varsigma} \max_{m \le n < m + k} \mathsf W_n q^{-n} \Bigr),
+ \end{equation*}
+@@ -30,7 +30,19 @@ Since $\mathsf M_k$ has nonnegative entries, induction gives $\mathsf A_{n + ik}
+ Every length $N \ge m$ is of the form $n + ik$ with $m \le n < m + k$, which gives the bound for $N \ge m$; for $N < m$ it holds by the definition of $C_V$. The quantities do not depend on the start and the arrival direction, by the lattice symmetries.
+ \end{proof}
+ 
+-\emph{Certificate.} The program \texttt{alm8.c} computes $\mathsf M_8$ for windows of length $m = 8$ ($7{, }500$ windows) at $(\cs, \ct) = (0.961, 0.935)$, with all weights given as exact integer quotients rounded upward, all sums and products evaluated in floating point with the rounding mode set upward, and the Collatz--Wielandt quotient for a power-iteration vector $h$ evaluated with upward rounding. Every computed number is therefore at least the exact one, and the output is $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma \le 0.85594872 \le 0.98075^8$, that is, $q \le 0.98075$. The bound was reproduced by an independent program in exact rational arithmetic: the windows are grouped into the $938$ classes of the dihedral group, which preserves $\mathsf M_8$, the test vector $h$ is rational, positive, constant on classes and has $\max h / \min h = 100$, and the exact value of $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma$ is at most $0.8559487104$. With the exact numbers $\mathsf W_n$, $n < 16$, the constant of Lemma~\ref{l:alm} is $C_V \le 153$. Replacing the window revisit weight $1/4$ by the true value $1/5$, which the proof of Lemma~\ref{l:alm} allows, gives $q \le 0.97606$.
++\emph{Certificate.}
++For the certified instance, \texttt{alm8\_checked.c}, archived under \texttt{reports/ADJ-R5/audit/} relative to the project root, first validates $m=k=8$ and the integer parameters $9610,9350$, and initializes only the powers $4^i$ for $0\le i\le8$; all integer codes and array indices in this instance are within their checked ranges.
++It computes $\mathsf M_8$ on the $7{,}500$ windows with weights given by exact integer quotients rounded upward.
++The matrix sums and products and the final Collatz--Wielandt verification use upward rounding; the intervening power iteration only chooses a test vector. The final upward evaluation bounds
++$\max_\varsigma(\mathsf M_8h)_\varsigma/h_\varsigma$ by $0.85594872$.
++Its upper bound is printed with upward rounding, together with the exact hexadecimal representation of the stored binary64 bound.
++The desired rate is certified by the exact rational comparison
++$0.85594872<(3923/4000)^8$, giving $q\le0.98075$;
++no printed value obtained by taking a numerical root is used as a certificate. The bound was reproduced by an independent program in exact rational arithmetic: the windows are grouped into the $938$ classes of the dihedral group, which preserves $\mathsf M_8$, the test vector $h$ is rational, positive, constant on classes and has $\max h / \min h = 100$, and the exact value of $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma$ is at most $0.8559487104$. The exact checker and vector are \texttt{h2\_exact.py} and \texttt{h2\_integer\_certificate.tsv} in the same audit directory. The base sums use the initial-step convention of \S\ref{s:H2def} and $\mathsf W_0=1$.
++At the rational rate $q=0.98075$ they satisfy
++$\max_{n<8}\mathsf W_nq^{-n}<1.473$ and
++$\max_{8\le n<16}\mathsf W_nq^{-n}<1.506$.
++Together with $\max h/\min h=100$ and $\mathsf M_8h\le q^8h$, the induction of Lemma~\ref{l:alm} therefore gives $C_V\le153$. Replacing the window revisit weight $1/4$ by the true value $1/5$, which the proof of Lemma~\ref{l:alm} allows, gives $q \le 0.97606$.
+ 
+ \subsection{The kernel (H3$'$)}\label{s:H3}
+ 

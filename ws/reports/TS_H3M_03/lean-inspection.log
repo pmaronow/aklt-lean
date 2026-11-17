@@ -1,0 +1,108 @@
+AKLT.Blueprint.H3.ClosedTrailStepGeometryStatement : Prop
+def AKLT.Blueprint.H3.ClosedTrailStepGeometryStatement : Prop :=
+∀ (X : AKLT.Defs.PairType) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+  AKLT.Defs.ClosedTrail X w →
+    ∀ (i : Fin n),
+      AKLT.Defs.wordVertex AKLT.Defs.kernelStart w (↑i + 1) =
+          AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i + (w i).step ∧
+        AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i ≠ AKLT.Defs.kernelCentre ∧
+          AKLT.Defs.wordVertex AKLT.Defs.kernelStart w ↑i ≠ AKLT.Defs.kernelTarget X ∧
+            AKLT.Defs.wordVertex AKLT.Defs.kernelStart w (↑i + 1) ≠ AKLT.Defs.kernelCentre
+AKLT.Blueprint.H3.SuffixWordComparisonStatement : Prop
+def AKLT.Blueprint.H3.SuffixWordComparisonStatement : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (L : ℕ),
+      12 ≤ L →
+        ∀ (P : AKLT.Defs.DirectionWord L) (r : ℕ) (v : AKLT.Defs.DirectionWord r),
+          AKLT.Defs.ClosedTrail X (AKLT.Defs.appendWords P v) →
+            (∀ (i : Fin (L + r)),
+                L ≤ ↑i →
+                  ∀ (φ ψ : AKLT.Defs.Phase),
+                    AKLT.Defs.truePhaseCoefficient (AKLT.Defs.appendWords P v) i φ ψ ≤
+                      AKLT.Defs.stationaryCoefficient Q X d₀ φ
+                        (Q.project (AKLT.Blueprint.H3.suffixWindow (AKLT.Defs.appendWords P v) ↑i))
+                        (AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Defs.appendWords P v) ↑i)
+                        (AKLT.Defs.appendWords P v i) ψ) →
+              (∀ (i : Fin (L + r)),
+                  L ≤ ↑i →
+                    Q.successor (Q.project (AKLT.Blueprint.H3.suffixWindow (AKLT.Defs.appendWords P v) ↑i))
+                        (AKLT.Defs.appendWords P v i) =
+                      Q.project (AKLT.Blueprint.H3.suffixWindow (AKLT.Defs.appendWords P v) (↑i + 1))) →
+                ∀ (φ : AKLT.Defs.Phase),
+                  AKLT.Defs.truePhaseSuffix (AKLT.Defs.appendWords P v) L φ ≤
+                    AKLT.Blueprint.H3.stationaryWordValue Q X d₀ (List.ofFn v) φ
+                      (Q.project (AKLT.Defs.lastWindowWord 10 P)) (AKLT.Defs.wordVertex AKLT.Defs.kernelStart P L)
+AKLT.Blueprint.H3.StationaryWordExpansionStatement : Prop
+def AKLT.Blueprint.H3.StationaryWordExpansionStatement : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (r : ℕ) (φ : AKLT.Defs.Phase)
+  (a : Fin 3741) (x : AKLT.Defs.Plane),
+  (AKLT.Defs.stationaryApply Q X d₀)^[r] (AKLT.Defs.stationaryReward X) φ a x =
+    ∑ v, AKLT.Blueprint.H3.stationaryWordValue Q X d₀ (List.ofFn v) φ a x
+AKLT.Blueprint.H3.StationaryFreeEdgeStatement : Prop
+def AKLT.Blueprint.H3.StationaryFreeEdgeStatement : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741),
+  Q.Correct →
+    ∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass),
+      d₀ ≠ AKLT.Defs.Compass.east →
+        ∀ (φ : AKLT.Defs.Phase) (a : Fin 3741) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass) (ψ : AKLT.Defs.Phase),
+          AKLT.Defs.stationaryCoefficient Q X d₀ φ a x d ψ ≤ AKLT.Defs.freeCoefficient Q φ a d ψ
+AKLT.Blueprint.H3.LongTrailPrefixStatement : Prop
+def AKLT.Blueprint.H3.LongTrailPrefixStatement : Prop :=
+∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (n : ℕ),
+  12 < n →
+    ∀ (w : AKLT.Defs.DirectionWord n),
+      AKLT.Defs.ClosedTrail X w →
+        AKLT.Defs.FirstDirection w d₀ → AKLT.Defs.SurvivingPrefix X d₀ (AKLT.Defs.takeWord w 12)
+AKLT.Blueprint.H3.LongRowRegroupingStatement : Prop
+def AKLT.Blueprint.H3.LongRowRegroupingStatement : Prop :=
+∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (R : ℕ),
+  12 < R →
+    (∀ (r : ℕ),
+        ∃ e,
+          (∀ (w : AKLT.Defs.DirectionWord (12 + r)), (e w).1 = AKLT.Defs.takeWord w 12) ∧
+            ∀ (P : AKLT.Defs.DirectionWord 12) (v : AKLT.Defs.DirectionWord r),
+              e.symm (P, v) = AKLT.Defs.appendWords P v) →
+      (∀ (n : ℕ),
+          12 < n →
+            ∀ (w : AKLT.Defs.DirectionWord n),
+              AKLT.Defs.ClosedTrail X w →
+                AKLT.Defs.FirstDirection w d₀ → AKLT.Defs.SurvivingPrefix X d₀ (AKLT.Defs.takeWord w 12)) →
+        (∀ (n : ℕ),
+            12 < n →
+              n ≤ R →
+                ∀ (w : AKLT.Defs.DirectionWord n),
+                  AKLT.Defs.ClosedTrail X w →
+                    AKLT.Defs.FirstDirection w d₀ →
+                      AKLT.Defs.closedContribution w =
+                        ∑ φ, AKLT.Defs.prefixPhases (AKLT.Defs.takeWord w 12) φ * AKLT.Defs.truePhaseSuffix w 12 φ) →
+          AKLT.Defs.firstDirectionPartialRow X d₀ R =
+            AKLT.Defs.firstDirectionPartialRow X d₀ 12 +
+              ∑ P,
+                if AKLT.Defs.SurvivingPrefix X d₀ P then
+                  ∑ φ, AKLT.Defs.prefixPhases P φ * AKLT.Defs.trueContinuationSum X P φ (R - 12)
+                else 0
+AKLT.Blueprint.H3.ReflectionGeometryStatement : Prop
+def AKLT.Blueprint.H3.ReflectionGeometryStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+  (∀ (j : ℕ),
+      AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Blueprint.H3.reflectWord w) j =
+        AKLT.Blueprint.H3.reflectSite (AKLT.Defs.wordVertex AKLT.Defs.kernelStart w j)) ∧
+    (AKLT.Defs.ClosedTrail AKLT.Defs.PairType.B w ↔
+        AKLT.Defs.ClosedTrail AKLT.Defs.PairType.B (AKLT.Blueprint.H3.reflectWord w)) ∧
+      (AKLT.Defs.FirstDirection w AKLT.Defs.Compass.north ↔
+          AKLT.Defs.FirstDirection (AKLT.Blueprint.H3.reflectWord w) AKLT.Defs.Compass.south) ∧
+        ∀ (i : Fin n),
+          AKLT.Defs.wordStraight AKLT.Defs.kernelIncoming w i =
+              AKLT.Defs.wordStraight AKLT.Defs.kernelIncoming (AKLT.Blueprint.H3.reflectWord w) i ∧
+            AKLT.Defs.wordRevisit AKLT.Defs.kernelStart w i =
+              AKLT.Defs.wordRevisit AKLT.Defs.kernelStart (AKLT.Blueprint.H3.reflectWord w) i
+AKLT.Blueprint.H3.ReflectionLivePairsStatement : Prop
+def AKLT.Blueprint.H3.ReflectionLivePairsStatement : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n) (i : Fin n),
+  Finset.image (fun p => Finset.image AKLT.Blueprint.H3.reflectSite p) (AKLT.Defs.responsePairs w i) =
+    AKLT.Defs.responsePairs (AKLT.Blueprint.H3.reflectWord w) i
+Pi.instFintype
+Pi.instFintype
+1
+16

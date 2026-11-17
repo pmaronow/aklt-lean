@@ -1,0 +1,63 @@
+def AKLT.Blueprint.Win.ShellScaleStatement : Prop :=
+∀ (l u : ℕ),
+  1 ≤ l →
+    geometryThreshold l ≤ u →
+      16 ≤ shellSpacing u ∧
+        6 * (↑l + 1) ≤ shellSpacing u ∧
+          shellSpacing u ^ 4 = ↑u ∧
+            shellSpacing u ^ 2 + 4 * shellSpacing u / 3 < ↑u ∧
+              shellSpacing u ^ 2 + shellSpacing u < ↑u / 2 ∧ 2 * shellSpacing u / 3 < ↑⌊shellSpacing u⌋
+def AKLT.Blueprint.Win.CloseCornerStatement : Prop :=
+∀ (a y : Plane) (u : ℕ), setDistance supDist y ↑(square a u) = 1 → {c ∈ squareCorners a u | supDist c y < u}.card ≤ 1
+def AKLT.Blueprint.Win.ExceptionalLocalizationStatement : Prop :=
+∀ (a y : Plane) (u : ℕ),
+  shellSpacing u ^ 2 + 4 * shellSpacing u / 3 < ↑u →
+    ∀ i ∈ exceptionalIndices a y u,
+      ∃ c ∈ squareCorners a u, supDist c y < u ∧ |↑(supDist c y) - ↑(shellRadius u i)| < shellSpacing u / 3
+def AKLT.Blueprint.Win.RadiusGapStatement : Prop :=
+∀ (u : ℕ), 16 ≤ shellSpacing u → ∀ (i j : ℤ), i < j → 2 * shellSpacing u / 3 < ↑(shellRadius u j) - ↑(shellRadius u i)
+def AKLT.Blueprint.Win.ExceptionalCountStatement : Prop :=
+∀ (a y : Plane) (u : ℕ),
+  {c ∈ squareCorners a u | supDist c y < u}.card ≤ 1 →
+    (∀ i ∈ exceptionalIndices a y u,
+        ∃ c ∈ squareCorners a u, supDist c y < u ∧ |↑(supDist c y) - ↑(shellRadius u i)| < shellSpacing u / 3) →
+      (∀ (i j : ℤ), i < j → 2 * shellSpacing u / 3 < ↑(shellRadius u j) - ↑(shellRadius u i)) →
+        (exceptionalIndices a y u).card ≤ 1
+def AKLT.Blueprint.Win.SideCornerWitnessStatement : Prop :=
+∀ (l : ℕ) (a y : Plane) (u : ℕ),
+  ShellSetup l a y u →
+    ∀ (i : ℤ), 2 ≤ i → i ≤ lastShellIndex u → ¬ParallelClearance a y u i → i ∈ exceptionalIndices a y u
+def AKLT.Blueprint.Win.NearShellCountStatement : Prop :=
+∀ (l : ℕ) (a y : Plane) (u : ℕ),
+  ShellSetup l a y u →
+    ∀ (i : ℤ), 2 ≤ i → i ≤ lastShellIndex u → ParallelClearance a y u i → (nearShell a y u l i).card ≤ 8 * l
+def AKLT.Blueprint.Win.ShellInclusionStatement : Prop :=
+∀ (a y : Plane) (u : ℕ), 2 ≤ shellSpacing u → ∀ (i : ℤ), 2 ≤ i → shell a y u i ⊆ farVolume a y u i
+def AKLT.Blueprint.Win.ShellSetup : ℕ → Plane → Plane → ℕ → Prop :=
+fun l a y u => 1 ≤ l ∧ geometryThreshold l ≤ u ∧ setDistance supDist y ↑(square a u) = 1
+def AKLT.Defs.ParallelClearance : Plane → Plane → ℕ → ℤ → Prop :=
+fun a y u i =>
+  ∀ (axis : Fin 2) (ε δ : ℤ),
+    ε = 1 ∨ ε = -1 →
+      δ = 1 ∨ δ = -1 →
+        have coord := fun z => if axis = 0 then z.1 else z.2;
+        have b := coord y + ε * shellRadius u i;
+        (∃ z ∈ square a u, coord z = b ∧ ↑(supDist z y) = shellRadius u i) →
+          shellSpacing u / 3 ≤ ↑(↑u + 1 - δ * (b - coord a))
+def AKLT.Defs.setDistance : (Plane → Plane → ℕ) → Plane → Set Plane → ℕ∞ :=
+fun metric x S => ⨅ y, ↑(metric x ↑y)
+def AKLT.Defs.squareCorners : Plane → ℕ → Finset Plane :=
+fun a u => {a.1 - ↑u, a.1 + ↑u}.product {a.2 - ↑u, a.2 + ↑u}
+def AKLT.Defs.shellRadius : ℕ → ℤ → ℤ :=
+fun u i => ⌊↑i * shellSpacing u⌋
+def AKLT.Defs.farVolume : Plane → Plane → ℕ → ℤ → Finset Plane :=
+fun a y u i => {x ∈ square a u | (↑i - 1) * shellSpacing u < ↑(supDist x y)}
+def AKLT.Defs.nearShell : Plane → Plane → ℕ → ℕ → ℤ → Finset Plane :=
+fun a y u l₀ i => {x ∈ shell a y u i | setDistance supDist x {z | z ∉ square a u} ≤ ↑l₀}
+def AKLT.Defs.exceptionalIndices : Plane → Plane → ℕ → Finset ℤ :=
+fun a y u =>
+  {i ∈ Finset.Icc 2 (lastShellIndex u) |
+    ∃ x ∈ shell a y u i, ∃ z ∈ squareCorners a u, ↑(supDist x z) < shellSpacing u / 3}
+1
+0
+0

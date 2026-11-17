@@ -1,0 +1,95 @@
+AKLT.Blueprint.Win.ShellScaleStatement : Prop
+AKLT.Blueprint.Win.CloseCornerStatement : Prop
+AKLT.Blueprint.Win.ExceptionalLocalizationStatement : Prop
+AKLT.Blueprint.Win.RadiusGapStatement : Prop
+AKLT.Blueprint.Win.ExceptionalCountStatement : Prop
+AKLT.Blueprint.Win.SideCornerWitnessStatement : Prop
+AKLT.Blueprint.Win.NearShellCountStatement : Prop
+AKLT.Blueprint.Win.ShellInclusionStatement : Prop
+AKLT.Blueprint.Win.PredecessorShellStatement : Prop
+AKLT.Blueprint.Win.SeedSeparationStatement : Prop
+AKLT.Blueprint.Win.MetricFactsStatement : Prop
+AKLT.Blueprint.Win.FiniteDepthStatement : Prop
+AKLT.Blueprint.Win.BoundaryMembershipStatement : Prop
+AKLT.Blueprint.Win.ChainBoxStatement : Prop
+AKLT.Blueprint.Win.DiagonalEliminationStatement : Prop
+AKLT.Blueprint.Win.ColumnFluxStatement : Prop
+AKLT.Blueprint.Win.TailSupportStatement : Prop
+AKLT.Blueprint.Win.PlaquetteReconstructionStatement : Prop
+AKLT.Blueprint.Win.PlaquetteTrianglesStatement : Prop
+AKLT.Blueprint.Win.CutEdgesNonemptyStatement : Prop
+AKLT.Blueprint.Win.LinkedSeparationStatement : Prop
+AKLT.Blueprint.Win.TriangleCutParityStatement : Prop
+AKLT.Blueprint.Win.SpanCutParityStatement : Prop
+AKLT.Blueprint.Win.TwoCrossingCycleStatement : Prop
+AKLT.Blueprint.Win.TwoCrossingParityStatement : Prop
+AKLT.Blueprint.Win.OuterEndpointTransferStatement : Prop
+AKLT.Blueprint.Win.CrossFactsStatement : Prop
+AKLT.Blueprint.Win.CrossOverlapStatement : Prop
+AKLT.Blueprint.Win.CrossUnionStatement : Prop
+AKLT.Blueprint.Win.NeighbourDecayStatement : Prop
+AKLT.Blueprint.Win.CrossWeightSumStatement : Prop
+AKLT.Blueprint.Win.ConnectedEnumerationStatement : Prop
+AKLT.Blueprint.Win.CutScalesStatement : Prop
+AKLT.Blueprint.Win.CoreConnectedStatement : Prop
+AKLT.Blueprint.Win.RadialPathsStatement : Prop
+AKLT.Blueprint.Win.SquareExteriorStatement : Prop
+AKLT.Blueprint.Win.ComplementEscapeStatement : Prop
+AKLT.Blueprint.Win.WindowBufferStatement : Prop
+AKLT.Blueprint.Win.RawRangeStatement : Prop
+AKLT.Blueprint.Win.RawDistanceObstructionsStatement : Prop
+AKLT.Blueprint.Win.RawDepthArithmeticStatement : Prop
+AKLT.Blueprint.Win.RawHeightStatement : Prop
+AKLT.Blueprint.Win.SignedSideExclusionStatement : Prop
+AKLT.Blueprint.Win.SquareIntersectionStatement : Prop
+AKLT.Blueprint.Win.RawLayerCountStatement : Prop
+AKLT.Blueprint.Win.NearSeriesStatement : Prop
+AKLT.Blueprint.Win.RawWeightSumStatement : Prop
+AKLT.Blueprint.Win.ThickDepthStatement : Prop
+AKLT.Blueprint.Win.CutSeparationStatement : Prop
+AKLT.Blueprint.Win.OriginalPositivityStatement : Prop
+AKLT.Blueprint.Win.PartLawBridgeStatement : Prop
+AKLT.Blueprint.Win.EnumerationStepsStatement : Prop
+AKLT.Blueprint.Win.SurvivorGeometryStatement : Prop
+AKLT.Blueprint.Win.RemovalIntegralStatement : Prop
+AKLT.Blueprint.Win.NeighbourFibresStatement : Prop
+AKLT.Blueprint.Win.PairMeanAveragingStatement : Prop
+AKLT.Blueprint.Win.QuarticMeanBoundStatement : Prop
+AKLT.Blueprint.Win.PolynomialLowerStatement : Prop
+AKLT.Blueprint.Win.RemovedPairResponseStatement : Prop
+AKLT.Blueprint.Win.PairDifferenceStatement : Prop
+AKLT.Blueprint.Win.LogLipschitzStatement : Prop
+AKLT.Blueprint.Win.LogStepIdentityStatement : Prop
+AKLT.Blueprint.Win.LocalLogEstimateStatement : Prop
+AKLT.Blueprint.Win.RemovalTelescopeStatement : Prop
+AKLT.Blueprint.Win.RemovalCostSumStatement : Prop
+AKLT.Blueprint.Win.FrameFibreSumStatement : Prop
+AKLT.Blueprint.Win.ComplementQuadratureStatement : Prop
+AKLT.Blueprint.Win.MarginalNormalizationStatement : Prop
+AKLT.Blueprint.Win.OriginalFactorizationStatement : Prop
+AKLT.Blueprint.Win.ComponentPinsStatement : Prop
+AKLT.Blueprint.Win.WindowWeightPositiveStatement : Prop
+AKLT.Blueprint.Win.WindowRewriteStatement : Prop
+AKLT.Blueprint.Win.BoundedTiltStatement : Prop
+AKLT.Blueprint.Win.OverlapMinorizationStatement : Prop
+AKLT.Blueprint.Win.TailExponentialStatement : Prop
+AKLT.Blueprint.Win.TailThresholdStatement : Prop
+AKLT.Blueprint.Win.CutCostNonnegativeStatement : Prop
+AKLT.Blueprint.Win.WindowCostArithmeticStatement : Prop
+AKLT.Blueprint.Win.FrameWeightPositiveStatement : Prop
+AKLT.Blueprint.Top.ShellGeometryStatement : Prop
+AKLT.Blueprint.Top.CutMOSStatement : Prop
+'AKLT.Blueprint.Win.shellGeometry_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.evenChain_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.boundaryConnectivity_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.thickening_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.taperConnectivity_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.cutGeometry_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.removalEstimate_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.cutMinorization_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.cutMOS_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.metricFacts' depends on axioms: [propext, Quot.sound]
+'AKLT.Blueprint.Win.spanCutParity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.logLipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.cutCostNonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Win.windowCostArithmetic' depends on axioms: [propext, Classical.choice, Quot.sound]

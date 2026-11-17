@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "arithmetic": "integer fourth roots and integer fourth-power comparisons; no floating point",
+  "counts": {
+    "explicit_exterior_distance": 165,
+    "explicit_shell_and_near_count": 28757,
+    "close_corner": 13776,
+    "localization_configurations": 46700,
+    "localization_corner_witness": 1984,
+    "scale_floor_bound": 15,
+    "radius_gap_negative_and_positive_indices": 3015,
+    "shell_inclusion_radius_bound": 296,
+    "side_corner_witness": 25056,
+    "near_shell_count_with_clearance": 41352,
+    "exceptional_count_complete_trial_range": 90
+  },
+  "side_corner_nonvacuity_witness": {
+    "l": 1,
+    "a": [
+      0,
+      0
+    ],
+    "y": [
+      -65504,
+      -65537
+    ],
+    "u": 65536,
+    "i": 2,
+    "clearance": false,
+    "exceptional": true
+  },
+  "largest_observed_near_card_over_l": [
+    2,
+    1
+  ],
+  "scope": "Finite sanity checks support the mathematical audit and are not proofs of universal statements."
+}

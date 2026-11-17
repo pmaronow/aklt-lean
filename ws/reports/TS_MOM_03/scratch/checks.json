@@ -1,0 +1,59 @@
+{
+  "explicit_U_law": {
+    "status": "PASS",
+    "distinct_unit_atoms": 12,
+    "exact_monomials_through_degree_four": 35,
+    "arithmetic": "Fraction coefficients in Q(sqrt(5)); odd-degree numerators vanish exactly"
+  },
+  "triple_moment_formulas": {
+    "status": "PASS",
+    "normalizer_polynomial": true,
+    "numerator_coordinate_polynomials": 3,
+    "formal_field_variables": 9,
+    "unit_field_assumptions_used": false
+  },
+  "triple_SOS": {
+    "status": "PASS",
+    "exact_Gram_polynomial_identity": true,
+    "only_constraints": "la=lb=lc=1"
+  },
+  "conditioning": {
+    "status": "PASS",
+    "exact_joint_marginal_comparisons": 507,
+    "features": [
+      "n=2",
+      "n=3",
+      "negative factors",
+      "zero atoms",
+      "arbitrary weights off fibre"
+    ]
+  },
+  "eight_slot_product_mixture": {
+    "status": "PASS",
+    "exact_polynomial_cases": 85,
+    "k_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "includes_endpoint_and_zero_weights": true,
+    "v_is_formal_and_unrestricted": true
+  },
+  "positive_mixture_estimate": {
+    "status": "PASS",
+    "exact_cases": 96,
+    "radii": [
+      "0",
+      "3/5",
+      "1",
+      "2"
+    ],
+    "alphabet_sizes": [
+      1,
+      2,
+      5
+    ],
+    "includes_zero_weights_and_A_equal_half": true
+  }
+}

@@ -1,0 +1,16 @@
+def AKLT.Defs.Compass.step : AKLT.Defs.Compass → AKLT.Defs.Plane :=
+fun (x : AKLT.Defs.Compass) =>
+  AKLT.Defs.Compass.step.match_1.{1} (fun (x : AKLT.Defs.Compass) => AKLT.Defs.Plane) x
+    (fun (_ : Unit) =>
+      @Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))
+        (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+    (fun (_ : Unit) =>
+      @Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+        (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+    (fun (_ : Unit) =>
+      @Prod.mk.{0, 0} Int Int
+        (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+        (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+    fun (_ : Unit) =>
+    @Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))

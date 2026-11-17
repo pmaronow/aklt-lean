@@ -1,0 +1,265 @@
+{
+  "result": "PASS",
+  "depth_counts": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "all_raw_code_coverage_checks": 1048576,
+  "raw_to_quotient_direction_checks": 240368,
+  "admitted_kind_and_successor_checks": 169092,
+  "nonrevisit_arrival_checks": 162372,
+  "representative_checks": 3741,
+  "edge_counts_straight_turn_revisit": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "raw_class_table_bit_length": 12582908,
+  "reconstructed_archive_sha256": "671475d3333b646b3ace22a555f9a63a74f7bb076f0454f5b480c1e444a95785",
+  "archive_hash_matches_docstring": true,
+  "assigned": [
+    {
+      "name": "rawClass_455",
+      "line": 925,
+      "hex_digits": 4096,
+      "bit_interval_inclusive": [
+        5111804,
+        5128187
+      ],
+      "intersecting_codes_inclusive": [
+        425983,
+        427348
+      ],
+      "complete_codes_inclusive": [
+        425984,
+        427348
+      ],
+      "raw_codes_intersecting": 0,
+      "invalid_codes_intersecting": 1366,
+      "distinct_raw_classes_intersecting": 0,
+      "hex_sha256": "f4ef596995cb866e69a1548015d6de8333347a2689472f164016670571e215a0",
+      "samples": [
+        {
+          "code": 425983,
+          "word": "NWNSSSSSSS",
+          "class": 3741,
+          "raw": false,
+          "repeated_bond_indices_zero_based": [
+            [
+              2,
+              3
+            ]
+          ],
+          "representative_code": null,
+          "representative_word": null
+        }
+      ]
+    },
+    {
+      "name": "rawClass_456",
+      "line": 927,
+      "hex_digits": 4096,
+      "bit_interval_inclusive": [
+        5095420,
+        5111803
+      ],
+      "intersecting_codes_inclusive": [
+        424618,
+        425983
+      ],
+      "complete_codes_inclusive": [
+        424619,
+        425982
+      ],
+      "raw_codes_intersecting": 0,
+      "invalid_codes_intersecting": 1366,
+      "distinct_raw_classes_intersecting": 0,
+      "hex_sha256": "f8b19075c56ae41cc657b33cfe09b9340e21c3863fb0d2fdcb9229878c938079",
+      "samples": [
+        {
+          "code": 424618,
+          "word": "NWNSWWWWWW",
+          "class": 3741,
+          "raw": false,
+          "repeated_bond_indices_zero_based": [
+            [
+              2,
+              3
+            ]
+          ],
+          "representative_code": null,
+          "representative_word": null
+        },
+        {
+          "code": 425983,
+          "word": "NWNSSSSSSS",
+          "class": 3741,
+          "raw": false,
+          "repeated_bond_indices_zero_based": [
+            [
+              2,
+              3
+            ]
+          ],
+          "representative_code": null,
+          "representative_word": null
+        }
+      ]
+    },
+    {
+      "name": "rawClass_457",
+      "line": 929,
+      "hex_digits": 4096,
+      "bit_interval_inclusive": [
+        5079036,
+        5095419
+      ],
+      "intersecting_codes_inclusive": [
+        423253,
+        424618
+      ],
+      "complete_codes_inclusive": [
+        423253,
+        424617
+      ],
+      "raw_codes_intersecting": 0,
+      "invalid_codes_intersecting": 1366,
+      "distinct_raw_classes_intersecting": 0,
+      "hex_sha256": "079ffb681623155e0413cb96056c128d77e044069f9a32b5bea5b4cda161da63",
+      "samples": [
+        {
+          "code": 424618,
+          "word": "NWNSWWWWWW",
+          "class": 3741,
+          "raw": false,
+          "repeated_bond_indices_zero_based": [
+            [
+              2,
+              3
+            ]
+          ],
+          "representative_code": null,
+          "representative_word": null
+        }
+      ]
+    },
+    {
+      "name": "rawClass_458",
+      "line": 931,
+      "hex_digits": 4096,
+      "bit_interval_inclusive": [
+        5062652,
+        5079035
+      ],
+      "intersecting_codes_inclusive": [
+        421887,
+        423252
+      ],
+      "complete_codes_inclusive": [
+        421888,
+        423252
+      ],
+      "raw_codes_intersecting": 1,
+      "invalid_codes_intersecting": 1365,
+      "distinct_raw_classes_intersecting": 1,
+      "hex_sha256": "95129a05accb7f44826a8395a8d6673a7ddbdf90b1e53457a18b4abc2785c4d7",
+      "samples": [
+        {
+          "code": 421887,
+          "word": "NWNWSSSSSS",
+          "class": 218,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 1023,
+          "representative_word": "EEEEESSSSS"
+        }
+      ]
+    },
+    {
+      "name": "rawClass_459",
+      "line": 933,
+      "hex_digits": 4096,
+      "bit_interval_inclusive": [
+        5046268,
+        5062651
+      ],
+      "intersecting_codes_inclusive": [
+        420522,
+        421887
+      ],
+      "complete_codes_inclusive": [
+        420523,
+        421886
+      ],
+      "raw_codes_intersecting": 269,
+      "invalid_codes_intersecting": 1097,
+      "distinct_raw_classes_intersecting": 227,
+      "hex_sha256": "ed9bda416a9087d58c481c971c8f93b8ac07d0ba09b90decdfe7527902f1f049",
+      "samples": [
+        {
+          "code": 420522,
+          "word": "NWNWWWWWWW",
+          "class": 356,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 1706,
+          "representative_word": "EEEENWWWWW"
+        },
+        {
+          "code": 420523,
+          "word": "NWNWWWWWWS",
+          "class": 433,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 3755,
+          "representative_word": "EEEESWWWWS"
+        },
+        {
+          "code": 420524,
+          "word": "NWNWWWWWSE",
+          "class": 862,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 15020,
+          "representative_word": "EEESWWWWSE"
+        },
+        {
+          "code": 421884,
+          "word": "NWNWSSSSSE",
+          "class": 216,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 1020,
+          "representative_word": "EEEEESSSSE"
+        },
+        {
+          "code": 421886,
+          "word": "NWNWSSSSSW",
+          "class": 521,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 4094,
+          "representative_word": "EEEESSSSSW"
+        },
+        {
+          "code": 421887,
+          "word": "NWNWSSSSSS",
+          "class": 218,
+          "raw": true,
+          "repeated_bond_indices_zero_based": [],
+          "representative_code": 1023,
+          "representative_word": "EEEEESSSSS"
+        }
+      ]
+    }
+  ]
+}

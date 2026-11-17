@@ -1,0 +1,86 @@
+AKLT/Blueprint/H1/Assembly.lean:129:33: error: Type mismatch
+  Finset.sum_nonneg fun i x => mul_self_nonneg (u i)
+has type
+  0 ≤ ∑ i ∈ ?m.64, u i * u i
+but is expected to have type
+  0 ≤ normSq u
+AKLT/Blueprint/H1/Assembly.lean:162:2: warning: Try this: intro hStructure hInvert hCov hHermitian hParity hReal hCoordinates hOrthogonal hRotate hCayley hCoefficient
+  hGenerator hExpansion hUnitPair hExchange hPairTransfer hDistinct π hπ r I hI c _ _
+
+Note: This linter can be disabled with `set_option linter.tacticAnalysis.introMerge false`
+AKLT/Blueprint/H1/Assembly.lean:198:29: error: Function expected at
+  O
+but this term has type
+  Finset (Fin 20)
+
+Note: Expected a function because this term is being applied to the argument
+  ψ
+AKLT/Blueprint/H1/Assembly.lean:200:12: error: Function expected at
+  hPreserve
+but this term has type
+  Submodule ℂ (EuclideanSpace ℂ (↥(reductionVectors π r) → Fin 2))
+
+Note: Expected a function because this term is being applied to the argument
+  ψ
+AKLT/Blueprint/H1/Assembly.lean:202:15: error: Application type mismatch: The argument
+  hψ.left
+has type
+  ψ ∈ ↑(exchangeSpace π r ε)
+of sort `Prop` but is expected to have type
+  ↥O → Fin 2
+of sort `Type` in the application
+  (hZ ψ).ofLp ⋯
+AKLT/Blueprint/H1/Assembly.lean:203:38: error: Application type mismatch: The argument
+  O
+has type
+  Finset (Fin 20)
+but is expected to have type
+  Module.End ℂ (EuclideanSpace ℂ (↥(reductionVectors π r) → Fin 2))
+in the application
+  eigenvaluesOn C O
+AKLT/Blueprint/H1/Assembly.lean:203:58: error: Application type mismatch: The argument
+  O
+has type
+  Finset (Fin 20)
+but is expected to have type
+  Module.End ℂ (EuclideanSpace ℂ (↥(reductionVectors π r) → Fin 2))
+in the application
+  eigenvaluesOn S O
+AKLT/Blueprint/H1/Assembly.lean:209:19: error: Application type mismatch: The argument
+  O
+has type
+  Finset (Fin 20)
+but is expected to have type
+  Module.End ℂ (TensorSpace J)
+in the application
+  hStart J S O
+AKLT/Blueprint/H1/Assembly.lean:218:53: error: Application type mismatch: The argument
+  O
+has type
+  Finset (Fin 20)
+but is expected to have type
+  Module.End ℂ (TensorSpace J)
+in the application
+  hWalk J S (↑(centralWeight π r)) (centralWeightHalf π r) (hStable π r ε) (hTransfer J (hAdjoint J) (hCommutator J)) O
+AKLT/Blueprint/H1/Assembly.lean:222:9: error: Invalid `⟨...⟩` notation: The expected type
+  (∀ ψ ∈ hPreserve, hZ ((totalSpinZ O) ψ) = (totalSpinZ O) (hZ ψ)) →
+    (∀ ψ ∈ hPreserve, hZ ((totalSpinPlus O) ψ) = (totalSpinPlus O) (hZ ψ)) →
+      (∀ ψ ∈ hPreserve, hZ ((totalSpinMinus O) ψ) = (totalSpinMinus O) (hZ ψ)) →
+        (∀ ψ ∈ hSymmetric, hZ ψ ∈ hSymmetric) ∧
+          eigenvaluesOn hSymmetric hZ = eigenvaluesOn hPreserve hZ ∧
+            (PositiveOn hSymmetric hZ ↔ PositiveOn hPreserve hZ)
+is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+AKLT/Blueprint/H1/Assembly.lean:223:2: error: No goals to be solved
+AKLT/Blueprint/H1/Assembly.lean:241:72: error(lean.unknownIdentifier): Unknown constant `Int.castRingHom_apply`
+AKLT/Blueprint/H1/Assembly.lean:241:2: error: Type mismatch: After simplification, term
+  ⟨hReal.left, ⟨hComplex.left, ⟨hReal.right, hComplex.right⟩⟩⟩
+ has type
+  And (Gen.Gram.castMatrix ((↑d * ↑S ^ 2) • M - ↑g • (L * L.transpose))).PosDef
+    ((Gen.Gram.castMatrix ((↑d * ↑S ^ 2) • M - ↑g • (L * L.transpose))).PosDef ∧
+      (Gen.Gram.castMatrix M).PosDef ∧ (Gen.Gram.castMatrix M).PosDef)
+but is expected to have type
+  And ((Defs.gramResidual M L g d S).map ⇑(Int.castRingHom ℝ)).PosDef
+    (((Defs.gramResidual M L g d S).map ⇑(Int.castRingHom ℂ)).PosDef ∧
+      (M.map ⇑(Int.castRingHom ℝ)).PosDef ∧ (M.map ⇑(Int.castRingHom ℂ)).PosDef)

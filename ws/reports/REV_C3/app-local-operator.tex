@@ -1,0 +1,898 @@
+% Appendix D.  Statement text follows the amended REV-PLAN contract.
+% This is a section file: no document class, packages, or theorem declarations.
+\section{Operator certificates for the local inequalities}\label{s:local-operator}
+
+Fix a covered pattern \(\pi\in\mathcal P_{\rm ext}\) from
+Definition~\ref{d:pattern}.  Write \(o\) for its out-neighbour and
+\(f,g\) for the other two sites in
+\(\{\mathsf e,\mathsf N,\mathsf W\}\), whether or not they are
+removed.  For \(0<c<1\) set
+\[
+ F_c(m)=Z_{\rm cur}(\pi;m)-cZ_{\rm next}(\pi;m),
+ \qquad m\in(\mathbb S^2)^{20}.
+\]
+All spin functionals in this appendix are finite sums with the laws
+of Definition~\ref{d:moment}.  The proposition at the end gives a
+sufficient certificate for this pattern's inequality in
+Definition~\ref{h:H1}; it does not assert optimality of \(c\).
+Empty products and tensor products mean \(1\) and \(\mathbb C\),
+respectively, and the Pauli operator of a constant when there are
+no vector variables is that scalar on \(\mathbb C\).
+
+\subsection{Passage and leaf reductions}
+
+\begin{lemma}\label{l:Iw}
+Let \(Z_w\) be the finite template functional after deleting
+the passage site and its incident factors, retaining all other
+present bonds and all covered slot factors. Put \(P_{ab}=n_a\cdot n_b\)
+for nonremoved sites and zero if either is removed.
+For the out-neighbour \(o\) and the other two neighbours \(f,g\),
+\[
+ Z_{\rm cur}=Z_w[I],\qquad Z_{\rm next}=Z_w[J]>0,\qquad
+ I=1+\tfrac13(P_{fg}+P_{fo}+P_{go}),\quad J=1+\tfrac15P_{fg}.
+\]
+For \(0<c<1\), \(F_c=Z_{\rm cur}-cZ_{\rm next}=Z_w[I-cJ]\), with
+\[
+ I-cJ=(1-c)+\tfrac13(P_{fo}+P_{go})+(\tfrac13-\tfrac c5)P_{fg}.
+\]
+Both partition polynomials are affine in each slot vector and
+invariant under simultaneous orthogonal transformations of the slots.
+\end{lemma}
+
+\begin{proof}
+For purposes of expanding a product, set \(n_x=0\) whenever \(x\)
+is removed; this adds neither a variable nor a site law to the
+functional.  By Definition~\ref{d:pattern}, the present passage
+bonds in the current template go precisely to the nonremoved sites
+among \(f,g,o\).  In the next template the passage law is
+\(\lambda_{\mathrm D}\), its bond to \(o\) is deleted, and its
+other present bonds are unchanged.  Consequently the factors
+obtained by summing over the passage spin are, respectively,
+\[
+ \mathcal M\bigl((1+n\cdot n_f)(1+n\cdot n_g)
+                         (1+n\cdot n_o)\bigr),\qquad
+ \lambda_{\mathrm D}\bigl((1+n\cdot n_f)(1+n\cdot n_g)\bigr).
+\]
+The first and third moments vanish.  The second moment is
+\(\delta_{ij}/3\) for \(\lambda_{\mathrm U}\) and
+\(\delta_{ij}/5\) for \(\lambda_{\mathrm D}\), by
+Lemma~\ref{l:moments}.  Expansion therefore gives exactly \(I\)
+and \(J\), including when one or both of \(f,g\) are removed.
+Finite summation can be performed in any order, proving both
+partition identities.  Subtraction gives the asserted formula for
+\(I-cJ\).
+
+The network defining \(Z_w[1]\) has at most four incident factors
+at each site, so \(Z_w[1]>0\) by Lemma~\ref{l:finitefacts}.
+All its weights are nonnegative.  The remaining spins have norm
+at most one, so \(P_{fg}\ge-1\), also with the removed-site
+convention.  Thus
+\[
+ Z_{\rm next}=Z_w[J]\ge\frac45 Z_w[1]>0.
+\]
+
+Each slot occurs in just one linear factor.  All spin variables
+in either original template occur in at most four factors:
+the passage has at most three, each tip has its three slots and
+at most one bond, each corner has its two slots and at most two
+bonds, and each neighbour of the passage has at most four bonds.
+For \(R\in\mathrm O(3)\), simultaneous transformation of slots
+and spin variables leaves every scalar product unchanged.
+The site-by-site polynomial covariance in
+Lemma~\ref{l:moments}, with these separate degree bounds, then
+shows that transforming the slots alone leaves each partition
+polynomial unchanged.  This uses covariance of the indicated
+polynomials, without asserting invariance of the finite laws on
+arbitrary functions.
+\end{proof}
+
+\begin{lemma}\label{l:leaf}
+In a covered template, integrating a nonremoved tip or corner
+with no present internal bond gives a positive factor depending
+only on its own slots.
+A tip with its one internal bond to \(x\) gives
+\(A(1+(3/5)u\cdot n_x)\), \(A>0,\ |u|\le1\).
+A corner with exactly one internal bond to \(x\) gives
+\(A(1+\rho u\cdot n_x)\), \(A>0,\ |u|\le1\), where
+\(\rho=1/2\) for status \(\mathrm U\) and \(\rho=1/3\)
+for status \(\mathrm D\).
+\end{lemma}
+
+\begin{proof}
+All slot vectors in this proof are unit vectors.  A tip has law
+\(\lambda_{\mathrm U}\), three slots, and at most one internal
+bond, by Definition~\ref{d:pattern}.  If its slots are
+\(a_1,a_2,a_3\), their normalizer is
+\[
+ A=\mathcal M\left(\prod_{j=1}^3(1+a_j\cdot n)\right)
+   =1+\frac13\sum_{j<l}a_j\cdot a_l\ge\frac12,
+\]
+since \(0\le|a_1+a_2+a_3|^2=3+2\sum_{j<l}a_j\cdot a_l\).
+With no bond this is the required positive factor.  With a bond
+to \(x\), put
+\[
+ V=\mathcal M\left(n\prod_{j=1}^3(1+a_j\cdot n)\right).
+\]
+Summing over the tip gives \(A+V\cdot n_x\).  The normalized
+mean bound in Lemma~\ref{l:35} gives \(|V|\le3A/5\), so
+\(u=5V/(3A)\) has norm at most one and gives the claimed formula.
+The moment in \(V\) has degree four, within the stated bound.
+
+For a nonremoved corner let its two slots be \(a,b\), and put
+\(t=a\cdot b\in[-1,1]\).  Write \(A\) for its slot normalizer
+and \(V\) for its unnormalized slot mean.  Lemma~\ref{l:moments}
+gives
+\[
+ \begin{array}{c|cc}
+   &A&V\\ \hline
+  \mathrm U&1+t/3&(a+b)/3\\
+  \mathrm D&1+t/5&(a+b)/5 .
+ \end{array}
+\]
+In particular \(A\ge2/3\) in status \(\mathrm U\), and
+\(A\ge4/5\) in status \(\mathrm D\).  This proves the assertion
+for corners with no internal bond.  If there is exactly one bond
+to \(x\), its sum is again \(A+V\cdot n_x\).  As
+\(|a+b|^2=2+2t\), in the two cases respectively we have
+\[
+ A^2-4|V|^2=\frac{(1-t)^2}{9}\ge0,
+ \qquad
+ A^2-9|V|^2=\frac{(1-t)(7-t)}{25}\ge0.
+\]
+Since \(A>0\), these inequalities give \(|V|\le A/2\) and
+\(|V|\le A/3\).  Set \(u=V/(\rho A)\) with the corresponding
+\(\rho\).  Every factor and vector constructed here depends only
+on the slots at that leaf, as required.
+\end{proof}
+
+\begin{definition}\label{d:reduction}
+Delete tips and corners with no present internal bond, dropping
+their common positive factors. Replace every bonded tip by a
+single vector and radius \(3/5\).
+In the reduced representation also replace each one-bond corner
+by a single vector of radius \(1/2\) or \(1/3\) according to
+Lemma~\ref{l:leaf}; in the unreduced representation retain its spin
+and two slots. Other bonded corners retain their two slots.
+Let \(u=(u_1,\ldots,u_k)\) list these remaining vectors, and define
+\(\widehat Z_{\rm cur},\widehat Z_{\rm next}\) by these replacements,
+\(\widehat F_c=\widehat Z_{\rm cur}-c\widehat Z_{\rm next}\).
+A group is one single vector or the two slots of a retained corner.
+\end{definition}
+
+Thus a single vector attached to a retained spin \(n_x\) means
+the factor \(1+r_i u_i\cdot n_x\), where \(r_i\) is its prescribed
+radius.  Each retained corner contributes
+\((1+u_i\cdot n_z)(1+u_{i'}\cdot n_z)\) and retains its original
+status law.  The functional after the passage sum consists of
+these factors, the remaining internal bonds, and \(I\) or \(J\)
+from Lemma~\ref{l:Iw}.  This specifies the polynomials for all
+\(u_i\in\mathbb R^3\); no realizability condition on a replacement
+vector is part of their definition.
+
+\begin{corollary}\label{c:reduce}
+In either representation, \(\widehat F_c\) is real, affine in
+each vector and invariant under simultaneous \(\mathrm O(3)\).
+If \(\widehat F_c\ge0\) on \((\mathbb S^2)^k\), then
+\(F_c\ge0\) on \((\mathbb S^2)^{20}\).
+For each original slot assignment there are a common \(K>0\)
+and vectors \(\widehat u\) in the closed unit ball such that
+\(Z_{\rm cur}=K\widehat Z_{\rm cur}(\widehat u)\) and
+\(Z_{\rm next}=K\widehat Z_{\rm next}(\widehat u)\).
+\end{corollary}
+
+\begin{proof}
+The slot factors and the replacement factors are real and affine
+in each of their vector variables.  No vector is used twice.
+Finite summation therefore preserves reality and separate
+affineness.  In a term containing a pair insertion from \(I\) or
+\(J\), each endpoint is a nonremoved non-arrival neighbour of the
+passage.  Deleting its passage bond leaves at most three other
+factors, and the insertion raises its degree by one.  Other
+neighbours have degree at most three after passage deletion, and
+retained corners have at most two slots and two bonds.  Replacing
+a leaf changes a bond at its surviving endpoint to a single
+linear factor and so does not increase that degree.  Hence all
+summed spin variables have separate degree at most four.
+Every factor is a scalar product or a constant with a real
+radius.  Lemma~\ref{l:moments}, applied site by site as in
+Lemma~\ref{l:Iw}, proves simultaneous \(\mathrm O(3)\) covariance
+of both reduced partition polynomials, and thus of
+\(\widehat F_c\).
+
+Fix an original assignment \(m\in(\mathbb S^2)^{20}\).  No two
+tips or corners are nearest neighbours in the template.  Thus
+each sum in Lemma~\ref{l:leaf} can be performed with all other
+spins fixed, without changing the slots of another leaf.  These
+leaf factors contain no passage spin.  The same successive
+summations therefore give, in the two partition functions, the
+same product \(K>0\) of the leaf normalizers and the same list
+\(\widehat u\) of replacement vectors and retained slots.
+Lemma~\ref{l:leaf} bounds each replacement vector by one, and
+the retained slots are unit vectors.  Consequently
+\[
+ Z_{\rm cur}=K\widehat Z_{\rm cur}(\widehat u),\qquad
+ Z_{\rm next}=K\widehat Z_{\rm next}(\widehat u),\qquad
+ F_c(m)=K\widehat F_c(\widehat u),\qquad |\widehat u_i|\le1.
+\]
+Removed sites have no factors, and an empty product of deleted
+leaf normalizers is \(K=1\).
+
+For completeness, if \(|v|\le1\), choose \(b=v/|v|\) when
+\(v\ne0\), and choose \(b=(0,0,1)\) when \(v=0\).  Then
+\[
+ v=\frac{1+|v|}{2}b+\frac{1-|v|}{2}(-b).
+\]
+Successively using affineness in each vector expresses a value
+of \(\widehat F_c\) on the product of balls as a sum of its
+values on unit vectors with nonnegative product weights summing
+to one.  For no vector variables this is the single value of the
+constant polynomial.  Positivity on unit vectors therefore
+implies positivity at \(\widehat u\), and the last displayed
+identity proves the assertion.
+\end{proof}
+
+\subsection{Pauli operators and their symmetries}
+
+We use the explicit matrices
+\[
+ \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ \sigma_2=\begin{pmatrix}0&-\mathrm i\\\mathrm i&0\end{pmatrix},\qquad
+ \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+They are Hermitian, have square \(I\), and satisfy
+\(\operatorname{Tr}\sigma_j=0\) and
+\(\operatorname{Tr}(\sigma_j\sigma_l)=2\delta_{jl}\)
+for \(1\le j,l\le3\).  Direct multiplication also gives
+\(\sigma_j\sigma_l+\sigma_l\sigma_j=2\delta_{jl}I\).
+
+\begin{definition}\label{d:Pauli}
+For a real polynomial affine in each vector, expand uniquely
+\[
+ F(u)=\sum_{a\in\{0,1,2,3\}^k}f_a\prod_i u_i^{a_i},
+ \qquad u_i^0=1,\qquad
+ \mathcal O(F)=\sum_a f_a\bigotimes_i\sigma_{a_i},\quad\sigma_0=I.
+\]
+For \(\mathcal I\subset\{1,\ldots,k\}\), invert those vectors,
+writing \(u^{\mathcal I}\) and \(F^{\mathcal I}(u)=F(u^{\mathcal I})\).
+For \(|a|\le1\), put \(\rho(a)=(I+a\cdot\sigma)/2\).
+Set \(S_z=\frac12\sum_i\sigma_3^{(i)}\) and
+\(S_\pm=\sum_i(\sigma_1^{(i)}\pm\mathrm i\sigma_2^{(i)})/2\).
+\end{definition}
+
+Here \(u_i^j\) for \(j=1,2,3\) denotes a coordinate, not a power.
+The expansion is unique because these are distinct monomials
+in the \(3k\) real coordinates.  Separate affineness permits
+at most one coordinate from each vector.  Its coefficients are
+real, so \(\mathcal O(F)\) is Hermitian.  The map
+\(F\mapsto\mathcal O(F)\) is real linear, commutes with finite
+sums over auxiliary variables, and takes products on disjoint
+sets of vector variables to tensor products of operators.
+
+\begin{lemma}\label{l:inversion}
+For \(|u_i|\le1\), each \(\rho(u_i)\) is positive semidefinite
+of trace one, and
+\[
+ F(u)=\operatorname{Tr}\!\left[
+      \mathcal O(F^{\mathcal I})
+                 \bigotimes_i\rho((u^{\mathcal I})_i)\right].
+\]
+Thus a single inversion \(\mathcal I\) with
+\(\mathcal O(F^{\mathcal I})\ge0\) implies \(F\ge0\)
+on the product of closed unit balls, in particular on unit vectors.
+\end{lemma}
+
+\begin{proof}
+The anticommutation identities give
+\((a\cdot\sigma)^2=|a|^2I\).  For \(a\ne0\), the eigenvalues
+of this traceless Hermitian matrix are \(|a|,-|a|\); for
+\(a=0\) both are zero.  The eigenvalues of \(\rho(a)\) are
+therefore \((1+|a|)/2,(1-|a|)/2\), which are nonnegative for
+\(|a|\le1\).  Its trace is one.  The displayed trace identities
+for the Pauli matrices give
+\[
+ \operatorname{Tr}(\sigma_j\rho(a))=a^j
+       \quad(0\le j\le3),\qquad a^0=1.
+\]
+For any separately affine polynomial \(G\), multiplicativity
+of the trace on tensor products now gives
+\[
+ \operatorname{Tr}\left[\mathcal O(G)
+                          \bigotimes_i\rho(v_i)\right]
+       =\sum_a g_a\prod_i v_i^{a_i}=G(v).
+\]
+Take \(G=F^{\mathcal I}\) and \(v=u^{\mathcal I}\).
+Inverting the same coordinates twice is the identity, proving
+the asserted formula.
+
+The tensor product of the densities is positive semidefinite,
+as follows by tensoring their orthonormal eigenbases.  If
+\(\mathcal O(F^{\mathcal I})\) is positive semidefinite, choose
+an orthonormal eigenbasis \((b_j)\) of it with eigenvalues
+\(\lambda_j\ge0\).  For any positive semidefinite \(R\),
+\[
+ \operatorname{Tr}(\mathcal O(F^{\mathcal I})R)
+       =\sum_j\lambda_j\langle b_j,Rb_j\rangle\ge0.
+\]
+Apply this with the product density.  The formulas also hold
+for an empty tensor product, whose trace is one.
+\end{proof}
+
+\begin{lemma}\label{l:Ostruct}
+For \(\mathcal I\) a union of vector groups and
+\(\mathcal O=\mathcal O(\widehat F_c^{\mathcal I})\),
+the matrix in the standard tensor basis is real symmetric.
+It commutes with \(U^{\otimes k}\) for every \(U\in\mathrm{SU}(2)\)
+and with \(S_z,S_+,S_-\).
+For a retained \(\mathrm U\)-corner pair, if \(\Pi\) projects that
+pair onto \(\operatorname{Sym}^2\mathbb C^2\), then
+\(\mathcal O=\Pi\mathcal O\Pi\).
+For a retained \(\mathrm D\)-corner pair, \(\mathcal O\) commutes
+with exchange of its two factors.
+\end{lemma}
+
+\begin{proof}
+Put \(G=\widehat F_c^{\mathcal I}\).  An inversion commutes with
+a simultaneous orthogonal transformation, so Corollary~\ref{c:reduce}
+implies \(G(Ru_1,\ldots,Ru_k)=G(u)\) for \(R\in\mathrm O(3)\).
+Its coefficients are real and hence \(\mathcal O\) is Hermitian.
+Entrywise conjugation fixes \(\sigma_0,\sigma_1,\sigma_3\) and
+negates \(\sigma_2\).  Thus \(\overline{\mathcal O(G)}\) is the
+Pauli operator of the polynomial obtained by reflecting the
+second coordinate of every vector.  This is \(G\) itself by
+its orthogonal covariance.  The operator is therefore real,
+and Hermiticity makes it symmetric.
+
+For \(U\in\mathrm{SU}(2)\), conjugation by \(U\) preserves the
+real vector space of traceless Hermitian \(2\times2\) matrices
+and its inner product \(\tfrac12\operatorname{Tr}(AB)\).
+The Pauli matrices form an orthonormal basis for that space.
+Consequently there is a real orthogonal matrix \(R\) with
+\[
+ U\sigma_jU^*=\sum_{l=1}^3R_{lj}\sigma_l.
+\]
+Extend it by \(R_{00}=1\), \(R_{0j}=R_{j0}=0\) for \(j>0\).
+Expanding every tensor factor in the definition of the Pauli
+operator gives
+\[
+ U^{\otimes k}\mathcal O(G)(U^*)^{\otimes k}
+       =\mathcal O\bigl(G(R^{\mathsf T}u_1,\ldots,
+                                      R^{\mathsf T}u_k)\bigr)
+       =\mathcal O(G).
+\]
+Only orthogonality of \(R\) is needed here.
+
+The concrete generator commutators follow by a polynomial
+coefficient comparison.  For \(j=1,2,3\) and real \(t\), the
+matrix
+\[
+ U_j(t)=\frac{I-\mathrm i t\sigma_j}{\sqrt{1+t^2}}
+\]
+is unitary of determinant one.  The just-proved commutation,
+after multiplication by \((1+t^2)^{k/2}\), shows that
+\(\mathcal O\) commutes with \((I-\mathrm i t\sigma_j)^{\otimes k}\)
+for every real \(t\).  Its coefficient of \(t\) is
+\(-\mathrm i\sum_i\sigma_j^{(i)}\), so \(\mathcal O\) commutes
+with all three sums.  Their linear combinations give precisely
+\(S_z,S_+,S_-\).  When \(k=0\) all these sums are zero.
+
+Consider a retained corner pair \(i,i'\) at \(z\).
+Since \(\mathcal I\) is a union of groups, its two slot factors
+after inversion have the same sign \(\eta\in\{1,-1\}\):
+\[
+ (1+\eta u_i\cdot n_z)(1+\eta u_{i'}\cdot n_z).
+\]
+With all spins fixed, all other factors are independent of
+\(u_i,u_{i'}\).  Real linearity of the Pauli map and its tensor
+product property show that every summand of \(\mathcal O(G)\),
+with the pair factors ordered first, has the form
+\[
+ (I+\eta n_z\cdot\sigma)\otimes
+ (I+\eta n_z\cdot\sigma)\otimes H_n
+\]
+times a real scalar, for a matrix \(H_n\) on the other factors.
+There is no positivity assumption on that scalar or on \(H_n\).
+If \(z\) has status \(\mathrm U\), every value of \(n_z\) is
+unit.  The matrix \(I+\eta n_z\cdot\sigma\) is then twice a
+rank-one orthogonal projection, by the eigenvalue calculation
+in Lemma~\ref{l:inversion}.  Its tensor square has range in
+the symmetric square: if its one-dimensional range is spanned
+by \(v\), the tensor square has range spanned by \(v\otimes v\).
+It is Hermitian, so multiplication by the symmetric projection
+on either side leaves it unchanged.  This proves
+\(\Pi\mathcal O=\mathcal O=\mathcal O\Pi\), and hence
+\(\mathcal O=\Pi\mathcal O\Pi\).
+
+For status \(\mathrm D\), the value \(n_z=0\) is also allowed.
+For every \(n_z\), including zero, exchanging the two factors
+commutes with the tensor square of \(I+\eta n_z\cdot\sigma\).
+The same holds after finite summation.  This proves the asserted
+exchange commutation.  Each argument in this proof applies
+separately to \(\widehat Z_{\rm cur}^{\mathcal I}\) and
+\(\widehat Z_{\rm next}^{\mathcal I}\), as well as to their
+linear combination: both polynomials have the covariance and
+the corner slot factors used above.
+\end{proof}
+
+\subsection{Exchange sectors and the central weight}
+
+\begin{definition}\label{d:exchange}
+Let \(V\) be the tensor product of \(\mathbb C^2\) for singles,
+\(\operatorname{Sym}^2\mathbb C^2\) for retained \(\mathrm U\)-pairs,
+and \(\mathbb C^2\otimes\mathbb C^2\) for retained \(\mathrm D\)-pairs.
+For each assignment \(\epsilon\) of exchange signs to the
+\(\mathrm D\)-pairs, let \(V_\epsilon\) replace each of those
+pair factors by its symmetric or exterior square.
+If there are \(t\) singles, let \(\kappa=0\) for even \(t\),
+\(\kappa=1/2\) for odd \(t\), and
+\(V_\epsilon^\circ=\ker(S_z-\kappa I)|_{V_\epsilon}\).
+The standard sector basis uses \(e_\pm\) for singles and
+\(e_+\otimes e_+\), \(e_+\otimes e_-+e_-\otimes e_+\),
+\(e_-\otimes e_-\) for symmetric pairs, with
+\(e_+\otimes e_--e_-\otimes e_+\) for antisymmetric pairs.
+\end{definition}
+
+We realize all these spaces as subspaces of
+\((\mathbb C^2)^{\otimes k}\) with its usual Hermitian inner
+product; the pair basis vectors are deliberately unnormalized.
+The symmetric and exterior squares are orthogonal, so
+\(V=\bigoplus_\epsilon V_\epsilon\) is an orthogonal direct sum.
+The central-sector basis is the subset of the indicated tensor
+basis having total weight \(\kappa\).  These basis vectors are
+orthogonal, have positive squared norms that are powers of two,
+and have coordinates in \(\{0,1,-1\}\) in the full tensor basis.
+
+The three total spin operators preserve each such tensor
+sector.  Indeed, on a pair put
+\[
+ v_+=e_+\otimes e_+,\quad
+ v_0=e_+\otimes e_-+e_-\otimes e_+,\quad
+ v_-=e_-\otimes e_-,\quad
+ w=e_+\otimes e_--e_-\otimes e_+.
+\]
+The pair's \(S_z\)-weights on \(v_+,v_0,v_-,w\) are
+\(1,0,-1,0\), respectively, and its nonzero ladder actions are
+\[
+ S_-v_+=v_0,\quad S_-v_0=2v_-,\qquad
+ S_+v_-=v_0,\quad S_+v_0=2v_+.
+\]
+Both ladders kill \(w\); all ladder actions not displayed on
+these four vectors are zero.  On a single factor the weights
+are \(1/2,-1/2\), and \(S_-e_+=e_-\), \(S_+e_-=e_+\),
+with the other two ladder actions zero.  The total operators
+are sums of these local actions.  In particular every weight
+in a tensor sector is in \(\kappa+\mathbb Z\).  On each sector,
+direct multiplication of the single-factor matrices gives
+\[
+ S_z^*=S_z,\qquad S_+^*=S_-,\qquad
+ [S_z,S_\pm]=\pm S_\pm,\qquad [S_+,S_-]=2S_z.
+\]
+Operators on different tensor factors commute, so the same
+identities hold for their sums and their sector restrictions.
+
+\begin{lemma}\label{l:sector}
+Let \(V'\) be any tensor sector formed from singles and
+symmetric or exterior pair factors as above.
+If a Hermitian \(\mathcal O'\) on \(V'\) commutes with
+\(S_z,S_+,S_-\), then it preserves the central-weight space
+\(V'^\circ\), and its restriction there has the same set of
+eigenvalues as \(\mathcal O'\).
+In particular \(\mathcal O'\) is positive definite if and only if
+that restriction is positive definite.
+\end{lemma}
+
+\begin{proof}
+Commutation with \(S_z\) immediately implies preservation of
+\(V'^\circ\).  Every eigenvalue of the restriction is therefore
+an eigenvalue on \(V'\).  Conversely, let \(\lambda\) be an
+eigenvalue of \(\mathcal O'\), and let its nonzero eigenspace
+be \(E_\lambda\).  All three spin operators preserve
+\(E_\lambda\).  The restriction of \(S_z\) to this space is
+Hermitian, so there is a nonzero \(v\in E_\lambda\) with
+\(S_zv=mv\).  The explicit tensor weights above show that
+\(m\in\kappa+\mathbb Z\).
+
+For any vector of weight \(m\), the adjoint and commutator
+identities give
+\[
+ \|S_-v\|^2-\|S_+v\|^2
+       =\langle v,[S_+,S_-]v\rangle=2m\|v\|^2.
+\]
+Thus \(S_-v\ne0\) if \(m>0\), and \(S_+v\ne0\) if \(m<0\).
+The commutators with \(S_z\) show that these vectors have weights
+\(m-1\) and \(m+1\), respectively.  Commutation with
+\(\mathcal O'\) keeps every nonzero ladder vector in
+\(E_\lambda\).
+
+If \(m>\kappa\), then \(m-\kappa\) is a positive integer.
+Apply \(S_-\) that many times.  Every weight before the final
+step is strictly positive, so no step vanishes, and the final
+vector has weight \(\kappa\).  If \(m<\kappa\), then
+\(\kappa-m\) is a positive integer.  Every weight before the
+final step of successive raising is negative: it is at most
+\(-1\) for \(\kappa=0\), and at most \(-1/2\) for
+\(\kappa=1/2\).  Hence raising \(\kappa-m\) times also gives a
+nonzero vector of weight \(\kappa\).  If \(m=\kappa\), take
+\(v\) itself.  In all cases \(\lambda\) occurs on
+\(V'^\circ\).
+
+The two Hermitian operators consequently have the same set of
+eigenvalues.  A finite-dimensional Hermitian operator is
+positive definite exactly when all its eigenvalues are positive,
+by its orthonormal eigenbasis, proving the last assertion.
+This argument asserts nothing about eigenvalue multiplicities.
+\end{proof}
+
+\subsection{Integer positivity and reconstruction}
+
+\begin{lemma}\label{l:gram-residual}
+Let \(M\) be a symmetric integer matrix of size \(n\).
+Let \(g,d,S\) be positive integers and \(L\) an integer
+lower-triangular \(n\times n\) matrix; no invertibility is required.
+Define the symmetric integer residual
+\[
+ E=dS^2M-gLL^{\mathsf T}.
+\]
+If, for every row,
+\[
+ E_{ii}>0,\qquad E_{ii}>\sum_{j\ne i}|E_{ij}|,
+\]
+then \(E\) and \(M\) are positive definite over \(\mathbb R\)
+and, as Hermitian matrices, over \(\mathbb C\).
+The case \(L=0\), \(g=d=S=1\), is the direct strict
+diagonal-dominance certificate.
+All hypotheses can be checked with integer sums, products,
+absolute values and comparisons, without division or determinants.
+\end{lemma}
+
+\begin{proof}
+Let \(z\in\mathbb C^n\).  Symmetry and reality of \(E\) imply
+\begin{align*}
+ z^*Ez
+ &=\sum_iE_{ii}|z_i|^2+
+           2\sum_{i<j}E_{ij}\operatorname{Re}(\overline z_i z_j)\\
+ &\ge\sum_iE_{ii}|z_i|^2-
+           2\sum_{i<j}|E_{ij}|\,|z_i|\,|z_j|\\
+ &\ge\sum_i\left(E_{ii}-\sum_{j\ne i}|E_{ij}|\right)|z_i|^2.
+\end{align*}
+The last step uses \(2ab\le a^2+b^2\) for nonnegative \(a,b\).
+Every parenthesized coefficient is positive, so \(z^*Ez>0\)
+for every nonzero \(z\).  Also
+\[
+ dS^2 z^*Mz=z^*Ez+g z^*LL^{\mathsf T}z
+             =z^*Ez+g\|L^{\mathsf T}z\|^2>0
+             \qquad(z\ne0).
+\]
+Since \(dS^2>0\), this proves positivity of \(M\) over
+\(\mathbb C\), and restriction proves it over \(\mathbb R\).
+The argument also covers size zero, when positive definiteness
+is vacuous.  No rank condition on \(L\) was used.
+
+In particular, lower triangularity lets one form its Gram entries
+as the integer sums
+\[
+ (LL^{\mathsf T})_{ij}
+       =\sum_{a=1}^{\min(i,j)}L_{ia}L_{ja}
+       \quad(1\le i,j\le n).
+\]
+The hypotheses and residual entries therefore require only the
+listed integer operations and comparisons.  Setting \(L=0\)
+and \(g=d=S=1\) leaves \(E=M\), giving the direct certificate.
+\end{proof}
+
+\begin{lemma}\label{l:integercheck}
+For \(c=p/q\in(0,1)\) rational with positive integers \(p,q\),
+choose a positive integer \(D_0\) clearing the coefficients of
+\(3D_0\widehat Z_{\rm cur}\) and \(5D_0\widehat Z_{\rm next}\).
+In the integer-coordinate central-sector basis, let \(A_\epsilon\)
+and \(A'_\epsilon\) be the Hermitian-form matrices of their
+inverted Pauli operators. These are symmetric integer matrices.
+The form of \(\mathcal O(\widehat F_c^{\mathcal I})\) on the sector
+is positive definite if and only if
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon
+\]
+is positive definite. The primary verification uses the integer
+Gram/residual witness of Lemma~\ref{l:gram-residual}.
+As an optional fallback only, positivity is equivalent to positivity of all its
+leading principal minors. More explicitly, for a size-\(t\) matrix
+set \(A^{(0)}=M_\epsilon\), \(p_{-1}=1\), and for \(0\le j<t\)
+set \(p_j=A^{(j)}_{jj}\) and update the trailing entries by
+\[
+ A^{(j+1)}_{il}
+    =\frac{p_jA^{(j)}_{il}-A^{(j)}_{ij}A^{(j)}_{jl}}{p_{j-1}}
+       \quad(i,l>j).
+\]
+As long as preceding pivots are nonzero, each division is exact
+in the integers and \(p_j\) is the leading principal minor of
+order \(j+1\). Acceptance requires every division exact and every
+pivot positive.
+\end{lemma}
+
+\begin{proof}
+We first specify a reconstruction directly from the pattern;
+this also gives an explicit choice of denominator.  Let \(X\)
+be the set of spins still summed after the passage and the
+chosen leaf reductions, and let \(B\) be their remaining present
+internal bonds.  For each remaining vector \(u_i\), write
+\(x(i)\in X\) for the spin to which it is attached.  Put
+\(r_i=1\) for a retained corner slot and give a single vector
+its radius \(r_i\in\{3/5,1/2,1/3\}\) from
+Definition~\ref{d:reduction}.  The common remaining weight is
+\[
+ W(n,u)=\prod_{\{x,y\}\in B}(1+n_x\cdot n_y)
+                     \prod_{i=1}^k(1+r_i u_i\cdot n_{x(i)}).
+\]
+If \(\mathcal T\) denotes the product of the original status
+laws on \(X\), Lemma~\ref{l:Iw} and the definition of the
+representation give
+\[
+ \widehat Z_{\rm cur}(u)=\mathcal T[W(n,u)I(n)],\qquad
+ \widehat Z_{\rm next}(u)=\mathcal T[W(n,u)J(n)].
+\]
+All nonremoved sites among \(f,g,o\) remain in \(X\); they are
+never periphery leaves.  Isolated spins may be retained in
+\(X\), contributing their zeroth moment one.
+
+For a word \(w=(j_1,\ldots,j_s)\) of coordinate indices in
+\(\{1,2,3\}\), define the local moment
+\(\mu_{\mathrm{st}}(w)=\lambda_{\mathrm{st}}
+(n_{j_1}\cdots n_{j_s})\).  Only words of length at most four
+will occur.  Their exact values, by Lemma~\ref{l:moments}, are
+\[
+ \begin{array}{c|cc}
+ w&\mu_{\mathrm U}(w)&\mu_{\mathrm D}(w)\\ \hline
+ \varnothing&1&1\\
+ (i)\text{ or }(i,j,l)&0&0\\
+ (i,j)&\delta_{ij}/3&\delta_{ij}/5\\
+ (i,j,l,m)&
+ \dfrac{\delta_{ij}\delta_{lm}+\delta_{il}\delta_{jm}
+                         +\delta_{im}\delta_{jl}}{15}&
+ \dfrac{\delta_{ij}\delta_{lm}+\delta_{il}\delta_{jm}
+                         +\delta_{im}\delta_{jl}}{25}.
+ \end{array}
+\]
+In particular every \(\mathrm U\) moment has denominator dividing
+\(15\), and every \(\mathrm D\) moment has denominator dividing
+\(25\).
+
+Here is an entrywise formula for the entire coefficient tensor.
+For \(\nu\in\{\mathrm{cur},\mathrm{next}\}\), let
+\(\mathcal H_\nu\) contain an empty insertion of weight one.
+For \(\nu=\mathrm{cur}\), also include \((v,w,j)\) of weight
+\(1/3\) for each pair \(vw\in\{fg,fo,go\}\) whose endpoints are
+nonremoved and each \(1\le j\le3\).  For
+\(\nu=\mathrm{next}\), include just the nonremoved pair \(fg\)
+with these three coordinate choices, each of weight \(1/5\).
+Denote the insertion weight by \(\omega_\nu(h)\).
+Fix a vector multi-index \(a\in\{0,1,2,3\}^k\) and bond
+indices \(b\in\{0,1,2,3\}^{B}\).  At \(x\in X\), form a word
+\(w_x(a,b,h)\) by collecting:
+the index \(a_i\) for each \(i\) with \(x(i)=x\) and
+\(a_i\ne0\); the index \(b_e\) for each incident bond \(e\)
+with \(b_e\ne0\); and the insertion coordinate \(j\) if
+\(h=(v,w,j)\) and \(x\) is one of \(v,w\).
+The order of these indices is immaterial.  Expansion of each
+factor as a sum of its constant and three coordinate terms gives
+\[
+ z_{\nu,a}=
+ \left(\prod_{i=1}^k r_i^{\mathbf1_{\{a_i\ne0\}}}\right)
+ \sum_{b\in\{0,1,2,3\}^{B}}\ \sum_{h\in\mathcal H_\nu}
+ \omega_\nu(h)\prod_{x\in X}
+          \mu_{\mathrm{st}(x)}\bigl(w_x(a,b,h)\bigr),
+ \qquad
+ \widehat Z_\nu(u)=\sum_a z_{\nu,a}\prod_i u_i^{a_i}.
+\]
+Indeed, each choice of terms from the product determines just
+such \(a,b,h\); conversely each such triple determines one term,
+with the indicated scalar radius and insertion weights.  The
+product functional of that term is the product of its local
+moments.  This proves the formula by finite distributivity.
+The degree check in Corollary~\ref{c:reduce} shows explicitly
+that every \(w_x\) has length at most four.
+
+Write \(r_i=\alpha_i/\beta_i\) with positive integers
+\(\alpha_i,\beta_i\), using \(\beta_i=1\) for retained slots.
+If \(u\) and \(v\) are the numbers of \(\mathrm U\) and
+\(\mathrm D\) sites in \(X\), a permissible positive denominator
+is
+\[
+ D_0=15^u25^v\prod_{i=1}^k\beta_i.
+\]
+Each summand in the coefficient formula, after multiplication
+by \(3D_0\) for the current polynomial or \(5D_0\) for the next,
+is an integer: a vector radius is used at most once, one local
+moment is used at each site, and the only remaining insertion
+denominator is \(3\) or \(5\), respectively.  Any smaller
+positive \(D_0\) is equally valid if the two coefficient
+integrality conditions are verified.  Thus the existence and
+positivity of a denominator follow from the pattern rather than
+from stored matrix data.
+
+For clarity, the remaining Pauli and basis transformations also
+have exact entrywise formulas.  Set
+\[
+ T_{{\rm cur},a}=3D_0z_{{\rm cur},a},\qquad
+ T_{{\rm next},a}=5D_0z_{{\rm next},a},\qquad
+ \chi_{\mathcal I}(a)=(-1)^{|\{i\in\mathcal I:a_i\ne0\}|}.
+\]
+Index the full tensor basis by
+\(s,t\in\{+,-\}^k\).  For either polynomial the inverted,
+scaled Pauli operator has entries
+\[
+ (P_\nu)_{st}=\sum_a
+       T_{\nu,a}\chi_{\mathcal I}(a)
+                         \prod_{i=1}^k(\sigma_{a_i})_{s_i t_i}.
+\]
+Let \(B_\epsilon\) be the rectangular matrix whose columns are
+the integer-coordinate basis vectors of \(V_\epsilon^\circ\)
+in Definition~\ref{d:exchange}, expanded in this full tensor
+basis, in any fixed order.  The requested matrices are exactly
+\[
+ A_\epsilon=B_\epsilon^*P_{\rm cur}B_\epsilon,
+ \qquad A'_\epsilon=B_\epsilon^*P_{\rm next}B_\epsilon.
+\]
+The moment formula, inversion signs, explicit Pauli entries, and
+explicit basis columns therefore reconstruct every matrix entry
+by finite sums and products from the pattern and the chosen
+representation.  No matrix or pivot list is an additional
+mathematical input.
+
+Since the \(T_{\nu,a}\) are integers and the Pauli matrices
+have entries in \(\mathbb Z[\mathrm i]\), the \(P_\nu\) have
+entries in \(\mathbb Z[\mathrm i]\).  The reality and symmetry
+proof of Lemma~\ref{l:Ostruct} applies separately to each
+polynomial, so the \(P_\nu\) are real symmetric.  Their entries
+are thus integers.  The columns of \(B_\epsilon\) are real
+integer vectors, proving that \(A_\epsilon,A'_\epsilon\) are
+symmetric integer matrices.  Coefficient reflection in the
+second coordinate alternatively shows that only terms with
+an even number of \(\sigma_2\) factors can be nonzero, so the
+same construction can be evaluated with real integer entries.
+
+Linearity of the Pauli map gives the exact identity
+\begin{align*}
+ M_\epsilon
+ &=5qA_\epsilon-3pA'_\epsilon\\
+ &=15D_0q\,B_\epsilon^*
+                \mathcal O(\widehat F_c^{\mathcal I})B_\epsilon.
+\end{align*}
+The columns of \(B_\epsilon\) form a basis of the central sector,
+so \(B_\epsilon\) is an isomorphism from its coordinate space
+onto that sector.  The last matrix on the right is the matrix
+of the restricted Hermitian form, even though the basis is
+unnormalized.  Since \(15D_0q>0\), its form is positive definite
+exactly when \(M_\epsilon\) is positive definite.  This is the
+matrix to which Lemma~\ref{l:gram-residual} applies in the primary
+verification.
+
+We finish by proving the optional determinant test and its
+fraction-free implementation.  For any real symmetric matrix,
+positive definiteness is equivalent to positivity of every
+leading principal minor.  One elementary proof is induction on
+the size.  If the first diagonal entry is \(a>0\), write the
+matrix as
+\[
+ M=\begin{pmatrix}a&r^{\mathsf T}\\r&C\end{pmatrix},
+ \qquad Q=C-rr^{\mathsf T}/a.
+\]
+Completing the square gives
+\[
+ (x,y)^{\mathsf T}M(x,y)
+       =a(x+r^{\mathsf T}y/a)^2+y^{\mathsf T}Qy.
+\]
+Thus \(M\) is positive definite exactly when \(a>0\) and \(Q\)
+is positive definite.  A block row elimination of determinant
+one shows that every leading minor of size \(r\ge2\) of \(M\)
+is \(a\) times the leading minor of size \(r-1\) of \(Q\).
+Induction proves both directions, including size one; size zero
+has no conditions.  This also proves the Hermitian-form version
+for a real matrix, since for \(z=x+\mathrm i y\) its Hermitian
+quadratic form is \(x^{\mathsf T}Mx+y^{\mathsf T}My\).
+
+For the recurrence in the statement, index rows and columns
+by \(0,\ldots,t-1\), and let \(\Delta_j\) be the determinant
+of the leading \(j\times j\) block of \(M_\epsilon\), with
+\(\Delta_0=1\).  For \(i,l\ge j\) the induction invariant is
+\[
+ A^{(j)}_{il}=
+  \det M_\epsilon[(0,\ldots,j-1,i),(0,\ldots,j-1,l)].
+\]
+The ordered lists here specify rows and columns in that order;
+for \(j=0\) this is the original entry.  In particular
+\(p_j=\Delta_{j+1}\) and \(p_{j-1}=\Delta_j\).
+Assume the preceding pivots are nonzero.  The bordered-minor
+identity is
+\begin{align*}
+ &A^{(j)}_{jj}A^{(j)}_{il}
+                    -A^{(j)}_{ij}A^{(j)}_{jl}\\
+ &\hspace{1cm}=\Delta_j\,
+  \det M_\epsilon[(0,\ldots,j,i),(0,\ldots,j,l)]
+                       \qquad(i,l>j).
+\end{align*}
+For \(j=0\) it is the \(2\times2\) determinant formula.  For
+\(j>0\), the leading block \(B_j\) of size \(j\) is invertible
+because \(\det B_j=\Delta_j\ne0\).  In the submatrix with the
+two added row and column indices, eliminate the entries below
+\(B_j\).  If the resulting \(2\times2\) Schur block has entries
+\(q_{ab}\), each bordered \((j+1)\)-minor is
+\(\Delta_j q_{ab}\), while the full \((j+2)\)-minor is
+\(\Delta_j(q_{jj}q_{il}-q_{ij}q_{jl})\).
+Substitution proves the displayed identity.  The quotient by
+\(p_{j-1}=\Delta_j\) is therefore the indicated next bordered
+minor, an integer.  This proves exact divisibility, the induction
+invariant, and the pivot formula throughout the recurrence.
+All positive pivots consequently imply all positive leading
+minors, and conversely a positive definite matrix yields exact
+divisions and positive pivots at every step.  These determinant
+calculations are needed only for this optional fallback.
+\end{proof}
+
+\begin{proposition}\label{p:certificate}
+Let \(c=p/q\in(0,1)\), with \(p,q\in\mathbb Z_{>0}\).
+Choose either allowed representation, an inversion which is a
+union of groups, and a justified positive denominator \(D_0\).
+For every supported central exchange sector reconstruct
+\(M_\epsilon=5qA_\epsilon-3pA'_\epsilon\) as in
+Lemma~\ref{l:integercheck}.
+Suppose that for each sector there are positive integers
+\(g_\epsilon,d_\epsilon,S_\epsilon\) and an integer lower-triangular
+matrix \(L_\epsilon\) of its dimension such that
+\[
+ E_\epsilon=d_\epsilon S_\epsilon^2M_\epsilon
+                  -g_\epsilon L_\epsilon L_\epsilon^{\mathsf T},
+ \qquad
+ (E_\epsilon)_{ii}>
+          \sum_{j\ne i}|(E_\epsilon)_{ij}|\quad\text{for every }i.
+\]
+Then \(F_c(m)\ge0\) for every \(m\in(\mathbb S^2)^{20}\).
+The operator may vanish on the discarded antisymmetric
+\(\mathrm U\)-pair subspaces; positive definiteness is required
+only on the supported exchange sectors.
+\end{proposition}
+
+\begin{proof}
+Let \(\mathcal O=\mathcal O(\widehat F_c^{\mathcal I})\).
+For every sector the residual is real symmetric, since its
+reconstructed \(M_\epsilon\) and its Gram matrix are symmetric.
+Its strict row inequality forces
+\((E_\epsilon)_{ii}>0\), because the sum of absolute values is
+nonnegative.  All hypotheses of Lemma~\ref{l:gram-residual}
+therefore hold, and every \(M_\epsilon\) is positive definite.
+Lemma~\ref{l:integercheck}, including its positive scale
+\(15D_0q\), makes the form of \(\mathcal O\) positive definite
+on every \(V_\epsilon^\circ\).
+
+Let \(\Pi_V\) be the product of the symmetric projections for
+all retained \(\mathrm U\)-pairs, tensored with the identities
+on all remaining groups.  These projections act on disjoint
+factors and commute.  Lemma~\ref{l:Ostruct} gives
+\(\mathcal O=\Pi_V\mathcal O\Pi_V\), with
+\(\operatorname{Ran}\Pi_V=V\).  In particular \(\mathcal O\)
+vanishes on \(V^\perp\) and maps \(V\) into itself.
+Its commutation with every retained \(\mathrm D\)-pair exchange
+also makes every \(V_\epsilon\) invariant.  The concrete spin
+operators preserve these sectors, as checked after
+Definition~\ref{d:exchange}; Lemma~\ref{l:Ostruct} shows that
+the restriction of \(\mathcal O\) to each sector commutes with
+their restrictions.  Lemma~\ref{l:sector} now promotes positive
+definiteness on \(V_\epsilon^\circ\) to positive definiteness
+on \(V_\epsilon\).
+
+The direct sum \(V=\bigoplus_\epsilon V_\epsilon\) is orthogonal.
+For any full tensor vector \(z\), write
+\(\Pi_Vz=\sum_\epsilon z_\epsilon\) with
+\(z_\epsilon\in V_\epsilon\).  Invariance and orthogonality give
+\[
+ \langle z,\mathcal Oz\rangle
+       =\sum_\epsilon\langle z_\epsilon,
+                                  \mathcal Oz_\epsilon\rangle\ge0.
+\]
+Thus \(\mathcal O\) is positive semidefinite on the full tensor
+space, allowing precisely the discarded antisymmetric
+\(\mathrm U\)-pair subspaces to have zero action.
+Lemma~\ref{l:inversion} implies \(\widehat F_c\ge0\) on the
+product of closed unit balls, hence on unit vectors.
+Corollary~\ref{c:reduce} gives \(F_c(m)\ge0\) for every original
+twenty-slot assignment, proving the proposition.
+\end{proof}
+

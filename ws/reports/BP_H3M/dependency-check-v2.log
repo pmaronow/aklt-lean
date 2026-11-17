@@ -1,0 +1,56 @@
+AKLT.Blueprint.H3.quotientStoppedBackwardV2 {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (p : ℕ)
+  (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ)
+  (terminal : Fin p → Fin q → AKLT.Defs.Plane → Bool) (F : Fin p → Fin q → AKLT.Defs.Plane → ℚ) (φ : Fin p) (a : Fin q)
+  (x : AKLT.Defs.Plane) : ℚ
+AKLT.Blueprint.H3.rawBackward_pullback {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (hQ : Q.Correct) (p : ℕ)
+  (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ)
+  (hweight :
+    ∀ (φ ψ : Fin p) (d a a' : AKLT.Defs.Compass) (x : AKLT.Defs.Plane),
+      weight φ ψ AKLT.Defs.StepKind.revisit d a x = weight φ ψ AKLT.Defs.StepKind.revisit d a' x)
+  (terminal : AKLT.Defs.Plane → Bool) (G : Fin p → Fin q → AKLT.Defs.Plane → ℚ) (w : AKLT.Defs.DirectionWord m)
+  (hw : AKLT.Defs.RawWindow w) (φ : Fin p) (x : AKLT.Defs.Plane) :
+  AKLT.Defs.rawBackward m p weight terminal (fun ψ ω y => G ψ (Q.project ω) y) φ w x =
+    AKLT.Defs.quotientBackward Q p weight terminal G φ (Q.project w) x
+AKLT.Blueprint.H3.rawStoppedBackwardV2 (m p : ℕ)
+  (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ)
+  (terminal : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → Bool)
+  (F : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → ℚ) (φ : Fin p) (w : AKLT.Defs.DirectionWord m)
+  (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.MemoryQuotient.Correct {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) : Prop
+AKLT.Defs.RawWindow {m : ℕ} (w : AKLT.Defs.DirectionWord m) : Prop
+AKLT.Defs.StationaryData.Passes {m q : ℕ} (C : AKLT.Defs.StationaryData q) (Q : AKLT.Defs.MemoryQuotient m q)
+  (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) : Prop
+AKLT.Defs.StationaryData.PassesV2 {m q : ℕ} (C : AKLT.Defs.StationaryData q) (Q : AKLT.Defs.MemoryQuotient m q)
+  (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) : Prop
+AKLT.Defs.StationaryData.extended {q : ℕ} (C : AKLT.Defs.StationaryData q) (φ : AKLT.Defs.Phase) (a : Fin q)
+  (x : AKLT.Defs.Plane) : ℕ
+AKLT.Defs.coefficientCeiling (t : ℚ) : ℕ
+AKLT.Defs.kernelCentre : AKLT.Defs.Plane
+AKLT.Defs.kernelTarget : AKLT.Defs.PairType → AKLT.Defs.Plane
+AKLT.Defs.stationaryApply {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass)
+  (F : AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.stationaryApplyV2 {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (F : AKLT.Defs.Phase → Fin q → AKLT.Defs.Plane → ℚ) (φ : AKLT.Defs.Phase) (a : Fin q)
+  (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.stationaryCoefficient {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass)
+  (ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.stationaryCoefficientV2 {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) (d : AKLT.Defs.Compass)
+  (ψ : AKLT.Defs.Phase) : ℚ
+AKLT.Defs.stationaryContinuationSum (Q : AKLT.Defs.MemoryQuotient 10 3741) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin 3741) (x : AKLT.Defs.Plane) (R : ℕ) : ℚ
+AKLT.Defs.stationaryContinuationSumV2 (Q : AKLT.Defs.MemoryQuotient 10 3741) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin 3741) (x : AKLT.Defs.Plane) (R : ℕ) : ℚ
+AKLT.Defs.stationaryReward (X : AKLT.Defs.PairType) (φ : AKLT.Defs.Phase) (_a : Fin 3741) (x : AKLT.Defs.Plane) : ℚ
+AKLT.Defs.windowSuccessor {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) : AKLT.Defs.DirectionWord m
+AKLT.Gen.Bellman.Automaton.stopped_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (stop : C × Q → Prop) (r : C × Q → ENNReal) (n : ℕ) (x : C × S) :
+  A.stopped a update (fun y => stop (y.1, π y.2)) (fun y => r (y.1, π y.2)) n x =
+    B.stopped b update stop r n (x.1, π x.2)
+Finset.sum_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f g : ι → M}
+  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+Function.iterate_succ_apply'.{u} {α : Type u} (f : α → α) (n : ℕ) (x : α) : f^[n.succ] x = f (f^[n] x)

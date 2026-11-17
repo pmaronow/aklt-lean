@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/aklt/reports/PAL_FIT/tools/after_core.py", line 56, in <module>
+    # Keep this diagnostic separate: a cached H2 proof is not a clean-build pass.
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/aklt/reports/PAL_FIT/tools/after_core.py", line 38, in limited
+    subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,check=False)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/aklt/reports/PAL_FIT/measurements/canonical-challenge-compile/result.json'

@@ -1,0 +1,114 @@
+{
+  "label": "port-TauCeti-minmax",
+  "seconds": 3.4222936630249023,
+  "results": {
+    "TauCeti.Algebra.Module.Equiv.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9831442832946777,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.BasisSpan": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.2478082180023193,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `finrank_span_set_eq_ncard`",
+          "endPos": {
+            "column": 29,
+            "line": 99
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-minmax/TauCeti/Analysis/InnerProductSpace/BasisSpan.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 4,
+            "line": 99
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\ud835\udd5c : Type u_1\nE : Type u_2\n\u03b9 : Type u_3\ninst\u271d\u00b3 : RCLike \ud835\udd5c\ninst\u271d\u00b2 : NormedAddCommGroup E\ninst\u271d\u00b9 : InnerProductSpace \ud835\udd5c E\ninst\u271d : Fintype \u03b9\nb : OrthonormalBasis \u03b9 \ud835\udd5c E\ns : Set \u03b9\n\u22a2 finrank \ud835\udd5c \u21a5(Submodule.span \ud835\udd5c (\u21d1b '' s)) = s.ncard",
+          "endPos": {
+            "column": 77,
+            "line": 100
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-minmax/TauCeti/Analysis/InnerProductSpace/BasisSpan.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 45,
+            "line": 97
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "TauCeti.Analysis.InnerProductSpace.CourantFischer": {
+      "status": "blocked",
+      "dependencies": [
+        "TauCeti.Analysis.InnerProductSpace.BasisSpan"
+      ]
+    },
+    "TauCeti.Analysis.InnerProductSpace.Orthonormal.Coordinates": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5165181159973145,
+      "errors": [],
+      "warnings": []
+    },
+    "TauCeti.LinearAlgebra.Dimension.Submodule": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.268106460571289,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `finrank_span_le_ncard`",
+          "endPos": {
+            "column": 34,
+            "line": 188
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-minmax/TauCeti/LinearAlgebra/Dimension/Submodule.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 13,
+            "line": 188
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\ud835\udd5c : Type u_1\ninst\u271d\u00b2 : DivisionRing \ud835\udd5c\nE : Type u_2\ninst\u271d\u00b9 : AddCommGroup E\ninst\u271d : Module \ud835\udd5c E\nV : Submodule \ud835\udd5c E\ns : Set E\nhs : s.Finite\nh : s.ncard < finrank \ud835\udd5c \u21a5V\nhz : \u2200 z \u2208 V, z \u2208 span \ud835\udd5c s\nthis\u271d : Module.Finite \ud835\udd5c \u21a5V\nthis : FiniteDimensional \ud835\udd5c \u21a5(span \ud835\udd5c s)\nh1 : finrank \ud835\udd5c \u21a5V \u2264 finrank \ud835\udd5c \u21a5(span \ud835\udd5c s)\n\u22a2 False",
+          "endPos": {
+            "column": 7,
+            "line": 189
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-TauCeti-minmax/TauCeti/LinearAlgebra/Dimension/Submodule.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 59,
+            "line": 183
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    }
+  },
+  "error_count": 4,
+  "ok": 2,
+  "failed": 2,
+  "blocked": 1
+}

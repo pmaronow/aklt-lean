@@ -1,0 +1,344 @@
+{
+  "started_utc": "2026-11-16T20:57:02Z",
+  "wall_s": 4418.710895462995,
+  "cpu_s": 8715.313152000002,
+  "peak_worker_rss_sum_bytes": 16658350080,
+  "peak_worker_vms_sum_bytes": 29315997696,
+  "worker_hard_as_bytes": 16106127360,
+  "supervisor_soft_as_bytes": 536870912,
+  "total_reservation_bytes": 32749125632,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "requested_modules": 1129,
+  "passed": 1062,
+  "failed": {
+    "AKLT.Cert.H2.Check": {
+      "module": "AKLT.Cert.H2.Check",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/Cert/H2/Check.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/Cert/H2/Check.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 20.450947431003442,
+      "cpu_s": 20.378736,
+      "peak_rss_bytes": 10163081216,
+      "peak_vms_bytes": 16106000384,
+      "max_threads": 5,
+      "timeout": false
+    },
+    "AKLT.W.H1C013.Compiler": {
+      "module": "AKLT.W.H1C013.Compiler",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/W/H1C013/Compiler.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/W/H1C013/Compiler.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 6.035149371993612,
+      "cpu_s": 5.89433,
+      "peak_rss_bytes": 6973214720,
+      "peak_vms_bytes": 15797903360,
+      "max_threads": 7,
+      "timeout": false
+    },
+    "AKLT.W.H1M052.Geometry": {
+      "module": "AKLT.W.H1M052.Geometry",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/W/H1M052/Geometry.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/W/H1M052/Geometry.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 6.367924625999876,
+      "cpu_s": 6.220365,
+      "peak_rss_bytes": 6977802240,
+      "peak_vms_bytes": 15793561600,
+      "max_threads": 7,
+      "timeout": false
+    },
+    "AKLT.W.REC096.Template": {
+      "module": "AKLT.W.REC096.Template",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/W/REC096/Template.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/W/REC096/Template.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 20.657089234009618,
+      "cpu_s": 20.512723,
+      "peak_rss_bytes": 7018676224,
+      "peak_vms_bytes": 15794249728,
+      "max_threads": 7,
+      "timeout": false
+    },
+    "AKLT.W.REC098.Local": {
+      "module": "AKLT.W.REC098.Local",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/W/REC098/Local.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/W/REC098/Local.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 20.97851675900165,
+      "cpu_s": 20.859198,
+      "peak_rss_bytes": 7027187712,
+      "peak_vms_bytes": 15795261440,
+      "max_threads": 7,
+      "timeout": false
+    },
+    "AKLT.W.H3C026.Local": {
+      "module": "AKLT.W.H3C026.Local",
+      "argv": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-o",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/.lake/build/lib/lean/AKLT/W/H3C026/Local.olean",
+        "/home/ubuntu/aklt/reports/PAL_FIT/candidate/AKLT/W/H3C026/Local.lean"
+      ],
+      "exit_code": -6,
+      "wall_s": 5.196392773999833,
+      "cpu_s": 5.094671,
+      "peak_rss_bytes": 6969376768,
+      "peak_vms_bytes": 15798833152,
+      "max_threads": 7,
+      "timeout": false
+    }
+  },
+  "blocked": {
+    "AKLT.Cert.H2.Finite": [
+      "AKLT.Cert.H2.Check"
+    ],
+    "AKLT.Cert.H2.Main": [
+      "AKLT.Cert.H2.Finite"
+    ],
+    "AKLT.Final.Skeleton": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.PALFit.Solution": [
+      "AKLT.Final.Skeleton"
+    ],
+    "AKLT.W.REC095.Main": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Cert.H2.All": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Cert.H2.Audit": [
+      "AKLT.Cert.H2.Main"
+    ],
+    "AKLT.Final.Audit": [
+      "AKLT.Final.Skeleton"
+    ],
+    "AKLT.PALFit.Audit": [
+      "AKLT.PALFit.Solution"
+    ],
+    "AKLT.W.H1C013.Main": [
+      "AKLT.W.H1C013.Compiler"
+    ],
+    "AKLT.W.H1M052.Realization": [
+      "AKLT.W.H1M052.Geometry"
+    ],
+    "AKLT.W.H1M052.Expansion": [
+      "AKLT.W.H1M052.Realization"
+    ],
+    "AKLT.W.H1M052.Raw": [
+      "AKLT.W.H1M052.Expansion"
+    ],
+    "AKLT.W.H1M052.Main": [
+      "AKLT.W.H1M052.Raw"
+    ],
+    "AKLT.W.H1C006.Dependencies": [
+      "AKLT.W.H1M052.Main"
+    ],
+    "AKLT.W.H1C006.RealBridge": [
+      "AKLT.W.H1C006.Dependencies"
+    ],
+    "AKLT.W.H1C006.Central": [
+      "AKLT.W.H1C006.Dependencies"
+    ],
+    "AKLT.W.H1C006.Exchange": [
+      "AKLT.W.H1C006.Central"
+    ],
+    "AKLT.W.H1C006.Main": [
+      "AKLT.W.H1C006.RealBridge"
+    ],
+    "AKLT.W.H1C006.Scaling": [
+      "AKLT.W.H1C006.Central"
+    ],
+    "AKLT.W.H1C006.Coordinates": [
+      "AKLT.W.H1C006.Exchange"
+    ],
+    "AKLT.W.H1C006.Completeness": [
+      "AKLT.W.H1C006.Coordinates"
+    ],
+    "AKLT.W.H1C006.Supported": [
+      "AKLT.W.H1C006.Completeness"
+    ],
+    "AKLT.W.REC096.Main": [
+      "AKLT.W.REC096.Template"
+    ],
+    "AKLT.W.REC099.LocalCover": [
+      "AKLT.W.REC096.Main"
+    ],
+    "AKLT.W.REC099.Main": [
+      "AKLT.W.REC099.LocalCover"
+    ],
+    "AKLT.W.REC079.Closure": [
+      "AKLT.W.REC096.Main"
+    ],
+    "AKLT.W.REC079.TrailComparison": [
+      "AKLT.W.REC079.Closure"
+    ],
+    "AKLT.W.REC080.SharedCover": [
+      "AKLT.W.REC096.Main"
+    ],
+    "AKLT.W.REC081.Main": [
+      "AKLT.W.REC096.Main"
+    ],
+    "AKLT.W.REC089.TemplateGeometry": [
+      "AKLT.W.REC096.Main"
+    ],
+    "AKLT.W.REC079.LocalLogComparison": [
+      "AKLT.W.REC079.TrailComparison"
+    ],
+    "AKLT.W.REC079.OrderedExposure": [
+      "AKLT.W.REC079.LocalLogComparison"
+    ],
+    "AKLT.W.REC080.Pointwise": [
+      "AKLT.W.REC080.SharedCover"
+    ],
+    "AKLT.W.REC089.CutGeometry": [
+      "AKLT.W.REC089.TemplateGeometry"
+    ],
+    "AKLT.W.REC089.PatternFactorization": [
+      "AKLT.W.REC089.TemplateGeometry"
+    ],
+    "AKLT.W.REC079.Main": [
+      "AKLT.W.REC079.OrderedExposure"
+    ],
+    "AKLT.W.REC080.Main": [
+      "AKLT.W.REC080.Pointwise"
+    ],
+    "AKLT.W.REC089.CutBonds": [
+      "AKLT.W.REC089.CutGeometry"
+    ],
+    "AKLT.W.REC089.ExternalFields": [
+      "AKLT.W.REC089.CutBonds"
+    ],
+    "AKLT.W.REC089.FibreFactors": [
+      "AKLT.W.REC089.ExternalFields"
+    ],
+    "AKLT.W.REC089.InteriorCoordinates": [
+      "AKLT.W.REC089.ExternalFields",
+      "AKLT.W.REC089.PatternFactorization"
+    ],
+    "AKLT.W.REC089.InternalBonds": [
+      "AKLT.W.REC089.CutBonds",
+      "AKLT.W.REC089.PatternFactorization"
+    ],
+    "AKLT.W.REC089.ActualFactorization": [
+      "AKLT.W.REC089.FibreFactors",
+      "AKLT.W.REC089.InteriorCoordinates"
+    ],
+    "AKLT.W.REC089.ActualDisintegration": [
+      "AKLT.W.REC089.ActualFactorization"
+    ],
+    "AKLT.W.REC089.Main": [
+      "AKLT.W.REC089.ActualDisintegration"
+    ],
+    "AKLT.W.REC090.Main": [
+      "AKLT.W.REC089.Main"
+    ],
+    "AKLT.W.REC091.Main": [
+      "AKLT.W.REC089.Main"
+    ],
+    "AKLT.W.REC094.Main": [
+      "AKLT.W.REC090.Main"
+    ],
+    "AKLT.W.REC079.LocalInputs": [
+      "AKLT.W.REC089.Main"
+    ],
+    "AKLT.W.REC098.Main": [
+      "AKLT.W.REC098.Local"
+    ],
+    "AKLT.W.H3C026.Masks": [
+      "AKLT.W.H3C026.Local"
+    ],
+    "AKLT.W.H3C026.PullMasks": [
+      "AKLT.W.H3C026.Masks"
+    ],
+    "AKLT.W.H3C026.Scalar": [
+      "AKLT.W.H3C026.Local"
+    ],
+    "AKLT.W.H3C026.DeadMask": [
+      "AKLT.W.H3C026.Masks"
+    ],
+    "AKLT.W.H3C026.KnownMask": [
+      "AKLT.W.H3C026.Masks"
+    ],
+    "AKLT.W.H3C026.Main": [
+      "AKLT.W.H3C026.DeadMask",
+      "AKLT.W.H3C026.KnownMask"
+    ],
+    "AKLT.W.H3C026.Pull": [
+      "AKLT.W.H3C026.PullMasks"
+    ],
+    "AKLT.W.H3C026.Routing": [
+      "AKLT.W.H3C026.Scalar"
+    ],
+    "AKLT.W.H3C028.Main": [
+      "AKLT.W.H3C026.Main"
+    ],
+    "AKLT.W.H3C026.Assembly": [
+      "AKLT.W.H3C026.Routing"
+    ]
+  },
+  "running": [],
+  "pending": 0,
+  "max_active_workers": 2,
+  "fresh_project_objects": true,
+  "dependency_cache": "existing pinned read-only Mathlib/dependency artifacts; fetching not measured",
+  "official_lake_build": false,
+  "cgroup_enforced": false,
+  "swap_limit_enforced": false,
+  "finished": true
+}

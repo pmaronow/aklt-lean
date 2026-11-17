@@ -1,0 +1,39 @@
+def AKLT.Blueprint.Rec.UDepartureInjectiveStatement : Prop :=
+∀ (G : Finset Plane) (D : Network G),
+  D.Auxiliary →
+    ∀ (u : Plane),
+      D.AdmissibleStart u →
+        ∀ (T : Finset Plane) (n : ℕ) (w : DirectionWord n),
+          StoppedNetworkTrail D u T w →
+            ∀ (i j : Fin n),
+              (prefixNetwork D u w ↑i).status (wordVertex u w ↑i) = Status.U →
+                (prefixNetwork D u w ↑j).status (wordVertex u w ↑j) = Status.U →
+                  wordVertex u w ↑i = wordVertex u w ↑j → i = j
+def AKLT.Blueprint.Rec.DiamondTwelveStatement : Prop :=
+∀ (e : Plane), {z ∈ square e 2 | 0 < latticeDist z e ∧ latticeDist z e ≤ 2}.card = 12
+def AKLT.Blueprint.Rec.TerminalExceptionCountStatement : Prop :=
+∀ (p : PairSetup),
+  p.v ∉ protectedSites p.G →
+    ∀ (n : ℕ) (w : DirectionWord n),
+      StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →
+        wordVertex p.u w n ∈ protectedSites p.G →
+          have E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c;
+          ∀ (incoming : Compass),
+            p.v = p.c + incoming.step →
+              ∀ (m : ℕ) (w' : DirectionWord m),
+                StoppedNetworkTrail E p.v (protectedSites p.G) w' → uncoveredCount E p.v incoming w' ≤ 12
+def AKLT.Blueprint.Rec.KernelOrderingStatement : Prop :=
+∀ (n : ℕ) (w : DirectionWord n), (kernelOrdering w).Perm (firstVisitList w) ∧ (kernelOrdering w).Nodup
+def AKLT.Blueprint.Rec.KernelPositivityStatement : Prop :=
+(∀ (n : ℕ) (X Y : PairType) (s : ℕ), 0 ≤ kernelLengthCoefficient X Y s n) ∧
+  ∀ (n : ℕ) (w : DirectionWord n) (i : Fin n), ∀ p ∈ responsePairs w i, p.card = 2 ∧ 0 < pairCoefficient w i p
+def AKLT.Blueprint.Rec.ShiftGeometryStatement : Prop :=
+∀ (n : ℕ) (X : PairType) (w : DirectionWord n),
+  ClosedTrail X w → ∀ (i : Fin n), ∀ p ∈ responsePairs w i, ↑(pairShift X p) ≤ ↑n / 2 + 1
+def AKLT.Blueprint.Rec.KernelSupportStatement : Prop :=
+(∀ (X Y : PairType) (s : ℕ), kernelLengthCoefficient X Y s 0 = 0) ∧
+  ∀ (X Y : PairType) (n s : ℕ), n + 1 < s → kernelLengthCoefficient X Y s n = 0
+def AKLT.Blueprint.Rec.KernelRegroupStatement : Prop :=
+∀ (θ : ℝ), 0 < θ → ∀ (X Y : PairType), shiftedKernel θ X Y = ∑' (n : ℕ), shiftedLength θ X Y n
+12
+12

@@ -1,0 +1,108 @@
+{
+  "rule_source": "Author rule relayed by the orchestrator in the resumed user message",
+  "rule": "No further leaf proofs by the blueprint author, including short proofs and checker soundness; first attempts must use a different, cheaper model. Proved assemblies remain assigned to the blueprint author.",
+  "open_leaf_first_attempt": {
+    "status": "pending_orchestrator_assignment",
+    "model_requirement": "different, cheaper model than the blueprint author",
+    "blueprint_author_may_prove": false
+  },
+  "retained_pre_rule_proofs": [
+    {
+      "lean_name": "AKLT.Blueprint.Q.rotation",
+      "module": "AKLT.Blueprint.Q.NodesFrames",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesFrames.lean",
+      "source_line": 82,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "9049ac50c14866ad0f6ae0fa595a97cc2a68e88ce5dbabd685b941c3a96c023e"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.rotationPowers",
+      "module": "AKLT.Blueprint.Q.NodesFrames",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesFrames.lean",
+      "source_line": 89,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "eaa224c51d328ff437fb8dfcac585423ebe8f80ad401d2c32198b9dbd5dac65c"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.frameScalars",
+      "module": "AKLT.Blueprint.Q.NodesFrames",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesFrames.lean",
+      "source_line": 101,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "ddbe68fd74d4a9b3f5d08d7ed2c12b79a5e7bbf3bdd9e6be7b9a0bdf47734f12"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.incidentDoubleCount",
+      "module": "AKLT.Blueprint.Q.NodesStar",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesStar.lean",
+      "source_line": 59,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "776a6232d7c779cf1be9e5421832dab3ca6b5afe6ce4051b5658c86b72a3f910"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.positiveNormalization",
+      "module": "AKLT.Blueprint.Q.NodesEnergy",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesEnergy.lean",
+      "source_line": 140,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "964c57fd1bf8815172877b26eb004008dae286c788927b77f806ad86ec087107"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.primeProduct",
+      "module": "AKLT.Blueprint.Q.NodesPolynomial",
+      "kind": "named_leaf",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesPolynomial.lean",
+      "source_line": 81,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "a9b4eedb2676c433a03591f8070cf77c347a28e145a457f40826c26d26689fde"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.normalize_from_scaled",
+      "module": "AKLT.Blueprint.Q.Assembly",
+      "kind": "existing_mathematical_helper",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Assembly.lean",
+      "source_line": 261,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "81202957c5b295fbcd65bb09f0968a05e78607a562964f4841a18e2c20fc0b04"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.coherentMap",
+      "module": "AKLT.Blueprint.Q.Definitions",
+      "kind": "definition_with_existing_linearity_fields",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Definitions.lean",
+      "source_line": 62,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "067090f1083f8872bd78176d98d84ac806da43c959050986ab5a5cdab8a24767"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Q.pairDiagonal",
+      "module": "AKLT.Blueprint.Q.Definitions",
+      "kind": "definition_with_existing_linearity_fields",
+      "source": "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Definitions.lean",
+      "source_line": 107,
+      "status": "retained_pre_rule_proof",
+      "declaration_sha256": "7e35d640af212bb8dd471e62708484bcfc9b15b84a237a607e15d18059501a12"
+    }
+  ],
+  "new_leaf_proof_attempts_this_resumed_turn": 0,
+  "lean_file_sha256": {
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/All.lean": "6281d361e404103406479931831630cd0b5f75d681c99c0359ea81a9848ee2ea",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Assembly.lean": "5f0abfb1aa4e05bf8a3c48d5ae581700c4fcedca6f7adc41f9218c2fe8e20bdb",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Audit.lean": "ff89285778fe6ef0e0fa706effaedf3c52f8333848cb4537e740a56161eeace4",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/Definitions.lean": "df7850984d5bda75c3997487f76ae7f12869b8c6ec4614e6eb69bd4040cb8759",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesEnergy.lean": "145a72ee58a4844867e07bc091c6fabde84b983f2acf541334cf5f5c30fdbeaf",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesFrames.lean": "dea9404f427cf306b473dc566b641926f0e7669a7a0e7e557f195a218c6b2270",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesPolynomial.lean": "e68f225a65149f26a9927a39e56f901e3deadb02eeb162ca3460df1b906d9b36",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesQuantum.lean": "cea61ac8f6f2390948fdbb8bc8900ee6aa3fca1a9f649d2593aa2cd19249320f",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesSplits.lean": "fc811b9df5ee5f6144b3a8b2699025c32c74dc84e870537d732336f31ddb1db2",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesStar.lean": "13d095eaeeb21b33e8205c8a83f7c81ae1483ad12293e33dec2cce29d4d79ebd",
+    "/home/ubuntu/aklt/wt/BP_Q/AKLT/Blueprint/Q/NodesTight.lean": "9748bd6e66fd41b0f915bd86c0724ab8f2a0f77015785c8ff0fcf1d6e89f8ea2"
+  },
+  "mathematical_checkers_or_checker_soundness_obligations": [],
+  "verification_scope": "Existing Lean builds and axiom audit; manifest/report checks. No mathematical checker soundness theorem is asserted."
+}

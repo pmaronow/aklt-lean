@@ -3,7 +3,7 @@
     "lean_name": "AKLT.Blueprint.H3.RawSuccessorStatement",
     "module": "AKLT.Blueprint.H3.NodesAutomaton",
     "paper_label": "l:automaton-quotient",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -31,13 +31,16 @@
       "nat_subtraction": "Shifted indices are created only after m≥1; do not simplify m−1 without this premise.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ProjectionRealizationStatement",
     "module": "AKLT.Blueprint.H3.NodesAutomaton",
     "paper_label": "l:automaton-quotient",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -65,13 +68,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.PhaseFoldExpansionStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -101,13 +107,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "There is no division by a reward or phase weight.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.SingleChangeFactorStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -135,13 +144,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ExposureListExpansionStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -170,13 +182,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LongOrderingMultiplierStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -206,13 +221,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.PrefixCoefficientCausalityStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -241,13 +259,16 @@
       "nat_subtraction": "The incoming index i−1 is used only in the nonzero-index branch. min i L=min i n=i for i<L≤n.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.PhaseSplitAlgebraStatement",
     "module": "AKLT.Blueprint.H3.NodesPhase",
     "paper_label": "l:phase-expansion",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -276,13 +297,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.SuffixWindowValidityStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -311,13 +335,16 @@
       "nat_subtraction": "10≤i ensures the lastWindowWord default branch is never taken for any remembered letter.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.SuffixWindowLabelsStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -346,13 +373,16 @@
       "nat_subtraction": "Use 10≤i and i<n before rewriting i−10 or i−1. The next window at i+1≤n includes the final bond when i=n−1.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.IncidentBondBudgetStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -381,13 +411,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.DepartureBalanceStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -415,13 +448,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.KnownSiteMemoryStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -450,13 +486,16 @@
       "nat_subtraction": "i−10≥2 follows from i≥L≥12 before any comparison to remembered indices.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.TrueRewardIdentityStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -485,13 +524,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.RewardForgettingStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -520,13 +562,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LocalCoefficientComparisonStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -554,13 +599,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Kept intentionally as a legacy-operator supporting fact. The explicit off-centre, centre-zero, continuation, and certificate V2 bridges transfer its frozen assembled consequences; no equality on arbitrary functions is inferred."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ClosedTrailStepGeometryStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -586,13 +634,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.SuffixWordComparisonStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -622,13 +673,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Kept intentionally as a legacy-operator supporting fact. The explicit off-centre, centre-zero, continuation, and certificate V2 bridges transfer its frozen assembled consequences; no equality on arbitrary functions is inferred."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.StationaryWordExpansionStatement",
     "module": "AKLT.Blueprint.H3.NodesDomination",
     "paper_label": "l:stationary-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -656,13 +710,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Kept intentionally as a legacy-operator supporting fact. The explicit off-centre, centre-zero, continuation, and certificate V2 bridges transfer its frozen assembled consequences; no equality on arbitrary functions is inferred."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.StationaryFreeEdgeStatement",
     "module": "AKLT.Blueprint.H3.NodesCertificate",
     "paper_label": "l:stationary-local-global",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -691,13 +748,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Kept intentionally as a legacy-operator supporting fact. The explicit off-centre, centre-zero, continuation, and certificate V2 bridges transfer its frozen assembled consequences; no equality on arbitrary functions is inferred."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LongTrailPrefixStatement",
     "module": "AKLT.Blueprint.H3.NodesPrefix",
     "paper_label": "l:prefix-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -724,13 +784,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LongRowRegroupingStatement",
     "module": "AKLT.Blueprint.H3.NodesPrefix",
     "paper_label": "l:prefix-domination",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -761,13 +824,16 @@
       "nat_subtraction": "R−12 is used only under 12<R. Long n are exactly 12+r with 1≤r≤R−12.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ReflectionGeometryStatement",
     "module": "AKLT.Blueprint.H3.NodesReflection",
     "paper_label": "l:kernel-reflection",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -796,13 +862,16 @@
       "nat_subtraction": "For incoming i−1, first separate i=0. No geometric truncation or torus quotient is involved.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ReflectionLivePairsStatement",
     "module": "AKLT.Blueprint.H3.NodesReflection",
     "paper_label": "l:kernel-reflection",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -832,13 +901,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.ReflectionPairLabelsStatement",
     "module": "AKLT.Blueprint.H3.NodesReflection",
     "paper_label": "l:kernel-reflection",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -867,13 +939,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.FirstDirectionPartitionStatement",
     "module": "AKLT.Blueprint.H3.NodesKernel",
     "paper_label": "l:stationary-assembly",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
@@ -902,13 +977,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LengthShiftSupportStatement",
     "module": "AKLT.Blueprint.H3.NodesKernel",
     "paper_label": "h:H3",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV-PLAN/PLAN.md",
@@ -936,13 +1014,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.LengthRewardPartitionStatement",
     "module": "AKLT.Blueprint.H3.NodesKernel",
     "paper_label": "h:H3",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV-PLAN/PLAN.md",
@@ -972,13 +1053,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.KernelSeriesRegroupingStatement",
     "module": "AKLT.Blueprint.H3.NodesKernel",
     "paper_label": "h:H3",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV-PLAN/PLAN.md",
@@ -1010,13 +1094,16 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "No new denominator is variable. Defs thresholds, 3, 5 and the exact dyadic denominator are nonzero.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
-    }
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
   },
   {
     "lean_name": "AKLT.Blueprint.H3.CutoffSeriesLiftStatement",
     "module": "AKLT.Blueprint.H3.NodesKernel",
     "paper_label": "h:H3",
-    "status": "open",
+    "status": "kept",
     "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
     "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
     "paper_source": "/home/ubuntu/aklt/reports/REV-PLAN/PLAN.md",
@@ -1044,6 +1131,191 @@
       "nat_subtraction": "No unguarded natural subtraction is introduced by the leaf.",
       "division_zero": "There is no division or spectral-radius denominator.",
       "instances": "The declaration has no free variables or silently dropped instance binders. All types/instances are concrete or explicitly quantified."
+    },
+    "adaptation_status": "kept",
+    "proof_status": "open",
+    "adaptation_reason": "Statement and source file are unchanged and truth-swept true. The V2 assembly reuses this V1 obligation through explicit centre-zero bridges; no replacement is required."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H3.StationaryCoefficientOffCentreStatementV2",
+    "module": "AKLT.Blueprint.H3.NodesV2Stationary",
+    "paper_label": "d:stationary-walk",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
+    "paper_lines": "517–553; ARCH_0 F9",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
+    "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
+    "estimated_proof_lines": 45,
+    "estimated_writer_hours": "1–2",
+    "difficulty": "easy",
+    "statement_summary": "The corrected and legacy scalar coefficients agree on every edge whose destination is not the centre.",
+    "statement": "def AKLT.Blueprint.H3.StationaryCoefficientOffCentreStatementV2 : Prop :=\n∀ m q : ℕ, ∀ Q : MemoryQuotient m q, ∀ X : PairType, ∀ d₀ : Compass,\n    ∀ φ : Phase, ∀ a : Fin q, ∀ x : Plane, ∀ d : Compass, ∀ ψ : Phase,\n      x + d.step ≠ kernelCentre →\n      stationaryCoefficientV2 Q X d₀ φ a x d ψ = stationaryCoefficient Q X d₀ φ a x d ψ",
+    "dependencies": [
+      "AKLT.Defs.stationaryCoefficientV2",
+      "AKLT.Defs.stationaryCoefficient",
+      "AKLT.Defs.kernelCentre"
+    ],
+    "suggested_proof_route": "Split the current-terminal/admissibility guard and known-site guard in both literal definitions. The explicit non-centre destination premise removes the only changed branch. No quotient correctness proof is necessary. This elementary proof is deliberately left open under the author rule.",
+    "trap_check": {
+      "missing_premises": "x+d.step≠kernelCentre is explicit and indispensable. The identity is not asserted on centre-destination edges.",
+      "vacuity": "The statement is a general identity/implication on actual definitions, not an assertion of a finite certificate witness.",
+      "empty_degenerate": "m=0 is allowed; q=0 makes the quantified Fin q state absent. Arbitrary malformed quotient fields are allowed because this is a literal guard identity.",
+      "coercions": "Exact rational coefficients and finite sums only. No floating arithmetic or truncating ENNReal coercion is used.",
+      "finset_fintype": "Directions and phases retain their separate fixed Fintype instances and all edge multiplicities. The quotient does not divide by class sizes.",
+      "nat_subtraction": "No new natural subtraction is introduced; existing finite horizons use range (R+1).",
+      "division_zero": "No new variable denominator; the existing thresholds and coefficient/value scales are fixed positive constants.",
+      "instances": "No section variables or implicit typeclass parameters; all leaf parameters are quantified in its definition."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H3.StationaryCentreZeroOperatorStatementV2",
+    "module": "AKLT.Blueprint.H3.NodesV2Stationary",
+    "paper_label": "l:stationary-local-global",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
+    "paper_lines": "763–826; ARCH_0 F9",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
+    "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
+    "estimated_proof_lines": 85,
+    "estimated_writer_hours": "1–2",
+    "difficulty": "easy",
+    "statement_summary": "The corrected and legacy backward operators agree on every rational function zero at the centre.",
+    "statement": "def AKLT.Blueprint.H3.StationaryCentreZeroOperatorStatementV2 : Prop :=\n∀ m q : ℕ, ∀ Q : MemoryQuotient m q, ∀ X : PairType, ∀ d₀ : Compass,\n    ∀ F : Phase → Fin q → Plane → ℚ, (∀ φ a, F φ a kernelCentre = 0) →\n    ∀ φ a x, stationaryApplyV2 Q X d₀ F φ a x = stationaryApply Q X d₀ F φ a x",
+    "dependencies": [
+      "AKLT.Defs.stationaryApplyV2",
+      "AKLT.Defs.stationaryApply",
+      "AKLT.Defs.stationaryCoefficientV2",
+      "AKLT.Defs.stationaryCoefficient",
+      "Finset.sum_congr"
+    ],
+    "suggested_proof_route": "Compare each direction/next-phase summand. For a destination equal to the centre use the displayed F(ψ,b,c)=0 premise on both sides. For every other destination split the literal guards. The existing Bellman system/word proofs can then be reused only on this explicit subspace.",
+    "trap_check": {
+      "missing_premises": "F is required to vanish at the centre for every phase and quotient state; no arbitrary-function equality is claimed.",
+      "vacuity": "There are nonzero centre-zero functions. No sign or summability premise is needed for this finite rational identity.",
+      "empty_degenerate": "Empty quotient state types make state quantifiers vacuous; all zero functions and zero values are covered.",
+      "coercions": "Exact rational coefficients and finite sums only. No floating arithmetic or truncating ENNReal coercion is used.",
+      "finset_fintype": "Directions and phases retain their separate fixed Fintype instances and all edge multiplicities. The quotient does not divide by class sizes.",
+      "nat_subtraction": "No new natural subtraction is introduced; existing finite horizons use range (R+1).",
+      "division_zero": "No new variable denominator; the existing thresholds and coefficient/value scales are fixed positive constants.",
+      "instances": "No section variables or implicit typeclass parameters; all leaf parameters are quantified in its definition."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H3.StationaryContinuationBridgeStatementV2",
+    "module": "AKLT.Blueprint.H3.NodesV2Stationary",
+    "paper_label": "l:stationary-domination",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
+    "paper_lines": "555–686; ARCH_0 F9",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
+    "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
+    "estimated_proof_lines": 160,
+    "estimated_writer_hours": "1–2",
+    "difficulty": "medium",
+    "statement_summary": "All finite continuation sums from the fixed stationary target reward agree for the corrected and legacy operators.",
+    "statement": "def AKLT.Blueprint.H3.StationaryContinuationBridgeStatementV2 : Prop :=\n∀ Q : MemoryQuotient 10 3741, ∀ X : PairType, ∀ d₀ : Compass,\n    ∀ φ : Phase, ∀ a : Fin 3741, ∀ x : Plane, ∀ R : ℕ,\n      stationaryContinuationSumV2 Q X d₀ φ a x R = stationaryContinuationSum Q X d₀ φ a x R",
+    "dependencies": [
+      "AKLT.Defs.stationaryContinuationSumV2",
+      "AKLT.Defs.stationaryContinuationSum",
+      "AKLT.Defs.stationaryReward",
+      "AKLT.Defs.stationaryApplyV2",
+      "AKLT.Defs.stationaryApply",
+      "AKLT.Defs.kernelTarget",
+      "Function.iterate_succ_apply'",
+      "Finset.sum_congr"
+    ],
+    "suggested_proof_route": "Prove, as internal helpers, that the fixed reward is zero at the centre and both operators have zero rows there. Induct jointly on equality of the iterates and their centre-zero invariant. Compare non-centre destinations by the literal coefficient definitions and kill centre terms by the invariant, then sum j∈range(R+1). The fixed reward is essential; an arbitrary initial reward would give a false statement.",
+    "trap_check": {
+      "missing_premises": "The statement fixes stationaryReward X, with kernelTarget X distinct from kernelCentre; it does not quantify arbitrary terminal data.",
+      "vacuity": "The statement is a general identity/implication on actual definitions, not an assertion of a finite certificate witness.",
+      "empty_degenerate": "R=0 includes just the zero-step target reward and both sums agree. The centre has zero reward even for the zero terminal phases.",
+      "coercions": "Exact rational coefficients and finite sums only. No floating arithmetic or truncating ENNReal coercion is used.",
+      "finset_fintype": "Directions and phases retain their separate fixed Fintype instances and all edge multiplicities. The quotient does not divide by class sizes.",
+      "nat_subtraction": "There is no cutoff subtraction and no limit passage; this assertion covers each finite R including zero.",
+      "division_zero": "No new variable denominator; the existing thresholds and coefficient/value scales are fixed positive constants.",
+      "instances": "No section variables or implicit typeclass parameters; all leaf parameters are quantified in its definition."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2",
+    "module": "AKLT.Blueprint.H3.NodesV2Stationary",
+    "paper_label": "d:stationary-certificate",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
+    "paper_lines": "688–760; ARCH_0 F9",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
+    "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
+    "estimated_proof_lines": 150,
+    "estimated_writer_hours": "1–2",
+    "difficulty": "medium",
+    "statement_summary": "Every V2 passing integer certificate supplies the exact legacy passing rows used by the frozen soundness graph.",
+    "statement": "def AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2 : Prop :=\n∀ m q : ℕ, ∀ Q : MemoryQuotient m q, ∀ X : PairType, ∀ d₀ : Compass,\n    ∀ C : StationaryData q, C.PassesV2 Q X d₀ → C.Passes Q X d₀",
+    "dependencies": [
+      "AKLT.Defs.StationaryData.PassesV2",
+      "AKLT.Defs.StationaryData.Passes",
+      "AKLT.Defs.StationaryData.extended",
+      "AKLT.Defs.coefficientCeiling",
+      "AKLT.Defs.stationaryCoefficientV2",
+      "AKLT.Defs.stationaryCoefficient",
+      "Finset.sum_congr"
+    ],
+    "suggested_proof_route": "Copy the unchanged positivity, terminal-cap, free-row, cap and terminal-data conjuncts. In each inside integer row compare summands by whether the destination is the centre. A centre destination has C.extended ψ b c=0 by the explicit checked terminal data, so both rounded-coefficient products are zero. All other coefficients and ceilings are equal. Preserve both natural scales. No supplied array or Correct witness is constructed.",
+    "trap_check": {
+      "missing_premises": "PassesV2 includes the centre-zero extended-value checks. They are needed before comparing rounded rows; coefficient inequality alone would not prove the desired reverse reuse implication.",
+      "vacuity": "The implication leaves all passing-certificate existence obligations with the external data checker. No incomplete/default array is installed.",
+      "empty_degenerate": "The fixed finite square includes zero terminal values; zero-valued inside entries are legal. A zero-state quotient gives universal empty row checks without a fabricated state.",
+      "coercions": "The changed row comparison is entirely in ℕ. Rounded coefficients multiply the checked integer zero; no rounding equality is inferred from a floating approximation.",
+      "finset_fintype": "Directions and phases retain their separate fixed Fintype instances and all edge multiplicities. The quotient does not divide by class sizes.",
+      "nat_subtraction": "No new natural subtraction is introduced; existing finite horizons use range (R+1).",
+      "division_zero": "No new variable denominator; the existing thresholds and coefficient/value scales are fixed positive constants.",
+      "instances": "No section variables or implicit typeclass parameters; all leaf parameters are quantified in its definition."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H3.StoppedQuotientIntertwiningStatementV2",
+    "module": "AKLT.Blueprint.H3.NodesV2Quotient",
+    "paper_label": "l:automaton-quotient",
+    "paper_source": "/home/ubuntu/aklt/reports/REV_C2/app-input-contracts.tex",
+    "paper_lines": "315–363; REF2_6 finding 3",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "first_attempt_policy": "The first Lean proof attempt must be assigned to a different, cheaper model; the blueprint architect must not attempt this leaf.",
+    "proof_assignment": "Unassigned; orchestrator to select the cheaper model.",
+    "estimated_proof_lines": 220,
+    "estimated_writer_hours": "1–2",
+    "difficulty": "medium",
+    "statement_summary": "Finite stopped sums intertwine when the stopping indicator and terminal reward are explicit pullbacks of quotient data.",
+    "statement": "def AKLT.Blueprint.H3.StoppedQuotientIntertwiningStatementV2 : Prop :=\n∀ m q : ℕ, 1 ≤ m → ∀ Q : MemoryQuotient m q, Q.Correct →\n    (∀ w : DirectionWord m, RawWindow w → ∀ d : Compass,\n      WindowAdmissible w d → RawWindow (windowSuccessor w d)) →\n    ∀ p : ℕ, ∀ weight : Fin p → Fin p → StepKind → Compass → Compass → Plane → ℚ,\n      (∀ φ ψ d a a' x, weight φ ψ .revisit d a x = weight φ ψ .revisit d a' x) →\n      ∀ terminalRaw : Fin p → DirectionWord m → Plane → Bool,\n      ∀ terminalQuotient : Fin p → Fin q → Plane → Bool,\n      (∀ φ w, RawWindow w → ∀ x, terminalRaw φ w x = terminalQuotient φ (Q.project w) x) →\n      ∀ rewardRaw : Fin p → DirectionWord m → Plane → ℚ,\n      ∀ rewardQuotient : Fin p → Fin q → Plane → ℚ,\n      (∀ φ w, RawWindow w → ∀ x, rewardRaw φ w x = rewardQuotient φ (Q.project w) x) →\n      (∀ φ a x, terminalQuotient φ a x = false → rewardQuotient φ a x = 0) →\n      ∀ R : ℕ, ∀ φ : Fin p, ∀ w : DirectionWord m, RawWindow w → ∀ x : Plane,\n        (∑ j ∈ Finset.range (R + 1),\n          ((rawStoppedBackwardV2 m p weight terminalRaw)^[j]) rewardRaw φ w x) =\n        ∑ j ∈ Finset.range (R + 1),\n          ((quotientStoppedBackwardV2 Q p weight terminalQuotient)^[j])\n            rewardQuotient φ (Q.project w) x",
+    "dependencies": [
+      "AKLT.Blueprint.H3.rawStoppedBackwardV2",
+      "AKLT.Blueprint.H3.quotientStoppedBackwardV2",
+      "AKLT.Defs.MemoryQuotient.Correct",
+      "AKLT.Defs.RawWindow",
+      "AKLT.Defs.windowSuccessor",
+      "AKLT.Gen.Bellman.Automaton.stopped_pullback",
+      "AKLT.Blueprint.H3.rawBackward_pullback",
+      "Finset.sum_congr",
+      "Function.iterate_succ_apply'"
+    ],
+    "suggested_proof_route": "Use the explicitly assumed raw-successor closure. Prove one-step rational pullback by separate direction/phase comparisons, using Correct for labels and arrivals only on non-revisit edges. The terminal tests are equal on valid raw states by the explicit pullback premise. Induct on iterates; zero steps use the independent terminal-reward pullback premise. Sum the finite horizon. Gen.Bellman.Automaton.stopped_pullback is the existing nonnegative template, while these operators are exact rational ones.",
+    "trap_check": {
+      "missing_premises": "Both terminalRaw=terminalQuotient∘project and rewardRaw=rewardQuotient∘project are explicit on all raw states; the quotient reward also vanishes off the stopping set. Raw-successor closure and revisit arrival-independence are explicit.",
+      "vacuity": "The REF2_6 counterexample with a raw-only zero-step reward is excluded by the reward pullback premise, not by making all stopping states impossible.",
+      "empty_degenerate": "R=0 tests the zero-step reward premise. m≥1 is explicit. Empty Fin p or Fin q types do not require invented indices. A zero reward needs no division.",
+      "coercions": "Exact rational coefficients and finite sums only. No floating arithmetic or truncating ENNReal coercion is used.",
+      "finset_fintype": "The two operators sum the same absolute directions and next phases, preserving parallel edges and list/quotient multiplicities. No spatial quotient is introduced.",
+      "nat_subtraction": "No new natural subtraction is introduced; existing finite horizons use range (R+1).",
+      "division_zero": "No new variable denominator; the existing thresholds and coefficient/value scales are fixed positive constants.",
+      "instances": "No section variables or implicit typeclass parameters; all leaf parameters are quantified in its definition."
     }
   }
 ]

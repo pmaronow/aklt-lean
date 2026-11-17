@@ -1,0 +1,767 @@
+[
+  {
+    "statement": "d:model",
+    "title": "The torus Hamiltonian",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "t:main",
+    "title": "Unconditional main theorem",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "d:moment",
+    "title": "The finite fourth-moment functional",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:moments",
+    "title": "Moments and bounded-degree covariance",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "d:pinmodel",
+    "title": "Original legs, removals, and finite partition sums",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:finitefacts",
+    "title": "Positivity and the admissible free-positivity statement",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "l:35",
+    "title": "The three-factor mean bound and covering tips",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "l:exact",
+    "title": "Finite quadrature, with its precise degree limit",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "h:P",
+    "title": "The response statement passed from C to B",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "d:poly",
+    "title": "Polynomial normalization without a sphere integral",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.StandardSl2Module"
+    ],
+    "scope": "Finite polynomial carrier model only; the chosen monomial norm and polynomial/sl2 identification are new."
+  },
+  {
+    "statement": "l:edge",
+    "title": "The edge kernel",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH",
+      "AKLT.Vendor.Physlib.Sl2.cgProj_isTensorIntertwiner",
+      "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne",
+      "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.exists_eq_smul_cgProj"
+    ],
+    "scope": "The complete tensor sl2 decomposition/intertwiner algebra is reusable (m=n=4). Polynomial multiplication, the determinant factor, Hermitian orthogonality and the specified normalization remain bridges; this does not by itself prove the edge-kernel equality."
+  },
+  {
+    "statement": "l:divisibility",
+    "title": "Local divisibility on the torus",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne"
+    ],
+    "scope": "Edge-sector ingredient via l:edge only. UFD irreducibility/nonassociation, local divisibility, product degree and torus uniqueness are new, over Mathlib polynomial algebra."
+  },
+  {
+    "statement": "p:toruskernel",
+    "title": "Uniqueness at every stated size",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne"
+    ],
+    "scope": "Edge-sector ingredient via l:edge only. UFD irreducibility/nonassociation, local divisibility, product degree and torus uniqueness are new, over Mathlib polynomial algebra."
+  },
+  {
+    "statement": "l:star",
+    "title": "The fixed star comparison",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH",
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+    ],
+    "scope": "Finite sector/spectral tools only. The actual fixed-star operator and its comparison are new."
+  },
+  {
+    "statement": "d:frame",
+    "title": "Finite moment frames",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.IsIsometry",
+      "AKLT.Vendor.QICLean.Matrix.IsCoisometry",
+      "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween",
+      "AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq"
+    ],
+    "scope": "Finite coordinate isometry/coisometry algebra only. A rectangular frame uses the appropriate one-sided identity; equal-cardinality unitarity is not a tight-frame assertion for a 12x5 synthesis matrix. Spinors, fourth moments and the explicit resolution identity are new."
+  },
+  {
+    "statement": "l:tight",
+    "title": "The coherent-state tight frame identity",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.IsIsometry",
+      "AKLT.Vendor.QICLean.Matrix.IsCoisometry",
+      "AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween",
+      "AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq"
+    ],
+    "scope": "Finite coordinate isometry/coisometry algebra only. A rectangular frame uses the appropriate one-sided identity; equal-cardinality unitarity is not a tight-frame assertion for a 12x5 synthesis matrix. Spinors, fourth moments and the explicit resolution identity are new."
+  },
+  {
+    "statement": "l:threeframes",
+    "title": "The three rotated icosahedra",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "l:colour",
+    "title": "A proper colouring for all tori",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "l:qmod",
+    "title": "The determinant modulus identity",
+    "declarations": [],
+    "scope": "New finite moment/frame calculation. The continuous-sphere donors are excluded; derive the exact finite sums/algebra in the campaign definitions."
+  },
+  {
+    "statement": "d:framemodel",
+    "title": "The torus and plane frame specifications",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:quantumfibre",
+    "title": "The signed local comparison",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.conjTranspose_mul_mul_eq_conjTranspose_mul_iff_of_mul_eq_one",
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+    ],
+    "scope": "Finite matrix cancellation and spectral quadratic-form tools only. The signed coherent transform, frame weights and fibre comparison require the campaign-specific construction."
+  },
+  {
+    "statement": "t:QD",
+    "title": "Quantum to classical comparison on every torus",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.conjTranspose_mul_mul_eq_conjTranspose_mul_iff_of_mul_eq_one",
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+    ],
+    "scope": "Finite matrix cancellation and spectral quadratic-form tools only. The signed coherent transform, frame weights and fibre comparison require the campaign-specific construction."
+  },
+  {
+    "statement": "l:planeenergy",
+    "title": "Uniform finite energy and conditional consistency",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "l:boxlift",
+    "title": "Local gauge for a lifted physical square",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "d:shells",
+    "title": "Physical-site shells and exceptional indices",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "d:W",
+    "title": "The uniform window interface",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:stopped",
+    "title": "The stopped coupling at site scale",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "p:surgery",
+    "title": "The corrected original terminal-radius conclusion",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:hamming",
+    "title": "One square scale with small Hamming cost",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "t:periodic",
+    "title": "Direct periodic physical-site block criterion",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis",
+      "AKLT.Vendor.QICLean.OrthonormalBasis.re_inner_apply_eq_sum_of_eigen",
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+    ],
+    "scope": "Finite self-adjoint spectral ingredients only. Conjugation from weighted reversible L2, Hamming Lipschitz contraction, singleton case, block counts and clock normalization remain to be proved. TV contraction is not Hamming contraction."
+  },
+  {
+    "statement": "t:mainW",
+    "title": "Assembly from the physical window estimate",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "l:shellgeom",
+    "title": "Shared shell geometry, including parallel clearance",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "l:cut",
+    "title": "Factorization and common minorization",
+    "declarations": [
+      "AKLT.Vendor.FiniteConditioning.condIndep_of_fiber_indep",
+      "AKLT.Vendor.FiniteConditioning.condExp_on_fiber"
+    ],
+    "scope": "Fibre independence/conditioning infrastructure; graph partition-factorization, strict common law and quantitative minorization are new."
+  },
+  {
+    "statement": "l:removal",
+    "title": "One seed and a connected removal order",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "d:thickcut",
+    "title": "The tapered site set and thickened cut",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:cutgeom",
+    "title": "The physical geometry and summable cut cost",
+    "declarations": [],
+    "scope": "New finite physical-site combinatorial/algebraic proof. No audited donor matches this statement; no cell/block or FK model theorem is substituted."
+  },
+  {
+    "statement": "l:Xconn",
+    "title": "Connectedness of the thickened cut",
+    "declarations": [
+      "AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed",
+      "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_mateConn",
+      "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn",
+      "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn"
+    ],
+    "scope": "Timar/cochain ingredients only. Donor assumes NN-connected sets (and uses the NN vertex boundary); the plan assumes star-connectivity and uses the full sup-distance-one boundary. A triangular/star-adjacency argument or proved reduction is required. No implication between these hypotheses is assumed."
+  },
+  {
+    "statement": "t:cutMOS",
+    "title": "The interface from (P) to physical windows",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "d:domain",
+    "title": "Ordinary domains and auxiliary terminal networks",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "d:trace",
+    "title": "Restricted starts, tracing, and the new coefficient",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:stepid",
+    "title": "The two used step identities",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "p:pairwalk",
+    "title": "The pair expansion on its narrowed domain",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:ratios",
+    "title": "Ratios after moving revisit mass",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:response",
+    "title": "[AMENDED] Uniform response identity and exceptional-step bounds",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:exposure",
+    "title": "Exposure for the new ratio convention",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:pattern",
+    "title": "The corrected covered pattern class",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "h:H1",
+    "title": "[AMENDED] The precise local computational contract",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:local",
+    "title": "Local covering implies the step bound",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:weights",
+    "title": "The unchanged dominating lattice weights",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "h:H2",
+    "title": "[AMENDED] The open-trail computational contract",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:onepoint",
+    "title": "A common majorant for both pin choices",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:pairenv",
+    "title": "The two response envelopes",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:closure",
+    "title": "The corrected closure invariant",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:terminalcover",
+    "title": "The second expansion and its twelve exceptions",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:log-mean-bounds",
+    "title": "[AMENDED] Analytic and rational logarithmic-mean bounds",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge"
+    ],
+    "scope": "Exact dyadic arithmetic/directed rounding only; logarithmic-mean analytic inequalities and the stated rational table are new. No interval/log evaluator is imported."
+  },
+  {
+    "statement": "l:response-typed",
+    "title": "[AMENDED] The type-dependent main-line response bound",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:kernel",
+    "title": "[AMENDED] The type-dependent closed-trail shift kernel",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "d:kernel-order",
+    "title": "[AMENDED] The fixed short-prefix ordering and rational witness",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "h:H3",
+    "title": "[AMENDED] The positive-vector contract for the modified kernel",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:Mtheta",
+    "title": "[AMENDED] Transport the same witness to a shifted kernel",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:recineq",
+    "title": "[AMENDED] The type-dependent response recursion with the retained source constant",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:renewal",
+    "title": "Bounded nonnegative renewal",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "t:rec",
+    "title": "[AMENDED] The export of (P) from the type-dependent contracts",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "t:H1",
+    "title": "[AMENDED] The operator-only local input theorem",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "t:inputs",
+    "title": "[AMENDED] The exact numerical theorem for the adopted three certificate routes",
+    "declarations": [],
+    "scope": "Campaign assembly/input theorem. Prove from the plan dependencies; vendoring does not certify its numerical, geometric or model-specific premises. The historical cutMOS label does not license an MO/MOS black-box import."
+  },
+  {
+    "statement": "l:CE",
+    "title": "Finite conditional expectations",
+    "declarations": [
+      "AKLT.Vendor.FiniteConditioning.condExp_on_fiber",
+      "AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals"
+    ],
+    "scope": "Fibre conditional-mean identification only. Orthogonal projection, total variance, complex values, and finite-product specialization remain a bridge; use the pinned Mathlib L2 conditional expectation API."
+  },
+  {
+    "statement": "l:finitecoupling",
+    "title": "Couplings, overlap, and Hamming distance",
+    "declarations": [
+      "AKLT.Vendor.FiniteChain.finiteTotalVariation",
+      "AKLT.Vendor.FiniteChain.finiteTotalVariation_contraction",
+      "AKLT.Vendor.FiniteChain.finiteTotalVariation_le_one"
+    ],
+    "scope": "Half-L1 TV and stochastic-kernel contraction. Marginalization needs its deterministic stochastic kernel; overlap, maximal coupling, completion and Hamming estimate are new finite lemmas. No donor supplies this entire statement."
+  },
+  {
+    "statement": "l:surgery",
+    "title": "Preservation under pair-dependent surgery",
+    "declarations": [
+      "AKLT.Vendor.FiniteConditioning.condExp_on_fiber",
+      "AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals"
+    ],
+    "scope": "Supports disintegration into fibres; pair-dependent kernel preservation and composition are new finite-sum identities."
+  },
+  {
+    "statement": "l:density",
+    "title": "Density comparison with a product law",
+    "declarations": [
+      "AKLT.Vendor.FiniteChain.Cheeger.weightedVariance_le_center",
+      "AKLT.Vendor.FiniteChain.finiteDirichletForm"
+    ],
+    "scope": "Variational-centering ingredient and Dirichlet form only. Conditional-variance variational formula, product tensorization and the one-ratio density comparison are new."
+  },
+  {
+    "statement": "l:comparison",
+    "title": "Block-to-site comparison",
+    "declarations": [
+      "AKLT.Vendor.FiniteChain.finiteDirichletForm_eq_neg_generator",
+      "AKLT.Vendor.FiniteConditioning.condExp_on_fiber"
+    ],
+    "scope": "Quadratic-form/generator and fibre ingredients; repeated-label conditional-variance summation and multiplicity estimate are new."
+  },
+  {
+    "statement": "l:contraction",
+    "title": "Finite Hamming contraction gives a block gap",
+    "declarations": [
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis",
+      "AKLT.Vendor.QICLean.OrthonormalBasis.re_inner_apply_eq_sum_of_eigen",
+      "AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap"
+    ],
+    "scope": "Finite self-adjoint spectral ingredients only. Conjugation from weighted reversible L2, Hamming Lipschitz contraction, singleton case, block counts and clock normalization remain to be proved. TV contraction is not Hamming contraction."
+  },
+  {
+    "statement": "l:boundaryconn",
+    "title": "Only star-connectivity of the boundary is needed",
+    "declarations": [
+      "AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed",
+      "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_mateConn",
+      "AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn",
+      "AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn"
+    ],
+    "scope": "Timar/cochain ingredients only. Donor assumes NN-connected sets (and uses the NN vertex boundary); the plan assumes star-connectivity and uses the full sup-distance-one boundary. A triangular/star-adjacency argument or proved reduction is required. No implication between these hypotheses is assumed."
+  },
+  {
+    "statement": "l:thicken",
+    "title": "Nearest-neighbour connected crosses",
+    "declarations": [
+      "AKLT.Vendor.Balaban.LatticeGeom.Conn",
+      "AKLT.Vendor.Balaban.LatticeGeom.StarNear",
+      "AKLT.Vendor.Balaban.LatticeGeom.StarConn"
+    ],
+    "scope": "Definitions and finite path infrastructure only; connected union of crosses and weighted distance/count estimate are new. Timar does not assert this bound."
+  },
+  {
+    "statement": "d:memory-automaton",
+    "title": "[AMENDED] Raw trail windows with absolute directions",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "d:memorygrowth",
+    "title": "[AMENDED] The one-step H2 matrix with true revisit weight",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:alm",
+    "title": "[AMENDED] The one-step witness implies all-length H2",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:H2-dihedral",
+    "title": "[AMENDED] Soundness of the 115-row dihedral reduction",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "p:H2-test",
+    "title": "[AMENDED] The exact rational memory-6 vector certificate",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "l:H2-CV",
+    "title": "[AMENDED] An explicit C_V for the weaker rate",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:automaton-quotient",
+    "title": "[AMENDED] Exact quotienting of a labelled memory automaton",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "p:automaton10",
+    "title": "[AMENDED] The checked memory-10 automaton",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "d:phaseweights",
+    "title": "[AMENDED] The four exact phase weights",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:phase-expansion",
+    "title": "[AMENDED] The phase representation of the long-trail reward",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:stationary-walk",
+    "title": "[AMENDED] The stationary relaxation on the actual lattice",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:stationary-domination",
+    "title": "[AMENDED] Domination of every true continuation",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:Bellman-soundness",
+    "title": "[AMENDED] A supersolution bounds all stopped paths",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:stationary-certificate",
+    "title": "[AMENDED] The finite integer supersolution contract",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "l:stationary-local-global",
+    "title": "[AMENDED] Finite caps and free rows imply a global Bellman inequality",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:prefix-bound",
+    "title": "[AMENDED] Exact short trails and exact prefix evaluation",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:prefix-domination",
+    "title": "[AMENDED] The stationary bound covers the complete row",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:kernel-reflection",
+    "title": "[AMENDED] The one reflection used in row B",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "p:stationary-check",
+    "title": "[AMENDED] The five finite stationary data checks and exact prefixes",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "l:stationary-assembly",
+    "title": "[AMENDED] The stationary certificates imply H3_h",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "l:Iw",
+    "title": "[AMENDED] Integrating out the passage site",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:leaf",
+    "title": "[AMENDED] Only the elementary leaf reductions",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:reduction",
+    "title": "[AMENDED] The two allowed representations and vector groups",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "c:reduce",
+    "title": "[AMENDED] Reduction to unit-vector positivity",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "d:Pauli",
+    "title": "[AMENDED] The Pauli operator and product densities",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:inversion",
+    "title": "[AMENDED] Positivity from a supplied inversion",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:Ostruct",
+    "title": "[AMENDED] The retained operator symmetries",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.tensorH_hwVec",
+      "AKLT.Vendor.Physlib.Sl2.tensorE_hwVec",
+      "AKLT.Vendor.Physlib.Sl2.tensorStringBasis",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF"
+    ],
+    "scope": "Reusable finite ladder/tensor representation algebra. Identifying the actual Pauli/exchange representation, its adjoints, the central weight and eigenvalue detection for those matrices are new."
+  },
+  {
+    "statement": "d:exchange",
+    "title": "[AMENDED] Exchange sectors and the central weight",
+    "declarations": [],
+    "scope": "Campaign-specific definition or contract. No donor theorem is claimed; implement the stated finite objects directly with Mathlib and the listed arithmetic/linear-algebra primitives."
+  },
+  {
+    "statement": "l:sector",
+    "title": "[AMENDED] Ladder-operator detection of every eigenvalue",
+    "declarations": [
+      "AKLT.Vendor.Physlib.Sl2.tensorH_hwVec",
+      "AKLT.Vendor.Physlib.Sl2.tensorE_hwVec",
+      "AKLT.Vendor.Physlib.Sl2.tensorStringBasis",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE",
+      "AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF"
+    ],
+    "scope": "Reusable finite ladder/tensor representation algebra. Identifying the actual Pauli/exchange representation, its adjoints, the central weight and eigenvalue detection for those matrices are new."
+  },
+  {
+    "statement": "l:gram-residual",
+    "title": "[AMENDED] Division-free Gram/residual positivity",
+    "declarations": [],
+    "scope": "New campaign-specific walk, coupling, topology or certificate proof. No audited donor declaration covers the full statement; use the plan dependency chain. General arithmetic/sl2 tools are mapped at their direct consumers above."
+  },
+  {
+    "statement": "l:integercheck",
+    "title": "[AMENDED] Exact reconstruction of the integer sector matrix; Bareiss fallback only",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  },
+  {
+    "statement": "p:certificate",
+    "title": "[AMENDED] The operator-only Gram/residual certificate proposition",
+    "declarations": [
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le",
+      "AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge"
+    ],
+    "scope": "Exact arithmetic soundness only; fixed-exponent dyadics can interpret integer-scaled data. No automaton, matrix reconstruction, Bellman checker, certificate data or large computation is supplied by this vendoring task."
+  }
+]

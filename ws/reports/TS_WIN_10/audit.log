@@ -1,0 +1,42 @@
+def AKLT.Blueprint.Win.TailThresholdStatement : Prop :=
+∀ (θ : ℝ),
+  0 < θ →
+    θ < 1 →
+      (∀ (u : ℕ), 1 ≤ u → tailCost θ u ≤ tailConstant θ * shellSpacing u ^ (-2)) →
+        ∃ M, 1 ≤ M ∧ geometryThreshold 64 ≤ M ∧ ∀ (u : ℕ), M ≤ u → tailCost θ u ≤ 1
+def AKLT.Blueprint.Win.FrameWeightPositiveStatement : Prop :=
+AKLT.Blueprint.Top.ThreeFramesStatement →
+  ∀ (κ : Plane → Fin 3),
+    ProperPlaneColouring κ →
+      ∀ (F : Finset Plane) (η : FrameBoundary F) (σ : PlaneConfiguration F), 0 < planeWeight κ F η σ
+def AKLT.Blueprint.Win.tailCost : ℝ → ℕ → ℝ :=
+fun θ u => 4 * (2 * ↑u + 1) ^ 2 * θ ^ (shellSpacing u / 12 - 1)
+def AKLT.Blueprint.Win.tailConstant : ℝ → ℝ :=
+fun θ => 36 * θ⁻¹ * ↑(Nat.factorial 10) * (12 / -Real.log θ) ^ 10
+def AKLT.Defs.shellSpacing : ℕ → ℝ :=
+fun u => √√↑u
+def AKLT.Defs.planeWeight : (Plane → Fin 3) → (W : Finset Plane) → FrameBoundary W → PlaneConfiguration W → ℝ :=
+fun κ W η σ =>
+  ((1 / 12) ^ W.card *
+      ∏ e ∈ internalBonds W,
+        (1 + dot (frameVector (κ e.1) (extendLetters σ e.1)) (frameVector (κ e.2) (extendLetters σ e.2)))) *
+    ∏ e ∈ originalLegs W,
+      (1 + dot (frameVector (κ e.1) (extendLetters σ e.1)) (frameVector (κ e.2) (extendBoundary η e.2)))
+def AKLT.Defs.ProperPlaneColouring : (Plane → Fin 3) → Prop :=
+fun κ => ∀ (x y : Plane), Adjacent x y → κ x ≠ κ y
+@[reducible] def AKLT.Defs.PlaneConfiguration : Finset Plane → Type :=
+fun W => ↥W → IcoLetter
+@[reducible] def AKLT.Defs.FrameBoundary : Finset Plane → Type :=
+fun W => ↥(exteriorSites W) → IcoLetter
+Pi.instFintype
+Pi.instNonempty
+Pi.instFintype
+Pi.instNonempty
+Nat.le_ceil.{u_1} {R : Type u_1} [Semiring R] [LinearOrder R] [FloorSemiring R] (a : R) : a ≤ ↑⌈a⌉₊
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x
+Real.sqrt_le_left {x y : ℝ} (hy : 0 ≤ y) : √x ≤ y ↔ x ≤ y ^ 2
+Real.log_neg {x : ℝ} (h0 : 0 < x) (h1 : x < 1) : Real.log x < 0
+zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹
+Finset.prod_pos.{u_1, u_2} {ι : Type u_1} {R : Type u_2} [CommMonoidWithZero R] [PartialOrder R] [ZeroLEOneClass R]
+  [PosMulStrictMono R] [Nontrivial R] {f : ι → R} {s : Finset ι} (h0 : ∀ i ∈ s, 0 < f i) : 0 < ∏ i ∈ s, f i
+23134410000

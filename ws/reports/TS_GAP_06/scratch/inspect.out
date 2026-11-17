@@ -1,0 +1,317 @@
+def AKLT.Blueprint.Gap.FrameSpecEnergyStatement : Prop :=
+∀ (κ : AKLT.Defs.Plane → Fin 3),
+  (∀ (W : Finset AKLT.Defs.Plane) (η : AKLT.Defs.FrameBoundary W) (U J : Finset AKLT.Defs.Plane),
+      U ⊆ W →
+        J ⊆ W →
+          Disjoint U J →
+            ∀ (a b : AKLT.Defs.Plane → AKLT.Defs.IcoLetter),
+              AKLT.Defs.frameEnergy ^ U.card ≤
+                AKLT.Defs.conditionalProbability (AKLT.Defs.planeLaw κ W η)
+                  (fun σ => ∀ x ∈ J, AKLT.Defs.extendLetters σ x = a x) fun σ =>
+                  ∀ x ∈ U, AKLT.Defs.extendLetters σ x = b x) →
+    AKLT.Blueprint.Gap.SpecEnergy (AKLT.Blueprint.Gap.frameSpec κ) AKLT.Defs.frameEnergy
+def AKLT.Blueprint.Gap.FrameWindowTransferStatement : Prop :=
+∀ (l : ℕ) (p : ℝ) (Mstar : ℕ),
+  AKLT.Defs.WindowProperty l p Mstar →
+    ∀ (κ : AKLT.Defs.Plane → Fin 3),
+      AKLT.Defs.ProperPlaneColouring κ → AKLT.Blueprint.Gap.SpecWindow (AKLT.Blueprint.Gap.frameSpec κ) l p Mstar
+def AKLT.Blueprint.Gap.ShellNestingStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : ℕ),
+  16 ≤ AKLT.Defs.shellSpacing u →
+    ∀ (i j : ℤ),
+      i + 2 ≤ j →
+        AKLT.Defs.farVolume a y u j ⊆ AKLT.Defs.farVolume a y u (i + 1) ∧
+          AKLT.Defs.shell a y u (j - 1) ⊆ AKLT.Defs.farVolume a y u (i + 1)
+def AKLT.Blueprint.Gap.FiniteEnergyChainStatement : Prop :=
+∀ (ι : Type) [inst : Fintype ι] [inst_1 : DecidableEq ι] (S : ι → Type) [inst_2 : (x : ι) → Fintype (S x)]
+  [∀ (x : ι), Nonempty (S x)] (p : AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability p →
+    ∀ (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          (∀ (x : ι) (σ : (x : ι) → S x) (a : S x),
+              α ≤ AKLT.Defs.conditionalProbability p (AKLT.Defs.AgreeOutside {x} σ) fun τ => τ x = a) →
+            AKLT.Blueprint.Gap.AssignmentBound p α
+def AKLT.Blueprint.Gap.ShellRowStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ),
+      0 < α →
+        α ≤ 1 →
+          AKLT.Blueprint.Gap.SpecEnergy P α →
+            AKLT.Blueprint.Gap.SpecWindow P l p Mstar →
+              ∀ (a : AKLT.Defs.Plane) (u : ℕ),
+                max Mstar (AKLT.Defs.geometryThreshold l) ≤ u →
+                  ∀ (y : AKLT.Defs.Plane),
+                    AKLT.Defs.setDistance AKLT.Defs.supDist y ↑(AKLT.Defs.square a u) = 1 →
+                      AKLT.Blueprint.Gap.ShellGeometry l a y u →
+                        ∀ (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+                          (∀ (z : AKLT.Defs.Plane), z ≠ y → η z = ξ z) →
+                            ∀ (h : ℕ),
+                              4 ≤ h →
+                                ↑h ≤ AKLT.Defs.shellSpacing u →
+                                  ∀ (j : Fin h)
+                                    (ω :
+                                      AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                                        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+                                    ∃ r, AKLT.Blueprint.Gap.RowConditions P a y u l h p α η ξ j ω r
+def AKLT.Blueprint.Gap.TraceMarginalsStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec),
+  AKLT.Blueprint.Gap.RegularSpec P →
+    ∀ (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ) (η ξ : AKLT.Blueprint.Gap.Config P.Letter)
+      (R : AKLT.Blueprint.Gap.SurgeryKernels P a y u l h p α η ξ),
+      AKLT.Defs.Probability (AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R) ∧
+        ∃ c,
+          ∀ (σ τ : (x : ↥(AKLT.Defs.square a u)) → P.Letter ↑x),
+            c.mass σ τ =
+              AKLT.Defs.marginal (AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R) (fun t => t (Fin.last h))
+                (σ, τ)
+def AKLT.Blueprint.Gap.TrialCountStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u h : ℕ),
+  4 ≤ h → (AKLT.Defs.exceptionalIndices a y u).card ≤ 1 → h - 3 ≤ (AKLT.Blueprint.Gap.trialTimes a y u h).card
+def AKLT.Blueprint.Gap.ShellAbsorptionStatement : Prop :=
+∀ (P : AKLT.Blueprint.Gap.PlaneSpec) (a y : AKLT.Defs.Plane) (u l h : ℕ) (p α : ℝ)
+  (η ξ : AKLT.Blueprint.Gap.Config P.Letter),
+  16 ≤ AKLT.Defs.shellSpacing u →
+    ∀ (R : AKLT.Blueprint.Gap.SurgeryKernels P a y u l h p α η ξ)
+      (t : AKLT.Blueprint.Gap.PairTrace (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)) h),
+      0 < AKLT.Blueprint.Gap.surgeryTrace P a y u l h p α η ξ R t →
+        (∃ j ∈ AKLT.Blueprint.Gap.trialTimes a y u h, AKLT.Blueprint.Gap.shellAgreement P a y u h j (t j.succ)) →
+          AKLT.Blueprint.Gap.AgreeOn (AKLT.Blueprint.Gap.farSites a y u (↑h * AKLT.Defs.shellSpacing u))
+            (t (Fin.last h)).1 (t (Fin.last h)).2
+structure AKLT.Blueprint.Gap.PlaneSpec : Type 1
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Gap.PlaneSpec.Letter : AKLT.Defs.Plane → Type
+  AKLT.Blueprint.Gap.PlaneSpec.finite : (x : AKLT.Defs.Plane) → Fintype (self.Letter x)
+  AKLT.Blueprint.Gap.PlaneSpec.inhabited : ∀ (x : AKLT.Defs.Plane), Nonempty (self.Letter x)
+  AKLT.Blueprint.Gap.PlaneSpec.law : (W : Finset AKLT.Defs.Plane) →
+      AKLT.Blueprint.Gap.Config self.Letter → AKLT.Defs.Weight ((x : ↥W) → self.Letter ↑x)
+constructor:
+  AKLT.Blueprint.Gap.PlaneSpec.mk (Letter : AKLT.Defs.Plane → Type)
+    (finite : (x : AKLT.Defs.Plane) → Fintype (Letter x)) (inhabited : ∀ (x : AKLT.Defs.Plane), Nonempty (Letter x))
+    (law : (W : Finset AKLT.Defs.Plane) → AKLT.Blueprint.Gap.Config Letter → AKLT.Defs.Weight ((x : ↥W) → Letter ↑x)) :
+    AKLT.Blueprint.Gap.PlaneSpec
+def AKLT.Blueprint.Gap.AssignmentBound : {ι : Type} →
+  [Fintype ι] →
+    [DecidableEq ι] →
+      {S : ι → Type} → [(x : ι) → Fintype (S x)] → AKLT.Defs.Weight (AKLT.Blueprint.Gap.Config S) → ℝ → Prop :=
+fun {ι} [Fintype ι] [DecidableEq ι] {S} [(x : ι) → Fintype (S x)] p α =>
+  ∀ (U J : Finset ι),
+    Disjoint U J →
+      ∀ (a b : AKLT.Blueprint.Gap.Config S),
+        α ^ U.card ≤
+          AKLT.Defs.conditionalProbability p (fun σ => AKLT.Blueprint.Gap.AgreeOn J σ a) fun σ =>
+            AKLT.Blueprint.Gap.AgreeOn U σ b
+def AKLT.Blueprint.Gap.RowConditions : (P : AKLT.Blueprint.Gap.PlaneSpec) →
+  (a : AKLT.Defs.Plane) →
+    AKLT.Defs.Plane →
+      (u : ℕ) →
+        ℕ →
+          (h : ℕ) →
+            ℝ →
+              ℝ →
+                AKLT.Blueprint.Gap.Config P.Letter →
+                  AKLT.Blueprint.Gap.Config P.Letter →
+                    Fin h →
+                      AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) →
+                        AKLT.Defs.Weight
+                            (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)) →
+                          Prop :=
+fun P a y u l h p α η ξ j ω r =>
+  AKLT.Defs.Probability r ∧
+    (if ↑↑j + 2 ∈ AKLT.Defs.exceptionalIndices a y u then
+        ∀
+          (v :
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+          r v = if v = ω then 1 else 0
+      else
+        (∀ (σ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            ∑ τ, r (σ, τ) =
+              AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) η)
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.1 σ) ∧
+          ∀ (τ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            ∑ σ, r (σ, τ) =
+              AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) ξ)
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.2 τ) ∧
+      (∀
+          (v :
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+          0 < r v →
+            AKLT.Defs.AgreeOutside
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.1 v.1 ∧
+              AKLT.Defs.AgreeOutside
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.2 v.2) ∧
+        (↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+            AKLT.Blueprint.Gap.AgreeOn
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 1))) ω.1 ω.2 →
+              ∀
+                (v :
+                  AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                    AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+                0 < r v →
+                  AKLT.Blueprint.Gap.AgreeOn
+                    (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) v.1 v.2) ∧
+          (↑j + 2 ≤ h →
+            ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+              p * α ^ (16 * l) ≤
+                AKLT.Defs.eventMass r fun v =>
+                  AKLT.Blueprint.Gap.AgreeOn
+                    (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 2))) v.1 v.2)
+structure AKLT.Blueprint.Gap.SurgeryKernels (P : AKLT.Blueprint.Gap.PlaneSpec) (a y : AKLT.Defs.Plane) (u l h : ℕ)
+  (p α : ℝ) (η ξ : AKLT.Blueprint.Gap.Config P.Letter) : Type
+number of parameters: 10
+fields:
+  AKLT.Blueprint.Gap.SurgeryKernels.kernel : Fin h →
+      AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) →
+        AKLT.Defs.Weight
+          (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u))
+  AKLT.Blueprint.Gap.SurgeryKernels.stochastic : ∀ (j : Fin h)
+      (ω :
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+      AKLT.Defs.Probability (self.kernel j ω)
+  AKLT.Blueprint.Gap.SurgeryKernels.marginals : ∀ (j : Fin h)
+      (ω :
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+      if ↑↑j + 2 ∈ AKLT.Defs.exceptionalIndices a y u then
+        ∀
+          (v :
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+          self.kernel j ω v = if v = ω then 1 else 0
+      else
+        (∀ (σ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            ∑ τ, self.kernel j ω (σ, τ) =
+              AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) η)
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.1 σ) ∧
+          ∀ (τ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            ∑ σ, self.kernel j ω (σ, τ) =
+              AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) ξ)
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.2 τ
+  AKLT.Blueprint.Gap.SurgeryKernels.fixed_exterior : ∀ (j : Fin h)
+      (ω v :
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+      0 < self.kernel j ω v →
+        AKLT.Defs.AgreeOutside (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2)))
+            ω.1 v.1 ∧
+          AKLT.Defs.AgreeOutside (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2)))
+            ω.2 v.2
+  AKLT.Blueprint.Gap.SurgeryKernels.identical : ∀ (j : Fin h)
+      (ω :
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+      ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+        AKLT.Blueprint.Gap.AgreeOn (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 1)))
+            ω.1 ω.2 →
+          ∀
+            (v :
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            0 < self.kernel j ω v →
+              AKLT.Blueprint.Gap.AgreeOn
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) v.1 v.2
+  AKLT.Blueprint.Gap.SurgeryKernels.success : ∀ (j : Fin h)
+      (ω :
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+      ↑j + 2 ≤ h →
+        ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+          p * α ^ (16 * l) ≤
+            AKLT.Defs.eventMass (self.kernel j ω) fun v =>
+              AKLT.Blueprint.Gap.AgreeOn
+                (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 2))) v.1 v.2
+constructor:
+  AKLT.Blueprint.Gap.SurgeryKernels.mk {P : AKLT.Blueprint.Gap.PlaneSpec} {a y : AKLT.Defs.Plane} {u l h : ℕ} {p α : ℝ}
+    {η ξ : AKLT.Blueprint.Gap.Config P.Letter}
+    (kernel :
+      Fin h →
+        AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) →
+          AKLT.Defs.Weight
+            (AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)))
+    (stochastic :
+      ∀ (j : Fin h)
+        (ω :
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+        AKLT.Defs.Probability (kernel j ω))
+    (marginals :
+      ∀ (j : Fin h)
+        (ω :
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+        if ↑↑j + 2 ∈ AKLT.Defs.exceptionalIndices a y u then
+          ∀
+            (v :
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+            kernel j ω v = if v = ω then 1 else 0
+        else
+          (∀ (σ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+              ∑ τ, kernel j ω (σ, τ) =
+                AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) η)
+                  (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.1 σ) ∧
+            ∀ (τ : AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+              ∑ σ, kernel j ω (σ, τ) =
+                AKLT.Blueprint.Gap.fibre (P.law (AKLT.Defs.square a u) ξ)
+                  (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.2 τ)
+    (fixed_exterior :
+      ∀ (j : Fin h)
+        (ω v :
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+        0 < kernel j ω v →
+          AKLT.Defs.AgreeOutside (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2)))
+              ω.1 v.1 ∧
+            AKLT.Defs.AgreeOutside
+              (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) ω.2 v.2)
+    (identical :
+      ∀ (j : Fin h)
+        (ω :
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+        ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+          AKLT.Blueprint.Gap.AgreeOn (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 1)))
+              ω.1 ω.2 →
+            ∀
+              (v :
+                AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+                  AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+              0 < kernel j ω v →
+                AKLT.Blueprint.Gap.AgreeOn
+                  (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u (↑↑j + 2))) v.1 v.2)
+    (success :
+      ∀ (j : Fin h)
+        (ω :
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+            AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u)),
+        ↑j + 2 ≤ h →
+          ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u →
+            p * α ^ (16 * l) ≤
+              AKLT.Defs.eventMass (kernel j ω) fun v =>
+                AKLT.Blueprint.Gap.AgreeOn
+                  (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 2))) v.1 v.2) :
+    AKLT.Blueprint.Gap.SurgeryKernels P a y u l h p α η ξ
+def AKLT.Blueprint.Gap.trialTimes : AKLT.Defs.Plane → AKLT.Defs.Plane → ℕ → (h : ℕ) → Finset (Fin h) :=
+fun a y u h =>
+  {j | ↑j + 2 ≤ h ∧ ↑↑j + 2 ∉ AKLT.Defs.exceptionalIndices a y u ∧ ↑↑j + 3 ∉ AKLT.Defs.exceptionalIndices a y u}
+def AKLT.Blueprint.Gap.shellAgreement : (P : AKLT.Blueprint.Gap.PlaneSpec) →
+  (a : AKLT.Defs.Plane) →
+    AKLT.Defs.Plane →
+      (u h : ℕ) →
+        Fin h →
+          AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) ×
+              AKLT.Blueprint.Gap.PlaneConfig P (AKLT.Defs.square a u) →
+            Prop :=
+fun P a y u h j ω =>
+  AKLT.Blueprint.Gap.AgreeOn (AKLT.Defs.sitesInVolume (AKLT.Defs.square a u) (AKLT.Defs.shell a y u (↑↑j + 2))) ω.1 ω.2

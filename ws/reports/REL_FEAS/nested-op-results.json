@@ -1,0 +1,400 @@
+[
+  {
+    "module": "RELFEAS.MulPow128",
+    "goal": "((2:Nat)^128+1) * (2^128+1) = 2^256 + 2^129 + 1",
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow128.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow128.lean"
+      ],
+      "exit": 0,
+      "wall_s": 0.6059309219999705,
+      "sampled_peak_bytes": 779804672,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.38,
+      "system_s": 0.21,
+      "rss_kib": 775820.0
+    },
+    "export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.MulPow128",
+        "--",
+        "RELFEAS.MulPow128.checked"
+      ],
+      "exit": 0,
+      "wall_s": 0.9066190250014188,
+      "sampled_peak_bytes": 1011646464,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.51,
+      "system_s": 0.35,
+      "rss_kib": 985540.0
+    },
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow128/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 0.10331182199297473,
+      "sampled_peak_bytes": 331776,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.02,
+      "system_s": 0.0,
+      "rss_kib": 23288.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow128/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 0.10338256899558473,
+      "sampled_peak_bytes": 327680,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.0,
+      "system_s": 0.0,
+      "rss_kib": 3704.0,
+      "accepts": true
+    }
+  },
+  {
+    "module": "RELFEAS.MulPow4096",
+    "goal": "((2:Nat)^4096+1) * (2^4096+1) = 2^8192 + 2^4097 + 1",
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow4096.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow4096.lean"
+      ],
+      "exit": 0,
+      "wall_s": 0.6054423510067863,
+      "sampled_peak_bytes": 780079104,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.39,
+      "system_s": 0.14,
+      "rss_kib": 775976.0
+    },
+    "export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.MulPow4096",
+        "--",
+        "RELFEAS.MulPow4096.checked"
+      ],
+      "exit": 0,
+      "wall_s": 0.9070960649987683,
+      "sampled_peak_bytes": 954945536,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.49,
+      "system_s": 0.34,
+      "rss_kib": 985528.0
+    },
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow4096/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 0.10358017100952566,
+      "sampled_peak_bytes": 327680,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.02,
+      "system_s": 0.0,
+      "rss_kib": 22648.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow4096/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 0.10389211199071724,
+      "sampled_peak_bytes": 327680,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.0,
+      "system_s": 0.0,
+      "rss_kib": 3748.0,
+      "accepts": true
+    }
+  },
+  {
+    "module": "RELFEAS.MulPow16384",
+    "goal": "((2:Nat)^16384+1) * (2^16384+1) = 2^32768 + 2^16385 + 1",
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow16384.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow16384.lean"
+      ],
+      "exit": 0,
+      "wall_s": 0.605702877001022,
+      "sampled_peak_bytes": 779911168,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.4,
+      "system_s": 0.18,
+      "rss_kib": 776144.0
+    },
+    "export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.MulPow16384",
+        "--",
+        "RELFEAS.MulPow16384.checked"
+      ],
+      "exit": 0,
+      "wall_s": 1.0082956260011997,
+      "sampled_peak_bytes": 1011675136,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.59,
+      "system_s": 0.39,
+      "rss_kib": 985628.0
+    },
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow16384/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 0.10310286999447271,
+      "sampled_peak_bytes": 454656,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.02,
+      "system_s": 0.0,
+      "rss_kib": 23076.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow16384/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 0.10322060000908095,
+      "sampled_peak_bytes": 331776,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.0,
+      "system_s": 0.0,
+      "rss_kib": 3368.0,
+      "accepts": true
+    }
+  },
+  {
+    "module": "RELFEAS.MulPow65536",
+    "goal": "((2:Nat)^65536+1) * (2^65536+1) = 2^131072 + 2^65537 + 1",
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow65536.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/MulPow65536.lean"
+      ],
+      "exit": 0,
+      "wall_s": 0.7065234890033025,
+      "sampled_peak_bytes": 780038144,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.46,
+      "system_s": 0.22,
+      "rss_kib": 776708.0
+    },
+    "export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.MulPow65536",
+        "--",
+        "RELFEAS.MulPow65536.checked"
+      ],
+      "exit": 0,
+      "wall_s": 0.9076966349966824,
+      "sampled_peak_bytes": 1011650560,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.5,
+      "system_s": 0.35,
+      "rss_kib": 985524.0
+    },
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow65536/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 0.10365416799322702,
+      "sampled_peak_bytes": 454656,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.06,
+      "system_s": 0.01,
+      "rss_kib": 37608.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/MulPow65536/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 0.10365080399787985,
+      "sampled_peak_bytes": 356352,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.0,
+      "system_s": 0.0,
+      "rss_kib": 3248.0,
+      "accepts": true
+    }
+  },
+  {
+    "module": "RELFEAS.ShiftPow65536",
+    "goal": "Nat.shiftLeft ((2:Nat)^65536+1) 65536 = 2^131072+2^65536",
+    "lean": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
+        "-o",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/ShiftPow65536.olean",
+        "/home/ubuntu/aklt/reports/REL_FEAS/scratch/lib/RELFEAS/ShiftPow65536.lean"
+      ],
+      "exit": 0,
+      "wall_s": 0.6060242539970204,
+      "sampled_peak_bytes": 779988992,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.39,
+      "system_s": 0.19,
+      "rss_kib": 776120.0
+    },
+    "export": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
+        "RELFEAS.ShiftPow65536",
+        "--",
+        "Nat.div",
+        "Nat.mod",
+        "Nat.add",
+        "Nat.sub",
+        "Nat.mul",
+        "Nat.pow",
+        "Nat.gcd",
+        "Nat.beq",
+        "Nat.ble",
+        "Nat.land",
+        "Nat.lor",
+        "Nat.xor",
+        "Nat.shiftLeft",
+        "Nat.shiftRight",
+        "String.ofList",
+        "Char.ofNat",
+        "List",
+        "eagerReduce",
+        "Nat",
+        "String",
+        "String.mk",
+        "Char",
+        "optParam",
+        "autoParam",
+        "semiOutParam",
+        "outParam",
+        "Quot",
+        "Quot.mk",
+        "Quot.lift",
+        "Quot.ind",
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "RELFEAS.ShiftPow65536.checked"
+      ],
+      "exit": 0,
+      "wall_s": 1.0077715369989164,
+      "sampled_peak_bytes": 1013690368,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 60,
+      "user_s": 0.57,
+      "system_s": 0.37,
+      "rss_kib": 987528.0
+    },
+    "conron": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+        "--verified",
+        "--jobs=1",
+        "--progress=1",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/ShiftPow65536/export.ndjson"
+      ],
+      "exit": 0,
+      "wall_s": 8.143117316998541,
+      "sampled_peak_bytes": 141045760,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 8.04,
+      "system_s": 0.06,
+      "rss_kib": 135568.0,
+      "accepts": true
+    },
+    "nanoda": {
+      "command": [
+        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
+        "/home/ubuntu/aklt/reports/REL_FEAS/measurements/ShiftPow65536/nanoda-config.json"
+      ],
+      "exit": 0,
+      "wall_s": 0.10284621399478056,
+      "sampled_peak_bytes": 528384,
+      "limit": null,
+      "rss_cap_gib": 1.5,
+      "timeout_s": 45,
+      "user_s": 0.03,
+      "system_s": 0.0,
+      "rss_kib": 4272.0,
+      "accepts": true
+    }
+  }
+]

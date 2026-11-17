@@ -1,0 +1,92 @@
+AKLT.Blueprint.Q.FrameWeightsPositiveStatement : Prop
+AKLT.Blueprint.Q.PositiveNormalizationStatement : Prop
+AKLT.Blueprint.Q.PlaneConditioningStatement : Prop
+AKLT.Blueprint.Q.TorusMarkovStatement : Prop
+AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement : Prop
+AKLT.Blueprint.Q.TorusOneSiteEnergyStatement : Prop
+AKLT.Blueprint.Q.PartialAssignmentStatement : Prop
+AKLT.Blueprint.Q.PlaneAssignmentReindexStatement : Prop
+AKLT.Blueprint.Q.PlaneProductReferenceStatement : Prop
+AKLT.Blueprint.Q.BoundaryAbsorptionStatement : Prop
+AKLT.Blueprint.Q.PlaneDensityBoundsStatement : Prop
+AKLT.Blueprint.Q.DensityVarianceStatement : Prop
+AKLT.Blueprint.Q.DensityDirichletStatement : Prop
+AKLT.Blueprint.Q.ProductPoincareStatement : Prop
+AKLT.Blueprint.Q.RotationStatement : Prop
+AKLT.Blueprint.Q.RotationPowersStatement : Prop
+AKLT.Blueprint.Q.FrameScalarsStatement : Prop
+AKLT.Blueprint.Q.OrthogonalFamilyStatement : Prop
+AKLT.Blueprint.Q.OneSiteMomentEncodingStatement : Prop
+AKLT.Blueprint.Q.IcoDistanceStatement : Prop
+AKLT.Blueprint.Q.RotationDisplacementStatement : Prop
+AKLT.Blueprint.Q.SelfRotationStatement : Prop
+AKLT.Blueprint.Q.DisplacedDistanceStatement : Prop
+AKLT.Blueprint.Q.RelativeRotationStatement : Prop
+AKLT.Blueprint.Q.StateEvaluationStatement : Prop
+AKLT.Blueprint.Q.VbsHomogeneityStatement : Prop
+AKLT.Blueprint.Q.CoefficientReconstructionStatement : Prop
+AKLT.Blueprint.Q.PairSpinFourStatement : Prop
+AKLT.Blueprint.Q.PairDiagonalDivisionStatement : Prop
+AKLT.Blueprint.Q.SpectatorDivisibilityStatement : Prop
+AKLT.Blueprint.Q.SingletPrimeStatement : Prop
+AKLT.Blueprint.Q.SingletNonassociateStatement : Prop
+AKLT.Blueprint.Q.PrimeProductStatement : Prop
+AKLT.Blueprint.Q.IncidentKernelStatement : Prop
+AKLT.Blueprint.Q.IncidentDegreeStatement : Prop
+AKLT.Blueprint.Q.DeterminantModulusStatement : Prop
+AKLT.Blueprint.Q.GroundProductWeightStatement : Prop
+AKLT.Blueprint.Q.IncidentEvaluationStatement : Prop
+AKLT.Blueprint.Q.GroundFibreFactorizationStatement : Prop
+AKLT.Blueprint.Q.GroundTransformStatement : Prop
+AKLT.Blueprint.Q.FibreIntertwiningStatement : Prop
+AKLT.Blueprint.Q.FibreProjectionStatement : Prop
+AKLT.Blueprint.Q.WeightedPolarizationStatement : Prop
+AKLT.Blueprint.Q.GroundQuotientVarianceStatement : Prop
+AKLT.Blueprint.Q.BetaNonzeroStatement : Prop
+AKLT.Blueprint.Q.PairDiagonalRankStatement : Prop
+AKLT.Blueprint.Q.PairTopInclusionStatement : Prop
+AKLT.Blueprint.Q.PairTopDimensionStatement : Prop
+AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement : Prop
+AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement : Prop
+AKLT.Blueprint.Q.CentreDegreeCancellationStatement : Prop
+AKLT.Blueprint.Q.IncidentProductDegreeStatement : Prop
+AKLT.Blueprint.Q.StateCentreDegreeStatement : Prop
+AKLT.Blueprint.Q.StarEdgeEnumerationStatement : Prop
+AKLT.Blueprint.Q.StarCasimirChartStatement : Prop
+AKLT.Blueprint.Q.StarProjectorTransportStatement : Prop
+AKLT.Blueprint.Q.StarPositiveStatement : Prop
+AKLT.Blueprint.Q.StarWitnessStatement : Prop
+AKLT.Blueprint.Q.PositiveSpectralMinimumStatement : Prop
+AKLT.Blueprint.Q.SpectralKernelCoercivityStatement : Prop
+AKLT.Blueprint.Q.StarRelabellingStatement : Prop
+AKLT.Blueprint.Q.StarAmplificationStatement : Prop
+AKLT.Blueprint.Q.IncidentDoubleCountStatement : Prop
+AKLT.Blueprint.Q.SpinorChoiceStatement : Prop
+AKLT.Blueprint.Q.QuarticKernelDegreeStatement : Prop
+AKLT.Blueprint.Q.QuarticKernelEvaluationStatement : Prop
+AKLT.Blueprint.Q.ComplexQuadratureStatement : Prop
+AKLT.Blueprint.Q.QuarticOffDiagonalStatement : Prop
+AKLT.Blueprint.Q.QuarticDiagonalStatement : Prop
+AKLT.Blueprint.Q.ResolutionExpansionStatement : Prop
+AKLT.Blueprint.Q.TensorResolutionStatement : Prop
+'AKLT.Blueprint.Q.threeFrames_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.resolution_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.tight_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.star_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.density_poincare_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.planeEnergy_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.localKernelFactorization_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.groundEvaluation_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.normalize_from_scaled' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.qd_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.pairSpinFour_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.singletPrime_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.incidentDegree_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.starRelabelling_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.allTargets_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.positiveNormalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.rotationPowers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.frameScalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.primeProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Q.incidentDoubleCount' depends on axioms: [propext, Classical.choice, Quot.sound]

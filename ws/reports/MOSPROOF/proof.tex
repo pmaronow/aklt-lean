@@ -1,0 +1,1071 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\emergencystretch=1em
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\TV}{\operatorname{TV}}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\dist}{\operatorname{dist}_\infty}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Om}{\Omega}
+\title{A finite-state proof from window coupling to uniform box gaps}
+\author{MOSPROOF appendix}
+\date{November 16, 2026}
+\begin{document}
+\begin{abstract}
+For a finite alphabet and a real, translation-invariant, range-one interaction
+on $\Z^2$, the window estimate of Definition 4.7 of the manuscript implies a
+positive heat-bath spectral gap, uniformly in the boundary condition and in
+all sufficiently large rectangular boxes. We give a direct proof, replacing
+both cited mixing theorems in the manuscript. It uses a stopped shell
+coupling, square blocks of several sizes, and finite-dimensional linear
+algebra. Every probabilistic construction has finite support. No
+continuous-time process, infinite-volume measure, or convergence-to-equilibrium
+limit is used. A blocking corollary treats every finite interaction range.
+\end{abstract}
+\maketitle
+
+\section{Scope, conventions, and the exact replacement}
+\label{sec:scope}
+
+The conclusion needed in manuscript Theorem 4.10 is a uniform lower bound for
+the cell heat-bath gap on sufficiently large square boxes, for both offsets
+$o=0,1$. Neither strong mixing on every square nor a gap on arbitrary unions
+of compatible squares is used there for any other purpose. We prove the
+following replacement. Its window hypothesis is defined precisely in
+Section~\ref{sec:shell}; it is exactly manuscript Definition 4.7.
+
+We identify manuscript statements by their source labels in the companion
+report. In the supplied PDF the window definition is 4.7 and the surgery
+proposition is 4.8; the task's reference to Proposition 4.7 refers to that
+same surgery statement, labeled \texttt{p:surgery}.
+
+\begin{theorem}[Window estimate implies uniform box gap]
+\label{thm:main}
+Let $S$ be a nonempty finite set. Let $\Phi$ be a real-valued,
+translation-invariant interaction on $\Z^2$ with
+$\Phi_A=0$ if $\operatorname{diam}_\infty A>1$. Suppose its Gibbs
+specification satisfies the window estimate with parameters
+$l_0\ge1$, $p_0\in(0,1]$, and $M_\star\in\Z_{\ge1}$.
+Let $\alpha\in(0,1]$ be a uniform lower bound on every single-site
+conditional probability; one explicit choice is given in
+Lemma~\ref{lem:spec}. Put
+\[
+ d=\min\{1/2,p_0\alpha^{16l_0}\}.
+\]
+Choose any integer $n$ satisfying
+\begin{equation}\label{eq:nchoice}
+ \begin{split}
+ n&\ge44,\qquad n^8\ge M_\star,\\
+ n^2&\ge\max\{50000,\,6(l_0+1)\},\\
+ n^{12}d^{20}&\ge50000\,2^{20}\,20!.
+ \end{split}
+\end{equation}
+Define
+\begin{equation}\label{eq:constants}
+ M=n^8,\qquad L=4M+1,\qquad v=L^2,\qquad
+ g=\frac{\alpha^{v+1}}{v},\qquad m=\frac{g}{1000}>0.
+\end{equation}
+For every translate of
+$W=\{1,\ldots,N_1\}\times\{1,\ldots,N_2\}$ with $N_1,N_2\ge L$,
+every boundary condition $\eta$, and every real function $f$ on $S^W$,
+\begin{equation}\label{eq:mainPI}
+ \Var_{\mu_W^\eta} f
+ \le m^{-1}\sum_{x\in W}\mu_W^\eta(\Var_x f).
+\end{equation}
+Thus the gap of $\sum_{x\in W}(I-E_x)$ is at least $m$.
+There is no parity or divisibility condition on $N_1,N_2$.
+\end{theorem}
+
+For example, the integer $n$ can be chosen as the ceiling of the maximum of
+\[
+44,\quad M_\star^{1/8},\quad \sqrt{50000},\quad
+\sqrt{6(l_0+1)},\quad
+\bigl(50000\,2^{20}\,20!\,d^{-20}\bigr)^{1/12}.
+\]
+One may instead take the least integer satisfying the finite list
+\eqref{eq:nchoice}. Increasing $n$ preserves each inequality. The constants
+are deliberately very conservative.
+
+All gaps in this appendix use \emph{one heat-bath update per site in the
+unnormalized Dirichlet form}. Dividing the generator by $|W|$ divides its gap
+by $|W|$. The rate-one-per-cell convention in manuscript Section 4 agrees
+with ours.
+
+\section{Finite specifications and elementary probability}
+\label{sec:finite}
+
+For a finite nonempty $A\subset\Z^2$, an interaction term $\Phi_A$ is a
+function $S^A\to\R$. Translation invariance identifies translated terms.
+Range $r\in\Z_{\ge1}$ means that all nonzero terms have diameter at most $r$
+in the $\ell^\infty$ metric. There are only finitely many possible nonzero
+terms containing a given site. Write
+\begin{equation}\label{eq:B}
+ B=\sum_{A\ni0}\|\Phi_A\|_\infty<\infty,
+ \qquad q=|S|,\qquad \alpha_\Phi=q^{-1}e^{-2B}.
+\end{equation}
+For finite $V$, put
+$\partial_r V=\{z\notin V:\dist(z,V)\le r\}$.
+For $\eta\in S^{\partial_rV}$ and $\sigma\in S^V$, define
+\begin{equation}\label{eq:spec}
+ H_V^\eta(\sigma)=\sum_{A:A\cap V\ne\varnothing}
+                 \Phi_A((\sigma\eta)_A),\qquad
+ \mu_V^\eta(\sigma)=\frac{e^{-H_V^\eta(\sigma)}}
+                    {\sum_{\zeta\in S^V}e^{-H_V^\eta(\zeta)}}.
+\end{equation}
+The sum is finite. The notation $\sigma\eta$ is only used on sites needed by
+that sum. In particular, an exterior configuration always means finitely
+many letters; writing it on $\Z^2\setminus V$ is harmless shorthand. For
+$V=\varnothing$, there is one configuration of probability one.
+
+\begin{lemma}[Consistency, Markov property, and finite energy]
+\label{lem:spec}
+The probabilities in \eqref{eq:spec} are strictly positive. If $U\subset V$
+and $\zeta\in S^{V\setminus U}$, their conditional law on $U$ given
+$\sigma_{V\setminus U}=\zeta$ is $\mu_U^{\zeta\eta}$. This conditional law
+depends only on the letters in $\partial_rU$.
+Every single-site conditional probability is at least $\alpha_\Phi$.
+More generally, if all fully specified single-site conditionals have lower
+bound $\alpha$, then for any $A\subset V$, any prescribed letters $a\in S^A$,
+and any specification of a subset of $V\setminus A$,
+\begin{equation}\label{eq:assignment}
+ \Pr(\sigma_A=a\mid\hbox{that specification})\ge\alpha^{|A|}.
+\end{equation}
+All conditioning events here have positive probability.
+\end{lemma}
+\begin{proof}
+Positivity follows from positive real exponentials and a positive finite
+normalizing sum. In the conditional law, terms not meeting $U$ are constant
+and cancel. The remaining terms are precisely $H_U^{\zeta\eta}$. A term
+meeting $U$ cannot see a site more than $r$ away from $U$, proving the Markov
+property. Changing a letter at $x$ changes the sum of terms containing $x$
+by at most $2B$. Thus, for a proposed letter $s$, every other conditional
+weight divided by its weight is at most $e^{2B}$, and its conditional
+probability is at least $(qe^{2B})^{-1}$.
+A single-site probability conditioned on fewer letters is a finite weighted
+average of fully specified conditionals, and hence is at least $\alpha$.
+Order the sites of $A$ and apply the ordinary finite chain rule, one letter
+at a time, to obtain \eqref{eq:assignment}.
+\end{proof}
+
+We will also use product spaces $\Om=\prod_{x\in V}S_x$ with possibly
+different nonempty finite alphabets, and a strictly positive probability
+$\mu$ on $\Om$. For $U\subset V$ define
+\[
+ E_Uf(\omega)=\sum_{a\in\prod_{x\in U}S_x}
+      \mu(a\mid\omega_{V\setminus U})f(a\omega_{V\setminus U}),
+ \qquad \Var_U f=E_U(f^2)-(E_Uf)^2.
+\]
+Thus $E_U$ resamples the letters of $U$, leaving its complement fixed.
+Subscripts $x$ abbreviate $\{x\}$.
+
+\begin{lemma}[Conditional expectation identities]
+\label{lem:CE}
+With inner product $\langle f,h\rangle_\mu=\mu(fh)$, $E_U$ is a
+self-adjoint orthogonal projection; it preserves constants and $\mu$.
+Moreover
+\begin{equation}\label{eq:projection}
+ \langle f,(I-E_U)f\rangle_\mu=\mu(\Var_Uf)
+          =\mu\bigl((f-E_Uf)^2\bigr),
+\end{equation}
+and
+\begin{equation}\label{eq:totalvariance}
+ \Var_\mu f=\mu(\Var_Uf)+\Var_\mu(E_Uf).
+\end{equation}
+For a list $\mathscr B=(B_a)_{a\in\mathcal A}$ of subsets of $V$, with
+repetitions allowed, put
+\[
+ H_{\mathscr B}=\sum_{a\in\mathcal A}(I-E_{B_a}),\qquad
+ \cD_{\mathscr B}(f)=\sum_a\mu(\Var_{B_a}f).
+\]
+Then $H_{\mathscr B}$ is self-adjoint and nonnegative, and its quadratic
+form is $\cD_{\mathscr B}$. For single sites write $H_V$ and $\cD_V$.
+\end{lemma}
+\begin{proof}
+Group every sum by the fixed value $b$ of the complement of $U$. On that
+fiber, $E_U$ is averaging with respect to $\mu(\cdot\mid b)$, so it is
+idempotent. Both $\langle f,E_Uh\rangle$ and
+$\langle E_Uf,h\rangle$ equal
+$\sum_b\mu(b)\mu(f\mid b)\mu(h\mid b)$.
+The same grouping proves $\mu E_U=\mu$ and
+$\mu(fE_Uf)=\mu((E_Uf)^2)$. Expanding the square proves
+\eqref{eq:projection}. Subtract $\mu(f)^2$ from
+$\mu(f^2)=\mu(\Var_Uf)+\mu((E_Uf)^2)$ to prove
+\eqref{eq:totalvariance}. Sum \eqref{eq:projection} over the list.
+\end{proof}
+
+For a nonnegative self-adjoint $H$ annihilating constants, its gap means
+\[
+ \gap(H)=\inf_{\Var_\mu f>0}
+       \frac{\langle f,Hf\rangle_\mu}{\Var_\mu f}.
+\]
+The infimum over the empty set is $+\infty$. Equivalently a lower bound $c$
+means the Poincar\'e inequality
+$c\Var_\mu f\le\langle f,Hf\rangle_\mu$ for all $f$.
+Bounds for complex functions follow by applying the real bound to their
+real and imaginary parts and adding the two inequalities.
+
+For probabilities $p,p'$ on a finite set $X$, define
+$\TV(p,p')=\frac12\sum_{a\in X}|p(a)-p'(a)|$.
+A coupling is a probability on $X\times X$ with these marginals.
+
+\begin{lemma}[Finite couplings]
+\label{lem:coupling}
+There is a coupling $(A,A')$ with
+$\Pr(A\ne A')=\TV(p,p')$, and every coupling has disagreement probability
+at least this value. Marginalization cannot increase total variation.
+If $p,p'$ are probabilities on configurations in $V$, and $Q\subset V$
+satisfies $\TV(p_Q,p'_Q)\le\varepsilon$, there is a coupling with
+\begin{equation}\label{eq:TVHamming}
+ \E d_H(\omega,\omega')\le |V\setminus Q|+|V|\varepsilon,
+ \qquad d_H(\omega,\omega')=\sum_{x\in V}\1_{\omega_x\ne\omega'_x}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Set $a(t)=\min\{p(t),p'(t)\}$ and
+$t_0=\sum_t a(t)=1-\TV(p,p')$.
+Put mass $a(t)$ at $(t,t)$. If $t_0<1$, couple the two residual
+probabilities independently, with total mass $1-t_0$. Their supports are
+disjoint, so the extra mass gives no equality. The cases $t_0=0,1$ are
+included by omitting the nonexistent part of the construction.
+Conversely the diagonal mass at $(t,t)$ is at most $a(t)$.
+For an arbitrary coupling and event $A$, the difference of its two
+probabilities is at most the disagreement probability. Alternatively,
+summing absolute values over fibers proves marginalization directly.
+Couple the $Q$ marginals by the construction just given and complete each
+configuration independently using its conditional distribution given $Q$.
+On the event of agreement on $Q$ there are at most $|V\setminus Q|$
+disagreements, and otherwise at most $|V|$, which gives
+\eqref{eq:TVHamming}. Zero-mass conditional fibers are never sampled and
+may be assigned any probability.
+\end{proof}
+
+\begin{lemma}[Finite surgery]
+\label{lem:surgery}
+Let $\mu=\mu_V^\tau$, $\mu'=\mu_V^{\tau'}$, $F\subset V$, and let $\nu$
+be any coupling of $\mu,\mu'$. For each input pair $(\omega,\omega')$,
+choose any coupling of
+$\mu_F^{\omega\tau}$ and $\mu_F^{\omega'\tau'}$, replace the letters of
+$F$ by this pair, and keep all other letters fixed. The resulting
+probability is a coupling of $\mu,\mu'$.
+\end{lemma}
+\begin{proof}
+For the first marginal, summing over the second output gives the conditional
+resampling kernel $E_F$, independent of the second input. Summing over
+inputs therefore gives $\mu E_F=\mu$, by Lemmas~\ref{lem:spec}
+and~\ref{lem:CE}. The second marginal is identical in form. This also
+shows why a coupling chosen separately for each input pair is legitimate.
+\end{proof}
+
+\section{Positive small-volume gaps and block comparison}
+\label{sec:comparison}
+
+\begin{lemma}[An explicit finite-volume bound]
+\label{lem:smallgap}
+Let $V$ have $t\ge1$ sites, with nonempty finite alphabets $S_x$. Suppose
+$\mu>0$ and every single-site conditional probability is at least
+$\alpha\in(0,1]$. Then
+\begin{equation}\label{eq:smallgap}
+ \gap(H_V)\ge\frac{\alpha^{t+1}}{t}.
+\end{equation}
+Consequently for $1\le t\le v$ the lower bound
+$\alpha^{v+1}/v$ holds, uniformly in all boundary conditions satisfying
+this same finite-energy bound.
+\end{lemma}
+\begin{proof}
+Lemma~\ref{lem:spec}'s chain-rule argument, which did not use the Gibbs
+form, gives $\mu(\sigma)\ge\alpha^t$.
+For $s\in S_x$, let $\sigma^{x,s}$ be $\sigma$ with letter $s$ at $x$.
+Expanding the conditional variance on each fiber gives
+\begin{equation}\label{eq:edgeD}
+ \cD_V(f)=\frac12\sum_{\sigma,x,s}
+    \mu(\sigma)\mu(s\mid\sigma_{V\setminus x})
+          \bigl(f(\sigma)-f(\sigma^{x,s})\bigr)^2.
+\end{equation}
+Each coefficient before the square is at least $\alpha^{t+1}/2$.
+Fix an ordering of $V$. For each ordered pair $(\sigma,\zeta)$ change its
+letters to those of $\zeta$ in that order, omitting unchanged letters.
+This path has at most $t$ edges. Cauchy--Schwarz gives
+\[
+ (f(\sigma)-f(\zeta))^2
+ \le t\sum_{e\text{ on that path}}(\nabla_e f)^2.
+\]
+Since
+$\Var_\mu f=\frac12\sum_{\sigma,\zeta}
+\mu(\sigma)\mu(\zeta)(f(\sigma)-f(\zeta))^2$,
+and the total weight of pairs using any particular directed edge is at
+most $\sum_{\sigma,\zeta}\mu(\sigma)\mu(\zeta)=1$, we obtain
+\[
+ \Var_\mu f\le\frac t2\sum_{\text{all directed single-site edges }e}
+                (\nabla_e f)^2
+ \le t\alpha^{-t-1}\cD_V(f).
+\]
+This proves \eqref{eq:smallgap}. Since $\alpha\le1$ and $t\le v$, its
+right-hand side is at least $\alpha^{v+1}/v$.
+\end{proof}
+
+\begin{lemma}[Block comparison, including multiplicities]
+\label{lem:comparison}
+Let $\mu>0$ on a finite product space, and let $(B_a)_{a\in\mathcal A}$
+be a nonempty finite list of nonempty blocks. Suppose that, for every
+$a$ and every outside configuration, the single-site heat bath on $B_a$
+under that conditional law has gap at least $g>0$. Put
+$t_x=\#\{a:x\in B_a\}$ and $t_{\max}=\max_x t_x$.
+If $\gap(H_{\mathscr B})\ge c>0$, then
+\begin{equation}\label{eq:blockcompare}
+ \Var_\mu f\le\frac{t_{\max}}{cg}\cD_V(f).
+\end{equation}
+\end{lemma}
+\begin{proof}
+In each fiber outside $B_a$, its Poincar\'e inequality gives
+$\Var_{B_a}f\le g^{-1}\sum_{x\in B_a}E_{B_a}(\Var_xf)$.
+Here conditioning on the fiber has not changed the one-site conditional
+law. Integrate and sum over $a$ to get
+\[
+ \cD_{\mathscr B}(f)\le g^{-1}\sum_x t_x\mu(\Var_xf)
+           \le (t_{\max}/g)\cD_V(f).
+\]
+Combine this with $c\Var_\mu f\le\cD_{\mathscr B}(f)$.
+\end{proof}
+
+\section{The exact window hypothesis and stopped shell coupling}
+\label{sec:shell}
+
+Throughout this section the interaction has range one in $\ell^\infty$;
+it may have diagonal or many-body terms. Fix
+$C_u=\{x\in\Z^2:|x|_\infty\le u\}$, with integer $u\ge1$, an exterior
+site $y$ with $\dist(y,C_u)=1$, and set
+\[
+ s=u^{1/4},\quad k_i=\lfloor is\rfloor,\quad
+ i_1=\lfloor s\rfloor+1.
+\]
+For $i\ge1$ define
+\begin{align}\label{eq:shells}
+ F_i&=\{x\in C_u:|x-y|_\infty>(i-1)s\},\nonumber\\
+ D_i&=\{x\in C_u:is-1<|x-y|_\infty\le is\}
+      =\{x\in C_u:|x-y|_\infty=k_i\},\\
+ A_i&=\{x\in D_i:\dist(x,\Z^2\setminus C_u)\le l_0\},
+ \qquad B_i=D_i\setminus A_i.\nonumber
+\end{align}
+For $l_0\ge1$ put
+\begin{equation}\label{eq:geomscale}
+ a(l_0)=\max\{16,6(l_0+1)\},\qquad M_{\rm g}(l_0)=a(l_0)^4.
+\end{equation}
+Let $I_0$ be the set of indices in $\{2,\ldots,i_1\}$ for which some
+corner of $C_u$ is at distance strictly less than $s/3$ from $D_i$.
+The distance to the empty set is $+\infty$.
+
+\begin{definition}[Window estimate]
+\label{def:window}
+The specification has the window estimate with
+$(l_0,p_0,M_\star)$ if $l_0\in\Z_{\ge1}$, $p_0\in(0,1]$,
+$M_\star\in\Z_{\ge1}$, and for every integer $u\ge M_\star$, every $y$
+with $\dist(y,C_u)=1$, every integer $i$ with $2\le i\le s$ and
+$i\notin I_0$, and all boundary configurations $\eta,\xi$ for $F_i$,
+\begin{equation}\label{eq:window}
+ \TV\bigl(\mu_{F_i,B_i}^{\eta},\mu_{F_i,B_i}^{\xi}\bigr)\le1-p_0.
+\end{equation}
+Here $\mu_{F_i,B_i}$ denotes its marginal on $B_i$.
+\end{definition}
+
+For translated squares all definitions are translated with the square.
+Translation invariance transfers \eqref{eq:window} to them. The use of the
+same $I_0$ as in the manuscript is intentional; no new window shapes are
+being requested.
+
+\begin{lemma}[Shell geometry with an explicit threshold]
+\label{lem:geometry}
+If $u\ge M_{\rm g}(l_0)$, then $I_0$ has at most one element,
+$D_i\subset F_i$ for $2\le i\le i_1$, and
+\begin{equation}\label{eq:Acount}
+ |A_i|\le8l_0\quad(2\le i\le i_1,\ i\notin I_0).
+\end{equation}
+For $i\ge2$, every site in $(C_u\setminus F_i)$ at distance at most one
+from $F_i$ belongs to $D_{i-1}$. The site $y$ is not at distance at most
+one from $F_i$.
+\end{lemma}
+\begin{proof}
+We have $s\ge a(l_0)$, $k_i\le s^2+s$, and
+\[
+ s^2+\tfrac43s<u,\qquad s^2+s<u/2,\qquad
+ \lfloor s\rfloor>2s/3,\qquad s/3>l_0.
+\]
+Each follows immediately from $u=s^4$ and $s\ge16$, except the last,
+which also uses $s\ge6(l_0+1)$.
+For counting geometry only, interchange axes and reverse their signs so
+that $y=(b,-u-1)$, with $-u-1\le b\le u+1$. This does not assume any
+reflection symmetry of the interaction. The upper corners have distance
+$2u+1$ from $y$. Of the lower corners, at least one has distance at least
+$u$ from $y$, because $|b+u|+|b-u|\ge2u$. A corner within $s/3$ of
+$D_i$ has distance less than $k_i+s/3\le s^2+4s/3<u$ from $y$.
+Thus only one corner can occur for any of these indices. Distinct radii
+$k_i,k_j$ differ by at least $\lfloor s\rfloor>2s/3$, so that corner
+cannot lie within $s/3$ of two shells. Hence $|I_0|\le1$.
+
+Fix $i\notin I_0$ and $k=k_i$. The bottom horizontal side of the square
+$y+[-k,k]^2$ is outside $C_u$. Its top side, if present, is at distance
+$k\ge s$ from the bottom exterior half-plane and more than $u$ from the
+top one. A vertical side meeting $C_u$ has coordinate $b-k$ or $b+k$.
+For the side $b-k$, its distance to the left exterior half-plane is
+$e=b-k+u+1\ge1$, while its distance to the right exterior half-plane is
+at least $k$. Its lowest point in $C_u$ is $(b-k,-u)$, whose distance
+to the lower left corner is $e-1$. Since $i\notin I_0$,
+$e-1\ge s/3$. The side $b+k$ satisfies the corresponding right-hand
+statement. These facts also cover the endpoints $b=\pm(u+1)$.
+Consequently every shell side parallel to an edge of $C_u$ is farther
+than $l_0$ from the exterior half-plane beyond that edge. A shell site
+within $l_0$ of an edge must therefore lie on a perpendicular shell side.
+Each such side contributes at most $l_0$ sites per perpendicular edge.
+There are four shell sides and two perpendicular edges per side, proving
+\eqref{eq:Acount} by overcounting.
+
+Since $k_i\ge is-1>(i-1)s$, $D_i\subset F_i$.
+If $x\in C_u\setminus F_i$ and $z\in F_i$ have $|x-z|_\infty\le1$,
+then integrality gives
+$|x-y|_\infty=\lfloor(i-1)s\rfloor$, so $x\in D_{i-1}$.
+Finally every site of $F_i$ has distance greater than
+$(i-1)s\ge s>1$ from $y$.
+\end{proof}
+
+\begin{lemma}[Stopped shell coupling]
+\label{lem:stopped}
+Let the range-one Gibbs specification on the nonempty finite alphabet $S$
+have single-site conditional probabilities at least $\alpha\in(0,1]$.
+Suppose the window estimate holds with $(l_0,p_0,M_\star)$, and let
+\[
+ u\ge\max\{M_\star,M_{\rm g}(l_0)\}.
+\]
+Let $\tau,\tau'$ be boundary conditions for $C_u$ agreeing except
+possibly at one exterior site $y$.
+Put $\delta=p_0\alpha^{16l_0}$.
+If $\dist(y,C_u)>1$, the two measures are equal. Otherwise, for every
+integer $h$ with $4\le h\le\lfloor s\rfloor$, there is a coupling of
+$\mu_{C_u}^\tau,\mu_{C_u}^{\tau'}$ for which
+\begin{equation}\label{eq:stopped}
+ \begin{gathered}
+ \Pr\bigl(\omega_{Q_h}\ne\omega'_{Q_h}\bigr)
+       \le(1-\delta)^{h-3},\\
+ Q_h=\{x\in C_u:|x-y|_\infty>hs\}=F_{h+1}.
+ \end{gathered}
+\end{equation}
+In particular the total variation of those marginals has the same bound.
+\end{lemma}
+\begin{proof}
+The first assertion is the Markov property. For $\dist(y,C_u)=1$, start
+with the product coupling, and perform the following finite surgeries for
+$i=2,\ldots,h+1$. Skip an index in $I_0$.
+At a remaining index, if the input pair agrees on $D_{i-1}$, the two
+conditional laws on $F_i$ are identical: their interior exterior neighbors
+belong to $D_{i-1}$, and the fixed boundaries agree on all other exterior
+neighbors, by Lemma~\ref{lem:geometry}. Resample $F_i$ identically in the
+two components.
+
+If the pair does not agree on $D_{i-1}$, maximally couple the two
+$B_i$ marginals, and complete each sample independently from its
+conditional law on $F_i\setminus B_i$. Then independently resample the
+letters on $A_i$ in the two components, conditional on the rest of their
+respective configurations. Each component still has its required law on
+$F_i$: completing a sampled marginal reconstructs its law, and the last
+resampling preserves that law by Lemma~\ref{lem:CE}. Thus the operation is
+indeed a surgery as in Lemma~\ref{lem:surgery}.
+For $i\le h\le s$ its probability of agreement on $B_i$ is at least
+$p_0$, by \eqref{eq:window}. Fix any one assignment on $A_i$.
+Conditional on everything before the last independent resamplings, both
+choose this assignment with probability at least $\alpha^{2|A_i|}$,
+by \eqref{eq:assignment}. The probability of agreement on $D_i$ after
+step $i$, conditional on any input history, is therefore at least
+$p_0\alpha^{2|A_i|}\ge\delta$. This remains true in the identical
+resampling branch, where the probability is one. No lower bound is claimed
+or needed at step $h+1$ if $h+1>s$.
+
+Let
+\[
+ J=\{i\in\{2,\ldots,h\}:i\notin I_0,\ i+1\notin I_0\}.
+\]
+Since at most one exceptional index can remove at most two of the $h-1$
+indices, $|J|\ge h-3$. If agreement on $D_i$ occurs after a trial
+$i\in J$, step $i+1$ makes the pair identical on $F_{i+1}$.
+That agreement persists: a later skipped step changes nothing, and at a
+later unskipped step $j$ we have $F_j\subset F_{i+1}$ and
+$D_{j-1}\subset F_{i+1}$. Thus its identical-resampling branch is used.
+The latter inclusion follows from
+$\lfloor(j-1)s\rfloor>is$ when $j\ge i+2$ and $s\ge16$.
+Since $Q_h\subset F_{i+1}$, a single successful trial in $J$ ensures final
+agreement on $Q_h$.
+
+For completeness, list the trial indices increasingly. Conditional on all
+outcomes before any one of them, its failure probability is at most
+$1-\delta$. Multiplying these conditional bounds by finite induction
+bounds the probability of failure at every trial by
+$(1-\delta)^{|J|}\le(1-\delta)^{h-3}$. Lemma~\ref{lem:surgery} ensures
+that the final pair has the required marginals. Lemma~\ref{lem:coupling}
+then gives the total variation bound. The case $\delta=1$ gives zero
+failure probability and is covered by the same induction.
+\end{proof}
+
+\begin{corollary}[Manuscript Proposition 4.8, with its original conclusion]
+\label{cor:originalprop}
+Under the hypotheses of Lemma~\ref{lem:stopped},
+\[
+ \TV\bigl(\mu_{C_u,Q}^{\tau},\mu_{C_u,Q}^{\tau'}\bigr)
+ \le(1-\delta)^{u^{1/4}-4},\qquad
+ Q=\{x\in C_u:|x-y|_\infty>u^{1/2}\}.
+\]
+\end{corollary}
+\begin{proof}
+Take $h=\lfloor s\rfloor$. Then $hs\le s^2=u^{1/2}$, so $Q\subset Q_h$,
+and $h-3\ge s-4$. For $\delta<1$ apply Lemmas~\ref{lem:stopped}
+and~\ref{lem:coupling}. If $\delta=1$, the left side is zero and the
+right side is zero since $s\ge16$.
+\end{proof}
+
+\section{A finite matrix contraction lemma}
+\label{sec:contraction}
+
+For a real function on a finite product space let
+\[
+ \Lip(f)=\max_{d_H(\omega,\omega')=1}|f(\omega)-f(\omega')|,
+\]
+with value zero if there are no such pairs. Changing disagreeing letters
+one at a time proves
+$|f(\omega)-f(\omega')|\le\Lip(f)d_H(\omega,\omega')$ for all pairs.
+In particular $\Lip(f)=0$ implies that $f$ is constant.
+
+\begin{lemma}[One-step coupling implies an unnormalized gap]
+\label{lem:contraction}
+Let $\mu>0$ on a finite product space and let
+$(B_a)_{a\in\mathcal A}$ be a nonempty finite list of blocks.
+Write $A=|\mathcal A|$ and $P=A^{-1}\sum_a E_{B_a}$.
+Suppose $0<c\le A$ and that, for every pair of input configurations at
+Hamming distance one, their two output laws under $P$ have a coupling
+with expected Hamming distance at most $1-c/A$.
+Then
+\begin{equation}\label{eq:contractgap}
+ \gap\left(\sum_a(I-E_{B_a})\right)\ge c.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The coupling and the preceding Lipschitz inequality give
+$\Lip(Pf)\le(1-c/A)\Lip(f)$ for every real $f$.
+By Lemma~\ref{lem:CE}, $P$ is self-adjoint, preserves constants, and is
+positive semidefinite. It is also a contraction in $L^2(\mu)$: each
+$E_B$ is an orthogonal projection. In finite dimension it has a real
+orthonormal eigenbasis. To see the relevant elementary reduction, conjugate
+its matrix by $\operatorname{diag}(\sqrt{\mu(\omega)})$; this is a real
+symmetric matrix, so orthogonal diagonalization applies. Equivalently one
+can minimize its Rayleigh quotient on the finite-dimensional unit sphere
+and then induct on its orthogonal complement. No Markov-chain limit is
+involved.
+
+For any nonconstant eigenfunction $Pf=\lambda f$ we have $\Lip(f)>0$;
+the Lipschitz contraction implies $|\lambda|\le1-c/A$. Hence every
+nonconstant eigenvector of $A(I-P)$ has eigenvalue at least $c$. There
+cannot be an additional nonconstant eigenvector for eigenvalue one of
+$P$. Expand $f-\mu f$ in this finite orthonormal eigenbasis to get
+$c\Var_\mu f\le\langle f,A(I-P)f\rangle_\mu$. This is
+\eqref{eq:contractgap}. If the product space has one point the Poincar\'e
+inequality is automatic.
+\end{proof}
+
+\section{Square blocks near the boundary of a rectangle}
+\label{sec:count}
+
+The next counting lemma is what allows us to use only square laws, even
+at the boundary of the large box. Truncating a translated square at that
+boundary would require information on nonsquare regions and is not used.
+
+\begin{lemma}[Clamped squares of varying sizes]
+\label{lem:count}
+Let $M\ge1$ be an integer, $L=4M+1$, and
+$W=\{1,\ldots,N_1\}\times\{1,\ldots,N_2\}$ with $N_1,N_2\ge L$.
+Define the finite label set
+\[
+ \mathcal A=\{M,M+1,\ldots,2M\}
+        \times\{1-L,\ldots,N_1\}\times\{1-L,\ldots,N_2\}.
+\]
+For $a=(u,a_1,a_2)$ set $l=2u+1$ and
+\[
+ b_j=\min\{\max\{a_j,1\},N_j-l+1\},\qquad
+ B_a=\{b_1,\ldots,b_1+l-1\}\times\{b_2,\ldots,b_2+l-1\}.
+\]
+All $B_a$ are squares contained in $W$, and identical squares with
+different labels are retained. For $x\in W$ put
+\[
+ T_x=\#\{a:x\in B_a\},\qquad
+ S_x=\#\{a:x\notin B_a,\ \dist(x,B_a)=1\}.
+\]
+Then
+\begin{equation}\label{eq:counts}
+ 4M^3\le T_x\le1000M^3,\qquad S_x\le1000M^2.
+\end{equation}
+The number of labels is
+$A=(M+1)(N_1+L)(N_2+L)$.
+\end{lemma}
+\begin{proof}
+Fix a side length $l=2u+1$. The clamping map sends an integer $a_j$ to
+the interval of allowable starting points $[1,N_j-l+1]$.
+For each of the $l$ integers
+$a_j\in[x_j-l+1,x_j]$, the clamped interval of length $l$ still contains
+$x_j$. Indeed an upward clamp starts at $1\le x_j$ and only moves the
+right endpoint to the right; a downward clamp ends at $N_j\ge x_j$ and
+only moves the left endpoint to the left. These integers all belong to
+the label range. Therefore $T_x\ge\sum_{u=M}^{2M}(2u+1)^2
+\ge4M^3$.
+
+A useful upper bound is that an interval of $t$ allowable starting points
+has at most $t+2L$ preimages under clamping. Away from the endpoints there
+is one preimage per point; the left endpoint has at most $L$ extra
+preimages and the right endpoint at most $l-1\le L$ extra preimages.
+This bound remains valid if the two endpoints coincide.
+The starting points whose interval contains $x_j$ form an interval with
+at most $l$ points; a slightly sharper count is
+$l+L+(l-1)\le3L$. Thus
+\[
+ T_x\le(M+1)(3L)^2\le450M^3\le1000M^3,
+\]
+using $M+1\le2M$ and $L\le5M$.
+
+For the bound on $S_x$, a square at exterior distance one from $x$ has,
+in at least one coordinate $j$, a starting point equal to
+$x_j+1$ or $x_j-l$. Call this its directed side, overcounting corners.
+In the other coordinate the interval must be within distance one of
+$x$, so its allowable starting points form an interval of length at most
+$l+2$. Its number of nominal labels is at most
+$2l+L+1\le4L$.
+
+If the prescribed starting point in coordinate $j$ is strictly between
+$1$ and $N_j-l+1$, it has one preimage. These regular cases contribute
+at most $4(M+1)4L=16(M+1)L$ labels.
+The equality $x_j+1=1$ is impossible for $x\in W$, and
+$x_j-l=N_j-l+1$ would give $x_j=N_j+1$, also impossible.
+The remaining endpoint cases require respectively
+\[
+ l=N_j-x_j\quad\hbox{or}\quad l=x_j-1.
+\]
+For each of the four directed sides, there is at most one $u$ with
+that side length. The constrained coordinate has at most $2L$ preimages
+at an endpoint, including the case of coincident endpoints. Together
+with the bound $4L$ in the other coordinate, these at most four
+exceptional cases contribute at most $32L^2$ labels. We have proved
+\[
+ S_x\le16(M+1)L+32L^2\le160M^2+800M^2\le1000M^2.
+\]
+The cardinality of $\mathcal A$ follows by multiplying its three lengths.
+\end{proof}
+
+\begin{definition}[A finite family of boundary-coupling bounds]
+\label{def:Kcriterion}
+For an integer $M\ge1$, say that $\mathcal K(M,K)$ holds if, for every
+integer $u\in[M,2M]$, every translate $B$ of $C_u$, every site
+$y\notin B$ with $\dist(y,B)=1$, and every pair of boundary conditions
+agreeing off $y$, the Gibbs measures on $B$ have a coupling with
+expected Hamming distance at most $K$.
+\end{definition}
+
+\begin{theorem}[A direct finite-square criterion]
+\label{thm:criterion}
+Let a strictly positive range-one specification on $\Z^2$ have uniform
+single-site conditional lower bound $\alpha$. Translation invariance is
+not needed if the following hypothesis is imposed on every translate.
+Suppose
+\begin{equation}\label{eq:Ksmall}
+ \mathcal K(M,K)\quad\hbox{holds with}\quad K\le M/1000.
+\end{equation}
+Put $L=4M+1$, $v=L^2$, and $g=\alpha^{v+1}/v$.
+For every rectangular box with both sides at least $L$, every boundary
+condition, and every $f$,
+\begin{equation}\label{eq:criterionPI}
+ \Var_\mu f\le(1000/g)\cD_W(f).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use the square blocks of Lemma~\ref{lem:count} and choose their labels
+uniformly to define $P=A^{-1}\sum_a E_{B_a}$. Consider two input
+configurations differing at one site $x\in W$. If $x\in B_a$, their
+conditional block laws are identical; use the same resampled configuration
+in both. The updated pair then agrees everywhere. If $x\notin B_a$ and
+$\dist(x,B_a)>1$, the Markov property again gives identical block laws;
+use the same sample, leaving exactly the original disagreement. In the
+remaining $S_x$ cases, the two block laws have boundary conditions
+differing only at $x$. Use \eqref{eq:Ksmall}'s coupling. The outside
+contributes the original disagreement and the expected inside
+contribution is at most $K$.
+
+Using the same uniformly chosen label in both components gives a coupling
+of the two $P$ output laws with
+\[
+ \E d_H\le1-\frac{T_x-KS_x}{A}
+ \le1-\frac{M^3}{A},
+\]
+because $T_x-KS_x\ge4M^3-M^3=3M^3\ge M^3$.
+Here $M^3\le A$ follows directly from the formula for $A$.
+Lemma~\ref{lem:contraction} gives a block gap at least $M^3$.
+Every conditional law on every $B_a$ has at most $v$ sites and the same
+finite-energy bound; its single-site gap is at least $g$ by
+Lemma~\ref{lem:smallgap}. Finally $t_{\max}\le1000M^3$ in
+Lemma~\ref{lem:comparison}, proving \eqref{eq:criterionPI}.
+All boundary configurations of the large box were arbitrary throughout.
+\end{proof}
+
+\section{Closing the constants and proving the replacement theorem}
+\label{sec:scale}
+
+\begin{lemma}[A purely finite tail bound]
+\label{lem:tail}
+For $0<d\le1/2$ and integer $n\ge44$,
+\begin{equation}\label{eq:tail}
+ (1-d)^{n-3}\le\frac{2^{20}\,20!}{d^{20}n^{20}}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Set $N=n-3\ge41$. Since $(1-d)^{-1}\ge1+d$, the finite binomial
+expansion gives
+\[
+ (1-d)^{-N}\ge(1+d)^N\ge\binom N{20}d^{20}
+ \ge\frac{(N-19)^{20}}{20!}d^{20}
+ \ge\frac{(n/2)^{20}}{20!}d^{20}.
+\]
+All quantities are positive, so taking reciprocals proves the claim.
+\end{proof}
+
+\begin{lemma}[The window estimate supplies the square criterion]
+\label{lem:windowK}
+Under the hypotheses and choices of Theorem~\ref{thm:main},
+$\mathcal K(M,M/1000)$ holds for $M=n^8$.
+\end{lemma}
+\begin{proof}
+Fix $u\in[M,2M]$. Then
+$s=u^{1/4}\ge n^2\ge6(l_0+1)$ and $s\ge16$; hence
+$u\ge M_{\rm g}(l_0)$ and $u\ge M_\star$.
+Choose $h=n$ in Lemma~\ref{lem:stopped}, which is allowed since
+$4\le n\le\lfloor s\rfloor$. The radius of the exceptional near region
+is $ns\le2n^3$, since $u\le2n^8$. Its number of sites is at most
+$(4n^3+1)^2\le25n^6$. The square itself has at most
+$(4n^8+1)^2\le25n^{16}$ sites. Lemma~\ref{lem:coupling} (or the actual
+coupling in Lemma~\ref{lem:stopped}) therefore gives expected Hamming
+cost at most
+\[
+ K_n=25n^6+25n^{16}(1-d)^{n-3}.
+\]
+The second line of \eqref{eq:nchoice} gives
+$25n^6\le n^8/2000$.
+Lemma~\ref{lem:tail} and the final inequality of \eqref{eq:nchoice}
+give
+\[
+ 25n^{16}(1-d)^{n-3}
+ \le\frac{25\,2^{20}\,20!}{d^{20}n^4}
+ \le n^8/2000.
+\]
+Consequently $K_n\le n^8/1000=M/1000$.
+Since $d\le\delta$, replacing $\delta$ by $d$ only enlarged the bound.
+Translation invariance transfers this conclusion to every translated
+square, as required in Definition~\ref{def:Kcriterion}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Lemma~\ref{lem:spec} supplies consistency, the range-one Markov property,
+and the required uniform finite-energy bound. The choice
+\eqref{eq:nchoice} exists by its displayed explicit formula.
+Lemma~\ref{lem:windowK} proves the hypothesis of
+Theorem~\ref{thm:criterion}; its conclusion is exactly
+\eqref{eq:mainPI} with the constants \eqref{eq:constants}.
+\end{proof}
+
+\begin{remark}[Why stopping sooner matters]
+\label{rem:stopping}
+The manuscript's Proposition 4.8 stops at distance $u^{1/2}$. Bounding
+Hamming cost from that statement alone allows order $u$ disagreements,
+which is too large for the elementary contraction above. The actual window
+hypothesis allows stopping after $n$ shells when $u\asymp n^8$.
+The near region then has order $n^6=o(n^8)$ sites, while its failure
+probability is bounded by a finite binomial calculation. This is a
+strengthening of the coupling proof using exactly the same input, rather
+than a deduction of a new mixing assumption from Proposition 4.8's
+statement alone.
+\end{remark}
+
+\section{Arbitrary finite interaction range}
+\label{sec:range}
+
+\begin{corollary}[Blocking a finite-range model]
+\label{cor:range}
+Let $S$ be nonempty finite, and let $\Phi$ be a real,
+translation-invariant interaction of integer range $r\ge1$ on $\Z^2$.
+Let $\alpha=q^{-1}e^{-2B}$ be as in \eqref{eq:B}.
+Partition the lattice into cells
+\[
+ C_c=rc+\{0,\ldots,r-1\}^2,\qquad c\in\Z^2,
+\]
+and regard each cell as one letter of $\widehat S=S^{\{0,\ldots,r-1\}^2}$.
+Suppose this cell specification satisfies Definition~\ref{def:window}
+with parameters $(l_0,p_0,M_\star)$. Define
+$\widehat\alpha=\alpha^{r^2}$ and use
+Theorem~\ref{thm:main}'s formulas with $\widehat\alpha$ to obtain
+$\widehat L$ and $\widehat m$.
+Then every translate of a rectangular box whose side lengths are
+$rN_1,rN_2$, with $N_1,N_2\ge\widehat L$, and every boundary condition
+satisfy
+\begin{equation}\label{eq:rangegap}
+ \gap(H_{\rm original})\ge
+       \frac{\alpha^{r^2+1}}{r^2}\widehat m>0.
+\end{equation}
+In particular this covers arbitrarily large squares of side divisible by
+$r$, which is sufficient whenever one is free to choose the box side.
+\end{corollary}
+\begin{proof}
+A nonzero interaction can meet only cells whose indices have pairwise
+$\ell^\infty$ distance at most one. Indeed, if two cell indices differed
+by at least two in one coordinate, all sites in these two cells would be
+separated by at least $r+1$ in that coordinate. Regrouping original
+interaction terms by the set of cells they meet therefore gives a
+translation-invariant, real, range-one interaction on the finite alphabet
+$\widehat S$. There are finitely many terms meeting a cell, and the
+finite-volume Gibbs probabilities agree exactly under this identification.
+By the chain-rule argument \eqref{eq:assignment}, every conditional cell
+letter has probability at least $\widehat\alpha$.
+Theorem~\ref{thm:main} gives a cell heat-bath gap at least
+$\widehat m$ on the indicated rectangles. In any fixed outside fiber, the
+original single-site dynamics inside one cell has $r^2$ sites and all
+conditionals at least $\alpha$; Lemma~\ref{lem:smallgap} gives gap at
+least $\alpha^{r^2+1}/r^2$. Apply
+Lemma~\ref{lem:comparison} to the disjoint cells: the multiplicity is one.
+This proves \eqref{eq:rangegap}. Translation invariance identifies any
+translated cell partition with the original one.
+\end{proof}
+
+This corollary imposes the window condition on the actual range-one blocked
+specification. Finite energy and finite range alone do not imply a
+uniform gap, and no such unconditional claim is being made. For the
+manuscript the specification has already been blocked into its $2\times2$
+physical cells and already has range one, so there is no additional window
+hypothesis or further blocking in the application.
+
+\section{Insertion into manuscript Section 4}
+\label{sec:application}
+
+\begin{corollary}[Replacement for manuscript Corollary 4.9]
+\label{cor:twooffsets}
+Assume exactly the manuscript's window estimate for both cell models
+$\widehat\mu^{(0)}$ and $\widehat\mu^{(1)}$, with their finite alphabets
+of cardinality $57600$ and real range-one potentials.
+Then there are explicitly determined integers $L_0^{(o)}\ge1$ and
+numbers $m_0^{(o)}>0$ such that every translated square of $t\times t$
+cells, with $t\ge L_0^{(o)}$, has cell heat-bath gap at least $m_0^{(o)}$,
+under every boundary condition. The same holds for rectangles with both
+sides at least $L_0^{(o)}$.
+Set $L_{\rm cell}=\max_o L_0^{(o)}$ and
+$m_0=\min_o m_0^{(o)}$. These constants work simultaneously for both
+offsets.
+\end{corollary}
+\begin{proof}
+For each of the two finite potentials calculate $B_o$ as in \eqref{eq:B}
+and take $\alpha_o=57600^{-1}e^{-2B_o}$. Use that model's given window
+parameters in \eqref{eq:nchoice} and \eqref{eq:constants}, setting
+$L_0^{(o)}=4(n_o)^8+1$ and
+$m_0^{(o)}=\alpha_o^{(L_0^{(o)})^2+1}/
+[1000(L_0^{(o)})^2]$. Apply Theorem~\ref{thm:main} twice.
+The stated maximum and minimum are over two values and retain the
+claimed properties.
+\end{proof}
+
+\begin{lemma}[Comparison with physical-site heat bath in the manuscript]
+\label{lem:physical}
+For the two checkerboard frame models, let $\beta>0$ be the minimum of
+all one-physical-site conditional letter probabilities, over the two site
+types, all their possible neighbor letters, and all letters at the site.
+This is a positive finite minimum. Put
+\[
+ c_0=\beta^5/4>0.
+\]
+On every finite union of physical $2\times2$ cells, under every boundary
+condition, the physical single-site heat-bath gap is at least $c_0$ times
+the cell heat-bath gap.
+\end{lemma}
+\begin{proof}
+Every site weight and every allowed bond weight of the frame model is
+strictly positive (see the manuscript equation labeled
+\texttt{e:icodod} in the source). There are finitely many choices at the
+site and its four neighbors. Thus every conditional probability is
+positive, and taking the finite minimum defining $\beta$ proves
+$\beta>0$. Equivalently, if $w_-,w_+$ are the smallest and largest site
+weights, $b_-,b_+>0$ the smallest and largest allowed bond weights, and
+$q_{\max}=20$, one may take the explicit lower bound
+\[
+ \beta\ge\frac{w_-b_-^4}{20w_+b_+^4}>0.
+\]
+Condition on everything outside one $2\times2$ cell. Its four-site chain
+satisfies Lemma~\ref{lem:smallgap}, so its gap is at least $\beta^5/4$.
+Apply Lemma~\ref{lem:comparison} to the disjoint cells, with multiplicity
+one. This is also a full finite-state proof of manuscript Lemma 4.2's
+comparison.
+\end{proof}
+
+\begin{corollary}[The box input used by manuscript Theorem 4.10]
+\label{cor:boxinput}
+Use the constants $L_{\rm cell},m_0,c_0$ above. Choose an integer
+\begin{equation}\label{eq:chooseell}
+ t\ge\max\{L_{\rm cell},\lceil1/(c_0m_0)\rceil,1\},
+ \qquad \ell=2t.
+\end{equation}
+For all even torus lengths $L,N\ge\ell+2$, every translated
+$\ell\times\ell$ physical box, and every configuration outside it,
+the conditional physical single-site heat-bath gap is at least
+$c_0m_0$. In the notation of manuscript Section 3,
+\begin{equation}\label{eq:gell}
+ g(\ell)\ge c_0m_0,\qquad \ell\ge2/(c_0m_0).
+\end{equation}
+Consequently the manuscript's finite-size criterion gives
+\[
+ \lambda(\mu_D)\ge c_0m_0/2,
+\]
+and its already separate frame-to-quantum comparison gives its original
+Theorem 4.10 conclusion with
+$c=g_\star c_0m_0/4$ and torus threshold $\ell+2$.
+\end{corollary}
+\begin{proof}
+Lift a translated box to $\Z^2$. Because $L,N$ are even and at least
+$\ell+2$, its sites are distinct on the torus and no wrap-around bond
+joins two lifted box sites. Assign every exterior nearest-neighbor site
+of the lifted box the letter of its torus image. This is consistent even
+if images repeat. The conditional product of site and bond weights is
+then precisely the plane box Gibbs law with these boundary letters;
+all other exterior letters can be arbitrary.
+
+The lower left corner of the box has either equal or unequal coordinate
+parities. If its second coordinate is odd, translating by $(1,1)$ makes
+it even and preserves the checkerboard pattern. Next translate by even
+amounts in each coordinate to identify its cells with the offset $o=0$
+if the two original parities were equal, and $o=1$ if they were unequal.
+The box is now exactly a $t\times t$ square of the corresponding cells.
+There are no parity restrictions on $t$.
+Corollary~\ref{cor:twooffsets} and Lemma~\ref{lem:physical} give gap
+$c_0m_0$, uniformly over its boundary condition. Taking the minimum over
+placements and outside configurations proves \eqref{eq:gell}.
+The two final displayed gap conclusions are substitutions into the
+manuscript's Theorem 3.1 (label \texttt{t:K}) and its frame comparison;
+no quantum statement is used to prove any lemma of this appendix.
+\end{proof}
+
+\begin{remark}[What is replaced and what has been proved]
+Theorem~\ref{thm:main} replaces the \emph{combination} of manuscript
+Theorems 4.3--4.4 and their application in Corollary 4.9. We do not assert
+the full original Theorem 4.3 conclusion from its one-scale hypothesis,
+or the full arbitrary-compatible-set conclusion of Theorem 4.4.
+Those stronger assertions may be deleted from the proof's dependency
+chain. Corollary~\ref{cor:twooffsets} is their exact box-gap replacement,
+and Corollary~\ref{cor:boxinput} shows that the conclusion of Theorem 4.10
+is unchanged. In its proof one deletes the integer
+$K=(2M_0^{(0)}+1)(2M_0^{(1)}+1)$ and the compatible-set divisibility
+argument, and chooses $t,\ell$ by \eqref{eq:chooseell} instead.
+Remark 4.5's informal extension from two spin values to $57600$ letters
+is no longer required. All arguments here work on an arbitrary finite
+alphabet and use no order or attractivity.
+\end{remark}
+
+\section{Sources and independence of the proof}
+\label{sec:sources}
+
+The shell construction is adapted from \cite[Section 2, proof of
+Proposition 2.1, equations (2.4)--(2.12)]{MOS}; its stopped version is
+proved here because the shorter stopping radius is essential.
+Our window hypothesis is the manuscript's Definition 4.7; its separate
+Section 5 proves it from that manuscript's Hypothesis (P). This appendix
+proves the implication from that input and introduces no extra model
+estimate.
+The square-block construction and its elementary counting proof are
+provided here in Lemma~\ref{lem:count}; they are not invoked as a result
+of another paper.
+
+The comparison in Lemma~\ref{lem:comparison} is the finite conditional
+variance argument also found in \cite[Section 3.7, Proposition 3.4,
+(3.29)--(3.32)]{Martinelli}. That source's Section 4.2, Theorem 4.5,
+gives a particularly useful recursive route under mixing on fat
+rectangles. Its hypotheses are on more region shapes than the square
+window input in this task, so the direct construction here avoids having
+to transfer that hypothesis.
+The general coupling viewpoint is also developed in
+\cite[Theorem 2.5 and Section 6]{DSVW}.
+No rapid-mixing theorem or comparison theorem from that work is used as a
+black box.
+
+Other routes considered were Cesi's entropy quasi-factorization
+\cite[Section 2, Proposition 2.1, and Section 4, Theorem 4.1]{Cesi} and
+the recursive variance proof of
+\cite[Section 3.3, Lemma 3.1 and proof of Theorem 2.2]{BCC}. They are useful when the
+appropriate ratio or conditional mixing estimates are already known.
+They are not dependencies here. Likewise the percolation construction of
+\cite[Section 3, Theorem 3.1]{Ott} is a later proof of the full weak-to-strong
+mixing implication, rather than a shorter way to the specific finite-box
+gap needed here.
+
+The original paper \cite[Section 4, (4.1)--(4.5), Theorem 4.1]{MO}
+explains both the heat-bath convention and the danger of truncating square
+updates to other shapes. Its general-system argument uses couplings and
+recursive time bounds. The finite positive matrix $P$ in
+Lemma~\ref{lem:contraction} replaces the time-evolution part entirely.
+No statement from \cite{MO} or \cite{MOS} is assumed in the proof.
+
+\begin{thebibliography}{9}
+\bibitem{MOS}
+F. Martinelli, E. Olivieri, and R. H. Schonmann,
+\emph{For 2-D lattice spin systems weak mixing implies strong mixing},
+Comm. Math. Phys. \textbf{165} (1994), 33--47.
+\href{https://doi.org/10.1007/BF02099735}{doi:10.1007/BF02099735}.
+Project Euclid: \url{https://projecteuclid.org/euclid.cmp/1104271032}.
+Full author version: \url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=93-154}.
+
+\bibitem{MO}
+F. Martinelli and E. Olivieri,
+\emph{Approach to equilibrium of Glauber dynamics in the one phase region.
+I. The attractive case}, Comm. Math. Phys. \textbf{161} (1994), 447--486.
+\href{https://doi.org/10.1007/BF02101929}{doi:10.1007/BF02101929}.
+Project Euclid: \url{https://projecteuclid.org/euclid.cmp/1104270006}.
+Full author version: \url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=92-186}.
+
+\bibitem{Martinelli}
+F. Martinelli, \emph{Lectures on Glauber dynamics for discrete spin models},
+in Lectures on Probability Theory and Statistics, Saint-Flour 1997,
+Lecture Notes in Math. \textbf{1717}, Springer, 1999, 93--191.
+\href{https://doi.org/10.1007/978-3-540-48115-7_2}{doi:10.1007/978-3-540-48115-7\_2}.
+Full lecture preprint:
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=97-578}.
+
+\bibitem{DSVW}
+M. Dyer, A. Sinclair, E. Vigoda, and D. Weitz,
+\emph{Mixing in time and space for lattice spin systems: a combinatorial
+view}, Random Structures Algorithms \textbf{24} (2004), 461--479.
+\href{https://doi.org/10.1002/rsa.20004}{doi:10.1002/rsa.20004}.
+Author version: \url{https://people.eecs.berkeley.edu/~sinclair/st_full.pdf}.
+
+\bibitem{Cesi}
+F. Cesi, \emph{Quasi-factorization of the entropy and logarithmic Sobolev
+inequalities for Gibbs random fields}, Probab. Theory Related Fields
+\textbf{120} (2001), 569--584.
+\href{https://doi.org/10.1007/PL00008792}{doi:10.1007/PL00008792}.
+Author version: \url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-284}.
+
+\bibitem{BCC}
+L. Bertini, N. Cancrini, and F. Cesi,
+\emph{The spectral gap for a Glauber-type dynamics in a continuous gas},
+Ann. Inst. H. Poincar\'e Probab. Statist. \textbf{38} (2002), 91--108.
+\url{https://www.numdam.org/item/AIHPB_2002__38_1_91_0/}.
+
+\bibitem{Ott}
+S. Ott, \emph{A new perspective on the equivalence between Weak and Strong
+Spatial Mixing in two dimensions}, arXiv:2502.04117.
+\url{https://arxiv.org/abs/2502.04117}.
+\end{thebibliography}
+\end{document}

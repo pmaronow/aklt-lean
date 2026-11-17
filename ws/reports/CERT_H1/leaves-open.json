@@ -1,0 +1,266 @@
+[
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.integerEntries",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use coefficient denominator clearing and integer Pauli/basis coefficients to remove floor; prove symmetry from Hermitian real part.",
+    "trap_note": "M is not divided by witness g; current/next scales are 3D0 and 5D0."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.thresholdScale",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Distribute the rational difference through sector entries; use exact entry reconstruction and real/imaginary operator structure.",
+    "trap_note": "The complex scale is exactly 15 D0 q; imaginary cancellation needs proof."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.positiveScale",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Transfer PosDef across the thresholdScale identity and the positive real scalar.",
+    "trap_note": "D0 and q positivity must be extracted, and complex scalar order handled correctly."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.sylvester",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Specialize the Mathlib Sylvester criterion to symmetric integer matrices cast to real matrices.",
+    "trap_note": "The leading minor is a genuine determinant; include n=0."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.bareiss",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use Desnanot-Jacobi/minor identities inductively for the exact custom Bareiss state.",
+    "trap_note": "Nonzero previous pivots are hypotheses; prove divisibility before integer division."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.TopLeaves.sectorPositiveImpliesBound",
+    "module": "AKLT.Cert.H1.Production.TopLeaves",
+    "paper_label": "p:certificate",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use the BP_H1M reduction, inversion/product density, operator structure and ladder-sector chain, after exact positive scaling.",
+    "trap_note": "Use the repaired real-scope interfaces; supported U sectors have kernels outside their symmetric support."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.inputCovered",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Unfold inputCheck and the finite raw compiler; relate mask bits to keptAt and discharge the covered rules.",
+    "trap_note": "Tips ignore kept flags; X masks and the missing incoming centre bond are essential."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.compilerInversion",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:reduction",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Show inputTokens equals active original tokens, then use whole-pair membership equivalence.",
+    "trap_note": "Saved compact slot indices have already been converted to original Fin 20 tokens."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.compilerGeometry",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:reduction; d:Pauli",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Relate rawEdges/inputSlots/inputDimension to actual Defs bonds and reduction groups; use TablesAccepted.",
+    "trap_note": "Tip group points are tip endpoints, while moments live at the adjacent axial site."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.denominator",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use the integer network numerator/moment identity and positivity of every local LCD.",
+    "trap_note": "Clear coefficients of both actual reduced polynomials, not merely their matrix entries."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.acceptedLookup",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "p:certificate",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Induct on the list of bundles and unpack its recursive acceptance predicate.",
+    "trap_note": "Return all layout, row and Gram obligations; do not drop triangularity."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.parityCoverage",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:exchange",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Relate exchangeParity of every sign assignment to exchangeParities, then use the checked complete parity list.",
+    "trap_note": "Unused single/U signs repeat sectors; they are not independent decomposition summands."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.basisIndexing",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:exchange",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Construct the mixed-radix encoding equivalence and restrict it using the checked weight/parity filter.",
+    "trap_note": "The basis is unnormalized; an exterior D coordinate maps to full local index 3."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.acceptedDecode",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Apply signed sparse digit uniqueness to each accepted row using the layout bounds and expected coefficient guard.",
+    "trap_note": "Evaluation equality alone is insufficient without range and distinct-index facts."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.sectorPackingExpansion",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:Pauli",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Expand local packed polynomials and the ring product at disjoint mixed-radix exponents; distribute the centre sum.",
+    "trap_note": "This is polynomial evaluation, not digit extraction; preserve Gaussian components."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.sectorCoefficientBound",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:Pauli",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Bound Gaussian L1 norms by products of local table absolute sums and the checked centre/threshold factor.",
+    "trap_note": "The bound controls real plus imaginary coefficient magnitudes, not the huge packed integer."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.signedPacking",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Prove biased base-2^width digit recovery, using finite geometric sums and integer quotient/remainder.",
+    "trap_note": "Coefficients are signed; width is positive and the allowed digit interval is half-open."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.packingDecode",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Combine expansion, complex coefficient bounds and signedPacking row by row.",
+    "trap_note": "This leaf receives those three closed generic facts explicitly; use the actual mixed-radix lane count."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.paritySlice",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:exchange",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use sectorNetworkCheck/remapCheck to identify each sliced local coordinate and ring contraction.",
+    "trap_note": "Do not normalize the D antisymmetric vector or permute its coefficient sign silently."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.momentPolynomial",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:reduction",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Expand actual reducedIntegrand, use finite Fubini and local degree-four moment identities, then contract the centre.",
+    "trap_note": "Includes both representations, exact tip/leaf factors and original-token inversion."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.tensorSubstitution",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:Pauli",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Distribute Pauli substitution over the network polynomial and factor the integer basis congruence sitewise.",
+    "trap_note": "Keep Y imaginary signs and the norms 1,2,1 (and 2 exterior); no square-root normalization."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.sectorLinearity",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:Pauli",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Unfold rationalSectorEntry/rationalOperatorEntry and distribute coefficients and finite sums.",
+    "trap_note": "The scalar is rational and multiplies the whole polynomial."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.directRowsEntry",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "l:integercheck",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use getD_map twice with the supplied length equality.",
+    "trap_note": "Handle explicit Fin n bounds rather than relying on default-zero lookup outside the list."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.metadataFacts",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:reduction",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Unpack parametersCheck and the metadata conjunction; compute the three possible outgoing cases.",
+    "trap_note": "The production representatives are north/east; the out index is twice the raw compass index."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.rawEncoding",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Normalize irrelevant kept flags, encode all covered axis/corner choices and use mutual consistency to justify pruning.",
+    "trap_note": "Covered raw configurations are broader than the 2,048,000 normalized mask configurations."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.enumerationSoundness",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Induct through CoverageRowsAccepted and List.all; recover the compatible first-corner shard and outgoing lookup.",
+    "trap_note": "The early all-X axial skip is vacuous only under the live outgoing-bond hypothesis."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.representativeLookup",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Show a successful tree lookup occurs among its entries, then use the checked representative entry list.",
+    "trap_note": "Do not assume BST ordering as an extra hypothesis; lookup success alone identifies an actual node."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.representativeCode",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "medium",
+    "suggested_proof_route": "First attempt by a different cheaper model. Relate the compiled pattern bonds/statuses to rawEdges and both reflected encodings.",
+    "trap_note": "Delete isolated statuses before encoding and preserve the outgoing reflection convention."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.representativeWitnessLookup",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "p:certificate",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Induct on RepresentativesAccepted and list membership.",
+    "trap_note": "Extract checked input, coveredness and the actual RawWitness together."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.representativesAppend",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "p:certificate",
+    "difficulty": "easy",
+    "suggested_proof_route": "First attempt by a different cheaper model. Induct on the first representative list and rebuild the recursive conjunction.",
+    "trap_note": "This is list composition only; it supplies no witness for an unchecked entry."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.effectiveCodeClassification",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "d:pattern",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Use fixed-width digit injectivity, the two min/reflection cases, and template bond support.",
+    "trap_note": "Undirected codes must recover canonical oriented bonds; ignored isolated statuses remain allowed."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.sameDataWitness",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "p:certificate",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Identify reduction groups/polynomials under equal effective data and transport the chosen sector indexing and witnesses.",
+    "trap_note": "Raw current/next may differ by removed positive factors; transport the reduced witness, not an asserted raw equality."
+  },
+  {
+    "lean_name": "AKLT.Cert.H1.Production.Leaves.mirrorDataWitness",
+    "module": "AKLT.Cert.H1.Production.Leaves",
+    "paper_label": "p:certificate",
+    "difficulty": "hard",
+    "suggested_proof_route": "First attempt by a different cheaper model. Construct the reflection permutation of original tokens and supported basis coordinates, then transport the witness indexing.",
+    "trap_note": "Choose the new Fin equivalence to retain M and triangular L; arbitrary row permutation can destroy triangularity."
+  }
+]

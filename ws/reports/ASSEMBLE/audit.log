@@ -1,0 +1,72 @@
+undefined_references: []
+duplicate_labels: {}
+undefined_citations: []
+uncited_bibliography: []
+missing_planned_statements: []
+comments: []
+labels: 137 references: 353 cross-file uses: 182 cross-file file/label pairs: 103
+statements: 105 / 105 statement deviations: 6
+--- plan
++++ sec5-window.tex
+@@ -2,7 +2,8 @@
+ For \(u\ge M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\),
+ \(|I_0|\le1\), and \(D_i\subset F_i\) for \(2\le i\le i_1\).
+ For \(2\le i\le i_1\) outside \(I_0\), \(|A_i|\le8l_0\).
+-Every side of \(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
++For the same indices \(2\le i\le i_1\) outside \(I_0\), every side of
++\(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
+ and meeting \(C_u(a)\) is at distance at least \(s/3\) from the
+ exterior half-plane beyond that edge.
+ For \(i\ge2\), every point of \(C_u(a)\setminus F_i\)
+--- plan
++++ sec7-recursion.tex
+@@ -1,5 +1,6 @@
+ \begin{lemma}\label{l:terminalcover}
+ In the first expansion of a pair of Definition~\ref{d:pairenv},
++assume also that \(v\notin S\), and
+ suppose the trail avoids its target \(v\) and stops at \(e\in S\).
+ In the terminal auxiliary network, start a second expansion from \(v\)
+ to \(S\), again dropping its kept bond to \(c\) if it is \(\mathrm U\).
+--- plan
++++ sec7-recursion.tex
+@@ -33,6 +33,5 @@
+ \]
+ These are nonnegative series. The identity
+ \(3^{-n}(3/5)^r=3^{-(n-r)}5^{-r}\) retains the mass-free
+-trace coefficients. This \(M\) is the modified type-dependent kernel,
+-not the original uniform-coefficient matrix.
++trace coefficients. This \(M\) is the type-dependent response kernel.
+ \end{definition}
+--- plan
++++ sec7-recursion.tex
+@@ -10,7 +10,6 @@
+        \le\rho_0h_X .
+ \]
+ Equivalently, the full nonnegative sums satisfy \(M_1h\le\rho_0h\).
+-No bound for the former uniform-coefficient matrix is part of this
+-contract. Its proof in this revision uses the stationary lattice
+-Bellman certificates, with no periodic spatial walk or remainder.
++The assertion is proved using the stationary lattice Bellman
++certificates, with no periodic spatial walk or remainder.
+ \end{definition}
+--- plan
++++ sec8-inputs.tex
+@@ -1,6 +1,7 @@
+ \begin{theorem}\label{t:inputs}
+ At \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\), (H1) holds
+-by the operator-only Gram/residual certificates of Appendix D.
++by the operator-only certificates of Appendix D, using the supplied
++Gram/residual checks and its Bareiss fallback.
+ Property (H2) holds with
+ \[
+  q=\frac{1119948287353}{1120437614225}<\frac{2499}{2500}<1,
+--- plan
++++ app-input-contracts.tex
+@@ -8,5 +8,5 @@
+ where \(h_C=5404319552844595/4503599627370496\) and
+ \(\rho_0=993015/10^6<1\).
+ The same inequalities hold for every finite true-trail cutoff;
+-therefore (H3\(_h\)) holds for the modified kernel.
++therefore (H3\(_h\)) holds for the type-dependent kernel.
+ \end{lemma}
+editorial candidates: []

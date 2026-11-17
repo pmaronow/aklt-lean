@@ -1,0 +1,165 @@
+StationaryCoefficientOffCentreStatementV2 : Prop
+def AKLT.Blueprint.H3.StationaryCoefficientOffCentreStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : Defs.MemoryQuotient m q) (X : Defs.PairType) (d₀ : Defs.Compass) (φ : Defs.Phase) (a : Fin q)
+  (x : Defs.Plane) (d : Defs.Compass) (ψ : Defs.Phase),
+  x + d.step ≠ Defs.kernelCentre →
+    Defs.stationaryCoefficientV2 Q X d₀ φ a x d ψ = Defs.stationaryCoefficient Q X d₀ φ a x d ψ
+StationaryCentreZeroOperatorStatementV2 : Prop
+def AKLT.Blueprint.H3.StationaryCentreZeroOperatorStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : Defs.MemoryQuotient m q) (X : Defs.PairType) (d₀ : Defs.Compass)
+  (F : Defs.Phase → Fin q → Defs.Plane → ℚ),
+  (∀ (φ : Defs.Phase) (a : Fin q), F φ a Defs.kernelCentre = 0) →
+    ∀ (φ : Defs.Phase) (a : Fin q) (x : Defs.Plane),
+      Defs.stationaryApplyV2 Q X d₀ F φ a x = Defs.stationaryApply Q X d₀ F φ a x
+StationaryContinuationBridgeStatementV2 : Prop
+def AKLT.Blueprint.H3.StationaryContinuationBridgeStatementV2 : Prop :=
+∀ (Q : Defs.MemoryQuotient 10 3741) (X : Defs.PairType) (d₀ : Defs.Compass) (φ : Defs.Phase) (a : Fin 3741)
+  (x : Defs.Plane) (R : ℕ),
+  Defs.stationaryContinuationSumV2 Q X d₀ φ a x R = Defs.stationaryContinuationSum Q X d₀ φ a x R
+StationaryCertificateBridgeStatementV2 : Prop
+def AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2 : Prop :=
+∀ (m q : ℕ) (Q : Defs.MemoryQuotient m q) (X : Defs.PairType) (d₀ : Defs.Compass) (C : Defs.StationaryData q),
+  C.PassesV2 Q X d₀ → C.Passes Q X d₀
+AKLT.Blueprint.H3.rawStoppedBackwardV2 (m p : ℕ)
+  (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ)
+  (terminal : Fin p → Defs.DirectionWord m → Defs.Plane → Bool) (F : Fin p → Defs.DirectionWord m → Defs.Plane → ℚ)
+  (φ : Fin p) (w : Defs.DirectionWord m) (x : Defs.Plane) : ℚ
+AKLT.Blueprint.H3.quotientStoppedBackwardV2 {m q : ℕ} (Q : Defs.MemoryQuotient m q) (p : ℕ)
+  (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ)
+  (terminal : Fin p → Fin q → Defs.Plane → Bool) (F : Fin p → Fin q → Defs.Plane → ℚ) (φ : Fin p) (a : Fin q)
+  (x : Defs.Plane) : ℚ
+StoppedQuotientIntertwiningStatementV2 : Prop
+def AKLT.Blueprint.H3.StoppedQuotientIntertwiningStatementV2 : Prop :=
+∀ (m q : ℕ),
+  1 ≤ m →
+    ∀ (Q : Defs.MemoryQuotient m q),
+      Q.Correct →
+        (∀ (w : Defs.DirectionWord m),
+            Defs.RawWindow w →
+              ∀ (d : Defs.Compass), Defs.WindowAdmissible w d → Defs.RawWindow (Defs.windowSuccessor w d)) →
+          ∀ (p : ℕ) (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ),
+            (∀ (φ ψ : Fin p) (d a a' : Defs.Compass) (x : Defs.Plane),
+                weight φ ψ Defs.StepKind.revisit d a x = weight φ ψ Defs.StepKind.revisit d a' x) →
+              ∀ (terminalRaw : Fin p → Defs.DirectionWord m → Defs.Plane → Bool)
+                (terminalQuotient : Fin p → Fin q → Defs.Plane → Bool),
+                (∀ (φ : Fin p) (w : Defs.DirectionWord m),
+                    Defs.RawWindow w → ∀ (x : Defs.Plane), terminalRaw φ w x = terminalQuotient φ (Q.project w) x) →
+                  ∀ (rewardRaw : Fin p → Defs.DirectionWord m → Defs.Plane → ℚ)
+                    (rewardQuotient : Fin p → Fin q → Defs.Plane → ℚ),
+                    (∀ (φ : Fin p) (w : Defs.DirectionWord m),
+                        Defs.RawWindow w → ∀ (x : Defs.Plane), rewardRaw φ w x = rewardQuotient φ (Q.project w) x) →
+                      (∀ (φ : Fin p) (a : Fin q) (x : Defs.Plane),
+                          terminalQuotient φ a x = false → rewardQuotient φ a x = 0) →
+                        ∀ (R : ℕ) (φ : Fin p) (w : Defs.DirectionWord m),
+                          Defs.RawWindow w →
+                            ∀ (x : Defs.Plane),
+                              ∑ j ∈ Finset.range (R + 1),
+                                  (rawStoppedBackwardV2 m p weight terminalRaw)^[j] rewardRaw φ w x =
+                                ∑ j ∈ Finset.range (R + 1),
+                                  (quotientStoppedBackwardV2 Q p weight terminalQuotient)^[j] rewardQuotient φ
+                                    (Q.project w) x
+AutomatonQuotientPaperStatementV2 : Prop
+def AKLT.Blueprint.H3.AutomatonQuotientPaperStatementV2 : Prop :=
+Top.AutomatonQuotientStatement ∧
+  ∀ (m q : ℕ),
+    1 ≤ m →
+      ∀ (Q : Defs.MemoryQuotient m q),
+        Q.Correct →
+          ∀ (p : ℕ) (weight : Fin p → Fin p → Defs.StepKind → Defs.Compass → Defs.Compass → Defs.Plane → ℚ),
+            (∀ (φ ψ : Fin p) (d a a' : Defs.Compass) (x : Defs.Plane),
+                weight φ ψ Defs.StepKind.revisit d a x = weight φ ψ Defs.StepKind.revisit d a' x) →
+              ∀ (terminalRaw : Fin p → Defs.DirectionWord m → Defs.Plane → Bool)
+                (terminalQuotient : Fin p → Fin q → Defs.Plane → Bool),
+                (∀ (φ : Fin p) (w : Defs.DirectionWord m),
+                    Defs.RawWindow w → ∀ (x : Defs.Plane), terminalRaw φ w x = terminalQuotient φ (Q.project w) x) →
+                  ∀ (rewardRaw : Fin p → Defs.DirectionWord m → Defs.Plane → ℚ)
+                    (rewardQuotient : Fin p → Fin q → Defs.Plane → ℚ),
+                    (∀ (φ : Fin p) (w : Defs.DirectionWord m),
+                        Defs.RawWindow w → ∀ (x : Defs.Plane), rewardRaw φ w x = rewardQuotient φ (Q.project w) x) →
+                      (∀ (φ : Fin p) (a : Fin q) (x : Defs.Plane),
+                          terminalQuotient φ a x = false → rewardQuotient φ a x = 0) →
+                        ∀ (R : ℕ) (φ : Fin p) (w : Defs.DirectionWord m),
+                          Defs.RawWindow w →
+                            ∀ (x : Defs.Plane),
+                              ∑ j ∈ Finset.range (R + 1),
+                                  (rawStoppedBackwardV2 m p weight terminalRaw)^[j] rewardRaw φ w x =
+                                ∑ j ∈ Finset.range (R + 1),
+                                  (quotientStoppedBackwardV2 Q p weight terminalQuotient)^[j] rewardQuotient φ
+                                    (Q.project w) x
+AdaptationLeavesStatementV2 : Prop
+def AKLT.Blueprint.H3.AdaptationLeavesStatementV2 : Prop :=
+StationaryCoefficientOffCentreStatementV2 ∧
+  StationaryCentreZeroOperatorStatementV2 ∧
+    StationaryContinuationBridgeStatementV2 ∧
+      StationaryCertificateBridgeStatementV2 ∧ StoppedQuotientIntertwiningStatementV2
+LongTrailPhaseExpansionStatementV2 : Prop
+def AKLT.Blueprint.H3.LongTrailPhaseExpansionStatementV2 : Prop :=
+∀ (n : ℕ) (X : Defs.PairType) (w : Defs.DirectionWord n),
+  Defs.ClosedTrail X w →
+    12 < n →
+      ∑ φ, Defs.prefixPhases w φ * Defs.phaseTerminal φ = Defs.closedContribution w ∧
+        ∀ (L : ℕ) (hL : L ≤ n),
+          have initialWord := fun i => w ⟨↑i, ⋯⟩;
+          ∑ φ, Defs.prefixPhases w φ * Defs.phaseTerminal φ =
+            ∑ φ, Defs.prefixPhases initialWord φ * Defs.truePhaseSuffix w L φ
+AKLT.Blueprint.H3.automatonQuotient_of_nodesV2 (hRaw : RawSuccessorStatement)
+  (hProjection : ProjectionRealizationStatement) (hStopped : StoppedQuotientIntertwiningStatementV2) :
+  AutomatonQuotientPaperStatementV2
+'AKLT.Blueprint.H3.automatonQuotient_of_nodesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.phaseExpansion_of_legacyV2 (hPhase : Top.PhaseExpansionStatement) : Top.PhaseExpansionStatementV2
+'AKLT.Blueprint.H3.phaseExpansion_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.longTrailPhaseExpansion_of_phaseV2 (hPhase : Top.PhaseExpansionStatementV2) :
+  LongTrailPhaseExpansionStatementV2
+'AKLT.Blueprint.H3.longTrailPhaseExpansion_of_phaseV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.stationaryDomination_of_legacyV2 (hDomination : Top.StationaryDominationStatement)
+  (hGeometry : ClosedTrailStepGeometryStatement) (hOffCentre : StationaryCoefficientOffCentreStatementV2)
+  (hContinuation : StationaryContinuationBridgeStatementV2) : Top.StationaryDominationStatementV2
+'AKLT.Blueprint.H3.stationaryDomination_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.stationaryLocalGlobal_of_legacyV2 (hGlobal : Top.StationaryLocalGlobalStatement)
+  (hCertificate : StationaryCertificateBridgeStatementV2) (hOperator : StationaryCentreZeroOperatorStatementV2)
+  (hContinuation : StationaryContinuationBridgeStatementV2) : Top.StationaryLocalGlobalStatementV2
+'AKLT.Blueprint.H3.stationaryLocalGlobal_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.prefixDomination_of_legacyV2 (hPrefix : Top.PrefixDominationStatement)
+  (hCertificate : StationaryCertificateBridgeStatementV2) : Top.PrefixDominationStatementV2
+'AKLT.Blueprint.H3.prefixDomination_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.stationaryAssembly_of_legacyV2 (hAssembly : Top.StationaryAssemblyStatement)
+  (hCertificate : StationaryCertificateBridgeStatementV2) : Top.StationaryAssemblyStatementV2
+'AKLT.Blueprint.H3.stationaryAssembly_of_legacyV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.h3_of_checksV2 (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2)
+  (hAssembly : Top.StationaryAssemblyStatementV2) : Top.H3Statement
+'AKLT.Blueprint.H3.h3_of_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.allTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement) (hNew : AdaptationLeavesStatementV2)
+  (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2) :
+  Top.AutomatonQuotientStatement ∧
+    Top.PhaseExpansionStatementV2 ∧
+      Top.StationaryDominationStatementV2 ∧
+        Top.BellmanSoundnessStatement ∧
+          Top.StationaryLocalGlobalStatementV2 ∧
+            Top.PrefixDominationStatementV2 ∧
+              Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatementV2 ∧ Top.H3Statement
+'AKLT.Blueprint.H3.allTargets_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.paperTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement) (hNew : AdaptationLeavesStatementV2)
+  (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2) :
+  (Top.AutomatonQuotientStatement ∧
+      Top.PhaseExpansionStatementV2 ∧
+        Top.StationaryDominationStatementV2 ∧
+          Top.BellmanSoundnessStatement ∧
+            Top.StationaryLocalGlobalStatementV2 ∧
+              Top.PrefixDominationStatementV2 ∧
+                Top.KernelReflectionStatement ∧ Top.StationaryAssemblyStatementV2 ∧ Top.H3Statement) ∧
+    AutomatonQuotientPaperStatementV2 ∧ LongTrailPhaseExpansionStatementV2
+'AKLT.Blueprint.H3.paperTargets_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.h3_of_leaves_and_checksV2 (h : AnalyticLeavesStatement) (hNew : AdaptationLeavesStatementV2)
+  (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2) : Top.H3Statement
+'AKLT.Blueprint.H3.h3_of_leaves_and_checksV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.inputs_of_leaves_and_other_partsV2 (h : AnalyticLeavesStatement) (hNew : AdaptationLeavesStatementV2)
+  (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement)
+  (hH2 : Top.H2Statement) (hRates : Defs.certifiedRate < 2499 / 2500 ∧ 2499 / 2500 < 1)
+  (hH1Data : Top.H1FiniteDataStatementV2) : Top.InputsStatementV2
+'AKLT.Blueprint.H3.inputs_of_leaves_and_other_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.H3.mainV2_of_H3_and_other_partsV2 (h : AnalyticLeavesStatement) (hNew : AdaptationLeavesStatementV2)
+  (hAutomaton : Top.Automaton10StatementV2) (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement)
+  (hH2 : Top.H2Statement) (hRates : Defs.certifiedRate < 2499 / 2500 ∧ 2499 / 2500 < 1)
+  (hH1Data : Top.H1FiniteDataStatementV2) (hRec : Top.RecStatement) (hCut : Top.CutMOSStatement)
+  (hMainW : Top.MainWStatement) (hKernel : Top.TorusKernelStatement) : Challenge.MainStatementV2
+'AKLT.Blueprint.H3.mainV2_of_H3_and_other_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]

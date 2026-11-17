@@ -1,0 +1,100 @@
+def AKLT.Blueprint.Q.QuarticKernelDegreeStatement : Prop :=
+∀ (j k : Fin 5), (AKLT.Blueprint.Q.quarticKernel j k).totalDegree ≤ 4
+def AKLT.Blueprint.Q.QuarticKernelEvaluationStatement : Prop :=
+∀ (v : AKLT.Defs.Vec3) (z : AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.compatible v z →
+    ∀ (j k : Fin 5),
+      star (AKLT.Blueprint.Q.quarticMonomial j z) * AKLT.Blueprint.Q.quarticMonomial k z =
+        (MvPolynomial.eval fun i => ↑(v i)) (AKLT.Blueprint.Q.quarticKernel j k)
+def AKLT.Blueprint.Q.ComplexQuadratureStatement : Prop :=
+∀ (A : Type) [inst : Fintype A] (v : A → AKLT.Defs.Vec3) (w : A → ℝ),
+  AKLT.Blueprint.Q.quadrature v w →
+    ∀ (p : MvPolynomial (Fin 3) ℂ),
+      p.totalDegree ≤ 4 → ∑ a, ↑(w a) * (MvPolynomial.eval fun i => ↑(v a i)) p = AKLT.Blueprint.Q.complexMoment p
+def AKLT.Blueprint.Q.QuarticOffDiagonalStatement : Prop :=
+∀ (j k : Fin 5), j ≠ k → AKLT.Blueprint.Q.complexMoment (AKLT.Blueprint.Q.quarticKernel j k) = 0
+def AKLT.Blueprint.Q.QuarticDiagonalStatement : Prop :=
+∀ (j : Fin 5), 5 * AKLT.Blueprint.Q.complexMoment (AKLT.Blueprint.Q.quarticKernel j j) = (↑(Nat.choose 4 ↑j))⁻¹
+def AKLT.Blueprint.Q.ResolutionExpansionStatement : Prop :=
+∀ (A : Type) [inst : Fintype A] (w : A → ℝ) (z : A → AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.resolution w z →
+    ∀ (p : AKLT.Defs.BinaryForm 4),
+      ∑ a, 5 * w a * Complex.normSq (AKLT.Defs.binaryEval 4 p (z a)) = AKLT.Defs.binaryNormSq 4 p
+def AKLT.Blueprint.Q.TensorResolutionStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (S : AKLT.Challenge.Site L N → Type) (x : (x : AKLT.Challenge.Site L N) → Fintype (S x))
+  (w : (x : AKLT.Challenge.Site L N) → S x → Real) (z : (x : AKLT.Challenge.Site L N) → S x → AKLT.Defs.Spinor),
+  (∀ (x_1 : AKLT.Challenge.Site L N), @AKLT.Blueprint.Q.resolution (S x_1) (x x_1) (w x_1) (z x_1)) →
+    ∀ (ψ : AKLT.Challenge.Hilbert L N),
+      @Eq Real
+        (∑ σ,
+          @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (∏ x,
+              @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                (@OfNat.ofNat Real (nat_lit 5)
+                  (@instOfNatAtLeastTwo Real (nat_lit 5) Real.instNatCast
+                    AKLT.Blueprint.Q.QuarticDiagonalStatement._proof_1))
+                (w x (σ x)))
+            (@DFunLike.coe
+              (@MonoidWithZeroHom Complex Real (@instMulZeroOneClassOfSemiring Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring Real Real.semiring))
+              Complex (fun x => Real)
+              (@MonoidWithZeroHom.funLike Complex Real (@instMulZeroOneClassOfSemiring Complex Complex.instSemiring)
+                (@instMulZeroOneClassOfSemiring Real Real.semiring))
+              Complex.normSq (@AKLT.Defs.physicalEval L N ψ fun x => z x (σ x))))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@norm (AKLT.Challenge.Hilbert L N)
+            (@PiLp.instNorm
+              (@OfNat.ofNat ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne ENNReal ENNReal.instAddCommMonoidWithOne))
+                  PiLp.innerProductSpace._proof_1))
+              (AKLT.Challenge.Configuration L N) (fun x => Complex)
+              (@Pi.instFintype (AKLT.Challenge.Site L N)
+                (fun a => Fin (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+                (fun a b =>
+                  @instDecidableEqProd
+                    (ZMod
+                      (@Subtype.val Nat
+                        (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) L))
+                    (ZMod
+                      (@Subtype.val Nat
+                        (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) N))
+                    (ZMod.decidableEq
+                      (@Subtype.val Nat
+                        (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) L))
+                    (ZMod.decidableEq
+                      (@Subtype.val Nat
+                        (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) N))
+                    a b)
+                (@instFintypeProd
+                  (ZMod
+                    (@Subtype.val Nat
+                      (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) L))
+                  (ZMod
+                    (@Subtype.val Nat
+                      (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) N))
+                  (@ZMod.fintype
+                    (@Subtype.val Nat
+                      (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) L)
+                    ⋯)
+                  (@ZMod.fintype
+                    (@Subtype.val Nat
+                      (fun n => @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n) N)
+                    ⋯))
+                fun a => Fin.fintype (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+              fun i => Complex.instNorm)
+            ψ)
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+def AKLT.Blueprint.Q.StarPositiveStatement : Prop :=
+LinearMap.IsSymmetric AKLT.Defs.starHamiltonian ∧
+  ∀ (ψ : AKLT.Defs.StarHilbert), 0 ≤ (inner ℂ ψ (AKLT.Defs.starHamiltonian ψ)).re
+def AKLT.Defs.physicalEval : {L N : AKLT.Challenge.Size} →
+  AKLT.Challenge.Hilbert L N → (AKLT.Challenge.Site L N → AKLT.Defs.Spinor) → ℂ :=
+fun {L N} ψ z => ∑ σ, ψ.ofLp σ * ∏ x, ↑√↑(Nat.choose 4 ↑(σ x)) * z x 0 ^ (4 - ↑(σ x)) * z x 1 ^ ↑(σ x)
+def AKLT.Defs.starHamiltonian : Module.End ℂ AKLT.Defs.StarHilbert :=
+∑ j, ↑((AKLT.Defs.starCasimir j).eigenspace 20).starProjection
+Submodule.starProjection.{u_1, u_2} {𝕜 : Type u_1} {E : Type u_2} [RCLike 𝕜] [NormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] (U : Submodule 𝕜 E) [U.HasOrthogonalProjection] : E →L[𝕜] E
+LinearMap.IsSymmetric.{u_1, u_2} {𝕜 : Type u_1} {E : Type u_2} [RCLike 𝕜] [SeminormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] (T : E →ₗ[𝕜] E) : Prop

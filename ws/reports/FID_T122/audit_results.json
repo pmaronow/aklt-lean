@@ -1,0 +1,149 @@
+{
+  "input": "/home/ubuntu/aklt/review/FID_T/lean/AKLT/Defs/Automaton10Data.lean",
+  "arithmetic": "Exact Python integers; actual Lean packing AST parsed; all finite lanes and every raw transition reconstructed.",
+  "packed_widths_bits": {
+    "rawClass": 12582908,
+    "representatives": 74820,
+    "destinations": 179544,
+    "edgeKinds": 29928
+  },
+  "raw_window_counts_by_depth_1_to_10": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "all_code_lanes_checked": 1048576,
+  "raw_window_count": 60092,
+  "class_count": 3741,
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "comparisons": {
+    "admissibility_comparisons": 240368,
+    "representative_kind_comparisons_all_directions": 240368,
+    "admissible_kind_and_successor_comparisons": 169092,
+    "nonrevisit_arrival_comparisons": 162372
+  },
+  "assigned_chunks": [
+    {
+      "declaration": "rawClass_575",
+      "source_line": 1165,
+      "hex_digits": 4096,
+      "bit_offset": 3145724,
+      "bit_end_inclusive": 3162107,
+      "intersecting_code_interval_inclusive": [
+        262143,
+        263508
+      ],
+      "intersecting_codes": 1366,
+      "raw_words": 331,
+      "invalid_word_sentinel_lanes": 1035,
+      "distinct_class_values": 289,
+      "first_valid_example": {
+        "code": 262143,
+        "word_ENWS": "ESSSSSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      },
+      "literal_sha256_ascii_hex": "5edcc41a15f8f07375b3fdba85ff7e0de0117ffc58cd8541bfad86429e22219f"
+    },
+    {
+      "declaration": "rawClass_576",
+      "source_line": 1167,
+      "hex_digits": 4096,
+      "bit_offset": 3129340,
+      "bit_end_inclusive": 3145723,
+      "intersecting_code_interval_inclusive": [
+        260778,
+        262143
+      ],
+      "intersecting_codes": 1366,
+      "raw_words": 331,
+      "invalid_word_sentinel_lanes": 1035,
+      "distinct_class_values": 289,
+      "first_valid_example": {
+        "code": 260778,
+        "word_ENWS": "ESSSWWWWWW",
+        "class": 356,
+        "representative_code": 1706
+      },
+      "literal_sha256_ascii_hex": "87846fdc115191b688c2adb91d263cf38c10ddc10337e1fe41a76571be51b727"
+    },
+    {
+      "declaration": "rawClass_577",
+      "source_line": 1169,
+      "hex_digits": 4096,
+      "bit_offset": 3112956,
+      "bit_end_inclusive": 3129339,
+      "intersecting_code_interval_inclusive": [
+        259413,
+        260778
+      ],
+      "intersecting_codes": 1366,
+      "raw_words": 89,
+      "invalid_word_sentinel_lanes": 1277,
+      "distinct_class_values": 89,
+      "first_valid_example": {
+        "code": 260352,
+        "word_ENWS": "ESSSWNEEEE",
+        "class": 683,
+        "representative_code": 6400
+      },
+      "literal_sha256_ascii_hex": "2f0a083c8de5955a84f921e1cdc0144f14809a6c474a418ae864bd45cb73ffd6"
+    },
+    {
+      "declaration": "rawClass_578",
+      "source_line": 1171,
+      "hex_digits": 4096,
+      "bit_offset": 3096572,
+      "bit_end_inclusive": 3112955,
+      "intersecting_code_interval_inclusive": [
+        258047,
+        259412
+      ],
+      "intersecting_codes": 1366,
+      "raw_words": 202,
+      "invalid_word_sentinel_lanes": 1164,
+      "distinct_class_values": 201,
+      "first_valid_example": {
+        "code": 258047,
+        "word_ENWS": "ESSWSSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      },
+      "literal_sha256_ascii_hex": "8b36fd8688a2e96a5cf842114a637c5d5c81732d06a3b515d30d00092b764413"
+    },
+    {
+      "declaration": "rawClass_579",
+      "source_line": 1173,
+      "hex_digits": 4096,
+      "bit_offset": 3080188,
+      "bit_end_inclusive": 3096571,
+      "intersecting_code_interval_inclusive": [
+        256682,
+        258047
+      ],
+      "intersecting_codes": 1366,
+      "raw_words": 317,
+      "invalid_word_sentinel_lanes": 1049,
+      "distinct_class_values": 275,
+      "first_valid_example": {
+        "code": 256682,
+        "word_ENWS": "ESSWWWWWWW",
+        "class": 356,
+        "representative_code": 1706
+      },
+      "literal_sha256_ascii_hex": "4eb821298d61569887341f98b4d24f945f9f399e70771c6056a5e131f64e6d2e"
+    }
+  ],
+  "result": "All assertions passed"
+}

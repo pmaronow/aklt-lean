@@ -1,0 +1,140 @@
+{
+  "method": "Exact Python integers; source arithmetic parsed, independently generated lattice trails",
+  "depth_counts": {
+    "1": 4,
+    "2": 12,
+    "3": 36,
+    "4": 108,
+    "5": 316,
+    "6": 916,
+    "7": 2628,
+    "8": 7500,
+    "9": 21268,
+    "10": 60092
+  },
+  "whole_table_coverage_errors": 0,
+  "representative_errors": 0,
+  "stored_edge_errors": 0,
+  "quotient_errors": 0,
+  "edge_counts_straight_turn_revisit": [
+    2516,
+    5032,
+    1872
+  ],
+  "assigned": [
+    {
+      "name": "rawClass_325",
+      "source_line": 665,
+      "literal_sha256": "14d84d2ab3462348c0d4ff767dec89beae325c051800f97f823a140cfff2c1cd",
+      "bit_range_inclusive": [
+        7241724,
+        7258107
+      ],
+      "code_range_inclusive": [
+        603477,
+        604842
+      ],
+      "codes_touching": 1366,
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": [],
+      "coverage_and_quotient_errors": 0
+    },
+    {
+      "name": "rawClass_326",
+      "source_line": 667,
+      "literal_sha256": "f8ddd4f6128bca826c540d7efe9f7b2d44b2d2684b43c59c06148d748fc3158c",
+      "bit_range_inclusive": [
+        7225340,
+        7241723
+      ],
+      "code_range_inclusive": [
+        602111,
+        603476
+      ],
+      "codes_touching": 1366,
+      "valid_words": 202,
+      "invalid_words": 1164,
+      "distinct_classes": 201,
+      "first_valid_examples": [
+        {
+          "code": 602112,
+          "word": "WNESEEEEEE",
+          "class": 0,
+          "representative": 0
+        },
+        {
+          "code": 602113,
+          "word": "WNESEEEEEN",
+          "class": 1,
+          "representative": 1
+        },
+        {
+          "code": 602115,
+          "word": "WNESEEEEES",
+          "class": 2,
+          "representative": 3
+        }
+      ],
+      "coverage_and_quotient_errors": 0
+    },
+    {
+      "name": "rawClass_327",
+      "source_line": 669,
+      "literal_sha256": "54159b1e69b5140b1f546658fca66d4f181f2d9e48029166db51dc8ce7442a81",
+      "bit_range_inclusive": [
+        7208956,
+        7225339
+      ],
+      "code_range_inclusive": [
+        600746,
+        602111
+      ],
+      "codes_touching": 1366,
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": [],
+      "coverage_and_quotient_errors": 0
+    },
+    {
+      "name": "rawClass_328",
+      "source_line": 671,
+      "literal_sha256": "14d84d2ab3462348c0d4ff767dec89beae325c051800f97f823a140cfff2c1cd",
+      "bit_range_inclusive": [
+        7192572,
+        7208955
+      ],
+      "code_range_inclusive": [
+        599381,
+        600746
+      ],
+      "codes_touching": 1366,
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": [],
+      "coverage_and_quotient_errors": 0
+    },
+    {
+      "name": "rawClass_329",
+      "source_line": 673,
+      "literal_sha256": "ed4287fa472b34920cee3e17dcfe295a2bed683bc0b647e5960fbfe5f1e1f665",
+      "bit_range_inclusive": [
+        7176188,
+        7192571
+      ],
+      "code_range_inclusive": [
+        598015,
+        599380
+      ],
+      "codes_touching": 1366,
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": [],
+      "coverage_and_quotient_errors": 0
+    }
+  ]
+}

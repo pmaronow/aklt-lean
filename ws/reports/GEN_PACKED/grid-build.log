@@ -1,0 +1,49 @@
+ℹ [8931/8933] Replayed AKLT.Gen.Packed.Basic
+info: AKLT/Gen/Packed/Basic.lean:176:0: 'AKLT.Gen.Packed.packFn_congr' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:177:0: 'AKLT.Gen.Packed.pack_eq_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:178:0: 'AKLT.Gen.Packed.lane_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:179:0: 'AKLT.Gen.Packed.repeatLane_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:180:0: 'AKLT.Gen.Packed.lane_zero' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:181:0: 'AKLT.Gen.Packed.lane_succ' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:182:0: 'AKLT.Gen.Packed.lane_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:183:0: 'AKLT.Gen.Packed.lane_packFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:184:0: 'AKLT.Gen.Packed.packFn_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:185:0: 'AKLT.Gen.Packed.packFn_lanes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:186:0: 'AKLT.Gen.Packed.lane_eq_zero_of_fits' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:187:0: 'AKLT.Gen.Packed.lanes_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:188:0: 'AKLT.Gen.Packed.packFn_add' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:189:0: 'AKLT.Gen.Packed.packFn_mul' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Basic.lean:190:0: 'AKLT.Gen.Packed.lane_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Basic.lean:191:0: 'AKLT.Gen.Packed.lane_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8932/8933] Replayed AKLT.Gen.Packed.Routing
+warning: AKLT/Gen/Packed/Routing.lean:23:40: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: AKLT/Gen/Packed/Routing.lean:98:39: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: AKLT/Gen/Packed/Routing.lean:135:0: 'AKLT.Gen.Packed.lane_truncate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:136:0: 'AKLT.Gen.Packed.lane_moveDown' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:137:0: 'AKLT.Gen.Packed.lane_moveUp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:138:0: 'AKLT.Gen.Packed.lane_rowMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:139:0: 'AKLT.Gen.Packed.lane_columnMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:140:0: 'AKLT.Gen.Packed.testBit_lane' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:141:0: 'AKLT.Gen.Packed.lane_land' depends on axioms: [propext, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:142:0: 'AKLT.Gen.Packed.lane_shiftRight' depends on axioms: [propext]
+info: AKLT/Gen/Packed/Routing.lean:143:0: 'AKLT.Gen.Packed.lane_shiftLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:144:0: 'AKLT.Gen.Packed.lane_laneMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:145:0: 'AKLT.Gen.Packed.lane_mask' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:146:0: 'AKLT.Gen.Packed.lane_moveRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Routing.lean:147:0: 'AKLT.Gen.Packed.lane_moveLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/8933] Built AKLT.Gen.Packed.Grid (3.2s)
+info: AKLT/Gen/Packed/Grid.lean:69:0: 'AKLT.Gen.Packed.moveRight_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:70:0: 'AKLT.Gen.Packed.moveLeft_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:71:0: 'AKLT.Gen.Packed.moveDown_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Gen/Packed/Grid.lean:72:0: 'AKLT.Gen.Packed.moveUp_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8933 jobs).

@@ -1,0 +1,134 @@
+{
+  "raw_counts_by_depth": {
+    "0": 1,
+    "1": 4,
+    "2": 12,
+    "3": 36,
+    "4": 108,
+    "5": 316,
+    "6": 916,
+    "7": 2628,
+    "8": 7500,
+    "9": 21268,
+    "10": 60092
+  },
+  "coverage_errors": 0,
+  "representatives_checked": 3741,
+  "raw_rows_checked": 60092,
+  "labelled_edge_counts_by_kind": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "chunks": {
+    "rawClass_260": {
+      "source_line": 535,
+      "bit_offset": 8306684,
+      "bit_interval_inclusive": [
+        8306684,
+        8323067
+      ],
+      "offset_mod_12": 8,
+      "intersecting_code_interval_inclusive": [
+        692223,
+        693588
+      ],
+      "intersecting_lanes": 1366,
+      "valid_raw_words": 253,
+      "invalid_sentinel_words": 1113,
+      "distinct_classes": 216,
+      "first_valid_examples": [
+        {
+          "code": 692224,
+          "directions": "WWWNEEEEEE",
+          "class": 0,
+          "representative": 0
+        },
+        {
+          "code": 692225,
+          "directions": "WWWNEEEEEN",
+          "class": 1,
+          "representative": 1
+        },
+        {
+          "code": 692227,
+          "directions": "WWWNEEEEES",
+          "class": 2,
+          "representative": 3
+        }
+      ]
+    },
+    "rawClass_261": {
+      "source_line": 537,
+      "bit_offset": 8290300,
+      "bit_interval_inclusive": [
+        8290300,
+        8306683
+      ],
+      "offset_mod_12": 4,
+      "intersecting_code_interval_inclusive": [
+        690858,
+        692223
+      ],
+      "intersecting_lanes": 1366,
+      "valid_raw_words": 0,
+      "invalid_sentinel_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": []
+    },
+    "rawClass_262": {
+      "source_line": 539,
+      "bit_offset": 8273916,
+      "bit_interval_inclusive": [
+        8273916,
+        8290299
+      ],
+      "offset_mod_12": 0,
+      "intersecting_code_interval_inclusive": [
+        689493,
+        690858
+      ],
+      "intersecting_lanes": 1366,
+      "valid_raw_words": 0,
+      "invalid_sentinel_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": []
+    },
+    "rawClass_263": {
+      "source_line": 541,
+      "bit_offset": 8257532,
+      "bit_interval_inclusive": [
+        8257532,
+        8273915
+      ],
+      "offset_mod_12": 8,
+      "intersecting_code_interval_inclusive": [
+        688127,
+        689492
+      ],
+      "intersecting_lanes": 1366,
+      "valid_raw_words": 0,
+      "invalid_sentinel_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": []
+    },
+    "rawClass_264": {
+      "source_line": 543,
+      "bit_offset": 8241148,
+      "bit_interval_inclusive": [
+        8241148,
+        8257531
+      ],
+      "offset_mod_12": 4,
+      "intersecting_code_interval_inclusive": [
+        686762,
+        688127
+      ],
+      "intersecting_lanes": 1366,
+      "valid_raw_words": 0,
+      "invalid_sentinel_words": 1366,
+      "distinct_classes": 0,
+      "first_valid_examples": []
+    }
+  }
+}

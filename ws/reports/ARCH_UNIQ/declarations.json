@@ -1,0 +1,1338 @@
+[
+  {
+    "kind": "def",
+    "name": "basisScale",
+    "qname": "AKLT.Uniq.basisScale",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 19,
+    "signature": "def basisScale (\u03c3 : Configuration L N) : \u2102"
+  },
+  {
+    "kind": "theorem",
+    "name": "basisScale_ne_zero",
+    "qname": "AKLT.Uniq.basisScale_ne_zero",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 22,
+    "signature": "theorem basisScale_ne_zero (\u03c3 : Configuration L N) : basisScale \u03c3 \u2260 0"
+  },
+  {
+    "kind": "def",
+    "name": "siteWeight",
+    "qname": "AKLT.Uniq.siteWeight",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 26,
+    "signature": "def siteWeight (x : Site L N) (p : Site L N \u00d7 Fin 2) : \u2115"
+  },
+  {
+    "kind": "def",
+    "name": "HasSiteDegrees",
+    "qname": "AKLT.Uniq.HasSiteDegrees",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 30,
+    "signature": "def HasSiteDegrees (p : SpinorPolynomial L N) (d : Site L N \u2192 \u2115) : Prop"
+  },
+  {
+    "kind": "def",
+    "name": "IsPhysical",
+    "qname": "AKLT.Uniq.IsPhysical",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 34,
+    "signature": "def IsPhysical (p : SpinorPolynomial L N) : Prop"
+  },
+  {
+    "kind": "def",
+    "name": "encode",
+    "qname": "AKLT.Uniq.encode",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 37,
+    "signature": "def encode : Hilbert L N \u2192\u2097[\u2102] SpinorPolynomial L N"
+  },
+  {
+    "kind": "def",
+    "name": "decode",
+    "qname": "AKLT.Uniq.decode",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 46,
+    "signature": "def decode (p : SpinorPolynomial L N) : Hilbert L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "monomialDegree_apply",
+    "qname": "AKLT.Uniq.monomialDegree_apply",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 49,
+    "signature": "theorem monomialDegree_apply (\u03c3 : Configuration L N) (x : Site L N) (k : Fin 2) :\n    monomialDegree \u03c3 (x, k) = if k = 0 then 4 - (\u03c3 x).val else (\u03c3 x).val"
+  },
+  {
+    "kind": "theorem",
+    "name": "monomialDegree_injective",
+    "qname": "AKLT.Uniq.monomialDegree_injective",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 53,
+    "signature": "theorem monomialDegree_injective : Function.Injective (@monomialDegree L N)"
+  },
+  {
+    "kind": "theorem",
+    "name": "siteWeight_degree",
+    "qname": "AKLT.Uniq.siteWeight_degree",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 60,
+    "signature": "theorem siteWeight_degree (d : (Site L N \u00d7 Fin 2) \u2192\u2080 \u2115) (x : Site L N) :\n    Finsupp.weight (siteWeight x) d = d (x, 0) + d (x, 1)"
+  },
+  {
+    "kind": "theorem",
+    "name": "monomialDegree_siteWeight",
+    "qname": "AKLT.Uniq.monomialDegree_siteWeight",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 66,
+    "signature": "theorem monomialDegree_siteWeight (\u03c3 : Configuration L N) (x : Site L N) :\n    Finsupp.weight (siteWeight x) (monomialDegree \u03c3) = 4"
+  },
+  {
+    "kind": "theorem",
+    "name": "degree_four_exists_configuration",
+    "qname": "AKLT.Uniq.degree_four_exists_configuration",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 74,
+    "signature": "theorem degree_four_exists_configuration (d : (Site L N \u00d7 Fin 2) \u2192\u2080 \u2115)\n    (hd : \u2200 x, Finsupp.weight (siteWeight x) d = 4) :\n    \u2203 \u03c3 : Configuration L N, monomialDegree \u03c3 = d"
+  },
+  {
+    "kind": "theorem",
+    "name": "coeff_encode",
+    "qname": "AKLT.Uniq.coeff_encode",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 88,
+    "signature": "theorem coeff_encode (v : Hilbert L N) (\u03c3 : Configuration L N) :\n    (encode v).coeff (monomialDegree \u03c3) = basisScale \u03c3 * v \u03c3"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_physical",
+    "qname": "AKLT.Uniq.encode_physical",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 96,
+    "signature": "theorem encode_physical (v : Hilbert L N) : IsPhysical (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "decode_encode",
+    "qname": "AKLT.Uniq.decode_encode",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 102,
+    "signature": "theorem decode_encode (v : Hilbert L N) : decode (encode v) = v"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_injective",
+    "qname": "AKLT.Uniq.encode_injective",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 107,
+    "signature": "theorem encode_injective : Function.Injective (@encode L N)"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_decode",
+    "qname": "AKLT.Uniq.encode_decode",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 111,
+    "signature": "theorem encode_decode {p : SpinorPolynomial L N} (hp : IsPhysical p) :\n    encode (decode p) = p"
+  },
+  {
+    "kind": "def",
+    "name": "PolynomialCoordinatesStatement",
+    "qname": "AKLT.Uniq.PolynomialCoordinatesStatement",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 129,
+    "signature": "def PolynomialCoordinatesStatement : Prop",
+    "statement": "def PolynomialCoordinatesStatement : Prop :=\n  \u2200 L N : Size,\n    (\u2200 v : Hilbert L N, decode (encode v) = v) \u2227\n    (\u2200 p : SpinorPolynomial L N, IsPhysical p \u2192 encode (decode p) = p) \u2227\n    (\u2200 v : Hilbert L N, IsPhysical (encode v))"
+  },
+  {
+    "kind": "theorem",
+    "name": "polynomialCoordinates",
+    "qname": "AKLT.Uniq.polynomialCoordinates",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 135,
+    "signature": "theorem polynomialCoordinates : PolynomialCoordinatesStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "decode_vbs",
+    "qname": "AKLT.Uniq.decode_vbs",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 138,
+    "signature": "theorem decode_vbs (L N : Size) : decode (vbsPolynomial L N) = B L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "physical_homogeneous",
+    "qname": "AKLT.Uniq.physical_homogeneous",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 141,
+    "signature": "theorem physical_homogeneous {p : SpinorPolynomial L N} (hp : IsPhysical p) :\n    p.IsHomogeneous (4 * Fintype.card (Site L N))"
+  },
+  {
+    "kind": "theorem",
+    "name": "physical_totalDegree_le",
+    "qname": "AKLT.Uniq.physical_totalDegree_le",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 154,
+    "signature": "theorem physical_totalDegree_le {p : SpinorPolynomial L N} (hp : IsPhysical p) :\n    p.totalDegree \u2264 4 * Fintype.card (Site L N)"
+  },
+  {
+    "kind": "def",
+    "name": "ScalarQuotientStatement",
+    "qname": "AKLT.Uniq.ScalarQuotientStatement",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 160,
+    "signature": "def ScalarQuotientStatement : Prop",
+    "statement": "def ScalarQuotientStatement : Prop :=\n  \u2200 L N : Size, \u2200 p : SpinorPolynomial L N, IsPhysical p \u2192\n    (vbsPolynomial L N).totalDegree = 4 * Fintype.card (Site L N) \u2192\n    vbsPolynomial L N \u2260 0 \u2192\n    vbsPolynomial L N \u2223 p \u2192 \u2203 c : \u2102, p = c \u2022 vbsPolynomial L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "scalarQuotient",
+    "qname": "AKLT.Uniq.scalarQuotient",
+    "module": "Polynomial",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Polynomial.lean",
+    "line": 166,
+    "signature": "theorem scalarQuotient : ScalarQuotientStatement"
+  },
+  {
+    "kind": "def",
+    "name": "previousSite",
+    "qname": "AKLT.Uniq.previousSite",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 14,
+    "signature": "def previousSite (x : Site L N) (d : Direction) : Site L N"
+  },
+  {
+    "kind": "def",
+    "name": "nextSiteEquiv",
+    "qname": "AKLT.Uniq.nextSiteEquiv",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 17,
+    "signature": "def nextSiteEquiv (L N : Size) (d : Direction) : Site L N \u2243 Site L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "nextSite_eq_iff",
+    "qname": "AKLT.Uniq.nextSite_eq_iff",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 23,
+    "signature": "theorem nextSite_eq_iff (x y : Site L N) (d : Direction) :\n    nextSite x d = y \u2194 x = previousSite y d"
+  },
+  {
+    "kind": "def",
+    "name": "bondDegree",
+    "qname": "AKLT.Uniq.bondDegree",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 28,
+    "signature": "def bondDegree (e : Bond L N) (x : Site L N) : \u2115"
+  },
+  {
+    "kind": "theorem",
+    "name": "sum_bondDegree",
+    "qname": "AKLT.Uniq.sum_bondDegree",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 31,
+    "signature": "theorem sum_bondDegree (x : Site L N) : \u2211 e : Bond L N, bondDegree e x = 4"
+  },
+  {
+    "kind": "def",
+    "name": "TorusGeometryStatement",
+    "qname": "AKLT.Uniq.TorusGeometryStatement",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 41,
+    "signature": "def TorusGeometryStatement : Prop",
+    "statement": "def TorusGeometryStatement : Prop :=\n  \u2200 L N : Size, Function.Injective (@bondSites L N) \u2227\n    (\u2200 e : Bond L N, e.1 \u2260 nextSite e.1 e.2) \u2227\n    \u2200 x : Site L N, \u2211 e : Bond L N, bondDegree e x = 4"
+  },
+  {
+    "kind": "theorem",
+    "name": "torusGeometry",
+    "qname": "AKLT.Uniq.torusGeometry",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 46,
+    "signature": "theorem torusGeometry : TorusGeometryStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "singlet_siteDegrees",
+    "qname": "AKLT.Uniq.singlet_siteDegrees",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 50,
+    "signature": "theorem singlet_siteDegrees (e : Bond L N) : HasSiteDegrees (singlet e) (bondDegree e)"
+  },
+  {
+    "kind": "def",
+    "name": "VBSHomogeneousStatement",
+    "qname": "AKLT.Uniq.VBSHomogeneousStatement",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 59,
+    "signature": "def VBSHomogeneousStatement : Prop",
+    "statement": "def VBSHomogeneousStatement : Prop :=\n  \u2200 L N : Size, IsPhysical (vbsPolynomial L N)"
+  },
+  {
+    "kind": "theorem",
+    "name": "vbsHomogeneous",
+    "qname": "AKLT.Uniq.vbsHomogeneous",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 62,
+    "signature": "theorem vbsHomogeneous : VBSHomogeneousStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_B",
+    "qname": "AKLT.Uniq.encode_B",
+    "module": "Geometry",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Geometry.lean",
+    "line": 68,
+    "signature": "theorem encode_B (L N : Size) : encode (B L N) = vbsPolynomial L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "singlet_irreducible",
+    "qname": "AKLT.Uniq.singlet_irreducible",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 16,
+    "signature": "theorem singlet_irreducible (e : Bond L N) : Irreducible (singlet e)"
+  },
+  {
+    "kind": "def",
+    "name": "SingletPrimeStatement",
+    "qname": "AKLT.Uniq.SingletPrimeStatement",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 40,
+    "signature": "def SingletPrimeStatement : Prop",
+    "statement": "def SingletPrimeStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, Prime (singlet e)"
+  },
+  {
+    "kind": "theorem",
+    "name": "singletPrime",
+    "qname": "AKLT.Uniq.singletPrime",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 43,
+    "signature": "theorem singletPrime : SingletPrimeStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "vbsPolynomial_ne_zero",
+    "qname": "AKLT.Uniq.vbsPolynomial_ne_zero",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 46,
+    "signature": "theorem vbsPolynomial_ne_zero (L N : Size) : vbsPolynomial L N \u2260 0"
+  },
+  {
+    "kind": "def",
+    "name": "VBSDegreeStatement",
+    "qname": "AKLT.Uniq.VBSDegreeStatement",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 51,
+    "signature": "def VBSDegreeStatement : Prop",
+    "statement": "def VBSDegreeStatement : Prop :=\n  \u2200 L N : Size, vbsPolynomial L N \u2260 0 \u2227\n    (vbsPolynomial L N).totalDegree = 4 * Fintype.card (Site L N)"
+  },
+  {
+    "kind": "theorem",
+    "name": "vbsDegree",
+    "qname": "AKLT.Uniq.vbsDegree",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 55,
+    "signature": "theorem vbsDegree : VBSDegreeStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "B_ne_zero",
+    "qname": "AKLT.Uniq.B_ne_zero",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 60,
+    "signature": "theorem B_ne_zero (L N : Size) : B L N \u2260 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "bondDegree_pos_iff",
+    "qname": "AKLT.Uniq.bondDegree_pos_iff",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 65,
+    "signature": "theorem bondDegree_pos_iff (e : Bond L N) (x : Site L N) :\n    0 < bondDegree e x \u2194 x \u2208 bondSites e"
+  },
+  {
+    "kind": "def",
+    "name": "SingletNonassociateStatement",
+    "qname": "AKLT.Uniq.SingletNonassociateStatement",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 73,
+    "signature": "def SingletNonassociateStatement : Prop",
+    "statement": "def SingletNonassociateStatement : Prop :=\n  \u2200 L N : Size, \u2200 e f : Bond L N, e \u2260 f \u2192 \u00ac Associated (singlet e) (singlet f)"
+  },
+  {
+    "kind": "theorem",
+    "name": "singletNonassociate",
+    "qname": "AKLT.Uniq.singletNonassociate",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 76,
+    "signature": "theorem singletNonassociate : SingletNonassociateStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "singlet_pairwise_relPrime",
+    "qname": "AKLT.Uniq.singlet_pairwise_relPrime",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 91,
+    "signature": "theorem singlet_pairwise_relPrime (L N : Size) :\n    Pairwise (fun e f : Bond L N => IsRelPrime (singlet e) (singlet f))"
+  },
+  {
+    "kind": "def",
+    "name": "ProductDivisibilityStatement",
+    "qname": "AKLT.Uniq.ProductDivisibilityStatement",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 100,
+    "signature": "def ProductDivisibilityStatement : Prop",
+    "statement": "def ProductDivisibilityStatement : Prop :=\n  \u2200 L N : Size, \u2200 E : Finset (Bond L N), \u2200 p : SpinorPolynomial L N,\n    (\u2200 e \u2208 E, singlet e \u2223 p) \u2192 (\u220f e \u2208 E, singlet e) \u2223 p"
+  },
+  {
+    "kind": "theorem",
+    "name": "productDivisibility",
+    "qname": "AKLT.Uniq.productDivisibility",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 104,
+    "signature": "theorem productDivisibility : ProductDivisibilityStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "vbsPolynomial_dvd",
+    "qname": "AKLT.Uniq.vbsPolynomial_dvd",
+    "module": "BondAlgebra",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/BondAlgebra.lean",
+    "line": 109,
+    "signature": "theorem vbsPolynomial_dvd {p : SpinorPolynomial L N}\n    (h : \u2200 e : Bond L N, singlet e \u2223 p) : vbsPolynomial L N \u2223 p"
+  },
+  {
+    "kind": "theorem",
+    "name": "homogeneous_quotient",
+    "qname": "AKLT.Uniq.homogeneous_quotient",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 12,
+    "signature": "theorem homogeneous_quotient {S : Type*} (w : S \u2192 \u2115)\n    {p q : MvPolynomial S \u2102} {a b : \u2115} (hp0 : p \u2260 0)\n    (hp : p.IsWeightedHomogeneous w a)\n    (hpq : (p * q).IsWeightedHomogeneous w (a + b)) :\n    q.IsWeightedHomogeneous w b"
+  },
+  {
+    "kind": "def",
+    "name": "residualDegree",
+    "qname": "AKLT.Uniq.residualDegree",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 32,
+    "signature": "def residualDegree (E : Finset (Bond L N)) (x : Site L N) : \u2115"
+  },
+  {
+    "kind": "theorem",
+    "name": "subset_bondDegree_le_four",
+    "qname": "AKLT.Uniq.subset_bondDegree_le_four",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 35,
+    "signature": "theorem subset_bondDegree_le_four (E : Finset (Bond L N)) (x : Site L N) :\n    (\u2211 e \u2208 E, bondDegree e x) \u2264 4"
+  },
+  {
+    "kind": "theorem",
+    "name": "product_siteDegrees",
+    "qname": "AKLT.Uniq.product_siteDegrees",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 40,
+    "signature": "theorem product_siteDegrees (E : Finset (Bond L N)) :\n    HasSiteDegrees (\u220f e \u2208 E, singlet e) (fun x => \u2211 e \u2208 E, bondDegree e x)"
+  },
+  {
+    "kind": "theorem",
+    "name": "product_singlet_ne_zero",
+    "qname": "AKLT.Uniq.product_singlet_ne_zero",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 46,
+    "signature": "theorem product_singlet_ne_zero (E : Finset (Bond L N)) :\n    (\u220f e \u2208 E, singlet e) \u2260 0"
+  },
+  {
+    "kind": "def",
+    "name": "QuotientDegreesStatement",
+    "qname": "AKLT.Uniq.QuotientDegreesStatement",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 51,
+    "signature": "def QuotientDegreesStatement : Prop",
+    "statement": "def QuotientDegreesStatement : Prop :=\n  \u2200 L N : Size, \u2200 E : Finset (Bond L N), \u2200 q : SpinorPolynomial L N,\n    IsPhysical ((\u220f e \u2208 E, singlet e) * q) \u2192 HasSiteDegrees q (residualDegree E)"
+  },
+  {
+    "kind": "theorem",
+    "name": "quotientDegrees",
+    "qname": "AKLT.Uniq.quotientDegrees",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 55,
+    "signature": "theorem quotientDegrees : QuotientDegreesStatement"
+  },
+  {
+    "kind": "def",
+    "name": "PolynomialDivisibilityStatement",
+    "qname": "AKLT.Uniq.PolynomialDivisibilityStatement",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 63,
+    "signature": "def PolynomialDivisibilityStatement : Prop",
+    "statement": "def PolynomialDivisibilityStatement : Prop :=\n  \u2200 L N : Size, \u2200 E : Finset (Bond L N), \u2200 p : SpinorPolynomial L N,\n    IsPhysical p \u2192 (\u2200 e \u2208 E, singlet e \u2223 p) \u2192\n    \u2203 q : SpinorPolynomial L N,\n      p = (\u220f e \u2208 E, singlet e) * q \u2227 HasSiteDegrees q (residualDegree E)"
+  },
+  {
+    "kind": "theorem",
+    "name": "polynomialDivisibility",
+    "qname": "AKLT.Uniq.polynomialDivisibility",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 69,
+    "signature": "theorem polynomialDivisibility : PolynomialDivisibilityStatement"
+  },
+  {
+    "kind": "def",
+    "name": "incidentBonds",
+    "qname": "AKLT.Uniq.incidentBonds",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 75,
+    "signature": "def incidentBonds (R : Finset (Site L N)) : Finset (Bond L N)"
+  },
+  {
+    "kind": "def",
+    "name": "IndependentOn",
+    "qname": "AKLT.Uniq.IndependentOn",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 80,
+    "signature": "def IndependentOn (R : Finset (Site L N)) (p : SpinorPolynomial L N) : Prop"
+  },
+  {
+    "kind": "theorem",
+    "name": "incident_degree",
+    "qname": "AKLT.Uniq.incident_degree",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 83,
+    "signature": "theorem incident_degree (R : Finset (Site L N)) {x : Site L N} (hx : x \u2208 R) :\n    (\u2211 e \u2208 incidentBonds R, bondDegree e x) = 4"
+  },
+  {
+    "kind": "theorem",
+    "name": "independentOn_of_degrees",
+    "qname": "AKLT.Uniq.independentOn_of_degrees",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 95,
+    "signature": "theorem independentOn_of_degrees {R : Finset (Site L N)} {q : SpinorPolynomial L N}\n    (hq : HasSiteDegrees q (residualDegree (incidentBonds R))) : IndependentOn R q"
+  },
+  {
+    "kind": "def",
+    "name": "PolynomialLocalDivisibilityStatement",
+    "qname": "AKLT.Uniq.PolynomialLocalDivisibilityStatement",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 109,
+    "signature": "def PolynomialLocalDivisibilityStatement : Prop",
+    "statement": "def PolynomialLocalDivisibilityStatement : Prop :=\n  \u2200 L N : Size, \u2200 R : Finset (Site L N), \u2200 p : SpinorPolynomial L N,\n    IsPhysical p \u2192 (\u2200 e \u2208 incidentBonds R, singlet e \u2223 p) \u2192\n    \u2203 q : SpinorPolynomial L N,\n      p = (\u220f e \u2208 incidentBonds R, singlet e) * q \u2227 IndependentOn R q"
+  },
+  {
+    "kind": "theorem",
+    "name": "polynomialLocalDivisibility",
+    "qname": "AKLT.Uniq.polynomialLocalDivisibility",
+    "module": "Divisibility",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Divisibility.lean",
+    "line": 115,
+    "signature": "theorem polynomialLocalDivisibility : PolynomialLocalDivisibilityStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "h_energy",
+    "qname": "AKLT.Uniq.h_energy",
+    "module": "Hamiltonian",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Hamiltonian.lean",
+    "line": 11,
+    "signature": "theorem h_energy (L N : Size) (v : Hilbert L N) :\n    (inner \u2102 (H L N v) v).re = \u2211 e : Bond L N, \u2016P e v\u2016 ^ 2"
+  },
+  {
+    "kind": "def",
+    "name": "HamiltonianKernelStatement",
+    "qname": "AKLT.Uniq.HamiltonianKernelStatement",
+    "module": "Hamiltonian",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Hamiltonian.lean",
+    "line": 22,
+    "signature": "def HamiltonianKernelStatement : Prop",
+    "statement": "def HamiltonianKernelStatement : Prop :=\n  \u2200 L N : Size, \u2200 v : Hilbert L N, H L N v = 0 \u2194 \u2200 e : Bond L N, P e v = 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "hamiltonianKernel",
+    "qname": "AKLT.Uniq.hamiltonianKernel",
+    "module": "Hamiltonian",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Hamiltonian.lean",
+    "line": 25,
+    "signature": "theorem hamiltonianKernel : HamiltonianKernelStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "atSite_adjoint",
+    "qname": "AKLT.Uniq.atSite_adjoint",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 16,
+    "signature": "theorem atSite_adjoint (A : Matrix (Fin 5) (Fin 5) \u2102) (x : Site L N) :\n    (atSite A x).adjoint = atSite A.conjTranspose x"
+  },
+  {
+    "kind": "theorem",
+    "name": "onBond_adjoint",
+    "qname": "AKLT.Uniq.onBond_adjoint",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 36,
+    "signature": "theorem onBond_adjoint (A : Matrix (Fin 5) (Fin 5) \u2102) (e : Bond L N) :\n    (onBond A e).adjoint = onBond A.conjTranspose e"
+  },
+  {
+    "kind": "theorem",
+    "name": "spinZ_hermitian",
+    "qname": "AKLT.Uniq.spinZ_hermitian",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 40,
+    "signature": "theorem spinZ_hermitian : spinZ.IsHermitian"
+  },
+  {
+    "kind": "theorem",
+    "name": "onBond_Z_symmetric",
+    "qname": "AKLT.Uniq.onBond_Z_symmetric",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 48,
+    "signature": "theorem onBond_Z_symmetric (e : Bond L N) : (onBond spinZ e).IsSymmetric"
+  },
+  {
+    "kind": "def",
+    "name": "CasimirSymmetricStatement",
+    "qname": "AKLT.Uniq.CasimirSymmetricStatement",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 53,
+    "signature": "def CasimirSymmetricStatement : Prop",
+    "statement": "def CasimirSymmetricStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, (bondCasimir e).IsSymmetric"
+  },
+  {
+    "kind": "theorem",
+    "name": "casimirSymmetric",
+    "qname": "AKLT.Uniq.casimirSymmetric",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 56,
+    "signature": "theorem casimirSymmetric : CasimirSymmetricStatement"
+  },
+  {
+    "kind": "def",
+    "name": "casimirDefect",
+    "qname": "AKLT.Uniq.casimirDefect",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 73,
+    "signature": "def casimirDefect (e : Bond L N) : Module.End \u2102 (Hilbert L N)"
+  },
+  {
+    "kind": "theorem",
+    "name": "casimirDefect_symmetric",
+    "qname": "AKLT.Uniq.casimirDefect_symmetric",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 76,
+    "signature": "theorem casimirDefect_symmetric (e : Bond L N) : (casimirDefect e).IsSymmetric"
+  },
+  {
+    "kind": "theorem",
+    "name": "ker_casimirDefect",
+    "qname": "AKLT.Uniq.ker_casimirDefect",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 80,
+    "signature": "theorem ker_casimirDefect (e : Bond L N) :\n    LinearMap.ker (casimirDefect e) = spin4Space e"
+  },
+  {
+    "kind": "def",
+    "name": "ProjectionRangeStatement",
+    "qname": "AKLT.Uniq.ProjectionRangeStatement",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 88,
+    "signature": "def ProjectionRangeStatement : Prop",
+    "statement": "def ProjectionRangeStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N,\n    LinearMap.ker (P e) = LinearMap.range (casimirDefect e)"
+  },
+  {
+    "kind": "theorem",
+    "name": "projectionRange",
+    "qname": "AKLT.Uniq.projectionRange",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 92,
+    "signature": "theorem projectionRange : ProjectionRangeStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "projection_eq_zero_iff_range",
+    "qname": "AKLT.Uniq.projection_eq_zero_iff_range",
+    "module": "Casimir",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Casimir.lean",
+    "line": 97,
+    "signature": "theorem projection_eq_zero_iff_range (e : Bond L N) (v : Hilbert L N) :\n    P e v = 0 \u2194 \u2203 w : Hilbert L N, casimirDefect e w = v"
+  },
+  {
+    "kind": "def",
+    "name": "transvectant",
+    "qname": "AKLT.Uniq.transvectant",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 14,
+    "signature": "def transvectant (e : Bond L N) (p : SpinorPolynomial L N) : SpinorPolynomial L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_add",
+    "qname": "AKLT.Uniq.transvectant_add",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 18,
+    "signature": "theorem transvectant_add (e : Bond L N) (p q : SpinorPolynomial L N) :\n    transvectant e (p + q) = transvectant e p + transvectant e q"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_sub",
+    "qname": "AKLT.Uniq.transvectant_sub",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 23,
+    "signature": "theorem transvectant_sub (e : Bond L N) (p q : SpinorPolynomial L N) :\n    transvectant e (p - q) = transvectant e p - transvectant e q"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_smul",
+    "qname": "AKLT.Uniq.transvectant_smul",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 28,
+    "signature": "theorem transvectant_smul (e : Bond L N) (c : \u2102) (p : SpinorPolynomial L N) :\n    transvectant e (c \u2022 p) = c \u2022 transvectant e p"
+  },
+  {
+    "kind": "theorem",
+    "name": "siteEuler",
+    "qname": "AKLT.Uniq.siteEuler",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 32,
+    "signature": "theorem siteEuler {p : SpinorPolynomial L N} {x : Site L N} {n : \u2115}\n    (hp : p.IsWeightedHomogeneous (siteWeight x) n) :\n    MvPolynomial.X (x, 0) * MvPolynomial.pderiv (x, 0) p +\n      MvPolynomial.X (x, 1) * MvPolynomial.pderiv (x, 1) p = n \u2022 p"
+  },
+  {
+    "kind": "theorem",
+    "name": "pderiv_zero_of_site_degree_zero",
+    "qname": "AKLT.Uniq.pderiv_zero_of_site_degree_zero",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 40,
+    "signature": "theorem pderiv_zero_of_site_degree_zero {p : SpinorPolynomial L N} {x : Site L N}\n    (hp : p.IsWeightedHomogeneous (siteWeight x) 0) (k : Fin 2) :\n    MvPolynomial.pderiv (x, k) p = 0"
+  },
+  {
+    "kind": "def",
+    "name": "edgeResidual",
+    "qname": "AKLT.Uniq.edgeResidual",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 56,
+    "signature": "def edgeResidual (e : Bond L N) (k : \u2115) (x : Site L N) : \u2115"
+  },
+  {
+    "kind": "theorem",
+    "name": "bondDegree_le_one",
+    "qname": "AKLT.Uniq.bondDegree_le_one",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 59,
+    "signature": "theorem bondDegree_le_one (e : Bond L N) (x : Site L N) : bondDegree e x \u2264 1"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeResidual_deriv_arithmetic",
+    "qname": "AKLT.Uniq.edgeResidual_deriv_arithmetic",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 64,
+    "signature": "theorem edgeResidual_deriv_arithmetic (e : Bond L N) {k : \u2115} (hk : k < 4) (x : Site L N) :\n    (edgeResidual e k x - siteWeight x (nextSite e.1 e.2, 1)) +\n        siteWeight x (nextSite e.1 e.2, 1) = edgeResidual e k x \u2227\n    edgeResidual e (k + 1) x + siteWeight x (e.1, 0) =\n        edgeResidual e k x - siteWeight x (nextSite e.1 e.2, 1)"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_degrees",
+    "qname": "AKLT.Uniq.transvectant_degrees",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 73,
+    "signature": "theorem transvectant_degrees (e : Bond L N) {k : \u2115} {p : SpinorPolynomial L N}\n    (hk : k < 4) (hp : HasSiteDegrees p (edgeResidual e k)) :\n    HasSiteDegrees (transvectant e p) (edgeResidual e (k + 1))"
+  },
+  {
+    "kind": "theorem",
+    "name": "singlet_pow_mul_physical",
+    "qname": "AKLT.Uniq.singlet_pow_mul_physical",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 83,
+    "signature": "theorem singlet_pow_mul_physical (e : Bond L N) {k : \u2115} (hk : k \u2264 4)\n    {p : SpinorPolynomial L N} (hp : HasSiteDegrees p (edgeResidual e k)) :\n    IsPhysical (singlet e ^ k * p)"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeResidual_endpoint",
+    "qname": "AKLT.Uniq.edgeResidual_endpoint",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 94,
+    "signature": "theorem edgeResidual_endpoint (e : Bond L N) (k : \u2115) :\n    edgeResidual e k e.1 = 4 - k \u2227\n      edgeResidual e k (nextSite e.1 e.2) = 4 - k"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_degree_four_zero",
+    "qname": "AKLT.Uniq.transvectant_degree_four_zero",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 100,
+    "signature": "theorem transvectant_degree_four_zero (e : Bond L N) {p : SpinorPolynomial L N}\n    (hp : HasSiteDegrees p (edgeResidual e 4)) : transvectant e p = 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "singlet_endpoint_degrees",
+    "qname": "AKLT.Uniq.singlet_endpoint_degrees",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 106,
+    "signature": "theorem singlet_endpoint_degrees (e : Bond L N) :\n    (singlet e).IsWeightedHomogeneous (siteWeight e.1) 1 \u2227\n    (singlet e).IsWeightedHomogeneous (siteWeight (nextSite e.1 e.2)) 1"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_singlet_mul",
+    "qname": "AKLT.Uniq.transvectant_singlet_mul",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 115,
+    "signature": "theorem transvectant_singlet_mul (e : Bond L N) {p : SpinorPolynomial L N} {n : \u2115}\n    (hx : p.IsWeightedHomogeneous (siteWeight e.1) n)\n    (hy : p.IsWeightedHomogeneous (siteWeight (nextSite e.1 e.2)) n) :\n    transvectant e (singlet e * p) = (2 * n + 2) \u2022 p + singlet e * transvectant e p"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_singlet_pow_mul",
+    "qname": "AKLT.Uniq.transvectant_singlet_pow_mul",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 128,
+    "signature": "theorem transvectant_singlet_pow_mul (e : Bond L N) {p : SpinorPolynomial L N} {n : \u2115}\n    (hx : p.IsWeightedHomogeneous (siteWeight e.1) n)\n    (hy : p.IsWeightedHomogeneous (siteWeight (nextSite e.1 e.2)) n) (k : \u2115) :\n    transvectant e (singlet e ^ (k + 1) * p) =\n      ((k + 1) * (2 * n + k + 2)) \u2022 (singlet e ^ k * p) +\n        singlet e ^ (k + 1) * transvectant e p"
+  },
+  {
+    "kind": "def",
+    "name": "transvectantRightInverse",
+    "qname": "AKLT.Uniq.transvectantRightInverse",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 158,
+    "signature": "def transvectantRightInverse (e : Bond L N) (p : SpinorPolynomial L N) :\n    SpinorPolynomial L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectantRightInverse_physical",
+    "qname": "AKLT.Uniq.transvectantRightInverse_physical",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 166,
+    "signature": "theorem transvectantRightInverse_physical (e : Bond L N) {p : SpinorPolynomial L N}\n    (hp : HasSiteDegrees p (edgeResidual e 1)) :\n    IsPhysical (transvectantRightInverse e p)"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectant_rightInverse",
+    "qname": "AKLT.Uniq.transvectant_rightInverse",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 185,
+    "signature": "theorem transvectant_rightInverse (e : Bond L N) {p : SpinorPolynomial L N}\n    (hp : HasSiteDegrees p (edgeResidual e 1)) :\n    transvectant e (transvectantRightInverse e p) = p"
+  },
+  {
+    "kind": "def",
+    "name": "TransvectantSurjectiveStatement",
+    "qname": "AKLT.Uniq.TransvectantSurjectiveStatement",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 222,
+    "signature": "def TransvectantSurjectiveStatement : Prop",
+    "statement": "def TransvectantSurjectiveStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, \u2200 q : SpinorPolynomial L N,\n    IsPhysical (singlet e * q) \u2192\n    \u2203 v : Hilbert L N, transvectant e (encode v) = q"
+  },
+  {
+    "kind": "theorem",
+    "name": "transvectantSurjective",
+    "qname": "AKLT.Uniq.transvectantSurjective",
+    "module": "Transvectant",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Transvectant.lean",
+    "line": 227,
+    "signature": "theorem transvectantSurjective : TransvectantSurjectiveStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "atSite_apply",
+    "qname": "AKLT.Uniq.atSite_apply",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 13,
+    "signature": "theorem atSite_apply (A : Matrix (Fin 5) (Fin 5) \u2102) (x : Site L N)\n    (v : Hilbert L N) (\u03c3 : Configuration L N) :\n    atSite A x v \u03c3 = \u2211 k : Fin 5, A (\u03c3 x) k * v (Function.update \u03c3 x k)"
+  },
+  {
+    "kind": "def",
+    "name": "singleScale",
+    "qname": "AKLT.Uniq.singleScale",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 38,
+    "signature": "def singleScale (k : Fin 5) : \u2102"
+  },
+  {
+    "kind": "theorem",
+    "name": "plus_normalization",
+    "qname": "AKLT.Uniq.plus_normalization",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 40,
+    "signature": "theorem plus_normalization (i j : Fin 5) :\n    singleScale i * spinPlus i j =\n      if i.val + 1 = j.val then (j.val : \u2102) * singleScale j else 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "minus_normalization",
+    "qname": "AKLT.Uniq.minus_normalization",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 46,
+    "signature": "theorem minus_normalization (i j : Fin 5) :\n    singleScale i * spinMinus i j =\n      if j.val + 1 = i.val then (4 - j.val : \u2102) * singleScale j else 0"
+  },
+  {
+    "kind": "def",
+    "name": "spectatorScale",
+    "qname": "AKLT.Uniq.spectatorScale",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 53,
+    "signature": "def spectatorScale (\u03c3 : Configuration L N) (x : Site L N) : \u2102"
+  },
+  {
+    "kind": "theorem",
+    "name": "basisScale_factor",
+    "qname": "AKLT.Uniq.basisScale_factor",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 56,
+    "signature": "theorem basisScale_factor (\u03c3 : Configuration L N) (x : Site L N) :\n    basisScale \u03c3 = singleScale (\u03c3 x) * spectatorScale \u03c3 x"
+  },
+  {
+    "kind": "theorem",
+    "name": "basisScale_update",
+    "qname": "AKLT.Uniq.basisScale_update",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 62,
+    "signature": "theorem basisScale_update (\u03c3 : Configuration L N) (x : Site L N) (k : Fin 5) :\n    basisScale (Function.update \u03c3 x k) = singleScale k * spectatorScale \u03c3 x"
+  },
+  {
+    "kind": "theorem",
+    "name": "scaled_spinPlus",
+    "qname": "AKLT.Uniq.scaled_spinPlus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 71,
+    "signature": "theorem scaled_spinPlus (\u03c3 : Configuration L N) (x : Site L N) (k : Fin 5) :\n    basisScale \u03c3 * spinPlus (\u03c3 x) k =\n      if (\u03c3 x).val + 1 = k.val then (k.val : \u2102) * basisScale (Function.update \u03c3 x k)\n      else 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "scaled_spinMinus",
+    "qname": "AKLT.Uniq.scaled_spinMinus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 78,
+    "signature": "theorem scaled_spinMinus (\u03c3 : Configuration L N) (x : Site L N) (k : Fin 5) :\n    basisScale \u03c3 * spinMinus (\u03c3 x) k =\n      if k.val + 1 = (\u03c3 x).val then (4 - k.val : \u2102) * basisScale (Function.update \u03c3 x k)\n      else 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "physical_ext",
+    "qname": "AKLT.Uniq.physical_ext",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 85,
+    "signature": "theorem physical_ext {p q : SpinorPolynomial L N} (hp : IsPhysical p) (hq : IsPhysical q)\n    (h : \u2200 \u03c3 : Configuration L N, p.coeff (monomialDegree \u03c3) = q.coeff (monomialDegree \u03c3)) :\n    p = q"
+  },
+  {
+    "kind": "theorem",
+    "name": "X_pderiv_physical",
+    "qname": "AKLT.Uniq.X_pderiv_physical",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 94,
+    "signature": "theorem X_pderiv_physical {p : SpinorPolynomial L N} (hp : IsPhysical p)\n    (x : Site L N) (a b : Fin 2) :\n    IsPhysical (MvPolynomial.X (x, a) * MvPolynomial.pderiv (x, b) p)"
+  },
+  {
+    "kind": "theorem",
+    "name": "coeff_X_pderiv_self",
+    "qname": "AKLT.Uniq.coeff_X_pderiv_self",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 106,
+    "signature": "theorem coeff_X_pderiv_self (p : SpinorPolynomial L N)\n    (d : (Site L N \u00d7 Fin 2) \u2192\u2080 \u2115) (i : Site L N \u00d7 Fin 2) :\n    (MvPolynomial.X i * MvPolynomial.pderiv i p).coeff d = (d i : \u2102) * p.coeff d"
+  },
+  {
+    "kind": "theorem",
+    "name": "monomialDegree_step_up",
+    "qname": "AKLT.Uniq.monomialDegree_step_up",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 132,
+    "signature": "theorem monomialDegree_step_up (\u03c3 : Configuration L N) (x : Site L N)\n    (hk : (\u03c3 x).val < 4) :\n    (monomialDegree \u03c3 - Finsupp.single (x, 0) 1) + Finsupp.single (x, 1) 1 =\n      monomialDegree (Function.update \u03c3 x \u27e8(\u03c3 x).val + 1, by omega\u27e9)"
+  },
+  {
+    "kind": "theorem",
+    "name": "monomialDegree_step_down",
+    "qname": "AKLT.Uniq.monomialDegree_step_down",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 147,
+    "signature": "theorem monomialDegree_step_down (\u03c3 : Configuration L N) (x : Site L N)\n    (hk : 0 < (\u03c3 x).val) :\n    (monomialDegree \u03c3 - Finsupp.single (x, 1) 1) + Finsupp.single (x, 0) 1 =\n      monomialDegree (Function.update \u03c3 x \u27e8(\u03c3 x).val - 1, by have := (\u03c3 x).isLt; omega\u27e9)"
+  },
+  {
+    "kind": "theorem",
+    "name": "coeff_encode_spinPlus",
+    "qname": "AKLT.Uniq.coeff_encode_spinPlus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 163,
+    "signature": "theorem coeff_encode_spinPlus (x : Site L N) (v : Hilbert L N) (\u03c3 : Configuration L N) :\n    (encode (atSite spinPlus x v)).coeff (monomialDegree \u03c3) =\n      \u2211 k : Fin 5, if (\u03c3 x).val + 1 = k.val then\n        (k.val : \u2102) * (encode v).coeff (monomialDegree (Function.update \u03c3 x k)) else 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "coeff_encode_spinMinus",
+    "qname": "AKLT.Uniq.coeff_encode_spinMinus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 174,
+    "signature": "theorem coeff_encode_spinMinus (x : Site L N) (v : Hilbert L N) (\u03c3 : Configuration L N) :\n    (encode (atSite spinMinus x v)).coeff (monomialDegree \u03c3) =\n      \u2211 k : Fin 5, if k.val + 1 = (\u03c3 x).val then\n        (4 - k.val : \u2102) * (encode v).coeff (monomialDegree (Function.update \u03c3 x k)) else 0"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_spinZ",
+    "qname": "AKLT.Uniq.encode_spinZ",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 185,
+    "signature": "theorem encode_spinZ (x : Site L N) (v : Hilbert L N) :\n    encode (atSite spinZ x v) = (2 : \u2102) \u2022 encode v -\n      MvPolynomial.X (x, 1) * MvPolynomial.pderiv (x, 1) (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_spinPlus",
+    "qname": "AKLT.Uniq.encode_spinPlus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 203,
+    "signature": "theorem encode_spinPlus (x : Site L N) (v : Hilbert L N) :\n    encode (atSite spinPlus x v) =\n      MvPolynomial.X (x, 0) * MvPolynomial.pderiv (x, 1) (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_spinMinus",
+    "qname": "AKLT.Uniq.encode_spinMinus",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 242,
+    "signature": "theorem encode_spinMinus (x : Site L N) (v : Hilbert L N) :\n    encode (atSite spinMinus x v) =\n      MvPolynomial.X (x, 1) * MvPolynomial.pderiv (x, 0) (encode v)"
+  },
+  {
+    "kind": "def",
+    "name": "SingleSiteActionStatement",
+    "qname": "AKLT.Uniq.SingleSiteActionStatement",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 290,
+    "signature": "def SingleSiteActionStatement : Prop",
+    "statement": "def SingleSiteActionStatement : Prop :=\n  \u2200 L N : Size, \u2200 x : Site L N, \u2200 v : Hilbert L N,\n    encode (atSite spinZ x v) = (2 : \u2102) \u2022 encode v -\n      MvPolynomial.X (x, 1) * MvPolynomial.pderiv (x, 1) (encode v) \u2227\n    encode (atSite spinPlus x v) =\n      MvPolynomial.X (x, 0) * MvPolynomial.pderiv (x, 1) (encode v) \u2227\n    encode (atSite spinMinus x v) =\n      MvPolynomial.X (x, 1) * MvPolynomial.pderiv (x, 0) (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "singleSiteAction",
+    "qname": "AKLT.Uniq.singleSiteAction",
+    "module": "SpinCoordinates",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/SpinCoordinates.lean",
+    "line": 299,
+    "signature": "theorem singleSiteAction : SingleSiteActionStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "pderiv_commute",
+    "qname": "AKLT.Uniq.pderiv_commute",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 13,
+    "signature": "theorem pderiv_commute (p : SpinorPolynomial L N) (i j : Site L N \u00d7 Fin 2) :\n    MvPolynomial.pderiv i (MvPolynomial.pderiv j p) =\n      MvPolynomial.pderiv j (MvPolynomial.pderiv i p)"
+  },
+  {
+    "kind": "def",
+    "name": "polyZ",
+    "qname": "AKLT.Uniq.polyZ",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 27,
+    "signature": "def polyZ (e : Bond L N) (p : SpinorPolynomial L N) : SpinorPolynomial L N"
+  },
+  {
+    "kind": "def",
+    "name": "polyPlus",
+    "qname": "AKLT.Uniq.polyPlus",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 32,
+    "signature": "def polyPlus (e : Bond L N) (p : SpinorPolynomial L N) : SpinorPolynomial L N"
+  },
+  {
+    "kind": "def",
+    "name": "polyMinus",
+    "qname": "AKLT.Uniq.polyMinus",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 36,
+    "signature": "def polyMinus (e : Bond L N) (p : SpinorPolynomial L N) : SpinorPolynomial L N"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_onBond_Z",
+    "qname": "AKLT.Uniq.encode_onBond_Z",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 40,
+    "signature": "theorem encode_onBond_Z (e : Bond L N) (v : Hilbert L N) :\n    encode (onBond spinZ e v) = polyZ e (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_onBond_plus",
+    "qname": "AKLT.Uniq.encode_onBond_plus",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 44,
+    "signature": "theorem encode_onBond_plus (e : Bond L N) (v : Hilbert L N) :\n    encode (onBond spinPlus e v) = polyPlus e (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "encode_onBond_minus",
+    "qname": "AKLT.Uniq.encode_onBond_minus",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 48,
+    "signature": "theorem encode_onBond_minus (e : Bond L N) (v : Hilbert L N) :\n    encode (onBond spinMinus e v) = polyMinus e (encode v)"
+  },
+  {
+    "kind": "def",
+    "name": "PolynomialCasimirStatement",
+    "qname": "AKLT.Uniq.PolynomialCasimirStatement",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 53,
+    "signature": "def PolynomialCasimirStatement : Prop",
+    "statement": "def PolynomialCasimirStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, \u2200 p : SpinorPolynomial L N, IsPhysical p \u2192\n    (20 : \u2102) \u2022 p - (polyZ e (polyZ e p) + (1 / 2 : \u2102) \u2022\n      (polyPlus e (polyMinus e p) + polyMinus e (polyPlus e p))) =\n        singlet e * transvectant e p"
+  },
+  {
+    "kind": "theorem",
+    "name": "polynomialCasimir",
+    "qname": "AKLT.Uniq.polynomialCasimir",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 59,
+    "signature": "theorem polynomialCasimir : PolynomialCasimirStatement"
+  },
+  {
+    "kind": "def",
+    "name": "CasimirActionStatement",
+    "qname": "AKLT.Uniq.CasimirActionStatement",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 90,
+    "signature": "def CasimirActionStatement : Prop",
+    "statement": "def CasimirActionStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, \u2200 v : Hilbert L N,\n    encode (casimirDefect e v) = singlet e * transvectant e (encode v)"
+  },
+  {
+    "kind": "theorem",
+    "name": "casimirAction",
+    "qname": "AKLT.Uniq.casimirAction",
+    "module": "CasimirAction",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/CasimirAction.lean",
+    "line": 94,
+    "signature": "theorem casimirAction : CasimirActionStatement"
+  },
+  {
+    "kind": "def",
+    "name": "EdgeKernelStatement",
+    "qname": "AKLT.Uniq.EdgeKernelStatement",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 16,
+    "signature": "def EdgeKernelStatement : Prop",
+    "statement": "def EdgeKernelStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, \u2200 v : Hilbert L N,\n    P e v = 0 \u2194 singlet e \u2223 encode v"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeKernel_of_nodes",
+    "qname": "AKLT.Uniq.edgeKernel_of_nodes",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 21,
+    "signature": "theorem edgeKernel_of_nodes (action : CasimirActionStatement)\n    (onto : TransvectantSurjectiveStatement) : EdgeKernelStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeKernel_of_action",
+    "qname": "AKLT.Uniq.edgeKernel_of_action",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 35,
+    "signature": "theorem edgeKernel_of_action (action : CasimirActionStatement) : EdgeKernelStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeKernel",
+    "qname": "AKLT.Uniq.edgeKernel",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 38,
+    "signature": "theorem edgeKernel : EdgeKernelStatement"
+  },
+  {
+    "kind": "def",
+    "name": "EdgeFactorizationStatement",
+    "qname": "AKLT.Uniq.EdgeFactorizationStatement",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 41,
+    "signature": "def EdgeFactorizationStatement : Prop",
+    "statement": "def EdgeFactorizationStatement : Prop :=\n  \u2200 L N : Size, \u2200 e : Bond L N, \u2200 v : Hilbert L N,\n    P e v = 0 \u2194 \u2203 q : SpinorPolynomial L N,\n      encode v = singlet e * q \u2227 HasSiteDegrees q (edgeResidual e 1)"
+  },
+  {
+    "kind": "theorem",
+    "name": "edgeFactorization",
+    "qname": "AKLT.Uniq.edgeFactorization",
+    "module": "Edge",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Edge.lean",
+    "line": 46,
+    "signature": "theorem edgeFactorization : EdgeFactorizationStatement"
+  },
+  {
+    "kind": "def",
+    "name": "UniquenessStatement",
+    "qname": "AKLT.Uniq.UniquenessStatement",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 17,
+    "signature": "def UniquenessStatement : Prop",
+    "statement": "def UniquenessStatement : Prop :=\n  \u2200 L N : Size, B L N \u2260 0 \u2227\n    LinearMap.ker (H L N) = Submodule.span \u2102 {B L N}"
+  },
+  {
+    "kind": "theorem",
+    "name": "uniqueness_of_edge",
+    "qname": "AKLT.Uniq.uniqueness_of_edge",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 22,
+    "signature": "theorem uniqueness_of_edge (edge : EdgeKernelStatement) :\n    \u2200 L N : AKLT.Challenge.Size, AKLT.Challenge.B L N \u2260 0 \u2227\n      LinearMap.ker (AKLT.Challenge.H L N) =\n        Submodule.span \u2102 {AKLT.Challenge.B L N}"
+  },
+  {
+    "kind": "def",
+    "name": "LocalDivisibilityStatement",
+    "qname": "AKLT.Uniq.LocalDivisibilityStatement",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 52,
+    "signature": "def LocalDivisibilityStatement : Prop",
+    "statement": "def LocalDivisibilityStatement : Prop :=\n  \u2200 L N : Size, \u2200 R : Finset (Site L N), \u2200 v : Hilbert L N,\n    (\u2200 e \u2208 incidentBonds R, P e v = 0) \u2192\n    \u2203 q : SpinorPolynomial L N,\n      encode v = (\u220f e \u2208 incidentBonds R, singlet e) * q \u2227 IndependentOn R q"
+  },
+  {
+    "kind": "theorem",
+    "name": "localDivisibility_of_edge",
+    "qname": "AKLT.Uniq.localDivisibility_of_edge",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 58,
+    "signature": "theorem localDivisibility_of_edge (edge : EdgeKernelStatement) :\n    LocalDivisibilityStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "uniqueness_of_polynomial_nodes",
+    "qname": "AKLT.Uniq.uniqueness_of_polynomial_nodes",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 65,
+    "signature": "theorem uniqueness_of_polynomial_nodes (action : CasimirActionStatement)\n    (onto : TransvectantSurjectiveStatement) : UniquenessStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "uniqueness_of_nodes",
+    "qname": "AKLT.Uniq.uniqueness_of_nodes",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 70,
+    "signature": "theorem uniqueness_of_nodes (action : CasimirActionStatement) :\n    \u2200 L N : AKLT.Challenge.Size, AKLT.Challenge.B L N \u2260 0 \u2227\n      LinearMap.ker (AKLT.Challenge.H L N) =\n        Submodule.span \u2102 {AKLT.Challenge.B L N}"
+  },
+  {
+    "kind": "theorem",
+    "name": "localDivisibility",
+    "qname": "AKLT.Uniq.localDivisibility",
+    "module": "Blueprint",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Blueprint.lean",
+    "line": 76,
+    "signature": "theorem localDivisibility : LocalDivisibilityStatement"
+  },
+  {
+    "kind": "theorem",
+    "name": "uniqueness",
+    "qname": "AKLT.Uniq.uniqueness",
+    "module": "Main",
+    "path": "/home/ubuntu/aklt/wt/ARCH_UNIQ/AKLT/Uniq/Main.lean",
+    "line": 14,
+    "signature": "theorem uniqueness : \u2200 L N : AKLT.Challenge.Size, AKLT.Challenge.B L N \u2260 0 \u2227\n    LinearMap.ker (AKLT.Challenge.H L N) = Submodule.span \u2102 {AKLT.Challenge.B L N}"
+  }
+]

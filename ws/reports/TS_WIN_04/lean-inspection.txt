@@ -1,0 +1,308 @@
+def AKLT.Blueprint.Win.CrossFactsStatement : Prop :=
+∀ (x : AKLT.Defs.Plane),
+  And
+    (@Eq.{1} Nat (@Finset.card.{0} AKLT.Defs.Plane (AKLT.Blueprint.Win.cross x))
+      (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+    (And
+      (∀ (z : AKLT.Defs.Plane),
+        Iff
+          (@Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+            (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+              (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+            (AKLT.Blueprint.Win.cross x) z)
+          (@LE.le.{0} Nat instLENat (AKLT.Defs.latticeDist z x)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Defs.Adjacent
+        (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+          (AKLT.Blueprint.Win.cross x))))
+def AKLT.Blueprint.Win.CrossOverlapStatement : Prop :=
+∀ (x y : AKLT.Defs.Plane),
+  AKLT.Blueprint.Win.StarAdjacent x y →
+    @Finset.Nonempty.{0} AKLT.Defs.Plane
+      (@Inter.inter.{0} (Finset.{0} AKLT.Defs.Plane)
+        (@Finset.instInter.{0} AKLT.Defs.Plane fun a b =>
+          @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+        (AKLT.Blueprint.Win.cross x) (AKLT.Blueprint.Win.cross y))
+def AKLT.Blueprint.Win.CrossUnionStatement : Prop :=
+∀ (X₀ : Finset.{0} AKLT.Defs.Plane),
+  @AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Blueprint.Win.StarAdjacent
+      (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane) X₀) →
+    (∀ (x : AKLT.Defs.Plane),
+        @AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Defs.Adjacent
+          (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+            (AKLT.Blueprint.Win.cross x))) →
+      (∀ (x y : AKLT.Defs.Plane),
+          AKLT.Blueprint.Win.StarAdjacent x y →
+            @Finset.Nonempty.{0} AKLT.Defs.Plane
+              (@Inter.inter.{0} (Finset.{0} AKLT.Defs.Plane)
+                (@Finset.instInter.{0} AKLT.Defs.Plane fun a b =>
+                  @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                (AKLT.Blueprint.Win.cross x) (AKLT.Blueprint.Win.cross y))) →
+        @AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Defs.Adjacent
+          (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+            (AKLT.Blueprint.Win.thicken X₀))
+def AKLT.Blueprint.Win.NeighbourDecayStatement : Prop :=
+∀ (G : Finset.{0} AKLT.Defs.Plane) (θ : Real),
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) θ →
+    @LT.lt.{0} Real Real.instLT θ (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+      ∀ (x z : AKLT.Defs.Plane),
+        @LE.le.{0} Nat instLENat (AKLT.Defs.latticeDist z x)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) →
+          @LE.le.{0} Real Real.instLE (AKLT.Defs.decay θ (AKLT.Defs.boundaryDepth G z))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Inv.inv.{0} Real Real.instInv θ)
+              (AKLT.Defs.decay θ (AKLT.Defs.boundaryDepth G x)))
+def AKLT.Blueprint.Win.CrossWeightSumStatement : Prop :=
+∀ (X₀ : Finset.{0} AKLT.Defs.Plane) (f : AKLT.Defs.Plane → Real),
+  (∀ (z : AKLT.Defs.Plane),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f z)) →
+    ∀ (c : Real),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c →
+        (∀ (x : AKLT.Defs.Plane),
+            @Eq.{1} Nat (@Finset.card.{0} AKLT.Defs.Plane (AKLT.Blueprint.Win.cross x))
+              (@OfNat.ofNat.{0} Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))) →
+          (∀ (x : AKLT.Defs.Plane),
+              @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                    (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                  X₀ x →
+                ∀ (z : AKLT.Defs.Plane),
+                  @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                      (AKLT.Blueprint.Win.cross x) z →
+                    @LE.le.{0} Real Real.instLE (f z)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) c (f x))) →
+            @LE.le.{0} Real Real.instLE (∑ z ∈ AKLT.Blueprint.Win.thicken X₀, f z)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 5)
+                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 5) Real.instNatCast
+                      AKLT.Blueprint.Win.CrossWeightSumStatement._proof_1))
+                  c)
+                (∑ x ∈ X₀, f x))
+def AKLT.Blueprint.Win.ConnectedEnumerationStatement : Prop :=
+∀ (X : Finset.{0} AKLT.Defs.Plane),
+  @AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Defs.Adjacent
+      (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane) X) →
+    Nonempty.{1} (AKLT.Blueprint.Win.RemovalEnumeration X)
+def AKLT.Blueprint.Win.CutScalesStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : Nat) (i : Int),
+  AKLT.Blueprint.Win.CutSetup a y u i →
+    And
+      (@LE.le.{0} Real Real.instLE
+        (@OfNat.ofNat.{0} Real (nat_lit 390)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 390) Real.instNatCast AKLT.Blueprint.Win.CutScalesStatement._proof_1))
+        (AKLT.Defs.shellSpacing u))
+      (And
+        (@LE.le.{0} Real Real.instLE
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                  AKLT.Blueprint.Win.CutScalesStatement._proof_2))
+              (AKLT.Defs.shellSpacing u))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@Int.cast.{0} Real Real.instIntCast (AKLT.Defs.shellRadius u i)))
+        (And
+          (@LE.le.{0} Real Real.instLE (@Int.cast.{0} Real Real.instIntCast (AKLT.Defs.shellRadius u i))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+              (AKLT.Defs.shellSpacing u) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (And
+            (@LE.le.{0} Real Real.instLE (@Int.cast.{0} Real Real.instIntCast (AKLT.Defs.shellRadius u i))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@Nat.cast.{0} Real Real.instNatCast u)
+                (@OfNat.ofNat.{0} Real (nat_lit 31)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 31) Real.instNatCast
+                    AKLT.Blueprint.Win.CutScalesStatement._proof_3))))
+            (@LT.lt.{0} Real Real.instLT
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@Int.cast.{0} Real Real.instIntCast i)
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                (AKLT.Defs.shellSpacing u))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@Int.cast.{0} Real Real.instIntCast (AKLT.Defs.shellRadius u i))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (AKLT.Defs.shellSpacing u)
+                    (@OfNat.ofNat.{0} Real (nat_lit 12)
+                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 12) Real.instNatCast
+                        AKLT.Blueprint.Win.CutScalesStatement._proof_4))))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))))
+def AKLT.Blueprint.Win.CoreConnectedStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : Nat) (i : Int),
+  AKLT.Blueprint.Win.CutSetup a y u i →
+    And
+      (@AKLT.Blueprint.Win.ConnectedIn.{0} AKLT.Defs.Plane AKLT.Defs.Adjacent
+        (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+          (AKLT.Blueprint.Win.core a y u i)))
+      (@LE.le.{0} (Finset.{0} AKLT.Defs.Plane)
+        (@Preorder.toLE.{0} (Finset.{0} AKLT.Defs.Plane)
+          (@PartialOrder.toPreorder.{0} (Finset.{0} AKLT.Defs.Plane) (@Finset.instPartialOrder.{0} AKLT.Defs.Plane)))
+        (AKLT.Blueprint.Win.core a y u i) (AKLT.Blueprint.Win.taper a y u i))
+def AKLT.Blueprint.Win.CutSetup : AKLT.Defs.Plane → AKLT.Defs.Plane → Nat → Int → Prop :=
+fun a y u i =>
+  And (AKLT.Blueprint.Win.ShellSetup (@OfNat.ofNat.{0} Nat (nat_lit 64) (instOfNatNat (nat_lit 64))) a y u)
+    (And (@LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) i)
+      (And (@LE.le.{0} Real Real.instLE (@Int.cast.{0} Real Real.instIntCast i) (AKLT.Defs.shellSpacing u))
+        (i ∉ AKLT.Defs.exceptionalIndices a y u)))
+def AKLT.Blueprint.Win.ShellSetup : Nat → AKLT.Defs.Plane → AKLT.Defs.Plane → Nat → Prop :=
+fun l a y u =>
+  And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) l)
+    (And (@LE.le.{0} Nat instLENat (AKLT.Defs.geometryThreshold l) u)
+      (@Eq.{1} ENat
+        (AKLT.Defs.setDistance AKLT.Defs.supDist y
+          (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+            (AKLT.Defs.square a u)))
+        (@OfNat.ofNat.{0} ENat (nat_lit 1) (@One.toOfNat1.{0} ENat instOneENat))))
+structure AKLT.Blueprint.Win.RemovalEnumeration (X : Finset.{0} AKLT.Defs.Plane) : Type
+number of parameters: 1
+fields:
+  AKLT.Blueprint.Win.RemovalEnumeration.last : Nat
+  AKLT.Blueprint.Win.RemovalEnumeration.site : Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      AKLT.Defs.Plane
+  AKLT.Blueprint.Win.RemovalEnumeration.injective : @Function.Injective.{1, 1}
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      AKLT.Defs.Plane (@AKLT.Blueprint.Win.RemovalEnumeration.site X self)
+  AKLT.Blueprint.Win.RemovalEnumeration.image_eq : @Eq.{1} (Finset.{0} AKLT.Defs.Plane)
+      (@Finset.image.{0, 0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        AKLT.Defs.Plane (fun a b => @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+        (@AKLT.Blueprint.Win.RemovalEnumeration.site X self)
+        (@Finset.univ.{0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      X
+  AKLT.Blueprint.Win.RemovalEnumeration.previous : ∀
+      (j :
+        Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+      @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+          (@Fin.val
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            j) →
+        ∃ k,
+          And
+            (@LT.lt.{0} Nat instLTNat
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                k)
+              (@Fin.val
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@AKLT.Blueprint.Win.RemovalEnumeration.last X self)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                j))
+            (AKLT.Defs.Adjacent (@AKLT.Blueprint.Win.RemovalEnumeration.site X self j)
+              (@AKLT.Blueprint.Win.RemovalEnumeration.site X self k))
+constructor:
+  AKLT.Blueprint.Win.RemovalEnumeration.mk {X : Finset.{0} AKLT.Defs.Plane} (last : Nat)
+    (site :
+      Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+        AKLT.Defs.Plane)
+    (injective :
+      @Function.Injective.{1, 1}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        AKLT.Defs.Plane site)
+    (image_eq :
+      @Eq.{1} (Finset.{0} AKLT.Defs.Plane)
+        (@Finset.image.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          AKLT.Defs.Plane (fun a b => @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+          site
+          (@Finset.univ.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        X)
+    (previous :
+      ∀
+        (j :
+          Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@Fin.val
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              j) →
+          ∃ k,
+            And
+              (@LT.lt.{0} Nat instLTNat
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  k)
+                (@Fin.val
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) last
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  j))
+              (AKLT.Defs.Adjacent (site j) (site k))) :
+    AKLT.Blueprint.Win.RemovalEnumeration X
+def AKLT.Blueprint.Win.ConnectedIn.{u_1} : {α : Type u_1} → (α → α → Prop) → Set.{u_1} α → Prop :=
+fun {α} R S =>
+  And (@Set.Nonempty.{u_1} α S)
+    (∀ (x : α),
+      @Membership.mem.{u_1, u_1} α (Set.{u_1} α) (@Set.instMembership.{u_1} α) S x →
+        ∀ (y : α),
+          @Membership.mem.{u_1, u_1} α (Set.{u_1} α) (@Set.instMembership.{u_1} α) S y →
+            @AKLT.Blueprint.Win.JoinedIn.{u_1} α R S x y)
+def AKLT.Blueprint.Win.JoinedIn.{u_1} : {α : Type u_1} → (α → α → Prop) → Set.{u_1} α → α → α → Prop :=
+fun {α} R S x y =>
+  @Relation.ReflTransGen.{u_1} α
+    (fun v w =>
+      And (@Membership.mem.{u_1, u_1} α (Set.{u_1} α) (@Set.instMembership.{u_1} α) S v)
+        (And (@Membership.mem.{u_1, u_1} α (Set.{u_1} α) (@Set.instMembership.{u_1} α) S w) (R v w)))
+    x y
+def AKLT.Defs.decay : Real → ENat → Real :=
+fun θ r =>
+  @ite.{1} Real (@Eq.{1} ENat r (@Top.top.{0} ENat instTopENat))
+    (@LinearOrder.toDecidableEq.{0} ENat instLinearOrderENat r (@Top.top.{0} ENat instTopENat))
+    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) θ r.toNat)
+def AKLT.Defs.setDistance : (AKLT.Defs.Plane → AKLT.Defs.Plane → Nat) →
+  AKLT.Defs.Plane → Set.{0} AKLT.Defs.Plane → ENat :=
+fun metric x S =>
+  ⨅ y,
+    @Nat.cast.{0} ENat ENat.instNatCast
+      (metric x
+        (@Subtype.val.{1} AKLT.Defs.Plane
+          (fun x =>
+            @Membership.mem.{0, 0} AKLT.Defs.Plane (Set.{0} AKLT.Defs.Plane) (@Set.instMembership.{0} AKLT.Defs.Plane) S
+              x)
+          y))
+@OfNat.ofNat.{0} Nat (nat_lit 23134410000) (instOfNatNat (nat_lit 23134410000))
+fun (i : Int) =>
+  @HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (@Int.cast.{0} Real Real.instIntCast i)
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) : (i : Int) → Real

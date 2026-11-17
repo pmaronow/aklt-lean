@@ -1,0 +1,685 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.Rec.LocalMixtureStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Local",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "source_line": 18,
+    "paper_label": "l:local",
+    "paper_locator": "`l:local`, §6 lines 555–646; ARCH_0 F1/F1a",
+    "difficulty": "hard",
+    "estimated_proof_lines": 380,
+    "statement": "def LocalMixtureStatementV2 : Prop :=\n  ∀ a : Departure, a.D.status a.y = .U → ∀ incoming outgoing : Compass,\n    a.o = a.y + outgoing.step → AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n    ∃ k : ℕ, ∃ π : Fin k → PatternData, ∃ m : Fin k → (Fin 20 → UnitVector),\n      ∃ weight : Fin k → ℝ,\n      (∀ i, 0 ≤ weight i ∧ (π i).Covered ∧\n        ((π i).outgoing = .north ↔ outgoing = incoming)) ∧\n      a.D.partition a.τ true (fun _ => 1) = ∑ i, weight i * patternCurrent (π i) (m i) ∧\n      (traceStep a.D a.y a.o).partition a.τ true (fun _ => 1) =\n        ∑ i, weight i * patternNext (π i) (m i)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.LocalMixtureStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.PatternData.InternalPresent",
+        "AKLT.Defs.patternCurrent",
+        "AKLT.Defs.patternNext",
+        "AKLT.Blueprint.Rec.Departure"
+      ],
+      "library_lemmas": [
+        "Finset.sum_congr",
+        "Finset.sum_mul",
+        "Finset.mul_sum",
+        "Finset.prod_mul_distrib"
+      ]
+    },
+    "suggested_proof_route": "Disintegrate finite outside spins. On each tip keep every actual internal bond, and assign effective mean zero to every covering-only tip bond. Replace actual tip laws by covering U laws using the full 3/5 mean ball. Resolve both corner slots independently and absorb the common positive normalizers in the same nonnegative mixture weights.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "Shared matching constrains only internal present bonds, not external directions still inside G or flags to X sites. The one-sided tip condition forbids losing an actual tip bond; adding one is handled by mean zero. No claim that the shared matcher implies the stricter frozen local matcher is made.",
+      "specific_check": "Shared matching constrains only internal present bonds, not external directions still inside G or flags to X sites. The one-sided tip condition forbids losing an actual tip bond; adding one is handled by mean zero. No claim that the shared matcher implies the stricter frozen local matcher is made.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.CoveredRatioStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Local",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "source_line": 32,
+    "paper_label": "l:local",
+    "paper_locator": "`l:local`, §6 lines 625–651; ARCH_0 F1",
+    "difficulty": "medium",
+    "estimated_proof_lines": 180,
+    "statement": "def CoveredRatioStatementV2 : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n      stepRatio a.D a.τ true a.y a.o ≤ (passageFactor (decide (outgoing = incoming)) : ℝ)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.CoveredRatioStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.LocalPatternBound",
+        "AKLT.Defs.stepRatio",
+        "AKLT.Blueprint.Rec.Departure"
+      ],
+      "library_lemmas": [
+        "Finset.sum_le_sum",
+        "mul_le_mul_of_nonneg_left",
+        "div_le_iff₀"
+      ]
+    },
+    "suggested_proof_route": "Apply the H1 pointwise inequality to the shared-cover local representation, average with the common nonnegative weights, and divide only after establishing positive current and next normalizers.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "The actual outgoing neighbour is present by Departure; external slot fields are not assumed to be actual bonds. H1 thresholds are positive and at most one.",
+      "specific_check": "The actual outgoing neighbour is present by Departure; external slot fields are not assumed to be actual bonds. H1 thresholds are positive and at most one.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Local",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "source_line": 41,
+    "paper_label": "l:response-typed",
+    "paper_locator": "`l:response-typed`, §7 lines 419–429, 462–506; ARCH_0 F1/F1a",
+    "difficulty": "medium",
+    "estimated_proof_lines": 200,
+    "statement": "def CoveredIntegratedLowerStatementV2 : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n      let c : ℝ := localThreshold (decide (outgoing = incoming))\n      (∀ f : Plane, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →\n        c ≤ responseI₂ a.D a.τ true a.y a.o f) ∧\n      ∀ f g : Plane, a.D.presentNeighbours a.y = {a.o, f, g} →\n        a.o ≠ f → a.o ≠ g → f ≠ g →\n        c * responseJ a.D a.τ true a.y f g ≤ responseI a.D a.τ true a.y a.o f g",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.responseI",
+        "AKLT.Defs.responseJ",
+        "AKLT.Blueprint.Rec.responseI₂",
+        "AKLT.Defs.stepRatio"
+      ],
+      "library_lemmas": [
+        "le_div_iff₀",
+        "div_le_iff₀",
+        "mul_le_mul_of_nonneg_left"
+      ]
+    },
+    "suggested_proof_route": "Integrate the departure to write the true step ratio as J/I or 1/I2. Use the shared-cover H1 partition inequality and positive J to obtain the displayed lower bound. Keep the same localThreshold Boolean and the same canonical I,J definitions.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "The needed premise is the shared matcher, explicitly qualified AKLT.Defs.CoveredDepartureV2. J>0 is justified before multiplying through a ratio. The exact two- and three-neighbour distinctness premises remain.",
+      "specific_check": "The needed premise is the shared matcher, explicitly qualified AKLT.Defs.CoveredDepartureV2. J>0 is justified before multiplying through a ratio. The exact two- and three-neighbour distinctness premises remain.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.LegacyCoverComparisonStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Local",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "source_line": 55,
+    "paper_label": "d:pattern",
+    "paper_locator": "`d:pattern`, §6 lines 488–519; ARCH_0 F1a",
+    "difficulty": "medium",
+    "estimated_proof_lines": 220,
+    "statement": "def LegacyCoverComparisonStatementV2 : Prop :=\n  ∀ G : Finset Plane, ∀ D : Network G, D.Auxiliary → ∀ y : Plane,\n    ∀ incoming outgoing : Compass,\n      AKLT.Blueprint.Rec.CoveredDepartureV2 D y incoming outgoing →\n        AKLT.Defs.CoveredDepartureV2 D y incoming outgoing",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.CoveredDepartureV2",
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.PatternData.InternalPresent",
+        "AKLT.Defs.Network.Present",
+        "AKLT.Defs.normalizeRotation"
+      ],
+      "library_lemmas": [
+        "Finset.mem_inter",
+        "Finset.mem_image",
+        "Finset.mem_sdiff"
+      ]
+    },
+    "suggested_proof_route": "Keep the old witnessing pattern and status agreement. For active non-tips the old kept-set equality after intersection with G gives both directions of each internal present-bond equivalence. At tips only actual-to-cover presence is required. Handle the unoriented positive orientation by the symmetric InternalPresent predicate.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "This is only frozen-local-cover implies shared-cover. The converse is not stated and would impose forbidden external kept-flag constraints. Auxiliary supplies status X outside G and kept subsets inside G.",
+      "specific_check": "This is only frozen-local-cover implies shared-cover. The converse is not stated and would impose forbidden external kept-flag constraints. Auxiliary supplies status X outside G and kept subsets inside G.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.BoundaryExampleCoveredStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Local",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "source_line": 64,
+    "paper_label": "l:local",
+    "paper_locator": "`l:local`, §6 lines 568–640; ARCH_0 F1/F1a",
+    "difficulty": "easy",
+    "estimated_proof_lines": 70,
+    "statement": "def BoundaryExampleCoveredStatementV2 : Prop :=\n  AKLT.Defs.CoveredDepartureV2 (normalizeStart boundaryExampleD (0, 0) (-1, 0))\n    (0, 0) .east .east",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.boundaryExampleD",
+        "AKLT.Blueprint.Rec.boundaryExamplePattern",
+        "AKLT.Blueprint.Rec.normalizeStart",
+        "AKLT.Defs.CoveredDepartureV2"
+      ],
+      "library_lemmas": [
+        "Finset.mem_image",
+        "Finset.mem_inter"
+      ]
+    },
+    "suggested_proof_route": "Use the existing concrete pattern as witness and check the shared non-tip status and internal bond conditions on the finite template. This new shared-scope statement must receive a cheaper-model first attempt; the retained kernel example proves only the old local predicate.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "No theorem about shared coverage is inferred merely by reusing the name V2: the retained Rec-local and shared Defs predicates are distinct declarations.",
+      "specific_check": "No theorem about shared coverage is inferred merely by reusing the name V2: the retained Rec-local and shared Defs predicates are distinct declarations.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.OnePointPointwiseStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Walk",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Walk.lean",
+    "source_line": 22,
+    "paper_label": "l:onepoint",
+    "paper_locator": "`l:onepoint`, §6 lines 711–753; ARCH_0 F1",
+    "difficulty": "medium",
+    "estimated_proof_lines": 260,
+    "statement": "def OnePointPointwiseStatementV2 : Prop :=\n  Top.H1Statement → ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G,\n    D.Auxiliary → ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u → ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail D u (protectedSites G) w → uncoveredCountV2 D u incoming w ≤ 12 →\n      (traceCoefficient D (wordVertices u w) : ℝ) *\n        max (traceRatio D τ true (wordVertices u w)) (traceRatio D τ false (wordVertices u w)) ≤\n          exceptionFactor * (trailWeight u incoming w : ℝ)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.OnePointPointwiseStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.uncoveredCountV2",
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.traceCoefficient",
+        "AKLT.Defs.traceRatio",
+        "AKLT.Defs.trailWeight"
+      ],
+      "library_lemmas": [
+        "Finset.prod_le_prod",
+        "max_le",
+        "mul_le_mul_of_nonneg_left"
+      ]
+    },
+    "suggested_proof_route": "Compare each evolving departure coefficient times each pin-choice ratio to its lattice weight. Covered U steps use the shared local comparison, uncovered U steps pay 12/5, and D revisits pay exactly 1/5. Multiply and telescope, then take the common maximum.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "The maximum is taken before summing. The absent designated incoming bond is retained, and at most twelve uncovered U departures may occur at arbitrary positions.",
+      "specific_check": "The maximum is taken before summing. The absent designated incoming bond is retained, and at most twelve uncovered U departures may occur at arbitrary positions.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.OnePointSumStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Walk",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Walk.lean",
+    "source_line": 34,
+    "paper_label": "l:onepoint",
+    "paper_locator": "`l:onepoint`, §6 lines 755–775; ARCH_0 F1",
+    "difficulty": "medium",
+    "estimated_proof_lines": 240,
+    "statement": "def OnePointSumStatementV2 : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u →\n    (∀ n : ℕ, ∀ w : DirectionWord n, StoppedNetworkTrail D u (protectedSites G) w →\n      uncoveredCountV2 D u incoming w ≤ 12) →\n    onePointSum D τ u ≤ onePointConstant CV q * q^(protectedDistance G u)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.OnePointSumStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.uncoveredCountV2",
+        "AKLT.Blueprint.Rec.onePointSum",
+        "AKLT.Blueprint.Rec.onePointConstant",
+        "AKLT.Defs.OpenTrailBound",
+        "AKLT.Defs.StoppedNetworkTrail"
+      ],
+      "library_lemmas": [
+        "Finset.sum_le_sum",
+        "hasSum_geometric_of_lt_one",
+        "Finset.sum_congr"
+      ]
+    },
+    "suggested_proof_route": "Group the finite stopped trail sum by length and inject each group into H2 trails with the identical incoming direction. Use the shared-cover pointwise comparison and sum the q-geometric tail from the finite original protected distance.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "H2 contains CV>=1 and 0<q<1. The protected set is the original S(G); do not use distances to holes. Empty trail families and the length-zero convention remain explicit.",
+      "specific_check": "H2 contains CV>=1 and 0<q<1. The protected set is the original S(G); do not use distances to holes. Empty trail families and the length-zero convention remain explicit.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.CoveredClosureStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Closure",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean",
+    "source_line": 18,
+    "paper_label": "l:closure",
+    "paper_locator": "`l:closure`, §7 lines 147–158; ARCH_0 F1/F1a",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "statement": "def CoveredClosureStatementV2 : Prop :=\n  ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u T w → ∀ i : Fin n,\n    (prefixNetwork p.normalized p.u w i.val).status (wordVertex p.u w i.val) = .U →\n      AKLT.Defs.CoveredDepartureV2 (prefixNetwork p.normalized p.u w i.val)\n        (wordVertex p.u w i.val) (wordIncoming p.incoming w i) (w i)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.CoveredClosureStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.PairSetup",
+        "AKLT.Blueprint.Rec.prefixNetwork",
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Defs.PatternData.InternalPresent"
+      ],
+      "library_lemmas": [
+        "Finset.mem_erase",
+        "Finset.mem_inter",
+        "Finset.mem_sdiff"
+      ]
+    },
+    "suggested_proof_route": "Run the frozen kept/status prefix invariant. At a live U departure the arrival bond is absent, remaining non-tip internal bonds match by active consistency, and every actual tip bond is kept in the cover. External flags to removed or outside-template sites are ignored, exactly as required by the shared predicate.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "Do not conclude ordinary-domain membership for the live pre-step network. Shared matching, not Rec-local intersection matching, is the conclusion. The whole radius-two template lies inside original G at an interior departure.",
+      "specific_check": "Do not conclude ordinary-domain membership for the live pre-step network. Shared matching, not Rec-local intersection matching, is the conclusion. The whole radius-two template lies inside original G at an interior departure.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.PairClosureStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Closure",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean",
+    "source_line": 28,
+    "paper_label": "l:closure",
+    "paper_locator": "`l:closure`, §7 lines 79–81, 158–164; REF2_5 finding 1",
+    "difficulty": "medium",
+    "estimated_proof_lines": 220,
+    "statement": "def PairClosureStatementV2 : Prop :=\n  ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u T w → ∀ i : Fin n,\n    let E := prefixNetwork p.normalized p.u w i.val\n    let y := wordVertex p.u w i.val\n    let incoming := wordIncoming p.incoming w i\n    E.status y = .U →\n    ∀ a ∈ nonarrivalNeighboursV2 E y incoming,\n    ∀ b ∈ nonarrivalNeighboursV2 E y incoming, a ≠ b →\n      (removeSite E y).ResponsePair (responsePairType {a, b}) a b y",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.PairClosureStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.nonarrivalNeighboursV2",
+        "AKLT.Blueprint.Rec.PairSetup",
+        "AKLT.Blueprint.Rec.prefixNetwork",
+        "AKLT.Defs.Network.ResponsePair",
+        "AKLT.Defs.removeSite",
+        "AKLT.Defs.responsePairType"
+      ],
+      "library_lemmas": [
+        "Finset.mem_inter",
+        "Finset.mem_erase",
+        "Finset.mem_image"
+      ]
+    },
+    "suggested_proof_route": "For distinct active non-arrival neighbours of the live U site, consistency makes both passage bonds present. Removing the live point produces an ordinary domain, the distance-two type is B or C, and any D endpoint loses its passage bond so has present degree at most one.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "The incoming/arrival neighbour is explicitly erased. It can be D with TWO remaining present bonds, so the unrestricted nonremoved-neighbour assertion is not used. The old present-neighbour specialization remains true.",
+      "specific_check": "The incoming/arrival neighbour is explicitly erased. It can be D with TWO remaining present bonds, so the unrestricted nonremoved-neighbour assertion is not used. The old present-neighbour specialization remains true.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.TerminalExceptionLocationStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Closure",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean",
+    "source_line": 42,
+    "paper_label": "l:terminalcover",
+    "paper_locator": "`l:terminalcover`, §7 lines 212–240; ARCH_0 F1",
+    "difficulty": "hard",
+    "estimated_proof_lines": 360,
+    "statement": "def TerminalExceptionLocationStatementV2 : Prop :=\n  ∀ p : PairSetup, p.v ∉ protectedSites p.G → ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →\n    wordVertex p.u w n ∈ protectedSites p.G →\n    let E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c\n    ∀ incoming : Compass, p.v = p.c + incoming.step → ∀ m : ℕ, ∀ w' : DirectionWord m,\n      StoppedNetworkTrail E p.v (protectedSites p.G) w' → ∀ i : Fin m,\n      (prefixNetwork E p.v w' i.val).status (wordVertex p.v w' i.val) = .U →\n      ¬ AKLT.Defs.CoveredDepartureV2 (prefixNetwork E p.v w' i.val)\n        (wordVertex p.v w' i.val) (wordIncoming incoming w' i) (w' i) →\n      0 < latticeDist (wordVertex p.v w' i.val) (wordVertex p.u w n) ∧\n        latticeDist (wordVertex p.v w' i.val) (wordVertex p.u w n) ≤ 2",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.TerminalExceptionLocationStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.CoveredDepartureV2",
+        "AKLT.Blueprint.Rec.PairSetup",
+        "AKLT.Blueprint.Rec.normalizeStart",
+        "AKLT.Blueprint.Rec.prefixNetwork",
+        "AKLT.Defs.latticeDist"
+      ],
+      "library_lemmas": [
+        "Finset.mem_erase",
+        "Finset.mem_inter"
+      ]
+    },
+    "suggested_proof_route": "Repeat the prefix invariant for the second trace while holding the first protected endpoint e as the only fixed defect. A U departure farther than two from e has matching internal non-tip data; actual missing external factors and tip data are covered. Hence every shared-cover failure lies in the punctured radius-two diamond.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "v outside original S is required. No second departure is at protected e, no original leg is removed, and no claim is made that the whole terminal auxiliary network is ordinary.",
+      "specific_check": "v outside original S is required. No second departure is at protected e, no original leg is removed, and no claim is made that the whole terminal auxiliary network is ordinary.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.TerminalExceptionCountStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Closure",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean",
+    "source_line": 58,
+    "paper_label": "l:terminalcover",
+    "paper_locator": "`l:terminalcover`, §7 lines 233–244; ARCH_0 F1",
+    "difficulty": "medium",
+    "estimated_proof_lines": 180,
+    "statement": "def TerminalExceptionCountStatementV2 : Prop :=\n  ∀ p : PairSetup, p.v ∉ protectedSites p.G → ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →\n    wordVertex p.u w n ∈ protectedSites p.G →\n    let E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c\n    ∀ incoming : Compass, p.v = p.c + incoming.step → ∀ m : ℕ, ∀ w' : DirectionWord m,\n      StoppedNetworkTrail E p.v (protectedSites p.G) w' → uncoveredCountV2 E p.v incoming w' ≤ 12",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [
+      "AKLT.Blueprint.Rec.TerminalExceptionCountStatement"
+    ],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.uncoveredCountV2",
+        "AKLT.Blueprint.Rec.PairSetup",
+        "AKLT.Blueprint.Rec.normalizeStart",
+        "AKLT.Defs.latticeDist",
+        "AKLT.Defs.square"
+      ],
+      "library_lemmas": [
+        "Finset.card_le_card",
+        "Finset.card_image_iff"
+      ]
+    },
+    "suggested_proof_route": "Inject indices of uncovered U departures into their distinct sites in the punctured radius-two diamond around e. U status can depart only once at a site. The diamond has four plus eight sites, giving twelve.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "Count U departures rather than all visits. Exceptions can occur anywhere in the second trail; the second endpoint remains outside original S.",
+      "specific_check": "Count U departures rather than all visits. Exceptions can occur anywhere in the second trail; the second endpoint remains outside original S.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.ShortKernelOrderingStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Ordering",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Ordering.lean",
+    "source_line": 14,
+    "paper_label": "d:kernel-order",
+    "paper_locator": "`d:kernel-order`, §7 lines 579–585; REF2_5 finding 2",
+    "difficulty": "medium",
+    "estimated_proof_lines": 190,
+    "statement": "def ShortKernelOrderingStatementV2 : Prop :=\n  ∀ n : ℕ, ∀ X : PairType, ∀ w : DirectionWord n, ClosedTrail X w → n ≤ 12 →\n    kernelOrdering w = (firstVisitList w).mergeSort (shortOrderLE w) ∧\n      (kernelOrdering w).Pairwise (fun i j => shortOrderLE w i j = true)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.ClosedTrail",
+        "AKLT.Defs.kernelOrdering",
+        "AKLT.Defs.firstVisitList",
+        "AKLT.Defs.shortOrderLE"
+      ],
+      "library_lemmas": [
+        "List.pairwise_mergeSort",
+        "List.mergeSort_perm"
+      ]
+    },
+    "suggested_proof_route": "At n<=12 unfold the short branch. Establish transitivity and totality of the rational score comparison, with a separate zero-reward infinity branch and increasing-index ties, then use merge-sort pairwise correctness.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "The domain is the canonical u-to-v first-hit class ClosedTrail X, not cycles. Length twelve is short. No assertion equates short ordering with the phase path ordering.",
+      "specific_check": "The domain is the canonical u-to-v first-hit class ClosedTrail X, not cycles. Length twelve is short. No assertion equates short ordering with the phase path ordering.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.LongKernelOrderingStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Ordering",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Ordering.lean",
+    "source_line": 22,
+    "paper_label": "d:kernel-order",
+    "paper_locator": "`d:kernel-order`, §7 lines 579–585; REF2_5 finding 2 and REF2_6 finding 2",
+    "difficulty": "easy",
+    "estimated_proof_lines": 90,
+    "statement": "def LongKernelOrderingStatementV2 : Prop :=\n  ∀ n : ℕ, ∀ X : PairType, ∀ w : DirectionWord n, ClosedTrail X w → 12 < n →\n    kernelOrdering w = longOrdering w ∧\n      ((firstVisitList w).filter (wordStraight kernelIncoming w)).Pairwise\n        (fun i j => i.val < j.val) ∧\n      ((firstVisitList w).filter (fun i => !wordStraight kernelIncoming w i)).Pairwise\n        (fun i j => i.val < j.val)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Defs.ClosedTrail",
+        "AKLT.Defs.kernelOrdering",
+        "AKLT.Defs.longOrdering",
+        "AKLT.Defs.firstVisitList",
+        "AKLT.Defs.wordStraight"
+      ],
+      "library_lemmas": [
+        "List.pairwise_filter",
+        "List.pairwise_lt_finRange"
+      ]
+    },
+    "suggested_proof_route": "For n>12 unfold the long branch. Both type lists filter the increasing finRange list, so strict path-index order is retained. Identify their concatenation with the existing longOrdering definition.",
+    "donor_reuse_pointers": "The campaign reuse map has no full donor for this model-specific statement; use the named frozen definitions and Mathlib APIs.",
+    "owner_handoff": "BP_REC",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "Strict n>12 is required for kernel/phase order agreement. Both straight and turn subsequences retain increasing path index; type order alone is insufficient.",
+      "specific_check": "Strict n>12 is required for kernel/phase order agreement. Both straight and turn subsequences retain increasing path index; type order alone is insufficient.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Rec.StoppedQuotientSumStatementV2",
+    "module": "AKLT.Blueprint.Rec.NodesV2Handoff",
+    "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Handoff.lean",
+    "source_line": 41,
+    "paper_label": "l:automaton-quotient",
+    "paper_locator": "`l:automaton-quotient`, Appendix C lines 315–363; REF2_6 finding 3",
+    "difficulty": "medium",
+    "estimated_proof_lines": 300,
+    "statement": "def StoppedQuotientSumStatementV2 : Prop :=\n  ∀ m q p : ℕ, 1 ≤ m → ∀ Q : MemoryQuotient m q, Q.Correct →\n    ∀ weight : Fin p → Fin p → StepKind → Compass → Compass → Plane → ℚ,\n      (∀ φ ψ d a a' x, weight φ ψ .revisit d a x = weight φ ψ .revisit d a' x) →\n    ∀ rawStop : Fin p → DirectionWord m → Plane → Bool,\n    ∀ quotientStop : Fin p → Fin q → Plane → Bool,\n      (∀ φ w, RawWindow w → ∀ x,\n        rawStop φ w x = quotientStop φ (Q.project w) x) →\n    ∀ rawReward : Fin p × DirectionWord m × Plane → ℚ,\n    ∀ quotientReward : Fin p × Fin q × Plane → ℚ,\n      (∀ φ w, RawWindow w → ∀ x,\n        rawReward (φ, w, x) = quotientReward (φ, Q.project w, x)) →\n    ∀ R : ℕ, ∀ φ : Fin p, ∀ w : DirectionWord m, RawWindow w → ∀ x : Plane,\n      finiteOperatorSum (rawStoppedOperatorV2 weight rawStop) rawReward R (φ, w, x) =\n        finiteOperatorSum (quotientStoppedOperatorV2 Q weight quotientStop)\n          quotientReward R (φ, Q.project w, x)",
+    "status": "new",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "in_active_proof_queue": true,
+    "supersedes": [],
+    "dependencies": {
+      "definitions": [
+        "AKLT.Blueprint.Rec.rawStoppedOperatorV2",
+        "AKLT.Blueprint.Rec.quotientStoppedOperatorV2",
+        "AKLT.Defs.MemoryQuotient.Correct",
+        "AKLT.Defs.finiteOperatorSum",
+        "AKLT.Defs.RawWindow"
+      ],
+      "library_lemmas": [
+        "Finset.sum_congr",
+        "Finset.mul_sum",
+        "Finset.sum_mul"
+      ]
+    },
+    "suggested_proof_route": "Induct on finite iterates, using raw-successor validity, the direction/kind/successor clauses of Q.Correct, and arrival-independent revisit coefficients. At terminal branches use the indicator pullback; at horizon zero use the reward pullback. Sum the iterate equalities over the finite horizon. Gen/Bellman/Quotient.lean Automaton.stopped_pullback supplies the nonnegative analogue; this rational equality still needs its own bridge or direct finite-sum proof.",
+    "donor_reuse_pointers": "AKLT/Gen/Bellman/Quotient.lean: AKLT.Gen.Bellman.Automaton.stopped_pullback is an ENNReal analogue, not a direct theorem about arbitrary signed rational coefficients.",
+    "owner_handoff": "BP_H3M may reuse this explicit terminal-data contract; it is not assumed by Rec or by importing this file.",
+    "proof_assignment": {
+      "first_attempt": "A different, cheaper model selected by the orchestrator.",
+      "current_agent_scope": "Blueprint and assembly only; no leaf proof attempted."
+    },
+    "trap_check": {
+      "status": "reviewed; explicit hypotheses retained; proof open",
+      "missing_premises": "BOTH raw terminal indicator and raw terminal reward must be pullbacks. A raw reward distinguishing windows in the same quotient class is excluded even at horizon zero. Memory m>=1 is retained; p=0 and horizon R=0 are allowed.",
+      "specific_check": "BOTH raw terminal indicator and raw terminal reward must be pullbacks. A raw reward distinguishing windows in the same quotient class is excluded even at horizon zero. Memory m>=1 is retained; p=0 and horizon R=0 are allowed.",
+      "vacuity_and_degenerate_cases": "Admissible active starts rule out empty G. Empty finite index families and zero rewards have their explicit conventions. The quotient equality allows p=0 and R=0; the ordering leaves range only over actual ClosedTrail X instances.",
+      "coercions": "Keep original G and PinAssignment G. Use exact rational coefficients and explicit casts in real inequalities; no frame-alphabet restriction is introduced.",
+      "finset_vs_fintype_sums": "DirectionWord n and finite phase sums are Fintype sums; stoppedNetworkTrails and index filters are Finsets. Finite operator sums use range(R+1); no divergent real tsum is introduced.",
+      "nat_subtraction": "Depth losses remain integer subtraction in frozen definitions. wordIncoming predecessor subtraction retains its nonzero-index guard. The short/long boundary is <=12 versus >12.",
+      "division_by_zero": "Current/next and tip normalizers are positive before dividing. H2 supplies 0<q<1. Short ordering has a separate zero-reward key branch. The stopped quotient equality requires no division or positivity of its rational weights.",
+      "instances": "The full new module graph was kernel-checked with autoImplicit=false and relaxedAutoImplicit=false; Fin n, all finite phase/state indices and original-volume pins remain explicit."
+    }
+  }
+]

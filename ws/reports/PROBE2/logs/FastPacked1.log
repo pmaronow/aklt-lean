@@ -1,0 +1,26 @@
+import took 2.62s
+'checked' depends on axioms: [propext]
+cumulative profiling times:
+	.olean serialization 2.36ms
+	attribute application 0.0905ms
+	compilation (IR) 0.273ms
+	compilation (LCNF base) 3.03ms
+	compilation (LCNF impure) 1.21ms
+	compilation (LCNF mono) 1.54ms
+	elaboration 11.2ms
+	fix level params 0.0595ms
+	import 2.62s
+	initialization 26.2ms
+	instantiate metavars 0.0264ms
+	interpretation 599ms
+	let-to-have transformation 0.206ms
+	linting 3.56ms
+	module linting 0.0013ms
+	overlappingInstancesLinter 1.89ms
+	parsing 3.15ms
+	process pre-definitions 4.93ms
+	share common exprs 1.36ms
+	tactic execution 0.247ms
+	tacticAnalysis 4.23ms
+	type checking 1.15ms
+	typeclass inference 2.28ms

@@ -1,0 +1,243 @@
+AKLT.Cert.H3.rawRowCheck_sound {m q code : ℕ} {Q : AKLT.Defs.MemoryQuotient m q}
+  (h : AKLT.Cert.H3.rawRowCheck Q code = true) : AKLT.Cert.H3.CorrectAt Q (AKLT.Cert.H3.decodeWord m code)
+'AKLT.Cert.H3.rawRowCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Attachments64.checked : (List.range 64).all AKLT.Cert.H3.Check.Attachments64.attachments = true
+'AKLT.Cert.H3.Check.Attachments64.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Attachments64.terminal_caps (i : Fin 16) :
+  65536 ≤ AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.Phase.C ⟨↑i, ⋯⟩ ∧
+    65536 ≤ AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.Phase.D ⟨↑i, ⋯⟩
+'AKLT.Cert.H3.Check.Attachments64.terminal_caps' depends on axioms: [propext, Quot.sound]
+AKLT.Cert.H3.Check.Attachments64.finite_rows (i : ℕ) (hi : i < 64) :
+  have φ := AKLT.Cert.H3.Check.PackedRows64.phase (i % 4);
+  have a := AKLT.Cert.H3.Check.PackedRows64.state i;
+  have U := AKLT.Cert.H3.Data.BNPrototype.plane φ a;
+  have Z := AKLT.Cert.H3.Data.BNPrototype.cap φ a;
+  (0 < Z ∧ Z < 2 ^ 26) ∧
+    AKLT.Gen.Packed.lane U 80 (AKLT.Cert.H3.siteIndex AKLT.Defs.kernelCentre) = 0 ∧
+      (AKLT.Gen.Packed.lane U 80 (AKLT.Cert.H3.siteIndex (AKLT.Defs.kernelTarget AKLT.Defs.PairType.B)) =
+          if φ = AKLT.Defs.Phase.C ∨ φ = AKLT.Defs.Phase.D then 65536 else 0) ∧
+        ∑ d,
+            ∑ ψ,
+              AKLT.Defs.coefficientCeiling (AKLT.Defs.freeCoefficient AKLT.Cert.H3.Data.quotient φ a d ψ) *
+                AKLT.Cert.H3.Data.BNPrototype.cap ψ (AKLT.Cert.H3.Data.quotient.successor a d) ≤
+          AKLT.Defs.certificateCoefficientScale * Z
+'AKLT.Cert.H3.Check.Attachments64.finite_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Attachments64.cap_rows (i : ℕ) (hi : i < 64) (s : ℕ) :
+  s < 19881 →
+    AKLT.Gen.Packed.lane
+        (AKLT.Cert.H3.Data.BNPrototype.plane (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))
+          (AKLT.Cert.H3.Check.PackedRows64.state i))
+        80 s ≤
+      AKLT.Cert.H3.Data.BNPrototype.cap (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))
+        (AKLT.Cert.H3.Check.PackedRows64.state i)
+'AKLT.Cert.H3.Check.Attachments64.cap_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.AutomatonShard.checked (i : Fin 16) :
+  AKLT.Cert.H3.CorrectAt AKLT.Cert.H3.Data.quotient
+      (AKLT.Cert.H3.Data.quotient.representative (AKLT.Cert.H3.Check.AutomatonShard.state i)) ∧
+    AKLT.Cert.H3.Data.quotient.project
+          (AKLT.Cert.H3.Data.quotient.representative (AKLT.Cert.H3.Check.AutomatonShard.state i)) =
+        AKLT.Cert.H3.Check.AutomatonShard.state i ∧
+      AKLT.Cert.H3.CorrectAt AKLT.Cert.H3.Data.quotient (AKLT.Cert.H3.Check.AutomatonShard.other i) ∧
+        AKLT.Cert.H3.Data.quotient.project (AKLT.Cert.H3.Check.AutomatonShard.other i) =
+          AKLT.Cert.H3.Check.AutomatonShard.state i
+'AKLT.Cert.H3.Check.AutomatonShard.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Baseline.checked : 0 = 0
+'AKLT.Cert.H3.Check.Baseline.checked' does not depend on any axioms
+AKLT.Cert.H3.Check.Coefficients.diagonal_checked (φ : AKLT.Defs.Phase) (k : AKLT.Defs.StepKind) :
+  AKLT.Cert.H3.diagonal φ k = AKLT.Defs.coefficientCeiling (AKLT.Defs.phaseDiagonal φ k)
+'AKLT.Cert.H3.Check.Coefficients.diagonal_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Coefficients.response_checked (a d : Fin 4) :
+  AKLT.Cert.H3.direction ↑d ≠ (AKLT.Cert.H3.direction ↑a).reverse →
+    ∀ (j : Fin 5),
+      have x := if ↑j < 4 then -(AKLT.Cert.H3.direction ↑j).step else (10, 10);
+      AKLT.Cert.H3.response ↑a ↑d ↑j =
+        AKLT.Defs.coefficientCeiling
+          (AKLT.Defs.passageFactor (decide (AKLT.Cert.H3.direction ↑d = AKLT.Cert.H3.direction ↑a)) *
+              AKLT.Defs.relaxedReward x (AKLT.Cert.H3.direction ↑a) (AKLT.Cert.H3.direction ↑d)
+                {AKLT.Defs.kernelCentre} /
+            3)
+'AKLT.Cert.H3.Check.Coefficients.response_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Counts.square_card : (AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius).card = 19881
+'AKLT.Cert.H3.Check.Counts.square_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.Counts.edge_counts :
+  AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.straight = 2516 ∧
+    AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.turn = 5032 ∧
+      AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.revisit = 1872
+'AKLT.Cert.H3.Check.Counts.edge_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PackedRows64.checked : AKLT.Cert.H3.Check.PackedRows64.shardCheck = true
+'AKLT.Cert.H3.Check.PackedRows64.checked' depends on axioms: [propext]
+AKLT.Cert.H3.Check.PackedRows64.component_rows (i : ℕ) (hi : i < 64) (s : ℕ) :
+  s < 19881 →
+    AKLT.Cert.H3.component 80 s
+        (AKLT.Cert.H3.rowTerms AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.plane
+          AKLT.Cert.H3.Data.BNPrototype.cap AKLT.Defs.PairType.B AKLT.Defs.Compass.north
+          (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4)) (AKLT.Cert.H3.Check.PackedRows64.state i)) ≤
+      AKLT.Cert.H3.coefficientScale *
+        AKLT.Gen.Packed.lane
+          (AKLT.Cert.H3.Data.BNPrototype.plane (AKLT.Cert.H3.Check.PackedRows64.phase (i % 4))
+            (AKLT.Cert.H3.Check.PackedRows64.state i))
+          80 s
+'AKLT.Cert.H3.Check.PackedRows64.component_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.stem_checked (e : Fin 16) :
+  AKLT.Defs.takeWord (AKLT.Cert.H3.Data.PrefixBN.word e) 10 =
+    AKLT.Cert.H3.decodeWord 10 AKLT.Cert.H3.Data.PrefixBN.stemCode
+'AKLT.Cert.H3.Check.PrefixShard.stem_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.words_injective : Function.Injective AKLT.Cert.H3.Data.PrefixBN.word
+'AKLT.Cert.H3.Check.PrefixShard.words_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.first_direction_checked :
+  (∀ (e : Fin 4), AKLT.Defs.FirstDirection (AKLT.Cert.H3.Data.PrefixBN.word11 e) AKLT.Defs.Compass.north) ∧
+    ∀ (e : Fin 16), AKLT.Defs.FirstDirection (AKLT.Cert.H3.Data.PrefixBN.word e) AKLT.Defs.Compass.north
+'AKLT.Cert.H3.Check.PrefixShard.first_direction_checked' depends on axioms: [propext, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.closed_classification :
+  (∀ (e : Fin 4), ¬AKLT.Defs.ClosedTrail AKLT.Defs.PairType.B (AKLT.Cert.H3.Data.PrefixBN.word11 e)) ∧
+    ∀ (e : Fin 16), AKLT.Defs.ClosedTrail AKLT.Defs.PairType.B (AKLT.Cert.H3.Data.PrefixBN.word e) ↔ ↑e = 1
+'AKLT.Cert.H3.Check.PrefixShard.closed_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.classification_checked (e : Fin 16) :
+  AKLT.Cert.H3.Data.PrefixBN.survives e = true ↔
+    AKLT.Defs.SurvivingPrefix AKLT.Defs.PairType.B AKLT.Defs.Compass.north (AKLT.Cert.H3.Data.PrefixBN.word e)
+'AKLT.Cert.H3.Check.PrefixShard.classification_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.endpoints_checked (e : Fin 16) :
+  AKLT.Cert.H3.Data.PrefixBN.survives e = true →
+    AKLT.Cert.H3.Data.quotient.project (AKLT.Defs.lastWindowWord 10 (AKLT.Cert.H3.Data.PrefixBN.word e)) =
+        AKLT.Cert.H3.Data.PrefixBN.endpointClass e ∧
+      AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Cert.H3.Data.PrefixBN.word e) 12 =
+          AKLT.Cert.H3.gridSite (AKLT.Cert.H3.Data.PrefixBN.endpointSite e) ∧
+        ∀ (φ : AKLT.Defs.Phase),
+          AKLT.Cert.H3.Data.PrefixBN.endpointValue e φ =
+            AKLT.Cert.H3.valueAt AKLT.Cert.H3.Data.BNPrototype.plane AKLT.Cert.H3.Data.BNPrototype.cap φ
+              (AKLT.Cert.H3.Data.PrefixBN.endpointClass e)
+              (AKLT.Cert.H3.gridSite (AKLT.Cert.H3.Data.PrefixBN.endpointSite e))
+'AKLT.Cert.H3.Check.PrefixShard.endpoints_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.endpoint_table_verified (e : Fin 16) (h : AKLT.Cert.H3.Data.PrefixBN.survives e = true)
+  (φ : AKLT.Defs.Phase) :
+  AKLT.Cert.H3.Data.PrefixBN.endpointValue e φ =
+    AKLT.Cert.H3.Data.BNPrototype.certificate.extended φ
+      (AKLT.Cert.H3.Data.quotient.project (AKLT.Defs.lastWindowWord 10 (AKLT.Cert.H3.Data.PrefixBN.word e)))
+      (AKLT.Defs.wordVertex AKLT.Defs.kernelStart (AKLT.Cert.H3.Data.PrefixBN.word e) 12)
+'AKLT.Cert.H3.Check.PrefixShard.endpoint_table_verified' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.phases_checked (e : Fin 16) :
+  AKLT.Cert.H3.Data.PrefixBN.survives e = true →
+    ∀ (φ : AKLT.Defs.Phase),
+      AKLT.Defs.prefixPhases (AKLT.Cert.H3.Data.PrefixBN.word e) φ =
+        ↑(AKLT.Cert.H3.Data.PrefixBN.phaseNumerator e φ) / ↑(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12)
+'AKLT.Cert.H3.Check.PrefixShard.phases_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.numerator_checked :
+  AKLT.Cert.H3.Data.PrefixBN.shardNumerator = AKLT.Cert.H3.Data.PrefixBN.expectedNumerator
+'AKLT.Cert.H3.Check.PrefixShard.numerator_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.tail_from_defs :
+  AKLT.Cert.H3.prefixShard AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B
+      AKLT.Defs.Compass.north AKLT.Cert.H3.Data.PrefixBN.word =
+    ↑AKLT.Cert.H3.Data.PrefixBN.expectedNumerator / ↑(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12 * 65536)
+'AKLT.Cert.H3.Check.PrefixShard.tail_from_defs' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.closed_checked :
+  AKLT.Cert.H3.Check.PrefixShard.closedPart =
+    ↑AKLT.Cert.H3.Data.PrefixBN.shortNumerator / ↑AKLT.Cert.H3.Data.PrefixBN.shortDenominator
+'AKLT.Cert.H3.Check.PrefixShard.closed_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.PrefixShard.complete_shard :
+  AKLT.Cert.H3.Check.PrefixShard.closedPart +
+      AKLT.Cert.H3.prefixShard AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B
+        AKLT.Defs.Compass.north AKLT.Cert.H3.Data.PrefixBN.word =
+    ↑AKLT.Cert.H3.Data.PrefixBN.shortNumerator / ↑AKLT.Cert.H3.Data.PrefixBN.shortDenominator +
+      ↑AKLT.Cert.H3.Data.PrefixBN.expectedNumerator / ↑(AKLT.Cert.H3.Data.PrefixBN.stepDenominator ^ 12 * 65536)
+'AKLT.Cert.H3.Check.PrefixShard.complete_shard' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.SemanticRows64.checked_view (i : Fin 64) :
+  AKLT.Cert.H3.viewRow AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.plane AKLT.Cert.H3.Data.BNPrototype.cap
+    AKLT.Defs.PairType.B AKLT.Defs.Compass.north (AKLT.Cert.H3.Check.SemanticRows64.phase (↑i % 4))
+    (AKLT.Cert.H3.Check.SemanticRows64.state i) (AKLT.Cert.H3.Check.SemanticRows64.sampleSite (↑i / 4 % 8))
+'AKLT.Cert.H3.Check.SemanticRows64.checked_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.Check.SemanticRows64.checked (i : Fin 64) :
+  AKLT.Cert.H3.DefRow AKLT.Cert.H3.Data.quotient AKLT.Cert.H3.Data.BNPrototype.certificate AKLT.Defs.PairType.B
+    AKLT.Defs.Compass.north (AKLT.Cert.H3.Check.SemanticRows64.phase (↑i % 4))
+    (AKLT.Cert.H3.Check.SemanticRows64.state i) (AKLT.Cert.H3.Check.SemanticRows64.sampleSite (↑i / 4 % 8))
+'AKLT.Cert.H3.Check.SemanticRows64.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.grid_index_law : AKLT.Cert.H3.GridIndexLaw
+'AKLT.Cert.H3.grid_index_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.prototype : AKLT.Cert.H3.PrototypeStatement
+'AKLT.Cert.H3.prototype' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.automaton_target_of_checks (hcard : Fintype.card (AKLT.Defs.MemoryWindow 10) = 60092)
+  (hQ : AKLT.Cert.H3.Data.quotient.Correct)
+  (hs : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.straight = 2516)
+  (ht : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.turn = 5032)
+  (hr : AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.revisit = 1872) :
+  AKLT.Blueprint.Top.Automaton10Statement
+'AKLT.Cert.H3.automaton_target_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.stationary_target_of_checks (hcard : (AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius).card = 19881)
+  (Q : AKLT.Defs.MemoryQuotient 10 3741) (hQ : Q.Correct)
+  (C : AKLT.Defs.PairType × AKLT.Defs.Compass → AKLT.Defs.StationaryData 3741)
+  (checks :
+    ∀ k ∈ AKLT.Defs.stationaryCases,
+      (C k).Passes Q k.1 k.2 ∧
+        10 ^ 9 * AKLT.Defs.stationaryPrefixBound Q k.1 k.2 (C k) ≤ ↑(AKLT.Defs.stationaryPrefixCeiling k.1 k.2)) :
+  AKLT.Blueprint.Top.StationaryCheckStatement
+'AKLT.Cert.H3.stationary_target_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.weighted_pack (b n : ℕ) (ts : List AKLT.Cert.H3.PackedTerm) (h : ∀ e ∈ ts, AKLT.Gen.Packed.Fits e.2 b n) :
+  AKLT.Cert.H3.weighted ts = AKLT.Gen.Packed.packFn b n fun s => AKLT.Cert.H3.component b s ts
+'AKLT.Cert.H3.weighted_pack' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.component_le (b s k : ℕ) (ts : List AKLT.Cert.H3.PackedTerm)
+  (h : ∀ e ∈ ts, AKLT.Gen.Packed.lane e.2 b s ≤ 2 ^ k) :
+  AKLT.Cert.H3.component b s ts ≤ AKLT.Cert.H3.coefficientSum ts * 2 ^ k
+'AKLT.Cert.H3.component_le' depends on axioms: [propext]
+AKLT.Cert.H3.packedRowCheck_sound {g n k D U : ℕ} {ts : List AKLT.Cert.H3.PackedTerm}
+  (h : AKLT.Cert.H3.packedRowCheck g n k D U ts = true) (s : ℕ) :
+  s < n → AKLT.Cert.H3.component (g + 1) s ts ≤ D * AKLT.Gen.Packed.lane U (g + 1) s
+'AKLT.Cert.H3.packedRowCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.integer_table_sum.{u_1} {I : Type u_1} [Fintype I] (valid : I → Bool) (p v : I → AKLT.Defs.Phase → ℕ)
+  (D V : ℕ) :
+  (∑ i, if valid i = true then ∑ φ, ↑(p i φ) / ↑D * (↑(v i φ) / ↑V) else 0) =
+    ↑(∑ i, if valid i = true then ∑ φ, p i φ * v i φ else 0) / (↑D * ↑V)
+'AKLT.Cert.H3.integer_table_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.mergeFuel_eq.{u_1} {α : Type u_1} (le : α → α → Bool) (f : ℕ) (xs ys : List α)
+  (h : xs.length + ys.length ≤ f) : AKLT.Cert.H3.mergeFuel le f xs ys = xs.merge ys le
+'AKLT.Cert.H3.mergeFuel_eq' depends on axioms: [propext, Quot.sound]
+AKLT.Cert.H3.mergeFuel_full.{u_1} {α : Type u_1} (le : α → α → Bool) (xs ys : List α) :
+  AKLT.Cert.H3.mergeFuel le (xs.length + ys.length) xs ys = xs.merge ys le
+'AKLT.Cert.H3.mergeFuel_full' depends on axioms: [propext, Quot.sound]
+AKLT.Cert.H3.mergeSortFuel_eq.{u_1} {α : Type u_1} (le : α → α → Bool) (fuel : ℕ) (xs : List α) (h : xs.length ≤ fuel) :
+  AKLT.Cert.H3.mergeSortFuel le fuel xs = xs.mergeSort le
+'AKLT.Cert.H3.mergeSortFuel_eq' depends on axioms: [propext, Quot.sound]
+AKLT.Cert.H3.liveOther_view {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) :
+  AKLT.Defs.liveOtherNeighbours w i = AKLT.Cert.H3.liveOtherView w i
+'AKLT.Cert.H3.liveOther_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.witnessKappa_view {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i : Fin n) :
+  AKLT.Defs.witnessKappa w i = AKLT.Cert.H3.kappaView w i
+'AKLT.Cert.H3.witnessKappa_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.prefixPhases_view {n : ℕ} (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.prefixPhases w = AKLT.Cert.H3.prefixPhasesView w
+'AKLT.Cert.H3.prefixPhases_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.closedContribution_view {n : ℕ} (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.closedContribution w = AKLT.Cert.H3.closedView w
+'AKLT.Cert.H3.closedContribution_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.localRowCheck_sound {m q : ℕ} {Q : AKLT.Defs.MemoryQuotient m q} {plane cap : AKLT.Defs.Phase → Fin q → ℕ}
+  {X : AKLT.Defs.PairType} {d₀ : AKLT.Defs.Compass} {φ : AKLT.Defs.Phase} {a : Fin q}
+  (h : AKLT.Cert.H3.localRowCheck Q plane cap X d₀ φ a = true) (s : ℕ) :
+  s < 19881 →
+    AKLT.Cert.H3.component 80 s (AKLT.Cert.H3.rowTerms Q plane cap X d₀ φ a) ≤
+      AKLT.Cert.H3.coefficientScale * AKLT.Gen.Packed.lane (plane φ a) 80 s
+'AKLT.Cert.H3.localRowCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.quotient_assembly (m q : ℕ) (Q : AKLT.Defs.MemoryQuotient m q)
+  (representatives : ∀ (a : Fin q), AKLT.Defs.RawWindow (Q.representative a) ∧ Q.project (Q.representative a) = a)
+  (rows : ∀ (w : AKLT.Defs.DirectionWord m), AKLT.Defs.RawWindow w → AKLT.Cert.H3.CorrectAt Q w) : Q.Correct
+'AKLT.Cert.H3.quotient_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.coefficientCeiling_bound (t : ℚ) :
+  t ≤ ↑(AKLT.Defs.coefficientCeiling t) / ↑AKLT.Defs.certificateCoefficientScale
+'AKLT.Cert.H3.coefficientCeiling_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.scaled_row_real.{u_1} {E : Type u_1} (edges : Finset E) (t : E → ℚ) (v : E → ℕ) (u : ℕ)
+  (h : ∑ e ∈ edges, AKLT.Defs.coefficientCeiling (t e) * v e ≤ AKLT.Defs.certificateCoefficientScale * u) :
+  ∑ e ∈ edges, ↑(t e) * (↑(v e) / ↑AKLT.Defs.certificateValueScale) ≤ ↑u / ↑AKLT.Defs.certificateValueScale
+'AKLT.Cert.H3.scaled_row_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.mem_square_iff (x : AKLT.Defs.Plane) :
+  x ∈ AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius ↔ AKLT.Cert.H3.inBox x
+'AKLT.Cert.H3.mem_square_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.extended_view {q : ℕ} (plane cap : AKLT.Defs.Phase → Fin q → ℕ) (φ : AKLT.Defs.Phase) (a : Fin q)
+  (x : AKLT.Defs.Plane) : (AKLT.Cert.H3.dataOf plane cap).extended φ a x = AKLT.Cert.H3.valueAt plane cap φ a x
+'AKLT.Cert.H3.extended_view' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.viewRow_iff {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) (plane cap : AKLT.Defs.Phase → Fin q → ℕ)
+  (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q) (x : AKLT.Defs.Plane) :
+  AKLT.Cert.H3.viewRow Q plane cap X d₀ φ a x ↔ AKLT.Cert.H3.DefRow Q (AKLT.Cert.H3.dataOf plane cap) X d₀ φ a x
+'AKLT.Cert.H3.viewRow_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.automaton10_from_closed_leaves :
+  AKLT.Cert.H3.AutomatonAssemblyLeaves → AKLT.Blueprint.Top.Automaton10Statement
+'AKLT.Cert.H3.automaton10_from_closed_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Cert.H3.stationary_check_from_closed_leaves :
+  AKLT.Cert.H3.StationaryAssemblyLeaves → AKLT.Blueprint.Top.StationaryCheckStatement
+'AKLT.Cert.H3.stationary_check_from_closed_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]

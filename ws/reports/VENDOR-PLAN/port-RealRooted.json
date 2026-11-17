@@ -1,0 +1,127 @@
+{
+  "label": "port-RealRooted",
+  "seconds": 13.394691944122314,
+  "results": {
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.2315049171447754,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CStarClasses": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.229383945465088,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown identifier `mul_star_self_ne_zero.mpr`",
+          "endPos": {
+            "column": 58,
+            "line": 131
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-RealRooted/RealRooted/Mathlib/LinearAlgebra/Matrix/PerronFrobenius/CStarClasses.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 33,
+            "line": 131
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "unsolved goals\n\u03b9 : Type u_2\ns : Finset \u03b9\nv : \u03b9 \u2192 \u2102\nu : \u2102\nh_eq : u = \u2211 i \u2208 s, v i\nh_sum : \u2016u\u2016 = \u2211 i \u2208 s, \u2016v i\u2016\nh_ne : u \u2260 0\naligned : \u2200 i \u2208 s, (v i * star u).re = \u2016v i\u2016 * \u2016u\u2016\nu_pos : 0 < \u2016u\u2016\ni : \u03b9\nhi : i \u2208 s\nhv : \u00acv i = 0\nk : \u211d := \u2016v i\u2016 / \u2016u\u2016\nk_nonneg : 0 \u2264 k\nh : v i * star u = \u2191\u2016v i\u2016 * \u2191\u2016u\u2016\n\u22a2 v i = v i * (u * star u) / (u * star u)",
+          "endPos": {
+            "column": 65,
+            "line": 131
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-RealRooted/RealRooted/Mathlib/LinearAlgebra/Matrix/PerronFrobenius/CStarClasses.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Tactic.unsolvedGoals",
+          "pos": {
+            "column": 47,
+            "line": 129
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CollatzWielandt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5723795890808105,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Dominance": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CStarClasses"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Irreducible": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5493476390838623,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Lemmas": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4246563911437988,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Nonneg": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Dominance"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Primitive": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.396836757659912,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.QuiverPath": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3264007568359375,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Simplex": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8401665687561035,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Spectrum": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.156217336654663,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Uniqueness": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3066706657409668,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "error_count": 2,
+  "ok": 9,
+  "failed": 1,
+  "blocked": 2
+}

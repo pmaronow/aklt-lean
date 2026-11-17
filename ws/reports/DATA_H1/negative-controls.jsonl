@@ -1,0 +1,10 @@
+{"control": "valid_zero_factor", "expected": "accept", "observed": "accept", "result": "PASS"}
+{"control": "valid_gram_factor", "expected": "accept", "observed": "accept", "result": "PASS"}
+{"control": "negative_matrix_diagonal", "expected": "reject", "observed": "reject", "reason": "residual not strict DD with positive diagonal", "result": "PASS"}
+{"control": "zero_scale", "expected": "reject", "observed": "reject", "reason": "nonpositive scale", "result": "PASS"}
+{"control": "truncated_factor", "expected": "reject", "observed": "reject", "reason": "L triangle", "result": "PASS"}
+{"control": "oversized_factor", "expected": "reject", "observed": "reject", "reason": "residual not strict DD with positive diagonal", "result": "PASS"}
+{"control": "false_margin", "expected": "reject", "observed": "reject", "reason": "stored margin mismatch", "result": "PASS"}
+{"control": "truncated_matrix", "expected": "reject", "observed": "reject", "reason": "M triangle", "result": "PASS"}
+{"control": "corrupt_compressed_chunk", "expected": "reject", "observed": "reject", "reason": "ValueError: chunk hash", "result": "PASS"}
+{"event": "negative_controls_complete", "invalid_rejections": 7, "result": "PASS", "valid_acceptances": 2}

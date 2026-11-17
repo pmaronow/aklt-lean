@@ -1,0 +1,588 @@
+{
+  "policy": "From the author-rule message onward, every first Lean leaf-proof attempt belongs to a different, cheaper model. This includes short proofs and checker soundness. This blueprint architect only writes statements, definitions, designs, executable computations/prototypes and proved assembly implications. Proofs already written before that message are retained.",
+  "retained_leaf_and_supporting_proofs": [
+    {
+      "lean_name": "AKLT.Blueprint.H3.reflectPair_injective",
+      "module": "AKLT.Blueprint.H3.Assembly",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean",
+      "line": 209,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem reflectPair_injective : Function.Injective (fun p : Finset Plane => p.image reflectSite)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.ceiling_rows",
+      "module": "AKLT.Blueprint.H3.Assembly",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Assembly.lean",
+      "line": 261,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem ceiling_rows (bN bW cN cW cS : ℚ)\n    (hbN : (10^9 : ℚ) * bN ≤ stationaryPrefixCeiling .B .north)\n    (hbW : (10^9 : ℚ) * bW ≤ stationaryPrefixCeiling .B .west)\n    (hcN : (10^9 : ℚ) * cN ≤ stationaryPrefixCeiling .C .north)\n    (hcW : (10^9 : ℚ) * cW ≤ stationaryPrefixCeiling .C .west)\n    (hcS : (10^9 : ℚ) * cS ≤ stationaryPrefixCeiling .C .south) :\n    (2 * bN + bW ≤ kernelRho * kernelWitness .B) ∧\n      (cN + cW + cS ≤ kernelRho * kernelWitness .C)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.reflectSite_involutive",
+      "module": "AKLT.Blueprint.H3.Basic",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean",
+      "line": 84,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "@[simp] theorem reflectSite_involutive (x : Plane) : reflectSite (reflectSite x) = x",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.reflectDirection_involutive",
+      "module": "AKLT.Blueprint.H3.Basic",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean",
+      "line": 88,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "@[simp] theorem reflectDirection_involutive (d : Compass) :\n    reflectDirection (reflectDirection d) = d",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.reflectWord_involutive",
+      "module": "AKLT.Blueprint.H3.Basic",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean",
+      "line": 91,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "@[simp] theorem reflectWord_involutive {n : ℕ} (w : DirectionWord n) :\n    reflectWord (reflectWord w) = w",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.takeWord_append",
+      "module": "AKLT.Blueprint.H3.Basic",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Basic.lean",
+      "line": 101,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem takeWord_append {L r : ℕ} (P : DirectionWord L) (v : DirectionWord r) :\n    takeWord (appendWords P v) L = P",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.listSystem_step",
+      "module": "AKLT.Blueprint.H3.Bellman",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean",
+      "line": 17,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem listSystem_step {α : Type} (edges : α → List (α × ℝ))\n    (he : ∀ s, ∀ e ∈ edges s, 0 ≤ e.2) (f : α → ℝ) (hf : ∀ s, 0 ≤ f s) (s : α) :\n    (listSystem edges).step (fun x => ENNReal.ofReal (f x)) s =\n      ENNReal.ofReal (listBackward edges f s)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.listSystem_exact",
+      "module": "AKLT.Blueprint.H3.Bellman",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean",
+      "line": 47,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem listSystem_exact {α : Type} (edges : α → List (α × ℝ))\n    (he : ∀ s, ∀ e ∈ edges s, 0 ≤ e.2) (g : α → ℝ) (hg : ∀ s, 0 ≤ g s)\n    (n : ℕ) :\n    (∀ s, 0 ≤ ((listBackward edges)^[n]) g s) ∧\n    (∀ s, (listSystem edges).exact (fun x => ENNReal.ofReal (g x)) n s =\n      ENNReal.ofReal (((listBackward edges)^[n]) g s))",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.bellmanSoundness_proved",
+      "module": "AKLT.Blueprint.H3.Bellman",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean",
+      "line": 71,
+      "classification": "preexisting leaf or Top-interface witness",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem bellmanSoundness_proved : AKLT.Blueprint.Top.BellmanSoundnessStatement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.stationarySystem_step",
+      "module": "AKLT.Blueprint.H3.Bellman",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean",
+      "line": 103,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem stationarySystem_step (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)\n    (f : Phase → Fin 3741 → Plane → ℚ) (hf : ∀ φ a x, 0 ≤ f φ a x)\n    (φ : Phase) (a : Fin 3741) (x : Plane) :\n    (stationarySystem Q X d₀).step (fun s => ENNReal.ofReal (f s.1 s.2.1 s.2.2 : ℝ)) (φ, a, x) =\n      ENNReal.ofReal (stationaryApply Q X d₀ f φ a x : ℝ)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.stationary_finite_le",
+      "module": "AKLT.Blueprint.H3.Bellman",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Bellman.lean",
+      "line": 123,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem stationary_finite_le (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)\n    (F : Phase → Fin 3741 → Plane → ℚ) (hF : ∀ φ a x, 0 ≤ F φ a x)\n    (hrow : ∀ φ a x, stationaryReward X φ a x + stationaryApply Q X d₀ F φ a x ≤ F φ a x)\n    (φ : Phase) (a : Fin 3741) (x : Plane) (R : ℕ) :\n    stationaryContinuationSum Q X d₀ φ a x R ≤ F φ a x",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.rawBackward_pullback",
+      "module": "AKLT.Blueprint.H3.NodesAutomaton",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean",
+      "line": 26,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem rawBackward_pullback {m q : ℕ} (Q : MemoryQuotient m q) (hQ : Q.Correct)\n    (p : ℕ) (weight : Fin p → Fin p → StepKind → Compass → Compass → Plane → ℚ)\n    (hweight : ∀ φ ψ d a a' x, weight φ ψ .revisit d a x = weight φ ψ .revisit d a' x)\n    (terminal : Plane → Bool) (G : Fin p → Fin q → Plane → ℚ)\n    (w : DirectionWord m) (hw : RawWindow w) (φ : Fin p) (x : Plane) :\n    rawBackward m p weight terminal (fun ψ ω y => G ψ (Q.project ω) y) φ w x =\n      quotientBackward Q p weight terminal G φ (Q.project w) x",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.rawBackward_congr",
+      "module": "AKLT.Blueprint.H3.NodesAutomaton",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesAutomaton.lean",
+      "line": 55,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem rawBackward_congr {m p : ℕ}\n    (weight : Fin p → Fin p → StepKind → Compass → Compass → Plane → ℚ)\n    (terminal : Plane → Bool) (F H : Fin p → DirectionWord m → Plane → ℚ)\n    (φ : Fin p) (w : DirectionWord m) (x : Plane)\n    (h : ∀ ψ d, WindowAdmissible w d →\n      F ψ (windowSuccessor w d) (x + d.step) = H ψ (windowSuccessor w d) (x + d.step)) :\n    rawBackward m p weight terminal F φ w x = rawBackward m p weight terminal H φ w x",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.coefficientCeiling_proved",
+      "module": "AKLT.Blueprint.H3.NodesCertificate",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean",
+      "line": 24,
+      "classification": "preexisting leaf or Top-interface witness",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem coefficientCeiling_proved : CoefficientCeilingStatement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.rational_scaled_row",
+      "module": "AKLT.Blueprint.H3.NodesCertificate",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean",
+      "line": 32,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem rational_scaled_row {E : Type} (s : Finset E) (t : E → ℚ) (p v : E → ℕ)\n    (D V u : ℕ) (hD : 0 < D) (hV : 0 < V)\n    (hceil : ∀ e ∈ s, t e ≤ (p e : ℚ) / D)\n    (hcheck : ∑ e ∈ s, p e * v e ≤ D * u) :\n    (∑ e ∈ s, t e * ((v e : ℚ) / V)) ≤ (u : ℚ) / V",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.potential_bounds",
+      "module": "AKLT.Blueprint.H3.NodesCertificate",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean",
+      "line": 46,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem potential_bounds {q m : ℕ} (C : StationaryData q) (Q : MemoryQuotient m q)\n    (X : PairType) (d₀ : Compass) (hC : C.Passes Q X d₀) (φ : Phase) (a : Fin q) (x : Plane) :\n    0 ≤ C.potential φ a x ∧ C.potential φ a x ≤ (C.cap φ a : ℚ) / certificateValueScale ∧\n    (x ∉ square (0, 0) certificateRadius → C.potential φ a x = (C.cap φ a : ℚ) / certificateValueScale)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.checked_free_row",
+      "module": "AKLT.Blueprint.H3.NodesCertificate",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean",
+      "line": 64,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem checked_free_row (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)\n    (C : StationaryData 3741) (hC : C.Passes Q X d₀) (φ : Phase) (a : Fin 3741) :\n    freeApply Q (fun ψ b => (C.cap ψ b : ℚ) / certificateValueScale) φ a ≤\n      (C.cap φ a : ℚ) / certificateValueScale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.checked_inside_row",
+      "module": "AKLT.Blueprint.H3.NodesCertificate",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesCertificate.lean",
+      "line": 79,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem checked_inside_row (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)\n    (C : StationaryData 3741) (hC : C.Passes Q X d₀) (φ : Phase) (a : Fin 3741)\n    (x : square (0, 0) certificateRadius) (hc : x.val ≠ kernelCentre) (hv : x.val ≠ kernelTarget X) :\n    stationaryApply Q X d₀ C.potential φ a x.val ≤ C.potential φ a x.val",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelLengthRow_zero",
+      "module": "AKLT.Blueprint.H3.NodesKernel",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean",
+      "line": 33,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelLengthRow_zero (X : PairType) : kernelLengthRow X 0 = 0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelPartialRow_eq_sum",
+      "module": "AKLT.Blueprint.H3.NodesKernel",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesKernel.lean",
+      "line": 42,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelPartialRow_eq_sum (X : PairType) (R : ℕ) :\n    kernelPartialRow X R = ∑ n ∈ Finset.Icc 1 R, kernelLengthRow X n",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.wordSplit_proved",
+      "module": "AKLT.Blueprint.H3.NodesPrefix",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean",
+      "line": 25,
+      "classification": "preexisting leaf or Top-interface witness",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem wordSplit_proved : WordSplitStatement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.firstDirectionPartialRow_mono",
+      "module": "AKLT.Blueprint.H3.NodesPrefix",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesPrefix.lean",
+      "line": 63,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem firstDirectionPartialRow_mono (X : PairType) (d₀ : Compass) {R S : ℕ} (hRS : R ≤ S) :\n    firstDirectionPartialRow X d₀ R ≤ firstDirectionPartialRow X d₀ S",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.reflectionOrderingAlgebra_proved",
+      "module": "AKLT.Blueprint.H3.NodesReflection",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/NodesReflection.lean",
+      "line": 66,
+      "classification": "preexisting leaf or Top-interface witness",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem reflectionOrderingAlgebra_proved : ReflectionOrderingAlgebraStatement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.passageFactor_pos",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 9,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem passageFactor_pos (b : Bool) : 0 < passageFactor b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelRho_pos_lt_one",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 12,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelRho_pos_lt_one : 0 < kernelRho ∧ kernelRho < 1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelWitness_pos",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 15,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelWitness_pos (X : PairType) : 0 < kernelWitness X",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.pairCoefficient_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 18,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem pairCoefficient_nonneg {n : ℕ} (w : DirectionWord n) (i : Fin n) (p : Finset Plane) :\n    0 ≤ pairCoefficient w i p",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.witnessKappa_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 24,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem witnessKappa_nonneg {n : ℕ} (w : DirectionWord n) (i : Fin n) :\n    0 ≤ witnessKappa w i",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.relaxedReward_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 30,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem relaxedReward_nonneg (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) :\n    0 ≤ relaxedReward x incoming outgoing dead",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.phaseTransition_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 39,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem phaseTransition_nonneg (k : StepKind) (r : ℚ) (hr : 0 ≤ r) (φ ψ : Phase) :\n    0 ≤ phaseTransition k r φ ψ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.truePhaseCoefficient_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 44,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem truePhaseCoefficient_nonneg {n : ℕ} (w : DirectionWord n) (i : Fin n) (φ ψ : Phase) :\n    0 ≤ truePhaseCoefficient w i φ ψ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.stationaryCoefficient_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 48,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem stationaryCoefficient_nonneg {m q : ℕ} (Q : MemoryQuotient m q)\n    (X : PairType) (d₀ : Compass) (φ : Phase) (a : Fin q) (x : Plane) (d : Compass) (ψ : Phase) :\n    0 ≤ stationaryCoefficient Q X d₀ φ a x d ψ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.freeCoefficient_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 55,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem freeCoefficient_nonneg {m q : ℕ} (Q : MemoryQuotient m q)\n    (φ : Phase) (a : Fin q) (d : Compass) (ψ : Phase) : 0 ≤ freeCoefficient Q φ a d ψ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.prefixPhases_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 62,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem prefixPhases_nonneg {n : ℕ} (w : DirectionWord n) (φ : Phase) : 0 ≤ prefixPhases w φ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.exposureSum_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 78,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem exposureSum_nonneg {n : ℕ} (w : DirectionWord n) (r : Fin n → ℚ)\n    (hr : ∀ i, 0 ≤ r i) (l : List (Fin n)) : 0 ≤ exposureSum w r l",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.closedContribution_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 85,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem closedContribution_nonneg {n : ℕ} (w : DirectionWord n) : 0 ≤ closedContribution w",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.responseKappa_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 92,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem responseKappa_nonneg {n : ℕ} (X Y : PairType) (s : ℕ) (w : DirectionWord n) (i : Fin n) :\n    0 ≤ responseKappa X Y s w i",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelLengthCoefficient_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 101,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelLengthCoefficient_nonneg (X Y : PairType) (s n : ℕ) :\n    0 ≤ kernelLengthCoefficient X Y s n",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.kernelLengthRow_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 115,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem kernelLengthRow_nonneg (X : PairType) (n : ℕ) : 0 ≤ kernelLengthRow X n",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_name": "AKLT.Blueprint.H3.stationaryWordValue_nonneg",
+      "module": "AKLT.Blueprint.H3.Positivity",
+      "source_file": "/home/ubuntu/aklt/wt/BP_H3M/AKLT/Blueprint/H3/Positivity.lean",
+      "line": 124,
+      "classification": "preexisting supporting proof",
+      "status": "retained under the author exception for proofs written before the new rule",
+      "statement": "theorem stationaryWordValue_nonneg (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)\n    (l : List Compass) (φ : Phase) (a : Fin 3741) (x : Plane) :\n    0 ≤ stationaryWordValue Q X d₀ l φ a x",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "existing_assembly_and_wrapper_theorems": [
+    "AKLT.Blueprint.H3.allTargets_of_leaves_and_checks",
+    "AKLT.Blueprint.H3.automatonQuotient_of_nodes",
+    "AKLT.Blueprint.H3.bellmanSoundness",
+    "AKLT.Blueprint.H3.h3_of_checks",
+    "AKLT.Blueprint.H3.kernelReflection_of_nodes",
+    "AKLT.Blueprint.H3.longExposureExpansion_of_nodes",
+    "AKLT.Blueprint.H3.phaseExpansion_of_nodes",
+    "AKLT.Blueprint.H3.prefixDomination_of_nodes",
+    "AKLT.Blueprint.H3.reflectionPairs_of_nodes",
+    "AKLT.Blueprint.H3.stationaryAssembly_of_nodes",
+    "AKLT.Blueprint.H3.stationaryDomination_of_nodes",
+    "AKLT.Blueprint.H3.stationaryLocalGlobal_of_nodes"
+  ],
+  "lean_source_sha256_at_policy_update": {
+    "AKLT/Blueprint/H3/Assembly.lean": "a4fab8551d9d2e2ff1acf028ae7942c2f9b25999eeb40099bf3a7addfca3c0d5",
+    "AKLT/Blueprint/H3/Audit.lean": "5e0049f9f00449301ef8e5d7a237b2ac682e43f4f35d261a3c2f9218ea60808b",
+    "AKLT/Blueprint/H3/Basic.lean": "5a8f3555d99290b7e883085a7f927292a25eb87665aefc396d568b5b10c8b936",
+    "AKLT/Blueprint/H3/Bellman.lean": "8b44b5467d126ee125b044b84de8ca0b3734a32484350cb53e659bd9698cb82b",
+    "AKLT/Blueprint/H3/Nodes.lean": "724345afdeba3966c086e007c78a50e5f0d16f5e51c40caa23a555f545867b2e",
+    "AKLT/Blueprint/H3/NodesAutomaton.lean": "b2e4c8cef4ab8731fa24357c43b2fe0cc4fb13d39f775b29b4ff097129b4fd94",
+    "AKLT/Blueprint/H3/NodesCertificate.lean": "149e7ed4e189090ca8f77957aed345d82527a78ab70cd035995ff6cf486684a9",
+    "AKLT/Blueprint/H3/NodesDomination.lean": "9e630d1f2a7f3777e9adbedc090f3370e2d6b107346016f91a828eb31925ae8b",
+    "AKLT/Blueprint/H3/NodesKernel.lean": "9021d1b82a30d3a03735b1c32abddeb35ed867a45dcd79839b700adffbc4327c",
+    "AKLT/Blueprint/H3/NodesPhase.lean": "79433c546102bef5cbfeeee08cf62049fb3f006c9774f56368090d2f505729a0",
+    "AKLT/Blueprint/H3/NodesPrefix.lean": "76e6e0147a1448724988302f2e00eea868ecf0627988cc6e963701f20943f9bb",
+    "AKLT/Blueprint/H3/NodesReflection.lean": "0485a1b8e29d50ffd6b4977194f4c2a1ee4ad76d814b2d3906db29550dae0ce8",
+    "AKLT/Blueprint/H3/Positivity.lean": "162890f740795fc632f5387ea38490f6b10a6121eda8ae3881c60b5f81b5475c"
+  }
+}

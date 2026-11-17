@@ -1,0 +1,173 @@
+{
+  "recorded_utc": "2026-11-16 15:12:53 UTC",
+  "source": "Author rule relayed by the orchestrator in the latest user message.",
+  "future_leaf_proofs": {
+    "first_attempt": "A different, cheaper model selected by the orchestrator.",
+    "current_agent_scope": [
+      "statements",
+      "definitions",
+      "designs",
+      "executable checkers",
+      "data exporters",
+      "measurements/prototypes",
+      "proved assembly theorems"
+    ],
+    "current_agent_must_not_attempt_leaf_proofs": true,
+    "checker_soundness": "Any new soundness lemma must be an open leaf with an exact closed statement in leaves.json."
+  },
+  "allowed_kernel_computations": "Kernel decide-style check modules may be retained for end-to-end prototypes; their unproved soundness obligations remain open leaves.",
+  "retained_pre_rule_proofs": [
+    {
+      "lean_name": "AKLT.Blueprint.Rec.boundaryExample_v2_covered",
+      "module": "AKLT.Blueprint.Rec.Counterexample",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Counterexample.lean",
+      "source_line": 27,
+      "signature": "theorem boundaryExample_v2_covered :\n    CoveredDepartureV2 (normalizeStart boundaryExampleD (0, 0) (-1, 0))\n      (0, 0) .east .east",
+      "classification": "retained kernel computation",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.boundaryExample_not_old_covered",
+      "module": "AKLT.Blueprint.Rec.Counterexample",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Counterexample.lean",
+      "source_line": 39,
+      "signature": "theorem boundaryExample_not_old_covered :\n    ¬ CoveredDeparture (normalizeStart boundaryExampleD (0, 0) (-1, 0))\n      (0, 0) .east .east",
+      "classification": "retained diagnostic proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.witness_positive",
+      "module": "AKLT.Blueprint.Rec.NodesKernel",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean",
+      "source_line": 107,
+      "signature": "theorem witness_positive (X : PairType) : 0 < witnessReal X",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.kernelRho_pos",
+      "module": "AKLT.Blueprint.Rec.NodesKernel",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean",
+      "source_line": 110,
+      "signature": "theorem kernelRho_pos : (0 : ℝ) < kernelRho",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.coveredDeparture_to_v2",
+      "module": "AKLT.Blueprint.Rec.NodesLocal",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean",
+      "source_line": 85,
+      "signature": "theorem coveredDeparture_to_v2 {G : Finset Plane} {D : Network G} (hD : D.Auxiliary)\n    {y : Plane} {a o : Compass} (h : CoveredDeparture D y a o) :\n    CoveredDepartureV2 D y a o",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.logRationalRows",
+      "module": "AKLT.Blueprint.Rec.NodesLogMean",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean",
+      "source_line": 56,
+      "signature": "theorem logRationalRows : LogRationalRowsStatement",
+      "classification": "retained leaf proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.reciprocalLogMean_one",
+      "module": "AKLT.Blueprint.Rec.NodesLogMean",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean",
+      "source_line": 64,
+      "signature": "theorem reciprocalLogMean_one : reciprocalLogMean 1 = 1",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.typedCrudeRows",
+      "module": "AKLT.Blueprint.Rec.NodesLogMean",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean",
+      "source_line": 73,
+      "signature": "theorem typedCrudeRows : TypedCrudeRowsStatement",
+      "classification": "retained leaf proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.envelope_le_of_pair_bounds",
+      "module": "AKLT.Blueprint.Rec.NodesRecursion",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean",
+      "source_line": 113,
+      "signature": "theorem envelope_le_of_pair_bounds (X : PairType) (d : ℕ) (B : ℝ) (hB : 0 ≤ B)\n    (h : ∀ p : PairData, p.X = X → (d : ℕ∞) ≤ p.depth → |p.response| ≤ B) :\n    responseEnvelope X d ≤ B",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.crudeRational",
+      "module": "AKLT.Blueprint.Rec.NodesResponse",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean",
+      "source_line": 173,
+      "signature": "theorem crudeRational : CrudeRationalStatement",
+      "classification": "retained leaf proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Rec.traceCoefficient_singleton",
+      "module": "AKLT.Blueprint.Rec.NodesWalk",
+      "source_file": "/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean",
+      "source_line": 139,
+      "signature": "theorem traceCoefficient_singleton {G : Finset Plane} (D : Network G) (u : Plane) :\n    traceCoefficient D [u] = 1",
+      "classification": "retained helper proof",
+      "provenance": "Written before the author rule; retained under the explicit exception. No cheaper-model first attempt is claimed."
+    }
+  ],
+  "assembly_theorems": [
+    "response_of_leaves",
+    "logMeanBounds_of_leaves",
+    "responseTypedV2_of_leaves",
+    "responseTyped_of_v2",
+    "mTheta_of_leaves",
+    "boundedRenewal_of_leaves",
+    "firstTermBound_of_leaves",
+    "rec_of_leaves",
+    "responseTyped_of_leaves",
+    "targets_of_leaves"
+  ],
+  "lean_source_sha256_at_cutover": {
+    "All.lean": "7c4faff94c3c355cb3a993d1549c13ec3e2be1d71394b52d54dbce66478cb0d7",
+    "Assembly.lean": "dcf641d9641e8255d1f8f58bed79593d0e0b1d1c493cf6262e162dd1bbba9539",
+    "Audit.lean": "38be6723c17e44b2b23ebcd1d819f658ebf8ee5174217bddb62a7386023e4549",
+    "Counterexample.lean": "bc6809bc660b6a9e2f002f59ff220b615ebbd439878b7e923e8081fc6d650f2a",
+    "Definitions.lean": "b24544e7e9e5b7204c3ab3277b924bf5b9e852f4d8ccb04b2f88ff5cd9095f89",
+    "NodesClosure.lean": "be009a0d0c79aea47d1811873b88a3602d86cdac53eea5f2208164a15d3d6268",
+    "NodesKernel.lean": "4653c695c29f591fb8607ee86c4b8b8971bd19f697b5041a43e6b97520d8ca4e",
+    "NodesLocal.lean": "80de00738c47963804d743a65c1fea8d864f306c902936192d44ec52ebcd73fb",
+    "NodesLogMean.lean": "6af8888f351d1d120026be4f056a3409f9db87d79375921fb085433f3bacf81e",
+    "NodesRecursion.lean": "6213970fe1d1a8e7479d81f0dc450d98b44c8482a5cc3b953ab4b3651ccff7a3",
+    "NodesRenewal.lean": "5e784c33b9bbf6e6c2d4fe291d125dbc0f150af2ba5dec3f1714baea33dc8ce5",
+    "NodesResponse.lean": "85e3889ae79731e2b286866c8f9b84858df3c2db366095ac98c0282d7063d0a4",
+    "NodesWalk.lean": "fb1a0df6ea852c9f7d3cc48bfc92059e9aed8d7b457d449669b90cdaf9438ca0"
+  },
+  "post_rule_leaf_proofs_added": [],
+  "adaptation": {
+    "frozen_source_baseline": "adaptation-baseline.json",
+    "new_leaf_files": [
+      "NodesV2Closure.lean",
+      "NodesV2Handoff.lean",
+      "NodesV2Local.lean",
+      "NodesV2Ordering.lean",
+      "NodesV2Walk.lean"
+    ],
+    "new_leaf_proof_attempts": [],
+    "new_assembly_theorems": [
+      "response_of_leavesV2",
+      "logMeanBounds_of_leavesV2",
+      "responseTyped_shared_of_leavesV2",
+      "legacyTyped_of_sharedV2",
+      "mTheta_of_leavesV2",
+      "rec_of_leavesV2",
+      "kernelOrderScope_of_leavesV2",
+      "longPhaseKernel_of_partsV2",
+      "targets_of_leavesV2",
+      "responseProperty_of_inputsV2",
+      "mainV2_of_blueprintV2"
+    ],
+    "first_attempt_rule": "All new and kept open leaf proofs first go to a different, cheaper model."
+  }
+}

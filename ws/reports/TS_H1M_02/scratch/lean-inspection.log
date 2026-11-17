@@ -1,0 +1,67 @@
+def AKLT.Blueprint.H1.OriginalDegreeStatement : Prop :=
+∀ (π : PatternData), π.Covered → ∀ (next : Bool), InternalAdmissible π.active (originalIntegrand π next)
+def AKLT.Blueprint.H1.OriginalFactorStructureStatement : Prop :=
+∀ (π : PatternData) (next : Bool),
+  LocalVectorAffine (originalIntegrand π next) ∧ IntegrandInvariant (originalIntegrand π next)
+def AKLT.Blueprint.H1.OriginalRawEvaluationStatement : Prop :=
+∀ (π : PatternData) (next : Bool) (m : Fin 20 → UnitVector),
+  (rawFunctional π.active (nextStatus π next) (originalIntegrand π next) fun j => ↑(m j)) =
+    if next = true then patternNext π m else patternCurrent π m
+def AKLT.Blueprint.H1.MomentContractionStatement : Prop :=
+MonomialMoments →
+  ∀ (V : Finset Plane) (s : Plane → Status),
+    (∀ x ∈ V, s x = Status.U ∨ s x = Status.D) →
+      ∀ (p : LocalPolynomial),
+        InternalAdmissible V p → ∀ (u : Fin 20 → Vec3), evaluateReduced (contractSpins V s p) u = rawFunctional V s p u
+def AKLT.Blueprint.H1.MomentCovarianceTransferStatement : Prop :=
+MonomialMoments →
+  ProductMomentCovariance →
+    ∀ (V : Finset Plane) (s : Plane → Status),
+      (∀ x ∈ V, s x = Status.U ∨ s x = Status.D) →
+        ∀ (p : LocalPolynomial),
+          InternalAdmissible V p → IntegrandInvariant p → OrthogonalInvariant (contractSpins V s p)
+def AKLT.Blueprint.H1.ContractionAffineStatement : Prop :=
+∀ (V : Finset Plane) (s : Plane → Status) (p : LocalPolynomial),
+  LocalVectorAffine p → VectorAffine (contractSpins V s p)
+def AKLT.Blueprint.H1.ContractionSupportStatement : Prop :=
+∀ (V : Finset Plane) (s : Plane → Status) (p : LocalPolynomial) (J : Finset (Fin 20)),
+  LocalSupportedVectors J p → SupportedVectors J (contractSpins V s p)
+def AKLT.Blueprint.H1.BlochAlgebraStatement : Prop :=
+∀ (u : Vec3), (blochMatrix u).IsHermitian ∧ blochMatrix u * blochMatrix u = ↑(normSq u) • 1 ∧ (blochMatrix u).trace = 0
+def AKLT.Blueprint.H1.MonomialMoments : Prop :=
+∀ (m : Fin 3 → ℕ),
+  ∑ i, m i ≤ 4 →
+    ∀ (s : Status),
+      s = Status.U ∨ s = Status.D → (siteFunctional s fun n => ∏ i, n i ^ m i) = ↑(rationalStatusMoment s m)
+def AKLT.Blueprint.H1.ProductMomentCovariance : Prop :=
+∀ (n : ℕ) (s : Fin n → Status),
+  (∀ (x : Fin n), s x = Status.U ∨ s x = Status.D) →
+    ∀ (p : MvPolynomial (Fin n × Fin 3) ℝ),
+      SeparateDegreeFour p →
+        ∀ (R : Fin n → Matrix (Fin 3) (Fin 3) ℝ),
+          (∀ (x : Fin n), (R x).transpose * R x = 1) →
+            (productFunctional s fun a => (MvPolynomial.eval fun v => (R v.1).mulVec (a v.1) v.2) p) =
+              productFunctional s fun a => (MvPolynomial.eval fun v => a v.1 v.2) p
+def AKLT.Blueprint.H1.InternalAdmissible : Finset Plane → LocalPolynomial → Prop :=
+fun V p =>
+  (∀ m ∈ MvPolynomial.support p, ∀ x ∉ V, ∀ (k : Fin 3), m (Sum.inl (x, k)) = 0) ∧
+    ∀ m ∈ MvPolynomial.support p, ∀ (x : Plane), ∑ k, m (Sum.inl (x, k)) ≤ 4
+def AKLT.Defs.contractSpins : Finset Plane →
+  (Plane → Status) → MvPolynomial LocalVariable ℚ → MvPolynomial (Fin 20 × Fin 3) ℚ :=
+fun V status p =>
+  ∑ m ∈ p.support,
+    (MvPolynomial.monomial (Finsupp.comapDomain Sum.inr m ⋯))
+      (p.coeff m * ∏ x ∈ V, rationalStatusMoment (status x) fun k => m (Sum.inl (x, k)))
+Finsupp.comapDomain_apply.{u_1, u_2, u_5} {α : Type u_1} {β : Type u_2} {M : Type u_5} [Zero M] (f : α → β) (l : β →₀ M)
+  (hf : Set.InjOn f (f ⁻¹' ↑l.support)) (a : α) : (Finsupp.comapDomain f l hf) a = l (f a)
+Pi.instFintype
+fun a b => instDecidableEqProd a b
+1
+1
+1 / 3
+1 / 5
+1 / 5
+3 / 25
+1 / 15
+1 / 25
+0

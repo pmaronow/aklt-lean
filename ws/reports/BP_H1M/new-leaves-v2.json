@@ -1,0 +1,668 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliExpansionStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Pauli",
+    "paper_label": "d:Pauli / l:inversion",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      120,
+      280
+    ],
+    "dependencies": [
+      "AKLT.Defs.RealVectorPolynomial",
+      "AKLT.Defs.VectorAffineReal",
+      "AKLT.Defs.SupportedVectorsReal",
+      "AKLT.Defs.pauliExponentReal",
+      "AKLT.Blueprint.H1.pauliCoordinate"
+    ],
+    "suggested_proof_route": "Build the bijection between supported vector-affine monomials and J-to-Fin4 labels. Sum their evaluated coefficients. The empty active set is a singleton constant expansion.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Pauli.lean",
+    "line": 12,
+    "closed_statement": "def PauliExpansionStatementV2 : Prop :=\n  \u2200 n : \u2115, \u2200 J : Finset (Fin n), \u2200 p : RealVectorPolynomial n,\n    VectorAffineReal p \u2192 SupportedVectorsReal J p \u2192 \u2200 u : Fin n \u2192 Vec3,\n      evaluateRealPolynomial p u =\n        \u2211 a : J \u2192 Fin 4, p.coeff (pauliExponentReal J a) *\n          \u220f j : J, pauliCoordinate (u j.val) (a j)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All required mathematical premises are explicit. The definition is a closed Prop and assumes no other blueprint leaf proposition.",
+      "vacuity_and_degenerate": "For n=0, necessarily J is empty and J->Fin4 has one member. The operator is scalar on C, not a zero-dimensional matrix. J empty is also allowed for positive n.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "The unchanged pauliCoordinate uses a.val-1 only after the a.val=0 guard; its index proof is retained in the frozen definition.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [
+      "AKLT.Blueprint.H1.PauliExpansionStatement"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliProductTraceStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Pauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      120,
+      280
+    ],
+    "dependencies": [
+      "AKLT.Defs.pauliOperatorReal",
+      "AKLT.Defs.productDensityReal",
+      "AKLT.Defs.pauliExponentReal",
+      "Matrix.trace"
+    ],
+    "suggested_proof_route": "Expand the matrix product and trace, interchange finite sums, factor the tensor-coordinate sums into products of one-slot traces, and apply the supplied scalar trace identity. Embed the real sum into C exactly.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Pauli.lean",
+    "line": 22,
+    "closed_statement": "def PauliProductTraceStatementV2 : Prop :=\n  (\u2200 a : Fin 4, \u2200 u : Vec3, (pauli a * spinDensity u).trace = (pauliCoordinate u a : \u2102)) \u2192\n  \u2200 n : \u2115, \u2200 J : Finset (Fin n), \u2200 p : RealVectorPolynomial n, \u2200 u : Fin n \u2192 Vec3,\n    (pauliOperatorReal J p * productDensityReal J u).trace =\n      ((\u2211 a : J \u2192 Fin 4, p.coeff (pauliExponentReal J a) *\n        \u220f j : J, pauliCoordinate (u j.val) (a j) : \u211d) : \u2102)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "The mathematical one-slot trace identity is explicit; affineness is unnecessary because both sides select the same Pauli exponents. Irrational real coefficients are permitted.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [
+      "AKLT.Blueprint.H1.PauliProductTraceStatement"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionPolynomialStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Pauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      80,
+      220
+    ],
+    "dependencies": [
+      "AKLT.Defs.invertPolynomialReal",
+      "AKLT.Defs.invertVectorsReal",
+      "AKLT.Defs.VectorAffineReal",
+      "AKLT.Defs.SupportedVectorsReal"
+    ],
+    "suggested_proof_route": "Compute the coefficient signs on each monomial. Exponents are unchanged, and applying the sign substitution to both polynomial and vectors cancels every sign. No I-subset-J premise is needed for this stronger algebraic identity.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Pauli.lean",
+    "line": 32,
+    "closed_statement": "def InversionPolynomialStatementV2 : Prop :=\n  \u2200 n : \u2115, \u2200 J I : Finset (Fin n), \u2200 p : RealVectorPolynomial n,\n    VectorAffineReal p \u2192 SupportedVectorsReal J p \u2192\n      VectorAffineReal (invertPolynomialReal I p) \u2227 SupportedVectorsReal J (invertPolynomialReal I p) \u2227\n      \u2200 u : Fin n \u2192 Vec3,\n        evaluateRealPolynomial (invertPolynomialReal I p) (invertVectorsReal I u) = evaluateRealPolynomial p u",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Affineness/support are explicit; sign cancellation is valid even when I is not a subset of J. The public Top contract imposes I subset J when used.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [],
+    "adaptation_note": "Generalizes the old leaf for inversion; the old rational leaf stays kept for rational operator-structure prerequisites."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ProductDensityPositiveStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Pauli",
+    "paper_label": "l:inversion",
+    "difficulty": "hard",
+    "estimated_proof_lines": [
+      150,
+      350
+    ],
+    "dependencies": [
+      "AKLT.Defs.productDensityReal",
+      "AKLT.Defs.spinDensity",
+      "Matrix.PosSemidef.kronecker",
+      "Mathlib/Analysis/Matrix/Order.lean"
+    ],
+    "suggested_proof_route": "Induct over the finite token set J, split the tensor function type at one coordinate, use PSD of the Kronecker product and transport across the explicit index equivalence. Handle the empty J as [1].",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Pauli.lean",
+    "line": 42,
+    "closed_statement": "def ProductDensityPositiveStatementV2 : Prop :=\n  \u2200 n : \u2115, \u2200 J : Finset (Fin n), \u2200 u : Fin n \u2192 Vec3,\n    (\u2200 j \u2208 J, (spinDensity (u j)).PosSemidef) \u2192 (productDensityReal J u).PosSemidef",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Every individual density on J is assumed PSD; no invertibility, positive definiteness, or trace normalization is needed by this tensor-positivity step.",
+      "vacuity_and_degenerate": "J empty yields the 1-by-1 matrix [1]. Arbitrary n and token counts above 20 are permitted.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [
+      "AKLT.Blueprint.H1.ProductDensityPositiveStatement"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionBallStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Pauli",
+    "paper_label": "l:inversion",
+    "difficulty": "easy",
+    "estimated_proof_lines": [
+      5,
+      25
+    ],
+    "dependencies": [
+      "AKLT.Defs.invertVectorsReal",
+      "AKLT.Defs.normSq",
+      "AKLT.Defs.dot"
+    ],
+    "suggested_proof_route": "Split membership in I and use invariance of the sum of coordinate squares under negation. This trivial fact remains an unproved leaf under the author's new rule.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Pauli.lean",
+    "line": 48,
+    "closed_statement": "def InversionBallStatementV2 : Prop :=\n  \u2200 n : \u2115, \u2200 I : Finset (Fin n), \u2200 u : Fin n \u2192 Vec3, \u2200 j : Fin n,\n    normSq (invertVectorsReal I u j) = normSq (u j)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All required mathematical premises are explicit. The definition is a closed Prop and assumes no other blueprint leaf proposition.",
+      "vacuity_and_degenerate": "n=0 makes the j quantifier empty; for n>0 the equality also holds at the zero vector.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.RationalEmbeddingStructureStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Reduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "estimated_proof_lines": [
+      20,
+      80
+    ],
+    "dependencies": [
+      "AKLT.Defs.VectorAffine",
+      "AKLT.Defs.SupportedVectors",
+      "AKLT.Defs.VectorAffineReal",
+      "AKLT.Defs.SupportedVectorsReal",
+      "MvPolynomial.map"
+    ],
+    "suggested_proof_route": "Use coefficient-map support inclusion. A coefficient embedding changes no monomial exponents, so vector degrees and absent-token exponents retain their bounds.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Reduction.lean",
+    "line": 20,
+    "closed_statement": "def RationalEmbeddingStructureStatementV2 : Prop :=\n  \u2200 p : VectorPolynomial, \u2200 J : Finset (Fin 20),\n    VectorAffine p \u2192 SupportedVectors J p \u2192\n      VectorAffineReal (MvPolynomial.map (Rat.castHom \u211d) p) \u2227\n      SupportedVectorsReal J (MvPolynomial.map (Rat.castHom \u211d) p)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Affineness and support of the rational polynomial are explicit; support inclusion suffices even if a coefficient map deletes terms.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.RationalEmbeddingEvaluationStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Reduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "estimated_proof_lines": [
+      5,
+      30
+    ],
+    "dependencies": [
+      "AKLT.Defs.evaluateRealPolynomial",
+      "AKLT.Defs.evaluateReduced",
+      "MvPolynomial.map",
+      "MvPolynomial.eval\u2082"
+    ],
+    "suggested_proof_route": "Commute polynomial evaluation with the rational-to-real coefficient map using the eval\u2082 composition identity. Keep this short fact open for the assigned first-attempt model.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Reduction.lean",
+    "line": 29,
+    "closed_statement": "def RationalEmbeddingEvaluationStatementV2 : Prop :=\n  \u2200 p : VectorPolynomial, \u2200 u : Fin 20 \u2192 Vec3,\n    evaluateRealPolynomial (MvPolynomial.map (Rat.castHom \u211d) p) u = evaluateReduced p u",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All required mathematical premises are explicit. The definition is a closed Prop and assumes no other blueprint leaf proposition.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Both evaluations take values in R. The rational coefficients are embedded once using Rat.castHom R; no change to vector coordinates.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.DifferenceStructureStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Reduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      60,
+      180
+    ],
+    "dependencies": [
+      "AKLT.Defs.VectorAffineReal",
+      "AKLT.Defs.SupportedVectorsReal",
+      "AKLT.Blueprint.H1.OrthogonalInvariantV2",
+      "MvPolynomial.C"
+    ],
+    "suggested_proof_route": "Support of subtraction is contained in the union; multiplying by the real constant C c introduces no exponents. Ring-hom evaluation transfers the two covariance identities to the difference.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Reduction.lean",
+    "line": 36,
+    "closed_statement": "def DifferenceStructureStatementV2 : Prop :=\n  \u2200 J : Finset (Fin 20), \u2200 p q : RealVectorPolynomial 20, \u2200 c : \u211d,\n    VectorAffineReal p \u2192 VectorAffineReal q \u2192 OrthogonalInvariantV2 p \u2192 OrthogonalInvariantV2 q \u2192\n    SupportedVectorsReal J p \u2192 SupportedVectorsReal J q \u2192\n      VectorAffineReal (p - MvPolynomial.C c * q) \u2227\n      OrthogonalInvariantV2 (p - MvPolynomial.C c * q) \u2227\n      SupportedVectorsReal J (p - MvPolynomial.C c * q)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Affineness, invariance and support are supplied separately for both polynomials. c is arbitrary real, not restricted to rational thresholds.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [],
+    "adaptation_note": "Real-threshold extension; the rational old leaf stays kept inside the reused rational operator assembly."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.DifferenceEvaluationStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Reduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "estimated_proof_lines": [
+      10,
+      50
+    ],
+    "dependencies": [
+      "AKLT.Defs.reducedDifferenceReal",
+      "AKLT.Defs.reducedPolynomialReal",
+      "AKLT.Defs.evaluateRealPolynomial",
+      "AKLT.Defs.evaluateReduced"
+    ],
+    "suggested_proof_route": "Unfold the real difference and coefficient embedding, then use evaluation compatibility with map, subtraction, multiplication and constants. The threshold stays in R throughout.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Reduction.lean",
+    "line": 46,
+    "closed_statement": "def DifferenceEvaluationStatementV2 : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 r : Representation, \u2200 c : \u211d, \u2200 u : Fin 20 \u2192 Vec3,\n    evaluateRealPolynomial (reducedDifferenceReal \u03c0 r c) u =\n      evaluateReduced (reducedPolynomial \u03c0 r false) u -\n        c * evaluateReduced (reducedPolynomial \u03c0 r true) u",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "All required mathematical premises are explicit. The definition is a closed Prop and assumes no other blueprint leaf proposition.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "c is a real scalar multiplying the rational-to-real evaluations; no c-as-rational term appears anywhere.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AffineEvaluationStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Reduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      80,
+      200
+    ],
+    "dependencies": [
+      "AKLT.Defs.VectorAffineReal",
+      "AKLT.Defs.evaluateRealPolynomial",
+      "AKLT.Blueprint.H1.SeparatelyAffine",
+      "Function.update"
+    ],
+    "suggested_proof_route": "Expand real monomials. For each token the sum of the three coordinate exponents is at most one, so replacing that token by an affine combination distributes through every monomial.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Reduction.lean",
+    "line": 55,
+    "closed_statement": "def AffineEvaluationStatementV2 : Prop :=\n  \u2200 p : RealVectorPolynomial 20, VectorAffineReal p \u2192 SeparatelyAffine (evaluateRealPolynomial p)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Whole-vector degree <=1 is essential; coordinatewise multiaffineness alone would be insufficient. The output is the existing 20-token affine-function predicate needed for the unchanged convex-extension leaf.",
+      "vacuity_and_degenerate": "Finite empty sums/products use their usual conventions; vector and coefficient zeros are allowed.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": [
+      "AKLT.Blueprint.H1.AffineEvaluationStatement"
+    ]
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Structure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      60,
+      180
+    ],
+    "dependencies": [
+      "AKLT.Defs.reducedDifferenceReal",
+      "AKLT.Defs.invertPolynomialReal",
+      "AKLT.Defs.pauliOperatorReal",
+      "AKLT.Defs.reducedDifference",
+      "AKLT.Defs.pauliOperator"
+    ],
+    "suggested_proof_route": "Use coefficientwise real linearity of the Pauli map, inversion and rational coefficient embedding. The weights a=2-3c and b=3c-1 satisfy a+b=1 and a/3+2b/3=c. The exact Python prototype records these identities, not a Lean proof.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Structure.lean",
+    "line": 29,
+    "closed_statement": "def RealDifferencePauliInterpolationStatementV2 : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 r : Representation, \u2200 I : Finset (Fin 20), \u2200 c : \u211d,\n    pauliOperatorReal (reductionVectors \u03c0 r) (invertPolynomialReal I (reducedDifferenceReal \u03c0 r c)) =\n      ((2 - 3 * c : \u211d) : \u2102) \u2022\n        pauliOperator (reductionVectors \u03c0 r) (invertPolynomial I (reducedDifference \u03c0 r (1 / 3))) +\n      ((3 * c - 1 : \u211d) : \u2102) \u2022\n        pauliOperator (reductionVectors \u03c0 r) (invertPolynomial I (reducedDifference \u03c0 r (2 / 3)))",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "The identity holds for arbitrary real c and any inversion; neither coveredness nor group inversion is needed for coefficientwise linearity.",
+      "vacuity_and_degenerate": "At c=1/3 or 2/3 one interpolation weight vanishes. Weights may be negative elsewhere; this is not interpolation of PSD/PD.",
+      "coercions": "The exact rational matrices at thresholds 1/3 and 2/3 are multiplied by real weights embedded in C. No rational approximation to c is used.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OperatorStructureLinearCombinationStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesV2Structure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "estimated_proof_lines": [
+      100,
+      300
+    ],
+    "dependencies": [
+      "AKLT.Blueprint.H1.OperatorStructureAtV2",
+      "Matrix.toEuclideanLin",
+      "AKLT.Defs.symmetricPairProjection",
+      "Commute"
+    ],
+    "suggested_proof_route": "Split the conjunction into Hermiticity, real entries, SU(2) commutators, the three End commutators, and pair properties. Every clause is real linear; distribute sums/scalars. No positivity or orthogonal-decomposition theorem is transferred.",
+    "status": "open",
+    "adaptation_status": "new",
+    "proof_status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesV2Structure.lean",
+    "line": 41,
+    "closed_statement": "def OperatorStructureLinearCombinationStatementV2 : Prop :=\n  \u2200 \u03c0 : PatternData, \u2200 r : Representation,\n    \u2200 A B : Matrix (reductionVectors \u03c0 r \u2192 Fin 2) (reductionVectors \u03c0 r \u2192 Fin 2) \u2102,\n      OperatorStructureAtV2 \u03c0 r A \u2192 OperatorStructureAtV2 \u03c0 r B \u2192 \u2200 a b : \u211d,\n        OperatorStructureAtV2 \u03c0 r ((a : \u2102) \u2022 A + (b : \u2102) \u2022 B)",
+    "paper_reference": {
+      "report": "/home/ubuntu/aklt/reports/REF2_7/report.md",
+      "paper": "Appendix D; D.4 reduction, D.5-D.6 Pauli inversion, D.7 operator structure",
+      "repair_report": "/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md; F2/F3/F4"
+    },
+    "ownership": "H1 proof writer; first attempt must be a different, cheaper model",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "Both input matrices satisfy the explicit mathematical predicate OperatorStructureAtV2. This predicate contains no positivity claim, so real coefficients of either sign are legitimate.",
+      "vacuity_and_degenerate": "Zero coefficients, the zero matrix, empty groups, and empty tensors are allowed. Fixed pair projections are shared by both input properties.",
+      "coercions": "Exact Q-to-R and R-to-C ring embeddings only; no floating-point arithmetic or R-to-Q coercion.",
+      "finite_sums": "Use Finset support/site sums versus Fintype label/tensor sums exactly as typed, with explicit finite reindexing.",
+      "nat_subtraction": "No unguarded natural subtraction is introduced.",
+      "division_by_zero": "No variable denominator occurs. Fixed fractions 1/3 and 2/3 have positive nonzero denominators.",
+      "instances": "No ambient section variables; all finite token subtypes and function types retain their standard Fintype and DecidableEq instances."
+    },
+    "reuse_pointers": [
+      "Frozen AKLT/Blueprint/H1 definitions and existing assembly implications",
+      "Pinned Mathlib polynomial, finite-sum and matrix libraries"
+    ],
+    "supersedes": []
+  },
+  {
+    "lean_name": "AKLT.Blueprint.Top.H1FiniteDataStatementV2",
+    "module": "AKLT.Blueprint.Top.Operator",
+    "paper_label": "t:H1 / p:certificate",
+    "difficulty": "hard",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/Top/Operator.lean",
+    "line": 203,
+    "dependencies": [
+      "AKLT.Defs.H1SectorWitnesses",
+      "AKLT.Defs.h1Numerator",
+      "AKLT.Defs.h1Denominator",
+      "AKLT.Defs.GroupInversion",
+      "AKLT.Defs.ClearsDenominator",
+      "AKLT.Gen.Gram.checker_sound_complex"
+    ],
+    "suggested_proof_route": "External CERT_H1 owner must produce complete covered-pattern coverage and all regenerated sector witnesses for the shared Top proposition. Witness export/checking remains an independent obligation; no data are supplied by the H1 analytic assembly.",
+    "paper_reference": {
+      "file": "/home/ubuntu/aklt/reports/REV_C3/app-local-operator.tex",
+      "docstring": "`t:H1`, REV-PLAN lines 2308\u20132323, and `p:certificate`, Appendix D lines\n830\u2013896. REQUIRED EXTERNAL DATA HANDOFF: every covered pattern must actually\nhave a representation, a group inversion, a justified denominator and passing\nGram witnesses at its exact threshold. Neither existing Top soundness statement\nasserts this existence. A data owner should refine this contract into checked\nenumeration/orbit coverage and separately kernel-checked certificate shards.\nThis is not a claim that the study's discarded factors have been recovered."
+    },
+    "closed_statement": "def H1FiniteDataStatementV2 : Prop :=\n  \u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2203 r : Representation, \u2203 I : Finset (Fin 20),\n    GroupInversion \u03c0 r I \u2227 \u2203 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2227\n      H1SectorWitnesses \u03c0 r I D\u2080 (h1Numerator \u03c0) (h1Denominator \u03c0)",
+    "proof_policy": {
+      "status": "open",
+      "first_attempt_required_from": "a different, cheaper model than the blueprint architect",
+      "blueprint_architect_may_prove": false,
+      "applies_to_checker_soundness": true,
+      "proof_attempts_by_architect_after_rule_update": 0
+    },
+    "trap_check": {
+      "premises": "This is an EXTERNAL finite-data existence obligation, not a derived fact. It includes GroupInversion, ClearsDenominator and every sector witness at the selected threshold.",
+      "vacuity_and_degenerate": "Repeated unused exchange signs are permitted. Empty central matrices use Fin 0 and still require positive scales.",
+      "coercions": "Keep rational coefficients, real vector entries and complex matrix entries distinct; casts are ring homomorphisms, not floating-point conversions.",
+      "finite_sums": "Finset sums are used for polynomial support/sites; Fintype sums are used for assignments and tensor functions. Reindex via an explicit equivalence.",
+      "nat_subtraction": "No unguarded natural subtraction in this statement.",
+      "division_by_zero": "h1Denominator is 1000 or 200; ClearsDenominator includes D0>0. GramResidualRows includes g,d,S>0.",
+      "instances": "No section variables. Finite token subtypes carry their Fintype instances; arbitrary finite types explicitly bind Fintype/DecidableEq when needed."
+    },
+    "ownership": "external certificate-data owner; shared contract added by ARCH_0",
+    "estimated_proof_lines": null,
+    "reuse_pointers": [
+      "AKLT.Gen.Gram.int_gram_residual_posDef",
+      "AKLT/Gen/Gram/Checker.lean",
+      "REV-PLAN/PLAN.md lines 2296-2323: 12173 external sector blocks; full factor export remains required.",
+      "AKLT.Gen.Gram.checker_sound_complex (generic checker only; does not supply data)."
+    ],
+    "status": "open",
+    "adaptation_status": "new shared contract",
+    "proof_status": "open",
+    "superseded_by": [],
+    "adaptation_reason": "ARCH_0 A1 adopted the missing finite-data handoff. H1 uses shared definitions via aliases and definitionally compatible old assemblies.",
+    "supersedes": [
+      "AKLT.Blueprint.H1.H1FiniteDataStatementV2"
+    ]
+  }
+]

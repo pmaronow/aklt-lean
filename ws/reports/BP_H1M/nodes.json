@@ -1,0 +1,605 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.H1.H1FiniteDataStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesCertificate",
+    "paper_label": "t:H1 / p:certificate",
+    "difficulty": "hard",
+    "status": "external input",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 17
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CertificateStatementV2",
+    "module": "AKLT.Blueprint.H1.NodesCertificate",
+    "paper_label": "t:H1 / p:certificate",
+    "difficulty": "easy",
+    "status": "package",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 24
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ThresholdSymmetryStatement",
+    "module": "AKLT.Blueprint.H1.NodesCertificate",
+    "paper_label": "l:integercheck",
+    "difficulty": "assembly",
+    "status": "assembled",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 28
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CoveredSlotEnumerationStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 12
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CornerMeanBoundsStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 24
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.NormalizedMeanFactorStatement",
+    "module": "AKLT.Blueprint.H1.NodesLeaf",
+    "paper_label": "l:leaf",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesLeaf.lean",
+    "line": 33
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageSiteMomentsStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 11
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageFubiniStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 20
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageNetworkPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 32
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageNextLowerBoundStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 39
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PassageSubtractionStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 46
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalDegreeStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 61
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalFactorStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 67
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.OriginalRawEvaluationStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 73
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentContractionStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 81
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentCovarianceTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 90
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ContractionAffineStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 97
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ContractionSupportStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:moments / l:Iw / c:reduce",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 103
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ActiveStatusesStatement",
+    "module": "AKLT.Blueprint.H1.NodesPassage",
+    "paper_label": "l:Iw",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+    "line": 108
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BlochAlgebraStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 11
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BlochPositivityStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 17
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SinglePauliTraceStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 22
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliExpansionStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 34
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliProductTraceStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 42
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionPolynomialStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 52
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ProductDensityPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 60
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.TraceProductPositiveStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 67
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionBallStatement",
+    "module": "AKLT.Blueprint.H1.NodesPauli",
+    "paper_label": "l:inversion",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+    "line": 72
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReducedDegreeStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 12
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReducedFactorStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 18
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralGeometryStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 27
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralFubiniStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 33
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PeripheralAssignmentStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 41
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SimultaneousLeafReconstructionStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "assembly",
+    "status": "assembled",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 52
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.BallChordStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 66
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AffineEvaluationStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 70
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ProductBallNonnegativeStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 76
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.DifferenceStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 84
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReducedStructureStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "assembly",
+    "status": "assembled",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 93
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.DifferenceEvaluationStatement",
+    "module": "AKLT.Blueprint.H1.NodesReduction",
+    "paper_label": "c:reduce",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+    "line": 99
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SectorSpinStableStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 12
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SectorWeightBasisStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 19
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpanWeightLatticeStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 29
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinAdjointStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 39
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinCommutatorStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 46
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.WeightLadderTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 56
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CommonWeightEigenvectorStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 70
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.LadderWalkStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 83
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PositiveSpectrumStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 96
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CentralWeightHalfStatement",
+    "module": "AKLT.Blueprint.H1.NodesSector",
+    "paper_label": "l:sector",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+    "line": 103
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliHermitianStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 11
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.ReflectionParityStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 16
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliRealityStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 22
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.InversionCovarianceStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 29
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 35
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 43
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PauliRotationTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 52
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.CayleyTensorCommutationStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 62
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.TensorLinearCoefficientStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 71
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.SpinGeneratorTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 79
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.MomentPauliInterchangeStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 89
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PairExpansionFromRealizationStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "hard",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 99
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.RetainedPairExpansionStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "assembly",
+    "status": "assembled",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 113
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.UnitPairSupportStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 125
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.EqualPairExchangeStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "medium",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 133
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PairExpansionTransferStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "status": "open",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 139
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1.PairTokensDistinctStatement",
+    "module": "AKLT.Blueprint.H1.NodesStructure",
+    "paper_label": "l:Ostruct",
+    "difficulty": "easy",
+    "status": "proved",
+    "file": "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+    "line": 151
+  }
+]

@@ -1,0 +1,138 @@
+\section{From a window estimate to box gaps}\label{s:mixing}
+
+In this section we reduce the input of Theorem~\ref{t:K} to an estimate on window marginals of the frame model in large squares, and we prove Theorem~\ref{t:main} assuming that estimate. The main tools are \cite[Theorem~2.1]{MOS94} and \cite[Theorem~4.1]{MO94}, which apply after blocking $2 \times 2$ cells, and the coupling argument of \cite[Proposition~2.1]{MOS94}, which we reproduce in \S\ref{s:surgery} because we use it with a hypothesis that is not the weak mixing condition of \cite{MOS94}.
+
+\subsection{The cell models}\label{s:cells}
+
+Consider the frame model on $\Z^2$ with the checkerboard frame and the finite-volume measures $\mu^\eta_{D, W}$ of \eqref{e:muDW}. For $o \in \{0, 1\}$ and $c \in \Z^2$ let
+\begin{equation*}
+C^{(o)}_c = (2 c_1 + o, \, 2 c_2) + \{0, 1\}^2 .
+\end{equation*}
+For fixed $o$ the cells $C^{(o)}_c$, $c \in \Z^2$, partition $\Z^2$, and the translation by $(2c_1, 2c_2)$ preserves the parity of $x_1 + x_2$, so all cells of offset $o$ carry the same pattern of frames. Let $S^{(o)} = \prod_{x \in C^{(o)}_0} D_x$, a set of $12^2 \cdot 20^2 = 57{, }600$ elements. Identifying the configuration of $C^{(o)}_c$ with an element of $S^{(o)}$, the frame model becomes a model on $\Z^2$ with single-cell space $S^{(o)}$, which we call the \emph{cell model} $\hat\mu^{(o)}$: for a finite set $W \subset \Z^2$ of cells and a configuration $\eta$ of the cells outside $W$, $\hat\mu^{(o), \eta}_W$ is $\mu^\eta_{D, W'}$ with $W' = \bigcup_{c \in W} C^{(o)}_c$. It is the Gibbs measure of the potential with single-cell terms $-\log \bigl( \prod_{x \in C_c} w_x(n_x) \prod (1 + n_x \cdot n_y) \bigr)$ (product over the four bonds inside $C_c$) and pair terms $-\sum \log (1 + n_x \cdot n_y)$ over the bonds between $C_c$ and $C_{c'}$, $|c - c'|_1 = 1$. This potential is real valued by \eqref{e:icodod}, invariant under all translations of $\Z^2$, and of range $1$ in the $\ell^\infty$ distance. In particular it has \emph{finite energy}: there exists $\alpha > 0$ such that for both $o$, all cells $c$, all configurations $\sigma_c \in S^{(o)}$ and all configurations of the other cells, the conditional probability of $\sigma_c$ is at least $\alpha$.
+
+The two offsets give different cell models: the translation by $(1, 0)$ exchanges the icosahedron and dodecahedron sublattices. The translation by $(1, 1)$ preserves the checkerboard and maps cells of offset $o$ with lower-left corner $(2 c_1 + o, 2 c_2)$ to the cells with corner $(2c_1 + o + 1, 2 c_2 + 1)$. So every square $a + \{1, \dots, \ell\}^2$ with $\ell$ even is, after a translation that preserves the frame model, a union of cells of offset $0$ or of offset $1$: offset $0$ if the coordinates of its lower-left corner $a + (1, 1)$ have the same parity, offset $1$ otherwise.
+
+\begin{lemma}\label{l:boxcell}
+Let $L, N$ be even, $\ell = 2m \le \min(L, N) - 1$, $a \in \Lambda_{L, N}$, and let $\sigma$ be a configuration of $\mu_D$ on $\Lambda \setminus (R + a)$. Then, after the identification of $R + a$ with a square of $m \times m$ cells of the offset $o$ determined by $a$, the conditional measure $\mu_D(\, \cdot \mid \sigma)$ is the measure $\hat\mu^{(o), \eta}_W$ of a square $W$ of $m \times m$ cells for a suitable configuration $\eta$ of the cells outside $W$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{e:muD}, $\mu_D(\, \cdot \mid \sigma)$ is proportional to the product of the site weights, the bond weights inside $R + a$, and the weights $1 + n_x \cdot \sigma_y$ of the bonds $\{x, y\}$ with $x \in R + a$ and $y \notin R + a$. Since $L, N \ge \ell + 1$, distinct sites of the box are distinct on the torus and no bond of the torus joins two box sites other than the bonds of the box itself. Every site of $\Z^2$ outside the box that is adjacent to the box is adjacent to exactly one box site. Choose $\eta$ so that each such site carries the value of $\sigma$ at its image on the torus, and arbitrary letters elsewhere. (Two such sites could have the same image only if $L = \ell + 1$ or $N = \ell + 1$, which is excluded because $L$, $N$ and $\ell$ are even; the choice would be consistent in that case as well.) Then \eqref{e:muDW} gives the same product.
+\end{proof}
+
+\begin{lemma}\label{l:compare}
+Let $c_0$ be the smallest spectral gap of the single-site heat bath of a single cell, over $o \in \{0, 1\}$ and all configurations of the eight neighbouring sites of the cell. Then $c_0 > 0$, and for every finite set $W$ of cells and every boundary configuration $\eta$, the single-site heat-bath gap of $\hat\mu^{(o), \eta}_W$ is at least $c_0$ times its cell heat-bath gap, the gap of $\sum_{c \in W} (1 - E_c)$, where $E_c$ is the conditional expectation given the cells other than $c$.
+\end{lemma}
+
+\begin{proof}
+Each single-cell chain is irreducible with positive transition probabilities on a finite space, and there are finitely many boundary configurations, so $c_0 > 0$. Let $\mu = \hat\mu^{(o), \eta}_W$ and $F$ a function of the configuration. For a cell $c$, conditionally on the configuration outside $C_c$, the law of the spins of $C_c$ is a single-cell measure with a boundary configuration, whose single-site conditional expectations are the $E_x$, $x \in C_c$. Its Poincar\'e inequality gives $\Var_c F \le c_0^{-1} \sum_{x \in C_c} E_c [\Var_x F]$, and taking expectations, $\mu(\Var_c F) \le c_0^{-1} \sum_{x \in C_c} \mu(\Var_x F)$. Summing over $c$ and using the Poincar\'e inequality of the cell heat bath, we obtain $\Var_\mu(F) \le (c_0 \, \gap_{\mathrm{cell}})^{-1} \sum_{x} \mu(\Var_x F)$.
+\end{proof}
+
+\subsection{The cited results}\label{s:cited}
+
+We use the notation of \cite{MOS94} for a model on $\Z^2$ with a finite single-spin space $S$ and a real-valued potential that is invariant under the translations of $\Z^2$ and has range $r$ in the $\ell^\infty$ distance; for the cell models, $S = S^{(o)}$ and $r = 1$. For finite $W \subset \Z^2$, a boundary condition $\eta \in S^{\Z^2 \setminus W}$ and $\Delta \subset W$, let $\hat\mu^\eta_{W, \Delta}$ be the marginal of $\hat\mu^\eta_W$ on $\Delta$. Following \cite[(1.10)]{MOS94}, we say that \emph{$\mathrm{SM}(W, C, \gamma)$ holds} if for all $\Delta \subset W$, all $y \in \Z^2 \setminus W$ and all $\eta, \eta'$ that agree off $y$,
+\begin{equation}\label{e:SM}
+\TV(\hat\mu^\eta_{W, \Delta}, \hat\mu^{\eta'}_{W, \Delta}) \le C e^{-\gamma \operatorname{dist}_\infty(\Delta, y)} .
+\end{equation}
+Let $\mathcal C_M = \{ c \in \Z^2 : |c|_\infty \le M\}$, a square of side $2M + 1$. For boundary conditions $\eta, \eta'$ outside $\mathcal C_M$ let $\mathcal Q_{M, \eta, \eta'} = \{ c \in \mathcal C_M : |c - z|_\infty > M^{1/2} \text{ for all } z \text{ with } \eta_z \neq \eta'_z \}$. A set $W$ is \emph{$M_0$-compatible} if it is a finite union of translates of $\mathcal C_{M_0}$ by vectors of $(2 M_0 + 1) \Z^2$; by translation invariance we may and do also call its translates $M_0$-compatible.
+
+\begin{theorem}[{\cite[Theorem~2.1]{MOS94}}]\label{t:MOS21}
+There exists $\bar M$ such that the following holds. If for some $M > \bar M$
+\begin{equation}\label{e:MOS22}
+\sup_{\eta, \eta'} \TV\bigl( \hat\mu^\eta_{\mathcal C_M, \mathcal Q_{M, \eta, \eta'}}, \hat\mu^{\eta'}_{\mathcal C_M, \mathcal Q_{M, \eta, \eta'}} \bigr) \le M^{-4},
+\end{equation}
+then there exist $C, \gamma > 0$ such that $\mathrm{SM}(\mathcal C_{M'}, C, \gamma)$ holds for all $M' \ge 0$.
+\end{theorem}
+
+This is \cite[Theorem~2.1]{MOS94} in dimension $d = 2$, where the exponent $-d - 2$ of \cite[(2.2)]{MOS94} is $-4$; the set $\mathcal Q_{M, \eta, \eta'}$ is the set $Q_{L, \tau, \tau'}$ defined before \cite[Proposition~2.1]{MOS94}.
+
+\begin{theorem}[{\cite[Theorem~4.1]{MO94}}]\label{t:MO41}
+For all $C, \gamma > 0$ there exists $M_*$, depending on $C$, $\gamma$ and the range, such that the following holds. If $\mathrm{SM}(\mathcal C_{M_0}, C, \gamma)$ holds for some $M_0 \ge M_*$, then there exists $m_0 > 0$ such that for every $M_0$-compatible $W$ and every boundary condition $\eta$, the heat-bath dynamics on $W$ with boundary condition $\eta$ has spectral gap at least $m_0$.
+\end{theorem}
+
+In \cite{MO94} the conclusion is stated as $\|T_t f - \hat\mu^\eta_W(f)\|_{L^2} \le e^{-m_0 t} \|f - \hat\mu^\eta_W(f)\|_{L^2}$ for the semigroup $T_t$ of the heat-bath dynamics (the rates \cite[(4.1)]{MO94}); since this dynamics is reversible, this is equivalent to the bound on the gap. The heat-bath dynamics of the cell model is the dynamics in which each cell is resampled from its conditional law at rate $1$; its Dirichlet form is $\sum_c \mu(\Var_c F)$.
+
+\begin{remark}[The single-spin space]\label{r:finiteS}
+Section~4 of \cite{MO94}, which contains \cite[Theorem~4.1]{MO94}, is written for spins $\pm 1$ ``for simplicity'', with the heat-bath rates \cite[(4.1)]{MO94}. Some later results of that section are proved there only in the attractive case, but the proof of \cite[Theorem~4.1]{MO94} states explicitly that it works for a general, not necessarily ferromagnetic, system. The setting of \cite{MOS94} is a general finite single-spin space $S = \{1, \dots, N\}$ (its \S 1), and \cite[Theorem~2.1 and Theorem~3.2, (ii)$\Rightarrow$(iv)]{MOS94} are stated in that generality, with their proofs referred to \cite[\S 4]{MO94}. We read the proof of \cite[Theorem~4.1]{MO94} for a general finite $S$: the spin values enter only through the explicit form of the rates \cite[(4.1)]{MO94} and the range of the boundary conditions, while the steps of the proof (the bound \cite[(4.2)]{MO94} from strong mixing, the block Gibbs sampler and the comparison \cite[(4.5)]{MO94}, optimal couplings of two measures on a finite set, Holley's recursive inequality and finite speed of propagation) use neither $|S| = 2$ nor attractivity. We apply Theorems~\ref{t:MOS21} and~\ref{t:MO41} to the cell models with $|S^{(o)}| = 57{, }600$ on this basis; in this reading the constants $\bar M$, $M_*$ and $m_0$ may also depend on $S$, which is harmless here since only their existence is used. This is the only place where the proof uses a cited result outside the setting in which its proof is written out.
+\end{remark}
+
+\subsection{The coupling argument of Martinelli, Olivieri and Schonmann}\label{s:surgery}
+
+Fix $o \in \{0, 1\}$ and write $\hat\mu = \hat\mu^{(o)}$; the range is $r = 1$. Let $M \ge 1$, $s = M^{1/4}$, and let $y \in \Z^2$ with $\operatorname{dist}_\infty(y, \mathcal C_M) = 1$. For $i \ge 1$ define, as in \cite[p.~39]{MOS94},
+\begin{equation}\label{e:shells}
+\begin{aligned}
+F_i &= \{ c \in \mathcal C_M : |c - y|_\infty > (i - 1) s \}, & D_i &= \{ c \in \mathcal C_M : i s - 1 < |c - y|_\infty \le i s \}, \\
+A_i &= \{ c \in D_i : \operatorname{dist}_\infty(c, \Z^2 \setminus \mathcal C_M) \le l_0 \}, & B_i &= D_i \setminus A_i ,
+\end{aligned}
+\end{equation}
+where $l_0 \in \N$ is a parameter. The set $D_i$ is the intersection of $\mathcal C_M$ with the $\ell^\infty$ sphere of radius $k_i = \lfloor i s \rfloor$ around $y$, and $D_i \subset F_i$. Only the indices $i \le i_1$, where $i_1 = \lfloor s \rfloor + 1$, will be used. Let $I_0$ be the set of $i \in \{2, \dots, i_1\}$ such that $D_i$ is at $\ell^\infty$ distance less than $s/3$ from one of the four corner cells of $\mathcal C_M$. (Without the restriction $i \le i_1$, the set $I_0$ could have two elements: for $y = (0, -M - 1)$, $D_i$ comes close to the two lower corner cells when $k_i \approx M$ and to the two upper ones when $k_i \approx 2M + 1$.)
+
+\begin{lemma}\label{l:shellgeom}
+Let $l_0 \ge 1$. There exists $M_{\mathrm g}(l_0)$ such that for $M \ge M_{\mathrm g}(l_0)$ and all $y$ as above: $I_0$ has at most one element; and for every $i \in \{2, \dots, i_1\} \setminus I_0$, every side of the square $y + [-k_i, k_i]^2$ that is parallel to an edge $\mathcal E$ of $\mathcal C_M$ and meets $\mathcal C_M$ is at $\ell^\infty$ distance at least $s/3$ from the half-plane outside $\mathcal C_M$ beyond $\mathcal E$, and $|A_i| \le 8 l_0$.
+\end{lemma}
+
+\begin{proof}
+Let $2 \le i \le i_1$; then $k_i \le i_1 s \le M^{1/2} + s$. By symmetry let $y = (y_1, -M - 1)$ with $-M - 1 \le y_1 \le M + 1$. A corner cell $z$ within distance $s/3$ of $D_i$ satisfies $|z - y|_\infty < k_i + s/3 < M$ for $M$ large. At most one corner cell is at distance less than $M$ from $y$: the corner cells $(\pm M, M)$ are at distance $2M + 1$, and since $|y_1 + M| + |y_1 - M| \ge 2M$, one of $(-M, -M)$, $(M, -M)$ is at distance at least $M$. So only one corner cell $z_*$ can be within $s/3$ of some $D_i$ with $i \le i_1$. For $i \neq j$ the radii satisfy $|k_i - k_j| \ge \lfloor s \rfloor > 2s/3$ for $s \ge 4$, and points of $\ell^\infty$ spheres around $y$ of radii $k, k'$ are at distance at least $|k - k'|$; so $z_*$ is not within $s/3$ of two different $D_i$, and $I_0$ has at most one element. For the second claim, let $k = k_i \le M^{1/2} + s < M/2$. The bottom side of the square lies outside $\mathcal C_M$, and its top side lies at distance $k \ge s$ from the bottom half-plane and at distance more than $M$ from the top one. Consider the left side $\{y_1 - k\} \times [y_2 - k, y_2 + k]$, parallel to the left and right edges, and suppose it meets $\mathcal C_M$, so $e = y_1 - k + M + 1 \ge 1$ is its distance from the left half-plane; its distance from the right half-plane is $M + 1 - y_1 + k \ge k \ge s$. Its lowest cell in $\mathcal C_M$ is $(y_1 - k, -M) \in D_i$, at distance $e - 1$ from the corner cell $(-M, -M)$; if $e - 1 < s/3$ then $i \in I_0$, so $e > s/3$ for $i \notin I_0$. The right side is treated in the same way, and the case of $y$ outside a corner, $y = (-M - 1, -M - 1)$ up to symmetry, is simpler: the two sides that meet $\mathcal C_M$ are at distance $k \ge s$ from the near half-planes and more than $M$ from the far ones. Finally, a cell of $A_i$ lies on a side $\sigma$ of the square and within $l_0$ of an edge $\mathcal E$. If $\sigma$ is parallel to $\mathcal E$ this is impossible for $s/3 > l_0$. If $\sigma$ is perpendicular to $\mathcal E$, at most $l_0$ cells of $\sigma \cap \mathcal C_M$ are within $l_0$ of $\mathcal E$. There are four sides and, for each, two perpendicular edges, so $|A_i| \le 8 l_0$.
+\end{proof}
+
+We now state the hypothesis that the coupling argument consumes. It is the conclusion of Theorem~\ref{t:cutMOS} in \S\ref{s:cut}.
+
+\begin{definition}\label{d:W}
+We say that \emph{the window estimate holds for $\hat\mu$} if there exist $l_0 \in \N$, $p_0 \in (0, 1]$ and $M_\star$ such that for all $M \ge M_\star$, all $y$ with $\operatorname{dist}_\infty(y, \mathcal C_M) = 1$, all $i$ with $2 \le i \le s$ and $i \notin I_0$, and all configurations $\eta, \xi$ on $\Z^2 \setminus F_i$,
+\begin{equation}\label{e:W}
+\TV\bigl( \hat\mu^\eta_{F_i, B_i}, \hat\mu^\xi_{F_i, B_i} \bigr) \le 1 - p_0 .
+\end{equation}
+\end{definition}
+
+In \cite{MOS94} the bound \eqref{e:W} with $1 - p_0 = 1/2$ is their (2.8), derived from weak mixing; \cite{MOS94} need it only for $\eta, \xi$ that agree outside $\mathcal C_M$ up to the site $y$, and the bound for all $\eta, \xi$ is stronger. Nothing else in the proof of \cite[Proposition~2.1]{MOS94} uses mixing, and the constant $1/2$ can be replaced by any $p_0 > 0$.
+
+\begin{proposition}\label{p:surgery}
+Assume that the window estimate holds for $\hat\mu$ with $(l_0, p_0, M_\star)$, and let $\delta = p_0 \alpha^{16 l_0}$. Then for all $M \ge \max(M_\star, M_{\mathrm g}(l_0))$, all $y \in \Z^2 \setminus \mathcal C_M$ and all $\tau, \tau'$ that agree off $y$,
+\begin{equation}\label{e:prop21}
+\TV\bigl( \hat\mu^\tau_{\mathcal C_M, \mathcal Q}, \hat\mu^{\tau'}_{\mathcal C_M, \mathcal Q} \bigr) \le (1 - \delta)^{M^{1/4} - 4}, \qquad \mathcal Q = \{ c \in \mathcal C_M : |c - y|_\infty > M^{1/2} \} .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If $\operatorname{dist}_\infty(y, \mathcal C_M) > 1$, then $\hat\mu^\tau_{\mathcal C_M} = \hat\mu^{\tau'}_{\mathcal C_M}$, since the range is $1$. Let $\operatorname{dist}_\infty(y, \mathcal C_M) = 1$, and write $\mu = \hat\mu^\tau_{\mathcal C_M}$, $\mu' = \hat\mu^{\tau'}_{\mathcal C_M}$, viewed as measures on configurations $\omega$ of $\mathcal C_M$; $\omega\tau$ is the configuration equal to $\omega$ on $\mathcal C_M$ and to $\tau$ outside. We construct a coupling of $\mu$ and $\mu'$ by successive modifications.
+
+\emph{Surgery.} Let $F \subset \mathcal C_M$, let $\nu$ be a coupling of $\mu$ and $\mu'$, and let $T$ be a Markov kernel that maps a pair $(\omega, \omega')$ to a random pair $(\tilde \omega, \tilde \omega')$ with $\tilde \omega = \omega$ and $\tilde \omega' = \omega'$ off $F$, such that $\tilde \omega_F$ has law $\hat\mu^{\omega\tau}_F$ and $\tilde\omega'_F$ has law $\hat\mu^{\omega'\tau'}_F$. Then $\nu T$ is a coupling of $\mu$ and $\mu'$: its first marginal is $\sum_\omega \mu(\omega) \, \hat\mu^{\omega \tau}_F \otimes \delta_{\omega_{\mathcal C_M \setminus F}} = \mu$ by the DLR equations, and likewise for the second.
+
+\emph{Step $i$.} Let $2 \le i \le i_1$. If $i \in I_0$, the pair is not changed. Otherwise we apply a surgery on $F_i$, with a kernel $T_i$ defined as follows. The cells within distance $1$ of $F_i$ lie in $F_i$, in $D_{i - 1}$, or outside $\mathcal C_M$ at distance more than $(i - 1)s - 1 \ge 1$ from $y$, where $\tau$ and $\tau'$ agree. Hence if $\omega_{D_{i - 1}} = \omega'_{D_{i - 1}}$, then $\hat\mu^{\omega\tau}_{F_i} = \hat\mu^{\omega'\tau'}_{F_i}$, and $T_i$ resamples $F_i$ from this measure with the same configuration for both components. If $\omega_{D_{i - 1}} \neq \omega'_{D_{i - 1}}$, $T_i$ first draws the two configurations on $B_i$ from a maximal coupling of the marginals $\hat\mu^{\omega\tau}_{F_i, B_i}$ and $\hat\mu^{\omega'\tau'}_{F_i, B_i}$, then completes each to $F_i$ independently from the conditional laws given $B_i$, and finally replaces the configurations on $A_i$ by independent samples from their conditional laws given the rest. Each of these operations preserves the laws $\hat\mu^{\omega\tau}_{F_i}$ and $\hat\mu^{\omega'\tau'}_{F_i}$. By \eqref{e:W}, the two configurations agree on $B_i$ with probability at least $p_0$ (if $i \le s$). The last operation does not change $B_i$, and for every configuration $\sigma$ of $A_i$ the conditional probability of $\sigma$ given the rest is at least $\alpha^{|A_i|}$, by the chain rule and finite energy. Hence, by Lemma~\ref{l:shellgeom}, the two configurations agree on $D_i = A_i \cup B_i$ after step $i$ with probability at least $p_0 \alpha^{2 |A_i|} \ge \delta$, conditionally on any configuration before step $i$.
+
+\emph{Propagation.} Start from the product coupling $\mu \otimes \mu'$ and apply steps $2, \dots, i_1$. Let $J$ be the set of $i \in \{2, \dots, i_1 - 1\}$ with $i \notin I_0$ and $i + 1 \notin I_0$; then $|J| \ge i_1 - 4 \ge s - 4$, and every $i \in J$ satisfies $i \le s$. Let $i \in J$, and suppose the pair agrees on $D_i$ after step $i$. Then step $i + 1$ makes it agree on $F_{i + 1}$. For $j > i + 1$, step $j$ changes only $F_j \subset F_{i + 1}$; if $j \notin I_0$, then $D_{j - 1} \subset F_{i + 1}$, so the pair agrees on $D_{j - 1}$ and step $j$ resamples $F_j$ identically. Hence the final pair agrees on $F_{i + 1} \supset F_{i_1} \supset \mathcal Q$, where the last inclusion holds because $(i_1 - 1) s \le s^2 = M^{1/2}$. Therefore disagreement on $\mathcal Q$ at the end requires disagreement on $D_i$ after step $i$ for every $i \in J$, and by the previous paragraph and the chain rule this has probability at most $(1 - \delta)^{|J|} \le (1 - \delta)^{s - 4}$. Since the final pair is a coupling of $\mu$ and $\mu'$, this bounds the total variation distance of the marginals on $\mathcal Q$.
+\end{proof}
+
+\begin{corollary}\label{c:gapcell}
+Assume that the window estimate holds for $\hat\mu^{(0)}$ and for $\hat\mu^{(1)}$. Then there exist $m_0 > 0$ and $M_0^{(0)}, M_0^{(1)} \in \N$ such that for $o \in \{0, 1\}$, every $M_0^{(o)}$-compatible $W$ and every boundary condition, the cell heat bath of $\hat\mu^{(o)}$ on $W$ has spectral gap at least $m_0$.
+\end{corollary}
+
+\begin{proof}
+Fix $o$. Let $\eta, \eta'$ be boundary conditions outside $\mathcal C_M$. Only the $8M + 8$ cells at distance $1$ from $\mathcal C_M$ influence $\hat\mu^\eta_{\mathcal C_M}$. Changing $\eta$ into $\eta'$ at these cells one at a time, and noting that $\mathcal Q_{M, \eta, \eta'} \subset \{ c : |c - z|_\infty > M^{1/2}\}$ for every cell $z$ where $\eta$ and $\eta'$ differ, the triangle inequality and Proposition~\ref{p:surgery} give
+\begin{equation*}
+\TV\bigl( \hat\mu^\eta_{\mathcal C_M, \mathcal Q_{M, \eta, \eta'}}, \hat\mu^{\eta'}_{\mathcal C_M, \mathcal Q_{M, \eta, \eta'}} \bigr) \le (8M + 8) (1 - \delta)^{M^{1/4} - 4} .
+\end{equation*}
+For $M$ large the right side is at most $M^{-4}$, so Theorem~\ref{t:MOS21} gives $C, \gamma > 0$ such that $\mathrm{SM}(\mathcal C_{M'}, C, \gamma)$ holds for all $M'$. With $M_0^{(o)} = \lceil M_*(C, \gamma) \rceil$, Theorem~\ref{t:MO41} gives a gap $m_0^{(o)} > 0$ on all $M_0^{(o)}$-compatible sets. Set $m_0 = \min(m_0^{(0)}, m_0^{(1)})$.
+\end{proof}
+
+The constants are chosen in the order $l_0, p_0, M_\star \to \delta \to C, \gamma \to M_0^{(o)} \to m_0$, and none of them depends on a later one.
+
+\subsection{Proof of the main theorem from the window estimate}\label{s:proofmain}
+
+\begin{theorem}\label{t:mainW}
+Assume that the window estimate holds for $\hat\mu^{(0)}$ and for $\hat\mu^{(1)}$. Then there exist $c > 0$ and $L_0$ such that for all even $L, N \ge L_0$, $\ker H_{L, N} = \C B$ and $\gap(H_{L, N}) \ge c$.
+\end{theorem}
+
+\begin{proof}
+Let $m_0$, $M_0^{(0)}$, $M_0^{(1)}$ be as in Corollary~\ref{c:gapcell}, $c_0$ as in Lemma~\ref{l:compare}, and $K = (2M_0^{(0)} + 1)(2M_0^{(1)} + 1)$. Choose $k \in \N$ such that $\ell = 2kK$ satisfies $\ell \ge 2/(c_0 m_0)$, and let $L, N \ge \ell + 2$ be even. Let $a \in \Lambda_{L, N}$ and $\sigma$ a configuration on $\Lambda \setminus (R + a)$. By Lemma~\ref{l:boxcell}, $\mu_D(\, \cdot \mid \sigma)$ is a measure $\hat\mu^{(o), \eta}_W$ on a square $W$ of $kK \times kK$ cells. Since $kK$ is a multiple of $2 M_0^{(o)} + 1$, $W$ is $M_0^{(o)}$-compatible, so its cell heat-bath gap is at least $m_0$ by Corollary~\ref{c:gapcell}, and its single-site heat-bath gap $\gamma(a, \sigma)$ is at least $c_0 m_0$ by Lemma~\ref{l:compare}. Hence $g(\ell) \ge c_0 m_0$, and the first bound of Theorem~\ref{t:K} gives
+\begin{equation*}
+\lambda(\mu_D) \ge \frac{\ell}{\ell - 1} \Bigl( c_0 m_0 - \frac1\ell \Bigr) \ge \frac{c_0 m_0}{2} .
+\end{equation*}
+By \eqref{e:QDrot} and Theorem~\ref{t:QD}, $\ker H_{L, N} = \C B$ and $\gap(H_{L, N}) \ge g_\star c_0 m_0 / 4$. The theorem holds with $c = g_\star c_0 m_0/4$ and $L_0 = \ell + 2$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+By Theorem~\ref{t:inputs}, hypotheses (H1), (H2) and (H3$'$) hold at the same pair $(\cs, \ct) = (0.961, 0.935)$, so Theorem~\ref{t:rec} gives Hypothesis~(P). By Theorem~\ref{t:cutMOS}, (P) implies the window estimate for $\hat\mu^{(0)}$ and $\hat\mu^{(1)}$, and Theorem~\ref{t:mainW} concludes the proof.
+\end{proof}
+
+The proof of Theorem~\ref{t:main} uses results of \S\ref{s:cut}--\S\ref{s:computer}; their proofs do not use \S\ref{s:frames}--\S\ref{s:mixing}, so the order of the argument is not circular.

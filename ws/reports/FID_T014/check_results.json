@@ -1,0 +1,130 @@
+{
+  "depth_counts": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "comparisons": {
+    "admissibility": 240368,
+    "kind_all_directions": 240368,
+    "admitted_kind_successor": 169092,
+    "nonrevisit_arrival": 162372
+  },
+  "edges": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "targets": [
+    {
+      "name": "rawClass_35",
+      "offset": 11993084,
+      "bits": 16384,
+      "code_first": 999423,
+      "code_last": 1000788,
+      "start_bit_in_first_lane": 8,
+      "valid_lanes_touched": 1,
+      "invalid_lanes_touched": 1365,
+      "classes_touched": 1,
+      "first_valid": {
+        "code": 999423,
+        "word": "SSESSSSSSS",
+        "class": 218
+      },
+      "last_valid": {
+        "code": 999423,
+        "word": "SSESSSSSSS",
+        "class": 218
+      },
+      "sha256_hex": "95129a05accb7f44826a8395a8d6673a7ddbdf90b1e53457a18b4abc2785c4d7"
+    },
+    {
+      "name": "rawClass_36",
+      "offset": 11976700,
+      "bits": 16384,
+      "code_first": 998058,
+      "code_last": 999423,
+      "start_bit_in_first_lane": 4,
+      "valid_lanes_touched": 327,
+      "invalid_lanes_touched": 1039,
+      "classes_touched": 284,
+      "first_valid": {
+        "code": 998058,
+        "word": "SSESWWWWWW",
+        "class": 356
+      },
+      "last_valid": {
+        "code": 999423,
+        "word": "SSESSSSSSS",
+        "class": 218
+      },
+      "sha256_hex": "a193fc2fefdb72acaceddd6fbe61a4be7d03a9197546b5b456d0eb7950c21042"
+    },
+    {
+      "name": "rawClass_37",
+      "offset": 11960316,
+      "bits": 16384,
+      "code_first": 996693,
+      "code_last": 998058,
+      "start_bit_in_first_lane": 0,
+      "valid_lanes_touched": 54,
+      "invalid_lanes_touched": 1312,
+      "classes_touched": 54,
+      "first_valid": {
+        "code": 997776,
+        "word": "SSESWNWNEE",
+        "class": 3702
+      },
+      "last_valid": {
+        "code": 998058,
+        "word": "SSESWWWWWW",
+        "class": 356
+      },
+      "sha256_hex": "cefcbe726cc8b15c44b3c32eb408dbd54ecff4ca03539bb9e53ae1bb2b81974f"
+    },
+    {
+      "name": "rawClass_38",
+      "offset": 11943932,
+      "bits": 16384,
+      "code_first": 995327,
+      "code_last": 996692,
+      "start_bit_in_first_lane": 8,
+      "valid_lanes_touched": 203,
+      "invalid_lanes_touched": 1163,
+      "classes_touched": 203,
+      "first_valid": {
+        "code": 995328,
+        "word": "SSESEEEEEE",
+        "class": 0
+      },
+      "last_valid": {
+        "code": 996351,
+        "word": "SSESESSSSS",
+        "class": 218
+      },
+      "sha256_hex": "53c13ddeb4db2b848c3389b9755f13b54cd4a6351208ec39a1bd132dadb80157"
+    },
+    {
+      "name": "rawClass_39",
+      "offset": 11927548,
+      "bits": 16384,
+      "code_first": 993962,
+      "code_last": 995327,
+      "start_bit_in_first_lane": 4,
+      "valid_lanes_touched": 0,
+      "invalid_lanes_touched": 1366,
+      "classes_touched": 0,
+      "first_valid": null,
+      "last_valid": null,
+      "sha256_hex": "f8b19075c56ae41cc657b33cfe09b9340e21c3863fb0d2fdcb9229878c938079"
+    }
+  ]
+}

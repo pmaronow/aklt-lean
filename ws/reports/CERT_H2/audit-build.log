@@ -1,0 +1,342 @@
+ℹ [8960/8963] Replayed AKLT.Cert.H2.Check
+info: AKLT/Cert/H2/Check.lean:17:0: 'AKLT.Cert.H2.complete_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Check.lean:18:0: 'AKLT.Cert.H2.raw_codes_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8963/8963] Built AKLT.Cert.H2.Audit (3.3s)
+info: AKLT/Cert/H2/Audit.lean:6:0: AKLT.Cert.H2.complete_checked : AKLT.Cert.H2.completeCheck = true
+info: AKLT/Cert/H2/Audit.lean:7:0: 'AKLT.Cert.H2.complete_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:9:0: AKLT.Cert.H2.raw_codes_count : AKLT.Cert.H2.rawCodes.card = 916
+info: AKLT/Cert/H2/Audit.lean:10:0: 'AKLT.Cert.H2.raw_codes_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:12:0: AKLT.Cert.H2.vertex_zero {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) : AKLT.Defs.wordVertex u w 0 = u
+info: AKLT/Cert/H2/Audit.lean:13:0: 'AKLT.Cert.H2.vertex_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:15:0: AKLT.Cert.H2.vertex_succ {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (j : ℕ) (hj : j < n) :
+  AKLT.Defs.wordVertex u w (j + 1) = AKLT.Defs.wordVertex u w j + (w ⟨j, hj⟩).step
+info: AKLT/Cert/H2/Audit.lean:16:0: 'AKLT.Cert.H2.vertex_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:18:0: AKLT.Cert.H2.vertex_translate {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (j : ℕ) :
+  AKLT.Defs.wordVertex u w j = u + AKLT.Defs.wordVertex (0, 0) w j
+info: AKLT/Cert/H2/Audit.lean:19:0: 'AKLT.Cert.H2.vertex_translate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:21:0: AKLT.Cert.H2.slice_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (a l : ℕ) (h : a + l ≤ n)
+  (j : ℕ) (hj : j ≤ l) :
+  AKLT.Defs.wordVertex (0, 0) (AKLT.Cert.H2.slice w a l h) j =
+    AKLT.Defs.wordVertex u w (a + j) - AKLT.Defs.wordVertex u w a
+info: AKLT/Cert/H2/Audit.lean:22:0: 'AKLT.Cert.H2.slice_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:24:0: AKLT.Cert.H2.slice_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (a l : ℕ) (h : a + l ≤ n)
+  (i : Fin l) :
+  AKLT.Defs.wordBond (0, 0) (AKLT.Cert.H2.slice w a l h) i =
+    Finset.image (fun x => x - AKLT.Defs.wordVertex u w a) (AKLT.Defs.wordBond u w ⟨a + ↑i, ⋯⟩)
+info: AKLT/Cert/H2/Audit.lean:25:0: 'AKLT.Cert.H2.slice_bond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:27:0: AKLT.Cert.H2.raw_slice {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (hw : Function.Injective (AKLT.Defs.wordBond u w)) (a l : ℕ) (h : a + l ≤ n) :
+  AKLT.Defs.RawWindow (AKLT.Cert.H2.slice w a l h)
+info: AKLT/Cert/H2/Audit.lean:28:0: 'AKLT.Cert.H2.raw_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:30:0: AKLT.Cert.H2.initWord_snoc {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Cert.H2.initWord (AKLT.Cert.H2.snoc w d) = w
+info: AKLT/Cert/H2/Audit.lean:31:0: 'AKLT.Cert.H2.initWord_snoc' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:33:0: AKLT.Cert.H2.snoc_last {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Cert.H2.snoc w d (Fin.last n) = d
+info: AKLT/Cert/H2/Audit.lean:34:0: 'AKLT.Cert.H2.snoc_last' depends on axioms: [propext]
+info: AKLT/Cert/H2/Audit.lean:36:0: AKLT.Cert.H2.snoc_initWord {n : ℕ} (w : AKLT.Defs.DirectionWord (n + 1)) :
+  AKLT.Cert.H2.snoc (AKLT.Cert.H2.initWord w) (w (Fin.last n)) = w
+info: AKLT/Cert/H2/Audit.lean:37:0: 'AKLT.Cert.H2.snoc_initWord' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:39:0: AKLT.Cert.H2.sum_snoc.{u_1} {n : ℕ} {R : Type u_1} [AddCommMonoid R] (f : AKLT.Defs.DirectionWord (n + 1) → R) :
+  ∑ w, f w = ∑ w, ∑ d, f (AKLT.Cert.H2.snoc w d)
+info: AKLT/Cert/H2/Audit.lean:40:0: 'AKLT.Cert.H2.sum_snoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:42:0: AKLT.Cert.H2.initWord_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord (n + 1)) (j : ℕ) (hj : j ≤ n) :
+  AKLT.Defs.wordVertex u (AKLT.Cert.H2.initWord w) j = AKLT.Defs.wordVertex u w j
+info: AKLT/Cert/H2/Audit.lean:43:0: 'AKLT.Cert.H2.initWord_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:45:0: AKLT.Cert.H2.initWord_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord (n + 1)) (i : Fin n) :
+  AKLT.Defs.wordBond u (AKLT.Cert.H2.initWord w) i = AKLT.Defs.wordBond u w i.castSucc
+info: AKLT/Cert/H2/Audit.lean:46:0: 'AKLT.Cert.H2.initWord_bond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:48:0: AKLT.Cert.H2.trail_initWord {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord (n + 1)) (hw : AKLT.Defs.IsTrail u incoming w) :
+  AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.initWord w)
+info: AKLT/Cert/H2/Audit.lean:49:0: 'AKLT.Cert.H2.trail_initWord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:51:0: AKLT.Cert.H2.snoc_apply_lt {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (j : ℕ) (hj : j < n) :
+  AKLT.Cert.H2.snoc w d ⟨j, ⋯⟩ = w ⟨j, hj⟩
+info: AKLT/Cert/H2/Audit.lean:52:0: 'AKLT.Cert.H2.snoc_apply_lt' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:54:0: AKLT.Cert.H2.snoc_vertex {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (j : ℕ)
+  (hj : j ≤ n) : AKLT.Defs.wordVertex u (AKLT.Cert.H2.snoc w d) j = AKLT.Defs.wordVertex u w j
+info: AKLT/Cert/H2/Audit.lean:55:0: 'AKLT.Cert.H2.snoc_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:57:0: AKLT.Cert.H2.snoc_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (i : Fin n) : AKLT.Defs.wordBond u (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordBond u w i
+info: AKLT/Cert/H2/Audit.lean:58:0: 'AKLT.Cert.H2.snoc_bond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:60:0: AKLT.Cert.H2.snoc_departure {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (j : ℕ) (hj : j ≤ n) (x : AKLT.Defs.Plane) :
+  AKLT.Defs.departureCount u (AKLT.Cert.H2.snoc w d) j x = AKLT.Defs.departureCount u w j x
+info: AKLT/Cert/H2/Audit.lean:61:0: 'AKLT.Cert.H2.snoc_departure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:63:0: AKLT.Cert.H2.snoc_old_revisit {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass)
+  (i : Fin n) : AKLT.Defs.wordRevisit u (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordRevisit u w i
+info: AKLT/Cert/H2/Audit.lean:64:0: 'AKLT.Cert.H2.snoc_old_revisit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:66:0: AKLT.Cert.H2.snoc_old_straight {n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) (i : Fin n) :
+  AKLT.Defs.wordStraight incoming (AKLT.Cert.H2.snoc w d) i.castSucc = AKLT.Defs.wordStraight incoming w i
+info: AKLT/Cert/H2/Audit.lean:67:0: 'AKLT.Cert.H2.snoc_old_straight' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:69:0: AKLT.Cert.H2.snoc_factor {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) :
+  AKLT.Defs.trailWeight u incoming (AKLT.Cert.H2.snoc w d) =
+    AKLT.Defs.trailWeight u incoming w * AKLT.Cert.H2.nextFactor u incoming w d
+info: AKLT/Cert/H2/Audit.lean:70:0: 'AKLT.Cert.H2.snoc_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:72:0: AKLT.Cert.H2.factor_nonneg {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) : 0 ≤ AKLT.Cert.H2.nextFactor u incoming w d
+info: AKLT/Cert/H2/Audit.lean:73:0: 'AKLT.Cert.H2.factor_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:75:0: AKLT.Cert.H2.factor_le {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) : AKLT.Cert.H2.nextFactor u incoming w d ≤ AKLT.Defs.passageFactor false / 3
+info: AKLT/Cert/H2/Audit.lean:76:0: 'AKLT.Cert.H2.factor_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:78:0: AKLT.Cert.H2.weight_nonneg {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) : 0 ≤ AKLT.Defs.trailWeight u incoming w
+info: AKLT/Cert/H2/Audit.lean:79:0: 'AKLT.Cert.H2.weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:81:0: AKLT.Cert.H2.snoc_last_bond {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) :
+  AKLT.Defs.wordBond u (AKLT.Cert.H2.snoc w d) (Fin.last n) =
+    {AKLT.Defs.wordVertex u w n, AKLT.Defs.wordVertex u w n + d.step}
+info: AKLT/Cert/H2/Audit.lean:82:0: 'AKLT.Cert.H2.snoc_last_bond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:84:0: AKLT.Cert.H2.snoc_fresh {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n)
+  (d : AKLT.Defs.Compass) (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) (i : Fin n) :
+  AKLT.Defs.wordBond u w i ≠ {AKLT.Defs.wordVertex u w n, AKLT.Defs.wordVertex u w n + d.step}
+info: AKLT/Cert/H2/Audit.lean:85:0: 'AKLT.Cert.H2.snoc_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:87:0: AKLT.Cert.H2.reverse_step (d : AKLT.Defs.Compass) : d.reverse.step = -d.step
+info: AKLT/Cert/H2/Audit.lean:88:0: 'AKLT.Cert.H2.reverse_step' does not depend on any axioms
+info: AKLT/Cert/H2/Audit.lean:90:0: AKLT.Cert.H2.snoc_nonreverse {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) :
+  d ≠ (AKLT.Cert.H2.nextIncoming incoming w).reverse
+info: AKLT/Cert/H2/Audit.lean:91:0: 'AKLT.Cert.H2.snoc_nonreverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:93:0: AKLT.Cert.H2.raw_snoc {n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.RawWindow w)
+  (hf :
+    ∀ (i : Fin n),
+      AKLT.Defs.wordBond (0, 0) w i ≠ {AKLT.Defs.wordVertex (0, 0) w n, AKLT.Defs.wordVertex (0, 0) w n + d.step}) :
+  AKLT.Defs.RawWindow (AKLT.Cert.H2.snoc w d)
+info: AKLT/Cert/H2/Audit.lean:94:0: 'AKLT.Cert.H2.raw_snoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:96:0: AKLT.Cert.H2.successor_raw {m : ℕ} (w : AKLT.Defs.DirectionWord m) (d : AKLT.Defs.Compass) (hw : AKLT.Defs.RawWindow w)
+  (hd : AKLT.Defs.WindowAdmissible w d) : AKLT.Defs.RawWindow (AKLT.Defs.windowSuccessor w d)
+info: AKLT/Cert/H2/Audit.lean:97:0: 'AKLT.Cert.H2.successor_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:99:0: AKLT.Cert.H2.lastWindow_slice {m n : ℕ} (w : AKLT.Defs.DirectionWord n) (hm : m ≤ n) :
+  AKLT.Defs.lastWindowWord m w = AKLT.Cert.H2.slice w (n - m) m ⋯
+info: AKLT/Cert/H2/Audit.lean:100:0: 'AKLT.Cert.H2.lastWindow_slice' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:102:0: AKLT.Cert.H2.lastWindow_raw {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (hw : AKLT.Defs.IsTrail u incoming w) (hm : m ≤ n) :
+  AKLT.Defs.RawWindow (AKLT.Defs.lastWindowWord m w)
+info: AKLT/Cert/H2/Audit.lean:103:0: 'AKLT.Cert.H2.lastWindow_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:105:0: AKLT.Cert.H2.lastWindow_snoc {m n : ℕ} (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (_hm : 1 ≤ m)
+  (hmn : m ≤ n) :
+  AKLT.Defs.lastWindowWord m (AKLT.Cert.H2.snoc w d) = AKLT.Defs.windowSuccessor (AKLT.Defs.lastWindowWord m w) d
+info: AKLT/Cert/H2/Audit.lean:106:0: 'AKLT.Cert.H2.lastWindow_snoc' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:108:0: AKLT.Cert.H2.lastWindow_arrival {m n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) (hm : 1 ≤ m)
+  (hmn : m ≤ n) : AKLT.Defs.windowArrival (AKLT.Defs.lastWindowWord m w) = AKLT.Cert.H2.nextIncoming incoming w
+info: AKLT/Cert/H2/Audit.lean:109:0: 'AKLT.Cert.H2.lastWindow_arrival' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:111:0: AKLT.Cert.H2.frame_vertex (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (j : ℕ) (hj : j ≤ n) : AKLT.Defs.wordVertex (F.point u) (F.word w) j = F.point (AKLT.Defs.wordVertex u w j)
+info: AKLT/Cert/H2/Audit.lean:112:0: 'AKLT.Cert.H2.frame_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:114:0: AKLT.Cert.H2.frame_bond (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (i : Fin n) : AKLT.Defs.wordBond (F.point u) (F.word w) i = Finset.image (⇑F.point) (AKLT.Defs.wordBond u w i)
+info: AKLT/Cert/H2/Audit.lean:115:0: 'AKLT.Cert.H2.frame_bond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:117:0: AKLT.Cert.H2.frame_trail (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.IsTrail (F.point u) (F.direction incoming) (F.word w) ↔ AKLT.Defs.IsTrail u incoming w
+info: AKLT/Cert/H2/Audit.lean:118:0: 'AKLT.Cert.H2.frame_trail' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:120:0: AKLT.Cert.H2.frame_revisit (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n)
+  (i : Fin n) : AKLT.Defs.wordRevisit (F.point u) (F.word w) i = AKLT.Defs.wordRevisit u w i
+info: AKLT/Cert/H2/Audit.lean:121:0: 'AKLT.Cert.H2.frame_revisit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:123:0: AKLT.Cert.H2.frame_incoming (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (i : Fin n) :
+  AKLT.Defs.wordIncoming (F.direction incoming) (F.word w) i = F.direction (AKLT.Defs.wordIncoming incoming w i)
+info: AKLT/Cert/H2/Audit.lean:124:0: 'AKLT.Cert.H2.frame_incoming' depends on axioms: [propext, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:126:0: AKLT.Cert.H2.frame_weight (F : AKLT.Cert.H2.FrameChange) {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) :
+  AKLT.Defs.trailWeight (F.point u) (F.direction incoming) (F.word w) = AKLT.Defs.trailWeight u incoming w
+info: AKLT/Cert/H2/Audit.lean:127:0: 'AKLT.Cert.H2.frame_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:129:0: AKLT.Cert.H2.frame_total (F : AKLT.Cert.H2.FrameChange) (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n (F.point u) (F.direction incoming) = AKLT.Defs.openTrailTotal n u incoming
+info: AKLT/Cert/H2/Audit.lean:130:0: 'AKLT.Cert.H2.frame_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:132:0: AKLT.Cert.H2.total_uniform (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n u incoming = AKLT.Defs.openTrailTotal n (0, 0) AKLT.Defs.Compass.east
+info: AKLT/Cert/H2/Audit.lean:133:0: 'AKLT.Cert.H2.total_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:135:0: AKLT.Cert.H2.total_nonneg (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  0 ≤ AKLT.Defs.openTrailTotal n u incoming
+info: AKLT/Cert/H2/Audit.lean:136:0: 'AKLT.Cert.H2.total_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:138:0: AKLT.Cert.H2.total_zero (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) : AKLT.Defs.openTrailTotal 0 u incoming = 1
+info: AKLT/Cert/H2/Audit.lean:139:0: 'AKLT.Cert.H2.total_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:141:0: AKLT.Cert.H2.total_step (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal (n + 1) u incoming ≤ AKLT.Defs.openTrailTotal n u incoming * AKLT.Defs.passageFactor false
+info: AKLT/Cert/H2/Audit.lean:142:0: 'AKLT.Cert.H2.total_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:144:0: AKLT.Cert.H2.total_majorant (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  AKLT.Defs.openTrailTotal n u incoming ≤ AKLT.Defs.passageFactor false ^ n
+info: AKLT/Cert/H2/Audit.lean:145:0: 'AKLT.Cert.H2.total_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:147:0: AKLT.Cert.H2.lastWindow_admissible {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hm : 1 ≤ m) (hmn : m ≤ n)
+  (hw : AKLT.Defs.IsTrail u incoming (AKLT.Cert.H2.snoc w d)) :
+  AKLT.Defs.WindowAdmissible (AKLT.Defs.lastWindowWord m w) d
+info: AKLT/Cert/H2/Audit.lean:148:0: 'AKLT.Cert.H2.lastWindow_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:150:0: AKLT.Cert.H2.window_revisit_true {m n : ℕ} (u : AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) (hmn : m ≤ n)
+  (hr :
+    0 <
+      AKLT.Defs.departureCount (0, 0) (AKLT.Defs.lastWindowWord m w) m
+        (AKLT.Defs.wordVertex (0, 0) (AKLT.Defs.lastWindowWord m w) m)) :
+  0 < AKLT.Defs.departureCount u w n (AKLT.Defs.wordVertex u w n)
+info: AKLT/Cert/H2/Audit.lean:151:0: 'AKLT.Cert.H2.window_revisit_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:153:0: AKLT.Cert.H2.factor_memory_le {m n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (hm : 1 ≤ m) (hmn : m ≤ n) :
+  AKLT.Cert.H2.nextFactor u incoming w d ≤ AKLT.Defs.kindWeight (AKLT.Defs.windowKind (AKLT.Defs.lastWindowWord m w) d)
+info: AKLT/Cert/H2/Audit.lean:154:0: 'AKLT.Cert.H2.factor_memory_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:156:0: AKLT.Cert.H2.mass_nonneg (m n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (ω : AKLT.Defs.MemoryWindow m) :
+  0 ≤ AKLT.Defs.memoryTrailMass m n u incoming ω
+info: AKLT/Cert/H2/Audit.lean:157:0: 'AKLT.Cert.H2.mass_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:159:0: AKLT.Cert.H2.kind_nonneg (k : AKLT.Defs.StepKind) : 0 ≤ AKLT.Defs.kindWeight k
+info: AKLT/Cert/H2/Audit.lean:160:0: 'AKLT.Cert.H2.kind_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:162:0: AKLT.Cert.H2.matrix_nonneg (m : ℕ) (ω ω' : AKLT.Defs.MemoryWindow m) : 0 ≤ AKLT.Defs.memoryMatrix m ω ω'
+info: AKLT/Cert/H2/Audit.lean:163:0: 'AKLT.Cert.H2.matrix_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:165:0: AKLT.Cert.H2.mass_pair {m n : ℕ} (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (f : AKLT.Defs.MemoryWindow m → ℚ) :
+  ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω * f ω =
+    ∑ w,
+      if h : AKLT.Defs.IsTrail u incoming w then
+        AKLT.Defs.trailWeight u incoming w * f ⟨AKLT.Defs.lastWindowWord m w, ⋯⟩
+      else 0
+info: AKLT/Cert/H2/Audit.lean:166:0: 'AKLT.Cert.H2.mass_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:168:0: AKLT.Cert.H2.mass_total {m n : ℕ} (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω = AKLT.Defs.openTrailTotal n u incoming
+info: AKLT/Cert/H2/Audit.lean:169:0: 'AKLT.Cert.H2.mass_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:171:0: AKLT.Cert.H2.mass_step {m n : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass)
+  (ω' : AKLT.Defs.MemoryWindow m) :
+  AKLT.Defs.memoryTrailMass m (n + 1) u incoming ω' ≤
+    ∑ ω, AKLT.Defs.memoryTrailMass m n u incoming ω * AKLT.Defs.memoryMatrix m ω ω'
+info: AKLT/Cert/H2/Audit.lean:172:0: 'AKLT.Cert.H2.mass_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:174:0: AKLT.Cert.H2.east_vertex (n j : ℕ) (hj : j ≤ n) :
+  AKLT.Defs.wordVertex (0, 0) (fun x => AKLT.Defs.Compass.east) j = (↑j, 0)
+info: AKLT/Cert/H2/Audit.lean:175:0: 'AKLT.Cert.H2.east_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:177:0: AKLT.Cert.H2.east_raw (m : ℕ) : AKLT.Defs.RawWindow fun x => AKLT.Defs.Compass.east
+info: AKLT/Cert/H2/Audit.lean:178:0: 'AKLT.Cert.H2.east_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:180:0: AKLT.Cert.H2.ratio_pos {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) :
+  0 < AKLT.Defs.memoryWitnessRatio v
+info: AKLT/Cert/H2/Audit.lean:181:0: 'AKLT.Cert.H2.ratio_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:183:0: AKLT.Cert.H2.inf_pos {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) :
+  0 < sInf (Set.range v)
+info: AKLT/Cert/H2/Audit.lean:184:0: 'AKLT.Cert.H2.inf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:186:0: AKLT.Cert.H2.prefix_set_finite (m : ℕ) (q : ℝ) :
+  {r | ∃ j < m, r = ↑(AKLT.Defs.openTrailTotal j (0, 0) AKLT.Defs.Compass.east) * q ^ (-↑j)}.Finite
+info: AKLT/Cert/H2/Audit.lean:187:0: 'AKLT.Cert.H2.prefix_set_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:189:0: AKLT.Cert.H2.prefix_le_base {m : ℕ} (v : AKLT.Defs.MemoryWindow m → ℝ) (q : ℝ) (r : ℕ) (hr : r < m) :
+  ↑(AKLT.Defs.openTrailTotal r (0, 0) AKLT.Defs.Compass.east) * q ^ (-↑r) ≤ AKLT.Defs.memoryBaseConstant m q v
+info: AKLT/Cert/H2/Audit.lean:190:0: 'AKLT.Cert.H2.prefix_le_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:192:0: AKLT.Cert.H2.base_ge_one {m : ℕ} (hm : 1 ≤ m) (v : AKLT.Defs.MemoryWindow m → ℝ) (q : ℝ) :
+  1 ≤ AKLT.Defs.memoryBaseConstant m q v
+info: AKLT/Cert/H2/Audit.lean:193:0: 'AKLT.Cert.H2.base_ge_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:195:0: AKLT.Cert.H2.total_cast (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ↑(AKLT.Defs.openTrailTotal n u incoming) =
+    ∑ w, if AKLT.Defs.IsTrail u incoming w then ↑(AKLT.Defs.trailWeight u incoming w) else 0
+info: AKLT/Cert/H2/Audit.lean:196:0: 'AKLT.Cert.H2.total_cast' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:198:0: AKLT.Cert.H2.base_trail_bound {m : ℕ} (hm : 1 ≤ m) (v : AKLT.Defs.MemoryWindow m → ℝ)
+  (hv : ∀ (ω : AKLT.Defs.MemoryWindow m), 0 < v ω) (q : ℝ) (hq : 0 < q)
+  (hw : ∀ (ω : AKLT.Defs.MemoryWindow m), ∑ ω', ↑(AKLT.Defs.memoryMatrix m ω ω') * v ω' ≤ q * v ω) (n : ℕ)
+  (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) :
+  ↑(AKLT.Defs.openTrailTotal n u incoming) ≤ AKLT.Defs.memoryBaseConstant m q v * q ^ n
+info: AKLT/Cert/H2/Audit.lean:199:0: 'AKLT.Cert.H2.base_trail_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:201:0: AKLT.Cert.H2.bound_mono {C D q : ℝ} (h : AKLT.Defs.OpenTrailBound C q) (hCD : C ≤ D) : AKLT.Defs.OpenTrailBound D q
+info: AKLT/Cert/H2/Audit.lean:202:0: 'AKLT.Cert.H2.bound_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:204:0: AKLT.Cert.H2.alm : AKLT.Blueprint.Top.ALMStatement
+info: AKLT/Cert/H2/Audit.lean:205:0: 'AKLT.Cert.H2.alm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:207:0: AKLT.Cert.H2.digit_lt (d : AKLT.Defs.Compass) : AKLT.Cert.H2.directionDigit d < 4
+info: AKLT/Cert/H2/Audit.lean:208:0: 'AKLT.Cert.H2.digit_lt' does not depend on any axioms
+info: AKLT/Cert/H2/Audit.lean:210:0: AKLT.Cert.H2.direction_digit (d : AKLT.Defs.Compass) : AKLT.Cert.H2.digitDirection (AKLT.Cert.H2.directionDigit d) = d
+info: AKLT/Cert/H2/Audit.lean:211:0: 'AKLT.Cert.H2.direction_digit' does not depend on any axioms
+info: AKLT/Cert/H2/Audit.lean:213:0: AKLT.Cert.H2.code_lt (w : AKLT.Defs.DirectionWord 6) : AKLT.Cert.H2.wordCode w < 4096
+info: AKLT/Cert/H2/Audit.lean:214:0: 'AKLT.Cert.H2.code_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:216:0: AKLT.Cert.H2.decode_code (w : AKLT.Defs.DirectionWord 6) : AKLT.Cert.H2.decodeSix (AKLT.Cert.H2.wordCode w) = w
+info: AKLT/Cert/H2/Audit.lean:217:0: 'AKLT.Cert.H2.decode_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:219:0: AKLT.Cert.H2.digit_direction (c : ℕ) : AKLT.Cert.H2.directionDigit (AKLT.Cert.H2.digitDirection c) = c % 4
+info: AKLT/Cert/H2/Audit.lean:220:0: 'AKLT.Cert.H2.digit_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:222:0: AKLT.Cert.H2.code_decode (c : ℕ) (hc : c < 4096) : AKLT.Cert.H2.wordCode (AKLT.Cert.H2.decodeSix c) = c
+info: AKLT/Cert/H2/Audit.lean:223:0: 'AKLT.Cert.H2.code_decode' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:225:0: AKLT.Cert.H2.raw_count : Fintype.card (AKLT.Defs.MemoryWindow 6) = 916
+info: AKLT/Cert/H2/Audit.lean:226:0: 'AKLT.Cert.H2.raw_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:228:0: AKLT.Cert.H2.checked_rows (w : AKLT.Defs.DirectionWord 6) (hw : AKLT.Defs.RawWindow w) :
+  186377076276 ≤ AKLT.Cert.H2.witnessNat w ∧
+    AKLT.Cert.H2.witnessNat w ≤ 1000000000000 ∧
+      1120437614225 * AKLT.Cert.H2.rowNumerator w ≤ 1119948287353 * 2695605 * AKLT.Cert.H2.witnessNat w ∧
+        ∀ (g : AKLT.Defs.SquareSymmetry),
+          AKLT.Cert.H2.witnessNat (AKLT.Defs.symmetryWord g w) = AKLT.Cert.H2.witnessNat w
+info: AKLT/Cert/H2/Audit.lean:229:0: 'AKLT.Cert.H2.checked_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:231:0: AKLT.Cert.H2.kind_numerator (k : AKLT.Defs.StepKind) :
+  ↑(AKLT.Cert.H2.kindNumerator k) = 2695605 * AKLT.Defs.kindWeight k
+info: AKLT/Cert/H2/Audit.lean:232:0: 'AKLT.Cert.H2.kind_numerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:234:0: AKLT.Cert.H2.matrix_row {m : ℕ} (ω : AKLT.Defs.MemoryWindow m) (f : AKLT.Defs.MemoryWindow m → ℚ) :
+  ∑ ω', AKLT.Defs.memoryMatrix m ω ω' * f ω' =
+    ∑ d,
+      if h : AKLT.Defs.WindowAdmissible (↑ω) d then
+        AKLT.Defs.kindWeight (AKLT.Defs.windowKind (↑ω) d) * f ⟨AKLT.Defs.windowSuccessor (↑ω) d, ⋯⟩
+      else 0
+info: AKLT/Cert/H2/Audit.lean:235:0: 'AKLT.Cert.H2.matrix_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:237:0: AKLT.Cert.H2.witness_row (ω : AKLT.Defs.MemoryWindow 6) :
+  ∑ ω', AKLT.Defs.memoryMatrix 6 ω ω' * ↑(AKLT.Cert.H2.integerWitness ω') = ↑(AKLT.Cert.H2.rowNumerator ↑ω) / 2695605
+info: AKLT/Cert/H2/Audit.lean:238:0: 'AKLT.Cert.H2.witness_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:240:0: AKLT.Cert.H2.witness_positive (ω : AKLT.Defs.MemoryWindow 6) : 0 < AKLT.Cert.H2.integerWitness ω
+info: AKLT/Cert/H2/Audit.lean:241:0: 'AKLT.Cert.H2.witness_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:243:0: AKLT.Cert.H2.witness_ratio_bound (ω : AKLT.Defs.MemoryWindow 6) :
+  (∑ ω', AKLT.Defs.memoryMatrix 6 ω ω' * ↑(AKLT.Cert.H2.integerWitness ω')) / ↑(AKLT.Cert.H2.integerWitness ω) ≤
+    AKLT.Defs.certifiedRate
+info: AKLT/Cert/H2/Audit.lean:244:0: 'AKLT.Cert.H2.witness_ratio_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:246:0: AKLT.Cert.H2.witness_orbit (ω ω' : AKLT.Defs.MemoryWindow 6) (h : AKLT.Defs.SameWindowOrbit ↑ω ↑ω') :
+  AKLT.Cert.H2.integerWitness ω = AKLT.Cert.H2.integerWitness ω'
+info: AKLT/Cert/H2/Audit.lean:247:0: 'AKLT.Cert.H2.witness_orbit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:249:0: AKLT.Cert.H2.matrix_numerator {m : ℕ} (ω ω' : AKLT.Defs.MemoryWindow m) :
+  ↑(AKLT.Cert.H2.matrixNumerator ω ω') = 2695605 * AKLT.Defs.memoryMatrix m ω ω'
+info: AKLT/Cert/H2/Audit.lean:250:0: 'AKLT.Cert.H2.matrix_numerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:252:0: AKLT.Cert.H2.floor_matrix {m : ℕ} (ω ω' : AKLT.Defs.MemoryWindow m) :
+  ⌊2695605 * AKLT.Defs.memoryMatrix m ω ω'⌋ = ↑(AKLT.Cert.H2.matrixNumerator ω ω')
+info: AKLT/Cert/H2/Audit.lean:253:0: 'AKLT.Cert.H2.floor_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:255:0: AKLT.Cert.H2.integer_row (ω : AKLT.Defs.MemoryWindow 6) :
+  ∑ ω', ⌊2695605 * AKLT.Defs.memoryMatrix 6 ω ω'⌋ * AKLT.Cert.H2.integerWitness ω' = ↑(AKLT.Cert.H2.rowNumerator ↑ω)
+info: AKLT/Cert/H2/Audit.lean:256:0: 'AKLT.Cert.H2.integer_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:258:0: AKLT.Cert.H2.witness_low : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.lowWindow = 186377076276
+info: AKLT/Cert/H2/Audit.lean:259:0: 'AKLT.Cert.H2.witness_low' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:261:0: AKLT.Cert.H2.witness_high : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.highWindow = 1000000000000
+info: AKLT/Cert/H2/Audit.lean:262:0: 'AKLT.Cert.H2.witness_high' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:264:0: AKLT.Cert.H2.witness_tight : AKLT.Cert.H2.integerWitness AKLT.Cert.H2.tightWindow = 224087522845
+info: AKLT/Cert/H2/Audit.lean:265:0: 'AKLT.Cert.H2.witness_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:267:0: AKLT.Cert.H2.row_tight : AKLT.Cert.H2.rowNumerator ↑AKLT.Cert.H2.tightWindow = 603787640626036713
+info: AKLT/Cert/H2/Audit.lean:268:0: 'AKLT.Cert.H2.row_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:270:0: AKLT.Cert.H2.h2Test : AKLT.Blueprint.Top.H2TestStatement
+info: AKLT/Cert/H2/Audit.lean:271:0: 'AKLT.Cert.H2.h2Test' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:273:0: AKLT.Cert.H2.rate_pos : 0 < AKLT.Defs.certifiedRate
+info: AKLT/Cert/H2/Audit.lean:274:0: 'AKLT.Cert.H2.rate_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:276:0: AKLT.Cert.H2.rate_lt_one : AKLT.Defs.certifiedRate < 1
+info: AKLT/Cert/H2/Audit.lean:277:0: 'AKLT.Cert.H2.rate_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:279:0: AKLT.Cert.H2.cv_numeric : 6 * (200 / (187 * AKLT.Defs.certifiedRate)) ^ 6 < 10
+info: AKLT/Cert/H2/Audit.lean:280:0: 'AKLT.Cert.H2.cv_numeric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:282:0: AKLT.Cert.H2.scaled_total (r : ℕ) :
+  ↑(AKLT.Defs.openTrailTotal r (0, 0) AKLT.Defs.Compass.east) * ↑AKLT.Defs.certifiedRate ^ (-↑r) ≤
+    (200 / (187 * ↑AKLT.Defs.certifiedRate)) ^ r
+info: AKLT/Cert/H2/Audit.lean:283:0: 'AKLT.Cert.H2.scaled_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:285:0: AKLT.Cert.H2.cv_base (v : AKLT.Defs.MemoryWindow 6 → ℝ) (_hv : ∀ (ω : AKLT.Defs.MemoryWindow 6), 0 < v ω)
+  (hr : AKLT.Defs.memoryWitnessRatio v ≤ 6) :
+  AKLT.Defs.memoryBaseConstant 6 (↑AKLT.Defs.certifiedRate) v ≤ 6 * (200 / (187 * ↑AKLT.Defs.certifiedRate)) ^ 6 ∧
+    AKLT.Defs.memoryBaseConstant 6 (↑AKLT.Defs.certifiedRate) v < 10
+info: AKLT/Cert/H2/Audit.lean:286:0: 'AKLT.Cert.H2.cv_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:288:0: AKLT.Cert.H2.h2_of_test (ht : AKLT.Blueprint.Top.H2TestStatement) : AKLT.Blueprint.Top.H2Statement
+info: AKLT/Cert/H2/Audit.lean:289:0: 'AKLT.Cert.H2.h2_of_test' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:291:0: AKLT.Cert.H2.h2CV : AKLT.Blueprint.Top.H2CVStatement
+info: AKLT/Cert/H2/Audit.lean:292:0: 'AKLT.Cert.H2.h2CV' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:294:0: AKLT.Cert.H2.h2 : AKLT.Blueprint.Top.H2Statement
+info: AKLT/Cert/H2/Audit.lean:295:0: 'AKLT.Cert.H2.h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AKLT/Cert/H2/Audit.lean:297:0: 'AKLT.Gen.Bellman.mass_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8963 jobs).
+	Command being timed: "lake build AKLT.Cert.H2.Audit"
+	User time (seconds): 8.26
+	System time (seconds): 9.72
+	Percent of CPU this job got: 195%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6876136
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 199329
+	Voluntary context switches: 118808
+	Involuntary context switches: 2134
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 11752
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

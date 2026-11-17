@@ -1,0 +1,45 @@
+R1-3/R7-5: 12 and 20 vertices; exact monomials through degree 5: 112 / 112 PASS
+  normalized moment x^2 = [1/3, 1/3]
+  normalized moment x^4 = [1/5, 1/5]
+  normalized moment x^2*y^2 = [1/15, 1/15]
+  cross-dot squares and multiplicities: {(1/3)+(2/15)*sqrt(5): 120, (1/3)+(-2/15)*sqrt(5): 120}
+  all 20 dual-face triples, pairwise products and centre sums: PASS
+  gamma_+ < 159/200 and gamma_+ > 3/4: PASS (exact squares)
+R1-2: one-site Z = 16/5
+  exact lower bound for [mu(a)/w(a)]/(1+gamma_+) > 1715/1024 > 1
+  diagnostic decimals only: mu(a)/w(a) = 3.241704350681; 1+gamma_+ = 1.794654472292
+R1-1: 4x4 torus, edges = 32 ; after one orientation reversal:
+  B = -1 ; beta_x = 1 ; unsigned rho_x = 1 ; c_x = -1
+R2-1: phi=1 gives X_a=Y_a=0 for every a; sum(Y_a)=0; displayed quotient is 0/0
+R2-2: singleton product: dimension=1, generator=[0], positive eigenvalues=0, nonconstant functions=0
+R2-4: M=1/2 gives |C_M|=1, whereas (2M+1)^2=4; integer M must be specified
+R3-2: empty removal list has no x_1; removing it changes log(Psi) by exactly 0
+R7-3: lambda_D({0}) = 2/5 ; integral |n|^2 d lambda_D = 3/5 != 1
+R2-1: weighted t(ell), kappa_ell and all sums for ell=2,...,100: PASS
+R2-3: i1=floor(s)+1>s; success-index range and |J|>=s-4: 13001 exact cases PASS
+  exact example M=72^4 = 26873856 ; s=72; i1=73; last success input i<=72
+R2-5: branch integrations: tip = 3/5 ; U leaf corner = 1/2 ; D leaf corner = 1/3
+  derived (rho_o,rho_f,rho_g): straight = (Fraction(7, 24), Fraction(740, 2193), Fraction(3, 25)) ; turn = (Fraction(112, 275), Fraction(112, 275), Fraction(3, 25)) ; third = (Fraction(169, 385), Fraction(169, 385), Fraction(0, 1))
+R2-5: straight : c = 3825127/3979368 ; exact L,Q test PASS; attained at t=1
+  Q(-1)>0: True ; Q(1)=0: True ; quadratic vertex >=1: True
+R2-5: turn : c = 1071655/1145463 ; exact L,Q test PASS; attained at t=1
+  Q(-1)>0: True ; Q(1)=0: True ; quadratic vertex >=1: True
+R2-5: turn N,s removed : c = 416114/444675 ; exact L,Q test PASS; attained at t=1
+  Q(-1)>0: False ; Q(1)=0: True ; quadratic vertex >=1: True
+  stored claims in certificates_covered.jsonl : {('covered', 'closed', '187/200'): 3182, ('covered', 'operator', '187/200'): 2084, ('covered', 'closed', '961/1000'): 1553, ('covered', 'operator', '961/1000'): 1143}
+  stored claims in certificates_covered_operator_only.jsonl : {('covered', 'operator', '187/200'): 5266, ('covered', 'operator', '961/1000'): 2696}
+R3-1/R7-2: three-factor lower bound = 41/50 ; four-factor lower bound = 2294/3125
+  quartic bracket absolute bound = 243/625 ; response bound = 486/625
+  1/0.82<=1.22; 2/0.734<=2.73; 0.7776/(15*0.734)<=0.0707: PASS (rational)
+R3-1: antipodal two-pin one-site normalizer = 1-1/3 = 2/3 >0
+R3-4: F(d)=(d+1)^(-8); d^8*F(d) -> 1, so F is not o(d^(-8))
+  if s>=84, M=s^4 and d>=s/6-7, then 4(2M+1)^2*F(d) <= 15479341056
+R3-3: nonexceptional exact cut-level cases = 576 ; maximum counted cells = 8 <=48; no overlapping sides: PASS
+  counterexample to unsigned side assertion: y=(0,-M-1), bottom side, E=top:
+  side misses C_M; signed depth to E = 2M+2+k = 53747858 >0
+Appendix B: all 65535 nonempty subsets of a 4x4 box examined; 9349 satisfy (i)-(iii); failed conclusions = 0
+Global interface: q^2 = 15389929/16000000 ; 0.85594872 < q^8: PASS
+  rounded Appendix C table: B sum = 246941/250000 ; C numerator = 119141/100000
+  B and C/h_C < 0.98779 with exact dyadic h_C = 2769713770832855/2251799813685248 : PASS
+Formal-note self-factor example: (1+n_x dot n_x)^4 has polynomial degree 8, but equals 16 on S^2
+ALL EXACT CHECKS PASSED. Decimal displays above are explicitly diagnostic only.

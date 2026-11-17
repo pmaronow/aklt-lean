@@ -1,0 +1,110 @@
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Probability.olean AKLT/Defs/Probability.lean
+SECONDS 3.555
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Geometry.olean AKLT/Defs/Geometry.lean
+SECONDS 3.642
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Moment.olean AKLT/Defs/Moment.lean
+SECONDS 3.672
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/PinModel.olean AKLT/Defs/PinModel.lean
+SECONDS 3.666
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Domain.olean AKLT/Defs/Domain.lean
+SECONDS 3.712
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Trails.olean AKLT/Defs/Trails.lean
+SECONDS 3.621
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Pattern.olean AKLT/Defs/Pattern.lean
+SECONDS 3.595
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Frame.olean AKLT/Defs/Frame.lean
+SECONDS 3.604
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Operator.olean AKLT/Defs/Operator.lean
+SECONDS 9.972
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/FiniteNetwork.olean AKLT/Defs/FiniteNetwork.lean
+SECONDS 3.750
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Kernel.olean AKLT/Defs/Kernel.lean
+SECONDS 3.568
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Automaton.olean AKLT/Defs/Automaton.lean
+SECONDS 3.571
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Stationary.olean AKLT/Defs/Stationary.lean
+SECONDS 3.769
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Challenge/Main.olean AKLT/Challenge/Main.lean
+SECONDS 3.763
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/Polynomial.olean AKLT/Defs/Polynomial.lean
+SECONDS 3.717
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/FrameModel.olean AKLT/Defs/FrameModel.lean
+SECONDS 3.536
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/Top/Common.olean AKLT/Blueprint/Top/Common.lean
+SECONDS 3.538
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Defs/OperatorContracts.olean AKLT/Defs/OperatorContracts.lean
+SECONDS 4.346
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/Top/Operator.olean AKLT/Blueprint/Top/Operator.lean
+SECONDS 3.981
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/Top/Response.olean AKLT/Blueprint/Top/Response.lean
+SECONDS 3.450
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/Definitions.olean AKLT/Blueprint/H1/Definitions.lean
+SECONDS 4.417
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesPassage.olean AKLT/Blueprint/H1/NodesPassage.lean
+SECONDS 3.558
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesLeaf.olean AKLT/Blueprint/H1/NodesLeaf.lean
+SECONDS 3.457
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesReduction.olean AKLT/Blueprint/H1/NodesReduction.lean
+SECONDS 3.569
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesPauli.olean AKLT/Blueprint/H1/NodesPauli.lean
+SECONDS 3.570
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesStructure.olean AKLT/Blueprint/H1/NodesStructure.lean
+SECONDS 4.579
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesSector.olean AKLT/Blueprint/H1/NodesSector.lean
+SECONDS 3.715
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Gen/Gram/Theory.olean AKLT/Gen/Gram/Theory.lean
+SECONDS 2.451
+/home/ubuntu/aklt/wt/BP_H1M/AKLT/Gen/Gram/Theory.lean:42:0: warning: automatically included section variable(s) unused in theorem `AKLT.Gen.Gram.posDef_of_gram_residual`:
+  [DecidableEq n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/ubuntu/aklt/wt/BP_H1M/AKLT/Gen/Gram/Theory.lean:109:0: warning: automatically included section variable(s) unused in theorem `AKLT.Gen.Gram.rat_posDef_of_real`:
+  [DecidableEq n]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq n] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/NodesCertificate.olean AKLT/Blueprint/H1/NodesCertificate.lean
+SECONDS 3.561
+
+COMMAND lake env lean -o .lake/build/lib/lean/AKLT/Blueprint/H1/Assembly.olean AKLT/Blueprint/H1/Assembly.lean
+SECONDS 3.868
+/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean:104:36: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean:107:16: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+

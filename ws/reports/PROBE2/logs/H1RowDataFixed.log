@@ -1,0 +1,24 @@
+import took 2.61s
+.olean serialization took 2.49s
+cumulative profiling times:
+	.olean serialization 2.49s
+	attribute application 1.89ms
+	compilation (IR) 162ms
+	compilation (LCNF base) 1.05s
+	compilation (LCNF impure) 778ms
+	compilation (LCNF mono) 1.42s
+	elaboration 116ms
+	fix level params 5.63ms
+	import 2.61s
+	initialization 26ms
+	instantiate metavars 0.631ms
+	interpretation 612ms
+	let-to-have transformation 6.24ms
+	linting 50.5ms
+	module linting 0.00135ms
+	overlappingInstancesLinter 27.5ms
+	parsing 22.2ms
+	process pre-definitions 975ms
+	share common exprs 29.6ms
+	tacticAnalysis 57.6ms
+	type checking 57.8ms

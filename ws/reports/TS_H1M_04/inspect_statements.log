@@ -1,0 +1,82 @@
+def AKLT.Blueprint.H1.PeripheralGeometryStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData), π.Covered → ∀ (r : AKLT.Defs.Representation), AKLT.Blueprint.H1.PeripheralGeometry π r
+def AKLT.Blueprint.H1.PeripheralFubiniStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∀ (r : AKLT.Defs.Representation),
+      AKLT.Blueprint.H1.PeripheralGeometry π r →
+        ∀ (next : Bool) (m : Fin 20 → AKLT.Defs.UnitVector),
+          Eq.{1} (ite.{1} (Eq.{1} next true) (AKLT.Defs.patternNext π m) (AKLT.Defs.patternCurrent π m))
+            (AKLT.Blueprint.H1.separatedLeafFunctional π r next m)
+def AKLT.Blueprint.H1.PeripheralAssignmentStatement : Prop :=
+(∀ (j : AKLT.Defs.IcoLetter), Eq.{1} (AKLT.Defs.normSq (AKLT.Defs.icoVector j)) 1) →
+  ∀ (π : AKLT.Defs.PatternData),
+    π.Covered →
+      ∀ (r : AKLT.Defs.Representation),
+        AKLT.Blueprint.H1.PeripheralGeometry π r →
+          ∀ (m : Fin 20 → AKLT.Defs.UnitVector),
+            AKLT.Blueprint.H1.LeafRule π m →
+              ∃ K,
+                LT.lt.{0} 0 K ∧
+                  ∃ u,
+                    (∀ (j : Fin 20), LE.le.{0} (AKLT.Defs.normSq (u j)) 1) ∧
+                      ∀ (next : Bool),
+                        Eq.{1} (AKLT.Blueprint.H1.separatedLeafFunctional π r next m)
+                          (HMul.hMul.{0, 0, 0} K
+                            (AKLT.Blueprint.H1.rawFunctional (AKLT.Defs.reducedSpinSites π r)
+                              (AKLT.Blueprint.H1.nextStatus π next) (AKLT.Defs.reducedIntegrand π r next) u))
+def AKLT.Blueprint.H1.BallChordStatement : Prop :=
+∀ (v : AKLT.Defs.Vec3), LE.le.{0} (AKLT.Defs.normSq v) 1 → AKLT.Blueprint.H1.UnitChord v
+def AKLT.Blueprint.H1.AffineEvaluationStatement : Prop :=
+∀ (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Defs.VectorAffine p → AKLT.Blueprint.H1.SeparatelyAffine (AKLT.Defs.evaluateReduced p)
+def AKLT.Blueprint.H1.ProductBallNonnegativeStatement : Prop :=
+(∀ (v : AKLT.Defs.Vec3), LE.le.{0} (AKLT.Defs.normSq v) 1 → AKLT.Blueprint.H1.UnitChord v) →
+  ∀ (F : (Fin 20 → AKLT.Defs.Vec3) → ℝ),
+    AKLT.Blueprint.H1.SeparatelyAffine F →
+      (∀ (u : Fin 20 → AKLT.Defs.UnitVector), LE.le.{0} 0 (F fun j => ↑(u j))) →
+        ∀ (u : Fin 20 → AKLT.Defs.Vec3), (∀ (j : Fin 20), LE.le.{0} (AKLT.Defs.normSq (u j)) 1) → LE.le.{0} 0 (F u)
+def AKLT.Blueprint.H1.DifferenceStructureStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p q : AKLT.Blueprint.H1.VectorPolynomial) (c : ℚ),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.VectorAffine q →
+      AKLT.Blueprint.H1.OrthogonalInvariant p →
+        AKLT.Blueprint.H1.OrthogonalInvariant q →
+          AKLT.Defs.SupportedVectors J p →
+            AKLT.Defs.SupportedVectors J q →
+              AKLT.Defs.VectorAffine (HSub.hSub.{0, 0, 0} p (HMul.hMul.{0, 0, 0} (MvPolynomial.C.{0, 0} c) q)) ∧
+                AKLT.Blueprint.H1.OrthogonalInvariant
+                    (HSub.hSub.{0, 0, 0} p (HMul.hMul.{0, 0, 0} (MvPolynomial.C.{0, 0} c) q)) ∧
+                  AKLT.Defs.SupportedVectors J (HSub.hSub.{0, 0, 0} p (HMul.hMul.{0, 0, 0} (MvPolynomial.C.{0, 0} c) q))
+def AKLT.Blueprint.H1.SectorSpinStableStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData) (r : AKLT.Defs.Representation) (ε : AKLT.Defs.ExchangeSigns π),
+  AKLT.Blueprint.H1.SpinStable (AKLT.Defs.reductionVectors π r) (AKLT.Defs.exchangeSpace π r ε)
+def AKLT.Blueprint.H1.SeparatelyAffine : ((Fin 20 → AKLT.Defs.Vec3) → ℝ) → Prop :=
+fun F =>
+  ∀ (j : Fin 20) (u : Fin 20 → AKLT.Defs.Vec3) (a b : AKLT.Defs.Vec3) (t : ℝ),
+    Eq.{1}
+      (F
+        (Function.update.{1, 1} u j
+          (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} t a) (HSMul.hSMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 t) b))))
+      (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} t (F (Function.update.{1, 1} u j a)))
+        (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 t) (F (Function.update.{1, 1} u j b))))
+def AKLT.Blueprint.H1.SpinStable : (J : Finset.{0} (Fin 20)) →
+  Submodule.{0, 0} ℂ (AKLT.Blueprint.H1.TensorSpace J) → Prop :=
+fun J S =>
+  (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+      Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinZ J) ψ)) ∧
+    (∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinPlus J) ψ)) ∧
+      ∀ (ψ : AKLT.Blueprint.H1.TensorSpace J),
+        Membership.mem.{0, 0} S ψ → Membership.mem.{0, 0} S ((AKLT.Defs.totalSpinMinus J) ψ)
+@[reducible] def AKLT.Defs.ExchangeBasis : (π : AKLT.Defs.PatternData) →
+  AKLT.Defs.Representation → AKLT.Defs.ExchangeSigns π → Type :=
+fun π r ε => (x : ↥(AKLT.Defs.reductionGroups π)) → AKLT.Defs.GroupBasis π r ε x
+@[reducible] def AKLT.Defs.Vec3 : Type :=
+Fin 3 → ℝ
+@[reducible] def AKLT.Defs.UnitVector : Type :=
+Subtype.{1} fun a => Eq.{1} (AKLT.Defs.normSq a) 1
+@[defeq] theorem Pi.norm_def.{u_1, u_4} : ∀ {ι : Type u_1} {G : ι → Type u_4} [inst : Fintype.{u_1} ι]
+  [inst_1 : (i : ι) → SeminormedAddGroup.{u_4} (G i)] (f : (i : ι) → G i),
+  Eq.{1} (norm.{max u_1 u_4} f) ↑(Finset.sup.{0, u_1} Finset.univ.{u_1} fun b => nnnorm.{u_4} (f b)) :=
+fun {ι} {G} [Fintype.{u_1} ι] [(i : ι) → SeminormedAddGroup.{u_4} (G i)] f => rfl.{1}

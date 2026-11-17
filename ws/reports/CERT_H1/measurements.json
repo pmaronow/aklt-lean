@@ -1,0 +1,229 @@
+{
+  "allocated_bytes": {
+    "CertData": 15636631552,
+    "H1_library": 5140480,
+    "reports": 1330057216,
+    "scratch": 155676672
+  },
+  "blocks": 12173,
+  "cpu_hours": 139.00213888888877,
+  "format": "h1-production-measured-plan-v1",
+  "mathematical_leaf_proofs_written_by_root": 0,
+  "max_rss_gib": 11.153282165527344,
+  "modules": 7964,
+  "patterns": 7962,
+  "projection_note": "Measured successful kernel-build CPU costs, cold replay DAG and declared memory reservations; not additional runs. Engineering intervals allow import/IO, wrapper and CPU-contention overhead. 48 processes are hypothetical: the current authorization permits at most 44, and conservative RAM reservations can limit both settings to fewer processes. Mathematical leaf proof development is excluded.",
+  "root_free_bytes": 475263959040,
+  "scheduling_projections": [
+    {
+      "cpu_cost_schedule_wall_hours": 5.8217472222222195,
+      "effective_max_processes": 24,
+      "engineering_wall_hours": [
+        6.403921944444442,
+        8.732620833333328
+      ],
+      "memory_reservation_bytes": 245000000000,
+      "requested_processes": 24
+    },
+    {
+      "cpu_cost_schedule_wall_hours": 3.361938888888886,
+      "effective_max_processes": 42,
+      "engineering_wall_hours": [
+        3.698132777777775,
+        5.042908333333329
+      ],
+      "memory_reservation_bytes": 410000000000,
+      "requested_processes": 44
+    },
+    {
+      "cpu_cost_schedule_wall_hours": 3.361938888888886,
+      "effective_max_processes": 42,
+      "engineering_wall_hours": [
+        3.698132777777775,
+        5.042908333333329
+      ],
+      "memory_reservation_bytes": 410000000000,
+      "requested_processes": 48
+    }
+  ],
+  "source_receipt": "/home/ubuntu/aklt/reports/CERT_H1/phase3/verified-production.json",
+  "source_receipt_sha256": "f293cd06ce963e48c32bac411d9b543ea299b2469eca94535d8fb6cb32043d20",
+  "stages": {
+    "all_witness_assembly": {
+      "artifact_bytes": 274888,
+      "max_rss_kib": 11695064.0,
+      "modules": 1,
+      "system_seconds": 2.26,
+      "user_seconds": 5.99
+    },
+    "case_assembly": {
+      "artifact_bytes": 167947920,
+      "max_rss_kib": 7494512.0,
+      "modules": 249,
+      "system_seconds": 389.7299999999998,
+      "user_seconds": 1400.29
+    },
+    "case_data": {
+      "artifact_bytes": 125809872,
+      "max_rss_kib": 7508220.0,
+      "modules": 249,
+      "system_seconds": 388.04999999999995,
+      "user_seconds": 864.3299999999997
+    },
+    "constructor_assembly": {
+      "artifact_bytes": 425169192,
+      "max_rss_kib": 7447684.0,
+      "modules": 396,
+      "system_seconds": 861.6000000000003,
+      "user_seconds": 2438.2500000000005
+    },
+    "constructor_rows": {
+      "artifact_bytes": 209959152,
+      "max_rss_kib": 7906700.0,
+      "modules": 1161,
+      "system_seconds": 7425.129999999983,
+      "user_seconds": 385825.7999999995
+    },
+    "coverage_assembly": {
+      "artifact_bytes": 346272,
+      "max_rss_kib": 6868960.0,
+      "modules": 1,
+      "system_seconds": 2.29,
+      "user_seconds": 5.97
+    },
+    "coverage_data": {
+      "artifact_bytes": 38572560,
+      "max_rss_kib": 7576980.0,
+      "modules": 1,
+      "system_seconds": 2.71,
+      "user_seconds": 52.69
+    },
+    "coverage_frontier": {
+      "artifact_bytes": 5536768,
+      "max_rss_kib": 8089308.0,
+      "modules": 16,
+      "system_seconds": 83.1,
+      "user_seconds": 2742.43
+    },
+    "coverage_header": {
+      "artifact_bytes": 6152,
+      "max_rss_kib": 8206964.0,
+      "modules": 1,
+      "system_seconds": 2.43,
+      "user_seconds": 15.37
+    },
+    "gram_rows": {
+      "artifact_bytes": 35813648,
+      "max_rss_kib": 7066520.0,
+      "modules": 1056,
+      "system_seconds": 1892.450000000003,
+      "user_seconds": 24886.279999999973
+    },
+    "index_all_data": {
+      "artifact_bytes": 1541256,
+      "max_rss_kib": 6909584.0,
+      "modules": 1,
+      "system_seconds": 1.65,
+      "user_seconds": 4.15
+    },
+    "index_assembly": {
+      "artifact_bytes": 595112,
+      "max_rss_kib": 8283700.0,
+      "modules": 1,
+      "system_seconds": 1.7,
+      "user_seconds": 11.33
+    },
+    "index_data": {
+      "artifact_bytes": 37342096,
+      "max_rss_kib": 6888452.0,
+      "modules": 16,
+      "system_seconds": 26.3,
+      "user_seconds": 77.12
+    },
+    "index_keys": {
+      "artifact_bytes": 801632,
+      "max_rss_kib": 6910332.0,
+      "modules": 16,
+      "system_seconds": 26.68,
+      "user_seconds": 248.29999999999998
+    },
+    "index_witness_assembly": {
+      "artifact_bytes": 16458272,
+      "max_rss_kib": 10287324.0,
+      "modules": 16,
+      "system_seconds": 27.249999999999996,
+      "user_seconds": 84.80999999999999
+    },
+    "input_data": {
+      "artifact_bytes": 67609896,
+      "max_rss_kib": 6804788.0,
+      "modules": 249,
+      "system_seconds": 503.3700000000004,
+      "user_seconds": 1222.2499999999993
+    },
+    "input_geometry": {
+      "artifact_bytes": 21747136,
+      "max_rss_kib": 6819824.0,
+      "modules": 249,
+      "system_seconds": 386.5699999999999,
+      "user_seconds": 1274.8100000000002
+    },
+    "local_parameters": {
+      "artifact_bytes": 156618560,
+      "max_rss_kib": 7384492.0,
+      "modules": 1991,
+      "system_seconds": 4239.110000000005,
+      "user_seconds": 37571.98000000003
+    },
+    "matrix_data": {
+      "artifact_bytes": 10963838616,
+      "max_rss_kib": 4924276.0,
+      "modules": 503,
+      "system_seconds": 738.3499999999998,
+      "user_seconds": 4638.909999999995
+    },
+    "network_data": {
+      "artifact_bytes": 774918904,
+      "max_rss_kib": 6992432.0,
+      "modules": 383,
+      "system_seconds": 702.0600000000005,
+      "user_seconds": 5129.4500000000035
+    },
+    "pattern_data": {
+      "artifact_bytes": 200246400,
+      "max_rss_kib": 6858212.0,
+      "modules": 249,
+      "system_seconds": 501.9500000000002,
+      "user_seconds": 2052.25
+    },
+    "positivity_assembly": {
+      "artifact_bytes": 85415272,
+      "max_rss_kib": 6150284.0,
+      "modules": 396,
+      "system_seconds": 601.6400000000002,
+      "user_seconds": 4192.739999999998
+    },
+    "sector_layout": {
+      "artifact_bytes": 28297296,
+      "max_rss_kib": 7291328.0,
+      "modules": 381,
+      "system_seconds": 816.7699999999999,
+      "user_seconds": 2620.739999999999
+    },
+    "sector_network_data": {
+      "artifact_bytes": 423666168,
+      "max_rss_kib": 6882836.0,
+      "modules": 381,
+      "system_seconds": 800.7800000000004,
+      "user_seconds": 2609.5300000000007
+    },
+    "target_assembly": {
+      "artifact_bytes": 10816,
+      "max_rss_kib": 11691308.0,
+      "modules": 1,
+      "system_seconds": 2.3,
+      "user_seconds": 5.7
+    }
+  },
+  "task_allocated_bytes": 17127505920
+}

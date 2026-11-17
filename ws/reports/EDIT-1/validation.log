@@ -1,0 +1,12 @@
+PASS: All source label sequences and numbered environment counts preserved; baseline source verified against 32487a2.
+PASS: All 180 compiled label numbers equal their frozen-source baseline values.
+PASS: Every theorem statement, main.tex, Appendix B, the kernel display, and the recursion inequality are byte-for-byte unchanged.
+PASS: latexmk -pdf main.tex converged: 50-page main.pdf, no errors, undefined references/citations, or unsettled labels.
+PASS: git diff --check.
+PASS: All four cumulative checkpoint diffs apply to 32487a2; applying the final diff reproduces every delivered source exactly.
+PASS: Final checkpoint equals the working-copy diff.
+PASS: Supplied exact H2 checker, exact tail-output assembly, and explicit archive-location checks passed; no production run was launched.
+PASS: Every CONFIRMED/CONFIRMED-MODIFIED finding in the four requested reports is represented; no unapplied finding.
+Typesetting notes: the converged build retains the ten baseline overfull hboxes and has three additional overfull archival-path paragraphs; none is a LaTeX error or unresolved reference. Underfull page warnings also occur.
+Git checkpoint note: each requested git commit -am was attempted and failed because .git/index.lock is on a read-only filesystem; the four cumulative diffs are the authorized fallback.
+PASS: Removed all five created LaTeX auxiliary files; main.pdf is the only untracked working-copy file. Delivered source/PDF SHA-256 hashes and final checkpoint rechecked after cleanup.

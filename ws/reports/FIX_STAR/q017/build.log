@@ -1,0 +1,158 @@
+⚠ [8953/8953] Replayed AKLT.W.Q017.Main
+warning: AKLT/W/Q017/Main.lean:53:48: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [vacuum, basisVector, zeroConfig, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:53:65: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [vacuum, basisVector, zeroConfig, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:63:12: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [spinZ, hx, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:71:8: This simp argument is unused:
+  vacuum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisVector, zeroConfig]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:71:16: This simp argument is unused:
+  basisVector
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuum, zeroConfig]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:73:10: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [spinPlus]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:89:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/W/Q017/Main.lean:107:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: AKLT/W/Q017/Main.lean:83:10: This simp argument is unused:
+  vacuum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisVector, oneExcitation, zeroConfig, spinMinus, spinPlus, Matrix.conjTranspose_apply,
+    Function.update_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:108:15: This simp argument is unused:
+  WithLp.ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:110:10: This simp argument is unused:
+  vacuum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [basisVector, oneExcitation, zeroConfig]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:110:46: This simp argument is unused:
+  zeroConfig
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuum, basisVector, oneExcitation]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:129:14: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: AKLT/W/Q017/Main.lean:141:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: AKLT/W/Q017/Main.lean:142:17: This simp argument is unused:
+  WithLp.ofLp_toLp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:144:33: This simp argument is unused:
+  oneExcitation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuum, basisVector, zeroConfig, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:144:48: This simp argument is unused:
+  zeroConfig
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vacuum, basisVector, oneExcitation, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:150:15: This simp argument is unused:
+  basisVector
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.single_apply, Pi.zero_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:150:28: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basisVector, Pi.zero_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:150:45: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basisVector, Pi.single_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:150:60: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [basisVector, Pi.single_apply, Pi.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:152:12: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hinput, spinPlus, hxy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:212:10: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: AKLT/W/Q017/Main.lean:246:4: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [vacuum, basisVector, zeroConfig] at h'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Build completed successfully (8953 jobs).

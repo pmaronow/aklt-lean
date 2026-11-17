@@ -1,0 +1,1214 @@
+[
+  {
+    "file": "app-finite.tex",
+    "use_lines": [
+      221
+    ],
+    "label": "d:frame",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 264,
+    "match": true,
+    "assessment": "The reference laws have positive weights and precisely the degree-four moments required by the frame definition; no invariance for arbitrary functions is assumed."
+  },
+  {
+    "file": "app-finite.tex",
+    "use_lines": [
+      17,
+      221
+    ],
+    "label": "d:framemodel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 490,
+    "match": true,
+    "assessment": "The laws use the specified three 12-letter frames, proper colorings, uniform site weights, the appropriate interaction sign, and rate-one physical-site updates."
+  },
+  {
+    "file": "app-finite.tex",
+    "use_lines": [
+      222
+    ],
+    "label": "l:threeframes",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 341,
+    "match": true,
+    "assessment": "The three rotations are antipodal unit-vector fourth-moment frames with weights 1/12 and exact bond bounds b..2-b for both signs; b=(5-sqrt(5))/505 and r_b=b/(2-b)."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      8,
+      441,
+      519,
+      532,
+      879,
+      1063
+    ],
+    "label": "d:kernel",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 517,
+    "match": true,
+    "assessment": "True kernel weights, pair types, shifts, and departure-based dead-site counts match. The stationary suffix operator explicitly relaxes forgotten revisits and dead non-outgoing neighbors, using bprime_type<=b_type for domination; equality of relaxed and true trail classes is never assumed. Exact short and prefix sums retain the actual counts."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      9,
+      504,
+      901
+    ],
+    "label": "d:kernel-order",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 572,
+    "match": true,
+    "assessment": "The exact dyadic h, rho0, cutoff 12, short rational sorting with index ties, and long straight-before-turn ordering agree. Phase formulas are used for long continuations, with short sums evaluated separately."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      8
+    ],
+    "label": "d:weights",
+    "owner": "sec6-walks.tex",
+    "owner_line": 655,
+    "match": true,
+    "assessment": "The lattice revisit weight is exactly 1/5 and records earlier departures. The virtual incoming bond is unused, initial reversal is forbidden, and straight/turn weights are x_type/3."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      123
+    ],
+    "label": "h:H2",
+    "owner": "sec6-walks.tex",
+    "owner_line": 684,
+    "match": true,
+    "assessment": "The import is the all-length open-trail sum, uniform over start and incoming direction, with C_V>=1 and 0<q<1. No stronger historical rate bound is required."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      1228
+    ],
+    "label": "h:H3",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 594,
+    "match": true,
+    "assessment": "The imported assertion bounds every finite cutoff of the specified type-dependent kernel by rho0*h. The same exact positive vector and fixed orderings are used."
+  },
+  {
+    "file": "app-input-contracts.tex",
+    "use_lines": [
+      760
+    ],
+    "label": "l:log-mean-bounds",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 260,
+    "match": true,
+    "assessment": "The same rational type table is used, including turning a_t=150000/10^6 and bprime_type<=b_type. Appendix C ceilings reconstruct these exact fractions with the exact dyadic h_C."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      15
+    ],
+    "label": "d:moment",
+    "owner": "sec2-moments.tex",
+    "owner_line": 8,
+    "match": true,
+    "assessment": "Finite U/D laws, separate degree at most four, ambient plane distances, and empty-product conventions agree; no surface integral or arbitrary-function rotation is imported."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      6,
+      45,
+      104
+    ],
+    "label": "d:pattern",
+    "owner": "sec6-walks.tex",
+    "owner_line": 488,
+    "match": true,
+    "assessment": "The covered template retains all twenty slots, both corner slots, full U kept sets except the passage, and covering U tips; effective-record reductions keep precisely its present factors."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      17
+    ],
+    "label": "h:H1",
+    "owner": "sec6-walks.tex",
+    "owner_line": 531,
+    "match": true,
+    "assessment": "The pointwise inequality is on the complete covered pattern class and every unit slot assignment, at the same thresholds 961/1000 and 187/200; no optimality assertion is consumed."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      117
+    ],
+    "label": "l:35",
+    "owner": "sec2-moments.tex",
+    "owner_line": 197,
+    "match": true,
+    "assessment": "A covering U tip has exactly three unit slot fields and one optional internal bond. The degree-four numerator and degree-three denominator give a normalized mean of norm <=3/5, exactly the radius required by the leaf reduction."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      66
+    ],
+    "label": "l:finitefacts",
+    "owner": "sec2-moments.tex",
+    "owner_line": 126,
+    "match": true,
+    "assessment": "The networks have at most four incident factors. Inserted observables are included in the degree-four budget; free positivity is used only without pins, and conditional independence only on positive fibers at nonneighbors."
+  },
+  {
+    "file": "app-local-operator.tex",
+    "use_lines": [
+      59,
+      82,
+      123,
+      197,
+      640
+    ],
+    "label": "l:moments",
+    "owner": "sec2-moments.tex",
+    "owner_line": 35,
+    "match": true,
+    "assessment": "Every use is a polynomial calculation of separate degree at most four, including observables. Tight-frame products have degree four, and the Pauli/local formulas use the same U second/fourth and diluted D moments."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      66
+    ],
+    "label": "d:framemodel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 490,
+    "match": true,
+    "assessment": "The laws use the specified three 12-letter frames, proper colorings, uniform site weights, the appropriate interaction sign, and rate-one physical-site updates."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      13
+    ],
+    "label": "d:poly",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 14,
+    "match": true,
+    "assessment": "V4 has the prescribed inverse-binomial monomial norms and finite frame spinor choices. The first paragraph merely locates this normalization."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      47
+    ],
+    "label": "p:toruskernel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 191,
+    "match": true,
+    "assessment": "Every invocation has L,N>=3. The owner proves B nonzero and the one-dimensional kernel at every parity, independently of frames or numerical inputs; no assertion for a plane or open box is imported."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      96
+    ],
+    "label": "t:QD",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 646,
+    "match": true,
+    "assessment": "The periods are at least three, the torus coloring is proper, and the specified frame law is used. The imported lower bound is exactly (g_star/2)*lambda(mu_af), with both local orientation signs retained by its proof."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      60
+    ],
+    "label": "t:cutMOS",
+    "owner": "sec5-window.tex",
+    "owner_line": 696,
+    "match": true,
+    "assessment": "P(A,theta) supplies A>=2 and 0<theta<1 on arbitrary original unit pins. The conclusion is W(64,p0,Mstar) with common positive constants for every proper plane coloring and translate, as needed by t:mainW."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      49
+    ],
+    "label": "t:inputs",
+    "owner": "sec8-inputs.tex",
+    "owner_line": 270,
+    "match": true,
+    "assessment": "The import supplies H1 at the prescribed thresholds, H2 with C_V=10 and the exact 0<q<1, and H3_h for the same type-dependent kernel/orderings. Consumers use these conclusions, without assuming a complete family of nonzero Gram factors."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      65,
+      95
+    ],
+    "label": "t:mainW",
+    "owner": "sec4-periodic-gap.tex",
+    "owner_line": 404,
+    "match": true,
+    "assessment": "The premise is exactly the uniform W estimate for the plane frame family. Its conclusion is already a quantum torus gap and uniqueness for all sufficiently large integer periods of either parity."
+  },
+  {
+    "file": "sec1-result.tex",
+    "use_lines": [
+      57
+    ],
+    "label": "t:rec",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 1008,
+    "match": true,
+    "assessment": "H1 thresholds, arbitrary C_V>=1 and 0<q<1, and the same type-dependent H3_h/orderings are supplied by t:inputs. Its conclusion P has arbitrary original unit pins and all removed-site pairs required by Section 5."
+  },
+  {
+    "file": "sec3-quantum-frames.tex",
+    "use_lines": [
+      201
+    ],
+    "label": "d:model",
+    "owner": "sec1-result.tex",
+    "owner_line": 15,
+    "match": true,
+    "assessment": "The torus edge set is simple and unoriented, each edge appears once, and L,N>=3 gives four distinct neighbors and the stated degree-four valence-bond polynomial."
+  },
+  {
+    "file": "sec3-quantum-frames.tex",
+    "use_lines": [
+      258
+    ],
+    "label": "d:moment",
+    "owner": "sec2-moments.tex",
+    "owner_line": 8,
+    "match": true,
+    "assessment": "Finite U/D laws, separate degree at most four, ambient plane distances, and empty-product conventions agree; no surface integral or arbitrary-function rotation is imported."
+  },
+  {
+    "file": "sec3-quantum-frames.tex",
+    "use_lines": [
+      772
+    ],
+    "label": "l:density",
+    "owner": "app-finite.tex",
+    "owner_line": 163,
+    "match": true,
+    "assessment": "The reference law is a positive product probability, with every boundary factor absorbed into its site weights. The density bounds give m/M=r_b^|E(Q)|; the frame reference measure of mass 5^|Lambda| is not substituted for this probability."
+  },
+  {
+    "file": "sec3-quantum-frames.tex",
+    "use_lines": [
+      262,
+      301,
+      361
+    ],
+    "label": "l:moments",
+    "owner": "sec2-moments.tex",
+    "owner_line": 35,
+    "match": true,
+    "assessment": "Every use is a polynomial calculation of separate degree at most four, including observables. Tight-frame products have degree four, and the Pauli/local formulas use the same U second/fourth and diluted D moments."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      7
+    ],
+    "label": "a:finite",
+    "owner": "app-finite.tex",
+    "owner_line": 2,
+    "match": true,
+    "assessment": "Locator: Appendix A contains precisely the finite coupling, conditional-expectation, and Poincare tools used here."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      436,
+      505
+    ],
+    "label": "d:framemodel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 490,
+    "match": true,
+    "assessment": "The laws use the specified three 12-letter frames, proper colorings, uniform site weights, the appropriate interaction sign, and rate-one physical-site updates."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      131
+    ],
+    "label": "l:CE",
+    "owner": "app-finite.tex",
+    "owner_line": 22,
+    "match": true,
+    "assessment": "All relevant laws are strictly positive on finite products with nonempty alphabets. Conditional projections preserve those laws, including complex variance identities and empty resampling sets."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      448,
+      461,
+      481
+    ],
+    "label": "l:boxlift",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 801,
+    "match": true,
+    "assessment": "Every actual square has integer M>=1 and L,N>=2M+3. Halo reduction is injective, bonds correspond exactly, and the local antipodal sign map transports conditional laws, updates, variances, and Hamming costs."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      425
+    ],
+    "label": "l:colour",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 434,
+    "match": true,
+    "assessment": "The periods satisfy L,N>=3; the supplied cycle coloring, including period three and odd periods, gives the proper torus three-coloring actually used."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      383
+    ],
+    "label": "l:comparison",
+    "owner": "app-finite.tex",
+    "owner_line": 253,
+    "match": true,
+    "assessment": "The translated squares are a nonempty labelled family of nonempty blocks. Every exterior fiber has gap g_M, the block gap is c>0, and the label multiplicity is T_M."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      382
+    ],
+    "label": "l:contraction",
+    "owner": "app-finite.tex",
+    "owner_line": 297,
+    "match": true,
+    "assessment": "P is the average over A=LN block labels; the constructed coupling has expected distance <=1-c/A, with 0<c=T_M-S_M*K<=A. The conclusion uses unnormalized block rates."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      472
+    ],
+    "label": "l:density",
+    "owner": "app-finite.tex",
+    "owner_line": 163,
+    "match": true,
+    "assessment": "The reference law is a positive product probability, with every boundary factor absorbed into its site weights. The density bounds give m/M=r_b^|E(Q)|; the frame reference measure of mass 5^|Lambda| is not substituted for this probability."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      125,
+      215
+    ],
+    "label": "l:finitecoupling",
+    "owner": "app-finite.tex",
+    "owner_line": 68,
+    "match": true,
+    "assessment": "The maximal overlap construction includes zero and full overlap, and marginalization/completion has the asserted direction. The stopped construction retains both full marginals."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      413,
+      438,
+      471
+    ],
+    "label": "l:planeenergy",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 691,
+    "match": true,
+    "assessment": "Only admissible frame letters are used. Proper colorings give alpha=(1/12)*r_b^4 in (0,1], consistency, and conditional block gap r_b^internal-edge-count; no claim about arbitrary unit pins is imported."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      82
+    ],
+    "label": "l:shellgeom",
+    "owner": "sec5-window.tex",
+    "owner_line": 27,
+    "match": true,
+    "assessment": "The stopped-coupling scale satisfies u>=M_g(l0), and all surgery indices lie in 2..i1. Cap estimates are used only outside I0. The parallel-side clause is used in l:cutgeom only after checking its corrected nonexceptional range."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      500,
+      513
+    ],
+    "label": "l:star",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 223,
+    "match": true,
+    "assessment": "L,N>=3 gives five distinct star sites. The same finite positive g_star is used, and sum_x H_x=2H yields precisely the later quantum factor 1/2."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      133
+    ],
+    "label": "l:surgery",
+    "owner": "app-finite.tex",
+    "owner_line": 132,
+    "match": true,
+    "assessment": "Each selected joint resampling has, for every fixed input pair, the correct two conditional marginals on F_i; complements stay fixed. Thus each deterministic-index step preserves both full laws."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      521,
+      538
+    ],
+    "label": "p:toruskernel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 191,
+    "match": true,
+    "assessment": "Every invocation has L,N>=3. The owner proves B nonzero and the one-dimensional kernel at every parity, independently of frames or numerical inputs; no assertion for a plane or open box is imported."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      503
+    ],
+    "label": "t:QD",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 646,
+    "match": true,
+    "assessment": "The periods are at least three, the torus coloring is proper, and the specified frame law is used. The imported lower bound is exactly (g_star/2)*lambda(mu_af), with both local orientation signs retained by its proof."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      546
+    ],
+    "label": "t:cutMOS",
+    "owner": "sec5-window.tex",
+    "owner_line": 696,
+    "match": true,
+    "assessment": "P(A,theta) supplies A>=2 and 0<theta<1 on arbitrary original unit pins. The conclusion is W(64,p0,Mstar) with common positive constants for every proper plane coloring and translate, as needed by t:mainW."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      540
+    ],
+    "label": "t:inputs",
+    "owner": "sec8-inputs.tex",
+    "owner_line": 270,
+    "match": true,
+    "assessment": "The import supplies H1 at the prescribed thresholds, H2 with C_V=10 and the exact 0<q<1, and H3_h for the same type-dependent kernel/orderings. Consumers use these conclusions, without assuming a complete family of nonzero Gram factors."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      531,
+      537
+    ],
+    "label": "t:main",
+    "owner": "sec1-result.tex",
+    "owner_line": 38,
+    "match": true,
+    "assessment": "The final Section 4 assembly proves exactly the two unconditional conclusions stated in Section 1: uniqueness for all L,N>=3 and one positive gap for all L,N>=L0, without parity restrictions."
+  },
+  {
+    "file": "sec4-periodic-gap.tex",
+    "use_lines": [
+      544
+    ],
+    "label": "t:rec",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 1008,
+    "match": true,
+    "assessment": "H1 thresholds, arbitrary C_V>=1 and 0<q<1, and the same type-dependent H3_h/orderings are supplied by t:inputs. Its conclusion P has arbitrary original unit pins and all removed-site pairs required by Section 5."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      769
+    ],
+    "label": "d:W",
+    "owner": "sec4-periodic-gap.tex",
+    "owner_line": 31,
+    "match": true,
+    "assessment": "The conclusion is the same marginal inequality on B_i, for all proper plane colorings, translates, nonexceptional indices, and arbitrary admissible boundaries; l0=64."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      4,
+      177
+    ],
+    "label": "d:framemodel",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 490,
+    "match": true,
+    "assessment": "The laws use the specified three 12-letter frames, proper colorings, uniform site weights, the appropriate interaction sign, and rate-one physical-site updates."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      5,
+      248
+    ],
+    "label": "d:pinmodel",
+    "owner": "sec2-moments.tex",
+    "owner_line": 97,
+    "match": true,
+    "assessment": "Every use keeps the original G, original legs, and S(G). Pins are arbitrary unit vectors, and removal creates no pins; the ordinary U/X specialization has exactly these partition sums."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      3
+    ],
+    "label": "d:shells",
+    "owner": "sec4-periodic-gap.tex",
+    "owner_line": 10,
+    "match": true,
+    "assessment": "The physical-site shells use ambient infinity distance, s=u^(1/4), integer floors k_i, the same protected cap A_i, and the same exceptional set I0."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      10,
+      714
+    ],
+    "label": "h:P",
+    "owner": "sec2-moments.tex",
+    "owner_line": 338,
+    "match": true,
+    "assessment": "Uses concern finite G, arbitrary original unit pins, removed Y disjoint from S(G), and distance-two surviving pairs with a common removed neighbor. Distances remain to the original S(G)."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      300
+    ],
+    "label": "l:35",
+    "owner": "sec2-moments.tex",
+    "owner_line": 197,
+    "match": true,
+    "assessment": "After x_j is removed, its distinct surviving neighbors are unpinned, conditionally independent, and have at most three present bonds. Their conditional means therefore have norm <=3/5 on positive fibers, as used in the removal lower bound."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      679
+    ],
+    "label": "l:boundaryconn",
+    "owner": "app-topology.tex",
+    "owner_line": 10,
+    "match": true,
+    "assessment": "At the use, U is finite, nonempty, and star-connected, and U-complement is star-connected by l:cutgeom; hence its raw outer boundary is nonempty and star-connected."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      172
+    ],
+    "label": "l:exact",
+    "owner": "sec2-moments.tex",
+    "owner_line": 297,
+    "match": true,
+    "assessment": "Only summed-out partition polynomials are transferred. Each integrated variable has at most four factors; fixed window letters and their actual frame weights remain in the reference window law."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      176,
+      279,
+      298
+    ],
+    "label": "l:finitefacts",
+    "owner": "sec2-moments.tex",
+    "owner_line": 126,
+    "match": true,
+    "assessment": "The networks have at most four incident factors. Inserted observables are included in the degree-four budget; free positivity is used only without pins, and conditional independence only on positive fibers at nonneighbors."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      258
+    ],
+    "label": "l:moments",
+    "owner": "sec2-moments.tex",
+    "owner_line": 35,
+    "match": true,
+    "assessment": "Every use is a polynomial calculation of separate degree at most four, including observables. Tight-frame products have degree four, and the Pauli/local formulas use the same U second/fourth and diluted D moments."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      682
+    ],
+    "label": "l:thicken",
+    "owner": "app-topology.tex",
+    "owner_line": 138,
+    "match": true,
+    "assessment": "X0 is finite, nonempty, and star-connected, so its nearest-neighbor crosses form a connected cut. The ambient-distance weighted comparison has factor 5/theta for 0<theta<1."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      163
+    ],
+    "label": "l:threeframes",
+    "owner": "sec3-quantum-frames.tex",
+    "owner_line": 341,
+    "match": true,
+    "assessment": "The three rotations are antipodal unit-vector fourth-moment frames with weights 1/12 and exact bond bounds b..2-b for both signs; b=(5-sqrt(5))/505 and r_b=b/(2-b)."
+  },
+  {
+    "file": "sec5-window.tex",
+    "use_lines": [
+      679
+    ],
+    "label": "s:topology",
+    "owner": "app-topology.tex",
+    "owner_line": 2,
+    "match": true,
+    "assessment": "Locator: Appendix B contains the exact star-boundary and cross-thickening lemmas invoked by the connected-cut proof."
+  },
+  {
+    "file": "sec6-walks.tex",
+    "use_lines": [
+      4
+    ],
+    "label": "d:moment",
+    "owner": "sec2-moments.tex",
+    "owner_line": 8,
+    "match": true,
+    "assessment": "Finite U/D laws, separate degree at most four, ambient plane distances, and empty-product conventions agree; no surface integral or arbitrary-function rotation is imported."
+  },
+  {
+    "file": "sec6-walks.tex",
+    "use_lines": [
+      44
+    ],
+    "label": "d:pinmodel",
+    "owner": "sec2-moments.tex",
+    "owner_line": 97,
+    "match": true,
+    "assessment": "Every use keeps the original G, original legs, and S(G). Pins are arbitrary unit vectors, and removal creates no pins; the ordinary U/X specialization has exactly these partition sums."
+  },
+  {
+    "file": "sec6-walks.tex",
+    "use_lines": [
+      340,
+      585,
+      599,
+      611
+    ],
+    "label": "l:35",
+    "owner": "sec2-moments.tex",
+    "owner_line": 197,
+    "match": true,
+    "assessment": "Each conditional site has at most three incident factors with fields of norm at most one. The mean bound is 3/5 for U or D; the covering step uses the proved full ball of means from three unit fields."
+  },
+  {
+    "file": "sec6-walks.tex",
+    "use_lines": [
+      40,
+      275,
+      339,
+      358,
+      526,
+      647
+    ],
+    "label": "l:finitefacts",
+    "owner": "sec2-moments.tex",
+    "owner_line": 126,
+    "match": true,
+    "assessment": "The networks have at most four incident factors. Inserted observables are included in the degree-four budget; free positivity is used only without pins, and conditional independence only on positive fibers at nonneighbors."
+  },
+  {
+    "file": "sec6-walks.tex",
+    "use_lines": [
+      121
+    ],
+    "label": "l:moments",
+    "owner": "sec2-moments.tex",
+    "owner_line": 35,
+    "match": true,
+    "assessment": "Every use is a polynomial calculation of separate degree at most four, including observables. Tight-frame products have degree four, and the Pauli/local formulas use the same U second/fourth and diluted D moments."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      8
+    ],
+    "label": "d:domain",
+    "owner": "sec6-walks.tex",
+    "owner_line": 8,
+    "match": true,
+    "assessment": "Ordinary domains use full U kept sets, two-element D kept sets, consistency between nonremoved endpoints, the original protected layer, and no new leg factors."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      5
+    ],
+    "label": "d:moment",
+    "owner": "sec2-moments.tex",
+    "owner_line": 8,
+    "match": true,
+    "assessment": "Finite U/D laws, separate degree at most four, ambient plane distances, and empty-product conventions agree; no surface integral or arbitrary-function rotation is imported."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      151,
+      222
+    ],
+    "label": "d:pattern",
+    "owner": "sec6-walks.tex",
+    "owner_line": 488,
+    "match": true,
+    "assessment": "The covered template retains all twenty slots, both corner slots, full U kept sets except the passage, and covering U tips; effective-record reductions keep precisely its present factors."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      6,
+      1041
+    ],
+    "label": "d:pinmodel",
+    "owner": "sec2-moments.tex",
+    "owner_line": 97,
+    "match": true,
+    "assessment": "Every use keeps the original G, original legs, and S(G). Pins are arbitrary unit vectors, and removal creates no pins; the ordinary U/X specialization has exactly these partition sums."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      17,
+      419,
+      426,
+      508,
+      797
+    ],
+    "label": "d:ratios",
+    "owner": "sec6-walks.tex",
+    "owner_line": 240,
+    "match": true,
+    "assessment": "The ratios are post-step/pre-step partition sums: D departures have ratio one, and U departures use J/I with the correct one-, two-, or three-neighbor cases. Section 7 derives its canonical coefficients directly."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      16,
+      91,
+      176,
+      256,
+      829
+    ],
+    "label": "d:trace",
+    "owner": "sec6-walks.tex",
+    "owner_line": 50,
+    "match": true,
+    "assessment": "Starts are unpinned and outside S, with at most three U or one D present bonds; tracing drops both bond flags, retains original legs, and gives the stated mass-free coefficients and ratios."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      653
+    ],
+    "label": "d:weights",
+    "owner": "sec6-walks.tex",
+    "owner_line": 655,
+    "match": true,
+    "assessment": "The lattice revisit weight is exactly 1/5 and records earlier departures. The virtual incoming bond is unused, initial reversal is forbidden, and straight/turn weights are x_type/3."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      11
+    ],
+    "label": "h:H1",
+    "owner": "sec6-walks.tex",
+    "owner_line": 531,
+    "match": true,
+    "assessment": "The pointwise inequality is on the complete covered pattern class and every unit slot assignment, at the same thresholds 961/1000 and 187/200; no optimality assertion is consumed."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      11
+    ],
+    "label": "h:H2",
+    "owner": "sec6-walks.tex",
+    "owner_line": 684,
+    "match": true,
+    "assessment": "The import is the all-length open-trail sum, uniform over start and incoming direction, with C_V>=1 and 0<q<1. No stronger historical rate bound is required."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      1035
+    ],
+    "label": "h:P",
+    "owner": "sec2-moments.tex",
+    "owner_line": 338,
+    "match": true,
+    "assessment": "Uses concern finite G, arbitrary original unit pins, removed Y disjoint from S(G), and distance-two surviving pairs with a common removed neighbor. Distances remain to the original S(G)."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      464
+    ],
+    "label": "l:35",
+    "owner": "sec2-moments.tex",
+    "owner_line": 197,
+    "match": true,
+    "assessment": "Each conditional site has at most three incident factors with fields of norm at most one. The mean bound is 3/5 for U or D; the covering step uses the proved full ball of means from three unit fields."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      29,
+      778,
+      779
+    ],
+    "label": "l:exposure",
+    "owner": "sec6-walks.tex",
+    "owner_line": 437,
+    "match": true,
+    "assessment": "The stopped trails have admissible starts, and x_type>=1 bounds each covered U ratio. The given fixed ordering is restricted to actual U departures before comparison with all lattice first visits."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      56,
+      457,
+      464
+    ],
+    "label": "l:finitefacts",
+    "owner": "sec2-moments.tex",
+    "owner_line": 126,
+    "match": true,
+    "assessment": "The networks have at most four incident factors. Inserted observables are included in the degree-four budget; free positivity is used only without pins, and conditional independence only on positive fibers at nonneighbors."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      26,
+      155,
+      223,
+      422,
+      769
+    ],
+    "label": "l:local",
+    "owner": "sec6-walks.tex",
+    "owner_line": 546,
+    "match": true,
+    "assessment": "Closure provides the covered non-tip template at each invoked U departure. The lemma explicitly allows arbitrary original pins, outside fields of norm <=1, missing factors, both corner slots, and the actual ordinary tip data."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      31,
+      180,
+      242,
+      883,
+      903
+    ],
+    "label": "l:onepoint",
+    "owner": "sec6-walks.tex",
+    "owner_line": 695,
+    "match": true,
+    "assessment": "When the estimate is applied, H1/H2 hold, the incoming bond is absent, starts are admissible, and there are at most twelve uncovered U departures anywhere along the trail. The maximum over the two pin ratios is taken before summation."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      398,
+      441
+    ],
+    "label": "l:response",
+    "owner": "sec6-walks.tex",
+    "owner_line": 286,
+    "match": true,
+    "assessment": "The untyped response identity uses the same positive logarithmic-mean coefficients, zero D response, free ratio <=1, and pinned ratio <=12/5. The refined coefficient choice is explicitly derived in Section 7."
+  },
+  {
+    "file": "sec7-recursion.tex",
+    "use_lines": [
+      20,
+      185,
+      204,
+      726,
+      753,
+      871
+    ],
+    "label": "p:pairwalk",
+    "owner": "sec6-walks.tex",
+    "owner_line": 148,
+    "match": true,
+    "assessment": "Both starts meet the U<=3/D<=1 bounds. The first target has the required degree, and the second protected target e has already lost its first arrival bond. The second stopping set is S union {e}=S; target constants and degree-four insertions match."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      260
+    ],
+    "label": "c:reduce",
+    "owner": "app-local-operator.tex",
+    "owner_line": 172,
+    "match": true,
+    "assessment": "The chosen allowed representation has a common positive leaf factor; Pauli positivity supplies the sphere/ball positivity needed to recover every original twenty-slot assignment."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      322
+    ],
+    "label": "d:kernel",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 517,
+    "match": true,
+    "assessment": "The consumer uses center-avoiding first-hit trails, departure-based revisits, the same live/dead rule, mass-free coefficients, pair types, and shifts. Short/long ordering choices remain those of d:kernel-order."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      280,
+      324
+    ],
+    "label": "d:kernel-order",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 572,
+    "match": true,
+    "assessment": "The exact dyadic h, rho0, cutoff 12, short rational sorting with index ties, and long straight-before-turn ordering agree. Phase formulas are used for long continuations, with short sums evaluated separately."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      31,
+      167
+    ],
+    "label": "d:pattern",
+    "owner": "sec6-walks.tex",
+    "owner_line": 488,
+    "match": true,
+    "assessment": "The covered template retains all twenty slots, both corner slots, full U kept sets except the passage, and covering U tips; effective-record reductions keep precisely its present factors."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      289
+    ],
+    "label": "h:H1",
+    "owner": "sec6-walks.tex",
+    "owner_line": 531,
+    "match": true,
+    "assessment": "The pointwise inequality is on the complete covered pattern class and every unit slot assignment, at the same thresholds 961/1000 and 187/200; no optimality assertion is consumed."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      297
+    ],
+    "label": "h:H2",
+    "owner": "sec6-walks.tex",
+    "owner_line": 684,
+    "match": true,
+    "assessment": "The import is the all-length open-trail sum, uniform over start and incoming direction, with C_V>=1 and 0<q<1. No stronger historical rate bound is required."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      306
+    ],
+    "label": "h:H3",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 594,
+    "match": true,
+    "assessment": "The imported assertion bounds every finite cutoff of the specified type-dependent kernel by rho0*h. The same exact positive vector and fixed orderings are used."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      296
+    ],
+    "label": "l:H2-CV",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 275,
+    "match": true,
+    "assessment": "The consumer uses precisely m=6 and q=q_* from p:H2-test; the finite-base bound permits the same explicit C_V=10."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      78,
+      210
+    ],
+    "label": "l:Iw",
+    "owner": "app-local-operator.tex",
+    "owner_line": 24,
+    "match": true,
+    "assessment": "Passage integration yields Zcur=Zw[I] and Znext=Zw[J] with removed neighbors set to zero. Every pair insertion replaces a lost passage bond, maintaining separate degree four."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      249,
+      254
+    ],
+    "label": "l:Ostruct",
+    "owner": "app-local-operator.tex",
+    "owner_line": 320,
+    "match": true,
+    "assessment": "The inversion is checked to be a union of groups. The resulting real symmetric operator has the required spin commutators, symmetric U-pair support, and D-pair exchange decomposition."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      295
+    ],
+    "label": "l:alm",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 66,
+    "match": true,
+    "assessment": "The positive m=6 vector satisfies the regenerated one-step inequality with 0<q<1; the maximum over finite bases is included, giving the uniform all-length H2 conclusion."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      216
+    ],
+    "label": "l:gram-residual",
+    "owner": "app-local-operator.tex",
+    "owner_line": 527,
+    "match": true,
+    "assessment": "The matrices are regenerated symmetric integer forms and g,d,S are positive. Every residual row is checked; strict dominance implies positive diagonal. L=0 is allowed, and no invertibility is assumed."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      18,
+      85,
+      211,
+      224,
+      237,
+      248
+    ],
+    "label": "l:integercheck",
+    "owner": "app-local-operator.tex",
+    "owner_line": 582,
+    "match": true,
+    "assessment": "The thresholds lie in (0,1), D0 is justified and positive, and sector bases are the unnormalized integer-coordinate bases. The scale is 15*D0*q. Bareiss is invoked only with exact divisions and positive pivots, including the proved positive-common-scalar reduction."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      258
+    ],
+    "label": "l:inversion",
+    "owner": "app-local-operator.tex",
+    "owner_line": 271,
+    "match": true,
+    "assessment": "One checked groupwise inversion has a positive semidefinite Pauli operator; the product density trace identity then gives polynomial positivity on closed unit balls and hence all unit slots."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      66,
+      178,
+      209
+    ],
+    "label": "l:leaf",
+    "owner": "app-local-operator.tex",
+    "owner_line": 89,
+    "match": true,
+    "assessment": "The retained leaf data satisfy the covered-template hypotheses: bonded-tip radius 3/5, reduced one-bond corner radius 1/2 or 1/3, and positive common factors for isolated leaves."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      279
+    ],
+    "label": "l:log-mean-bounds",
+    "owner": "sec7-recursion.tex",
+    "owner_line": 260,
+    "match": true,
+    "assessment": "The same rational type table is used, including turning a_t=150000/10^6 and bprime_type<=b_type. Appendix C ceilings reconstruct these exact fractions with the exact dyadic h_C."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      77,
+      210
+    ],
+    "label": "l:moments",
+    "owner": "sec2-moments.tex",
+    "owner_line": 35,
+    "match": true,
+    "assessment": "Every use is a polynomial calculation of separate degree at most four, including observables. Tight-frame products have degree four, and the Pauli/local formulas use the same U second/fourth and diluted D moments."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      251
+    ],
+    "label": "l:sector",
+    "owner": "app-local-operator.tex",
+    "owner_line": 472,
+    "match": true,
+    "assessment": "The supported tensor-sector operators are Hermitian, preserve the sectors, and commute with all three spin generators. The central weight uses the parity of the singles, so positivity extends to exactly those full supported sectors."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      304
+    ],
+    "label": "l:stationary-assembly",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 1175,
+    "match": true,
+    "assessment": "Its exact five prefix ceilings give the stated B/C row bounds with the same dyadic h_C and rho0=993015/10^6, uniformly in the true-trail cutoff; this is exactly H3_h."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      293
+    ],
+    "label": "p:H2-test",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 199,
+    "match": true,
+    "assessment": "The integer vector is on the same memory-six automaton and thresholds. Its positive row test has common denominator 2695605 and exactly the rational q_* consumed by H2 and the recursion."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      300
+    ],
+    "label": "p:automaton10",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 367,
+    "match": true,
+    "assessment": "The imported raw/quotient reconstruction has 60092 windows and 3741 classes, absolute direction labels, and the required final-direction condition for non-revisit transitions; no spatial symmetry or class-size factor is assumed."
+  },
+  {
+    "file": "sec8-inputs.tex",
+    "use_lines": [
+      301
+    ],
+    "label": "p:stationary-check",
+    "owner": "app-input-contracts.tex",
+    "owner_line": 1069,
+    "match": true,
+    "assessment": "The same five cases, memory 10, prefix 12>=10+2, radius 70, value scale 2^16, coefficient scale 2^48, and exact prefix upper bounds are used. All rows, caps, terminal values, and array indices remain required."
+  }
+]

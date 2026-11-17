@@ -1,0 +1,21 @@
+import took 210ms
+'shift_checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 2.21ms
+	attribute application 0.0103ms
+	blocked (unaccounted) 1.94ms
+	elaboration 5.71ms
+	fix level params 0.00605ms
+	import 210ms
+	initialization 27.4ms
+	instantiate metavars 0.00828ms
+	interpretation 3.69ms
+	let-to-have transformation 0.0142ms
+	linting 0.363ms
+	module linting 0.0013ms
+	parsing 0.459ms
+	process pre-definitions 0.072ms
+	share common exprs 0.0158ms
+	tactic execution 0.277ms
+	type checking 0.258ms
+	typeclass inference 1.18ms

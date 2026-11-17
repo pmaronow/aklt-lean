@@ -1,0 +1,686 @@
+AKLT.Blueprint.H1.DifferenceEvaluationStatementV2 : Prop
+AKLT.Blueprint.H1.AffineEvaluationStatementV2 : Prop
+AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2 : Prop
+AKLT.Blueprint.H1.OperatorStructureLinearCombinationStatementV2 : Prop
+AKLT.Blueprint.Top.H1FiniteDataStatementV2 : Prop
+def AKLT.Blueprint.H1.DifferenceEvaluationStatementV2 : Prop :=
+∀ (π : AKLT.Defs.PatternData) (r : AKLT.Defs.Representation) (c : Real)
+  (u : Fin (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))) → AKLT.Defs.Vec3),
+  @Eq.{1} Real
+    (@AKLT.Defs.evaluateRealPolynomial (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20)))
+      (AKLT.Defs.reducedDifferenceReal π r c) u)
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+      (AKLT.Defs.evaluateReduced (AKLT.Defs.reducedPolynomial π r false) u)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) c
+        (AKLT.Defs.evaluateReduced (AKLT.Defs.reducedPolynomial π r true) u)))
+def AKLT.Blueprint.H1.AffineEvaluationStatementV2 : Prop :=
+∀ (p : AKLT.Defs.RealVectorPolynomial (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20)))),
+  @AKLT.Defs.VectorAffineReal (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))) p →
+    AKLT.Blueprint.H1.SeparatelyAffine
+      (@AKLT.Defs.evaluateRealPolynomial (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))) p)
+def AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2 : Prop :=
+∀ (π : AKLT.Defs.PatternData) (r : AKLT.Defs.Representation)
+  (I : Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))))) (c : Real),
+  @Eq.{1}
+    (Matrix.{0, 0, 0}
+      (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+    (@AKLT.Defs.pauliOperatorReal (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20)))
+      (AKLT.Defs.reductionVectors π r)
+      (@AKLT.Defs.invertPolynomialReal (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))) I
+        (AKLT.Defs.reducedDifferenceReal π r c)))
+    (@HAdd.hAdd.{0, 0, 0}
+      (Matrix.{0, 0, 0}
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (Matrix.{0, 0, 0}
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (Matrix.{0, 0, 0}
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex)
+      (@instHAdd.{0}
+        (Matrix.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex)
+        (@Matrix.add.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex Complex.instAdd))
+      (@HSMul.hSMul.{0, 0, 0} Complex
+        (Matrix.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex)
+        (Matrix.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex)
+        (@instHSMul.{0, 0} Complex
+          (Matrix.{0, 0, 0}
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            Complex)
+          (@Matrix.smul.{0, 0, 0, 0}
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            Complex Complex (@instSMulOfMul.{0} Complex Complex.instMul)))
+        (↑(@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@OfNat.ofNat.{0} Real (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2._proof_1))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 3)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                  AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2._proof_2))
+              c)))
+        (AKLT.Defs.pauliOperator (AKLT.Defs.reductionVectors π r)
+          (AKLT.Defs.invertPolynomial I
+            (AKLT.Defs.reducedDifference π r
+              (@HDiv.hDiv.{0, 0, 0} Rat Rat Rat (@instHDiv.{0} Rat Rat.instDiv)
+                (@OfNat.ofNat.{0} Rat (nat_lit 1) (@Rat.instOfNat (nat_lit 1)))
+                (@OfNat.ofNat.{0} Rat (nat_lit 3) (@Rat.instOfNat (nat_lit 3))))))))
+      (@HSMul.hSMul.{0, 0, 0} Complex
+        (Matrix.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex)
+        (Matrix.{0, 0, 0}
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          Complex)
+        (@instHSMul.{0, 0} Complex
+          (Matrix.{0, 0, 0}
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            Complex)
+          (@Matrix.smul.{0, 0, 0, 0}
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            Complex Complex (@instSMulOfMul.{0} Complex Complex.instMul)))
+        (↑(@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 3)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                  AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2._proof_2))
+              c)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        (AKLT.Defs.pauliOperator (AKLT.Defs.reductionVectors π r)
+          (AKLT.Defs.invertPolynomial I
+            (AKLT.Defs.reducedDifference π r
+              (@HDiv.hDiv.{0, 0, 0} Rat Rat Rat (@instHDiv.{0} Rat Rat.instDiv)
+                (@OfNat.ofNat.{0} Rat (nat_lit 2) (@Rat.instOfNat (nat_lit 2)))
+                (@OfNat.ofNat.{0} Rat (nat_lit 3) (@Rat.instOfNat (nat_lit 3)))))))))
+def AKLT.Blueprint.H1.OperatorStructureLinearCombinationStatementV2 : Prop :=
+∀ (π : AKLT.Defs.PatternData) (r : AKLT.Defs.Representation)
+  (A B :
+    Matrix.{0, 0, 0}
+      (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Complex),
+  AKLT.Blueprint.H1.OperatorStructureAtV2 π r A →
+    AKLT.Blueprint.H1.OperatorStructureAtV2 π r B →
+      ∀ (a b : Real),
+        AKLT.Blueprint.H1.OperatorStructureAtV2 π r
+          (@HAdd.hAdd.{0, 0, 0}
+            (Matrix.{0, 0, 0}
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              Complex)
+            (Matrix.{0, 0, 0}
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              Complex)
+            (Matrix.{0, 0, 0}
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              Complex)
+            (@instHAdd.{0}
+              (Matrix.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex)
+              (@Matrix.add.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex Complex.instAdd))
+            (@HSMul.hSMul.{0, 0, 0} Complex
+              (Matrix.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex)
+              (Matrix.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex)
+              (@instHSMul.{0, 0} Complex
+                (Matrix.{0, 0, 0}
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  Complex)
+                (@Matrix.smul.{0, 0, 0, 0}
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  Complex Complex (@instSMulOfMul.{0} Complex Complex.instMul)))
+              (↑a) A)
+            (@HSMul.hSMul.{0, 0, 0} Complex
+              (Matrix.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex)
+              (Matrix.{0, 0, 0}
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (↥(AKLT.Defs.reductionVectors π r) → Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                Complex)
+              (@instHSMul.{0, 0} Complex
+                (Matrix.{0, 0, 0}
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  Complex)
+                (@Matrix.smul.{0, 0, 0, 0}
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (↥(AKLT.Defs.reductionVectors π r) →
+                    Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  Complex Complex (@instSMulOfMul.{0} Complex Complex.instMul)))
+              (↑b) B))
+def AKLT.Blueprint.Top.H1FiniteDataStatementV2 : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∃ r I,
+      And (AKLT.Defs.GroupInversion π r I)
+        (∃ D₀,
+          And (AKLT.Defs.ClearsDenominator π r D₀)
+            (AKLT.Defs.H1SectorWitnesses π r I D₀ (AKLT.Defs.h1Numerator π) (AKLT.Defs.h1Denominator π)))
+@Matrix.toEuclideanLin.{u_1, u_2,
+    u_3} : {𝕜 : Type u_1} →
+  [inst : RCLike.{u_1} 𝕜] →
+    {m : Type u_2} →
+      {n : Type u_3} →
+        [Fintype.{u_3} n] →
+          [DecidableEq.{u_3 + 1} n] →
+            @LinearEquiv.{u_1, u_1, max (max u_1 u_3) u_2, max (max u_2 u_1) u_3 u_1} 𝕜 𝕜
+              (@CommSemiring.toSemiring.{u_1} 𝕜
+                (@Semifield.toCommSemiring.{u_1} 𝕜
+                  (@Field.toSemifield.{u_1} 𝕜
+                    (@NormedField.toField.{u_1} 𝕜
+                      (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+              (@CommSemiring.toSemiring.{u_1} 𝕜
+                (@Semifield.toCommSemiring.{u_1} 𝕜
+                  (@Field.toSemifield.{u_1} 𝕜
+                    (@NormedField.toField.{u_1} 𝕜
+                      (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+              (@RingHom.id.{u_1} 𝕜
+                (@Semiring.toNonAssocSemiring.{u_1} 𝕜
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+              (@RingHom.id.{u_1} 𝕜
+                (@Semiring.toNonAssocSemiring.{u_1} 𝕜
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+              ⋯ ⋯ (Matrix.{u_2, u_3, u_1} m n 𝕜)
+              (@LinearMap.{u_1, u_1, max u_3 u_1, max u_2 u_1} 𝕜 𝕜
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@RingHom.id.{u_1} 𝕜
+                  (@Semiring.toNonAssocSemiring.{u_1} 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                              (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (EuclideanSpace.{u_1, u_3} 𝕜 n) (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_3} (EuclideanSpace.{u_1, u_3} 𝕜 n)
+                  (@WithLp.instAddCommGroup.{max u_1 u_3}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : n) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_2} (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                  (@WithLp.instAddCommGroup.{max u_1 u_2}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : m) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_3}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : n) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_3, u_1, u_1} n 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_2}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : m) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_2, u_1, u_1} m 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))))
+              (@Matrix.addCommMonoid.{u_1, u_2, u_3} m n 𝕜
+                (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+              (@LinearMap.addCommMonoid.{u_1, u_1, max u_1 u_3, max u_1 u_2} 𝕜 𝕜 (EuclideanSpace.{u_1, u_3} 𝕜 n)
+                (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_3} (EuclideanSpace.{u_1, u_3} 𝕜 n)
+                  (@WithLp.instAddCommGroup.{max u_1 u_3}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : n) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_2} (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                  (@WithLp.instAddCommGroup.{max u_1 u_2}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : m) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_3}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : n) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_3, u_1, u_1} n 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_2}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : m) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_2, u_1, u_1} m 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                (@RingHom.id.{u_1} 𝕜
+                  (@Semiring.toNonAssocSemiring.{u_1} 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                              (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+              (@Matrix.module.{u_1, u_2, u_3, u_1} m n 𝕜 𝕜
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                (@Semiring.toModule.{u_1} 𝕜
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+              (@LinearMap.module.{u_1, u_1, u_1, max u_1 u_3, max u_1 u_2} 𝕜 𝕜 𝕜 (EuclideanSpace.{u_1, u_3} 𝕜 n)
+                (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_3} (EuclideanSpace.{u_1, u_3} 𝕜 n)
+                  (@WithLp.instAddCommGroup.{max u_1 u_3}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : n) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@AddCommGroup.toAddCommMonoid.{max u_1 u_2} (EuclideanSpace.{u_1, u_2} 𝕜 m)
+                  (@WithLp.instAddCommGroup.{max u_1 u_2}
+                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                        PiLp.innerProductSpace._proof_1))
+                    ((i : m) → (fun x => 𝕜) i)
+                    (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                      @Ring.toAddCommGroup.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_3}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : n) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_3, u_1} n (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_3, u_1, u_1} n 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                (@WithLp.instModule.{u_1, max u_1 u_2}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : m) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_2, u_1, u_1} m 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                (@RingHom.id.{u_1} 𝕜
+                  (@Semiring.toNonAssocSemiring.{u_1} 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                              (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))))
+                (@CommSemiring.toSemiring.{u_1} 𝕜
+                  (@Semifield.toCommSemiring.{u_1} 𝕜
+                    (@Field.toSemifield.{u_1} 𝕜
+                      (@NormedField.toField.{u_1} 𝕜
+                        (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                (@WithLp.instModule.{u_1, max u_1 u_2}
+                  (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                    (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                      (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                        (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                      PiLp.innerProductSpace._proof_1))
+                  𝕜 ((i : m) → (fun x => 𝕜) i)
+                  (@CommSemiring.toSemiring.{u_1} 𝕜
+                    (@Semifield.toCommSemiring.{u_1} 𝕜
+                      (@Field.toSemifield.{u_1} 𝕜
+                        (@NormedField.toField.{u_1} 𝕜
+                          (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.addCommGroup.{u_2, u_1} m (fun x => 𝕜) fun i =>
+                    @Ring.toAddCommGroup.{u_1} 𝕜
+                      (@DivisionRing.toRing.{u_1} 𝕜
+                        (@Field.toDivisionRing.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                  (@Pi.Function.module.{u_2, u_1, u_1} m 𝕜 𝕜
+                    (@CommSemiring.toSemiring.{u_1} 𝕜
+                      (@Semifield.toCommSemiring.{u_1} 𝕜
+                        (@Field.toSemifield.{u_1} 𝕜
+                          (@NormedField.toField.{u_1} 𝕜
+                            (@DenselyNormedField.toNormedField.{u_1} 𝕜 (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst))))))
+                    (@Semiring.toAddCommMonoid.{u_1} 𝕜
+                      (@Ring.toSemiring.{u_1} 𝕜
+                        (@DivisionRing.toRing.{u_1} 𝕜
+                          (@Field.toDivisionRing.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))
+                    (@Semiring.toModule.{u_1} 𝕜
+                      (@CommSemiring.toSemiring.{u_1} 𝕜
+                        (@Semifield.toCommSemiring.{u_1} 𝕜
+                          (@Field.toSemifield.{u_1} 𝕜
+                            (@NormedField.toField.{u_1} 𝕜
+                              (@DenselyNormedField.toNormedField.{u_1} 𝕜
+                                (@RCLike.toDenselyNormedField.{u_1} 𝕜 inst)))))))))
+                ⋯)
+@AKLT.Defs.GramResidualRows.{u_1} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    [DecidableEq.{u_1 + 1} ι] → Matrix.{u_1, u_1, 0} ι ι Int → Matrix.{u_1, u_1, 0} ι ι Int → Nat → Nat → Nat → Prop
+AKLT.Defs.H1SectorWitnesses : AKLT.Defs.PatternData →
+  AKLT.Defs.Representation →
+    Finset.{0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20)))) → Nat → Nat → Nat → Prop

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "closed_nodes": 79,
+  "proved_nodes": 5,
+  "open_nodes": 74,
+  "open_by_difficulty": {
+    "easy": 52,
+    "medium": 14,
+    "hard": 8
+  },
+  "assembly_theorems": 9,
+  "exported_theorems": 14,
+  "all_leaf_names_closed": true,
+  "no_other_win_leaf_hypotheses": true,
+  "pack_matches_open_manifest": true,
+  "prohibited_source_patterns": [],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "frozen_files_changed": [],
+  "trap_checks_all_nodes": true,
+  "proof_policy_recorded": true,
+  "retained_pre_rule_leaf_proofs": [
+    "AKLT.Blueprint.Win.cutCostNonnegative",
+    "AKLT.Blueprint.Win.logLipschitz",
+    "AKLT.Blueprint.Win.metricFacts",
+    "AKLT.Blueprint.Win.spanCutParity",
+    "AKLT.Blueprint.Win.windowCostArithmetic"
+  ],
+  "new_leaf_proofs_after_rule": 0,
+  "exact_closed_statements_in_open_manifest": true,
+  "next_leaf_proof_attempts_reserved_for_different_cheaper_model": true
+}

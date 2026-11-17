@@ -1,0 +1,1057 @@
+\section{Pair closure, a positive-vector witness, and renewal}
+\label{s:recursion}
+
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+The trace operations, the stopped trail class, and the coefficients
+\(a_E(w),R_E^\bullet(w)\) are those of
+Definition~\ref{d:trace}.  The ratios of
+Definition~\ref{d:ratios} telescope to
+\(R_E^\bullet(w)=\prod_j\rho_j^\bullet\), with
+\(\rho_j^\tau=\rho_j^0=1\) at every admissible
+\(\mathrm D\) departure.  Proposition~\ref{p:pairwalk} supplies
+the finite expansion, its target constants, and its separate-degree
+bound.  We use it only with its prescribed stopping set
+\(S\cup\{\text{target}\}\) and check its start and target
+hypotheses at both expansions below.
+
+The local comparison used here is Lemma~\ref{l:local}, including
+its uniformity in outside spins, original unit pins, missing
+external factors, and actual tip data allowed by the ordinary-domain
+rules.  The ordered product estimate is Lemma~\ref{l:exposure};
+the common pointwise majorant and its summed consequence are
+Lemma~\ref{l:onepoint}.  These are results of the preceding walk
+section.  In particular the last lemma bounds the sum of pointwise
+maxima for the two pin choices and permits its twelve exceptional
+departures at arbitrary trail positions.
+
+\begin{definition}\label{d:pairenv}
+For \(D\in\mathcal D_{\rm cons}(G)\), let \(P_B(D)\) and \(P_C(D)\)
+be the ordered nonremoved pairs \((u,v)\) at distance two,
+collinear or diagonal respectively, with a designated common neighbour
+\(c\) of status \(\mathrm X\). Each endpoint is \(\mathrm U\),
+or \(\mathrm D\) with at most one present bond.
+For integer \(d\ge0\), let \(F_X(d)\) be the supremum of
+\[
+ \left|\mathbb E_D^\tau(n_u\cdot n_v)
+                    -\mathbb E_D^0(n_u\cdot n_v)\right|
+\]
+over every finite \(G\), every original unit-pin assignment,
+every \(D\in\mathcal D_{\rm cons}(G)\), and every pair in \(P_X(D)\)
+with \(\min\{d(u,S(G)),d(v,S(G))\}\ge d\).
+Use supremum zero for an empty class, and set \(F_X(d)=F_X(0)\)
+for negative integers. Thus \(0\le F_X\le2\), and \(F_X\)
+is nonincreasing.
+\end{definition}
+
+Indeed, both expectations are expectations under positive finite
+probability laws by Lemma~\ref{l:finitefacts}, and
+\(|n_u\cdot n_v|\le1\).  Increasing \(d\) restricts the class over
+which the supremum is taken.  In particular the asserted bounds and
+monotonicity also hold when that class is empty.
+
+\begin{lemma}\label{l:closure}
+Let \(D\in\mathcal D_{\rm cons}(G)\), \((u,v)\in P_X(D)\) have
+centre \(c\), and \(u\notin S\). Before tracing, if \(u\) is
+\(\mathrm U\), drop its kept bond to the removed \(c\); this changes
+no partition function. Trace any trail from \(u\) without visiting
+\(S\) before its last site; it need not avoid \(v\).
+After every prefix ending at the live endpoint \(y\):
+all departed sites are \(\mathrm D\) or \(\mathrm X\);
+consistency between nonremoved sites holds; all nonlive
+\(\mathrm U\) sites have full kept sets and all nonlive \(\mathrm D\)
+sites have exactly two kept bonds.
+After a positive-length prefix a live \(\mathrm U\) site has lost
+only its arrival bond, and a live \(\mathrm D\) site keeps one bond;
+the arrival site's other endpoint is \(\mathrm D\) or \(\mathrm X\).
+At length zero a live \(\mathrm U\) site has its three non-\(c\)
+kept bonds, while a live \(\mathrm D\) site retains its two kept
+bonds but has at most one present bond.
+Whenever \(y\notin S\), removing \(y\) yields an ordinary member
+of \(\mathcal D_{\rm cons}(G)\). Every \(\mathrm U\) departure
+at \(y\) before stopping has a covered pattern. In the ordinary
+domain obtained by removing the live site \(y\) from the pre-step
+network, every ordered pair of distinct nonremoved non-arrival
+neighbors of \(y\) belongs to \(P_B\) or \(P_C\), with designated
+center \(y\).
+If the endpoint is \(e\in S\), it is \(\mathrm U\) with just its
+arrival bond lost. This is the sole kept-set defect in the terminal
+auxiliary network; all original legs remain. No removal of \(e\)
+or ordinary-domain membership after removing \(e\) is asserted.
+\end{lemma}
+
+\begin{proof}
+Write the trail as \((v_0,\ldots,v_m)\), with \(v_0=u\).
+All departures, arrivals, and removals in the following induction
+are the operations of Definition~\ref{d:trace}.
+Every neighbour of a site outside \(S\) is in \(G\), since such a
+site has distance at least three from \(\mathbb Z^2\setminus G\).
+Thus the three non-\(c\) kept bonds mentioned at length zero really
+exist as bonds inside \(G\).  A bond incident to a removed site is
+absent regardless of its kept flag at the other end.  Dropping the
+flag at \(u\) for \(\{u,c\}\) therefore changes no factor, pinned
+or free, and changes no normalized expectation.  The initial live
+site is now the only possible failure of the ordinary kept-set
+conditions.  Consistency is unchanged because \(c\) is removed.
+
+We prove the assertions by induction on the prefix length.  At a
+departure from a live \(\mathrm U\) site, the incoming bond is absent
+and its three other bonds are kept.  The outgoing bond is present and
+differs from the incoming bond.  Dropping the outgoing bond and
+changing the law to \(\lambda_{\mathrm D}\) leaves exactly two kept
+bonds at the departed site.  If the initial site is \(\mathrm D\),
+it has at most one present bond, which must be the chosen outgoing
+bond.  Its removal therefore leaves no other present bond incident
+to it.  At any later live \(\mathrm D\) site there is just one kept
+bond, and an actual departure uses that bond and removes the site.
+These are all possible departure cases.  In particular a departed
+site never becomes \(\mathrm U\) again.
+
+On arrival the new live site cannot be removed, since the traversed
+bond was present.  If it is \(\mathrm U\), it was not previously
+departed from; before this arrival its kept set was full.  Dropping
+the arrival bond leaves precisely the stated live kept set.  If it
+is \(\mathrm D\), its nonlive kept set had two elements and contained
+the present arrival bond; dropping that bond leaves one element.
+All traversed bonds are dropped by both ends.  Removing a
+\(\mathrm D\) departure site destroys only bonds to a removed site,
+and so cannot create a consistency failure between nonremoved sites.
+Every other kept flag is unchanged.  This proves the induction,
+including the assertion about the other end of the arrival bond.
+
+Before stopping, no protected site has been visited.  Removing the
+live endpoint when it is outside \(S\) removes the only exceptional
+kept set; all protected sites still have their original full kept
+sets.  The remaining \(\mathrm U\) kept sets are full, the remaining
+\(\mathrm D\) kept sets have size two, and consistency holds.
+Consequently the resulting network is an ordinary member of
+\(\mathcal D_{\rm cons}(G)\).  At a terminal hit \(e\in S\),
+the site \(e\) has not previously been visited.  It still has its
+original \(\mathrm U\) law and has dropped just the arrival bond.
+All other sites satisfy the ordinary kept-set conditions.  Tracing
+never changes an original leg factor, including those at \(e\).
+
+It remains to verify the local pattern and pair assertions.  At a
+\(\mathrm U\) departure \(y\), the designated arrival site is
+\(c\) at the initial departure, and is the preceding trail site
+otherwise.  It is removed, or is \(\mathrm D\) with its two kept
+bonds among the three bonds other than its bond to \(y\).
+Every nonremoved non-arrival neighbour of \(y\) keeps its bond to
+\(y\): the live \(\mathrm U\) site keeps that bond, so consistency
+forces the other end to keep it.  Such a neighbour of status
+\(\mathrm D\) has exactly one additional kept bond.  Every corner
+of status \(\mathrm D\) has two kept bonds, and every other
+\(\mathrm U\) site has its full kept set.  The outgoing neighbour
+is nonremoved because its bond is present.  These are exactly the
+non-tip rules of Definition~\ref{d:pattern}.  The diamond of radius
+two about \(y\) lies in \(G\).  Original legs incident to its
+corners or tips occupy external slots.  Actual missing external
+factors, both slots at each corner, and actual tip data are treated
+by the covering procedure of Lemma~\ref{l:local}; that procedure
+does not require consistency with an actual tip kept set.
+
+Finally let \(p\) be a pair of distinct nonremoved non-arrival
+neighbours of \(y\).  The two sites are at distance two and are
+collinear or diagonal.  Removing \(y\) supplies their designated
+removed centre.  Each endpoint of status \(\mathrm D\) previously
+had its bond to \(y\) present, so after removal it has at most one
+present bond.  The endpoints therefore meet
+Definition~\ref{d:pairenv} in the ordinary domain just obtained.
+None of this reasoning used avoidance of \(v\).
+\end{proof}
+
+
+\begin{lemma}\label{l:terminalcover}
+In the first expansion of a pair of Definition~\ref{d:pairenv},
+assume also that \(v\notin S\), and
+suppose the trail avoids its target \(v\) and stops at \(e\in S\).
+In the terminal auxiliary network, start a second expansion from \(v\)
+to \(S\), again dropping its kept bond to \(c\) if it is \(\mathrm U\).
+The starts of both expansions have their designated incoming bond
+absent and are admissible in Definition~\ref{d:trace}.
+Before the second trail hits \(S\), a \(\mathrm U\) departure
+outside \(\{y':0<d(y',e)\le2\}\) has a covered pattern.
+There are at most twelve exceptional \(\mathrm U\) departures
+on each second trail. Both expansions satisfy Lemma~\ref{l:onepoint}.
+\end{lemma}
+
+\begin{proof}
+The first expansion has an admissible start outside \(S\) by
+Proposition~\ref{p:pairwalk}.  Its incoming bond is \(\{c,u\}\),
+which is absent because \(c\) is removed.  At \(u\), a
+\(\mathrm U\) law has at most three present bonds; a
+\(\mathrm D\) law has at most one by the pair definition.
+
+By Lemma~\ref{l:closure}, the terminal network has precisely the
+fixed defect at \(e\) in addition to the ordinary data elsewhere.
+The first trail never visits \(v\), so its status and kept set
+have not changed.  Its number of present bonds can only have
+decreased.  Since \(v\notin S\), it is an admissible second start:
+it is \(\mathrm U\) with at most three present bonds, or
+\(\mathrm D\) with at most one.  Its designated incoming bond is
+\(\{c,v\}\), again absent.  Dropping that kept flag at a
+\(\mathrm U\) start leaves every partition function unchanged.
+Thus neither expansion can initially reverse across its designated
+incoming bond.
+
+For completeness the second pair expansion, with target \(e\),
+also meets the target degree hypothesis in
+Proposition~\ref{p:pairwalk}.  Before its first arrival, the
+protected site \(e\) had at most four factors in total, including
+original legs.  The first arrival dropped one present bond, leaving
+at most three factors.  Its law remains \(\lambda_{\mathrm U}\).
+The second start is distinct from \(e\) because \(v\notin S\).
+
+Repeat the kept-set induction of Lemma~\ref{l:closure} during the
+second trace, retaining \(e\) as a fixed defective site.  Before a
+hit of \(S\), no second departure is at \(e\), and no other
+protected site changes its kept set.  Outside \(e\) and the live
+endpoint, the full \(\mathrm U\) and two-element \(\mathrm D\)
+kept-set rules continue to hold.  Consistency holds for bonds not
+incident to \(e\).  This follows in each departure and arrival
+case from the same two flag changes as in the preceding induction;
+no operation changes a leg factor.
+
+If \(d(y',e)>2\), the defective site is outside the template
+about a \(\mathrm U\) departure \(y'\).  Its non-tip data
+therefore satisfy every rule in Definition~\ref{d:pattern}.
+Any absent external factor is allowed by Lemma~\ref{l:local},
+including a factor whose absence is caused by the defect outside
+the template.  The actual tips are also distinct from \(e\),
+so their statuses and kept sets satisfy that lemma's ordinary-domain
+tip rules.  Every outside spin has norm at most one; the original
+leg factors are retained.  No ordinary-domain assumption is imposed
+on the whole terminal auxiliary network.  Since no departure is
+at \(e\), every possible
+exception lies in
+\(\{y':0<d(y',e)\le2\}\).  There are four sites at distance
+one and eight at distance two in the square lattice.  A site can
+be departed from with status \(\mathrm U\) at most once, since
+that departure changes its status to \(\mathrm D\).  Hence there
+are at most twelve exceptions, at arbitrary positions along the
+second trail.
+
+The first trace has no exceptions by Lemma~\ref{l:closure},
+even if its stopping rule is enlarged to all first hits of \(S\).
+Both traces thus have the absent incoming bond, admissible start,
+and exception bound required by Lemma~\ref{l:onepoint}.  Whenever
+(H1) and (H2) are assumed, its estimate applies to each trace.
+\end{proof}
+
+\begin{remark}
+The additional hypothesis \(v\notin S\) in
+Lemma~\ref{l:terminalcover} is necessary.  For example, take
+\(G=\{-3,\ldots,3\}^2\), so
+\(S=\{x\in G:\|x\|_\infty\ge2\}\).  Give \(c=(1,0)\)
+status \(\mathrm X\) and every other site status \(\mathrm U\)
+with its full kept set.  The pair \(u=(0,0),v=(2,0)\) belongs to
+\(P_B\), and the first trail
+\(((0,0),(0,1),(0,2))\) avoids \(v\) and stops in \(S\).
+Nevertheless \(v\in S\), so it cannot be the start of a second
+trace of Definition~\ref{d:trace}.  In the recursion below both
+endpoints have distance at least one from \(S\), as required.
+\end{remark}
+
+\begin{lemma}\label{l:log-mean-bounds}
+Let \(\mathcal L(x,y)=(x-y)/(\log x-\log y)\) for \(x\ne y\)
+and \(\mathcal L(x,x)=x\), for positive \(x,y\).
+Put \(f(s)=1/\mathcal L(s,1)\), so \(f(1)=1\).
+For \(3/5\le c\le1\), the function
+\[
+ G_c(x,y)=\frac1{3\mathcal L(cx,y)}-\frac1{5\mathcal L(x,y)}
+\]
+is nonincreasing in each positive variable. In particular,
+for \(x\ge a=116/125\), \(y\ge1\),
+\[
+ G_c(x,y)\le f(ac)/3-f(a)/5.
+\]
+For rational \(0<s<1\), put \(t=(1-s)/(1+s)\) and
+\[
+ f_-(s)=\frac2{1-s}\sum_{k=0}^{7}\frac{t^{2k+1}}{2k+1},
+ \qquad
+ f_+(s)=f_-(s)+\frac{2t^{17}}{17(1-t^2)(1-s)}.
+\]
+Then \(f_-(s)\le f(s)\le f_+(s)\).
+For the two rows of the following table, all numbers are exact rationals:
+\[
+ \begin{array}{c|c|ccc}
+ \tau&c_\tau&a_\tau&b_\tau&b'_\tau\\ \hline
+ {\rm s}&961/1000&145217/10^6&352782/10^6&340008/10^6\\
+ {\rm t}&187/200&150000/10^6&357549/10^6&344661/10^6
+ \end{array}
+\]
+They satisfy
+\[
+ \frac{f_+(ac_\tau)}3-\frac{f_-(a)}5\le a_\tau,\qquad
+ \frac{f_+(ac_\tau)}3\le b_\tau,\qquad
+ \frac{f_+(c_\tau)}3\le b'_\tau,\qquad
+ 0<b'_\tau\le b_\tau .
+\]
+\end{lemma}
+
+\begin{proof}
+For positive \(r,s\), direct integration, also when \(r=s\), gives
+\begin{equation}\label{e:rec-log-integral}
+ \frac1{\mathcal L(r,s)}
+       =\int_0^1\frac{\mathrm dt}{(1-t)r+ts}.
+\end{equation}
+In particular the reciprocal logarithmic mean is decreasing in each
+argument, and \(\mathcal L\) is increasing in each argument.
+For fixed \(t\), put \(A=(1-t)x\) and \(B=ty\).
+The integrand for \(G_c\) is
+\(1/(3(cA+B))-1/(5(A+B))\).  Its derivatives with respect to
+\(x\) and \(y\) are respectively
+\[
+ (1-t)\left(\frac1{5(A+B)^2}
+                   -\frac{c}{3(cA+B)^2}\right),\qquad
+ t\left(\frac1{5(A+B)^2}
+                   -\frac1{3(cA+B)^2}\right).
+\]
+Both are nonpositive.  Indeed \(cA+B\le A+B\), \(5c\ge3\),
+and hence
+\[
+ 5c(A+B)^2\ge3(cA+B)^2,\qquad
+ 5(A+B)^2\ge3(cA+B)^2.
+\]
+On every compact positive rectangle the denominators are bounded
+away from zero, justifying differentiation under the integral in
+\eqref{e:rec-log-integral}.  This proves both monotonicities and
+the value at the lower endpoints \((a,1)\).
+
+For the logarithm enclosure, \(0<t<1\) and
+\(-\log s=\log((1+t)/(1-t))\).  Integrating the identity
+\[
+ \frac1{1-z^2}=\sum_{k=0}^7z^{2k}+\frac{z^{16}}{1-z^2}
+       \qquad(0\le z\le t)
+\]
+from zero to \(t\) shows that
+\[
+ 0\le-\log s-2\sum_{k=0}^7\frac{t^{2k+1}}{2k+1}
+   =2\int_0^t\frac{z^{16}}{1-z^2}\,\mathrm dz
+   \le\frac{2t^{17}}{17(1-t^2)}.
+\]
+Division by \(1-s>0\) proves the asserted enclosure, with no
+approximate logarithms.
+
+Here are explicit rational checks for all the numerical endpoints.
+Let \(K=10^9\).  The integers in the last two columns satisfy
+\(\ell_s/K\le f_-(s)\le f_+(s)\le u_s/K\):
+\begin{equation}\label{e:rec-log-table}
+\begin{array}{c|c|r|r}
+ s&t&\ell_s&u_s\\ \hline
+ 116/125&9/241&1037827030&1037827031\\
+ 27869/31250&3381/59119&1058344574&1058344575\\
+ 5423/6250&827/11673&1072644315&1072644316\\
+ 961/1000&39/1961&1020022307&1020022308\\
+ 187/200&13/387&1033980764&1033980765
+\end{array}
+\end{equation}
+For clarity, the table is checked solely by the following integer
+formula.  If \(s=u/v\), \(t=p/q\) are the fractions in a row, put
+\[
+ \begin{gathered}
+ D_*=45045=\operatorname{lcm}(1,3,5,7,9,11,13,15),\\
+ P(p,q)=\sum_{k=0}^7\frac{D_*}{2k+1}p^{2k+1}q^{14-2k},
+ \qquad Q=(v-u)D_*q^{15}.
+ \end{gathered}
+\]
+All these denominators are positive integers, and substitution gives
+\[
+ f_-(s)=\frac{2vP(p,q)}{Q},\qquad
+ f_+(s)=\frac{2v\{17(q^2-p^2)P(p,q)+D_*p^{17}\}}
+                    {17(q^2-p^2)Q}.
+\]
+Thus the two checks in each row are the explicit integer inequalities
+\[
+ \ell_sQ\le2vKP(p,q),\qquad
+ 2vK\{17(q^2-p^2)P(p,q)+D_*p^{17}\}
+                \le17u_s(q^2-p^2)Q.
+\]
+Inserting the five displayed pairs \((u/v,p/q)\) verifies each
+inequality by sums and products of nonnegative integers.
+To check the requested coefficient bounds, write
+\(A_\tau=10^6a_\tau\), \(B_\tau=10^6b_\tau\), and
+\(B'_\tau=10^6b'_\tau\).  After using
+\eqref{e:rec-log-table}, their positive residual numerators are
+\[
+\begin{array}{c|r|r|r}
+ \tau&15000A_\tau-5u_{ac_\tau}+3\ell_a
+       &3000B_\tau-u_{ac_\tau}&3000B'_\tau-u_{c_\tau}\\ \hline
+ {\rm s}&13215&1425&1692\\
+ {\rm t}&259510&2684&2235
+\end{array}
+\]
+The respective positive denominators are \(15K,3K,3K\).
+The two values of \(b'_\tau\) are positive and at most the
+corresponding \(b_\tau\) by direct comparison of their integer
+numerators.  This proves every table inequality.
+\end{proof}
+
+\begin{lemma}\label{l:response-typed}
+Fix \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\) and assume (H1).
+At a covered \(\mathrm U\) departure of type \(\tau\in\{{\rm s},{\rm t}\}\),
+the response coefficients in Lemma~\ref{l:response} satisfy
+\[
+ 0<\alpha_j\le a_\tau,\qquad 0<\beta_j\le b_\tau
+       \quad\hbox{with three present neighbours},\qquad
+ 0<\beta'_j\le b'_\tau\quad\hbox{with two}.
+\]
+Here the exact constants are those of Lemma~\ref{l:log-mean-bounds};
+in particular \(a_{\rm t}=150000/10^6\).
+With \(a=116/125\), their analytic bounds are
+\[
+ \beta_j\le f(ac_\tau)/3,\qquad
+ \beta'_j\le f(c_\tau)/3,\qquad
+ \alpha_j\le f(ac_\tau)/3-f(a)/5.
+\]
+These follow using \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\ge1\), and \(J^\tau\ge a\).
+Also \(a_\tau\le18094/100000\) and
+\(b_\tau,b'_\tau\le36751/100000\).
+\end{lemma}
+
+\begin{proof}
+Use \(E'\), \(I,J\) from Definition~\ref{d:ratios}, and abbreviate
+\(I^\bullet=\mathbb E_{E'}^\bullet I\),
+\(J^\bullet=\mathbb E_{E'}^\bullet J\).  A covered departure is
+outside \(S\), as in Lemma~\ref{l:local}.  That lemma and (H1)
+give \(I^\tau/J^\tau\ge c_\tau\); its stated uniformity covers
+the actual tips and all missing external factors, including both
+corner slots.  We derive the coefficient identities directly from
+Definition~\ref{d:ratios}.  For positive \(A,B\), including
+\(A=B\),
+\(\log A-\log B=(A-B)/\mathcal L(A,B)\).  Since
+\(\rho_j^\bullet=J^\bullet/I^\bullet\), with three present
+neighbours this gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{\mathcal L(I^\tau,I^0)}
+       -\frac{J^\tau-J^0}{\mathcal L(J^\tau,J^0)}\\
+ &=\left(\frac1{3\mathcal L(I^\tau,I^0)}
+            -\frac1{5\mathcal L(J^\tau,J^0)}\right)r_{fg}
+       +\frac{r_{fo}+r_{go}}{3\mathcal L(I^\tau,I^0)}.
+ \end{split}
+\]
+Thus the response of Lemma~\ref{l:response} has the canonical
+coefficients
+\begin{equation}\label{e:rec-typed-coefficients}
+ \beta_j=\frac1{3\mathcal L(I^\tau,I^0)},\qquad
+ \alpha_j=\frac1{3\mathcal L(I^\tau,I^0)}
+                     -\frac1{5\mathcal L(J^\tau,J^0)}.
+\end{equation}
+This fixes the coefficient choice used below, also when responses
+vanish or logarithmic-mean arguments coincide.
+
+With three present neighbours, free positivity gives
+\[
+ J^0\ge1,\qquad
+ I^0-J^0=\tfrac2{15}\mathbb E^0_{E'}P_{fg}
+             +\tfrac13\mathbb E^0_{E'}(P_{fo}+P_{go})\ge0.
+\]
+These uses of Lemma~\ref{l:finitefacts} satisfy its degree
+condition: after \(y\) is removed, each neighbour has at most
+three incident factors and no original leg, so insertion of one
+scalar product has separate degree at most four.  The sites
+\(f,g,o\) are pairwise nonadjacent.  On every positive
+conditioning fibre of the other spins, their spins are independent
+and their conditional means have norm at most \(3/5\) by
+Lemmas~\ref{l:finitefacts} and~\ref{l:35}.  Hence
+\(\mathbb E^\tau_{E'}P_{fg}\ge-9/25\), and
+\[
+ J^\tau=1+\tfrac15\mathbb E^\tau_{E'}P_{fg}
+          \ge1-\tfrac9{125}=a.
+\]
+The same conditioning under either pin choice yields
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Indeed, for the three conditional means \(m_f,m_g,m_o\),
+\[
+ -\frac{27}{50}\le
+ \sum_{\{b,b'\}\subset\{f,g,o\}}m_b\cdot m_{b'}
+ =\frac{|m_f+m_g+m_o|^2-|m_f|^2-|m_g|^2-|m_o|^2}{2}
+ \le\frac{27}{25}.
+\]
+Together with \(|m_f\cdot m_g|\le9/25\), averaging proves
+both intervals.  Formula~\eqref{e:rec-log-integral} places
+\(\mathcal L\) between its positive arguments, so the very same
+canonical coefficients satisfy
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+              =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+All four arguments of the logarithmic means are strictly positive.
+By their monotonicity and \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\), formula~\eqref{e:rec-typed-coefficients} yields
+\[
+ \beta_j\le\frac1{3\mathcal L(c_\tau a,1)},\qquad
+ \alpha_j\le G_{c_\tau}(J^\tau,J^0)
+        \le\frac{f(ac_\tau)}3-\frac{f(a)}5.
+\]
+The last step uses \(3/5\le c_\tau\le1\) and
+Lemma~\ref{l:log-mean-bounds}.
+
+With two present neighbours, \(J=1\) and
+\(I=1+P_{fo}/3\).  Free positivity gives \(I^0\ge1\),
+whereas local (H1) gives \(I^\tau\ge c_\tau\).
+The same divided-difference calculation now gives the response
+\(\beta'_jr_{fo}\), where
+\(\beta'_j=1/(3\mathcal L(I^\tau,I^0))>0\), so
+\(\beta'_j\le f(c_\tau)/3\).  With just one present neighbour
+both ratios are one by Definition~\ref{d:ratios}, and there is
+no response coefficient.  At a \(\mathrm D\) departure that
+definition likewise makes both ratios one, so its response is zero.
+The rational enclosures of Lemma~\ref{l:log-mean-bounds} prove
+the stated bounds.  Finally the largest \(a_\tau\) is
+\(150000/10^6<18094/100000\), and each \(b_\tau,b'_\tau\)
+is at most \(357549/10^6<36751/100000\).
+\end{proof}
+
+\begin{definition}\label{d:kernel}
+For \(X=B,C\), fix \(c=0\), \(u=(-1,0)\), and \(v=(1,0)\)
+for \(B\), \(v=(0,1)\) for \(C\).
+Let \(\mathcal T_n^X\) be the length-\(n\) plane trails avoiding \(c\),
+from \(u\) to their first hit of \(v\), with incoming direction \(u-c\).
+A departure is a lattice revisit when its site was departed from earlier.
+At a lattice first visit \(i\), put \(x_i=x_{\tau_i}\) according to
+its straight/turn type. Of the three neighbours other than the arrival
+site, write \(o\) for the outgoing neighbour and \(f,g\) for the others.
+A neighbour is dead if it is \(c\) or was departed from twice before \(i\).
+The outgoing neighbour of a true trail is not dead.
+If \(f,g\) are both live, assign coefficient \(a_{\tau_i}\) to
+\(\{f,g\}\), and \(b_{\tau_i}\) to each of \(\{f,o\},\{g,o\}\).
+If exactly one of \(f,g\) is live, assign \(b'_{\tau_i}\) to its
+pair with \(o\); if neither is live there is no response pair.
+The constants are those of Lemma~\ref{l:log-mean-bounds}.
+A live pair \(p\) has type \(Y=B,C\) and shift
+\[
+ s(p)=\max_{z\in p}\min\{d(z,u),d(z,v)\}.
+\]
+Let \(\kappa_{Y,s}(i)\) sum its assigned coefficients.
+For any fixed, \(\theta\)-independent orderings \(\sigma_w\) of lattice
+first visits, define
+\[
+ \begin{split}
+ M_{XY,s}
+ &=\sum_{n\ge1}\sum_{w\in\mathcal T_n^X}
+     3^{-n}(3/5)^{\operatorname{rev}(w)}
+     \sum_k\kappa_{Y,s}(\sigma_w(k))
+                   \prod_{l\le k}x_{\sigma_w(l)},\\
+ M_\theta[X,Y]&=\sum_{s\ge0}M_{XY,s}\theta^{-s}.
+ \end{split}
+\]
+These are nonnegative series. The identity
+\(3^{-n}(3/5)^r=3^{-(n-r)}5^{-r}\) retains the mass-free
+trace coefficients. This \(M\) is the type-dependent response kernel.
+\end{definition}
+
+Until finiteness is proved, each series is understood in
+\([0,+\infty]\) as the supremum of its finite subsums.
+Regrouping these nonnegative sums therefore requires no prior
+real-valued summability assertion.
+
+To justify the assertion about the outgoing neighbour, a site other
+than \(u\) that has already been departed from twice has used three
+distinct incident bonds: two outgoing bonds and an intervening
+arrival bond.  Entering it again uses its fourth bond, leaving no
+possible subsequent departure.  It cannot be the final target,
+since the target has no earlier departure.  The start \(u\) has
+only three available bonds because \(c\) is excluded; after two
+departures all three have been used.  Neither case permits an
+outgoing step to a dead site on a trail in \(\mathcal T_n^X\).
+The incoming direction also forbids the initial reversal, since that
+step would enter \(c\).
+
+\begin{definition}\label{d:kernel-order}
+Fix
+\[
+ h=(1,h_C),\quad h_C=\frac{5404319552844595}{4503599627370496},
+ \qquad \rho_0=\frac{993015}{10^6},\qquad L=12 .
+\]
+For a first visit set \(\kappa_h(i)=\sum_{Y,s}\kappa_{Y,s}(i)h_Y\).
+For each \(X\in\{B,C\}\) and \(w\in\mathcal T_n^X\), define
+\(\sigma_w\) as follows. If \(n\le L\), order its lattice
+first-departure indices by increasing
+\((x_i-1)/(x_i\kappa_h(i))\), assigning value \(+\infty\) when
+\(\kappa_h(i)=0\), and break ties by increasing path index.
+If \(n>L\), list straight first departures in path order and
+then turning first departures in path order.
+Hereafter \(M_{XY,s}\) and \(M_\theta\) use exactly these orderings.
+They do not depend on \(\theta\).
+\end{definition}
+
+Both \(x_{\rm s}\) and \(x_{\rm t}\) exceed one, and \(h_C>1\).
+Thus every finite ordering key has a positive denominator.  The
+infinite-key rule and the index tie-break give a unique ordering on
+each finite trail.  All data in these comparisons are rational.
+
+\begin{definition}[(H3\(_h\))]\label{h:H3}
+For the type-dependent kernel and fixed orderings of
+Definitions~\ref{d:kernel}--\ref{d:kernel-order}, (H3\(_h\)) is the
+following mathematical assertion, with the specified \(h,\rho_0\):
+for \(X=B,C\) and every integer \(R_0\ge0\),
+\[
+ \sum_{n=1}^{R_0}\sum_{w\in\mathcal T_n^X}
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}
+ \sum_k\kappa_h(\sigma_w(k))\prod_{l\le k}x_{\sigma_w(l)}
+       \le\rho_0h_X .
+\]
+Equivalently, the full nonnegative sums satisfy \(M_1h\le\rho_0h\).
+The assertion is proved using the stationary lattice Bellman
+certificates, with no periodic spatial walk or remainder.
+\end{definition}
+
+The equivalence follows directly by taking increasing finite
+length cutoffs.  For each length there are finitely many trails,
+and each trail has finitely many first visits and response pairs.
+Rearrangement by \((Y,s)\) preserves a nonnegative sum.  Consequently
+the supremum of the displayed finite sums is exactly
+\(\sum_{Y,s}M_{XY,s}h_Y\).  A bound for the full sum bounds each
+cutoff, and bounds for every cutoff bound their supremum.
+
+\begin{lemma}\label{l:Mtheta}
+Assume (H2) and (H3\(_h\)) for the type-dependent kernel.
+For every \(q^2<\theta\le1\), all entries of \(M_\theta\) are
+finite. There exist \(q^2<\theta<1\) and \(\rho_0<\rho<1\)
+such that the same vector \(h\) satisfies \(M_\theta h\le\rho h\).
+Every shift of a length-\(n\) trail is at most \(n/2+1\), and
+each matrix entry is bounded by
+\[
+ \sum_{n\ge1} n(\bar\alpha+2\bar\beta)
+                      C_V q^n\theta^{-n/2-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let \(w=(v_0,\ldots,v_n)\in\mathcal T_n^X\).  At departure
+index \(i\),
+\[
+ d(v_i,u)\le i,\qquad d(v_i,v)\le n-i.
+\]
+The minimum of these two distances is at most \(n/2\).  Each
+site in a response pair is a neighbour of \(v_i\); the triangle
+inequality therefore gives \(s(p)\le n/2+1\).
+Put \(C=\bar\alpha+2\bar\beta>0\).  At each first visit, the
+sum of all its response coefficients is at most \(C\), since
+the rational coefficient table has \(a_\tau\le\bar\alpha\) and
+\(b_\tau,b'_\tau\le\bar\beta\).  There are at most \(n\) first
+visits.  Since every \(x_i\ge1\), an initial product in any
+ordering is at most the product over all first visits.  Hence
+the length-\(n\) contribution to a fixed entry of \(M_\theta\)
+is at most
+\[
+ nC\theta^{-n/2-1}
+       \sum_{w\in\mathcal T_n^X}\mathsf W(w)
+       \le nCC_Vq^n\theta^{-n/2-1}.
+\]
+The weights of Definition~\ref{d:weights} agree because
+\(3^{-n}(3/5)^{\operatorname{rev}(w)}\prod_i x_i
+ =\mathsf W(w)\).  These trails form a subset of the open trails
+with the same initial data in (H2).  Since
+\(q/\sqrt\theta<1\), the displayed series converges; explicitly
+it equals
+\(CC_V\theta^{-1}(q/\sqrt\theta)/(1-q/\sqrt\theta)^2\).
+This part uses only (H2).
+
+We now give an explicit choice transporting the witness.  Set
+\[
+ H=\frac{\max h}{\min h},\quad
+ b=\frac{1+q}{2},\quad r=\frac qb,\quad
+ B_*=2HCC_Vb^{-2}\frac{r}{(1-r)^3},
+\]
+and define
+\begin{equation}\label{e:rec-shift-choice}
+ \varepsilon=\min\left\{\frac{1-b}{2},
+                         \frac{1-\rho_0}{2B_*}\right\},
+ \qquad \theta=1-\varepsilon,\qquad
+ \rho=\frac{1+\rho_0}{2}.
+\end{equation}
+Here \(0<q<b<1\), \(0<r<1\), \(B_*>0\), and
+\(0<\varepsilon\le(1-b)/2\).  Thus
+\(q^2<q<b<\theta<1\), and \(\rho_0<\rho<1\).
+For every integer shift \(0\le s\le n/2+1\le n+1\),
+the mean value theorem on \([\theta,1]\) gives
+\[
+ 0\le\theta^{-s}-1
+     \le(1-\theta)s b^{-s-1}
+     \le(1-\theta)(n+1)b^{-n-2}.
+\]
+This includes \(s=0\), whose left side is zero.
+For a fixed row \(X\), multiply each coefficient by
+\(h_Y/h_X\le H\), use the same length bound, and sum.  All
+summands are nonnegative and finite by the preceding estimate, so
+\[
+ \frac{((M_\theta-M_1)h)_X}{h_X}
+ \le (1-\theta)HCC_Vb^{-2}
+                  \sum_{n\ge1}n(n+1)r^n
+ = (1-\theta)B_*\le\frac{1-\rho_0}{2}.
+\]
+The series identity follows by differentiating the geometric series
+twice, or by multiplying its partial sums by \((1-r)^3\) and
+taking the limit.  Adding \((M_1h)_X/h_X\le\rho_0\) proves
+\(M_\theta h\le\rho h\) for the same \(h\) and orderings.
+\end{proof}
+
+\begin{lemma}\label{l:recineq}
+Fix the two H1 thresholds above. Assume (H1) and (H2), use
+the bounds of Lemma~\ref{l:response-typed}, and use the
+type-dependent kernel with the fixed orderings of
+Definition~\ref{d:kernel-order}.
+For \(X=B,C\) and every integer \(d\ge1\),
+\[
+ F_X(d)\le\sum_{Y=B,C}\sum_{s\ge0}M_{XY,s}F_Y(d-s)+C_Tq^{2d},
+ \qquad
+ C_T=2(12/5)^{24}\left(\frac{C_V}{1-q}\right)^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Fix a finite \(G\), unit pins \(\tau\), an ordinary consistent
+domain \(D\), and \((u,v)\in P_X(D)\) with designated centre
+\(c\), such that
+\[
+ d_0=\min\{d(u,S),d(v,S)\}\ge d\ge1.
+\]
+In particular \(u,v\notin S\).  Normalize the kept flag from
+\(u\) to \(c\) when \(u\) is \(\mathrm U\), as in
+Lemma~\ref{l:closure}.  We continue to denote this normalized
+starting network by \(D\); all its partition functions and
+expectations agree with those of the original ordinary domain.
+Both endpoints meet the restrictions of Proposition~\ref{p:pairwalk}:
+a \(\mathrm U\) endpoint has no original leg and at most three
+present bonds because \(c\) is removed, and a \(\mathrm D\)
+endpoint has at most one present bond by the pair definition.
+
+Fix once and for all a plane lattice symmetry \(\varphi\) sending
+the designated triple \((c,u,v)\) to the canonical triple for
+type \(X\) in Definition~\ref{d:kernel}.  Explicitly, for \(B\)
+choose a signed coordinate permutation \(Q\) with
+\(Q(u-c)=(-1,0)\); then \(v-c=-(u-c)\) implies
+\(Q(v-c)=(1,0)\).  For \(C\), the vectors \(u-c,v-c\) are
+perpendicular lattice unit vectors, so choose the signed coordinate
+permutation with \(Q(u-c)=(-1,0)\) and \(Q(v-c)=(0,1)\).
+In both cases set \(\varphi(z)=Q(z-c)\).  This choice depends
+only on the original ordered pair and its designated centre,
+and is used for every trail in both sums below.  In particular
+\(w\mapsto\varphi(w)\) is injective.
+
+Use that proposition for both choices \(\bullet=\tau,0\), with
+stopping set \(S\cup\{v\}\).  The set of trails and their
+coefficients \(a_D(w)\) depend only on the status and bond data,
+and hence are common to the two expansions.  Split them into
+\(\mathcal W_v\), ending at \(v\), and \(\mathcal W_S\),
+ending at a point of \(S\) while avoiding \(v\).  The terminal
+factor for \(w\in\mathcal W_v\) is a common
+\(\eta_v\in\{1,3/5\}\), specifically \(1\) for a
+\(\mathrm U\) target and \(3/5\) for a \(\mathrm D\) target,
+by Proposition~\ref{p:pairwalk}.  For \(w\in\mathcal W_S\) ending
+at \(e\), put
+\(X^\bullet(w)=\mathbb E_{D[w]}^\bullet(n_e\cdot n_v)\).
+The response equals \(T_1+T_2\), where
+\begin{align*}
+ T_1&=\sum_{w\in\mathcal W_v}a_D(w)
+                 (R_D^\tau(w)-R_D^0(w))\eta_v,\\
+ T_2&=\sum_{w\in\mathcal W_S}a_D(w)
+              \{R_D^\tau(w)X^\tau(w)-R_D^0(w)X^0(w)\}.
+\end{align*}
+These sums are finite: every trail uses distinct bonds from a
+fixed finite network.
+
+For \(T_1\), fix a trail \(w=(v_0,\ldots,v_n)\in\mathcal W_v\).
+Let \(\Phi_U(w)\) be its departure indices whose current status
+is \(\mathrm U\).  At each such index Lemmas~\ref{l:closure}
+and~\ref{l:local} give a covered pattern and
+\(\rho_i^\tau\le x_{\tau_i}\).  Its lattice type is computed
+using the same incoming direction as the trace, including
+\(u-c\) at the initial departure.  Order \(\Phi_U(w)\) by
+restricting \(\sigma_w\), after identifying the pair with the
+canonical pair by the fixed symmetry \(\varphi\); thus here
+\(\sigma_w\) means the ordering of \(\varphi(w)\).
+The trail is admissibly started with absent incoming bond
+\(\{c,u\}\), and \(x_{\tau_i}\ge1\).  These are precisely the
+start and product-bound hypotheses of Lemma~\ref{l:exposure}.
+Lemma~\ref{l:exposure}, followed by Lemma~\ref{l:response-typed},
+then gives
+\begin{equation}\label{e:rec-exposed}
+ a_D(w)|R_D^\tau(w)-R_D^0(w)|
+ \le a_D(w)\sum_{i\in\Phi_U(w)}
+       \left(\sum_{p\in\mathcal Q_i}\gamma_{i,p}|r_{i,p}|\right)
+       \prod_{\substack{j\in\Phi_U(w)\\j\preceq_{\sigma_w}i}}
+                           x_{\tau_j}.
+\end{equation}
+Here \(\mathcal Q_i\) is the set of nonremoved pairs among
+the non-arrival neighbours of the departure site \(y=v_i\),
+and \(r_{i,p}\) is its pinned-minus-free scalar-product
+expectation in the network with \(y\) removed.  With three
+present neighbours, \(\gamma_{i,\{f,g\}}\le a_{\tau_i}\) and
+\(\gamma_{i,\{f,o\}},\gamma_{i,\{g,o\}}\le b_{\tau_i}\).
+With two present neighbours there is one pair and its coefficient
+is at most \(b'_{\tau_i}\).  With one present neighbour the
+inner sum is zero.  Departures with status \(\mathrm D\) have
+ratio one by Definition~\ref{d:ratios} and zero logarithmic
+response, so contribute no term.
+
+By Lemma~\ref{l:closure}, removing \(y\) gives an ordinary
+domain \(E'_i\), and each \(p\in\mathcal Q_i\) belongs to
+\(P_Y(E'_i)\) for its type \(Y\).  For each \(z\in p\)
+choose the nearer endpoint of the original pair.  The triangle
+inequality gives
+\[
+ d(z,S)\ge d_0-\min\{d(z,u),d(z,v)\},\qquad
+ \min_{z\in p}d(z,S)\ge d_0-s(p)\ge d-s(p).
+\]
+If \(d-s(p)<0\), use the constant extension of \(F_Y\).
+In all cases the definition of the ordinary-domain supremum yields
+\begin{equation}\label{e:rec-pair-envelope}
+ |r_{i,p}|\le F_Y(d-s(p)).
+\end{equation}
+
+We verify every part of the comparison with the lattice kernel.
+The removed site \(c\) cannot be visited, and \(w\) first hits
+\(v\) at its endpoint, so the lattice symmetry maps it into
+\(\mathcal T_n^X\).  A true \(\mathrm U\) departure is a
+lattice first visit, since a previous departure would already have
+changed its law to \(\mathrm D\) or removed it.  Every lattice
+revisit is a \(\mathrm D\) departure.  Some additional lattice
+first visits may also be \(\mathrm D\) departures because the
+site was already \(\mathrm D\) in the initial domain.  Thus
+\[
+ N_{\mathrm D}(w)\ge\operatorname{rev}(w),\qquad
+ a_D(w)=3^{-n}(3/5)^{N_{\mathrm D}(w)}
+             \le3^{-n}(3/5)^{\operatorname{rev}(w)}.
+\]
+The coefficient identity here is Definition~\ref{d:trace} with
+\(N_{\mathrm U}(w)+N_{\mathrm D}(w)=n\); no partition-ratio
+factor has been included in \(a_D(w)\).
+Passing from the restricted ordering in \eqref{e:rec-exposed}
+to the full ordering only inserts factors \(x_{\tau_j}\ge1\)
+before a retained index.  It can also insert additional nonnegative
+response terms.
+
+A kernel-dead site is removed in the actual trace: this holds for
+\(c\), and two departures change any initially nonremoved site
+to \(\mathrm X\) at latest.  Consequently every actual response
+pair is kernel-live.  At an actual \(\mathrm U\) departure, all
+nonremoved non-arrival neighbours have present bonds by the
+consistency assertion of Lemma~\ref{l:closure}.  The following
+cases exhaust the coefficient comparison.  If both non-outgoing
+neighbours are present, they are both kernel-live, and the kernel
+assigns exactly the majorants \(a_{\tau_i},b_{\tau_i},b_{\tau_i}\).
+If just one is present, its pair with \(o\) has coefficient
+at most \(b'_{\tau_i}\).  The kernel assigns that same majorant
+when it knows the other neighbour is dead, and assigns
+\(b_{\tau_i}\ge b'_{\tau_i}\) if it still regards the other
+neighbour as live.  If neither is present there is no response
+term.  The outgoing neighbour is always present.  This also
+explains why an additional removal cannot increase the required
+kernel coefficient.
+
+Using these comparisons in \eqref{e:rec-exposed} and
+\eqref{e:rec-pair-envelope}, summing over \(\mathcal W_v\),
+enlarging to all kernel trails, and using \(\eta_v\le1\), gives
+\begin{equation}\label{e:rec-T1}
+ |T_1|\le\sum_{Y=B,C}\sum_{s\ge0}M_{XY,s}F_Y(d-s).
+\end{equation}
+Spatial lattice symmetries preserve all distances, straight/turn
+types, and collinear/diagonal pair types; relabeling sites and pins
+preserves the finite product functionals.  Thus the canonical
+kernel applies uniformly to the original pair.  Its unshifted
+row sums are finite by the (H2)-only summability estimate in the
+proof of Lemma~\ref{l:Mtheta}; (H3\(_h\)) is not needed here.
+
+For \(T_2\), Lemma~\ref{l:terminalcover} makes the second
+expansion in \(D[w]\), from \(v\) with target \(e\) and
+stopping set \(S=S\cup\{e\}\), admissible.  Thus its stopping
+set is exactly the one prescribed by Proposition~\ref{p:pairwalk},
+and the start is distinct from its nonremoved target.
+That proposition
+and \(|n_z\cdot n_e|\le1\) give, for either choice of pins,
+\[
+ |X^\bullet(w)|
+ \le\sum_{w'\in\mathcal T_{D[w]}(v,S)}
+                a_{D[w]}(w')R_{D[w]}^\bullet(w')
+ \le K_*q^{d(v,S)},\qquad
+ K_*=(12/5)^{12}\frac{C_V}{1-q}.
+\]
+The last inequality is the common majorant of
+Lemma~\ref{l:onepoint}, so is uniform in the first trail \(w\).
+Its hypotheses hold: (H1) and (H2) are assumed, the incoming
+bond \(\{c,v\}\) is absent, the start has the required status
+and degree, and there are at most twelve exceptional
+\(\mathrm U\) departures by Lemma~\ref{l:terminalcover}.
+The bound uses the original \(S\), including when the terminal
+auxiliary network has extra removed sites.  Both sets of original
+legs remain unchanged.  The degree restriction at target \(e\)
+was checked in Lemma~\ref{l:terminalcover}; all inserted
+observables in this second expansion therefore have separate
+degree at most four.
+
+The ratios are positive.  Hence, pointwise in the first trail,
+\[
+ |R_D^\tau(w)X^\tau(w)-R_D^0(w)X^0(w)|
+    \le2\max\{R_D^\tau(w),R_D^0(w)\}K_*q^{d(v,S)}.
+\]
+The first-trail sum can be enlarged from \(\mathcal W_S\)
+to \(\mathcal T_D(u,S)\), dropping its avoidance of \(v\).
+The closure lemma applies to that larger class too.  Applying
+Lemma~\ref{l:onepoint} is legitimate because its start has absent
+incoming bond \(\{c,u\}\), and all its trails have zero
+exceptional \(\mathrm U\) departures by Lemma~\ref{l:closure}.
+In particular its pointwise assertion for this larger class is
+\[
+ a_D(w)\max\{R_D^\tau(w),R_D^0(w)\}
+          \le(12/5)^{12}\mathsf W(w).
+\]
+Taking the maximum therefore precedes summing.  Its summed
+assertion gives
+\[
+ |T_2|\le2K_*q^{d(v,S)}
+       \sum_{w\in\mathcal T_D(u,S)}
+           a_D(w)\max\{R_D^\tau(w),R_D^0(w)\}
+ \le2K_*^2q^{d(u,S)+d(v,S)}\le C_Tq^{2d}.
+\]
+Combining this with \eqref{e:rec-T1} and taking the supremum
+over the defining class of \(F_X(d)\) proves the result.  If
+that class is empty its supremum is zero and the same inequality
+holds by nonnegativity of the right side.
+\end{proof}
+
+In the next lemma \(X,Y\) range over \(\{B,C\}\), and every
+shift index \(s\) ranges over the nonnegative integers.
+
+\begin{lemma}\label{l:renewal}
+Let \(m_{XY,s}\ge0\), \(h_X>0\), \(0<q^2<\theta<1\),
+\(0<\rho<1\), and
+\(\sum_{Y,s}m_{XY,s}h_Y\theta^{-s}\le\rho h_X\).
+Suppose \(0\le F_X(d)\le2\) on \(\mathbb Z\), with
+\(F_X(d)=F_X(0)\) for \(d<0\), and, for integers \(d\ge1\),
+\[
+ F_X(d)\le\sum_{Y,s}m_{XY,s}F_Y(d-s)+C_Tq^{2d},
+ \qquad C_T\ge0.
+\]
+Writing \(H=\max_Xh_X/\min_Xh_X\), one has, for \(d\ge0\),
+\[
+ F_X(d)\le A\theta^d,\qquad
+ A=\frac{H\max\{2,C_T\}}{1-\rho}\ge2 .
+\]
+\end{lemma}
+
+\begin{proof}
+For a nonnegative function \(f\) on \(\{B,C\}\times\mathbb Z\),
+define the nonnegative shift operator
+\[
+ (Kf)_X(d)=\sum_{Y,s}m_{XY,s}f_Y(d-s).
+\]
+For an arbitrary nonnegative \(f\), this denotes the extended
+nonnegative sum; every application used below is finite by the
+unshifted or shifted row bound, as specified in the proof.
+Put \(h_{\min}=\min_Xh_X>0\), \(C_*=\max\{2,C_T\}\), and
+\[
+ g_X(d)=
+ \begin{cases}2,&d\le0,\\ C_Tq^{2d},&d\ge1.\end{cases}
+\]
+The assumed inequality and \(F_X(d)\le2\) give \(F\le KF+g\)
+on all integers.  Also
+\(\sum_{Y,s}m_{XY,s}h_Y\le\rho h_X\), since
+\(\theta^{-s}\ge1\).  In particular all row sums of \(K\)
+are finite, so it acts on bounded functions and preserves
+nonnegativity and inequalities.  Iterating a finite number of
+times yields, for every integer \(k\ge1\),
+\begin{equation}\label{e:rec-renewal-iterate}
+ F\le K^kF+\sum_{j=0}^{k-1}K^jg.
+\end{equation}
+
+View \(h_X\) as constant in \(d\).  The unshifted row inequality
+and induction show \(K^kh\le\rho^kh\).  Since
+\(F_X(d)\le2h_X/h_{\min}\) for every integer \(d\),
+\begin{equation}\label{e:rec-renewal-remainder}
+ (K^kF)_X(d)\le\frac{2}{h_{\min}}\rho^kh_X.
+\end{equation}
+This is an unweighted bound, valid even when the iterated shifts
+reach arbitrarily negative integers.
+
+For the source, if \(d\le0\) then \(\theta^d\ge1\), and if
+\(d\ge1\) then \(q^{2d}\le\theta^d\).  Thus for every integer
+\(d\),
+\[
+ g_X(d)\le\frac{C_*}{h_{\min}}h_X\theta^d.
+\]
+Writing \(e_X(d)=h_X\theta^d\), the shifted row inequality is
+exactly \(Ke\le\rho e\).  Its sums are finite even for
+negative \(d\), by the stated weighted summability hypothesis.
+Induction and positivity therefore imply
+\[
+ (K^jg)_X(d)\le\frac{C_*}{h_{\min}}\rho^jh_X\theta^d.
+\]
+All rearrangements used here involve nonnegative summands; they
+can equivalently be proved first for finite shift sums and then
+by increasing limits.  Combining these bounds with
+\eqref{e:rec-renewal-iterate}, for fixed \(d\), gives
+\[
+ F_X(d)\le\frac{2h_X}{h_{\min}}\rho^k
+    +\frac{C_*h_X}{h_{\min}}\theta^d
+                       \frac{1-\rho^k}{1-\rho}.
+\]
+Let \(k\) tend to infinity.  The first term tends to zero
+because \(0<\rho<1\).  Since \(h_X/h_{\min}\le H\),
+the desired bound follows for every \(d\ge0\).
+Finally \(H\ge1\), \(C_*\ge2\), and \(0<1-\rho<1\),
+so the displayed \(A\) is at least two.
+\end{proof}
+
+\begin{theorem}\label{t:rec}
+Fix \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Assume (H1), (H2) with any \(C_V\ge1\), \(0<q<1\), and
+(H3\(_h\)) for the type-dependent kernel and fixed orderings above.
+Then there exist \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+One may take the \(\theta,\rho,h\) supplied by the shifted-witness
+lemma and
+\[
+ A=\frac{\max h}{\min h}\,
+       \frac{\max\{2,\,2(12/5)^{24}(C_V/(1-q))^2\}}{1-\rho}.
+\]
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{l:Mtheta} supplies \(q^2<\theta<1\) and
+\(\rho_0<\rho<1\), with the same fixed positive vector \(h\),
+such that \(M_\theta h\le\rho h\).  Set
+\(m_{XY,s}=M_{XY,s}\).  The envelope bounds and constant
+extension are part of Definition~\ref{d:pairenv};
+Lemma~\ref{l:recineq} supplies the recursion on all positive
+integers with finite
+\(C_T=2(12/5)^{24}(C_V/(1-q))^2\).
+Lemma~\ref{l:renewal} therefore gives
+\(F_X(d)\le A\theta^d\) for both pair types and all integers
+\(d\ge0\), with exactly the stated finite \(A\ge2\).
+
+To obtain the property in Definition~\ref{h:P}, fix its data
+\(G,\tau,Y,u,v\).  Set all sites of \(Y\) to \(\mathrm X\)
+and all other sites to \(\mathrm U\) with their full kept sets.
+This is an ordinary consistent domain: \(Y\cap S=\varnothing\),
+and every bond between nonremoved sites is kept by both ends.
+It has precisely the partition sums of
+Definition~\ref{d:pinmodel}, with the original legs and no new
+pins at removed sites.  Designate the given common neighbour in
+\(Y\) as centre.  A distance-two lattice pair is either collinear
+or diagonal, so it lies in \(P_B\) or \(P_C\).
+The bound for the corresponding envelope, at
+\(d=\min\{d(u,S),d(v,S)\}\), is the required inequality.
+If there are no such pairs, the assertion is vacuous.  In the
+nonvacuous case \(G\ne\varnothing\) is finite.  A site with
+maximal first coordinate has a neighbour outside \(G\), so
+\(S\ne\varnothing\) and this minimum is a nonnegative integer.
+Thus all quantifiers
+of \(\mathsf P(A,\theta)\) are satisfied.
+\end{proof}

@@ -1,0 +1,299 @@
+[
+  {
+    "id": "E01",
+    "file": "sec1-intro-statement.tex",
+    "first_line": 18,
+    "last_line": 18,
+    "old": "the smallest margins are $2.4 \\cdot 10^{-4}$ and $5.6 \\cdot 10^{-4}$",
+    "replacement": "the margins on the first two decoupled examples of Table~\\ref{tab:H1} are $2.4 \\cdot 10^{-4}$ and $5.6 \\cdot 10^{-4}$",
+    "reason": "R2-5: remove the unproved global-minimum implication"
+  },
+  {
+    "id": "E02",
+    "file": "sec1-intro-statement.tex",
+    "first_line": 24,
+    "last_line": 24,
+    "old": "The ground state $B$ becomes a nowhere-vanishing function whose square is a nearest-neighbour Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "replacement": "The frame image of $B$ is nowhere vanishing; its normalized squared modulus, weighted by the frame reference measure and followed by the checkerboard change of variables, gives the nearest-neighbour Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "reason": "FN-R1-square: use the weighted squared modulus and the rotated convention"
+  },
+  {
+    "id": "E03",
+    "file": "sec1-intro-statement.tex",
+    "first_line": 30,
+    "last_line": 30,
+    "old": "Removing $X$ one site at a time, $\\varepsilon$ is bounded by a sum over the cut of pair-correlation responses",
+    "replacement": "Removing $X$ one site at a time, $\\varepsilon$ is bounded by a fixed additive constant plus a sum over the cut of pair-correlation responses",
+    "reason": "R7-2: retain the first-removal quartic residual"
+  },
+  {
+    "id": "E04",
+    "file": "sec1-intro-statement.tex",
+    "first_line": 32,
+    "last_line": 32,
+    "old": "A pair correlation is a sum over trails from one site of the pair to the other, weighted by $3^{-|w|}$ and by ratios of partition functions of traced domains.",
+    "replacement": "A pair correlation is expanded over trails from one site of the pair, stopped at the other site or at the protected boundary layer, weighted by $3^{-|w|}$ and by ratios of partition functions of traced domains, with their terminal correlation factors. In the response, trails ending at the other site give the closed-trail kernel, while trails ending at the protected layer give an exponentially decaying error.",
+    "reason": "R7-2: include boundary-stopped trails and terminal factors"
+  },
+  {
+    "id": "E05",
+    "file": "sec1-intro-statement.tex",
+    "first_line": 44,
+    "last_line": 44,
+    "old": "All spin configurations are of unit vectors; a ``pin'' is a unit vector attached to a boundary bond.",
+    "replacement": "Physical frame spins, ordinary continuous spins and pins are unit vectors. Auxiliary traced spins may lie in $\\Sph \\cup \\{0\\}$, as in Definition~\\ref{d:domain}; a ``pin'' is always a unit vector attached to a boundary bond.",
+    "reason": "R7-3: allow the zero atom at diluted sites"
+  },
+  {
+    "id": "E06",
+    "file": "sec2-frames-Q.tex",
+    "first_line": 63,
+    "last_line": 63,
+    "old": "Let $D_{\\mathrm I} \\subset \\Sph$ be the twelve vertices of a regular icosahedron and $D_{\\mathrm{II}} \\subset \\Sph$ the twenty normalized centres of its faces, the vertices of the dual dodecahedron. With uniform weights $w_{\\mathrm I} \\equiv 1/12$ and $w_{\\mathrm{II}} \\equiv 1/20$, both are spherical $5$-designs (see \\cite{DGS77}; we also checked the moments up to degree $6$ numerically, with errors below $10^{-15}$ up to degree $5$), so both are frames. Both sets are invariant under $a \\mapsto -a$. A direct computation shows that for $a \\in D_{\\mathrm I}$ and $b \\in D_{\\mathrm{II}}$,",
+    "replacement": "Let $D_{\\mathrm I} \\subset \\Sph$ be the twelve vertices of a regular icosahedron and $D_{\\mathrm{II}} \\subset \\Sph$ the twenty normalized centres of its faces, the vertices of the dual dodecahedron. Here is an exact verification of the design property. Put $\\phi=(1+\\sqrt5)/2$, and let $\\operatorname{cyc}$ denote the three cyclic coordinate permutations, with independent indicated signs. In a common orientation the unnormalized vertex sets are\n\\begin{equation*}\nI_0=\\{\\operatorname{cyc}(0,\\pm1,\\pm\\phi)\\},\\qquad\nD_0=\\{(\\pm1,\\pm1,\\pm1)\\}\\cup\n\\{\\operatorname{cyc}(0,\\pm\\phi,\\pm\\phi^{-1})\\},\n\\end{equation*}\nand $D_{\\mathrm I}=I_0/\\sqrt{\\phi+2}$, $D_{\\mathrm{II}}=D_0/\\sqrt3$. For each $b_0\\in D_0$, the three $a_0\\in I_0$ with $a_0\\cdot b_0=1+\\phi$ have pairwise dot product $\\phi$ and sum $(1+\\phi)b_0$, so these are the corresponding face-centre directions. Both sets are invariant under independent coordinate sign changes and cyclic permutations. Using $\\phi^2=\\phi+1$, their uniform averages satisfy, for $i\\ne j$,\n\\begin{equation*}\n\\frac1{|D|}\\sum_{a\\in D}a_i^2=\\frac13,\\qquad\n\\frac1{|D|}\\sum_{a\\in D}a_i^4=\\frac15,\\qquad\n\\frac1{|D|}\\sum_{a\\in D}a_i^2a_j^2=\\frac1{15},\n\\quad D=D_{\\mathrm I},D_{\\mathrm{II}}.\n\\end{equation*}\nEvery monomial with an odd coordinate exponent has average zero. Together with the constant moment, these are all the moments through total degree $5$, and they equal the normalized spherical moments. Thus the uniform weights $w_{\\mathrm I}\\equiv1/12$ and $w_{\\mathrm{II}}\\equiv1/20$ make both sets spherical $5$-designs, and hence frames. Both sets are invariant under $a\\mapsto-a$. The same coordinates give the following cross-frame inner products:",
+    "reason": "R1-3 and R7-5: replace an unlocated necessary input by an exact proof"
+  },
+  {
+    "id": "E07",
+    "file": "sec2-frames-Q.tex",
+    "first_line": 101,
+    "last_line": 101,
+    "old": "Write $\\iota B(s) = \\beta_x(s_x; s_{N(x)}) \\, \\rho_x(s_{\\Lambda \\setminus x})$, where $\\rho_x$ is the product of the factors of bonds not containing $x$.",
+    "replacement": "For $e=\\{x,y\\}$ write $q_e=\\epsilon_{e,x}q_{xy}$, with $\\epsilon_{e,x}\\in\\{\\pm1\\}$, and set $c_x=\\prod_{e\\ni x}\\epsilon_{e,x}$. Define\n\\begin{equation*}\n\\rho_x(s_{\\Lambda\\setminus x})\n=c_x\\prod_{e\\not\\ni x}q_e\\bigl((\\zeta(s_z))_{z\\in e}\\bigr).\n\\end{equation*}\nThen $\\iota B(s)=\\beta_x(s_x;s_{N(x)})\\rho_x(s_{\\Lambda\\setminus x})$.",
+    "reason": "R1-1: carry the fixed edge-orientation signs"
+  },
+  {
+    "id": "E08",
+    "file": "sec2-frames-Q.tex",
+    "first_line": 110,
+    "last_line": 110,
+    "old": "\\iota \\psi(t, s_{\\Lambda \\setminus x}) = \\beta_x(t; s_{N(x)}) \\, \\chi((\\zeta(s_y))_{y \\neq x})",
+    "replacement": "\\iota \\psi(t, s_{\\Lambda \\setminus x}) = c_x\\,\\beta_x(t; s_{N(x)}) \\, \\chi((\\zeta(s_y))_{y \\neq x})",
+    "reason": "R1-1: correct the second occurrence of the same factorization"
+  },
+  {
+    "id": "E09",
+    "file": "sec2-frames-Q.tex",
+    "first_line": 137,
+    "last_line": 137,
+    "old": "All weights in \\eqref{e:muD} and \\eqref{e:muDW} lie in $[1 - \\gamma_+, 1 + \\gamma_+]$ times the site weights.",
+    "replacement": "Every internal bond factor and every boundary bond factor in \\eqref{e:muD} and \\eqref{e:muDW} lies in $[1-\\gamma_+,1+\\gamma_+]$, and all site weights are positive.",
+    "reason": "R1-2: bound individual factors rather than products or probabilities"
+  },
+  {
+    "id": "E10",
+    "file": "sec3-knabe.tex",
+    "first_line": 7,
+    "last_line": 7,
+    "old": "let $(S_x)_{x \\in \\Lambda}$ be finite sets,",
+    "replacement": "let $(S_x)_{x \\in \\Lambda}$ be finite sets with $|S_x|\\ge2$,",
+    "reason": "R2-2: exclude trivial coordinate spaces from the real-valued gap criterion"
+  },
+  {
+    "id": "E11",
+    "file": "sec3-knabe.tex",
+    "first_line": 105,
+    "last_line": 105,
+    "old": "Let $G_a$ be the orthogonal projection onto $\\ker A_a$.",
+    "replacement": "If $\\langle\\varphi,\\mathcal L\\varphi\\rangle=0$, positivity gives $Q_x\\varphi=0$ for every $x$, hence $A_a\\varphi=B_a\\varphi=0$ for every $a$; the required bound\n\\begin{equation*}\n\\Bigl\\langle\\varphi,\\sum_aB_a^2\\varphi\\Bigr\\rangle\n\\ge g(\\ell)\\frac{\\mathsf s^4}{\\ell^2}\n\\langle\\varphi,\\mathcal L\\varphi\\rangle\n\\end{equation*}\nthen holds with both sides zero. In the remaining calculation assume $\\langle\\varphi,\\mathcal L\\varphi\\rangle>0$, so $\\sum_aY_a=\\ell^2\\langle\\varphi,\\mathcal L\\varphi\\rangle>0$. Let $G_a$ be the orthogonal projection onto $\\ker A_a$.",
+    "reason": "R2-1: separate the zero total denominator before Cauchy--Schwarz"
+  },
+  {
+    "id": "E12",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 7,
+    "last_line": 7,
+    "old": "Consider the frame model on $\\Z^2$ with the checkerboard frame and the finite-volume measures $\\mu^\\eta_{D, W}$ of \\eqref{e:muDW}.",
+    "replacement": "Consider the frame model on $\\Z^2$ with the checkerboard frame and the finite-volume measures $\\mu^\\eta_{D, W}$ of \\eqref{e:muDW}. Throughout this section, assertions about spectral gaps concern nonempty finite volumes and single-spin spaces with at least two elements.",
+    "reason": "R2-2: cover the empty-volume cases in the comparison and compatible-domain statements"
+  },
+  {
+    "id": "E13",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 37,
+    "last_line": 37,
+    "old": "Let $\\mathcal C_M =",
+    "replacement": "All square-size parameters $M$, $M'$ and $M_0$ range over $\\Z_{\\ge0}$, and their thresholds are chosen integral. Let $\\mathcal C_M =",
+    "reason": "R2-4: make the integer square-size convention global in Section 4"
+  },
+  {
+    "id": "E14",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 68,
+    "last_line": 68,
+    "old": "where $l_0 \\in \\N$ is a parameter.",
+    "replacement": "where $l_0 \\in \\Z_{\\ge1}$ is a parameter; the shell indices $i$ are integers.",
+    "reason": "R2-4: exclude l_0=0 and distinguish integer indices from the real scale s"
+  },
+  {
+    "id": "E15",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 81,
+    "last_line": 81,
+    "old": "if there exist $l_0 \\in \\N$, $p_0 \\in (0, 1]$ and $M_\\star$ such that",
+    "replacement": "if there exist $l_0 \\in \\Z_{\\ge1}$, $p_0 \\in (0, 1]$ and $M_\\star\\in\\Z_{\\ge1}$ such that",
+    "reason": "R2-4: give the window hypothesis exactly the geometric parameter domain it uses"
+  },
+  {
+    "id": "E16",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 101,
+    "last_line": 101,
+    "old": "Hence, by Lemma~\\ref{l:shellgeom}, the two configurations agree on $D_i = A_i \\cup B_i$ after step $i$ with probability at least $p_0 \\alpha^{2 |A_i|} \\ge \\delta$, conditionally on any configuration before step $i$.",
+    "replacement": "Hence, for $i\\notin I_0$ with $i\\le s$, Lemma~\\ref{l:shellgeom} gives agreement on $D_i=A_i\\cup B_i$ after step $i$ with probability at least $p_0\\alpha^{2|A_i|}\\ge\\delta$, conditionally on any configuration before step $i$. At the final unskipped step $i_1>s$ we use the same kernel, retaining identical resampling when the incoming separator agrees, without asserting this success bound.",
+    "reason": "R2-3: restrict the success probability to indices covered by the window estimate"
+  },
+  {
+    "id": "E17",
+    "file": "sec4-mixing-to-gap.tex",
+    "first_line": 138,
+    "last_line": 138,
+    "old": "The proof of Theorem~\\ref{t:main} uses results of \\S\\ref{s:cut}--\\S\\ref{s:computer}; their proofs do not use \\S\\ref{s:frames}--\\S\\ref{s:mixing}, so the order of the argument is not circular.",
+    "replacement": "The proof of Theorem~\\ref{t:main} uses results of \\S\\ref{s:cut}--\\S\\ref{s:computer}. Their proofs use earlier frame definitions and shell geometry, but do not use Theorem~\\ref{t:main}, the conclusion of Theorem~\\ref{t:mainW}, or any consequence of the window estimate. These dependencies are acyclic.",
+    "reason": "R7-4: state the actual noncircular dependency claim"
+  },
+  {
+    "id": "E18",
+    "file": "sec5-cut.tex",
+    "first_line": 11,
+    "last_line": 11,
+    "old": "and we write $\\E^\\tau_D$ and $\\E^0_D$",
+    "replacement": "Both partition functions in \\eqref{e:Zpin} are finite and strictly positive. For $D\\ne\\emptyset$, choose $q\\in\\Sph$ different from the negatives of all surviving pins and put every spin equal to $q$. Every bond factor is then $2$ and every leg factor is positive. By continuity, the integrand is positive on a product of open spherical neighbourhoods of positive product measure. The integrand is bounded, so its integral is finite. For $D=\\emptyset$, the partition functions equal $1$. The same argument applies to any retained subsets of bonds and legs, and to site measures with positive uniform components; a positive scalar trace mass also preserves positivity. We write $\\E^\\tau_D$ and $\\E^0_D$",
+    "reason": "R3-1: justify normalization and logarithms, also for later traced domains"
+  },
+  {
+    "id": "E19",
+    "file": "sec5-cut.tex",
+    "first_line": 79,
+    "last_line": 79,
+    "old": "and $c(\\eta)$ does not depend on $\\mathsf s$. Summing",
+    "replacement": "and $c(\\eta)$ does not depend on $\\mathsf s$. Every weight of $\\nu$ is strictly positive: $W_B(\\mathsf s)>0$ by the positive site weights and \\eqref{e:icodod}, and $Z^{\\mathsf s}_{G_1}>0$ by the positivity just established, also when $G_1=\\emptyset$. Summing",
+    "reason": "R3-1: ensure the pointwise ratio has a positive reference denominator"
+  },
+  {
+    "id": "E20",
+    "file": "sec5-cut.tex",
+    "first_line": 102,
+    "last_line": 102,
+    "old": "and let $x_1, \\dots, x_p$ be distinct sites of $G$",
+    "replacement": "and let $p\\ge1$ and $x_1,\\dots,x_p$ be distinct sites of $G$",
+    "reason": "R3-2: make the first site in the removal bound well defined"
+  },
+  {
+    "id": "E21",
+    "file": "sec5-cut.tex",
+    "first_line": 179,
+    "last_line": 179,
+    "old": "When the radius changes from $k$ to $k \\pm j$, the distance of such a side changes by $j$. By Lemma~\\ref{l:shellgeom}, the sides of the sphere of radius $k$ that are parallel to an edge and meet $\\mathcal C_M$ are at distance at least $s/3$; those of radius $k \\pm j$ are therefore at distance at least $s/3 - j \\ge s/3 - s/12 > l_0/2 + j$ when $s$ is large, or they come from a side of radius $k$ that does not meet $\\mathcal C_M$ (distance at most $0$), and then their distance is at most $j < l_0/2 + j - 2$. In both cases it differs from $h'$.",
+    "replacement": "Use signed inward depths of the supporting lines: for a vertical line $x_1=a$, set $\\delta_{\\rm L}=a+M+1$ and $\\delta_{\\rm R}=M+1-a$, and define the bottom and top depths analogously. Changing the radius from $k$ to $k\\pm j$ changes each signed depth by at most $j$. Since $y\\in[-M-1,M+1]^2$ and $k-j\\ge1$, the varying-coordinate intervals of the original and shifted sides meet $[-M,M]$. Thus an original side either meets $\\mathcal C_M$, lies beyond the specified edge $\\mathcal E$, or lies beyond the opposite edge. In the first case Lemma~\\ref{l:shellgeom} gives signed depth at least $s/3$, so the shifted depth is at least $s/3-j>l_0/2+j$ for $j\\le s/12$ and $s>3l_0$. In the second case the original depth is at most $0$, so the shifted depth is at most $j<l_0/2+j-2$. In the third case the original depth is at least $2M+2$, so the shifted depth is at least $2M+2-j>l_0/2+j$ for $s$ large. None can equal $h'$.",
+    "reason": "R3-3: replace the incomplete unsigned-distance case split"
+  },
+  {
+    "id": "E22",
+    "file": "sec5-cut.tex",
+    "first_line": 221,
+    "last_line": 221,
+    "old": "By Lemma~\\ref{l:Xconn}, we can order $X$ so that every site after the first has a previously listed neighbour,",
+    "replacement": "The proof of Lemma~\\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbour outside $U'$, so $X\\ne\\emptyset$. By Lemma~\\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbour,",
+    "reason": "R3-2: establish the nonempty-list hypothesis at the application"
+  },
+  {
+    "id": "E23",
+    "file": "sec5-cut.tex",
+    "first_line": 229,
+    "last_line": 229,
+    "old": "with the crude count $|X| \\le 4(2M + 1)^2$ used above one needs $\\mathsf F(d) = o(d^{-8})$ instead.",
+    "replacement": "with the crude count $|X|\\le4(2M+1)^2$ used above, $\\mathsf F(d)=O(d^{-8})$ suffices for a uniform bound, while $\\mathsf F(d)=o(d^{-8})$ makes the long-part contribution tend to zero.",
+    "reason": "R3-4: a bounded cost, rather than a vanishing cost, is sufficient"
+  },
+  {
+    "id": "E24",
+    "file": "sec8-computer-assisted.tex",
+    "first_line": 66,
+    "last_line": 66,
+    "old": "tightest straight &",
+    "replacement": "straight example &",
+    "reason": "R2-5: remove an unsupported global-ranking label"
+  },
+  {
+    "id": "E25",
+    "file": "sec8-computer-assisted.tex",
+    "first_line": 67,
+    "last_line": 67,
+    "old": "tightest turn &",
+    "replacement": "turn example &",
+    "reason": "R2-5: remove an unsupported global-ranking label"
+  },
+  {
+    "id": "E26",
+    "file": "sec8-computer-assisted.tex",
+    "first_line": 73,
+    "last_line": 73,
+    "old": "\\caption{The hardest patterns of $\\Pext$,",
+    "replacement": "\\caption{Selected patterns of $\\Pext$,",
+    "reason": "R2-5: distinguish example values from global extrema"
+  },
+  {
+    "id": "E27",
+    "file": "sec8-computer-assisted.tex",
+    "first_line": 77,
+    "last_line": 77,
+    "old": "The margins of Theorem~\\ref{t:H1} on the two tightest patterns are",
+    "replacement": "The margins of Theorem~\\ref{t:H1} on the first two decoupled examples of Table~\\ref{tab:H1} are",
+    "reason": "R2-5: state the certified example margins without a global ranking"
+  },
+  {
+    "id": "E28",
+    "file": "app-constants.tex",
+    "first_line": 17,
+    "last_line": 17,
+    "old": "$\\min_\\pi c(\\pi)$ & $0.961240\\ldots$, $0.935565\\ldots$ & straight, turn; closed forms (\\S\\ref{s:closed}) \\\\",
+    "replacement": "$c(\\pi)$ for two decoupled examples & $3825127/3979368$, $1071655/1145463$ & straight and turn examples; closed forms (Proposition~\\ref{p:closed}, \\S\\ref{s:closed}) \\\\",
+    "reason": "R2-5: replace the unsupported minimum with exact established values"
+  },
+  {
+    "id": "E29",
+    "file": "app-local.tex",
+    "first_line": 196,
+    "last_line": 196,
+    "old": "and the exact values of $c(\\pi)$ for the tightest patterns.",
+    "replacement": "and the exact values of $c(\\pi)$ for the examples below.",
+    "reason": "R2-5: propagate the qualification to the closed-form introduction"
+  },
+  {
+    "id": "E30",
+    "file": "app-local.tex",
+    "first_line": 270,
+    "last_line": 270,
+    "old": "among them the three tightest patterns of the class.",
+    "replacement": "including the following three examples.",
+    "reason": "R2-5: remove the unproved global ordering from the examples paragraph"
+  },
+  {
+    "id": "E31",
+    "file": "app-local.tex",
+    "first_line": 272,
+    "last_line": 272,
+    "old": "The tightest straight pattern:",
+    "replacement": "A straight example:",
+    "reason": "R2-5: give the first example a justified label"
+  },
+  {
+    "id": "E32",
+    "file": "app-local.tex",
+    "first_line": 273,
+    "last_line": 273,
+    "old": "The tightest turn ($o = \\mathsf e$):",
+    "replacement": "A turn example ($o = \\mathsf e$):",
+    "reason": "R2-5: give the second example a justified label"
+  },
+  {
+    "id": "E33",
+    "file": "app-local.tex",
+    "first_line": 296,
+    "last_line": 296,
+    "old": "The stored certificates of the tightest patterns are rejected",
+    "replacement": "The stored certificates of the numerically selected patterns are rejected",
+    "reason": "R2-5: qualify the negative-control reference consistently"
+  }
+]

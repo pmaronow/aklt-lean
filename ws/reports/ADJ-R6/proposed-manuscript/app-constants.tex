@@ -1,0 +1,25 @@
+\section{Constants and their provenance}\label{s:constants}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.41\textwidth}}
+quantity & value & provenance \\
+\hline
+$g_\star$ & $> 0$ (numerically $0.047238$) & finite matrix; only positivity is used (\S\ref{s:poly}) \\
+$\gamma_\pm$ & $\bigl((5 \pm 2\sqrt5)/15\bigr)^{1/2}$ & icosahedron--dodecahedron inner products \eqref{e:icodod} \\
+$t(\ell)$, $\kappa_\ell$ & \eqref{e:tkappa} & exact sums \eqref{e:sums}; not used in the main line \\
+$c_0$, $\alpha$ & $> 0$ & finite irreducible chains, positive weights (\S\ref{s:cells}) \\
+$M_0^{(o)}$, $m_0$, $C$, $\gamma$ & $> 0$, not explicit & \cite[Theorem~2.1]{MOS94}, \cite[Theorem~4.1]{MO94} \\
+$l_0$ & $20$ & \S\ref{s:cutgeom}; any even $l_0 \ge 20$ works \\
+$0.0707$, $2.73$, $1.22$ & & Lemma~\ref{l:removal}; only finiteness is used \\
+$0.82$, $0.928$, $1.36$, $1.072$ & exact & $3/5$ lemma (Lemma~\ref{l:35}) \\
+$\bar\alpha$, $\bar\beta$ & $0.18094$, $0.36751$ & Lemma~\ref{l:response} \\
+$\cs$, $\ct$ & $961/1000$, $187/200$ & (H1): exact arithmetic, all $7{,}962$ patterns (Theorem~\ref{t:H1}) \\
+two displayed $c(\pi)$ & $0.961240\ldots$, $0.935565\ldots$ & straight, turn; exact values for the first two rows of Table~\ref{tab:H1} (\S\ref{s:closed}) \\
+$416114/444675$ & $0.935771\ldots$ & upper bound for $\ct$ in (H1) (Remark~\ref{r:H1sharp}) \\
+$3/5$, $1/2$, $1/3$ & exact & fields of tips and leaf corners (Lemma~\ref{l:leaf}) \\
+$q$ & $\le 0.98075$ & (H2): computer-assisted, directed rounding (\S\ref{s:H2}) \\
+$\rho(M_1)$ & $\le 0.98779$ & (H3$'$): computer-assisted, directed rounding (\S\ref{s:H3}, Appendix~\ref{s:tail}) \\
+$\theta$, $A$ & $\theta \in (q^2, 1)$, not explicit & Lemma~\ref{l:Mtheta}, Theorem~\ref{t:rec} \\
+$c$, $L_0$ & $g_\star c_0 m_0 / 4$, $\ell + 2$ & Theorem~\ref{t:mainW}
+\end{tabular}
+\end{center}

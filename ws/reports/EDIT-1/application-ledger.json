@@ -1,0 +1,1553 @@
+[
+  {
+    "report": "ADJ-R4",
+    "edit": "E01",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 18,
+    "frozen_end": 17,
+    "before": "",
+    "after": "For tracing we also use an \\emph{auxiliary spin network} on $G$. It has\nthe same statuses, site measures and kept-bond data as a domain, with at\nmost two present bonds at each $\\mathrm D$ site, but the sites of $S$\nmay keep arbitrary subsets of their bonds; they still have status\n$\\mathrm U$. It also carries a scalar mass $\\mu>0$. Its partition\nfunction is $\\mu$ times the right-hand side of \\eqref{e:ZD}, with all\nthe original leg factors retained, and its free partition function omits\nthose leg factors. A domain is identified with the corresponding network\nof mass $1$. The definitions of $\\E^\\cdot$, $\\Psi$ and trails extend to\nthese networks. Whenever membership in $\\Dcons(G)$ is asserted, it refers\nto the underlying data with mass reset to $1$; this does not change\nnormalized expectations. In particular, $\\Dcons(G)$ retains its original\nprotected-boundary requirements. The positivity, conditional independence\nand conditional-mean facts below also hold for auxiliary spin networks.\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E02",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 37,
+    "frozen_end": 37,
+    "before": "A \\emph{trail} in a domain $D$ from $u$ is a sequence $w = (v_0, \\dots, v_m)$ with $v_0 = u$ such that $\\{v_{i - 1}, v_i\\}$ are distinct present bonds of $D$; $|w| = m$ is its length. For $T \\subset G$ let $\\mathcal T_D(u, T)$ be the set of trails with $v_m \\in T$ and $v_i \\notin T$ for $i < m$. The \\emph{traced domain} $D;[w]$ is obtained from $D$ step by step: at step $j$ the bond $\\{v_{j - 1}, v_j\\}$ is dropped by both ends, and the status of $v_{j - 1}$ changes from $\\mathrm U$ to $\\mathrm D$ (keeping its remaining bonds) or from $\\mathrm D$ to $\\mathrm X$; in the latter case we multiply the partition function by $\\frac35$, the mass of $\\frac35 \\delta_0$. We write $w_j = (v_0, \\dots, v_j)$.\n",
+    "after": "A \\emph{trail} in a domain or auxiliary spin network $D$ from $u$ is a\nsequence $w=(v_0,\\dots,v_m)$ with $v_0=u$ such that\n$\\{v_{i-1},v_i\\}$ are distinct present bonds of $D$; $|w|=m$ is its\nlength. For $T\\subset G$ let $\\mathcal T_D(u,T)$ be the set of trails\nwith $v_m\\in T$ and $v_i\\notin T$ for $i<m$. All tracing below starts\nat a site with at most three present bonds and has no departures from\n$S$. The \\emph{traced spin network} $D;[w]$ is obtained step by step:\nat step $j$, the bond $\\{v_{j-1},v_j\\}$ is dropped by both ends, and\nthe status of $v_{j-1}$ changes from $\\mathrm U$ to $\\mathrm D$\n(keeping its remaining bonds), or from $\\mathrm D$ to $\\mathrm X$.\nThe mass is unchanged in the first case and is multiplied by $3/5$ in\nthe second case, the mass of $(3/5)\\delta_0$. All original leg factors\nare unchanged. Thus the final mass is\n$\\mu(D)(3/5)^{N_{\\mathrm D}(w)}$, where $N_{\\mathrm D}(w)$ counts\nthe departures from status $\\mathrm D$ during this trace. We write\n$w_j=(v_0,\\dots,v_j)$. A stopped trace can have a terminal site in\n$S$ with its arrival bond dropped; it is an auxiliary spin network,\nand need not be a domain of Definition~\\ref{d:domain}.\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E03",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 40,
+    "frozen_end": 40,
+    "before": "Let $D$ be a domain on $G$, let $u \\in G \\setminus S$ be a site that is not removed and has at most three present bonds, let $v \\neq u$ be a site that is not removed, and $T = S \\cup \\{v\\}$. Then, with the dot standing for $\\tau$ or $0$,\n",
+    "after": "Let $D$ be a domain or auxiliary spin network on $G$, let\n$u\\in G\\setminus S$ be a site that is not removed and has at most\nthree present bonds, let $v\\ne u$ be a site that is not removed, and\n$T=S\\cup\\{v\\}$. Then, with the dot standing for $\\tau$ or $0$,\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E04",
+    "findings": [
+      "R4-4"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 48,
+    "frozen_end": 48,
+    "before": "Write $n_u \\cdot n_v = \\sum_{\\beta = 1}^3 n_u^\\beta n_v^\\beta$ and fix $\\beta$. In $Z^\\cdot_D[n_u^\\beta n_v^\\beta]$, integrate the spin of $u$ using Lemma~\\ref{l:stepid} with $a = e_\\beta$; the site $u$ carries no leg because $u \\notin S$, and the factor $n_v^\\beta$ does not involve $n_u$. This gives a sum over the present bonds $\\{u, v_1\\}$ of $\\frac13 Z^\\cdot_{D;[(u, v_1)]}[n_{v_1}^\\beta n_v^\\beta]$. If $v_1 \\notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\\cdot_D[n_u^\\beta n_v^\\beta] = \\sum_w 3^{-|w|} Z^\\cdot_{D;[w]}[n_{v_{|w|}}^\\beta n_v^\\beta]$. Summing over $\\beta$ and dividing by $Z^\\cdot_D$ gives \\eqref{e:pairwalk}. If $v_{|w|} = v$, the last bracket is $|n_v|^2$, and if $v$ has status $\\mathrm D$ its only remaining bond was the arrival bond, so after arrival $n_v$ is independent of the rest with law $\\lambda_{\\mathrm D}$, and $\\E|n_v|^2 = 3/5$.\n",
+    "after": "Write $n_u \\cdot n_v = \\sum_{\\beta = 1}^3 n_u^\\beta n_v^\\beta$ and fix $\\beta$. In $Z^\\cdot_D[n_u^\\beta n_v^\\beta]$, integrate the spin of $u$ using Lemma~\\ref{l:stepid} with $a = e_\\beta$; the site $u$ carries no leg because $u \\notin S$, and the factor $n_v^\\beta$ does not involve $n_u$. This gives a sum over the present bonds $\\{u, v_1\\}$ of $\\frac13 Z^\\cdot_{D;[(u, v_1)]}[n_{v_1}^\\beta n_v^\\beta]$. If $v_1 \\notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\\cdot_D[n_u^\\beta n_v^\\beta] = \\sum_w 3^{-|w|} Z^\\cdot_{D;[w]}[n_{v_{|w|}}^\\beta n_v^\\beta]$. Summing over $\\beta$ and dividing by $Z^\\cdot_D$ gives \\eqref{e:pairwalk}. If $v_{|w|}=v$, the last bracket is $|n_v|^2$. If $v$ has\nstatus $\\mathrm D$ with one present bond in $D$, that bond was the\narrival bond, so after arrival $n_v$ is independent of the rest with\nlaw $\\lambda_{\\mathrm D}$, and $\\E|n_v|^2=3/5$.\n",
+    "note": "Only the final endpoint explanation changes; the rest of the proof line is retained verbatim."
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E05",
+    "findings": [
+      "R4-1",
+      "R4-3"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 53,
+    "frozen_end": 53,
+    "before": "For $w \\in \\mathcal T_D(u, T)$ we have $R^\\cdot_D(w) = \\prod_{j = 1}^{|w|} \\rho^\\cdot_j$ with $\\rho^\\cdot_j = Z^\\cdot_{D;[w_j]} / Z^\\cdot_{D;[w_{j - 1}]}$. Let $y = v_{j - 1}$ be the site left at step $j$, $o = v_j$ the out-neighbour, and $E'$ the domain $D;[w_{j - 1}]$ with $y$ removed. Step $j$ is a \\emph{revisit} if $y$ has status $\\mathrm D$ in $D;[w_{j - 1}]$ and a \\emph{first visit} otherwise. Integrating out $y$, we find:\n",
+    "after": "For $w\\in\\mathcal T_D(u,T)$ as in Proposition~\\ref{p:pairwalk}, we have\n$R^\\cdot_D(w)=\\prod_{j=1}^{|w|}\\rho^\\cdot_j$ with\n$\\rho^\\cdot_j=Z^\\cdot_{D;[w_j]}/Z^\\cdot_{D;[w_{j-1}]}$.\nLet $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the\nout-neighbour, and $E'$ the auxiliary spin network obtained from\n$D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is\na \\emph{revisit} if $y$ has status $\\mathrm D$ in $D;[w_{j-1}]$ and\na \\emph{first visit} otherwise. Integrating out $y$, we find:\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E06",
+    "findings": [
+      "R4-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 55,
+    "frozen_end": 55,
+    "before": "\\item for a revisit, $\\rho^\\tau_j = \\rho^0_j = 3/5$, since $\\int (1 + n \\cdot n_o) \\lambda_{\\mathrm D}(\\dd n) = 1$;\n",
+    "after": "\\item for a revisit with at most one present bond at departure,\n$\\rho^\\tau_j=\\rho^0_j=3/5$, since\n$\\int(1+n\\cdot n_o)\\lambda_{\\mathrm D}(\\dd n)=1$.\nThe only possible two-bond $\\mathrm D$ departure is the initial step.\nIf its present neighbours are $f,o$, then\n\\[\n\\rho^\\cdot_1=\n\\frac{3/5}{1+\\frac15\\E^\\cdot_{E'}[P_{fo}]}\\le\\frac34.\n\\]\nIndeed, every later departure has already lost its arrival bond;\na $\\mathrm D$ site has at most two present bonds before that arrival;\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E07",
+    "findings": [
+      "R4-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 85,
+    "frozen_end": 85,
+    "before": "Let $w \\in \\mathcal T_D(u, T)$, let $\\Phi$ be the set of its first-visit steps, and suppose that $\\rho^\\tau_j \\le x_j$ for $j \\in \\Phi$, with numbers $x_j \\ge 1$. Then for every ordering $\\sigma$ of $\\Phi$,\n",
+    "after": "Let $w\\in\\mathcal T_D(u,T)$ under the hypotheses of\nProposition~\\ref{p:pairwalk}. If $u$ initially has status $\\mathrm D$,\nassume in addition that it has at most one present bond in $D$.\nLet $\\Phi$ be the set of first-visit steps of $w$, and suppose that\n$\\rho^\\tau_j\\le x_j$ for $j\\in\\Phi$, with numbers $x_j\\ge1$.\nThen for every ordering $\\sigma$ of $\\Phi$,\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E08",
+    "findings": [
+      "R4-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 104,
+    "frozen_end": 104,
+    "before": "A \\emph{pattern} $\\pi$ consists of an out-neighbour $o \\in \\{\\mathsf e, \\mathsf N, \\mathsf W\\}$ and statuses and kept bonds of the sites $\\mathsf s, \\mathsf e, \\mathsf N, \\mathsf W$ and of the corners, as in Definition~\\ref{d:domain}, with $y$ of status $\\mathrm U$, the bond $\\{y, \\mathsf s\\}$ dropped, and $o$ not removed. For unit vectors $m = (m_\\ell)$ on the slots, let $Z_{\\mathrm{cur}}(\\pi; m)$ be the integral over the spins of $\\mathsf T(y)$ minus the removed sites, with the site measures of the statuses, of the product of the factors of the present bonds inside $\\mathsf T(y)$ and of $1 + m_\\ell \\cdot n_z$ for every slot $\\ell$ at $z$; the tips have status $\\mathrm U$. Let $Z_{\\mathrm{next}}(\\pi; m)$ be the same integral after the step, that is, with the measure of $y$ replaced by $\\lambda_{\\mathrm D}$ and the bond $\\{y, o\\}$ dropped. Define\n",
+    "after": "A \\emph{pattern} $\\pi$ consists of an out-neighbour\n$o\\in\\{\\mathsf e,\\mathsf N,\\mathsf W\\}$ and statuses and kept bonds\nof the sites $\\mathsf s,\\mathsf e,\\mathsf N,\\mathsf W$ and of the\ncorners, with the site measures of Definition~\\ref{d:domain}. The\npassage site $y$ has status $\\mathrm U$ and keeps precisely its three\nbonds to $\\mathsf e,\\mathsf N,\\mathsf W$, so $\\{y,\\mathsf s\\}$ is\ndropped. Every other site of status $\\mathrm U$ keeps all four of\nits lattice bonds, and $o$ is not removed. For unit vectors\n$m=(m_\\ell)$ on the slots, let $Z_{\\mathrm{cur}}(\\pi;m)$ be the\nintegral over the spins of $\\mathsf T(y)$ minus the removed sites,\nwith the site measures of the statuses, of the product of the factors\nof the present bonds inside $\\mathsf T(y)$ and of\n$1+m_\\ell\\cdot n_z$ for every slot $\\ell$ at a non-removed site $z$;\nthe tips have status $\\mathrm U$. Let\n$Z_{\\mathrm{next}}(\\pi;m)$ be the same integral after the step,\nthat is, with the measure of $y$ replaced by $\\lambda_{\\mathrm D}$\nand the bond $\\{y,o\\}$ dropped. Define\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E09",
+    "findings": [
+      "R4-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 108,
+    "frozen_end": 108,
+    "before": "The class $\\Pext$ consists of the patterns in which: $\\mathsf s$ is removed or has status $\\mathrm D$ keeping two of its three bonds other than $\\{y, \\mathsf s\\}$; each of $\\mathsf e, \\mathsf N, \\mathsf W$ has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\\mathrm{cur}}$ and $Z_{\\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.\n",
+    "after": "The class $\\Pext$ consists of the patterns in which: $\\mathsf s$ is removed or has status $\\mathrm D$ keeping two of its three bonds other than $\\{y, \\mathsf s\\}$; each of $\\mathsf e, \\mathsf N, \\mathsf W$ has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\\mathrm{cur}}$ and $Z_{\\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.\nThese are local covered spin integrals, not domains with the\nprotected-boundary condition on $S(G)$. The tips are the covering\n$\\mathrm U$ tips of Lemma~\\ref{l:local}; condition (C) is not imposed\nbetween their original global kept sets and the other template sites.\nBoth external slot factors at each non-removed corner are included in\nthe covered integrals, even when an actual external bond is absent.\nSuch missing factors are filled by the convex-averaging enlargement\nin the proof of Lemma~\\ref{l:local}.\n",
+    "note": "The original class rules and tip-bond convention are retained verbatim, followed by this clarification."
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E10",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 130,
+    "frozen_end": 130,
+    "before": "Lemma~\\ref{l:local} applies to every first-visit step whose pattern is in $\\Pext$. Lemma~\\ref{l:closure} in \\S\\ref{s:recursion} shows that this is the case for every first-visit step of every trail used in the recursion, except at most $12$ steps near the end of the trails of the stopped term $T_2$, where only the crude bound $\\rho^\\tau_j \\le 12/5$ of Lemma~\\ref{l:response} is used.\n",
+    "after": "Lemma~\\ref{l:local} applies to every first-visit step whose pattern is\nin $\\Pext$. Lemma~\\ref{l:closure} in \\S\\ref{s:recursion} supplies\nthese patterns throughout the first expansion. If that expansion\nstops at $e\\in S$, its terminal trace is an auxiliary spin network\nwith the single kept-set defect at $e$. In the second expansion of\n$T_2$, at most $12$ first-visit departures, at sites $y'$ with\n$0<d(y',e)\\le2$, may fail to have a covered pattern. At those\ndepartures we use $\\rho^\\tau_j\\le12/5$ from\nLemma~\\ref{l:response}. These exceptional departures need not be\nthe last departures of the second trail.\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E11",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 142,
+    "frozen_end": 142,
+    "before": "Assume (H1) and (H2). Let $D \\in \\Dcons(G)$ or $D = D_0;[w_0]$ for some $D_0 \\in \\Dcons(G)$ and a trail $w_0$, let $x \\in G \\setminus S$ be a site that is not removed and has at most three present bonds, with a designated arrival direction, and suppose that all first-visit steps of every trail in $\\mathcal T_D(x, S)$, except at most $12$ steps of each trail, have their patterns in $\\Pext$. Then\n",
+    "after": "Assume (H1) and (H2). Let $D$ be a domain or auxiliary spin network\non $G$, let $x\\in G\\setminus S$ be a site that is not removed and\nhas at most three present bonds, with a designated arrival direction,\nand suppose that all first-visit steps of every trail in\n$\\mathcal T_D(x,S)$, except at most $12$ steps of each trail, have\ntheir patterns in $\\Pext$. Then\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E12",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 143,
+    "frozen_end": 145,
+    "before": "\\begin{equation*}\n\\sum_{w \\in \\mathcal T_D(x, S)} 3^{-|w|} R^\\tau_D(w) \\le \\Bigl( \\frac{12}{5} \\Bigr)^{12} \\frac{C_V}{1 - q} \\, q^{d(x, S)} .\n\\end{equation*}\n",
+    "after": "\\begin{equation*}\n\\sum_{w\\in\\mathcal T_D(x,S)}3^{-|w|}\n\\max\\{R^\\tau_D(w),R^0_D(w)\\}\n\\le \\Bigl(\\frac{12}{5}\\Bigr)^{12}\n\\frac{C_V}{1-q}\\,q^{d(x,S)}.\n\\end{equation*}\n",
+    "note": "The pointwise proof gives this common majorant; it directly justifies the sum of maxima in sec7:82."
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E13",
+    "findings": [
+      "R4-1",
+      "R4-3"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 149,
+    "frozen_end": 149,
+    "before": "Every trail of $D$ is a trail of $\\Z^2$. A step that leaves a site visited before by $w$ is a revisit in $D;[w_{j - 1}]$, with $3^{-1} \\rho^\\tau_j = 1/5 = \\omega_j$. A step that leaves a site of status $\\mathrm D$ not visited before by $w$ has $3^{-1} \\rho^\\tau_j = 1/5 \\le \\omega_j$. A first-visit step with pattern $\\pi \\in \\Pext$ has $\\rho^\\tau_j \\le 1/c(\\pi) \\le x_{\\mathrm{type}}$ by Lemma~\\ref{l:local} and (H1), so $3^{-1} \\rho^\\tau_j \\le \\omega_j$. Any other first-visit step has $3^{-1} \\rho^\\tau_j \\le 4/5 \\le \\frac{12}{5} \\omega_j$ by Lemma~\\ref{l:response}, since $\\omega_j \\ge 1/3$ for first visits. Hence $3^{-|w|} R^\\tau_D(w) \\le (12/5)^{12} \\mathsf W(w)$, and since $|w| \\ge d(x, S)$, (H2) gives the claim.\n",
+    "after": "Every trail of $D$ is a trail of $\\Z^2$. We prove the same pointwise\nbound for both dots $\\tau$ and $0$. If the initial site has status\n$\\mathrm D$ and two present bonds, the formula above gives\n$\\rho^\\cdot_1\\le3/4$, hence\n$3^{-1}\\rho^\\cdot_1\\le1/4\\le\\omega_1$, since the first lattice\ndeparture has $\\omega_1\\ge1/3$. Every other departure from status\n$\\mathrm D$ has at most one present bond, so\n$3^{-1}\\rho^\\cdot_j=1/5$. This equals $\\omega_j$ if the site was\nleft before by $w$, and is at most $\\omega_j$ otherwise. For a\nfirst-visit step whose pattern is in $\\Pext$,\nLemma~\\ref{l:local} and (H1) give\n$\\rho^\\tau_j\\le x_{\\mathrm{type}}$, while\nLemma~\\ref{l:response} gives $\\rho^0_j\\le1\\le x_{\\mathrm{type}}$;\nthus $3^{-1}\\rho^\\cdot_j\\le\\omega_j$. At any other first-visit\nstep, Lemma~\\ref{l:response} gives\n$3^{-1}\\rho^\\cdot_j\\le4/5\\le(12/5)\\omega_j$.\nThere are at most $12$ such steps, so pointwise\n\\[\n3^{-|w|}\\max\\{R^\\tau_D(w),R^0_D(w)\\}\n\\le (12/5)^{12}\\mathsf W(w).\n\\]\nSince $|w|\\ge d(x,S)$, summing (H2) over the possible lengths gives\nthe claim.\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E14",
+    "findings": [
+      "R4-2",
+      "R7-1"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 17,
+    "frozen_end": 31,
+    "before": "\\begin{lemma}\\label{l:closure}\nLet $D \\in \\Dcons(G)$, $(u, v) \\in P_X(D)$ with centre $c$, and $u \\notin S$. Let $w$ be a trail in $D$ from $u$ that does not visit $S \\cup \\{v\\}$ before its last site, let $w_j$ be its prefixes and $D_j = D;[w_j]$, where at the first step the site $u$ also drops its bond to $c$. Then for every $j$:\n\\begin{enumerate}\n\\item every site other than $v_j$ that is visited by $w_j$ has status $\\mathrm D$ or $\\mathrm X$ in $D_j$;\n\\item every bond between two non-removed sites of $D_j$ satisfies (C), every site of status $\\mathrm D$ keeps exactly two bonds, and every site of status $\\mathrm U$ other than $v_j$ keeps all its bonds; $v_j$ has status $\\mathrm U$ or $\\mathrm D$ and has dropped exactly its arrival bond, whose other end has status $\\mathrm D$ or $\\mathrm X$;\n\\item the domain $E'_{j + 1}$ obtained from $D_j$ by removing $v_j$ belongs to $\\Dcons(G)$.\n\\end{enumerate}\nConsequently, if step $j + 1$ is a first visit at $y = v_j \\notin S$, its pattern (Definition~\\ref{d:pattern}), with arrival site $v_{j - 1}$, or $c$ if $j = 0$, belongs to $\\Pext$. Moreover, the pairs $(f, g)$, $(f, o)$, $(g, o)$ of non-removed remaining neighbours of $y$ belong to $P_B(E'_{j + 1}) \\cup P_C(E'_{j + 1})$, with centre $y$.\n\\end{lemma}\n\n\\begin{proof}\nAlong $w$, statuses change only from $\\mathrm U$ to $\\mathrm D$ (at a first visit, keeping the two bonds of the site other than the arrival and out-bonds) and from $\\mathrm D$ to $\\mathrm X$ (at a revisit). At the first step, $u$ keeps the two bonds other than the out-bond and the bond to $c$, or, if $u$ has status $\\mathrm D$ in $D$, it leaves by its only present bond and becomes $\\mathrm X$. This gives (1) and the claim on kept sets in (2). A bond dropped by a site of status $\\mathrm D$ in $D_j$ is either a bond to a removed site, which is unconstrained, or a bond already dropped in $D$, which satisfies (C) in $D$, or a bond used by $w$. A bond used by $w$ is dropped by both its ends, and both ends were visited by $w$; they have status $\\mathrm D$ or $\\mathrm X$, except the live end $v_j$ for its arrival bond. This proves (2). Removing $v_j$ makes the arrival bond a bond to a removed site, and $v_j$ was the only site violating the conditions of $\\Dcons(G)$, which proves (3).\n\nAt a first visit at $y = v_j$, the site $y$ has status $\\mathrm U$, its arrival bond is dropped, and the arrival site $s = v_{j - 1}$ (or $c$) has status $\\mathrm D$, keeping two of its three bonds other than $\\{s, y\\}$, or $\\mathrm X$. By (2) and (C), every other non-removed site of the template has status $\\mathrm U$ with all its bonds, or $\\mathrm D$ with exactly two kept bonds, and a neighbour of $y$ of status $\\mathrm D$ keeps its bond to $y$, because $y$ keeps all its bonds other than the arrival bond. These are the rules of Definition~\\ref{d:pattern}; the statuses of the tips and the bonds of the corners leaving the template are not part of the pattern. Finally, the remaining neighbours $f, g, o$ of $y$ are pairwise at distance $2$ with the common neighbour $y$, which is removed in $E'_{j + 1}$; each has status $\\mathrm U$, or status $\\mathrm D$ with its bond to $y$ among its two kept bonds and hence at most one present bond in $E'_{j + 1}$.\n\\end{proof}\n",
+    "after": "\\begin{lemma}\\label{l:closure}\nLet $D\\in\\Dcons(G)$, $(u,v)\\in P_X(D)$ with centre $c$, and\n$u\\notin S$. Let $w=(v_0,\\dots,v_m)$ be a trail from $u$ that does\nnot visit $S$ before its last site. Thus the lemma also applies when\nthe trail is required to avoid $v$ before its last site. Before forming\n$D_0$, if $u$ has status $\\mathrm U$, drop its kept bond to $c$;\nthis changes no partition function because $c$ is removed. Let $D_j$\nbe the auxiliary spin network after tracing the prefix $w_j$ from\nthese normalized initial data. Then, for $0\\le j\\le m$:\n\\begin{enumerate}\n\\item Every visited site other than the live endpoint $v_j$ has\nstatus $\\mathrm D$ or $\\mathrm X$.\n\\item Condition (C) holds between non-removed sites. Every\n$\\mathrm D$ site other than $v_j$ keeps exactly two bonds, and every\n$\\mathrm U$ site other than $v_j$ keeps all its bonds. If $j\\ge1$,\nthe live endpoint has status $\\mathrm U$ or $\\mathrm D$: in the\nfirst case it keeps all its bonds inside $G$ except its arrival bond;\nin the second it keeps exactly one bond. The other end of the arrival\nbond has status $\\mathrm D$ or $\\mathrm X$. At $j=0$, a live\n$\\mathrm U$ site keeps its three non-$c$ bonds, while a live\n$\\mathrm D$ site retains its original two kept bonds and has at most\none present bond.\n\\item Whenever $v_j\\notin S$, the underlying mass-one data\n$E'_{j+1}$ obtained by removing $v_j$ belong to $\\Dcons(G)$.\n\\end{enumerate}\nIf $v_m=e\\in S$, then $e$ has status $\\mathrm U$ and has lost only\nits arrival bond. This is the sole kept-set defect in the underlying\nterminal trace relative to $\\Dcons(G)$; all its original leg factors\nare retained. No removal of $e$, and no membership in $\\Dcons(G)$\nafter such a removal, is asserted.\n\nConsequently, for $0\\le j<m$, if step $j+1$ is a first visit at\n$y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when\n$j=0$, belongs to $\\Pext$. The pairs among its non-removed remaining\nneighbours belong to $P_B(E'_{j+1})\\cup P_C(E'_{j+1})$, with\ncentre $y$.\n\\end{lemma}\n\n\\begin{proof}\nAt $j=0$, condition (C) is unchanged by dropping a bond to the\nremoved centre. Removing the live endpoint restores the original\nkept-set conditions at every remaining site. For a later departure\nfrom a live $\\mathrm U$ site, its arrival bond (or its bond to $c$\nat the initial departure) and its out-bond are distinct; dropping the\nout-bond and changing its status to $\\mathrm D$ leaves exactly two\nkept bonds. If the initial site is $\\mathrm D$, it can depart only\nby its sole present bond and becomes $\\mathrm X$. Every later live\n$\\mathrm D$ site has lost its arrival bond from a two-bond kept set;\nat a departure it becomes $\\mathrm X$. On arrival, an unvisited\n$\\mathrm U$ site loses just its arrival bond, and a $\\mathrm D$\nsite loses one of its two kept bonds. All traversed bonds are dropped\nby both ends. These observations prove (1) and (2) inductively.\n\nBefore a hit of $S$, the live endpoint is the only possible exception\nto the full $\\mathrm U$ and two-bond $\\mathrm D$ kept sets. Removing\nit leaves condition (C) intact and does not remove a protected site;\nthis proves (3). At a first hit $e\\in S$, that site was unvisited\nand has status $\\mathrm U$, so only its arrival bond is lost.\n\nAt a first-visit departure $y$, the arrival site is removed or has\nstatus $\\mathrm D$ with two kept bonds other than its bond to $y$.\nEvery other $\\mathrm U$ site keeps all its bonds. By (C), each\nother non-removed neighbour of $y$ that has status $\\mathrm D$\nkeeps its bond to $y$ and one other bond; every non-live\n$\\mathrm D$ corner keeps two bonds. These are the rules of\nDefinition~\\ref{d:pattern}, with the tips replaced by their covering\ntips and external slots filled as in Lemma~\\ref{l:local}. Finally,\nany two non-removed remaining neighbours of $y$ are at distance two\nwith common neighbour $y$, which is removed in $E'_{j+1}$.\nA $\\mathrm D$ neighbour has at most one present bond after this\nremoval, so the response pairs have the stated pair classes.\nThe argument uses no avoidance of the distinguished target $v$.\n\\end{proof}\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E15",
+    "findings": [
+      "R4-1",
+      "R4-2",
+      "R4-3"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 68,
+    "frozen_end": 68,
+    "before": "Let $G$, $\\tau$, $D$ and $(u, v) \\in P_X(D)$ with centre $c$ be as in \\eqref{e:FX} with $d_0 = \\min(d(u, S), d(v, S)) \\ge d \\ge 1$; in particular $u, v \\notin S$, and $u$ has at most three present bonds because $c$ is removed. By Proposition~\\ref{p:pairwalk} with $T = S \\cup \\{v\\}$, applied to $\\tau$ and to $0$, the trails are the same in both expansions, and\n",
+    "after": "Let $G$, $\\tau$, $D$ and $(u, v) \\in P_X(D)$ with centre $c$ be as in \\eqref{e:FX} with $d_0 = \\min(d(u, S), d(v, S)) \\ge d \\ge 1$; in particular $u, v \\notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\\mathrm U$ by dropping its kept bond to the removed centre, as in Lemma~\\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio or correlation. If the starting site has status $\\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\\ref{l:exposure} in $T_1$. By Proposition~\\ref{p:pairwalk} with $T = S \\cup \\{v\\}$, applied to $\\tau$ and to $0$, the trails are the same in both expansions, and\n",
+    "note": "State the common normalization convention and check the added exposure hypothesis before the expansions."
+  },
+  {
+    "report": "ADJ-R4",
+    "edit": "E16",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 80,
+    "frozen_end": 80,
+    "before": "\\emph{The term $T_2$.} Let $w \\in \\mathcal W_1$, ending at $e \\in S$. By Proposition~\\ref{p:pairwalk} in $D;[w]$, started at $v$ with target $e$ and stopping set $S$, $|\\mathcal X^\\cdot(w)| \\le \\sum_{w' \\in \\mathcal T_{D;[w]}(v, S)} 3^{-|w'|} R^\\cdot_{D;[w]}(w')$. In $D;[w]$ the only violation of the rules of $\\Dcons(G)$ is at $e$, whose arrival bond is dropped (Lemma~\\ref{l:closure}(2)). A first-visit step of $w'$ at $y'$ whose template does not contain both $e$ and the other end of that bond has its pattern in $\\Pext$ by the argument of Lemma~\\ref{l:closure}; the remaining first-visit steps have $e \\in \\mathsf T(y')$ and $y' \\neq e$, so there are at most $12$ of them. Every $w \\in \\mathcal W_1$ belongs to $\\mathcal T_D(u, S)$. The proof of Lemma~\\ref{l:onepoint} applies to $R^0$ as well as to $R^\\tau$, since $\\rho^0_j \\le 1 \\le x_j$ for first visits and $\\rho^0_j = 3/5$ for revisits. Applying Lemma~\\ref{l:onepoint} in $D$ from $u$ and in $D;[w]$ from $v$, we obtain\n",
+    "after": "\\emph{The term $T_2$.} Let $w\\in\\mathcal W_1$ end at $e\\in S$.\nThe terminal object $D;[w]$ is an auxiliary spin network, so\nProposition~\\ref{p:pairwalk} applies in it from $v$ with target $e$\nand stopping set $S$; $v$ was not visited by $w$ and still has at\nmost three present bonds. Since terminal scalar products have absolute\nvalue at most one,\n\\[\n|\\mathcal X^\\cdot(w)|\\le\n\\sum_{w'\\in\\mathcal T_{D;[w]}(v,S)}\n3^{-|w'|}R^\\cdot_{D;[w]}(w').\n\\]\nBy Lemma~\\ref{l:closure}, the underlying terminal trace satisfies the\nconsistent-domain rules except that $e$ has dropped its arrival bond.\nBefore the second expansion, if $v$ has status $\\mathrm U$, drop\nits kept bond to the removed centre $c$; this changes no partition\nfunction or ratio. Repeat the kept-set induction of\nLemma~\\ref{l:closure}, allowing this fixed defect at $e$ as well as\nthe current live endpoint. Before the second trail hits $S$, every\nfirst-visit departure at $y'$ with $d(y',e)>2$ has the ordinary\n$\\Pext$ pattern: the defect is outside its template. Missing\nexternal factors are covered by the averaging in\nLemma~\\ref{l:local}. The possible exceptional first-visit departures\ntherefore lie in $\\{y':0<d(y',e)\\le2\\}$, a set of $12$ sites;\na site can be departed from with status $\\mathrm U$ at most once.\nAll departures remain outside $S$ and all original leg factors remain\nunchanged. This proves the hypotheses of Lemma~\\ref{l:onepoint} for\nthe second expansion. That lemma also applies to the first sum over\nall $\\mathcal T_D(u,S)$, using the normalization at $u$ and the\nvariant of Lemma~\\ref{l:closure} that does not exclude $v$. Its\npointwise bound applies to the maximum of the pinned and free ratios.\nConsequently,\n",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E01",
+    "findings": [
+      "R5-1"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 76,
+    "frozen_end": 76,
+    "before": "Let $V_t$ be a memory walk with $t_* < T$, and let $\\mathbb W$ be its weight matrix on $\\Omega \\times \\{\\mathrm A, \\mathrm B, \\mathrm C, \\mathrm D\\}$ without rules, $\\mathbb W((\\omega, \\varphi), (\\omega \\cdot d, \\varphi'))$ the weight of the step $d$ from phase $\\varphi$ to phase $\\varphi'$ in (II). Suppose that $z \\colon \\Omega \\times \\{\\mathrm A, \\mathrm B, \\mathrm C, \\mathrm D\\} \\to (0, \\infty)$, $\\lambda \\in (0, 1)$ and $a \\ge 0$ satisfy $z \\mathbb W \\le \\lambda z$ and $V_T(\\omega, \\xi, \\varphi) \\le a \\, z(\\omega, \\varphi)$ for all $\\omega, \\xi, \\varphi$. Then",
+    "after": "Let $V_t$ be a memory walk with $t_* < T$, and let $\\mathbb W$ be its weight matrix on $\\Omega \\times \\{\\mathrm A, \\mathrm B, \\mathrm C, \\mathrm D\\}$ without rules, $\\mathbb W((\\omega, \\varphi), (\\omega \\cdot d, \\varphi'))$ the weight of the step $d$ from phase $\\varphi$ to phase $\\varphi'$ in (II). Suppose that $z \\colon \\Omega \\times \\{\\mathrm A, \\mathrm B, \\mathrm C, \\mathrm D\\} \\to [0, \\infty)$, $\\lambda \\in (0, 1)$ and $a \\ge 0$ satisfy $z \\mathbb W \\le \\lambda z$ and $V_T(\\omega, \\xi, \\varphi) \\le a \\, z(\\omega, \\varphi)$ for all $\\omega, \\xi, \\varphi$. Then",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E02",
+    "findings": [
+      "R5-1"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 90,
+    "frozen_end": 90,
+    "before": "A sub-invariant $z$ is obtained from the left Perron vectors of the diagonal blocks and the solutions of $z_{\\mathrm C} (\\lambda - \\mathbb W_{\\mathrm{CC}}) = z_{\\mathrm A} \\mathbb W_{\\mathrm{AC}}$, $z_{\\mathrm D} (\\lambda - \\mathbb W_{\\mathrm{DD}}) = z_{\\mathrm B} \\mathbb W_{\\mathrm{BD}}$; only the inequality $z \\mathbb W \\le \\lambda z$ is used, and it is checked directly.",
+    "after": "A nonnegative candidate $z$ is obtained by power iteration in the diagonal blocks and approximate solution of\n$z_{\\mathrm C}(\\lambda-\\mathbb W_{\\mathrm{CC}})=z_{\\mathrm A}\\mathbb W_{\\mathrm{AC}}$ and\n$z_{\\mathrm D}(\\lambda-\\mathbb W_{\\mathrm{DD}})=z_{\\mathrm B}\\mathbb W_{\\mathrm{BD}}$;\nonly the inequality $z\\mathbb W\\le\\lambda z$ is used, and it is checked directly.\nThe constructed vector is zero in each phase at exactly the $64$ windows of indegree zero, and positive at every other window.\nNo update can put mass at a window of indegree zero, so $V_T$ vanishes there for $T\\ge21$.\nIn applying Lemma~\\ref{l:remainder}, we check this zero-support condition and take ratios only where $z>0$.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E03",
+    "findings": [
+      "R5-1"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 114,
+    "frozen_end": 114,
+    "before": "For $n > 260$ we use Lemma~\\ref{l:remainder} with $T = 260$ for the walk of mode B, with $\\lambda = 0.97953279$ (the memory-$10$ walk with the weights $x_{\\mathrm s}/3$, $x_{\\mathrm t}/3$, $1/5$ has growth $0.9795328$), a vector $z$ for which $z \\mathbb W \\le \\lambda z$ is verified, and $a = \\max V_{260}/z$.",
+    "after": "For $n>260$ we use Lemma~\\ref{l:remainder} with $T=260$ for the walk of mode B, taking $\\lambda$ to be the stored binary64 value \\texttt{lcheck} used in both the sub-invariance check and the remainder calculation, with $0<\\lambda\\le0.979532789<0.97953279$.\nThe nonnegative vector $z$ satisfies the directly checked inequality $z\\mathbb W\\le\\lambda z$.\nWe verify $V_{260}(\\omega,\\xi,\\varphi)=0$ whenever $z(\\omega,\\varphi)=0$, and choose $a$ as an upward-rounded upper bound for\n$\\max_{z(\\omega,\\varphi)>0}V_{260}(\\omega,\\xi,\\varphi)/z(\\omega,\\varphi)$.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E04",
+    "findings": [
+      "R5-2"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 3,
+    "frozen_end": 3,
+    "before": "The programs and their output files are kept with the project; we refer to them by file name.",
+    "after": "The programs and output files are kept with the project; the production records and exact rational assembly for (H3$'$) are identified in \\S\\ref{s:tailtrust} and are to be included with the accompanying programs.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E05",
+    "findings": [
+      "R5-2"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 119,
+    "frozen_end": 119,
+    "before": "The table is assembled by summing the printed per-$n$ values.",
+    "after": "The table is assembled from the five files\n\\texttt{r961A\\_B\\_1.txt}, \\texttt{r961A\\_B\\_2.txt},\n\\texttt{r961A\\_C\\_1.txt}, \\texttt{r961A\\_C\\_2.txt},\n\\texttt{r961A\\_C\\_3.txt} and the two files\n\\texttt{r961B\\_B.txt}, \\texttt{r961B\\_C.txt}, archived in\n\\texttt{agents/75-audit-tail/out/rerun/} in the full project.\nThe commands are recorded in \\texttt{agents/75-audit-tail/code/run\\_all.sh}\nand \\texttt{run\\_rest1.sh}, \\texttt{run\\_rest2.sh}; the rerun used\n\\texttt{gcc -O2 -frounding-math -ffp-contract=off}.\nThe exact assembly is implemented in \\texttt{agents/75-audit-tail/code/assemble75.py}:\nsum the printed decimals as rational numbers, using the class multiplicities in the caption,\nthe mode-A values for $22\\le n\\le106$, the mode-B values for $108\\le n\\le260$,\nand the printed mode-B remainder, without subtracting any rounded tail totals.\nThe denominator is the exact binary64 number $h_C=2769713770832855/2251799813685248$.\nThe assembled numerators are $0.987762443170525$ and $1.1914067844431$;\ntheir quotients are at most $0.987763$ and $0.968624$.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E06",
+    "findings": [
+      "R5-1",
+      "R5-2"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 121,
+    "frozen_end": 121,
+    "before": "\\emph{Arithmetic.} All quantities are sums of products of nonnegative numbers, and no subtraction occurs. The programs set the rounding mode upward before any computation; the constants $\\cs, \\ct$ are decreased and $\\bar\\alpha, \\bar\\beta$ increased by one unit in the last place after decimal conversion, and $1/3$, $1/5$, $1/\\cs$, $1/\\ct$ are computed by upward division. The walk is stored in binary32 and the enumeration in binary64; every product, sum and conversion is rounded upward, so every stored value is at least the exact one, and underflow produces a positive subnormal number, never $0$. In the check of $z \\mathbb W \\le \\lambda z$ the left side is rounded upward and the right side downward, and $1 - \\lambda$ is rounded downward. The output decimals are rounded upward as well (the C library rounds conversions in the current rounding mode), and the table sums them exactly as rational numbers. The programs must be compiled with \\texttt{-frounding-math}: the compiler ignores the \\texttt{FENV\\_ACCESS} pragma, and without this option it may evaluate or move floating-point operations across the changes of the rounding mode. The hypothesis $\\lambda < 1$ of Lemma~\\ref{l:remainder} is not checked by the program and must be read off its output.",
+    "after": "\\emph{Arithmetic.}\nThe enumeration and walk bounds are evaluated as sums of products of nonnegative quantities.\nThe constants $\\cs,\\ct$ are decreased and $\\bar\\alpha,\\bar\\beta$ increased by one unit in the last place after decimal conversion;\n$1/3$, $1/5$, $1/\\cs$ and $1/\\ct$ are computed by upward division.\nThe walk arrays are stored in binary32 and the enumeration in binary64.\nBound-producing products, sums and conversions, and their output decimals, are rounded upward, with gradual underflow.\nThe ordering search and the construction of a candidate $z$ need not use upward rounding: any chosen ordering gives an upper bound for the per-trail minimum, and the stored candidate is subsequently treated as an exact dyadic vector.\nIn checking $z\\mathbb W\\le\\lambda z$, the left side is rounded upward and the right side downward; $1-\\lambda$ is rounded downward in the remainder formula.\nAcceptance requires finite nonnegative data, $0<\\lambda<1$, the checked sub-invariance inequality, and $V_T=0$ wherever $z=0$.\nRatios defining $a$ are taken only at positive coordinates of $z$, with upward rounding; nonfinite values or failed checks reject the certificate.\nThe table uses exact rational sums of the upward-printed per-length bounds and the upward-printed remainder, followed by decimal ceilings.\nThe programs must be compiled with \\texttt{-frounding-math}, without unsafe reassociation; the archived rerun also used \\texttt{-ffp-contract=off}.\nCorrect directed arithmetic, conversions and decimal output, and gradual underflow, are part of the computational trust assumption.\nThe explicit support and finiteness guards are implemented in \\texttt{tailmem4\\_checked.c} and \\texttt{tailmem5\\_checked.c}, archived under \\texttt{reports/ADJ-R5/audit/} relative to the project root; the production records identified above were generated by the original sources. Their zero-support condition follows from the indegree argument above.",
+    "note": "Identify the actual guarded audit copies and distinguish them from the archived production sources; no production rerun is claimed."
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E07",
+    "findings": [
+      "R5-2"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 123,
+    "frozen_end": 123,
+    "before": "(4) The numbers of Table~\\ref{tab:tail} come from a recomputation from the source, compiled as above, with the coefficients $\\bar\\alpha = 0.18094$, $\\bar\\beta = 0.36751$ entered directly. An earlier run with the truncated values $0.18093$, $0.36750$ gave $0.987730$ and $0.968592$; every per-$n$ output of the two runs differs by a factor in $[1.0000322, 1.0000332]$. Since every term of \\eqref{e:mT} carries exactly one of the coefficients, linearly and with a nonnegative weight, and the orderings may be kept, the earlier run alone also gives $\\rho(M_1) \\le 0.987730 \\cdot 0.18094/0.18093 < 0.98779$.",
+    "after": "(4) The numbers of Table~\\ref{tab:tail} come from the archived recomputation with\n$\\bar\\alpha=0.18094$, $\\bar\\beta=0.36751$ entered directly, as identified above.\nExact assembly of the earlier outputs with $0.18093$, $0.36750$ gives the row bounds\n$0.987731$ and $0.968592$.\nEvery printed per-$n$ output of the two runs differs by a factor in\n$[1.0000322,1.0000333]$.\nSince every term of \\eqref{e:mT} carries exactly one response coefficient, linearly and with a nonnegative weight,\nand the earlier orderings may be kept, the earlier run alone also gives\n$\\rho(M_1)\\le0.987731\\cdot0.18094/0.18093<0.98779$.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E08",
+    "findings": [
+      "R5-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 33,
+    "frozen_end": 33,
+    "before": "\\emph{Certificate.} The program \\texttt{alm8.c} computes $\\mathsf M_8$ for windows of length $m = 8$ ($7{, }500$ windows) at $(\\cs, \\ct) = (0.961, 0.935)$, with all weights given as exact integer quotients rounded upward, all sums and products evaluated in floating point with the rounding mode set upward, and the Collatz--Wielandt quotient for a power-iteration vector $h$ evaluated with upward rounding.",
+    "after": "\\emph{Certificate.}\nFor the certified instance, \\texttt{alm8\\_checked.c}, archived under \\texttt{reports/ADJ-R5/audit/} relative to the project root, first validates $m=k=8$ and the integer parameters $9610,9350$, and initializes only the powers $4^i$ for $0\\le i\\le8$; all integer codes and array indices in this instance are within their checked ranges.\nIt computes $\\mathsf M_8$ on the $7{,}500$ windows with weights given by exact integer quotients rounded upward.\nThe matrix sums and products and the final Collatz--Wielandt verification use upward rounding; the intervening power iteration only chooses a test vector.",
+    "note": "Name the existing corrected implementation rather than attribute its behavior to the defective frozen alm8.c."
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E09",
+    "findings": [
+      "R5-4"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 33,
+    "frozen_end": 33,
+    "before": "Every computed number is therefore at least the exact one, and the output is $\\max_\\varsigma (\\mathsf M_8 h)_\\varsigma / h_\\varsigma \\le 0.85594872 \\le 0.98075^8$, that is, $q \\le 0.98075$.",
+    "after": "The final upward evaluation bounds\n$\\max_\\varsigma(\\mathsf M_8h)_\\varsigma/h_\\varsigma$ by $0.85594872$.\nIts upper bound is printed with upward rounding, together with the exact hexadecimal representation of the stored binary64 bound.\nThe desired rate is certified by the exact rational comparison\n$0.85594872<(3923/4000)^8$, giving $q\\le0.98075$;\nno printed value obtained by taking a numerical root is used as a certificate.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E10",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 135,
+    "frozen_end": 135,
+    "before": "Let $x_{\\mathrm s} = 1/\\cs$ and $x_{\\mathrm t} = 1/\\ct$. For a trail $w = (v_0, \\dots, v_m)$ of $\\Z^2$ with a designated arrival direction at $v_0$, let $\\mathsf W(w) = \\prod_{j = 1}^m \\omega_j$, where $\\omega_j = 1/5$ if step $j$ leaves a site among $v_0, \\dots, v_{j - 2}$ (a site left before), and $\\omega_j = x_{\\mathrm s}/3$ or $x_{\\mathrm t}/3$ if it is a straight or turning first visit.",
+    "after": "Let $x_{\\mathrm s}=1/\\cs$ and $x_{\\mathrm t}=1/\\ct$.\nFor a trail $w=(v_0,\\dots,v_m)$ of $\\Z^2$ with a designated unit arrival direction $a$ at $v_0$, we require $v_1-v_0\\ne-a$ when $m\\ge1$.\nThe arrival direction is used to classify the first passage; its virtual incoming bond is not otherwise included among the bonds of $w$.\nLet $\\mathsf W(w)=\\prod_{j=1}^m\\omega_j$, with the empty product equal to $1$,\nwhere $\\omega_j=1/5$ if step $j$ leaves a site among $v_0,\\dots,v_{j-2}$,\nand otherwise $\\omega_j=x_{\\mathrm s}/3$ if $v_j-v_{j-1}$ equals the arrival direction ($a$ for $j=1$, $v_{j-1}-v_{j-2}$ for $j>1$), and $\\omega_j=x_{\\mathrm t}/3$ otherwise.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E11",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 138,
+    "frozen_end": 138,
+    "before": "where the sum runs over the trails of $\\Z^2$ of length $n$ with that start and arrival direction.",
+    "after": "where the sum runs over the trails of $\\Z^2$ of length $n$ with that start and arrival direction and with initial reversal forbidden as above.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E12",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 142,
+    "frozen_end": 142,
+    "before": "with a designated arrival direction",
+    "after": "with a designated arrival direction $a$ such that the bond $\\{x-a,x\\}$ is absent in $D$",
+    "note": "Merged into the auxiliary-network one-point lemma from ADJ-R4 E11."
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E13",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 149,
+    "frozen_end": 149,
+    "before": "Every trail of $D$ is a trail of $\\Z^2$.",
+    "after": "Every trail of $D$ is a trail of $\\Z^2$ with initial reversal forbidden for the designated arrival direction, since the bond $\\{x-a,x\\}$ is absent in $D$.",
+    "note": "Merged into the common pinned/free majorant proof from ADJ-R4 E13."
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E14",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 16,
+    "frozen_end": 16,
+    "before": "with a fixed start and arrival direction",
+    "after": "with a fixed start and arrival direction and with initial reversal forbidden as in \\S\\ref{s:H2def}",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E15",
+    "findings": [
+      "R5-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 33,
+    "frozen_end": 33,
+    "before": "With the exact numbers $\\mathsf W_n$, $n < 16$, the constant of Lemma~\\ref{l:alm} is $C_V \\le 153$.",
+    "after": "The base sums use the initial-step convention of \\S\\ref{s:H2def} and $\\mathsf W_0=1$.\nAt the rational rate $q=0.98075$ they satisfy\n$\\max_{n<8}\\mathsf W_nq^{-n}<1.473$ and\n$\\max_{8\\le n<16}\\mathsf W_nq^{-n}<1.506$.\nTogether with $\\max h/\\min h=100$ and $\\mathsf M_8h\\le q^8h$, the induction of Lemma~\\ref{l:alm} therefore gives $C_V\\le153$.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E16",
+    "findings": [
+      "R5-6"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 119,
+    "frozen_end": 119,
+    "before": "and prints $a$, $\\lambda$ and the bound of Lemma~\\ref{l:remainder}.",
+    "after": "and prints $a$, $\\lambda$ and the bound of Lemma~\\ref{l:remainder}.\nThe archived mode-A summary through $109$ is a memory-walk mass, and includes the unproved-for-trails value at $108$; only its per-length outputs through $106$ are used in Table~\\ref{tab:tail}.\nThe unsplit mode-B production runs use \\texttt{tailmem4.c}.\nThe archived unused unsplit option of \\texttt{tailmem5.c} additionally deletes a window-detected revisit at $[u]$ while the rules act, whereas (R1) with $D_0=\\ast$ retains it with weight $1/5$.\nThis additional deletion cannot remove a genuine trail in the valid range: the known time-$0$ visit, a window-detected later visit, and another departure would exceed the three available bonds at $u$.\nIt defines a stronger auxiliary rule and is not used for the mode-B entries of the table.\nThe obsolete validity comments and summary labels in the archived sources must not be used in place of Lemma~\\ref{l:memdom}.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E17",
+    "findings": [
+      "R5-1",
+      "R5-2",
+      "R5-6"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 128,
+    "frozen_end": 128,
+    "before": "This variant is not used in the main line.",
+    "after": "The seven production records for this variant are\n\\texttt{c961\\_935\\_A\\_B\\_1.txt}, \\texttt{c961\\_935\\_A\\_B\\_2.txt},\n\\texttt{c961\\_935\\_A\\_C\\_1.txt}, \\texttt{c961\\_935\\_A\\_C\\_2.txt},\n\\texttt{c961\\_935\\_A\\_C\\_3.txt}, \\texttt{c961\\_935\\_B\\_B.txt},\n\\texttt{c961\\_935\\_B\\_C.txt} in \\texttt{agents/62-kernel-tail/out/}.\nTheir exact assembly, using the binary64 value of $1.20$, gives row bounds\n$0.913009554182608$ and a quotient less than $0.918245584$.\nThe unsplit implementation uses the additional start-site deletion described in \\S\\ref{s:tailtrust}, justified by the same degree argument, and the remainder uses the nonnegative-vector formulation of Lemma~\\ref{l:remainder}.\nThis variant is not used in the main line.",
+    "note": ""
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E18",
+    "findings": [
+      "R5-1",
+      "R5-2",
+      "R5-6"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 125,
+    "frozen_end": 125,
+    "before": "\\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that \\texttt{tailmem4.c} and \\texttt{tailmem5.c} (about $360$ lines of C each) implement the walk of \\S\\ref{s:memwalk}, the exact enumeration and the check of Lemma~\\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.",
+    "after": "\\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that the implementations and explicit checks identified above implement the walk of \\S\\ref{s:memwalk}, the exact enumeration and the support-aware check of Lemma~\\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.",
+    "note": "Coordinate the trust paragraph with the identified guarded audit copies and documented stronger archived unsplit rule."
+  },
+  {
+    "report": "ADJ-R5",
+    "edit": "E19",
+    "findings": [
+      "R5-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 33,
+    "frozen_end": 33,
+    "before": "and the exact value of $\\max_\\varsigma (\\mathsf M_8 h)_\\varsigma / h_\\varsigma$ is at most $0.8559487104$.",
+    "after": "and the exact value of $\\max_\\varsigma (\\mathsf M_8 h)_\\varsigma / h_\\varsigma$ is at most $0.8559487104$. The exact checker and vector are \\texttt{h2\\_exact.py} and \\texttt{h2\\_integer\\_certificate.tsv} in the same audit directory.",
+    "note": "Locate the actual supplied exact checker and test vector, as required by the adjudication."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E00",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 18,
+    "frozen_end": 18,
+    "before": "the smallest margins are",
+    "after": "the margins on the first two patterns of Table~\\ref{tab:H1}, which have the smallest values found numerically, are",
+    "note": "Qualify the global smallest-margin claim in the introduction."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E01",
+    "findings": [
+      "R6-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 104,
+    "frozen_end": 108,
+    "before": "The class $\\Pext$ consists of the patterns in which: $\\mathsf s$ is removed or has status $\\mathrm D$ keeping two of its three bonds other than $\\{y, \\mathsf s\\}$; each of $\\mathsf e, \\mathsf N, \\mathsf W$ has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\\mathrm{cur}}$ and $Z_{\\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.",
+    "after": "",
+    "satisfied_by": [
+      "ADJ-R4 E08",
+      "ADJ-R4 E09"
+    ],
+    "note": "Already supplied by the full-U passage-site rule and covered-corner slot convention from R4-5; avoid repeating the restrictions in the class paragraph."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E02",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 66,
+    "frozen_end": 66,
+    "before": "tightest straight &",
+    "after": "straight (ID 7645) &",
+    "note": "Replace only the first table-cell text; retain the remainder of the row."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E03",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 67,
+    "frozen_end": 67,
+    "before": "tightest turn &",
+    "after": "turn (ID 1382) &",
+    "note": "Replace only the first table-cell text; retain the remainder of the row."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E04",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 73,
+    "frozen_end": 73,
+    "before": "The hardest patterns of $\\Pext$, which has $2{,}696$ straight patterns and $5{,}266$ turns.",
+    "after": "Selected patterns of $\\Pext$, which has $2{,}696$ straight patterns and $5{,}266$ turns. The first two rows give the smallest values found numerically in the straight and turning classes; global optimality is not certified.",
+    "note": "Replace the opening caption sentence with these two sentences; keep the caption label and the rest."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E05",
+    "findings": [
+      "R6-7"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 73,
+    "frozen_end": 73,
+    "before": "The largest of these matrices has size $245 \\times 245$,",
+    "after": "With the exchange signs split as in \\eqref{e:Meps}, the largest tested matrix has size $179 \\times 179$,",
+    "note": "Replace this caption clause; retain its following clause about production time."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E06",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 77,
+    "frozen_end": 77,
+    "before": "The margins of Theorem~\\ref{t:H1} on the two tightest patterns are",
+    "after": "The margins of Theorem~\\ref{t:H1} on the first two patterns of Table~\\ref{tab:H1} are",
+    "note": "Replace this phrase in Remark 8.4; retain its numerical margins and upper-bound argument."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E07",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 196,
+    "frozen_end": 196,
+    "before": "and the exact values of $c(\\pi)$ for the tightest patterns.",
+    "after": "and the exact values of $c(\\pi)$ for the first three patterns of Table~\\ref{tab:H1}.",
+    "note": "Replace the final phrase of the second sentence."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E08",
+    "findings": [
+      "R6-6"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 263,
+    "frozen_end": 263,
+    "before": "For fixed $\\mu_f, \\mu_g$, the minimum over $|\\mu_o| = \\rho_o$ of $\\mu_o \\cdot (\\mu_f + \\mu_g)$ is $-\\rho_o |\\mu_f + \\mu_g|$, and with $t$ the cosine of the angle between $\\mu_f$ and $\\mu_g$ we have $\\mu_f \\cdot \\mu_g = at$ and $|\\mu_f + \\mu_g|^2 = \\rho_f^2 + \\rho_g^2 + 2at$; every $t \\in [-1, 1]$ occurs. Minimizing over $t$, we obtain \\eqref{e:closed}.",
+    "after": "For fixed $\\mu_f, \\mu_g$, the minimum over $|\\mu_o| = \\rho_o$ of $\\mu_o \\cdot (\\mu_f + \\mu_g)$ is $-\\rho_o |\\mu_f + \\mu_g|$. Write $\\mu_x = \\rho_x d_x$ for $x \\in \\{f,g\\}$, with $d_x$ a unit vector chosen arbitrarily when $\\rho_x = 0$, and put $t = d_f \\cdot d_g$. Then $\\mu_f \\cdot \\mu_g = at$ and $|\\mu_f + \\mu_g|^2 = \\rho_f^2 + \\rho_g^2 + 2at$; every $t \\in [-1,1]$ occurs in this parametrization. Minimizing over $t$, we obtain \\eqref{e:closed}.",
+    "note": "Replace the angle-parametrization paragraph of the proof of Proposition D.9."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E09",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 270,
+    "frozen_end": 270,
+    "before": "among them the three tightest patterns of the class.",
+    "after": "including the three examples below.",
+    "note": "Replace the concluding phrase of the first sentence."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E10",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 272,
+    "frozen_end": 272,
+    "before": "\\item The tightest straight pattern:",
+    "after": "\\item The straight pattern in the first row of Table~\\ref{tab:H1}:",
+    "note": "Replace the item introduction; retain its statuses, radii, and value."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E11",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 273,
+    "frozen_end": 273,
+    "before": "\\item The tightest turn ($o = \\mathsf e$):",
+    "after": "\\item The turn in the second row of Table~\\ref{tab:H1} ($o = \\mathsf e$):",
+    "note": "Replace the item introduction; retain its statuses, radii, and value."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E12",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 282,
+    "frozen_end": 282,
+    "before": "A second enumeration, written independently from Definition~\\ref{d:pattern}, finds $106{,}101$ configurations that satisfy the rules and the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class.",
+    "after": "A second enumeration, written independently from Definition~\\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbour, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak enum\\_\\allowbreak pext.py} and \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak enum\\_\\allowbreak pext.txt}, relative to \\texttt{agents/\\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle.",
+    "note": "Replace the second-enumeration sentence and add the archive location and bundle-scope statement."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E13",
+    "findings": [
+      "R6-2"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 282,
+    "frozen_end": 282,
+    "before": "In the representations of \\S\\ref{s:localred}, the number of vectors is $k \\le 11$.",
+    "after": "The reduced representation of \\S\\ref{s:localred} always has $k \\le 11$. The unreduced representation can have $k = 12$, but every representation selected in the two certificate files has $k \\le 11$.",
+    "note": "Replace the last sentence of the paragraph."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E14",
+    "findings": [
+      "R6-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 284,
+    "frozen_end": 284,
+    "before": "The contraction is carried out in $64$-bit integer arithmetic, with run-time assertions that every entry stays below $2^{61}$.",
+    "after": "The contraction is carried out in $64$-bit integer arithmetic, with binary64 shadow computations used for conservative overflow guards. The small integer moment tensors are first stored exactly in binary64 arrays and then converted to integers. Assume binary64 round-to-nearest arithmetic, let $u=2^{-53}$, $\\gamma_{32}=32u/(1-32u)$, and $\\eta=(1-u)^2(1-\\gamma_{32})>1-10^{-12}>3/4$. Each contracted entry is a sum of at most sixteen nonnegative products, so its shadow $\\widehat s$ and exact value $s$ satisfy $\\widehat s\\ge\\eta s$ (two input conversions and at most thirty-two arithmetic roundings suffice). Thus a passing shadow guard $\\widehat s<2^{61}$ implies $s<2^{61}/\\eta$, and a sum of three such contraction entries is smaller than $2^{63}$. The subsequent shadow bounds for the current and next coefficient sums are computed from these nonnegative integer arrays; their passing threshold $2^{58}$ implies exact sums smaller than $2^{58}/\\eta<2^{59}$. Consequently every accepted coefficient computation is free of integer overflow, including its intermediate sums.",
+    "note": "Replace the contraction/overflow sentence by the arithmetic justification."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E15",
+    "findings": [
+      "R6-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 286,
+    "frozen_end": 286,
+    "before": "Floating-point arithmetic is used only for this choice.",
+    "after": "Floating-point arithmetic is used for this choice, for the conservative overflow guards just described, and for diagnostics. Positivity is decided in unbounded integer arithmetic, and the closed-form tests use exact rational arithmetic.",
+    "note": "Replace the restriction on floating-point use."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E16",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 292,
+    "frozen_end": 292,
+    "before": "\\item An evaluator of $Z_{\\mathrm{cur}}$ and $Z_{\\mathrm{next}}$ written independently from Definition~\\ref{d:pattern}, with all template sites kept as spins, agrees with the integer coefficients at three random points of every pattern, to a relative error of $2.3 \\cdot 10^{-15}$.",
+    "after": "\\item An independent evaluator keeps the passage site, tips and corners as spins and compares the ratio $Z_{\\mathrm{cur}}/Z_{\\mathrm{next}}$ with the ratio obtained from the integer coefficients, at three random points with untied slot vectors for every pattern. There are $23{,}893$ comparisons, including seven additional zero-slot cases, and the largest observed relative discrepancy is less than $2.4\\cdot10^{-15}$. The programs are \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak brute.py} and \\texttt{xcheck\\_\\allowbreak brute.py} in the same directory; the output is \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak xcheck\\_\\allowbreak brute\\_\\allowbreak all.json}.",
+    "note": "Replace check (1), stating that the archived comparison concerns ratios."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E17",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 293,
+    "frozen_end": 293,
+    "before": "\\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators, written in the basis of \\S\\ref{s:inversion}; the hypothesis of Lemma~\\ref{l:sector} is thus verified as well as proved. A change of a single non-constant coefficient of $3 D \\hat Z_{\\mathrm{cur}}$ by $1$ was detected by these exact checks in $30$ of $30$ random trials.",
+    "after": "\\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators in the basis of \\S\\ref{s:inversion}; see \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak su2check.py} and \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak su2check\\_\\allowbreak all\\_\\allowbreak summary.json}. The archived output \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak unitpert.txt} records detection of a change by $1$ to a single non-constant coefficient of $3D\\hat Z_{\\mathrm{cur}}$ in all $30$ trials; its generating driver is not archived.",
+    "note": "Replace check (2), distinguishing the commutator program from the mutation output without a driver."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E18",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 295,
+    "frozen_end": 295,
+    "before": "exceeds the closed form \\eqref{e:closed} by at most $2.4 \\cdot 10^{-15}$",
+    "after": "exceeds the closed form \\eqref{e:closed} by at most $2.5 \\cdot 10^{-15}$",
+    "note": "Round the archived maximum 2.4424906541753444e-15 upward in check (4)."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E19",
+    "findings": [
+      "R6-3",
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 296,
+    "frozen_end": 296,
+    "before": "\\item The stored certificates of the tightest patterns are rejected when the threshold is raised $2 \\cdot 10^{-5}$ above the numerical minimum of the ratio.",
+    "after": "\\item The stored certificates of the three closed-form examples above are rejected at thresholds obtained by adding $2\\cdot10^{-5}$ to the numerical minimum and rounding upward to a multiple of $10^{-5}$; see \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak negctl.py} and \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak negctl\\_\\allowbreak hard.json}.",
+    "note": "Replace check (5), removing the global ranking and specifying the archived threshold convention (also Finding 4)."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E20",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "A second implementation, written independently of the programs above, re-verifies the certificates of both files.",
+    "after": "A second implementation, in \\texttt{73-reimplement-H1/\\allowbreak code/\\allowbreak wick.py}, \\texttt{opcert.py}, \\texttt{run\\_\\allowbreak opall.py}, \\texttt{closed.py}, \\texttt{run\\_\\allowbreak k1.py}, \\texttt{numeval.py} and \\texttt{run\\_\\allowbreak k1b.py} in the same directory, re-verifies the certificates of both files independently of the programs above.",
+    "note": "Replace the introductory sentence identifying the independent implementation."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E21",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "and never goes below it.",
+    "after": "and never goes below it. The corresponding outputs are \\texttt{operator\\_\\allowbreak only\\_\\allowbreak results.jsonl}, \\texttt{k1\\_\\allowbreak exact.jsonl}, \\texttt{k1b\\_\\allowbreak numerics.jsonl} and \\texttt{summary.txt} under \\texttt{73-reimplement-H1/\\allowbreak out/\\allowbreak }.",
+    "note": "Append the archived output locations to the independent-implementation paragraph."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E22",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 300,
+    "frozen_end": 300,
+    "before": "The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\\mathsf T}$ decomposition on $600$ random symmetric test matrices.",
+    "after": "The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\\mathsf T}$ decomposition on $600$ random symmetric test matrices; the test is \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak test\\_\\allowbreak bareiss72.py}, and its result is recorded in \\texttt{72-audit-H1-certificates/\\allowbreak NOTES.md} and \\texttt{LOG.md} in that directory.",
+    "note": "Add the location of the actual 600-case LDL test and its recorded result."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E23",
+    "findings": [
+      "R6-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 300,
+    "frozen_end": 300,
+    "before": "Since overflow is excluded by run-time assertions,",
+    "after": "The binary64 error bounds above and the run-time assertions exclude overflow for accepted certificates; therefore",
+    "note": "Replace this trust-statement clause; retain the requirements on assertions and the tip radius."
+  },
+  {
+    "report": "ADJ-R6",
+    "edit": "E24",
+    "findings": [
+      "R6-3"
+    ],
+    "file": "app-constants.tex",
+    "frozen_start": 17,
+    "frozen_end": 17,
+    "before": "$\\min_\\pi c(\\pi)$ & $0.961240\\ldots$, $0.935565\\ldots$ & straight, turn; closed forms (\\S\\ref{s:closed}) \\\\",
+    "after": "two displayed $c(\\pi)$ & $0.961240\\ldots$, $0.935565\\ldots$ & straight, turn; exact values for the first two rows of Table~\\ref{tab:H1} (\\S\\ref{s:closed}) \\\\",
+    "note": "Replace the constants-table row without asserting minima over the classes."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E01",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 18,
+    "frozen_end": 18,
+    "before": "the margins on the first two patterns of Table~\\ref{tab:H1}, which have the smallest values found numerically, are $2.4 \\cdot 10^{-4}$ and $5.6 \\cdot 10^{-4}$",
+    "after": "the margins on the first two decoupled examples of Table~\\ref{tab:H1} are $2.4 \\cdot 10^{-4}$ and $5.6 \\cdot 10^{-4}$",
+    "note": "R2-5: remove the unproved global-minimum implication; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E02",
+    "findings": [
+      "FN-R1-square"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 24,
+    "frozen_end": 24,
+    "before": "The ground state $B$ becomes a nowhere-vanishing function whose square is a nearest-neighbour Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "after": "The frame image of $B$ is nowhere vanishing; its normalized squared modulus, weighted by the frame reference measure and followed by the checkerboard change of variables, gives the nearest-neighbour Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "note": "FN-R1-square: use the weighted squared modulus and the rotated convention"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E03",
+    "findings": [
+      "R7-2"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 30,
+    "frozen_end": 30,
+    "before": "Removing $X$ one site at a time, $\\varepsilon$ is bounded by a sum over the cut of pair-correlation responses",
+    "after": "Removing $X$ one site at a time, $\\varepsilon$ is bounded by a fixed additive constant plus a sum over the cut of pair-correlation responses",
+    "note": "R7-2: retain the first-removal quartic residual"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E04",
+    "findings": [
+      "R7-2"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 32,
+    "frozen_end": 32,
+    "before": "A pair correlation is a sum over trails from one site of the pair to the other, weighted by $3^{-|w|}$ and by ratios of partition functions of traced domains.",
+    "after": "A pair correlation is expanded over trails from one site of the pair, stopped at the other site or at the protected boundary layer, weighted by $3^{-|w|}$ and by ratios of partition functions of traced spin networks, with their terminal correlation factors. In the response, trails ending at the other site give the closed-trail kernel, while trails ending at the protected layer give an exponentially decaying error.",
+    "note": "R7-2: include boundary-stopped trails and terminal factors; use the auxiliary-network terminology introduced by ADJ-R4"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E05",
+    "findings": [
+      "R7-3"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 44,
+    "frozen_end": 44,
+    "before": "All spin configurations are of unit vectors; a ``pin'' is a unit vector attached to a boundary bond.",
+    "after": "Physical frame spins, ordinary continuous spins, and pins are unit vectors. Auxiliary traced spins may lie in $\\Sph \\cup \\{0\\}$, as in Definition~\\ref{d:domain}; a ``pin'' is always a unit vector attached to a boundary bond.",
+    "note": "R7-3: allow the zero atom at diluted sites"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E06",
+    "findings": [
+      "R1-3",
+      "R7-5"
+    ],
+    "file": "sec2-frames-Q.tex",
+    "frozen_start": 63,
+    "frozen_end": 63,
+    "before": "Let $D_{\\mathrm I} \\subset \\Sph$ be the twelve vertices of a regular icosahedron and $D_{\\mathrm{II}} \\subset \\Sph$ the twenty normalized centres of its faces, the vertices of the dual dodecahedron. With uniform weights $w_{\\mathrm I} \\equiv 1/12$ and $w_{\\mathrm{II}} \\equiv 1/20$, both are spherical $5$-designs (see \\cite{DGS77}; we also checked the moments up to degree $6$ numerically, with errors below $10^{-15}$ up to degree $5$), so both are frames. Both sets are invariant under $a \\mapsto -a$. A direct computation shows that for $a \\in D_{\\mathrm I}$ and $b \\in D_{\\mathrm{II}}$,",
+    "after": "Let $D_{\\mathrm I} \\subset \\Sph$ be the twelve vertices of a regular icosahedron and $D_{\\mathrm{II}} \\subset \\Sph$ the twenty normalized centers of its faces, the vertices of the dual dodecahedron. Here is an exact verification of the design property. Put $\\phi=(1+\\sqrt5)/2$, and let $\\operatorname{cyc}$ denote the three cyclic coordinate permutations, with independent indicated signs. In a common orientation the unnormalized vertex sets are\n\\begin{equation*}\nI_0=\\{\\operatorname{cyc}(0,\\pm1,\\pm\\phi)\\},\\qquad\nD_0=\\{(\\pm1,\\pm1,\\pm1)\\}\\cup\n\\{\\operatorname{cyc}(0,\\pm\\phi,\\pm\\phi^{-1})\\},\n\\end{equation*}\nand $D_{\\mathrm I}=I_0/\\sqrt{\\phi+2}$, $D_{\\mathrm{II}}=D_0/\\sqrt3$. For each $b_0\\in D_0$, the three $a_0\\in I_0$ with $a_0\\cdot b_0=1+\\phi$ have pairwise dot product $\\phi$ and sum $(1+\\phi)b_0$, so these are the corresponding face-center directions. Both sets are invariant under independent coordinate sign changes and cyclic permutations. Using $\\phi^2=\\phi+1$, their uniform averages satisfy, for $i\\ne j$,\n\\begin{equation*}\n\\frac1{|D|}\\sum_{a\\in D}a_i^2=\\frac13,\\qquad\n\\frac1{|D|}\\sum_{a\\in D}a_i^4=\\frac15,\\qquad\n\\frac1{|D|}\\sum_{a\\in D}a_i^2a_j^2=\\frac1{15},\n\\quad D=D_{\\mathrm I},D_{\\mathrm{II}}.\n\\end{equation*}\nEvery monomial with an odd coordinate exponent has average zero. Together with the constant moment, these are all the moments through total degree $5$, and they equal the normalized spherical moments. Thus the uniform weights $w_{\\mathrm I}\\equiv1/12$ and $w_{\\mathrm{II}}\\equiv1/20$ make both sets spherical $5$-designs, and hence frames. Both sets are invariant under $a\\mapsto-a$. The same coordinates give the following cross-frame inner products:",
+    "note": "R1-3 and R7-5: replace an unlocated necessary input by an exact proof"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E07",
+    "findings": [
+      "R1-1"
+    ],
+    "file": "sec2-frames-Q.tex",
+    "frozen_start": 101,
+    "frozen_end": 101,
+    "before": "Write $\\iota B(s) = \\beta_x(s_x; s_{N(x)}) \\, \\rho_x(s_{\\Lambda \\setminus x})$, where $\\rho_x$ is the product of the factors of bonds not containing $x$.",
+    "after": "For $e=\\{x,y\\}$ write $q_e=\\epsilon_{e,x}q_{xy}$, with $\\epsilon_{e,x}\\in\\{\\pm1\\}$, and set $c_x=\\prod_{e\\ni x}\\epsilon_{e,x}$. Define\n\\begin{equation*}\n\\rho_x(s_{\\Lambda\\setminus x})\n=c_x\\prod_{e\\not\\ni x}q_e\\bigl((\\zeta(s_z))_{z\\in e}\\bigr).\n\\end{equation*}\nThen $\\iota B(s)=\\beta_x(s_x;s_{N(x)})\\rho_x(s_{\\Lambda\\setminus x})$.",
+    "note": "R1-1: carry the fixed edge-orientation signs"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E08",
+    "findings": [
+      "R1-1"
+    ],
+    "file": "sec2-frames-Q.tex",
+    "frozen_start": 110,
+    "frozen_end": 110,
+    "before": "\\iota \\psi(t, s_{\\Lambda \\setminus x}) = \\beta_x(t; s_{N(x)}) \\, \\chi((\\zeta(s_y))_{y \\neq x})",
+    "after": "\\iota \\psi(t, s_{\\Lambda \\setminus x}) = c_x\\,\\beta_x(t; s_{N(x)}) \\, \\chi((\\zeta(s_y))_{y \\neq x})",
+    "note": "R1-1: correct the second occurrence of the same factorization"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E09",
+    "findings": [
+      "R1-2"
+    ],
+    "file": "sec2-frames-Q.tex",
+    "frozen_start": 137,
+    "frozen_end": 137,
+    "before": "All weights in \\eqref{e:muD} and \\eqref{e:muDW} lie in $[1 - \\gamma_+, 1 + \\gamma_+]$ times the site weights.",
+    "after": "Every internal bond factor and every boundary bond factor in \\eqref{e:muD} and \\eqref{e:muDW} lies in $[1-\\gamma_+,1+\\gamma_+]$, and all site weights are positive.",
+    "note": "R1-2: bound individual factors rather than products or probabilities"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E10",
+    "findings": [
+      "R2-2"
+    ],
+    "file": "sec3-knabe.tex",
+    "frozen_start": 7,
+    "frozen_end": 7,
+    "before": "let $(S_x)_{x \\in \\Lambda}$ be finite sets,",
+    "after": "let $(S_x)_{x \\in \\Lambda}$ be finite sets with $|S_x|\\ge2$,",
+    "note": "R2-2: exclude trivial coordinate spaces from the real-valued gap criterion"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E11",
+    "findings": [
+      "R2-1"
+    ],
+    "file": "sec3-knabe.tex",
+    "frozen_start": 105,
+    "frozen_end": 105,
+    "before": "Let $G_a$ be the orthogonal projection onto $\\ker A_a$.",
+    "after": "If $\\langle\\varphi,\\mathcal L\\varphi\\rangle=0$, positivity gives $Q_x\\varphi=0$ for every $x$, hence $A_a\\varphi=B_a\\varphi=0$ for every $a$; the required bound\n\\begin{equation*}\n\\Bigl\\langle\\varphi,\\sum_aB_a^2\\varphi\\Bigr\\rangle\n\\ge g(\\ell)\\frac{\\mathsf s^4}{\\ell^2}\n\\langle\\varphi,\\mathcal L\\varphi\\rangle\n\\end{equation*}\nthen holds with both sides zero. In the remaining calculation assume $\\langle\\varphi,\\mathcal L\\varphi\\rangle>0$, so $\\sum_aY_a=\\ell^2\\langle\\varphi,\\mathcal L\\varphi\\rangle>0$. Let $G_a$ be the orthogonal projection onto $\\ker A_a$.",
+    "note": "R2-1: separate the zero total denominator before Cauchy--Schwarz"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E12",
+    "findings": [
+      "R2-2"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 7,
+    "frozen_end": 7,
+    "before": "Consider the frame model on $\\Z^2$ with the checkerboard frame and the finite-volume measures $\\mu^\\eta_{D, W}$ of \\eqref{e:muDW}.",
+    "after": "Consider the frame model on $\\Z^2$ with the checkerboard frame and the finite-volume measures $\\mu^\\eta_{D, W}$ of \\eqref{e:muDW}. Throughout this section, assertions about spectral gaps concern nonempty finite volumes and single-spin spaces with at least two elements.",
+    "note": "R2-2: cover the empty-volume cases in the comparison and compatible-domain statements"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E13",
+    "findings": [
+      "R2-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 37,
+    "frozen_end": 37,
+    "before": "Let $\\mathcal C_M =",
+    "after": "All square-size parameters $M$, $M'$ and $M_0$ range over $\\Z_{\\ge0}$, and their thresholds are chosen integral. Let $\\mathcal C_M =",
+    "note": "R2-4: make the integer square-size convention global in Section 4"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E14",
+    "findings": [
+      "R2-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 68,
+    "frozen_end": 68,
+    "before": "where $l_0 \\in \\N$ is a parameter.",
+    "after": "where $l_0 \\in \\Z_{\\ge1}$ is a parameter; the shell indices $i$ are integers.",
+    "note": "R2-4: exclude l_0=0 and distinguish integer indices from the real scale s"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E15",
+    "findings": [
+      "R2-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 81,
+    "frozen_end": 81,
+    "before": "if there exist $l_0 \\in \\N$, $p_0 \\in (0, 1]$ and $M_\\star$ such that",
+    "after": "if there exist $l_0 \\in \\Z_{\\ge1}$, $p_0 \\in (0, 1]$ and $M_\\star\\in\\Z_{\\ge1}$ such that",
+    "note": "R2-4: give the window hypothesis exactly the geometric parameter domain it uses"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E16",
+    "findings": [
+      "R2-3"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 101,
+    "frozen_end": 101,
+    "before": "Hence, by Lemma~\\ref{l:shellgeom}, the two configurations agree on $D_i = A_i \\cup B_i$ after step $i$ with probability at least $p_0 \\alpha^{2 |A_i|} \\ge \\delta$, conditionally on any configuration before step $i$.",
+    "after": "Hence, for $i\\notin I_0$ with $i\\le s$, Lemma~\\ref{l:shellgeom} gives agreement on $D_i=A_i\\cup B_i$ after step $i$ with probability at least $p_0\\alpha^{2|A_i|}\\ge\\delta$, conditionally on any configuration before step $i$. At the final unskipped step $i_1>s$ we use the same kernel, retaining identical resampling when the incoming separator agrees, without asserting this success bound.",
+    "note": "R2-3: restrict the success probability to indices covered by the window estimate"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E17",
+    "findings": [
+      "R7-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 138,
+    "frozen_end": 138,
+    "before": "The proof of Theorem~\\ref{t:main} uses results of \\S\\ref{s:cut}--\\S\\ref{s:computer}; their proofs do not use \\S\\ref{s:frames}--\\S\\ref{s:mixing}, so the order of the argument is not circular.",
+    "after": "The proof of Theorem~\\ref{t:main} uses results of \\S\\ref{s:cut}--\\S\\ref{s:computer}. Their proofs use earlier frame definitions and shell geometry, but do not use Theorem~\\ref{t:main}, the conclusion of Theorem~\\ref{t:mainW}, or any consequence of the window estimate. These dependencies are acyclic.",
+    "note": "R7-4: state the actual noncircular dependency claim"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E18",
+    "findings": [
+      "R3-1"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 11,
+    "frozen_end": 11,
+    "before": "and we write $\\E^\\tau_D$ and $\\E^0_D$",
+    "after": "Both partition functions in \\eqref{e:Zpin} are finite and strictly positive. For $D\\ne\\emptyset$, choose $q\\in\\Sph$ different from the negatives of all surviving pins and put every spin equal to $q$. Every bond factor is then $2$ and every leg factor is positive. By continuity, the integrand is positive on a product of open spherical neighborhoods of positive product measure. The integrand is bounded, so its integral is finite. For $D=\\emptyset$, the partition functions equal $1$. The same argument applies to any retained subsets of bonds and legs, and to site measures with positive uniform components; a positive scalar trace mass also preserves positivity. We write $\\E^\\tau_D$ and $\\E^0_D$",
+    "note": "R3-1: justify normalization and logarithms, also for later traced domains"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E19",
+    "findings": [
+      "R3-1"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 79,
+    "frozen_end": 79,
+    "before": "and $c(\\eta)$ does not depend on $\\mathsf s$. Summing",
+    "after": "and $c(\\eta)$ does not depend on $\\mathsf s$. Every weight of $\\nu$ is strictly positive: $W_B(\\mathsf s)>0$ by the positive site weights and \\eqref{e:icodod}, and $Z^{\\mathsf s}_{G_1}>0$ by the positivity just established, also when $G_1=\\emptyset$. Summing",
+    "note": "R3-1: ensure the pointwise ratio has a positive reference denominator"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E20",
+    "findings": [
+      "R3-2"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 102,
+    "frozen_end": 102,
+    "before": "and let $x_1, \\dots, x_p$ be distinct sites of $G$",
+    "after": "and let $p\\ge1$ and $x_1,\\dots,x_p$ be distinct sites of $G$",
+    "note": "R3-2: make the first site in the removal bound well defined"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E21",
+    "findings": [
+      "R3-3"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 179,
+    "frozen_end": 179,
+    "before": "When the radius changes from $k$ to $k \\pm j$, the distance of such a side changes by $j$. By Lemma~\\ref{l:shellgeom}, the sides of the sphere of radius $k$ that are parallel to an edge and meet $\\mathcal C_M$ are at distance at least $s/3$; those of radius $k \\pm j$ are therefore at distance at least $s/3 - j \\ge s/3 - s/12 > l_0/2 + j$ when $s$ is large, or they come from a side of radius $k$ that does not meet $\\mathcal C_M$ (distance at most $0$), and then their distance is at most $j < l_0/2 + j - 2$. In both cases it differs from $h'$.",
+    "after": "Use signed inward depths of the supporting lines: for a vertical line $x_1=a$, set $\\delta_{\\rm L}=a+M+1$ and $\\delta_{\\rm R}=M+1-a$, and define the bottom and top depths analogously. Changing the radius from $k$ to $k\\pm j$ changes each signed depth by at most $j$. Since $y\\in[-M-1,M+1]^2$ and $k-j\\ge1$, the varying-coordinate intervals of the original and shifted sides meet $[-M,M]$. Thus an original side either meets $\\mathcal C_M$, lies beyond the specified edge $\\mathcal E$, or lies beyond the opposite edge. In the first case Lemma~\\ref{l:shellgeom} gives signed depth at least $s/3$, so the shifted depth is at least $s/3-j>l_0/2+j$ for $j\\le s/12$ and $s>3l_0$. In the second case the original depth is at most $0$, so the shifted depth is at most $j<l_0/2+j-2$. In the third case the original depth is at least $2M+2$, so the shifted depth is at least $2M+2-j>l_0/2+j$ for $s$ large. None can equal $h'$.",
+    "note": "R3-3: replace the incomplete unsigned-distance case split"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E22",
+    "findings": [
+      "R3-2"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 221,
+    "frozen_end": 221,
+    "before": "By Lemma~\\ref{l:Xconn}, we can order $X$ so that every site after the first has a previously listed neighbour,",
+    "after": "The proof of Lemma~\\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbour outside $U'$, so $X\\ne\\emptyset$. By Lemma~\\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbour,",
+    "note": "R3-2: establish the nonempty-list hypothesis at the application"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E23",
+    "findings": [
+      "R3-4"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 229,
+    "frozen_end": 229,
+    "before": "with the crude count $|X| \\le 4(2M + 1)^2$ used above one needs $\\mathsf F(d) = o(d^{-8})$ instead.",
+    "after": "with the crude count $|X|\\le4(2M+1)^2$ used above, $\\mathsf F(d)=O(d^{-8})$ suffices for a uniform bound, while $\\mathsf F(d)=o(d^{-8})$ makes the long-part contribution tend to zero.",
+    "note": "R3-4: a bounded cost, rather than a vanishing cost, is sufficient"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E24",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 66,
+    "frozen_end": 66,
+    "before": "straight (ID 7645) &",
+    "after": "straight example (ID 7645) &",
+    "note": "R2-5: remove an unsupported global-ranking label; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E25",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 67,
+    "frozen_end": 67,
+    "before": "turn (ID 1382) &",
+    "after": "turn example (ID 1382) &",
+    "note": "R2-5: remove an unsupported global-ranking label; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E26",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 73,
+    "frozen_end": 73,
+    "before": "\\caption{The hardest patterns of $\\Pext$,",
+    "after": "\\caption{Selected patterns of $\\Pext$,",
+    "satisfied_by": [
+      "ADJ-R6 E04"
+    ],
+    "note": "Selected-pattern caption already supplied by ADJ-R6; retain its numerical-selection and uncertified-global-optimality explanation."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E27",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "sec8-computer-assisted.tex",
+    "frozen_start": 77,
+    "frozen_end": 77,
+    "before": "The margins of Theorem~\\ref{t:H1} on the first two patterns of Table~\\ref{tab:H1} are",
+    "after": "The margins of Theorem~\\ref{t:H1} on the first two decoupled examples of Table~\\ref{tab:H1} are",
+    "note": "R2-5: state the certified example margins without a global ranking; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E28",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-constants.tex",
+    "frozen_start": 17,
+    "frozen_end": 17,
+    "before": "two displayed $c(\\pi)$ & $0.961240\\ldots$, $0.935565\\ldots$ & straight, turn; exact values for the first two rows of Table~\\ref{tab:H1} (\\S\\ref{s:closed}) \\\\",
+    "after": "$c(\\pi)$ for two decoupled examples & $3825127/3979368$, $1071655/1145463$ & straight and turn examples; closed forms (Proposition~\\ref{p:closed}, \\S\\ref{s:closed}) \\\\",
+    "note": "R2-5: replace the unsupported minimum with exact established values; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E29",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 196,
+    "frozen_end": 196,
+    "before": "and the exact values of $c(\\pi)$ for the first three patterns of Table~\\ref{tab:H1}.",
+    "after": "and the exact values of $c(\\pi)$ for the examples below.",
+    "note": "R2-5: propagate the qualification to the closed-form introduction; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E30",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 270,
+    "frozen_end": 270,
+    "before": "including the three examples below.",
+    "after": "including the following three examples.",
+    "note": "R2-5: remove the unproved global ordering from the examples paragraph; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E31",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 272,
+    "frozen_end": 272,
+    "before": "\\item The straight pattern in the first row of Table~\\ref{tab:H1}:",
+    "after": "\\item The straight example in the first row of Table~\\ref{tab:H1}:",
+    "note": "R2-5: give the first example a justified label; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E32",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 273,
+    "frozen_end": 273,
+    "before": "\\item The turn in the second row of Table~\\ref{tab:H1} ($o = \\mathsf e$):",
+    "after": "\\item The turn example in the second row of Table~\\ref{tab:H1} ($o = \\mathsf e$):",
+    "note": "R2-5: give the second example a justified label; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "E33",
+    "findings": [
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 296,
+    "frozen_end": 296,
+    "before": "The stored certificates of the three closed-form examples above are rejected",
+    "after": "The stored certificates of the numerically selected patterns are rejected",
+    "note": "R2-5: qualify the negative-control reference consistently; merged with ADJ-R6 wording, retaining compatible IDs, provenance, and threshold details"
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S01",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 18,
+    "frozen_end": 18,
+    "before": "the same statuses, site measures and kept-bond data",
+    "after": "the same statuses, site measures, and kept-bond data",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S02",
+    "findings": [
+      "R4-1",
+      "R4-2",
+      "R4-3"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 68,
+    "frozen_end": 68,
+    "before": "Let $G$, $\\tau$, $D$ and",
+    "after": "Let $G$, $\\tau$, $D$, and",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S03",
+    "findings": [
+      "R4-1",
+      "R4-2",
+      "R4-3"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 68,
+    "frozen_end": 68,
+    "before": "This changes no partition function, ratio or correlation.",
+    "after": "This changes no partition function, ratio, or correlation.",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S04",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 292,
+    "frozen_end": 292,
+    "before": "keeps the passage site, tips and corners as spins",
+    "after": "keeps the passage site, tips, and corners as spins",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S05",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "\\texttt{numeval.py} and \\texttt{run\\_\\allowbreak k1b.py}",
+    "after": "\\texttt{numeval.py}, and \\texttt{run\\_\\allowbreak k1b.py}",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S06",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "\\texttt{k1b\\_\\allowbreak numerics.jsonl} and \\texttt{summary.txt}",
+    "after": "\\texttt{k1b\\_\\allowbreak numerics.jsonl}, and \\texttt{summary.txt}",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S07",
+    "findings": [
+      "R2-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 37,
+    "frozen_end": 37,
+    "before": "All square-size parameters $M$, $M'$ and $M_0$",
+    "after": "All square-size parameters $M$, $M'$, and $M_0$",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S08",
+    "findings": [
+      "R2-4"
+    ],
+    "file": "sec4-mixing-to-gap.tex",
+    "frozen_start": 81,
+    "frozen_end": 81,
+    "before": "$p_0 \\in (0, 1]$ and $M_\\star\\in\\Z_{\\ge1}$",
+    "after": "$p_0 \\in (0, 1]$, and $M_\\star\\in\\Z_{\\ge1}$",
+    "note": "Preserve the requested serial comma in the adjudicated replacement."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S09",
+    "findings": [
+      "R4-1",
+      "R4-3"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 53,
+    "frozen_end": 53,
+    "before": "For $w\\in\\mathcal T_D(u,T)$ as in Proposition~\\ref{p:pairwalk}, we have\n$R^\\cdot_D(w)=\\prod_{j=1}^{|w|}\\rho^\\cdot_j$ with\n$\\rho^\\cdot_j=Z^\\cdot_{D;[w_j]}/Z^\\cdot_{D;[w_{j-1}]}$.\nLet $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the\nout-neighbour, and $E'$ the auxiliary spin network obtained from\n$D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is\na \\emph{revisit} if $y$ has status $\\mathrm D$ in $D;[w_{j-1}]$ and\na \\emph{first visit} otherwise. Integrating out $y$, we find:\n",
+    "after": "For $w\\in\\mathcal T_D(u,T)$ as in Proposition~\\ref{p:pairwalk}, we have\n$R^\\cdot_D(w)=\\prod_{j=1}^{|w|}\\rho^\\cdot_j$ with\n$\\rho^\\cdot_j=Z^\\cdot_{D;[w_j]}/Z^\\cdot_{D;[w_{j-1}]}$.\nLet $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the\nout-neighbor, and $E'$ the auxiliary spin network obtained from\n$D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is\na \\emph{revisit} if $y$ has status $\\mathrm D$ in $D;[w_{j-1}]$ and\na \\emph{first visit} otherwise. Integrating out $y$, we find:\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S10",
+    "findings": [
+      "R4-1"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 55,
+    "frozen_end": 55,
+    "before": "\\item for a revisit with at most one present bond at departure,\n$\\rho^\\tau_j=\\rho^0_j=3/5$, since\n$\\int(1+n\\cdot n_o)\\lambda_{\\mathrm D}(\\dd n)=1$.\nThe only possible two-bond $\\mathrm D$ departure is the initial step.\nIf its present neighbours are $f,o$, then\n\\[\n\\rho^\\cdot_1=\n\\frac{3/5}{1+\\frac15\\E^\\cdot_{E'}[P_{fo}]}\\le\\frac34.\n\\]\nIndeed, every later departure has already lost its arrival bond;\na $\\mathrm D$ site has at most two present bonds before that arrival;\n",
+    "after": "\\item for a revisit with at most one present bond at departure,\n$\\rho^\\tau_j=\\rho^0_j=3/5$, since\n$\\int(1+n\\cdot n_o)\\lambda_{\\mathrm D}(\\dd n)=1$.\nThe only possible two-bond $\\mathrm D$ departure is the initial step.\nIf its present neighbors are $f,o$, then\n\\[\n\\rho^\\cdot_1=\n\\frac{3/5}{1+\\frac15\\E^\\cdot_{E'}[P_{fo}]}\\le\\frac34.\n\\]\nIndeed, every later departure has already lost its arrival bond;\na $\\mathrm D$ site has at most two present bonds before that arrival;\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S11",
+    "findings": [
+      "R4-5"
+    ],
+    "file": "sec6-walks.tex",
+    "frozen_start": 104,
+    "frozen_end": 104,
+    "before": "A \\emph{pattern} $\\pi$ consists of an out-neighbour\n$o\\in\\{\\mathsf e,\\mathsf N,\\mathsf W\\}$ and statuses and kept bonds\nof the sites $\\mathsf s,\\mathsf e,\\mathsf N,\\mathsf W$ and of the\ncorners, with the site measures of Definition~\\ref{d:domain}. The\npassage site $y$ has status $\\mathrm U$ and keeps precisely its three\nbonds to $\\mathsf e,\\mathsf N,\\mathsf W$, so $\\{y,\\mathsf s\\}$ is\ndropped. Every other site of status $\\mathrm U$ keeps all four of\nits lattice bonds, and $o$ is not removed. For unit vectors\n$m=(m_\\ell)$ on the slots, let $Z_{\\mathrm{cur}}(\\pi;m)$ be the\nintegral over the spins of $\\mathsf T(y)$ minus the removed sites,\nwith the site measures of the statuses, of the product of the factors\nof the present bonds inside $\\mathsf T(y)$ and of\n$1+m_\\ell\\cdot n_z$ for every slot $\\ell$ at a non-removed site $z$;\nthe tips have status $\\mathrm U$. Let\n$Z_{\\mathrm{next}}(\\pi;m)$ be the same integral after the step,\nthat is, with the measure of $y$ replaced by $\\lambda_{\\mathrm D}$\nand the bond $\\{y,o\\}$ dropped. Define\n",
+    "after": "A \\emph{pattern} $\\pi$ consists of an out-neighbor\n$o\\in\\{\\mathsf e,\\mathsf N,\\mathsf W\\}$ and statuses and kept bonds\nof the sites $\\mathsf s,\\mathsf e,\\mathsf N,\\mathsf W$ and of the\ncorners, with the site measures of Definition~\\ref{d:domain}. The\npassage site $y$ has status $\\mathrm U$ and keeps precisely its three\nbonds to $\\mathsf e,\\mathsf N,\\mathsf W$, so $\\{y,\\mathsf s\\}$ is\ndropped. Every other site of status $\\mathrm U$ keeps all four of\nits lattice bonds, and $o$ is not removed. For unit vectors\n$m=(m_\\ell)$ on the slots, let $Z_{\\mathrm{cur}}(\\pi;m)$ be the\nintegral over the spins of $\\mathsf T(y)$ minus the removed sites,\nwith the site measures of the statuses, of the product of the factors\nof the present bonds inside $\\mathsf T(y)$ and of\n$1+m_\\ell\\cdot n_z$ for every slot $\\ell$ at a non-removed site $z$;\nthe tips have status $\\mathrm U$. Let\n$Z_{\\mathrm{next}}(\\pi;m)$ be the same integral after the step,\nthat is, with the measure of $y$ replaced by $\\lambda_{\\mathrm D}$\nand the bond $\\{y,o\\}$ dropped. Define\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S12",
+    "findings": [
+      "R4-2",
+      "R7-1"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 17,
+    "frozen_end": 17,
+    "before": "\\begin{lemma}\\label{l:closure}\nLet $D\\in\\Dcons(G)$, $(u,v)\\in P_X(D)$ with centre $c$, and\n$u\\notin S$. Let $w=(v_0,\\dots,v_m)$ be a trail from $u$ that does\nnot visit $S$ before its last site. Thus the lemma also applies when\nthe trail is required to avoid $v$ before its last site. Before forming\n$D_0$, if $u$ has status $\\mathrm U$, drop its kept bond to $c$;\nthis changes no partition function because $c$ is removed. Let $D_j$\nbe the auxiliary spin network after tracing the prefix $w_j$ from\nthese normalized initial data. Then, for $0\\le j\\le m$:\n\\begin{enumerate}\n\\item Every visited site other than the live endpoint $v_j$ has\nstatus $\\mathrm D$ or $\\mathrm X$.\n\\item Condition (C) holds between non-removed sites. Every\n$\\mathrm D$ site other than $v_j$ keeps exactly two bonds, and every\n$\\mathrm U$ site other than $v_j$ keeps all its bonds. If $j\\ge1$,\nthe live endpoint has status $\\mathrm U$ or $\\mathrm D$: in the\nfirst case it keeps all its bonds inside $G$ except its arrival bond;\nin the second it keeps exactly one bond. The other end of the arrival\nbond has status $\\mathrm D$ or $\\mathrm X$. At $j=0$, a live\n$\\mathrm U$ site keeps its three non-$c$ bonds, while a live\n$\\mathrm D$ site retains its original two kept bonds and has at most\none present bond.\n\\item Whenever $v_j\\notin S$, the underlying mass-one data\n$E'_{j+1}$ obtained by removing $v_j$ belong to $\\Dcons(G)$.\n\\end{enumerate}\nIf $v_m=e\\in S$, then $e$ has status $\\mathrm U$ and has lost only\nits arrival bond. This is the sole kept-set defect in the underlying\nterminal trace relative to $\\Dcons(G)$; all its original leg factors\nare retained. No removal of $e$, and no membership in $\\Dcons(G)$\nafter such a removal, is asserted.\n\nConsequently, for $0\\le j<m$, if step $j+1$ is a first visit at\n$y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when\n$j=0$, belongs to $\\Pext$. The pairs among its non-removed remaining\nneighbours belong to $P_B(E'_{j+1})\\cup P_C(E'_{j+1})$, with\ncentre $y$.\n\\end{lemma}\n\n\\begin{proof}\nAt $j=0$, condition (C) is unchanged by dropping a bond to the\nremoved centre. Removing the live endpoint restores the original\nkept-set conditions at every remaining site. For a later departure\nfrom a live $\\mathrm U$ site, its arrival bond (or its bond to $c$\nat the initial departure) and its out-bond are distinct; dropping the\nout-bond and changing its status to $\\mathrm D$ leaves exactly two\nkept bonds. If the initial site is $\\mathrm D$, it can depart only\nby its sole present bond and becomes $\\mathrm X$. Every later live\n$\\mathrm D$ site has lost its arrival bond from a two-bond kept set;\nat a departure it becomes $\\mathrm X$. On arrival, an unvisited\n$\\mathrm U$ site loses just its arrival bond, and a $\\mathrm D$\nsite loses one of its two kept bonds. All traversed bonds are dropped\nby both ends. These observations prove (1) and (2) inductively.\n\nBefore a hit of $S$, the live endpoint is the only possible exception\nto the full $\\mathrm U$ and two-bond $\\mathrm D$ kept sets. Removing\nit leaves condition (C) intact and does not remove a protected site;\nthis proves (3). At a first hit $e\\in S$, that site was unvisited\nand has status $\\mathrm U$, so only its arrival bond is lost.\n\nAt a first-visit departure $y$, the arrival site is removed or has\nstatus $\\mathrm D$ with two kept bonds other than its bond to $y$.\nEvery other $\\mathrm U$ site keeps all its bonds. By (C), each\nother non-removed neighbour of $y$ that has status $\\mathrm D$\nkeeps its bond to $y$ and one other bond; every non-live\n$\\mathrm D$ corner keeps two bonds. These are the rules of\nDefinition~\\ref{d:pattern}, with the tips replaced by their covering\ntips and external slots filled as in Lemma~\\ref{l:local}. Finally,\nany two non-removed remaining neighbours of $y$ are at distance two\nwith common neighbour $y$, which is removed in $E'_{j+1}$.\nA $\\mathrm D$ neighbour has at most one present bond after this\nremoval, so the response pairs have the stated pair classes.\nThe argument uses no avoidance of the distinguished target $v$.\n\\end{proof}\n",
+    "after": "\\begin{lemma}\\label{l:closure}\nLet $D\\in\\Dcons(G)$, $(u,v)\\in P_X(D)$ with center $c$, and\n$u\\notin S$. Let $w=(v_0,\\dots,v_m)$ be a trail from $u$ that does\nnot visit $S$ before its last site. Thus the lemma also applies when\nthe trail is required to avoid $v$ before its last site. Before forming\n$D_0$, if $u$ has status $\\mathrm U$, drop its kept bond to $c$;\nthis changes no partition function because $c$ is removed. Let $D_j$\nbe the auxiliary spin network after tracing the prefix $w_j$ from\nthese normalized initial data. Then, for $0\\le j\\le m$:\n\\begin{enumerate}\n\\item Every visited site other than the live endpoint $v_j$ has\nstatus $\\mathrm D$ or $\\mathrm X$.\n\\item Condition (C) holds between non-removed sites. Every\n$\\mathrm D$ site other than $v_j$ keeps exactly two bonds, and every\n$\\mathrm U$ site other than $v_j$ keeps all its bonds. If $j\\ge1$,\nthe live endpoint has status $\\mathrm U$ or $\\mathrm D$: in the\nfirst case it keeps all its bonds inside $G$ except its arrival bond;\nin the second it keeps exactly one bond. The other end of the arrival\nbond has status $\\mathrm D$ or $\\mathrm X$. At $j=0$, a live\n$\\mathrm U$ site keeps its three non-$c$ bonds, while a live\n$\\mathrm D$ site retains its original two kept bonds and has at most\none present bond.\n\\item Whenever $v_j\\notin S$, the underlying mass-one data\n$E'_{j+1}$ obtained by removing $v_j$ belong to $\\Dcons(G)$.\n\\end{enumerate}\nIf $v_m=e\\in S$, then $e$ has status $\\mathrm U$ and has lost only\nits arrival bond. This is the sole kept-set defect in the underlying\nterminal trace relative to $\\Dcons(G)$; all its original leg factors\nare retained. No removal of $e$, and no membership in $\\Dcons(G)$\nafter such a removal, is asserted.\n\nConsequently, for $0\\le j<m$, if step $j+1$ is a first visit at\n$y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when\n$j=0$, belongs to $\\Pext$. The pairs among its non-removed remaining\nneighbors belong to $P_B(E'_{j+1})\\cup P_C(E'_{j+1})$, with\ncenter $y$.\n\\end{lemma}\n\n\\begin{proof}\nAt $j=0$, condition (C) is unchanged by dropping a bond to the\nremoved center. Removing the live endpoint restores the original\nkept-set conditions at every remaining site. For a later departure\nfrom a live $\\mathrm U$ site, its arrival bond (or its bond to $c$\nat the initial departure) and its out-bond are distinct; dropping the\nout-bond and changing its status to $\\mathrm D$ leaves exactly two\nkept bonds. If the initial site is $\\mathrm D$, it can depart only\nby its sole present bond and becomes $\\mathrm X$. Every later live\n$\\mathrm D$ site has lost its arrival bond from a two-bond kept set;\nat a departure it becomes $\\mathrm X$. On arrival, an unvisited\n$\\mathrm U$ site loses just its arrival bond, and a $\\mathrm D$\nsite loses one of its two kept bonds. All traversed bonds are dropped\nby both ends. These observations prove (1) and (2) inductively.\n\nBefore a hit of $S$, the live endpoint is the only possible exception\nto the full $\\mathrm U$ and two-bond $\\mathrm D$ kept sets. Removing\nit leaves condition (C) intact and does not remove a protected site;\nthis proves (3). At a first hit $e\\in S$, that site was unvisited\nand has status $\\mathrm U$, so only its arrival bond is lost.\n\nAt a first-visit departure $y$, the arrival site is removed or has\nstatus $\\mathrm D$ with two kept bonds other than its bond to $y$.\nEvery other $\\mathrm U$ site keeps all its bonds. By (C), each\nother non-removed neighbor of $y$ that has status $\\mathrm D$\nkeeps its bond to $y$ and one other bond; every non-live\n$\\mathrm D$ corner keeps two bonds. These are the rules of\nDefinition~\\ref{d:pattern}, with the tips replaced by their covering\ntips and external slots filled as in Lemma~\\ref{l:local}. Finally,\nany two non-removed remaining neighbors of $y$ are at distance two\nwith common neighbor $y$, which is removed in $E'_{j+1}$.\nA $\\mathrm D$ neighbor has at most one present bond after this\nremoval, so the response pairs have the stated pair classes.\nThe argument uses no avoidance of the distinguished target $v$.\n\\end{proof}\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S13",
+    "findings": [
+      "R4-1",
+      "R4-2",
+      "R4-3"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 68,
+    "frozen_end": 68,
+    "before": "Let $G$, $\\tau$, $D$, and $(u, v) \\in P_X(D)$ with centre $c$ be as in \\eqref{e:FX} with $d_0 = \\min(d(u, S), d(v, S)) \\ge d \\ge 1$; in particular $u, v \\notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\\mathrm U$ by dropping its kept bond to the removed centre, as in Lemma~\\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio, or correlation. If the starting site has status $\\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\\ref{l:exposure} in $T_1$. By Proposition~\\ref{p:pairwalk} with $T = S \\cup \\{v\\}$, applied to $\\tau$ and to $0$, the trails are the same in both expansions, and\n",
+    "after": "Let $G$, $\\tau$, $D$, and $(u, v) \\in P_X(D)$ with center $c$ be as in \\eqref{e:FX} with $d_0 = \\min(d(u, S), d(v, S)) \\ge d \\ge 1$; in particular $u, v \\notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\\mathrm U$ by dropping its kept bond to the removed center, as in Lemma~\\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio, or correlation. If the starting site has status $\\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\\ref{l:exposure} in $T_1$. By Proposition~\\ref{p:pairwalk} with $T = S \\cup \\{v\\}$, applied to $\\tau$ and to $0$, the trails are the same in both expansions, and\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S14",
+    "findings": [
+      "R4-3",
+      "R7-1"
+    ],
+    "file": "sec7-recursion.tex",
+    "frozen_start": 80,
+    "frozen_end": 80,
+    "before": "\\emph{The term $T_2$.} Let $w\\in\\mathcal W_1$ end at $e\\in S$.\nThe terminal object $D;[w]$ is an auxiliary spin network, so\nProposition~\\ref{p:pairwalk} applies in it from $v$ with target $e$\nand stopping set $S$; $v$ was not visited by $w$ and still has at\nmost three present bonds. Since terminal scalar products have absolute\nvalue at most one,\n\\[\n|\\mathcal X^\\cdot(w)|\\le\n\\sum_{w'\\in\\mathcal T_{D;[w]}(v,S)}\n3^{-|w'|}R^\\cdot_{D;[w]}(w').\n\\]\nBy Lemma~\\ref{l:closure}, the underlying terminal trace satisfies the\nconsistent-domain rules except that $e$ has dropped its arrival bond.\nBefore the second expansion, if $v$ has status $\\mathrm U$, drop\nits kept bond to the removed centre $c$; this changes no partition\nfunction or ratio. Repeat the kept-set induction of\nLemma~\\ref{l:closure}, allowing this fixed defect at $e$ as well as\nthe current live endpoint. Before the second trail hits $S$, every\nfirst-visit departure at $y'$ with $d(y',e)>2$ has the ordinary\n$\\Pext$ pattern: the defect is outside its template. Missing\nexternal factors are covered by the averaging in\nLemma~\\ref{l:local}. The possible exceptional first-visit departures\ntherefore lie in $\\{y':0<d(y',e)\\le2\\}$, a set of $12$ sites;\na site can be departed from with status $\\mathrm U$ at most once.\nAll departures remain outside $S$ and all original leg factors remain\nunchanged. This proves the hypotheses of Lemma~\\ref{l:onepoint} for\nthe second expansion. That lemma also applies to the first sum over\nall $\\mathcal T_D(u,S)$, using the normalization at $u$ and the\nvariant of Lemma~\\ref{l:closure} that does not exclude $v$. Its\npointwise bound applies to the maximum of the pinned and free ratios.\nConsequently,\n",
+    "after": "\\emph{The term $T_2$.} Let $w\\in\\mathcal W_1$ end at $e\\in S$.\nThe terminal object $D;[w]$ is an auxiliary spin network, so\nProposition~\\ref{p:pairwalk} applies in it from $v$ with target $e$\nand stopping set $S$; $v$ was not visited by $w$ and still has at\nmost three present bonds. Since terminal scalar products have absolute\nvalue at most one,\n\\[\n|\\mathcal X^\\cdot(w)|\\le\n\\sum_{w'\\in\\mathcal T_{D;[w]}(v,S)}\n3^{-|w'|}R^\\cdot_{D;[w]}(w').\n\\]\nBy Lemma~\\ref{l:closure}, the underlying terminal trace satisfies the\nconsistent-domain rules except that $e$ has dropped its arrival bond.\nBefore the second expansion, if $v$ has status $\\mathrm U$, drop\nits kept bond to the removed center $c$; this changes no partition\nfunction or ratio. Repeat the kept-set induction of\nLemma~\\ref{l:closure}, allowing this fixed defect at $e$ as well as\nthe current live endpoint. Before the second trail hits $S$, every\nfirst-visit departure at $y'$ with $d(y',e)>2$ has the ordinary\n$\\Pext$ pattern: the defect is outside its template. Missing\nexternal factors are covered by the averaging in\nLemma~\\ref{l:local}. The possible exceptional first-visit departures\ntherefore lie in $\\{y':0<d(y',e)\\le2\\}$, a set of $12$ sites;\na site can be departed from with status $\\mathrm U$ at most once.\nAll departures remain outside $S$ and all original leg factors remain\nunchanged. This proves the hypotheses of Lemma~\\ref{l:onepoint} for\nthe second expansion. That lemma also applies to the first sum over\nall $\\mathcal T_D(u,S)$, using the normalization at $u$ and the\nvariant of Lemma~\\ref{l:closure} that does not exclude $v$. Its\npointwise bound applies to the maximum of the pinned and free ratios.\nConsequently,\n",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S15",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 282,
+    "frozen_end": 282,
+    "before": "A second enumeration, written independently from Definition~\\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbour, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak enum\\_\\allowbreak pext.py} and \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak enum\\_\\allowbreak pext.txt}, relative to \\texttt{agents/\\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle.",
+    "after": "A second enumeration, written independently from Definition~\\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbor, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \\texttt{72-audit-H1-certificates/\\allowbreak code/\\allowbreak enum\\_\\allowbreak pext.py} and \\texttt{72-audit-H1-certificates/\\allowbreak out/\\allowbreak enum\\_\\allowbreak pext.txt}, relative to \\texttt{agents/\\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle.",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S16",
+    "findings": [
+      "FN-R1-square"
+    ],
+    "file": "sec1-intro-statement.tex",
+    "frozen_start": 24,
+    "frozen_end": 24,
+    "before": "The frame image of $B$ is nowhere vanishing; its normalized squared modulus, weighted by the frame reference measure and followed by the checkerboard change of variables, gives the nearest-neighbour Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "after": "The frame image of $B$ is nowhere vanishing; its normalized squared modulus, weighted by the frame reference measure and followed by the checkerboard change of variables, gives the nearest-neighbor Gibbs measure $\\mu_D$ with strictly positive weights.",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S17",
+    "findings": [
+      "R3-2"
+    ],
+    "file": "sec5-cut.tex",
+    "frozen_start": 221,
+    "frozen_end": 221,
+    "before": "The proof of Lemma~\\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbour outside $U'$, so $X\\ne\\emptyset$. By Lemma~\\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbour,",
+    "after": "The proof of Lemma~\\ref{l:Xconn} gives a finite nonempty $U'$; a site of $U'$ with maximal first coordinate has a nearest neighbor outside $U'$, so $X\\ne\\emptyset$. By Lemma~\\ref{l:Xconn}, we can therefore order $X$ so that every site after the first has a previously listed neighbor,",
+    "note": "Use American spelling in the adjudicated replacement; unrelated original prose is unchanged."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S18",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 282,
+    "frozen_end": 282,
+    "before": "72-audit-H1-certificates/",
+    "after": "72-\\allowbreak audit-\\allowbreak H1-\\allowbreak certificates/",
+    "occurrences": 11,
+    "note": "Add invisible break opportunities in new archive paths to prevent added PDF margin overflow."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S19",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "73-reimplement-H1/",
+    "after": "73-\\allowbreak reimplement-\\allowbreak H1/",
+    "occurrences": 2,
+    "note": "Add invisible break opportunities in new archive paths to prevent added PDF margin overflow."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "S20",
+    "findings": [
+      "R5-2",
+      "R5-6"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 128,
+    "frozen_end": 128,
+    "before": "agents/62-kernel-tail/out/",
+    "after": "agents/\\allowbreak 62-kernel-tail/\\allowbreak out/",
+    "occurrences": 1,
+    "note": "Add invisible break opportunities in new archive paths to prevent added PDF margin overflow."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "F113",
+    "findings": [
+      "R6-4"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 298,
+    "frozen_end": 298,
+    "before": "H1/\\allowbreak code/\\allowbreak wick.py",
+    "after": "H1/\\allowbreak code/\\linebreak[1]wick.py",
+    "note": "Favor a break within the added archive path to keep it inside the text margin."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "F114",
+    "findings": [
+      "R6-3",
+      "R6-4",
+      "R2-5"
+    ],
+    "file": "app-local.tex",
+    "frozen_start": 296,
+    "frozen_end": 296,
+    "before": "certificates/\\allowbreak code/\\allowbreak negctl.py",
+    "after": "certificates/\\allowbreak code/\\linebreak[1]negctl.py",
+    "note": "Favor a break within the added archive path to keep it inside the text margin."
+  },
+  {
+    "report": "ADJ-MINOR",
+    "edit": "F115",
+    "findings": [
+      "R5-2",
+      "R5-6"
+    ],
+    "file": "app-tail.tex",
+    "frozen_start": 128,
+    "frozen_end": 128,
+    "before": "\\texttt{c961\\_935\\_B\\_C.txt}",
+    "after": "\\texttt{c961\\_\\allowbreak 935\\_\\allowbreak B\\_\\allowbreak C.txt}",
+    "note": "Permit breaks inside the added optional-record filename to prevent margin overflow."
+  }
+]

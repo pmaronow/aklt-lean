@@ -1,0 +1,10 @@
+--- upstream/Auxiliary.lean
++++ trial/Auxiliary.lean
+@@ -8,7 +8,6 @@
+ public import RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Spectrum
+ import Mathlib.Algebra.Order.Ring.Star
+ public import Mathlib.Analysis.Convex.StdSimplex
+-public import Mathlib.Algebra.Order.Star.Int
+ public import RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Simplex
+ 
+ /-!

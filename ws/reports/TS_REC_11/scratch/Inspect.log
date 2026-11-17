@@ -1,0 +1,109 @@
+def AKLT.Blueprint.Rec.SecondTermBoundStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (CV q : ℝ),
+    AKLT.Defs.OpenTrailBound CV q →
+      ∀ (p : AKLT.Blueprint.Rec.PairData) (d : ℕ),
+        1 ≤ d → ↑d ≤ p.depth → |AKLT.Blueprint.Rec.secondTerm p| ≤ AKLT.Blueprint.Rec.sourceConstant CV q * q ^ (2 * d)
+def AKLT.Blueprint.Rec.PairResponseSplitStatement : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairData),
+  p.u ∉ AKLT.Defs.protectedSites p.G →
+    p.v ∉ AKLT.Defs.protectedSites p.G → p.response = AKLT.Blueprint.Rec.firstTerm p + AKLT.Blueprint.Rec.secondTerm p
+def AKLT.Blueprint.Rec.RemovalEnvelopeStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G),
+  ∀ Y ⊆ G \ AKLT.Defs.protectedSites G,
+    ∀ (u v : AKLT.Defs.Plane),
+      u ∈ G \ Y →
+        v ∈ G \ Y →
+          AKLT.Defs.latticeDist u v = 2 →
+            (∃ c ∈ Y, AKLT.Defs.Adjacent u c ∧ AKLT.Defs.Adjacent v c) →
+              ∃ X d,
+                min (AKLT.Defs.setDistance AKLT.Defs.latticeDist u ↑(AKLT.Defs.protectedSites G))
+                      (AKLT.Defs.setDistance AKLT.Defs.latticeDist v ↑(AKLT.Defs.protectedSites G)) =
+                    ↑d ∧
+                  |(AKLT.Defs.pinnedExpectation G Y τ fun n => AKLT.Defs.dot (n u) (n v)) -
+                        AKLT.Defs.freeExpectation G Y fun n => AKLT.Defs.dot (n u) (n v)| ≤
+                    AKLT.Defs.responseEnvelope X ↑d
+def AKLT.Blueprint.Rec.RenewalActionStatement : Prop :=
+∀ (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (h : AKLT.Defs.PairType → ℝ) (θ ρ : ℝ),
+  0 < θ →
+    θ < 1 →
+      0 < ρ →
+        ρ < 1 →
+          AKLT.Blueprint.Rec.RenewalRows m h θ ρ →
+            ∀ (f : AKLT.Defs.PairType → ℤ → ℝ),
+              (∃ B, ∀ (X : AKLT.Defs.PairType) (d : ℤ), 0 ≤ f X d ∧ f X d ≤ B) →
+                ∀ (X : AKLT.Defs.PairType) (d : ℤ),
+                  (Summable fun j => m X j.1 j.2 * f j.1 (d - ↑j.2)) ∧ 0 ≤ AKLT.Blueprint.Rec.renewalOp m f X d
+def AKLT.Blueprint.Rec.RenewalFiniteIterationStatement : Prop :=
+∀ (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (h : AKLT.Defs.PairType → ℝ) (q θ ρ CT : ℝ),
+  0 < q →
+    q ^ 2 < θ →
+      θ < 1 →
+        0 < ρ →
+          ρ < 1 →
+            0 ≤ CT →
+              AKLT.Blueprint.Rec.RenewalRows m h θ ρ →
+                ∀ (F : AKLT.Defs.PairType → ℤ → ℝ),
+                  (∀ (X : AKLT.Defs.PairType) (d : ℤ), 0 ≤ F X d ∧ F X d ≤ 2) →
+                    (∀ (X : AKLT.Defs.PairType) (d : ℕ),
+                        1 ≤ d → F X ↑d ≤ AKLT.Blueprint.Rec.renewalOp m F X ↑d + CT * q ^ (2 * d)) →
+                      ∀ (k : ℕ) (X : AKLT.Defs.PairType) (d : ℤ),
+                        F X d ≤
+                          AKLT.Blueprint.Rec.renewalIterate m F k X d +
+                            ∑ j ∈ Finset.range k,
+                              AKLT.Blueprint.Rec.renewalIterate m (AKLT.Blueprint.Rec.renewalSource CT q) j X d
+def AKLT.Blueprint.Rec.RenewalRemainderStatement : Prop :=
+∀ (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (h : AKLT.Defs.PairType → ℝ) (θ ρ : ℝ),
+  0 < θ →
+    θ < 1 →
+      0 < ρ →
+        ρ < 1 →
+          AKLT.Blueprint.Rec.RenewalRows m h θ ρ →
+            ∀ (F : AKLT.Defs.PairType → ℤ → ℝ),
+              (∀ (X : AKLT.Defs.PairType) (d : ℤ), 0 ≤ F X d ∧ F X d ≤ 2) →
+                ∀ (k : ℕ) (X : AKLT.Defs.PairType) (d : ℤ),
+                  AKLT.Blueprint.Rec.renewalIterate m F k X d ≤ 2 / AKLT.Blueprint.Rec.hmin h * ρ ^ k * h X
+def AKLT.Blueprint.Rec.RenewalSourceStatement : Prop :=
+∀ (m : AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) (h : AKLT.Defs.PairType → ℝ) (q θ ρ CT : ℝ),
+  0 < q →
+    q ^ 2 < θ →
+      θ < 1 →
+        0 < ρ →
+          ρ < 1 →
+            0 ≤ CT →
+              AKLT.Blueprint.Rec.RenewalRows m h θ ρ →
+                ∀ (k : ℕ) (X : AKLT.Defs.PairType) (d : ℤ),
+                  AKLT.Blueprint.Rec.renewalIterate m (AKLT.Blueprint.Rec.renewalSource CT q) k X d ≤
+                    max 2 CT / AKLT.Blueprint.Rec.hmin h * ρ ^ k * h X * θ ^ d
+def AKLT.Blueprint.Rec.RenewalScalarLimitStatement : Prop :=
+∀ (x a b ρ : ℝ),
+  0 ≤ a → 0 ≤ b → 0 < ρ → ρ < 1 → (∀ (k : ℕ), x ≤ a * ρ ^ k + b * ∑ j ∈ Finset.range k, ρ ^ j) → x ≤ b / (1 - ρ)
+def AKLT.Blueprint.Rec.RenewalRows : (AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) →
+  (AKLT.Defs.PairType → ℝ) → ℝ → ℝ → Prop :=
+fun m h θ ρ =>
+  (∀ (X Y : AKLT.Defs.PairType) (s : ℕ), 0 ≤ m X Y s) ∧
+    (∀ (X : AKLT.Defs.PairType), 0 < h X) ∧
+      (∀ (X : AKLT.Defs.PairType), Summable fun j => m X j.1 j.2 * h j.1 * θ ^ (-↑j.2)) ∧
+        ∀ (X : AKLT.Defs.PairType), ∑' (j : AKLT.Defs.PairType × ℕ), m X j.1 j.2 * h j.1 * θ ^ (-↑j.2) ≤ ρ * h X
+def AKLT.Blueprint.Rec.renewalOp : (AKLT.Defs.PairType → AKLT.Defs.PairType → ℕ → ℝ) →
+  (AKLT.Defs.PairType → ℤ → ℝ) → AKLT.Defs.PairType → ℤ → ℝ :=
+fun m f X d => ∑' (j : AKLT.Defs.PairType × ℕ), m X j.1 j.2 * f j.1 (d - ↑j.2)
+def AKLT.Blueprint.Rec.renewalSource : ℝ → ℝ → AKLT.Defs.PairType → ℤ → ℝ :=
+fun CT q _X d => if d ≤ 0 then 2 else CT * q ^ (2 * d.toNat)
+def AKLT.Blueprint.Rec.hmin : (AKLT.Defs.PairType → ℝ) → ℝ :=
+fun h => min (h AKLT.Defs.PairType.B) (h AKLT.Defs.PairType.C)
+def AKLT.Defs.Network.ResponsePair : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.PairType → AKLT.Defs.Plane → AKLT.Defs.Plane → AKLT.Defs.Plane → Prop :=
+fun {G} D X u v c =>
+  D.Consistent ∧
+    u ∈ D.active ∧
+      v ∈ D.active ∧
+        c ∈ G ∧
+          D.status c = AKLT.Defs.Status.X ∧
+            AKLT.Defs.Adjacent u c ∧
+              AKLT.Defs.Adjacent v c ∧
+                AKLT.Defs.HasPairType X u v ∧
+                  (D.status u = AKLT.Defs.Status.U ∨
+                      D.status u = AKLT.Defs.Status.D ∧ (D.presentNeighbours u).card ≤ 1) ∧
+                    (D.status v = AKLT.Defs.Status.U ∨
+                      D.status v = AKLT.Defs.Status.D ∧ (D.presentNeighbours v).card ≤ 1)

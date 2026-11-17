@@ -1,0 +1,15 @@
+{
+  "rule": "Every new Lean leaf proof receives its first attempt from a different, cheaper model.",
+  "bp_win_author_scope": "Statements, definitions, designs, checkers, exporters, prototypes, measurements and proved assemblies only; no further leaf proof attempts, including checker soundness.",
+  "first_attempt_owner": "A different, cheaper model selected by the orchestrator",
+  "delegation_status": "Handoff only; no model or sub-agent was launched.",
+  "existing_leaf_proofs_retained": [
+    "AKLT.Blueprint.Win.cutCostNonnegative",
+    "AKLT.Blueprint.Win.logLipschitz",
+    "AKLT.Blueprint.Win.metricFacts",
+    "AKLT.Blueprint.Win.spanCutParity",
+    "AKLT.Blueprint.Win.windowCostArithmetic"
+  ],
+  "new_leaf_proofs_after_rule": 0,
+  "lean_source_changes_after_rule": false
+}

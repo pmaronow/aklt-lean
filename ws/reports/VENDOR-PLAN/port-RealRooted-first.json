@@ -1,0 +1,108 @@
+{
+  "label": "port-RealRooted",
+  "seconds": 4.479658842086792,
+  "results": {
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 0.3734617233276367,
+      "errors": [
+        {
+          "caption": "",
+          "data": "object file '/home/ubuntu/aklt/repo/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Star/Int.olean' of module Mathlib.Algebra.Order.Star.Int does not exist",
+          "endPos": null,
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-RealRooted/RealRooted/Mathlib/LinearAlgebra/Matrix/PerronFrobenius/Auxiliary.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 0,
+            "line": 6
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CStarClasses": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CollatzWielandt": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Dominance": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CStarClasses",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CollatzWielandt",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Irreducible": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Lemmas": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4749548435211182,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Nonneg": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Dominance",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CollatzWielandt",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Primitive": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.CollatzWielandt",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.QuiverPath": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3523495197296143,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Simplex": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.8643941879272461,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Spectrum": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1772685050964355,
+      "errors": [],
+      "warnings": []
+    },
+    "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Uniqueness": {
+      "status": "blocked",
+      "dependencies": [
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Primitive",
+        "RealRooted.Mathlib.LinearAlgebra.Matrix.PerronFrobenius.Auxiliary"
+      ]
+    }
+  },
+  "error_count": 1,
+  "ok": 4,
+  "failed": 1,
+  "blocked": 7
+}

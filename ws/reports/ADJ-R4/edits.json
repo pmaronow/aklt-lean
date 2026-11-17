@@ -1,0 +1,146 @@
+[
+  {
+    "id": "E01",
+    "file": "sec6-walks.tex",
+    "start": 18,
+    "end": 17,
+    "replacement": "For tracing we also use an \\emph{auxiliary spin network} on $G$. It has\nthe same statuses, site measures and kept-bond data as a domain, with at\nmost two present bonds at each $\\mathrm D$ site, but the sites of $S$\nmay keep arbitrary subsets of their bonds; they still have status\n$\\mathrm U$. It also carries a scalar mass $\\mu>0$. Its partition\nfunction is $\\mu$ times the right-hand side of \\eqref{e:ZD}, with all\nthe original leg factors retained, and its free partition function omits\nthose leg factors. A domain is identified with the corresponding network\nof mass $1$. The definitions of $\\E^\\cdot$, $\\Psi$ and trails extend to\nthese networks. Whenever membership in $\\Dcons(G)$ is asserted, it refers\nto the underlying data with mass reset to $1$; this does not change\nnormalized expectations. In particular, $\\Dcons(G)$ retains its original\nprotected-boundary requirements. The positivity, conditional independence\nand conditional-mean facts below also hold for auxiliary spin networks.\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E02",
+    "file": "sec6-walks.tex",
+    "start": 37,
+    "end": 37,
+    "replacement": "A \\emph{trail} in a domain or auxiliary spin network $D$ from $u$ is a\nsequence $w=(v_0,\\dots,v_m)$ with $v_0=u$ such that\n$\\{v_{i-1},v_i\\}$ are distinct present bonds of $D$; $|w|=m$ is its\nlength. For $T\\subset G$ let $\\mathcal T_D(u,T)$ be the set of trails\nwith $v_m\\in T$ and $v_i\\notin T$ for $i<m$. All tracing below starts\nat a site with at most three present bonds and has no departures from\n$S$. The \\emph{traced spin network} $D;[w]$ is obtained step by step:\nat step $j$, the bond $\\{v_{j-1},v_j\\}$ is dropped by both ends, and\nthe status of $v_{j-1}$ changes from $\\mathrm U$ to $\\mathrm D$\n(keeping its remaining bonds), or from $\\mathrm D$ to $\\mathrm X$.\nThe mass is unchanged in the first case and is multiplied by $3/5$ in\nthe second case, the mass of $(3/5)\\delta_0$. All original leg factors\nare unchanged. Thus the final mass is\n$\\mu(D)(3/5)^{N_{\\mathrm D}(w)}$, where $N_{\\mathrm D}(w)$ counts\nthe departures from status $\\mathrm D$ during this trace. We write\n$w_j=(v_0,\\dots,v_j)$. A stopped trace can have a terminal site in\n$S$ with its arrival bond dropped; it is an auxiliary spin network,\nand need not be a domain of Definition~\\ref{d:domain}.\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E03",
+    "file": "sec6-walks.tex",
+    "start": 40,
+    "end": 40,
+    "replacement": "Let $D$ be a domain or auxiliary spin network on $G$, let\n$u\\in G\\setminus S$ be a site that is not removed and has at most\nthree present bonds, let $v\\ne u$ be a site that is not removed, and\n$T=S\\cup\\{v\\}$. Then, with the dot standing for $\\tau$ or $0$,\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E04",
+    "file": "sec6-walks.tex",
+    "start": 48,
+    "end": 48,
+    "replacement": "Write $n_u \\cdot n_v = \\sum_{\\beta = 1}^3 n_u^\\beta n_v^\\beta$ and fix $\\beta$. In $Z^\\cdot_D[n_u^\\beta n_v^\\beta]$, integrate the spin of $u$ using Lemma~\\ref{l:stepid} with $a = e_\\beta$; the site $u$ carries no leg because $u \\notin S$, and the factor $n_v^\\beta$ does not involve $n_u$. This gives a sum over the present bonds $\\{u, v_1\\}$ of $\\frac13 Z^\\cdot_{D;[(u, v_1)]}[n_{v_1}^\\beta n_v^\\beta]$. If $v_1 \\notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\\cdot_D[n_u^\\beta n_v^\\beta] = \\sum_w 3^{-|w|} Z^\\cdot_{D;[w]}[n_{v_{|w|}}^\\beta n_v^\\beta]$. Summing over $\\beta$ and dividing by $Z^\\cdot_D$ gives \\eqref{e:pairwalk}. If $v_{|w|}=v$, the last bracket is $|n_v|^2$. If $v$ has\nstatus $\\mathrm D$ with one present bond in $D$, that bond was the\narrival bond, so after arrival $n_v$ is independent of the rest with\nlaw $\\lambda_{\\mathrm D}$, and $\\E|n_v|^2=3/5$.\n",
+    "finding": "R4-4",
+    "note": "Only the final endpoint explanation changes; the rest of the proof line is retained verbatim."
+  },
+  {
+    "id": "E05",
+    "file": "sec6-walks.tex",
+    "start": 53,
+    "end": 53,
+    "replacement": "For $w\\in\\mathcal T_D(u,T)$ as in Proposition~\\ref{p:pairwalk}, we have\n$R^\\cdot_D(w)=\\prod_{j=1}^{|w|}\\rho^\\cdot_j$ with\n$\\rho^\\cdot_j=Z^\\cdot_{D;[w_j]}/Z^\\cdot_{D;[w_{j-1}]}$.\nLet $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the\nout-neighbour, and $E'$ the auxiliary spin network obtained from\n$D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is\na \\emph{revisit} if $y$ has status $\\mathrm D$ in $D;[w_{j-1}]$ and\na \\emph{first visit} otherwise. Integrating out $y$, we find:\n",
+    "finding": "R4-1 / R4-3",
+    "note": ""
+  },
+  {
+    "id": "E06",
+    "file": "sec6-walks.tex",
+    "start": 55,
+    "end": 55,
+    "replacement": "\\item for a revisit with at most one present bond at departure,\n$\\rho^\\tau_j=\\rho^0_j=3/5$, since\n$\\int(1+n\\cdot n_o)\\lambda_{\\mathrm D}(\\dd n)=1$.\nThe only possible two-bond $\\mathrm D$ departure is the initial step.\nIf its present neighbours are $f,o$, then\n\\[\n\\rho^\\cdot_1=\n\\frac{3/5}{1+\\frac15\\E^\\cdot_{E'}[P_{fo}]}\\le\\frac34.\n\\]\nIndeed, every later departure has already lost its arrival bond;\na $\\mathrm D$ site has at most two present bonds before that arrival;\n",
+    "finding": "R4-1",
+    "note": ""
+  },
+  {
+    "id": "E07",
+    "file": "sec6-walks.tex",
+    "start": 85,
+    "end": 85,
+    "replacement": "Let $w\\in\\mathcal T_D(u,T)$ under the hypotheses of\nProposition~\\ref{p:pairwalk}. If $u$ initially has status $\\mathrm D$,\nassume in addition that it has at most one present bond in $D$.\nLet $\\Phi$ be the set of first-visit steps of $w$, and suppose that\n$\\rho^\\tau_j\\le x_j$ for $j\\in\\Phi$, with numbers $x_j\\ge1$.\nThen for every ordering $\\sigma$ of $\\Phi$,\n",
+    "finding": "R4-1",
+    "note": ""
+  },
+  {
+    "id": "E08",
+    "file": "sec6-walks.tex",
+    "start": 104,
+    "end": 104,
+    "replacement": "A \\emph{pattern} $\\pi$ consists of an out-neighbour\n$o\\in\\{\\mathsf e,\\mathsf N,\\mathsf W\\}$ and statuses and kept bonds\nof the sites $\\mathsf s,\\mathsf e,\\mathsf N,\\mathsf W$ and of the\ncorners, with the site measures of Definition~\\ref{d:domain}. The\npassage site $y$ has status $\\mathrm U$ and keeps precisely its three\nbonds to $\\mathsf e,\\mathsf N,\\mathsf W$, so $\\{y,\\mathsf s\\}$ is\ndropped. Every other site of status $\\mathrm U$ keeps all four of\nits lattice bonds, and $o$ is not removed. For unit vectors\n$m=(m_\\ell)$ on the slots, let $Z_{\\mathrm{cur}}(\\pi;m)$ be the\nintegral over the spins of $\\mathsf T(y)$ minus the removed sites,\nwith the site measures of the statuses, of the product of the factors\nof the present bonds inside $\\mathsf T(y)$ and of\n$1+m_\\ell\\cdot n_z$ for every slot $\\ell$ at a non-removed site $z$;\nthe tips have status $\\mathrm U$. Let\n$Z_{\\mathrm{next}}(\\pi;m)$ be the same integral after the step,\nthat is, with the measure of $y$ replaced by $\\lambda_{\\mathrm D}$\nand the bond $\\{y,o\\}$ dropped. Define\n",
+    "finding": "R4-5",
+    "note": ""
+  },
+  {
+    "id": "E09",
+    "file": "sec6-walks.tex",
+    "start": 108,
+    "end": 108,
+    "replacement": "The class $\\Pext$ consists of the patterns in which: $\\mathsf s$ is removed or has status $\\mathrm D$ keeping two of its three bonds other than $\\{y, \\mathsf s\\}$; each of $\\mathsf e, \\mathsf N, \\mathsf W$ has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\\mathrm U$, $\\mathrm X$, or $\\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\\mathrm{cur}}$ and $Z_{\\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.\nThese are local covered spin integrals, not domains with the\nprotected-boundary condition on $S(G)$. The tips are the covering\n$\\mathrm U$ tips of Lemma~\\ref{l:local}; condition (C) is not imposed\nbetween their original global kept sets and the other template sites.\nBoth external slot factors at each non-removed corner are included in\nthe covered integrals, even when an actual external bond is absent.\nSuch missing factors are filled by the convex-averaging enlargement\nin the proof of Lemma~\\ref{l:local}.\n",
+    "finding": "R4-5",
+    "note": "The original class rules and tip-bond convention are retained verbatim, followed by this clarification."
+  },
+  {
+    "id": "E10",
+    "file": "sec6-walks.tex",
+    "start": 130,
+    "end": 130,
+    "replacement": "Lemma~\\ref{l:local} applies to every first-visit step whose pattern is\nin $\\Pext$. Lemma~\\ref{l:closure} in \\S\\ref{s:recursion} supplies\nthese patterns throughout the first expansion. If that expansion\nstops at $e\\in S$, its terminal trace is an auxiliary spin network\nwith the single kept-set defect at $e$. In the second expansion of\n$T_2$, at most $12$ first-visit departures, at sites $y'$ with\n$0<d(y',e)\\le2$, may fail to have a covered pattern. At those\ndepartures we use $\\rho^\\tau_j\\le12/5$ from\nLemma~\\ref{l:response}. These exceptional departures need not be\nthe last departures of the second trail.\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E11",
+    "file": "sec6-walks.tex",
+    "start": 142,
+    "end": 142,
+    "replacement": "Assume (H1) and (H2). Let $D$ be a domain or auxiliary spin network\non $G$, let $x\\in G\\setminus S$ be a site that is not removed and\nhas at most three present bonds, with a designated arrival direction,\nand suppose that all first-visit steps of every trail in\n$\\mathcal T_D(x,S)$, except at most $12$ steps of each trail, have\ntheir patterns in $\\Pext$. Then\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E12",
+    "file": "sec6-walks.tex",
+    "start": 143,
+    "end": 145,
+    "replacement": "\\begin{equation*}\n\\sum_{w\\in\\mathcal T_D(x,S)}3^{-|w|}\n\\max\\{R^\\tau_D(w),R^0_D(w)\\}\n\\le \\Bigl(\\frac{12}{5}\\Bigr)^{12}\n\\frac{C_V}{1-q}\\,q^{d(x,S)}.\n\\end{equation*}\n",
+    "finding": "R4-3 / R7-1",
+    "note": "The pointwise proof gives this common majorant; it directly justifies the sum of maxima in sec7:82."
+  },
+  {
+    "id": "E13",
+    "file": "sec6-walks.tex",
+    "start": 149,
+    "end": 149,
+    "replacement": "Every trail of $D$ is a trail of $\\Z^2$. We prove the same pointwise\nbound for both dots $\\tau$ and $0$. If the initial site has status\n$\\mathrm D$ and two present bonds, the formula above gives\n$\\rho^\\cdot_1\\le3/4$, hence\n$3^{-1}\\rho^\\cdot_1\\le1/4\\le\\omega_1$, since the first lattice\ndeparture has $\\omega_1\\ge1/3$. Every other departure from status\n$\\mathrm D$ has at most one present bond, so\n$3^{-1}\\rho^\\cdot_j=1/5$. This equals $\\omega_j$ if the site was\nleft before by $w$, and is at most $\\omega_j$ otherwise. For a\nfirst-visit step whose pattern is in $\\Pext$,\nLemma~\\ref{l:local} and (H1) give\n$\\rho^\\tau_j\\le x_{\\mathrm{type}}$, while\nLemma~\\ref{l:response} gives $\\rho^0_j\\le1\\le x_{\\mathrm{type}}$;\nthus $3^{-1}\\rho^\\cdot_j\\le\\omega_j$. At any other first-visit\nstep, Lemma~\\ref{l:response} gives\n$3^{-1}\\rho^\\cdot_j\\le4/5\\le(12/5)\\omega_j$.\nThere are at most $12$ such steps, so pointwise\n\\[\n3^{-|w|}\\max\\{R^\\tau_D(w),R^0_D(w)\\}\n\\le (12/5)^{12}\\mathsf W(w).\n\\]\nSince $|w|\\ge d(x,S)$, summing (H2) over the possible lengths gives\nthe claim.\n",
+    "finding": "R4-1 / R4-3",
+    "note": ""
+  },
+  {
+    "id": "E14",
+    "file": "sec7-recursion.tex",
+    "start": 17,
+    "end": 31,
+    "replacement": "\\begin{lemma}\\label{l:closure}\nLet $D\\in\\Dcons(G)$, $(u,v)\\in P_X(D)$ with centre $c$, and\n$u\\notin S$. Let $w=(v_0,\\dots,v_m)$ be a trail from $u$ that does\nnot visit $S$ before its last site. Thus the lemma also applies when\nthe trail is required to avoid $v$ before its last site. Before forming\n$D_0$, if $u$ has status $\\mathrm U$, drop its kept bond to $c$;\nthis changes no partition function because $c$ is removed. Let $D_j$\nbe the auxiliary spin network after tracing the prefix $w_j$ from\nthese normalized initial data. Then, for $0\\le j\\le m$:\n\\begin{enumerate}\n\\item Every visited site other than the live endpoint $v_j$ has\nstatus $\\mathrm D$ or $\\mathrm X$.\n\\item Condition (C) holds between non-removed sites. Every\n$\\mathrm D$ site other than $v_j$ keeps exactly two bonds, and every\n$\\mathrm U$ site other than $v_j$ keeps all its bonds. If $j\\ge1$,\nthe live endpoint has status $\\mathrm U$ or $\\mathrm D$: in the\nfirst case it keeps all its bonds inside $G$ except its arrival bond;\nin the second it keeps exactly one bond. The other end of the arrival\nbond has status $\\mathrm D$ or $\\mathrm X$. At $j=0$, a live\n$\\mathrm U$ site keeps its three non-$c$ bonds, while a live\n$\\mathrm D$ site retains its original two kept bonds and has at most\none present bond.\n\\item Whenever $v_j\\notin S$, the underlying mass-one data\n$E'_{j+1}$ obtained by removing $v_j$ belong to $\\Dcons(G)$.\n\\end{enumerate}\nIf $v_m=e\\in S$, then $e$ has status $\\mathrm U$ and has lost only\nits arrival bond. This is the sole kept-set defect in the underlying\nterminal trace relative to $\\Dcons(G)$; all its original leg factors\nare retained. No removal of $e$, and no membership in $\\Dcons(G)$\nafter such a removal, is asserted.\n\nConsequently, for $0\\le j<m$, if step $j+1$ is a first visit at\n$y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when\n$j=0$, belongs to $\\Pext$. The pairs among its non-removed remaining\nneighbours belong to $P_B(E'_{j+1})\\cup P_C(E'_{j+1})$, with\ncentre $y$.\n\\end{lemma}\n\n\\begin{proof}\nAt $j=0$, condition (C) is unchanged by dropping a bond to the\nremoved centre. Removing the live endpoint restores the original\nkept-set conditions at every remaining site. For a later departure\nfrom a live $\\mathrm U$ site, its arrival bond (or its bond to $c$\nat the initial departure) and its out-bond are distinct; dropping the\nout-bond and changing its status to $\\mathrm D$ leaves exactly two\nkept bonds. If the initial site is $\\mathrm D$, it can depart only\nby its sole present bond and becomes $\\mathrm X$. Every later live\n$\\mathrm D$ site has lost its arrival bond from a two-bond kept set;\nat a departure it becomes $\\mathrm X$. On arrival, an unvisited\n$\\mathrm U$ site loses just its arrival bond, and a $\\mathrm D$\nsite loses one of its two kept bonds. All traversed bonds are dropped\nby both ends. These observations prove (1) and (2) inductively.\n\nBefore a hit of $S$, the live endpoint is the only possible exception\nto the full $\\mathrm U$ and two-bond $\\mathrm D$ kept sets. Removing\nit leaves condition (C) intact and does not remove a protected site;\nthis proves (3). At a first hit $e\\in S$, that site was unvisited\nand has status $\\mathrm U$, so only its arrival bond is lost.\n\nAt a first-visit departure $y$, the arrival site is removed or has\nstatus $\\mathrm D$ with two kept bonds other than its bond to $y$.\nEvery other $\\mathrm U$ site keeps all its bonds. By (C), each\nother non-removed neighbour of $y$ that has status $\\mathrm D$\nkeeps its bond to $y$ and one other bond; every non-live\n$\\mathrm D$ corner keeps two bonds. These are the rules of\nDefinition~\\ref{d:pattern}, with the tips replaced by their covering\ntips and external slots filled as in Lemma~\\ref{l:local}. Finally,\nany two non-removed remaining neighbours of $y$ are at distance two\nwith common neighbour $y$, which is removed in $E'_{j+1}$.\nA $\\mathrm D$ neighbour has at most one present bond after this\nremoval, so the response pairs have the stated pair classes.\nThe argument uses no avoidance of the distinguished target $v$.\n\\end{proof}\n",
+    "finding": "R4-2 / R7-1",
+    "note": ""
+  },
+  {
+    "id": "E15",
+    "file": "sec7-recursion.tex",
+    "start": 68,
+    "end": 68,
+    "replacement": "Let $G$, $\\tau$, $D$ and $(u, v) \\in P_X(D)$ with centre $c$ be as in \\eqref{e:FX} with $d_0 = \\min(d(u, S), d(v, S)) \\ge d \\ge 1$; in particular $u, v \\notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\\mathrm U$ by dropping its kept bond to the removed centre, as in Lemma~\\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio or correlation. If the starting site has status $\\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\\ref{l:exposure} in $T_1$. By Proposition~\\ref{p:pairwalk} with $T = S \\cup \\{v\\}$, applied to $\\tau$ and to $0$, the trails are the same in both expansions, and\n",
+    "finding": "R4-1 / R4-2 / R4-3",
+    "note": "State the common normalization convention and check the added exposure hypothesis before the expansions."
+  },
+  {
+    "id": "E16",
+    "file": "sec7-recursion.tex",
+    "start": 80,
+    "end": 80,
+    "replacement": "\\emph{The term $T_2$.} Let $w\\in\\mathcal W_1$ end at $e\\in S$.\nThe terminal object $D;[w]$ is an auxiliary spin network, so\nProposition~\\ref{p:pairwalk} applies in it from $v$ with target $e$\nand stopping set $S$; $v$ was not visited by $w$ and still has at\nmost three present bonds. Since terminal scalar products have absolute\nvalue at most one,\n\\[\n|\\mathcal X^\\cdot(w)|\\le\n\\sum_{w'\\in\\mathcal T_{D;[w]}(v,S)}\n3^{-|w'|}R^\\cdot_{D;[w]}(w').\n\\]\nBy Lemma~\\ref{l:closure}, the underlying terminal trace satisfies the\nconsistent-domain rules except that $e$ has dropped its arrival bond.\nBefore the second expansion, if $v$ has status $\\mathrm U$, drop\nits kept bond to the removed centre $c$; this changes no partition\nfunction or ratio. Repeat the kept-set induction of\nLemma~\\ref{l:closure}, allowing this fixed defect at $e$ as well as\nthe current live endpoint. Before the second trail hits $S$, every\nfirst-visit departure at $y'$ with $d(y',e)>2$ has the ordinary\n$\\Pext$ pattern: the defect is outside its template. Missing\nexternal factors are covered by the averaging in\nLemma~\\ref{l:local}. The possible exceptional first-visit departures\ntherefore lie in $\\{y':0<d(y',e)\\le2\\}$, a set of $12$ sites;\na site can be departed from with status $\\mathrm U$ at most once.\nAll departures remain outside $S$ and all original leg factors remain\nunchanged. This proves the hypotheses of Lemma~\\ref{l:onepoint} for\nthe second expansion. That lemma also applies to the first sum over\nall $\\mathcal T_D(u,S)$, using the normalization at $u$ and the\nvariant of Lemma~\\ref{l:closure} that does not exclude $v$. Its\npointwise bound applies to the maximum of the pinned and free ratios.\nConsequently,\n",
+    "finding": "R4-3 / R7-1",
+    "note": ""
+  }
+]

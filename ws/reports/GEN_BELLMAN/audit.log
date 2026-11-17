@@ -1,0 +1,430 @@
+AKLT.Gen.Bellman.System.{u_1, u_2} (S : Type u_1) (L : Type u_2) : Type (max u_1 u_2)
+AKLT.Gen.Bellman.System.step.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (f : S → ENNReal)
+  (x : S) : ENNReal
+AKLT.Gen.Bellman.System.step_mono.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) {f h : S → ENNReal}
+  (hfh : ∀ (x : S), f x ≤ h x) (x : S) : T.step f x ≤ T.step h x
+'AKLT.Gen.Bellman.System.step_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.step_zero.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (x : S) :
+  T.step (fun x => 0) x = 0
+'AKLT.Gen.Bellman.System.step_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.step_add.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (f h : S → ENNReal)
+  (x : S) : T.step (fun y => f y + h y) x = T.step f x + T.step h x
+'AKLT.Gen.Bellman.System.step_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.step_sum.{u, v, u_1} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) {ι : Type u_1}
+  (s : Finset ι) (f : ι → S → ENNReal) (x : S) : T.step (fun y => ∑ i ∈ s, f i y) x = ∑ i ∈ s, T.step (f i) x
+'AKLT.Gen.Bellman.System.step_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.exact.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g : S → ENNReal) :
+  ℕ → S → ENNReal
+AKLT.Gen.Bellman.System.horizon.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g : S → ENNReal) :
+  ℕ → S → ENNReal
+AKLT.Gen.Bellman.System.horizon_eq_sum.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (n : ℕ) (x : S) : T.horizon g n x = ∑ k ∈ Finset.range n, T.exact g k x
+'AKLT.Gen.Bellman.System.horizon_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.total.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g : S → ENNReal)
+  (x : S) : ENNReal
+AKLT.Gen.Bellman.System.total_eq_iSup_horizon.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (x : S) : T.total g x = ⨆ n, T.horizon g n x
+'AKLT.Gen.Bellman.System.total_eq_iSup_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.horizon_le.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g F : S → ENNReal) (hF : ∀ (x : S), g x + T.step F x ≤ F x) (n : ℕ) (x : S) : T.horizon g n x ≤ F x
+'AKLT.Gen.Bellman.System.horizon_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.total_le.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g F : S → ENNReal)
+  (hF : ∀ (x : S), g x + T.step F x ≤ F x) (x : S) : T.total g x ≤ F x
+'AKLT.Gen.Bellman.System.total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.total_ne_top.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g F : S → ENNReal) (hF : ∀ (x : S), g x + T.step F x ≤ F x) {x : S} (hfinite : F x ≠ ⊤) : T.total g x ≠ ⊤
+'AKLT.Gen.Bellman.System.total_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.kill.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (stop : S → Prop) :
+  AKLT.Gen.Bellman.System S L
+AKLT.Gen.Bellman.System.kill_step.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (stop : S → Prop)
+  (f : S → ENNReal) (x : S) : (T.kill stop).step f x = if stop x then 0 else T.step f x
+'AKLT.Gen.Bellman.System.kill_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.reward.{u} {S : Type u} (stop : S → Prop) (r : S → ENNReal) (x : S) : ENNReal
+AKLT.Gen.Bellman.System.supersolution_of_stopping.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (stop : S → Prop) (r F : S → ENNReal) (hstop : ∀ (x : S), stop x → r x ≤ F x)
+  (hcont : ∀ (x : S), ¬stop x → T.step F x ≤ F x) (x : S) :
+  AKLT.Gen.Bellman.System.reward stop r x + (T.kill stop).step F x ≤ F x
+'AKLT.Gen.Bellman.System.supersolution_of_stopping' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.stopped_total_le.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (stop : S → Prop) (r F : S → ENNReal) (hstop : ∀ (x : S), stop x → r x ≤ F x)
+  (hcont : ∀ (x : S), ¬stop x → T.step F x ≤ F x) (x : S) :
+  (T.kill stop).total (AKLT.Gen.Bellman.System.reward stop r) x ≤ F x
+'AKLT.Gen.Bellman.System.stopped_total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.Words.{v} (L : Type v) : ℕ → Type v
+AKLT.Gen.Bellman.System.pathWeight.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (g : S → ENNReal)
+  (n : ℕ) : S → AKLT.Gen.Bellman.System.Words L n → ENNReal
+AKLT.Gen.Bellman.System.exact_eq_tsum_paths.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (n : ℕ) (x : S) : T.exact g n x = ∑' (p : AKLT.Gen.Bellman.System.Words L n), T.pathWeight g n x p
+'AKLT.Gen.Bellman.System.exact_eq_tsum_paths' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.total_eq_tsum_paths.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (x : S) :
+  T.total g x = ∑' (p : (n : ℕ) × AKLT.Gen.Bellman.System.Words L n), T.pathWeight g p.fst x p.snd
+'AKLT.Gen.Bellman.System.total_eq_tsum_paths' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.stopped_pathWeight_succ.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (stop : S → Prop) (r : S → ENNReal) (n : ℕ) (x : S) (a : L) (p : AKLT.Gen.Bellman.System.Words L n) :
+  (T.kill stop).pathWeight (AKLT.Gen.Bellman.System.reward stop r) (n + 1) x (a, p) =
+    if stop x then 0
+    else T.weight x a * (T.kill stop).pathWeight (AKLT.Gen.Bellman.System.reward stop r) n (T.next x a) p
+'AKLT.Gen.Bellman.System.stopped_pathWeight_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.FirstHit.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L) (stop : S → Prop)
+  (n : ℕ) : S → AKLT.Gen.Bellman.System.Words L n → Prop
+AKLT.Gen.Bellman.System.stopped_pathWeight_eq.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (stop : S → Prop) (r : S → ENNReal) (n : ℕ) (x : S) (p : AKLT.Gen.Bellman.System.Words L n) :
+  (T.kill stop).pathWeight (AKLT.Gen.Bellman.System.reward stop r) n x p =
+    if T.FirstHit stop n x p then T.pathWeight r n x p else 0
+'AKLT.Gen.Bellman.System.stopped_pathWeight_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.stopped_total_eq_tsum_firstHit.{u, v} {S : Type u} {L : Type v}
+  (T : AKLT.Gen.Bellman.System S L) (stop : S → Prop) (r : S → ENNReal) (x : S) :
+  (T.kill stop).total (AKLT.Gen.Bellman.System.reward stop r) x =
+    ∑' (p : (n : ℕ) × AKLT.Gen.Bellman.System.Words L n),
+      if T.FirstHit stop p.fst x p.snd then T.pathWeight r p.fst x p.snd else 0
+'AKLT.Gen.Bellman.System.stopped_total_eq_tsum_firstHit' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.patch.{u_1, u_2} {S : Type u_1} {Q : Type u_2} (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (x : S) : ENNReal
+AKLT.Gen.Bellman.patch_eq_inside.{u_1, u_2} {S : Type u_1} {Q : Type u_2} (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) {x : S} (hx : x ∈ box) : AKLT.Gen.Bellman.patch box π u z x = u x
+'AKLT.Gen.Bellman.patch_eq_inside' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.patch_eq_outside.{u_1, u_2} {S : Type u_1} {Q : Type u_2} (box : Finset S) (π : S → Q)
+  (u : S → ENNReal) (z : Q → ENNReal) {x : S} (hx : x ∉ box) : AKLT.Gen.Bellman.patch box π u z x = z (π x)
+'AKLT.Gen.Bellman.patch_eq_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.patch_le_cap.{u_1, u_2} {S : Type u_1} {Q : Type u_2} (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (hcap : ∀ x ∈ box, u x ≤ z (π x)) (x : S) : AKLT.Gen.Bellman.patch box π u z x ≤ z (π x)
+'AKLT.Gen.Bellman.patch_le_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.patch_ne_top.{u_1, u_2} {S : Type u_1} {Q : Type u_2} (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (hu : ∀ x ∈ box, u x ≠ ⊤) (hz : ∀ (q : Q), z q ≠ ⊤) (x : S) : AKLT.Gen.Bellman.patch box π u z x ≠ ⊤
+'AKLT.Gen.Bellman.patch_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.patch_step_le_free.{u_1, u_2, u_3} {S : Type u_1} {Q : Type u_2} {L : Type u_3}
+  (T : AKLT.Gen.Bellman.System S L) (W : AKLT.Gen.Bellman.System Q L) (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (hcap : ∀ x ∈ box, u x ≤ z (π x)) {x : S} (hnext : ∀ (a : L), π (T.next x a) = W.next (π x) a)
+  (hweight : ∀ (a : L), T.weight x a ≤ W.weight (π x) a) : T.step (AKLT.Gen.Bellman.patch box π u z) x ≤ W.step z (π x)
+'AKLT.Gen.Bellman.patch_step_le_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.local_global.{u_1, u_2, u_3} {S : Type u_1} {Q : Type u_2} {L : Type u_3}
+  (T : AKLT.Gen.Bellman.System S L) (W : AKLT.Gen.Bellman.System Q L) (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (g : S → ENNReal) (hcap : ∀ x ∈ box, u x ≤ z (π x)) (hfree : ∀ (q : Q), W.step z q ≤ z q)
+  (hnext : ∀ x ∉ box, ∀ (a : L), π (T.next x a) = W.next (π x) a)
+  (hweight : ∀ x ∉ box, ∀ (a : L), T.weight x a ≤ W.weight (π x) a) (hg : ∀ x ∉ box, g x = 0)
+  (hrows : ∀ x ∈ box, g x + T.step (AKLT.Gen.Bellman.patch box π u z) x ≤ u x) (x : S) :
+  g x + T.step (AKLT.Gen.Bellman.patch box π u z) x ≤ AKLT.Gen.Bellman.patch box π u z x
+'AKLT.Gen.Bellman.local_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.local_global_total_le.{u_1, u_2, u_3} {S : Type u_1} {Q : Type u_2} {L : Type u_3}
+  (T : AKLT.Gen.Bellman.System S L) (W : AKLT.Gen.Bellman.System Q L) (box : Finset S) (π : S → Q) (u : S → ENNReal)
+  (z : Q → ENNReal) (g : S → ENNReal) (hcap : ∀ x ∈ box, u x ≤ z (π x)) (hfree : ∀ (q : Q), W.step z q ≤ z q)
+  (hnext : ∀ x ∉ box, ∀ (a : L), π (T.next x a) = W.next (π x) a)
+  (hweight : ∀ x ∉ box, ∀ (a : L), T.weight x a ≤ W.weight (π x) a) (hg : ∀ x ∉ box, g x = 0)
+  (hrows : ∀ x ∈ box, g x + T.step (AKLT.Gen.Bellman.patch box π u z) x ≤ u x) (x : S) :
+  T.total g x ≤ AKLT.Gen.Bellman.patch box π u z x
+'AKLT.Gen.Bellman.local_global_total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.prefix_domination.{u_1, u_3, u_4} {S : Type u_1} {L : Type u_3} (T : AKLT.Gen.Bellman.System S L)
+  (g F : S → ENNReal) (hF : ∀ (x : S), g x + T.step F x ≤ F x) {P : Type u_4} (p : P → ENNReal) (endpoint : P → S)
+  (suffix : P → ENNReal) (hsuffix : ∀ (a : P), suffix a ≤ T.total g (endpoint a)) (short : ENNReal) :
+  short + ∑' (a : P), p a * suffix a ≤ short + ∑' (a : P), p a * F (endpoint a)
+'AKLT.Gen.Bellman.prefix_domination' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.{u_7, u_8, u_9} (S : Type u_7) (D : Type u_8) (K : Type u_9) : Type (max (max u_7 u_8) u_9)
+AKLT.Gen.Bellman.Automaton.project.{u_1, u_2, u_4} {S : Type u_1} {Q : Type u_2} {K : Type u_4} (π : S → Q) :
+  Option (K × S) → Option (K × Q)
+AKLT.Gen.Bellman.Automaton.Compatible.{u_1, u_2, u_3, u_4} {S : Type u_1} {Q : Type u_2} {D : Type u_3} {K : Type u_4}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K) (π : S → Q) : Prop
+AKLT.Gen.Bellman.Automaton.quotient.{u_1, u_2, u_3, u_4} {S : Type u_1} {Q : Type u_2} {D : Type u_3} {K : Type u_4}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q) (hsurj : Function.Surjective π) : AKLT.Gen.Bellman.Automaton Q D K
+AKLT.Gen.Bellman.Automaton.quotient_compatible.{u_1, u_2, u_3, u_4} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q) (hsurj : Function.Surjective π)
+  (hfibre :
+    ∀ (s t : S),
+      π s = π t →
+        ∀ (d : D),
+          AKLT.Gen.Bellman.Automaton.project π (A.trans s d) = AKLT.Gen.Bellman.Automaton.project π (A.trans t d)) :
+  A.Compatible (A.quotient π hsurj) π
+'AKLT.Gen.Bellman.Automaton.quotient_compatible' depends on axioms: [Classical.choice]
+AKLT.Gen.Bellman.Automaton.quotientCoeff.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (a : C → S → D → K → ENNReal) (π : S → Q) (hsurj : Function.Surjective π) (c : C)
+  (q : Q) (d : D) (k : K) : ENNReal
+AKLT.Gen.Bellman.Automaton.quotientCoeff_compatible.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2}
+  {D : Type u_3} {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (a : C → S → D → K → ENNReal)
+  (π : S → Q) (hsurj : Function.Surjective π)
+  (hfibre :
+    ∀ (c : C) (s t : S), π s = π t → ∀ (d : D) (k : K) (u : S), A.trans s d = some (k, u) → a c s d k = a c t d k)
+  (c : C) (s : S) (d : D) (k : K) (u : S) (he : A.trans s d = some (k, u)) :
+  a c s d k = AKLT.Gen.Bellman.Automaton.quotientCoeff a π hsurj c (π s) d k
+'AKLT.Gen.Bellman.Automaton.quotientCoeff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.arrivalCoeff.{u_1, u_3, u_4, u_5, u_6} {S : Type u_1} {D : Type u_3} {K : Type u_4}
+  {C : Type u_5} {R : Type u_6} (usesArrival : K → Prop) (arrival : S → R) (base : C → D → K → ENNReal)
+  (response : C → D → K → R → ENNReal) (c : C) (s : S) (d : D) (k : K) : ENNReal
+AKLT.Gen.Bellman.Automaton.arrivalCoeff_compatible.{u_1, u_2, u_3, u_4, u_5, u_6} {S : Type u_1} {Q : Type u_2}
+  {D : Type u_3} {K : Type u_4} {C : Type u_5} {R : Type u_6} (A : AKLT.Gen.Bellman.Automaton S D K) (π : S → Q)
+  (hsurj : Function.Surjective π) (usesArrival : K → Prop) (arrival : S → R) (base : C → D → K → ENNReal)
+  (response : C → D → K → R → ENNReal)
+  (harrival :
+    ∀ (s t : S),
+      π s = π t → ∀ (d : D) (k : K) (u : S), A.trans s d = some (k, u) → usesArrival k → arrival s = arrival t)
+  (c : C) (s : S) (d : D) (k : K) (u : S) (he : A.trans s d = some (k, u)) :
+  AKLT.Gen.Bellman.Automaton.arrivalCoeff usesArrival arrival base response c s d k =
+    AKLT.Gen.Bellman.Automaton.quotientCoeff (AKLT.Gen.Bellman.Automaton.arrivalCoeff usesArrival arrival base response)
+      π hsurj c (π s) d k
+'AKLT.Gen.Bellman.Automaton.arrivalCoeff_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.edgeValue.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4} {C : Type u_5}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (f : C × S → ENNReal) (c : C) (s : S) (d : D) : ENNReal
+AKLT.Gen.Bellman.Automaton.backward.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4} {C : Type u_5}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (f : C × S → ENNReal) (x : C × S) : ENNReal
+AKLT.Gen.Bellman.Automaton.system.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4} {C : Type u_5}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C) :
+  AKLT.Gen.Bellman.System (C × S) D
+AKLT.Gen.Bellman.Automaton.system_step.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4} {C : Type u_5}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (f : C × S → ENNReal) (x : C × S) : (A.system coeff update).step f x = A.backward coeff update f x
+'AKLT.Gen.Bellman.Automaton.system_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.edgeValue_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (f : C × Q → ENNReal) (c : C) (s : S) (d : D) :
+  A.edgeValue a update (fun x => f (x.1, π x.2)) c s d = B.edgeValue b update f c (π s) d
+'AKLT.Gen.Bellman.Automaton.edgeValue_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.backward_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (f : C × Q → ENNReal) (x : C × S) :
+  A.backward a update (fun y => f (y.1, π y.2)) x = B.backward b update f (x.1, π x.2)
+'AKLT.Gen.Bellman.Automaton.backward_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.stopped.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4} {C : Type u_5}
+  (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (stop : C × S → Prop) (r : C × S → ENNReal) : ℕ → C × S → ENNReal
+AKLT.Gen.Bellman.Automaton.stopped_eq_horizon.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4}
+  {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (stop : C × S → Prop) (r : C × S → ENNReal) (n : ℕ) (x : C × S) :
+  A.stopped coeff update stop r n x =
+    ((A.system coeff update).kill stop).horizon (AKLT.Gen.Bellman.System.reward stop r) n x
+'AKLT.Gen.Bellman.Automaton.stopped_eq_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.stopped_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (stop : C × Q → Prop) (r : C × Q → ENNReal) (n : ℕ) (x : C × S) :
+  A.stopped a update (fun y => stop (y.1, π y.2)) (fun y => r (y.1, π y.2)) n x =
+    B.stopped b update stop r n (x.1, π x.2)
+'AKLT.Gen.Bellman.Automaton.stopped_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.stopped_iSup_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (stop : C × Q → Prop) (r : C × Q → ENNReal) (x : C × S) :
+  ⨆ n, A.stopped a update (fun y => stop (y.1, π y.2)) (fun y => r (y.1, π y.2)) n x =
+    ⨆ n, B.stopped b update stop r n (x.1, π x.2)
+'AKLT.Gen.Bellman.Automaton.stopped_iSup_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.stopped_total_pullback.{u_1, u_2, u_3, u_4, u_5} {S : Type u_1} {Q : Type u_2} {D : Type u_3}
+  {K : Type u_4} {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (B : AKLT.Gen.Bellman.Automaton Q D K)
+  (π : S → Q) (hcompat : A.Compatible B π) (a : C → S → D → K → ENNReal) (b : C → Q → D → K → ENNReal)
+  (hcoeff : ∀ (c : C) (s : S) (d : D) (k : K) (t : S), A.trans s d = some (k, t) → a c s d k = b c (π s) d k)
+  (update : C → D → K → C) (stop : C × Q → Prop) (r : C × Q → ENNReal) (x : C × S) :
+  ((A.system a update).kill fun y => stop (y.1, π y.2)).total
+      (AKLT.Gen.Bellman.System.reward (fun y => stop (y.1, π y.2)) fun y => r (y.1, π y.2)) x =
+    ((B.system b update).kill stop).total (AKLT.Gen.Bellman.System.reward stop r) (x.1, π x.2)
+'AKLT.Gen.Bellman.Automaton.stopped_total_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.moment.{u_1} {I : Type u_1} [Fintype I] (a h : I → ℝ) : ℝ
+AKLT.Gen.Bellman.moment_step_le.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (a b h : I → ℝ) (q : ℝ)
+  (ha : ∀ (i : I), 0 ≤ a i) (hh : ∀ (i : I), 0 ≤ h i) (hstep : ∀ (j : I), b j ≤ ∑ i, a i * M i j)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) : AKLT.Gen.Bellman.moment b h ≤ q * AKLT.Gen.Bellman.moment a h
+'AKLT.Gen.Bellman.moment_step_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.moment_growth.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (A : ℕ → I → ℝ) (h : I → ℝ) (q : ℝ)
+  (hq : 0 ≤ q) (hA : ∀ (n : ℕ) (i : I), 0 ≤ A n i) (hh : ∀ (i : I), 0 ≤ h i)
+  (hstep : ∀ (n : ℕ) (j : I), A (n + 1) j ≤ ∑ i, A n i * M i j) (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i)
+  (n : ℕ) : AKLT.Gen.Bellman.moment (A n) h ≤ q ^ n * AKLT.Gen.Bellman.moment (A 0) h
+'AKLT.Gen.Bellman.moment_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.mass_growth.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (A : ℕ → I → ℝ) (h : I → ℝ) (q lo hi : ℝ)
+  (hq : 0 ≤ q) (hlo : 0 < lo) (hA : ∀ (n : ℕ) (i : I), 0 ≤ A n i) (hlower : ∀ (i : I), lo ≤ h i)
+  (hupper : ∀ (i : I), h i ≤ hi) (hstep : ∀ (n : ℕ) (j : I), A (n + 1) j ≤ ∑ i, A n i * M i j)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) (n : ℕ) : ∑ i, A n i ≤ (hi / lo * ∑ i, A 0 i) * q ^ n
+'AKLT.Gen.Bellman.mass_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.minWitness.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) : ℝ
+AKLT.Gen.Bellman.maxWitness.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) : ℝ
+AKLT.Gen.Bellman.minWitness_le.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) (i : I) :
+  AKLT.Gen.Bellman.minWitness h ≤ h i
+'AKLT.Gen.Bellman.minWitness_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.le_maxWitness.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) (i : I) :
+  h i ≤ AKLT.Gen.Bellman.maxWitness h
+'AKLT.Gen.Bellman.le_maxWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.minWitness_pos.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) (hh : ∀ (i : I), 0 < h i) :
+  0 < AKLT.Gen.Bellman.minWitness h
+'AKLT.Gen.Bellman.minWitness_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.positive_vector_growth.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (M : I → I → ℝ) (A : ℕ → I → ℝ)
+  (h : I → ℝ) (q : ℝ) (hq : 0 ≤ q) (hA : ∀ (n : ℕ) (i : I), 0 ≤ A n i) (hh : ∀ (i : I), 0 < h i)
+  (hstep : ∀ (n : ℕ) (j : I), A (n + 1) j ≤ ∑ i, A n i * M i j) (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i)
+  (n : ℕ) : ∑ i, A n i ≤ (AKLT.Gen.Bellman.maxWitness h / AKLT.Gen.Bellman.minWitness h * ∑ i, A 0 i) * q ^ n
+'AKLT.Gen.Bellman.positive_vector_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.walkSum.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (b : I → ℝ) : ℕ → I → ℝ
+AKLT.Gen.Bellman.walkSum_le.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (b h : I → ℝ) (q C : ℝ)
+  (hM : ∀ (i j : I), 0 ≤ M i j) (hq : 0 ≤ q) (hC : 0 ≤ C) (hb : ∀ (i : I), b i ≤ C * h i)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) (n : ℕ) (i : I) :
+  AKLT.Gen.Bellman.walkSum M b n i ≤ C * q ^ n * h i
+'AKLT.Gen.Bellman.walkSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.all_length_path_bound.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (M : I → I → ℝ) (h : I → ℝ) (q : ℝ)
+  (hM : ∀ (i j : I), 0 ≤ M i j) (hq : 0 ≤ q) (hh : ∀ (i : I), 0 < h i)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) (n : ℕ) (i : I) :
+  AKLT.Gen.Bellman.walkSum M (fun x => 1) n i ≤ AKLT.Gen.Bellman.maxWitness h / AKLT.Gen.Bellman.minWitness h * q ^ n
+'AKLT.Gen.Bellman.all_length_path_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.growthConstant.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h : I → ℝ) (W : ℕ → ℝ) (q : ℝ) (m : ℕ)
+  (hm : 0 < m) : ℝ
+AKLT.Gen.Bellman.alm_of_constant.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (M : I → I → ℝ) (A : ℕ → I → ℝ)
+  (h : I → ℝ) (W : ℕ → ℝ) (q C : ℝ) (m : ℕ) (hq : 0 < q) (hA : ∀ (n : ℕ) (i : I), 0 ≤ A n i) (hh : ∀ (i : I), 0 < h i)
+  (hstep : ∀ (n : ℕ), m ≤ n → ∀ (j : I), A (n + 1) j ≤ ∑ i, A n i * M i j)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) (hW : ∀ (n : ℕ), m ≤ n → W n = ∑ i, A n i)
+  (hprefix : ∀ r < m, W r / q ^ r ≤ C)
+  (htail : AKLT.Gen.Bellman.maxWitness h / AKLT.Gen.Bellman.minWitness h * W m / q ^ m ≤ C) (n : ℕ) : W n ≤ C * q ^ n
+'AKLT.Gen.Bellman.alm_of_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.alm.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (M : I → I → ℝ) (A : ℕ → I → ℝ) (h : I → ℝ)
+  (W : ℕ → ℝ) (q : ℝ) (m : ℕ) (hm : 0 < m) (hq : 0 < q) (hA : ∀ (n : ℕ) (i : I), 0 ≤ A n i) (hh : ∀ (i : I), 0 < h i)
+  (hstep : ∀ (n : ℕ), m ≤ n → ∀ (j : I), A (n + 1) j ≤ ∑ i, A n i * M i j)
+  (hwitness : ∀ (i : I), ∑ j, M i j * h j ≤ q * h i) (hW : ∀ (n : ℕ), m ≤ n → W n = ∑ i, A n i) (n : ℕ) :
+  W n ≤ AKLT.Gen.Bellman.growthConstant h W q m hm * q ^ n
+'AKLT.Gen.Bellman.alm' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.scaled_row_sound.{u_1} {E : Type u_1} (edges : Finset E) (t : E → ℝ) (p v : E → ℕ) (D V u : ℕ)
+  (hD : 0 < D) (hV : 0 < V) (hceil : ∀ e ∈ edges, t e ≤ ↑(p e) / ↑D) (hcheck : ∑ e ∈ edges, p e * v e ≤ D * u) :
+  ∑ e ∈ edges, t e * (↑(v e) / ↑V) ≤ ↑u / ↑V
+'AKLT.Gen.Bellman.scaled_row_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.scaled_ennreal_row_sound.{u_1} {E : Type u_1} (edges : Finset E) (t : E → ENNReal) (p v : E → ℕ)
+  (D V u : ℕ) (hD : 0 < D) (hV : 0 < V) (hceil : ∀ e ∈ edges, t e ≤ ↑(p e) / ↑D)
+  (hcheck : ∑ e ∈ edges, p e * v e ≤ D * u) : ∑ e ∈ edges, t e * (↑(v e) / ↑V) ≤ ↑u / ↑V
+'AKLT.Gen.Bellman.scaled_ennreal_row_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.casesOn.{u, u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  {motive : AKLT.Gen.Bellman.Automaton S D K → Sort u} (t : AKLT.Gen.Bellman.Automaton S D K)
+  (mk : (trans : S → D → Option (K × S)) → motive { trans := trans }) : motive t
+'AKLT.Gen.Bellman.Automaton.casesOn' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.ctorIdx.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9} :
+  AKLT.Gen.Bellman.Automaton S D K → ℕ
+'AKLT.Gen.Bellman.Automaton.ctorIdx' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.mk.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  (trans : S → D → Option (K × S)) : AKLT.Gen.Bellman.Automaton S D K
+'AKLT.Gen.Bellman.Automaton.mk' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.mk.inj.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  {trans trans✝ : S → D → Option (K × S)} : { trans := trans } = { trans := trans✝ } → trans = trans✝
+'AKLT.Gen.Bellman.Automaton.mk.inj' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.mk.injEq.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  (trans trans✝ : S → D → Option (K × S)) : ({ trans := trans } = { trans := trans✝ }) = (trans = trans✝)
+'AKLT.Gen.Bellman.Automaton.mk.injEq' depends on axioms: [propext]
+AKLT.Gen.Bellman.Automaton.mk.noConfusion.{u, u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9} {P : Sort u}
+  {trans trans' : S → D → Option (K × S)} (eq : { trans := trans } = { trans := trans' }) (k : trans ≍ trans' → P) : P
+'AKLT.Gen.Bellman.Automaton.mk.noConfusion' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.mk.sizeOf_spec.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9} [SizeOf S]
+  [SizeOf D] [SizeOf K] (trans : S → D → Option (K × S)) : sizeOf { trans := trans } = 1
+'AKLT.Gen.Bellman.Automaton.mk.sizeOf_spec' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.noConfusion.{u, u_7, u_8, u_9} {P : Sort u} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  {t : AKLT.Gen.Bellman.Automaton S D K} {S' : Type u_7} {D' : Type u_8} {K' : Type u_9}
+  {t' : AKLT.Gen.Bellman.Automaton S' D' K'} (eq_1 : S = S') (eq_2 : D = D') (eq_3 : K = K') (eq_4 : t ≍ t') :
+  AKLT.Gen.Bellman.Automaton.noConfusionType P t t'
+'AKLT.Gen.Bellman.Automaton.noConfusion' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.noConfusionType.{u, u_7, u_8, u_9} (P : Sort u) {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  (t : AKLT.Gen.Bellman.Automaton S D K) {S' : Type u_7} {D' : Type u_8} {K' : Type u_9}
+  (t' : AKLT.Gen.Bellman.Automaton S' D' K') : Sort u
+'AKLT.Gen.Bellman.Automaton.noConfusionType' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.rec.{u, u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  {motive : AKLT.Gen.Bellman.Automaton S D K → Sort u}
+  (mk : (trans : S → D → Option (K × S)) → motive { trans := trans }) (t : AKLT.Gen.Bellman.Automaton S D K) : motive t
+'AKLT.Gen.Bellman.Automaton.rec' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.recOn.{u, u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  {motive : AKLT.Gen.Bellman.Automaton S D K → Sort u} (t : AKLT.Gen.Bellman.Automaton S D K)
+  (mk : (trans : S → D → Option (K × S)) → motive { trans := trans }) : motive t
+'AKLT.Gen.Bellman.Automaton.recOn' does not depend on any axioms
+AKLT.Gen.Bellman.Automaton.stopped.eq_def.{u_1, u_3, u_4, u_5} {S : Type u_1} {D : Type u_3} {K : Type u_4}
+  {C : Type u_5} (A : AKLT.Gen.Bellman.Automaton S D K) (coeff : C → S → D → K → ENNReal) (update : C → D → K → C)
+  (stop : C × S → Prop) (r : C × S → ENNReal) (x✝ : ℕ) :
+  A.stopped coeff update stop r x✝ =
+    match (motive := ℕ → C × S → ENNReal) x✝ with
+    | 0 => fun x => 0
+    | n.succ => fun x => if stop x then r x else A.backward coeff update (A.stopped coeff update stop r n) x
+'AKLT.Gen.Bellman.Automaton.stopped.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.Automaton.trans.{u_7, u_8, u_9} {S : Type u_7} {D : Type u_8} {K : Type u_9}
+  (self : AKLT.Gen.Bellman.Automaton S D K) : S → D → Option (K × S)
+'AKLT.Gen.Bellman.Automaton.trans' does not depend on any axioms
+AKLT.Gen.Bellman.System.FirstHit.eq_def.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (stop : S → Prop) (x✝ : ℕ) (x✝¹ : S) (x✝² : AKLT.Gen.Bellman.System.Words L x✝) :
+  T.FirstHit stop x✝ x✝¹ x✝² =
+    match x✝, x✝¹, x✝² with
+    | 0, x, x_1 => stop x
+    | n.succ, x, p => ¬stop x ∧ T.FirstHit stop n (T.next x p.1) p.2
+'AKLT.Gen.Bellman.System.FirstHit.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.Words.eq_def.{v} (L : Type v) (x✝ : ℕ) :
+  AKLT.Gen.Bellman.System.Words L x✝ =
+    match x✝ with
+    | 0 => PUnit.{v + 1}
+    | n.succ => L × AKLT.Gen.Bellman.System.Words L n
+'AKLT.Gen.Bellman.System.Words.eq_def' does not depend on any axioms
+AKLT.Gen.Bellman.System.casesOn.{u, u_1, u_2} {S : Type u_1} {L : Type u_2}
+  {motive : AKLT.Gen.Bellman.System S L → Sort u} (t : AKLT.Gen.Bellman.System S L)
+  (mk : (next : S → L → S) → (weight : S → L → ENNReal) → motive { next := next, weight := weight }) : motive t
+'AKLT.Gen.Bellman.System.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.ctorIdx.{u_1, u_2} {S : Type u_1} {L : Type u_2} : AKLT.Gen.Bellman.System S L → ℕ
+'AKLT.Gen.Bellman.System.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.exact.eq_def.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (x✝ : ℕ) :
+  T.exact g x✝ =
+    match (motive := ℕ → S → ENNReal) x✝ with
+    | 0 => g
+    | n.succ => T.step (T.exact g n)
+'AKLT.Gen.Bellman.System.exact.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.horizon.eq_def.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (x✝ : ℕ) :
+  T.horizon g x✝ =
+    match (motive := ℕ → S → ENNReal) x✝ with
+    | 0 => fun x => 0
+    | n.succ => fun x => g x + T.step (T.horizon g n) x
+'AKLT.Gen.Bellman.System.horizon.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.mk.{u_1, u_2} {S : Type u_1} {L : Type u_2} (next : S → L → S) (weight : S → L → ENNReal) :
+  AKLT.Gen.Bellman.System S L
+'AKLT.Gen.Bellman.System.mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.mk.inj.{u_1, u_2} {S : Type u_1} {L : Type u_2} {next : S → L → S} {weight : S → L → ENNReal}
+  {next✝ : S → L → S} {weight✝ : S → L → ENNReal} :
+  { next := next, weight := weight } = { next := next✝, weight := weight✝ } → next = next✝ ∧ weight = weight✝
+'AKLT.Gen.Bellman.System.mk.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.mk.injEq.{u_1, u_2} {S : Type u_1} {L : Type u_2} (next : S → L → S) (weight : S → L → ENNReal)
+  (next✝ : S → L → S) (weight✝ : S → L → ENNReal) :
+  ({ next := next, weight := weight } = { next := next✝, weight := weight✝ }) = (next = next✝ ∧ weight = weight✝)
+'AKLT.Gen.Bellman.System.mk.injEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.mk.noConfusion.{u, u_1, u_2} {S : Type u_1} {L : Type u_2} {P : Sort u} {next : S → L → S}
+  {weight : S → L → ENNReal} {next' : S → L → S} {weight' : S → L → ENNReal}
+  (eq : { next := next, weight := weight } = { next := next', weight := weight' })
+  (k : next ≍ next' → weight ≍ weight' → P) : P
+'AKLT.Gen.Bellman.System.mk.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.mk.sizeOf_spec.{u_1, u_2} {S : Type u_1} {L : Type u_2} [SizeOf S] [SizeOf L] (next : S → L → S)
+  (weight : S → L → ENNReal) : sizeOf { next := next, weight := weight } = 1
+'AKLT.Gen.Bellman.System.mk.sizeOf_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.next.{u_1, u_2} {S : Type u_1} {L : Type u_2} (self : AKLT.Gen.Bellman.System S L) : S → L → S
+'AKLT.Gen.Bellman.System.next' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.noConfusion.{u, u_1, u_2} {P : Sort u} {S : Type u_1} {L : Type u_2}
+  {t : AKLT.Gen.Bellman.System S L} {S' : Type u_1} {L' : Type u_2} {t' : AKLT.Gen.Bellman.System S' L'} (eq_1 : S = S')
+  (eq_2 : L = L') (eq_3 : t ≍ t') : AKLT.Gen.Bellman.System.noConfusionType P t t'
+'AKLT.Gen.Bellman.System.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.noConfusionType.{u, u_1, u_2} (P : Sort u) {S : Type u_1} {L : Type u_2}
+  (t : AKLT.Gen.Bellman.System S L) {S' : Type u_1} {L' : Type u_2} (t' : AKLT.Gen.Bellman.System S' L') : Sort u
+'AKLT.Gen.Bellman.System.noConfusionType' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.pathWeight.eq_def.{u, v} {S : Type u} {L : Type v} (T : AKLT.Gen.Bellman.System S L)
+  (g : S → ENNReal) (x✝ : ℕ) (x✝¹ : S) (x✝² : AKLT.Gen.Bellman.System.Words L x✝) :
+  T.pathWeight g x✝ x✝¹ x✝² =
+    match x✝, x✝¹, x✝² with
+    | 0, x, x_1 => g x
+    | n.succ, x, p => T.weight x p.1 * T.pathWeight g n (T.next x p.1) p.2
+'AKLT.Gen.Bellman.System.pathWeight.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.rec.{u, u_1, u_2} {S : Type u_1} {L : Type u_2} {motive : AKLT.Gen.Bellman.System S L → Sort u}
+  (mk : (next : S → L → S) → (weight : S → L → ENNReal) → motive { next := next, weight := weight })
+  (t : AKLT.Gen.Bellman.System S L) : motive t
+'AKLT.Gen.Bellman.System.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.recOn.{u, u_1, u_2} {S : Type u_1} {L : Type u_2}
+  {motive : AKLT.Gen.Bellman.System S L → Sort u} (t : AKLT.Gen.Bellman.System S L)
+  (mk : (next : S → L → S) → (weight : S → L → ENNReal) → motive { next := next, weight := weight }) : motive t
+'AKLT.Gen.Bellman.System.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.System.weight.{u_1, u_2} {S : Type u_1} {L : Type u_2} (self : AKLT.Gen.Bellman.System S L) :
+  S → L → ENNReal
+'AKLT.Gen.Bellman.System.weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.maxWitness.congr_simp.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h h✝ : I → ℝ) (e_h : h = h✝) :
+  AKLT.Gen.Bellman.maxWitness h = AKLT.Gen.Bellman.maxWitness h✝
+'AKLT.Gen.Bellman.maxWitness.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.minWitness.congr_simp.{u_1} {I : Type u_1} [Fintype I] [Nonempty I] (h h✝ : I → ℝ) (e_h : h = h✝) :
+  AKLT.Gen.Bellman.minWitness h = AKLT.Gen.Bellman.minWitness h✝
+'AKLT.Gen.Bellman.minWitness.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Gen.Bellman.walkSum.eq_def.{u_1} {I : Type u_1} [Fintype I] (M : I → I → ℝ) (b : I → ℝ) (x✝ : ℕ) :
+  AKLT.Gen.Bellman.walkSum M b x✝ =
+    match (motive := ℕ → I → ℝ) x✝ with
+    | 0 => b
+    | n.succ => fun i => ∑ j, M i j * AKLT.Gen.Bellman.walkSum M b n j
+'AKLT.Gen.Bellman.walkSum.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]

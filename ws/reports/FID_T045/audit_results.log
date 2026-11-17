@@ -1,0 +1,173 @@
+{
+  "raw_window_counts": [
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "raw_map_lane_count": 1048576,
+  "valid_lane_count": 60092,
+  "invalid_sentinel": 3741,
+  "invalid_lane_count": 988484,
+  "representative_count": 3741,
+  "raw_admissible_edges_checked": 169092,
+  "quotient_edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "chunks": {
+    "rawClass_190": {
+      "line": 395,
+      "hex_digits": 4096,
+      "sha256_hex_text": "bbb44450f4d925b2923c2005fb824c27ea7d28ce57ef37ffd755f7f935c32775",
+      "bit_interval_half_open": [
+        9453564,
+        9469948
+      ],
+      "touched_code_interval_inclusive": [
+        787797,
+        789162
+      ],
+      "whole_code_interval_inclusive": [
+        787797,
+        789161
+      ],
+      "touched_valid_words": 89,
+      "touched_invalid_words": 1277,
+      "valid_class_range": [
+        115,
+        3563
+      ],
+      "example": {
+        "code": 787797,
+        "directions": "SEEENNNNNN",
+        "class": 115,
+        "representative_code": 341
+      }
+    },
+    "rawClass_191": {
+      "line": 397,
+      "hex_digits": 4096,
+      "sha256_hex_text": "ac3a24406bc05a633dfc94dad1dfcc2ab35bf9ace0ff79ea371be39ff0e4d3ff",
+      "bit_interval_half_open": [
+        9437180,
+        9453564
+      ],
+      "touched_code_interval_inclusive": [
+        786431,
+        787796
+      ],
+      "whole_code_interval_inclusive": [
+        786432,
+        787796
+      ],
+      "touched_valid_words": 331,
+      "touched_invalid_words": 1035,
+      "valid_class_range": [
+        0,
+        3557
+      ],
+      "example": {
+        "code": 786431,
+        "directions": "WSSSSSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      }
+    },
+    "rawClass_192": {
+      "line": 399,
+      "hex_digits": 4096,
+      "sha256_hex_text": "92888c748a258a5e50ec237c82666e6b62025b9353f09184c78387f7ee11835c",
+      "bit_interval_half_open": [
+        9420796,
+        9437180
+      ],
+      "touched_code_interval_inclusive": [
+        785066,
+        786431
+      ],
+      "whole_code_interval_inclusive": [
+        785067,
+        786430
+      ],
+      "touched_valid_words": 331,
+      "touched_invalid_words": 1035,
+      "valid_class_range": [
+        0,
+        3556
+      ],
+      "example": {
+        "code": 785066,
+        "directions": "WSSSWWWWWW",
+        "class": 356,
+        "representative_code": 1706
+      }
+    },
+    "rawClass_193": {
+      "line": 401,
+      "hex_digits": 4096,
+      "sha256_hex_text": "53794f6a014bf32c2df28ee74d134d2f44b941d82662cecd0050408992900425",
+      "bit_interval_half_open": [
+        9404412,
+        9420796
+      ],
+      "touched_code_interval_inclusive": [
+        783701,
+        785066
+      ],
+      "whole_code_interval_inclusive": [
+        783701,
+        785065
+      ],
+      "touched_valid_words": 90,
+      "touched_invalid_words": 1276,
+      "valid_class_range": [
+        112,
+        3554
+      ],
+      "example": {
+        "code": 784640,
+        "directions": "WSSSWNEEEE",
+        "class": 683,
+        "representative_code": 6400
+      }
+    },
+    "rawClass_194": {
+      "line": 403,
+      "hex_digits": 4096,
+      "sha256_hex_text": "c50972d9154ad60b19ac2301eb25ceeeef9b87c54d7b5e39125fe19730912c97",
+      "bit_interval_half_open": [
+        9388028,
+        9404412
+      ],
+      "touched_code_interval_inclusive": [
+        782335,
+        783700
+      ],
+      "whole_code_interval_inclusive": [
+        782336,
+        783700
+      ],
+      "touched_valid_words": 201,
+      "touched_invalid_words": 1165,
+      "valid_class_range": [
+        0,
+        3550
+      ],
+      "example": {
+        "code": 782335,
+        "directions": "WSSWSSSSSS",
+        "class": 218,
+        "representative_code": 1023
+      }
+    }
+  },
+  "result": "All assertions passed"
+}

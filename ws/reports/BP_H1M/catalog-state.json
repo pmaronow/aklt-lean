@@ -1,0 +1,171 @@
+{
+  "open_count": 55,
+  "all_count": 67,
+  "proved": {
+    "ActiveStatusesStatement": "activeStatuses",
+    "PassageSubtractionStatement": "passageSubtraction",
+    "DifferenceEvaluationStatement": "differenceEvaluation",
+    "SinglePauliTraceStatement": "singlePauliTrace",
+    "InversionBallStatement": "inversionBall",
+    "PairTokensDistinctStatement": "pairTokensDistinct",
+    "CentralWeightHalfStatement": "centralWeightHalf"
+  },
+  "derived": {
+    "ReducedStructureStatement": "reducedStructure_of_nodes",
+    "SimultaneousLeafReconstructionStatement": "simultaneousLeafReconstruction_of_nodes",
+    "RetainedPairExpansionStatement": "retainedPairExpansion_of_nodes",
+    "ThresholdSymmetryStatement": "thresholdSymmetry_of_integerCheck"
+  },
+  "theorems": [
+    [
+      "momentInputs",
+      "theorem momentInputs : Top.MomentsStatement \u2192\n    MonomialMoments \u2227 ProductMomentCovariance \u2227 (\u2200 j : IcoLetter, normSq (icoVector j) = 1)",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      13
+    ],
+    [
+      "integratePassage_of_nodes",
+      "theorem integratePassage_of_nodes : Top.MomentsStatement \u2192 Top.FiniteFactsStatement \u2192\n    PassageSiteMomentsStatement \u2192 PassageFubiniStatement \u2192 PassageNetworkPositiveStatement \u2192\n    PassageNextLowerBoundStatement \u2192\n    OriginalDegreeStatement \u2192 OriginalFactorStructureStatement \u2192 OriginalRawEvaluationStatement \u2192\n    MomentContractionStatement \u2192 MomentCovarianceTransferStatement \u2192 ContractionAffineStatement \u2192\n    Top.IntegratePassageStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      19
+    ],
+    [
+      "leaf_of_nodes",
+      "theorem leaf_of_nodes : Top.MomentsStatement \u2192 Top.ThreeFactorMeanStatement \u2192\n    CoveredSlotEnumerationStatement \u2192 CornerMeanBoundsStatement \u2192 NormalizedMeanFactorStatement \u2192\n    Top.LeafStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      52
+    ],
+    [
+      "reducedStructure_of_nodes",
+      "theorem reducedStructure_of_nodes : Top.MomentsStatement \u2192 ReducedDegreeStatement \u2192\n    ReducedFactorStructureStatement \u2192 MomentCovarianceTransferStatement \u2192\n    ContractionAffineStatement \u2192 ContractionSupportStatement \u2192 DifferenceStructureStatement \u2192\n    ReducedStructureStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      81
+    ],
+    [
+      "simultaneousLeafReconstruction_of_nodes",
+      "theorem simultaneousLeafReconstruction_of_nodes : PeripheralGeometryStatement \u2192 PeripheralFubiniStatement \u2192\n    PeripheralAssignmentStatement \u2192 SimultaneousLeafReconstructionStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      99
+    ],
+    [
+      "reduce_of_nodes",
+      "theorem reduce_of_nodes : Top.MomentsStatement \u2192 Top.LeafStatement \u2192 ReducedDegreeStatement \u2192\n    MomentContractionStatement \u2192 SimultaneousLeafReconstructionStatement \u2192 ReducedStructureStatement \u2192\n    BallChordStatement \u2192 AffineEvaluationStatement \u2192 ProductBallNonnegativeStatement \u2192 Top.ReduceStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      112
+    ],
+    [
+      "inversion_of_nodes",
+      "theorem inversion_of_nodes : BlochAlgebraStatement \u2192 BlochPositivityStatement \u2192\n    PauliExpansionStatement \u2192 PauliProductTraceStatement \u2192\n    InversionPolynomialStatement \u2192 ProductDensityPositiveStatement \u2192 TraceProductPositiveStatement \u2192\n    Top.InversionStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      136
+    ],
+    [
+      "retainedPairExpansion_of_nodes",
+      "theorem retainedPairExpansion_of_nodes : MomentPauliInterchangeStatement \u2192\n    PairExpansionFromRealizationStatement \u2192 RetainedPairExpansionStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      172
+    ],
+    [
+      "operatorStructure_of_nodes",
+      "theorem operatorStructure_of_nodes : Top.MomentsStatement \u2192 ReducedDegreeStatement \u2192\n    ReducedStructureStatement \u2192 InversionPolynomialStatement \u2192\n    InversionCovarianceStatement \u2192 PauliHermitianStatement \u2192 ReflectionParityStatement \u2192\n    PauliRealityStatement \u2192 AdjointPauliCoordinatesStatement \u2192 AdjointPauliOrthogonalStatement \u2192\n    PauliRotationTransferStatement \u2192 CayleyTensorCommutationStatement \u2192 TensorLinearCoefficientStatement \u2192\n    SpinGeneratorTransferStatement \u2192 RetainedPairExpansionStatement \u2192 UnitPairSupportStatement \u2192\n    EqualPairExchangeStatement \u2192 PairExpansionTransferStatement \u2192\n    Top.OperatorStructureStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      181
+    ],
+    [
+      "sector_of_nodes",
+      "theorem sector_of_nodes : SectorSpinStableStatement \u2192 SectorWeightBasisStatement \u2192\n    SpanWeightLatticeStatement \u2192 SpinAdjointStatement \u2192 SpinCommutatorStatement \u2192\n    WeightLadderTransferStatement \u2192 CommonWeightEigenvectorStatement \u2192 LadderWalkStatement \u2192\n    PositiveSpectrumStatement \u2192 Top.SectorStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      214
+    ],
+    [
+      "gramResidual",
+      "theorem gramResidual : Top.GramResidualStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      257
+    ],
+    [
+      "thresholdSymmetry_of_integerCheck",
+      "theorem thresholdSymmetry_of_integerCheck : Top.IntegerCheckStatement \u2192 ThresholdSymmetryStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      272
+    ],
+    [
+      "h1Theorem_of_certificate",
+      "theorem h1Theorem_of_certificate : Top.CertificateStatement \u2192 H1FiniteDataStatementV2 \u2192\n    Top.H1TheoremStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      279
+    ],
+    [
+      "h1Theorem_of_parts",
+      "theorem h1Theorem_of_parts : Top.IntegerCheckStatement \u2192 Top.CertificateStatement \u2192\n    H1FiniteDataStatementV2 \u2192 Top.H1TheoremStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      299
+    ],
+    [
+      "h1_of_theorem",
+      "theorem h1_of_theorem : Top.H1TheoremStatement \u2192 Top.H1Statement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      305
+    ],
+    [
+      "h1_of_parts",
+      "theorem h1_of_parts : Top.IntegerCheckStatement \u2192 Top.CertificateStatement \u2192\n    H1FiniteDataStatementV2 \u2192 Top.H1Statement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      309
+    ],
+    [
+      "h1_of_certificateV2",
+      "theorem h1_of_certificateV2 : CertificateStatementV2 \u2192 Top.H1Statement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/Assembly.lean",
+      314
+    ],
+    [
+      "passageSubtraction",
+      "theorem passageSubtraction : PassageSubtractionStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+      51
+    ],
+    [
+      "activeStatuses",
+      "theorem activeStatuses : ActiveStatusesStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPassage.lean",
+      111
+    ],
+    [
+      "singlePauliTrace",
+      "theorem singlePauliTrace : SinglePauliTraceStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+      25
+    ],
+    [
+      "inversionBall",
+      "theorem inversionBall : InversionBallStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesPauli.lean",
+      76
+    ],
+    [
+      "differenceEvaluation",
+      "theorem differenceEvaluation : DifferenceEvaluationStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+      105
+    ],
+    [
+      "reducedStatuses",
+      "theorem reducedStatuses (\u03c0 : PatternData) (r : Representation) (next : Bool)\n    (x : Plane) (hx : x \u2208 reducedSpinSites \u03c0 r) :\n    nextStatus \u03c0 next x = .U \u2228 nextStatus \u03c0 next x = .D",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesReduction.lean",
+      109
+    ],
+    [
+      "centralWeightHalf",
+      "theorem centralWeightHalf : CentralWeightHalfStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesSector.lean",
+      107
+    ],
+    [
+      "pairTokensDistinct",
+      "theorem pairTokensDistinct : PairTokensDistinctStatement",
+      "/home/ubuntu/aklt/wt/BP_H1M/AKLT/Blueprint/H1/NodesStructure.lean",
+      155
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: rawClass_650 PASS
+
+`AKLT/Defs/Automaton10Data.lean:1315` is an auxiliary natural-number literal, not quotient class number 650. In the assembled `rawClass` it occupies bits 1916924–1933307 and touches raw-word codes 159743–161108, including partial boundary lanes. Every touched 12-bit lane is exactly 3741, the invalid-word sentinel. Every corresponding word starts E,W, traversing the same unoriented bond twice. It therefore lies outside `Ω₁₀` in `paper/app-input-contracts.tex:24–26`. This is the correct extension of the map whose domain and coding are specified at `paper/app-input-contracts.tex:367–386,402–406`. Natural-number shift/addition and lane division/remainder have the exact meanings detailed below; no valid raw window is discarded or assigned a different class by this chunk.
+
+DECL: rawClass_651 PASS
+
+`AKLT/Defs/Automaton10Data.lean:1317` occupies bits 1900540–1916923 and touches codes 158378–159743. Every touched lane, including the lanes split between literals, decodes to 3741. All corresponding words begin E,W and repeat their first unoriented bond, so the paper excludes them from the raw-state domain (`paper/app-input-contracts.tex:24–26`). The sentinel thus correctly marks absent map rows under the reconstruction contract (`paper/app-input-contracts.tex:380–386,402–406`). The checked `ℕ` packing and `Finset` interpretation of unoriented bonds introduce no extra domain restriction or unintended valid state.
+
+DECL: rawClass_652 PASS
+
+`AKLT/Defs/Automaton10Data.lean:1319` occupies bits 1884156–1900539 and touches codes 157013–158378. Its bits agree exactly with the correctly aligned sequence of 12-bit sentinel values 3741; the complete assembled boundary lanes also equal 3741. All these codes decode most-significant-first to words beginning E,W. Their first two bonds are equal as unordered finite sets, violating `RawWindow` injectivity exactly as intended by `paper/app-input-contracts.tex:24–26`. The auxiliary table segment consequently represents the right domain complement for the supplied map in `paper/app-input-contracts.tex:367–386,402–406`.
+
+DECL: rawClass_653 PASS
+
+`AKLT/Defs/Automaton10Data.lean:1321` occupies bits 1867772–1884155 and touches codes 155647–157012. Every complete affected lane is 3741, and every bit of the literal agrees with the sentinel sequence at its actual offset. Every affected word begins E,W, so it immediately repeats an unoriented bond. Excluding these words agrees with `paper/app-input-contracts.tex:24–26` and with the map-row domain in `paper/app-input-contracts.tex:380–386,402–406`. Exact natural-number packing, bounded word indices, and unordered bond equality yield no weaker or stronger raw-state condition here.
+
+DECL: rawClass_654 PASS
+
+`AKLT/Defs/Automaton10Data.lean:1323` occupies bits 1851388–1867771 and touches codes 154282–155647. Every touched lane, including boundary lanes, is 3741, and the literal equals the independently constructed sentinel bits at that offset. All decoded words start E,W and repeat the bond joining `(0,0)` and `(1,0)`. They are correctly outside `Ω₁₀` (`paper/app-input-contracts.tex:22–26`). The segment therefore correctly fills invalid codes in the total lookup used to represent the paper's supplied map (`paper/app-input-contracts.tex:367–386,402–406`), with no effect on any valid raw window.
+
+Shared semantic checks and evidence
+
+The whole `Automaton10Data.lean` file was read, with its literal records parsed programmatically, together with the complete project import chain: `Automaton`, `Kernel`, `Trails`, `Domain`, `PinModel`, `Moment`, and `Geometry`. The consuming `Automaton10StatementV2` in `AKLT/Blueprint/Top/ComputationV2.lean:13–26` was also checked. The five declarations have no individual paper counterpart: they are storage fragments of the supplied map in Proposition `p:automaton10`, not mathematical claims or five separate quotient states.
+
+- **Exact arithmetic and packing.** Each literal has type `ℕ`, so it has arbitrary precision and no machine-integer overflow. `Nat.shiftLeft_eq_mul_pow` (`Mathlib/Data/Nat/Size.lean:18`) identifies `n <<< k` with `n * 2^k`. I evaluated the entire parenthesized assembly at `Automaton10Data.lean:1551`, tracked all 768 offsets, and checked that each literal fits its nonoverlapping slot. Thus addition concatenates the bits without carry into another slot. The five selected chunks each have width 16384 bits, which is not divisible by 12; the checks explicitly included their shared boundary lanes.
+- **Lane and word indices.** `lane` at `Automaton10Data.lean:1596` is natural-number quotient followed by remainder: at width 12 it extracts `(packed / 2^(12*code)) % 4096`. Both divisors are strictly positive. `encodeWord` and `decodeWord` at lines 1605–1609 use E,N,W,S = 0,1,2,3, matching the absolute directions and most-significant-first formula in `paper/app-input-contracts.tex:22–34,377–386`. `List.finRange` includes each `Fin m` index exactly once (`Mathlib/Data/List/FinRange.lean:29–30`). Since `i.val < m`, the natural subtraction `m-1-i.val` is exactly the intended exponent; for memory ten it is `9-i.val`, with no truncated negative exponent. All reviewed codes lie within `0 ≤ code < 4^10`.
+- **Raw-state meaning.** `Plane` is `ℤ × ℤ` with the stated unit steps. `wordVertex` sums precisely the preceding steps; `wordBond` is the finite set of its two endpoints. `Finset.pair_comm` (`Mathlib/Data/Finset/Insert.lean:419–420`) confirms that reversal gives the same bond. `RawWindow` is injectivity of this bond-valued function on `Fin 10`, so equal bonds at indices 0 and 1 invalidate every affected word. This is a direct bond repetition, independent of kind, arrival, weights, later steps, or any finiteness instance.
+- **Sentinel and totalization.** The paper's actual class numbers are 0–3740 (`paper/app-input-contracts.tex:369,403–404`). The V2 interface requires every code's entry to be at most 3741 and to be below 3741 exactly when its decoded word is raw. The five chunks satisfy that obligation on every affected code. `supplied.project` reduces the sentinel modulo 3741 to zero only for nonraw words. `MemoryQuotient.Correct` restricts raw-word comparisons to `RawWindow`; representatives must themselves be raw. Thus this totalization neither adds an actual raw state nor weakens an obligation on one. The natural subtraction in successor decoding is guarded by admissibility in the correctness contract; it does not occur in these five literals or change their interpretation.
+
+Non-blocking remarks
+
+- `check_review.py` reproduces the exact assembly, verifies all bits of the five literals against an independently packed sentinel sequence, and checks every affected word directly for repeated unoriented bonds. Running `python3 check_review.py` passed. No Lean process was needed.
+- The sentinel 3741 and packed storage have no direct paper counterpart; they faithfully extend a map defined only on raw windows. No additional mathematical hypothesis is imposed by these auxiliary constants, their private visibility, or the `noncomputable` modifier.
+- No archive-byte comparison is claimed: `windows_m10_min.txt` is not among the permitted inputs. The verdict is established independently for these five chunks, all of whose affected codes are outside the paper's raw-state domain. It does not certify the other declarations or the full quotient.

@@ -1,0 +1,93 @@
+def AKLT.Blueprint.Rec.CrudeLogEnclosureStatement : Prop :=
+∀ (s : ℚ), 0 < s → s < 1 → AKLT.Defs.reciprocalLogMean ↑s ≤ ↑(AKLT.Blueprint.Rec.crudeLogUpper s)
+def AKLT.Blueprint.Rec.StepRatioPositiveStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure) (b : Bool), 0 < AKLT.Defs.stepRatio a.D a.τ b a.y a.o
+def AKLT.Blueprint.Rec.FreeRatioUpperStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure), AKLT.Defs.stepRatio a.D a.τ false a.y a.o ≤ 1
+def AKLT.Blueprint.Rec.PinnedRatioUpperStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure), AKLT.Defs.stepRatio a.D a.τ true a.y a.o ≤ 12 / 5
+def AKLT.Blueprint.Rec.DStepTrivialStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.D →
+    AKLT.Defs.stepRatio a.D a.τ true a.y a.o = 1 ∧ AKLT.Defs.stepRatio a.D a.τ false a.y a.o = 1
+def AKLT.Blueprint.Rec.OneStepTrivialStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    (a.D.presentNeighbours a.y).card = 1 →
+      AKLT.Defs.stepRatio a.D a.τ true a.y a.o = 1 ∧ AKLT.Defs.stepRatio a.D a.τ false a.y a.o = 1
+def AKLT.Blueprint.Rec.BetaPrimePositiveStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f → 0 < AKLT.Defs.responseBetaPrime a.D a.τ a.y a.o f
+def AKLT.Blueprint.Rec.BetaPrimeUniformStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  a.D.status a.y = AKLT.Defs.Status.U →
+    ∀ (f : AKLT.Defs.Plane),
+      a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f → AKLT.Defs.responseBetaPrime a.D a.τ a.y a.o f ≤ 35510 / 100000
+structure AKLT.Blueprint.Rec.Departure : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.Departure.G : Finset AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.Departure.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.Departure.y : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.o : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.auxiliary : self.D.Auxiliary
+  AKLT.Blueprint.Rec.Departure.start : self.D.AdmissibleStart self.y
+  AKLT.Blueprint.Rec.Departure.present : self.o ∈ self.D.presentNeighbours self.y
+constructor:
+  AKLT.Blueprint.Rec.Departure.mk (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G)
+    (y o : AKLT.Defs.Plane) (auxiliary : D.Auxiliary) (start : D.AdmissibleStart y)
+    (present : o ∈ D.presentNeighbours y) : AKLT.Blueprint.Rec.Departure
+def AKLT.Defs.stepRatio : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.PinAssignment G → Bool → AKLT.Defs.Plane → AKLT.Defs.Plane → ℝ :=
+fun {G} D τ pinned y o => AKLT.Defs.traceRatio D τ pinned [y, o]
+def AKLT.Defs.responseBetaPrime : {G : Finset AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.PinAssignment G → AKLT.Defs.Plane → AKLT.Defs.Plane → AKLT.Defs.Plane → ℝ :=
+fun {G} D τ y o f =>
+  1 /
+    (3 *
+      AKLT.Defs.logarithmicMean (1 + AKLT.Defs.removedPairMean D τ true y f o / 3)
+        (1 + AKLT.Defs.removedPairMean D τ false y f o / 3))
+def AKLT.Defs.logarithmicMean : ℝ → ℝ → ℝ :=
+fun x y => if x = y then x else (x - y) / (Real.log x - Real.log y)
+def AKLT.Blueprint.Rec.crudeLogUpper : ℚ → ℚ :=
+fun s =>
+  have t := (1 - s) / (1 + s);
+  2 / (1 - s) * (t + t ^ 3 / 3 + t ^ 5 / (5 * (1 - t ^ 2)))
+def AKLT.Blueprint.Rec.CrudeLogEnclosureStatement : Prop :=
+∀ (s : Rat),
+  @LT.lt.{0} Rat Rat.instLT (@OfNat.ofNat.{0} Rat (nat_lit 0) (@Rat.instOfNat (nat_lit 0))) s →
+    @LT.lt.{0} Rat Rat.instLT s (@OfNat.ofNat.{0} Rat (nat_lit 1) (@Rat.instOfNat (nat_lit 1))) →
+      @LE.le.{0} Real Real.instLE (AKLT.Defs.reciprocalLogMean (@Rat.cast.{0} Real Real.instRatCast s))
+        (@Rat.cast.{0} Real Real.instRatCast (AKLT.Blueprint.Rec.crudeLogUpper s))
+def AKLT.Blueprint.Rec.BetaPrimeUniformStatement : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  @Eq.{1} AKLT.Defs.Status
+      (@AKLT.Defs.Network.status (AKLT.Blueprint.Rec.Departure.G a) (AKLT.Blueprint.Rec.Departure.D a)
+        (AKLT.Blueprint.Rec.Departure.y a))
+      AKLT.Defs.Status.U →
+    ∀ (f : AKLT.Defs.Plane),
+      @Eq.{1} (Finset.{0} AKLT.Defs.Plane)
+          (@AKLT.Defs.Network.presentNeighbours (AKLT.Blueprint.Rec.Departure.G a) (AKLT.Blueprint.Rec.Departure.D a)
+            (AKLT.Blueprint.Rec.Departure.y a))
+          (@Insert.insert.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+            (@Finset.instInsert.{0} AKLT.Defs.Plane fun (a b : AKLT.Defs.Plane) =>
+              @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+            (AKLT.Blueprint.Rec.Departure.o a)
+            (@Singleton.singleton.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+              (@Finset.instSingleton.{0} AKLT.Defs.Plane) f)) →
+        @Ne.{1} AKLT.Defs.Plane (AKLT.Blueprint.Rec.Departure.o a) f →
+          @LE.le.{0} Real Real.instLE
+            (@AKLT.Defs.responseBetaPrime (AKLT.Blueprint.Rec.Departure.G a) (AKLT.Blueprint.Rec.Departure.D a)
+              (AKLT.Blueprint.Rec.Departure.τ a) (AKLT.Blueprint.Rec.Departure.y a) (AKLT.Blueprint.Rec.Departure.o a)
+              f)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@OfNat.ofNat.{0} Real (nat_lit 35510)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 35510) Real.instNatCast
+                  AKLT.Blueprint.Rec.BetaPrimeUniformStatement._proof_1))
+              (@OfNat.ofNat.{0} Real (nat_lit 100000)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 100000) Real.instNatCast
+                  AKLT.Blueprint.Rec.BetaPrimeUniformStatement._proof_2)))

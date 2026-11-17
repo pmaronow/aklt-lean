@@ -1,0 +1,35 @@
+{
+  "inputs_project": {
+    "files": 615,
+    "lines": 90501,
+    "bytes": 7190677,
+    "lacks_module": 615,
+    "over_10000": []
+  },
+  "solution_local": {
+    "files": 616,
+    "lines": 90537,
+    "bytes": 7192086,
+    "lacks_module": 615,
+    "over_10000": []
+  },
+  "dependencies": {
+    "files": 10764,
+    "lines": 2981508,
+    "bytes": 124941787,
+    "lacks_module": 0,
+    "over_10000": [
+      "Std/Data/DTreeMap/Internal/Lemmas.lean",
+      "Std/Data/Internal/List/Associative.lean"
+    ]
+  },
+  "direct_leaf_main_count": 244,
+  "additional_leaf": "AKLT.W.UNIQ_TOP.torusKernel",
+  "forbidden_layer_hits": [],
+  "unresolved": [],
+  "header_confirmation": {
+    "confirmed": 11380,
+    "workers": 2,
+    "method": "Lean --deps-json, including implicit Init"
+  }
+}

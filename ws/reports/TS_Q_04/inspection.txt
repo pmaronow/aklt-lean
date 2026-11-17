@@ -1,0 +1,52 @@
+def AKLT.Blueprint.Q.SpectatorDivisibilityStatement : Prop :=
+(∀ (v : AKLT.Blueprint.Q.PairHilbert),
+    Eq.{1} (AKLT.Blueprint.Q.pairProjector v) 0 →
+      Dvd.dvd.{0} AKLT.Blueprint.Q.pairSinglet (AKLT.Blueprint.Q.pairPolynomial v)) →
+  ∀ (L N : AKLT.Challenge.Size) (e : AKLT.Challenge.Bond L N) (ψ : AKLT.Challenge.Hilbert L N),
+    Eq.{1} ((AKLT.Challenge.P e) ψ) 0 → Dvd.dvd.{0} (AKLT.Challenge.singlet e) (AKLT.Blueprint.Q.statePolynomial ψ)
+def AKLT.Blueprint.Q.SingletNonassociateStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (e f : AKLT.Challenge.Bond L N),
+  Ne.{1} e f → ¬Associated.{0} (AKLT.Challenge.singlet e) (AKLT.Challenge.singlet f)
+def AKLT.Blueprint.Q.IncidentKernelStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (ψ : AKLT.Challenge.Hilbert L N),
+  Eq.{1} ((AKLT.Defs.siteHamiltonian x) ψ) 0 →
+    ∀ (e : AKLT.Challenge.Bond L N),
+      Membership.mem.{0, 0} (AKLT.Challenge.bondSites e) x → Eq.{1} ((AKLT.Challenge.P e) ψ) 0
+def AKLT.Blueprint.Q.PairDiagonalRankStatement : Prop :=
+Eq.{1} (Module.finrank.{0, 0} ℂ ↥(LinearMap.ker.{0, 0, 0, 0} AKLT.Blueprint.Q.pairDiagonal)) 16
+def AKLT.Blueprint.Q.PairTopInclusionStatement : Prop :=
+LE.le.{0} (Submodule.orthogonal.{0, 0} (LinearMap.ker.{0, 0, 0, 0} AKLT.Blueprint.Q.pairDiagonal))
+  (Module.End.eigenspace.{0, 0} AKLT.Blueprint.Q.pairCasimir 20)
+def AKLT.Blueprint.Q.PairTopDimensionStatement : Prop :=
+Eq.{1} (Module.finrank.{0, 0} ℂ ↥(Module.End.eigenspace.{0, 0} AKLT.Blueprint.Q.pairCasimir 20)) 9
+def AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement : Prop :=
+Prime.{0}
+  (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} (MvPolynomial.X.{0, 0} 0) (MvPolynomial.X.{0, 0} 3))
+    (HMul.hMul.{0, 0, 0} (MvPolynomial.X.{0, 0} 1) (MvPolynomial.X.{0, 0} 2)))
+def AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement : Prop :=
+Prime.{0}
+    (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} (MvPolynomial.X.{0, 0} 0) (MvPolynomial.X.{0, 0} 3))
+      (HMul.hMul.{0, 0, 0} (MvPolynomial.X.{0, 0} 1) (MvPolynomial.X.{0, 0} 2))) →
+  ∀ (L N : AKLT.Challenge.Size) (e : AKLT.Challenge.Bond L N), Prime.{0} (AKLT.Challenge.singlet e)
+MvPolynomial.irreducible_mul_X_add.{u_3, u_4} {n : Type u_3} {R : Type u_4} [CommRing.{u_4} R] [IsDomain.{u_4} R]
+  (f g : MvPolynomial.{u_3, u_4} n R) (i : n) (hf0 : Ne.{max (u_3 + 1) (u_4 + 1)} f 0)
+  (hif : i ∉ MvPolynomial.vars.{u_4, u_3} f) (hig : i ∉ MvPolynomial.vars.{u_4, u_3} g)
+  (h : IsRelPrime.{max u_3 u_4} f g) :
+  Irreducible.{max u_3 u_4}
+    (HAdd.hAdd.{max u_3 u_4, max u_3 u_4, max u_3 u_4}
+      (HMul.hMul.{max u_3 u_4, max u_3 u_4, max u_3 u_4} f (MvPolynomial.X.{u_4, u_3} i)) g)
+MvPolynomial.prime_rename_iff.{u, v} {R : Type u} {σ : Type v} [CommRing.{u} R] (s : Set.{v} σ)
+  {p : MvPolynomial.{v, u} (↑s) R} :
+  Prime.{max v u} ((MvPolynomial.rename.{v, v, u} Subtype.val.{v + 1}) p) ↔ Prime.{max u v} p
+MvPolynomial.isUnit_iff_eq_C_of_isReduced.{u_1, u_2} {σ : Type u_1} {R : Type u_2} [CommRing.{u_2} R]
+  {P : MvPolynomial.{u_1, u_2} σ R} [IsReduced.{u_2} R] :
+  IsUnit.{max u_1 u_2} P ↔ ∃ r, IsUnit.{u_2} r ∧ Eq.{max (u_1 + 1) (u_2 + 1)} P (MvPolynomial.C.{u_2, u_1} r)
+Submodule.re_inner_starProjection_eq_normSq.{u_1, u_2} {𝕜 : Type u_1} {E : Type u_2} [RCLike.{u_1} 𝕜]
+  [NormedAddCommGroup.{u_2} E] [InnerProductSpace.{u_1, u_2} 𝕜 E] (K : Submodule.{u_1, u_2} 𝕜 E)
+  [Submodule.HasOrthogonalProjection.{u_1, u_2} K] (v : E) :
+  Eq.{1} (RCLike.re.{u_1} (inner.{u_1, u_2} 𝕜 ((Submodule.starProjection.{u_1, u_2} K) v) v))
+    (HPow.hPow.{0, 0, 0} (norm.{u_2} ((Submodule.orthogonalProjectionOnto.{u_1, u_2} K) v)) 2)
+Module.End.eigenspace_def.{v, w} {R : Type v} {M : Type w} [CommRing.{v} R] [AddCommGroup.{w} M] [Module.{v, w} R M]
+  {f : Module.End.{v, w} R M} {μ : R} :
+  Eq.{w + 1} (Module.End.eigenspace.{v, w} f μ)
+    (LinearMap.ker.{v, v, w, w} (HSub.hSub.{w, w, w} f (HSMul.hSMul.{v, w, w} μ 1)))

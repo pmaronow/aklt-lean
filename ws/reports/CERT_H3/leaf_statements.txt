@@ -1,0 +1,149 @@
+AKLT.Cert.H3.WordCodecLaw : Prop
+def AKLT.Cert.H3.WordCodecLaw : Prop :=
+(∀ (m : ℕ) (w : AKLT.Defs.DirectionWord m),
+    AKLT.Cert.H3.encodeWord w < 4 ^ m ∧ AKLT.Cert.H3.decodeWord m (AKLT.Cert.H3.encodeWord w) = w) ∧
+  ∀ (m c : ℕ), c < 4 ^ m → AKLT.Cert.H3.encodeWord (AKLT.Cert.H3.decodeWord m c) = c
+AKLT.Cert.H3.AutomatonRegeneration : Prop
+def AKLT.Cert.H3.AutomatonRegeneration : Prop :=
+(∀ c < 4 ^ 10,
+    AKLT.Defs.RawWindow (AKLT.Cert.H3.decodeWord 10 c) ↔ AKLT.Gen.Packed.lane AKLT.Cert.H3.Data.rawClass 12 c < 3741) ∧
+  Fintype.card (AKLT.Defs.MemoryWindow 10) = 60092 ∧ AKLT.Cert.H3.Data.quotient.Correct
+AKLT.Cert.H3.PullLaw : Prop
+def AKLT.Cert.H3.PullLaw : Prop :=
+∀ (P Z : ℕ) (d : AKLT.Defs.Compass),
+  AKLT.Gen.Packed.Fits P 80 19881 →
+    Z < 2 ^ 26 →
+      ∀ s < 19881,
+        AKLT.Gen.Packed.lane (AKLT.Cert.H3.pull P Z d) 80 s =
+          if AKLT.Cert.H3.inBox (AKLT.Cert.H3.gridSite s + d.step) then
+            AKLT.Gen.Packed.lane P 80 (AKLT.Cert.H3.siteIndex (AKLT.Cert.H3.gridSite s + d.step))
+          else Z
+AKLT.Cert.H3.RowTermsAgreement : Prop
+def AKLT.Cert.H3.RowTermsAgreement : Prop :=
+∀ (m q : ℕ) (Q : AKLT.Defs.MemoryQuotient m q) (plane cap : AKLT.Defs.Phase → Fin q → ℕ) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass) (φ : AKLT.Defs.Phase) (a : Fin q),
+  Q.Correct →
+    (X, d₀) ∈ AKLT.Defs.stationaryCases →
+      (∀ (ψ : AKLT.Defs.Phase) (b : Fin q),
+          cap ψ b < 2 ^ 26 ∧
+            AKLT.Gen.Packed.Fits (plane ψ b) 80 19881 ∧
+              AKLT.Gen.Packed.lane (plane ψ b) 80 (AKLT.Cert.H3.siteIndex AKLT.Defs.kernelCentre) = 0) →
+        ∀ s < 19881,
+          AKLT.Cert.H3.gridSite s ≠ AKLT.Defs.kernelCentre →
+            AKLT.Cert.H3.gridSite s ≠ AKLT.Defs.kernelTarget X →
+              AKLT.Cert.H3.component 80 s (AKLT.Cert.H3.rowTerms Q plane cap X d₀ φ a) =
+                ∑ d,
+                  ∑ ψ,
+                    AKLT.Defs.coefficientCeiling
+                        (AKLT.Defs.stationaryCoefficient Q X d₀ φ a (AKLT.Cert.H3.gridSite s) d ψ) *
+                      if AKLT.Cert.H3.gridSite s + d.step ∈ AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius then
+                        AKLT.Gen.Packed.lane (plane ψ (Q.successor a d)) 80
+                          (AKLT.Cert.H3.siteIndex (AKLT.Cert.H3.gridSite s + d.step))
+                      else cap ψ (Q.successor a d)
+AKLT.Cert.H3.PassesAssembly : Prop
+def AKLT.Cert.H3.PassesAssembly : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (plane cap : AKLT.Defs.Phase → Fin 3741 → ℕ) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass),
+  Q.Correct →
+    (X, d₀) ∈ AKLT.Defs.stationaryCases →
+      (∀ (φ : AKLT.Defs.Phase) (a : Fin 3741), 0 < cap φ a ∧ cap φ a < 2 ^ 26) →
+        (∀ (a : Fin 3741), 65536 ≤ cap AKLT.Defs.Phase.C a ∧ 65536 ≤ cap AKLT.Defs.Phase.D a) →
+          (∀ (φ : AKLT.Defs.Phase) (a : Fin 3741),
+              AKLT.Gen.Packed.Fits (plane φ a) 80 19881 ∧
+                (∀ s < 19881, AKLT.Gen.Packed.lane (plane φ a) 80 s ≤ cap φ a) ∧
+                  AKLT.Gen.Packed.lane (plane φ a) 80 (AKLT.Cert.H3.siteIndex AKLT.Defs.kernelCentre) = 0 ∧
+                    ↑(AKLT.Gen.Packed.lane (plane φ a) 80 (AKLT.Cert.H3.siteIndex (AKLT.Defs.kernelTarget X))) =
+                      65536 * AKLT.Defs.phaseTerminal φ) →
+            (∀ (φ : AKLT.Defs.Phase) (a : Fin 3741),
+                ∑ d, ∑ ψ, AKLT.Defs.coefficientCeiling (AKLT.Defs.freeCoefficient Q φ a d ψ) * cap ψ (Q.successor a d) ≤
+                  AKLT.Defs.certificateCoefficientScale * cap φ a) →
+              (∀ (φ : AKLT.Defs.Phase) (a : Fin 3741), AKLT.Cert.H3.localRowCheck Q plane cap X d₀ φ a = true) →
+                (AKLT.Cert.H3.dataOf plane cap).Passes Q X d₀
+AKLT.Cert.H3.GeneralPrefixFrontierLaw : Prop
+def AKLT.Cert.H3.GeneralPrefixFrontierLaw : Prop :=
+∀ t ≤ 12,
+  ∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (C : AKLT.Defs.StationaryData 3741) (X : AKLT.Defs.PairType)
+    (d₀ : AKLT.Defs.Compass),
+    AKLT.Defs.stationaryPrefixBound Q X d₀ C =
+      AKLT.Defs.firstDirectionPartialRow X d₀ 12 +
+        ∑ s, AKLT.Cert.H3.prefixShard Q C X d₀ fun e => AKLT.Cert.H3.decodeWord 12 (↑s * 4 ^ (12 - t) + ↑e)
+AKLT.Cert.H3.PrefixFrontierLaw : Prop
+def AKLT.Cert.H3.PrefixFrontierLaw : Prop :=
+∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (C : AKLT.Defs.StationaryData 3741) (X : AKLT.Defs.PairType)
+  (d₀ : AKLT.Defs.Compass),
+  AKLT.Defs.stationaryPrefixBound Q X d₀ C =
+    AKLT.Defs.firstDirectionPartialRow X d₀ 12 + AKLT.Cert.H3.allFrontierTail Q C X d₀
+AKLT.Cert.H3.ShortCodecLaw : Prop
+def AKLT.Cert.H3.ShortCodecLaw : Prop :=
+∀ (X : AKLT.Defs.PairType) (d₀ : AKLT.Defs.Compass),
+  AKLT.Defs.firstDirectionPartialRow X d₀ 12 =
+    ∑ n ∈ Finset.Icc 1 12,
+      ∑ c,
+        if
+            AKLT.Defs.ClosedTrail X (AKLT.Cert.H3.decodeWord n ↑c) ∧
+              AKLT.Defs.FirstDirection (AKLT.Cert.H3.decodeWord n ↑c) d₀ then
+          AKLT.Defs.closedContribution (AKLT.Cert.H3.decodeWord n ↑c)
+        else 0
+AKLT.Cert.H3.PrefixDenominatorLaw : Prop
+def AKLT.Cert.H3.PrefixDenominatorLaw : Prop :=
+∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+  AKLT.Defs.IsTrail AKLT.Defs.kernelStart AKLT.Defs.kernelIncoming w →
+    ∀ (i : Fin n) (φ ψ : AKLT.Defs.Phase), ∃ a, AKLT.Defs.truePhaseCoefficient w i φ ψ = ↑a / 12139925673538045870080000
+AKLT.Cert.H3.IntegerPhaseUpdateLaw : Prop
+def AKLT.Cert.H3.IntegerPhaseUpdateLaw : Prop :=
+∀ (n D : ℕ),
+  0 < D →
+    ∀ (w : AKLT.Defs.DirectionWord n) (d : AKLT.Defs.Compass) (p : AKLT.Defs.Phase → ℕ)
+      (c : AKLT.Defs.Phase → AKLT.Defs.Phase → ℕ),
+      (∀ (φ : AKLT.Defs.Phase), AKLT.Defs.prefixPhases w φ = ↑(p φ) / ↑(D ^ n)) →
+        (∀ (φ ψ : AKLT.Defs.Phase),
+            AKLT.Defs.truePhaseCoefficient (AKLT.Defs.appendWords w fun x => d) ⟨n, ⋯⟩ φ ψ = ↑(c φ ψ) / ↑D) →
+          ∀ (ψ : AKLT.Defs.Phase),
+            AKLT.Defs.prefixPhases (AKLT.Defs.appendWords w fun x => d) ψ = ↑(∑ φ, p φ * c φ ψ) / ↑(D ^ (n + 1))
+AKLT.Cert.H3.PrefixStemPruningLaw : Prop
+def AKLT.Cert.H3.PrefixStemPruningLaw : Prop :=
+∀ (t : ℕ),
+  1 ≤ t →
+    t ≤ 12 →
+      ∀ (Q : AKLT.Defs.MemoryQuotient 10 3741) (C : AKLT.Defs.StationaryData 3741) (X : AKLT.Defs.PairType)
+        (d₀ : AKLT.Defs.Compass) (s : Fin (4 ^ t)),
+        ¬AKLT.Defs.SurvivingPrefix X d₀ (AKLT.Cert.H3.decodeWord t ↑s) →
+          (AKLT.Cert.H3.prefixShard Q C X d₀ fun e => AKLT.Cert.H3.decodeWord 12 (↑s * 4 ^ (12 - t) + ↑e)) = 0
+AKLT.Cert.H3.RawWindowCardLeaf : Prop
+def AKLT.Cert.H3.RawWindowCardLeaf : Prop :=
+Fintype.card (AKLT.Defs.MemoryWindow 10) = 60092
+AKLT.Cert.H3.QuotientCorrectLeaf : Prop
+def AKLT.Cert.H3.QuotientCorrectLeaf : Prop :=
+AKLT.Cert.H3.Data.quotient.Correct
+AKLT.Cert.H3.CaseBNLeaf : Prop
+def AKLT.Cert.H3.CaseBNLeaf : Prop :=
+AKLT.Cert.H3.stationaryCaseLeaf AKLT.Defs.PairType.B AKLT.Defs.Compass.north
+AKLT.Cert.H3.CaseBWLeaf : Prop
+def AKLT.Cert.H3.CaseBWLeaf : Prop :=
+AKLT.Cert.H3.stationaryCaseLeaf AKLT.Defs.PairType.B AKLT.Defs.Compass.west
+AKLT.Cert.H3.CaseCNLeaf : Prop
+def AKLT.Cert.H3.CaseCNLeaf : Prop :=
+AKLT.Cert.H3.stationaryCaseLeaf AKLT.Defs.PairType.C AKLT.Defs.Compass.north
+AKLT.Cert.H3.CaseCWLeaf : Prop
+def AKLT.Cert.H3.CaseCWLeaf : Prop :=
+AKLT.Cert.H3.stationaryCaseLeaf AKLT.Defs.PairType.C AKLT.Defs.Compass.west
+AKLT.Cert.H3.CaseCSLeaf : Prop
+def AKLT.Cert.H3.CaseCSLeaf : Prop :=
+AKLT.Cert.H3.stationaryCaseLeaf AKLT.Defs.PairType.C AKLT.Defs.Compass.south
+AKLT.Cert.H3.QuotientCountsLeaf : Prop
+def AKLT.Cert.H3.QuotientCountsLeaf : Prop :=
+AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.straight = 2516 ∧
+  AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.turn = 5032 ∧
+    AKLT.Defs.quotientEdgeCount AKLT.Cert.H3.Data.quotient AKLT.Defs.StepKind.revisit = 1872
+AKLT.Cert.H3.SquareCardLeaf : Prop
+def AKLT.Cert.H3.SquareCardLeaf : Prop :=
+(AKLT.Defs.square (0, 0) AKLT.Defs.certificateRadius).card = 19881
+AKLT.Cert.H3.AutomatonAssemblyLeaves : Prop
+def AKLT.Cert.H3.AutomatonAssemblyLeaves : Prop :=
+AKLT.Cert.H3.RawWindowCardLeaf ∧ AKLT.Cert.H3.QuotientCorrectLeaf ∧ AKLT.Cert.H3.QuotientCountsLeaf
+AKLT.Cert.H3.StationaryAssemblyLeaves : Prop
+def AKLT.Cert.H3.StationaryAssemblyLeaves : Prop :=
+AKLT.Cert.H3.SquareCardLeaf ∧
+  AKLT.Cert.H3.QuotientCorrectLeaf ∧
+    AKLT.Cert.H3.CaseBNLeaf ∧
+      AKLT.Cert.H3.CaseBWLeaf ∧ AKLT.Cert.H3.CaseCNLeaf ∧ AKLT.Cert.H3.CaseCWLeaf ∧ AKLT.Cert.H3.CaseCSLeaf

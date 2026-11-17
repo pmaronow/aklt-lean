@@ -1,0 +1,99 @@
+def AKLT.Blueprint.H1.PauliHermitianStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  Matrix.IsHermitian.{0, 0} (AKLT.Defs.pauliOperator J p)
+def AKLT.Blueprint.H1.ReflectionParityStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.SupportedVectors J p →
+      AKLT.Blueprint.H1.OrthogonalInvariant p →
+        ∀ (a : ↥J → Fin 4),
+          Odd.{0} (AKLT.Blueprint.H1.pauliYCount J a) →
+            Eq.{1} ((AddMonoidAlgebra.coeff.{0, 0} p) (AKLT.Defs.pauliExponent J a)) 0
+def AKLT.Blueprint.H1.PauliRealityStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  (∀ (a : ↥J → Fin 4),
+      Odd.{0} (AKLT.Blueprint.H1.pauliYCount J a) →
+        Eq.{1} ((AddMonoidAlgebra.coeff.{0, 0} p) (AKLT.Defs.pauliExponent J a)) 0) →
+    ∀ (σ τ : ↥J → Fin 2), Eq.{1} (AKLT.Defs.pauliOperator J p σ τ).im 0
+def AKLT.Blueprint.H1.InversionCovarianceStatement : Prop :=
+∀ (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Blueprint.H1.OrthogonalInvariant p →
+    ∀ (I : Finset.{0} (Fin 20)), AKLT.Blueprint.H1.OrthogonalInvariant (AKLT.Defs.invertPolynomial I p)
+def AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement : Prop :=
+∀ (g : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+  Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.conjTranspose.{0, 0, 0} g) g) 1 →
+    Eq.{1} (Matrix.det.{0, 0} g) 1 →
+      ∃ R,
+        ∀ (j : Fin 3),
+          Eq.{1}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} g (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩))
+              (Matrix.conjTranspose.{0, 0, 0} g))
+            (∑ l, HSMul.hSMul.{0, 0, 0} (↑(R l j)) (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑l) 1, ⋯⟩))
+def AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement : Prop :=
+∀ (g : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+  Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.conjTranspose.{0, 0, 0} g) g) 1 →
+    ∀ (R : Matrix.{0, 0, 0} (Fin 3) (Fin 3) ℝ),
+      (∀ (j : Fin 3),
+          Eq.{1}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} g (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩))
+              (Matrix.conjTranspose.{0, 0, 0} g))
+            (∑ l, HSMul.hSMul.{0, 0, 0} (↑(R l j)) (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑l) 1, ⋯⟩))) →
+        Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.transpose.{0, 0, 0} R) R) 1
+def AKLT.Blueprint.H1.PauliRotationTransferStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.SupportedVectors J p →
+      AKLT.Blueprint.H1.OrthogonalInvariant p →
+        ∀ (g : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+          Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.conjTranspose.{0, 0, 0} g) g) 1 →
+            ∀ (R : Matrix.{0, 0, 0} (Fin 3) (Fin 3) ℝ),
+              Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.transpose.{0, 0, 0} R) R) 1 →
+                (∀ (j : Fin 3),
+                    Eq.{1}
+                      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} g (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩))
+                        (Matrix.conjTranspose.{0, 0, 0} g))
+                      (∑ l, HSMul.hSMul.{0, 0, 0} (↑(R l j)) (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑l) 1, ⋯⟩))) →
+                  Commute.{0} (AKLT.Defs.pauliOperator J p) (AKLT.Defs.tensorPowerMatrix J g)
+def AKLT.Blueprint.H1.CayleyTensorCommutationStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (M : Matrix.{0, 0, 0} (↥J → Fin 2) (↥J → Fin 2) ℂ),
+  (∀ (g : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+      Eq.{1} (HMul.hMul.{0, 0, 0} (Matrix.conjTranspose.{0, 0, 0} g) g) 1 →
+        Eq.{1} (Matrix.det.{0, 0} g) 1 → Commute.{0} M (AKLT.Defs.tensorPowerMatrix J g)) →
+    ∀ (j : Fin 3) (t : ℝ),
+      Commute.{0} M
+        (AKLT.Defs.tensorPowerMatrix J
+          (HAdd.hAdd.{0, 0, 0} 1
+            (HSMul.hSMul.{0, 0, 0} (↑t)
+              (HSMul.hSMul.{0, 0, 0} (Neg.neg.{0} Complex.I) (AKLT.Defs.pauli ⟨HAdd.hAdd.{0, 0, 0} (↑j) 1, ⋯⟩)))))
+'AKLT.Blueprint.H1.PauliHermitianStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.ReflectionParityStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.PauliRealityStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.InversionCovarianceStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.PauliRotationTransferStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'AKLT.Blueprint.H1.CayleyTensorCommutationStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+mul_eq_one_comm.{u_2} {M : Type u_2} [MulOne.{u_2} M] [IsDedekindFiniteMonoid.{u_2} M] {a b : M} :
+  Eq.{u_2 + 1} (HMul.hMul.{u_2, u_2, u_2} a b) 1 ↔ Eq.{u_2 + 1} (HMul.hMul.{u_2, u_2, u_2} b a) 1
+Matrix.trace_mul_comm.{u_2, u_3, u_6} {m : Type u_2} {n : Type u_3} {R : Type u_6} [Fintype.{u_2} m] [Fintype.{u_3} n]
+  [AddCommMonoid.{u_6} R] [CommMagma.{u_6} R] (A : Matrix.{u_2, u_3, u_6} m n R) (B : Matrix.{u_3, u_2, u_6} n m R) :
+  Eq.{u_6 + 1} (Matrix.trace.{u_2, u_6} (HMul.hMul.{max (max u_2 u_3) u_6, max (max u_2 u_3) u_6, max u_2 u_6} A B))
+    (Matrix.trace.{u_3, u_6} (HMul.hMul.{max (max u_2 u_3) u_6, max (max u_2 u_3) u_6, max u_3 u_6} B A))
+Matrix.trace_mul_cycle.{u_2, u_3, u_4, u_6} {m : Type u_2} {n : Type u_3} {p : Type u_4} {R : Type u_6}
+  [Fintype.{u_2} m] [Fintype.{u_3} n] [Fintype.{u_4} p] [NonUnitalCommSemiring.{u_6} R]
+  (A : Matrix.{u_2, u_3, u_6} m n R) (B : Matrix.{u_3, u_4, u_6} n p R) (C : Matrix.{u_4, u_2, u_6} p m R) :
+  Eq.{u_6 + 1}
+    (Matrix.trace.{u_2, u_6}
+      (HMul.hMul.{max (max u_2 u_4) u_6, max (max u_2 u_4) u_6, max u_2 u_6}
+        (HMul.hMul.{max (max u_2 u_3) u_6, max (max u_3 u_4) u_6, max (max u_2 u_4) u_6} A B) C))
+    (Matrix.trace.{u_4, u_6}
+      (HMul.hMul.{max (max u_3 u_4) u_6, max (max u_3 u_4) u_6, max u_4 u_6}
+        (HMul.hMul.{max (max u_2 u_4) u_6, max (max u_2 u_3) u_6, max (max u_3 u_4) u_6} C A) B))
+Complex.ext_iff {z w : ℂ} : Eq.{1} z w ↔ Eq.{1} z.re w.re ∧ Eq.{1} z.im w.im
+MvPolynomial.map_injective.{u, v, u_1} {R : Type u} {S₁ : Type v} {σ : Type u_1} [CommSemiring.{u} R]
+  [CommSemiring.{v} S₁] (f : RingHom.{u, v} R S₁) (hf : Function.Injective.{u + 1, v + 1} ⇑f) :
+  Function.Injective.{max (u + 1) (u_1 + 1), max (u_1 + 1) (v + 1)} ⇑(MvPolynomial.map.{u, v, u_1} f)
+MvPolynomial.funext.{u_1, u_2} {R : Type u_1} [CommRing.{u_1} R] [IsDomain.{u_1} R] [Infinite.{u_1 + 1} R]
+  {σ : Type u_2} {p q : MvPolynomial.{u_2, u_1} σ R}
+  (h : ∀ (x : σ → R), Eq.{u_1 + 1} ((MvPolynomial.eval.{u_1, u_2} x) p) ((MvPolynomial.eval.{u_1, u_2} x) q)) :
+  Eq.{max (u_1 + 1) (u_2 + 1)} p q

@@ -1,0 +1,1711 @@
+{
+  "assembly_nodes": [
+    {
+      "closed_premises": [
+        "AKLT.Cert.H1.LeafStatements.integerEntries",
+        "AKLT.Cert.H1.LeafStatements.thresholdScale",
+        "AKLT.Cert.H1.LeafStatements.positiveScale",
+        "AKLT.Cert.H1.LeafStatements.sylvester",
+        "AKLT.Cert.H1.LeafStatements.bareiss"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "AKLT.Blueprint.Top.IntegerCheckStatement",
+      "theorem": "AKLT.Cert.H1.Assembly.integerCheck_of_leaves"
+    },
+    {
+      "closed_premises": [
+        "AKLT.Cert.H1.LeafStatements.integerEntries",
+        "AKLT.Cert.H1.LeafStatements.sectorPositiveImpliesBound"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "AKLT.Blueprint.Top.CertificateStatement",
+      "theorem": "AKLT.Cert.H1.Assembly.certificate_of_leaves"
+    },
+    {
+      "closed_premises": [
+        "LeafStatements.certificatePremises",
+        "LeafStatements.blockListSoundness",
+        "Leaves.Ppppp.metadata",
+        "Leaves.Ppppp.sectorCover",
+        "Leaves.Ppppp.blockChecks"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "each Leaves.Ppppp.bound",
+      "theorem": "AKLT.Cert.H1.Assembly.pattern_bound_from_checks"
+    },
+    {
+      "closed_premises": [
+        "AKLT.Cert.H1.Leaves.P7237.block00_fromDefs"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "AKLT.Cert.H1.Assembly.LargePositiveConclusion",
+      "theorem": "AKLT.Cert.H1.Assembly.large_fromDefs_positive_of_leaf"
+    },
+    {
+      "closed_premises": [
+        "AKLT.Cert.H1.LeafStatements.integerCheckPremises",
+        "AKLT.Cert.H1.LeafStatements.certificatePremises"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "AKLT.Blueprint.Top.IntegerCheckStatement \u2227 AKLT.Blueprint.Top.CertificateStatement",
+      "theorem": "AKLT.Cert.H1.Assembly.targets_of_leaves"
+    },
+    {
+      "closed_premises": [
+        "AKLT.Blueprint.Top.CertificateStatement",
+        "Leaves.Ppppp.ready"
+      ],
+      "premises_status": "OPEN",
+      "status": "PROVED_CONDITIONAL_ASSEMBLY",
+      "target": "each Leaves.Ppppp.bound",
+      "theorem": "AKLT.Cert.H1.Assembly.pattern_bound_of_leaves"
+    }
+  ],
+  "blocks": 3,
+  "coverage_obligation": "AKLT.Cert.H1.Obligations.coverage",
+  "format": "h1-lean-leaves-v1",
+  "leaves": [
+    {
+      "block": 0,
+      "check_module": "AKLT.Cert.H1.Check.P0000B00",
+      "closed_statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "covered": {
+        "module": "AKLT.Cert.H1.Check.RawPatterns",
+        "status": "PROVED",
+        "theorem": "AKLT.Cert.H1.Check.P0000_covered"
+      },
+      "data_module": "AKLT.Cert.H1.Data.P0000B00",
+      "factor_entries": 0,
+      "kernel_status": "POSITIVITY_PROVED",
+      "label": 1,
+      "matrix_entries": 1,
+      "measurements": {
+        "axioms": {
+          "AKLT.Cert.H1.Check.P0000B00.checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P0000B00.header_checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P0000B00.positive_complex": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P0000B00.positive_real": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P0000B00.rows_checked": [
+            "propext"
+          ]
+        },
+        "command": [
+          "/usr/bin/time",
+          "-v",
+          "lake",
+          "env",
+          "lean",
+          "-DElab.async=false",
+          "--profile",
+          "-o",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P0000B00.olean",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P0000B00.lean"
+        ],
+        "cpu_seconds": 2.33,
+        "kernel_typechecking_profile_seconds": 0.004730000000000001,
+        "log": "logs/Check__P0000B00.log",
+        "max_rss_kib": 3905616,
+        "module": "AKLT.Cert.H1.Check.P0000B00",
+        "wall_seconds": 2.31
+      },
+      "n": 1,
+      "packed_prototype": {
+        "full_columns": 2,
+        "module": "AKLT.Cert.H1.Check.P0000Packed",
+        "refinement_to_defs": "OPEN",
+        "rows": 1,
+        "status": "PACKED_NETWORK_EQUALITY_PROVED",
+        "width": 96
+      },
+      "pattern_leaves": [
+        "AKLT.Cert.H1.Leaves.P0000.covered",
+        "AKLT.Cert.H1.Leaves.P0000.groupInversion",
+        "AKLT.Cert.H1.Leaves.P0000.clearsDenominator",
+        "AKLT.Cert.H1.Leaves.P0000.sectorCover",
+        "AKLT.Cert.H1.Leaves.P0000.admissibleThreshold",
+        "AKLT.Cert.H1.Leaves.P0000.blockChecks"
+      ],
+      "pattern_module": "AKLT.Cert.H1.Data.P0000",
+      "pid": 0,
+      "positivity_theorems": [
+        "AKLT.Cert.H1.Check.P0000B00.positive_real",
+        "AKLT.Cert.H1.Check.P0000B00.positive_complex"
+      ],
+      "reconstruction": {
+        "exact_statement_leaf": "AKLT.Cert.H1.Leaves.P0000.block00_fromDefs",
+        "first_attempt": {
+          "required_route": "different_cheaper_model",
+          "root_may_prove": false,
+          "status": "NOT_ATTEMPTED"
+        },
+        "meaning": "explicit Fin n equivalence and exact equality to indexedSectorMatrix",
+        "obligation": "AKLT.Cert.H1.Leaves.P0000.block00_fromDefs",
+        "status": "OPEN"
+      },
+      "shards": [
+        {
+          "dot_products": 0,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P0000B00Rows000",
+          "row_end": 1,
+          "row_start": 0,
+          "theorem": "AKLT.Cert.H1.Check.P0000B00.rows000_checked"
+        }
+      ],
+      "threshold": [
+        187,
+        200
+      ]
+    },
+    {
+      "block": 0,
+      "check_module": "AKLT.Cert.H1.Check.P2180B00",
+      "closed_statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "covered": {
+        "module": "AKLT.Cert.H1.Check.EmptySectorFromDefs",
+        "status": "PROVED",
+        "theorem": "AKLT.Cert.H1.Check.P2180.covered"
+      },
+      "data_module": "AKLT.Cert.H1.Data.P2180B00",
+      "factor_entries": 0,
+      "kernel_status": "POSITIVITY_PROVED",
+      "label": 0,
+      "matrix_entries": 1,
+      "measurements": {
+        "axioms": {
+          "AKLT.Cert.H1.Check.P2180B00.checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P2180B00.header_checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P2180B00.positive_complex": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P2180B00.positive_real": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P2180B00.rows_checked": [
+            "propext"
+          ]
+        },
+        "command": [
+          "/usr/bin/time",
+          "-v",
+          "lake",
+          "env",
+          "lean",
+          "-DElab.async=false",
+          "--profile",
+          "-o",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P2180B00.olean",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P2180B00.lean"
+        ],
+        "cpu_seconds": 2.27,
+        "kernel_typechecking_profile_seconds": 0.00467,
+        "log": "logs/Check__P2180B00.log",
+        "max_rss_kib": 3929340,
+        "module": "AKLT.Cert.H1.Check.P2180B00",
+        "wall_seconds": 2.24
+      },
+      "n": 1,
+      "packed_prototype": {
+        "full_columns": 1,
+        "module": "AKLT.Cert.H1.Check.P2180Packed",
+        "refinement_to_defs": "PROVED",
+        "rows": 1,
+        "status": "PACKED_NETWORK_EQUALITY_PROVED",
+        "theorem": "AKLT.Cert.H1.small_packed_fromDefs",
+        "width": 96
+      },
+      "pattern_leaves": [
+        "AKLT.Cert.H1.Leaves.P2180.covered",
+        "AKLT.Cert.H1.Leaves.P2180.groupInversion",
+        "AKLT.Cert.H1.Leaves.P2180.clearsDenominator",
+        "AKLT.Cert.H1.Leaves.P2180.sectorCover",
+        "AKLT.Cert.H1.Leaves.P2180.admissibleThreshold",
+        "AKLT.Cert.H1.Leaves.P2180.blockChecks"
+      ],
+      "pattern_module": "AKLT.Cert.H1.Data.P2180",
+      "pid": 2180,
+      "positivity_theorems": [
+        "AKLT.Cert.H1.Check.P2180B00.positive_real",
+        "AKLT.Cert.H1.Check.P2180B00.positive_complex"
+      ],
+      "reconstruction": {
+        "exact_statement_leaf": "AKLT.Cert.H1.Leaves.P2180.block00_fromDefs",
+        "meaning": "explicit Fin n equivalence and exact equality to indexedSectorMatrix",
+        "module": "AKLT.Cert.H1.Check.EmptySectorFromDefs",
+        "obligation": "AKLT.Cert.H1.Leaves.P2180.block00_fromDefs",
+        "status": "PROVED",
+        "theorem": "AKLT.Cert.H1.Check.P2180.fromDefs"
+      },
+      "shards": [
+        {
+          "dot_products": 0,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P2180B00Rows000",
+          "row_end": 1,
+          "row_start": 0,
+          "theorem": "AKLT.Cert.H1.Check.P2180B00.rows000_checked"
+        }
+      ],
+      "threshold": [
+        187,
+        200
+      ]
+    },
+    {
+      "block": 0,
+      "check_module": "AKLT.Cert.H1.Check.P7237B00",
+      "closed_statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "covered": {
+        "module": "AKLT.Cert.H1.Check.RawPatterns",
+        "status": "PROVED",
+        "theorem": "AKLT.Cert.H1.Check.P7237_covered"
+      },
+      "data_module": "AKLT.Cert.H1.Data.P7237B00",
+      "factor_entries": 16110,
+      "kernel_status": "POSITIVITY_PROVED",
+      "label": 1,
+      "matrix_entries": 32041,
+      "measurements": {
+        "axioms": {
+          "AKLT.Cert.H1.Check.P7237B00.checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P7237B00.header_checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P7237B00.positive_complex": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P7237B00.positive_real": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "AKLT.Cert.H1.Check.P7237B00.rows_checked": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        "command": [
+          "/usr/bin/time",
+          "-v",
+          "lake",
+          "env",
+          "lean",
+          "-DElab.async=false",
+          "--profile",
+          "-o",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P7237B00.olean",
+          "/home/ubuntu/aklt/wt/CERT_H1/AKLT/Cert/H1/Check/P7237B00.lean"
+        ],
+        "cpu_seconds": 13.88,
+        "kernel_typechecking_profile_seconds": 11.1,
+        "log": "logs/Check__P7237B00.log",
+        "max_rss_kib": 6112592,
+        "module": "AKLT.Cert.H1.Check.P7237B00",
+        "wall_seconds": 13.86
+      },
+      "n": 179,
+      "packed_prototype": {
+        "full_columns": 864,
+        "module": "AKLT.Cert.H1.Check.P7237Packed",
+        "refinement_to_defs": "OPEN",
+        "rows": 179,
+        "status": "PACKED_NETWORK_EQUALITY_PROVED",
+        "width": 96
+      },
+      "pattern_leaves": [
+        "AKLT.Cert.H1.Leaves.P7237.covered",
+        "AKLT.Cert.H1.Leaves.P7237.groupInversion",
+        "AKLT.Cert.H1.Leaves.P7237.clearsDenominator",
+        "AKLT.Cert.H1.Leaves.P7237.sectorCover",
+        "AKLT.Cert.H1.Leaves.P7237.admissibleThreshold",
+        "AKLT.Cert.H1.Leaves.P7237.blockChecks"
+      ],
+      "pattern_module": "AKLT.Cert.H1.Data.P7237",
+      "pid": 7237,
+      "positivity_theorems": [
+        "AKLT.Cert.H1.Check.P7237B00.positive_real",
+        "AKLT.Cert.H1.Check.P7237B00.positive_complex"
+      ],
+      "reconstruction": {
+        "exact_statement_leaf": "AKLT.Cert.H1.Leaves.P7237.block00_fromDefs",
+        "first_attempt": {
+          "required_route": "different_cheaper_model",
+          "root_may_prove": false,
+          "status": "NOT_ATTEMPTED"
+        },
+        "meaning": "explicit Fin n equivalence and exact equality to indexedSectorMatrix",
+        "obligation": "AKLT.Cert.H1.Leaves.P7237.block00_fromDefs",
+        "status": "OPEN"
+      },
+      "shards": [
+        {
+          "dot_products": 6360,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows000",
+          "row_end": 8,
+          "row_start": 0,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows000_checked"
+        },
+        {
+          "dot_products": 17304,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows001",
+          "row_end": 16,
+          "row_start": 8,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows001_checked"
+        },
+        {
+          "dot_products": 27736,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows002",
+          "row_end": 24,
+          "row_start": 16,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows002_checked"
+        },
+        {
+          "dot_products": 37656,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows003",
+          "row_end": 32,
+          "row_start": 24,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows003_checked"
+        },
+        {
+          "dot_products": 47064,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows004",
+          "row_end": 40,
+          "row_start": 32,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows004_checked"
+        },
+        {
+          "dot_products": 55960,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows005",
+          "row_end": 48,
+          "row_start": 40,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows005_checked"
+        },
+        {
+          "dot_products": 64344,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows006",
+          "row_end": 56,
+          "row_start": 48,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows006_checked"
+        },
+        {
+          "dot_products": 72216,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows007",
+          "row_end": 64,
+          "row_start": 56,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows007_checked"
+        },
+        {
+          "dot_products": 79576,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows008",
+          "row_end": 72,
+          "row_start": 64,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows008_checked"
+        },
+        {
+          "dot_products": 86424,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows009",
+          "row_end": 80,
+          "row_start": 72,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows009_checked"
+        },
+        {
+          "dot_products": 92760,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows010",
+          "row_end": 88,
+          "row_start": 80,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows010_checked"
+        },
+        {
+          "dot_products": 98584,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows011",
+          "row_end": 96,
+          "row_start": 88,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows011_checked"
+        },
+        {
+          "dot_products": 103896,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows012",
+          "row_end": 104,
+          "row_start": 96,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows012_checked"
+        },
+        {
+          "dot_products": 108696,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows013",
+          "row_end": 112,
+          "row_start": 104,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows013_checked"
+        },
+        {
+          "dot_products": 112984,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows014",
+          "row_end": 120,
+          "row_start": 112,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows014_checked"
+        },
+        {
+          "dot_products": 116760,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows015",
+          "row_end": 128,
+          "row_start": 120,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows015_checked"
+        },
+        {
+          "dot_products": 120024,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows016",
+          "row_end": 136,
+          "row_start": 128,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows016_checked"
+        },
+        {
+          "dot_products": 122776,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows017",
+          "row_end": 144,
+          "row_start": 136,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows017_checked"
+        },
+        {
+          "dot_products": 125016,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows018",
+          "row_end": 152,
+          "row_start": 144,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows018_checked"
+        },
+        {
+          "dot_products": 126744,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows019",
+          "row_end": 160,
+          "row_start": 152,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows019_checked"
+        },
+        {
+          "dot_products": 127960,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows020",
+          "row_end": 168,
+          "row_start": 160,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows020_checked"
+        },
+        {
+          "dot_products": 128664,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows021",
+          "row_end": 176,
+          "row_start": 168,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows021_checked"
+        },
+        {
+          "dot_products": 48326,
+          "kernel_status": "PROVED",
+          "module": "AKLT.Cert.H1.Check.P7237B00Rows022",
+          "row_end": 179,
+          "row_start": 176,
+          "theorem": "AKLT.Cert.H1.Check.P7237B00.rows022_checked"
+        }
+      ],
+      "threshold": [
+        961,
+        1000
+      ]
+    }
+  ],
+  "patterns": 3,
+  "pids": [
+    0,
+    2180,
+    7237
+  ],
+  "production": {
+    "constructor_address_cap_gib": 16,
+    "constructor_processes": 8,
+    "disk_budget_bytes": 40000000000,
+    "estimated_cpu_hours": [
+      90,
+      315
+    ],
+    "estimates_are_not_full_run_measurements": true,
+    "gram_address_cap_gib": 12,
+    "gram_processes": 12,
+    "max_lean_processes": 12,
+    "max_ram_bytes": 160000000000,
+    "minimum_root_free_bytes": 100000000000,
+    "reserved_cpu_hours": 350
+  },
+  "proof_leaf_counts": {
+    "KERNEL_COMPUTATION_PROVED": 6,
+    "NOT_RUN": 15921,
+    "OPEN": 44035,
+    "PRESERVED_PRE_RULE_PROVED": 6
+  },
+  "proof_leaves": [
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.integerEntries",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.integerEntries",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n  \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n  \u2200 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2192 \u2200 \u03b5 : ExchangeSigns \u03c0,\n  \u2200 next : Bool, (integerSectorMatrix \u03c0 r \u03b5 I D\u2080 next).IsSymm \u2227\n    \u2200 a b, (integerSectorMatrix \u03c0 r \u03b5 I D\u2080 next a b : \u211a) =\n      (if next then 5 else 3) * (D\u2080 : \u211a) * rationalSectorEntry \u03c0 r \u03b5\n        (invertPolynomial I (reducedPolynomial \u03c0 r next)) a b",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.thresholdScale",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.thresholdScale",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n  \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n  \u2200 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2192\n  \u2200 p q : \u2115, 0 < p \u2192 0 < q \u2192 (p : \u211a) / q < 1 \u2192\n  \u2200 \u03b5 : ExchangeSigns \u03c0, \u2200 a b,\n    (thresholdSectorMatrix \u03c0 r \u03b5 I D\u2080 p q a b : \u2102) =\n      (15 * (D\u2080 : \u2102) * q) * complexSectorMatrix \u03c0 r \u03b5\n        (invertPolynomial I (reducedDifference \u03c0 r ((p : \u211a) / q))) a b",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.positiveScale",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.positiveScale",
+      "kind": "proof",
+      "recommended_prerequisites": [
+        "AKLT.Cert.H1.LeafStatements.thresholdScale"
+      ],
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n  \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n  \u2200 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2192\n  \u2200 p q : \u2115, 0 < p \u2192 0 < q \u2192 (p : \u211a) / q < 1 \u2192\n  \u2200 \u03b5 : ExchangeSigns \u03c0,\n    (complexSectorMatrix \u03c0 r \u03b5\n      (invertPolynomial I (reducedDifference \u03c0 r ((p : \u211a) / q)))).PosDef \u2194\n      ((thresholdSectorMatrix \u03c0 r \u03b5 I D\u2080 p q).map (Int.castRingHom \u2102)).PosDef",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.sylvester",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.sylvester",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 n : \u2115, \u2200 M : Matrix (Fin n) (Fin n) \u2124, M.IsSymm \u2192\n    ((M.map (Int.castRingHom \u211d)).PosDef \u2194\n      \u2200 k : \u2115, \u2200 h : k \u2264 n, 0 < k \u2192 0 < leadingMinor M k h)",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.bareiss",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.bareiss",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 n : \u2115, \u2200 M : Matrix (Fin n) (Fin n) \u2124, M.IsSymm \u2192\n  \u2200 j : \u2115, \u2200 h : j < n, (\u2200 k < j, bareissPivot M k \u2260 0) \u2192\n    bareissPivot M j = leadingMinor M (j+1) (Nat.succ_le_of_lt h) \u2227\n    \u2200 i l : Fin n, j < i.val \u2192 j < l.val \u2192\n      (bareissState M j).2 \u2223\n        (bareissPivot M j * (bareissState M j).1 i l -\n          (bareissState M j).1 i \u27e8j,h\u27e9 * (bareissState M j).1 \u27e8j,h\u27e9 l)",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.sectorPositiveImpliesBound",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.sectorPositiveImpliesBound",
+      "kind": "proof",
+      "recommended_prerequisites": [
+        "AKLT.Cert.H1.LeafStatements.positiveScale",
+        "AKLT.Blueprint.Top.ReduceStatement",
+        "AKLT.Blueprint.Top.InversionStatement",
+        "AKLT.Blueprint.Top.OperatorStructureStatement",
+        "AKLT.Blueprint.Top.SectorStatement"
+      ],
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n  \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n  \u2200 D\u2080 : \u2115, ClearsDenominator \u03c0 r D\u2080 \u2192\n  \u2200 p q : \u2115, 0 < p \u2192 0 < q \u2192 (p : \u211a) / q < 1 \u2192\n    (\u2200 \u03b5 : ExchangeSigns \u03c0, \u2203 t : \u2115, \u2203 index : Fin t \u2243 CentralBasis \u03c0 r \u03b5,\n      ((indexedSectorMatrix \u03c0 r \u03b5 I D\u2080 p q index).map (Int.castRingHom \u2102)).PosDef) \u2192\n    \u2200 m : Fin 20 \u2192 UnitVector,\n      0 \u2264 patternCurrent \u03c0 m - ((p : \u211d) / q) * patternNext \u03c0 m",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.LeafStatements.blockListSoundness",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.LeafStatements.blockListSoundness",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.LeafStatements",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/LeafStatements.lean",
+      "statement_lean": "\u2200 bs : List CertificateBlock, checkBlocks bs = true \u2192 CheckedBlocks bs",
+      "statement_module": "AKLT.Cert.H1.LeafStatements",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Obligations.coverage",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Obligations.coverage",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Obligations",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Obligations.lean",
+      "statement_lean": "CoverageStatement Data.Catalogue.codes",
+      "statement_module": "AKLT.Cert.H1.Obligations",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Obligations.effectiveTransfer",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Obligations.effectiveTransfer",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Obligations",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Obligations.lean",
+      "statement_lean": "EffectiveTransferStatement",
+      "statement_module": "AKLT.Cert.H1.Obligations",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Obligations.signedPacking",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Obligations.signedPacking",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Obligations",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Obligations.lean",
+      "statement_lean": "\u2200 width n : Nat, 0 < width \u2192 \u2200 f : Fin n \u2192 Int,\n    (\u2200 i, -((2 : Nat)^(width-1) : Int) \u2264 f i \u2227 f i < ((2 : Nat)^(width-1) : Int)) \u2192\n    \u2200 i : Fin n,\n      signedDigit ((\u2211 j : Fin n, f j * ((2 : Nat)^(width*j.val) : Int)) +\n        signedBias width n) width i = f i",
+      "statement_module": "AKLT.Cert.H1.Obligations",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Obligations.packedRefinement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Obligations.packedRefinement",
+      "kind": "proof",
+      "recommended_prerequisites": [
+        "AKLT.Cert.H1.Obligations.signedPacking"
+      ],
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Obligations",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Obligations.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation,\n  \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n  \u2200 ss : List PackedSite, NetworkGeometry \u03c0 r I ss \u2192\n  \u2200 out : Nat, ringSites.getD out (0,0) = \u03c0.outgoing.step \u2192\n  \u2200 width p q : Nat, 0 < width \u2192 coefficientBound ss p q < 2^(width-1) \u2192\n  let D\u2080 := (ss.map fun s => s.spec.totalDen).prod\n  let lanes := (ss.map fun s => s.spec.dim).prod\n  ClearsDenominator \u03c0 r D\u2080 \u2227\n    \u2200 \u03b5 : ExchangeSigns \u03c0, \u2200 n : Nat, \u2200 index : Fin n \u2243 CentralBasis \u03c0 r \u03b5,\n    \u2200 indices : List Nat, indices.length = n \u2192\n      (\u2200 i : Fin n, indices.getD i 0 = exchangeBasisCode \u03c0 r \u03b5 (index i).val) \u2192\n      \u2200 i j : Fin n,\n        AKLT.Gen.Gram.matrix n (constructedRows ss out width lanes p q indices) i j =\n          indexedSectorMatrix \u03c0 r \u03b5 I D\u2080 p q index i j",
+      "statement_module": "AKLT.Cert.H1.Obligations",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.IntegratePassageStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.IntegratePassageStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192\n    (\u2200 next : Bool, VectorAffine (originalPatternPolynomial \u03c0 next)) \u2227\n    (\u2200 next : Bool, \u2200 m : Fin 20 \u2192 UnitVector,\n      evaluateReduced (originalPatternPolynomial \u03c0 next) (fun j => (m j).val) =\n        if next then patternNext \u03c0 m else patternCurrent \u03c0 m) \u2227\n    (\u2200 next : Bool, \u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192 \u2200 m : Fin 20 \u2192 Vec3,\n      evaluateReduced (originalPatternPolynomial \u03c0 next) (fun j => R.mulVec (m j)) =\n        evaluateReduced (originalPatternPolynomial \u03c0 next) m) \u2227\n    \u2200 m : Fin 20 \u2192 UnitVector, \u2200 f g : Plane,\n      ({\u03c0.outgoing.step, f, g} : Finset Plane) = {(1, 0), (0, 1), (-1, 0)} \u2192\n      \u03c0.outgoing.step \u2260 f \u2192 \u03c0.outgoing.step \u2260 g \u2192 f \u2260 g \u2192\n      let I := fun n : Plane \u2192 Vec3 => 1 +\n        (dot (n f) (n g) + dot (n f) (n \u03c0.outgoing.step) + dot (n g) (n \u03c0.outgoing.step)) / 3\n      let J := fun n : Plane \u2192 Vec3 => 1 + dot (n f) (n g) / 5\n      patternCurrent \u03c0 m = withoutPassageFunctional \u03c0 m I \u2227\n      patternNext \u03c0 m = withoutPassageFunctional \u03c0 m J \u2227 0 < patternNext \u03c0 m \u2227\n      \u2200 c : \u211d, 0 < c \u2192 c < 1 \u2192\n        patternCurrent \u03c0 m - c * patternNext \u03c0 m =\n          withoutPassageFunctional \u03c0 m (fun n => (1 - c) +\n            (dot (n f) (n \u03c0.outgoing.step) + dot (n g) (n \u03c0.outgoing.step)) / 3 +\n              (1 / 3 - c / 5) * dot (n f) (n g))",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.LeafStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.LeafStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 m : Fin 20 \u2192 UnitVector,\n    \u2200 x \u2208 templateCorners \u222a templateTips, \u03c0.statusAt x \u2260 .X \u2192\n      (patternDegree \u03c0 x = 0 \u2192 0 < siteFunctional (\u03c0.statusAt x) (coveredSiteField m x)) \u2227\n      (patternDegree \u03c0 x = 1 \u2192 \u2203 A : \u211d, 0 < A \u2227 \u2203 u : Vec3, normSq u \u2264 1 \u2227\n        \u2200 v : Vec3, normSq v \u2264 1 \u2192\n          siteFunctional (\u03c0.statusAt x) (fun n => coveredSiteField m x n * (1 + dot n v)) =\n            A * (1 + (replacementRadius \u03c0 x : \u211d) * dot u v))",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.ReduceStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.ReduceStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, \u2200 c : \u211a, 0 < c \u2192 c < 1 \u2192\n    VectorAffine (reducedDifference \u03c0 r c) \u2227\n    (\u2200 R : Matrix (Fin 3) (Fin 3) \u211d, R.transpose * R = 1 \u2192 \u2200 u : Fin 20 \u2192 Vec3,\n      evaluateReduced (reducedDifference \u03c0 r c) (fun j => R.mulVec (u j)) =\n        evaluateReduced (reducedDifference \u03c0 r c) u) \u2227\n    ((\u2200 u : Fin 20 \u2192 UnitVector, 0 \u2264 evaluateReduced (reducedDifference \u03c0 r c) (fun j => (u j).val)) \u2192\n      \u2200 m : Fin 20 \u2192 UnitVector, 0 \u2264 patternCurrent \u03c0 m - (c : \u211d) * patternNext \u03c0 m) \u2227\n    \u2200 m : Fin 20 \u2192 UnitVector, \u2203 K : \u211d, 0 < K \u2227 \u2203 u : Fin 20 \u2192 Vec3,\n      (\u2200 j \u2208 reductionVectors \u03c0 r, normSq (u j) \u2264 1) \u2227\n      patternCurrent \u03c0 m = K * evaluateReduced (reducedPolynomial \u03c0 r false) u \u2227\n      patternNext \u03c0 m = K * evaluateReduced (reducedPolynomial \u03c0 r true) u",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.InversionStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.InversionStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "(\u2200 u : Vec3, normSq u \u2264 1 \u2192 (spinDensity u).PosSemidef \u2227 (spinDensity u).trace = 1) \u2227\n  \u2200 J : Finset (Fin 20), \u2200 p : MvPolynomial (Fin 20 \u00d7 Fin 3) \u211a,\n    VectorAffine p \u2192 SupportedVectors J p \u2192 \u2200 I : Finset (Fin 20), I \u2286 J \u2192\n    (\u2200 u : Fin 20 \u2192 Vec3, (\u2200 j \u2208 J, normSq (u j) \u2264 1) \u2192\n      (evaluateReduced p u : \u2102) =\n        (pauliOperator J (invertPolynomial I p) * productDensity J (invertVectors I u)).trace) \u2227\n    ((pauliOperator J (invertPolynomial I p)).PosSemidef \u2192\n      \u2200 u : Fin 20 \u2192 Vec3, (\u2200 j \u2208 J, normSq (u j) \u2264 1) \u2192 0 \u2264 evaluateReduced p u)",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.OperatorStructureStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.OperatorStructureStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u03c0.Covered \u2192 \u2200 r : Representation, \u2200 I : Finset (Fin 20), GroupInversion \u03c0 r I \u2192\n    \u2200 c : \u211a, 0 < c \u2192 c < 1 \u2192\n    let J := reductionVectors \u03c0 r\n    let M := pauliOperator J (invertPolynomial I (reducedDifference \u03c0 r c))\n    let O := Matrix.toEuclideanLin M\n    M.IsHermitian \u2227 (\u2200 \u03c3 \u03c4, (M \u03c3 \u03c4).im = 0) \u2227\n    (\u2200 g : Matrix (Fin 2) (Fin 2) \u2102, g.conjTranspose * g = 1 \u2192 g.det = 1 \u2192\n      Commute M (tensorPowerMatrix J g)) \u2227\n    Commute O (totalSpinZ J) \u2227 Commute O (totalSpinPlus J) \u2227 Commute O (totalSpinMinus J) \u2227\n    \u2200 x : reductionGroups \u03c0, \u2200 h : groupIsPair \u03c0 r x.val = true,\n      (\u03c0.statusAt x.val = .U \u2192\n        let proj := symmetricPairProjection J (leaderToken \u03c0 r x) (secondToken \u03c0 r x h)\n        O = proj * O * proj) \u2227\n      (\u03c0.statusAt x.val = .D \u2192 Commute O (exchangeOperator J (leaderToken \u03c0 r x) (secondToken \u03c0 r x h)))",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Blueprint.Top.SectorStatement",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Blueprint.Top.SectorStatement",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Blueprint.Top",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Blueprint/Top/Operator.lean",
+      "statement_lean": "\u2200 \u03c0 : PatternData, \u2200 r : Representation, \u2200 \u03b5 : ExchangeSigns \u03c0,\n    let J := reductionVectors \u03c0 r\n    let S := exchangeSpace \u03c0 r \u03b5\n    let C := centralSpace \u03c0 r \u03b5\n    \u2200 O : Module.End \u2102 (EuclideanSpace \u2102 (J \u2192 Fin 2)),\n      (\u2200 \u03c8 \u2208 S, O \u03c8 \u2208 S) \u2192\n      (\u2200 \u03c8 \u2208 S, \u2200 \u03c7 \u2208 S, inner \u2102 (O \u03c8) \u03c7 = inner \u2102 \u03c8 (O \u03c7)) \u2192\n      (\u2200 \u03c8 \u2208 S, O (totalSpinZ J \u03c8) = totalSpinZ J (O \u03c8)) \u2192\n      (\u2200 \u03c8 \u2208 S, O (totalSpinPlus J \u03c8) = totalSpinPlus J (O \u03c8)) \u2192\n      (\u2200 \u03c8 \u2208 S, O (totalSpinMinus J \u03c8) = totalSpinMinus J (O \u03c8)) \u2192\n      (\u2200 \u03c8 \u2208 C, O \u03c8 \u2208 C) \u2227 eigenvaluesOn C O = eigenvaluesOn S O \u2227\n        (PositiveOn C O \u2194 PositiveOn S O)",
+      "statement_module": "AKLT.Blueprint.Top.Operator",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.covered",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P0000.covered",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P0000_covered",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Cert.H1.Data.P0000.pattern.Covered",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.groupInversion",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P0000.groupInversion",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Defs.GroupInversion AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation AKLT.Cert.H1.Data.P0000.inversion",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.clearsDenominator",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P0000.clearsDenominator",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation AKLT.Cert.H1.Data.P0000.denominator",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.admissibleThreshold",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P0000_threshold",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P0000.admissibleThreshold",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P0000.thresholdP \u2227 0 < AKLT.Cert.H1.Data.P0000.thresholdQ \u2227 (AKLT.Cert.H1.Data.P0000.thresholdP : \u211a) / AKLT.Cert.H1.Data.P0000.thresholdQ < 1",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.sectorCover",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P0000.sectorCover",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.SectorCover AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation AKLT.Cert.H1.Data.P0000.inversion AKLT.Cert.H1.Data.P0000.denominator AKLT.Cert.H1.Data.P0000.thresholdP AKLT.Cert.H1.Data.P0000.thresholdQ AKLT.Cert.H1.Leaves.P0000.blocks",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.blockChecks",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P0000_blocks",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P0000.blockChecks",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.checkBlocks AKLT.Cert.H1.Leaves.P0000.blocks = true",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.networkGeometry",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P0000.networkGeometry",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Cert.H1.Obligations.NetworkGeometry AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation AKLT.Cert.H1.Data.P0000.inversion AKLT.Cert.H1.Data.P0000Packed.network",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.packedParameters",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P0000.packedParameters",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P0000Packed.width \u2227\n  AKLT.Cert.H1.Obligations.coefficientBound AKLT.Cert.H1.Data.P0000Packed.network AKLT.Cert.H1.Data.P0000.thresholdP AKLT.Cert.H1.Data.P0000.thresholdQ < 2^(AKLT.Cert.H1.Data.P0000Packed.width-1) \u2227\n  (AKLT.Cert.H1.Data.P0000Packed.network.map (fun s => s.spec.totalDen)).prod = AKLT.Cert.H1.Data.P0000.denominator \u2227\n  (AKLT.Cert.H1.Data.P0000Packed.network.map (fun s => s.spec.dim)).prod = AKLT.Cert.H1.Data.P0000Packed.lanes \u2227\n  AKLT.Cert.H1.ringSites.getD AKLT.Cert.H1.Data.P0000Packed.outgoing (0,0) = AKLT.Cert.H1.Data.P0000.pattern.outgoing.step",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "NOT_RUN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P0000.block00_fromDefs",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P0000.block00_fromDefs",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P0000",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P0000.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation AKLT.Cert.H1.Data.P0000.denominator \u2227\n  \u2203 \u03b5 : AKLT.Defs.ExchangeSigns AKLT.Cert.H1.Data.P0000.pattern,\n  \u2203 index : Fin 1 \u2243 AKLT.Defs.CentralBasis AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation \u03b5,\n    \u2200 i j, AKLT.Gen.Gram.matrix 1 AKLT.Cert.H1.Data.P0000B00.mRows i j =\n      AKLT.Defs.indexedSectorMatrix AKLT.Cert.H1.Data.P0000.pattern AKLT.Cert.H1.Data.P0000.representation \u03b5 AKLT.Cert.H1.Data.P0000.inversion AKLT.Cert.H1.Data.P0000.denominator AKLT.Cert.H1.Data.P0000.thresholdP AKLT.Cert.H1.Data.P0000.thresholdQ index i j",
+      "statement_module": "AKLT.Cert.H1.Leaves.P0000",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.covered",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.covered",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P2180.covered",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Cert.H1.Data.P2180.pattern.Covered",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.groupInversion",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.groupInversion",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P2180.inversion_allowed",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Defs.GroupInversion AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation AKLT.Cert.H1.Data.P2180.inversion",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.clearsDenominator",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.clearsDenominator",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P2180.clears",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation AKLT.Cert.H1.Data.P2180.denominator",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.admissibleThreshold",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P2180_threshold",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.admissibleThreshold",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P2180.thresholdP \u2227 0 < AKLT.Cert.H1.Data.P2180.thresholdQ \u2227 (AKLT.Cert.H1.Data.P2180.thresholdP : \u211a) / AKLT.Cert.H1.Data.P2180.thresholdQ < 1",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.sectorCover",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P2180.sectorCover",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.SectorCover AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation AKLT.Cert.H1.Data.P2180.inversion AKLT.Cert.H1.Data.P2180.denominator AKLT.Cert.H1.Data.P2180.thresholdP AKLT.Cert.H1.Data.P2180.thresholdQ AKLT.Cert.H1.Leaves.P2180.blocks",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.blockChecks",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P2180_blocks",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.blockChecks",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.checkBlocks AKLT.Cert.H1.Leaves.P2180.blocks = true",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.networkGeometry",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P2180.networkGeometry",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Cert.H1.Obligations.NetworkGeometry AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation AKLT.Cert.H1.Data.P2180.inversion AKLT.Cert.H1.Data.P2180Packed.network",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.packedParameters",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.packedParameters",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P2180Packed.width \u2227\n  AKLT.Cert.H1.Obligations.coefficientBound AKLT.Cert.H1.Data.P2180Packed.network AKLT.Cert.H1.Data.P2180.thresholdP AKLT.Cert.H1.Data.P2180.thresholdQ < 2^(AKLT.Cert.H1.Data.P2180Packed.width-1) \u2227\n  (AKLT.Cert.H1.Data.P2180Packed.network.map (fun s => s.spec.totalDen)).prod = AKLT.Cert.H1.Data.P2180.denominator \u2227\n  (AKLT.Cert.H1.Data.P2180Packed.network.map (fun s => s.spec.dim)).prod = AKLT.Cert.H1.Data.P2180Packed.lanes \u2227\n  AKLT.Cert.H1.ringSites.getD AKLT.Cert.H1.Data.P2180Packed.outgoing (0,0) = AKLT.Cert.H1.Data.P2180.pattern.outgoing.step",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "NOT_RUN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P2180.block00_fromDefs",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P2180.block00_fromDefs",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P2180.fromDefs",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P2180",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P2180.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation AKLT.Cert.H1.Data.P2180.denominator \u2227\n  \u2203 \u03b5 : AKLT.Defs.ExchangeSigns AKLT.Cert.H1.Data.P2180.pattern,\n  \u2203 index : Fin 1 \u2243 AKLT.Defs.CentralBasis AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation \u03b5,\n    \u2200 i j, AKLT.Gen.Gram.matrix 1 AKLT.Cert.H1.Data.P2180B00.mRows i j =\n      AKLT.Defs.indexedSectorMatrix AKLT.Cert.H1.Data.P2180.pattern AKLT.Cert.H1.Data.P2180.representation \u03b5 AKLT.Cert.H1.Data.P2180.inversion AKLT.Cert.H1.Data.P2180.denominator AKLT.Cert.H1.Data.P2180.thresholdP AKLT.Cert.H1.Data.P2180.thresholdQ index i j",
+      "statement_module": "AKLT.Cert.H1.Leaves.P2180",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.covered",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P7237.covered",
+      "kind": "proof",
+      "preserved_proof": "AKLT.Cert.H1.Check.P7237_covered",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Cert.H1.Data.P7237.pattern.Covered",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "PRESERVED_PRE_RULE_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.groupInversion",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P7237.groupInversion",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Defs.GroupInversion AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation AKLT.Cert.H1.Data.P7237.inversion",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.clearsDenominator",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P7237.clearsDenominator",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation AKLT.Cert.H1.Data.P7237.denominator",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.admissibleThreshold",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P7237_threshold",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P7237.admissibleThreshold",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P7237.thresholdP \u2227 0 < AKLT.Cert.H1.Data.P7237.thresholdQ \u2227 (AKLT.Cert.H1.Data.P7237.thresholdP : \u211a) / AKLT.Cert.H1.Data.P7237.thresholdQ < 1",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.sectorCover",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P7237.sectorCover",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.SectorCover AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation AKLT.Cert.H1.Data.P7237.inversion AKLT.Cert.H1.Data.P7237.denominator AKLT.Cert.H1.Data.P7237.thresholdP AKLT.Cert.H1.Data.P7237.thresholdQ AKLT.Cert.H1.Leaves.P7237.blocks",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.blockChecks",
+      "computation_theorem": "AKLT.Cert.H1.Check.ClosedLeafComputations.P7237_blocks",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P7237.blockChecks",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Cert.H1.LeafStatements.checkBlocks AKLT.Cert.H1.Leaves.P7237.blocks = true",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "KERNEL_COMPUTATION_PROVED"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.networkGeometry",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P7237.networkGeometry",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Cert.H1.Obligations.NetworkGeometry AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation AKLT.Cert.H1.Data.P7237.inversion AKLT.Cert.H1.Data.P7237Packed.network",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "OPEN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.packedParameters",
+      "execution": "kernel_decide_or_assembly_of_sharded_computations",
+      "first_attempt": null,
+      "id": "AKLT.Cert.H1.Leaves.P7237.packedParameters",
+      "kind": "computation",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "0 < AKLT.Cert.H1.Data.P7237Packed.width \u2227\n  AKLT.Cert.H1.Obligations.coefficientBound AKLT.Cert.H1.Data.P7237Packed.network AKLT.Cert.H1.Data.P7237.thresholdP AKLT.Cert.H1.Data.P7237.thresholdQ < 2^(AKLT.Cert.H1.Data.P7237Packed.width-1) \u2227\n  (AKLT.Cert.H1.Data.P7237Packed.network.map (fun s => s.spec.totalDen)).prod = AKLT.Cert.H1.Data.P7237.denominator \u2227\n  (AKLT.Cert.H1.Data.P7237Packed.network.map (fun s => s.spec.dim)).prod = AKLT.Cert.H1.Data.P7237Packed.lanes \u2227\n  AKLT.Cert.H1.ringSites.getD AKLT.Cert.H1.Data.P7237Packed.outgoing (0,0) = AKLT.Cert.H1.Data.P7237.pattern.outgoing.step",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "NOT_RUN"
+    },
+    {
+      "closed_prop": "AKLT.Cert.H1.Leaves.P7237.block00_fromDefs",
+      "first_attempt": {
+        "required_route": "different_cheaper_model",
+        "root_may_prove": false,
+        "status": "NOT_ATTEMPTED"
+      },
+      "id": "AKLT.Cert.H1.Leaves.P7237.block00_fromDefs",
+      "kind": "proof",
+      "statement_context": {
+        "namespace": "AKLT.Cert.H1.Leaves.P7237",
+        "open": [
+          "AKLT.Defs"
+        ],
+        "scopes": [
+          "BigOperators",
+          "ComplexOrder"
+        ],
+        "section": "noncomputable"
+      },
+      "statement_file": "AKLT/Cert/H1/Leaves/P7237.lean",
+      "statement_lean": "AKLT.Defs.ClearsDenominator AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation AKLT.Cert.H1.Data.P7237.denominator \u2227\n  \u2203 \u03b5 : AKLT.Defs.ExchangeSigns AKLT.Cert.H1.Data.P7237.pattern,\n  \u2203 index : Fin 179 \u2243 AKLT.Defs.CentralBasis AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation \u03b5,\n    \u2200 i j, AKLT.Gen.Gram.matrix 179 AKLT.Cert.H1.Data.P7237B00.mRows i j =\n      AKLT.Defs.indexedSectorMatrix AKLT.Cert.H1.Data.P7237.pattern AKLT.Cert.H1.Data.P7237.representation \u03b5 AKLT.Cert.H1.Data.P7237.inversion AKLT.Cert.H1.Data.P7237.denominator AKLT.Cert.H1.Data.P7237.thresholdP AKLT.Cert.H1.Data.P7237.thresholdQ index i j",
+      "statement_module": "AKLT.Cert.H1.Leaves.P7237",
+      "status": "OPEN"
+    }
+  ],
+  "proof_policy": {
+    "preserved_audited_proofs": 321,
+    "preserved_inventory": "pre-rule-proofs.json",
+    "preserved_report_list": "preserved-proofs.md",
+    "root_scope": [
+      "definitions",
+      "statements",
+      "designs",
+      "checkers",
+      "exporters",
+      "measurements",
+      "kernel computations",
+      "conditional assemblies"
+    ],
+    "rule": "First attempts for mathematical proof leaves go to a different cheaper model."
+  },
+  "rows_per_large_gram_shard": 8,
+  "source_format": "h1-gram-residual-v1",
+  "validation": {
+    "blueprint_certificate": "OPEN",
+    "blueprint_integer_check": "OPEN",
+    "catalogue_length_and_nodup": "PROVED",
+    "closed_leaf_statements": 59968,
+    "conditional_assembly_theorems": 6,
+    "defs_reconstructed_blocks": 1,
+    "open_proof_leaves": 44035,
+    "positive_blocks": 3,
+    "post_rule_mathematical_leaf_proofs_by_root": 0,
+    "pre_rule_audited_declarations": 321,
+    "raw_coverage": "OPEN",
+    "successful_measured_modules": 249
+  },
+  "warning": "Saved matrix positivity does not prove reconstruction or raw-pattern coverage."
+}

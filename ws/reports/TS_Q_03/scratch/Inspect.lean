@@ -1,0 +1,19 @@
+import AKLT.Blueprint.Q.NodesStar
+import AKLT.Blueprint.Q.NodesPolynomial
+
+#print AKLT.Blueprint.Q.StarWitnessStatement
+#print AKLT.Blueprint.Q.PositiveSpectralMinimumStatement
+#print AKLT.Blueprint.Q.SpectralKernelCoercivityStatement
+#print AKLT.Blueprint.Q.StarAmplificationStatement
+#print AKLT.Blueprint.Q.StateEvaluationStatement
+#print AKLT.Blueprint.Q.VbsHomogeneityStatement
+#print AKLT.Blueprint.Q.CoefficientReconstructionStatement
+#print AKLT.Blueprint.Q.PairDiagonalDivisionStatement
+#print AKLT.Defs.physicalEval
+#print AKLT.Defs.polynomialState
+#print AKLT.Challenge.monomialDegree
+#check Module.End.finite_hasEigenvalue
+#check LinearMap.IsSymmetric.eigenvectorBasis
+#check eigenvalue_nonneg_of_nonneg
+#check Submodule.starProjection_map_apply
+#check Matrix.toEuclideanLin

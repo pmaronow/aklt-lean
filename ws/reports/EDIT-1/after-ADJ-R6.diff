@@ -1,0 +1,629 @@
+diff --git a/app-constants.tex b/app-constants.tex
+index 6229930..585a2d4 100644
+--- a/app-constants.tex
++++ b/app-constants.tex
+@@ -14,7 +14,7 @@ $0.0707$, $2.73$, $1.22$ & & Lemma~\ref{l:removal}; only finiteness is used \\
+ $0.82$, $0.928$, $1.36$, $1.072$ & exact & $3/5$ lemma (Lemma~\ref{l:35}) \\
+ $\bar\alpha$, $\bar\beta$ & $0.18094$, $0.36751$ & Lemma~\ref{l:response} \\
+ $\cs$, $\ct$ & $961/1000$, $187/200$ & (H1): exact arithmetic, all $7{,}962$ patterns (Theorem~\ref{t:H1}) \\
+-$\min_\pi c(\pi)$ & $0.961240\ldots$, $0.935565\ldots$ & straight, turn; closed forms (\S\ref{s:closed}) \\
++two displayed $c(\pi)$ & $0.961240\ldots$, $0.935565\ldots$ & straight, turn; exact values for the first two rows of Table~\ref{tab:H1} (\S\ref{s:closed}) \\
+ $416114/444675$ & $0.935771\ldots$ & upper bound for $\ct$ in (H1) (Remark~\ref{r:H1sharp}) \\
+ $3/5$, $1/2$, $1/3$ & exact & fields of tips and leaf corners (Lemma~\ref{l:leaf}) \\
+ $q$ & $\le 0.98075$ & (H2): computer-assisted, directed rounding (\S\ref{s:H2}) \\
+diff --git a/app-local.tex b/app-local.tex
+index 9bf0546..44bf5f6 100644
+--- a/app-local.tex
++++ b/app-local.tex
+@@ -193,7 +193,7 @@ is positive definite, since $M_\epsilon$ is $15 D q$ times the matrix of a congr
+ 
+ \subsection{Closed forms for decoupled patterns}\label{s:closed}
+ 
+-For many patterns, every site other than $y$ and its neighbours hangs on the rest by a single bond, possibly through a chain of such sites. For these patterns the infimum $c(\pi)$ has a closed form, which gives a second proof of Theorem~\ref{t:H1} on them, independent of \S\ref{s:inversion}, and the exact values of $c(\pi)$ for the tightest patterns. The main input is a sharp bound on the mean of a spin under several fields. For $r = (r_1, r_2, r_3) \in [0, 1]^3$ let $s_1 = r_1 + r_2 + r_3$, $s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3$, $s_3 = r_1 r_2 r_3$, and
++For many patterns, every site other than $y$ and its neighbours hangs on the rest by a single bond, possibly through a chain of such sites. For these patterns the infimum $c(\pi)$ has a closed form, which gives a second proof of Theorem~\ref{t:H1} on them, independent of \S\ref{s:inversion}, and the exact values of $c(\pi)$ for the first three patterns of Table~\ref{tab:H1}. The main input is a sharp bound on the mean of a spin under several fields. For $r = (r_1, r_2, r_3) \in [0, 1]^3$ let $s_1 = r_1 + r_2 + r_3$, $s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3$, $s_3 = r_1 r_2 r_3$, and
+ \begin{equation}\label{e:rhoUD}
+ \rho_{\mathrm U}(r) = \frac{s_1/3 + s_3/5}{1 + s_2/3}, \qquad \rho_{\mathrm D}(r) = \frac{s_1/3 + s_3/5}{5/3 + s_2/3} .
+ \end{equation}
+@@ -260,17 +260,17 @@ The numerator and the denominator of $\mathsf R$ are affine in each $\mu_x$, and
+ 
+ Conversely, the vertices that hang on $x$, directly or through a chain of such vertices, form disjoint sets for different $x$. If all slot vectors at the vertices of the set of $x$ are equal to a unit vector $d_x$, the case of equality of Lemma~\ref{l:radius} shows by induction that $b_z = r_z d_x$ for these vertices and $\mu_x = \rho_x d_x$. Every point of the product of the spheres is therefore attained, and $c(\pi)$ is the minimum of $\mathsf R$ over it.
+ 
+-For fixed $\mu_f, \mu_g$, the minimum over $|\mu_o| = \rho_o$ of $\mu_o \cdot (\mu_f + \mu_g)$ is $-\rho_o |\mu_f + \mu_g|$, and with $t$ the cosine of the angle between $\mu_f$ and $\mu_g$ we have $\mu_f \cdot \mu_g = at$ and $|\mu_f + \mu_g|^2 = \rho_f^2 + \rho_g^2 + 2at$; every $t \in [-1, 1]$ occurs. Minimizing over $t$, we obtain \eqref{e:closed}.
++For fixed $\mu_f, \mu_g$, the minimum over $|\mu_o| = \rho_o$ of $\mu_o \cdot (\mu_f + \mu_g)$ is $-\rho_o |\mu_f + \mu_g|$. Write $\mu_x = \rho_x d_x$ for $x \in \{f,g\}$, with $d_x$ a unit vector chosen arbitrarily when $\rho_x = 0$, and put $t = d_f \cdot d_g$. Then $\mu_f \cdot \mu_g = at$ and $|\mu_f + \mu_g|^2 = \rho_f^2 + \rho_g^2 + 2at$; every $t \in [-1,1]$ occurs in this parametrization. Minimizing over $t$, we obtain \eqref{e:closed}.
+ 
+ For the second statement, multiplying by $1 + at/5 > 0$, the quotient in \eqref{e:closed} is at least $c$ if and only if $L(t) \ge \frac{\rho_o}{3} (\rho_f^2 + \rho_g^2 + 2at)^{1/2}$, where the right side is real and nonnegative because $\rho_f^2 + \rho_g^2 + 2at \ge (\rho_f - \rho_g)^2$. If this holds for all $t \in [-1, 1]$, then $L(\pm 1) \ge 0$ and $Q \ge 0$ on $[-1, 1]$. Conversely, since $L$ is affine, $L(\pm 1) \ge 0$ implies $L \ge 0$ on $[-1, 1]$. The inequality then follows from $Q(t) \ge 0$, since its two sides are nonnegative.
+ \end{proof}
+ 
+ The polynomial $Q$ is quadratic with leading coefficient $a^2 (\frac13 - \frac c5)^2 \ge 0$. Therefore $Q \ge 0$ on $[-1, 1]$ if and only if $Q(\pm 1) \ge 0$ and, when the leading coefficient is positive and the vertex $t_*$ of $Q$ lies in $(-1, 1)$, $Q(t_*) \ge 0$. For rational $c$, the test of Proposition~\ref{p:closed} is therefore a finite computation in rational arithmetic.
+ 
+-Of the $7{,}962$ patterns of $\Pext$, $4{,}735$ are decoupled ($1{,}553$ straight and $3{,}182$ turns), among them the three tightest patterns of the class. For these three the minimum in \eqref{e:closed} is rational, since $a = 0$ or the minimum is attained at $t = 1$, where the square root is $\rho_f + \rho_g$. The values are as follows; in each case the test of Proposition~\ref{p:closed}, in rational arithmetic, holds at the stated value of $c(\pi)$ and fails at that value plus $10^{-12}$.
++Of the $7{,}962$ patterns of $\Pext$, $4{,}735$ are decoupled ($1{,}553$ straight and $3{,}182$ turns), including the three examples below. For these three the minimum in \eqref{e:closed} is rational, since $a = 0$ or the minimum is attained at $t = 1$, where the square root is $\rho_f + \rho_g$. The values are as follows; in each case the test of Proposition~\ref{p:closed}, in rational arithmetic, holds at the stated value of $c(\pi)$ and fails at that value plus $10^{-12}$.
+ \begin{itemize}
+-\item The tightest straight pattern: $\mathsf e$, $\mathsf N$ and the corner $(1, -1)$ have status $\mathrm U$; $\mathsf W$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; $\mathsf s$ has status $\mathrm D$ and keeps its bonds to $(1, -1)$ and to its tip; the corner $(-1, 1)$ has status $\mathrm D$ and keeps its bond to $\mathsf N$; the corners $(1, 1)$ and $(-1, -1)$ are removed. Here $\rho_o = \rho_{\mathsf N} = 7/24$, $\rho_{\mathsf e} = 740/2193$, $\rho_{\mathsf W} = 3/25$, and $c(\pi) = 3825127/3979368 = 0.961240\ldots$
+-\item The tightest turn ($o = \mathsf e$): $\mathsf s$ is removed; $\mathsf N$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; the corners $(1, 1)$ and $(-1, 1)$ have status $\mathrm D$ and keep their bonds to $\mathsf e$ and $\mathsf W$, respectively; all other sites have status $\mathrm U$. Here $\rho_{\mathsf e} = \rho_{\mathsf W} = 112/275$, $\rho_{\mathsf N} = 3/25$, and $c(\pi) = 1071655/1145463 = 0.935565\ldots$
++\item The straight pattern in the first row of Table~\ref{tab:H1}: $\mathsf e$, $\mathsf N$ and the corner $(1, -1)$ have status $\mathrm U$; $\mathsf W$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; $\mathsf s$ has status $\mathrm D$ and keeps its bonds to $(1, -1)$ and to its tip; the corner $(-1, 1)$ has status $\mathrm D$ and keeps its bond to $\mathsf N$; the corners $(1, 1)$ and $(-1, -1)$ are removed. Here $\rho_o = \rho_{\mathsf N} = 7/24$, $\rho_{\mathsf e} = 740/2193$, $\rho_{\mathsf W} = 3/25$, and $c(\pi) = 3825127/3979368 = 0.961240\ldots$
++\item The turn in the second row of Table~\ref{tab:H1} ($o = \mathsf e$): $\mathsf s$ is removed; $\mathsf N$ has status $\mathrm D$ and keeps its bonds to $y$ and to its tip; the corners $(1, 1)$ and $(-1, 1)$ have status $\mathrm D$ and keep their bonds to $\mathsf e$ and $\mathsf W$, respectively; all other sites have status $\mathrm U$. Here $\rho_{\mathsf e} = \rho_{\mathsf W} = 112/275$, $\rho_{\mathsf N} = 3/25$, and $c(\pi) = 1071655/1145463 = 0.935565\ldots$
+ \item The turn ($o = \mathsf e$) in which $\mathsf N$ and $\mathsf s$ are removed and all other sites have status $\mathrm U$. Each of $\mathsf e$, $\mathsf W$ carries the field of its tip and of two leaf corners, which gives $\rho_{\mathsf e} = \rho_{\mathsf W} = \rho_{\mathrm U}(3/5, 1/2, 1/2) = 169/385$. Since $\rho_{\mathsf N} = 0$, we have
+ \begin{equation}\label{e:5469}
+ c(\pi) = 1 - \frac13 \Bigl( \frac{169}{385} \Bigr)^2 = \frac{416114}{444675} = 0.935771\ldots
+@@ -279,25 +279,25 @@ c(\pi) = 1 - \frac13 \Bigl( \frac{169}{385} \Bigr)^2 = \frac{416114}{444675} = 0
+ 
+ \subsection{The computation, and what must be trusted}\label{s:localcomp}
+ 
+-\emph{Patterns.} The reflection $x_1 \mapsto -x_1$ maps $\Pext$ onto itself, preserves the type of a step, permutes the slots, and leaves $c(\pi)$ unchanged. The list of patterns is produced by a computer enumeration of the rules of Definition~\ref{d:pattern}, modulo this reflection (the turns are stored with $o = \mathsf e$) and modulo patterns that give the same functions $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ up to a common positive factor (the factor of the sites without present bonds, Lemma~\ref{l:leaf}(1)). A second enumeration, written independently from Definition~\ref{d:pattern}, finds $106{,}101$ configurations that satisfy the rules and the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. In the representations of \S\ref{s:localred}, the number of vectors is $k \le 11$.
++\emph{Patterns.} The reflection $x_1 \mapsto -x_1$ maps $\Pext$ onto itself, preserves the type of a step, permutes the slots, and leaves $c(\pi)$ unchanged. The list of patterns is produced by a computer enumeration of the rules of Definition~\ref{d:pattern}, modulo this reflection (the turns are stored with $o = \mathsf e$) and modulo patterns that give the same functions $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ up to a common positive factor (the factor of the sites without present bonds, Lemma~\ref{l:leaf}(1)). A second enumeration, written independently from Definition~\ref{d:pattern}, counts $106{,}101$ consistent site assignments before choosing an out-neighbour, distinguishing the choices of outside corner legs, and obtains the same $7{,}962$ classes, $2{,}696$ straight and $5{,}266$ turns, class by class. Its program and output are \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak enum\_\allowbreak pext.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak enum\_\allowbreak pext.txt}, relative to \texttt{agents/\allowbreak } in the full project archive. The additional validation files identified below are also in that archive and are absent from the frozen program bundle. The reduced representation of \S\ref{s:localred} always has $k \le 11$. The unreduced representation can have $k = 12$, but every representation selected in the two certificate files has $k \le 11$.
+ 
+-\emph{Programs.} The program \texttt{cert.py} computes, for a pattern, a representation and an inversion set $\mathcal I$, the integer coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$. It integrates out $y$ by Lemma~\ref{l:Iw} and contracts the remaining sites as the ring $\mathsf e, (1, 1), \mathsf N, (-1, 1), \mathsf W, (-1, -1), \mathsf s, (1, -1)$, with the exact moment tensors of the site measures. All tensors in this contraction have nonnegative integer entries. The contraction is carried out in $64$-bit integer arithmetic, with run-time assertions that every entry stays below $2^{61}$. The program then forms the matrices $A_\epsilon$, $A'_\epsilon$ of \S\ref{s:inversion}: it changes the signs of the coefficients according to $\mathcal I$, substitutes the Pauli matrices with real and imaginary parts kept separately, and passes to the basis of \S\ref{s:inversion} for the pairs, again with assertions on the magnitudes and with a fallback to unbounded integers. It checks exactly that the imaginary parts vanish, that the matrices are symmetric, that the antisymmetric vector of every pair of a corner of status $\mathrm U$ is annihilated from the left and from the right, and that no entry joins two basis vectors with different eigenvalues of $\Sigma_3$ or different exchange signs. Finally it tests $M_\epsilon$ on $V_\epsilon^{\circ}$, for every $\epsilon$, by fraction-free elimination in unbounded integers.
++\emph{Programs.} The program \texttt{cert.py} computes, for a pattern, a representation and an inversion set $\mathcal I$, the integer coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$. It integrates out $y$ by Lemma~\ref{l:Iw} and contracts the remaining sites as the ring $\mathsf e, (1, 1), \mathsf N, (-1, 1), \mathsf W, (-1, -1), \mathsf s, (1, -1)$, with the exact moment tensors of the site measures. All tensors in this contraction have nonnegative integer entries. The contraction is carried out in $64$-bit integer arithmetic, with binary64 shadow computations used for conservative overflow guards. The small integer moment tensors are first stored exactly in binary64 arrays and then converted to integers. Assume binary64 round-to-nearest arithmetic, let $u=2^{-53}$, $\gamma_{32}=32u/(1-32u)$, and $\eta=(1-u)^2(1-\gamma_{32})>1-10^{-12}>3/4$. Each contracted entry is a sum of at most sixteen nonnegative products, so its shadow $\widehat s$ and exact value $s$ satisfy $\widehat s\ge\eta s$ (two input conversions and at most thirty-two arithmetic roundings suffice). Thus a passing shadow guard $\widehat s<2^{61}$ implies $s<2^{61}/\eta$, and a sum of three such contraction entries is smaller than $2^{63}$. The subsequent shadow bounds for the current and next coefficient sums are computed from these nonnegative integer arrays; their passing threshold $2^{58}$ implies exact sums smaller than $2^{58}/\eta<2^{59}$. Consequently every accepted coefficient computation is free of integer overflow, including its intermediate sums. The program then forms the matrices $A_\epsilon$, $A'_\epsilon$ of \S\ref{s:inversion}: it changes the signs of the coefficients according to $\mathcal I$, substitutes the Pauli matrices with real and imaginary parts kept separately, and passes to the basis of \S\ref{s:inversion} for the pairs, again with assertions on the magnitudes and with a fallback to unbounded integers. It checks exactly that the imaginary parts vanish, that the matrices are symmetric, that the antisymmetric vector of every pair of a corner of status $\mathrm U$ is annihilated from the left and from the right, and that no entry joins two basis vectors with different eigenvalues of $\Sigma_3$ or different exchange signs. Finally it tests $M_\epsilon$ on $V_\epsilon^{\circ}$, for every $\epsilon$, by fraction-free elimination in unbounded integers.
+ 
+-The program \texttt{closed\_exact.py} carries out the pruning of \S\ref{s:closed} and the test of Proposition~\ref{p:closed} in rational arithmetic. The program \texttt{run\_prod.py} chooses the representation and $\mathcal I$ for each pattern. It minimizes $\hat Z_{\mathrm{cur}} / \hat Z_{\mathrm{next}}$ numerically and lets $\mathcal I$ consist of the groups whose vectors have a negative total component along the principal axis of the minimizer, using floating-point eigenvalues to discard choices that cannot succeed. Floating-point arithmetic is used only for this choice. The program \texttt{verify\_all.py} re-derives every certificate of a file from the stored data alone, without any optimization.
++The program \texttt{closed\_exact.py} carries out the pruning of \S\ref{s:closed} and the test of Proposition~\ref{p:closed} in rational arithmetic. The program \texttt{run\_prod.py} chooses the representation and $\mathcal I$ for each pattern. It minimizes $\hat Z_{\mathrm{cur}} / \hat Z_{\mathrm{next}}$ numerically and lets $\mathcal I$ consist of the groups whose vectors have a negative total component along the principal axis of the minimizer, using floating-point eigenvalues to discard choices that cannot succeed. Floating-point arithmetic is used for this choice, for the conservative overflow guards just described, and for diagnostics. Positivity is decided in unbounded integer arithmetic, and the closed-form tests use exact rational arithmetic. The program \texttt{verify\_all.py} re-derives every certificate of a file from the stored data alone, without any optimization.
+ 
+ \emph{Certificate files.} The file \texttt{certificates\_\allowbreak covered\_\allowbreak operator\_\allowbreak only.jsonl} contains an inversion certificate for each of the $7{,}962$ patterns, consisting of the index of the pattern, its threshold $c$, the representation and $\mathcal I$. The reduced representation is used for all patterns but two. The file \texttt{certificates\_\allowbreak covered.jsonl} contains closed-form certificates (Proposition~\ref{p:closed}) for the $4{,}735$ decoupled patterns, and for the other $3{,}227$ patterns the same inversion certificates as the first file. Both files also record floating-point information, such as the value of $c$ at which some $M_\epsilon$ becomes singular, which the checker does not use.
+ 
+ \emph{Checks.} The program \texttt{verify\_all.py} accepts all $7{,}962$ certificates of each file, in about $15$ to $30$ CPU-minutes per file; producing them took about $34$ CPU-minutes. That each file contains each of the $7{,}962$ patterns exactly once, with the threshold $961/1000$ for straight steps and $187/200$ for turns, was checked separately. The matrices $M_\epsilon$ have size at most $245$. We also made the following checks, which are not part of the proof.
+ \begin{enumerate}
+-\item An evaluator of $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ written independently from Definition~\ref{d:pattern}, with all template sites kept as spins, agrees with the integer coefficients at three random points of every pattern, to a relative error of $2.3 \cdot 10^{-15}$.
+-\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators, written in the basis of \S\ref{s:inversion}; the hypothesis of Lemma~\ref{l:sector} is thus verified as well as proved. A change of a single non-constant coefficient of $3 D \hat Z_{\mathrm{cur}}$ by $1$ was detected by these exact checks in $30$ of $30$ random trials.
++\item An independent evaluator keeps the passage site, tips and corners as spins and compares the ratio $Z_{\mathrm{cur}}/Z_{\mathrm{next}}$ with the ratio obtained from the integer coefficients, at three random points with untied slot vectors for every pattern. There are $23{,}893$ comparisons, including seven additional zero-slot cases, and the largest observed relative discrepancy is less than $2.4\cdot10^{-15}$. The programs are \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak brute.py} and \texttt{xcheck\_\allowbreak brute.py} in the same directory; the output is \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak xcheck\_\allowbreak brute\_\allowbreak all.json}.
++\item For all $7{,}962$ certificates, the integer matrices commute exactly with the total spin operators in the basis of \S\ref{s:inversion}; see \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak su2check.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak su2check\_\allowbreak all\_\allowbreak summary.json}. The archived output \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak unitpert.txt} records detection of a change by $1$ to a single non-constant coefficient of $3D\hat Z_{\mathrm{cur}}$ in all $30$ trials; its generating driver is not archived.
+ \item Positive definiteness was verified on all eigenspaces of $\Sigma_3$, not only on $V_\epsilon^{\circ}$, for $63$ patterns.
+-\item On the decoupled patterns, the floating-point value of $c$ at which the inversion test fails exceeds the closed form \eqref{e:closed} by at most $2.4 \cdot 10^{-15}$, and the two agree to $10^{-7}$ on $4{,}250$ of the $4{,}735$ patterns.
+-\item The stored certificates of the tightest patterns are rejected when the threshold is raised $2 \cdot 10^{-5}$ above the numerical minimum of the ratio.
++\item On the decoupled patterns, the floating-point value of $c$ at which the inversion test fails exceeds the closed form \eqref{e:closed} by at most $2.5 \cdot 10^{-15}$, and the two agree to $10^{-7}$ on $4{,}250$ of the $4{,}735$ patterns.
++\item The stored certificates of the three closed-form examples above are rejected at thresholds obtained by adding $2\cdot10^{-5}$ to the numerical minimum and rounding upward to a multiple of $10^{-5}$; see \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak negctl.py} and \texttt{72-audit-H1-certificates/\allowbreak out/\allowbreak negctl\_\allowbreak hard.json}.
+ \end{enumerate}
+-A second implementation, written independently of the programs above, re-verifies the certificates of both files. It computes $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ by exact symbolic integration over the sites of the patch, using the moment formulas of the uniform measure on $S^2$ in integer arithmetic; it assembles the operators from exchange operators; and it proves positivity by an exact integer congruence followed by a test of strict diagonal dominance. It confirms all $7{, }962$ certificates of the operator-only file, with the threshold of each pattern determined from the pattern itself, and without the reduction to one sector of Lemma~\ref{l:sector}: the operator is assembled on the whole space $(\C^2)^{\otimes n}$, it is checked exactly to have no entries between different values of the total $S^z$, and positivity is proved on every block. For the $4{, }992$ patterns without an unvisited corner with two slots the operator is positive definite on the whole space; for the other $2{, }970$ it annihilates the antisymmetric vectors of each such corner pair and is positive definite on their complement in every block, so it is positive semidefinite on the whole space. The same implementation confirms the $4{, }735$ closed-form certificates, with the same decoupled patterns and the same radii, and its numerical minimization over the full set of slot vectors reaches the closed-form minimum on each of these patterns to within $1.4 \cdot 10^{-8}$ and never goes below it.
++A second implementation, in \texttt{73-reimplement-H1/\allowbreak code/\allowbreak wick.py}, \texttt{opcert.py}, \texttt{run\_\allowbreak opall.py}, \texttt{closed.py}, \texttt{run\_\allowbreak k1.py}, \texttt{numeval.py} and \texttt{run\_\allowbreak k1b.py} in the same directory, re-verifies the certificates of both files independently of the programs above. It computes $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ by exact symbolic integration over the sites of the patch, using the moment formulas of the uniform measure on $S^2$ in integer arithmetic; it assembles the operators from exchange operators; and it proves positivity by an exact integer congruence followed by a test of strict diagonal dominance. It confirms all $7{, }962$ certificates of the operator-only file, with the threshold of each pattern determined from the pattern itself, and without the reduction to one sector of Lemma~\ref{l:sector}: the operator is assembled on the whole space $(\C^2)^{\otimes n}$, it is checked exactly to have no entries between different values of the total $S^z$, and positivity is proved on every block. For the $4{, }992$ patterns without an unvisited corner with two slots the operator is positive definite on the whole space; for the other $2{, }970$ it annihilates the antisymmetric vectors of each such corner pair and is positive definite on their complement in every block, so it is positive semidefinite on the whole space. The same implementation confirms the $4{, }735$ closed-form certificates, with the same decoupled patterns and the same radii, and its numerical minimization over the full set of slot vectors reaches the closed-form minimum on each of these patterns to within $1.4 \cdot 10^{-8}$ and never goes below it. The corresponding outputs are \texttt{operator\_\allowbreak only\_\allowbreak results.jsonl}, \texttt{k1\_\allowbreak exact.jsonl}, \texttt{k1b\_\allowbreak numerics.jsonl} and \texttt{summary.txt} under \texttt{73-reimplement-H1/\allowbreak out/\allowbreak }.
+ 
+-\emph{What must be trusted.} A reader who accepts the lemmas of this appendix must trust that the list of patterns is $\Pext$ modulo the reflection and duplicates, which two independent enumerations confirm, and four pieces of code. The program \texttt{cert.py} must compute the coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ correctly (about $100$ lines, compared with the independent evaluator in check (1)), and it must assemble the matrices and their eigenspaces correctly (about $90$ lines, whose output satisfies the exact structural checks above). The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\mathsf T}$ decomposition on $600$ random symmetric test matrices. For the second proof, \texttt{closed\_exact.py} (about $70$ lines) must implement Proposition~\ref{p:closed}. Finally, the reader must trust the integer and rational arithmetic of Python and the integer tensor contraction of numpy in the absence of overflow. Since overflow is excluded by run-time assertions, the checker must not be run with assertions disabled, and the tip radius, a parameter of the programs, must be left at its value $3/5$.
++\emph{What must be trusted.} A reader who accepts the lemmas of this appendix must trust that the list of patterns is $\Pext$ modulo the reflection and duplicates, which two independent enumerations confirm, and four pieces of code. The program \texttt{cert.py} must compute the coefficients of $3 D \hat Z_{\mathrm{cur}}$ and $5 D \hat Z_{\mathrm{next}}$ correctly (about $100$ lines, compared with the independent evaluator in check (1)), and it must assemble the matrices and their eigenspaces correctly (about $90$ lines, whose output satisfies the exact structural checks above). The fraction-free elimination (about $20$ lines) agrees with an exact $LDL^{\mathsf T}$ decomposition on $600$ random symmetric test matrices; the test is \texttt{72-audit-H1-certificates/\allowbreak code/\allowbreak test\_\allowbreak bareiss72.py}, and its result is recorded in \texttt{72-audit-H1-certificates/\allowbreak NOTES.md} and \texttt{LOG.md} in that directory. For the second proof, \texttt{closed\_exact.py} (about $70$ lines) must implement Proposition~\ref{p:closed}. Finally, the reader must trust the integer and rational arithmetic of Python and the integer tensor contraction of numpy in the absence of overflow. The binary64 error bounds above and the run-time assertions exclude overflow for accepted certificates; therefore the checker must not be run with assertions disabled, and the tip radius, a parameter of the programs, must be left at its value $3/5$.
+ 
+ \begin{proof}[Proof of Theorem~\ref{t:H1}]
+ By the first paragraph of this subsection, it suffices to consider the $7{,}962$ patterns of the list. For each of them, \texttt{verify\_all.py} verifies that the certificate in \texttt{certificates\_\allowbreak covered\_\allowbreak operator\_\allowbreak only.jsonl} satisfies the hypothesis of Proposition~\ref{p:certificate}, in the form \eqref{e:Meps}, with $c = 961/1000$ if the pattern is straight and $c = 187/200$ if it is a turn. Proposition~\ref{p:certificate} gives $Z_{\mathrm{cur}}(\pi; m) \ge c \, Z_{\mathrm{next}}(\pi; m)$ for all $m \in (\Sph)^{20}$, and since $Z_{\mathrm{next}} > 0$ by Lemma~\ref{l:Iw}, $c(\pi) \ge c$. For the $4{,}735$ decoupled patterns, Proposition~\ref{p:closed} and the closed-form certificates in \texttt{certificates\_\allowbreak covered.jsonl} give a second proof.
+diff --git a/app-tail.tex b/app-tail.tex
+index 7766f32..938c549 100644
+--- a/app-tail.tex
++++ b/app-tail.tex
+@@ -73,7 +73,7 @@ Hence the weight of $\pi(w, j)$ from time $20$ to time $n$ is at least the produ
+ \end{proof}
+ 
+ \begin{lemma}\label{l:remainder}
+-Let $V_t$ be a memory walk with $t_* < T$, and let $\mathbb W$ be its weight matrix on $\Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\}$ without rules, $\mathbb W((\omega, \varphi), (\omega \cdot d, \varphi'))$ the weight of the step $d$ from phase $\varphi$ to phase $\varphi'$ in (II). Suppose that $z \colon \Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\} \to (0, \infty)$, $\lambda \in (0, 1)$ and $a \ge 0$ satisfy $z \mathbb W \le \lambda z$ and $V_T(\omega, \xi, \varphi) \le a \, z(\omega, \varphi)$ for all $\omega, \xi, \varphi$. Then
++Let $V_t$ be a memory walk with $t_* < T$, and let $\mathbb W$ be its weight matrix on $\Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\}$ without rules, $\mathbb W((\omega, \varphi), (\omega \cdot d, \varphi'))$ the weight of the step $d$ from phase $\varphi$ to phase $\varphi'$ in (II). Suppose that $z \colon \Omega \times \{\mathrm A, \mathrm B, \mathrm C, \mathrm D\} \to [0, \infty)$, $\lambda \in (0, 1)$ and $a \ge 0$ satisfy $z \mathbb W \le \lambda z$ and $V_T(\omega, \xi, \varphi) \le a \, z(\omega, \varphi)$ for all $\omega, \xi, \varphi$. Then
+ \begin{equation*}
+ \sum_{n > T} r(n) \le \frac{a \lambda}{1 - \lambda} \sum_{\omega \in \Omega} \bigl( z(\omega, \mathrm C) + z(\omega, \mathrm D) \bigr).
+ \end{equation*}
+@@ -87,7 +87,13 @@ V_{t + 1}(\omega', \xi', \varphi') = \sum_{\omega, \varphi} V_t(\omega, \xi' - d
+ where the sum runs over the $\omega$ with $\omega \cdot d'_m = \omega'$. By induction this holds for all $t \ge T$, and summing $r(t) \le a \lambda^{t - T} \sum_\omega (z(\omega, \mathrm C) + z(\omega, \mathrm D))$ over $t > T$ gives the claim.
+ \end{proof}
+ 
+-The matrix $\mathbb W$ is block triangular in the phases ($\mathrm A \to \mathrm A, \mathrm C$; $\mathrm B \to \mathrm B, \mathrm D$; $\mathrm C \to \mathrm C$; $\mathrm D \to \mathrm D$), and its spectral radius is that of the block $\mathrm A \to \mathrm A$, the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$. A sub-invariant $z$ is obtained from the left Perron vectors of the diagonal blocks and the solutions of $z_{\mathrm C} (\lambda - \mathbb W_{\mathrm{CC}}) = z_{\mathrm A} \mathbb W_{\mathrm{AC}}$, $z_{\mathrm D} (\lambda - \mathbb W_{\mathrm{DD}}) = z_{\mathrm B} \mathbb W_{\mathrm{BD}}$; only the inequality $z \mathbb W \le \lambda z$ is used, and it is checked directly.
++The matrix $\mathbb W$ is block triangular in the phases ($\mathrm A \to \mathrm A, \mathrm C$; $\mathrm B \to \mathrm B, \mathrm D$; $\mathrm C \to \mathrm C$; $\mathrm D \to \mathrm D$), and its spectral radius is that of the block $\mathrm A \to \mathrm A$, the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$. A nonnegative candidate $z$ is obtained by power iteration in the diagonal blocks and approximate solution of
++$z_{\mathrm C}(\lambda-\mathbb W_{\mathrm{CC}})=z_{\mathrm A}\mathbb W_{\mathrm{AC}}$ and
++$z_{\mathrm D}(\lambda-\mathbb W_{\mathrm{DD}})=z_{\mathrm B}\mathbb W_{\mathrm{BD}}$;
++only the inequality $z\mathbb W\le\lambda z$ is used, and it is checked directly.
++The constructed vector is zero in each phase at exactly the $64$ windows of indegree zero, and positive at every other window.
++No update can put mass at a window of indegree zero, so $V_T$ vanishes there for $T\ge21$.
++In applying Lemma~\ref{l:remainder}, we check this zero-support condition and take ratios only where $z>0$.
+ 
+ \subsection{The certified numbers}\label{s:tailnumbers}
+ 
+@@ -111,19 +117,72 @@ $(M_1 h)_X / h_X$ & $0.987763$ & $0.968624$
+ \end{table}
+ 
+ \begin{proof}
+-By Lemma~\ref{l:CW} it suffices to bound $(M_1 h)_X = \sum_n \mathsf m_X(n)$ for both rows, and we split the sum over the even $n$ as in Table~\ref{tab:tail}. The trails of length at most $20$ are enumerated exactly. For $22 \le n \le 106$ we use Lemma~\ref{l:memdom}(1) and $\mathcal T^X_n = \bigcup_{D_0} \mathcal T^{X, D_0}_n$, a disjoint union. For $108 \le n \le 260$ we use Lemma~\ref{l:memdom}(2); note that $n = 108$ is beyond the range of mode A, because the rules (R1) at $[u + D_0]$ and (R2) can act at images for closed trails of length $2P - 4 = 108$. For $n > 260$ we use Lemma~\ref{l:remainder} with $T = 260$ for the walk of mode B, with $\lambda = 0.97953279$ (the memory-$10$ walk with the weights $x_{\mathrm s}/3$, $x_{\mathrm t}/3$, $1/5$ has growth $0.9795328$), a vector $z$ for which $z \mathbb W \le \lambda z$ is verified, and $a = \max V_{260}/z$. The entries of the table are computed as described in \S\ref{s:tailtrust}.
++By Lemma~\ref{l:CW} it suffices to bound $(M_1 h)_X = \sum_n \mathsf m_X(n)$ for both rows, and we split the sum over the even $n$ as in Table~\ref{tab:tail}. The trails of length at most $20$ are enumerated exactly. For $22 \le n \le 106$ we use Lemma~\ref{l:memdom}(1) and $\mathcal T^X_n = \bigcup_{D_0} \mathcal T^{X, D_0}_n$, a disjoint union. For $108 \le n \le 260$ we use Lemma~\ref{l:memdom}(2); note that $n = 108$ is beyond the range of mode A, because the rules (R1) at $[u + D_0]$ and (R2) can act at images for closed trails of length $2P - 4 = 108$. For $n>260$ we use Lemma~\ref{l:remainder} with $T=260$ for the walk of mode B, taking $\lambda$ to be the stored binary64 value \texttt{lcheck} used in both the sub-invariance check and the remainder calculation, with $0<\lambda\le0.979532789<0.97953279$.
++The nonnegative vector $z$ satisfies the directly checked inequality $z\mathbb W\le\lambda z$.
++We verify $V_{260}(\omega,\xi,\varphi)=0$ whenever $z(\omega,\varphi)=0$, and choose $a$ as an upward-rounded upper bound for
++$\max_{z(\omega,\varphi)>0}V_{260}(\omega,\xi,\varphi)/z(\omega,\varphi)$. The entries of the table are computed as described in \S\ref{s:tailtrust}.
+ \end{proof}
+ 
+ \subsection{What is computed, and what must be trusted}\label{s:tailtrust}
+ 
+-\emph{Programs.} \texttt{tailmem5.c} computes, for one row and one class $D_0$, the exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$, $n \le 20$, by depth-first search with the per-trail optimal ordering, the initial vector (I), and the memory walk of mode A up to $t = 109$, printing $r^{\mathrm A}_{X, D_0}(n)$ for every $n$. \texttt{tailmem4.c} does the same without the class split for mode B up to $T = 260$, computes $z$ by power iteration, checks $z \mathbb W \le \lambda z$, and prints $a$, $\lambda$ and the bound of Lemma~\ref{l:remainder}. The table is assembled by summing the printed per-$n$ values. The state space of the walk has $60{,}092 \times 1{,}568 \times 4 \approx 3.8 \cdot 10^8$ entries (three gigabytes in single precision); each of the five mode-A runs takes about five minutes and each of the two mode-B runs about twenty minutes on one core.
+-
+-\emph{Arithmetic.} All quantities are sums of products of nonnegative numbers, and no subtraction occurs. The programs set the rounding mode upward before any computation; the constants $\cs, \ct$ are decreased and $\bar\alpha, \bar\beta$ increased by one unit in the last place after decimal conversion, and $1/3$, $1/5$, $1/\cs$, $1/\ct$ are computed by upward division. The walk is stored in binary32 and the enumeration in binary64; every product, sum and conversion is rounded upward, so every stored value is at least the exact one, and underflow produces a positive subnormal number, never $0$. In the check of $z \mathbb W \le \lambda z$ the left side is rounded upward and the right side downward, and $1 - \lambda$ is rounded downward. The output decimals are rounded upward as well (the C library rounds conversions in the current rounding mode), and the table sums them exactly as rational numbers. The programs must be compiled with \texttt{-frounding-math}: the compiler ignores the \texttt{FENV\_ACCESS} pragma, and without this option it may evaluate or move floating-point operations across the changes of the rounding mode. The hypothesis $\lambda < 1$ of Lemma~\ref{l:remainder} is not checked by the program and must be read off its output.
+-
+-\emph{Independent checks.} (1) An independent enumeration from the definition \eqref{e:kernel} reproduces, for every $n \le 20$ and every class, the exact sums used in the table to a relative error of $7 \cdot 10^{-13}$; it also reproduces, for every $n \le 22$, the kernel with the forward ordering computed by a third, symbolic enumeration (to $4 \cdot 10^{-10}$, the precision of its output), and for $n \le 16$ the trail counts and masses of a fourth implementation. (2) An independent implementation of the memory walk of \S\ref{s:memwalk}, run at memory $m = 4$ and $m = 6$ on the quotient by $\langle (9, 9), (9, -9) \rangle$, reproduces the output of \texttt{tailmem5.c} at the same parameters to a relative error of $10^{-5}$ for every $n$, both rows, all classes and both modes. (3) The exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$ with the straights-first ordering were enumerated up to $n = 26$; they are dominated by the memory walk at every $n$ and in every class, for $m = 4, 6$ and for $m = 10$. At $m = 10$ the ratio of the bound to the exact sum lies, in the five classes, between $1.03$ and $1.21$ at $n = 22$ and between $1.19$ and $1.81$ at $n = 26$; for the rows it is $1.05$ ($B$) and $1.08$ ($C$) at $n = 22$. (4) The numbers of Table~\ref{tab:tail} come from a recomputation from the source, compiled as above, with the coefficients $\bar\alpha = 0.18094$, $\bar\beta = 0.36751$ entered directly. An earlier run with the truncated values $0.18093$, $0.36750$ gave $0.987730$ and $0.968592$; every per-$n$ output of the two runs differs by a factor in $[1.0000322, 1.0000332]$. Since every term of \eqref{e:mT} carries exactly one of the coefficients, linearly and with a nonnegative weight, and the orderings may be kept, the earlier run alone also gives $\rho(M_1) \le 0.987730 \cdot 0.18094/0.18093 < 0.98779$.
+-
+-\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that \texttt{tailmem4.c} and \texttt{tailmem5.c} (about $360$ lines of C each) implement the walk of \S\ref{s:memwalk}, the exact enumeration and the check of Lemma~\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.
++\emph{Programs.} \texttt{tailmem5.c} computes, for one row and one class $D_0$, the exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$, $n \le 20$, by depth-first search with the per-trail optimal ordering, the initial vector (I), and the memory walk of mode A up to $t = 109$, printing $r^{\mathrm A}_{X, D_0}(n)$ for every $n$. \texttt{tailmem4.c} does the same without the class split for mode B up to $T = 260$, computes $z$ by power iteration, checks $z \mathbb W \le \lambda z$, and prints $a$, $\lambda$ and the bound of Lemma~\ref{l:remainder}.
++The archived mode-A summary through $109$ is a memory-walk mass, and includes the unproved-for-trails value at $108$; only its per-length outputs through $106$ are used in Table~\ref{tab:tail}.
++The unsplit mode-B production runs use \texttt{tailmem4.c}.
++The archived unused unsplit option of \texttt{tailmem5.c} additionally deletes a window-detected revisit at $[u]$ while the rules act, whereas (R1) with $D_0=\ast$ retains it with weight $1/5$.
++This additional deletion cannot remove a genuine trail in the valid range: the known time-$0$ visit, a window-detected later visit, and another departure would exceed the three available bonds at $u$.
++It defines a stronger auxiliary rule and is not used for the mode-B entries of the table.
++The obsolete validity comments and summary labels in the archived sources must not be used in place of Lemma~\ref{l:memdom}. The table is assembled from the five files
++\texttt{r961A\_B\_1.txt}, \texttt{r961A\_B\_2.txt},
++\texttt{r961A\_C\_1.txt}, \texttt{r961A\_C\_2.txt},
++\texttt{r961A\_C\_3.txt} and the two files
++\texttt{r961B\_B.txt}, \texttt{r961B\_C.txt}, archived in
++\texttt{agents/75-audit-tail/out/rerun/} in the full project.
++The commands are recorded in \texttt{agents/75-audit-tail/code/run\_all.sh}
++and \texttt{run\_rest1.sh}, \texttt{run\_rest2.sh}; the rerun used
++\texttt{gcc -O2 -frounding-math -ffp-contract=off}.
++The exact assembly is implemented in \texttt{agents/75-audit-tail/code/assemble75.py}:
++sum the printed decimals as rational numbers, using the class multiplicities in the caption,
++the mode-A values for $22\le n\le106$, the mode-B values for $108\le n\le260$,
++and the printed mode-B remainder, without subtracting any rounded tail totals.
++The denominator is the exact binary64 number $h_C=2769713770832855/2251799813685248$.
++The assembled numerators are $0.987762443170525$ and $1.1914067844431$;
++their quotients are at most $0.987763$ and $0.968624$. The state space of the walk has $60{,}092 \times 1{,}568 \times 4 \approx 3.8 \cdot 10^8$ entries (three gigabytes in single precision); each of the five mode-A runs takes about five minutes and each of the two mode-B runs about twenty minutes on one core.
++
++\emph{Arithmetic.}
++The enumeration and walk bounds are evaluated as sums of products of nonnegative quantities.
++The constants $\cs,\ct$ are decreased and $\bar\alpha,\bar\beta$ increased by one unit in the last place after decimal conversion;
++$1/3$, $1/5$, $1/\cs$ and $1/\ct$ are computed by upward division.
++The walk arrays are stored in binary32 and the enumeration in binary64.
++Bound-producing products, sums and conversions, and their output decimals, are rounded upward, with gradual underflow.
++The ordering search and the construction of a candidate $z$ need not use upward rounding: any chosen ordering gives an upper bound for the per-trail minimum, and the stored candidate is subsequently treated as an exact dyadic vector.
++In checking $z\mathbb W\le\lambda z$, the left side is rounded upward and the right side downward; $1-\lambda$ is rounded downward in the remainder formula.
++Acceptance requires finite nonnegative data, $0<\lambda<1$, the checked sub-invariance inequality, and $V_T=0$ wherever $z=0$.
++Ratios defining $a$ are taken only at positive coordinates of $z$, with upward rounding; nonfinite values or failed checks reject the certificate.
++The table uses exact rational sums of the upward-printed per-length bounds and the upward-printed remainder, followed by decimal ceilings.
++The programs must be compiled with \texttt{-frounding-math}, without unsafe reassociation; the archived rerun also used \texttt{-ffp-contract=off}.
++Correct directed arithmetic, conversions and decimal output, and gradual underflow, are part of the computational trust assumption.
++The explicit support and finiteness guards are implemented in \texttt{tailmem4\_checked.c} and \texttt{tailmem5\_checked.c}, archived under \texttt{reports/ADJ-R5/audit/} relative to the project root; the production records identified above were generated by the original sources. Their zero-support condition follows from the indegree argument above.
++
++\emph{Independent checks.} (1) An independent enumeration from the definition \eqref{e:kernel} reproduces, for every $n \le 20$ and every class, the exact sums used in the table to a relative error of $7 \cdot 10^{-13}$; it also reproduces, for every $n \le 22$, the kernel with the forward ordering computed by a third, symbolic enumeration (to $4 \cdot 10^{-10}$, the precision of its output), and for $n \le 16$ the trail counts and masses of a fourth implementation. (2) An independent implementation of the memory walk of \S\ref{s:memwalk}, run at memory $m = 4$ and $m = 6$ on the quotient by $\langle (9, 9), (9, -9) \rangle$, reproduces the output of \texttt{tailmem5.c} at the same parameters to a relative error of $10^{-5}$ for every $n$, both rows, all classes and both modes. (3) The exact sums $\mathsf m(\mathcal T^{X, D_0}_n)$ with the straights-first ordering were enumerated up to $n = 26$; they are dominated by the memory walk at every $n$ and in every class, for $m = 4, 6$ and for $m = 10$. At $m = 10$ the ratio of the bound to the exact sum lies, in the five classes, between $1.03$ and $1.21$ at $n = 22$ and between $1.19$ and $1.81$ at $n = 26$; for the rows it is $1.05$ ($B$) and $1.08$ ($C$) at $n = 22$. (4) The numbers of Table~\ref{tab:tail} come from the archived recomputation with
++$\bar\alpha=0.18094$, $\bar\beta=0.36751$ entered directly, as identified above.
++Exact assembly of the earlier outputs with $0.18093$, $0.36750$ gives the row bounds
++$0.987731$ and $0.968592$.
++Every printed per-$n$ output of the two runs differs by a factor in
++$[1.0000322,1.0000333]$.
++Since every term of \eqref{e:mT} carries exactly one response coefficient, linearly and with a nonnegative weight,
++and the earlier orderings may be kept, the earlier run alone also gives
++$\rho(M_1)\le0.987731\cdot0.18094/0.18093<0.98779$.
++
++\emph{What must be trusted.} A reader who accepts the lemmas of this appendix has to trust that the implementations and explicit checks identified above implement the walk of \S\ref{s:memwalk}, the exact enumeration and the support-aware check of Lemma~\ref{l:remainder}, and that the floating-point environment implements IEEE~754 arithmetic with directed rounding. The checks (1)--(3) test the first point independently; they are not themselves rigorous.
+ 
+ \begin{remark}\label{r:tailtypedep}
+-With the type-dependent coefficients of Remark~\ref{r:typedep} in place of $\bar\alpha, \bar\beta$ (and the coefficient $\beta'$ of the surviving pair when exactly one of $f, g$ is known to be removed), a variant of the same programs (\texttt{tailmem6.c}) with $h_C = 1.20$ gives $(M_1 h)_B \le 0.91301$ and $(M_1 h)_C / h_C \le 0.91825$, hence $\rho(M_1) \le 0.91825$. The six coefficient bounds of Remark~\ref{r:typedep} were confirmed by an independent interval branch and bound, and the exact part $n \le 20$ of this computation by the independent enumeration; the memory-walk part was not recomputed. This variant is not used in the main line.
++With the type-dependent coefficients of Remark~\ref{r:typedep} in place of $\bar\alpha, \bar\beta$ (and the coefficient $\beta'$ of the surviving pair when exactly one of $f, g$ is known to be removed), a variant of the same programs (\texttt{tailmem6.c}) with $h_C = 1.20$ gives $(M_1 h)_B \le 0.91301$ and $(M_1 h)_C / h_C \le 0.91825$, hence $\rho(M_1) \le 0.91825$. The six coefficient bounds of Remark~\ref{r:typedep} were confirmed by an independent interval branch and bound, and the exact part $n \le 20$ of this computation by the independent enumeration; the memory-walk part was not recomputed. The seven production records for this variant are
++\texttt{c961\_935\_A\_B\_1.txt}, \texttt{c961\_935\_A\_B\_2.txt},
++\texttt{c961\_935\_A\_C\_1.txt}, \texttt{c961\_935\_A\_C\_2.txt},
++\texttt{c961\_935\_A\_C\_3.txt}, \texttt{c961\_935\_B\_B.txt},
++\texttt{c961\_935\_B\_C.txt} in \texttt{agents/62-kernel-tail/out/}.
++Their exact assembly, using the binary64 value of $1.20$, gives row bounds
++$0.913009554182608$ and a quotient less than $0.918245584$.
++The unsplit implementation uses the additional start-site deletion described in \S\ref{s:tailtrust}, justified by the same degree argument, and the remainder uses the nonnegative-vector formulation of Lemma~\ref{l:remainder}.
++This variant is not used in the main line.
+ \end{remark}
+diff --git a/sec1-intro-statement.tex b/sec1-intro-statement.tex
+index 44f300e..451e50d 100644
+--- a/sec1-intro-statement.tex
++++ b/sec1-intro-statement.tex
+@@ -15,7 +15,7 @@ There exist $c > 0$ and $L_0 \in \N$ such that for all even $L, N \ge L_0$ the k
+ \end{equation*}
+ \end{theorem}
+ 
+-The proof of Theorem~\ref{t:main} is computer-assisted. Three statements are verified by computer, all at the pair of constants $(\cs, \ct) = (0.961, 0.935)$ (Theorem~\ref{t:inputs}). Hypothesis~(H1) is a list of $7{,}962$ inequalities, one for each local configuration (``pattern'') in an explicit class $\Pext$ of radius-$2$ neighbourhoods of the square lattice. Each inequality asserts that a ratio of two functions of at most twenty unit vectors in $\R^3$, affine in each vector, is at least $\cs$ or $\ct$ on the whole product of spheres. We verify it in exact integer and rational arithmetic, with tests of positive definiteness of integer matrices for each pattern, one for each exchange-symmetry sector of the pattern (\S\ref{s:H1} and Appendix~\ref{s:local}); the smallest margins are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. Hypothesis~(H2), a bound on the growth of weighted trail sums, and Hypothesis~(H3$'$), a bound on the spectral radius of a $2 \times 2$ kernel built from closed trails, are verified in floating-point arithmetic with upward rounding (\S\ref{s:H2}, \S\ref{s:H3} and Appendix~\ref{s:tail}); the bound for (H2) was also reproduced in exact rational arithmetic. These two hypotheses use (H1) only through the two numbers $\cs$ and $\ct$. Everything else is proved here or cited with a precise locator. One cited result, \cite[Theorem~4.1]{MO94} as it is invoked in \cite{MOS94}, is applied to a finite single-spin space larger than the two-valued one for which its proof is written out; Remark~\ref{r:finiteS} explains why the proof applies. The constants $c$ and $L_0$ are not explicit.
++The proof of Theorem~\ref{t:main} is computer-assisted. Three statements are verified by computer, all at the pair of constants $(\cs, \ct) = (0.961, 0.935)$ (Theorem~\ref{t:inputs}). Hypothesis~(H1) is a list of $7{,}962$ inequalities, one for each local configuration (``pattern'') in an explicit class $\Pext$ of radius-$2$ neighbourhoods of the square lattice. Each inequality asserts that a ratio of two functions of at most twenty unit vectors in $\R^3$, affine in each vector, is at least $\cs$ or $\ct$ on the whole product of spheres. We verify it in exact integer and rational arithmetic, with tests of positive definiteness of integer matrices for each pattern, one for each exchange-symmetry sector of the pattern (\S\ref{s:H1} and Appendix~\ref{s:local}); the margins on the first two patterns of Table~\ref{tab:H1}, which have the smallest values found numerically, are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. Hypothesis~(H2), a bound on the growth of weighted trail sums, and Hypothesis~(H3$'$), a bound on the spectral radius of a $2 \times 2$ kernel built from closed trails, are verified in floating-point arithmetic with upward rounding (\S\ref{s:H2}, \S\ref{s:H3} and Appendix~\ref{s:tail}); the bound for (H2) was also reproduced in exact rational arithmetic. These two hypotheses use (H1) only through the two numbers $\cs$ and $\ct$. Everything else is proved here or cited with a precise locator. One cited result, \cite[Theorem~4.1]{MO94} as it is invoked in \cite{MOS94}, is applied to a finite single-spin space larger than the two-valued one for which its proof is written out; Remark~\ref{r:finiteS} explains why the proof applies. The constants $c$ and $L_0$ are not explicit.
+ 
+ \subsection{Structure of the proof}
+ 
+diff --git a/sec6-walks.tex b/sec6-walks.tex
+index d560219..2ea5b61 100644
+--- a/sec6-walks.tex
++++ b/sec6-walks.tex
+@@ -15,6 +15,20 @@ and let $Z^0_D[f]$ be the same integral without the leg factors. We write $Z^\cd
+ 
+ (C) \emph{every bond between two sites that are not removed is kept by both ends or by neither.}
+ \end{definition}
++For tracing we also use an \emph{auxiliary spin network} on $G$. It has
++the same statuses, site measures and kept-bond data as a domain, with at
++most two present bonds at each $\mathrm D$ site, but the sites of $S$
++may keep arbitrary subsets of their bonds; they still have status
++$\mathrm U$. It also carries a scalar mass $\mu>0$. Its partition
++function is $\mu$ times the right-hand side of \eqref{e:ZD}, with all
++the original leg factors retained, and its free partition function omits
++those leg factors. A domain is identified with the corresponding network
++of mass $1$. The definitions of $\E^\cdot$, $\Psi$ and trails extend to
++these networks. Whenever membership in $\Dcons(G)$ is asserted, it refers
++to the underlying data with mass reset to $1$; this does not change
++normalized expectations. In particular, $\Dcons(G)$ retains its original
++protected-boundary requirements. The positivity, conditional independence
++and conditional-mean facts below also hold for auxiliary spin networks.
+ 
+ The domains $G \setminus Y$ of \S\ref{s:contmodel}, with $Y \subset G \setminus S$, are the domains of $\Dcons(G)$ with statuses $\mathrm U$ and $\mathrm X$ only. A site of status $\mathrm D$ will arise from a site through which a trail has passed once; the measure $\lambda_{\mathrm D}$ replaces the bonds used by the trail.
+ 
+@@ -34,10 +48,30 @@ and if $k \le 2$, the same holds with $\dd n$ replaced by $\lambda_{\mathrm D}$
+ By \eqref{e:moments}, for $k \le 4$ both sides of the first identity equal $\frac13 \sum_i a \cdot u_i + \frac1{15} \sum_{i < i' < i''} \bigl[ (a \cdot u_i)(u_{i'} \cdot u_{i''}) + (a \cdot u_{i'})(u_i \cdot u_{i''}) + (a \cdot u_{i''})(u_i \cdot u_{i'}) \bigr]$; on the right we used $\int \prod_{j \le 3} (1 + n \cdot u_j) \, \lambda_{\mathrm D}(\dd n) = 1 + \frac15 \sum_{j < j'} u_j \cdot u_{j'}$. For $k \le 2$ both sides of the second identity equal $\frac15 \sum_i a \cdot u_i$.
+ \end{proof}
+ 
+-A \emph{trail} in a domain $D$ from $u$ is a sequence $w = (v_0, \dots, v_m)$ with $v_0 = u$ such that $\{v_{i - 1}, v_i\}$ are distinct present bonds of $D$; $|w| = m$ is its length. For $T \subset G$ let $\mathcal T_D(u, T)$ be the set of trails with $v_m \in T$ and $v_i \notin T$ for $i < m$. The \emph{traced domain} $D;[w]$ is obtained from $D$ step by step: at step $j$ the bond $\{v_{j - 1}, v_j\}$ is dropped by both ends, and the status of $v_{j - 1}$ changes from $\mathrm U$ to $\mathrm D$ (keeping its remaining bonds) or from $\mathrm D$ to $\mathrm X$; in the latter case we multiply the partition function by $\frac35$, the mass of $\frac35 \delta_0$. We write $w_j = (v_0, \dots, v_j)$.
++A \emph{trail} in a domain or auxiliary spin network $D$ from $u$ is a
++sequence $w=(v_0,\dots,v_m)$ with $v_0=u$ such that
++$\{v_{i-1},v_i\}$ are distinct present bonds of $D$; $|w|=m$ is its
++length. For $T\subset G$ let $\mathcal T_D(u,T)$ be the set of trails
++with $v_m\in T$ and $v_i\notin T$ for $i<m$. All tracing below starts
++at a site with at most three present bonds and has no departures from
++$S$. The \emph{traced spin network} $D;[w]$ is obtained step by step:
++at step $j$, the bond $\{v_{j-1},v_j\}$ is dropped by both ends, and
++the status of $v_{j-1}$ changes from $\mathrm U$ to $\mathrm D$
++(keeping its remaining bonds), or from $\mathrm D$ to $\mathrm X$.
++The mass is unchanged in the first case and is multiplied by $3/5$ in
++the second case, the mass of $(3/5)\delta_0$. All original leg factors
++are unchanged. Thus the final mass is
++$\mu(D)(3/5)^{N_{\mathrm D}(w)}$, where $N_{\mathrm D}(w)$ counts
++the departures from status $\mathrm D$ during this trace. We write
++$w_j=(v_0,\dots,v_j)$. A stopped trace can have a terminal site in
++$S$ with its arrival bond dropped; it is an auxiliary spin network,
++and need not be a domain of Definition~\ref{d:domain}.
+ 
+ \begin{proposition}\label{p:pairwalk}
+-Let $D$ be a domain on $G$, let $u \in G \setminus S$ be a site that is not removed and has at most three present bonds, let $v \neq u$ be a site that is not removed, and $T = S \cup \{v\}$. Then, with the dot standing for $\tau$ or $0$,
++Let $D$ be a domain or auxiliary spin network on $G$, let
++$u\in G\setminus S$ be a site that is not removed and has at most
++three present bonds, let $v\ne u$ be a site that is not removed, and
++$T=S\cup\{v\}$. Then, with the dot standing for $\tau$ or $0$,
+ \begin{equation}\label{e:pairwalk}
+ \E^\cdot_D[n_u \cdot n_v] = \sum_{w \in \mathcal T_D(u, T)} 3^{-|w|} \, R^\cdot_D(w) \, \E^\cdot_{D;[w]}[n_{v_{|w|}} \cdot n_v], \qquad R^\cdot_D(w) = \frac{Z^\cdot_{D;[w]}}{Z^\cdot_D},
+ \end{equation}
+@@ -45,14 +79,34 @@ where for $v_{|w|} = v$ the last factor is $\E^\cdot_{D;[w]} [|n_v|^2]$, which e
+ \end{proposition}
+ 
+ \begin{proof}
+-Write $n_u \cdot n_v = \sum_{\beta = 1}^3 n_u^\beta n_v^\beta$ and fix $\beta$. In $Z^\cdot_D[n_u^\beta n_v^\beta]$, integrate the spin of $u$ using Lemma~\ref{l:stepid} with $a = e_\beta$; the site $u$ carries no leg because $u \notin S$, and the factor $n_v^\beta$ does not involve $n_u$. This gives a sum over the present bonds $\{u, v_1\}$ of $\frac13 Z^\cdot_{D;[(u, v_1)]}[n_{v_1}^\beta n_v^\beta]$. If $v_1 \notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\cdot_D[n_u^\beta n_v^\beta] = \sum_w 3^{-|w|} Z^\cdot_{D;[w]}[n_{v_{|w|}}^\beta n_v^\beta]$. Summing over $\beta$ and dividing by $Z^\cdot_D$ gives \eqref{e:pairwalk}. If $v_{|w|} = v$, the last bracket is $|n_v|^2$, and if $v$ has status $\mathrm D$ its only remaining bond was the arrival bond, so after arrival $n_v$ is independent of the rest with law $\lambda_{\mathrm D}$, and $\E|n_v|^2 = 3/5$.
++Write $n_u \cdot n_v = \sum_{\beta = 1}^3 n_u^\beta n_v^\beta$ and fix $\beta$. In $Z^\cdot_D[n_u^\beta n_v^\beta]$, integrate the spin of $u$ using Lemma~\ref{l:stepid} with $a = e_\beta$; the site $u$ carries no leg because $u \notin S$, and the factor $n_v^\beta$ does not involve $n_u$. This gives a sum over the present bonds $\{u, v_1\}$ of $\frac13 Z^\cdot_{D;[(u, v_1)]}[n_{v_1}^\beta n_v^\beta]$. If $v_1 \notin T$ we repeat the step at $v_1$: it carries no leg, a site of status $\mathrm U$ has at most three remaining factors after the arrival bond is dropped, and a site of status $\mathrm D$ at most one. The procedure stops at the first visit of $T$, and a step from a site without remaining bonds contributes $0$. Every trail is finite, so after finitely many steps we obtain $Z^\cdot_D[n_u^\beta n_v^\beta] = \sum_w 3^{-|w|} Z^\cdot_{D;[w]}[n_{v_{|w|}}^\beta n_v^\beta]$. Summing over $\beta$ and dividing by $Z^\cdot_D$ gives \eqref{e:pairwalk}. If $v_{|w|}=v$, the last bracket is $|n_v|^2$. If $v$ has
++status $\mathrm D$ with one present bond in $D$, that bond was the
++arrival bond, so after arrival $n_v$ is independent of the rest with
++law $\lambda_{\mathrm D}$, and $\E|n_v|^2=3/5$.
+ \end{proof}
+ 
+ \subsection{Step ratios and their responses}\label{s:steps}
+ 
+-For $w \in \mathcal T_D(u, T)$ we have $R^\cdot_D(w) = \prod_{j = 1}^{|w|} \rho^\cdot_j$ with $\rho^\cdot_j = Z^\cdot_{D;[w_j]} / Z^\cdot_{D;[w_{j - 1}]}$. Let $y = v_{j - 1}$ be the site left at step $j$, $o = v_j$ the out-neighbour, and $E'$ the domain $D;[w_{j - 1}]$ with $y$ removed. Step $j$ is a \emph{revisit} if $y$ has status $\mathrm D$ in $D;[w_{j - 1}]$ and a \emph{first visit} otherwise. Integrating out $y$, we find:
++For $w\in\mathcal T_D(u,T)$ as in Proposition~\ref{p:pairwalk}, we have
++$R^\cdot_D(w)=\prod_{j=1}^{|w|}\rho^\cdot_j$ with
++$\rho^\cdot_j=Z^\cdot_{D;[w_j]}/Z^\cdot_{D;[w_{j-1}]}$.
++Let $y=v_{j-1}$ be the site left at step $j$, $o=v_j$ the
++out-neighbour, and $E'$ the auxiliary spin network obtained from
++$D;[w_{j-1}]$ by removing $y$, retaining its scalar mass. Step $j$ is
++a \emph{revisit} if $y$ has status $\mathrm D$ in $D;[w_{j-1}]$ and
++a \emph{first visit} otherwise. Integrating out $y$, we find:
+ \begin{itemize}
+-\item for a revisit, $\rho^\tau_j = \rho^0_j = 3/5$, since $\int (1 + n \cdot n_o) \lambda_{\mathrm D}(\dd n) = 1$;
++\item for a revisit with at most one present bond at departure,
++$\rho^\tau_j=\rho^0_j=3/5$, since
++$\int(1+n\cdot n_o)\lambda_{\mathrm D}(\dd n)=1$.
++The only possible two-bond $\mathrm D$ departure is the initial step.
++If its present neighbours are $f,o$, then
++\[
++\rho^\cdot_1=
++\frac{3/5}{1+\frac15\E^\cdot_{E'}[P_{fo}]}\le\frac34.
++\]
++Indeed, every later departure has already lost its arrival bond;
++a $\mathrm D$ site has at most two present bonds before that arrival;
+ \item for a first visit with remaining neighbours $f, g, o$, $1/\rho^\cdot_j = \E^\cdot_{E'}[I] / \E^\cdot_{E'}[J]$ with
+ \begin{equation}\label{e:IJ}
+ I = 1 + \tfrac13 (P_{fg} + P_{fo} + P_{go}), \qquad J = 1 + \tfrac15 P_{fg}, \qquad P_{ab} = n_a \cdot n_b ;
+@@ -82,7 +136,12 @@ With two remaining neighbours, $J = 1$ and $\E^\cdot_{E'}[I] \in [0.88, 1.12]$,
+ \end{proof}
+ 
+ \begin{lemma}\label{l:exposure}
+-Let $w \in \mathcal T_D(u, T)$, let $\Phi$ be the set of its first-visit steps, and suppose that $\rho^\tau_j \le x_j$ for $j \in \Phi$, with numbers $x_j \ge 1$. Then for every ordering $\sigma$ of $\Phi$,
++Let $w\in\mathcal T_D(u,T)$ under the hypotheses of
++Proposition~\ref{p:pairwalk}. If $u$ initially has status $\mathrm D$,
++assume in addition that it has at most one present bond in $D$.
++Let $\Phi$ be the set of first-visit steps of $w$, and suppose that
++$\rho^\tau_j\le x_j$ for $j\in\Phi$, with numbers $x_j\ge1$.
++Then for every ordering $\sigma$ of $\Phi$,
+ \begin{equation}\label{e:exposure}
+ \bigl| R^\tau_D(w) - R^0_D(w) \bigr| \le \Bigl( \frac35 \Bigr)^{|w| - |\Phi|} \sum_{k = 1}^{|\Phi|} |\lambda_{\sigma(k)}| \prod_{l \le k} x_{\sigma(l)} .
+ \end{equation}
+@@ -101,11 +160,35 @@ We have $a_j \le x_j$, $b_j \le 1$ by Lemma~\ref{l:response}, and $|a_j - b_j| \
+ To bound $\rho^\tau_j$ for a first-visit step at $y \notin S$, we localize to the \emph{template} $\mathsf T(y) = \{ z \in \Z^2 : d(z, y) \le 2 \}$, which lies in $G$. After a lattice symmetry fixing $y = 0$ we may assume that the arrival site is $\mathsf s = (0, -1)$; the other neighbours are $\mathsf e = (1, 0)$, $\mathsf N = (0, 1)$, $\mathsf W = (-1, 0)$, the corners are $(\pm 1, \pm 1)$, and the tips are $(\pm 2, 0)$, $(0, \pm 2)$. The out-neighbour is $\mathsf N$ for a straight step and $\mathsf e$ or $\mathsf W$ for a turn. Each corner has two lattice neighbours outside $\mathsf T(y)$, and each tip has three; we call these legs of the template \emph{slots}, $20$ in total.
+ 
+ \begin{definition}\label{d:pattern}
+-A \emph{pattern} $\pi$ consists of an out-neighbour $o \in \{\mathsf e, \mathsf N, \mathsf W\}$ and statuses and kept bonds of the sites $\mathsf s, \mathsf e, \mathsf N, \mathsf W$ and of the corners, as in Definition~\ref{d:domain}, with $y$ of status $\mathrm U$, the bond $\{y, \mathsf s\}$ dropped, and $o$ not removed. For unit vectors $m = (m_\ell)$ on the slots, let $Z_{\mathrm{cur}}(\pi; m)$ be the integral over the spins of $\mathsf T(y)$ minus the removed sites, with the site measures of the statuses, of the product of the factors of the present bonds inside $\mathsf T(y)$ and of $1 + m_\ell \cdot n_z$ for every slot $\ell$ at $z$; the tips have status $\mathrm U$. Let $Z_{\mathrm{next}}(\pi; m)$ be the same integral after the step, that is, with the measure of $y$ replaced by $\lambda_{\mathrm D}$ and the bond $\{y, o\}$ dropped. Define
++A \emph{pattern} $\pi$ consists of an out-neighbour
++$o\in\{\mathsf e,\mathsf N,\mathsf W\}$ and statuses and kept bonds
++of the sites $\mathsf s,\mathsf e,\mathsf N,\mathsf W$ and of the
++corners, with the site measures of Definition~\ref{d:domain}. The
++passage site $y$ has status $\mathrm U$ and keeps precisely its three
++bonds to $\mathsf e,\mathsf N,\mathsf W$, so $\{y,\mathsf s\}$ is
++dropped. Every other site of status $\mathrm U$ keeps all four of
++its lattice bonds, and $o$ is not removed. For unit vectors
++$m=(m_\ell)$ on the slots, let $Z_{\mathrm{cur}}(\pi;m)$ be the
++integral over the spins of $\mathsf T(y)$ minus the removed sites,
++with the site measures of the statuses, of the product of the factors
++of the present bonds inside $\mathsf T(y)$ and of
++$1+m_\ell\cdot n_z$ for every slot $\ell$ at a non-removed site $z$;
++the tips have status $\mathrm U$. Let
++$Z_{\mathrm{next}}(\pi;m)$ be the same integral after the step,
++that is, with the measure of $y$ replaced by $\lambda_{\mathrm D}$
++and the bond $\{y,o\}$ dropped. Define
+ \begin{equation}\label{e:cpi}
+ c(\pi) = \inf_{m \in (\Sph)^{20}} \frac{Z_{\mathrm{cur}}(\pi; m)}{Z_{\mathrm{next}}(\pi; m)} .
+ \end{equation}
+ The class $\Pext$ consists of the patterns in which: $\mathsf s$ is removed or has status $\mathrm D$ keeping two of its three bonds other than $\{y, \mathsf s\}$; each of $\mathsf e, \mathsf N, \mathsf W$ has status $\mathrm U$, $\mathrm X$, or $\mathrm D$ keeping the bond to $y$ and one other bond; each corner has status $\mathrm U$, $\mathrm X$, or $\mathrm D$ keeping two of its four bonds; and condition (C) holds for the bonds between non-removed sites of $\mathsf T(y)$ other than the tips. (The statuses of the tips are not part of a pattern; a bond between a tip and its neighbour $z$ is present in $Z_{\mathrm{cur}}$ and $Z_{\mathrm{next}}$ if and only if $z$ is not removed and keeps it.) A pattern is straight or a turn according to $o$.
++These are local covered spin integrals, not domains with the
++protected-boundary condition on $S(G)$. The tips are the covering
++$\mathrm U$ tips of Lemma~\ref{l:local}; condition (C) is not imposed
++between their original global kept sets and the other template sites.
++Both external slot factors at each non-removed corner are included in
++the covered integrals, even when an actual external bond is absent.
++Such missing factors are filled by the convex-averaging enlargement
++in the proof of Lemma~\ref{l:local}.
+ \end{definition}
+ 
+ Up to the reflection $x_1 \mapsto -x_1$ and after removing duplicates that give the same function in \eqref{e:cpi} (a corner leg that is dropped becomes a slot, see the proof below, and a site without present bonds contributes a factor that does not depend on the other spins of the template and cancels in the ratio), the class $\Pext$ has $7{, }962$ elements, $2{, }696$ straight and $5{, }266$ turns; this count comes from a computer enumeration of the rules of Definition~\ref{d:pattern}.
+@@ -127,24 +210,68 @@ First, the dependence on $\omega$ is through the factors of the bonds from templ
+ \end{proof}
+ 
+ \begin{remark}
+-Lemma~\ref{l:local} applies to every first-visit step whose pattern is in $\Pext$. Lemma~\ref{l:closure} in \S\ref{s:recursion} shows that this is the case for every first-visit step of every trail used in the recursion, except at most $12$ steps near the end of the trails of the stopped term $T_2$, where only the crude bound $\rho^\tau_j \le 12/5$ of Lemma~\ref{l:response} is used.
++Lemma~\ref{l:local} applies to every first-visit step whose pattern is
++in $\Pext$. Lemma~\ref{l:closure} in \S\ref{s:recursion} supplies
++these patterns throughout the first expansion. If that expansion
++stops at $e\in S$, its terminal trace is an auxiliary spin network
++with the single kept-set defect at $e$. In the second expansion of
++$T_2$, at most $12$ first-visit departures, at sites $y'$ with
++$0<d(y',e)\le2$, may fail to have a covered pattern. At those
++departures we use $\rho^\tau_j\le12/5$ from
++Lemma~\ref{l:response}. These exceptional departures need not be
++the last departures of the second trail.
+ \end{remark}
+ 
+ \subsection{Weighted trail sums and Hypothesis (H2)}\label{s:H2def}
+ 
+-Let $x_{\mathrm s} = 1/\cs$ and $x_{\mathrm t} = 1/\ct$. For a trail $w = (v_0, \dots, v_m)$ of $\Z^2$ with a designated arrival direction at $v_0$, let $\mathsf W(w) = \prod_{j = 1}^m \omega_j$, where $\omega_j = 1/5$ if step $j$ leaves a site among $v_0, \dots, v_{j - 2}$ (a site left before), and $\omega_j = x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if it is a straight or turning first visit.
++Let $x_{\mathrm s}=1/\cs$ and $x_{\mathrm t}=1/\ct$.
++For a trail $w=(v_0,\dots,v_m)$ of $\Z^2$ with a designated unit arrival direction $a$ at $v_0$, we require $v_1-v_0\ne-a$ when $m\ge1$.
++The arrival direction is used to classify the first passage; its virtual incoming bond is not otherwise included among the bonds of $w$.
++Let $\mathsf W(w)=\prod_{j=1}^m\omega_j$, with the empty product equal to $1$,
++where $\omega_j=1/5$ if step $j$ leaves a site among $v_0,\dots,v_{j-2}$,
++and otherwise $\omega_j=x_{\mathrm s}/3$ if $v_j-v_{j-1}$ equals the arrival direction ($a$ for $j=1$, $v_{j-1}-v_{j-2}$ for $j>1$), and $\omega_j=x_{\mathrm t}/3$ otherwise.
+ 
+ \begin{hypothesis}[H2]\label{h:H2}
+-There exist $C_V < \infty$ and $q < 1$ such that for all $n \ge 0$, all starting points and all arrival directions, $\sum_{|w| = n} \mathsf W(w) \le C_V q^n$, where the sum runs over the trails of $\Z^2$ of length $n$ with that start and arrival direction.
++There exist $C_V < \infty$ and $q < 1$ such that for all $n \ge 0$, all starting points and all arrival directions, $\sum_{|w| = n} \mathsf W(w) \le C_V q^n$, where the sum runs over the trails of $\Z^2$ of length $n$ with that start and arrival direction and with initial reversal forbidden as above.
+ \end{hypothesis}
+ 
+ \begin{lemma}\label{l:onepoint}
+-Assume (H1) and (H2). Let $D \in \Dcons(G)$ or $D = D_0;[w_0]$ for some $D_0 \in \Dcons(G)$ and a trail $w_0$, let $x \in G \setminus S$ be a site that is not removed and has at most three present bonds, with a designated arrival direction, and suppose that all first-visit steps of every trail in $\mathcal T_D(x, S)$, except at most $12$ steps of each trail, have their patterns in $\Pext$. Then
++Assume (H1) and (H2). Let $D$ be a domain or auxiliary spin network
++on $G$, let $x\in G\setminus S$ be a site that is not removed and
++has at most three present bonds, with a designated arrival direction $a$ such that the bond $\{x-a,x\}$ is absent in $D$,
++and suppose that all first-visit steps of every trail in
++$\mathcal T_D(x,S)$, except at most $12$ steps of each trail, have
++their patterns in $\Pext$. Then
+ \begin{equation*}
+-\sum_{w \in \mathcal T_D(x, S)} 3^{-|w|} R^\tau_D(w) \le \Bigl( \frac{12}{5} \Bigr)^{12} \frac{C_V}{1 - q} \, q^{d(x, S)} .
++\sum_{w\in\mathcal T_D(x,S)}3^{-|w|}
++\max\{R^\tau_D(w),R^0_D(w)\}
++\le \Bigl(\frac{12}{5}\Bigr)^{12}
++\frac{C_V}{1-q}\,q^{d(x,S)}.
+ \end{equation*}
+ \end{lemma}
+ 
+ \begin{proof}
+-Every trail of $D$ is a trail of $\Z^2$. A step that leaves a site visited before by $w$ is a revisit in $D;[w_{j - 1}]$, with $3^{-1} \rho^\tau_j = 1/5 = \omega_j$. A step that leaves a site of status $\mathrm D$ not visited before by $w$ has $3^{-1} \rho^\tau_j = 1/5 \le \omega_j$. A first-visit step with pattern $\pi \in \Pext$ has $\rho^\tau_j \le 1/c(\pi) \le x_{\mathrm{type}}$ by Lemma~\ref{l:local} and (H1), so $3^{-1} \rho^\tau_j \le \omega_j$. Any other first-visit step has $3^{-1} \rho^\tau_j \le 4/5 \le \frac{12}{5} \omega_j$ by Lemma~\ref{l:response}, since $\omega_j \ge 1/3$ for first visits. Hence $3^{-|w|} R^\tau_D(w) \le (12/5)^{12} \mathsf W(w)$, and since $|w| \ge d(x, S)$, (H2) gives the claim.
++Every trail of $D$ is a trail of $\Z^2$ with initial reversal forbidden for the designated arrival direction, since the bond $\{x-a,x\}$ is absent in $D$. We prove the same pointwise
++bound for both dots $\tau$ and $0$. If the initial site has status
++$\mathrm D$ and two present bonds, the formula above gives
++$\rho^\cdot_1\le3/4$, hence
++$3^{-1}\rho^\cdot_1\le1/4\le\omega_1$, since the first lattice
++departure has $\omega_1\ge1/3$. Every other departure from status
++$\mathrm D$ has at most one present bond, so
++$3^{-1}\rho^\cdot_j=1/5$. This equals $\omega_j$ if the site was
++left before by $w$, and is at most $\omega_j$ otherwise. For a
++first-visit step whose pattern is in $\Pext$,
++Lemma~\ref{l:local} and (H1) give
++$\rho^\tau_j\le x_{\mathrm{type}}$, while
++Lemma~\ref{l:response} gives $\rho^0_j\le1\le x_{\mathrm{type}}$;
++thus $3^{-1}\rho^\cdot_j\le\omega_j$. At any other first-visit
++step, Lemma~\ref{l:response} gives
++$3^{-1}\rho^\cdot_j\le4/5\le(12/5)\omega_j$.
++There are at most $12$ such steps, so pointwise
++\[
++3^{-|w|}\max\{R^\tau_D(w),R^0_D(w)\}
++\le (12/5)^{12}\mathsf W(w).
++\]
++Since $|w|\ge d(x,S)$, summing (H2) over the possible lengths gives
++the claim.
+ \end{proof}
+diff --git a/sec7-recursion.tex b/sec7-recursion.tex
+index e429667..47c5e17 100644
+--- a/sec7-recursion.tex
++++ b/sec7-recursion.tex
+@@ -15,19 +15,77 @@ The domains $G \setminus Y$ with $Y \subset G \setminus S$ belong to $\Dcons(G)$
+ \subsection{Closure of the class}\label{s:closure}
+ 
+ \begin{lemma}\label{l:closure}
+-Let $D \in \Dcons(G)$, $(u, v) \in P_X(D)$ with centre $c$, and $u \notin S$. Let $w$ be a trail in $D$ from $u$ that does not visit $S \cup \{v\}$ before its last site, let $w_j$ be its prefixes and $D_j = D;[w_j]$, where at the first step the site $u$ also drops its bond to $c$. Then for every $j$:
++Let $D\in\Dcons(G)$, $(u,v)\in P_X(D)$ with centre $c$, and
++$u\notin S$. Let $w=(v_0,\dots,v_m)$ be a trail from $u$ that does
++not visit $S$ before its last site. Thus the lemma also applies when
++the trail is required to avoid $v$ before its last site. Before forming
++$D_0$, if $u$ has status $\mathrm U$, drop its kept bond to $c$;
++this changes no partition function because $c$ is removed. Let $D_j$
++be the auxiliary spin network after tracing the prefix $w_j$ from
++these normalized initial data. Then, for $0\le j\le m$:
+ \begin{enumerate}
+-\item every site other than $v_j$ that is visited by $w_j$ has status $\mathrm D$ or $\mathrm X$ in $D_j$;
+-\item every bond between two non-removed sites of $D_j$ satisfies (C), every site of status $\mathrm D$ keeps exactly two bonds, and every site of status $\mathrm U$ other than $v_j$ keeps all its bonds; $v_j$ has status $\mathrm U$ or $\mathrm D$ and has dropped exactly its arrival bond, whose other end has status $\mathrm D$ or $\mathrm X$;
+-\item the domain $E'_{j + 1}$ obtained from $D_j$ by removing $v_j$ belongs to $\Dcons(G)$.
++\item Every visited site other than the live endpoint $v_j$ has
++status $\mathrm D$ or $\mathrm X$.
++\item Condition (C) holds between non-removed sites. Every
++$\mathrm D$ site other than $v_j$ keeps exactly two bonds, and every
++$\mathrm U$ site other than $v_j$ keeps all its bonds. If $j\ge1$,
++the live endpoint has status $\mathrm U$ or $\mathrm D$: in the
++first case it keeps all its bonds inside $G$ except its arrival bond;
++in the second it keeps exactly one bond. The other end of the arrival
++bond has status $\mathrm D$ or $\mathrm X$. At $j=0$, a live
++$\mathrm U$ site keeps its three non-$c$ bonds, while a live
++$\mathrm D$ site retains its original two kept bonds and has at most
++one present bond.
++\item Whenever $v_j\notin S$, the underlying mass-one data
++$E'_{j+1}$ obtained by removing $v_j$ belong to $\Dcons(G)$.
+ \end{enumerate}
+-Consequently, if step $j + 1$ is a first visit at $y = v_j \notin S$, its pattern (Definition~\ref{d:pattern}), with arrival site $v_{j - 1}$, or $c$ if $j = 0$, belongs to $\Pext$. Moreover, the pairs $(f, g)$, $(f, o)$, $(g, o)$ of non-removed remaining neighbours of $y$ belong to $P_B(E'_{j + 1}) \cup P_C(E'_{j + 1})$, with centre $y$.
++If $v_m=e\in S$, then $e$ has status $\mathrm U$ and has lost only
++its arrival bond. This is the sole kept-set defect in the underlying
++terminal trace relative to $\Dcons(G)$; all its original leg factors
++are retained. No removal of $e$, and no membership in $\Dcons(G)$
++after such a removal, is asserted.
++
++Consequently, for $0\le j<m$, if step $j+1$ is a first visit at
++$y=v_j$, its pattern, with arrival site $v_{j-1}$ or $c$ when
++$j=0$, belongs to $\Pext$. The pairs among its non-removed remaining
++neighbours belong to $P_B(E'_{j+1})\cup P_C(E'_{j+1})$, with
++centre $y$.
+ \end{lemma}
+ 
+ \begin{proof}
+-Along $w$, statuses change only from $\mathrm U$ to $\mathrm D$ (at a first visit, keeping the two bonds of the site other than the arrival and out-bonds) and from $\mathrm D$ to $\mathrm X$ (at a revisit). At the first step, $u$ keeps the two bonds other than the out-bond and the bond to $c$, or, if $u$ has status $\mathrm D$ in $D$, it leaves by its only present bond and becomes $\mathrm X$. This gives (1) and the claim on kept sets in (2). A bond dropped by a site of status $\mathrm D$ in $D_j$ is either a bond to a removed site, which is unconstrained, or a bond already dropped in $D$, which satisfies (C) in $D$, or a bond used by $w$. A bond used by $w$ is dropped by both its ends, and both ends were visited by $w$; they have status $\mathrm D$ or $\mathrm X$, except the live end $v_j$ for its arrival bond. This proves (2). Removing $v_j$ makes the arrival bond a bond to a removed site, and $v_j$ was the only site violating the conditions of $\Dcons(G)$, which proves (3).
+-
+-At a first visit at $y = v_j$, the site $y$ has status $\mathrm U$, its arrival bond is dropped, and the arrival site $s = v_{j - 1}$ (or $c$) has status $\mathrm D$, keeping two of its three bonds other than $\{s, y\}$, or $\mathrm X$. By (2) and (C), every other non-removed site of the template has status $\mathrm U$ with all its bonds, or $\mathrm D$ with exactly two kept bonds, and a neighbour of $y$ of status $\mathrm D$ keeps its bond to $y$, because $y$ keeps all its bonds other than the arrival bond. These are the rules of Definition~\ref{d:pattern}; the statuses of the tips and the bonds of the corners leaving the template are not part of the pattern. Finally, the remaining neighbours $f, g, o$ of $y$ are pairwise at distance $2$ with the common neighbour $y$, which is removed in $E'_{j + 1}$; each has status $\mathrm U$, or status $\mathrm D$ with its bond to $y$ among its two kept bonds and hence at most one present bond in $E'_{j + 1}$.
++At $j=0$, condition (C) is unchanged by dropping a bond to the
++removed centre. Removing the live endpoint restores the original
++kept-set conditions at every remaining site. For a later departure
++from a live $\mathrm U$ site, its arrival bond (or its bond to $c$
++at the initial departure) and its out-bond are distinct; dropping the
++out-bond and changing its status to $\mathrm D$ leaves exactly two
++kept bonds. If the initial site is $\mathrm D$, it can depart only
++by its sole present bond and becomes $\mathrm X$. Every later live
++$\mathrm D$ site has lost its arrival bond from a two-bond kept set;
++at a departure it becomes $\mathrm X$. On arrival, an unvisited
++$\mathrm U$ site loses just its arrival bond, and a $\mathrm D$
++site loses one of its two kept bonds. All traversed bonds are dropped
++by both ends. These observations prove (1) and (2) inductively.
++
++Before a hit of $S$, the live endpoint is the only possible exception
++to the full $\mathrm U$ and two-bond $\mathrm D$ kept sets. Removing
++it leaves condition (C) intact and does not remove a protected site;
++this proves (3). At a first hit $e\in S$, that site was unvisited
++and has status $\mathrm U$, so only its arrival bond is lost.
++
++At a first-visit departure $y$, the arrival site is removed or has
++status $\mathrm D$ with two kept bonds other than its bond to $y$.
++Every other $\mathrm U$ site keeps all its bonds. By (C), each
++other non-removed neighbour of $y$ that has status $\mathrm D$
++keeps its bond to $y$ and one other bond; every non-live
++$\mathrm D$ corner keeps two bonds. These are the rules of
++Definition~\ref{d:pattern}, with the tips replaced by their covering
++tips and external slots filled as in Lemma~\ref{l:local}. Finally,
++any two non-removed remaining neighbours of $y$ are at distance two
++with common neighbour $y$, which is removed in $E'_{j+1}$.
++A $\mathrm D$ neighbour has at most one present bond after this
++removal, so the response pairs have the stated pair classes.
++The argument uses no avoidance of the distinguished target $v$.
+ \end{proof}
+ 
+ For a straight step the pair $(f, g)$ is collinear and $(f, o), (g, o)$ are diagonal; for a turn, $(f, g)$ and one of $(f, o), (g, o)$ are diagonal and the other is collinear. By Lemma~\ref{l:response} the response of a straight first visit is $\alpha_j r_B + \beta_j(r_C + r_C')$ and that of a turn is $\beta_j r_B + \alpha_j r_C + \beta_j r_C'$, in an obvious notation.
+@@ -65,7 +123,7 @@ Let $\theta \in (q^2, 1)$ be as in Lemma~\ref{l:Mtheta}. We first prove the recu
+ \begin{equation}\label{e:recineq}
+ \mathsf F_X(d) \le \sum_{Y \in \{B, C\}} \sum_{s \ge 0} M_{XY, s} \, \mathsf F_Y(d - s) + C_T q^{2d}, \qquad d \ge 1, \qquad C_T = 2 \Bigl( \frac{12}{5} \Bigr)^{24} \Bigl( \frac{C_V}{1 - q} \Bigr)^2 .
+ \end{equation}
+-Let $G$, $\tau$, $D$ and $(u, v) \in P_X(D)$ with centre $c$ be as in \eqref{e:FX} with $d_0 = \min(d(u, S), d(v, S)) \ge d \ge 1$; in particular $u, v \notin S$, and $u$ has at most three present bonds because $c$ is removed. By Proposition~\ref{p:pairwalk} with $T = S \cup \{v\}$, applied to $\tau$ and to $0$, the trails are the same in both expansions, and
++Let $G$, $\tau$, $D$ and $(u, v) \in P_X(D)$ with centre $c$ be as in \eqref{e:FX} with $d_0 = \min(d(u, S), d(v, S)) \ge d \ge 1$; in particular $u, v \notin S$, and $u$ has at most three present bonds because $c$ is removed. At the start of each expansion, normalize a starting site of status $\mathrm U$ by dropping its kept bond to the removed centre, as in Lemma~\ref{l:closure}; all histories below use this convention. This changes no partition function, ratio or correlation. If the starting site has status $\mathrm D$, it has at most one present bond by the definition of $P_X(D)$, as required by Lemma~\ref{l:exposure} in $T_1$. By Proposition~\ref{p:pairwalk} with $T = S \cup \{v\}$, applied to $\tau$ and to $0$, the trails are the same in both expansions, and
+ \begin{equation*}
+ \E^\tau_D[n_u \cdot n_v] - \E^0_D[n_u \cdot n_v] = \sum_{w \in \mathcal W_0} 3^{-|w|} \bigl( R^\tau_D(w) - R^0_D(w) \bigr) \kappa_v + \sum_{w \in \mathcal W_1} 3^{-|w|} \bigl( R^\tau_D(w) \mathcal X^\tau(w) - R^0_D(w) \mathcal X^0(w) \bigr) = T_1 + T_2,
+ \end{equation*}
+@@ -77,7 +135,37 @@ where $\mathcal W_0$ is the set of trails ending at $v$, $\mathcal W_1$ the set
+ \end{equation*}
+ where $\mathrm{rev}_D(w)$ counts the steps that leave a site of status $\mathrm D$, and the inner sum runs over the pairs of the step, with their coefficients $\alpha_j$, $\beta_j$ or $\beta'_j$. By Lemma~\ref{l:closure}, each such pair $p$ lies in $P_Y(E')$ for its type $Y$ and a domain $E' \in \Dcons(G)$. Since $d(\cdot, S)$ is $1$-Lipschitz, $\min_{z \in p} d(z, S) \ge d_0 - \mathrm{shift}(p) \ge d - \mathrm{shift}(p)$, so $|r_p| \le \mathsf F_Y(d - \mathrm{shift}(p))$. We now compare with the kernel. The trail $w$ is a trail of $\Z^2 \setminus \{c\}$ from $u$ to $v$ with first arrival at $v$, so it belongs to $\mathcal T^X_{|w|}$ after a lattice symmetry, with the same types and shifts. A step of $w$ that leaves a site of status $\mathrm D$ in $D$ not visited before by $w$ is a revisit in $D$ ($\lambda_j = 0$, factor $3/5$) but a first visit for the kernel ($x \ge 1$, coefficients $\ge 0$), so $\mathrm{rev}_D(w) \ge \mathrm{rev}(w)$, and dropping these steps from the ordering only lowers the products. A pair that is dead in the kernel contains $c$ or a site left twice by $w$, both removed in $E'$, so it does not occur in $D$. A pair that occurs in $D$ has coefficient $\alpha_j \le \bar\alpha$, $\beta_j \le \bar\beta$, or $\beta'_j \le \bar\beta$ (when the other neighbour is removed), and it is live in the kernel with coefficient $\bar\alpha$ or $\bar\beta$. Summing over $w$ and using $\kappa_v \le 1$, we obtain $|T_1| \le \sum_{Y, s} M_{XY, s} \mathsf F_Y(d - s)$.
+ 
+-\emph{The term $T_2$.} Let $w \in \mathcal W_1$, ending at $e \in S$. By Proposition~\ref{p:pairwalk} in $D;[w]$, started at $v$ with target $e$ and stopping set $S$, $|\mathcal X^\cdot(w)| \le \sum_{w' \in \mathcal T_{D;[w]}(v, S)} 3^{-|w'|} R^\cdot_{D;[w]}(w')$. In $D;[w]$ the only violation of the rules of $\Dcons(G)$ is at $e$, whose arrival bond is dropped (Lemma~\ref{l:closure}(2)). A first-visit step of $w'$ at $y'$ whose template does not contain both $e$ and the other end of that bond has its pattern in $\Pext$ by the argument of Lemma~\ref{l:closure}; the remaining first-visit steps have $e \in \mathsf T(y')$ and $y' \neq e$, so there are at most $12$ of them. Every $w \in \mathcal W_1$ belongs to $\mathcal T_D(u, S)$. The proof of Lemma~\ref{l:onepoint} applies to $R^0$ as well as to $R^\tau$, since $\rho^0_j \le 1 \le x_j$ for first visits and $\rho^0_j = 3/5$ for revisits. Applying Lemma~\ref{l:onepoint} in $D$ from $u$ and in $D;[w]$ from $v$, we obtain
++\emph{The term $T_2$.} Let $w\in\mathcal W_1$ end at $e\in S$.
++The terminal object $D;[w]$ is an auxiliary spin network, so
++Proposition~\ref{p:pairwalk} applies in it from $v$ with target $e$
++and stopping set $S$; $v$ was not visited by $w$ and still has at
++most three present bonds. Since terminal scalar products have absolute
++value at most one,
++\[
++|\mathcal X^\cdot(w)|\le
++\sum_{w'\in\mathcal T_{D;[w]}(v,S)}
++3^{-|w'|}R^\cdot_{D;[w]}(w').
++\]
++By Lemma~\ref{l:closure}, the underlying terminal trace satisfies the
++consistent-domain rules except that $e$ has dropped its arrival bond.
++Before the second expansion, if $v$ has status $\mathrm U$, drop
++its kept bond to the removed centre $c$; this changes no partition
++function or ratio. Repeat the kept-set induction of
++Lemma~\ref{l:closure}, allowing this fixed defect at $e$ as well as
++the current live endpoint. Before the second trail hits $S$, every
++first-visit departure at $y'$ with $d(y',e)>2$ has the ordinary
++$\Pext$ pattern: the defect is outside its template. Missing
++external factors are covered by the averaging in
++Lemma~\ref{l:local}. The possible exceptional first-visit departures
++therefore lie in $\{y':0<d(y',e)\le2\}$, a set of $12$ sites;
++a site can be departed from with status $\mathrm U$ at most once.
++All departures remain outside $S$ and all original leg factors remain
++unchanged. This proves the hypotheses of Lemma~\ref{l:onepoint} for
++the second expansion. That lemma also applies to the first sum over
++all $\mathcal T_D(u,S)$, using the normalization at $u$ and the
++variant of Lemma~\ref{l:closure} that does not exclude $v$. Its
++pointwise bound applies to the maximum of the pinned and free ratios.
++Consequently,
+ \begin{equation*}
+ |T_2| \le 2 \Bigl( \sum_{w \in \mathcal T_D(u, S)} 3^{-|w|} \max(R^\tau_D, R^0_D)(w) \Bigr) \Bigl( \frac{12}{5} \Bigr)^{12} \frac{C_V}{1 - q} q^{d(v, S)} \le C_T q^{d(u, S) + d(v, S)} \le C_T q^{2d} .
+ \end{equation*}
+diff --git a/sec8-computer-assisted.tex b/sec8-computer-assisted.tex
+index 608b623..5f74536 100644
+--- a/sec8-computer-assisted.tex
++++ b/sec8-computer-assisted.tex
+@@ -1,6 +1,6 @@
+ \section{The computer-assisted inputs}\label{s:computer}
+ 
+-In this section we state the three computer-assisted inputs of the proof and describe how they are verified. Hypothesis~(H1) is a statement about the $7{,}962$ functions \eqref{e:cpi} of the local patterns; we verify it in exact integer and rational arithmetic. The hypotheses (H2) and (H3$'$) concern only the two numbers $\cs, \ct$; they are statements about weighted sums over trails of $\Z^2$, and we verify them in floating-point arithmetic with upward rounding. The programs and their output files are kept with the project; we refer to them by file name.
++In this section we state the three computer-assisted inputs of the proof and describe how they are verified. Hypothesis~(H1) is a statement about the $7{,}962$ functions \eqref{e:cpi} of the local patterns; we verify it in exact integer and rational arithmetic. The hypotheses (H2) and (H3$'$) concern only the two numbers $\cs, \ct$; they are statements about weighted sums over trails of $\Z^2$, and we verify them in floating-point arithmetic with upward rounding. The programs and output files are kept with the project; the production records and exact rational assembly for (H3$'$) are identified in \S\ref{s:tailtrust} and are to be included with the accompanying programs.
+ 
+ \begin{theorem}\label{t:inputs}
+ At $(\cs, \ct) = (0.961, 0.935)$, Hypothesis~(H1) holds, Hypothesis~(H2) holds with $q \le 0.98075$, and Hypothesis~(H3$'$) holds with $\rho(M_1) \le 0.98779$.
+@@ -13,7 +13,7 @@ The three parts are proved in \S\ref{s:H1}, \S\ref{s:H2} and \S\ref{s:H3}. The b
+ For $m \ge 1$, a \emph{window} is a sequence of $m$ unit steps of $\Z^2$ that forms a trail, up to translation. For windows $\varsigma, \varsigma'$ and $k \ge 1$, let $\mathsf M_k(\varsigma, \varsigma')$ be the sum, over the sequences of $k$ further steps that continue $\varsigma$ to a trail of length $m + k$ whose last $m$ steps form $\varsigma'$, of the product of the weights of the $k$ new steps, where a new step is weighted using $\varsigma$ and the earlier new steps as the only history: $x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if the site it leaves occurs in this history only as its last site (straight or turning according to the previous step), and $1/4$ if that site was already left earlier in this history.
+ 
+ \begin{lemma}\label{l:alm}
+-Let $\mathsf A_n(\varsigma)$ be the sum of $\mathsf W(w)$ over the trails $w$ of length $n \ge m$ with a fixed start and arrival direction whose last $m$ steps form $\varsigma$. Then $\mathsf A_{n + k}(\varsigma') \le \sum_\varsigma \mathsf A_n(\varsigma) \mathsf M_k(\varsigma, \varsigma')$. Consequently, let $h$ be any vector with positive entries and $\lambda = \max_\varsigma (\mathsf M_k h)_\varsigma / h_\varsigma$. Then, with $q = \lambda^{1/k}$ and $\mathsf W_n = \sum_{|w| = n} \mathsf W(w)$,
++Let $\mathsf A_n(\varsigma)$ be the sum of $\mathsf W(w)$ over the trails $w$ of length $n \ge m$ with a fixed start and arrival direction and with initial reversal forbidden as in \S\ref{s:H2def} whose last $m$ steps form $\varsigma$. Then $\mathsf A_{n + k}(\varsigma') \le \sum_\varsigma \mathsf A_n(\varsigma) \mathsf M_k(\varsigma, \varsigma')$. Consequently, let $h$ be any vector with positive entries and $\lambda = \max_\varsigma (\mathsf M_k h)_\varsigma / h_\varsigma$. Then, with $q = \lambda^{1/k}$ and $\mathsf W_n = \sum_{|w| = n} \mathsf W(w)$,
+ \begin{equation*}
+ \mathsf W_n \le C_V q^n \quad (n \ge 0), \qquad C_V = \max\Bigl( \max_{n < m} \mathsf W_n q^{-n}, \; \frac{\max_\varsigma h_\varsigma}{\min_\varsigma h_\varsigma} \max_{m \le n < m + k} \mathsf W_n q^{-n} \Bigr),
+ \end{equation*}
+@@ -30,7 +30,19 @@ Since $\mathsf M_k$ has nonnegative entries, induction gives $\mathsf A_{n + ik}
+ Every length $N \ge m$ is of the form $n + ik$ with $m \le n < m + k$, which gives the bound for $N \ge m$; for $N < m$ it holds by the definition of $C_V$. The quantities do not depend on the start and the arrival direction, by the lattice symmetries.
+ \end{proof}
+ 
+-\emph{Certificate.} The program \texttt{alm8.c} computes $\mathsf M_8$ for windows of length $m = 8$ ($7{, }500$ windows) at $(\cs, \ct) = (0.961, 0.935)$, with all weights given as exact integer quotients rounded upward, all sums and products evaluated in floating point with the rounding mode set upward, and the Collatz--Wielandt quotient for a power-iteration vector $h$ evaluated with upward rounding. Every computed number is therefore at least the exact one, and the output is $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma \le 0.85594872 \le 0.98075^8$, that is, $q \le 0.98075$. The bound was reproduced by an independent program in exact rational arithmetic: the windows are grouped into the $938$ classes of the dihedral group, which preserves $\mathsf M_8$, the test vector $h$ is rational, positive, constant on classes and has $\max h / \min h = 100$, and the exact value of $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma$ is at most $0.8559487104$. With the exact numbers $\mathsf W_n$, $n < 16$, the constant of Lemma~\ref{l:alm} is $C_V \le 153$. Replacing the window revisit weight $1/4$ by the true value $1/5$, which the proof of Lemma~\ref{l:alm} allows, gives $q \le 0.97606$.
++\emph{Certificate.}
++For the certified instance, \texttt{alm8\_checked.c}, archived under \texttt{reports/ADJ-R5/audit/} relative to the project root, first validates $m=k=8$ and the integer parameters $9610,9350$, and initializes only the powers $4^i$ for $0\le i\le8$; all integer codes and array indices in this instance are within their checked ranges.
++It computes $\mathsf M_8$ on the $7{,}500$ windows with weights given by exact integer quotients rounded upward.
++The matrix sums and products and the final Collatz--Wielandt verification use upward rounding; the intervening power iteration only chooses a test vector. The final upward evaluation bounds
++$\max_\varsigma(\mathsf M_8h)_\varsigma/h_\varsigma$ by $0.85594872$.
++Its upper bound is printed with upward rounding, together with the exact hexadecimal representation of the stored binary64 bound.
++The desired rate is certified by the exact rational comparison
++$0.85594872<(3923/4000)^8$, giving $q\le0.98075$;
++no printed value obtained by taking a numerical root is used as a certificate. The bound was reproduced by an independent program in exact rational arithmetic: the windows are grouped into the $938$ classes of the dihedral group, which preserves $\mathsf M_8$, the test vector $h$ is rational, positive, constant on classes and has $\max h / \min h = 100$, and the exact value of $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma$ is at most $0.8559487104$. The exact checker and vector are \texttt{h2\_exact.py} and \texttt{h2\_integer\_certificate.tsv} in the same audit directory. The base sums use the initial-step convention of \S\ref{s:H2def} and $\mathsf W_0=1$.
++At the rational rate $q=0.98075$ they satisfy
++$\max_{n<8}\mathsf W_nq^{-n}<1.473$ and
++$\max_{8\le n<16}\mathsf W_nq^{-n}<1.506$.
++Together with $\max h/\min h=100$ and $\mathsf M_8h\le q^8h$, the induction of Lemma~\ref{l:alm} therefore gives $C_V\le153$. Replacing the window revisit weight $1/4$ by the true value $1/5$, which the proof of Lemma~\ref{l:alm} allows, gives $q \le 0.97606$.
+ 
+ \subsection{The kernel (H3$'$)}\label{s:H3}
+ 
+@@ -63,16 +75,16 @@ The proof is computer-assisted, in exact integer and rational arithmetic, and is
+ \small
+ \begin{tabular}{lll}
+ pattern & value & inversion bound \\ \hline
+-tightest straight & $c(\pi) = 3825127/3979368 = 0.961240\ldots$ & $0.961240$ \\
+-tightest turn & $c(\pi) = 1071655/1145463 = 0.935565\ldots$ & $0.935565$ \\
++straight (ID 7645) & $c(\pi) = 3825127/3979368 = 0.961240\ldots$ & $0.961240$ \\
++turn (ID 1382) & $c(\pi) = 1071655/1145463 = 0.935565\ldots$ & $0.935565$ \\
+ turn, $\mathsf N$ and $\mathsf s$ removed & $c(\pi) = 416114/444675 = 0.935771\ldots$ & $0.935771$ \\
+ generic straight ($k = 11$) & numerical minimum $1.001202$ & $0.992310$ \\
+ generic turn ($k = 11$) & numerical minimum $0.960973$ & $0.960973$ \\ \hline
+ all $7{,}962$ patterns & closed form for $4{,}735$ & all; integer matrices of size $\le 245$
+ \end{tabular}
+-\caption{The hardest patterns of $\Pext$, which has $2{,}696$ straight patterns and $5{,}266$ turns. The first three are decoupled, so their values are exact closed forms (\S\ref{s:closed}); in the third, all sites other than $\mathsf N$ and $\mathsf s$ have status $\mathrm U$. In the generic steps, every site of the template has status $\mathrm U$, except the arrival site $\mathsf s$, which has status $\mathrm D$ and keeps its bonds to the corners $(1, -1)$ and $(-1, -1)$; there $k$ is the number of vectors of Appendix~\ref{s:local}. The bound of an inversion certificate is the floating-point value of the supremum of the $c$ for which its integer matrices \eqref{e:Meps} are positive definite; it is not used in the proof, in which the exact test is made at $c = 961/1000$ or $187/200$. The largest of these matrices has size $245 \times 245$, and the certificates of all $7{,}962$ patterns were produced in about $34$ CPU-minutes.}\label{tab:H1}
++\caption{Selected patterns of $\Pext$, which has $2{,}696$ straight patterns and $5{,}266$ turns. The first two rows give the smallest values found numerically in the straight and turning classes; global optimality is not certified. The first three are decoupled, so their values are exact closed forms (\S\ref{s:closed}); in the third, all sites other than $\mathsf N$ and $\mathsf s$ have status $\mathrm U$. In the generic steps, every site of the template has status $\mathrm U$, except the arrival site $\mathsf s$, which has status $\mathrm D$ and keeps its bonds to the corners $(1, -1)$ and $(-1, -1)$; there $k$ is the number of vectors of Appendix~\ref{s:local}. The bound of an inversion certificate is the floating-point value of the supremum of the $c$ for which its integer matrices \eqref{e:Meps} are positive definite; it is not used in the proof, in which the exact test is made at $c = 961/1000$ or $187/200$. With the exchange signs split as in \eqref{e:Meps}, the largest tested matrix has size $179 \times 179$, and the certificates of all $7{,}962$ patterns were produced in about $34$ CPU-minutes.}\label{tab:H1}
+ \end{table}
+ 
+ \begin{remark}\label{r:H1sharp}
+-The constants of Theorem~\ref{t:H1} cannot be raised much with the present template. For the third pattern of Table~\ref{tab:H1}, $c(\pi) = 416114/444675 = 0.935771\ldots$ exactly, by \eqref{e:5469}, so (H1) fails for every $\ct > 416114/444675$ with the template and the slots of Definition~\ref{d:pattern}. The margins of Theorem~\ref{t:H1} on the two tightest patterns are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. We also note that the method of \S\ref{s:H3} does not give $\rho(M_1) < 1$ at $(\cs, \ct) = (0.960, 0.925)$, so that the pair $(0.961, 0.935)$ leaves little room in either direction.
++The constants of Theorem~\ref{t:H1} cannot be raised much with the present template. For the third pattern of Table~\ref{tab:H1}, $c(\pi) = 416114/444675 = 0.935771\ldots$ exactly, by \eqref{e:5469}, so (H1) fails for every $\ct > 416114/444675$ with the template and the slots of Definition~\ref{d:pattern}. The margins of Theorem~\ref{t:H1} on the first two patterns of Table~\ref{tab:H1} are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. We also note that the method of \S\ref{s:H3} does not give $\rho(M_1) < 1$ at $(\cs, \ct) = (0.960, 0.925)$, so that the pair $(0.961, 0.935)$ leaves little room in either direction.
+ \end{remark}

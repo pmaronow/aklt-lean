@@ -1,0 +1,41 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: rawClass_755 PASS
+
+This auxiliary literal, at `AKLT/Defs/Automaton10Data.lean:1525`, is part of the supplied map π in Proposition `p:automaton10` (`paper/app-input-contracts.tex:367–388`), whose raw domain is Definition `d:memory-automaton` (`paper/app-input-contracts.tex:21–34`). The paper does not define individual storage chunks; the relevant requirement is that their assembled map and supplied representatives satisfy the reconstruction contract at `paper/app-input-contracts.tex:402–417` and the quotient conditions at `paper/app-input-contracts.tex:315–321`.
+
+In the actual assembly expression at Lean line 1551, this 16,384-bit chunk starts at bit 196,604, counting from zero at the least significant bit. It touches the 12-bit entries for word codes 16,383 through 17,748, inclusive. Independently regenerating the paper's paths finds 327 raw words and 1,039 invalid words in that interval. Every touching entry has a valid class number exactly when the word is raw, and otherwise has sentinel 3741. Every raw word's class agrees with its representative's admissibility and kind, the stored successor classes, and its final direction whenever an admissible non-revisit edge exists.
+
+The arithmetic is exact natural-number arithmetic. Mathlib's `Nat.shiftLeft_eq_mul_pow` (`Mathlib/Data/Nat/Size.lean:18`) confirms that `<<<` multiplies by a power of two; there is no machine-word overflow. I evaluated the complete assembly expression and checked that chunk contributions do not overlap. `lane` (Lean line 1596) uses natural Euclidean division and remainder to extract a 12-bit entry. Both powers of two are strictly positive, so division by zero is impossible. Boundary entries were checked after assembly, including entries split between chunks. This is the correct data object for `rawClassAt`, `supplied.project`, and `Automaton10StatementV2`.
+
+DECL: rawClass_756 PASS
+
+This literal is at `AKLT/Defs/Automaton10Data.lean:1527` and implements the same supplied-map contract (`paper/app-input-contracts.tex:367–388,402–417`) on the raw domain at `paper/app-input-contracts.tex:21–34`. Its 16,384 bits start at bit 180,220 and touch codes 15,018 through 16,383. The independent reconstruction finds 321 raw words and 1,045 invalid words. All touching entries pass raw-domain/sentinel checks, and every raw entry passes the representative, labelled-kind, successor, and applicable final-direction comparisons.
+
+The exact `ℕ` shift/division/remainder interpretation described above applies. Coding also matches the paper: E,N,W,S are 0,1,2,3, and `encodeWord`/`decodeWord` use most-significant-first powers (`paper/app-input-contracts.tex:377–386`; Lean lines 1598–1609). For `i : Fin 10`, `10 - 1 - i.val` is precisely `9 - i.val`, without unintended truncation. `List.finRange` visits every index once (`Mathlib/Data/List/FinRange.lean:29–33`). No word is lost through indexing or a coercion.
+
+DECL: rawClass_757 PASS
+
+This literal is at `AKLT/Defs/Automaton10Data.lean:1529`. Its paper counterpart is the supplied map and its reconstruction obligations (`paper/app-input-contracts.tex:367–388,402–417`), rather than a separately specified numeral. Its 16,384-bit contribution starts at bit 163,836 and touches codes 13,653 through 15,018. All 43 raw-word entries and 1,323 invalid-word entries in this interval pass the complete assembled-table checks. The raw entries satisfy every required quotient comparison, including successor images and the non-revisit arrival condition (`paper/app-input-contracts.tex:315–321,408–415`).
+
+The raw-word interpretation is faithful: `Function.Injective (wordBond (0,0) w)` means distinct unordered bonds, not distinct vertices. `wordBond` is a two-element `Finset` of lattice endpoints; Mathlib's `Finset.pair_comm` (`Mathlib/Data/Finset/Insert.lean:419`) makes reversal the same bond. Unit compass steps have distinct endpoints in `ℤ × ℤ`, with no spatial quotient. Thus revisiting a vertex is allowed when bonds remain distinct, as required by `paper/app-input-contracts.tex:24–33`. Natural-number packing and extraction introduce no additional restriction.
+
+DECL: rawClass_758 PASS
+
+This literal is at `AKLT/Defs/Automaton10Data.lean:1531`, implementing the supplied-map contract at `paper/app-input-contracts.tex:367–388,402–417`. Its 16,384 bits start at bit 147,452 and touch codes 12,287 through 13,652. Independent reconstruction finds 207 raw words and 1,159 invalid words. All touching entries have the correct raw-domain classification and all raw entries satisfy the representative, admissibility, kind, successor, and applicable arrival comparisons.
+
+In particular, the kind comparison uses the paper's endpoint-revisit convention (`paper/app-input-contracts.tex:31–33`). At memory ten, `departureCount` filters `Finset.range 10`, so it tests exactly vertices z₀ through z₉, excluding the current endpoint index z₁₀. Mathlib's `Finset.mem_range`, `Finset.mem_filter`, and `Finset.card_pos` (`Mathlib/Data/Finset/Range.lean:64`, `Filter.lean:127`, `Card.lean:78`) confirm that positivity is equivalent to the existence of an earlier departure there. Revisit detection precedes straight/turn classification. The chunk's exact natural-number encoding preserves these distinctions.
+
+DECL: rawClass_759 PASS
+
+This literal is at `AKLT/Defs/Automaton10Data.lean:1533`. It is an auxiliary portion of the same supplied map (`paper/app-input-contracts.tex:367–388,402–417`). Its 16,384-bit contribution starts at bit 131,068 and touches codes 10,922 through 12,287. All 1,366 touching word codes are invalid and their assembled entries are exactly sentinel 3741. This is intentional padding: every code in this interval decodes to a word beginning E,E,E,W, immediately repeating the third unoriented bond. Such a word is excluded by `paper/app-input-contracts.tex:24–26`.
+
+This does not create a vacuous quotient interpretation. `supplied.project` reduces the sentinel modulo 3741 only to make its function total on all direction words. The correctness predicate quantifies over actual raw words, and `Automaton10StatementV2` additionally requires `rawClassAt code < 3741 ↔ RawWindow (decodeWord 10 code)` for every `code : Fin (4^10)`. I checked that equivalence over the entire table. On every raw word the stored class is below 3741, so this modulo operation is the identity. Exact natural-number shifts and positive-denominator lane extraction apply here as above.
+
+Non-blocking remarks:
+
+- I read the complete data file, including all literal chunks and assembly expressions, and its complete local import chain: `Automaton`, `Kernel`, `Trails`, `Domain`, `PinModel`, `Moment`, and `Geometry`. Judgments above concern only the five assigned declarations.
+- The read-only finite check is reproducible with `python3 check_data.py` in this report directory. It evaluates the literal assembly expressions and independently enumerates bond-distinct lattice paths. It verified all 1,048,576 table entries, exactly 60,092 raw words, 988,484 invalid sentinels, all 3,741 representatives and their own-class identities, every raw-to-representative comparison, and exactly 2,516 straight, 5,032 turning, and 1,872 revisit labelled quotient edges. Raw kinds agree within classes even on inadmissible directions. Interval counts above include any partially overlapping boundary entries.
+- `MemoryWindow 10` is the subtype of all raw direction words. `Fintype.ofFinite` chooses an exhaustive finite enumeration (`Mathlib/Data/Fintype/EquivFin.lean:179`); it adds no cardinality hypothesis. `Fintype.card` counts that enumeration and agrees with predicate filtering (`Mathlib/Data/Fintype/Card.lean:41,395`). The four compass directions are exhaustive. The quotient checks quantify over every raw word and every absolute direction; there are no additional geometric side conditions or class-size divisions.
+- Stored destination zero and kind three encode the paper's inadmissible `-1` entries. Admissible destinations are one plus the actual class, so `destinationCode - 1` never truncates on an admitted edge; modulo 3741 then preserves that class. The checks verified these bounds and conventions. No Lean processes were needed and no inputs were modified.

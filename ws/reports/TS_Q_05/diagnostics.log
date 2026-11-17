@@ -1,0 +1,69 @@
+def AKLT.Blueprint.Q.CentreDegreeCancellationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (p χ : AKLT.Challenge.SpinorPolynomial L N),
+  p ≠ 0 →
+    (∀ m ∈ MvPolynomial.support p, m (x, 0) + m (x, 1) = 4) →
+      (∀ m ∈ MvPolynomial.support (p * χ), m (x, 0) + m (x, 1) = 4) → AKLT.Blueprint.Q.independentAt x χ
+def AKLT.Blueprint.Q.IncidentProductDegreeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N),
+  AKLT.Blueprint.Q.incidentProduct x ≠ 0 ∧
+    ∀ m ∈ MvPolynomial.support (AKLT.Blueprint.Q.incidentProduct x), m (x, 0) + m (x, 1) = 4
+def AKLT.Blueprint.Q.StateCentreDegreeStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (ψ : AKLT.Challenge.Hilbert L N) (x : AKLT.Challenge.Site L N),
+  ∀ m ∈ MvPolynomial.support (AKLT.Blueprint.Q.statePolynomial ψ), m (x, 0) + m (x, 1) = 4
+def AKLT.Blueprint.Q.StarEdgeEnumerationStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N),
+  Function.Injective (AKLT.Blueprint.Q.starEdge x) ∧
+    Finset.image (AKLT.Blueprint.Q.starEdge x) Finset.univ = {e | x ∈ AKLT.Challenge.bondSites e}
+def AKLT.Blueprint.Q.StarCasimirChartStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N), ∃ n U, AKLT.Blueprint.Q.casimirCopies x n U
+def AKLT.Blueprint.Q.StarProjectorTransportStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (x : AKLT.Challenge.Site L N) (n : ℕ)
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))),
+  AKLT.Blueprint.Q.casimirCopies x n U →
+    ∀ (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) (r : Fin n) (s : Fin 5 → Fin 5),
+      (U ((AKLT.Challenge.P (AKLT.Blueprint.Q.starEdge x j)) ψ)).ofLp (r, s) =
+        (((AKLT.Defs.starCasimir j).eigenspace 20).starProjection (WithLp.toLp 2 fun t => (U ψ).ofLp (r, t))).ofLp s
+def AKLT.Blueprint.Q.DeterminantModulusStatement : Prop :=
+∀ (a b : AKLT.Defs.Vec3) (z w : AKLT.Defs.Spinor),
+  AKLT.Blueprint.Q.compatible a z →
+    AKLT.Blueprint.Q.compatible b w → Complex.normSq (AKLT.Blueprint.Q.determinant z w) = (1 - AKLT.Defs.dot a b) / 2
+def AKLT.Blueprint.Q.GroundProductWeightStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (κ : AKLT.Challenge.Site L N → Fin 3),
+  (∀ (σ : AKLT.Defs.TorusConfiguration L N),
+      AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ =
+        ∏ e,
+          AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+            (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) →
+    (∀ (e : AKLT.Challenge.Bond L N) (σ : AKLT.Defs.TorusConfiguration L N),
+        Complex.normSq
+            (AKLT.Blueprint.Q.determinant (AKLT.Defs.frameSpinor (κ e.1) (σ e.1))
+              (AKLT.Defs.frameSpinor (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) =
+          (1 -
+              AKLT.Defs.dot (AKLT.Defs.frameVector (κ e.1) (σ e.1))
+                (AKLT.Defs.frameVector (κ (AKLT.Challenge.nextSite e.1 e.2)) (σ (AKLT.Challenge.nextSite e.1 e.2)))) /
+            2) →
+      ∀ (σ : AKLT.Defs.TorusConfiguration L N),
+        AKLT.Defs.torusReference L N σ * Complex.normSq (AKLT.Defs.frameEval κ (AKLT.Challenge.B L N) σ) =
+          AKLT.Blueprint.Q.groundScale L N * AKLT.Defs.torusWeight L N κ σ
+def AKLT.Blueprint.Q.casimirCopies : {L N : AKLT.Challenge.Size} →
+  AKLT.Challenge.Site L N →
+    (n : ℕ) → (AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5))) → Prop :=
+fun {L N} x n U =>
+  ∀ (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) (r : Fin n) (s : Fin 5 → Fin 5),
+    (U ((AKLT.Challenge.bondCasimir (AKLT.Blueprint.Q.starEdge x j)) ψ)).ofLp (r, s) =
+      ((AKLT.Defs.starCasimir j) (WithLp.toLp 2 fun t => (U ψ).ofLp (r, t))).ofLp s
+@[reducible] def AKLT.Challenge.Size : Type :=
+{ n // 3 ≤ n }
+Submodule.starProjection_map_apply.{u_1, u_3, u_4} {𝕜 : Type u_1} [RCLike 𝕜] {E : Type u_3} {E' : Type u_4}
+  [NormedAddCommGroup E] [NormedAddCommGroup E'] [InnerProductSpace 𝕜 E] [InnerProductSpace 𝕜 E'] (f : E ≃ₗᵢ[𝕜] E')
+  (p : Submodule 𝕜 E) [p.HasOrthogonalProjection] (x : E') :
+  (Submodule.map (↑f.toLinearEquiv) p).starProjection x = f (p.starProjection (f.symm x))
+LinearIsometry.map_starProjection.{u_1, u_3, u_4} {𝕜 : Type u_1} [RCLike 𝕜] {E : Type u_3} {E' : Type u_4}
+  [NormedAddCommGroup E] [NormedAddCommGroup E'] [InnerProductSpace 𝕜 E] [InnerProductSpace 𝕜 E'] (f : E →ₗᵢ[𝕜] E')
+  (p : Submodule 𝕜 E) [p.HasOrthogonalProjection] [(Submodule.map f.toLinearMap p).HasOrthogonalProjection] (x : E) :
+  f (p.starProjection x) = (Submodule.map f.toLinearMap p).starProjection (f x)
+Submodule.eq_starProjection_of_mem_orthogonal.{u_1, u_2} {𝕜 : Type u_1} {E : Type u_2} [RCLike 𝕜] [NormedAddCommGroup E]
+  [InnerProductSpace 𝕜 E] {K : Submodule 𝕜 E} [K.HasOrthogonalProjection] {u v : E} (hv : v ∈ K) (hvo : u - v ∈ Kᗮ) :
+  K.starProjection u = v
+instFintypeProd (ZMod ↑L) (ZMod ↑N)
+instFintypeProd (AKLT.Challenge.Site L N) AKLT.Challenge.Direction

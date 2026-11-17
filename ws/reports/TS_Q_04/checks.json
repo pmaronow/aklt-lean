@@ -1,0 +1,364 @@
+{
+  "pair": {
+    "method": "exact Fraction arithmetic after positive diagonal similarity D C D^-1",
+    "binomial_coefficients": [
+      1,
+      4,
+      6,
+      4,
+      1
+    ],
+    "pair_dimension": 25,
+    "diagonal_rank": 9,
+    "diagonal_kernel_dimension": 16,
+    "independent_top_vectors_checked": 9,
+    "eigenvalue_20_dimension": 9,
+    "blocks": [
+      {
+        "j_plus_k": 0,
+        "size": 1,
+        "rank_C_minus_20I": 0,
+        "nullity": 1,
+        "eigenvalues": [
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -20
+        ]
+      },
+      {
+        "j_plus_k": 1,
+        "size": 2,
+        "rank_C_minus_20I": 1,
+        "nullity": 1,
+        "eigenvalues": [
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -32,
+          240
+        ]
+      },
+      {
+        "j_plus_k": 2,
+        "size": 3,
+        "rank_C_minus_20I": 2,
+        "nullity": 1,
+        "eigenvalues": [
+          6,
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -38,
+          432,
+          -1440
+        ]
+      },
+      {
+        "j_plus_k": 3,
+        "size": 4,
+        "rank_C_minus_20I": 3,
+        "nullity": 1,
+        "eigenvalues": [
+          2,
+          6,
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -40,
+          508,
+          -2304,
+          2880
+        ]
+      },
+      {
+        "j_plus_k": 4,
+        "size": 5,
+        "rank_C_minus_20I": 4,
+        "nullity": 1,
+        "eigenvalues": [
+          0,
+          2,
+          6,
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -40,
+          508,
+          -2304,
+          2880,
+          0
+        ]
+      },
+      {
+        "j_plus_k": 5,
+        "size": 4,
+        "rank_C_minus_20I": 3,
+        "nullity": 1,
+        "eigenvalues": [
+          2,
+          6,
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -40,
+          508,
+          -2304,
+          2880
+        ]
+      },
+      {
+        "j_plus_k": 6,
+        "size": 3,
+        "rank_C_minus_20I": 2,
+        "nullity": 1,
+        "eigenvalues": [
+          6,
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -38,
+          432,
+          -1440
+        ]
+      },
+      {
+        "j_plus_k": 7,
+        "size": 2,
+        "rank_C_minus_20I": 1,
+        "nullity": 1,
+        "eigenvalues": [
+          12,
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -32,
+          240
+        ]
+      },
+      {
+        "j_plus_k": 8,
+        "size": 1,
+        "rank_C_minus_20I": 0,
+        "nullity": 1,
+        "eigenvalues": [
+          20
+        ],
+        "charpoly_descending": [
+          1,
+          -20
+        ]
+      }
+    ]
+  },
+  "geometry": {
+    "cases_checked": 36,
+    "period_range_inclusive": [
+      3,
+      8
+    ],
+    "checks": [
+      "no loops",
+      "no repeated unordered endpoints",
+      "four distinct endpoint spinor variables",
+      "four incident bonds per site",
+      "distinct determinant polynomials up to a nonzero scalar"
+    ],
+    "cases": [
+      {
+        "L": 3,
+        "N": 3,
+        "bonds": 18
+      },
+      {
+        "L": 3,
+        "N": 4,
+        "bonds": 24
+      },
+      {
+        "L": 3,
+        "N": 5,
+        "bonds": 30
+      },
+      {
+        "L": 3,
+        "N": 6,
+        "bonds": 36
+      },
+      {
+        "L": 3,
+        "N": 7,
+        "bonds": 42
+      },
+      {
+        "L": 3,
+        "N": 8,
+        "bonds": 48
+      },
+      {
+        "L": 4,
+        "N": 3,
+        "bonds": 24
+      },
+      {
+        "L": 4,
+        "N": 4,
+        "bonds": 32
+      },
+      {
+        "L": 4,
+        "N": 5,
+        "bonds": 40
+      },
+      {
+        "L": 4,
+        "N": 6,
+        "bonds": 48
+      },
+      {
+        "L": 4,
+        "N": 7,
+        "bonds": 56
+      },
+      {
+        "L": 4,
+        "N": 8,
+        "bonds": 64
+      },
+      {
+        "L": 5,
+        "N": 3,
+        "bonds": 30
+      },
+      {
+        "L": 5,
+        "N": 4,
+        "bonds": 40
+      },
+      {
+        "L": 5,
+        "N": 5,
+        "bonds": 50
+      },
+      {
+        "L": 5,
+        "N": 6,
+        "bonds": 60
+      },
+      {
+        "L": 5,
+        "N": 7,
+        "bonds": 70
+      },
+      {
+        "L": 5,
+        "N": 8,
+        "bonds": 80
+      },
+      {
+        "L": 6,
+        "N": 3,
+        "bonds": 36
+      },
+      {
+        "L": 6,
+        "N": 4,
+        "bonds": 48
+      },
+      {
+        "L": 6,
+        "N": 5,
+        "bonds": 60
+      },
+      {
+        "L": 6,
+        "N": 6,
+        "bonds": 72
+      },
+      {
+        "L": 6,
+        "N": 7,
+        "bonds": 84
+      },
+      {
+        "L": 6,
+        "N": 8,
+        "bonds": 96
+      },
+      {
+        "L": 7,
+        "N": 3,
+        "bonds": 42
+      },
+      {
+        "L": 7,
+        "N": 4,
+        "bonds": 56
+      },
+      {
+        "L": 7,
+        "N": 5,
+        "bonds": 70
+      },
+      {
+        "L": 7,
+        "N": 6,
+        "bonds": 84
+      },
+      {
+        "L": 7,
+        "N": 7,
+        "bonds": 98
+      },
+      {
+        "L": 7,
+        "N": 8,
+        "bonds": 112
+      },
+      {
+        "L": 8,
+        "N": 3,
+        "bonds": 48
+      },
+      {
+        "L": 8,
+        "N": 4,
+        "bonds": 64
+      },
+      {
+        "L": 8,
+        "N": 5,
+        "bonds": 80
+      },
+      {
+        "L": 8,
+        "N": 6,
+        "bonds": 96
+      },
+      {
+        "L": 8,
+        "N": 7,
+        "bonds": 112
+      },
+      {
+        "L": 8,
+        "N": 8,
+        "bonds": 128
+      }
+    ]
+  }
+}

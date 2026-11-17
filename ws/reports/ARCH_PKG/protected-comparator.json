@@ -1,0 +1,22 @@
+{
+  "challenge_module": "PalomarCanonical70f9792190baebf83663b466.Challenge",
+  "definition_names": [],
+  "external_kernels": {
+    "con-ron": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+      "--jobs=2"
+    ],
+    "nanoda": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+    ]
+  },
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "solution_module": "Solution",
+  "theorem_names": [
+    "AKLTPalomar.aklt_gap_of_inputs"
+  ]
+}

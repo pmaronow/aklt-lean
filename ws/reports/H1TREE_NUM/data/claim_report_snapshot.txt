@@ -1,0 +1,641 @@
+STATUS: PARTIAL (H1 reduced by >300×; H3 reduced by 11.45×; default-profile fit not established)
+
+Two mathematically different replacements now close the paper's inequalities
+in exact native arithmetic. The H1 replacement has **38 path/forest models:
+22 scalar tests and 16 matrices, largest 66**. It replaces the larger covered
+pattern statement by a sufficient statement on actual degree-two D sites.
+The H3 replacement uses **shared one-dimensional line potentials and a
+radius-20 patch**, with exact contraction **rho <= 0.967725**. It also implies
+H2 if desired. Both retain cs=961/1000 and ct=187/200.
+
+The requested two-order reduction is achieved for H1's finite arithmetic:
+379× fewer nonzero coefficients, 327× fewer matrix entries and 465× fewer
+Gram products. H3's finite row count falls by 11.45×, so the whole default
+Palomar fit is **not solved**. No clean build/Comparator/NanoDa release of
+these new statements is claimed. New semantic Lean lemmas and a new constructor
+remain to be formalized. Literal Gram arithmetic is being timed separately.
+
+The slack map below was written at 21:05 UTC, within the first hour. All new
+programs, data and this report are under MATH_FIT. All supplied worktrees,
+archives and the verifier were read-only. No subagents were used. At most
+eight CPU-heavy processes ran concurrently; observed native memory was far
+below 60 GB. Later benchmark workers use nice 10. Production has priority.
+
+## Slack map
+
+Statement authority: manuscript-v2, `sec6-walks.tex` definitions H1/H2 and
+local/onepoint lemmas; `sec7-recursion.tex` log-mean-bounds, response-typed,
+kernel, kernel-order, Mtheta, recineq, renewal and rec; Appendix C stationary
+assembly. The author-directed task permits changing the frozen choices in
+REV-PLAN. Numbers below were recomputed by `programs/slack_map.py` and actual
+Alm experiments, with logs under `logs/`.
+
+1. H1 enters the walk weights as `xτ = 1/cτ`, with a first-departure
+   factor `xτ/3`; a revisit has its exact factor `1/5`, no H1 factor and
+   zero response. The present values are `cs=.961`, `ct=.935`.
+2. H1 also controls response coefficients. With `a=116/125=.928` and
+   `f(s)=-log(s)/(1-s)`, sufficient bounds are
+   `bτ ≥ f(a cτ)/3`, `aτ ≥ f(a cτ)/3-f(a)/5`,
+   `b′τ ≥ f(cτ)/3`. Free positivity supplies `I⁰≥J⁰≥1`; the
+   conditional three-factor mean bound `3/5` supplies `Jτ≥a`.
+   The analytic coefficient values `(aτ,bτ,b′τ)` are
+   straight `(.145216119,.352781525,.340007436)` and
+   turn `(.149982699,.357548105,.344660255)`.
+   The archived rational ceilings are respectively
+   `(.145217,.352782,.340008)` and `(.150000,.357549,.344661)`.
+   The turn-alpha rounding slack is only `.000017301`; the other ceiling
+   slacks are below `.000001`. Better rounding alone is too small a redesign.
+3. H2 needs only some finite `CV` and some `q<1`. The memory-six one-step
+   witness gives `q=.9995632716486955`, `1-q=.000436728351304472`, `CV=10`.
+   A fresh native run at `(.960,.934)` gives `1.00060163` and fails this
+   test; at `(.959,.933)` it gives `1.00164220`.
+   Thus the current small H2 test cannot afford even a simultaneous `.001`
+   weakening of H1. A stronger block-extension H2 test can trade finite
+   work for a weaker H1 input; that trade does not by itself prove H3.
+4. H3 is a positive two-type kernel. The archived witness has
+   `h=(1,5404319552844595/4503599627370496)` (the second entry is just below
+   `1.2`). Its component ceilings give B `≤.993014271` and
+   C/hC `≤.984728723333334`. The actual contraction margins available
+   from these ceilings are `.006985729` and `.0152712766666666`.
+   The advertised `ρ₀=.993015` is only `.000000729` above the B ceiling;
+   it is not the full margin to one. The five first-direction contributions
+   are B/N `.351207554`, B/W `.290599163`, C/N `.527872005`,
+   C/W `.380754375`, C/S `.273048088`; B/S equals B/N by reflection.
+   The finite prefix cutoff controls exposure ordering only; all longer
+   suffixes are bounded by stationary supersolutions. Different cutoffs,
+   potentials, memories and radii are permitted if they bound the same
+   true-trail kernel. A coarser type partition needs its own contraction
+   check; it cannot inherit this weighted inequality automatically.
+5. The shift to exponential spatial decay uses `C=barα+2barβ=.91596`,
+   `H=max(h)/min(h)`, `b=(1+q)/2`, `r=q/b`,
+   `B*=2H C CV b⁻² r/(1-r)³`,
+   `ε=min((1-b)/2,(1-ρ₀)/(2B*))`, `θ=1-ε`, `ρ=(1+ρ₀)/2`.
+   Here `B*≈2.1103469867e12`, `ε≈1.6549411173e-15`.
+   The shift bound is spectacularly loose, but positivity of ε suffices.
+6. The explicit recursion is
+   `F_X(d) ≤ Σ_{Y,s} M_XY,s F_Y(d-s) + CT q^(2d)`,
+   `CT=2(12/5)^24(CV/(1-q))²≈1.3985468663e18`.
+   Renewal gives `F_X(d)≤A θ^d`, with
+   `A=H max(2,CT)/(1-ρ)≈4.8053149307e20`.
+   Neither magnitude needs numerical certification or a useful physical
+   value. The factor `(12/5)^24` pays at most twelve exceptional U departures
+   in the second trace. Improving it changes A, not the contraction test.
+7. Section 5 consumes only `A<∞, θ<1`. For its present cut,
+   `E=1+4A+10Aθ⁻⁴[48θ^14(17+1/(1-θ))+1]`, `p₀=e^(-2E)>0`,
+   and a sufficiently large `M*` exists. Section 4 puts
+   `δ=p₀ α^(16l₀)>0`, chooses one sufficiently large square radius M,
+   and obtains a positive physical and quantum gap. Increasing `l₀` or M
+   permits worse A and θ but supplies no slack to H2 or H3. A different
+   cut can reduce the final existential constants without shrinking the
+   present finite certificate.
+
+The revisit coefficient `1/5` is fixed by the D second moment; replacing
+it by a larger penalty is a valid relaxation that worsens contraction.
+A smaller coefficient requires an additional proved geometric or averaging
+argument. Straight/turn weights and response bounds worsen together when
+H1 is weakened. A valid redesign may instead keep correlations between
+local geometry, H1 weights and missing response pairs rather than separately
+taking their worst values.
+
+## Production fit
+
+Read official PalomarSubmission `README.md`, `verification-profile.json`,
+`execution-profiles.json`, and `docs/launch-security-review.md`.
+Default is 16 CPU/32 GiB, one 19,800-second budget including setup, clean
+build/cache, Comparator with Lean and NanoDa, and a separate advisory
+con-ron attempt capped at 30 minutes. Fresh submitted `.lake` state is
+required. The approved 32 CPU/64 GiB alternative has the same budget and
+is not an assumed resource. Memory pressure/ceiling are 95%/98%; free
+workspace minimum is 20 GiB. Every submitted Lean source must begin with
+the module header and contain at most 10,000 physical lines; Challenge
+also has 1,000-line/100-KiB limits. Supplied oleans, hashes, native numeric
+successes and sampled export checks cannot replace full kernel checks.
+
+Neither Level A nor Level B is demonstrated at this stage. Native
+experiments below are searches/independent arithmetic checks, not Lean
+certificates. Cost projections will distinguish measured counts from
+unmeasured kernel time.
+
+## Selected H1 replacement: 38 universal trees
+
+The exact family is [cores_universal_final.json](data/cores_universal_final.json).
+A component is a path; each vertex records its U/D law, whether it is a
+passage neighbour, whether it is the outgoing neighbour, and its external
+field radii. A vertex labelled m is an already integrated mean vector in the
+ball of its listed radius. Consecutive vertices are joined by 1+n.n'.
+Different components have independent variables. There are at most three
+passage neighbours and at most one outgoing mark; the outgoing mark can be
+absent after a zero-spin term in a convex decomposition. Unit directions of
+all listed fields are arbitrary. Zero fields can be inserted by affinity.
+This interpretation, not the archived pattern IDs in the file, defines a model.
+
+For a model F, let Z be its base partition function and Cij its unnormalized
+inserted pair moments at the marked passage neighbours. Define
+
+`Zcur = Z + (1/3) sum_{i<j} Cij`,
+
+`Znext = Z + (1/5) Cfg` if there are exactly two non-outgoing neighbours,
+and `Znext=Z` otherwise. These are precisely the passage moment identities.
+For a deterministic mean vertex, insertion of n means insertion of that
+vector. The source code's field 3R at such a vertex is an algebraic encoding
+of its degree-one tensor; it is not a physical field assumption.
+
+The numerical decoder uses the paper's ring order E,C0,N,C1,W,C2,S,C3,
+omits zero-radius fields, and gives each remaining field one variable index.
+A collapsed mean has one such index. Two unit slots at a U corner form the
+same unnormalized symmetric-pair basis as Appendix D; other slots remain
+single qubits. This fixes inversion indices and the central-sector integer
+basis. The JSON path coordinates fix this encoding; archived pattern IDs
+are only provenance labels.
+
+The new finite input is **H1-tree**: for every model in this list and every
+unit field direction, `Zcur >= c_type Znext`, at the unchanged two constants.
+It is certified by 21 small mean bounds (plus two unit-pair formulas), 22 scalar quadratic tests and 16
+reconstructed Pauli-sector matrices. The old conclusion on all artificially
+filled D-corner slots is neither needed nor asserted.
+
+The arithmetic witnesses are [universal_certificates.jsonl](data/universal_certificates.jsonl),
+[universal_mean_checks.json](data/universal_mean_checks.json), and
+[universal_exact_summary.json](data/universal_exact_summary.json).
+Every one of the 16 matrices has an integer Gram/residual witness. There are
+no positive-definiteness conclusions from floating eigenvalues.
+
+### Why these trees cover every actual local passage
+
+1. A D corner is unpinned and keeps two bonds. With k present internal bonds
+   it has at most 2-k actual external factors. Fill only those possible slots,
+   using zero fields for missing factors. This is the first statement change.
+   U corners still have two arbitrary slots. The local-passage proof applies
+   because D sites never carry original pins; the twelve exceptional U
+   departures in the second trace retain the paper's existing exceptional bound.
+2. Integrate the arrival site. If its two present bonds join the lower corners,
+   its contribution is `1+(nL.nR)/5`. This has the positive representation
+   `E_xi[(1+sqrt(3/5) xi.nL)(1+sqrt(3/5) xi.nR)]` for a U spin xi.
+   Condition on xi. A lower U corner then has at most three fields, so its
+   mean has norm at most 3/5 by the existing three-factor lemma. A lower D
+   corner has at most one remaining field and hence mean norm at most 1/5.
+   They become independent fields at E and W on each conditional fibre.
+3. When only one of E,W survives, the other lower U corner has mean at most
+   1/2, the intervening D arrival has mean at most 1/10, and the attached U
+   corner has mean at most `rho_U(1,1,1/10)=18/35`. If arrival instead retains
+   one lower corner and its tip, its effective field has norm at most 3/25;
+   the attached U corner is bounded by `rho_U(1,1,3/25)=137/265`.
+   Without that field a U leaf has radius 1/2. D leaves have radius 1/5.
+4. One case must preserve a correlation: when N is absent, E and W survive,
+   both lower corners are U, and arrival joins them, keep the five-vertex lower
+   path `E--corner--D--corner--W`. Cutting it into two independent 3/5 fields
+   is too weak. Its central sectors have size 36. If N survives, cutting the
+   lower connection leaves the five-vertex upper path, whose largest sector
+   has size 66. Thus the full eight-site cycle is never a primitive input.
+5. A top D corner with two internal bonds has no external factor, and its
+   kernel is the positive combination `(3/5)(1+na.nb/3)+2/5`. A top D leaf
+   gives one field of radius 1/5; a top U leaf gives radius 1/2. Remaining D
+   passage neighbours can be expanded as `(3/5) U + (2/5) delta_0` without
+   changing either external configuration. Carry out zero-spin deletions before
+   enlarging missing U slots; an unpinned, one-ended corner left by a deleted
+   neighbour gives the constant one. Slots are never refilled after that deletion.
+   Keep a D neighbour attached only
+   to its covering tip as D; its mean radius is exactly at most 3/25.
+   Expanding that last D law into a stronger U term is an avoidable loss.
+6. Integrate isolated marked vertices to mean balls; add zero fields to compare
+   field counts; identify isomorphic paths preserving the outgoing mark and
+   the marked-neighbour set; enlarge only componentwise field radii. This
+   gives 20 geometries and 38 maximal radius boxes. All scalar normalizers
+   removed in these operations are common, positive factors. All convex
+   decompositions have the same nonnegative weights for current and next.
+   Therefore positivity on every listed model implies positivity before
+   the reductions, pointwise in the original pins and outside spins.
+
+The finite geometry audit was independently regenerated from the kept-set
+rules, without reading pext7962.json. It found 106,101 consistent assignments,
+184,914 marked choices, 123,339 N/E choices and 7,962 reflection classes.
+Applying the new reduction gives exactly the same 38 models. Logs:
+[independent_enumeration.json](logs/independent_enumeration.json).
+The new formal coverage proof can follow the local cases above; it need not
+reconstruct the old operator matrices or store the old pattern catalogue.
+A compact formal case proof is still work to be done.
+
+### The small mean and scalar inputs
+
+For radii r1,r2,r3, pad with zeros and put
+
+`R_U = ((r1+r2+r3)/3+r1*r2*r3/5)/(1+(r1*r2+r1*r3+r2*r3)/3)`,
+
+`R_D = ((r1+r2+r3)/3+r1*r2*r3/5)/(5/3+(r1*r2+r1*r3+r2*r3)/3)`.
+
+Only 21 triples are needed by the selected family. They are not an assumed
+general unequal-radius mean theorem. Their finite proofs reconstruct the
+polynomial `25 R^2 (d+x+y+z)^2 - |P|^2`, where d=3 for U and 5 for D,
+x=a.b, y=a.c, z=b.c and
+`P=(5+z)a+(5+y)b+(5+x)c`. The mean is P/[5(d+x+y+z)]. Substitute
+`x=r1*r2*(1-2s)`, and similarly for y,z. All 27 degree-(2,2,2) Bernstein
+coefficients are nonnegative, for each of the 21 triples. These are **567
+exact rational comparisons, at most 53 bits per numerator/denominator**.
+The bound holds on the whole cube, hence on actual Gram data. Positive
+normalizers and affinity extend it to the closed balls.
+
+The two special means with radii `(1,1,1/10)` and `(1,1,3/25)` are checked
+by the following elementary reduction. With b,c unit, let
+`t=|b+c|/2`, `d=2+2t^2`, and alpha be the component of the third field along
+b+c. For third-field radius r,
+
+`|15 N|^2 <= (2d alpha+10t)^2 + (d+2)^2 (r^2-alpha^2)`,
+
+`3 Z=d+2t alpha`.
+
+At `R=(5+4r)/(10+5r)`, the difference
+`25 R^2(d+2t alpha)^2 - [(2d alpha+10t)^2+(d+2)^2(r^2-alpha^2)]`
+has nonnegative Bernstein coefficients on `0<=t<=1`, `-r<=alpha<=r`.
+The exact degree-four checks have at most 27-bit coefficients. See
+[mean_unit_pair.json](data/mean_unit_pair.json). The bound follows by
+orthogonally decomposing b+c and b-c; no numerical optimization is used.
+
+For each independent mean triple `(ro,rf,rg)`, put
+`k=rf*rg*(1/3-c/5)`, `L(t)=1-c+k*t` and
+`Q(t)=L(t)^2-(ro^2/9)(rf^2+rg^2+2rf*rg*t)`.
+The 22 exact tests check L at -1,1 and Q at -1,1 and its vertex when inside
+that interval. They imply `L(t)>=0` and `Q(t)>=0`, hence
+`Zcur-c Znext>=0`. If the outgoing mark is absent, use ro=0. These scalar
+checks also avoid spurious losses from a Pauli lower bound on three
+independent mean vectors.
+
+### H1 workload and where sharpness is needed
+
+| Quantity | Existing covered input | H1-tree | Reduction |
+|---|---:|---:|---:|
+| Primitive patterns/models | 7,962 | 38 | 209.5x |
+| Supported matrices | 12,173 | 16 | 760.8x |
+| Largest sector | 179 | 66 | — |
+| Matrix entries | 4,742,248 | 14,502 | 327.0x |
+| Gram products | 60,154,555 | 129,491 | 464.5x |
+| Both coefficient tensors, nonzeros | 46,581,420 | 122,884 | 379.1x |
+| Both coefficient tensors, dense cells | 750,697,734 | 1,465,600 | 512.2x |
+
+All 16 Gram witnesses were reconstructed and checked exactly, with no failures.
+Normalized matrix entries need at most 37 bits; factors at most 19 bits.
+There are 7,443 triangular factor entries. The witnesses occupy 226,935 bytes
+as JSON. The complete exact native pass took 4.94 s and 104,612 KiB peak RSS.
+
+The remaining numerical bottleneck is small, not a generic large matrix:
+one 14-dimensional turning model has best found operator bound .93536147,
+only .00036147 above ct. The worst independent turn is .93577107. The
+worst independent straight bound is .96244131. Some of the reported operator
+bounds stop as soon as the target is passed; they are not claimed optimal.
+There are no D two-slot exchange sectors left; each non-scalar model needs one central spin sector. The two largest sectors are not intrinsically near threshold: the generic
+cut upper path has a tested turning inversion giving .95210263 and a
+straight inversion giving .98529762.
+
+## Selected H3 replacement: line potentials plus a small patch
+
+Use the existing memory-ten quotient Q (3741 states), phase weights and
+permanent initial-edge/site rules. Change the witness to
+`h=(1,6/5)`, `rho0=967725/10^6`, `L=12`, and the following finite input.
+Value scale is `V=2^20`, coefficient scale `D=2^48`, and `r=12/13`.
+All coefficients are regenerated as exact rationals and rounded upward
+individually. The radius-20 square contains every prefix endpoint, so the
+existing exact-prefix recursion applies directly.
+
+**H3-line finite statement.** Supply four positive vectors z_sigma on
+phase x Q, for sigma=+x,-x,+y,-y. For a free edge of displacement d and
+coefficient w, use the tilted coefficient `w*r^(sigma.d)`. Check every
+ceiling-weighted free row, with a positive integer residual eta. Require
+C,D components to be at least V. Supply two integer line arrays
+`ell_axis(phase,q,k)`, for `-70<=k<=70`, divided by V. Extend each by
+
+`cap_axis(phase,q,k)=min(z_plus(phase,q)*r^k, z_minus(phase,q)*r^(-k))/V`
+
+outside the interval. Check boundary values against exact cap floors and
+use exact cap ceilings for outgoing rows. At k=0 set C,D to one; off k=0
+require `0<=ell_C,ell_D<=1`. Check the free one-coordinate Bellman rows
+for A,B at every k, and for C,D at k!=0. Beyond radius 70, the tilted-vector
+inequalities prove every row analytically. The exponential tail C,D values
+are also at most one there: the exact comparison
+`83704870*12^71 <= 2^20*13^71` bounds even the largest decaying branch. See
+[line_tail_cap.json](data/line_tail_cap.json).
+
+Define globally
+
+`F_infinity(phase,q,x)=min(ell_x(phase,q,x1-v1), ell_y(phase,q,x2-v2))`.
+
+Positivity gives `T(min(f,g))<=min(Tf,Tg)`. Away from v, an A/B minimizing
+line always has its Bellman row available. For C/D, if a minimizing line
+has coordinate zero, its value is one and the other, nonzero-coordinate line
+has value at most one. Choose that other line. Therefore
+`W F_infinity <= F_infinity` off v, and `F_infinity>=g` at v.
+This is the step that replaces the large spatial tail by line arrays.
+
+For each of the five first-direction cases, supply a patch U on `[-20,20]^2`.
+Check `0<=U/V<=F_infinity`, center zero, target `(0,0,1,1)`, and every
+stationary Bellman row with F_infinity substituted outside the patch.
+Outside the patch, monotonicity and U<=F_infinity give the row inequality
+from the free supersolution. Inside, it is a finite checked row. Thus
+`g+T F<=F` globally with the terminal-row convention of Appendix C.
+The existing finite-horizon induction gives every true suffix bound.
+This is a different finite-to-global certificate statement, not a new axiom.
+
+All these integer checks passed:
+
+| Finite part | Component rows | Failures |
+|---|---:|---:|
+| Four shared tilted vectors | 59,856 | 0 |
+| Two shared line potentials | 4,204,884 | 0 |
+| One radius-20 patch | 25,124,556 | 0 |
+| All five patches | 125,622,780 | 0 |
+
+All caps, terminals and off-line upper bounds passed too. Integer monotone
+construction had zero upward updates, and ended at exact fixed points.
+The shared line arrays contain 4,219,848 uint32 values, maximum 10,768,774
+(24 bits). Every patch value fits in 21 bits. The five compressed patch
+files total 292,636,187 bytes. The C integer patch generation/check used
+2203.81 CPU seconds in total; this is native time, not Lean time.
+
+Independent rational prefix evaluation, including exact ordering and integer
+phase accumulation, gives:
+
+| Case | Certified upper bound with denominator 10^9 |
+|---|---:|
+| B/N | 343236463 |
+| B/W | 281251920 |
+| C/N | 522717990 |
+| C/W | 372660908 |
+| C/S | 264538742 |
+
+Hence
+
+`(M1 h)_B <= 967724846/10^9 < 967725/10^6`,
+
+`(M1 h)_C <= 1159917640/10^9 < (6/5)*(967725/10^6)`.
+
+The exact row ratios are .9677248435916523 and .9665980319004569.
+Their margins to one are .0322751564 and .0334019681. Prefix accumulators
+have at most 422 bits. For B/N, changing the unnecessary near-6/5 dyadic h
+to exact 6/5 reduces the prefix common-denominator bit length from the
+archived 84 to 34, and its accumulator from 1014 to 422 bits; the 139985
+nodes and 695232 phase multiplications are unchanged. The complete data/check counts and per-case receipts
+are in [result_summary.json](data/result_summary.json). Logs and exact
+fractions are in `logs/line_*_integer_exact_prefix.json`.
+
+### Optional removal of the separate H2 input
+
+The positive tilted-vector margins already imply an open-trail contraction.
+For the A phase, the exact data have `Zmin=10486`, `Zmax=83704870` and
+`eta/(D*Zmax)>.000125`. Therefore both opposite x-tilted diagonal operators
+obey `W_plus Z_plus <= q Z_plus` and `W_minus Z_minus <= q Z_minus`, with
+`q=7999/8000`. Put `v_q=sqrt(Z_plus,q * Z_minus,q)`. Cauchy-Schwarz gives
+
+`sum_d w_d v_dest <= sqrt((sum_d w_d r^dx Z_plus,dest)*(sum_d w_d r^(-dx) Z_minus,dest)) <= q v_q`.
+
+The memory-ten open-trail lemma now gives H2. The ratio vmax/vmin is less
+than 8000 and
+`8000*(200/(187*q))^10 < 16000`, so CV=16000 is sufficient, including
+prefixes shorter than ten. These are exact rational comparisons in
+[folded_h2.json](data/folded_h2.json). Keeping the original tiny H2 input
+instead gives its better q,CV and avoids this additional proof change.
+Neither choice materially affects finite checking cost or the final theorem.
+The explicit closing calculation remains strict: with retained H2, epsilon
+is about 7.65e-15 and A about 1.04e20; with folded H2, epsilon is about
+1.12e-19 and A about 3.25e27. Exact rational checks and unrounded epsilon
+fractions are in [closing_constants.json](data/closing_constants.json).
+
+## Modified closing argument
+
+In section 6, replace H1 by H1-tree and its reduction lemma above. For every
+actual nonexceptional U departure, every conditional reduced summand has
+`Zcur>=c_type Znext`. Undo its common positive factors and sum over outside
+spins to obtain `Z_E^tau>=c_type Z_Eplus^tau`, hence
+`rho_j^tau<=1/c_type`. D departures still have ratio one and trace weight
+1/5. The one-point lemma and the twelve-exception argument are unchanged.
+
+In section 7, retain the exact logarithmic-mean coefficient table. Its
+hypotheses use the same cs,ct, so no coefficient recomputation is needed.
+Use h=(1,6/5) in the prefix order key and in the straight-before-turn tail
+order. The new finite input proves `M1 h<=rho0 h` with rho0=.967725.
+Use either the original H2 constants or the folded constants above. With
+`C=bar_alpha+2 bar_beta`, `H=max(h)/min(h)=6/5`, set
+
+`b=(1+q)/2`, `r0=q/b`, `B*=2H C CV b^(-2) r0/(1-r0)^3`,
+
+`eps=min((1-b)/2,(1-rho0)/(2B*))`, `theta=1-eps`, `rho=(1+rho0)/2`.
+
+Then `q^2<theta<1`, `rho<1`, and the existing summability calculation gives
+`((Mtheta-M1)h)_X/h_X <= eps B* <= (1-rho0)/2`.
+Consequently `Mtheta h<=rho h`. The recursion is exactly
+
+`F_X(d)<=sum_{Y,s} M_XY,s F_Y(d-s)+CT*q^(2d)`,
+
+`CT=2(12/5)^24*(CV/(1-q))^2`.
+
+Renewal yields `F_X(d)<=A*theta^d` with
+`A=H*max(2,CT)/(1-rho)`. All quantities are finite and positive; no useful
+numerical magnitude is required. Sections 5 and 4 then choose the cut,
+minorization and one sufficiently large square exactly as before. Thus the
+headline existential spectral-gap theorem is unchanged.
+
+In section 8, replace the 7962-pattern operator theorem by H1-tree plus its
+structural reduction, and replace the five radius-70 spatial arrays by the
+shared tilted/line arrays plus five radius-20 patches. Appendix C needs the
+new line-to-plane and patch-to-global lemmas above. Appendix D's Pauli
+inversion, sector reduction and Gram/residual soundness are reused on smaller
+forest polynomials. No native exit status or supplied matrix is a proof of
+its mathematical origin.
+
+## Alternatives tested and rejected
+
+Every result below is a real experiment. A failed supersolution upper bound
+rejects that certificate design; it does not prove the true trail kernel
+has spectral radius at least one.
+
+| Alternative | Measured result | Decision |
+|---|---|---|
+| Tree pruning without the new arrival cut | 688 linked radius boxes, plus 19 scalar triples | Valid fallback; much larger than selected family |
+| Eliminate every D law by a U/zero mixture | 812 maximal boxes | More cases; not selected |
+| Cut all lower correlations with radius 3/5 | 30 boxes; numerical model minima .93051593 and .93149237 for turns | Fails old ct; keep the small lower path and D-tip law |
+| Refined universal forest | 38 models; 22 exact scalar tests and 16 exact Gram witnesses pass | Selected |
+| Memory 4, extension 1, old cs,ct | rate 1.02342434 | Fails |
+| Memory 4, extension 1, near-best uniform .9625,.9357 | rate 1.02238496 | Fails even near the sharp scalar H1 limits |
+| Memory 6, extension 1, .960,.934 | rate 1.00060163 | Fails; weakening H1 by .001 is too much here |
+| Memory 6, extension 4, old cs,ct | rate .99088014, 60092 nonzeros | Valid stronger H2; no H3 solution follows automatically |
+| Memory 6, extension 4, .950,.925 | rate 1.00167119 | Fails |
+| Memory 6, old constant cap, R=35 | B/N bound 1103.46338 | Fails |
+| Memory 8, exponential source-resolvent cap, R=25 | B/N 9.578617 | Fails |
+| Memory 8, improved obstacle cap, R=25 | B/N .89843117 | Fails B row already |
+| Memory 8, improved obstacle cap, R=45 | B row 1.11422812 | Fails |
+| Memory 10, improved exponential cap, R=30 | B 1.01197149, C/hC 1.00084466 | Fails |
+| Memory 10, line cap, R=10 | B/N .66748915 | Fails B row already |
+| Memory 10, line cap, R=20 | exact B .967724844, C/hC .966598032 | Selected |
+| R=10, line cap multiplied by .2, boundary-only condition | B/N .37706617; C/D boundary ratios 1.09406/1.10598 | Invalid outside boundary; fails |
+| R=12, line cap multiplied by .25, boundary-only condition | B row 1.03715374; boundary checks pass numerically | Fails contraction |
+| One unsplit B potential, line cap R=20 | B 1.00716441 | Fails at hC=1.2 |
+| Two unsplit potentials, retuned hC=1.18, R=20 | B .99640025, C/hC 1.02938327 | Fails C; retuning h does not fix this trial |
+| Unit type vector h=(1,1), retained h=1.2 potentials | exact C bound 1.06787340 | Fails this unweighted-row certificate |
+| Free constant exterior with boundary-only domination, R=6 | B/N .97311458; free/boundary rows pass | Fails B row already |
+| Same capacity exterior, R=8 | B/N .59176754; free/boundary rows pass | Fails B row already |
+| Shifted rational radial profiles, R=8 | candidate B/N .69352155; C/D boundary ratios 1.15356/1.12151 | Fails boundary condition and B row |
+
+
+The boundary-only capacity statement drops the unnecessary exterior terminal
+lower bounds and requires U<=Z only on the patch boundary. Its exterior
+vector satisfies WZ<=Z; interior target values remain exact. Joint iteration
+of Z=max(WZ,boundary U) and the patch Bellman operator gives the tabled
+valid, noncontracting bounds. Thus this straightforward relaxation does not
+supply the missing factor at R=6 or 8.
+
+The radial search used positive diagonal resolvent gauges, two Poisson
+correctors per phase (centered to remove their additive constant), and
+profiles `a_p v_p(q)/(s+|x-v+chi_p(q)|^2)^k_p`. Corrector norms are below 3.60;
+the diagonal phase growth values are .9795327864, .9405996164, .9405996164,
+and .9265148982. Powers (1,1,2,2) and several half-power choices and smoothing
+scales 1 through 1024 were tested. At s=1024,R=8 the sampled free rows could
+be made contracting, but the needed A amplitude was 2.71 times the fitted
+boundary amplitude. The ensuing patch failed the C/D boundary tests quoted
+above. Sampling these radial tails was screening, not an exact global proof;
+no radial certificate is claimed. Raw and centered searches, fitted
+amplitudes, parameters and failure logs are retained under data/logs.
+
+An exact obstruction strengthens the memory-four screening result. A positive
+41-bit integer vector on all 108 windows satisfies
+`A4 v >= (33854565862584625/33126722421158808) v > 1.02197148 v`,
+even at the optimistic constants cs=.963,ct=.936. Thus there is no positive
+u with A4 u<=q u, q<1, for that one-step matrix: take a coordinate maximizing
+v/u to get a contradiction. This also excludes weaker constants within the
+same local-pin and one-step-memory scheme. It does not exclude block extensions
+or a changed state/potential. The exact rows, argument and vector are in
+[h2_m4_obstruction.json](data/h2_m4_obstruction.json) and
+[h2_m4_obstruction_vector.json](data/h2_m4_obstruction_vector.json).
+
+The weighted-lumping experiment used a positive resolvent gauge of the full
+memory-ten A matrix (growth .9795327864), projected it to shorter memories,
+and bounded each transformed direction coefficient by its class maximum.
+For five tested gauge shifts, the best resulting growth bounds were:
+
+| Coarse memory | States | Best measured envelope growth |
+|---|---:|---:|
+| 6 | 124 | 2.42302396 |
+| 7 | 192 | 2.26079661 |
+| 8 | 685 | 1.31623166 |
+| 9 | 1128 | 1.25333542 |
+
+Thus this concrete positivity-based coarsening loses too much correlation
+between outgoing directions. It is not a viable small-matrix replacement.
+The records are in [weighted_lump.json](data/weighted_lump.json).
+
+## Kernel cost, levels and risk
+
+**Measured finite arithmetic is not measured full Lean time.** Existing costs
+115 CPU-hours and 20 CPU-hours are the brief's baselines. Existing production
+H1 stage forecasts are 79.64 h constructors, 8.51 h Gram and 15.30 h local
+parameters. Applying the measured 327-512x reductions gives a provisional
+H1 range **10-35 minutes of Lean CPU**, depending on construction/sharing and
+how the new structural coverage lemma is proved. Sixteen modules also remove
+most per-pattern import overhead. Literal data are well below 10 MB, even
+with straightforward packing. This is a credible Level A target, not a
+validated <=15-minute result. It is comfortably a Level B design estimate.
+
+A pure-Std, module-header Lean probe of an actual largest 66-dimensional
+integer Gram witness has passed with axioms `[propext]`: 47.92 user seconds,
+.50 system seconds, 3,063,956 KiB RSS. Source:
+[GramPacked66.lean](probes/GramPacked66.lean). This checks its literal Gram
+arithmetic; it does not prove matrix reconstruction or H1-tree soundness.
+The full set of 16 literal Gram checks passed in fresh processes: **108.07 CPU seconds total**, maximum **3,061,888 KiB RSS**, all with exactly `[propext]`. Receipts: [gram_kernel_receipts.json](data/gram_kernel_receipts.json).
+A 14-dimensional structural-list probe passed in .97 CPU seconds with
+511,788 KiB RSS. Initial naive array/list probes either timed out or exposed
+a module visibility error; they are not acceptance evidence. The module
+visibility error was fixed before these successful probes. All successful
+probe axioms are within the allowed set. No native_decide was used.
+
+For H3, the new arithmetic row count is 129,887,520, compared with
+1,487,421,600 in the original design: **11.45x**, not 100x. At comparable
+packed-checker throughput the 20-hour baseline suggests **about 1.75 CPU-hours**;
+a realistic unmeasured range is **1-3 CPU-hours** including prefixes, decoding
+and sharing. The line arrays add about 3.4% to the patch row count.
+At 21 bits per patch value, 24 per line value and 27 per tilted entry,
+compact packed literals need at most 2,744,113,284 data bits. Decimal literal
+characters are approximately **826 MB**, plus syntax and declarations.
+This fits the Level B literal target if values remain compact in the export;
+exporting widened 80-bit guard planes as literals would waste that advantage.
+It does not fit Level A's ~200 MB target. Native arrays fit easily below
+4 GiB, but no full new Lean process/RSS bound has been measured for H3.
+
+Every generated Lean source can be split below 10,000 physical lines and
+begin with `module`; the checked probe files already do. This is a packaging
+obligation, not a reason to hide certificates outside the submitted source tree.
+The Challenge statement can remain the unchanged existential headline theorem.
+
+The combined package therefore reaches **a numerically validated Level B
+candidate**, with H1 near Level A. Neither level has been demonstrated by a
+clean build and independent replays. A serial Lean replay plus a 5x NanoDa
+replay of a ~2-hour certificate can exceed the 5.5-hour shared budget by a
+large margin. More build CPUs alone do not fix serial replay time. The safe
+Level A/default-profile target remains open.
+
+Ranked by an explicit engineering judgement of success probability times
+finite-work reduction (probabilities are estimates, not measured frequencies):
+
+1. **H1-tree:** probability .8 that the new finite semantic/coverage proof and
+   constructor can be completed without a new obstruction; measured work
+   reduction 327-512x, score about 300. Main risks are bookkeeping of the
+   positive arrival cut, correct partial-pin treatment and efficient new
+   forest reconstruction. All required numerical inputs already pass.
+2. **H3-line:** probability .9 that the small new min/extension lemmas and the
+   current integer arrays can be formalized; measured reduction 11.45x,
+   score about 10.3. The proof structure uses only positive operators and
+   exact rational comparisons. The unresolved risk is production fit, not
+   numerical contraction. This should be combined with H1-tree, but is not
+   the requested two-order reduction for H3.
+
+The next mathematical target is to reduce H3's position/memory product by
+another factor of roughly 8-15 while preserving its .032 contraction margin.
+The tested smaller-memory, scaled-tail, unsplit-case and direction-envelope
+routes above do not achieve that. No untested idea is presented as a result.
+
+## Reproduction and receipts
+
+Python numerical dependencies are local in pydeps; use
+`PYTHONPATH=pydeps OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1`. Key commands:
+
+```
+python3 programs/h1_universal_final.py
+python3 programs/universal_final_cert.py
+python3 programs/universal_exact.py
+python3 programs/universal_mean_checks.py
+python3 programs/independent_enumeration.py
+```
+
+The independent audit also reruns the universal reduction on the newly
+enumerated patterns and compares the mathematical descriptors, ignoring
+archived IDs and coordinate labels. It gives exactly the same 38 entries.
+
+For H3, `programs/tilted_axes_slack.py` generates search vectors at
+`a=log(13/12)`, then `prepare_integer_h3.py` reconstructs all exact coefficients,
+checks the tilted rows and writes the integer initial/tail data. Compile
+`integer_line.c` and run it with the supplied automaton to build/check
+`line_integer.bin`. Compile `integer_patch.c` and run the five `(X,d)` cases
+with radius 20, then run `exact_line_prefix.py` on each resulting gzip file.
+Commands, full stdout and errors are retained in logs. The patch gzip files
+retain the legacy nine-word header and a four-vector block for the existing
+prefix reader. That block contains line-at-zero values; the exterior witness
+is the separate tilted/line data, rather than that legacy block. The new
+integer line/patch checks define their validation. The exact integer
+files, the quotient and new source scripts are listed with SHA-256 in
+[manifest.json](data/manifest.json); hashes are provenance, not proof evidence.
+[result_summary.json](data/result_summary.json) contains exact counts and
+per-case receipts. The exact mathematical statements and closing inequalities
+are specified above, so the measured data do not become assumptions of the
+headline theorem once their Lean checkers and semantic lemmas are proved.
+
+## ORCH-SUMMARY
+- PARTIAL: the default 16 CPU/32 GiB verifier fit is not established.
+- H1 statement change works numerically: 38 universal forests, 22 scalar tests, 16 matrices.
+- Largest H1 matrix 66; 37-bit normalized entries, 19-bit factors.
+- H1 reductions: 379x coefficient nonzeros, 327x matrix cells, 465x Gram products.
+- H1 witnesses/mean checks are exact; independent raw enumeration reproduces all 38 models.
+- All 16 literal Gram witnesses pass Lean: 108.07 CPU s total / 2.92 GiB maximum, propext only.
+- H1 full cost estimate 10-35 min; Level A not yet demonstrated.
+- H3 statement change works exactly: shared line tails plus five radius-20 patches.
+- New h=(1,6/5), scales 2^20/2^48, spatial ratio 12/13, prefix 12, memory 10.
+- Every tilted/line/patch row, cap and terminal passes; exact rho<=.967725.
+- H3 row count falls 11.45x; estimated 1-3 Lean CPU h and ~826 MB compact literal characters.
+- H3 is a Level B candidate, not Level A; no new full clean build/Comparator/NanoDa run exists.
+- The tilted rows also imply H2 with q=7999/8000, CV=16000; retaining old H2 is simpler.
+- Smaller-memory, direction-lumping, scaled-small-patch and unsplit-case alternatives were tested and fail.
+- New semantic Lean lemmas and constructors remain; no native_decide or new axioms are proposed.

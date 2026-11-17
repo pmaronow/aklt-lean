@@ -1,0 +1,164 @@
+def AKLT.Blueprint.Win.OverlapMinorizationStatement : Prop :=
+∀ (Ω : Type) (x : Fintype Ω) (p q ν : AKLT.Defs.Weight Ω),
+  @AKLT.Defs.Probability Ω x p →
+    @AKLT.Defs.Probability Ω x q →
+      @AKLT.Defs.Probability Ω x ν →
+        ∀ (p₀ : Real),
+          @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) p₀ →
+            (∀ (s : Ω),
+                @LE.le Real Real.instLE (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) p₀ (ν s)) (p s)) →
+              (∀ (s : Ω),
+                  @LE.le Real Real.instLE (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) p₀ (ν s)) (q s)) →
+                @LE.le Real Real.instLE (@AKLT.Defs.totalVariation Ω x p q)
+                  (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) p₀)
+def AKLT.Blueprint.Win.BoundedTiltStatement : Prop :=
+∀ (Ω : Type) [inst : Fintype Ω] [Nonempty Ω] (w : AKLT.Defs.Weight Ω),
+  (∀ (s : Ω), @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) (w s)) →
+    ∀ (E : Real),
+      @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) E →
+        And (@AKLT.Defs.PositiveProbability Ω inst (@AKLT.Defs.normalize Ω inst w))
+          (∀ (e : Ω → Real),
+            (∀ (s : Ω), @LE.le Real Real.instLE (@abs Real Real.lattice Real.instAddGroup (e s)) E) →
+              And
+                (@AKLT.Defs.PositiveProbability Ω inst
+                  (@AKLT.Defs.normalize Ω inst fun s =>
+                    @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (w s)
+                      (Real.exp (@Neg.neg Real Real.instNeg (e s)))))
+                (∀ (s : Ω),
+                  And
+                    (@LE.le Real Real.instLE
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (Real.exp
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@Neg.neg Real Real.instNeg
+                              (@OfNat.ofNat Real (nat_lit 2)
+                                (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast
+                                  AKLT.Blueprint.Win.BoundedTiltStatement._proof_1)))
+                            E))
+                        (@AKLT.Defs.normalize Ω inst w s))
+                      (@AKLT.Defs.normalize Ω inst
+                        (fun s =>
+                          @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (w s)
+                            (Real.exp (@Neg.neg Real Real.instNeg (e s))))
+                        s))
+                    (@LE.le Real Real.instLE
+                      (@AKLT.Defs.normalize Ω inst
+                        (fun s =>
+                          @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (w s)
+                            (Real.exp (@Neg.neg Real Real.instNeg (e s))))
+                        s)
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (Real.exp
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@OfNat.ofNat Real (nat_lit 2)
+                              (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast
+                                AKLT.Blueprint.Win.BoundedTiltStatement._proof_1))
+                            E))
+                        (@AKLT.Defs.normalize Ω inst w s)))))
+def AKLT.Blueprint.Win.TailExponentialStatement : Prop :=
+∀ (θ : ℝ),
+  0 < θ →
+    θ < 1 →
+      ∀ (u : ℕ),
+        1 ≤ u → AKLT.Blueprint.Win.tailCost θ u ≤ AKLT.Blueprint.Win.tailConstant θ * AKLT.Defs.shellSpacing u ^ (-2)
+def AKLT.Blueprint.Win.WindowRewriteStatement : Prop :=
+∀ (κ : AKLT.Defs.Plane → Fin 3) (F B X G₁ G₂ : Finset AKLT.Defs.Plane),
+  AKLT.Blueprint.Win.SeparatingCut F B X G₁ G₂ →
+    ∀ (unit : ∀ (j : Fin 3) (a : AKLT.Defs.IcoLetter), AKLT.Defs.normSq (AKLT.Defs.frameVector j a) = 1),
+      (∀ (G Y : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G),
+          (0 < AKLT.Defs.pinnedSum G Y τ fun x => 1) ∧ 0 < AKLT.Defs.freeSum G Y fun x => 1) →
+        (∀ (s : AKLT.Defs.PlaneConfiguration B), 0 < AKLT.Blueprint.Win.windowWeight κ B s) →
+          (∀ (η : AKLT.Defs.FrameBoundary F),
+              AKLT.Defs.planeMarginal κ F B η =
+                AKLT.Defs.normalize fun s =>
+                  AKLT.Blueprint.Win.windowWeight κ B s *
+                    AKLT.Defs.pinnedSum (F \ B) ∅ (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit η s) fun x => 1) →
+            (∀ (τ : AKLT.Defs.PinAssignment (F \ B)),
+                (AKLT.Defs.pinnedSum (F \ B) X τ fun x => 1) =
+                  AKLT.Blueprint.Win.componentSum (F \ B) G₁ τ * AKLT.Blueprint.Win.componentSum (F \ B) G₂ τ) →
+              (∀ (η ξ : AKLT.Defs.FrameBoundary F) (s t : AKLT.Defs.PlaneConfiguration B),
+                  AKLT.Blueprint.Win.componentSum (F \ B) G₁ (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit η s) =
+                      AKLT.Blueprint.Win.componentSum (F \ B) G₁ (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit ξ s) ∧
+                    AKLT.Blueprint.Win.componentSum (F \ B) G₂ (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit η s) =
+                      AKLT.Blueprint.Win.componentSum (F \ B) G₂ (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit η t)) →
+                ∃ w,
+                  (∀ (s : AKLT.Defs.PlaneConfiguration B), 0 < w s) ∧
+                    ∀ (η : AKLT.Defs.FrameBoundary F),
+                      AKLT.Defs.planeMarginal κ F B η =
+                        AKLT.Defs.normalize fun s =>
+                          w s *
+                            Real.exp
+                              (-AKLT.Blueprint.Win.cutError (F \ B) X
+                                  (AKLT.Blueprint.Win.cutPins κ (F \ B) F B unit η s))
+def AKLT.Defs.shellSpacing : ℕ → ℝ :=
+fun u => √√↑u
+def AKLT.Blueprint.Top.ThreeFramesStatement : Prop :=
+AKLT.Defs.frameRotation.transpose * AKLT.Defs.frameRotation = 1 ∧
+  AKLT.Defs.frameRotation.det = 1 ∧
+    0 < AKLT.Defs.frameBound ∧
+      AKLT.Defs.frameBound < 1 ∧
+        0 < AKLT.Defs.frameRatio ∧
+          AKLT.Defs.frameRatio < 1 ∧
+            (∀ (j : Fin 3),
+                Function.Injective (AKLT.Defs.frameVector j) ∧
+                  (∀ (a : AKLT.Defs.IcoLetter), AKLT.Defs.normSq (AKLT.Defs.frameVector j a) = 1) ∧
+                    (∀ (a : AKLT.Defs.IcoLetter), ∃ b, AKLT.Defs.frameVector j b = -AKLT.Defs.frameVector j a) ∧
+                      ∀ (p : MvPolynomial (Fin 3) ℝ),
+                        AKLT.Defs.DegreeFour p →
+                          1 / 12 * ∑ a, (MvPolynomial.eval (AKLT.Defs.frameVector j a)) p =
+                            AKLT.Defs.moment fun a => (MvPolynomial.eval a) p) ∧
+              (∀ (i j : Fin 3),
+                  i ≠ j →
+                    ∀ (a b : AKLT.Defs.IcoLetter),
+                      AKLT.Defs.frameBound ≤ 1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+                        1 + AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ≤
+                            2 - AKLT.Defs.frameBound ∧
+                          AKLT.Defs.frameBound ≤
+                              1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ∧
+                            1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) ≤
+                                2 - AKLT.Defs.frameBound ∧
+                              AKLT.Defs.frameVector i a ≠ AKLT.Defs.frameVector j b ∧
+                                AKLT.Defs.frameVector i a ≠ -AKLT.Defs.frameVector j b) ∧
+                ∃ i j,
+                  i ≠ j ∧
+                    ∃ a b,
+                      1 - AKLT.Defs.dot (AKLT.Defs.frameVector i a) (AKLT.Defs.frameVector j b) = AKLT.Defs.frameBound
+Pi.instNonempty
+Pi.instNonempty
+def AKLT.Blueprint.Win.tailCost : Real → Nat → Real :=
+fun θ u =>
+  @HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@OfNat.ofNat Real (nat_lit 4)
+        (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast AKLT.Blueprint.Win.tailCost._proof_1))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 2)
+              (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast AKLT.Blueprint.Win.pairSum._proof_1))
+            (@Nat.cast Real Real.instNatCast u))
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) θ
+      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (AKLT.Defs.shellSpacing u)
+          (@OfNat.ofNat Real (nat_lit 12)
+            (@instOfNatAtLeastTwo Real (nat_lit 12) Real.instNatCast AKLT.Blueprint.Win.taper._proof_1)))
+        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+def AKLT.Blueprint.Win.TailExponentialStatement : Prop :=
+∀ (θ : Real),
+  @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) θ →
+    @LT.lt Real Real.instLT θ (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) →
+      ∀ (u : Nat),
+        @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) u →
+          @LE.le Real Real.instLE (AKLT.Blueprint.Win.tailCost θ u)
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (AKLT.Blueprint.Win.tailConstant θ)
+              (@HPow.hPow Real Int Real
+                (@instHPow Real Int (@ZPow.toPow Real (@DivInvMonoid.toZPow Real Real.instDivInvMonoid)))
+                (AKLT.Defs.shellSpacing u)
+                (@Neg.neg Int Int.instNegInt (@OfNat.ofNat Int (nat_lit 2) (@instOfNat (nat_lit 2))))))
+Real.pow_div_factorial_le_exp (x : ℝ) (hx : 0 ≤ x) (n : ℕ) : x ^ n / ↑n.factorial ≤ Real.exp x
+Real.rpow_def_of_pos {x : ℝ} (hx : 0 < x) (y : ℝ) : x ^ y = Real.exp (Real.log x * y)
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x

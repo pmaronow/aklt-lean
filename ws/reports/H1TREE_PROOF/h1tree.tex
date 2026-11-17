@@ -1,0 +1,1190 @@
+% Standalone section. Packages: amsmath,amssymb,amsthm,array,longtable,booktabs.
+% A minimal compiling wrapper is wrapper.tex in this directory.
+\newtheorem{htthm}{Theorem}[section]
+\newtheorem{htlem}[htthm]{Lemma}
+\newtheorem{htdef}[htthm]{Definition}
+\newtheorem{htprop}[htthm]{Proposition}
+\newtheorem{htrem}[htthm]{Remark}
+\newcommand{\htU}{\mathrm U}
+\newcommand{\htD}{\mathrm D}
+\newcommand{\htX}{\mathrm X}
+\newcommand{\htM}[2]{#1_{\rm m}(#2)}
+\newcommand{\htV}[2]{#1[#2]}
+\newcommand{\htcur}{Z_{\rm cur}}
+\newcommand{\htnext}{Z_{\rm next}}
+\newcommand{\htF}{F_c}
+\newcommand{\htball}{\overline B}
+\section{A tree input for the actual local passage}\label{ht:section}
+
+References prefixed by P refer to the supplied version of the paper
+\emph{The spectral gap of the spin-2 AKLT model on the square lattice}.
+In particular, P.Definitions 2.1, 2.3, 6.1, 6.2, 6.8 and 6.9 define,
+respectively, the laws, pins, domains, trace, covered patterns and (H1).
+P.Lemmas 7.2 and 7.3 identify the non-exceptional departures.
+We prove the inequality needed at those departures, with
+\begin{equation}\label{ht:constants}
+ c_{\rm s}=961/1000,\qquad c_{\rm t}=187/200.
+\end{equation}
+The replacement is a computer-assisted statement with explicitly specified
+finite rational checks. It does not require the old pattern catalogue.
+
+\begin{htrem}[Scope of the replacement]\label{ht:scope}
+P.Definition 6.8 fills two external slots at every D corner, even when
+that corner has two present internal bonds. An actual D corner cannot
+have these additional factors: its kept set has size two and it carries
+no original pin. Consequently the argument below proves the actual
+local conclusion of P.Lemma 6.10, not the larger covered-pattern assertion
+in P.Definition 6.9. In uses of (H1) in Sections 6--7, replace its
+hypothesis by Theorem~\ref{ht:reduction}. P.Lemmas 7.2 and 7.3 supply
+its geometric hypotheses, and the same exceptional bound is retained.
+No assertion that the larger covered-pattern inequality is false is made.
+\end{htrem}
+
+\begin{htdef}[Laws and local factors]\label{ht:laws}
+Let \(D\) be the twelve unit vectors of P.Definition 2.1 and let
+\(\lambda_{\htU}\) be the uniform probability on \(D\). Put
+\(\lambda_{\htD}=(3/5)\lambda_{\htU}+(2/5)\delta_0\).
+Integration always means a finite sum. A field \(a\), \(|a|\le1\),
+contributes \(1+a\cdot n\), and a bond contributes \(1+n\cdot n'\).
+The moments needed here, from P.Lemma 2.2, are
+\begin{equation}\label{ht:moments}
+ \lambda_{\htU}(n_i)=\lambda_{\htU}(n_in_jn_k)=0,\quad
+ \lambda_{\htU}(n_in_j)=\delta_{ij}/3,\quad
+ \lambda_{\htU}(n_in_jn_kn_l)
+ =\frac{\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}
+                +\delta_{il}\delta_{jk}}{15}.
+\end{equation}
+Both laws have constant moment one. Every positive-degree D moment
+through degree four is \(3/5\) times the corresponding U moment.
+These tensors, including their orthogonal covariance, can be used at
+each site whenever the separate degree is at most four.
+\end{htdef}
+
+\begin{htlem}[Positive normalizers, affinity, and leaf summation]
+\label{ht:elementary}
+A product of at most four field or bond factors at a site has a strictly
+positive single-site normalizer when the other spins are fixed in the
+closed unit ball. The same holds for a finite network with at most four
+incident factors at every site. If a leaf has law \(\lambda\), external
+weight \(W\), normalizer \(A=\lambda(W)\), and mean
+\(\mu=\lambda(nW)/A\), integrating its bond to \(x\) gives
+\begin{equation}\label{ht:leaf}
+ A(1+\mu\cdot n_x).
+\end{equation}
+With at most two unit-ball fields a U mean has norm at most \(1/2\).
+With at most one unit-ball field a D mean has norm at most \(1/5\);
+with its sole field of radius \(3/5\) it has norm at most \(3/25\).
+With at most three unit-ball fields either law has mean norm at most
+\(3/5\).
+
+An inequality separately affine in vectors and valid when their norms
+are the listed radii is valid throughout their product of closed balls.
+Inserting a zero field is exact. Enlarging a listed radius is legitimate
+in this sense, without any monotonicity assertion about partition ratios.
+\end{htlem}
+\begin{proof}
+All factors are nonnegative. A factor with a vector of norm at most one
+can exclude at most one of the twelve U letters. Greedily choosing a
+letter at each site excludes at most four letters and produces a strictly
+positive summand, exactly as in P.Lemma 2.4. This also proves the
+single-site assertion and covers D laws because they give positive mass
+to every U letter. Formula~\eqref{ht:leaf} is linearity of integration.
+For two unit U fields \(a,b\), write \(t=a\cdot b\). The normalizer
+and unnormalized mean are \(A=1+t/3\), \(V=(a+b)/3\), and
+\(A^2-4|V|^2=(1-t)^2/9\ge0\). For one D field \(a\), they are
+\(A=1\), \(V=a/5\). The three-field bound is P.Lemma 2.5.
+
+For radius \(r>0\), any \(|a|\le r\) has, for some unit \(e\),
+\begin{equation}\label{ht:convexfield}
+ 1+a\cdot n=\frac{1+|a|/r}{2}(1+re\cdot n)
+             +\frac{1-|a|/r}{2}(1-re\cdot n).
+\end{equation}
+Both coefficients are nonnegative and sum to one. When \(a=0\),
+choose any \(e\); when \(r=0\) there is nothing to prove.
+Expansion proves the affine assertion and also fills missing factors.
+For a normalized mean this expansion gives weights
+\(t_\eta A_\eta/\sum_\xi t_\xi A_\xi\), all nonnegative.
+Thus bounds on means extend to balls as well. Normalizers are positive
+by the first part. The displayed two-field computation therefore covers
+fewer fields and all field norms at most one.
+\end{proof}
+
+\begin{htdef}[Tree models and their passage polynomials]\label{ht:models}
+A model is a disjoint union of paths. A spin vertex has law U or D,
+a list of field radii in \([0,1]\), and a mark indicating that it was a
+neighbour of the passage site. At most three vertices are marked.
+At most one of them has an outgoing mark, which is allowed to be absent.
+An isolated marked mean vertex has instead a deterministic vector
+\(m\in\htball(0,R)\), with its specified radius \(R\), and contributes
+no integration or field factor. A bond joins consecutive spin vertices;
+mean vertices are isolated. Each listed radius \(r\) denotes the factor
+\(1+ru\cdot n\), where its unit direction \(u\) is arbitrary.
+
+Let \(\mathcal W\) be the product of the laws, path bonds and field
+factors, and write
+\begin{equation}\label{ht:polynomials}
+ Z=\int\mathcal W,\qquad
+ C_{ij}=\int (n_i\cdot n_j)\mathcal W,\qquad
+ \htcur=Z+\frac13\sum_{\{i,j\}\subset M}C_{ij},\qquad
+ \htnext=Z+\frac15 C_{fg}.
+\end{equation}
+Here \(M\) is the marked set, insertion at a mean vertex means insertion
+of its deterministic vector, and the last term is present exactly when
+there are two non-outgoing marked vertices \(f,g\). If the outgoing mark
+is absent, all marked vertices are non-outgoing; our list then has at
+most two marks. In every case without exactly two non-outgoing marks, the last term is
+zero. Put \(F_c=\htcur-c\htnext\). All listed mean radii are at
+most one. Thus \(Z>0\), \(\htnext\ge4Z/5>0\), and
+\(\htcur\ge Z/2>0\): the latter follows from
+\(\sum_{i<j}n_i\cdot n_j=(|\sum_i n_i|^2-\sum_i|n_i|^2)/2
+\ge-3/2\).
+
+The precise list is Table~\ref{ht:modeltable}, with zero-based indices.
+Coordinates are only convenient names:
+\[
+ \begin{gathered}
+ E=(1,0),\ A=(1,1),\ N=(0,1),\ B=(-1,1),\ W=(-1,0),\\
+ L=(-1,-1),\ S=(0,-1),\ R=(1,-1).
+ \end{gathered}
+\]
+Every included \(E,N,W\) is marked. The outgoing mark is \(E\) in a
+turning row and \(N\) in a straight row, if that vertex is included.
+\(\htM{x}{r}\) means an isolated mean vertex of radius \(r\).
+\(\htV{x}{r_1,\ldots,r_k}\) means a U spin vertex with those radii.
+The undecorated letters \(A,B,L,R\) mean unmarked U vertices with
+radii \((1,1)\), and \(S\) means an unmarked D vertex without fields.
+Hyphens join consecutive vertices; semicolons separate components.
+Zero radii are displayed and are literal zero fields.
+\end{htdef}
+
+\begin{htdef}[H1-tree]\label{ht:input}
+For each of the 38 rows of Table~\ref{ht:modeltable}, for every independent
+choice of all unit field directions and all mean vectors in their
+listed balls, require
+\begin{equation}\label{ht:h1tree}
+ \htcur\ge c_{\rm type}\htnext.
+\end{equation}
+Equivalently one may require each mean vector on the boundary of its
+ball, by Lemma~\ref{ht:elementary}. This is the finite list of universal
+inequalities called H1-tree.
+\end{htdef}
+
+\begingroup\small
+\begin{longtable}{@{}rcp{0.84\textwidth}@{}}
+\caption{The complete finite input.}\label{ht:modeltable}\\
+\toprule Index & Type & Components\\\midrule\endfirsthead
+\toprule Index & Type & Components (continued)\\\midrule\endhead
+\bottomrule\endfoot
+0 & t & \(\htM{E}{\frac{11329}{25630}}\)\\[2pt]
+1 & t & \(\htM{W}{\frac{167}{440}}\ ;\quad \htM{E}{\frac{226}{495}}\)\\[2pt]
+2 & t & \(\htM{W}{\frac{226}{495}}\ ;\quad \htM{E}{\frac{167}{440}}\)\\[2pt]
+3 & t & \(\htM{W}{\frac{169}{385}}\ ;\quad \htM{E}{\frac{169}{385}}\)\\[2pt]
+4 & t & \(\htM{W}{\frac{11329}{25630}}\)\\[2pt]
+5 & t & \(\htV{N}{\frac{1}{2},\frac{3}{5}}\! -\! A\! -\! \htV{E}{\frac{137}{265},\frac{3}{5}}\)\\[2pt]
+6 & t & \(\htM{N}{\frac{10}{39}}\ ;\quad \htM{W}{\frac{5}{14}}\ ;\quad \htM{E}{\frac{1}{5}}\)\\[2pt]
+7 & t & \(\htM{N}{\frac{1}{5}}\ ;\quad \htM{W}{\frac{5}{14}}\ ;\quad \htM{E}{\frac{5}{14}}\)\\[2pt]
+8 & t & \(\htM{N}{\frac{3}{25}}\ ;\quad \htM{W}{\frac{451}{1125}}\ ;\quad \htM{E}{\frac{451}{1125}}\)\\[2pt]
+9 & t & \(\htM{N}{\frac{1}{6}}\ ;\quad \htM{W}{\frac{22429}{58525}}\)\\[2pt]
+10 & t & \(\htM{W}{\frac{137}{795}}\ ;\quad \htM{N}{\frac{167}{440}}\)\\[2pt]
+11 & t & \(\htM{N}{\frac{1}{3}}\ ;\quad \htM{W}{\frac{740}{2193}}\)\\[2pt]
+12 & t & \(\htM{W}{\frac{451}{1125}}\ ;\quad \htV{N}{0,0}\! -\! A\! -\! \htV{E}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+13 & t & \(\htM{W}{\frac{1}{5}}\ ;\quad \htV{N}{\frac{1}{5},\frac{3}{5}}\! -\! A\! -\! \htV{E}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+14 & t & \(\htM{W}{\frac{5}{14}}\ ;\quad \htV{N}{0,\frac{3}{5}}\! -\! A\! -\! \htV{E}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+15 & t & \(\htV{N}{\frac{1}{2},\frac{3}{5}}\! -\! B\! -\! \htV{W}{\frac{137}{265},\frac{3}{5}}\)\\[2pt]
+16 & t & \(\htM{E}{\frac{1}{5}}\ ;\quad \htV{N}{\frac{1}{5},\frac{3}{5}}\! -\! B\! -\! \htV{W}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+17 & t & \(\htM{E}{\frac{451}{1125}}\ ;\quad \htV{N}{0,0}\! -\! B\! -\! \htV{W}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+18 & t & \(\htM{E}{\frac{5}{14}}\ ;\quad \htV{N}{0,\frac{3}{5}}\! -\! B\! -\! \htV{W}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+19 & t & \(\htV{W}{\frac{3}{5},\frac{3}{5}}\! -\! B\! -\! \htV{N}{\frac{3}{5}}\! -\! A\! -\! \htV{E}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+20 & t & \(\htV{W}{\frac{1}{2},\frac{3}{5}}\! -\! L\! -\! S\! -\! R\! -\! \htV{E}{\frac{1}{2},\frac{3}{5}}\)\\[2pt]
+21 & s & \(\htM{E}{\frac{11329}{25630}}\)\\[2pt]
+22 & s & \(\htM{W}{\frac{137}{795}}\ ;\quad \htM{N}{\frac{167}{440}}\)\\[2pt]
+23 & s & \(\htM{E}{\frac{22429}{58525}}\ ;\quad \htM{N}{\frac{1}{6}}\)\\[2pt]
+24 & s & \(\htM{E}{\frac{740}{2193}}\ ;\quad \htM{N}{\frac{1}{3}}\)\\[2pt]
+25 & s & \(\htM{N}{\frac{169}{385}}\)\\[2pt]
+26 & s & \(\htV{E}{\frac{137}{265},\frac{3}{5}}\! -\! A\! -\! \htV{N}{\frac{1}{2},\frac{3}{5}}\)\\[2pt]
+27 & s & \(\htM{W}{\frac{167}{440}}\ ;\quad \htM{E}{\frac{169}{385}}\)\\[2pt]
+28 & s & \(\htM{W}{\frac{317}{1025}}\ ;\quad \htM{E}{\frac{226}{495}}\)\\[2pt]
+29 & s & \(\htM{E}{\frac{1}{5}}\ ;\quad \htM{W}{\frac{1}{5}}\ ;\quad \htM{N}{\frac{317}{1025}}\)\\[2pt]
+30 & s & \(\htM{W}{\frac{1}{5}}\ ;\quad \htM{E}{\frac{5}{14}}\ ;\quad \htM{N}{\frac{10}{39}}\)\\[2pt]
+31 & s & \(\htM{E}{\frac{451}{1125}}\ ;\quad \htM{W}{\frac{451}{1125}}\ ;\quad \htM{N}{\frac{3}{25}}\)\\[2pt]
+32 & s & \(\htM{E}{\frac{5}{14}}\ ;\quad \htM{W}{\frac{5}{14}}\ ;\quad \htM{N}{\frac{1}{5}}\)\\[2pt]
+33 & s & \(\htM{W}{\frac{1}{5}}\ ;\quad \htV{E}{\frac{3}{5},\frac{3}{5}}\! -\! A\! -\! \htV{N}{\frac{1}{5},\frac{3}{5}}\)\\[2pt]
+34 & s & \(\htM{E}{\frac{5}{14}}\ ;\quad \htV{W}{\frac{3}{5},\frac{3}{5}}\! -\! B\! -\! \htV{N}{0,\frac{3}{5}}\)\\[2pt]
+35 & s & \(\htM{W}{\frac{451}{1125}}\ ;\quad \htV{E}{\frac{3}{5},\frac{3}{5}}\! -\! A\! -\! \htV{N}{0,0}\)\\[2pt]
+36 & s & \(\htV{W}{\frac{3}{5},\frac{3}{5}}\! -\! B\! -\! \htV{N}{\frac{3}{5}}\! -\! A\! -\! \htV{E}{\frac{3}{5},\frac{3}{5}}\)\\[2pt]
+37 & s & \(\htV{W}{\frac{1}{5},\frac{3}{5}}\! -\! L\! -\! S\! -\! R\! -\! \htV{E}{\frac{1}{2},\frac{3}{5}}\)\\[2pt]
+\end{longtable}
+\endgroup
+
+\begin{htlem}[Finite unequal-radius mean bounds]\label{ht:meanbern}
+For each row of Table~\ref{ht:meantable}, a site with its indicated law,
+three fields of norms at most \((r_1,r_2,r_3)\), and no other factors,
+has normalized mean of norm at most the listed \(R\). A zero radius
+permits an absent factor. These 21 statements follow from 567 explicit
+nonnegative rational Bernstein coefficients, specified below.
+\end{htlem}
+\begin{proof}
+First put all nonzero fields on their prescribed spheres, and denote
+them by \(a,b,c\). Set
+\[
+ x=a\cdot b,\quad y=a\cdot c,\quad z=b\cdot c,\quad
+ V=(5+z)a+(5+y)b+(5+x)c,\quad
+ d=\begin{cases}3&\htU,\\5&\htD.\end{cases}
+\]
+Equation~\eqref{ht:moments} gives exactly
+\begin{equation}\label{ht:meanformula}
+ \mu=\frac{V}{5(d+x+y+z)},\qquad
+ R=\frac{(r_1+r_2+r_3)/3+r_1r_2r_3/5}
+ {d/3+(r_1r_2+r_1r_3+r_2r_3)/3}.
+\end{equation}
+The denominator of the mean is positive by Lemma~\ref{ht:elementary}.
+Consider
+\begin{align}\label{ht:bernpoly}
+ P(x,y,z)={}&25R^2(d+x+y+z)^2
+  -(5+z)^2r_1^2-(5+y)^2r_2^2-(5+x)^2r_3^2\notag\\
+ &-2x(5+z)(5+y)-2y(5+z)(5+x)-2z(5+y)(5+x).
+\end{align}
+Make the substitutions
+\(x=r_1r_2(1-2s_1)\), \(y=r_1r_3(1-2s_2)\),
+\(z=r_2r_3(1-2s_3)\). The resulting polynomial has degree at most two
+in each \(s_i\). If its monomial coefficients are \(p_\alpha\), its
+Bernstein coefficients of degree \((2,2,2)\) are exactly
+\begin{equation}\label{ht:bernformula}
+ b_\beta=\sum_{\alpha\le\beta}p_\alpha
+           \prod_{j=1}^3\frac{\binom{\beta_j}{\alpha_j}}
+                                 {\binom2{\alpha_j}},
+ \qquad \beta\in\{0,1,2\}^3.
+\end{equation}
+The finite assertion is that each of these 27 coefficients is
+nonnegative for each of the 21 rows. The file
+\texttt{data/\allowbreak universal\_mean\_checks.json} lists all 567 coefficients;
+\texttt{checks/audit.py} reconstructs \eqref{ht:bernpoly} and
+\eqref{ht:bernformula}, compares every coefficient with that file, and
+checks its sign using rational arithmetic. The largest numerator or
+denominator has 53 bits. Nonnegative Bernstein coefficients give
+\(P\ge0\) on the full cube, and hence on every actual Gram triple,
+without needing a Gram determinant constraint. Taking square roots
+in \eqref{ht:meanformula} proves the bound on spheres. The last paragraph
+of Lemma~\ref{ht:elementary} extends it to balls. We do not assert
+\eqref{ht:meanformula}'s proposed radius for arbitrary triples of radii.
+\end{proof}
+\begin{longtable}{@{}cccccc@{}}
+\caption{All 21 unequal-radius checks.}\label{ht:meantable}\\
+\toprule Law & \(r_1\)&\(r_2\)&\(r_3\)&\(R\)& Bernstein degree\\\midrule\endfirsthead
+\toprule Law & \(r_1\)&\(r_2\)&\(r_3\)&\(R\)& Bernstein degree\\\midrule\endhead
+\bottomrule\endfoot
+\(\htD\) & \(0\) & \(0\) & \(\frac{3}{5}\) & \(\frac{3}{25}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(0\) & \(0\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(\frac{1}{5}\) & \(\frac{1}{15}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(\frac{1}{2}\) & \(\frac{1}{6}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(\frac{18}{35}\) & \(\frac{6}{35}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(\frac{137}{265}\) & \(\frac{137}{795}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(0\) & \(\frac{3}{5}\) & \(\frac{1}{5}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(\frac{1}{5}\) & \(\frac{3}{5}\) & \(\frac{10}{39}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(\frac{1}{2}\) & \(\frac{3}{5}\) & \(\frac{1}{3}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(\frac{18}{35}\) & \(\frac{3}{5}\) & \(\frac{65}{193}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(\frac{137}{265}\) & \(\frac{3}{5}\) & \(\frac{740}{2193}\) & \((2,2,2)\)\\
+\(\htU\) & \(0\) & \(\frac{3}{5}\) & \(\frac{3}{5}\) & \(\frac{5}{14}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{5}\) & \(\frac{1}{5}\) & \(\frac{3}{5}\) & \(\frac{317}{1025}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{5}\) & \(\frac{1}{2}\) & \(\frac{3}{5}\) & \(\frac{167}{440}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{5}\) & \(\frac{18}{35}\) & \(\frac{3}{5}\) & \(\frac{2956}{7725}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{5}\) & \(\frac{137}{265}\) & \(\frac{3}{5}\) & \(\frac{22429}{58525}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{5}\) & \(\frac{3}{5}\) & \(\frac{3}{5}\) & \(\frac{451}{1125}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{2}\) & \(\frac{1}{2}\) & \(\frac{3}{5}\) & \(\frac{169}{385}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{2}\) & \(\frac{18}{35}\) & \(\frac{3}{5}\) & \(\frac{2987}{6765}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{2}\) & \(\frac{137}{265}\) & \(\frac{3}{5}\) & \(\frac{11329}{25630}\) & \((2,2,2)\)\\
+\(\htU\) & \(\frac{1}{2}\) & \(\frac{3}{5}\) & \(\frac{3}{5}\) & \(\frac{226}{495}\) & \((2,2,2)\)\\
+\end{longtable}
+
+\begin{htlem}[Two unit fields and one small field]\label{ht:specialmean}
+A U site with two fields of norm at most one and a third of norm at most
+\(r\) has mean norm at most \((5+4r)/(10+5r)\) when
+\begin{equation}\label{ht:specialradii}
+ (r,R)=(1/10,18/35)\quad\hbox{or}\quad(3/25,137/265).
+\end{equation}
+Each assertion has a 25-coefficient rational Bernstein proof of degree
+\((4,4)\).
+\end{htlem}
+\begin{proof}
+By positive expansion it is enough that the first two fields \(b,c\)
+are unit. Write \(t=|b+c|/2\in[0,1]\). Choose orthonormal directions
+along \(b+c\) and \(b-c\) when nonzero, completing arbitrarily at
+the endpoints. For the third field write \(a=\alpha u+\beta v+\gamma w\),
+so \(\alpha^2+\beta^2+\gamma^2\le r^2\). Put \(d=2+2t^2\).
+The vector \(V\) in \eqref{ht:meanformula} has these components:
+\[
+ 2d\alpha+10t,\qquad (2+4t^2)\beta,\qquad (d+2)\gamma.
+\]
+Since \(2+4t^2\le d+2\),
+\begin{equation}\label{ht:specialpoly}
+ |V|^2\le(2d\alpha+10t)^2+(d+2)^2(r^2-\alpha^2),\qquad
+ 3Z=d+2t\alpha>0.
+\end{equation}
+Set \(t=s\), \(\alpha=-r+2rv\). The polynomial
+\[
+ 25R^2(d+2t\alpha)^2-(2d\alpha+10t)^2
+                         -(d+2)^2(r^2-\alpha^2)
+\]
+has degree at most four in each of \(s,v\). Apply
+\eqref{ht:bernformula} with two variables and denominator binomial
+\(\binom4{\alpha_j}\). Its 25 coefficients are nonnegative for each
+pair in \eqref{ht:specialradii}; they are reconstructed and listed in
+\texttt{data/mean\_receipt.json}. Their numerators and denominators need
+at most 27 bits. Thus \(|\mu|=|V|/[5(d+2t\alpha)]\le R\).
+The coordinate calculation and bound extend continuously to \(t=0,1\).
+Positive expansion handles all smaller first and second fields.
+The supplied \texttt{mean\_unit\_pair.json} also records \(r=1/25\),
+which is checked by the replay but is not used here. Its original
+three-variable storage repeats each two-variable coefficient five times.
+\end{proof}
+
+\begin{htlem}[The 22 scalar inequalities]\label{ht:scalar}
+H1-tree holds for the 22 rows consisting entirely of mean vertices.
+The finite certificate has 89 rational comparisons.
+\end{htlem}
+\begin{proof}
+Give a missing outgoing vector radius \(r_o=0\); give a missing
+non-outgoing vector radius zero. Permute the two non-outgoing means
+as necessary. On their boundary spheres put
+\[
+ k=r_fr_g(1/3-c/5),\quad L(t)=1-c+kt,\quad
+ Q(t)=L(t)^2-\frac{r_o^2}{9}
+                  (r_f^2+r_g^2+2r_fr_gt),\quad -1\le t\le1.
+\]
+All components have base normalizer one. Minimizing the linear term
+in the outgoing mean gives
+\[
+ F_c\ge L(t)-\frac{r_o}{3}
+                    \sqrt{r_f^2+r_g^2+2r_fr_gt}.
+\]
+For each scalar row the finite tests are
+\begin{equation}\label{ht:scalartests}
+ L(-1),L(1),Q(-1),Q(1)\ge0,
+ \quad Q(-q_1/(2q_2))\ge0
+ \ \hbox{if }q_2>0\hbox{ and }-1<-q_1/(2q_2)<1,
+\end{equation}
+where \(Q=q_0+q_1t+q_2t^2\). Linear and quadratic minimization on
+an interval proves \(L,Q\ge0\), hence \(F_c\ge0\). Boundary radii
+zero cause no problem; affinity extends the conclusion to all balls.
+The rows are indices
+\(0,1,2,3,4,6,7,8,9,10,11,21,22,23,24,25,27,28,29,30,31,32\).
+\texttt{data/\allowbreak universal\_certificates.jsonl} lists their radii,
+\((q_0,q_1,q_2)\), and every tested value; the replay recomputes and
+compares all of them. There are four tests per row and one interior
+vertex test in total, making 89 comparisons. In particular the 19
+older boxes in \texttt{closed\_boxes.json} are not the scalar
+certificate for the present 38-row family.
+\end{proof}
+
+\begin{htdef}[Exact reconstruction of the other 16 inequalities]
+\label{ht:reconstruct}
+Omit zero fields. Order sites as \((E,A,N,B,W,L,S,R)\), and order the
+remaining fields at each site as printed in Table~\ref{ht:modeltable}.
+An isolated mean \(m=Ru\) can, for reconstruction only, be encoded as
+a formal isolated U site with field \(3Ru\) and a mark:
+\[
+ \lambda_{\htU}(1+3Ru\cdot n)=1,\qquad
+ \lambda_{\htU}(n(1+3Ru\cdot n))=Ru.
+\]
+The number \(3R\) may exceed one; it is an algebraic encoding, not a
+physical-field assumption, and that site has degree at most two.
+
+For an explicit coefficient recipe assign an index in \(\{0,1,2,3\}\)
+to each path bond, one to each field, and a mark index to each marked
+spin site. Index zero denotes the constant 1 and indices 1--3 denote
+coordinates. At each site take the moment \eqref{ht:moments} of all
+its nonzero indices. Multiply a field index zero by 1 and a positive
+field index by its radius. Sum each bond index over 0--3. This contracts
+\(1+n\cdot n'\) exactly. Let \(T(\eta)\) be the resulting field
+coefficient tensor with prescribed mark indices \(\eta\). Then
+\begin{equation}\label{ht:tensorrecipe}
+ Z=T(0),\qquad C_{ij}=\sum_{a=1}^3 T(\eta_i=\eta_j=a),
+\end{equation}
+with all other mark indices zero. Multiply the local moment tensors
+by their least positive common denominators and multiply each field
+by the positive denominator of its radius; let \(D_0\) be the product
+of these denominators. This gives integer coefficient tensors
+\(a=3D_0\htcur\), \(b=5D_0\htnext\).
+
+For a separately affine polynomial \(G(u)=\sum_\alpha g_\alpha
+\prod_j u_j^{\alpha_j}\), define
+\[
+ \mathcal O(G)=\sum_\alpha g_\alpha\bigotimes_j\sigma_{\alpha_j},
+ \quad \sigma_0=I,\quad
+ \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+ \sigma_2=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\quad
+ \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+An inversion \(\mathcal I\) negates all coordinates of its listed
+field directions. The two unit fields at any unmarked U corner form
+one group and must be inverted together. All other fields, including
+mean encodings, form single groups.
+
+Use the symmetric pair basis
+\(e_+e_+, e_+e_-+e_-e_+, e_-e_-\), without normalization, for each
+unit-field pair; use \(e_+,e_-\) for singles. Let \(V\) be their tensor
+product. Their doubled weights are \((2,0,-2)\) and \((1,-1)\),
+respectively. On the subspace of total weight \(\kappa\), where
+\(\kappa=0\) for an even number of singles and \(\kappa=1/2\) for an
+odd number, take the Hermitian-form matrices \(A,B\) of
+\(\mathcal O(a^{\mathcal I}),\mathcal O(b^{\mathcal I})\).
+For \(c=p/q\), reconstruct
+\begin{equation}\label{ht:matrix}
+ M=5qA-3pB=15qD_0\,
+       \left.\mathcal O(F_c^{\mathcal I})\right|_{\rm central\ form}.
+\end{equation}
+The equality specifies forms in the displayed integer-coordinate basis,
+not matrices in an orthonormal basis.
+\end{htdef}
+
+\begin{htlem}[The 16 matrix certificates]\label{ht:matrixcert}
+For the 16 non-scalar rows the inversion, dimension, normalization and
+Gram parameters are those of Table~\ref{ht:certtable}. Reconstruct
+\(M\) by Definition~\ref{ht:reconstruct}. The finite assertions are
+\begin{equation}\label{ht:gramchecks}
+ M=gN,\qquad
+ E=d\,s^2N-LL^{\mathsf T},\qquad
+ E_{ii}>\sum_{j\ne i}|E_{ij}|\quad\hbox{for every row }i,
+\end{equation}
+where \(g,d,s\) are positive integers, \(N\) is an integer symmetric
+matrix, and \(L\) is an integer lower triangular matrix. Here every
+\(d=1\). The supplied \(N,L\) arrays are in
+\texttt{data/\allowbreak universal\_certificates.jsonl}. The equality \(M=gN\) is
+checked entry by entry against the reconstructed matrix; the arrays
+are not assumed to have the correct mathematical origin.
+These assertions imply all 16 non-scalar inequalities of H1-tree.
+\end{htlem}
+\begin{proof}
+First we justify the reconstruction and its use of a central form.
+At a marked U vertex, path degree plus field count plus one insertion
+is at most four; at an unmarked U corner it is four. At the unmarked
+D vertex \(S\) it is two. Mark insertions occur at two distinct vertices,
+never twice at one vertex. Thus \eqref{ht:moments} and
+\eqref{ht:tensorrecipe} give the exact coefficients, with a positive
+scale \(D_0\). They give 1,465,600 dense tensor cells and 122,884
+nonzero cells, counting both tensors and all 38 rows.
+
+The proof of P.Lemma D.7 applies to these forest functionals: separate
+degree at most four gives orthogonal covariance; conjugating all Pauli
+matrices by the same element of \(\mathrm{SU}(2)\) therefore leaves
+the operator unchanged. It commutes with the total spin operators
+\(S_z,S_+,S_-\). Reflection of all second coordinates gives a real
+symmetric matrix. At a corner with two unit fields, the local Pauli
+factor is \((I\pm n\cdot\sigma)^{\otimes2}\). The spin \(n\) is
+unit, so this factor has range in \(\operatorname{Sym}^2\mathbb C^2\)
+and vanishes on its orthogonal complement. Inverting the entire pair
+preserves this property. Mean encoding creates no pair. There are no
+retained D field pairs in these models. Consequently the supported
+space is precisely \(V\), with just one central form per model.
+P.Lemma D.9, for the concrete single-spin and symmetric-pair generators,
+promotes positivity on the weight-\(\kappa\) space to positivity on all
+of \(V\). These arguments concern the functionals themselves and do
+not assume that a forest came from a covered pattern.
+
+The checker \texttt{checks/reconstruct.py} constructs the integer tensors
+from \eqref{ht:moments}, contracts bonds as in \eqref{ht:tensorrecipe},
+forms the Pauli matrices, and sandwiches each pair with the displayed
+integer basis. The exact replay also checks real symmetry and the
+vanishing of entries between different weights. It compares every
+entry in \eqref{ht:matrix} to \(gN\), checks the triangular shape of
+\(L\), and tests every residual row in \eqref{ht:gramchecks}.
+There are 14,502 matrix cells, 7,443 triangular Gram entries,
+129,491 triangular Gram products, and 384 residual rows. Normalized
+matrix entries require at most 37 bits and Gram entries at most 19 bits.
+No floating point factorization is used in this replay.
+
+For completeness, for real \(x\), row dominance gives
+\[
+ x^{\mathsf T}Ex\ge
+ \sum_i\left(E_{ii}-\sum_{j\ne i}|E_{ij}|\right)x_i^2>0
+ \quad(x\ne0),
+\]
+using \(2|x_ix_j|\le x_i^2+x_j^2\). Hence
+\(d s^2x^{\mathsf T}Nx=|L^{\mathsf T}x|^2+x^{\mathsf T}Ex>0\).
+Positive scaling gives \(M>0\), also for complex forms by splitting
+real and imaginary parts. Equation~\eqref{ht:matrix} and the preceding
+central-weight argument give
+\(\mathcal O(F_c^{\mathcal I})\ge0\) on the full tensor space,
+with zero action on discarded antisymmetric pair spaces.
+Finally P.Lemma D.6, or directly the Pauli trace identities, gives
+\[
+ F_c(u)=\operatorname{Tr}\left(
+ \mathcal O(F_c^{\mathcal I})
+ \bigotimes_j\frac{I+(u^{\mathcal I})_j\cdot\sigma}{2}\right)\ge0
+ \qquad (|u_j|\le1).
+\]
+The factors are positive semidefinite probability densities. This proves
+the inequality on the required balls.
+\end{proof}
+\begin{longtable}{@{}rlrrrrr@{}}
+\caption{All central forms. Inversions use zero-based field indices in Definition~\ref{ht:reconstruct}. The margin column is the minimum residual row margin; every row is checked.}\label{ht:certtable}\\
+\toprule Model & \(\mathcal I\) & Dimension & \(g\)&\(d\)&\(s\)&Margin\\\midrule\endfirsthead
+\toprule Model & \(\mathcal I\) & Dimension & \(g\)&\(d\)&\(s\)&Margin\\\midrule\endhead
+\bottomrule\endfoot
+5 & \(0,1,2,3\) & 14 & 500 & 1 & 1 & 2056788\\
+12 & \(1,2,3,4\) & 7 & 300 & 1 & 1 & 250381\\
+13 & \(0,1,2,3\) & 25 & 600 & 1 & 1 & 991054\\
+14 & \(2,3,4,5\) & 14 & 1500 & 1 & 1 & 26056\\
+15 & \(4,5\) & 14 & 8 & 1 & 1 & 133994474\\
+16 & \(1,2,3,4,5,6\) & 25 & 120 & 1 & 1 & 8293235\\
+17 & \(1,2,3,4\) & 7 & 3000 & 1 & 1 & 4030\\
+18 & \(1,2,3,4,5\) & 14 & 240 & 1 & 16 & 1847052\\
+19 & \(4,5,6,8\) & 66 & 400 & 1 & 1 & 30237860\\
+20 & \(2,3,4,5\) & 36 & 1000 & 1 & 1 & 194208\\
+26 & \(0,1\) & 14 & 2500 & 1 & 1 & 2062552\\
+33 & \(4,5\) & 25 & 600 & 1 & 1 & 942356\\
+34 & \(1,2,3\) & 14 & 60 & 1 & 1 & 2037189\\
+35 & \(1,2,3,4\) & 7 & 60 & 1 & 1 & 977583\\
+36 & \(0,1,7,8\) & 66 & 400 & 1 & 1 & 1068222876\\
+37 & \(0,1,2,3\) & 36 & 16 & 1 & 1 & 133061543\\
+\end{longtable}
+
+\begin{htprop}[Discharge of the finite tree input]\label{ht:certified}
+The exact rational assertions in Lemmas~\ref{ht:scalar} and
+\ref{ht:matrixcert} certify H1-tree. Lemmas~\ref{ht:meanbern} and
+\ref{ht:specialmean} supply the additional finite mean inequalities
+used in reducing actual passages to that input.
+\end{htprop}
+\begin{proof}
+The 22 scalar rows and 16 non-scalar rows partition Table~\ref{ht:modeltable}.
+The two lemmas prove the required inequalities for every direction,
+not just at sampled fields. The recorded exact replays verify all
+assertions stated in these lemmas. The mean lemmas are separate inputs
+to the reduction, not consequences of matrix positivity.
+\end{proof}
+
+\begin{htdef}[Actual local data]\label{ht:actual}
+Fix a finite \(G\subset\mathbb Z^2\) and original leg pins as in
+P.Definition 2.3, with protected set
+\(S(G)=\{x\in G:d(x,\mathbb Z^2\setminus G)\le2\}\).
+Consider a U departure at \(y\notin S(G)\), with its incoming bond
+already absent. Normalize by a lattice symmetry so that \(y=0\),
+the arrival site is \(S=(0,-1)\), and the outgoing site is
+\(o\in\{E,N,W\}\). The non-exceptional local hypothesis is precisely
+the non-tip kept-set hypothesis of P.Definition 6.8:
+\begin{enumerate}
+\item The passage is U, keeps its three non-arrival bonds, and its
+chosen outgoing bond is present.
+\item The arrival site is removed, or is D keeping two of its three
+non-passage bonds.
+\item Every other nonremoved neighbour is U with full kept set, or
+D keeping its passage bond and one other bond.
+\item Every other nonremoved non-tip U site has full kept set; every
+D corner keeps two bonds. Between nonremoved non-tip ends, kept
+flags agree.
+\end{enumerate}
+Tips have their actual ordinary-domain statuses and kept sets; a missing
+tip bond is allowed. All original legs are retained, and D sites carry
+none. There are no artificial corner slots in these data.
+Write \(E_{\rm net}\) for the network before the step and
+\(E_{\rm net}^{+}\) for the network after changing the passage to D
+and deleting its outgoing bond, as in P.Definition 6.2.
+\end{htdef}
+
+\begin{htlem}[Pin and field counts at an actual passage]\label{ht:counts}
+The radius-two template lies in \(G\). The passage and its four nearest
+neighbours carry no original leg. Each corner has at most two external
+factors, each actual tip at most three. A D corner with \(k\) present
+internal bonds has at most \(2-k\) external factors. The same bounds
+hold after fixing arbitrary outside spins of norm at most one, and
+all resulting fields have norm at most one.
+\end{htlem}
+\begin{proof}
+Since \(y\notin S(G)\), its distance from the complement is at least
+three. Its neighbours have distance at least two, whereas an original
+leg can occur only at distance one. Thus no original leg is incident
+to the passage or its neighbours. Each corner has two lattice directions
+inside the template and two outside; each tip has one inside and three
+outside. In any one direction there is at most one factor: an original
+leg to the complement, or a present bond to a site of \(G\), or no factor.
+Deleting sites creates no new pins (P.Definition 2.3).
+
+Original legs occur only at protected U sites by P.Definition 6.1.
+The trace never departs from a protected site, by P.Definition 6.2,
+so it cannot create a D site carrying a pin. A D corner therefore has
+only present-bond factors. Its two-element kept set bounds the number
+of its present bonds by two; subtracting its \(k\) internal bonds proves
+the sharper external count. Kept bonds to removed sites contribute no
+factor and cannot invalidate this upper bound. Outside spins have norm
+at most one by the supports of both laws; pins are unit vectors.
+Fixing them produces the asserted field factors.
+\end{proof}
+
+\begin{htlem}[The reduction identities and all local cases]
+\label{ht:localcases}
+After fixing the outside spins, an actual current/next pair is a
+nonnegative combination, with identical coefficients for its two
+members, of positive common scalars times tree-model current/next pairs.
+The tree models before radius enlargement are constructed by the
+following exhaustive procedure.
+\end{htlem}
+\begin{proof}
+All sums are finite, so their order can be changed. Denote the set of
+present non-arrival neighbours by \(M_0\subset\{E,N,W\}\), including
+\(o\). Integrate the passage first. It has no pin and at most three
+bonds. Equation~\eqref{ht:moments} gives \eqref{ht:polynomials} with
+\(M=M_0\), exactly as in P.Definition 6.5 and P.Lemma D.1. The next
+expression has the same base functional and insertion only between
+the two non-outgoing neighbours, when both exist. In particular none
+of the following base-measure transformations depends on current
+versus next.
+
+\emph{Step 1: tips.}
+For each nonremoved actual tip, integrate its external weight \(W_t\)
+first. It has at most three factors, with radii at most one. Put
+\(A_t=\lambda_{\mathrm{st}(t)}(W_t)>0\) and
+\(b_t=\lambda_{\mathrm{st}(t)}(nW_t)/A_t\).
+Lemma~\ref{ht:elementary} gives \(|b_t|\le3/5\), also for a D tip.
+Its actual internal bond, if present, becomes \(1+b_t\cdot n_x\),
+with common scalar \(A_t\). If the bond is absent there is only that
+scalar. A removed tip contributes one. If a non-tip kept flag points
+to a missing or nonbonded actual tip, assign its prospective field zero.
+This is permitted by affinity and preserves the exact current/next
+expressions. Thus all required covering tip fields may be given radius
+\(3/5\), without constructing fictitious pins or changing a D kept set.
+The arrival tip, when bonded, also gives a field of radius \(3/5\).
+In all subsequent combinatorial references, a tip bond is called present
+when the non-tip kept flag requires it, even if its effective field is
+zero because the actual tip bond was absent. Non-tip bonds retain their
+actual meaning. This convention is exactly the covering-tip convention
+of P.Definition 6.8.
+
+\emph{Step 2: D passage neighbours and upper D corners.}
+A D neighbour has only its passage bond and at most one additional
+present bond. If the latter goes to its tip, after Step 1 it is an
+isolated marked D site with one field of radius at most \(3/5\).
+Keep its D law; its mean has radius at most \(3/25\).
+For every other D neighbour expand its law as
+\begin{equation}\label{ht:dlaw}
+ \lambda_{\htD}=\tfrac35\lambda_{\htU}+\tfrac25\delta_0.
+\end{equation}
+In the zero term every incident bond is 1, and every passage insertion
+at that neighbour is zero. Remove that variable and its mark; remove
+the outgoing mark as well if this was \(o\). In the U term retain the
+variable with its original other bonds. Let \(M\) denote the surviving
+marked set. In particular a lost outgoing mark does not turn another
+mark into an outgoing mark.
+
+An upper corner \(A\) or \(B\) with two original internal bonds and
+law D has no external factor, by Lemma~\ref{ht:counts}. If its two
+neighbour spins are \(a,b\), its integrated kernel is
+\begin{equation}\label{ht:topd}
+ 1+\tfrac15a\cdot b
+   =\tfrac35\lambda_{\htU}((1+n\cdot a)(1+n\cdot b))
+       +\tfrac25.
+\end{equation}
+Use these two terms with weights \(3/5,2/5\). Equivalently expand the
+corner law before its integration. These choices can be made before or
+after \eqref{ht:dlaw}, by finite distributivity. A corner zero term
+deletes that bridge. If one endpoint is zero, the active U term has
+one bond and no field, and integrates to exactly 1; if both are zero
+it does so as well. It must not be replaced at this stage by a U leaf
+with two arbitrary fields.
+
+Every resulting term has coefficient
+\((3/5)^a(2/5)^b\), the product over these specified binary choices.
+It is nonnegative, independent of spins, and the same for current and
+next. If \(M=\varnothing\), both polynomials are the same positive
+base normalizer and \(F_c=(1-c)Z\ge0\); set aside this term.
+The D neighbours kept at their tips are isolated, since they have no
+other kept bond after passage deletion. Integrating each gives the
+common normalizer 1 and its marked mean of radius \(3/25\).
+
+\emph{Step 3: the lower part and the arrival site.}
+Write \(L=(-1,-1)\) and \(R=(1,-1)\). The lower graph is a subgraph
+of \(W-L-S-R-E\), with a possible arrival-tip field at \(S\).
+There are no other arrival factors and no arrival pin. The following
+cases exhaust its possibilities, because S is removed or D with two
+kept bonds.
+
+(a) If both bonds \(SL,SR\) are present, the arrival tip bond is absent.
+Integrating S gives
+\begin{equation}\label{ht:arrivalcut}
+ 1+\tfrac15n_L\cdot n_R
+   =\frac1{12}\sum_{\xi\in D}
+        (1+\sqrt{3/5}\,\xi\cdot n_L)
+        (1+\sqrt{3/5}\,\xi\cdot n_R).
+\end{equation}
+This identity follows from the first and second moments of \(\xi\).
+It is a positive representation: each factor is nonnegative since
+\(\sqrt{3/5}<1\). The U law used here is an auxiliary finite summation,
+not an independence assumption about the old corner spins.
+
+If both E and W survive, use \eqref{ht:arrivalcut}, except in case
+(d) below. On each fixed \(\xi\) fibre, a U lower corner attached to
+its surviving side mark has its at most two external fields, each of
+radius one, and this one auxiliary field of radius \(\sqrt{3/5}\).
+It has at most three fields before its bond to the side mark is
+integrated, so its mean has norm at most \(3/5\), by P.Lemma 2.5.
+A D lower corner attached to its side mark has the two internal bonds
+to that mark and to S in the original configuration. It has no external
+field; after the split its only field is the auxiliary one. Its mean
+is exactly \(\sqrt{3/5}\,\xi/5\), of norm at most \(1/5\).
+Integrate each corner by \eqref{ht:leaf}. A corner not attached to a
+surviving mark contributes just its strictly positive normalizer.
+Thus the two effective side fields are conditionally separate. The
+coefficient for a fixed \(\xi\), after both corner integrations, is
+\begin{equation}\label{ht:splitweights}
+ \frac1{12}A_L(\xi)A_R(\xi)>0.
+\end{equation}
+Neither normalizer includes a side-mark factor or a passage insertion.
+They depend only on the fixed outside fields and \(\xi\), so these
+are common coefficients for current and next. One need not normalize
+these coefficients to sum to one; dividing by their common positive
+sum would give the same convex statement.
+
+(b) Suppose both \(SL,SR\) are present, but only one of E,W survives.
+For example let E survive. First integrate the opposite corner L,
+which has no bond to a surviving side mark. A U L has at most its two
+unit-ball external fields, hence mean norm at most \(1/2\). A D L has
+its bond to S and therefore at most one external field, hence mean norm
+at most \(1/5\le1/2\). (A bond formerly incident to a zero mark is now
+1 and adds no field.) With \(\mu_L\) this mean, the subsequent D
+arrival integral is exactly
+\begin{equation}\label{ht:onealive}
+ \lambda_{\htD}((1+\mu_L\cdot n_S)(1+n_S\cdot n_R))
+       =1+(\mu_L/5)\cdot n_R.
+\end{equation}
+The effective arrival field at R thus has radius at most \(1/10\).
+If R is U and attached to E, it has its two external unit-ball fields
+and this small field, so Lemma~\ref{ht:specialmean} gives radius
+\(18/35\) for the field it sends to E. If R is D and attached to E,
+its original two internal bonds leave no external field, and its sole
+new field has radius at most \(1/10\); its mean has radius at most
+\(1/50\le1/5\). If it is not attached to E, discard its common
+positive normalizer. The case with W surviving is the reflected
+calculation, integrating R, then S, then L. If neither side survives,
+the entire lower component contributes a common positive scalar.
+
+(c) Suppose the two-lower-bond case does not hold. If S has one lower
+bond and its tip bond, first integrate the tip as in Step 1, then S:
+\begin{equation}\label{ht:arrivaltip}
+ \lambda_{\htD}((1+b_S\cdot n_S)(1+n_S\cdot n_C))
+       =1+(b_S/5)\cdot n_C,\qquad |b_S/5|\le3/25.
+\end{equation}
+Here \(C\) is the attached lower corner. If it is U and attached to
+its surviving side mark, its fields have radii at most \((1,1,3/25)\),
+so its mean has radius at most \(137/265\) by
+Lemma~\ref{ht:specialmean}. If it is D and attached to that mark,
+its two original internal bonds leave no external factor; its new
+mean is at most \(3/125\le1/5\).
+If S has a lower bond but no present tip bond and no other lower bond,
+its integration is simply \(\lambda_{\htD}(1+n_S\cdot n_C)=1\).
+A removed S has the same effect. A remaining attached U lower leaf
+then has at most two external unit-ball fields, giving radius \(1/2\).
+An attached D lower leaf has at most one external field when its
+arrival bond was absent, or no external field when that bond was
+present. Its mean radius is at most \(1/5\). If S has no lower bond,
+its component is a common positive scalar (with only its possible
+one tip field its normalizer is 1). Lower components not connected
+to any surviving mark are likewise discarded. These statements also
+cover kept arrival bonds whose other endpoint was removed.
+
+(d) The correlation-preserving case is exactly
+\begin{equation}\label{ht:preserve}
+ E,W\in M,\quad N\notin M,\quad SL,SR\text{ present},\quad
+ L,R\text{ have original law U}.
+\end{equation}
+Do not integrate S, L or R; retain
+\(E-R-S-L-W\), with the D law at S and two original corner fields
+at each of L,R. Consistency forces the side bonds \(ER,LW\):
+a surviving E or W is nonremoved before the zero-law expansion, and
+a U corner keeps its side bond, so the other nonremoved endpoint
+must keep it too. A surviving U term of an originally D endpoint
+inherits that present bond. The arrival has no tip field because it
+keeps the two lower bonds. The retained five-vertex path is therefore
+exact, with no split and no discarded correlation. If N survives,
+case (a) is used even when both lower corners are U. If one lower
+corner is D, case (a) is used when E,W survive and case (b) otherwise.
+These are all alternatives to \eqref{ht:preserve}.
+
+The need to retain this correlation can be seen without optimization.
+If one cuts both lower fields to independent balls of radius \(3/5\)
+in a turning configuration with E and W surviving and N absent, allowing
+also each tip radius \(3/5\) and each upper-leaf radius \(1/2\),
+the last row of Table~\ref{ht:meantable} gives two independent mean
+balls of radius \(q=226/495\). Their admissible assignment
+\(m_E=qe_1,\ m_W=-qe_1\), with E outgoing, has
+\[
+ \htcur/\htnext=1-q^2/3=683999/735075<187/200.
+\]
+This is a counterexample to that enlarged independent-mean inequality,
+not to the actual local inequality: the enlargement discarded the lower
+path constraint. Keeping the path in \eqref{ht:preserve} avoids precisely
+this false intermediate assertion.
+
+For reference, the complete side-field rule, whenever a lower corner
+is attached to a surviving side mark and is not retained in (d), is
+\begin{equation}\label{ht:lowerrule}
+ r_{\rm lower}=\begin{cases}
+ 1/5,&\text{original corner D},\\
+ 3/5,&\text{original corner U, }SL,SR\text{ present, both side marks survive},\\
+ 18/35,&\text{original corner U, }SL,SR\text{ present, other side mark absent},\\
+ 137/265,&\text{original corner U, its arrival bond and arrival tip bond present},\\
+ 1/2,&\text{original corner U, all remaining cases}.
+ \end{cases}
+\end{equation}
+No side bond means no such field.
+
+\emph{Step 4: the upper part.}
+Consider each of A,B separately, after Step 2. An original U corner
+has at most two external unit-ball fields. If both its side marks
+survive, retain the U bridge and its two fields, inserting zeros for
+missing fields. If exactly one survives, integrate this leaf and use
+radius \(1/2\); if none survives, discard its positive normalizer.
+An original D corner with two internal bonds was already treated by
+\eqref{ht:topd}: retain its active U bridge only when both endpoints
+survive. It then has no external fields; insert two zero fields.
+If fewer survive it gives exactly 1 as established in Step 2.
+An original D corner with one internal bond has at most one external
+field, by Lemma~\ref{ht:counts}. If its endpoint survives, integrate
+it and use radius \(1/5\); otherwise discard its positive normalizer.
+A corner with no original internal bond is an isolated common positive
+factor. This exhausts original laws U,D,X and all upper internal degrees
+0,1,2. Only the retained bridges will subsequently have their two
+field radii enlarged to \((1,1)\).
+
+\emph{Step 5: path components and isolated marks.}
+Outside \eqref{ht:preserve} the only remaining bridges are subpaths of
+\(E-A-N-B-W\). Every such component is a path, with marked endpoints
+and possibly marked N in its interior. In \eqref{ht:preserve}, N is
+absent, so neither upper corner can join two marks. After its leaf
+integration the only nontrivial component is the retained lower path.
+Thus no cycle remains. The fixed D tip-neighbours are isolated as
+already noted.
+
+At a remaining marked U vertex let \(d_v\) be its path degree. Before
+zero padding it has at most \(3-d_v\) fields. Indeed an original U
+neighbour has at most its three non-passage directions, each supplying
+either a path bond or one integrated field. An activated D neighbour
+has only its one non-passage kept direction and satisfies the stronger
+bound with one in place of three. All fields are among the tip,
+lower-corner, and upper-leaf fields just specified. If \(d_v=0\),
+its at most three fields have one of the U radius triples in
+Table~\ref{ht:meantable}, after zeros are inserted. Integrate the site
+into a marked mean vertex, multiply by its strictly positive normalizer,
+and use Lemma~\ref{ht:meanbern}. The assertion about the finite list
+of triples is verified explicitly in Lemma~\ref{ht:coverage} below.
+The fixed D neighbour uses the D row \((0,0,3/5)\) of that table.
+
+If \(d_v\ge1\), pad its field list to \(3-d_v\) by zero fields.
+An unmarked retained U corner has two path bonds and is padded to two
+fields. The unmarked retained D arrival has two path bonds and no
+fields. These bounds keep the separate degree, including one mark
+insertion, at most four for U sites and at most two for D sites.
+All normalizers removed in Steps 1--5 are positive and common.
+Every binary law expansion has fixed weights \(3/5,2/5\); every use
+of \eqref{ht:convexfield} uses coefficients independent of current
+versus next; every auxiliary-spin coefficient is
+\eqref{ht:splitweights}. Hence all combinations have identical
+nonnegative coefficients for the two polynomials, as asserted.
+\end{proof}
+
+\begin{htlem}[Finite coverage directly from the kept-set definition]
+\label{ht:coverage}
+Apply the procedure of Lemma~\ref{ht:localcases} to all actual local
+data of Definition~\ref{ht:actual}, using a prospective tip field as
+specified in Step 1. Every nonempty reduced forest, up to relabeling
+of components and reversal of paths preserving laws and marks, has
+field radii componentwise no larger than one row of
+Table~\ref{ht:modeltable}. There are 20 decorated geometries and
+38 maximal radius lists. The isolated-mean calls are exactly the 21
+rows in Table~\ref{ht:meantable}. This is a finite combinatorial
+assertion with an exact exhaustive check from the following rules,
+not a comparison with the archived pattern catalogue.
+\end{htlem}
+\begin{proof}
+Here are full index sets and a reproducible finite verification of the
+remaining radius bookkeeping. They also give a direct method to check
+this small-case reduction independently.
+
+Encode a kept set by its mask in direction order E,N,W,S. A corner has
+options U with mask 15, X with mask 0, or D with one of the six
+cardinality-two masks. The arrival has X or D keeping any two of its
+three directions other than its passage direction. Each other neighbour
+has U, X, or D keeping the passage direction and one of its other three
+directions. Thus there are exactly
+\(4\cdot5^3\cdot8^4=2,048,000\) complete raw choices. For a nonremoved
+corner and a nonremoved nearest neighbour retain a choice exactly when
+the two kept flags agree. These are all consistency comparisons: the
+remaining non-tip bonds join the passage to its neighbours, whose flags
+are already prescribed. A corner or neighbour that is removed imposes
+no comparison. Put in every bond with two nonremoved keeping ends and
+every required covering tip bond. Mark every possible outgoing site.
+Reflecting \((x_1,x_2)\mapsto(-x_1,x_2)\) reduces the outgoing choices
+to N and E, without changing straight/turning type or any field bound.
+
+Delete isolated unmarked factors. Their positive normalizers are common
+by Lemma~\ref{ht:elementary}. The remaining effective record consists
+only of the present bonds, laws at their non-tip ends, and outgoing
+site. Distinct original kept masks with that record have the same
+maximal field allowances: two at U corners and \(2-k\) at D corners,
+where \(k\) is their present internal degree. The missing actual
+factors are zero fields in those allowances. Thus collapsing such
+records cannot omit any relevant factor.
+
+For clarity, the entire calculation on each retained record is the
+following finite recipe; every operation in it was justified in
+Lemma~\ref{ht:localcases}.
+\begin{enumerate}
+\item Select all binary choices in \eqref{ht:dlaw} for D marks except
+those keeping their tips, and in \eqref{ht:topd} for the two-bond upper
+D corners. Record the surviving marked set \(M\). The empty set is
+trivial and produces no model.
+\item At each surviving marked vertex append a radius \(3/5\) if its
+tip flag is kept. If it has its lower-corner bond, append the radius
+in \eqref{ht:lowerrule}, unless \eqref{ht:preserve} holds; in that case
+retain the lower path instead. For an upper corner of original law U,
+retain a U bridge when both endpoints survive, append \(1/2\) to its
+single surviving endpoint otherwise, and do nothing when neither
+survives. For an upper corner of original law D with two original
+internal bonds, retain the bridge only in its active binary term and
+only with both endpoints surviving. For an original one-bond D upper
+corner append \(1/5\) at its surviving endpoint. There are no other
+bridges or fields.
+\item Put radii \((1,1)\) at every retained unmarked U corner;
+this enlarges the zero fields of an activated D corner if necessary.
+Retain law D and no fields at S in the lower path. A nontrivial path's
+marked vertices are U: a D mark kept at its tip is isolated. Pad a U
+mark of path degree \(d_v\) to \(3-d_v\) fields with zeros. For each
+isolated mark, pad to three fields and replace its list by its mean
+radius \eqref{ht:meanformula}. Record every such call. The only D
+call is \((0,0,3/5)\).
+\item Sort the radii at each vertex. A vertex attribute is
+\((\text{law},\text{marked},\text{outgoing},\text{radius list})\),
+where a mean has law-symbol m and a single radius. For each path take
+the lexicographically smaller of its two orientations, comparing first
+its decorated geometry (the first three attributes and field counts)
+and then its radius lists. Sort components the same way. Keep the
+straight/turning flag as part of the key.
+\item Within a fixed key compare corresponding radii componentwise.
+Discard a list dominated by another, retaining each maximal list once.
+Verify that the results are exactly Table~\ref{ht:modeltable} and that
+every mean call belongs to Table~\ref{ht:meantable}.
+\end{enumerate}
+For a corner/mark with a smaller actual external field, the appropriate
+step uses its ball bound rather than an assumption of maximal norm.
+Thus this recipe is an upper-radius computation, not a claim that all
+choices of enlarged fields are jointly realizable by a global domain.
+The inequality is being proved on the larger independent product of
+balls, which covers those correlated choices as well.
+
+The exact enumeration and comparisons are implemented without catalogue
+imports in \texttt{checks/\allowbreak audit.py}, function \texttt{coverage}.
+It filters the above mask choices, computes the effective records from
+these choices, and carries out Steps 1--5 with rational radii. It also
+checks every generated list against a dominating row and verifies
+both inclusions of the maximal-list equality, not just the count 38.
+Its complete counts are
+\begin{equation}\label{ht:coveragecounts}
+ \begin{array}{lr}
+ \text{consistent raw choices}&106101\\
+ \text{choices with any marked outgoing site}&184914\\
+ \text{choices with outgoing N or E}&123339\\
+ \text{effective reflection classes generated from those choices}&7962\\
+ \text{binary reduction branches on those classes}&24741\\
+ \text{branches with no surviving mark}&981\\
+ \text{decorated geometries}&20\\
+ \text{maximal radius lists}&38.
+ \end{array}
+\end{equation}
+The coincidence of the effective-class count with the old catalogue's
+size is a check of the definitions, not an input. No entry or identifier
+from that catalogue is read. The geometries are exhausted by the
+following partition of the maximal rows; a path has a U corner between
+consecutive displayed marks, except for the retained lower path.
+\begin{center}\small
+\begin{tabular}{cll}
+\toprule Type & Geometry and outgoing location & Maximal rows\\\midrule
+ t & one mean, outgoing present & 0\\
+ t & two means, outgoing present & 1,2,3\\
+ t & one mean, outgoing absent & 4\\
+ t & three-vertex path, outgoing at an end & 5\\
+ t & three means & 6,7,8\\
+ t & two means, outgoing absent & 9,10,11\\
+ t & mean plus three-vertex path, outgoing on path & 12,13,14\\
+ t & three-vertex path, outgoing absent & 15\\
+ t & outgoing mean plus three-vertex path & 16,17,18\\
+ t & upper five-vertex path, outgoing at an end & 19\\
+ t & lower five-vertex path, outgoing at an end & 20\\
+ s & one mean, outgoing absent & 21\\
+ s & two means, outgoing present & 22,23,24\\
+ s & one mean, outgoing present & 25\\
+ s & three-vertex path, outgoing at an end & 26\\
+ s & two means, outgoing absent & 27,28\\
+ s & three means & 29,30,31,32\\
+ s & mean plus three-vertex path, outgoing on path & 33,34,35\\
+ s & upper five-vertex path, outgoing in the middle & 36\\
+ s & lower five-vertex path, outgoing absent & 37\\\bottomrule
+\end{tabular}
+\end{center}
+This states exactly the finite coverage assertion used in the proof,
+including its computer-checked part. The check uses only finite products,
+Boolean mask comparisons, rational arithmetic and list comparisons.
+It introduces no numerical inequality or catalogue-exhaustiveness
+assumption.
+\end{proof}
+
+\begin{htlem}[Relabeling and radius extension]\label{ht:extension}
+A relabeling of path vertices preserving laws, marks and the outgoing
+mark preserves \(Z,C_{ij},\htcur,\htnext\), after the corresponding
+field relabeling. Componentwise radius domination as in
+Lemma~\ref{ht:coverage} transfers H1-tree to the dominated model.
+\end{htlem}
+\begin{proof}
+Relabeling is a bijection on the finite product variables and preserves
+every scalar product and site law. Reversing a path and permuting
+components are particular examples. The type flag is retained
+separately. Fields at the same vertex can be permuted because their
+factors commute.
+
+For a smaller field vector in a larger listed ball, use
+\eqref{ht:convexfield}. The polynomial \(F_c\) is separately affine
+in each field vector. At an isolated mean vertex it is separately
+affine in that mean as well, because every passage pair insertion
+uses a marked vertex only once. Expanding each vector into a convex
+combination of boundary vectors therefore expresses the smaller value
+of \(F_c\) as a convex combination of values on the larger model.
+These are nonnegative by H1-tree. A new zero field contributes the
+factor 1 exactly and can be treated by the same identity. No division
+by a partition function or ratio monotonicity is involved.
+\end{proof}
+
+\begin{htthm}[Reduction to the actual conclusion of (H1)]
+\label{ht:reduction}
+Assume H1-tree. Use the mean inequalities of
+Lemmas~\ref{ht:meanbern} and \ref{ht:specialmean} and the finite
+coverage assertion of Lemma~\ref{ht:coverage}, established by the
+specified exact checks above. For every actual non-exceptional U departure
+of Definition~\ref{ht:actual}, every original unit pin assignment
+\(\tau\), and every fixed outside configuration of spins of norm
+at most one, the two conditional template sums satisfy
+\begin{equation}\label{ht:conditional}
+ C(\omega)\ge c_{\rm type}N(\omega).
+\end{equation}
+Consequently, for the full networks,
+\begin{equation}\label{ht:global}
+ Z_{E_{\rm net}}^\tau\ge c_{\rm type}
+                         Z_{E_{\rm net}^{+}}^\tau,
+ \qquad \rho_j^\tau\le1/c_{\rm type}.
+\end{equation}
+The finite checks specified above discharge all these assumptions.
+In particular this proves exactly the local bound used in Section 6
+with the constants \eqref{ht:constants} unchanged.
+\end{htthm}
+\begin{proof}
+The template lies in G by Lemma~\ref{ht:counts}. Fix all spins outside
+it. Put every site weight and factor wholly outside it into
+\(H(\omega)\ge0\). These outside factors are identical before and
+after the step, since the only changes are at the passage and its
+outgoing bond, both inside the template. The remaining two template
+sums are \(C(\omega),N(\omega)\). Their external fields obey precisely
+the counts in Lemma~\ref{ht:counts}, irrespective of correlations
+between the fixed outside spins or coincidences among pin directions.
+
+Lemma~\ref{ht:localcases} integrates and decomposes this pair. Term
+by term its difference is a nonnegative coefficient times a positive
+common scalar times the difference of one of its reduced forests.
+Empty marked sets have nonnegative difference \((1-c)Z\). For every
+other forest Lemma~\ref{ht:coverage} supplies a row of the 38-model
+list with dominating radii, and Lemma~\ref{ht:extension} transfers that
+row's inequality to this forest. Thus every summand is nonnegative.
+This proves \eqref{ht:conditional} for every outside assignment,
+including those of zero global marginal weight. The positive scalars
+need not be uniform in \(\omega\); they are identical for the two
+members of each pair, which is the property required here.
+Multiplication by \(H(\omega)\), followed by the finite sum over outside
+spins, proves \eqref{ht:global}. Both partition functions are strictly
+positive by P.Lemma 2.4, so the ratio assertion follows.
+Proposition~\ref{ht:certified} and the exact coverage check discharge
+the hypotheses without an optimization or sampling assumption.
+\end{proof}
+
+\begin{htprop}[How the theorem enters the paper]\label{ht:use}
+In the first trace of P.Lemma 7.2 every U departure satisfies the local
+hypothesis of Theorem~\ref{ht:reduction}. In the second trace of
+P.Lemma 7.3 the same holds outside
+\(\{y':0<d(y',e)\le2\}\), where \(e\in S(G)\) is the fixed stopped
+arrival of the first trace. There are at most twelve exceptional U
+departures, and their existing \(12/5\) ratio bound is unchanged.
+Thus all uses of the local input in P.Lemma 6.13 and Section 7 remain
+valid on replacing the hypothesis (H1) by the above finite tree input
+and its specified mean and coverage checks.
+\end{htprop}
+\begin{proof}
+The kept-set induction and non-tip local classification are exactly
+P.Lemma 7.2. They give a live U kept set of size three, an arrival X
+or D kept set of size two, ordinary kept sets elsewhere, and agreement
+of kept flags between nonremoved ends. Those are
+Definition~\ref{ht:actual}. Actual tip treatment in the present proof
+requires only its factor count and norm bound, so no covering global
+tip status has been assumed. Pins are retained as in
+Lemma~\ref{ht:counts}.
+
+P.Lemma 7.3 gives one fixed protected U defect at e in the second trace.
+When \(d(y',e)>2\), it is outside the template, whose non-tip data
+satisfy the same rules. No departure occurs at e. The square lattice
+has four sites at distance one and eight at distance two from e, and
+a site is departed from with law U at most once, since its first U
+departure changes it to D. There are therefore at most twelve exceptions.
+At each exception P.Lemma 6.6 gives \(\rho_j^\tau\le12/5\).
+At D departures the ratio is one by P.Definition 6.5. At all other U
+departures Theorem~\ref{ht:reduction} gives the same bound
+\(1/c_{\rm type}\) that P.Lemma 6.10 supplied. These are the only local
+ratio facts used in P.Lemma 6.13 and the subsequent response recursion.
+For the type-dependent response coefficients, P.Definition 6.5 writes
+\(Z_E^\tau=Z_{E'}^\tau I^\tau\) and
+\(Z_{E^+}^\tau=Z_{E'}^\tau J^\tau\).
+Equation~\eqref{ht:global} therefore gives
+\(I^\tau\ge c_{\rm type}J^\tau\); with two neighbours it gives
+\(I^\tau\ge c_{\rm type}\), since \(J=1\).
+These are exactly the local inequalities used in P.Lemma 7.6, so its
+sharper type-dependent coefficient bounds are also retained.
+There is no claim here about the separate proposed H2 or H3 replacement.
+\end{proof}
+
+\begin{htrem}[Repairs and scope of the computational evidence]
+\label{ht:repairs}
+The following qualifications are necessary for a correct replacement.
+First, its theorem is \eqref{ht:global}, not the artificially filled
+D-slot version of (H1). Second, the two special mean checks
+\eqref{ht:specialradii} are needed in addition to the 21 cube checks.
+Third, an upper D corner with two original internal bonds that loses
+an endpoint gives exactly 1 after its law expansion; two arbitrary U
+fields may be added only to a retained bridge. Fourth, the outgoing
+mark can disappear in a zero-law term, but the two surviving non-outgoing
+marks still supply \(C_{fg}/5\) in the next polynomial. Fifth, a D
+neighbour keeping its tip is integrated as D, rather than replaced by
+a stronger U term. Sixth, the lower path in \eqref{ht:preserve} is
+retained. The report already flags the last two choices; the proof
+specifies their exact scope and the common weights. The source-code
+field \(3R\) for a mean is only the formal tensor identity in
+Definition~\ref{ht:reconstruct}. The older 19 independent boxes do
+not certify the present 22 scalar models.
+
+The exact replay in \texttt{checks/audit.py}, using
+\texttt{checks/reconstruct.py}, verifies all finite arithmetic and
+coverage assertions above. It does not read \texttt{pext7962.json},
+the old operator matrices, or the old inversion choices. Its inputs
+are the displayed mathematical definitions and the copied rational
+witness files. The checks are native exact rational/integer checks;
+no Lean-kernel replay is claimed.
+
+As a separate falsification test, \texttt{checks/numerical.py} used
+seed 20261116 on 256 randomly selected effective configurations generated
+from the kept-set rules and one source configuration for each maximal
+row, with six field assignments per configuration. It tested 1,764
+local field assignments and 6,336 binary decomposition branches,
+including 522 auxiliary-arrival splits and 24 retained-lower-path
+branches. External factors were unit or shorter vectors, with only
+\(2-k\) possible fields at D corners, and tip fields had radius at
+most \(3/5\). The tip-reduced current/next pair was compared separately with
+the law mixture and with the arrival/leaf integration chain. All tested
+mean bounds passed; the maximum normalized equality error
+\(\max|a-b|/\max(1,\max|a|)\) was less than
+\(8.89\cdot10^{-16}\), and the smallest sampled ratio margin above
+its type threshold was greater than 0.0195. These floating tests are
+diagnostics, not proof inputs, and make no assertion about a sharp
+minimum. The exact finite checks and the preceding identities supply
+the proof.
+\end{htrem}

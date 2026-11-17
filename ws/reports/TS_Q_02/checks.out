@@ -1,0 +1,7 @@
+EXACT: all 35 monomial moments of degree <= 4 agree with the paper.
+EXACT: all 25 kernel degree bounds and all 25 kernel moments pass.
+Diagonal moments: 1/5, 1/20, 1/30, 1/20, 1/5
+EXACT: all 25 kernel evaluations pass on 8 compatible rational spinors, including both poles and complex phases.
+NUMERIC: Gram and norm identities pass on alphabets of sizes 12, 24, 13; max errors 1.33e-15, 2.22e-15.
+NUMERIC: direct two-site tensor sum with alphabets 12 x 24 passes; absolute error 5.33e-15.
+NUMERIC: factorized nine-site tensor check with dependent sizes 12/24/13 passes; absolute error 6.22e-15.

@@ -1,0 +1,454 @@
+{
+  "label": "port-QICLean",
+  "seconds": 49.02150583267212,
+  "results": {
+    "QICLean.Algebra.L2OpNormReindex": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7997305393218994,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixAux": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.4331300258636475,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixIsometryEntries": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9863080978393555,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixReindex": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.0796573162078857,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.MatrixUnitaryBetween": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.3420486450195312,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Unknown constant `Matrix.mulVec_surjective_iff_rank_eq_card.mpr`",
+          "endPos": {
+            "column": 49,
+            "line": 147
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-QICLean/QICLean/Algebra/MatrixUnitaryBetween.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "lean.unknownIdentifier._namedError",
+          "pos": {
+            "column": 4,
+            "line": 147
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": []
+    },
+    "QICLean.Algebra.OrthogonalProjection": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.2371504306793213,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.PosSemidefSupport": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8230948448181152,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.TraceReindex": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.1020805835723877,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Algebra.ZModCyclicSums": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6061420440673828,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.CfcConjugation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.137575387954712,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.DetectabilityLemma": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.857097864151001,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.Entropy": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.095255136489868,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.EuclideanEigenvectorBasis": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4736063480377197,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.FiniteRangeKnabe": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.8777027130126953,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.GlobalGap": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0073728561401367,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.IdempotentEndomorphism": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.9300775527954102,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.KernelSpectralGap": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.684767484664917,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.LowEnergyPerturbation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.952094793319702,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.MatrixFramePerturbation": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Algebra.MatrixUnitaryBetween"
+      ]
+    },
+    "QICLean.Analysis.OrthogonalResolution": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8520634174346924,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.PhaseError": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3498079776763916,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.ProbabilityEntropy": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5384197235107422,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.ProjectionGeometry": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.2203540802001953,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.RootChannel": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Analysis.MatrixFramePerturbation"
+      ]
+    },
+    "QICLean.Analysis.SchattenNorm": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.207183599472046,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.SqrtHolder": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.1021668910980225,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.StripQuadratic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0060741901397705,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.SupportProjectionOrder": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5183806419372559,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.SurprisalMoment": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.294893741607666,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.TraceCFC": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.520817756652832,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.TraceDistance": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.168384552001953,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.TraceHolder": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7577745914459229,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.TraceMulBound": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Analysis.RootChannel"
+      ]
+    },
+    "QICLean.Analysis.TraceNormAbs": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.482619285583496,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.TraceNormContractivity": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.520873546600342,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.UnitaryHaar": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5317964553833008,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Analysis.ViableSubspace": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.341031074523926,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0050127506256104,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Channel.PartialTrace": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0904855728149414,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.FilterMoment": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.1068010330200195,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.GapSurprisal": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.817408323287964,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.LocalLift": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.6317970752716064,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.MarginalTails": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.2240562438964844,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.ModularExpectation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.179253578186035,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.SchmidtTilt": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.896714448928833,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Entropy.SupportedMarginalTails": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.3814291954040527,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.CentralLabelFunction": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.704932689666748,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.CoherentMeasure": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Analysis.TraceMulBound"
+      ]
+    },
+    "QICLean.Representation.CoherentResolution": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Representation.UnitaryTwirl"
+      ]
+    },
+    "QICLean.Representation.CommutantDimension": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.61612606048584,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.HighestWeight": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.0347225666046143,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.HusimiIdentity": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Representation.CoherentResolution"
+      ]
+    },
+    "QICLean.Representation.IrrepLabels": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.134000539779663,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.IsotypicDimension": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.7612223625183105,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.LabelProjectors": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.6107902526855469,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.PermutationRepresentation": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5193874835968018,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.ReplicaSiteOp": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Analysis.RootChannel"
+      ]
+    },
+    "QICLean.Representation.SchurWeylCommutant": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.4675443172454834,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.TensorPowerAction": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8369717597961426,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.TrivialLabel": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.8320393562316895,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.UnitaryCommutant": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.849994421005249,
+      "errors": [],
+      "warnings": []
+    },
+    "QICLean.Representation.UnitaryTwirl": {
+      "status": "blocked",
+      "dependencies": [
+        "QICLean.Representation.ReplicaSiteOp"
+      ]
+    }
+  },
+  "error_count": 1,
+  "ok": 53,
+  "failed": 1,
+  "blocked": 8
+}

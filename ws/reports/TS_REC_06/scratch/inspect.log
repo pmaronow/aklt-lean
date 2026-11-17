@@ -1,0 +1,121 @@
+def AKLT.Blueprint.Rec.TraceTelescopeStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        ∀ (T : Finset AKLT.Defs.Plane) (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+          AKLT.Defs.StoppedNetworkTrail D u T w →
+            ∀ (b : Bool),
+              AKLT.Defs.traceRatio D τ b (AKLT.Defs.wordVertices u w) =
+                ∏ i,
+                  AKLT.Defs.stepRatio (AKLT.Blueprint.Rec.prefixNetwork D u w ↑i) τ b (AKLT.Defs.wordVertex u w ↑i)
+                    (AKLT.Defs.wordVertex u w (↑i + 1))
+def AKLT.Blueprint.Rec.CoordinateStepStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u v : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        AKLT.Defs.AdmissibleTarget D v →
+          u ≠ v →
+            ∀ (b : Bool) (k : Fin 3),
+              (D.partition τ b fun a => a u k * a v k) =
+                (if D.status u = AKLT.Defs.Status.U then 1 / 3 else 1 / 5) *
+                  ∑ o ∈ D.presentNeighbours u, (AKLT.Defs.traceStep D u o).partition τ b fun a => a o k * a v k
+def AKLT.Blueprint.Rec.PairExpansionStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u v : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        AKLT.Defs.AdmissibleTarget D v →
+          u ≠ v →
+            ∀ (b : Bool),
+              (D.expectation τ b fun a => AKLT.Defs.dot (a u) (a v)) =
+                AKLT.Blueprint.Rec.stoppedSum D u (insert v (AKLT.Defs.protectedSites G)) fun n w =>
+                  ↑(AKLT.Defs.traceCoefficient D (AKLT.Defs.wordVertices u w)) *
+                      AKLT.Defs.traceRatio D τ b (AKLT.Defs.wordVertices u w) *
+                    (AKLT.Defs.traceNetwork D (AKLT.Defs.wordVertices u w)).expectation τ b fun a =>
+                      AKLT.Defs.dot (a (AKLT.Defs.wordVertex u w n)) (a v)
+def AKLT.Blueprint.Rec.PairTerminalFactorStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u v : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        AKLT.Defs.AdmissibleTarget D v →
+          u ≠ v →
+            ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+              AKLT.Defs.StoppedNetworkTrail D u (insert v (AKLT.Defs.protectedSites G)) w →
+                AKLT.Defs.wordVertex u w n = v →
+                  ∀ (b : Bool),
+                    ((AKLT.Defs.traceNetwork D (AKLT.Defs.wordVertices u w)).expectation τ b fun a =>
+                        AKLT.Defs.normSq (a v)) =
+                      AKLT.Blueprint.Rec.targetFactor D v
+def AKLT.Blueprint.Rec.PairDegreeStatement : Prop :=
+∀ (G : Finset AKLT.Defs.Plane) (D : AKLT.Defs.Network G),
+  D.Auxiliary →
+    ∀ (u v : AKLT.Defs.Plane),
+      D.AdmissibleStart u →
+        AKLT.Defs.AdmissibleTarget D v →
+          u ≠ v →
+            ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+              AKLT.Defs.StoppedNetworkTrail D u (insert v (AKLT.Defs.protectedSites G)) w →
+                ∀ j ≤ n,
+                  ∀ x ∈ (AKLT.Blueprint.Rec.prefixNetwork D u w j).active,
+                    ((AKLT.Blueprint.Rec.factorDegree (AKLT.Blueprint.Rec.prefixNetwork D u w j) x +
+                          if x = AKLT.Defs.wordVertex u w j then 1 else 0) +
+                        if x = v then 1 else 0) ≤
+                      4
+def AKLT.Blueprint.Rec.ProductExposureStatement : Prop :=
+∀ (n : ℕ) (b c x : Fin n → ℝ),
+  (∀ (i : Fin n), 0 < b i ∧ 0 < c i ∧ c i ≤ 1 ∧ b i ≤ x i ∧ 1 ≤ x i) →
+    |∏ i, b i - ∏ i, c i| ≤ ∑ i, |Real.log (c i) - Real.log (b i)| * ∏ j with ↑j ≤ ↑i, x j
+def AKLT.Blueprint.Rec.OnePointPointwiseStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+    D.Auxiliary →
+      ∀ (u : AKLT.Defs.Plane),
+        D.AdmissibleStart u →
+          ∀ (incoming : AKLT.Defs.Compass),
+            ¬D.Present (u - incoming.step) u →
+              ∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+                AKLT.Defs.StoppedNetworkTrail D u (AKLT.Defs.protectedSites G) w →
+                  AKLT.Blueprint.Rec.uncoveredCount D u incoming w ≤ 12 →
+                    ↑(AKLT.Defs.traceCoefficient D (AKLT.Defs.wordVertices u w)) *
+                        max (AKLT.Defs.traceRatio D τ true (AKLT.Defs.wordVertices u w))
+                          (AKLT.Defs.traceRatio D τ false (AKLT.Defs.wordVertices u w)) ≤
+                      AKLT.Blueprint.Rec.exceptionFactor * ↑(AKLT.Defs.trailWeight u incoming w)
+def AKLT.Blueprint.Rec.OnePointSumStatement : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (CV q : ℝ),
+    AKLT.Defs.OpenTrailBound CV q →
+      ∀ (G : Finset AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+        D.Auxiliary →
+          ∀ (u : AKLT.Defs.Plane),
+            D.AdmissibleStart u →
+              ∀ (incoming : AKLT.Defs.Compass),
+                ¬D.Present (u - incoming.step) u →
+                  (∀ (n : ℕ) (w : AKLT.Defs.DirectionWord n),
+                      AKLT.Defs.StoppedNetworkTrail D u (AKLT.Defs.protectedSites G) w →
+                        AKLT.Blueprint.Rec.uncoveredCount D u incoming w ≤ 12) →
+                    AKLT.Blueprint.Rec.onePointSum D τ u ≤
+                      AKLT.Blueprint.Rec.onePointConstant CV q * q ^ AKLT.Blueprint.Rec.protectedDistance G u
+Pi.instFintype
+Pi.instFintype
+def AKLT.Defs.Network.AdmissibleStart : {G : Finset AKLT.Defs.Plane} → AKLT.Defs.Network G → AKLT.Defs.Plane → Prop :=
+fun {G} D u =>
+  u ∈ D.active ∧
+    u ∉ AKLT.Defs.protectedSites G ∧
+      (D.status u = AKLT.Defs.Status.U ∧ (D.presentNeighbours u).card ≤ 3 ∨
+        D.status u = AKLT.Defs.Status.D ∧ (D.presentNeighbours u).card ≤ 1)
+def AKLT.Defs.AdmissibleTarget : {G : Finset AKLT.Defs.Plane} → AKLT.Defs.Network G → AKLT.Defs.Plane → Prop :=
+fun {G} D v =>
+  v ∈ D.active ∧
+    (D.status v = AKLT.Defs.Status.U ∧
+        (D.presentNeighbours v).card + {e ∈ AKLT.Defs.originalLegs G | e.1 = v}.card ≤ 3 ∨
+      D.status v = AKLT.Defs.Status.D ∧ (D.presentNeighbours v).card ≤ 1)
+def AKLT.Defs.OpenTrailBound : ℝ → ℝ → Prop :=
+fun CV q =>
+  1 ≤ CV ∧
+    0 < q ∧
+      q < 1 ∧
+        ∀ (n : ℕ) (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass),
+          (∑ w, if AKLT.Defs.IsTrail u incoming w then ↑(AKLT.Defs.trailWeight u incoming w) else 0) ≤ CV * q ^ n

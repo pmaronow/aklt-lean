@@ -1,0 +1,79 @@
+[
+ {
+  "finding": "1 (sec8:9-11)",
+  "file": "sec8-inputs.tex",
+  "start_line": 9,
+  "old": "The certificates consist of the finite\ninteger equalities, inequalities, and divisibility tests specified\nbelow and in Appendix C, with positive rational denominators cleared.",
+  "new": "The finite tests specified below and in Appendix C use integer\nequalities, inequalities, and divisibility tests, with positive\nrational denominators cleared."
+ },
+ {
+  "finding": "5 (sec8:21-22)",
+  "file": "sec8-inputs.tex",
+  "start_line": 21,
+  "old": "The certificates are checked inside the\nLean kernel, not by external programs.",
+  "new": "The certificate proofs are checked by the Lean kernel; external\nprograms generate and encode witness data."
+ },
+ {
+  "finding": "3 (sec8:22-27)",
+  "file": "sec8-inputs.tex",
+  "start_line": 22,
+  "old": "The certificate for (H1)\ncovers all \\(7962\\) local patterns and their \\(12173\\) sector\nblocks; its kernel check took about \\(139\\) CPU-hours. The\ncertificate for (H3\\(_h\\)) consists of \\(5035\\) generated modules;\nits kernel check took about \\(19.5\\) CPU-hours. The kernel check\nfor (H2) took seconds.",
+  "new": "The certificate for (H1) covers all \\(7962\\) local patterns and\ntheir \\(12173\\) sector blocks; successful Lean builds of its\nnumerical certificate library used about \\(139\\) CPU-hours.\nThe production manifest for (H3\\(_h\\)) contains \\(5032\\) generated\nmodules and three hand-written bridge modules; successful Lean\nbuilds of these modules used about \\(19.5\\) CPU-hours. The\nexhaustive kernel computation for (H2) took about four minutes."
+ },
+ {
+  "finding": "4 (sec8:27-30)",
+  "file": "sec8-inputs.tex",
+  "start_line": 28,
+  "old": "Everything in the formalization except the\ncertificates for (H1) and (H3\\(_h\\)), in particular the derivation\nof Theorem~\\ref{t:main} from the three inputs, has also been checked\nby two independent implementations of the Lean kernel.",
+  "new": "At commit~\\texttt{63d176a}, the part of the formalization independent\nof the (H1) and (H3\\(_h\\)) certificate proofs, including the\nconditional derivation of Theorem~\\ref{t:main} and the (H2) proof,\nwas also checked by con-ron and NanoDa, two independent\nimplementations of the Lean kernel. These rechecks exclude the\n(H1) and (H3\\(_h\\)) certificate proofs and the subsequent closing\nand packaging modules."
+ },
+ {
+  "finding": "1 (sec8:32-38)",
+  "file": "sec8-inputs.tex",
+  "start_line": 36,
+  "old": "For the local input we use the archived representation and inversion\nchoices, and the division-free Gram/residual format wherever its\nwitness is available. For a block without a supplied nonzero Gram\nfactor which is not directly diagonally dominant, we use the\nBareiss fallback permitted by Lemma~\\ref{l:integercheck}. The local\ncertificate consists of the coverage, reconstruction, and positivity\nchecks on these data specified below.",
+  "new": "The local verification described below uses the archived\nrepresentation and inversion choices, the two supplied nonzero\nGram factors, and the Bareiss fallback permitted by\nLemma~\\ref{l:integercheck}. The Lean certificate uses the same\npatterns, choices, and reconstructed matrices, with zero Gram\nfactors for the \\(8439\\) directly dominant blocks and nonzero\nGram factors for all \\(3734\\) remaining blocks. It therefore\nproves the same local input without running the numerical\nBareiss fallback."
+ },
+ {
+  "finding": "1 (sec8:139)",
+  "file": "sec8-inputs.tex",
+  "start_line": 145,
+  "old": "These are the only two nonzero factors used.",
+  "new": "These are the only two nonzero factors supplied in the original archive."
+ },
+ {
+  "finding": "2 (sec8:163-165, deletion)",
+  "file": "sec8-inputs.tex",
+  "start_line": 169,
+  "old": " As an additional finite check,\nall \\(3734\\) blocks failing the direct dominance test, including\nthe two with supplied nonzero factors, pass this fallback too.",
+  "new": ""
+ },
+ {
+  "finding": "1 (sec8:181-182)",
+  "file": "sec8-inputs.tex",
+  "start_line": 185,
+  "old": "The finite assertions specified above constitute\nthe local certificate, verified by the Lean kernel.",
+  "new": "The finite assertions specified above constitute the archived local\nverification. The accompanying Lean certificate proves the same\nlocal input by the reconstructed-matrix Gram/residual checks\ndescribed at the beginning of this section."
+ },
+ {
+  "finding": "1 (sec8:331-336)",
+  "file": "sec8-inputs.tex",
+  "start_line": 337,
+  "old": "The H1 calculation uses\nthe frozen representation and inversion records. Its residual\ntests require all rows, and its fallback requires every division\nexact and every pivot positive. The fallback discharges exactly\nthe blocks without supplied nonzero Gram factors, using the fixed\nrepresentation and inversion records.",
+  "new": "The archived H1 calculation uses the frozen representation and\ninversion records. Its residual tests require all rows, and its\nfallback requires every division exact and every pivot positive.\nThe fallback discharges exactly the blocks without supplied\nnonzero Gram factors, using the fixed representation and inversion\nrecords. The Lean certificate uses Gram/residual witnesses for all\nblocks and checks their mathematical reconstruction and coverage."
+ },
+ {
+  "finding": "1 (sec8:351-353)",
+  "file": "sec8-inputs.tex",
+  "start_line": 358,
+  "old": "Each certificate is a proof of the\nspecified finite assertions, checked by the Lean kernel as described\nat the beginning of this section.",
+  "new": "Each Lean certificate proves its computational input from the\nfinite integer assertions used in that certificate, with the (H1)\nwitness format described at the beginning of this section."
+ },
+ {
+  "finding": "5 (app-input-contracts:16-18)",
+  "file": "app-input-contracts.tex",
+  "start_line": 16,
+  "old": "These finite assertions are verified by proofs\nchecked by the Lean kernel, as described at the beginning of\nSection~\\ref{s:inputs}.",
+  "new": "In Lean, the archived (H2) integer vector is expanded to all\n\\(916\\) raw windows and checked directly, and the archived\n(H3\\(_h\\)) automaton and stationary arrays are checked through\ntheir literal encodings. The resulting proofs are checked by the\nLean kernel, as described at the beginning of Section~\\ref{s:inputs}."
+ }
+]

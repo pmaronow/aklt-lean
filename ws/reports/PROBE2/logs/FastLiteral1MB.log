@@ -1,0 +1,27 @@
+import took 2.64s
+interpretation of elabPackedHex._boxed took 1.47s
+'Literal1MB.checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 2.63ms
+	attribute application 0.0164ms
+	compilation (IR) 0.0236ms
+	compilation (LCNF base) 0.711ms
+	compilation (LCNF impure) 0.106ms
+	compilation (LCNF mono) 0.381ms
+	elaboration 16.2ms
+	fix level params 0.0118ms
+	import 2.64s
+	initialization 26.1ms
+	instantiate metavars 0.00822ms
+	interpretation 1.71s
+	let-to-have transformation 0.0104ms
+	linting 2.28ms
+	module linting 0.00136ms
+	overlappingInstancesLinter 0.694ms
+	parsing 6.28ms
+	process pre-definitions 0.467ms
+	share common exprs 0.0216ms
+	tactic execution 0.255ms
+	tacticAnalysis 1.63ms
+	type checking 1.27ms
+	typeclass inference 0.982ms

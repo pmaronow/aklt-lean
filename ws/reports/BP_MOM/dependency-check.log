@@ -1,0 +1,129 @@
+AKLT.Blueprint.Mom.TensorLaw (L : (AKLT.Defs.Vec3 → ℝ) → ℝ) (c : ℝ) : Prop
+AKLT.Blueprint.Mom.conditionalSpinMean {n : ℕ} (p : AKLT.Defs.Weight (Fin n → AKLT.Defs.SpinLetter)) (x : Fin n)
+  (σ : Fin n → AKLT.Defs.SpinLetter) : AKLT.Defs.Vec3
+AKLT.Blueprint.Mom.dotPolynomial {n : ℕ} (e : Fin n × Fin n) : MvPolynomial (Fin n × Fin 3) ℝ
+AKLT.Blueprint.Mom.finiteFunctional {α : Type} [Fintype α] (w : α → ℝ) (v : α → AKLT.Defs.Vec3)
+  (f : AKLT.Defs.Vec3 → ℝ) : ℝ
+AKLT.Blueprint.Mom.freePolynomial {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) (pairs : List (Fin n × Fin n)) :
+  MvPolynomial (Fin n × Fin 3) ℝ
+AKLT.Blueprint.Mom.interactionOccurrences {n : ℕ} (bonds : List ((Fin n × Fin n) × ℝ))
+  (pins : List ((Fin n × AKLT.Defs.Vec3) × ℝ)) (x : Fin n) : ℕ
+AKLT.Blueprint.Mom.interactionPolynomial {n : ℕ} (bonds : List ((Fin n × Fin n) × ℝ))
+  (pins : List ((Fin n × AKLT.Defs.Vec3) × ℝ)) (p : MvPolynomial (Fin n × Fin 3) ℝ) : MvPolynomial (Fin n × Fin 3) ℝ
+AKLT.Blueprint.Mom.meanPath (t : ℝ) : Fin 3 → AKLT.Defs.Vec3
+AKLT.Blueprint.Mom.meanPathEnd : ℝ
+AKLT.Blueprint.Mom.mono (m : Fin 3 → ℕ) (v : AKLT.Defs.Vec3) : ℝ
+AKLT.Blueprint.Mom.normSq_nonneg (a : AKLT.Defs.Vec3) : 0 ≤ AKLT.Defs.normSq a
+AKLT.Blueprint.Mom.oneSiteFibre {n : ℕ} (x : Fin n) (σ τ : Fin n → AKLT.Defs.SpinLetter) : Prop
+AKLT.Blueprint.Mom.productSum {n : ℕ} (α : Fin n → Type) [(x : Fin n) → Fintype (α x)] (w : (x : Fin n) → α x → ℝ)
+  (v : (x : Fin n) → α x → AKLT.Defs.Vec3) (f : (Fin n → AKLT.Defs.Vec3) → ℝ) : ℝ
+AKLT.Blueprint.Mom.scaledMoment (c : ℝ) (m : Fin 3 → ℕ) : ℝ
+AKLT.Blueprint.Mom.siteLawDecomposition : AKLT.Blueprint.Mom.SiteLawDecompositionStatement
+AKLT.Blueprint.Mom.tripleP (a : Fin 3 → AKLT.Defs.Vec3) : ℝ
+AKLT.Blueprint.Mom.tripleSOS (a : Fin 3 → AKLT.Defs.Vec3) : ℝ
+AKLT.Blueprint.Mom.tripleV (a : Fin 3 → AKLT.Defs.Vec3) : AKLT.Defs.Vec3
+AKLT.Blueprint.Mom.twoSiteFibre {n : ℕ} (x y : Fin n) (σ τ : Fin n → AKLT.Defs.SpinLetter) : Prop
+AKLT.Defs.FiniteSpinNetwork.Valid {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) : Prop
+AKLT.Defs.FiniteSpinNetwork.weight {n : ℕ} (D : AKLT.Defs.FiniteSpinNetwork n) (pinned : Bool)
+  (σ : Fin n → AKLT.Defs.SpinLetter) : ℝ
+AKLT.Defs.MomentLaw {n : ℕ} (F : AKLT.Defs.FrameData n) : Prop
+AKLT.Defs.SeparateDegreeFour.{u_1} {ι : Type u_1} (p : MvPolynomial (ι × Fin 3) ℝ) : Prop
+AKLT.Defs.UnitVector : Type
+AKLT.Defs.conditionalProbability.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (E A : Ω → Prop) : ℝ
+AKLT.Defs.dot (a b : AKLT.Defs.Vec3) : ℝ
+AKLT.Defs.eventMass.{u_1} {Ω : Type u_1} [Fintype Ω] (p : AKLT.Defs.Weight Ω) (E : Ω → Prop) : ℝ
+AKLT.Defs.goldenRatio : ℝ
+AKLT.Defs.icoRadius : ℝ
+AKLT.Defs.icoVector (j : AKLT.Defs.IcoLetter) : AKLT.Defs.Vec3
+AKLT.Defs.localMean {k : ℕ} (s : AKLT.Defs.Status) (a : Fin k → AKLT.Defs.Vec3) : AKLT.Defs.Vec3
+AKLT.Defs.localProduct {k : ℕ} (a : Fin k → AKLT.Defs.Vec3) (n : AKLT.Defs.Vec3) : ℝ
+AKLT.Defs.moment (f : AKLT.Defs.Vec3 → ℝ) : ℝ
+AKLT.Defs.momentLawFunctional {n : ℕ} (F : AKLT.Defs.FrameData n) (s : AKLT.Defs.Status) (f : AKLT.Defs.Vec3 → ℝ) : ℝ
+AKLT.Defs.normSq (a : AKLT.Defs.Vec3) : ℝ
+AKLT.Defs.normalize.{u_1} {Ω : Type u_1} [Fintype Ω] (w : AKLT.Defs.Weight Ω) : AKLT.Defs.Weight Ω
+AKLT.Defs.rationalMoment (m : Fin 3 → ℕ) : ℚ
+AKLT.Defs.signValue (j : Fin 2) : ℝ
+AKLT.Defs.siteFunctional (s : AKLT.Defs.Status) (f : AKLT.Defs.Vec3 → ℝ) : ℝ
+ContinuousOn.div.{u_1, u_3} {α : Type u_1} {G₀ : Type u_3} [GroupWithZero G₀] [TopologicalSpace G₀] [ContinuousInv₀ G₀]
+  [ContinuousMul G₀] {f g : α → G₀} [TopologicalSpace α] {s : Set α} (hf : ContinuousOn f s) (hg : ContinuousOn g s)
+  (h₀ : ∀ x ∈ s, g x ≠ 0) : ContinuousOn (f / g) s
+Fin.castLE {n m : ℕ} (h : n ≤ m) (i : Fin n) : Fin m
+Fin.prod_univ_three.{u_2} {M : Type u_2} [CommMonoid M] (f : Fin 3 → M) : ∏ i, f i = f 0 * f 1 * f 2
+Fin.sum_univ_three.{u_2} {M : Type u_2} [AddCommMonoid M] (f : Fin 3 → M) : ∑ i, f i = f 0 + f 1 + f 2
+Finset.attach.{u_1} {α : Type u_1} (s : Finset α) : Finset ↥s
+Finset.card_biUnion_le.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [DecidableEq M] {s : Finset ι} {t : ι → Finset M} :
+  (s.biUnion t).card ≤ ∑ a ∈ s, (t a).card
+Finset.card_le_card.{u_1} {α : Type u_1} {s t : Finset α} : s ⊆ t → s.card ≤ t.card
+Finset.card_le_one.{u_1} {α : Type u_1} {s : Finset α} : s.card ≤ 1 ↔ ∀ a ∈ s, ∀ b ∈ s, a = b
+Finset.exists_mem_notMem_of_card_lt_card.{u_1} {α : Type u_1} {s t : Finset α} (h : s.card < t.card) : ∃ e ∈ t, e ∉ s
+Finset.filter_subset.{u_1} {α : Type u_1} (p : α → Prop) [DecidablePred p] (s : Finset α) : Finset.filter p s ⊆ s
+Finset.mul_sum.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+Finset.prod_add.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [CommSemiring R] [DecidableEq ι] (f g : ι → R) (s : Finset ι) :
+  ∏ i ∈ s, (f i + g i) = ∑ t ∈ s.powerset, (∏ i ∈ t, f i) * ∏ i ∈ s \ t, g i
+Finset.prod_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [CommMonoid M] {f g : ι → M}
+  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.prod f = s₂.prod g
+Finset.prod_filter_mul_prod_filter_not.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [CommMonoid M] (s : Finset ι)
+  (p : ι → Prop) [DecidablePred p] [(x : ι) → Decidable ¬p x] (f : ι → M) :
+  (∏ x ∈ s with p x, f x) * ∏ x ∈ s with ¬p x, f x = ∏ x ∈ s, f x
+Finset.sum_add_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [AddCommMonoid M] {f g : ι → M} :
+  ∑ x ∈ s, (f x + g x) = ∑ x ∈ s, f x + ∑ x ∈ s, g x
+Finset.sum_comm.{u_3, u_4, u_5} {α : Type u_3} {β : Type u_4} {γ : Type u_5} [AddCommMonoid β] {s : Finset γ}
+  {t : Finset α} {f : γ → α → β} : ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y
+Finset.sum_div.{u_1, u_2} {ι : Type u_1} {K : Type u_2} [DivisionSemiring K] (s : Finset ι) (f : ι → K) (a : K) :
+  (∑ i ∈ s, f i) / a = ∑ i ∈ s, f i / a
+Finset.sum_le_sum.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N] {f g : ι → N} {s : Finset ι}
+  [AddLeftMono N] (h : ∀ i ∈ s, f i ≤ g i) : ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+Finset.sum_mul.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+Finset.sum_mul_sq_le_sq_mul_sq.{u_1, u_2} {ι : Type u_1} {R : Type u_2} [CommSemiring R] [LinearOrder R]
+  [IsStrictOrderedRing R] [ExistsAddOfLE R] (s : Finset ι) (f g : ι → R) :
+  (∑ i ∈ s, f i * g i) ^ 2 ≤ (∑ i ∈ s, f i ^ 2) * ∑ i ∈ s, g i ^ 2
+Finset.sum_nonneg.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N] {f : ι → N} {s : Finset ι}
+  [AddLeftMono N] (h : ∀ i ∈ s, 0 ≤ f i) : 0 ≤ ∑ i ∈ s, f i
+Finsupp.prod_fintype.{u_1, u_8, u_10} {α : Type u_1} {M : Type u_8} {N : Type u_10} [Zero M] [CommMonoid N] [Fintype α]
+  (f : α →₀ M) (g : α → M → N) (h : ∀ (i : α), g i 0 = 1) : f.prod g = ∏ i, g i (f i)
+Fintype.card_prod.{u_3, u_4} (α : Type u_3) (β : Type u_4) [Fintype α] [Fintype β] :
+  Fintype.card (α × β) = Fintype.card α * Fintype.card β
+Fintype.prod_sum.{u_5, u_7, u_8} {ι : Type u_5} {R : Type u_7} [Fintype ι] [CommSemiring R] [DecidableEq ι]
+  {κ : ι → Type u_8} [(i : ι) → Fintype (κ i)] (f : (i : ι) → κ i → R) : ∏ i, ∑ j, f i j = ∑ x, ∏ i, f i (x i)
+Fintype.sum_equiv.{u_1, u_2, u_3} {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [Fintype ι] [Fintype κ] [AddCommMonoid M]
+  (e : ι ≃ κ) (f : ι → M) (g : κ → M) (h : ∀ (x : ι), f x = g (e x)) : ∑ x, f x = ∑ x, g x
+Fintype.sum_prod_type.{u_3, u_4, u_5} {γ : Type u_3} {α₁ : Type u_4} {α₂ : Type u_5} [Fintype α₁] [Fintype α₂]
+  [AddCommMonoid γ] (f : α₁ × α₂ → γ) : ∑ x, f x = ∑ x, ∑ y, f (x, y)
+Matrix.mulVec.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} [NonUnitalNonAssocSemiring α] [Fintype n]
+  (M : Matrix m n α) (v : n → α) : m → α
+Matrix.mul_apply.{v, u_1, u_2, u_3} {l : Type u_1} {m : Type u_2} {n : Type u_3} {α : Type v} [Fintype m] [Mul α]
+  [AddCommMonoid α] {M : Matrix l m α} {N : Matrix m n α} {i : l} {k : n} : (M * N) i k = ∑ j, M i j * N j k
+Matrix.transpose_apply.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} (M : Matrix m n α) (i : n) (j : m) :
+  M.transpose i j = M j i
+MvPolynomial.as_sum.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] (p : MvPolynomial σ R) :
+  p = ∑ v ∈ p.support, (MvPolynomial.monomial v) (p.coeff v)
+MvPolynomial.coeff_add.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R) :
+  (p + q).coeff m = p.coeff m + q.coeff m
+MvPolynomial.coeff_mul.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] [DecidableEq σ] (p q : MvPolynomial σ R)
+  (n : σ →₀ ℕ) : (p * q).coeff n = ∑ x ∈ Finset.HasAntidiagonal.antidiagonal n, p.coeff x.1 * q.coeff x.2
+MvPolynomial.eval_monomial.{u, u_1} {R : Type u} {σ : Type u_1} {a : R} {s : σ →₀ ℕ} [CommSemiring R] {f : σ → R} :
+  (MvPolynomial.eval f) ((MvPolynomial.monomial s) a) = a * s.prod fun n e => f n ^ e
+MvPolynomial.support_add.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] {p q : MvPolynomial σ R}
+  [DecidableEq σ] : (p + q).support ⊆ p.support ∪ q.support
+MvPolynomial.support_mul.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] [DecidableEq σ]
+  (p q : MvPolynomial σ R) : (p * q).support ⊆ p.support + q.support
+MvPolynomial.totalDegree_monomial_le.{u, u_1} {R : Type u} {σ : Type u_1} [CommSemiring R] (s : σ →₀ ℕ) (c : R) :
+  ((MvPolynomial.monomial s) c).totalDegree ≤ s.sum fun x => id
+Odd.neg_pow.{u_2} {α : Type u_2} [Monoid α] [HasDistribNeg α] {n : ℕ} : Odd n → ∀ (a : α), (-a) ^ n = -a ^ n
+Real.continuous_cos : Continuous Real.cos
+Real.continuous_sin : Continuous Real.sin
+Real.cos_pi_div_three : Real.cos (Real.pi / 3) = 1 / 2
+Real.cos_two_mul (x : ℝ) : Real.cos (2 * x) = 2 * Real.cos x ^ 2 - 1
+Real.cos_zero : Real.cos 0 = 1
+Real.sin_zero : Real.sin 0 = 0
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x
+Real.sqrt_nonneg (x : ℝ) : 0 ≤ √x
+Real.sqrt_pos {x : ℝ} : 0 < √x ↔ 0 < x
+mul_assoc.{u_1} {G : Type u_1} [Semigroup G] (a b c : G) : a * b * c = a * (b * c)
+mul_comm.{u_1} {G : Type u_1} [CommMagma G] (a b : G) : a * b = b * a
+mul_eq_one_comm.{u_2} {M : Type u_2} [MulOne M] [IsDedekindFiniteMonoid M] {a b : M} : a * b = 1 ↔ b * a = 1
+real 3.59
+user 2.66
+sys 3.16

@@ -1,0 +1,781 @@
+\section{Physical windows from a separating cut}\label{s:cut}
+
+We use the shells of Definition~\ref{d:shells}, the plane
+specifications of Definition~\ref{d:framemodel}, and the original-leg
+partition sums of Definition~\ref{d:pinmodel}.  In a sum with subscript
+\(G\setminus Y\), the original volume remains \(G\): the retained
+legs come from \(\mathcal L(G)\), and the protected layer is always
+\(S(G)\), with no new pins at removed sites.  The only response
+assumption in this section is \(\mathsf P(A,\theta)\) of
+Definition~\ref{h:P}.  Throughout, \(d\) is ambient \(\ell^1\)
+distance.  Distances in the square geometry, including the distances
+to corners in the shell definition, are ambient \(\ell^\infty\)
+distances.  An exterior half-plane is understood through its lattice
+sites; for example, the left exterior half-plane of \([-u,u]^2\) is
+\(\{z\in\mathbb Z^2:z_1\le-u-1\}\).
+
+\subsection{Shell geometry}
+
+The parallel-side assertion below uses the same nonexceptional index
+condition as the bound on \(A_i\).  This condition is necessary.  For
+example, take \(l_0=64\), an integer \(s\ge390\), \(u=s^4\), \(a=0\),
+\(y=(2s-u,-u-1)\), and \(i=2\).  The left side of the radius-\(k_2\)
+square has first coordinate \(-u\), meets \(C_u(0)\), and has distance
+one from the left exterior half-plane.  The corner \((-u,-u)\)
+belongs to \(D_2\), so this index is exceptional.
+
+\begin{lemma}\label{l:shellgeom}
+For \(u\ge M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\),
+\(|I_0|\le1\), and \(D_i\subset F_i\) for \(2\le i\le i_1\).
+For \(2\le i\le i_1\) outside \(I_0\), \(|A_i|\le8l_0\).
+For the same indices \(2\le i\le i_1\) outside \(I_0\), every side of
+\(y+[-k_i,k_i]^2\) parallel to an edge of \(C_u(a)\)
+and meeting \(C_u(a)\) is at distance at least \(s/3\) from the
+exterior half-plane beyond that edge.
+For \(i\ge2\), every point of \(C_u(a)\setminus F_i\)
+within \(\ell^\infty\) distance one of \(F_i\) lies in \(D_{i-1}\);
+\(y\) is not within that distance of \(F_i\).
+\end{lemma}
+
+\begin{proof}
+Translate the coordinates so that \(a=0\).  We may interchange the
+coordinates and reverse their signs for this geometric proof.  Since
+\(\operatorname{dist}_\infty(y,C_u(0))=1\), we can consequently write
+\[
+ y=(\beta,-u-1),\qquad -u-1\le\beta\le u+1.
+\]
+These changes of coordinates concern sets and distances only.
+They make no assertion about the frame specification.
+
+We have \(u=s^4\), \(s\ge16\), and \(s\ge6(l_0+1)\).  In particular,
+\[
+ s^2+\tfrac43s<u,\qquad s^2+s<u/2,\qquad
+ \lfloor s\rfloor>2s/3,\qquad s/3>l_0.
+\]
+For example, \(s^2+s\le(17/16)s^2<s^4/2\),
+\(s^2+4s/3\le(13/12)s^2<s^4\), and
+\(\lfloor s\rfloor\ge s-1>2s/3\).
+For \(2\le i\le i_1\), we also have \(k_i\le s^2+s\).
+
+Both upper corners of \(C_u(0)\) have distance \(2u+1\) from
+\(y\).  At least one lower corner has distance at least \(u\)
+from \(y\), because
+\( |\beta+u|+|\beta-u|\ge2u\).
+Thus at most one corner can have distance strictly less than \(u\)
+from \(y\).  If a corner \(c\) has distance less than \(s/3\)
+from a point \(z\in D_i\), then
+\[
+ |c-y|_\infty\le |c-z|_\infty+k_i
+       <s^2+\tfrac43s<u.
+\]
+Only this one possible corner can therefore cause an exceptional
+index.  For distinct indices the radii differ by at least
+\(\lfloor s\rfloor>2s/3\).  Two points lying within \(s/3\)
+of the same corner have distance strictly less than \(2s/3\),
+whereas points of the two different spheres have distance at least
+the difference of their radii.  This proves \(|I_0|\le1\).
+
+Fix now \(2\le i\le i_1\), \(i\notin I_0\), and put \(k=k_i\).
+The bottom horizontal side of the radius-\(k\) square misses
+\(C_u(0)\).  Its top side has second coordinate \(-u-1+k\).
+If this side meets \(C_u(0)\), its distances from the bottom and
+top exterior half-planes are respectively \(k\) and \(2u+2-k\).
+They are at least \(s\) and greater than \(u\), respectively,
+since \(k\ge2s-1\ge s\) and \(k<u/2\).
+
+Suppose the left vertical side meets \(C_u(0)\).  Its first
+coordinate is \(\beta-k\in[-u,u]\), and its lowest point in
+\(C_u(0)\) is \((\beta-k,-u)\in D_i\).  Its distance to the
+lower left corner is \(\beta-k+u\).  Nonexceptionality gives
+\(\beta-k+u\ge s/3\), so the whole side has distance
+\(\beta-k+u+1\ge s/3+1\) from the left exterior half-plane.
+Its distance from the right exterior half-plane is
+\(u+1-\beta+k\ge k\ge s\).
+For the right vertical side the lowest point is
+\((\beta+k,-u)\); its distance to the lower right corner is
+\(u-\beta-k\).  Thus its distance from the right exterior
+half-plane is at least \(s/3+1\), and its distance from the
+left exterior half-plane is \(\beta+k+u+1\ge k\ge s\).
+This proves the parallel-side assertion, including when
+\(\beta=\pm(u+1)\).
+
+A point of \(A_i\) has distance at most \(l_0\) from at least
+one of the four exterior half-planes.  A shell side parallel to
+that half-plane cannot contain this point, by the clearance just
+proved.  On a perpendicular side at most \(l_0\) lattice sites
+have that distance at most \(l_0\).  There are four shell sides
+and two perpendicular half-planes for each side.  Counting with
+possible repetitions therefore gives \(|A_i|\le8l_0\).
+
+For every \(2\le i\le i_1\),
+\(k_i\ge is-1>(i-1)s\), proving \(D_i\subset F_i\).
+Finally let \(i\ge2\), \(x\in C_u(0)\setminus F_i\), and
+\(z\in F_i\) with \(|x-z|_\infty\le1\).  With \(r=(i-1)s\),
+integrality and the Lipschitz property of \(|\,\cdot-y|_\infty\)
+give
+\[
+ \lfloor r\rfloor\le |z-y|_\infty-1
+       \le |x-y|_\infty\le\lfloor r\rfloor.
+\]
+Consequently \(x\in D_{i-1}\).  Each point of \(F_i\) has
+distance greater than \((i-1)s\ge s>1\) from \(y\).
+If \(F_i\) is empty both final assertions are vacuous, with
+distance to it equal to \(+\infty\).
+\end{proof}
+
+\subsection{Factorization over a cut}
+
+\begin{lemma}\label{l:cut}
+Let \(F\subset\mathbb Z^2\) be finite, \(B\subset F\) have no
+neighbour outside \(F\), and \(G=F\setminus B\).
+Suppose \(X\subset G\) and \(G\setminus X=G_1\sqcup G_2\), with
+no bond between the pieces, no site of \(G_1\) adjacent to \(F^c\),
+and no site of \(G_2\) adjacent to \(B\).
+For the original legs of \(G\), use pins \(\eta\) into \(F^c\)
+and window letters \(s\) into \(B\). Put
+\[
+ e(\eta,s)=\log\Psi_{G\setminus X}(\eta s)-\log\Psi_G(\eta s).
+\]
+If \(|e(\eta,s)|\le E<\infty\) for all admissible \(\eta,s\),
+then there is a strictly positive probability \(\nu\) on window
+configurations, independent of \(\eta\), such that
+\[
+ e^{-2E}\nu(s)\le\mu^{+,\eta}_{\kappa,F}(n_B=s)
+                         \le e^{2E}\nu(s).
+\]
+Consequently any two window laws have total variation at most
+\(1-e^{-2E}\).
+One may take \(\nu(s)\) proportional to \(W_B(s)Z_{G_1}^{s}\),
+where \(W_B\) is the actual product of frame site weights and
+internal window bond weights. Only original legs are retained in
+the partition functions after removing \(X\).
+\end{lemma}
+
+\begin{proof}
+Fix a proper colouring \(\kappa\).  The window configuration space
+is the nonempty finite product \(\Omega_B=\prod_{x\in B}D_x\).
+For \(s\in\Omega_B\) define
+\[
+ W_B(s)=\prod_{x\in B}\frac1{12}
+       \prod_{\substack{\{x,z\}\subset B\\d(x,z)=1}}
+                       (1+s_x\cdot s_z).
+\]
+All these weights are positive by Lemma~\ref{l:threeframes}.
+The absence of bonds from \(B\) to \(F^c\) implies, on summing
+the actual frame weights over \(G\), that
+\begin{equation}\label{e:windowfactor}
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =\frac{W_B(s)Z_G^{\eta s}}
+                    {Z^{+,\eta}_{\kappa,F}}.
+\end{equation}
+Here the sum over \(G\) equals \(Z_G^{\eta s}\) by
+Lemma~\ref{l:exact}: every summed spin has at most four incident
+bond or original-leg factors.  This use of quadrature concerns
+only a partition polynomial, with the letters \(s\) held fixed.
+All partition sums in this proof are finite and strictly positive
+by Lemma~\ref{l:finitefacts}; the actual frame normalizer is also
+strictly positive by Definition~\ref{d:framemodel}.
+
+For \(r=1,2\), define the partition sums on \(G_r\) by retaining
+only the original legs of \(G\) whose tails lie in \(G_r\).
+In particular, do not introduce factors on legs into \(X\).
+The hypotheses on adjacency say that the retained pins on \(G_1\)
+are all window letters and those on \(G_2\) are all exterior
+letters.  The absence of bonds between the pieces and the product
+site functional give
+\begin{equation}\label{e:cutfactorization}
+ Z_{G\setminus X}^{\eta s}=Z_{G_1}^{s}Z_{G_2}^{\eta},
+ \qquad
+ Z_{G\setminus X}^{0}=Z_{G_1}^{0}Z_{G_2}^{0}.
+\end{equation}
+The empty-piece convention makes these identities valid when
+one or both pieces are empty.  Using the definition of \(e\),
+we obtain
+\[
+ Z_G^{\eta s}
+   =e^{-e(\eta,s)}
+       \frac{Z_G^0 Z_{G_2}^{\eta}}{Z_{G_1}^0Z_{G_2}^0}
+       Z_{G_1}^{s}.
+\]
+Set
+\[
+ Q=\sum_{s\in\Omega_B}W_B(s)Z_{G_1}^{s},\qquad
+ \nu(s)=Q^{-1}W_B(s)Z_{G_1}^{s}.
+\]
+Every term in \(Q\) is positive and \(\Omega_B\) is nonempty,
+so \(0<Q<\infty\), and \(\nu\) is strictly positive and does
+not depend on \(\eta\).  Equations~\eqref{e:windowfactor}
+and~\eqref{e:cutfactorization} imply
+\[
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =c(\eta)\nu(s)e^{-e(\eta,s)},\qquad
+ c(\eta)^{-1}=\sum_{s\in\Omega_B}\nu(s)e^{-e(\eta,s)}.
+\]
+Admissible boundary and window assignments exist, so the assumed
+absolute-value bound also implies \(E\ge0\).  The last sum lies
+in \([e^{-E},e^E]\); its reciprocal lies in the same interval.
+This proves the two pointwise comparisons.
+
+For any two finite probability laws \(p,p'\),
+\[
+ d_{\mathrm{TV}}(p,p')
+    =1-\sum_s\min\{p(s),p'(s)\}.
+\]
+Both window laws are at least \(e^{-2E}\nu\), so their overlap
+sum is at least \(e^{-2E}\).  The asserted total variation bound
+follows.  When \(B=\varnothing\), \(\Omega_B\) has its single
+empty configuration, \(\nu\) assigns it mass one, and the same
+proof gives total variation zero.
+\end{proof}
+
+\subsection{The cost of removing a connected set}
+
+\begin{lemma}\label{l:removal}
+Assume \(\mathsf P(A,\theta)\), and put
+\(\mathsf F(d)=A\theta^{\max\{d,0\}}\).
+Let \(x_1,\ldots,x_p\) be distinct points of \(G\), \(p\ge1\),
+with \(b_G(x_j)=d(x_j,G^c)\ge3\), such that each \(x_j\), \(j\ge2\),
+has a nearest neighbour among its predecessors.
+For \(X=\{x_1,\ldots,x_p\}\) and every original unit-pin assignment,
+\[
+ |\log\Psi_{G\setminus X}(\tau)-\log\Psi_G(\tau)|
+ \le1+4\mathsf F(b_G(x_1)-3)
+                  +2\sum_{j=2}^p\mathsf F(b_G(x_j)-3).
+\]
+\end{lemma}
+
+\begin{proof}
+Here \(G\) is finite, as in Definition~\ref{d:pinmodel}.
+Put \(Y_0=\varnothing\), \(Y_j=\{x_1,\ldots,x_j\}\), and
+\(D_j=G\setminus Y_j\).  The depth assumption implies
+\(Y_j\subset G\setminus S(G)\).  At the \(j\)-th removal let
+\(u_1,\ldots,u_k\) be the surviving neighbours of \(x_j\).
+The site \(x_j\) has no original leg, all four of its original
+neighbours belong to \(G\), and \(k=4\) for \(j=1\).
+For \(j\ge2\) one predecessor is a neighbour, so \(0\le k\le3\).
+
+Integrate the spin at \(x_j\) in the finite functional.  By
+Lemma~\ref{l:moments}, the resulting polynomial is
+\begin{equation}\label{e:removalpolynomial}
+ \begin{split}
+ I_j&=\begin{cases}
+ 1,&k=0,1,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le k}n_{u_r}\cdot n_{u_t},
+       &k=2,3,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le4}n_{u_r}\cdot n_{u_t}
+                    +\frac1{15}Q_j,&k=4,
+ \end{cases}\\
+ Q_j&=(n_{u_1}\cdot n_{u_2})(n_{u_3}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_3})(n_{u_2}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_4})(n_{u_2}\cdot n_{u_3}).
+ \end{split}
+\end{equation}
+The displayed definition of \(Q_j\) is made only in the case
+\(k=4\); no \(u_4\) or quartic polynomial is formed in the other
+cases.  For either
+\(\bullet=\tau\) or \(\bullet=0\), finite summation gives
+\(Z_{D_{j-1}}^\bullet=Z_{D_j}^\bullet
+\mathbb E_{D_j}^\bullet I_j\).  Positivity of all normalizers
+follows from Lemma~\ref{l:finitefacts}.  Consequently
+\begin{equation}\label{e:removaltelescope}
+ \log\Psi_G(\tau)-\log\Psi_{G\setminus X}(\tau)
+   =\sum_{j=1}^p
+      \left(\log\mathbb E_{D_j}^\tau I_j
+                         -\log\mathbb E_{D_j}^0 I_j\right).
+\end{equation}
+
+We first give a uniform lower bound on each expectation in
+\eqref{e:removaltelescope}.  Distinct neighbours of a square-lattice
+site have distance two from one another, so no two \(u_r\)'s are
+adjacent.  Each satisfies \(b_G(u_r)\ge b_G(x_j)-1\ge2\),
+has no original leg, and has at most three present bonds after
+\(x_j\) is removed.  Condition on every spin except these
+\(k\) spins, on a conditioning event of positive probability.
+Because there is no bond between these sites and none has an original
+leg, the joint conditional weight is a constant times the product,
+over \(r\), of its site weight and its surviving bond factors.
+Summing over the \(k\) spins gives the product of their one-site
+normalizers, each positive by Lemma~\ref{l:finitefacts}.
+The joint conditional law is therefore the product of these
+one-site laws.  Lemma~\ref{l:35} applies to each of them, with at
+most three factors, so their means \(m_r\) satisfy \(|m_r|\le3/5\).
+For \(k=0\) the product is the empty product.  Thus
+\[
+ \sum_{r<t}m_r\cdot m_t
+    =\frac12\left(\left|\sum_r m_r\right|^2
+                                  -\sum_r|m_r|^2\right)
+    \ge-\frac{k}{2}\frac9{25}.
+\]
+For \(k\le3\) this proves
+\(\mathbb E_{D_j}^\bullet I_j\ge1-3k/50\ge41/50>1/2\).
+For \(k=4\), the pointwise bound \(|Q_j|\le3\) gives
+\[
+ \mathbb E_{D_j}^\bullet I_j
+       \ge1-\frac6{25}-\frac3{15}
+       =\frac{14}{25}>\frac12.
+\]
+For \(k=0\) the polynomial is one and its expectation is one.
+These arguments average over positive conditioning fibres only;
+zero-probability fibres are immaterial.
+
+For each pair \(r<t\), the sites \(u_r,u_t\) survive in
+\(D_j\), have distance two, and have the common removed neighbour
+\(x_j\in Y_j\).  If \(z\in S(G)\), the distance function
+\(b_G\) is one-Lipschitz and \(b_G(z)\le2\).  Therefore
+\[
+ d(u_r,z)\ge b_G(u_r)-2\ge b_G(x_j)-3,
+ \qquad d(u_r,S(G))\ge b_G(x_j)-3.
+\]
+Property \(\mathsf P(A,\theta)\) now gives
+\[
+ \left|\mathbb E_{D_j}^\tau(n_{u_r}\cdot n_{u_t})
+             -\mathbb E_{D_j}^0(n_{u_r}\cdot n_{u_t})\right|
+       \le \mathsf F(b_G(x_j)-3).
+\]
+The set \(S(G)\) here is the original one throughout the
+telescoping.  In particular, no distance to a newly created hole
+has entered this estimate.
+
+For positive real \(a,b\ge1/2\), integration of \(1/t\)
+between them gives \(|\log a-\log b|\le2|a-b|\).
+When \(j\ge2\), there are at most three pairs in
+\eqref{e:removalpolynomial}, and hence the absolute value of
+the \(j\)-th logarithmic difference is at most
+\(2\mathsf F(b_G(x_j)-3)\).  At \(j=1\) there are six pairs,
+and \(|\mathbb E_{D_1}^\tau Q_1-\mathbb E_{D_1}^0Q_1|\le6\).
+The corresponding logarithmic difference is at most
+\[
+ 2\left(2\mathsf F(b_G(x_1)-3)+\frac6{15}\right)
+       =4\mathsf F(b_G(x_1)-3)+\frac45
+       \le4\mathsf F(b_G(x_1)-3)+1.
+\]
+All inserted pair and four-spin products used here have separate
+degree at most four: their endpoints have lost the bond to \(x_j\)
+and each endpoint occurs once in an insertion.  No higher moment
+identity is used.  Summing the bounds in
+\eqref{e:removaltelescope} proves the claim, including \(p=1\).
+\end{proof}
+
+\subsection{A tapered set of physical sites}\label{s:cutgeom}
+
+\begin{definition}\label{d:thickcut}
+Fix \(l_0=64\), a nonexceptional shell with \(2\le i\le s\),
+and write \(k=k_i\), \(F=F_i\), \(B=B_i\), \(G=F\setminus B\).
+For \(z\in\mathbb Z^2\), set
+\[
+ t(z)=\big||z-y|_\infty-k\big|,\qquad
+ h(z)=\operatorname{dist}_\infty(z,C_u(a)^c)\quad
+        (h(z)=0\text{ outside }C_u(a)).
+\]
+Define
+\[
+ \begin{gathered}
+ U=\{z\in C_u(a):t(z)\le\min(h(z)-32,s/12)\},\\
+ X_0=\{z\notin U:\operatorname{dist}_\infty(z,U)=1\},\qquad
+ X=\{z:d(z,X_0)\le1\}.
+ \end{gathered}
+\]
+Set \(G_1=(U\setminus B)\setminus X\) and
+\(G_2=G\setminus(U\cup X)\).
+\end{definition}
+
+\begin{lemma}\label{l:cutgeom}
+There exists \(s_0\ge\max\{16,6(64+1)\}\) such that, uniformly
+in the translate, \(y\), and nonexceptional integer \(2\le i\le s\),
+the following hold for \(s=u^{1/4}\ge s_0\).
+The set \(U\) is finite, nonempty, and star-connected, and \(U^c\)
+is star-connected. We have \(B\subset U\subset F\), all neighbours
+of \(B\) lie in \(U\), and no site of \(U\) is adjacent to \(F^c\).
+The set \(X_0\) is nonempty and lies in \(G\). For \(x\in X_0\),
+\[
+ b_G(x)\ge
+ \begin{cases}\max\{t(x),16\}-2,&t(x)\le s/12,\\s/12-1,&t(x)>s/12,
+ \end{cases}
+ \qquad b_G(x)\ge14 .
+\]
+For each integer \(j\ge0\), there are at most \(48\) sites of
+\(X_0\) with \(t(x)=j\le s/12\).
+For \(0<\vartheta<1\), put
+\[
+ C_{\rm near}(\vartheta)=48\vartheta^{14}
+                \left(17+\frac1{1-\vartheta}\right).
+\]
+Then
+\[
+ \sum_{x\in X_0}\vartheta^{b_G(x)}
+ \le C_{\rm near}(\vartheta)
+                 +4(2u+1)^2\vartheta^{s/12-1}.
+\]
+The thickened set \(X\) lies in \(G\), has \(b_G\ge13\), and
+\(G\setminus X=G_1\sqcup G_2\) satisfies all separation and
+no-adjacency assumptions of Lemma~\ref{l:cut}. Moreover
+\[
+ \sum_{z\in X}\vartheta^{b_G(z)}
+       \le5\vartheta^{-1}\sum_{x\in X_0}\vartheta^{b_G(x)} .
+\]
+\end{lemma}
+
+\begin{proof}
+We may take \(s_0=390\).  Translate so that \(a=0\), and put
+\(C=C_u(0)\), \(T=s/12\), and \(\rho(z)=|z-y|_\infty\).
+Here \(s,T\) are real, whereas \(k,\rho(z),t(z),h(z)\) are
+integers at lattice sites.
+The functions \(h(z)=\max\{0,u+1-|z|_\infty\}\), \(\rho\),
+and \(t=|\rho-k|\) are one-Lipschitz for \(\ell^\infty\)
+distance.  We shall repeatedly use the following consequences of
+\(s\ge390\), \(u=s^4\), and \(2\le i\le s\):
+\begin{equation}\label{e:sitecutscales}
+ \begin{gathered}
+ 2s-1\le k\le s^2\le u-31,\qquad T\ge1,\qquad
+ k-T-1>(i-1)s,\\
+ s/3-2T=s/6\ge65>32,\qquad
+ 2u+2-2T>32,\qquad u+1-T>32.
+ \end{gathered}
+\end{equation}
+Indeed, the third inequality follows from
+\(k\ge is-1\) and \(s-T-2=11s/12-2>0\).
+The inequalities involving \(u\) follow from \(u=s^4\)
+and \(s\ge390\); for instance \(s^4-s^2>31\) and
+\(s^4-s/12>32\).  All constants in what follows are thus uniform.
+
+\emph{Connectivity of the tapered set.}
+On all of \(\mathbb Z^2\) its definition can be written as
+\begin{equation}\label{e:taperconditions}
+ U=\{z:t(z)\le T,\ h(z)-t(z)\ge32\}.
+\end{equation}
+The second condition forces \(z\in C\).
+If \(\rho(z)>k\), move each coordinate whose absolute
+displacement from \(y\) is maximal one step toward the corresponding
+coordinate of \(y\).  This is a star-step, decreases \(\rho\)
+and \(t\) by one, and decreases \(h\) by at most one.
+If \(\rho(z)<k\), move one coordinate with maximal absolute
+displacement one step away from \(y\); this is a nearest-neighbour
+step, increases \(\rho\) by one, and again decreases \(t\) by
+one and \(h\) by at most one.  The case of zero displacement can
+use either sign; in fact \(y\notin U\).  Starting in \(U\),
+these steps preserve both inequalities in
+\eqref{e:taperconditions}.  After exactly \(t(z)\) steps they
+reach
+\[
+ \mathcal K=\{z:\rho(z)=k,\ h(z)\ge32\}\subset U.
+\]
+
+We verify that \(\mathcal K\) is nonempty and nearest-neighbour
+connected.  Set \(m=u-31\).  Since \(|y_j|\le u+1=m+32\)
+and \(32\le k\le m\), each integer interval
+\[
+ J_j=[y_j-k,y_j+k]\cap[-m,m]\cap\mathbb Z,
+       \qquad j=1,2,
+\]
+is nonempty.  It contains at least one of \(y_j-k,y_j+k\):
+otherwise \([-m,m]\cap\mathbb Z\) would lie strictly between
+these two integers, which is impossible since \(m\ge k\).
+Consequently the rectangle \(J_1\times J_2\) contains a corner
+of \(y+[-k,k]^2\).  Reverse the signs of the coordinates for
+this geometric argument so that the contained corner is
+\(y-(k,k)\).  The intersections of this rectangle with the left
+and bottom sides of the square are nonempty lattice segments
+joined at that corner.  If the right side meets the rectangle,
+its bottom endpoint \(y+(k,-k)\) lies on the bottom segment.
+If the top side meets the rectangle, its left endpoint
+\(y+(-k,k)\) lies on the left segment.  Thus all side segments
+are joined by nearest-neighbour paths.  Their union is precisely
+\(\mathcal K\), since \(h\ge32\) is equivalent to
+\(|z|_\infty\le m\).  The radial paths above now show that
+\(U\) is nonempty and star-connected.  It is finite because
+it is contained in \(C\).
+
+The exterior \(C^c\) is nearest-neighbour connected.  To see this
+directly, a site with first coordinate outside \([-u,u]\) can
+move vertically to height \(u+1\), remaining outside \(C\).
+A site whose second coordinate is outside \([-u,u]\) can first
+move horizontally to first coordinate \(u+1\), then vertically
+to height \(u+1\).  Along the row at height \(u+1\) these paths
+join.  We join each \(z\in C\setminus U\) to \(C^c\) while
+avoiding \(U\).  There are three cases.
+If \(\rho(z)>k+T\), repeatedly move a coordinate of maximal
+displacement away from \(y\).  Each step increases \(\rho\),
+so stays outside \(U\), and the path eventually leaves \(C\).
+If \(\rho(z)<k-T\), repeatedly move a coordinate of maximal
+nonzero displacement toward \(y\).  The value of \(\rho\)
+does not increase, and the sum of the absolute displacements
+decreases by one at every step.  The path stays outside \(U\)
+and reaches \(y\notin C\), unless it leaves \(C\) earlier.
+In the remaining case \(t(z)\le T\) and \(h(z)-t(z)<32\).
+Here \(z\ne0\), since \(h(0)-t(0)\ge u+1-T>32\) whenever
+\(t(0)\le T\).  Move a coordinate of maximal absolute value
+away from zero and continue in that direction until leaving
+\(C\).  At every step in \(C\), \(h\) decreases by one,
+whereas \(t\) decreases by at most one.  Thus \(h-t<32\)
+persists, independently of whether \(t\le T\) persists.
+This path also avoids \(U\).  These cases prove that \(U^c\)
+is nearest-neighbour connected, hence star-connected.
+
+\emph{The window and the raw boundary.}
+For \(z\in B\), \(t(z)=0\) and \(h(z)\ge65\), so \(z\in U\).
+A nearest neighbour of such a point has \(t\le1\) and
+\(h\ge64\); it too belongs to \(U\).  For \(z\in U\) we
+have \(h(z)\ge32\) and \(\rho(z)\ge k-T\).  Hence \(z\in F\),
+and every nearest neighbour \(w\) of \(z\) satisfies
+\(h(w)\ge31>0\) and \(\rho(w)\ge k-T-1>(i-1)s\).
+There is therefore no bond from \(U\) to \(F^c\).
+
+If \(x\in X_0\), choose \(v\in U\) with
+\(|x-v|_\infty=1\).  Then
+\(h(x)\ge31>0\) and \(\rho(x)\ge k-T-1>(i-1)s\),
+so \(x\in F\).  Since \(x\notin U\) and \(B\subset U\),
+we have \(x\in G\).  The raw boundary is finite, and is
+nonempty: a point of \(U\) with largest first coordinate has
+its right nearest neighbour in \(X_0\).
+
+\emph{Depths of the raw boundary.}
+Fix \(x\in X_0\), put \(t=t(x)\), \(h=h(x)\), and keep the
+point \(v\) chosen above.  Distance from \(x\) to \(B\) in
+the \(\ell^\infty\) metric is at least \(t\), and also at
+least \(65-h\), by the Lipschitz properties of \(\rho\) and
+\(h\).  Its distance to \(C^c\) is \(h\).  For
+\(w\in C\setminus F\),
+\[
+ |x-w|_\infty\ge\rho(x)-\rho(w)
+       \ge k-t-(i-1)s\ge s-1-t.
+\]
+If this last set is empty the same lower bound is valid with
+distance \(+\infty\).  As \(G^c=B\cup C^c\cup(C\setminus F)\)
+and \(d\ge\operatorname{dist}_\infty\), we conclude that
+\begin{equation}\label{e:sitecutdepth}
+ b_G(x)\ge
+    \min\{\max(t,65-h),\ h,\ s-1-t\}.
+\end{equation}
+
+Suppose first \(t\le T\).  Since \(x\notin U\) but \(v\in U\),
+\[
+ h<32+t,\qquad
+ h\ge h(v)-1\ge32+t(v)-1\ge30+t.
+\]
+Thus
+\begin{equation}\label{e:rawdepthrange}
+                30+t\le h<32+t.
+\end{equation}
+In \eqref{e:sitecutdepth}, the first entry is at least
+\(\max(t,33-t)\), which is at least \(\max(t,16)\).
+The second entry is at least \(30+t\ge\max(t,16)-2\).
+The third is at least \(11s/12-1\), which is at least
+\(\max(t,16)-2\): use \(t\le T\), \(s\ge390\), and
+\(s-1-2T>0\).  This proves the stated near depth.
+
+If \(t>T\), then \(t\le T+1\), and
+\(h\ge32+t(v)-1\ge30+t>T+30\).
+The three entries in \eqref{e:sitecutdepth} are consequently
+at least \(T\), \(T+30\), and \(11s/12-2\), respectively.
+Each is at least \(T-1\), proving the far depth.
+The near depth is at least \(14\), and the far depth is
+at least \(s/12-1\ge390/12-1>14\).
+
+\emph{Counting near sites, including possible coincident sides.}
+Fix an integer \(0\le j\le T\).  A raw boundary site with
+\(t(x)=j\) lies on a square boundary of radius \(k-j\) or
+\(k+j\) about \(y\), and on a boundary \(h=h'\), where
+\(h'\) is an integer in \([30+j,32+j)\).
+There are at most three choices for \(h'\).  These levels
+are the boundaries of squares about zero of radius \(u+1-h'\),
+which is positive by \eqref{e:sitecutscales}.
+
+We exclude coincident supporting lines of these two square
+boundaries.  For each edge of \(C\), define the signed inward
+depth of a parallel line.  For a vertical line with first
+coordinate \(q\), the left and right depths are
+\(q+u+1\) and \(u+1-q\), respectively; for horizontal lines
+use the same expressions in the second coordinate.  Each side
+of a radius-\(k\pm j\) square corresponds to the side with
+the same orientation and sign of the radius-\(k\) square.
+Their signed depths from any fixed parallel exterior half-plane
+differ by at most \(j\).
+
+The varying-coordinate intervals of both corresponding sides
+meet \([-u,u]\): their centres have coordinate in
+\([-u-1,u+1]\), and their radii are at least
+\(k-j\ge2s-1-T\ge1\).
+If the original side's fixed coordinate lies in \([-u,u]\),
+the original side therefore meets \(C\).  We have
+\(u\ge390^4=M_{\mathrm g}(64)\), \(2\le i\le s<i_1\), and
+\(i\notin I_0\).  Thus the nonexceptional parallel-side assertion
+of Lemma~\ref{l:shellgeom} applies and gives original signed depth
+at least \(s/3\).  The shifted depth is at least
+\[
+                   s/3-j>32+j>h'.
+\]
+The strict inequality uses \(s/3-2j\ge s/6>32\).
+If the original line lies beyond the specified edge, its signed
+depth is at most zero; the shifted depth is at most
+\(j<30+j\le h'\).  If it lies beyond the opposite edge,
+its original depth is at least \(2u+2\); the shifted depth is
+at least \(2u+2-j>32+j>h'\), by
+\eqref{e:sitecutscales}.  These three cases exhaust all positions
+of the original line.  None can yield shifted depth \(h'\),
+which would be necessary for coincidence with a side of the
+\(h'\)-square.
+
+Without coincident supporting lines, a side of one axis-parallel
+square meets the boundary of another in at most two points:
+its parallel sides do not intersect it, and there are only two
+perpendicular sides.  Their square boundaries thus meet in
+at most eight lattice sites.  There are at most two radius
+choices and at most three depth levels.  We have proved the
+required bound \(2\cdot3\cdot8=48\).
+
+For \(0<\vartheta<1\), the near sites therefore contribute at most
+\[
+ \begin{split}
+ 48\sum_{j=0}^{\infty}\vartheta^{\max(j,16)-2}
+ &=48\vartheta^{14}
+                    \left(17+\frac{\vartheta}{1-\vartheta}\right)\\
+ &\le48\vartheta^{14}
+                    \left(17+\frac1{1-\vartheta}\right).
+ \end{split}
+\]
+The far sites contribute at most
+\(|X_0|\vartheta^{T-1}\le(2u+1)^2\vartheta^{T-1}\),
+which is at most the displayed far term in the statement.
+This proves the raw cut sum.
+
+\emph{Thickening and separation.}
+The ambient distance function \(b_G(z)=d(z,G^c)\), defined
+also outside \(G\) by zero, is one-Lipschitz for \(d\).
+Every \(z\in X\) has a point \(x\in X_0\) with \(d(z,x)\le1\).
+It follows that \(b_G(z)\ge b_G(x)-1\ge13\), so \(X\subset G\).
+In particular \(X\) meets neither \(B\) nor the protected
+original layer \(S(G)\).  Directly summing over the five sites
+in each nearest-neighbour cross
+gives
+\[
+ \sum_{z\in X}\vartheta^{b_G(z)}
+    \le\sum_{x\in X_0}\sum_{d(z,x)\le1}
+                              \vartheta^{b_G(z)}
+    \le5\vartheta^{-1}\sum_{x\in X_0}\vartheta^{b_G(x)}.
+\]
+
+Since \(B\subset U\subset F\) and \(X\subset G\), the two
+sets specified in Definition~\ref{d:thickcut} give the disjoint
+union \(G\setminus X=G_1\sqcup G_2\).  If a bond joined
+\(p\in G_1\) to \(q\in G_2\), then \(p\in U\), \(q\notin U\),
+and \(|p-q|_\infty=1\); hence \(q\in X_0\subset X\), a
+contradiction.  A point of \(G_1\subset U\) is not adjacent to
+\(F^c\), as already proved.  A point adjacent to \(B\) lies
+in \(U\), so cannot belong to \(G_2\).  Finally \(B\) itself
+has no neighbour in \(F^c\), because \(B\subset U\) and
+\(U\) has this property.  These are all the separation and
+no-adjacency assumptions of Lemma~\ref{l:cut}.
+\end{proof}
+
+\begin{lemma}\label{l:Xconn}
+Under Lemma~\ref{l:cutgeom}, the finite nonempty cut \(X\) is
+nearest-neighbour connected. Hence it can be ordered so that every
+site after the first has a previously listed nearest neighbour.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{l:cutgeom} says that \(U\) is finite, nonempty and
+star-connected, and that \(U^c\) is star-connected.
+Lemma~\ref{l:boundaryconn} in Appendix~\ref{s:topology} therefore makes
+\(X_0=\partial_\infty U\) nonempty and star-connected.
+Its finiteness follows from that of \(U\).
+Lemma~\ref{l:thicken} in that appendix makes \(X\) nearest-neighbour connected,
+and its definition makes it finite and nonempty.
+
+For completeness, choose a root \(x_1\in X\) and order all
+points by nondecreasing shortest-path distance from the root
+in the nearest-neighbour graph induced by \(X\), breaking
+ties arbitrarily.  These distances are finite nonnegative
+integers.  Every nonroot point has a neighbour at distance
+one smaller, obtained from a shortest path; that neighbour
+has already been listed.  This also covers a singleton cut.
+\end{proof}
+
+\subsection{The uniform window estimate}
+
+\begin{theorem}\label{t:cutMOS}
+If \(\mathsf P(A,\theta)\) holds, then the family of plane frame
+specifications has \(\mathsf W(64,p_0,M_\star)\), with common
+\(p_0\in(0,1]\) and integer \(M_\star\ge1\) depending only on
+\(A,\theta\). The constants work for every proper plane
+three-colouring and every translate.
+Specifically, let
+\[
+ E=1+4A+10A\theta^{-4}
+       \left[48\theta^{14}\left(17+\frac1{1-\theta}\right)+1\right],
+ \qquad p_0=e^{-2E}.
+\]
+There exists an integer \(M_\star\ge1\) for which (W) holds
+with this displayed choice of \(p_0\).
+\end{theorem}
+
+\begin{proof}
+Fix \(A\ge2\) and \(0<\theta<1\) satisfying
+Definition~\ref{h:P}.  We first choose a common scale threshold.
+Let \(c=-\log\theta>0\).  For \(u=s^4\ge1\),
+\[
+ 4(2u+1)^2\theta^{s/12-1}
+       \le36\theta^{-1}s^8 e^{-cs/12}
+       \le K_\theta s^{-2},\qquad
+ K_\theta=36\theta^{-1}\,10!\left(\frac{12}{c}\right)^{10}.
+\]
+The second inequality follows from
+\(e^r\ge r^{10}/10!\) for \(r=cs/12>0\), by the
+nonnegative power series for the exponential.
+Choose, for example,
+\[
+ M_\star=\left\lceil\max\{390^4,K_\theta^2,1\}\right\rceil.
+\]
+Then every integer \(u\ge M_\star\) satisfies the threshold
+of Lemma~\ref{l:cutgeom} and
+\begin{equation}\label{e:windowtail}
+                 4(2u+1)^2\theta^{s/12-1}\le1.
+\end{equation}
+
+Fix any proper plane colouring, any translate \(C_u(a)\),
+any indicated exterior site \(y\), and any nonexceptional
+integer \(2\le i\le s\).  Form \(F,B,G,U,X_0,X,G_1,G_2\)
+as in Definition~\ref{d:thickcut}.  Lemmas~\ref{l:cutgeom}
+and~\ref{l:Xconn} give a nonempty finite cut in \(G\), an
+ordering \(x_1,\ldots,x_p\) as in Lemma~\ref{l:removal},
+and \(b_G\ge13\) on it.  For every admissible exterior
+assignment \(\eta\) and window assignment \(s_B\), use the
+unit pins \(\eta s_B\) on the original legs of \(G\).
+The removal lemma applies to these pins without any restriction
+on their directions.  As \(b_G-3\ge0\), it yields
+\begin{equation}\label{e:windowcutcost}
+ \begin{split}
+ |e(\eta,s_B)|
+ &\le1+4A\theta^{b_G(x_1)-3}
+                    +2A\theta^{-3}\sum_{j=2}^p\theta^{b_G(x_j)}\\
+ &\le1+4A+2A\theta^{-3}\sum_{z\in X}\theta^{b_G(z)}\\
+ &\le1+4A+10A\theta^{-4}
+       \left[48\theta^{14}\left(17+\frac1{1-\theta}\right)
+                        +4(2u+1)^2\theta^{s/12-1}\right]
+ \le E.
+ \end{split}
+\end{equation}
+The first site is kept as a seed in this estimate; its additive
+cost is included in the term one.
+
+All assumptions of Lemma~\ref{l:cut} hold by
+Lemma~\ref{l:cutgeom}.  That lemma supplies one strictly
+positive reference law on the actual window alphabet and the
+minorization \(e^{-2E}\nu\), uniformly in \(\eta\).
+Thus any two admissible boundaries for \(F_i\) give window
+marginals with total variation at most \(1-e^{-2E}\).
+The statement is also automatic for an empty window, whose
+marginal is a point mass.  This is precisely
+\(\mathsf W(64,p_0,M_\star)\) in Definition~\ref{d:W}.
+All terms defining \(E\) are finite and positive, so
+\(p_0=e^{-2E}\in(0,1]\).
+
+The geometric estimates did not use a colouring, and the
+removal estimate was uniform over original unit pins.
+Quadrature in Lemma~\ref{l:cut} transfers only the sums over
+the sites outside the window.  The reference law retains
+\(W_B\) with the chosen frames and may vary with the colouring
+and placement.  No equality of window laws at different
+colourings or translates is needed.  The constants chosen
+above consequently apply to every colouring and translate.
+\end{proof}

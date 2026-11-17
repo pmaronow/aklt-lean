@@ -1,0 +1,44 @@
+\section{Statement of the result and structure of the proof}\label{s:intro}
+
+\subsection{The model and the main result}
+
+For integers $L, N \ge 3$ let $\Lambda = \Lambda_{L, N} = \Z_L \times \Z_N$ be the discrete torus, and let $E$ be its set of nearest-neighbour bonds. Every site $x \in \Lambda$ carries a spin $2$, that is, a copy of the five-dimensional irreducible representation $V$ of $\mathrm{SU}(2)$, and the Hilbert space is $\mathcal H_\Lambda = \bigotimes_{x \in \Lambda} V$. For a bond $e = \{x, y\} \in E$ let $P_e$ be the orthogonal projection of $V_x \otimes V_y$ onto its total-spin-$4$ subspace, extended by the identity to $\mathcal H_\Lambda$. The spin-$2$ AKLT Hamiltonian \cite{AKLT88} is
+\begin{equation}\label{e:H}
+H_{L, N} = \sum_{e \in E} P_e .
+\end{equation}
+It is frustration free: its kernel contains the valence-bond-solid state $B$ defined in \eqref{e:B} below. We write $\gap(H_{L, N})$ for the smallest nonzero eigenvalue of $H_{L, N}$.
+
+\begin{theorem}\label{t:main}
+There exist $c > 0$ and $L_0 \in \N$ such that for all even $L, N \ge L_0$ the kernel of $H_{L, N}$ is spanned by $B$, and
+\begin{equation*}
+\gap(H_{L, N}) \ge c .
+\end{equation*}
+\end{theorem}
+
+The proof of Theorem~\ref{t:main} is computer-assisted. Three statements are verified by computer, all at the pair of constants $(\cs, \ct) = (0.961, 0.935)$ (Theorem~\ref{t:inputs}). Hypothesis~(H1) is a list of $7{,}962$ inequalities, one for each local configuration (``pattern'') in an explicit class $\Pext$ of radius-$2$ neighbourhoods of the square lattice. Each inequality asserts that a ratio of two functions of at most twenty unit vectors in $\R^3$, affine in each vector, is at least $\cs$ or $\ct$ on the whole product of spheres. We verify it in exact integer and rational arithmetic, with tests of positive definiteness of integer matrices for each pattern, one for each exchange-symmetry sector of the pattern (\S\ref{s:H1} and Appendix~\ref{s:local}); the margins on the first two patterns of Table~\ref{tab:H1}, which have the smallest values found numerically, are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. Hypothesis~(H2), a bound on the growth of weighted trail sums, and Hypothesis~(H3$'$), a bound on the spectral radius of a $2 \times 2$ kernel built from closed trails, are verified in floating-point arithmetic with upward rounding (\S\ref{s:H2}, \S\ref{s:H3} and Appendix~\ref{s:tail}); the bound for (H2) was also reproduced in exact rational arithmetic. These two hypotheses use (H1) only through the two numbers $\cs$ and $\ct$. Everything else is proved here or cited with a precise locator. One cited result, \cite[Theorem~4.1]{MO94} as it is invoked in \cite{MOS94}, is applied to a finite single-spin space larger than the two-valued one for which its proof is written out; Remark~\ref{r:finiteS} explains why the proof applies. The constants $c$ and $L_0$ are not explicit.
+
+\subsection{Structure of the proof}
+
+The proof is a chain of five reductions. We describe them in the order in which they are used; each is proved in the section indicated, and \S\ref{s:mixing} assembles the proof of Theorem~\ref{t:main}.
+
+\emph{From the quantum gap to a classical heat bath} (\S\ref{s:frames}). Replace each spin by the twelve vertices of an icosahedron on one sublattice and the twenty vertices of a dodecahedron on the other. Both are spherical $5$-designs, so the corresponding spin-$2$ coherent states form tight frames, and the frame map is an isometry from $\mathcal H_\Lambda$ into a space of functions of a finite-state configuration. The ground state $B$ becomes a nowhere-vanishing function whose square is a nearest-neighbour Gibbs measure $\mu_D$ with strictly positive weights. Theorem~\ref{t:QD} shows that $\gap(H_{L, N})$ is bounded below by a fixed multiple of the spectral gap of the single-site heat-bath dynamics of $\mu_D$, and that the ground state is unique.
+
+\emph{A finite-size criterion} (\S\ref{s:knabe}). By a Knabe-type argument for the heat-bath generator, which is a frustration-free sum of projections, the heat-bath gap on every torus of sides at least $\ell + 1$ is bounded below as soon as the smallest heat-bath gap of an $\ell \times \ell$ box, over all placements and all boundary conditions, exceeds $1/\ell$ (Theorem~\ref{t:K}).
+
+\emph{From a mixing estimate to box gaps} (\S\ref{s:mixing}). After blocking $2 \times 2$ cells, $\mu_D$ becomes a translation-invariant, nearest-neighbour model with a finite single-cell space and positive weights, to which the theory of \cite{MOS94, MO94} applies. We reproduce the coupling argument of \cite[Proposition~2.1]{MOS94} in a form that consumes only one estimate, a uniform bound below $1$ on the total variation distance between the laws of a shell segment $B_i$ in a notched square $F_i$ under two boundary conditions (Proposition~\ref{p:surgery}). With \cite[Theorem~2.1]{MOS94} and \cite[Theorem~4.1]{MO94} this gives a uniform gap of the cell heat bath on large squares, and hence the input of the finite-size criterion.
+
+\emph{The cut lemma} (\S\ref{s:cut}). The window law of $B_i$ in $F_i$ is a ratio of partition functions, and these are the same for the frame model and the continuous model on $\Sph$ because every site has at most four factors and the frames are $4$-designs. Removing a closed cut $X$ that separates $B_i$ from the boundary factorizes the partition function, and Lemma~\ref{l:cut} shows that the window law differs from a law that does not depend on the boundary condition by a factor $e^{\pm 2 \varepsilon}$, where $\varepsilon$ is the change of $\log$ of a ratio of pinned and free partition functions under the soft removal of $X$. Removing $X$ one site at a time, $\varepsilon$ is bounded by a sum over the cut of pair-correlation responses $|\E^\tau[n_u \cdot n_v] - \E^0[n_u \cdot n_v]|$ at pairs of sites next to a removed site. Hypothesis (P), decay of these responses in the distance to the pins, therefore implies the estimate of the previous step (Theorem~\ref{t:cutMOS}).
+
+\emph{The pair recursion} (\S\ref{s:walks}--\S\ref{s:recursion}). Hypothesis (P) is proved by a walk expansion. A pair correlation is a sum over trails from one site of the pair to the other, weighted by $3^{-|w|}$ and by ratios of partition functions of traced domains. The difference between the pinned and the free ratio telescopes over the steps of the trail, and the response of each step is, exactly, a linear combination of pair responses of the same type around the removed passage site. This closes into a linear recursion for the worst pair response at distance $d$, with a nonnegative $2 \times 2$ kernel built from closed trails. The recursion contracts if the per-step ratios are bounded by the constants $\cs, \ct$ of (H1), if the weighted trail sums decay geometrically (H2), and if the kernel has spectral radius below $1$ (H3$'$) (Theorem~\ref{t:rec}).
+
+\emph{Computer-assisted inputs} (\S\ref{s:computer}). We state (H1), (H2) and (H3$'$) in the form used and describe their certificates. The proofs for (H1), by positive definiteness of integer matrices and, for part of the patterns, by closed forms, are in Appendix~\ref{s:local}; the tail estimate for (H3$'$) is in Appendix~\ref{s:tail}.
+
+The logical dependence is therefore
+\begin{equation*}
+\text{(H1), (H2), (H3$'$)} \Longrightarrow \text{(P)} \Longrightarrow \text{window estimate} \Longrightarrow \text{box gaps} \Longrightarrow \text{heat-bath gap of } \mu_D \Longrightarrow \gap(H_{L, N}) \ge c ,
+\end{equation*}
+and the constants are chosen in this order. The third implication uses \cite{MOS94} at the level of its proof, which is why that proof is reproduced in \S\ref{s:mixing}.
+
+\subsection{Conventions}
+
+Throughout, $\Sph$ is the unit sphere in $\R^3$ and $\dd n$ is the normalized uniform measure on it. On $\Z^2$ we write $d(x, y) = |x_1 - y_1| + |x_2 - y_2|$ for the graph distance and $|x - y|_\infty$ for the $\ell^\infty$ distance; $x \sim y$ means $d(x, y) = 1$. For probability measures $\nu, \nu'$ on a finite set, $\TV(\nu, \nu') = \sup_A |\nu(A) - \nu'(A)|$. For a reversible Markov generator $\mathcal L$ on $L^2(\nu)$ with Dirichlet form $\mathcal E$, the spectral gap is $\gap = \inf \{ \mathcal E(F, F) / \Var_\nu(F) : F \text{ not constant} \}$. All spin configurations are of unit vectors; a ``pin'' is a unit vector attached to a boundary bond.

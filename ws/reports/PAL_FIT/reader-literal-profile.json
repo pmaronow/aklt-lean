@@ -1,0 +1,115 @@
+{
+  "path": "/home/ubuntu/aklt/reports/REL_FEAS/measurements/h3-raw-large/export.ndjson",
+  "bytes": 11058121,
+  "records": 108253,
+  "nat_decimal_digits": 5486863,
+  "sum_nat_decimal_digits_squared": 14375049659663,
+  "largest_nat_literals": [
+    [
+      3787833,
+      91528
+    ],
+    [
+      54048,
+      94408
+    ],
+    [
+      22524,
+      94404
+    ],
+    [
+      14797,
+      91944
+    ],
+    [
+      14797,
+      91936
+    ]
+  ],
+  "denseClass_declarations": [
+    {
+      "tag": "forallE",
+      "name": "denseClass",
+      "value": null,
+      "data": {
+        "binderInfo": "default",
+        "body": 91064,
+        "name": 10904,
+        "type": 1
+      }
+    },
+    {
+      "tag": "forallE",
+      "name": "denseClass",
+      "value": null,
+      "data": {
+        "binderInfo": "default",
+        "body": 91077,
+        "name": 10904,
+        "type": 1
+      }
+    },
+    {
+      "tag": "lam",
+      "name": "denseClass",
+      "value": null,
+      "data": {
+        "binderInfo": "default",
+        "body": 91085,
+        "name": 10904,
+        "type": 1
+      }
+    },
+    {
+      "tag": "def",
+      "name": "CertData.H3.Graph.denseClass",
+      "value": 91531,
+      "data": {
+        "all": [
+          11011
+        ],
+        "hints": {
+          "regular": 2
+        },
+        "levelParams": [],
+        "name": 11011,
+        "safety": "safe",
+        "type": 1
+      }
+    },
+    {
+      "tag": "const",
+      "name": "CertData.H3.Graph.denseClass",
+      "value": null,
+      "data": {
+        "name": 11011,
+        "us": []
+      }
+    }
+  ],
+  "tags": {
+    "meta": 1,
+    "str": 7346,
+    "succ": 14,
+    "sort": 28,
+    "const": 2803,
+    "forallE": 8600,
+    "param": 11,
+    "bvar": 26,
+    "app": 71100,
+    "lam": 11134,
+    "inductive": 121,
+    "num": 4053,
+    "max": 23,
+    "def": 1068,
+    "proj": 160,
+    "natVal": 383,
+    "thm": 853,
+    "letE": 367,
+    "strVal": 148,
+    "imax": 6,
+    "axiom": 3,
+    "quot": 4,
+    "opaque": 1
+  }
+}

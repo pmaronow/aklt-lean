@@ -1,0 +1,31 @@
+import took 2.56s
+elaboration took 96.8s
+elaboration took 98.7s
+type checking took 148ms
+'AKLT.Gen.Packed.Scale2000000R100.checked' depends on axioms: [propext]
+'AKLT.Gen.Packed.Scale2000000R100.all_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 1.52ms
+	attribute application 0.0263ms
+	blocked (unaccounted) 175ms
+	compilation (IR) 0.0237ms
+	compilation (LCNF base) 0.512ms
+	compilation (LCNF impure) 0.129ms
+	compilation (LCNF mono) 0.267ms
+	elaboration 196s
+	fix level params 0.0225ms
+	import 2.56s
+	initialization 26.6ms
+	instantiate metavars 0.0249ms
+	interpretation 250ms
+	let-to-have transformation 0.0275ms
+	linting 2.39ms
+	module linting 0.00131ms
+	overlappingInstancesLinter 0.948ms
+	parsing 10.8ms
+	process pre-definitions 0.33ms
+	share common exprs 0.0819ms
+	tactic execution 0.285ms
+	tacticAnalysis 2.31ms
+	type checking 149ms
+	typeclass inference 2.53ms

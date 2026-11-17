@@ -1,0 +1,450 @@
+[
+  {
+    "lean_name": "CertData.H3.Bridge.CodeDecodeLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.CodeEncodeLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.LastWindowCodeLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.SuccessorCodeLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawReplaySoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.CodeDecodeLeaf, CertData.H3.Bridge.CodeEncodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawReplayCompleteLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.CodeDecodeLeaf, CertData.H3.Bridge.CodeEncodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.LegalDirectionLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.CodeEncodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RevisitLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawRowSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.LegalDirectionLeaf, CertData.H3.Bridge.RevisitLeaf, CertData.H3.Bridge.SuccessorCodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawTrieCoverageLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.RawReplaySoundLeaf, CertData.H3.Bridge.RawReplayCompleteLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawTrieProjectionLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.RawRowSoundLeaf, CertData.H3.Bridge.RawTrieCoverageLeaf, CertData.H3.Bridge.RawReplaySoundLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawTrieBoundsLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.RawTrieCoverageLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RepresentativeBoundsLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.FieldCheckSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawTrieCountLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.RawReplaySoundLeaf, CertData.H3.Bridge.RawReplayCompleteLeaf, CertData.H3.Bridge.CodeEncodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.EdgeCountLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.IntervalCoverageLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:stationary-check",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RectangleLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.EndpointBoxLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PullLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.OrdinaryMaskLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.KnownMaskLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.DeadMaskLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.CentreZeroV2Leaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Use stationaryCoefficientV2 from main and the checked zero-centre condition; the legacy known-site centre edge differs."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.TableBoundsLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RowTermsV2Leaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.OrdinaryMaskLeaf, CertData.H3.Bridge.KnownMaskLeaf, CertData.H3.Bridge.DeadMaskLeaf, CertData.H3.Bridge.PullLeaf, CertData.H3.Bridge.CentreZeroV2Leaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Use stationaryCoefficientV2 from main and the checked zero-centre condition; the legacy known-site centre edge differs."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.FreeRowLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PlaneSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.TableBoundsLeaf, CertData.H3.Bridge.FreeRowLeaf, CertData.H3.Bridge.RowTermsV2Leaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Use stationaryCoefficientV2 from main and the checked zero-centre condition; the legacy known-site centre edge differs."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixReplaySoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PrefixStepLeaf, CertData.H3.Bridge.CodeDecodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixReplayCompleteLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.CodeEncodeLeaf, CertData.H3.Bridge.PrefixReplaySoundLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixStepLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.ShortComparatorLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.ShortValueLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.ShortComparatorLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixBatchSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PrefixReplaySoundLeaf, CertData.H3.Bridge.PrefixReplayCompleteLeaf, CertData.H3.Bridge.PrefixStepLeaf, CertData.H3.Bridge.ShortValueLeaf, CertData.H3.Bridge.LastWindowCodeLeaf, CertData.H3.Bridge.EndpointBoxLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.EarlySoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PrefixStepLeaf, CertData.H3.Bridge.ShortValueLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixPartitionLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.CodeEncodeLeaf, CertData.H3.Bridge.CodeDecodeLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.NumericScaleLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RationalCeilingLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.NumericScaleLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PlaneBatchSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:stationary-check",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RowCoverageLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:stationary-check",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PlaneBatchSoundLeaf, CertData.H3.Bridge.IntervalCoverageLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.EndpointTableSoundLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.RectangleLeaf, CertData.H3.Bridge.TableBoundsLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.ResultAddLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.SemanticBatchSplitLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.IntervalCoverageLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixResultsJoinLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.ResultAddLeaf, CertData.H3.Bridge.SemanticBatchSplitLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.UniformRowCoverageLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "p:stationary-check",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PlaneBatchSoundLeaf, CertData.H3.Bridge.RowCoverageLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PrefixFamilyJoinLeaf",
+    "module": "CertData.H3.Bridge.Interface",
+    "paper_label": "d:prefix-bound",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. First reuse: CertData.H3.Bridge.PrefixResultsJoinLeaf. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Keep early hits disjoint from the surviving frontier; chronological ties and zero reward infinity are exact."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.SpanDataLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.ClassDataLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.DecodeDataLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.QuotientDataLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.UnmaskedDataLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.FieldJoinLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RawShardJoinLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.RepresentativeJoinLeaf",
+    "module": "CertData.H3.Bridge.Production",
+    "paper_label": "p:automaton10",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Phase 3 changed this to a universally quantified packed-graph/receipt obligation; it has no generated-module import."
+  },
+  {
+    "lean_name": "CertData.H3.Bridge.PassesEquivalenceLeaf",
+    "module": "CertData.H3.Bridge.LegacyTargets",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Use stationaryCoefficientV2 from main and the checked zero-centre condition; the legacy known-site centre edge differs."
+  },
+  {
+    "lean_name": "AKLT.Cert.H3.RowTermsAgreement",
+    "module": "CertData.H3.Kernel.Rows",
+    "paper_label": "d:stationary-certificate",
+    "difficulty": "hard",
+    "suggested_proof_route": "Prove the exact closed Prop in this module. Use the existing generic Packed/Bellman and retained H3 lemmas; never normalize the whole certificate.",
+    "trap_note": "No new written proof here: first attempt must be a different cheaper model. Nat/Int and lists are kernel data; do not use native_decide. Use stationaryCoefficientV2 from main and the checked zero-centre condition; the legacy known-site centre edge differs."
+  }
+]

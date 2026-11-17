@@ -1,0 +1,3861 @@
+sec1-result.tex:13 -> d:poly -> sec3-quantum-frames.tex:14
+We study the spin-\(2\) square-lattice AKLT model of Affleck, Kennedy,
+Lieb, and Tasaki~\cite{AKLT88,KLT88}. We prove uniqueness of its ground
+state on every torus with integer periods \(L,N\ge3\) and a uniform
+positive spectral gap for all integers \(L,N\ge L_0\), with no parity
+restriction, for one fixed threshold \(L_0\). The computational inputs
+are local operator inequalities, an open-trail growth bound, and a
+type-dependent positive-vector bound obtained from stationary Bellman
+inequalities and finite prefix sums. All computations are checked in
+exact arithmetic. The polynomial realization of the spin space,
+including its Hilbert space normalization, is fixed in
+Definition~\ref{d:poly}.
+
+sec1-result.tex:47 -> p:toruskernel -> sec3-quantum-frames.tex:191
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:49 -> t:inputs -> sec8-inputs.tex:270
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:57 -> t:rec -> sec7-recursion.tex:1008
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:60 -> t:cutMOS -> sec5-window.tex:696
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:65 -> t:mainW -> sec4-periodic-gap.tex:404
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:66 -> d:framemodel -> sec3-quantum-frames.tex:490
+\begin{proof}
+Proposition~\ref{p:toruskernel} proves the nonvanishing and kernel
+assertions for every \(L,N\ge3\). For the uniform gap,
+Theorem~\ref{t:inputs} supplies (H1), (H2) with
+\[
+ C_V=10\ge1,\qquad
+ 0<q=\frac{1119948287353}{1120437614225}<1,
+\]
+and (H3\(_h\)) for the prescribed type-dependent kernel and fixed
+orderings. The common thresholds are \(c_{\rm s}=961/1000\) and
+\(c_{\rm t}=187/200\).
+These are exactly the hypotheses of Theorem~\ref{t:rec}, which
+gives finite \(A\ge2\) and \(0<\theta<1\) such that
+\(\mathsf P(A,\theta)\) holds.
+Theorem~\ref{t:cutMOS} then gives
+\(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
+one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
+every proper plane three-colouring and every translate.
+This is the hypothesis of the periodic assembly theorem,
+Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
+family of Definition~\ref{d:framemodel}. Its direct quantum
+conclusion supplies \(c>0\) and an integer \(L_0\ge3\) with the
+asserted spectral bound for all integers \(L,N\ge L_0\).
+\end{proof}
+
+sec1-result.tex:95 -> t:mainW -> sec4-periodic-gap.tex:404
+Section~4 uses a uniform estimate for window marginals to choose one
+square scale. A stopped coupling bounds the Hamming cost of changing
+one exterior letter. Counting all periodic translates of that square
+gives a gap for block updates, and comparison of conditional block
+and site Dirichlet forms gives the torus site gap.
+Theorem~\ref{t:mainW} combines this with the quantum comparison of
+Theorem~\ref{t:QD} to obtain the uniform quantum gap.
+Section~5 proves the required window estimate from the pair-response
+bound \(\mathsf P(A,\theta)\), uniformly over plane colourings and
+placements. Sections~6--8 prove that response bound using a walk
+expansion, a contracting positive-vector recursion, and the exact
+computational inputs. Thus the gap implication is
+\[
+ \begin{gathered}
+ \text{exact computational inputs}
+ \ \Longrightarrow\ \mathsf P
+ \ \Longrightarrow\ \mathsf W\\
+ \ \Longrightarrow\ \text{periodic block gap}
+ \ \Longrightarrow\ \text{site gap}
+ \ \Longrightarrow\ \text{quantum gap}.
+ \end{gathered}
+\]
+The finite probability and comparison tools are proved in Appendix~A;
+the planar topology and the computational certificate arguments are
+proved in Appendices~B--D. All scale choices precede the choice of the
+torus periods, colouring, block placement and exterior configuration.
+
+sec1-result.tex:96 -> t:QD -> sec3-quantum-frames.tex:646
+Section~4 uses a uniform estimate for window marginals to choose one
+square scale. A stopped coupling bounds the Hamming cost of changing
+one exterior letter. Counting all periodic translates of that square
+gives a gap for block updates, and comparison of conditional block
+and site Dirichlet forms gives the torus site gap.
+Theorem~\ref{t:mainW} combines this with the quantum comparison of
+Theorem~\ref{t:QD} to obtain the uniform quantum gap.
+Section~5 proves the required window estimate from the pair-response
+bound \(\mathsf P(A,\theta)\), uniformly over plane colourings and
+placements. Sections~6--8 prove that response bound using a walk
+expansion, a contracting positive-vector recursion, and the exact
+computational inputs. Thus the gap implication is
+\[
+ \begin{gathered}
+ \text{exact computational inputs}
+ \ \Longrightarrow\ \mathsf P
+ \ \Longrightarrow\ \mathsf W\\
+ \ \Longrightarrow\ \text{periodic block gap}
+ \ \Longrightarrow\ \text{site gap}
+ \ \Longrightarrow\ \text{quantum gap}.
+ \end{gathered}
+\]
+The finite probability and comparison tools are proved in Appendix~A;
+the planar topology and the computational certificate arguments are
+proved in Appendices~B--D. All scale choices precede the choice of the
+torus periods, colouring, block placement and exterior configuration.
+
+sec3-quantum-frames.tex:201 -> d:model -> sec1-result.tex:15
+\begin{proof}
+The neighbour calculation in Lemma~\ref{l:divisibility} proves
+the asserted degree and the absence of loops, including at period
+three; the edge set in Definition~\ref{d:model} has no repeated
+unordered pairs. Each determinant is nonzero, so their product is
+nonzero in the polynomial integral domain. Exactly four factors
+meet each site; thus \(B_{L,N}\) has degree four there and is a
+vector of \(\mathcal H_\Lambda\).
+It is divisible by \(q_e\) for every \(e\), so
+Lemma~\ref{l:edge} gives \(P_eB_{L,N}=0\).
+
+sec3-quantum-frames.tex:258 -> d:moment -> sec2-moments.tex:8
+The symbols \(D\), \(\phi\), \(r\), and \(\mathcal M\) have the
+meaning fixed in Definition~\ref{d:moment}. In particular,
+\(\phi=(1+\sqrt5)/2\), \(r^2=\phi+2\), and
+\(\mathcal M\) is the uniform average on the twelve displayed
+icosahedral vertices. We use its degree-four moment identities and
+polynomial covariance from Lemma~\ref{l:moments}.
+
+sec3-quantum-frames.tex:262 -> l:moments -> sec2-moments.tex:35
+The symbols \(D\), \(\phi\), \(r\), and \(\mathcal M\) have the
+meaning fixed in Definition~\ref{d:moment}. In particular,
+\(\phi=(1+\sqrt5)/2\), \(r^2=\phi+2\), and
+\(\mathcal M\) is the uniform average on the twelve displayed
+icosahedral vertices. We use its degree-four moment identities and
+polynomial covariance from Lemma~\ref{l:moments}.
+
+sec3-quantum-frames.tex:301 -> l:moments -> sec2-moments.tex:35
+\begin{proof}
+Let \(m_j(z)=z_1^{4-j}z_2^j\), \(0\le j\le4\).
+For \(j\le k\), the spinor projection identity gives
+\[
+ \overline{m_j(\zeta(a))}\,m_k(\zeta(a))
+ =P_{jk}(a):=
+ \frac{(1+a_3)^{4-k}(1-a_3)^j(a_1+i a_2)^{k-j}}{16}.
+\]
+Indeed, the paired factors are
+\(|\zeta_1|^2=(1+a_3)/2\),
+\(|\zeta_2|^2=(1-a_3)/2\), and
+\(\overline{\zeta_1}\zeta_2=(a_1+i a_2)/2\).
+For \(j>k\), use \(P_{jk}=\overline{P_{kj}}\).
+Every \(P_{jk}\) has degree at most four. If \(j<k\), rotation
+through \(\pi/(k-j)\) about the third coordinate multiplies
+\(P_{jk}\) by \(-1\). Polynomial covariance in
+Lemma~\ref{l:moments} implies \(\mathcal M(P_{jk})=0\).
+The same follows by conjugation for \(j>k\).
+
+sec3-quantum-frames.tex:361 -> l:moments -> sec2-moments.tex:35
+\begin{proof}
+The equality \(99^2+20^2=101^2\) proves \(T^TT=I\) and
+\(\det T=1\). The set \(D\) consists of twelve distinct unit
+vectors and is antipodal by Lemma~\ref{l:moments}.
+For a polynomial \(p\) of degree at most four,
+\[
+ \frac1{12}\sum_{a\in D^{(j)}}p(a)
+       =\mathcal M(p\circ T^j)=\mathcal M(p).
+\]
+Here \(T^j\) is bijective and covariance applies on precisely
+the stated degree range. Thus each rotated set is an antipodal
+frame of twelve letters.
+
+sec3-quantum-frames.tex:772 -> l:density -> app-finite.tex:163
+For the block-gap assertion, fix a finite plane block \(Q\) and
+all its exterior neighbour letters \(\eta\). Absorb every fixed
+boundary factor into its endpoint site weight by setting
+\[
+ h_x(t)=\frac1{12}
+       \prod_{\substack{z\notin Q\\d(x,z)=1}}
+                    (1+t\cdot\eta_z),\qquad
+ \nu_x(t)=\frac{h_x(t)}{\sum_{u\in D_x}h_x(u)},\qquad
+ \nu_Q=\bigotimes_{x\in Q}\nu_x.
+\]
+Every \(h_x(t)\) is positive, since all its boundary factors are
+in \([b,2-b]\). Thus \(\nu_Q\) is a strictly positive product
+probability on the finite product \(\prod_{x\in Q}D_x\). Let
+\[
+ R(n)=\prod_{\{x,y\}\in E(Q)}(1+n_x\cdot n_y),\qquad
+ e=|E(Q)|.
+\]
+The conditional block law is \(d\mu=(R/\nu_Q(R))\,d\nu_Q\),
+and \(b^e\le R\le(2-b)^e\). In particular,
+\(0<\nu_Q(R)<\infty\), and its density has the bounds
+\[
+ 0<m_Q:=\frac{b^e}{\nu_Q(R)}
+ \ \le\ \frac{R(n)}{\nu_Q(R)}
+ \ \le\ M_Q:=\frac{(2-b)^e}{\nu_Q(R)}<\infty.
+\]
+Apply the density comparison of Lemma~\ref{l:density}, proved in
+Appendix~A, with its product reference law \(\pi=\nu_Q\),
+density \(\varrho=R/\nu_Q(R)\), and constants \(m=m_Q\),
+\(M=M_Q\). All its hypotheses have just been verified. Its
+conditional-variance comparison and product Poincare inequality give,
+for every complex \(f\),
+\[
+ \mathcal D_\mu(f)
+ \ge m_Q\mathcal D_{\nu_Q}(f)
+ \ge m_Q\operatorname{Var}_{\nu_Q}f
+ \ge\frac{m_Q}{M_Q}\operatorname{Var}_\mu f.
+\]
+Consequently the Poincare gap is at least
+\(m_Q/M_Q=r_b^e\). Only internal edges occur in this ratio;
+all fixed boundary factors have been retained in \(\nu_Q\).
+If some sites of \(Q\) are already fixed, apply this construction
+to the free subset \(U\subset Q\). Since
+\(E(U)\subset E(Q)\) and \(0<r_b<1\), the resulting bound
+\(r_b^{|E(U)|}\) is at least the displayed bound for \(Q\).
+If the free subset is empty, the Poincare inequality holds because
+its variance is zero. In particular the argument includes empty
+blocks and blocks with no internal edges.
+\end{proof}
+
+sec4-periodic-gap.tex:7 -> a:finite -> app-finite.tex:2
+We pass from a uniform estimate on plane window marginals to a gap on
+the physical torus.  All shell sets below consist of physical sites.
+The finite coupling and Poincare tools used in this section are proved
+in Appendix~\ref{a:finite}.  In particular, all heat-bath sums count
+each indicated update at rate one.
+
+sec4-periodic-gap.tex:82 -> l:shellgeom -> sec5-window.tex:27
+\begin{proof}
+Write \(C=C_u(a)\), \(\mu=\mu_C^\eta\) and
+\(\mu'=\mu_C^\xi\) for the two volume laws.  If the exterior site
+\(y\) is farther than distance one from \(C\), the range-one property
+gives \(\mu=\mu'\); sampling the same configuration in both
+components proves the conclusion.  Hence assume
+\(\operatorname{dist}_\infty(y,C)=1\), and use the shells of
+Definition~\ref{d:shells}.  The size assumption gives
+\(s=u^{1/4}\ge\max\{16,6(l_0+1)\}\).
+Lemma~\ref{l:shellgeom} supplies
+\[
+ |I_0|\le1,\qquad D_i\subset F_i,
+ \qquad |A_i|\le8l_0\quad(i\notin I_0),
+ \qquad 2\le i\le i_1.
+\]
+It also says that every site of \(C\setminus F_i\) within distance
+one of \(F_i\) belongs to \(D_{i-1}\), and that \(y\) is not
+within distance one of \(F_i\), for \(i\ge2\).
+Since \(h+1\le\lfloor s\rfloor+1=i_1\), these geometric statements
+apply to every surgery index used below.
+
+sec4-periodic-gap.tex:125 -> l:finitecoupling -> app-finite.tex:68
+If the two configurations on \(D_{i-1}\) differ, maximally couple
+the \(B_i\) marginals of \(p_i,p'_i\), using
+Lemma~\ref{l:finitecoupling}.  Given the two sampled marginals,
+complete them independently to \(F_i\) using their respective
+conditional laws on \(F_i\setminus B_i\).  Finally resample \(A_i\)
+independently in the two components, each with its conditional law
+given the rest of its own configuration.  The initial completion has
+the correct two marginals \(p_i,p'_i\).  The last resampling preserves
+each of these laws, by Lemma~\ref{l:CE} and consistency.  Thus in
+either branch the output on \(F_i\), for every fixed input pair,
+has marginals \(p_i,p'_i\).  Lemma~\ref{l:surgery} shows that every
+step preserves the original full marginals \(\mu,\mu'\).
+
+sec4-periodic-gap.tex:131 -> l:CE -> app-finite.tex:22
+If the two configurations on \(D_{i-1}\) differ, maximally couple
+the \(B_i\) marginals of \(p_i,p'_i\), using
+Lemma~\ref{l:finitecoupling}.  Given the two sampled marginals,
+complete them independently to \(F_i\) using their respective
+conditional laws on \(F_i\setminus B_i\).  Finally resample \(A_i\)
+independently in the two components, each with its conditional law
+given the rest of its own configuration.  The initial completion has
+the correct two marginals \(p_i,p'_i\).  The last resampling preserves
+each of these laws, by Lemma~\ref{l:CE} and consistency.  Thus in
+either branch the output on \(F_i\), for every fixed input pair,
+has marginals \(p_i,p'_i\).  Lemma~\ref{l:surgery} shows that every
+step preserves the original full marginals \(\mu,\mu'\).
+
+sec4-periodic-gap.tex:133 -> l:surgery -> app-finite.tex:132
+If the two configurations on \(D_{i-1}\) differ, maximally couple
+the \(B_i\) marginals of \(p_i,p'_i\), using
+Lemma~\ref{l:finitecoupling}.  Given the two sampled marginals,
+complete them independently to \(F_i\) using their respective
+conditional laws on \(F_i\setminus B_i\).  Finally resample \(A_i\)
+independently in the two components, each with its conditional law
+given the rest of its own configuration.  The initial completion has
+the correct two marginals \(p_i,p'_i\).  The last resampling preserves
+each of these laws, by Lemma~\ref{l:CE} and consistency.  Thus in
+either branch the output on \(F_i\), for every fixed input pair,
+has marginals \(p_i,p'_i\).  Lemma~\ref{l:surgery} shows that every
+step preserves the original full marginals \(\mu,\mu'\).
+
+sec4-periodic-gap.tex:215 -> l:finitecoupling -> app-finite.tex:68
+\begin{proof}
+If the changed exterior site is farther than range one, the full laws
+are equal by Lemma~\ref{l:stopped}.  Otherwise set
+\(s=u^{1/4}\) and \(h=\lfloor s\rfloor\).
+The size threshold gives \(s\ge16\), so \(h\ge4\).
+Since \(hs\le s^2=u^{1/2}\), the target set of this corollary
+is contained in \(Q_h\).  Lemmas~\ref{l:stopped}
+and~\ref{l:finitecoupling} thus bound its marginal total variation by
+\((1-\delta)^{h-3}\).
+For \(0<\delta<1\), the inequality
+\(\lfloor s\rfloor-3\ge s-4\) implies
+\((1-\delta)^{h-3}\le(1-\delta)^{s-4}\).
+If \(\delta=1\), the coupling already gives agreement with
+probability one and \(s-4>0\), so the asserted upper bound is zero.
+\end{proof}
+
+sec4-periodic-gap.tex:382 -> l:contraction -> app-finite.tex:297
+Set \(P=A^{-1}\sum_aE_{Q_a}\).  Consider two input configurations
+differing only at site \(x\), and choose the same uniformly random
+block label in both components.  If \(x\in Q_a\), their exterior
+configurations agree, so their conditional block laws are equal.
+Use an identical sample on \(Q_a\); the output pair then agrees
+everywhere.  If \(x\notin Q_a\) but its distance from \(Q_a\)
+is one, use the assumed coupling on \(Q_a\).  The original
+disagreement remains at \(x\), and its expected number of additional
+disagreements is at most \(K\); the total is at most \(1+K\).
+For every remaining label, the range-one assumption makes the two
+block laws equal.  Identical resampling then leaves just the one
+disagreement at \(x\).  The resulting mixture is a coupling of
+the two \(P\)-output laws with
+\[
+ \mathbb E d_H
+    \le\frac{S_M(1+K)+(A-T_M-S_M)}A
+    =1-\frac{T_M-S_MK}A.
+\]
+By assumption \(c=T_M-S_MK>0\), and
+\(c\le T_M\le A\) since \(K\ge0\).
+Lemma~\ref{l:contraction} proves a block Poincare gap at least \(c\).
+Applying Lemma~\ref{l:comparison} with the conditional block gap
+\(g\) and multiplicity \(t_{\max}=T_M\) yields
+\[
+ \lambda(\mu)\ge\frac{cg}{T_M}
+             =g\left(1-\frac{S_MK}{T_M}\right).
+\]
+These are the two claimed bounds with unnormalized block rates.
+They also hold on one-point product spaces by the Poincare convention.
+Finally, if \(K\le M/1000\), then
+\[
+ \frac{S_MK}{T_M}
+ \le\frac{8M(M+1)}{1000(2M+1)^2}
+ =\frac1{500}\left(1-\frac1{(2M+1)^2}\right)
+ <\frac1{500}.
+\]
+In particular the strict block-contraction assumption is satisfied,
+and the final stated lower bound follows.
+\end{proof}
+
+sec4-periodic-gap.tex:383 -> l:comparison -> app-finite.tex:253
+Set \(P=A^{-1}\sum_aE_{Q_a}\).  Consider two input configurations
+differing only at site \(x\), and choose the same uniformly random
+block label in both components.  If \(x\in Q_a\), their exterior
+configurations agree, so their conditional block laws are equal.
+Use an identical sample on \(Q_a\); the output pair then agrees
+everywhere.  If \(x\notin Q_a\) but its distance from \(Q_a\)
+is one, use the assumed coupling on \(Q_a\).  The original
+disagreement remains at \(x\), and its expected number of additional
+disagreements is at most \(K\); the total is at most \(1+K\).
+For every remaining label, the range-one assumption makes the two
+block laws equal.  Identical resampling then leaves just the one
+disagreement at \(x\).  The resulting mixture is a coupling of
+the two \(P\)-output laws with
+\[
+ \mathbb E d_H
+    \le\frac{S_M(1+K)+(A-T_M-S_M)}A
+    =1-\frac{T_M-S_MK}A.
+\]
+By assumption \(c=T_M-S_MK>0\), and
+\(c\le T_M\le A\) since \(K\ge0\).
+Lemma~\ref{l:contraction} proves a block Poincare gap at least \(c\).
+Applying Lemma~\ref{l:comparison} with the conditional block gap
+\(g\) and multiplicity \(t_{\max}=T_M\) yields
+\[
+ \lambda(\mu)\ge\frac{cg}{T_M}
+             =g\left(1-\frac{S_MK}{T_M}\right).
+\]
+These are the two claimed bounds with unnormalized block rates.
+They also hold on one-point product spaces by the Poincare convention.
+Finally, if \(K\le M/1000\), then
+\[
+ \frac{S_MK}{T_M}
+ \le\frac{8M(M+1)}{1000(2M+1)^2}
+ =\frac1{500}\left(1-\frac1{(2M+1)^2}\right)
+ <\frac1{500}.
+\]
+In particular the strict block-contraction assumption is satisfied,
+and the final stated lower bound follows.
+\end{proof}
+
+sec4-periodic-gap.tex:413 -> l:planeenergy -> sec3-quantum-frames.tex:691
+\begin{proof}
+Fix constants \((l_0,p_0,M_\star)\) witnessing (W).
+Lemma~\ref{l:planeenergy} supplies a consistent positive,
+nearest-neighbour plane family with a common one-site bound
+\(\alpha=12^{-1}r_b^4\in(0,1]\).  Choose \(n\) by
+Lemma~\ref{l:hamming}, once and for all, and put
+\[
+ M=n^8,\qquad L_0=2M+3,\qquad
+ g_M=r_b^{\,2(2M+1)(2M)}>0.
+\]
+These choices precede the torus periods, colouring, block placement
+and exterior fibre.
+
+sec4-periodic-gap.tex:425 -> l:colour -> sec3-quantum-frames.tex:434
+Let \(L,N\ge L_0\).  In particular \(L,N\ge3\), so
+Lemma~\ref{l:colour} provides the proper torus three-colouring
+\[
+ \kappa(i,j)=a_L(i)+a_N(j)\pmod3,\qquad
+ a_m(i)=\begin{cases}
+ 2,&m\text{ odd and }i=m-1,\\
+ i\bmod2,&\text{otherwise},
+ \end{cases}
+ \quad 0\le i<m.
+\]
+Consider
+\(\mu=\mu^{\mathrm{af}}_{\kappa,L,N}\) from
+Definition~\ref{d:framemodel}.  This measure has full support and
+nearest-neighbour conditional dependence by
+Lemma~\ref{l:planeenergy}.  The periodic pullback
+\(\bar\kappa(z)=\kappa(p(z))\), where
+\(p:\mathbb Z^2\to\Lambda_{L,N}\) is reduction, is a proper plane
+colouring.  Indeed each plane nearest-neighbour edge reduces to a
+torus edge between distinct vertices since \(L,N\ge3\).
+
+sec4-periodic-gap.tex:436 -> d:framemodel -> sec3-quantum-frames.tex:490
+Let \(L,N\ge L_0\).  In particular \(L,N\ge3\), so
+Lemma~\ref{l:colour} provides the proper torus three-colouring
+\[
+ \kappa(i,j)=a_L(i)+a_N(j)\pmod3,\qquad
+ a_m(i)=\begin{cases}
+ 2,&m\text{ odd and }i=m-1,\\
+ i\bmod2,&\text{otherwise},
+ \end{cases}
+ \quad 0\le i<m.
+\]
+Consider
+\(\mu=\mu^{\mathrm{af}}_{\kappa,L,N}\) from
+Definition~\ref{d:framemodel}.  This measure has full support and
+nearest-neighbour conditional dependence by
+Lemma~\ref{l:planeenergy}.  The periodic pullback
+\(\bar\kappa(z)=\kappa(p(z))\), where
+\(p:\mathbb Z^2\to\Lambda_{L,N}\) is reduction, is a proper plane
+colouring.  Indeed each plane nearest-neighbour edge reduces to a
+torus edge between distinct vertices since \(L,N\ge3\).
+
+sec4-periodic-gap.tex:438 -> l:planeenergy -> sec3-quantum-frames.tex:691
+Let \(L,N\ge L_0\).  In particular \(L,N\ge3\), so
+Lemma~\ref{l:colour} provides the proper torus three-colouring
+\[
+ \kappa(i,j)=a_L(i)+a_N(j)\pmod3,\qquad
+ a_m(i)=\begin{cases}
+ 2,&m\text{ odd and }i=m-1,\\
+ i\bmod2,&\text{otherwise},
+ \end{cases}
+ \quad 0\le i<m.
+\]
+Consider
+\(\mu=\mu^{\mathrm{af}}_{\kappa,L,N}\) from
+Definition~\ref{d:framemodel}.  This measure has full support and
+nearest-neighbour conditional dependence by
+Lemma~\ref{l:planeenergy}.  The periodic pullback
+\(\bar\kappa(z)=\kappa(p(z))\), where
+\(p:\mathbb Z^2\to\Lambda_{L,N}\) is reduction, is a proper plane
+colouring.  Indeed each plane nearest-neighbour edge reduces to a
+torus edge between distinct vertices since \(L,N\ge3\).
+
+sec4-periodic-gap.tex:448 -> l:boxlift -> sec3-quantum-frames.tex:801
+For every labelled square \(Q\), choose its lift
+\(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
+\(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
+Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
+hypotheses of Lemma~\ref{l:boxlift}.  It gives injectivity of
+\(p\) on \(Q'^+\) and the exact internal and crossing-bond
+correspondences.  For an exterior torus configuration \(\sigma\),
+the local sign change in that lemma is
+\[
+ \varepsilon_z=(-1)^{z_1+z_2},\qquad
+ n_z=\varepsilon_zs_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=\varepsilon_z\sigma_{p(z)}
+                                  \quad(z\in Q'^+\setminus Q').
+\]
+Injectivity ensures \(p(z)\notin Q\) for
+\(z\in Q'^+\setminus Q'\), so the displayed boundary values
+are defined.  Only nearest-neighbour exterior letters enter the law.
+Lemma~\ref{l:boxlift} identifies the conditional torus law under
+this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
+Antipodality of each alphabet
+ensures that the sign change is a bijection using the same site
+alphabets.  This bijection intertwines single-site updates and
+preserves Hamming distances.  It also preserves variances and
+Dirichlet forms, by the change of variables in the finite sums.
+The number of internal edges of \(Q'\) is
+\(2(2M+1)(2M)\): there are \(2M\) bonds in each of its
+\(2M+1\) horizontal rows and the same number vertically.
+Lemma~\ref{l:planeenergy}, equivalently the density comparison in
+Lemma~\ref{l:density}, therefore gives conditional single-site
+Poincare gap at least \(g_M\), uniformly over all such fibres.
+
+sec4-periodic-gap.tex:461 -> l:boxlift -> sec3-quantum-frames.tex:801
+For every labelled square \(Q\), choose its lift
+\(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
+\(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
+Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
+hypotheses of Lemma~\ref{l:boxlift}.  It gives injectivity of
+\(p\) on \(Q'^+\) and the exact internal and crossing-bond
+correspondences.  For an exterior torus configuration \(\sigma\),
+the local sign change in that lemma is
+\[
+ \varepsilon_z=(-1)^{z_1+z_2},\qquad
+ n_z=\varepsilon_zs_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=\varepsilon_z\sigma_{p(z)}
+                                  \quad(z\in Q'^+\setminus Q').
+\]
+Injectivity ensures \(p(z)\notin Q\) for
+\(z\in Q'^+\setminus Q'\), so the displayed boundary values
+are defined.  Only nearest-neighbour exterior letters enter the law.
+Lemma~\ref{l:boxlift} identifies the conditional torus law under
+this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
+Antipodality of each alphabet
+ensures that the sign change is a bijection using the same site
+alphabets.  This bijection intertwines single-site updates and
+preserves Hamming distances.  It also preserves variances and
+Dirichlet forms, by the change of variables in the finite sums.
+The number of internal edges of \(Q'\) is
+\(2(2M+1)(2M)\): there are \(2M\) bonds in each of its
+\(2M+1\) horizontal rows and the same number vertically.
+Lemma~\ref{l:planeenergy}, equivalently the density comparison in
+Lemma~\ref{l:density}, therefore gives conditional single-site
+Poincare gap at least \(g_M\), uniformly over all such fibres.
+
+sec4-periodic-gap.tex:471 -> l:planeenergy -> sec3-quantum-frames.tex:691
+For every labelled square \(Q\), choose its lift
+\(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
+\(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
+Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
+hypotheses of Lemma~\ref{l:boxlift}.  It gives injectivity of
+\(p\) on \(Q'^+\) and the exact internal and crossing-bond
+correspondences.  For an exterior torus configuration \(\sigma\),
+the local sign change in that lemma is
+\[
+ \varepsilon_z=(-1)^{z_1+z_2},\qquad
+ n_z=\varepsilon_zs_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=\varepsilon_z\sigma_{p(z)}
+                                  \quad(z\in Q'^+\setminus Q').
+\]
+Injectivity ensures \(p(z)\notin Q\) for
+\(z\in Q'^+\setminus Q'\), so the displayed boundary values
+are defined.  Only nearest-neighbour exterior letters enter the law.
+Lemma~\ref{l:boxlift} identifies the conditional torus law under
+this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
+Antipodality of each alphabet
+ensures that the sign change is a bijection using the same site
+alphabets.  This bijection intertwines single-site updates and
+preserves Hamming distances.  It also preserves variances and
+Dirichlet forms, by the change of variables in the finite sums.
+The number of internal edges of \(Q'\) is
+\(2(2M+1)(2M)\): there are \(2M\) bonds in each of its
+\(2M+1\) horizontal rows and the same number vertically.
+Lemma~\ref{l:planeenergy}, equivalently the density comparison in
+Lemma~\ref{l:density}, therefore gives conditional single-site
+Poincare gap at least \(g_M\), uniformly over all such fibres.
+
+sec4-periodic-gap.tex:472 -> l:density -> app-finite.tex:163
+For every labelled square \(Q\), choose its lift
+\(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
+\(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
+Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
+hypotheses of Lemma~\ref{l:boxlift}.  It gives injectivity of
+\(p\) on \(Q'^+\) and the exact internal and crossing-bond
+correspondences.  For an exterior torus configuration \(\sigma\),
+the local sign change in that lemma is
+\[
+ \varepsilon_z=(-1)^{z_1+z_2},\qquad
+ n_z=\varepsilon_zs_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=\varepsilon_z\sigma_{p(z)}
+                                  \quad(z\in Q'^+\setminus Q').
+\]
+Injectivity ensures \(p(z)\notin Q\) for
+\(z\in Q'^+\setminus Q'\), so the displayed boundary values
+are defined.  Only nearest-neighbour exterior letters enter the law.
+Lemma~\ref{l:boxlift} identifies the conditional torus law under
+this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
+Antipodality of each alphabet
+ensures that the sign change is a bijection using the same site
+alphabets.  This bijection intertwines single-site updates and
+preserves Hamming distances.  It also preserves variances and
+Dirichlet forms, by the change of variables in the finite sums.
+The number of internal edges of \(Q'\) is
+\(2(2M+1)(2M)\): there are \(2M\) bonds in each of its
+\(2M+1\) horizontal rows and the same number vertically.
+Lemma~\ref{l:planeenergy}, equivalently the density comparison in
+Lemma~\ref{l:density}, therefore gives conditional single-site
+Poincare gap at least \(g_M\), uniformly over all such fibres.
+
+sec4-periodic-gap.tex:481 -> l:boxlift -> sec3-quantum-frames.tex:801
+Now take two torus exterior configurations for \(Q\) differing at
+just one site \(y\) at \(\ell^\infty\) distance one.
+The image \(p(Q'^+)\) is the full torus one-neighbourhood of \(Q\):
+every one-step coordinate displacement lifts to
+\(\{-1,0,1\}^2\), and
+\(Q'^+=Q'+\{-1,0,1\}^2\).
+Thus the one-neighbourhood injection in Lemma~\ref{l:boxlift}
+gives an existing, unique exterior lift of \(y\).
+Under the same local
+sign change the two plane boundary assignments differ at most at
+that lift.  Only nearest-neighbour exterior letters are needed; if
+necessary, extend the other exterior letters identically and
+arbitrarily in their site alphabets.  For a corner site that has no
+crossing nearest-neighbour bond the two conditional laws are already
+equal.  In all other cases Lemma~\ref{l:hamming}, applied to this
+plane colouring and placement, provides a coupling of expected
+Hamming cost at most \(K=M/1000\).  The inverse coordinatewise
+bijection carries it to a coupling of the two conditional torus laws
+with exactly the same Hamming cost.
+
+sec4-periodic-gap.tex:500 -> l:star -> sec3-quantum-frames.tex:223
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-colouring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and colouring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+sec4-periodic-gap.tex:503 -> t:QD -> sec3-quantum-frames.tex:646
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-colouring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and colouring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+sec4-periodic-gap.tex:505 -> d:framemodel -> sec3-quantum-frames.tex:490
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-colouring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and colouring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+sec4-periodic-gap.tex:513 -> l:star -> sec3-quantum-frames.tex:223
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-colouring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and colouring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+sec4-periodic-gap.tex:521 -> p:toruskernel -> sec3-quantum-frames.tex:191
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-colouring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and colouring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+sec4-periodic-gap.tex:531 -> t:main -> sec1-result.tex:38
+We now prove the two conclusions of Theorem~\ref{t:main}, stated in
+the result section: nonvanishing of \(B_{L,N}\) and the kernel
+identity for every \(L,N\ge3\), and the existence of one
+\(c>0\) and integer \(L_0\ge3\) bounding every nonzero eigenvalue
+below by \(c\) for all integers \(L,N\ge L_0\).
+
+sec4-periodic-gap.tex:537 -> t:main -> sec1-result.tex:38
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane colouring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}
+
+
+sec4-periodic-gap.tex:538 -> p:toruskernel -> sec3-quantum-frames.tex:191
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane colouring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}
+
+
+sec4-periodic-gap.tex:540 -> t:inputs -> sec8-inputs.tex:270
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane colouring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}
+
+
+sec4-periodic-gap.tex:544 -> t:rec -> sec7-recursion.tex:1008
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane colouring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}
+
+
+sec4-periodic-gap.tex:546 -> t:cutMOS -> sec5-window.tex:696
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane colouring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}
+
+
+sec5-window.tex:3 -> d:shells -> sec4-periodic-gap.tex:10
+We use the shells of Definition~\ref{d:shells}, the plane
+specifications of Definition~\ref{d:framemodel}, and the original-leg
+partition sums of Definition~\ref{d:pinmodel}.  In a sum with subscript
+\(G\setminus Y\), the original volume remains \(G\): the retained
+legs come from \(\mathcal L(G)\), and the protected layer is always
+\(S(G)\), with no new pins at removed sites.  The only response
+assumption in this section is \(\mathsf P(A,\theta)\) of
+Definition~\ref{h:P}.  Throughout, \(d\) is ambient \(\ell^1\)
+distance.  Distances in the square geometry, including the distances
+to corners in the shell definition, are ambient \(\ell^\infty\)
+distances.  An exterior half-plane is understood through its lattice
+sites; for example, the left exterior half-plane of \([-u,u]^2\) is
+\(\{z\in\mathbb Z^2:z_1\le-u-1\}\).
+
+sec5-window.tex:4 -> d:framemodel -> sec3-quantum-frames.tex:490
+We use the shells of Definition~\ref{d:shells}, the plane
+specifications of Definition~\ref{d:framemodel}, and the original-leg
+partition sums of Definition~\ref{d:pinmodel}.  In a sum with subscript
+\(G\setminus Y\), the original volume remains \(G\): the retained
+legs come from \(\mathcal L(G)\), and the protected layer is always
+\(S(G)\), with no new pins at removed sites.  The only response
+assumption in this section is \(\mathsf P(A,\theta)\) of
+Definition~\ref{h:P}.  Throughout, \(d\) is ambient \(\ell^1\)
+distance.  Distances in the square geometry, including the distances
+to corners in the shell definition, are ambient \(\ell^\infty\)
+distances.  An exterior half-plane is understood through its lattice
+sites; for example, the left exterior half-plane of \([-u,u]^2\) is
+\(\{z\in\mathbb Z^2:z_1\le-u-1\}\).
+
+sec5-window.tex:5 -> d:pinmodel -> sec2-moments.tex:97
+We use the shells of Definition~\ref{d:shells}, the plane
+specifications of Definition~\ref{d:framemodel}, and the original-leg
+partition sums of Definition~\ref{d:pinmodel}.  In a sum with subscript
+\(G\setminus Y\), the original volume remains \(G\): the retained
+legs come from \(\mathcal L(G)\), and the protected layer is always
+\(S(G)\), with no new pins at removed sites.  The only response
+assumption in this section is \(\mathsf P(A,\theta)\) of
+Definition~\ref{h:P}.  Throughout, \(d\) is ambient \(\ell^1\)
+distance.  Distances in the square geometry, including the distances
+to corners in the shell definition, are ambient \(\ell^\infty\)
+distances.  An exterior half-plane is understood through its lattice
+sites; for example, the left exterior half-plane of \([-u,u]^2\) is
+\(\{z\in\mathbb Z^2:z_1\le-u-1\}\).
+
+sec5-window.tex:10 -> h:P -> sec2-moments.tex:338
+We use the shells of Definition~\ref{d:shells}, the plane
+specifications of Definition~\ref{d:framemodel}, and the original-leg
+partition sums of Definition~\ref{d:pinmodel}.  In a sum with subscript
+\(G\setminus Y\), the original volume remains \(G\): the retained
+legs come from \(\mathcal L(G)\), and the protected layer is always
+\(S(G)\), with no new pins at removed sites.  The only response
+assumption in this section is \(\mathsf P(A,\theta)\) of
+Definition~\ref{h:P}.  Throughout, \(d\) is ambient \(\ell^1\)
+distance.  Distances in the square geometry, including the distances
+to corners in the shell definition, are ambient \(\ell^\infty\)
+distances.  An exterior half-plane is understood through its lattice
+sites; for example, the left exterior half-plane of \([-u,u]^2\) is
+\(\{z\in\mathbb Z^2:z_1\le-u-1\}\).
+
+sec5-window.tex:163 -> l:threeframes -> sec3-quantum-frames.tex:341
+\begin{proof}
+Fix a proper colouring \(\kappa\).  The window configuration space
+is the nonempty finite product \(\Omega_B=\prod_{x\in B}D_x\).
+For \(s\in\Omega_B\) define
+\[
+ W_B(s)=\prod_{x\in B}\frac1{12}
+       \prod_{\substack{\{x,z\}\subset B\\d(x,z)=1}}
+                       (1+s_x\cdot s_z).
+\]
+All these weights are positive by Lemma~\ref{l:threeframes}.
+The absence of bonds from \(B\) to \(F^c\) implies, on summing
+the actual frame weights over \(G\), that
+\begin{equation}\label{e:windowfactor}
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =\frac{W_B(s)Z_G^{\eta s}}
+                    {Z^{+,\eta}_{\kappa,F}}.
+\end{equation}
+Here the sum over \(G\) equals \(Z_G^{\eta s}\) by
+Lemma~\ref{l:exact}: every summed spin has at most four incident
+bond or original-leg factors.  This use of quadrature concerns
+only a partition polynomial, with the letters \(s\) held fixed.
+All partition sums in this proof are finite and strictly positive
+by Lemma~\ref{l:finitefacts}; the actual frame normalizer is also
+strictly positive by Definition~\ref{d:framemodel}.
+
+sec5-window.tex:172 -> l:exact -> sec2-moments.tex:297
+\begin{proof}
+Fix a proper colouring \(\kappa\).  The window configuration space
+is the nonempty finite product \(\Omega_B=\prod_{x\in B}D_x\).
+For \(s\in\Omega_B\) define
+\[
+ W_B(s)=\prod_{x\in B}\frac1{12}
+       \prod_{\substack{\{x,z\}\subset B\\d(x,z)=1}}
+                       (1+s_x\cdot s_z).
+\]
+All these weights are positive by Lemma~\ref{l:threeframes}.
+The absence of bonds from \(B\) to \(F^c\) implies, on summing
+the actual frame weights over \(G\), that
+\begin{equation}\label{e:windowfactor}
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =\frac{W_B(s)Z_G^{\eta s}}
+                    {Z^{+,\eta}_{\kappa,F}}.
+\end{equation}
+Here the sum over \(G\) equals \(Z_G^{\eta s}\) by
+Lemma~\ref{l:exact}: every summed spin has at most four incident
+bond or original-leg factors.  This use of quadrature concerns
+only a partition polynomial, with the letters \(s\) held fixed.
+All partition sums in this proof are finite and strictly positive
+by Lemma~\ref{l:finitefacts}; the actual frame normalizer is also
+strictly positive by Definition~\ref{d:framemodel}.
+
+sec5-window.tex:176 -> l:finitefacts -> sec2-moments.tex:126
+\begin{proof}
+Fix a proper colouring \(\kappa\).  The window configuration space
+is the nonempty finite product \(\Omega_B=\prod_{x\in B}D_x\).
+For \(s\in\Omega_B\) define
+\[
+ W_B(s)=\prod_{x\in B}\frac1{12}
+       \prod_{\substack{\{x,z\}\subset B\\d(x,z)=1}}
+                       (1+s_x\cdot s_z).
+\]
+All these weights are positive by Lemma~\ref{l:threeframes}.
+The absence of bonds from \(B\) to \(F^c\) implies, on summing
+the actual frame weights over \(G\), that
+\begin{equation}\label{e:windowfactor}
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =\frac{W_B(s)Z_G^{\eta s}}
+                    {Z^{+,\eta}_{\kappa,F}}.
+\end{equation}
+Here the sum over \(G\) equals \(Z_G^{\eta s}\) by
+Lemma~\ref{l:exact}: every summed spin has at most four incident
+bond or original-leg factors.  This use of quadrature concerns
+only a partition polynomial, with the letters \(s\) held fixed.
+All partition sums in this proof are finite and strictly positive
+by Lemma~\ref{l:finitefacts}; the actual frame normalizer is also
+strictly positive by Definition~\ref{d:framemodel}.
+
+sec5-window.tex:177 -> d:framemodel -> sec3-quantum-frames.tex:490
+\begin{proof}
+Fix a proper colouring \(\kappa\).  The window configuration space
+is the nonempty finite product \(\Omega_B=\prod_{x\in B}D_x\).
+For \(s\in\Omega_B\) define
+\[
+ W_B(s)=\prod_{x\in B}\frac1{12}
+       \prod_{\substack{\{x,z\}\subset B\\d(x,z)=1}}
+                       (1+s_x\cdot s_z).
+\]
+All these weights are positive by Lemma~\ref{l:threeframes}.
+The absence of bonds from \(B\) to \(F^c\) implies, on summing
+the actual frame weights over \(G\), that
+\begin{equation}\label{e:windowfactor}
+ \mu^{+,\eta}_{\kappa,F}(n_B=s)
+       =\frac{W_B(s)Z_G^{\eta s}}
+                    {Z^{+,\eta}_{\kappa,F}}.
+\end{equation}
+Here the sum over \(G\) equals \(Z_G^{\eta s}\) by
+Lemma~\ref{l:exact}: every summed spin has at most four incident
+bond or original-leg factors.  This use of quadrature concerns
+only a partition polynomial, with the letters \(s\) held fixed.
+All partition sums in this proof are finite and strictly positive
+by Lemma~\ref{l:finitefacts}; the actual frame normalizer is also
+strictly positive by Definition~\ref{d:framemodel}.
+
+sec5-window.tex:248 -> d:pinmodel -> sec2-moments.tex:97
+\begin{proof}
+Here \(G\) is finite, as in Definition~\ref{d:pinmodel}.
+Put \(Y_0=\varnothing\), \(Y_j=\{x_1,\ldots,x_j\}\), and
+\(D_j=G\setminus Y_j\).  The depth assumption implies
+\(Y_j\subset G\setminus S(G)\).  At the \(j\)-th removal let
+\(u_1,\ldots,u_k\) be the surviving neighbours of \(x_j\).
+The site \(x_j\) has no original leg, all four of its original
+neighbours belong to \(G\), and \(k=4\) for \(j=1\).
+For \(j\ge2\) one predecessor is a neighbour, so \(0\le k\le3\).
+
+sec5-window.tex:258 -> l:moments -> sec2-moments.tex:35
+Integrate the spin at \(x_j\) in the finite functional.  By
+Lemma~\ref{l:moments}, the resulting polynomial is
+\begin{equation}\label{e:removalpolynomial}
+ \begin{split}
+ I_j&=\begin{cases}
+ 1,&k=0,1,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le k}n_{u_r}\cdot n_{u_t},
+       &k=2,3,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le4}n_{u_r}\cdot n_{u_t}
+                    +\frac1{15}Q_j,&k=4,
+ \end{cases}\\
+ Q_j&=(n_{u_1}\cdot n_{u_2})(n_{u_3}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_3})(n_{u_2}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_4})(n_{u_2}\cdot n_{u_3}).
+ \end{split}
+\end{equation}
+The displayed definition of \(Q_j\) is made only in the case
+\(k=4\); no \(u_4\) or quartic polynomial is formed in the other
+cases.  For either
+\(\bullet=\tau\) or \(\bullet=0\), finite summation gives
+\(Z_{D_{j-1}}^\bullet=Z_{D_j}^\bullet
+\mathbb E_{D_j}^\bullet I_j\).  Positivity of all normalizers
+follows from Lemma~\ref{l:finitefacts}.  Consequently
+\begin{equation}\label{e:removaltelescope}
+ \log\Psi_G(\tau)-\log\Psi_{G\setminus X}(\tau)
+   =\sum_{j=1}^p
+      \left(\log\mathbb E_{D_j}^\tau I_j
+                         -\log\mathbb E_{D_j}^0 I_j\right).
+\end{equation}
+
+sec5-window.tex:279 -> l:finitefacts -> sec2-moments.tex:126
+Integrate the spin at \(x_j\) in the finite functional.  By
+Lemma~\ref{l:moments}, the resulting polynomial is
+\begin{equation}\label{e:removalpolynomial}
+ \begin{split}
+ I_j&=\begin{cases}
+ 1,&k=0,1,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le k}n_{u_r}\cdot n_{u_t},
+       &k=2,3,\\
+ 1+\frac13\displaystyle\sum_{1\le r<t\le4}n_{u_r}\cdot n_{u_t}
+                    +\frac1{15}Q_j,&k=4,
+ \end{cases}\\
+ Q_j&=(n_{u_1}\cdot n_{u_2})(n_{u_3}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_3})(n_{u_2}\cdot n_{u_4})
+      +(n_{u_1}\cdot n_{u_4})(n_{u_2}\cdot n_{u_3}).
+ \end{split}
+\end{equation}
+The displayed definition of \(Q_j\) is made only in the case
+\(k=4\); no \(u_4\) or quartic polynomial is formed in the other
+cases.  For either
+\(\bullet=\tau\) or \(\bullet=0\), finite summation gives
+\(Z_{D_{j-1}}^\bullet=Z_{D_j}^\bullet
+\mathbb E_{D_j}^\bullet I_j\).  Positivity of all normalizers
+follows from Lemma~\ref{l:finitefacts}.  Consequently
+\begin{equation}\label{e:removaltelescope}
+ \log\Psi_G(\tau)-\log\Psi_{G\setminus X}(\tau)
+   =\sum_{j=1}^p
+      \left(\log\mathbb E_{D_j}^\tau I_j
+                         -\log\mathbb E_{D_j}^0 I_j\right).
+\end{equation}
+
+sec5-window.tex:298 -> l:finitefacts -> sec2-moments.tex:126
+We first give a uniform lower bound on each expectation in
+\eqref{e:removaltelescope}.  Distinct neighbours of a square-lattice
+site have distance two from one another, so no two \(u_r\)'s are
+adjacent.  Each satisfies \(b_G(u_r)\ge b_G(x_j)-1\ge2\),
+has no original leg, and has at most three present bonds after
+\(x_j\) is removed.  Condition on every spin except these
+\(k\) spins, on a conditioning event of positive probability.
+Because there is no bond between these sites and none has an original
+leg, the joint conditional weight is a constant times the product,
+over \(r\), of its site weight and its surviving bond factors.
+Summing over the \(k\) spins gives the product of their one-site
+normalizers, each positive by Lemma~\ref{l:finitefacts}.
+The joint conditional law is therefore the product of these
+one-site laws.  Lemma~\ref{l:35} applies to each of them, with at
+most three factors, so their means \(m_r\) satisfy \(|m_r|\le3/5\).
+For \(k=0\) the product is the empty product.  Thus
+\[
+ \sum_{r<t}m_r\cdot m_t
+    =\frac12\left(\left|\sum_r m_r\right|^2
+                                  -\sum_r|m_r|^2\right)
+    \ge-\frac{k}{2}\frac9{25}.
+\]
+For \(k\le3\) this proves
+\(\mathbb E_{D_j}^\bullet I_j\ge1-3k/50\ge41/50>1/2\).
+For \(k=4\), the pointwise bound \(|Q_j|\le3\) gives
+\[
+ \mathbb E_{D_j}^\bullet I_j
+       \ge1-\frac6{25}-\frac3{15}
+       =\frac{14}{25}>\frac12.
+\]
+For \(k=0\) the polynomial is one and its expectation is one.
+These arguments average over positive conditioning fibres only;
+zero-probability fibres are immaterial.
+
+sec5-window.tex:300 -> l:35 -> sec2-moments.tex:197
+We first give a uniform lower bound on each expectation in
+\eqref{e:removaltelescope}.  Distinct neighbours of a square-lattice
+site have distance two from one another, so no two \(u_r\)'s are
+adjacent.  Each satisfies \(b_G(u_r)\ge b_G(x_j)-1\ge2\),
+has no original leg, and has at most three present bonds after
+\(x_j\) is removed.  Condition on every spin except these
+\(k\) spins, on a conditioning event of positive probability.
+Because there is no bond between these sites and none has an original
+leg, the joint conditional weight is a constant times the product,
+over \(r\), of its site weight and its surviving bond factors.
+Summing over the \(k\) spins gives the product of their one-site
+normalizers, each positive by Lemma~\ref{l:finitefacts}.
+The joint conditional law is therefore the product of these
+one-site laws.  Lemma~\ref{l:35} applies to each of them, with at
+most three factors, so their means \(m_r\) satisfy \(|m_r|\le3/5\).
+For \(k=0\) the product is the empty product.  Thus
+\[
+ \sum_{r<t}m_r\cdot m_t
+    =\frac12\left(\left|\sum_r m_r\right|^2
+                                  -\sum_r|m_r|^2\right)
+    \ge-\frac{k}{2}\frac9{25}.
+\]
+For \(k\le3\) this proves
+\(\mathbb E_{D_j}^\bullet I_j\ge1-3k/50\ge41/50>1/2\).
+For \(k=4\), the pointwise bound \(|Q_j|\le3\) gives
+\[
+ \mathbb E_{D_j}^\bullet I_j
+       \ge1-\frac6{25}-\frac3{15}
+       =\frac{14}{25}>\frac12.
+\]
+For \(k=0\) the polynomial is one and its expectation is one.
+These arguments average over positive conditioning fibres only;
+zero-probability fibres are immaterial.
+
+sec5-window.tex:679 -> l:boundaryconn -> app-topology.tex:10
+\begin{proof}
+Lemma~\ref{l:cutgeom} says that \(U\) is finite, nonempty and
+star-connected, and that \(U^c\) is star-connected.
+Lemma~\ref{l:boundaryconn} in Appendix~\ref{s:topology} therefore makes
+\(X_0=\partial_\infty U\) nonempty and star-connected.
+Its finiteness follows from that of \(U\).
+Lemma~\ref{l:thicken} in that appendix makes \(X\) nearest-neighbour connected,
+and its definition makes it finite and nonempty.
+
+sec5-window.tex:679 -> s:topology -> app-topology.tex:2
+\begin{proof}
+Lemma~\ref{l:cutgeom} says that \(U\) is finite, nonempty and
+star-connected, and that \(U^c\) is star-connected.
+Lemma~\ref{l:boundaryconn} in Appendix~\ref{s:topology} therefore makes
+\(X_0=\partial_\infty U\) nonempty and star-connected.
+Its finiteness follows from that of \(U\).
+Lemma~\ref{l:thicken} in that appendix makes \(X\) nearest-neighbour connected,
+and its definition makes it finite and nonempty.
+
+sec5-window.tex:682 -> l:thicken -> app-topology.tex:138
+\begin{proof}
+Lemma~\ref{l:cutgeom} says that \(U\) is finite, nonempty and
+star-connected, and that \(U^c\) is star-connected.
+Lemma~\ref{l:boundaryconn} in Appendix~\ref{s:topology} therefore makes
+\(X_0=\partial_\infty U\) nonempty and star-connected.
+Its finiteness follows from that of \(U\).
+Lemma~\ref{l:thicken} in that appendix makes \(X\) nearest-neighbour connected,
+and its definition makes it finite and nonempty.
+
+sec5-window.tex:714 -> h:P -> sec2-moments.tex:338
+\begin{proof}
+Fix \(A\ge2\) and \(0<\theta<1\) satisfying
+Definition~\ref{h:P}.  We first choose a common scale threshold.
+Let \(c=-\log\theta>0\).  For \(u=s^4\ge1\),
+\[
+ 4(2u+1)^2\theta^{s/12-1}
+       \le36\theta^{-1}s^8 e^{-cs/12}
+       \le K_\theta s^{-2},\qquad
+ K_\theta=36\theta^{-1}\,10!\left(\frac{12}{c}\right)^{10}.
+\]
+The second inequality follows from
+\(e^r\ge r^{10}/10!\) for \(r=cs/12>0\), by the
+nonnegative power series for the exponential.
+Choose, for example,
+\[
+ M_\star=\left\lceil\max\{390^4,K_\theta^2,1\}\right\rceil.
+\]
+Then every integer \(u\ge M_\star\) satisfies the threshold
+of Lemma~\ref{l:cutgeom} and
+\begin{equation}\label{e:windowtail}
+                 4(2u+1)^2\theta^{s/12-1}\le1.
+\end{equation}
+
+sec5-window.tex:769 -> d:W -> sec4-periodic-gap.tex:31
+All assumptions of Lemma~\ref{l:cut} hold by
+Lemma~\ref{l:cutgeom}.  That lemma supplies one strictly
+positive reference law on the actual window alphabet and the
+minorization \(e^{-2E}\nu\), uniformly in \(\eta\).
+Thus any two admissible boundaries for \(F_i\) give window
+marginals with total variation at most \(1-e^{-2E}\).
+The statement is also automatic for an empty window, whose
+marginal is a point mass.  This is precisely
+\(\mathsf W(64,p_0,M_\star)\) in Definition~\ref{d:W}.
+All terms defining \(E\) are finite and positive, so
+\(p_0=e^{-2E}\in(0,1]\).
+
+sec6-walks.tex:4 -> d:moment -> sec2-moments.tex:8
+We work on a finite subset of the plane with the laws of
+Definition~\ref{d:moment}. We first prove the finite expansion and
+uniform response estimates, and then give the local and open-trail
+contracts used to bound it.
+
+sec6-walks.tex:40 -> l:finitefacts -> sec2-moments.tex:126
+All normalizers in this definition are positive by
+Lemma~\ref{l:finitefacts}. Original legs occur only at protected
+\(\mathrm U\) sites. In particular every departure site outside
+\(S\) is unpinned.
+The domains \(G\setminus Y\), \(Y\subset G\setminus S\), in
+Definition~\ref{d:pinmodel} are members of
+\(\mathcal D_{\mathrm{cons}}(G)\), with statuses
+\(\mathrm U,\mathrm X\) only.
+An auxiliary network allows a stopped arrival to delete a protected
+site's arrival bond while retaining all of that site's original legs.
+
+sec6-walks.tex:44 -> d:pinmodel -> sec2-moments.tex:97
+All normalizers in this definition are positive by
+Lemma~\ref{l:finitefacts}. Original legs occur only at protected
+\(\mathrm U\) sites. In particular every departure site outside
+\(S\) is unpinned.
+The domains \(G\setminus Y\), \(Y\subset G\setminus S\), in
+Definition~\ref{d:pinmodel} are members of
+\(\mathcal D_{\mathrm{cons}}(G)\), with statuses
+\(\mathrm U,\mathrm X\) only.
+An auxiliary network allows a stopped arrival to delete a protected
+site's arrival bond while retaining all of that site's original legs.
+
+sec6-walks.tex:121 -> l:moments -> sec2-moments.tex:35
+\begin{proof}
+Expand the product into subsets of \(\{1,\ldots,k\}\).
+In the first identity, the inserted linear factor permits only
+subsets of sizes one and three to contribute, by
+Lemma~\ref{l:moments}. The value is
+\[
+ \frac13\sum_i a\cdot u_i+
+ \frac1{15}\sum_{i<j<l}
+ \bigl((a\cdot u_i)(u_j\cdot u_l)
+       +(a\cdot u_j)(u_i\cdot u_l)
+       +(a\cdot u_l)(u_i\cdot u_j)\bigr).
+\]
+For the residual product, which has at most two factors,
+\[
+ \lambda_{\mathrm D}\left(\prod_{i'\ne i}(1+n\cdot u_{i'})\right)
+ =1+\frac15\sum_{\substack{j<l\\j,l\ne i}}u_j\cdot u_l.
+\]
+Multiplying by \((a\cdot u_i)/3\) and summing over \(i\)
+gives exactly the preceding expression, including the empty sums
+when \(k=0,1,2\).
+
+sec6-walks.tex:275 -> l:finitefacts -> sec2-moments.tex:126
+These formulas follow by summing over the departure spin before
+performing the remaining product sum. With three neighbours, the
+pre-step \(\lambda_{\mathrm U}\) sum is \(I\), by its second
+moment and vanishing odd moments. The post-step
+\(\lambda_{\mathrm D}\) sum over its two retained bonds is \(J\),
+by its second moment \(1/5\). Thus
+\[
+ Z^\bullet_{D[w_{j-1}]}=Z^\bullet_{E'}\mathbb E^\bullet_{E'}I,
+ \qquad
+ Z^\bullet_{D[w_j]}=Z^\bullet_{E'}\mathbb E^\bullet_{E'}J.
+\]
+With two neighbours these same sums are \(1+P_{fo}/3\) and \(1\);
+with one they are both \(1\). At a \(\mathrm D\) departure
+there is at most the selected bond, and
+\(\lambda_{\mathrm D}(1+n\cdot n_o)=1\), so deletion leaves
+the partition function unchanged. All divisions are justified by
+Lemma~\ref{l:finitefacts}. These computations also show directly
+that the revisit has ratio one for both pin choices.
+
+sec6-walks.tex:339 -> l:finitefacts -> sec2-moments.tex:126
+Since \(y\notin S(G)\), it has distance at least three from
+\(\mathbb Z^2\setminus G\). Each of its neighbours has distance
+at least two from that complement and carries no original leg.
+After \(y\) is removed, each has at most three present bonds.
+The neighbours are pairwise nonadjacent. On every positive fibre
+of the other spins in \(E'\), Lemmas~\ref{l:finitefacts}
+and~\ref{l:35} therefore give independent conditional spins with
+means \(m_f,m_g,m_o\) of norms at most \(3/5\), under either
+pin choice. Put \(Q=\sum_{\{a,b\}\subset\{f,g,o\}}m_a\cdot m_b\).
+Then
+\[
+ -\frac{27}{50}\le
+ \frac{|\sum_a m_a|^2-\sum_a|m_a|^2}{2}=Q
+ \le\sum_{\{a,b\}}|m_a||m_b|\le\frac{27}{25}.
+\]
+Also \(|m_f\cdot m_g|\le9/25\).
+Averaging these conditional inequalities proves
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Every pair insertion used here is admissible for free positivity:
+removal of \(y\) leaves at most three factors at each inserted
+endpoint, and the pair adds one degree there.
+Thus Lemma~\ref{l:finitefacts} gives \(I^0\ge1\), \(J^0\ge1\).
+The monotonicity of \(L\) now gives
+\[
+ L_I\ge L(41/50,1),\quad L_I\le34/25,\qquad
+ 116/125\le L_J\le134/125.
+\]
+In particular
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+       =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+
+sec6-walks.tex:340 -> l:35 -> sec2-moments.tex:197
+Since \(y\notin S(G)\), it has distance at least three from
+\(\mathbb Z^2\setminus G\). Each of its neighbours has distance
+at least two from that complement and carries no original leg.
+After \(y\) is removed, each has at most three present bonds.
+The neighbours are pairwise nonadjacent. On every positive fibre
+of the other spins in \(E'\), Lemmas~\ref{l:finitefacts}
+and~\ref{l:35} therefore give independent conditional spins with
+means \(m_f,m_g,m_o\) of norms at most \(3/5\), under either
+pin choice. Put \(Q=\sum_{\{a,b\}\subset\{f,g,o\}}m_a\cdot m_b\).
+Then
+\[
+ -\frac{27}{50}\le
+ \frac{|\sum_a m_a|^2-\sum_a|m_a|^2}{2}=Q
+ \le\sum_{\{a,b\}}|m_a||m_b|\le\frac{27}{25}.
+\]
+Also \(|m_f\cdot m_g|\le9/25\).
+Averaging these conditional inequalities proves
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Every pair insertion used here is admissible for free positivity:
+removal of \(y\) leaves at most three factors at each inserted
+endpoint, and the pair adds one degree there.
+Thus Lemma~\ref{l:finitefacts} gives \(I^0\ge1\), \(J^0\ge1\).
+The monotonicity of \(L\) now gives
+\[
+ L_I\ge L(41/50,1),\quad L_I\le34/25,\qquad
+ 116/125\le L_J\le134/125.
+\]
+In particular
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+       =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+
+sec6-walks.tex:358 -> l:finitefacts -> sec2-moments.tex:126
+Since \(y\notin S(G)\), it has distance at least three from
+\(\mathbb Z^2\setminus G\). Each of its neighbours has distance
+at least two from that complement and carries no original leg.
+After \(y\) is removed, each has at most three present bonds.
+The neighbours are pairwise nonadjacent. On every positive fibre
+of the other spins in \(E'\), Lemmas~\ref{l:finitefacts}
+and~\ref{l:35} therefore give independent conditional spins with
+means \(m_f,m_g,m_o\) of norms at most \(3/5\), under either
+pin choice. Put \(Q=\sum_{\{a,b\}\subset\{f,g,o\}}m_a\cdot m_b\).
+Then
+\[
+ -\frac{27}{50}\le
+ \frac{|\sum_a m_a|^2-\sum_a|m_a|^2}{2}=Q
+ \le\sum_{\{a,b\}}|m_a||m_b|\le\frac{27}{25}.
+\]
+Also \(|m_f\cdot m_g|\le9/25\).
+Averaging these conditional inequalities proves
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Every pair insertion used here is admissible for free positivity:
+removal of \(y\) leaves at most three factors at each inserted
+endpoint, and the pair adds one degree there.
+Thus Lemma~\ref{l:finitefacts} gives \(I^0\ge1\), \(J^0\ge1\).
+The monotonicity of \(L\) now gives
+\[
+ L_I\ge L(41/50,1),\quad L_I\le34/25,\qquad
+ 116/125\le L_J\le134/125.
+\]
+In particular
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+       =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+
+sec6-walks.tex:526 -> l:finitefacts -> sec2-moments.tex:126
+Both local sums are strictly positive for every unit slot choice.
+Indeed a corner has at most two internal factors and two slots,
+a tip has at most one internal factor and three slots, a neighbour
+has at most its four internal factors, and the passage site has
+at most three before the step and two after it. Removed sites
+contribute no variable or slot. Lemma~\ref{l:finitefacts}
+therefore applies to each sum. Every slot vector occurs once,
+affinely; this property also applies when a slot at a removed site
+has no effect.
+
+sec6-walks.tex:585 -> l:35 -> sec2-moments.tex:197
+We first replace the actual tips. A tip \(t\) has precisely one
+possible neighbour \(z\) inside the template; its other three
+directions are external slots. If \(t\) is nonremoved, write
+\[
+ W_t(n)=\prod_{\text{actual external factors at }t}(1+n\cdot b),
+ \quad A_t=\lambda_{\mathrm{st}(t)}(W_t)>0,\quad
+ b_t=\frac{\lambda_{\mathrm{st}(t)}(nW_t)}{A_t}.
+\]
+There are at most three external factors, so \(A_t>0\) and
+\(|b_t|\le3/5\), by the proof of Lemma~\ref{l:35}.
+If its internal bond is present, summing over this tip gives
+\(A_t(1+b_t\cdot n_z)\); if the bond is absent it gives \(A_t\).
+A removed tip contributes the constant one.
+These sums and constants are identical in the current and next
+template, since the step changes only the passage site and its
+out-bond.
+
+sec6-walks.tex:599 -> l:35 -> sec2-moments.tex:197
+In the covering pattern the bond from this tip to \(z\) is
+required exactly when \(z\) is nonremoved and keeps it.
+If that bond is required but the actual tip has no present bond,
+use the desired effective mean zero and the actual constant
+as \(A_t\), taking \(A_t=1\) for a removed tip.
+If it is required and actually present, use the effective mean
+\(b_t\) just computed. In either case Lemma~\ref{l:35}
+supplies three unit external fields for a covering
+\(\mathrm U\) tip with that exact mean. Let \(A'_t>0\) be
+its external three-factor normalizer. Its integrated factor
+is the desired factor multiplied by \(A'_t/A_t\).
+If the covering bond is not required, the actual bond is
+absent as well; choose any three unit fields for the covering
+tip and use the same positive normalizer adjustment.
+Thus replacing all four tips gives a covered-tip template whose
+current and next sums are multiplied by the same strictly
+positive scalar \(\prod_t A'_t/A_t\).
+The zero mean and the full ball of means used here are attained
+by the explicit moment formula in Lemma~\ref{l:35}.
+
+sec6-walks.tex:611 -> l:35 -> sec2-moments.tex:197
+In the covering pattern the bond from this tip to \(z\) is
+required exactly when \(z\) is nonremoved and keeps it.
+If that bond is required but the actual tip has no present bond,
+use the desired effective mean zero and the actual constant
+as \(A_t\), taking \(A_t=1\) for a removed tip.
+If it is required and actually present, use the effective mean
+\(b_t\) just computed. In either case Lemma~\ref{l:35}
+supplies three unit external fields for a covering
+\(\mathrm U\) tip with that exact mean. Let \(A'_t>0\) be
+its external three-factor normalizer. Its integrated factor
+is the desired factor multiplied by \(A'_t/A_t\).
+If the covering bond is not required, the actual bond is
+absent as well; choose any three unit fields for the covering
+tip and use the same positive normalizer adjustment.
+Thus replacing all four tips gives a covered-tip template whose
+current and next sums are multiplied by the same strictly
+positive scalar \(\prod_t A'_t/A_t\).
+The zero mean and the full ball of means used here are attained
+by the explicit moment formula in Lemma~\ref{l:35}.
+
+sec6-walks.tex:647 -> l:finitefacts -> sec2-moments.tex:126
+By the premise, the non-tip statuses and internal bonds are
+exactly those of a pattern \(\pi\in\mathcal P_{\mathrm{ext}}\).
+After the two replacements, every term is therefore
+\(Z_{\rm cur}(\pi;m)\) or \(Z_{\rm next}(\pi;m)\) for the same
+unit slot assignment \(m\); its type is the type of the given
+step. Apply (H1) term by term, average with the nonnegative
+corner coefficients, and undo the common positive tip scalar.
+This proves
+\(C(\omega)\ge c_{\rm type}N(\omega)\)
+for every outside configuration \(\omega\).
+Multiply by \(H(\omega)\) and sum over the outside spins.
+The result is
+\[
+ Z_E^\tau\ge c_{\rm type}Z_{E^+}^\tau.
+\]
+Both partition functions are positive by
+Lemma~\ref{l:finitefacts}, so division proves
+\(\rho_j^\tau=Z_{E^+}^\tau/Z_E^\tau\le1/c_{\rm type}\).
+The construction allowed each fixed outside field to range
+over the whole closed unit ball, and every missing slot and
+allowed tip status was treated explicitly. This proves all
+the asserted uniformity.
+\end{proof}
+
+sec7-recursion.tex:5 -> d:moment -> sec2-moments.tex:8
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+sec7-recursion.tex:6 -> d:pinmodel -> sec2-moments.tex:97
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+sec7-recursion.tex:8 -> d:domain -> sec6-walks.tex:8
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+sec7-recursion.tex:11 -> h:H1 -> sec6-walks.tex:531
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+sec7-recursion.tex:11 -> h:H2 -> sec6-walks.tex:684
+All networks in this section are finite plane networks with the site
+laws of Definition~\ref{d:moment} and the original legs of
+Definition~\ref{d:pinmodel}.  The boundary used in every distance is
+the original protected set \(S=S(G)\).  Ordinary domains have the
+meaning of Definition~\ref{d:domain}.  We first close the response
+class under tracing, and then derive a nonnegative shift recursion.
+The quantitative hypotheses are (H1) and (H2) of
+Definitions~\ref{h:H1} and~\ref{h:H2}, and the positive-vector
+assertion (H3\(_h\)) defined below.
+
+sec7-recursion.tex:16 -> d:trace -> sec6-walks.tex:50
+The trace operations, the stopped trail class, and the coefficients
+\(a_E(w),R_E^\bullet(w)\) are those of
+Definition~\ref{d:trace}.  The ratios of
+Definition~\ref{d:ratios} telescope to
+\(R_E^\bullet(w)=\prod_j\rho_j^\bullet\), with
+\(\rho_j^\tau=\rho_j^0=1\) at every admissible
+\(\mathrm D\) departure.  Proposition~\ref{p:pairwalk} supplies
+the finite expansion, its target constants, and its separate-degree
+bound.  We use it only with its prescribed stopping set
+\(S\cup\{\text{target}\}\) and check its start and target
+hypotheses at both expansions below.
+
+sec7-recursion.tex:17 -> d:ratios -> sec6-walks.tex:240
+The trace operations, the stopped trail class, and the coefficients
+\(a_E(w),R_E^\bullet(w)\) are those of
+Definition~\ref{d:trace}.  The ratios of
+Definition~\ref{d:ratios} telescope to
+\(R_E^\bullet(w)=\prod_j\rho_j^\bullet\), with
+\(\rho_j^\tau=\rho_j^0=1\) at every admissible
+\(\mathrm D\) departure.  Proposition~\ref{p:pairwalk} supplies
+the finite expansion, its target constants, and its separate-degree
+bound.  We use it only with its prescribed stopping set
+\(S\cup\{\text{target}\}\) and check its start and target
+hypotheses at both expansions below.
+
+sec7-recursion.tex:20 -> p:pairwalk -> sec6-walks.tex:148
+The trace operations, the stopped trail class, and the coefficients
+\(a_E(w),R_E^\bullet(w)\) are those of
+Definition~\ref{d:trace}.  The ratios of
+Definition~\ref{d:ratios} telescope to
+\(R_E^\bullet(w)=\prod_j\rho_j^\bullet\), with
+\(\rho_j^\tau=\rho_j^0=1\) at every admissible
+\(\mathrm D\) departure.  Proposition~\ref{p:pairwalk} supplies
+the finite expansion, its target constants, and its separate-degree
+bound.  We use it only with its prescribed stopping set
+\(S\cup\{\text{target}\}\) and check its start and target
+hypotheses at both expansions below.
+
+sec7-recursion.tex:26 -> l:local -> sec6-walks.tex:546
+The local comparison used here is Lemma~\ref{l:local}, including
+its uniformity in outside spins, original unit pins, missing
+external factors, and actual tip data allowed by the ordinary-domain
+rules.  The ordered product estimate is Lemma~\ref{l:exposure};
+the common pointwise majorant and its summed consequence are
+Lemma~\ref{l:onepoint}.  These are results of the preceding walk
+section.  In particular the last lemma bounds the sum of pointwise
+maxima for the two pin choices and permits its twelve exceptional
+departures at arbitrary trail positions.
+
+sec7-recursion.tex:29 -> l:exposure -> sec6-walks.tex:437
+The local comparison used here is Lemma~\ref{l:local}, including
+its uniformity in outside spins, original unit pins, missing
+external factors, and actual tip data allowed by the ordinary-domain
+rules.  The ordered product estimate is Lemma~\ref{l:exposure};
+the common pointwise majorant and its summed consequence are
+Lemma~\ref{l:onepoint}.  These are results of the preceding walk
+section.  In particular the last lemma bounds the sum of pointwise
+maxima for the two pin choices and permits its twelve exceptional
+departures at arbitrary trail positions.
+
+sec7-recursion.tex:31 -> l:onepoint -> sec6-walks.tex:695
+The local comparison used here is Lemma~\ref{l:local}, including
+its uniformity in outside spins, original unit pins, missing
+external factors, and actual tip data allowed by the ordinary-domain
+rules.  The ordered product estimate is Lemma~\ref{l:exposure};
+the common pointwise majorant and its summed consequence are
+Lemma~\ref{l:onepoint}.  These are results of the preceding walk
+section.  In particular the last lemma bounds the sum of pointwise
+maxima for the two pin choices and permits its twelve exceptional
+departures at arbitrary trail positions.
+
+sec7-recursion.tex:56 -> l:finitefacts -> sec2-moments.tex:126
+Indeed, both expectations are expectations under positive finite
+probability laws by Lemma~\ref{l:finitefacts}, and
+\(|n_u\cdot n_v|\le1\).  Increasing \(d\) restricts the class over
+which the supremum is taken.  In particular the asserted bounds and
+monotonicity also hold when that class is empty.
+
+sec7-recursion.tex:91 -> d:trace -> sec6-walks.tex:50
+\begin{proof}
+Write the trail as \((v_0,\ldots,v_m)\), with \(v_0=u\).
+All departures, arrivals, and removals in the following induction
+are the operations of Definition~\ref{d:trace}.
+Every neighbour of a site outside \(S\) is in \(G\), since such a
+site has distance at least three from \(\mathbb Z^2\setminus G\).
+Thus the three non-\(c\) kept bonds mentioned at length zero really
+exist as bonds inside \(G\).  A bond incident to a removed site is
+absent regardless of its kept flag at the other end.  Dropping the
+flag at \(u\) for \(\{u,c\}\) therefore changes no factor, pinned
+or free, and changes no normalized expectation.  The initial live
+site is now the only possible failure of the ordinary kept-set
+conditions.  Consistency is unchanged because \(c\) is removed.
+
+sec7-recursion.tex:151 -> d:pattern -> sec6-walks.tex:488
+It remains to verify the local pattern and pair assertions.  At a
+\(\mathrm U\) departure \(y\), the designated arrival site is
+\(c\) at the initial departure, and is the preceding trail site
+otherwise.  It is removed, or is \(\mathrm D\) with its two kept
+bonds among the three bonds other than its bond to \(y\).
+Every nonremoved non-arrival neighbour of \(y\) keeps its bond to
+\(y\): the live \(\mathrm U\) site keeps that bond, so consistency
+forces the other end to keep it.  Such a neighbour of status
+\(\mathrm D\) has exactly one additional kept bond.  Every corner
+of status \(\mathrm D\) has two kept bonds, and every other
+\(\mathrm U\) site has its full kept set.  The outgoing neighbour
+is nonremoved because its bond is present.  These are exactly the
+non-tip rules of Definition~\ref{d:pattern}.  The diamond of radius
+two about \(y\) lies in \(G\).  Original legs incident to its
+corners or tips occupy external slots.  Actual missing external
+factors, both slots at each corner, and actual tip data are treated
+by the covering procedure of Lemma~\ref{l:local}; that procedure
+does not require consistency with an actual tip kept set.
+
+sec7-recursion.tex:155 -> l:local -> sec6-walks.tex:546
+It remains to verify the local pattern and pair assertions.  At a
+\(\mathrm U\) departure \(y\), the designated arrival site is
+\(c\) at the initial departure, and is the preceding trail site
+otherwise.  It is removed, or is \(\mathrm D\) with its two kept
+bonds among the three bonds other than its bond to \(y\).
+Every nonremoved non-arrival neighbour of \(y\) keeps its bond to
+\(y\): the live \(\mathrm U\) site keeps that bond, so consistency
+forces the other end to keep it.  Such a neighbour of status
+\(\mathrm D\) has exactly one additional kept bond.  Every corner
+of status \(\mathrm D\) has two kept bonds, and every other
+\(\mathrm U\) site has its full kept set.  The outgoing neighbour
+is nonremoved because its bond is present.  These are exactly the
+non-tip rules of Definition~\ref{d:pattern}.  The diamond of radius
+two about \(y\) lies in \(G\).  Original legs incident to its
+corners or tips occupy external slots.  Actual missing external
+factors, both slots at each corner, and actual tip data are treated
+by the covering procedure of Lemma~\ref{l:local}; that procedure
+does not require consistency with an actual tip kept set.
+
+sec7-recursion.tex:176 -> d:trace -> sec6-walks.tex:50
+\begin{lemma}\label{l:terminalcover}
+In the first expansion of a pair of Definition~\ref{d:pairenv},
+assume also that \(v\notin S\), and
+suppose the trail avoids its target \(v\) and stops at \(e\in S\).
+In the terminal auxiliary network, start a second expansion from \(v\)
+to \(S\), again dropping its kept bond to \(c\) if it is \(\mathrm U\).
+The starts of both expansions have their designated incoming bond
+absent and are admissible in Definition~\ref{d:trace}.
+Before the second trail hits \(S\), a \(\mathrm U\) departure
+outside \(\{y':0<d(y',e)\le2\}\) has a covered pattern.
+There are at most twelve exceptional \(\mathrm U\) departures
+on each second trail. Both expansions satisfy Lemma~\ref{l:onepoint}.
+\end{lemma}
+
+sec7-recursion.tex:180 -> l:onepoint -> sec6-walks.tex:695
+\begin{lemma}\label{l:terminalcover}
+In the first expansion of a pair of Definition~\ref{d:pairenv},
+assume also that \(v\notin S\), and
+suppose the trail avoids its target \(v\) and stops at \(e\in S\).
+In the terminal auxiliary network, start a second expansion from \(v\)
+to \(S\), again dropping its kept bond to \(c\) if it is \(\mathrm U\).
+The starts of both expansions have their designated incoming bond
+absent and are admissible in Definition~\ref{d:trace}.
+Before the second trail hits \(S\), a \(\mathrm U\) departure
+outside \(\{y':0<d(y',e)\le2\}\) has a covered pattern.
+There are at most twelve exceptional \(\mathrm U\) departures
+on each second trail. Both expansions satisfy Lemma~\ref{l:onepoint}.
+\end{lemma}
+
+sec7-recursion.tex:185 -> p:pairwalk -> sec6-walks.tex:148
+\begin{proof}
+The first expansion has an admissible start outside \(S\) by
+Proposition~\ref{p:pairwalk}.  Its incoming bond is \(\{c,u\}\),
+which is absent because \(c\) is removed.  At \(u\), a
+\(\mathrm U\) law has at most three present bonds; a
+\(\mathrm D\) law has at most one by the pair definition.
+
+sec7-recursion.tex:204 -> p:pairwalk -> sec6-walks.tex:148
+For completeness the second pair expansion, with target \(e\),
+also meets the target degree hypothesis in
+Proposition~\ref{p:pairwalk}.  Before its first arrival, the
+protected site \(e\) had at most four factors in total, including
+original legs.  The first arrival dropped one present bond, leaving
+at most three factors.  Its law remains \(\lambda_{\mathrm U}\).
+The second start is distinct from \(e\) because \(v\notin S\).
+
+sec7-recursion.tex:222 -> d:pattern -> sec6-walks.tex:488
+If \(d(y',e)>2\), the defective site is outside the template
+about a \(\mathrm U\) departure \(y'\).  Its non-tip data
+therefore satisfy every rule in Definition~\ref{d:pattern}.
+Any absent external factor is allowed by Lemma~\ref{l:local},
+including a factor whose absence is caused by the defect outside
+the template.  The actual tips are also distinct from \(e\),
+so their statuses and kept sets satisfy that lemma's ordinary-domain
+tip rules.  Every outside spin has norm at most one; the original
+leg factors are retained.  No ordinary-domain assumption is imposed
+on the whole terminal auxiliary network.  Since no departure is
+at \(e\), every possible
+exception lies in
+\(\{y':0<d(y',e)\le2\}\).  There are four sites at distance
+one and eight at distance two in the square lattice.  A site can
+be departed from with status \(\mathrm U\) at most once, since
+that departure changes its status to \(\mathrm D\).  Hence there
+are at most twelve exceptions, at arbitrary positions along the
+second trail.
+
+sec7-recursion.tex:223 -> l:local -> sec6-walks.tex:546
+If \(d(y',e)>2\), the defective site is outside the template
+about a \(\mathrm U\) departure \(y'\).  Its non-tip data
+therefore satisfy every rule in Definition~\ref{d:pattern}.
+Any absent external factor is allowed by Lemma~\ref{l:local},
+including a factor whose absence is caused by the defect outside
+the template.  The actual tips are also distinct from \(e\),
+so their statuses and kept sets satisfy that lemma's ordinary-domain
+tip rules.  Every outside spin has norm at most one; the original
+leg factors are retained.  No ordinary-domain assumption is imposed
+on the whole terminal auxiliary network.  Since no departure is
+at \(e\), every possible
+exception lies in
+\(\{y':0<d(y',e)\le2\}\).  There are four sites at distance
+one and eight at distance two in the square lattice.  A site can
+be departed from with status \(\mathrm U\) at most once, since
+that departure changes its status to \(\mathrm D\).  Hence there
+are at most twelve exceptions, at arbitrary positions along the
+second trail.
+
+sec7-recursion.tex:242 -> l:onepoint -> sec6-walks.tex:695
+The first trace has no exceptions by Lemma~\ref{l:closure},
+even if its stopping rule is enlarged to all first hits of \(S\).
+Both traces thus have the absent incoming bond, admissible start,
+and exception bound required by Lemma~\ref{l:onepoint}.  Whenever
+(H1) and (H2) are assumed, its estimate applies to each trace.
+\end{proof}
+
+sec7-recursion.tex:256 -> d:trace -> sec6-walks.tex:50
+\begin{remark}
+The additional hypothesis \(v\notin S\) in
+Lemma~\ref{l:terminalcover} is necessary.  For example, take
+\(G=\{-3,\ldots,3\}^2\), so
+\(S=\{x\in G:\|x\|_\infty\ge2\}\).  Give \(c=(1,0)\)
+status \(\mathrm X\) and every other site status \(\mathrm U\)
+with its full kept set.  The pair \(u=(0,0),v=(2,0)\) belongs to
+\(P_B\), and the first trail
+\(((0,0),(0,1),(0,2))\) avoids \(v\) and stops in \(S\).
+Nevertheless \(v\in S\), so it cannot be the start of a second
+trace of Definition~\ref{d:trace}.  In the recursion below both
+endpoints have distance at least one from \(S\), as required.
+\end{remark}
+
+sec7-recursion.tex:398 -> l:response -> sec6-walks.tex:286
+\begin{lemma}\label{l:response-typed}
+Fix \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\) and assume (H1).
+At a covered \(\mathrm U\) departure of type \(\tau\in\{{\rm s},{\rm t}\}\),
+the response coefficients in Lemma~\ref{l:response} satisfy
+\[
+ 0<\alpha_j\le a_\tau,\qquad 0<\beta_j\le b_\tau
+       \quad\hbox{with three present neighbours},\qquad
+ 0<\beta'_j\le b'_\tau\quad\hbox{with two}.
+\]
+Here the exact constants are those of Lemma~\ref{l:log-mean-bounds};
+in particular \(a_{\rm t}=150000/10^6\).
+With \(a=116/125\), their analytic bounds are
+\[
+ \beta_j\le f(ac_\tau)/3,\qquad
+ \beta'_j\le f(c_\tau)/3,\qquad
+ \alpha_j\le f(ac_\tau)/3-f(a)/5.
+\]
+These follow using \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\ge1\), and \(J^\tau\ge a\).
+Also \(a_\tau\le18094/100000\) and
+\(b_\tau,b'_\tau\le36751/100000\).
+\end{lemma}
+
+sec7-recursion.tex:419 -> d:ratios -> sec6-walks.tex:240
+\begin{proof}
+Use \(E'\), \(I,J\) from Definition~\ref{d:ratios}, and abbreviate
+\(I^\bullet=\mathbb E_{E'}^\bullet I\),
+\(J^\bullet=\mathbb E_{E'}^\bullet J\).  A covered departure is
+outside \(S\), as in Lemma~\ref{l:local}.  That lemma and (H1)
+give \(I^\tau/J^\tau\ge c_\tau\); its stated uniformity covers
+the actual tips and all missing external factors, including both
+corner slots.  We derive the coefficient identities directly from
+Definition~\ref{d:ratios}.  For positive \(A,B\), including
+\(A=B\),
+\(\log A-\log B=(A-B)/\mathcal L(A,B)\).  Since
+\(\rho_j^\bullet=J^\bullet/I^\bullet\), with three present
+neighbours this gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{\mathcal L(I^\tau,I^0)}
+       -\frac{J^\tau-J^0}{\mathcal L(J^\tau,J^0)}\\
+ &=\left(\frac1{3\mathcal L(I^\tau,I^0)}
+            -\frac1{5\mathcal L(J^\tau,J^0)}\right)r_{fg}
+       +\frac{r_{fo}+r_{go}}{3\mathcal L(I^\tau,I^0)}.
+ \end{split}
+\]
+Thus the response of Lemma~\ref{l:response} has the canonical
+coefficients
+\begin{equation}\label{e:rec-typed-coefficients}
+ \beta_j=\frac1{3\mathcal L(I^\tau,I^0)},\qquad
+ \alpha_j=\frac1{3\mathcal L(I^\tau,I^0)}
+                     -\frac1{5\mathcal L(J^\tau,J^0)}.
+\end{equation}
+This fixes the coefficient choice used below, also when responses
+vanish or logarithmic-mean arguments coincide.
+
+sec7-recursion.tex:422 -> l:local -> sec6-walks.tex:546
+\begin{proof}
+Use \(E'\), \(I,J\) from Definition~\ref{d:ratios}, and abbreviate
+\(I^\bullet=\mathbb E_{E'}^\bullet I\),
+\(J^\bullet=\mathbb E_{E'}^\bullet J\).  A covered departure is
+outside \(S\), as in Lemma~\ref{l:local}.  That lemma and (H1)
+give \(I^\tau/J^\tau\ge c_\tau\); its stated uniformity covers
+the actual tips and all missing external factors, including both
+corner slots.  We derive the coefficient identities directly from
+Definition~\ref{d:ratios}.  For positive \(A,B\), including
+\(A=B\),
+\(\log A-\log B=(A-B)/\mathcal L(A,B)\).  Since
+\(\rho_j^\bullet=J^\bullet/I^\bullet\), with three present
+neighbours this gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{\mathcal L(I^\tau,I^0)}
+       -\frac{J^\tau-J^0}{\mathcal L(J^\tau,J^0)}\\
+ &=\left(\frac1{3\mathcal L(I^\tau,I^0)}
+            -\frac1{5\mathcal L(J^\tau,J^0)}\right)r_{fg}
+       +\frac{r_{fo}+r_{go}}{3\mathcal L(I^\tau,I^0)}.
+ \end{split}
+\]
+Thus the response of Lemma~\ref{l:response} has the canonical
+coefficients
+\begin{equation}\label{e:rec-typed-coefficients}
+ \beta_j=\frac1{3\mathcal L(I^\tau,I^0)},\qquad
+ \alpha_j=\frac1{3\mathcal L(I^\tau,I^0)}
+                     -\frac1{5\mathcal L(J^\tau,J^0)}.
+\end{equation}
+This fixes the coefficient choice used below, also when responses
+vanish or logarithmic-mean arguments coincide.
+
+sec7-recursion.tex:426 -> d:ratios -> sec6-walks.tex:240
+\begin{proof}
+Use \(E'\), \(I,J\) from Definition~\ref{d:ratios}, and abbreviate
+\(I^\bullet=\mathbb E_{E'}^\bullet I\),
+\(J^\bullet=\mathbb E_{E'}^\bullet J\).  A covered departure is
+outside \(S\), as in Lemma~\ref{l:local}.  That lemma and (H1)
+give \(I^\tau/J^\tau\ge c_\tau\); its stated uniformity covers
+the actual tips and all missing external factors, including both
+corner slots.  We derive the coefficient identities directly from
+Definition~\ref{d:ratios}.  For positive \(A,B\), including
+\(A=B\),
+\(\log A-\log B=(A-B)/\mathcal L(A,B)\).  Since
+\(\rho_j^\bullet=J^\bullet/I^\bullet\), with three present
+neighbours this gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{\mathcal L(I^\tau,I^0)}
+       -\frac{J^\tau-J^0}{\mathcal L(J^\tau,J^0)}\\
+ &=\left(\frac1{3\mathcal L(I^\tau,I^0)}
+            -\frac1{5\mathcal L(J^\tau,J^0)}\right)r_{fg}
+       +\frac{r_{fo}+r_{go}}{3\mathcal L(I^\tau,I^0)}.
+ \end{split}
+\]
+Thus the response of Lemma~\ref{l:response} has the canonical
+coefficients
+\begin{equation}\label{e:rec-typed-coefficients}
+ \beta_j=\frac1{3\mathcal L(I^\tau,I^0)},\qquad
+ \alpha_j=\frac1{3\mathcal L(I^\tau,I^0)}
+                     -\frac1{5\mathcal L(J^\tau,J^0)}.
+\end{equation}
+This fixes the coefficient choice used below, also when responses
+vanish or logarithmic-mean arguments coincide.
+
+sec7-recursion.tex:441 -> l:response -> sec6-walks.tex:286
+\begin{proof}
+Use \(E'\), \(I,J\) from Definition~\ref{d:ratios}, and abbreviate
+\(I^\bullet=\mathbb E_{E'}^\bullet I\),
+\(J^\bullet=\mathbb E_{E'}^\bullet J\).  A covered departure is
+outside \(S\), as in Lemma~\ref{l:local}.  That lemma and (H1)
+give \(I^\tau/J^\tau\ge c_\tau\); its stated uniformity covers
+the actual tips and all missing external factors, including both
+corner slots.  We derive the coefficient identities directly from
+Definition~\ref{d:ratios}.  For positive \(A,B\), including
+\(A=B\),
+\(\log A-\log B=(A-B)/\mathcal L(A,B)\).  Since
+\(\rho_j^\bullet=J^\bullet/I^\bullet\), with three present
+neighbours this gives
+\[
+ \begin{split}
+ \log\rho_j^0-\log\rho_j^\tau
+ &=\frac{I^\tau-I^0}{\mathcal L(I^\tau,I^0)}
+       -\frac{J^\tau-J^0}{\mathcal L(J^\tau,J^0)}\\
+ &=\left(\frac1{3\mathcal L(I^\tau,I^0)}
+            -\frac1{5\mathcal L(J^\tau,J^0)}\right)r_{fg}
+       +\frac{r_{fo}+r_{go}}{3\mathcal L(I^\tau,I^0)}.
+ \end{split}
+\]
+Thus the response of Lemma~\ref{l:response} has the canonical
+coefficients
+\begin{equation}\label{e:rec-typed-coefficients}
+ \beta_j=\frac1{3\mathcal L(I^\tau,I^0)},\qquad
+ \alpha_j=\frac1{3\mathcal L(I^\tau,I^0)}
+                     -\frac1{5\mathcal L(J^\tau,J^0)}.
+\end{equation}
+This fixes the coefficient choice used below, also when responses
+vanish or logarithmic-mean arguments coincide.
+
+sec7-recursion.tex:457 -> l:finitefacts -> sec2-moments.tex:126
+With three present neighbours, free positivity gives
+\[
+ J^0\ge1,\qquad
+ I^0-J^0=\tfrac2{15}\mathbb E^0_{E'}P_{fg}
+             +\tfrac13\mathbb E^0_{E'}(P_{fo}+P_{go})\ge0.
+\]
+These uses of Lemma~\ref{l:finitefacts} satisfy its degree
+condition: after \(y\) is removed, each neighbour has at most
+three incident factors and no original leg, so insertion of one
+scalar product has separate degree at most four.  The sites
+\(f,g,o\) are pairwise nonadjacent.  On every positive
+conditioning fibre of the other spins, their spins are independent
+and their conditional means have norm at most \(3/5\) by
+Lemmas~\ref{l:finitefacts} and~\ref{l:35}.  Hence
+\(\mathbb E^\tau_{E'}P_{fg}\ge-9/25\), and
+\[
+ J^\tau=1+\tfrac15\mathbb E^\tau_{E'}P_{fg}
+          \ge1-\tfrac9{125}=a.
+\]
+The same conditioning under either pin choice yields
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Indeed, for the three conditional means \(m_f,m_g,m_o\),
+\[
+ -\frac{27}{50}\le
+ \sum_{\{b,b'\}\subset\{f,g,o\}}m_b\cdot m_{b'}
+ =\frac{|m_f+m_g+m_o|^2-|m_f|^2-|m_g|^2-|m_o|^2}{2}
+ \le\frac{27}{25}.
+\]
+Together with \(|m_f\cdot m_g|\le9/25\), averaging proves
+both intervals.  Formula~\eqref{e:rec-log-integral} places
+\(\mathcal L\) between its positive arguments, so the very same
+canonical coefficients satisfy
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+              =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+All four arguments of the logarithmic means are strictly positive.
+By their monotonicity and \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\), formula~\eqref{e:rec-typed-coefficients} yields
+\[
+ \beta_j\le\frac1{3\mathcal L(c_\tau a,1)},\qquad
+ \alpha_j\le G_{c_\tau}(J^\tau,J^0)
+        \le\frac{f(ac_\tau)}3-\frac{f(a)}5.
+\]
+The last step uses \(3/5\le c_\tau\le1\) and
+Lemma~\ref{l:log-mean-bounds}.
+
+sec7-recursion.tex:464 -> l:finitefacts -> sec2-moments.tex:126
+With three present neighbours, free positivity gives
+\[
+ J^0\ge1,\qquad
+ I^0-J^0=\tfrac2{15}\mathbb E^0_{E'}P_{fg}
+             +\tfrac13\mathbb E^0_{E'}(P_{fo}+P_{go})\ge0.
+\]
+These uses of Lemma~\ref{l:finitefacts} satisfy its degree
+condition: after \(y\) is removed, each neighbour has at most
+three incident factors and no original leg, so insertion of one
+scalar product has separate degree at most four.  The sites
+\(f,g,o\) are pairwise nonadjacent.  On every positive
+conditioning fibre of the other spins, their spins are independent
+and their conditional means have norm at most \(3/5\) by
+Lemmas~\ref{l:finitefacts} and~\ref{l:35}.  Hence
+\(\mathbb E^\tau_{E'}P_{fg}\ge-9/25\), and
+\[
+ J^\tau=1+\tfrac15\mathbb E^\tau_{E'}P_{fg}
+          \ge1-\tfrac9{125}=a.
+\]
+The same conditioning under either pin choice yields
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Indeed, for the three conditional means \(m_f,m_g,m_o\),
+\[
+ -\frac{27}{50}\le
+ \sum_{\{b,b'\}\subset\{f,g,o\}}m_b\cdot m_{b'}
+ =\frac{|m_f+m_g+m_o|^2-|m_f|^2-|m_g|^2-|m_o|^2}{2}
+ \le\frac{27}{25}.
+\]
+Together with \(|m_f\cdot m_g|\le9/25\), averaging proves
+both intervals.  Formula~\eqref{e:rec-log-integral} places
+\(\mathcal L\) between its positive arguments, so the very same
+canonical coefficients satisfy
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+              =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+All four arguments of the logarithmic means are strictly positive.
+By their monotonicity and \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\), formula~\eqref{e:rec-typed-coefficients} yields
+\[
+ \beta_j\le\frac1{3\mathcal L(c_\tau a,1)},\qquad
+ \alpha_j\le G_{c_\tau}(J^\tau,J^0)
+        \le\frac{f(ac_\tau)}3-\frac{f(a)}5.
+\]
+The last step uses \(3/5\le c_\tau\le1\) and
+Lemma~\ref{l:log-mean-bounds}.
+
+sec7-recursion.tex:464 -> l:35 -> sec2-moments.tex:197
+With three present neighbours, free positivity gives
+\[
+ J^0\ge1,\qquad
+ I^0-J^0=\tfrac2{15}\mathbb E^0_{E'}P_{fg}
+             +\tfrac13\mathbb E^0_{E'}(P_{fo}+P_{go})\ge0.
+\]
+These uses of Lemma~\ref{l:finitefacts} satisfy its degree
+condition: after \(y\) is removed, each neighbour has at most
+three incident factors and no original leg, so insertion of one
+scalar product has separate degree at most four.  The sites
+\(f,g,o\) are pairwise nonadjacent.  On every positive
+conditioning fibre of the other spins, their spins are independent
+and their conditional means have norm at most \(3/5\) by
+Lemmas~\ref{l:finitefacts} and~\ref{l:35}.  Hence
+\(\mathbb E^\tau_{E'}P_{fg}\ge-9/25\), and
+\[
+ J^\tau=1+\tfrac15\mathbb E^\tau_{E'}P_{fg}
+          \ge1-\tfrac9{125}=a.
+\]
+The same conditioning under either pin choice yields
+\[
+ \frac{41}{50}\le I^\bullet\le\frac{34}{25},\qquad
+ \frac{116}{125}\le J^\bullet\le\frac{134}{125}.
+\]
+Indeed, for the three conditional means \(m_f,m_g,m_o\),
+\[
+ -\frac{27}{50}\le
+ \sum_{\{b,b'\}\subset\{f,g,o\}}m_b\cdot m_{b'}
+ =\frac{|m_f+m_g+m_o|^2-|m_f|^2-|m_g|^2-|m_o|^2}{2}
+ \le\frac{27}{25}.
+\]
+Together with \(|m_f\cdot m_g|\le9/25\), averaging proves
+both intervals.  Formula~\eqref{e:rec-log-integral} places
+\(\mathcal L\) between its positive arguments, so the very same
+canonical coefficients satisfy
+\[
+ \alpha_j\ge\frac{25}{102}-\frac{25}{116}
+              =\frac{175}{5916}>0,\qquad \beta_j>0.
+\]
+All four arguments of the logarithmic means are strictly positive.
+By their monotonicity and \(I^\tau\ge c_\tau J^\tau\),
+\(I^0\ge J^0\), formula~\eqref{e:rec-typed-coefficients} yields
+\[
+ \beta_j\le\frac1{3\mathcal L(c_\tau a,1)},\qquad
+ \alpha_j\le G_{c_\tau}(J^\tau,J^0)
+        \le\frac{f(ac_\tau)}3-\frac{f(a)}5.
+\]
+The last step uses \(3/5\le c_\tau\le1\) and
+Lemma~\ref{l:log-mean-bounds}.
+
+sec7-recursion.tex:508 -> d:ratios -> sec6-walks.tex:240
+With two present neighbours, \(J=1\) and
+\(I=1+P_{fo}/3\).  Free positivity gives \(I^0\ge1\),
+whereas local (H1) gives \(I^\tau\ge c_\tau\).
+The same divided-difference calculation now gives the response
+\(\beta'_jr_{fo}\), where
+\(\beta'_j=1/(3\mathcal L(I^\tau,I^0))>0\), so
+\(\beta'_j\le f(c_\tau)/3\).  With just one present neighbour
+both ratios are one by Definition~\ref{d:ratios}, and there is
+no response coefficient.  At a \(\mathrm D\) departure that
+definition likewise makes both ratios one, so its response is zero.
+The rational enclosures of Lemma~\ref{l:log-mean-bounds} prove
+the stated bounds.  Finally the largest \(a_\tau\) is
+\(150000/10^6<18094/100000\), and each \(b_\tau,b'_\tau\)
+is at most \(357549/10^6<36751/100000\).
+\end{proof}
+
+sec7-recursion.tex:653 -> d:weights -> sec6-walks.tex:655
+\begin{proof}
+Let \(w=(v_0,\ldots,v_n)\in\mathcal T_n^X\).  At departure
+index \(i\),
+\[
+ d(v_i,u)\le i,\qquad d(v_i,v)\le n-i.
+\]
+The minimum of these two distances is at most \(n/2\).  Each
+site in a response pair is a neighbour of \(v_i\); the triangle
+inequality therefore gives \(s(p)\le n/2+1\).
+Put \(C=\bar\alpha+2\bar\beta>0\).  At each first visit, the
+sum of all its response coefficients is at most \(C\), since
+the rational coefficient table has \(a_\tau\le\bar\alpha\) and
+\(b_\tau,b'_\tau\le\bar\beta\).  There are at most \(n\) first
+visits.  Since every \(x_i\ge1\), an initial product in any
+ordering is at most the product over all first visits.  Hence
+the length-\(n\) contribution to a fixed entry of \(M_\theta\)
+is at most
+\[
+ nC\theta^{-n/2-1}
+       \sum_{w\in\mathcal T_n^X}\mathsf W(w)
+       \le nCC_Vq^n\theta^{-n/2-1}.
+\]
+The weights of Definition~\ref{d:weights} agree because
+\(3^{-n}(3/5)^{\operatorname{rev}(w)}\prod_i x_i
+ =\mathsf W(w)\).  These trails form a subset of the open trails
+with the same initial data in (H2).  Since
+\(q/\sqrt\theta<1\), the displayed series converges; explicitly
+it equals
+\(CC_V\theta^{-1}(q/\sqrt\theta)/(1-q/\sqrt\theta)^2\).
+This part uses only (H2).
+
+sec7-recursion.tex:726 -> p:pairwalk -> sec6-walks.tex:148
+\begin{proof}
+Fix a finite \(G\), unit pins \(\tau\), an ordinary consistent
+domain \(D\), and \((u,v)\in P_X(D)\) with designated centre
+\(c\), such that
+\[
+ d_0=\min\{d(u,S),d(v,S)\}\ge d\ge1.
+\]
+In particular \(u,v\notin S\).  Normalize the kept flag from
+\(u\) to \(c\) when \(u\) is \(\mathrm U\), as in
+Lemma~\ref{l:closure}.  We continue to denote this normalized
+starting network by \(D\); all its partition functions and
+expectations agree with those of the original ordinary domain.
+Both endpoints meet the restrictions of Proposition~\ref{p:pairwalk}:
+a \(\mathrm U\) endpoint has no original leg and at most three
+present bonds because \(c\) is removed, and a \(\mathrm D\)
+endpoint has at most one present bond by the pair definition.
+
+sec7-recursion.tex:753 -> p:pairwalk -> sec6-walks.tex:148
+Use that proposition for both choices \(\bullet=\tau,0\), with
+stopping set \(S\cup\{v\}\).  The set of trails and their
+coefficients \(a_D(w)\) depend only on the status and bond data,
+and hence are common to the two expansions.  Split them into
+\(\mathcal W_v\), ending at \(v\), and \(\mathcal W_S\),
+ending at a point of \(S\) while avoiding \(v\).  The terminal
+factor for \(w\in\mathcal W_v\) is a common
+\(\eta_v\in\{1,3/5\}\), specifically \(1\) for a
+\(\mathrm U\) target and \(3/5\) for a \(\mathrm D\) target,
+by Proposition~\ref{p:pairwalk}.  For \(w\in\mathcal W_S\) ending
+at \(e\), put
+\(X^\bullet(w)=\mathbb E_{D[w]}^\bullet(n_e\cdot n_v)\).
+The response equals \(T_1+T_2\), where
+\begin{align*}
+ T_1&=\sum_{w\in\mathcal W_v}a_D(w)
+                 (R_D^\tau(w)-R_D^0(w))\eta_v,\\
+ T_2&=\sum_{w\in\mathcal W_S}a_D(w)
+              \{R_D^\tau(w)X^\tau(w)-R_D^0(w)X^0(w)\}.
+\end{align*}
+These sums are finite: every trail uses distinct bonds from a
+fixed finite network.
+
+sec7-recursion.tex:769 -> l:local -> sec6-walks.tex:546
+For \(T_1\), fix a trail \(w=(v_0,\ldots,v_n)\in\mathcal W_v\).
+Let \(\Phi_U(w)\) be its departure indices whose current status
+is \(\mathrm U\).  At each such index Lemmas~\ref{l:closure}
+and~\ref{l:local} give a covered pattern and
+\(\rho_i^\tau\le x_{\tau_i}\).  Its lattice type is computed
+using the same incoming direction as the trace, including
+\(u-c\) at the initial departure.  Order \(\Phi_U(w)\) by
+restricting \(\sigma_w\), after identifying the pair with the
+canonical pair by the fixed symmetry \(\varphi\); thus here
+\(\sigma_w\) means the ordering of \(\varphi(w)\).
+The trail is admissibly started with absent incoming bond
+\(\{c,u\}\), and \(x_{\tau_i}\ge1\).  These are precisely the
+start and product-bound hypotheses of Lemma~\ref{l:exposure}.
+Lemma~\ref{l:exposure}, followed by Lemma~\ref{l:response-typed},
+then gives
+\begin{equation}\label{e:rec-exposed}
+ a_D(w)|R_D^\tau(w)-R_D^0(w)|
+ \le a_D(w)\sum_{i\in\Phi_U(w)}
+       \left(\sum_{p\in\mathcal Q_i}\gamma_{i,p}|r_{i,p}|\right)
+       \prod_{\substack{j\in\Phi_U(w)\\j\preceq_{\sigma_w}i}}
+                           x_{\tau_j}.
+\end{equation}
+Here \(\mathcal Q_i\) is the set of nonremoved pairs among
+the non-arrival neighbours of the departure site \(y=v_i\),
+and \(r_{i,p}\) is its pinned-minus-free scalar-product
+expectation in the network with \(y\) removed.  With three
+present neighbours, \(\gamma_{i,\{f,g\}}\le a_{\tau_i}\) and
+\(\gamma_{i,\{f,o\}},\gamma_{i,\{g,o\}}\le b_{\tau_i}\).
+With two present neighbours there is one pair and its coefficient
+is at most \(b'_{\tau_i}\).  With one present neighbour the
+inner sum is zero.  Departures with status \(\mathrm D\) have
+ratio one by Definition~\ref{d:ratios} and zero logarithmic
+response, so contribute no term.
+
+sec7-recursion.tex:778 -> l:exposure -> sec6-walks.tex:437
+For \(T_1\), fix a trail \(w=(v_0,\ldots,v_n)\in\mathcal W_v\).
+Let \(\Phi_U(w)\) be its departure indices whose current status
+is \(\mathrm U\).  At each such index Lemmas~\ref{l:closure}
+and~\ref{l:local} give a covered pattern and
+\(\rho_i^\tau\le x_{\tau_i}\).  Its lattice type is computed
+using the same incoming direction as the trace, including
+\(u-c\) at the initial departure.  Order \(\Phi_U(w)\) by
+restricting \(\sigma_w\), after identifying the pair with the
+canonical pair by the fixed symmetry \(\varphi\); thus here
+\(\sigma_w\) means the ordering of \(\varphi(w)\).
+The trail is admissibly started with absent incoming bond
+\(\{c,u\}\), and \(x_{\tau_i}\ge1\).  These are precisely the
+start and product-bound hypotheses of Lemma~\ref{l:exposure}.
+Lemma~\ref{l:exposure}, followed by Lemma~\ref{l:response-typed},
+then gives
+\begin{equation}\label{e:rec-exposed}
+ a_D(w)|R_D^\tau(w)-R_D^0(w)|
+ \le a_D(w)\sum_{i\in\Phi_U(w)}
+       \left(\sum_{p\in\mathcal Q_i}\gamma_{i,p}|r_{i,p}|\right)
+       \prod_{\substack{j\in\Phi_U(w)\\j\preceq_{\sigma_w}i}}
+                           x_{\tau_j}.
+\end{equation}
+Here \(\mathcal Q_i\) is the set of nonremoved pairs among
+the non-arrival neighbours of the departure site \(y=v_i\),
+and \(r_{i,p}\) is its pinned-minus-free scalar-product
+expectation in the network with \(y\) removed.  With three
+present neighbours, \(\gamma_{i,\{f,g\}}\le a_{\tau_i}\) and
+\(\gamma_{i,\{f,o\}},\gamma_{i,\{g,o\}}\le b_{\tau_i}\).
+With two present neighbours there is one pair and its coefficient
+is at most \(b'_{\tau_i}\).  With one present neighbour the
+inner sum is zero.  Departures with status \(\mathrm D\) have
+ratio one by Definition~\ref{d:ratios} and zero logarithmic
+response, so contribute no term.
+
+sec7-recursion.tex:779 -> l:exposure -> sec6-walks.tex:437
+For \(T_1\), fix a trail \(w=(v_0,\ldots,v_n)\in\mathcal W_v\).
+Let \(\Phi_U(w)\) be its departure indices whose current status
+is \(\mathrm U\).  At each such index Lemmas~\ref{l:closure}
+and~\ref{l:local} give a covered pattern and
+\(\rho_i^\tau\le x_{\tau_i}\).  Its lattice type is computed
+using the same incoming direction as the trace, including
+\(u-c\) at the initial departure.  Order \(\Phi_U(w)\) by
+restricting \(\sigma_w\), after identifying the pair with the
+canonical pair by the fixed symmetry \(\varphi\); thus here
+\(\sigma_w\) means the ordering of \(\varphi(w)\).
+The trail is admissibly started with absent incoming bond
+\(\{c,u\}\), and \(x_{\tau_i}\ge1\).  These are precisely the
+start and product-bound hypotheses of Lemma~\ref{l:exposure}.
+Lemma~\ref{l:exposure}, followed by Lemma~\ref{l:response-typed},
+then gives
+\begin{equation}\label{e:rec-exposed}
+ a_D(w)|R_D^\tau(w)-R_D^0(w)|
+ \le a_D(w)\sum_{i\in\Phi_U(w)}
+       \left(\sum_{p\in\mathcal Q_i}\gamma_{i,p}|r_{i,p}|\right)
+       \prod_{\substack{j\in\Phi_U(w)\\j\preceq_{\sigma_w}i}}
+                           x_{\tau_j}.
+\end{equation}
+Here \(\mathcal Q_i\) is the set of nonremoved pairs among
+the non-arrival neighbours of the departure site \(y=v_i\),
+and \(r_{i,p}\) is its pinned-minus-free scalar-product
+expectation in the network with \(y\) removed.  With three
+present neighbours, \(\gamma_{i,\{f,g\}}\le a_{\tau_i}\) and
+\(\gamma_{i,\{f,o\}},\gamma_{i,\{g,o\}}\le b_{\tau_i}\).
+With two present neighbours there is one pair and its coefficient
+is at most \(b'_{\tau_i}\).  With one present neighbour the
+inner sum is zero.  Departures with status \(\mathrm D\) have
+ratio one by Definition~\ref{d:ratios} and zero logarithmic
+response, so contribute no term.
+
+sec7-recursion.tex:797 -> d:ratios -> sec6-walks.tex:240
+For \(T_1\), fix a trail \(w=(v_0,\ldots,v_n)\in\mathcal W_v\).
+Let \(\Phi_U(w)\) be its departure indices whose current status
+is \(\mathrm U\).  At each such index Lemmas~\ref{l:closure}
+and~\ref{l:local} give a covered pattern and
+\(\rho_i^\tau\le x_{\tau_i}\).  Its lattice type is computed
+using the same incoming direction as the trace, including
+\(u-c\) at the initial departure.  Order \(\Phi_U(w)\) by
+restricting \(\sigma_w\), after identifying the pair with the
+canonical pair by the fixed symmetry \(\varphi\); thus here
+\(\sigma_w\) means the ordering of \(\varphi(w)\).
+The trail is admissibly started with absent incoming bond
+\(\{c,u\}\), and \(x_{\tau_i}\ge1\).  These are precisely the
+start and product-bound hypotheses of Lemma~\ref{l:exposure}.
+Lemma~\ref{l:exposure}, followed by Lemma~\ref{l:response-typed},
+then gives
+\begin{equation}\label{e:rec-exposed}
+ a_D(w)|R_D^\tau(w)-R_D^0(w)|
+ \le a_D(w)\sum_{i\in\Phi_U(w)}
+       \left(\sum_{p\in\mathcal Q_i}\gamma_{i,p}|r_{i,p}|\right)
+       \prod_{\substack{j\in\Phi_U(w)\\j\preceq_{\sigma_w}i}}
+                           x_{\tau_j}.
+\end{equation}
+Here \(\mathcal Q_i\) is the set of nonremoved pairs among
+the non-arrival neighbours of the departure site \(y=v_i\),
+and \(r_{i,p}\) is its pinned-minus-free scalar-product
+expectation in the network with \(y\) removed.  With three
+present neighbours, \(\gamma_{i,\{f,g\}}\le a_{\tau_i}\) and
+\(\gamma_{i,\{f,o\}},\gamma_{i,\{g,o\}}\le b_{\tau_i}\).
+With two present neighbours there is one pair and its coefficient
+is at most \(b'_{\tau_i}\).  With one present neighbour the
+inner sum is zero.  Departures with status \(\mathrm D\) have
+ratio one by Definition~\ref{d:ratios} and zero logarithmic
+response, so contribute no term.
+
+sec7-recursion.tex:829 -> d:trace -> sec6-walks.tex:50
+We verify every part of the comparison with the lattice kernel.
+The removed site \(c\) cannot be visited, and \(w\) first hits
+\(v\) at its endpoint, so the lattice symmetry maps it into
+\(\mathcal T_n^X\).  A true \(\mathrm U\) departure is a
+lattice first visit, since a previous departure would already have
+changed its law to \(\mathrm D\) or removed it.  Every lattice
+revisit is a \(\mathrm D\) departure.  Some additional lattice
+first visits may also be \(\mathrm D\) departures because the
+site was already \(\mathrm D\) in the initial domain.  Thus
+\[
+ N_{\mathrm D}(w)\ge\operatorname{rev}(w),\qquad
+ a_D(w)=3^{-n}(3/5)^{N_{\mathrm D}(w)}
+             \le3^{-n}(3/5)^{\operatorname{rev}(w)}.
+\]
+The coefficient identity here is Definition~\ref{d:trace} with
+\(N_{\mathrm U}(w)+N_{\mathrm D}(w)=n\); no partition-ratio
+factor has been included in \(a_D(w)\).
+Passing from the restricted ordering in \eqref{e:rec-exposed}
+to the full ordering only inserts factors \(x_{\tau_j}\ge1\)
+before a retained index.  It can also insert additional nonnegative
+response terms.
+
+sec7-recursion.tex:871 -> p:pairwalk -> sec6-walks.tex:148
+For \(T_2\), Lemma~\ref{l:terminalcover} makes the second
+expansion in \(D[w]\), from \(v\) with target \(e\) and
+stopping set \(S=S\cup\{e\}\), admissible.  Thus its stopping
+set is exactly the one prescribed by Proposition~\ref{p:pairwalk},
+and the start is distinct from its nonremoved target.
+That proposition
+and \(|n_z\cdot n_e|\le1\) give, for either choice of pins,
+\[
+ |X^\bullet(w)|
+ \le\sum_{w'\in\mathcal T_{D[w]}(v,S)}
+                a_{D[w]}(w')R_{D[w]}^\bullet(w')
+ \le K_*q^{d(v,S)},\qquad
+ K_*=(12/5)^{12}\frac{C_V}{1-q}.
+\]
+The last inequality is the common majorant of
+Lemma~\ref{l:onepoint}, so is uniform in the first trail \(w\).
+Its hypotheses hold: (H1) and (H2) are assumed, the incoming
+bond \(\{c,v\}\) is absent, the start has the required status
+and degree, and there are at most twelve exceptional
+\(\mathrm U\) departures by Lemma~\ref{l:terminalcover}.
+The bound uses the original \(S\), including when the terminal
+auxiliary network has extra removed sites.  Both sets of original
+legs remain unchanged.  The degree restriction at target \(e\)
+was checked in Lemma~\ref{l:terminalcover}; all inserted
+observables in this second expansion therefore have separate
+degree at most four.
+
+sec7-recursion.tex:883 -> l:onepoint -> sec6-walks.tex:695
+For \(T_2\), Lemma~\ref{l:terminalcover} makes the second
+expansion in \(D[w]\), from \(v\) with target \(e\) and
+stopping set \(S=S\cup\{e\}\), admissible.  Thus its stopping
+set is exactly the one prescribed by Proposition~\ref{p:pairwalk},
+and the start is distinct from its nonremoved target.
+That proposition
+and \(|n_z\cdot n_e|\le1\) give, for either choice of pins,
+\[
+ |X^\bullet(w)|
+ \le\sum_{w'\in\mathcal T_{D[w]}(v,S)}
+                a_{D[w]}(w')R_{D[w]}^\bullet(w')
+ \le K_*q^{d(v,S)},\qquad
+ K_*=(12/5)^{12}\frac{C_V}{1-q}.
+\]
+The last inequality is the common majorant of
+Lemma~\ref{l:onepoint}, so is uniform in the first trail \(w\).
+Its hypotheses hold: (H1) and (H2) are assumed, the incoming
+bond \(\{c,v\}\) is absent, the start has the required status
+and degree, and there are at most twelve exceptional
+\(\mathrm U\) departures by Lemma~\ref{l:terminalcover}.
+The bound uses the original \(S\), including when the terminal
+auxiliary network has extra removed sites.  Both sets of original
+legs remain unchanged.  The degree restriction at target \(e\)
+was checked in Lemma~\ref{l:terminalcover}; all inserted
+observables in this second expansion therefore have separate
+degree at most four.
+
+sec7-recursion.tex:903 -> l:onepoint -> sec6-walks.tex:695
+The ratios are positive.  Hence, pointwise in the first trail,
+\[
+ |R_D^\tau(w)X^\tau(w)-R_D^0(w)X^0(w)|
+    \le2\max\{R_D^\tau(w),R_D^0(w)\}K_*q^{d(v,S)}.
+\]
+The first-trail sum can be enlarged from \(\mathcal W_S\)
+to \(\mathcal T_D(u,S)\), dropping its avoidance of \(v\).
+The closure lemma applies to that larger class too.  Applying
+Lemma~\ref{l:onepoint} is legitimate because its start has absent
+incoming bond \(\{c,u\}\), and all its trails have zero
+exceptional \(\mathrm U\) departures by Lemma~\ref{l:closure}.
+In particular its pointwise assertion for this larger class is
+\[
+ a_D(w)\max\{R_D^\tau(w),R_D^0(w)\}
+          \le(12/5)^{12}\mathsf W(w).
+\]
+Taking the maximum therefore precedes summing.  Its summed
+assertion gives
+\[
+ |T_2|\le2K_*q^{d(v,S)}
+       \sum_{w\in\mathcal T_D(u,S)}
+           a_D(w)\max\{R_D^\tau(w),R_D^0(w)\}
+ \le2K_*^2q^{d(u,S)+d(v,S)}\le C_Tq^{2d}.
+\]
+Combining this with \eqref{e:rec-T1} and taking the supremum
+over the defining class of \(F_X(d)\) proves the result.  If
+that class is empty its supremum is zero and the same inequality
+holds by nonnegativity of the right side.
+\end{proof}
+
+sec7-recursion.tex:1035 -> h:P -> sec2-moments.tex:338
+To obtain the property in Definition~\ref{h:P}, fix its data
+\(G,\tau,Y,u,v\).  Set all sites of \(Y\) to \(\mathrm X\)
+and all other sites to \(\mathrm U\) with their full kept sets.
+This is an ordinary consistent domain: \(Y\cap S=\varnothing\),
+and every bond between nonremoved sites is kept by both ends.
+It has precisely the partition sums of
+Definition~\ref{d:pinmodel}, with the original legs and no new
+pins at removed sites.  Designate the given common neighbour in
+\(Y\) as centre.  A distance-two lattice pair is either collinear
+or diagonal, so it lies in \(P_B\) or \(P_C\).
+The bound for the corresponding envelope, at
+\(d=\min\{d(u,S),d(v,S)\}\), is the required inequality.
+If there are no such pairs, the assertion is vacuous.  In the
+nonvacuous case \(G\ne\varnothing\) is finite.  A site with
+maximal first coordinate has a neighbour outside \(G\), so
+\(S\ne\varnothing\) and this minimum is a nonnegative integer.
+Thus all quantifiers
+of \(\mathsf P(A,\theta)\) are satisfied.
+\end{proof}
+
+
+sec7-recursion.tex:1041 -> d:pinmodel -> sec2-moments.tex:97
+To obtain the property in Definition~\ref{h:P}, fix its data
+\(G,\tau,Y,u,v\).  Set all sites of \(Y\) to \(\mathrm X\)
+and all other sites to \(\mathrm U\) with their full kept sets.
+This is an ordinary consistent domain: \(Y\cap S=\varnothing\),
+and every bond between nonremoved sites is kept by both ends.
+It has precisely the partition sums of
+Definition~\ref{d:pinmodel}, with the original legs and no new
+pins at removed sites.  Designate the given common neighbour in
+\(Y\) as centre.  A distance-two lattice pair is either collinear
+or diagonal, so it lies in \(P_B\) or \(P_C\).
+The bound for the corresponding envelope, at
+\(d=\min\{d(u,S),d(v,S)\}\), is the required inequality.
+If there are no such pairs, the assertion is vacuous.  In the
+nonvacuous case \(G\ne\varnothing\) is finite.  A site with
+maximal first coordinate has a neighbour outside \(G\), so
+\(S\ne\varnothing\) and this minimum is a nonnegative integer.
+Thus all quantifiers
+of \(\mathsf P(A,\theta)\) are satisfied.
+\end{proof}
+
+
+sec8-inputs.tex:18 -> l:integercheck -> app-local-operator.tex:582
+For the local input we use the archived representation and inversion
+choices, and the division-free Gram/residual format wherever its
+witness is available. For a block without a supplied nonzero Gram
+factor which is not directly diagonally dominant, we use the
+Bareiss fallback permitted by Lemma~\ref{l:integercheck}. Thus the
+complete local input is specified by the supplied data.
+
+sec8-inputs.tex:31 -> d:pattern -> sec6-walks.tex:488
+First enumerate the patterns from Definition~\ref{d:pattern},
+rather than assuming that the supplied pattern list is exhaustive.
+Encode a kept set by a four-bit mask in direction order E,N,W,S.
+Each of the three non-arrival neighbours has five choices: U
+keeping all four bonds, X, or D keeping its passage bond and one
+of its three other bonds. The arrival site has four choices: X,
+or D keeping two of its three non-passage bonds. Each corner has
+eight choices: U, X, or one of the six two-bond D kept sets.
+The passage site's kept set and status, and all covering U tips,
+are fixed. There are therefore
+\(4\cdot5^3\cdot8^4=2048000\) assignments before consistency is
+tested. Retain exactly those satisfying the nonremoved non-tip
+bond consistency rule. Choose every nonremoved out-neighbour
+among E,N,W. The finite enumeration assertions are
+\[
+ \begin{array}{c|r}
+ \text{consistent status/kept-set assignments}&106101\\
+ \text{such assignments with a marked out-neighbour}&184914\\
+ \text{marked assignments with out-neighbour N or E}&123339.
+ \end{array}
+\]
+In forming an effective record retain the present internal bonds
+and the status of every non-tip site incident to such a bond.
+Discard isolated factors as justified below. Identify records under
+reflection \((x_1,x_2)\mapsto(-x_1,x_2)\), which fixes the arrival
+site and interchanges the two turning directions. The finite
+coverage test requires that their canonical keys are precisely
+the \(7962\) distinct keys in the supplied pattern file. Every
+entry in the operator-choice file must refer to the corresponding
+pattern, use the covered model and tip radius \(3/5\), have the
+correct out-neighbour, and use threshold \(961/1000\) for a
+straight pattern and \(187/200\) for a turn. Each of the \(7962\)
+pattern indices must occur exactly once in that choice file.
+
+sec8-inputs.tex:66 -> l:leaf -> app-local-operator.tex:89
+For every record, reconstruct its chosen reduced or unreduced
+representation and its vector groups using Lemma~\ref{l:leaf}.
+The group's order is the ring-site order
+\[
+ (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
+\]
+omitting empty groups. A neighbour contributes its single bonded-tip
+vector when that bond is present. A corner contributes its single
+leaf vector in the reduced one-bond case, and its two slot vectors
+otherwise. The inversion field lists zero-based vector indices;
+check that it is a union of whole groups and that all its indices
+are in range. Reconstruct every coefficient from the finite moments
+of Lemma~\ref{l:moments}, the passage identity of
+Lemma~\ref{l:Iw}, and these leaf replacements. The positive
+denominator \(D_0\) is the product of the positive denominators in
+this reconstruction, not an unverified matrix scale.
+Construct the inverted Pauli operators of
+\(3D_0\widehat Z_{\rm cur}\) and
+\(5D_0\widehat Z_{\rm next}\), and their Hermitian forms
+\(A_\epsilon,A'_\epsilon\) on every supported central exchange
+sector, as in Lemma~\ref{l:integercheck}. In particular these are
+forms in the unnormalized integer-coordinate sector bases.
+At threshold \(c=p/q\), reconstruct
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon .
+\]
+A supplied matrix or a claimed list of sector sizes is not an
+input to this reconstruction. Zero-dimensional sectors impose no
+row tests. The finite construction yields \(12173\) supported
+nonzero-dimensional blocks, all of size at most \(179\).
+
+sec8-inputs.tex:77 -> l:moments -> sec2-moments.tex:35
+For every record, reconstruct its chosen reduced or unreduced
+representation and its vector groups using Lemma~\ref{l:leaf}.
+The group's order is the ring-site order
+\[
+ (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
+\]
+omitting empty groups. A neighbour contributes its single bonded-tip
+vector when that bond is present. A corner contributes its single
+leaf vector in the reduced one-bond case, and its two slot vectors
+otherwise. The inversion field lists zero-based vector indices;
+check that it is a union of whole groups and that all its indices
+are in range. Reconstruct every coefficient from the finite moments
+of Lemma~\ref{l:moments}, the passage identity of
+Lemma~\ref{l:Iw}, and these leaf replacements. The positive
+denominator \(D_0\) is the product of the positive denominators in
+this reconstruction, not an unverified matrix scale.
+Construct the inverted Pauli operators of
+\(3D_0\widehat Z_{\rm cur}\) and
+\(5D_0\widehat Z_{\rm next}\), and their Hermitian forms
+\(A_\epsilon,A'_\epsilon\) on every supported central exchange
+sector, as in Lemma~\ref{l:integercheck}. In particular these are
+forms in the unnormalized integer-coordinate sector bases.
+At threshold \(c=p/q\), reconstruct
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon .
+\]
+A supplied matrix or a claimed list of sector sizes is not an
+input to this reconstruction. Zero-dimensional sectors impose no
+row tests. The finite construction yields \(12173\) supported
+nonzero-dimensional blocks, all of size at most \(179\).
+
+sec8-inputs.tex:78 -> l:Iw -> app-local-operator.tex:24
+For every record, reconstruct its chosen reduced or unreduced
+representation and its vector groups using Lemma~\ref{l:leaf}.
+The group's order is the ring-site order
+\[
+ (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
+\]
+omitting empty groups. A neighbour contributes its single bonded-tip
+vector when that bond is present. A corner contributes its single
+leaf vector in the reduced one-bond case, and its two slot vectors
+otherwise. The inversion field lists zero-based vector indices;
+check that it is a union of whole groups and that all its indices
+are in range. Reconstruct every coefficient from the finite moments
+of Lemma~\ref{l:moments}, the passage identity of
+Lemma~\ref{l:Iw}, and these leaf replacements. The positive
+denominator \(D_0\) is the product of the positive denominators in
+this reconstruction, not an unverified matrix scale.
+Construct the inverted Pauli operators of
+\(3D_0\widehat Z_{\rm cur}\) and
+\(5D_0\widehat Z_{\rm next}\), and their Hermitian forms
+\(A_\epsilon,A'_\epsilon\) on every supported central exchange
+sector, as in Lemma~\ref{l:integercheck}. In particular these are
+forms in the unnormalized integer-coordinate sector bases.
+At threshold \(c=p/q\), reconstruct
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon .
+\]
+A supplied matrix or a claimed list of sector sizes is not an
+input to this reconstruction. Zero-dimensional sectors impose no
+row tests. The finite construction yields \(12173\) supported
+nonzero-dimensional blocks, all of size at most \(179\).
+
+sec8-inputs.tex:85 -> l:integercheck -> app-local-operator.tex:582
+For every record, reconstruct its chosen reduced or unreduced
+representation and its vector groups using Lemma~\ref{l:leaf}.
+The group's order is the ring-site order
+\[
+ (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
+\]
+omitting empty groups. A neighbour contributes its single bonded-tip
+vector when that bond is present. A corner contributes its single
+leaf vector in the reduced one-bond case, and its two slot vectors
+otherwise. The inversion field lists zero-based vector indices;
+check that it is a union of whole groups and that all its indices
+are in range. Reconstruct every coefficient from the finite moments
+of Lemma~\ref{l:moments}, the passage identity of
+Lemma~\ref{l:Iw}, and these leaf replacements. The positive
+denominator \(D_0\) is the product of the positive denominators in
+this reconstruction, not an unverified matrix scale.
+Construct the inverted Pauli operators of
+\(3D_0\widehat Z_{\rm cur}\) and
+\(5D_0\widehat Z_{\rm next}\), and their Hermitian forms
+\(A_\epsilon,A'_\epsilon\) on every supported central exchange
+sector, as in Lemma~\ref{l:integercheck}. In particular these are
+forms in the unnormalized integer-coordinate sector bases.
+At threshold \(c=p/q\), reconstruct
+\[
+ M_\epsilon=5qA_\epsilon-3pA'_\epsilon .
+\]
+A supplied matrix or a claimed list of sector sizes is not an
+input to this reconstruction. Zero-dimensional sectors impose no
+row tests. The finite construction yields \(12173\) supported
+nonzero-dimensional blocks, all of size at most \(179\).
+
+sec8-inputs.tex:167 -> d:pattern -> sec6-walks.tex:488
+The pattern enumeration is exhaustive because every free status
+and kept-set choice in Definition~\ref{d:pattern} appears in its
+indicated finite option list. Each complete assignment appears
+exactly once in their Cartesian product. The consistency predicate
+is precisely the requirement that both nonremoved non-tip ends
+make the same keep decision. A permitted out-neighbour is exactly
+a nonremoved E,N or W neighbour: it keeps its passage bond, and
+the passage site keeps that bond, so the out-bond is present.
+These observations prove that filtering and marking produce
+exactly all raw patterns, without a geometric or boundary assumption.
+
+sec8-inputs.tex:178 -> l:leaf -> app-local-operator.tex:89
+A nonremoved isolated tip or corner contributes a positive factor
+depending only on its own slots, by Lemma~\ref{l:leaf}. It is
+the same factor in the current and next partition polynomials,
+because the only change is at the passage site and its out-bond.
+An isolated arrival site has no slot factors, and its probability
+functional applied to \(1\) is \(1\). The other nonremoved
+non-arrival neighbours are incident to their passage bonds and
+are not isolated. Removed sites contribute no factor. Thus all
+discarded factors are common and positive. Every remaining factor
+is determined by the present internal bonds, the remaining statuses
+and the prescribed external slots. In particular, two kept sets
+which give the same effective record cannot differ in a remaining
+factor: both corner slots are included independently of whether
+their original external bonds were kept.
+
+sec8-inputs.tex:209 -> l:leaf -> app-local-operator.tex:89
+All moment contractions used in the reconstruction have separate
+degree at most four. A bonded tip has its three slots and its one
+bond. A corner has its two slots and at most two internal bonds.
+After passage integration, a neighbouring site has at most its
+three remaining factors and one inserted coordinate from a passage
+pair; the two members of such a pair are distinct. The arrival
+site has at most two present bonds and no passage insertion.
+Leaf replacements are exactly those of Lemma~\ref{l:leaf}.
+Thus Lemmas~\ref{l:moments} and \ref{l:Iw} justify the rational
+coefficient tensors, and Lemma~\ref{l:integercheck} identifies each
+reconstructed \(M_\epsilon\) with \(15D_0q\) times its inverted
+Pauli Hermitian-form matrix. Every scale here is positive.
+
+sec8-inputs.tex:210 -> l:moments -> sec2-moments.tex:35
+All moment contractions used in the reconstruction have separate
+degree at most four. A bonded tip has its three slots and its one
+bond. A corner has its two slots and at most two internal bonds.
+After passage integration, a neighbouring site has at most its
+three remaining factors and one inserted coordinate from a passage
+pair; the two members of such a pair are distinct. The arrival
+site has at most two present bonds and no passage insertion.
+Leaf replacements are exactly those of Lemma~\ref{l:leaf}.
+Thus Lemmas~\ref{l:moments} and \ref{l:Iw} justify the rational
+coefficient tensors, and Lemma~\ref{l:integercheck} identifies each
+reconstructed \(M_\epsilon\) with \(15D_0q\) times its inverted
+Pauli Hermitian-form matrix. Every scale here is positive.
+
+sec8-inputs.tex:210 -> l:Iw -> app-local-operator.tex:24
+All moment contractions used in the reconstruction have separate
+degree at most four. A bonded tip has its three slots and its one
+bond. A corner has its two slots and at most two internal bonds.
+After passage integration, a neighbouring site has at most its
+three remaining factors and one inserted coordinate from a passage
+pair; the two members of such a pair are distinct. The arrival
+site has at most two present bonds and no passage insertion.
+Leaf replacements are exactly those of Lemma~\ref{l:leaf}.
+Thus Lemmas~\ref{l:moments} and \ref{l:Iw} justify the rational
+coefficient tensors, and Lemma~\ref{l:integercheck} identifies each
+reconstructed \(M_\epsilon\) with \(15D_0q\) times its inverted
+Pauli Hermitian-form matrix. Every scale here is positive.
+
+sec8-inputs.tex:211 -> l:integercheck -> app-local-operator.tex:582
+All moment contractions used in the reconstruction have separate
+degree at most four. A bonded tip has its three slots and its one
+bond. A corner has its two slots and at most two internal bonds.
+After passage integration, a neighbouring site has at most its
+three remaining factors and one inserted coordinate from a passage
+pair; the two members of such a pair are distinct. The arrival
+site has at most two present bonds and no passage insertion.
+Leaf replacements are exactly those of Lemma~\ref{l:leaf}.
+Thus Lemmas~\ref{l:moments} and \ref{l:Iw} justify the rational
+coefficient tensors, and Lemma~\ref{l:integercheck} identifies each
+reconstructed \(M_\epsilon\) with \(15D_0q\) times its inverted
+Pauli Hermitian-form matrix. Every scale here is positive.
+
+sec8-inputs.tex:216 -> l:gram-residual -> app-local-operator.tex:527
+For a directly dominant block the first set of inequalities is
+Lemma~\ref{l:gram-residual} with \(L=0\). For either supplied
+nonzero factor, the checked residual inequalities and positive
+scales give the same conclusion by that lemma. In both cases
+\(M_\epsilon\) is positive definite.
+
+sec8-inputs.tex:224 -> l:integercheck -> app-local-operator.tex:582
+We justify also the optional removal of a common scalar in a
+fallback block. Put \(a=a_\epsilon>0\), and compare the displayed
+Bareiss recursion on \(B^{(0)}=M_\epsilon/a\) with the recursion
+of Lemma~\ref{l:integercheck} on \(A^{(0)}=M_\epsilon\).
+Induction on \(j\) gives, on the trailing entries,
+\[
+ A^{(j)}=a^{j+1}B^{(j)},\qquad
+ p_j=a^{j+1}b_j>0.
+\]
+For the induction step the numerator scales by \(a^{2j+2}\)
+and the preceding pivot scales by \(a^j\); the quotient is
+\(a^{j+2}B^{(j+1)}_{il}\). At \(j=0\) the preceding pivot
+is \(p_{-1}=b_{-1}=1\), so this calculation includes the initial
+step. Every normalized division is exact by its checked
+divisibility assertion, and therefore every unnormalized division
+is also exact and gives the displayed integer quotient. All
+unnormalized pivots are positive. Lemma~\ref{l:integercheck}
+therefore proves positivity of the actual \(M_\epsilon\).
+The trailing matrices remain symmetric: the two products in each
+numerator are unchanged when \(i,l\) are interchanged. Hence a
+checker may store and test their upper triangles and recover the
+lower triangles by symmetry, without omitting a distinct division.
+This argument requires neither a numerical factorization nor a
+claim that a supplied matrix has the required origin.
+
+sec8-inputs.tex:237 -> l:integercheck -> app-local-operator.tex:582
+We justify also the optional removal of a common scalar in a
+fallback block. Put \(a=a_\epsilon>0\), and compare the displayed
+Bareiss recursion on \(B^{(0)}=M_\epsilon/a\) with the recursion
+of Lemma~\ref{l:integercheck} on \(A^{(0)}=M_\epsilon\).
+Induction on \(j\) gives, on the trailing entries,
+\[
+ A^{(j)}=a^{j+1}B^{(j)},\qquad
+ p_j=a^{j+1}b_j>0.
+\]
+For the induction step the numerator scales by \(a^{2j+2}\)
+and the preceding pivot scales by \(a^j\); the quotient is
+\(a^{j+2}B^{(j+1)}_{il}\). At \(j=0\) the preceding pivot
+is \(p_{-1}=b_{-1}=1\), so this calculation includes the initial
+step. Every normalized division is exact by its checked
+divisibility assertion, and therefore every unnormalized division
+is also exact and gives the displayed integer quotient. All
+unnormalized pivots are positive. Lemma~\ref{l:integercheck}
+therefore proves positivity of the actual \(M_\epsilon\).
+The trailing matrices remain symmetric: the two products in each
+numerator are unchanged when \(i,l\) are interchanged. Hence a
+checker may store and test their upper triangles and recover the
+lower triangles by symmetry, without omitting a distinct division.
+This argument requires neither a numerical factorization nor a
+claim that a supplied matrix has the required origin.
+
+sec8-inputs.tex:248 -> l:integercheck -> app-local-operator.tex:582
+For each pattern, all supported central exchange-sector forms are
+now positive definite. By the positive scale in
+Lemma~\ref{l:integercheck}, the same holds for the inverted Pauli
+operator on each central-weight space. Lemma~\ref{l:Ostruct}
+gives its Hermitian symmetry, the required commutators and the
+exchange-sector decomposition. Lemma~\ref{l:sector} extends
+positivity from each central-weight space to its full supported
+sector. The operator vanishes on discarded antisymmetric U-pair
+subspaces, by Lemma~\ref{l:Ostruct}; those zero subspaces do not
+require strict positivity. Hence the full inverted operator is
+positive semidefinite.
+
+sec8-inputs.tex:249 -> l:Ostruct -> app-local-operator.tex:320
+For each pattern, all supported central exchange-sector forms are
+now positive definite. By the positive scale in
+Lemma~\ref{l:integercheck}, the same holds for the inverted Pauli
+operator on each central-weight space. Lemma~\ref{l:Ostruct}
+gives its Hermitian symmetry, the required commutators and the
+exchange-sector decomposition. Lemma~\ref{l:sector} extends
+positivity from each central-weight space to its full supported
+sector. The operator vanishes on discarded antisymmetric U-pair
+subspaces, by Lemma~\ref{l:Ostruct}; those zero subspaces do not
+require strict positivity. Hence the full inverted operator is
+positive semidefinite.
+
+sec8-inputs.tex:251 -> l:sector -> app-local-operator.tex:472
+For each pattern, all supported central exchange-sector forms are
+now positive definite. By the positive scale in
+Lemma~\ref{l:integercheck}, the same holds for the inverted Pauli
+operator on each central-weight space. Lemma~\ref{l:Ostruct}
+gives its Hermitian symmetry, the required commutators and the
+exchange-sector decomposition. Lemma~\ref{l:sector} extends
+positivity from each central-weight space to its full supported
+sector. The operator vanishes on discarded antisymmetric U-pair
+subspaces, by Lemma~\ref{l:Ostruct}; those zero subspaces do not
+require strict positivity. Hence the full inverted operator is
+positive semidefinite.
+
+sec8-inputs.tex:254 -> l:Ostruct -> app-local-operator.tex:320
+For each pattern, all supported central exchange-sector forms are
+now positive definite. By the positive scale in
+Lemma~\ref{l:integercheck}, the same holds for the inverted Pauli
+operator on each central-weight space. Lemma~\ref{l:Ostruct}
+gives its Hermitian symmetry, the required commutators and the
+exchange-sector decomposition. Lemma~\ref{l:sector} extends
+positivity from each central-weight space to its full supported
+sector. The operator vanishes on discarded antisymmetric U-pair
+subspaces, by Lemma~\ref{l:Ostruct}; those zero subspaces do not
+require strict positivity. Hence the full inverted operator is
+positive semidefinite.
+
+sec8-inputs.tex:258 -> l:inversion -> app-local-operator.tex:271
+Lemma~\ref{l:inversion} yields
+\(\widehat F_c\ge0\) on the product of closed unit balls, for
+the chosen groupwise inversion. Corollary~\ref{c:reduce} transfers
+this to \(F_c=Z_{\rm cur}-cZ_{\rm next}\ge0\) on the original
+twenty unit slots. Equivalently, on an assignment to the raw
+pattern, the common positive reduction factor multiplies a
+nonnegative reduced value. The preceding coverage argument proves
+this for every raw pattern and every unit slot assignment.
+Choosing its correct straight or turning threshold proves the
+two displayed inequalities.
+\end{proof}
+
+sec8-inputs.tex:260 -> c:reduce -> app-local-operator.tex:172
+Lemma~\ref{l:inversion} yields
+\(\widehat F_c\ge0\) on the product of closed unit balls, for
+the chosen groupwise inversion. Corollary~\ref{c:reduce} transfers
+this to \(F_c=Z_{\rm cur}-cZ_{\rm next}\ge0\) on the original
+twenty unit slots. Equivalently, on an assignment to the raw
+pattern, the common positive reduction factor multiplies a
+nonnegative reduced value. The preceding coverage argument proves
+this for every raw pattern and every unit slot assignment.
+Choosing its correct straight or turning threshold proves the
+two displayed inequalities.
+\end{proof}
+
+sec8-inputs.tex:279 -> l:log-mean-bounds -> sec7-recursion.tex:260
+\begin{theorem}\label{t:inputs}
+At \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\), (H1) holds
+by the operator-only certificates of Appendix D, using the supplied
+Gram/residual checks and its Bareiss fallback.
+Property (H2) holds with
+\[
+ q=\frac{1119948287353}{1120437614225}<\frac{2499}{2500}<1,
+ \qquad C_V=10 .
+\]
+For the type-dependent coefficients of Lemma~\ref{l:log-mean-bounds},
+the orderings and vector \(h\) of Definition~\ref{d:kernel-order},
+and \(\rho_0=993015/10^6\), property (H3\(_h\)) holds.
+The latter assertion is supplied by five stationary lattice Bellman
+certificates with memory \(m=10\), exact prefix \(L=12\ge m+2\),
+radius \(R=70\), value scale \(2^{16}\), and coefficient scale
+\(2^{48}\), using the checked 3741-state automaton quotient.
+\end{theorem}
+
+sec8-inputs.tex:280 -> d:kernel-order -> sec7-recursion.tex:572
+\begin{theorem}\label{t:inputs}
+At \(c_{\rm s}=961/1000\), \(c_{\rm t}=187/200\), (H1) holds
+by the operator-only certificates of Appendix D, using the supplied
+Gram/residual checks and its Bareiss fallback.
+Property (H2) holds with
+\[
+ q=\frac{1119948287353}{1120437614225}<\frac{2499}{2500}<1,
+ \qquad C_V=10 .
+\]
+For the type-dependent coefficients of Lemma~\ref{l:log-mean-bounds},
+the orderings and vector \(h\) of Definition~\ref{d:kernel-order},
+and \(\rho_0=993015/10^6\), property (H3\(_h\)) holds.
+The latter assertion is supplied by five stationary lattice Bellman
+certificates with memory \(m=10\), exact prefix \(L=12\ge m+2\),
+radius \(R=70\), value scale \(2^{16}\), and coefficient scale
+\(2^{48}\), using the checked 3741-state automaton quotient.
+\end{theorem}
+
+sec8-inputs.tex:289 -> h:H1 -> sec6-walks.tex:531
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+sec8-inputs.tex:293 -> p:H2-test -> app-input-contracts.tex:199
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+sec8-inputs.tex:295 -> l:alm -> app-input-contracts.tex:66
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+sec8-inputs.tex:296 -> l:H2-CV -> app-input-contracts.tex:275
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+sec8-inputs.tex:297 -> h:H2 -> sec6-walks.tex:684
+\begin{proof}
+Theorem~\ref{t:H1} is precisely Definition~\ref{h:H1} at the two
+thresholds, with its pointwise quantifiers. The direct Gram checks,
+the two supplied nonzero factors and the fallback cover every
+supported sector as established above.
+Proposition~\ref{p:H2-test} gives a positive vector with
+\(\mathsf A_6v\le q_*v\) and \(0<q_*<2499/2500<1\).
+Lemma~\ref{l:alm} converts that finite inequality to the all-length
+open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
+Thus Definition~\ref{h:H2} holds uniformly in the start and
+designated incoming direction, with initial reversal forbidden.
+
+sec8-inputs.tex:300 -> p:automaton10 -> app-input-contracts.tex:367
+Proposition~\ref{p:automaton10} checks the labelled memory-ten
+quotient. Proposition~\ref{p:stationary-check} gives the five
+finite supersolution and exact-prefix assertions at
+\(L=12\ge10+2\), \(R=70\) and the stated two scales.
+Lemma~\ref{l:stationary-assembly} proves
+\(M_1h\le(993015/10^6)h\), uniformly for every finite
+true-trail cutoff. This is Definition~\ref{h:H3} for the stated
+type-dependent coefficients and fixed orderings.
+\end{proof}
+
+sec8-inputs.tex:301 -> p:stationary-check -> app-input-contracts.tex:1069
+Proposition~\ref{p:automaton10} checks the labelled memory-ten
+quotient. Proposition~\ref{p:stationary-check} gives the five
+finite supersolution and exact-prefix assertions at
+\(L=12\ge10+2\), \(R=70\) and the stated two scales.
+Lemma~\ref{l:stationary-assembly} proves
+\(M_1h\le(993015/10^6)h\), uniformly for every finite
+true-trail cutoff. This is Definition~\ref{h:H3} for the stated
+type-dependent coefficients and fixed orderings.
+\end{proof}
+
+sec8-inputs.tex:304 -> l:stationary-assembly -> app-input-contracts.tex:1175
+Proposition~\ref{p:automaton10} checks the labelled memory-ten
+quotient. Proposition~\ref{p:stationary-check} gives the five
+finite supersolution and exact-prefix assertions at
+\(L=12\ge10+2\), \(R=70\) and the stated two scales.
+Lemma~\ref{l:stationary-assembly} proves
+\(M_1h\le(993015/10^6)h\), uniformly for every finite
+true-trail cutoff. This is Definition~\ref{h:H3} for the stated
+type-dependent coefficients and fixed orderings.
+\end{proof}
+
+sec8-inputs.tex:306 -> h:H3 -> sec7-recursion.tex:594
+Proposition~\ref{p:automaton10} checks the labelled memory-ten
+quotient. Proposition~\ref{p:stationary-check} gives the five
+finite supersolution and exact-prefix assertions at
+\(L=12\ge10+2\), \(R=70\) and the stated two scales.
+Lemma~\ref{l:stationary-assembly} proves
+\(M_1h\le(993015/10^6)h\), uniformly for every finite
+true-trail cutoff. This is Definition~\ref{h:H3} for the stated
+type-dependent coefficients and fixed orderings.
+\end{proof}
+
+sec8-inputs.tex:322 -> d:kernel -> sec7-recursion.tex:517
+Appendix C tests the true H2 revisit coefficient \(1/5\) and
+the stated rate \(q_*\). Its H3 assertion concerns the kernel of
+Definition~\ref{d:kernel}, with turning coefficient
+\(a_{\rm t}=150000/10^6\), the exact dyadic vector and the
+fixed orderings of Definition~\ref{d:kernel-order}. The stationary
+certificates retain the initial bond and initial-site rules,
+centre exclusion and first-hit target stopping at every suffix
+time. No periodic spatial walk, long-time remainder or parity
+improvement enters these input theorems.
+
+sec8-inputs.tex:324 -> d:kernel-order -> sec7-recursion.tex:572
+Appendix C tests the true H2 revisit coefficient \(1/5\) and
+the stated rate \(q_*\). Its H3 assertion concerns the kernel of
+Definition~\ref{d:kernel}, with turning coefficient
+\(a_{\rm t}=150000/10^6\), the exact dyadic vector and the
+fixed orderings of Definition~\ref{d:kernel-order}. The stationary
+certificates retain the initial bond and initial-site rules,
+centre exclusion and first-hit target stopping at every suffix
+time. No periodic spatial walk, long-time remainder or parity
+improvement enters these input theorems.
+
+app-finite.tex:17 -> d:framemodel -> sec3-quantum-frames.tex:490
+Throughout this appendix, \(V\) is finite, each \(S_x\) is a
+nonempty finite set, and \(\Omega=\prod_{x\in V}S_x\).
+An empty product has its one empty configuration.  For a strictly
+positive probability \(\mu\) on \(\Omega\), use
+\(\langle f,h\rangle_\mu=\sum_\omega\mu(\omega)
+\overline{f(\omega)}h(\omega)\).  If \(U\subset V\), write
+\(\mu_{-U}\) for the marginal on \(V\setminus U\), and define
+\[
+ (E_Uf)(a,b)=\sum_{t\in\prod_{x\in U}S_x}
+       \frac{\mu(t,b)}{\mu_{-U}(b)}f(t,b),\qquad
+ \operatorname{Var}_U f=E_U|f-E_Uf|^2.
+\]
+All denominators here are positive.  We use the single-site Dirichlet
+form and Poincare-gap convention of Definition~\ref{d:framemodel}.
+More generally, a Poincare gap at least \(c\) for an operator \(H\)
+means \(\langle f,Hf\rangle_\mu\ge c\operatorname{Var}_\mu f\)
+for every \(f\).  This convention includes one-point spaces.
+
+app-finite.tex:221 -> d:framemodel -> sec3-quantum-frames.tex:490
+We spell out the frame application.  By
+Definitions~\ref{d:framemodel} and~\ref{d:frame}, and
+Lemma~\ref{l:threeframes}, each conditional block law has the form
+\[
+ \mu(n)=\frac1{Z_Q}
+       \prod_{x\in Q}h_x(n_x)
+       \prod_{e=\{x,z\}\in E(Q)}(1+\varepsilon_e n_x\cdot n_z),
+ \qquad h_x(t)>0.
+\]
+Here \(h_x\) is the site weight times all fixed boundary factors
+incident to \(x\); the signs are \(+1\) for the plane law and
+\(-1\) for the antiferromagnetic law.  Define
+\(\pi_x(t)=h_x(t)/\sum_{a\in S_x}h_x(a)\) and
+\(\pi=\bigotimes_{x\in Q}\pi_x\).
+Proper colouring ensures that both endpoints of every internal or
+boundary bond use distinct frames.  Thus all boundary factors are
+positive, and every internal factor is between \(b\) and \(2-b\).
+With \(e_Q=|E(Q)|\), set
+\[
+ \psi(n)=\prod_{e=\{x,z\}\in E(Q)}
+                     (1+\varepsilon_e n_x\cdot n_z).
+\]
+Then \(d\mu/d\pi=\psi/\pi(\psi)\), and
+\[
+ \frac{b^{e_Q}}{\pi(\psi)}
+      \le\frac{d\mu}{d\pi}
+      \le\frac{(2-b)^{e_Q}}{\pi(\psi)}.
+\]
+The ratio of these bounds is \(r_b^{e_Q}\), proving the frame claim.
+For an empty block the empty product is one and the Poincare inequality
+is automatic.  Only internal bonds have entered this density ratio.
+\end{proof}
+
+app-finite.tex:221 -> d:frame -> sec3-quantum-frames.tex:264
+We spell out the frame application.  By
+Definitions~\ref{d:framemodel} and~\ref{d:frame}, and
+Lemma~\ref{l:threeframes}, each conditional block law has the form
+\[
+ \mu(n)=\frac1{Z_Q}
+       \prod_{x\in Q}h_x(n_x)
+       \prod_{e=\{x,z\}\in E(Q)}(1+\varepsilon_e n_x\cdot n_z),
+ \qquad h_x(t)>0.
+\]
+Here \(h_x\) is the site weight times all fixed boundary factors
+incident to \(x\); the signs are \(+1\) for the plane law and
+\(-1\) for the antiferromagnetic law.  Define
+\(\pi_x(t)=h_x(t)/\sum_{a\in S_x}h_x(a)\) and
+\(\pi=\bigotimes_{x\in Q}\pi_x\).
+Proper colouring ensures that both endpoints of every internal or
+boundary bond use distinct frames.  Thus all boundary factors are
+positive, and every internal factor is between \(b\) and \(2-b\).
+With \(e_Q=|E(Q)|\), set
+\[
+ \psi(n)=\prod_{e=\{x,z\}\in E(Q)}
+                     (1+\varepsilon_e n_x\cdot n_z).
+\]
+Then \(d\mu/d\pi=\psi/\pi(\psi)\), and
+\[
+ \frac{b^{e_Q}}{\pi(\psi)}
+      \le\frac{d\mu}{d\pi}
+      \le\frac{(2-b)^{e_Q}}{\pi(\psi)}.
+\]
+The ratio of these bounds is \(r_b^{e_Q}\), proving the frame claim.
+For an empty block the empty product is one and the Poincare inequality
+is automatic.  Only internal bonds have entered this density ratio.
+\end{proof}
+
+app-finite.tex:222 -> l:threeframes -> sec3-quantum-frames.tex:341
+We spell out the frame application.  By
+Definitions~\ref{d:framemodel} and~\ref{d:frame}, and
+Lemma~\ref{l:threeframes}, each conditional block law has the form
+\[
+ \mu(n)=\frac1{Z_Q}
+       \prod_{x\in Q}h_x(n_x)
+       \prod_{e=\{x,z\}\in E(Q)}(1+\varepsilon_e n_x\cdot n_z),
+ \qquad h_x(t)>0.
+\]
+Here \(h_x\) is the site weight times all fixed boundary factors
+incident to \(x\); the signs are \(+1\) for the plane law and
+\(-1\) for the antiferromagnetic law.  Define
+\(\pi_x(t)=h_x(t)/\sum_{a\in S_x}h_x(a)\) and
+\(\pi=\bigotimes_{x\in Q}\pi_x\).
+Proper colouring ensures that both endpoints of every internal or
+boundary bond use distinct frames.  Thus all boundary factors are
+positive, and every internal factor is between \(b\) and \(2-b\).
+With \(e_Q=|E(Q)|\), set
+\[
+ \psi(n)=\prod_{e=\{x,z\}\in E(Q)}
+                     (1+\varepsilon_e n_x\cdot n_z).
+\]
+Then \(d\mu/d\pi=\psi/\pi(\psi)\), and
+\[
+ \frac{b^{e_Q}}{\pi(\psi)}
+      \le\frac{d\mu}{d\pi}
+      \le\frac{(2-b)^{e_Q}}{\pi(\psi)}.
+\]
+The ratio of these bounds is \(r_b^{e_Q}\), proving the frame claim.
+For an empty block the empty product is one and the Poincare inequality
+is automatic.  Only internal bonds have entered this density ratio.
+\end{proof}
+
+app-input-contracts.tex:8 -> d:weights -> sec6-walks.tex:655
+Throughout this appendix the thresholds are
+\(c_{\rm s}=961/1000\) and \(c_{\rm t}=187/200\), so that
+\(x_{\rm s}=1000/961\) and \(x_{\rm t}=200/187\).
+The trail weights, response pairs, orderings and vector \(h\) are
+those of Definitions~\ref{d:weights}, \ref{d:kernel} and
+\ref{d:kernel-order}. In particular, a revisit means an earlier
+\emph{departure} from the same site. All positions below are points
+of \(\mathbb Z^2\).
+
+app-input-contracts.tex:8 -> d:kernel -> sec7-recursion.tex:517
+Throughout this appendix the thresholds are
+\(c_{\rm s}=961/1000\) and \(c_{\rm t}=187/200\), so that
+\(x_{\rm s}=1000/961\) and \(x_{\rm t}=200/187\).
+The trail weights, response pairs, orderings and vector \(h\) are
+those of Definitions~\ref{d:weights}, \ref{d:kernel} and
+\ref{d:kernel-order}. In particular, a revisit means an earlier
+\emph{departure} from the same site. All positions below are points
+of \(\mathbb Z^2\).
+
+app-input-contracts.tex:9 -> d:kernel-order -> sec7-recursion.tex:572
+Throughout this appendix the thresholds are
+\(c_{\rm s}=961/1000\) and \(c_{\rm t}=187/200\), so that
+\(x_{\rm s}=1000/961\) and \(x_{\rm t}=200/187\).
+The trail weights, response pairs, orderings and vector \(h\) are
+those of Definitions~\ref{d:weights}, \ref{d:kernel} and
+\ref{d:kernel-order}. In particular, a revisit means an earlier
+\emph{departure} from the same site. All positions below are points
+of \(\mathbb Z^2\).
+
+app-input-contracts.tex:123 -> h:H2 -> sec6-walks.tex:684
+Write \(A_n\) as a row vector and put
+\(v_- =\min_\omega v_\omega>0\),
+\(v_+=\max_\omega v_\omega\). Nonnegativity of the matrix implies,
+by induction on \(j\),
+\[
+ A_{m+j}\le A_m\mathsf A_m^j,\qquad
+ \mathsf A_m^jv\le q^jv .
+\]
+Consequently
+\[
+ W_{m+j}\le v_-^{-1}A_m\mathsf A_m^jv
+       \le (v_+/v_-)q^jW_m .
+\]
+This proves the claimed bound for all lengths at least \(m\).
+For lengths less than \(m\) it is the defining finite maximum.
+The empty trail contributes \(W_0=1\), so \(C_V\ge1\).
+Translations and the eight symmetries of the square give
+weight-preserving bijections between the trail sets for any two
+prescribed starts and incoming directions. Thus all the base sums
+\(W_r\) in this formula are uniform over those initial data.
+Increasing \(C_V\) preserves the inequality, which proves
+\ref{h:H2} with the stated constants.
+\end{proof}
+
+app-input-contracts.tex:441 -> d:kernel -> sec7-recursion.tex:517
+\begin{definition}\label{d:phaseweights}
+The phases are \({\rm A},{\rm B},{\rm C},{\rm D}\). Their
+diagonal transition weights, in kind order \({\rm s},{\rm t},{\rm r}\), are
+\[
+ \begin{array}{c|ccc}
+ {\rm A}&x_{\rm s}/3&x_{\rm t}/3&1/5\\
+ {\rm B}&x_{\rm s}/3&1/3&1/5\\
+ {\rm C}&x_{\rm s}/3&1/3&1/5\\
+ {\rm D}&1/3&1/3&1/5
+ \end{array}
+\]
+At a first visit with reward \(\kappa_h\), additionally allow
+\({\rm A}\to{\rm C}\) with weight \(x_{\rm t}\kappa_h/3\) on a turn,
+or \({\rm B}\to{\rm D}\) with weight \(x_{\rm s}\kappa_h/3\)
+on a straight passage. No other phase change is allowed.
+At a revisit there is no phase change.
+Start with weight one in each of \({\rm A},{\rm B}\);
+the terminal reward is \(g=(0,0,1,1)\).
+For a true trail, use its actual revisit kinds and its actual
+type-dependent live-pair reward from Definition~\ref{d:kernel}.
+\end{definition}
+
+app-input-contracts.tex:504 -> d:kernel-order -> sec7-recursion.tex:572
+A history starting in B with nonzero terminal reward changes from
+B to D exactly once, at a straight first departure \(j\). Its
+factors before, at and after that departure similarly give
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}\kappa_h(j)
+ x_{\rm s}^{\#\{\text{straight first departures at indices }i\le j\}}.
+\]
+These are exactly the first departures at or before that \(j\) in
+the same ordering. No revisit can be the changing departure.
+There is thus one allowed history for each candidate responding
+first departure; if its reward is zero both corresponding terms
+are zero. Summing over all such departures gives the displayed
+identity. For long trails it is the ordering fixed in
+Definition~\ref{d:kernel-order}, hence the claimed contribution
+to \(M_1h\). For other trails this identity concerns their stated
+straight-first ordering.
+
+app-input-contracts.tex:519 -> d:kernel -> sec7-recursion.tex:517
+\begin{definition}\label{d:stationary-walk}
+Fix \(X=B,C\), \(d_0\in\{{\rm N},{\rm W},{\rm S}\}\),
+the sites \(u,c,v\) of Definition~\ref{d:kernel}, and \(a=u+d_0\).
+The state space is
+\(\{{\rm A},{\rm B},{\rm C},{\rm D}\}\times Q\times\mathbb Z^2\).
+At positions \(c,v\) there are no outgoing transitions.
+At any other position \(x\), an admissible automaton direction \(d\)
+goes to position \(x+d\) and the quotient successor window.
+At \(x=u\) or \(a\), forbid reuse of \(\{u,a\}\) in either
+direction and kill every memory-detected revisit departure;
+every other allowed departure there has weight \(1/5\),
+in the same phase and with no response.
+At other positions use the automaton kind and the phase weights.
+For a non-revisit response, declare only \(c\) dead among the three
+neighbours other than the arrival site, and use the type-dependent
+three-neighbour or two-neighbour reward rule of Definition~\ref{d:kernel}.
+A transition into \(c\) has zero contribution.
+Let \(T_{X,d_0}\) be this nonnegative backward operator, with zero
+terminal rows, and \(g(\varphi,q,x)=\mathbf1_{\{x=v\}}g_\varphi\).
+The free operator \(\mathsf W\) omits positions and special-site
+rules, uses the same quotient automaton and phase weights, and
+treats all three response neighbours as live.
+\end{definition}
+
+app-input-contracts.tex:532 -> d:kernel -> sec7-recursion.tex:517
+\begin{definition}\label{d:stationary-walk}
+Fix \(X=B,C\), \(d_0\in\{{\rm N},{\rm W},{\rm S}\}\),
+the sites \(u,c,v\) of Definition~\ref{d:kernel}, and \(a=u+d_0\).
+The state space is
+\(\{{\rm A},{\rm B},{\rm C},{\rm D}\}\times Q\times\mathbb Z^2\).
+At positions \(c,v\) there are no outgoing transitions.
+At any other position \(x\), an admissible automaton direction \(d\)
+goes to position \(x+d\) and the quotient successor window.
+At \(x=u\) or \(a\), forbid reuse of \(\{u,a\}\) in either
+direction and kill every memory-detected revisit departure;
+every other allowed departure there has weight \(1/5\),
+in the same phase and with no response.
+At other positions use the automaton kind and the phase weights.
+For a non-revisit response, declare only \(c\) dead among the three
+neighbours other than the arrival site, and use the type-dependent
+three-neighbour or two-neighbour reward rule of Definition~\ref{d:kernel}.
+A transition into \(c\) has zero contribution.
+Let \(T_{X,d_0}\) be this nonnegative backward operator, with zero
+terminal rows, and \(g(\varphi,q,x)=\mathbf1_{\{x=v\}}g_\varphi\).
+The free operator \(\mathsf W\) omits positions and special-site
+rules, uses the same quotient automaton and phase weights, and
+treats all three response neighbours as live.
+\end{definition}
+
+app-input-contracts.tex:760 -> l:log-mean-bounds -> sec7-recursion.tex:260
+For explicit reconstruction of those coefficients, encode directions
+by \(0,1,2,3=\mathrm E,\mathrm N,\mathrm W,\mathrm S\).
+For an admitted non-revisit edge with incoming direction \(a\)
+and outgoing direction \(d\), put
+\(\{f,g\}=\{0,1,2,3\}\setminus\{a+2,d\}\), with addition
+modulo four. For distinct directions define
+\(H(e,e')=1\) for opposite directions and \(H(e,e')=h_C\)
+for perpendicular directions. If \(\delta\) specifies the direction
+from the site to \(c\), use \(\delta=4\) when \(c\) is not a
+neighbour. For an edge not entering \(c\), its response reward is
+\[
+ K(a,d,\delta)=
+ \begin{cases}
+ b'_\tau H(g,d),&\delta=f,\\
+ b'_\tau H(f,d),&\delta=g,\\
+ a_\tau H(f,g)+b_\tau[H(f,d)+H(g,d)],&\delta\notin\{f,g\},
+ \end{cases}
+ \qquad \tau=\begin{cases}{\rm s},&d=a,\\{\rm t},&d\ne a.\end{cases}
+\]
+The change-of-phase coefficient is \(x_\tau K/3\). For the free
+operator use \(\delta=4\). Diagonal coefficients and revisit
+coefficients are those in Definition~\ref{d:phaseweights};
+at known sites apply the stated killing and \(1/5\) rules.
+If \(t=A/B\ge0\) with integers \(A\ge0,B>0\), its ceiling is
+\[
+ p(t)=\left\lfloor\frac{D_3A+B-1}{B}\right\rfloor,
+ \qquad D_3A\le Bp(t),
+\]
+and, when \(A>0\), \(B(p(t)-1)<D_3A\). These integer relations
+prove \(t\le p(t)/D_3\), including \(t=0\) with \(p(t)=0\).
+In particular the diagonal ceiling numerators, in the order
+\(x_{\rm s}/3,x_{\rm t}/3,1/3,1/5\), are
+\[
+ 97632666219444,\quad100347585280092,\quad
+ 93824992236886,\quad56294995342132 .
+\]
+All response ceilings are specified by the same rational formula
+with the exact constants of Lemma~\ref{l:log-mean-bounds} and the
+exact dyadic \(h_C\); a decimal replacement of \(h_C\) is not used.
+
+app-input-contracts.tex:879 -> d:kernel -> sec7-recursion.tex:517
+Here is a finite recursive definition of the enumeration and of all
+its rational summands. It also fixes precisely what is to be
+evaluated in Proposition~\ref{p:stationary-check}. A node at time
+\(j\le12\) records its full direction word, current position \(x\),
+used unoriented bonds \(E\), and counts \(N(y)\) of earlier
+departures from every encountered site. Initially these are
+\(j=0,x=u,E=\varnothing,N=0\), with incoming direction
+\(u-c=\mathrm W\). Its four phase weights are
+\((p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})=(1,1,0,0)\).
+There are three mutually exclusive terminal cases for a node:
+\begin{enumerate}
+\item If \(x=v\), add its exact short-trail value to \(S_{X,d_0}\)
+and produce no children. Test this case before the length cutoff.
+\item If \(j=12\) and \(x\ne v\), add its phase-vector dot product
+with \(F(\cdot,q(P),x)\) to the prefix sum, and produce no children.
+\item Otherwise, try each of the four directions \(d\). At
+\(j=0\) retain only \(d=d_0\). At every time discard a move to
+\(c\), a move along a used unoriented bond, and the initial
+reverse direction. For every remaining move, increment \(N(x)\),
+adjoin its bond to \(E\), move to \(x+d\), and recurse.
+\end{enumerate}
+All children use copies of the parent's data. At a noninitial node
+the reverse of its incoming direction is already excluded by the
+used-bond test. The true kind is a revisit exactly when the
+preincrement value \(N(x)\) is positive. On a first departure
+compute \(\kappa=\kappa_h\) using the predeparture counts: a
+neighbour \(y\) is dead exactly when \(y=c\) or \(N(y)\ge2\).
+The outgoing neighbour of an allowed true extension is not dead.
+Use the actual three-, two-, or zero-pair rule of
+Definition~\ref{d:kernel}, without a ceiling.
+
+app-input-contracts.tex:901 -> d:kernel-order -> sec7-recursion.tex:572
+The phase-vector update for a revisit divides all four components
+by five. For a straight first departure it is
+\[
+ (p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})\longmapsto
+ \left(\frac{x_{\rm s}p_{\rm A}}3,
+       \frac{x_{\rm s}p_{\rm B}}3,
+       \frac{x_{\rm s}p_{\rm C}}3,
+       \frac{p_{\rm D}+x_{\rm s}\kappa p_{\rm B}}3\right);
+\]
+for a turning first departure it is
+\[
+ (p_{\rm A},p_{\rm B},p_{\rm C},p_{\rm D})\longmapsto
+ \left(\frac{x_{\rm t}p_{\rm A}}3,
+       \frac{p_{\rm B}}3,
+       \frac{p_{\rm C}+x_{\rm t}\kappa p_{\rm A}}3,
+       \frac{p_{\rm D}}3\right).
+\]
+These formulas use the old components on their right sides.
+For a hit at time \(n\le12\), recover the list of actual first
+departures \((x_i,\kappa_h(i))\), sort it by the key in
+Definition~\ref{d:kernel-order}, including its path-index tie rule,
+and evaluate
+\[
+ 3^{-n}(3/5)^{\operatorname{rev}(w)}
+       \sum_k\kappa_h(\sigma_w(k))\prod_{l\le k}x_{\sigma_w(l)}.
+\]
+The phase weights of a short hit are not substituted for this
+short-trail expression.
+
+app-input-contracts.tex:1063 -> d:kernel -> sec7-recursion.tex:517
+Each first departure has the same rational ordering key on both
+trails. Its path index is unchanged, so the short ordering including
+tie breaking is preserved. The long straight-first ordering is
+preserved for the same reason. All products and response sums
+in Definition~\ref{d:kernel} consequently agree. Summing the
+bijection at a fixed length, and then over any finite length cutoff,
+proves the assertion. No equality of automaton classes or of
+stationary potentials under \(r\) is needed.
+\end{proof}
+
+app-input-contracts.tex:1228 -> h:H3 -> sec7-recursion.tex:594
+The same upper bounds hold for every finite cutoff. By
+Definition~\ref{h:H3}, this proves (H3\(_h\)). Equivalently, taking
+suprema of the nonnegative row sums gives a finite \(M_1h\)
+with the asserted bound. Only a finite prefix was used in the
+numerical evaluation; the Bellman inequality controls all suffix
+horizons simultaneously.
+\end{proof}
+
+app-local-operator.tex:6 -> d:pattern -> sec6-walks.tex:488
+Fix a covered pattern \(\pi\in\mathcal P_{\rm ext}\) from
+Definition~\ref{d:pattern}.  Write \(o\) for its out-neighbour and
+\(f,g\) for the other two sites in
+\(\{\mathsf e,\mathsf N,\mathsf W\}\), whether or not they are
+removed.  For \(0<c<1\) set
+\[
+ F_c(m)=Z_{\rm cur}(\pi;m)-cZ_{\rm next}(\pi;m),
+ \qquad m\in(\mathbb S^2)^{20}.
+\]
+All spin functionals in this appendix are finite sums with the laws
+of Definition~\ref{d:moment}.  The proposition at the end gives a
+sufficient certificate for this pattern's inequality in
+Definition~\ref{h:H1}; it does not assert optimality of \(c\).
+Empty products and tensor products mean \(1\) and \(\mathbb C\),
+respectively, and the Pauli operator of a constant when there are
+no vector variables is that scalar on \(\mathbb C\).
+
+app-local-operator.tex:15 -> d:moment -> sec2-moments.tex:8
+Fix a covered pattern \(\pi\in\mathcal P_{\rm ext}\) from
+Definition~\ref{d:pattern}.  Write \(o\) for its out-neighbour and
+\(f,g\) for the other two sites in
+\(\{\mathsf e,\mathsf N,\mathsf W\}\), whether or not they are
+removed.  For \(0<c<1\) set
+\[
+ F_c(m)=Z_{\rm cur}(\pi;m)-cZ_{\rm next}(\pi;m),
+ \qquad m\in(\mathbb S^2)^{20}.
+\]
+All spin functionals in this appendix are finite sums with the laws
+of Definition~\ref{d:moment}.  The proposition at the end gives a
+sufficient certificate for this pattern's inequality in
+Definition~\ref{h:H1}; it does not assert optimality of \(c\).
+Empty products and tensor products mean \(1\) and \(\mathbb C\),
+respectively, and the Pauli operator of a constant when there are
+no vector variables is that scalar on \(\mathbb C\).
+
+app-local-operator.tex:17 -> h:H1 -> sec6-walks.tex:531
+Fix a covered pattern \(\pi\in\mathcal P_{\rm ext}\) from
+Definition~\ref{d:pattern}.  Write \(o\) for its out-neighbour and
+\(f,g\) for the other two sites in
+\(\{\mathsf e,\mathsf N,\mathsf W\}\), whether or not they are
+removed.  For \(0<c<1\) set
+\[
+ F_c(m)=Z_{\rm cur}(\pi;m)-cZ_{\rm next}(\pi;m),
+ \qquad m\in(\mathbb S^2)^{20}.
+\]
+All spin functionals in this appendix are finite sums with the laws
+of Definition~\ref{d:moment}.  The proposition at the end gives a
+sufficient certificate for this pattern's inequality in
+Definition~\ref{h:H1}; it does not assert optimality of \(c\).
+Empty products and tensor products mean \(1\) and \(\mathbb C\),
+respectively, and the Pauli operator of a constant when there are
+no vector variables is that scalar on \(\mathbb C\).
+
+app-local-operator.tex:45 -> d:pattern -> sec6-walks.tex:488
+\begin{proof}
+For purposes of expanding a product, set \(n_x=0\) whenever \(x\)
+is removed; this adds neither a variable nor a site law to the
+functional.  By Definition~\ref{d:pattern}, the present passage
+bonds in the current template go precisely to the nonremoved sites
+among \(f,g,o\).  In the next template the passage law is
+\(\lambda_{\mathrm D}\), its bond to \(o\) is deleted, and its
+other present bonds are unchanged.  Consequently the factors
+obtained by summing over the passage spin are, respectively,
+\[
+ \mathcal M\bigl((1+n\cdot n_f)(1+n\cdot n_g)
+                         (1+n\cdot n_o)\bigr),\qquad
+ \lambda_{\mathrm D}\bigl((1+n\cdot n_f)(1+n\cdot n_g)\bigr).
+\]
+The first and third moments vanish.  The second moment is
+\(\delta_{ij}/3\) for \(\lambda_{\mathrm U}\) and
+\(\delta_{ij}/5\) for \(\lambda_{\mathrm D}\), by
+Lemma~\ref{l:moments}.  Expansion therefore gives exactly \(I\)
+and \(J\), including when one or both of \(f,g\) are removed.
+Finite summation can be performed in any order, proving both
+partition identities.  Subtraction gives the asserted formula for
+\(I-cJ\).
+
+app-local-operator.tex:59 -> l:moments -> sec2-moments.tex:35
+\begin{proof}
+For purposes of expanding a product, set \(n_x=0\) whenever \(x\)
+is removed; this adds neither a variable nor a site law to the
+functional.  By Definition~\ref{d:pattern}, the present passage
+bonds in the current template go precisely to the nonremoved sites
+among \(f,g,o\).  In the next template the passage law is
+\(\lambda_{\mathrm D}\), its bond to \(o\) is deleted, and its
+other present bonds are unchanged.  Consequently the factors
+obtained by summing over the passage spin are, respectively,
+\[
+ \mathcal M\bigl((1+n\cdot n_f)(1+n\cdot n_g)
+                         (1+n\cdot n_o)\bigr),\qquad
+ \lambda_{\mathrm D}\bigl((1+n\cdot n_f)(1+n\cdot n_g)\bigr).
+\]
+The first and third moments vanish.  The second moment is
+\(\delta_{ij}/3\) for \(\lambda_{\mathrm U}\) and
+\(\delta_{ij}/5\) for \(\lambda_{\mathrm D}\), by
+Lemma~\ref{l:moments}.  Expansion therefore gives exactly \(I\)
+and \(J\), including when one or both of \(f,g\) are removed.
+Finite summation can be performed in any order, proving both
+partition identities.  Subtraction gives the asserted formula for
+\(I-cJ\).
+
+app-local-operator.tex:66 -> l:finitefacts -> sec2-moments.tex:126
+The network defining \(Z_w[1]\) has at most four incident factors
+at each site, so \(Z_w[1]>0\) by Lemma~\ref{l:finitefacts}.
+All its weights are nonnegative.  The remaining spins have norm
+at most one, so \(P_{fg}\ge-1\), also with the removed-site
+convention.  Thus
+\[
+ Z_{\rm next}=Z_w[J]\ge\frac45 Z_w[1]>0.
+\]
+
+app-local-operator.tex:82 -> l:moments -> sec2-moments.tex:35
+Each slot occurs in just one linear factor.  All spin variables
+in either original template occur in at most four factors:
+the passage has at most three, each tip has its three slots and
+at most one bond, each corner has its two slots and at most two
+bonds, and each neighbour of the passage has at most four bonds.
+For \(R\in\mathrm O(3)\), simultaneous transformation of slots
+and spin variables leaves every scalar product unchanged.
+The site-by-site polynomial covariance in
+Lemma~\ref{l:moments}, with these separate degree bounds, then
+shows that transforming the slots alone leaves each partition
+polynomial unchanged.  This uses covariance of the indicated
+polynomials, without asserting invariance of the finite laws on
+arbitrary functions.
+\end{proof}
+
+app-local-operator.tex:104 -> d:pattern -> sec6-walks.tex:488
+\begin{proof}
+All slot vectors in this proof are unit vectors.  A tip has law
+\(\lambda_{\mathrm U}\), three slots, and at most one internal
+bond, by Definition~\ref{d:pattern}.  If its slots are
+\(a_1,a_2,a_3\), their normalizer is
+\[
+ A=\mathcal M\left(\prod_{j=1}^3(1+a_j\cdot n)\right)
+   =1+\frac13\sum_{j<l}a_j\cdot a_l\ge\frac12,
+\]
+since \(0\le|a_1+a_2+a_3|^2=3+2\sum_{j<l}a_j\cdot a_l\).
+With no bond this is the required positive factor.  With a bond
+to \(x\), put
+\[
+ V=\mathcal M\left(n\prod_{j=1}^3(1+a_j\cdot n)\right).
+\]
+Summing over the tip gives \(A+V\cdot n_x\).  The normalized
+mean bound in Lemma~\ref{l:35} gives \(|V|\le3A/5\), so
+\(u=5V/(3A)\) has norm at most one and gives the claimed formula.
+The moment in \(V\) has degree four, within the stated bound.
+
+app-local-operator.tex:117 -> l:35 -> sec2-moments.tex:197
+\begin{proof}
+All slot vectors in this proof are unit vectors.  A tip has law
+\(\lambda_{\mathrm U}\), three slots, and at most one internal
+bond, by Definition~\ref{d:pattern}.  If its slots are
+\(a_1,a_2,a_3\), their normalizer is
+\[
+ A=\mathcal M\left(\prod_{j=1}^3(1+a_j\cdot n)\right)
+   =1+\frac13\sum_{j<l}a_j\cdot a_l\ge\frac12,
+\]
+since \(0\le|a_1+a_2+a_3|^2=3+2\sum_{j<l}a_j\cdot a_l\).
+With no bond this is the required positive factor.  With a bond
+to \(x\), put
+\[
+ V=\mathcal M\left(n\prod_{j=1}^3(1+a_j\cdot n)\right).
+\]
+Summing over the tip gives \(A+V\cdot n_x\).  The normalized
+mean bound in Lemma~\ref{l:35} gives \(|V|\le3A/5\), so
+\(u=5V/(3A)\) has norm at most one and gives the claimed formula.
+The moment in \(V\) has degree four, within the stated bound.
+
+app-local-operator.tex:123 -> l:moments -> sec2-moments.tex:35
+For a nonremoved corner let its two slots be \(a,b\), and put
+\(t=a\cdot b\in[-1,1]\).  Write \(A\) for its slot normalizer
+and \(V\) for its unnormalized slot mean.  Lemma~\ref{l:moments}
+gives
+\[
+ \begin{array}{c|cc}
+   &A&V\\ \hline
+  \mathrm U&1+t/3&(a+b)/3\\
+  \mathrm D&1+t/5&(a+b)/5 .
+ \end{array}
+\]
+In particular \(A\ge2/3\) in status \(\mathrm U\), and
+\(A\ge4/5\) in status \(\mathrm D\).  This proves the assertion
+for corners with no internal bond.  If there is exactly one bond
+to \(x\), its sum is again \(A+V\cdot n_x\).  As
+\(|a+b|^2=2+2t\), in the two cases respectively we have
+\[
+ A^2-4|V|^2=\frac{(1-t)^2}{9}\ge0,
+ \qquad
+ A^2-9|V|^2=\frac{(1-t)(7-t)}{25}\ge0.
+\]
+Since \(A>0\), these inequalities give \(|V|\le A/2\) and
+\(|V|\le A/3\).  Set \(u=V/(\rho A)\) with the corresponding
+\(\rho\).  Every factor and vector constructed here depends only
+on the slots at that leaf, as required.
+\end{proof}
+
+app-local-operator.tex:197 -> l:moments -> sec2-moments.tex:35
+\begin{proof}
+The slot factors and the replacement factors are real and affine
+in each of their vector variables.  No vector is used twice.
+Finite summation therefore preserves reality and separate
+affineness.  In a term containing a pair insertion from \(I\) or
+\(J\), each endpoint is a nonremoved non-arrival neighbour of the
+passage.  Deleting its passage bond leaves at most three other
+factors, and the insertion raises its degree by one.  Other
+neighbours have degree at most three after passage deletion, and
+retained corners have at most two slots and two bonds.  Replacing
+a leaf changes a bond at its surviving endpoint to a single
+linear factor and so does not increase that degree.  Hence all
+summed spin variables have separate degree at most four.
+Every factor is a scalar product or a constant with a real
+radius.  Lemma~\ref{l:moments}, applied site by site as in
+Lemma~\ref{l:Iw}, proves simultaneous \(\mathrm O(3)\) covariance
+of both reduced partition polynomials, and thus of
+\(\widehat F_c\).
+
+app-local-operator.tex:640 -> l:moments -> sec2-moments.tex:35
+For a word \(w=(j_1,\ldots,j_s)\) of coordinate indices in
+\(\{1,2,3\}\), define the local moment
+\(\mu_{\mathrm{st}}(w)=\lambda_{\mathrm{st}}
+(n_{j_1}\cdots n_{j_s})\).  Only words of length at most four
+will occur.  Their exact values, by Lemma~\ref{l:moments}, are
+\[
+ \begin{array}{c|cc}
+ w&\mu_{\mathrm U}(w)&\mu_{\mathrm D}(w)\\ \hline
+ \varnothing&1&1\\
+ (i)\text{ or }(i,j,l)&0&0\\
+ (i,j)&\delta_{ij}/3&\delta_{ij}/5\\
+ (i,j,l,m)&
+ \dfrac{\delta_{ij}\delta_{lm}+\delta_{il}\delta_{jm}
+                         +\delta_{im}\delta_{jl}}{15}&
+ \dfrac{\delta_{ij}\delta_{lm}+\delta_{il}\delta_{jm}
+                         +\delta_{im}\delta_{jl}}{25}.
+ \end{array}
+\]
+In particular every \(\mathrm U\) moment has denominator dividing
+\(15\), and every \(\mathrm D\) moment has denominator dividing
+\(25\).
+

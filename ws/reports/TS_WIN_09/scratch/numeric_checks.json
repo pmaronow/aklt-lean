@@ -1,0 +1,75 @@
+{
+  "original_factorization": [
+    {
+      "sizes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "values": {
+        "free": {
+          "lhs": 1.0,
+          "rhs": 1.0
+        },
+        "pinned": {
+          "lhs": 1.0,
+          "rhs": 1.0
+        }
+      }
+    },
+    {
+      "sizes": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "values": {
+        "free": {
+          "lhs": 1.0,
+          "rhs": 1.0
+        },
+        "pinned": {
+          "lhs": 0.6666666666666665,
+          "rhs": 0.6666666666666665
+        }
+      }
+    },
+    {
+      "sizes": [
+        6,
+        0,
+        4,
+        1,
+        1
+      ],
+      "values": {
+        "free": {
+          "lhs": 1.0,
+          "rhs": 1.0
+        },
+        "pinned": {
+          "lhs": 0.9999999999999998,
+          "rhs": 0.9999999999999999
+        }
+      }
+    }
+  ],
+  "tail_exponential": {
+    "cases": 63,
+    "max_lhs_over_rhs": 0.12511003572113305,
+    "max_case_u_c": [
+      1,
+      120.0
+    ],
+    "c_definition": "-log(theta)"
+  },
+  "window_rewrite_positive_scalar_algebra": {
+    "boundary_cases": 2,
+    "states": 3,
+    "max_error": 1.1102230246251565e-16
+  }
+}

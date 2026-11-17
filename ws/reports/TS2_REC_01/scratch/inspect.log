@@ -1,0 +1,419 @@
+def AKLT.Blueprint.Rec.LocalMixtureStatementV2 : Prop :=
+∀ (a : AKLT.Blueprint.Rec.Departure),
+  @Eq.{1} AKLT.Defs.Status (@AKLT.Defs.Network.status a.G a.D a.y) AKLT.Defs.Status.U →
+    ∀ (incoming outgoing : AKLT.Defs.Compass),
+      @Eq.{1} AKLT.Defs.Plane a.o
+          (@HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+            (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) a.y outgoing.step) →
+        @AKLT.Defs.CoveredDepartureV2 a.G a.D a.y incoming outgoing →
+          ∃ k π m weight,
+            And
+              (∀ (i : Fin k),
+                And
+                  (@LE.le.{0} Real Real.instLE
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (weight i))
+                  (And (π i).Covered
+                    (Iff (@Eq.{1} AKLT.Defs.Compass (π i).outgoing AKLT.Defs.Compass.north)
+                      (@Eq.{1} AKLT.Defs.Compass outgoing incoming))))
+              (And
+                (@Eq.{1} Real
+                  (@AKLT.Defs.Network.partition a.G a.D a.τ true fun x =>
+                    @OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (∑ i,
+                    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (weight i)
+                      (AKLT.Defs.patternCurrent (π i) (m i))))
+                (@Eq.{1} Real
+                  (@AKLT.Defs.Network.partition a.G (@AKLT.Defs.traceStep a.G a.D a.y a.o) a.τ true fun x =>
+                    @OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (∑ i,
+                    @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (weight i)
+                      (AKLT.Defs.patternNext (π i) (m i)))))
+def AKLT.Blueprint.Rec.CoveredRatioStatementV2 : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (a : AKLT.Blueprint.Rec.Departure),
+    @Eq.{1} AKLT.Defs.Status (@AKLT.Defs.Network.status a.G a.D a.y) AKLT.Defs.Status.U →
+      ∀ (incoming outgoing : AKLT.Defs.Compass),
+        @Eq.{1} AKLT.Defs.Plane a.o
+            (@HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+              (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) a.y
+              outgoing.step) →
+          @AKLT.Defs.CoveredDepartureV2 a.G a.D a.y incoming outgoing →
+            @LE.le.{0} Real Real.instLE (@AKLT.Defs.stepRatio a.G a.D a.τ true a.y a.o)
+              (@Rat.cast.{0} Real Real.instRatCast
+                (AKLT.Defs.passageFactor
+                  (@decide (@Eq.{1} AKLT.Defs.Compass outgoing incoming)
+                    (AKLT.Defs.instDecidableEqCompass outgoing incoming))))
+def AKLT.Blueprint.Rec.CoveredIntegratedLowerStatementV2 : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (a : AKLT.Blueprint.Rec.Departure),
+    @Eq.{1} AKLT.Defs.Status (@AKLT.Defs.Network.status a.G a.D a.y) AKLT.Defs.Status.U →
+      ∀ (incoming outgoing : AKLT.Defs.Compass),
+        @Eq.{1} AKLT.Defs.Plane a.o
+            (@HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+              (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) a.y
+              outgoing.step) →
+          @AKLT.Defs.CoveredDepartureV2 a.G a.D a.y incoming outgoing →
+            have c :=
+              @Rat.cast.{0} Real Real.instRatCast
+                (AKLT.Defs.localThreshold
+                  (@decide (@Eq.{1} AKLT.Defs.Compass outgoing incoming)
+                    (AKLT.Defs.instDecidableEqCompass outgoing incoming)));
+            And
+              (∀ (f : AKLT.Defs.Plane),
+                @Eq.{1} (Finset.{0} AKLT.Defs.Plane) (@AKLT.Defs.Network.presentNeighbours a.G a.D a.y)
+                    (@insert.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                      (@Finset.instInsert.{0} AKLT.Defs.Plane fun a b =>
+                        @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                      a.o
+                      (@singleton.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                        (@Finset.instSingleton.{0} AKLT.Defs.Plane) f)) →
+                  @Ne.{1} AKLT.Defs.Plane a.o f →
+                    @LE.le.{0} Real Real.instLE c (@AKLT.Blueprint.Rec.responseI₂ a.G a.D a.τ true a.y a.o f))
+              (∀ (f g : AKLT.Defs.Plane),
+                @Eq.{1} (Finset.{0} AKLT.Defs.Plane) (@AKLT.Defs.Network.presentNeighbours a.G a.D a.y)
+                    (@insert.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                      (@Finset.instInsert.{0} AKLT.Defs.Plane fun a b =>
+                        @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                      a.o
+                      (@insert.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                        (@Finset.instInsert.{0} AKLT.Defs.Plane fun a b =>
+                          @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                        f
+                        (@singleton.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                          (@Finset.instSingleton.{0} AKLT.Defs.Plane) g))) →
+                  @Ne.{1} AKLT.Defs.Plane a.o f →
+                    @Ne.{1} AKLT.Defs.Plane a.o g →
+                      @Ne.{1} AKLT.Defs.Plane f g →
+                        @LE.le.{0} Real Real.instLE
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) c
+                            (@AKLT.Defs.responseJ a.G a.D a.τ true a.y f g))
+                          (@AKLT.Defs.responseI a.G a.D a.τ true a.y a.o f g))
+def AKLT.Blueprint.Rec.LegacyCoverComparisonStatementV2 : Prop :=
+∀ (G : Finset.{0} AKLT.Defs.Plane) (D : AKLT.Defs.Network G),
+  @AKLT.Defs.Network.Auxiliary G D →
+    ∀ (y : AKLT.Defs.Plane) (incoming outgoing : AKLT.Defs.Compass),
+      @AKLT.Blueprint.Rec.CoveredDepartureV2 G D y incoming outgoing →
+        @AKLT.Defs.CoveredDepartureV2 G D y incoming outgoing
+def AKLT.Blueprint.Rec.BoundaryExampleCoveredStatementV2 : Prop :=
+@AKLT.Defs.CoveredDepartureV2 AKLT.Blueprint.Rec.boundaryExampleG
+  (@AKLT.Blueprint.Rec.normalizeStart AKLT.Blueprint.Rec.boundaryExampleG AKLT.Blueprint.Rec.boundaryExampleD
+    (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+      (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+    (@Prod.mk.{0, 0} Int Int
+      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+      (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))))
+  (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+    (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+  AKLT.Defs.Compass.east AKLT.Defs.Compass.east
+def AKLT.Blueprint.Rec.OnePointPointwiseStatementV2 : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (G : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+    @AKLT.Defs.Network.Auxiliary G D →
+      ∀ (u : AKLT.Defs.Plane),
+        @AKLT.Defs.Network.AdmissibleStart G D u →
+          ∀ (incoming : AKLT.Defs.Compass),
+            Not
+                (@AKLT.Defs.Network.Present G D
+                  (@HSub.hSub.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+                    (@instHSub.{0} AKLT.Defs.Plane (@Prod.instSub.{0, 0} Int Int Int.instSub Int.instSub)) u
+                    incoming.step)
+                  u) →
+              ∀ (n : Nat) (w : AKLT.Defs.DirectionWord n),
+                @AKLT.Defs.StoppedNetworkTrail G n D u (AKLT.Defs.protectedSites G) w →
+                  @LE.le.{0} Nat instLENat (@AKLT.Blueprint.Rec.uncoveredCountV2 G n D u incoming w)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 12) (instOfNatNat (nat_lit 12))) →
+                    @LE.le.{0} Real Real.instLE
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@Rat.cast.{0} Real Real.instRatCast
+                          (@AKLT.Defs.traceCoefficient G D (@AKLT.Defs.wordVertices n u w)))
+                        (@max.{0} Real Real.instMax (@AKLT.Defs.traceRatio G D τ true (@AKLT.Defs.wordVertices n u w))
+                          (@AKLT.Defs.traceRatio G D τ false (@AKLT.Defs.wordVertices n u w))))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        AKLT.Blueprint.Rec.exceptionFactor
+                        (@Rat.cast.{0} Real Real.instRatCast (@AKLT.Defs.trailWeight n u incoming w)))
+def AKLT.Blueprint.Rec.OnePointSumStatementV2 : Prop :=
+AKLT.Blueprint.Top.H1Statement →
+  ∀ (CV q : Real),
+    AKLT.Defs.OpenTrailBound CV q →
+      ∀ (G : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G) (D : AKLT.Defs.Network G),
+        @AKLT.Defs.Network.Auxiliary G D →
+          ∀ (u : AKLT.Defs.Plane),
+            @AKLT.Defs.Network.AdmissibleStart G D u →
+              ∀ (incoming : AKLT.Defs.Compass),
+                Not
+                    (@AKLT.Defs.Network.Present G D
+                      (@HSub.hSub.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+                        (@instHSub.{0} AKLT.Defs.Plane (@Prod.instSub.{0, 0} Int Int Int.instSub Int.instSub)) u
+                        incoming.step)
+                      u) →
+                  (∀ (n : Nat) (w : AKLT.Defs.DirectionWord n),
+                      @AKLT.Defs.StoppedNetworkTrail G n D u (AKLT.Defs.protectedSites G) w →
+                        @LE.le.{0} Nat instLENat (@AKLT.Blueprint.Rec.uncoveredCountV2 G n D u incoming w)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 12) (instOfNatNat (nat_lit 12)))) →
+                    @LE.le.{0} Real Real.instLE (@AKLT.Blueprint.Rec.onePointSum G D τ u)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (AKLT.Blueprint.Rec.onePointConstant CV q)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) q
+                          (AKLT.Blueprint.Rec.protectedDistance G u)))
+def AKLT.Blueprint.Rec.CoveredClosureStatementV2 : Prop :=
+∀ (p : AKLT.Blueprint.Rec.PairSetup) (T : Finset.{0} AKLT.Defs.Plane) (n : Nat) (w : AKLT.Defs.DirectionWord n),
+  @AKLT.Defs.StoppedNetworkTrail p.G n p.normalized p.u T w →
+    ∀ (i : Fin n),
+      @Eq.{1} AKLT.Defs.Status
+          (@AKLT.Defs.Network.status p.G (@AKLT.Blueprint.Rec.prefixNetwork p.G n p.normalized p.u w (@Fin.val n i))
+            (@AKLT.Defs.wordVertex n p.u w (@Fin.val n i)))
+          AKLT.Defs.Status.U →
+        @AKLT.Defs.CoveredDepartureV2 p.G (@AKLT.Blueprint.Rec.prefixNetwork p.G n p.normalized p.u w (@Fin.val n i))
+          (@AKLT.Defs.wordVertex n p.u w (@Fin.val n i)) (@AKLT.Defs.wordIncoming n p.incoming w i) (w i)
+structure AKLT.Blueprint.Rec.Departure : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.Departure.G : Finset.{0} AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.Departure.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.Departure.y : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.o : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.Departure.auxiliary : @AKLT.Defs.Network.Auxiliary self.G self.D
+  AKLT.Blueprint.Rec.Departure.start : @AKLT.Defs.Network.AdmissibleStart self.G self.D self.y
+  AKLT.Blueprint.Rec.Departure.present : @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+      (@AKLT.Defs.Network.presentNeighbours self.G self.D self.y) self.o
+constructor:
+  AKLT.Blueprint.Rec.Departure.mk (G : Finset.{0} AKLT.Defs.Plane) (τ : AKLT.Defs.PinAssignment G)
+    (D : AKLT.Defs.Network G) (y o : AKLT.Defs.Plane) (auxiliary : @AKLT.Defs.Network.Auxiliary G D)
+    (start : @AKLT.Defs.Network.AdmissibleStart G D y)
+    (present :
+      @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+        (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+          (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+        (@AKLT.Defs.Network.presentNeighbours G D y) o) :
+    AKLT.Blueprint.Rec.Departure
+structure AKLT.Blueprint.Rec.PairSetup : Type
+number of parameters: 0
+parents:
+  AKLT.Blueprint.Rec.PairSetup.toPairData : AKLT.Blueprint.Rec.PairData
+fields:
+  AKLT.Blueprint.Rec.PairData.G : Finset.{0} AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.τ : AKLT.Defs.PinAssignment self.G
+  AKLT.Blueprint.Rec.PairData.D : AKLT.Defs.Network self.G
+  AKLT.Blueprint.Rec.PairData.X : AKLT.Defs.PairType
+  AKLT.Blueprint.Rec.PairData.u : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.v : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.c : AKLT.Defs.Plane
+  AKLT.Blueprint.Rec.PairData.pair : @AKLT.Defs.Network.ResponsePair self.G self.D self.X self.u self.v self.c
+  AKLT.Blueprint.Rec.PairSetup.incoming : AKLT.Defs.Compass
+  AKLT.Blueprint.Rec.PairSetup.incoming_eq : @Eq.{1} AKLT.Defs.Plane self.u
+      (@HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+        (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) self.c
+        self.incoming.step)
+  AKLT.Blueprint.Rec.PairSetup.interior : self.u ∉ AKLT.Defs.protectedSites self.G
+constructor:
+  AKLT.Blueprint.Rec.PairSetup.mk (toPairData : AKLT.Blueprint.Rec.PairData) (incoming : AKLT.Defs.Compass)
+    (incoming_eq :
+      @Eq.{1} AKLT.Defs.Plane toPairData.u
+        (@HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+          (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) toPairData.c
+          incoming.step))
+    (interior : toPairData.u ∉ AKLT.Defs.protectedSites toPairData.G) : AKLT.Blueprint.Rec.PairSetup
+field notation resolution order:
+  AKLT.Blueprint.Rec.PairSetup, AKLT.Blueprint.Rec.PairData
+def AKLT.Defs.CoveredDepartureV2 : {G : Finset.{0} AKLT.Defs.Plane} →
+  AKLT.Defs.Network G → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.Compass → Prop :=
+fun {G} D y incoming outgoing =>
+  have chart := fun z =>
+    @HAdd.hAdd.{0, 0, 0} AKLT.Defs.Plane AKLT.Defs.Plane AKLT.Defs.Plane
+      (@instHAdd.{0} AKLT.Defs.Plane (@Prod.instAdd.{0, 0} Int Int Int.instAdd Int.instAdd)) y
+      (AKLT.Defs.normalizeRotation incoming z);
+  ∃ π,
+    And π.Covered
+      (And (@Eq.{1} AKLT.Defs.Plane (AKLT.Defs.normalizeRotation incoming π.outgoing.step) outgoing.step)
+        (And
+          (∀ (z : AKLT.Defs.Plane),
+            @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                  (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                (@sdiff.{0} (Finset.{0} AKLT.Defs.Plane)
+                  (@Finset.instSDiff.{0} AKLT.Defs.Plane fun a b =>
+                    @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                  AKLT.Defs.templateSites AKLT.Defs.templateTips)
+                z →
+              @Eq.{1} AKLT.Defs.Status (π.statusAt z) (@AKLT.Defs.Network.status G D (chart z)))
+          (∀ (z : AKLT.Defs.Plane),
+            @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                  (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                (@sdiff.{0} (Finset.{0} AKLT.Defs.Plane)
+                  (@Finset.instSDiff.{0} AKLT.Defs.Plane fun a b =>
+                    @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                  AKLT.Defs.templateSites AKLT.Defs.templateTips)
+                z →
+              ∀ (t : AKLT.Defs.Plane),
+                @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                      (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                    AKLT.Defs.templateSites t →
+                  @ite.{1} Prop
+                    (@Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                      AKLT.Defs.templateTips t)
+                    (@Finset.decidableMem.{0} AKLT.Defs.Plane
+                      (fun a b => @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b) t
+                      AKLT.Defs.templateTips)
+                    (@AKLT.Defs.Network.Present G D (chart z) (chart t) → π.InternalPresent z t)
+                    (Iff (π.InternalPresent z t) (@AKLT.Defs.Network.Present G D (chart z) (chart t))))))
+def AKLT.Defs.PatternData.Covered : AKLT.Defs.PatternData → Prop :=
+fun π =>
+  And (@Ne.{1} AKLT.Defs.Compass π.outgoing AKLT.Defs.Compass.south)
+    (And
+      (@Eq.{1} AKLT.Defs.Status
+        (π.statusAt
+          (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+            (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))))
+        AKLT.Defs.Status.U)
+      (And
+        (@Eq.{1} (Finset.{0} AKLT.Defs.Plane)
+          (π.keptAt
+            (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+              (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))))
+          (@insert.{0, 0} (Prod.{0, 0} Int Int) (Finset.{0} AKLT.Defs.Plane)
+            (@Finset.instInsert.{0} AKLT.Defs.Plane fun a b =>
+              @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+            (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))
+              (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))
+            (@insert.{0, 0} (Prod.{0, 0} Int Int) (Finset.{0} AKLT.Defs.Plane)
+              (@Finset.instInsert.{0} AKLT.Defs.Plane fun a b =>
+                @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+              (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+              (@singleton.{0, 0} (Prod.{0, 0} Int Int) (Finset.{0} AKLT.Defs.Plane)
+                (@Finset.instSingleton.{0} AKLT.Defs.Plane)
+                (@Prod.mk.{0, 0} Int Int
+                  (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+                  (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))))))))
+        (And
+          (Or
+            (@Eq.{1} AKLT.Defs.Status
+              (π.statusAt
+                (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                  (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))))
+              AKLT.Defs.Status.X)
+            (And
+              (@Eq.{1} AKLT.Defs.Status
+                (π.statusAt
+                  (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                    (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))))
+                AKLT.Defs.Status.D)
+              (And
+                (@Eq.{1} Nat
+                  (@Finset.card.{0} AKLT.Defs.Plane
+                    (π.keptAt
+                      (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                        (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                    (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0))) ∉
+                  π.keptAt
+                    (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                      (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))))))
+          (And
+            (∀ (d : AKLT.Defs.Compass),
+              @Membership.mem.{0, 0} AKLT.Defs.Compass (Finset.{0} AKLT.Defs.Compass)
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Compass) AKLT.Defs.Compass
+                    (@Finset.instSetLike.{0} AKLT.Defs.Compass))
+                  (@insert.{0, 0} AKLT.Defs.Compass (Finset.{0} AKLT.Defs.Compass)
+                    (@Finset.instInsert.{0} AKLT.Defs.Compass AKLT.Defs.instDecidableEqCompass) AKLT.Defs.Compass.east
+                    (@insert.{0, 0} AKLT.Defs.Compass (Finset.{0} AKLT.Defs.Compass)
+                      (@Finset.instInsert.{0} AKLT.Defs.Compass AKLT.Defs.instDecidableEqCompass)
+                      AKLT.Defs.Compass.north
+                      (@singleton.{0, 0} AKLT.Defs.Compass (Finset.{0} AKLT.Defs.Compass)
+                        (@Finset.instSingleton.{0} AKLT.Defs.Compass) AKLT.Defs.Compass.west)))
+                  d →
+                Or (@Eq.{1} AKLT.Defs.Status (π.statusAt d.step) AKLT.Defs.Status.U)
+                  (Or (@Eq.{1} AKLT.Defs.Status (π.statusAt d.step) AKLT.Defs.Status.X)
+                    (And (@Eq.{1} AKLT.Defs.Status (π.statusAt d.step) AKLT.Defs.Status.D)
+                      (And
+                        (@Eq.{1} Nat (@Finset.card.{0} AKLT.Defs.Plane (π.keptAt d.step))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Membership.mem.{0, 0} (Prod.{0, 0} Int Int) (Finset.{0} AKLT.Defs.Plane)
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                            (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                          (π.keptAt d.step)
+                          (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                            (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))))))))
+            (And (@Ne.{1} AKLT.Defs.Status (π.statusAt π.outgoing.step) AKLT.Defs.Status.X)
+              (And
+                (∀ (x : AKLT.Defs.Plane),
+                  @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                      AKLT.Defs.templateCorners x →
+                    Or (@Eq.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.U)
+                      (Or (@Eq.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.X)
+                        (And (@Eq.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.D)
+                          (@Eq.{1} Nat (@Finset.card.{0} AKLT.Defs.Plane (π.keptAt x))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+                (And
+                  (∀ (x : AKLT.Defs.Plane),
+                    @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                          (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                        AKLT.Defs.templateSites x →
+                      @Ne.{1} AKLT.Defs.Plane x
+                          (@Prod.mk.{0, 0} Int Int (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))
+                            (@OfNat.ofNat.{0} Int (nat_lit 0) (@instOfNat (nat_lit 0)))) →
+                        x ∉ AKLT.Defs.templateTips →
+                          @Eq.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.U →
+                            @Eq.{1} (Finset.{0} AKLT.Defs.Plane) (π.keptAt x) (AKLT.Defs.neighbours x))
+                  (And
+                    (∀ (x : AKLT.Defs.Plane),
+                      @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                            (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                          AKLT.Defs.templateTips x →
+                        @Eq.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.U)
+                    (∀ (x : AKLT.Defs.Plane),
+                      @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                            (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                          (@sdiff.{0} (Finset.{0} AKLT.Defs.Plane)
+                            (@Finset.instSDiff.{0} AKLT.Defs.Plane fun a b =>
+                              @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                            AKLT.Defs.templateSites AKLT.Defs.templateTips)
+                          x →
+                        ∀ (y : AKLT.Defs.Plane),
+                          @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                                (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                              (@sdiff.{0} (Finset.{0} AKLT.Defs.Plane)
+                                (@Finset.instSDiff.{0} AKLT.Defs.Plane fun a b =>
+                                  @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+                                AKLT.Defs.templateSites AKLT.Defs.templateTips)
+                              y →
+                            @Ne.{1} AKLT.Defs.Status (π.statusAt x) AKLT.Defs.Status.X →
+                              @Ne.{1} AKLT.Defs.Status (π.statusAt y) AKLT.Defs.Status.X →
+                                AKLT.Defs.Adjacent x y →
+                                  Iff
+                                    (@Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                                        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                                      (π.keptAt x) y)
+                                    (@Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                                        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+                                      (π.keptAt y) x))))))))))
+def AKLT.Blueprint.Rec.uncoveredCountV2 : {G : Finset.{0} AKLT.Defs.Plane} →
+  {n : Nat} → AKLT.Defs.Network G → AKLT.Defs.Plane → AKLT.Defs.Compass → AKLT.Defs.DirectionWord n → Nat :=
+fun {G} {n} D u incoming w =>
+  @Finset.card.{0} (Fin n)
+    {i |
+      And
+        (@Eq.{1} AKLT.Defs.Status
+          (@AKLT.Defs.Network.status G (@AKLT.Blueprint.Rec.prefixNetwork G n D u w (@Fin.val n i))
+            (@AKLT.Defs.wordVertex n u w (@Fin.val n i)))
+          AKLT.Defs.Status.U)
+        (Not
+          (@AKLT.Defs.CoveredDepartureV2 G (@AKLT.Blueprint.Rec.prefixNetwork G n D u w (@Fin.val n i))
+            (@AKLT.Defs.wordVertex n u w (@Fin.val n i)) (@AKLT.Defs.wordIncoming n incoming w i) (w i)))}

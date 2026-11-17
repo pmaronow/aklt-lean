@@ -1,0 +1,30 @@
+{
+  "geometry": {
+    "M_range": [
+      1,
+      5
+    ],
+    "periods": "independently from 2*M+3 through 2*M+7",
+    "parameter_triples": 125,
+    "site_count_checks": 16125,
+    "cases_with_a_minimal_period": 45,
+    "passed": true
+  },
+  "cycle_colours": {
+    "period_range": [
+      3,
+      500
+    ],
+    "edge_checks": 125247,
+    "passed": true
+  },
+  "torus_colours": {
+    "period_range": [
+      3,
+      30
+    ],
+    "edge_checks": 426888,
+    "passed": true
+  },
+  "meaning": "Finite sanity checks of the definitions, not Lean proofs or a substitute for the general arguments."
+}

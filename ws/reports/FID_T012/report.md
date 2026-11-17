@@ -1,0 +1,36 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: rawClass_25 PASS
+
+`AKLT/Defs/Automaton10Data.lean:65` is auxiliary packed data for the supplied map of `p:automaton10`, rather than an independent paper definition. In the actual shift/add assembly at line 1551, its 16,384 bits occupy positions 12,156,924–12,173,307 (inclusive, counting from the least significant bit). They intersect the 12-bit entries for word codes 1,013,077–1,014,442. Every such entry is exactly `0xe9d = 3741`, the invalid-word marker. Every decoded word begins S,S,N and therefore repeats an unoriented bond, so none belongs to the paper's domain. This agrees with `app-input-contracts.tex:24`–`34` (`d:memory-automaton`) and the supplied-map domain and coding contract at `app-input-contracts.tex:367`–`405`. The natural-number, lane, domain, and boundary semantics checked below apply; no valid class assignment is altered.
+
+DECL: rawClass_26 PASS
+
+`AKLT/Defs/Automaton10Data.lean:67` supplies bits 12,140,540–12,156,923, intersecting word codes 1,011,711–1,013,076. All intersecting entries are exactly 3741, including the entry whose upper four bits come from this chunk at its lower boundary. All these words begin S,S,N and fail the distinct-unoriented-bond requirement of `app-input-contracts.tex:24`–`34`. Thus this auxiliary chunk correctly fills positions outside the map domain in `app-input-contracts.tex:367`–`405`. Exact natural arithmetic and the 12-bit extraction checked below introduce no overflow, extra class, or valid-word exclusion.
+
+DECL: rawClass_27 PASS
+
+`AKLT/Defs/Automaton10Data.lean:69` supplies bits 12,124,156–12,140,539, intersecting word codes 1,010,346–1,011,711. All entries are 3741. Both ends split entries; checking the complete assembled entries and every bit contributed by this literal confirms the correct alignment. Every decoded word begins S,S,N and repeats the second bond on its third step. These words are excluded by `d:memory-automaton`, `app-input-contracts.tex:24`–`34`, and correctly receive no class in the supplied-map contract, `app-input-contracts.tex:367`–`405`. The Mathlib meanings described below preserve that domain exactly.
+
+DECL: rawClass_28 PASS
+
+`AKLT/Defs/Automaton10Data.lean:71` supplies bits 12,107,772–12,124,155, intersecting word codes 1,008,981–1,010,346. All entries are 3741, including the partly stored entry at its upper boundary. Every affected word begins S,S,N, so its unoriented bonds are not distinct. The literal therefore represents only out-of-domain filler for the map in `app-input-contracts.tex:367`–`405`, consistently with `app-input-contracts.tex:24`–`34`. Although its literal equals `rawClass_25`, the different shift places it at these different codes; neither duplication nor a class identification follows. Exact natural arithmetic and lane extraction were checked as below.
+
+DECL: rawClass_29 PASS
+
+`AKLT/Defs/Automaton10Data.lean:73` supplies bits 12,091,388–12,107,771, intersecting word codes 1,007,615–1,008,980. All entries are 3741, including the split lower-boundary entry. Every affected word begins S,S,N and hence violates precisely the distinct-unoriented-bond condition at `app-input-contracts.tex:24`–`34`. This auxiliary literal correctly fills positions outside the supplied map's domain at `app-input-contracts.tex:367`–`405`; it neither assigns a new class nor removes a raw window. Its equality with `rawClass_26` is harmless because its placement differs. Natural arithmetic and the boundary semantics were checked as below.
+
+Shared semantic checks and evidence
+
+- Read the complete data file, processing all literal bytes and the complete assembly expression, and the complete imported AKLT context: `Automaton`, `Kernel`, `Trails`, `Domain`, `PinModel`, `Moment`, and `Geometry`. Examined the consuming `Automaton10StatementV2` in `AKLT/Blueprint/Top/ComputationV2.lean:13`–`26`.
+- The declarations are exact hexadecimal literals of type `ℕ`; `noncomputable` and `private` change neither their values nor their mathematical domain. Natural addition and left shift are unbounded. The meaning `n <<< k = n * 2^k` is used in Mathlib's `Mathlib/Data/Nat/Bits.lean:123`–`128` and `Mathlib/Data/Nat/Bitwise.lean:355`–`356`. Parsing the actual assembly confirmed that it equals concatenation of all 768 literal chunks, without overlap or carries. The final chunk has 4,095 hex digits; the resulting four-bit offset was included in every position above.
+- `lane packed width index` (`Automaton10Data.lean:1596`) uses natural quotient and remainder, extracting `(packed / 2^(width*index)) % 2^width`. For these entries `width = 12`; both divisors are strictly positive. The marker is 3741, below `2^12 = 4096`, and outside `Fin 3741`, whose values are 0–3740. No signed interpretation, finite-word truncation, or division by zero is involved.
+- `encodeWord` and `decodeWord` (`Automaton10Data.lean:1598`–`1609`) use E,N,W,S = 0,1,2,3, most significant direction first, exactly as `app-input-contracts.tex:377`–`388` and `:219` specify. For `i : Fin 10`, `10 - 1 - i.val = 9 - i.val` is the intended nonnegative exponent; natural subtraction does not truncate an intended negative exponent. All affected codes are below `4^10`.
+- The union of the affected code intervals is 1,007,615–1,014,442 (6,828 distinct words), contained in the S,S,N prefix block 999,424–1,015,807. Its first four vertices are `(0,0)`, `(0,-1)`, `(0,-2)`, `(0,-1)`. Consequently bonds at zero-based indices 1 and 2 coincide. Lean uses `DirectionWord 10 = Fin 10 → Compass`, `Plane = ℤ × ℤ`, and `wordBond` as a two-element `Finset` (`Trails.lean:24`–`32`). Such a pair is unordered: Mathlib's `Finset.pair_comm`, `Mathlib/Data/Finset/Insert.lean:419`, equates `{a,b}` and `{b,a}`. Thus `Function.Injective (wordBond (0,0) w)` is false, exactly as required by `RawWindow` (`Automaton.lean:9`–`10`) and the paper. There is no virtual incoming bond or spatial quotient in this test.
+- The paper supplies a map only on raw windows. Filler for other direction words has no direct paper counterpart and is a legitimate totalization. `supplied.project` reduces the marker modulo 3741 to class 0 (`Automaton10Data.lean:1624`), while `MemoryQuotient.Correct` restricts word obligations to `RawWindow` (`Automaton.lean:78`–`84`). Independently, `Automaton10StatementV2` explicitly checks that the stored value is at most 3741 and is below 3741 exactly for raw windows. Each reviewed chunk meets those checks on every entry it affects. No hypothesis, quantifier, finiteness instance, or side condition in these five literals can make the intended raw-window check vacuous.
+- Ran `python3 audit_chunks.py`: checked every contributed bit against the expected marker, every intersecting complete lane including neighboring boundary fragments, and the repeated unoriented bond in all 6,828 affected words. All assertions passed. No Lean process was needed; inputs were not modified.
+
+Non-blocking remarks
+
+These five constants have no separate mathematical labels in the paper; their relevant counterpart is the supplied-map contract `p:automaton10`. Their correctness here follows from their entirely invalid-word support and does not require reconstructing the archive's class numbers on valid words. This review makes no correctness claim about the other data declarations or the complete quotient.

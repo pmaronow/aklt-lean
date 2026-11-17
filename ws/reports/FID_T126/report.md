@@ -1,0 +1,43 @@
+STATUS: PASS
+BLOCKING: 0
+
+DECL: rawClass_595 PASS
+
+This is an auxiliary packed-data constant at `AKLT/Defs/Automaton10Data.lean:1205`, implementing part of the supplied map in `paper/app-input-contracts.tex:367` (`p:automaton10`). The relevant paper contracts are the raw-window definition at `paper/app-input-contracts.tex:21`, the most-significant-first encoding at `paper/app-input-contracts.tex:376`, and map coverage and regeneration at `paper/app-input-contracts.tex:402` and `:408`.
+
+The constant is an exact natural-number numeral, not quotient class number 595. In the actual packing expression at `Automaton10Data.lean:1551`, it occupies bits 2,818,044–2,834,427, touching word codes 234837–236202. Independently generating paths with distinct unoriented bonds finds 214 raw windows and 1152 invalid words in that interval. Their assembled lanes give valid class numbers for exactly the raw windows and marker 3741 for exactly the invalid words. Every raw window agrees with its representative's admissibility and kind, its stored successor class, and its final direction whenever an admitted transition is non-revisit. For example, code 234837 decodes to ESWNNNNNNN and maps to class 115.
+
+Mathlib meaning checked: the type is arbitrary-precision `ℕ`; natural left shift multiplies by a power of two (`Mathlib/Data/Nat/Size.lean:18`). The consumer uses natural division and remainder to extract 12-bit lanes, not signed or machine-word arithmetic. This chunk begins on a lane boundary and ends inside a lane; the check includes the neighboring chunk's contribution. No discrepancy.
+
+DECL: rawClass_596 PASS
+
+This auxiliary constant at `AKLT/Defs/Automaton10Data.lean:1207` implements the same supplied map: `paper/app-input-contracts.tex:367`, with encoding at `:376`, coverage at `:402`, and regeneration at `:408`. Its actual contribution is bits 2,801,660–2,818,043, touching codes 233471–234836. Independent generation gives 95 raw windows and 1271 invalid words. The class lanes satisfy the coverage, representative, admissibility, kind, successor, and applicable final-direction checks. For example, code 234496 is ESWNNEEEEE and maps to class 0.
+
+Mathlib meaning checked: this is an exact `ℕ` literal; its leading hexadecimal zero has no numerical effect. Left shift is multiplication by `2^n` (`Mathlib/Data/Nat/Size.lean:18`), and `lane` is natural quotient followed by remainder modulo 4096. The chunk starts eight bits into a 12-bit lane; neither boundary was treated as a separate whole class entry. Its smaller numerical bit length does not change its allocated 16384-bit packing width. No discrepancy.
+
+DECL: rawClass_597 PASS
+
+This auxiliary constant at `AKLT/Defs/Automaton10Data.lean:1209` supplies bits 2,785,276–2,801,659, touching codes 232106–233471. Its paper counterpart is the coverage portion of the supplied map, `paper/app-input-contracts.tex:367` and `:402`, on the domain defined at `paper/app-input-contracts.tex:21`. Independently checking all 1366 touched codes finds no raw windows. All corresponding assembled lanes are exactly 3741, the out-of-domain marker. Thus the repeated hexadecimal pattern represents the correct exclusion of invalid words; it does not discard any window in the paper's domain.
+
+Mathlib meaning checked: the value is a natural numeral, not a negative sentinel or an extra element of `Fin 3741`. Natural shifts and addition place its bits exactly; natural division/remainder extract the lanes (`Mathlib/Data/Nat/Size.lean:18`; `Automaton10Data.lean:1596`). It begins four bits into a lane, and the checks include both boundary lanes. The later `% 3741` is used only as a totalization outside the raw domain for these entries. No discrepancy.
+
+DECL: rawClass_598 PASS
+
+This auxiliary constant at `AKLT/Defs/Automaton10Data.lean:1211` supplies bits 2,768,892–2,785,275, touching codes 230741–232106. The relevant paper locations are `paper/app-input-contracts.tex:21`, `:367`, and `:402`. All 1366 touched codes independently fail the distinct-unoriented-bond condition, and all assembled lanes are marker 3741. This is precisely the intended extension of a map defined only on raw windows.
+
+Mathlib meaning checked: the repeated hexadecimal digits denote one exact `ℕ`; they are not interpreted as a list, signed integer, or class identifier. The natural shift identity in `Mathlib/Data/Nat/Size.lean:18` and the positive-divisor natural division/remainder in `lane` give the intended packing. This chunk starts on a lane boundary and ends inside one; the adjacent contribution was checked. No discrepancy.
+
+DECL: rawClass_599 PASS
+
+This auxiliary constant at `AKLT/Defs/Automaton10Data.lean:1213` supplies bits 2,752,508–2,768,891, touching codes 229375–230740. The paper domain and map contract are `paper/app-input-contracts.tex:21`, `:367`, and `:402`. All 1366 touched codes are invalid windows under independent bond enumeration, and every assembled lane equals marker 3741. There is no lost raw state or unintended extra quotient class.
+
+Mathlib meaning checked: this is an exact natural numeral with a 16384-bit allocation. Natural shifts mean multiplication by powers of two (`Mathlib/Data/Nat/Size.lean:18`); `lane` uses natural division followed by remainder modulo 4096. It starts eight bits into a lane, so the check includes adjoining fragments rather than incorrectly splitting the numeral into independent three-digit groups. No discrepancy.
+
+Non-blocking remarks:
+
+- Context read: the complete data file, including all literal and packing expressions, and its AKLT import chain `Automaton → Kernel → Trails → Domain → PinModel → Moment → Geometry`; also the consuming `Automaton10StatementV2` in `AKLT/Blueprint/Top/ComputationV2.lean:13`. The five declarations are private closed data definitions, with no hypotheses or quantifier order of their own. They are used through the designated supplied quotient, rather than an unrelated existential quotient.
+- The underlying notions have the paper's meanings. `DirectionWord 10` is `Fin 10 → Compass`; the four compass values are the absolute steps E,N,W,S in `ℤ × ℤ`. `wordBond` is a `Finset` of its two endpoints, so bond equality is unoriented; injectivity forbids repeated bonds, while allowing repeated vertices. Finset membership has ordinary set semantics (`Mathlib/Data/Finset/Insert.lean:74` and `:365`). At departure 10, `departureCount` counts exactly vertices 0 through 9: positivity means an earlier departure, not merely arrival (`Mathlib/Data/Finset/Card.lean:78`). These agree with `paper/app-input-contracts.tex:24`–`:34`.
+- The finite instances enumerate the actual predicate subtype of raw words. No stored list or additional assumption replaces that domain. Most-significant-first encoding uses `10 - 1 - i.val`, which is genuine subtraction for `i : Fin 10`; decoding inverts it. `List.finRange` includes each index once (`Mathlib/Data/List/FinRange.lean:28`). Memory zero and indices beyond the word do not occur in the reviewed data's use.
+- All packing operations were evaluated with exact integers. Every binary operation in the four aggregate expressions is explicitly parenthesized, and every chunk fits its allocated width, so addition creates no overlap or carry. Every lane divisor is a positive power of two; word decoding divides by positive powers of four. The projection modulo 3741 is the identity on every raw word's class, because all such classes are below 3741. The successor's natural subtraction by one is used on admitted edges only when its stored destination is positive. Zero destinations and kind 3 consistently encode the paper's inadmissible `-1` entries (`paper/app-input-contracts.tex:385`–`:388`).
+- The reproducible independent Python check is `check_data.py`, with results in `check_results.json`. It checked all 1,048,576 code lanes, regenerated exactly 60,092 raw windows, found all 3,741 valid classes and their representatives, and checked all four directions for every raw window. It also compared kinds with representatives on inadmissible directions, as stated in `paper/app-input-contracts.tex:317`. There were zero mismatches. The admitted edge totals are 2516 straight, 5032 turning, and 1872 revisit, matching `paper/app-input-contracts.tex:372`. These whole-table checks provide context for the five verdicts; other declarations are not assigned verdicts here.
+- The archive checksum comment was not used as evidence. The finite reconstruction properties were checked directly from the permitted Lean and paper inputs. This computational audit is not a Lean kernel proof; no Lean processes were launched, and inputs were not modified.

@@ -1,0 +1,28 @@
+theorem AKLT.W.Q038.starFibreSpace._proof_3 : ∀ (n : ℕ) (j : Fin 4) (r : Fin n),
+  AKLT.W.Q038.starRow 0 r ∈ (AKLT.Defs.starCasimir j).eigenspace 20 :=
+fun n j r =>
+  Eq.mpr (id (congrArg (fun _a => _a) (propext Module.End.mem_eigenspace_iff)))
+    (id (of_eq_true (Eq.trans (congr (congrArg Eq (map_zero (AKLT.Defs.starCasimir j))) (smul_zero 20)) (eq_self 0))))
+/home/ubuntu/aklt/reports/FIX_STAR/Inspect.lean:3:7: warning: `AKLT.W.Q038.starFibreSpace._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+theorem AKLT.W.Q038.starFibreSpace._proof_1 : (19 + 1).AtLeastTwo :=
+Nat.instAtLeastTwoHAddOfNat 19
+/home/ubuntu/aklt/reports/FIX_STAR/Inspect.lean:4:7: warning: `AKLT.W.Q038.starFibreSpace._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+theorem AKLT.W.Q038.starFibreSpace._proof_2 : ∀ (n : ℕ) (j : Fin 4) {v w : AKLT.W.Q038.StarChart n},
+  v ∈ {v | ∀ (r : Fin n), AKLT.W.Q038.starRow v r ∈ (AKLT.Defs.starCasimir j).eigenspace 20} →
+    w ∈ {v | ∀ (r : Fin n), AKLT.W.Q038.starRow v r ∈ (AKLT.Defs.starCasimir j).eigenspace 20} →
+      ∀ (r : Fin n), AKLT.W.Q038.starRow v r + AKLT.W.Q038.starRow w r ∈ (AKLT.Defs.starCasimir j).eigenspace 20 :=
+fun n j {v w} hv hw r => Submodule.add_mem ((AKLT.Defs.starCasimir j).eigenspace 20) (hv r) (hw r)
+/home/ubuntu/aklt/reports/FIX_STAR/Inspect.lean:5:7: warning: `AKLT.W.Q038.starFibreSpace._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+theorem AKLT.W.Q038.starFibreSpace._proof_4 : ∀ (n : ℕ) (j : Fin 4) (c : ℂ) {v : AKLT.W.Q038.StarChart n},
+  v ∈ {v | ∀ (r : Fin n), AKLT.W.Q038.starRow v r ∈ (AKLT.Defs.starCasimir j).eigenspace 20} →
+    ∀ (r : Fin n), c • AKLT.W.Q038.starRow v r ∈ (AKLT.Defs.starCasimir j).eigenspace 20 :=
+fun n j c {v} hv r => Submodule.smul_mem ((AKLT.Defs.starCasimir j).eigenspace 20) c (hv r)
+/home/ubuntu/aklt/reports/FIX_STAR/Inspect.lean:6:7: warning: `AKLT.W.Q038.starFibreSpace._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`

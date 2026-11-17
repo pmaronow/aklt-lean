@@ -1,0 +1,218 @@
+{
+  "label": "port-Econlib",
+  "seconds": 2.8046534061431885,
+  "results": {
+    "Econlib.Attributes": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 0.34742188453674316,
+      "errors": [],
+      "warnings": []
+    },
+    "Econlib.Probability.FinDist.Basic": {
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 1.2126188278198242,
+      "errors": [
+        {
+          "caption": "",
+          "data": "Tactic `split_ifs` failed: no if-then-else conditions to split\n\n\u03b1 : Type u_1\ninst\u271d\u00b9 : Fintype \u03b1\ninst\u271d : DecidableEq \u03b1\na b : \u03b1\n\u22a2 b \u2208 {a_1 | 0 < if a = a_1 then 1 else 0} \u2194 b = a",
+          "endPos": {
+            "column": 20,
+            "line": 187
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 2,
+            "line": 187
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "`simp` made no progress",
+          "endPos": {
+            "column": 22,
+            "line": 227
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 4,
+            "line": 227
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Type mismatch\n  add_pos_of_pos_of_nonneg (mul_pos h\u2080 h)\n    (mul_nonneg\n      (le_of_not_gt fun a_1 =>\n        Mathlib.Tactic.Linarith.lt_irrefl\n          (Eq.mp\n            (congrArg (fun _a => _a < 0)\n              (Mathlib.Tactic.Ring.of_eq\n                (Mathlib.Tactic.Ring.Common.add_congr\n                  (Mathlib.Tactic.Ring.Common.sub_congr\n                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))\n                    (Mathlib.Tactic.Ring.Common.atom_pf (d\u2081.pmf a) rfl\n                      (Eq.mpr\n                        (id\n                          (congrArg (fun _a => d\u2081.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 = d\u2081.pmf a ^ Nat.rawCast 1 * _a)\n                            (Eq.symm rfl)))\n                        (Eq.refl (d\u2081.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1))))\n                    (Mathlib.Tactic.Ring.Common.sub_pf\n                      (Mathlib.Tactic.Ring.Common.neg_add\n                        (Mathlib.Tactic.Ring.Common.neg_mul (d\u2081.pmf a) (Nat.rawCast 1)\n                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq\n                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)\n                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw \u211d 1))\n                              (Eq.refl (Int.negOfNat 1)))))\n                        Mathlib.Tactic.Ring.Common.neg_zero)\n                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add\n                        (d\u2081.pmf a ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))\n                  (Mathlib.Tactic.Ring.Common.sub_congr\n                    (Mathlib.Tactic.Ring.Common.atom_pf (d\u2081.1 a) rfl\n                      (Eq.mpr\n                        (id\n                          (congrArg (fun _a => d\u2081.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 = d\u2081.pmf a ^ Nat.rawCast 1 * _a)\n                            (Eq.symm rfl)))\n                        (Eq.refl (d\u2081.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1))))\n                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))\n                    (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero\n                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero (d\u2081.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))\n                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero\n                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (d\u2081.pmf a) (Nat.rawCast 1)\n                      (Mathlib.Meta.NormNum.IsInt.to_isNat\n                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)\n                          (Mathlib.Meta.NormNum.IsInt.of_raw \u211d (Int.negOfNat 1))\n                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw \u211d 1))\n                          (Eq.refl (Int.ofNat 0)))))\n                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))\n                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))))\n            (Mathlib.Tactic.Linarith.add_neg (Mathlib.Tactic.Linarith.sub_neg_of_lt h)\n              (Mathlib.Tactic.Linarith.sub_neg_of_lt a_1))))\n      (d\u2082.nonneg a))\nhas type\n  0 < \u2191t * d\u2081.pmf a + d\u2081.1 a * d\u2082.pmf a\nbut is expected to have type\n  a \u2208 {a | 0 < \u2191t * d\u2081.pmf a + (1 - \u2191t) * d\u2082.pmf a}\n\nNote: The following definitions were not unfolded because their definition is not exposed:\n  Real.instLT \u21a6 2",
+          "endPos": {
+            "column": 48,
+            "line": 230
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 6,
+            "line": 229
+          },
+          "severity": "error"
+        },
+        {
+          "caption": "",
+          "data": "Type mismatch\n  add_pos_of_nonneg_of_pos (mul_nonneg (le_of_lt h\u2080) (d\u2081.nonneg a))\n    (mul_pos\n      (lt_of_not_ge fun a_1 =>\n        Mathlib.Tactic.Linarith.lt_irrefl\n          (Eq.mp\n            (congrArg (fun _a => _a < 0)\n              (Mathlib.Tactic.Ring.of_eq\n                (Mathlib.Tactic.Ring.Common.add_congr\n                  (Mathlib.Tactic.Ring.Common.sub_congr\n                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))\n                    (Mathlib.Tactic.Ring.Common.atom_pf (d\u2082.pmf a) rfl\n                      (Eq.mpr\n                        (id\n                          (congrArg (fun _a => d\u2082.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 = d\u2082.pmf a ^ Nat.rawCast 1 * _a)\n                            (Eq.symm rfl)))\n                        (Eq.refl (d\u2082.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1))))\n                    (Mathlib.Tactic.Ring.Common.sub_pf\n                      (Mathlib.Tactic.Ring.Common.neg_add\n                        (Mathlib.Tactic.Ring.Common.neg_mul (d\u2082.pmf a) (Nat.rawCast 1)\n                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq\n                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)\n                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw \u211d 1))\n                              (Eq.refl (Int.negOfNat 1)))))\n                        Mathlib.Tactic.Ring.Common.neg_zero)\n                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add\n                        (d\u2082.pmf a ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))\n                  (Mathlib.Tactic.Ring.Common.sub_congr\n                    (Mathlib.Tactic.Ring.Common.atom_pf (d\u2082.1 a) rfl\n                      (Eq.mpr\n                        (id\n                          (congrArg (fun _a => d\u2082.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 = d\u2082.pmf a ^ Nat.rawCast 1 * _a)\n                            (Eq.symm rfl)))\n                        (Eq.refl (d\u2082.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1))))\n                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))\n                    (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero\n                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero (d\u2082.pmf a ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))\n                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero\n                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (d\u2082.pmf a) (Nat.rawCast 1)\n                      (Mathlib.Meta.NormNum.IsInt.to_isNat\n                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)\n                          (Mathlib.Meta.NormNum.IsInt.of_raw \u211d (Int.negOfNat 1))\n                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw \u211d 1))\n                          (Eq.refl (Int.ofNat 0)))))\n                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))\n                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat \u211d Nat.cast_zero))))\n            (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le (Mathlib.Tactic.Linarith.sub_neg_of_lt h)\n              (Mathlib.Tactic.Linarith.sub_nonpos_of_le a_1))))\n      h)\nhas type\n  0 < \u2191t * d\u2081.pmf a + d\u2082.1 a * d\u2082.pmf a\nbut is expected to have type\n  a \u2208 {a | 0 < \u2191t * d\u2081.pmf a + (1 - \u2191t) * d\u2082.pmf a}\n\nNote: The following definitions were not unfolded because their definition is not exposed:\n  Real.instLT \u21a6 2",
+          "endPos": {
+            "column": 33,
+            "line": 232
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "[anonymous]",
+          "pos": {
+            "column": 6,
+            "line": 231
+          },
+          "severity": "error"
+        }
+      ],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "\n'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by\n\nimport Mathlib.Basic.Real.Basic\n",
+          "endPos": null,
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.deprecatedModuleExt",
+          "pos": {
+            "column": 0,
+            "line": 14
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "`if_pos` has been deprecated: Use `ite_eq_left` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335p\u0335o\u0335s\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332l\u0332e\u0332f\u0332t\u0332",
+          "endPos": {
+            "column": 26,
+            "line": 125
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.Linter.deprecatedAttr",
+          "pos": {
+            "column": 20,
+            "line": 125
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "`if_neg` has been deprecated: Use `ite_eq_right` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335n\u0335e\u0335g\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332r\u0332i\u0332g\u0332h\u0332t\u0332",
+          "endPos": {
+            "column": 26,
+            "line": 129
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "Lean.Linter.deprecatedAttr",
+          "pos": {
+            "column": 20,
+            "line": 129
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  Finset.mem_filter\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [support, Finset.mem_univ, true_and, Finset.mem_singleton, pure]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 39,
+            "line": 186
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 22,
+            "line": 186
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  Finset.mem_univ\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [support, Finset.mem_filter, true_and, Finset.mem_singleton, pure]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 56,
+            "line": 186
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 41,
+            "line": 186
+          },
+          "severity": "warning"
+        },
+        {
+          "caption": "",
+          "data": "This simp argument is unused:\n  true_and\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [support, Finset.mem_filter, Finset.mem_univ, Finset.mem_singleton, pure]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+          "endPos": {
+            "column": 66,
+            "line": 186
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-Econlib/Econlib/Probability/FinDist/Basic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedSimpArgs",
+          "pos": {
+            "column": 58,
+            "line": 186
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "Econlib.Probability.FinDist.ConditionalOn": {
+      "status": "blocked",
+      "dependencies": [
+        "Econlib.Probability.FinDist.Basic"
+      ]
+    },
+    "Econlib.Probability.FinDist.Expect": {
+      "status": "blocked",
+      "dependencies": [
+        "Econlib.Probability.FinDist.Basic"
+      ]
+    },
+    "Econlib.Probability.FinDist.Map": {
+      "status": "blocked",
+      "dependencies": [
+        "Econlib.Probability.FinDist.Expect"
+      ]
+    },
+    "Econlib.Probability.FinDist.Variance": {
+      "status": "blocked",
+      "dependencies": [
+        "Econlib.Probability.FinDist.Expect",
+        "Econlib.Probability.FinDist.Map"
+      ]
+    }
+  },
+  "error_count": 4,
+  "ok": 1,
+  "failed": 1,
+  "blocked": 4
+}

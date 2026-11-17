@@ -1,0 +1,443 @@
+AKLT.Uniq.basisScale {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N) : ℂ
+
+AKLT.Uniq.basisScale_ne_zero {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N) :
+  AKLT.Uniq.basisScale σ ≠ 0
+
+AKLT.Uniq.siteWeight {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (p : AKLT.Challenge.Site L N × Fin 2) : ℕ
+
+AKLT.Uniq.HasSiteDegrees {L N : AKLT.Challenge.Size} (p : AKLT.Challenge.SpinorPolynomial L N)
+  (d : AKLT.Challenge.Site L N → ℕ) : Prop
+
+AKLT.Uniq.IsPhysical {L N : AKLT.Challenge.Size} (p : AKLT.Challenge.SpinorPolynomial L N) : Prop
+
+AKLT.Uniq.encode {L N : AKLT.Challenge.Size} : AKLT.Challenge.Hilbert L N →ₗ[ℂ] AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.decode {L N : AKLT.Challenge.Size} (p : AKLT.Challenge.SpinorPolynomial L N) : AKLT.Challenge.Hilbert L N
+
+AKLT.Uniq.monomialDegree_apply {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (k : Fin 2) :
+  (AKLT.Challenge.monomialDegree σ) (x, k) = if k = 0 then 4 - ↑(σ x) else ↑(σ x)
+
+AKLT.Uniq.monomialDegree_injective {L N : AKLT.Challenge.Size} : Function.Injective AKLT.Challenge.monomialDegree
+
+AKLT.Uniq.siteWeight_degree {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N × Fin 2 →₀ ℕ)
+  (x : AKLT.Challenge.Site L N) : (Finsupp.weight (AKLT.Uniq.siteWeight x)) d = d (x, 0) + d (x, 1)
+
+AKLT.Uniq.monomialDegree_siteWeight {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) : (Finsupp.weight (AKLT.Uniq.siteWeight x)) (AKLT.Challenge.monomialDegree σ) = 4
+
+AKLT.Uniq.degree_four_exists_configuration {L N : AKLT.Challenge.Size} (d : AKLT.Challenge.Site L N × Fin 2 →₀ ℕ)
+  (hd : ∀ (x : AKLT.Challenge.Site L N), (Finsupp.weight (AKLT.Uniq.siteWeight x)) d = 4) :
+  ∃ σ, AKLT.Challenge.monomialDegree σ = d
+
+AKLT.Uniq.coeff_encode {L N : AKLT.Challenge.Size} (v : AKLT.Challenge.Hilbert L N)
+  (σ : AKLT.Challenge.Configuration L N) :
+  (AKLT.Uniq.encode v).coeff (AKLT.Challenge.monomialDegree σ) = AKLT.Uniq.basisScale σ * v.ofLp σ
+
+AKLT.Uniq.encode_physical {L N : AKLT.Challenge.Size} (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.IsPhysical (AKLT.Uniq.encode v)
+
+AKLT.Uniq.decode_encode {L N : AKLT.Challenge.Size} (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.decode (AKLT.Uniq.encode v) = v
+
+AKLT.Uniq.encode_injective {L N : AKLT.Challenge.Size} : Function.Injective ⇑AKLT.Uniq.encode
+
+AKLT.Uniq.encode_decode {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  (hp : AKLT.Uniq.IsPhysical p) : AKLT.Uniq.encode (AKLT.Uniq.decode p) = p
+
+AKLT.Uniq.PolynomialCoordinatesStatement : Prop
+
+AKLT.Uniq.polynomialCoordinates : AKLT.Uniq.PolynomialCoordinatesStatement
+
+AKLT.Uniq.decode_vbs (L N : AKLT.Challenge.Size) :
+  AKLT.Uniq.decode (AKLT.Challenge.vbsPolynomial L N) = AKLT.Challenge.B L N
+
+AKLT.Uniq.physical_homogeneous {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  (hp : AKLT.Uniq.IsPhysical p) : MvPolynomial.IsHomogeneous p (4 * Fintype.card (AKLT.Challenge.Site L N))
+
+AKLT.Uniq.physical_totalDegree_le {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  (hp : AKLT.Uniq.IsPhysical p) : MvPolynomial.totalDegree p ≤ 4 * Fintype.card (AKLT.Challenge.Site L N)
+
+AKLT.Uniq.ScalarQuotientStatement : Prop
+
+AKLT.Uniq.scalarQuotient : AKLT.Uniq.ScalarQuotientStatement
+
+AKLT.Uniq.previousSite {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (d : AKLT.Challenge.Direction) :
+  AKLT.Challenge.Site L N
+
+AKLT.Uniq.nextSiteEquiv (L N : AKLT.Challenge.Size) (d : AKLT.Challenge.Direction) :
+  AKLT.Challenge.Site L N ≃ AKLT.Challenge.Site L N
+
+AKLT.Uniq.nextSite_eq_iff {L N : AKLT.Challenge.Size} (x y : AKLT.Challenge.Site L N) (d : AKLT.Challenge.Direction) :
+  AKLT.Challenge.nextSite x d = y ↔ x = AKLT.Uniq.previousSite y d
+
+AKLT.Uniq.bondDegree {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (x : AKLT.Challenge.Site L N) : ℕ
+
+AKLT.Uniq.sum_bondDegree {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) : ∑ e, AKLT.Uniq.bondDegree e x = 4
+
+AKLT.Uniq.TorusGeometryStatement : Prop
+
+AKLT.Uniq.torusGeometry : AKLT.Uniq.TorusGeometryStatement
+
+AKLT.Uniq.singlet_siteDegrees {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  AKLT.Uniq.HasSiteDegrees (AKLT.Challenge.singlet e) (AKLT.Uniq.bondDegree e)
+
+AKLT.Uniq.VBSHomogeneousStatement : Prop
+
+AKLT.Uniq.vbsHomogeneous : AKLT.Uniq.VBSHomogeneousStatement
+
+AKLT.Uniq.encode_B (L N : AKLT.Challenge.Size) :
+  AKLT.Uniq.encode (AKLT.Challenge.B L N) = AKLT.Challenge.vbsPolynomial L N
+
+AKLT.Uniq.singlet_irreducible {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  Irreducible (AKLT.Challenge.singlet e)
+
+AKLT.Uniq.SingletPrimeStatement : Prop
+
+AKLT.Uniq.singletPrime : AKLT.Uniq.SingletPrimeStatement
+
+AKLT.Uniq.vbsPolynomial_ne_zero (L N : AKLT.Challenge.Size) : AKLT.Challenge.vbsPolynomial L N ≠ 0
+
+AKLT.Uniq.VBSDegreeStatement : Prop
+
+AKLT.Uniq.vbsDegree : AKLT.Uniq.VBSDegreeStatement
+
+AKLT.Uniq.B_ne_zero (L N : AKLT.Challenge.Size) : AKLT.Challenge.B L N ≠ 0
+
+AKLT.Uniq.bondDegree_pos_iff {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (x : AKLT.Challenge.Site L N) :
+  0 < AKLT.Uniq.bondDegree e x ↔ x ∈ AKLT.Challenge.bondSites e
+
+AKLT.Uniq.SingletNonassociateStatement : Prop
+
+AKLT.Uniq.singletNonassociate : AKLT.Uniq.SingletNonassociateStatement
+
+AKLT.Uniq.singlet_pairwise_relPrime (L N : AKLT.Challenge.Size) :
+  Pairwise fun e f => IsRelPrime (AKLT.Challenge.singlet e) (AKLT.Challenge.singlet f)
+
+AKLT.Uniq.ProductDivisibilityStatement : Prop
+
+AKLT.Uniq.productDivisibility : AKLT.Uniq.ProductDivisibilityStatement
+
+AKLT.Uniq.vbsPolynomial_dvd {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  (h : ∀ (e : AKLT.Challenge.Bond L N), AKLT.Challenge.singlet e ∣ p) : AKLT.Challenge.vbsPolynomial L N ∣ p
+
+AKLT.Uniq.homogeneous_quotient.{u_1} {S : Type u_1} (w : S → ℕ) {p q : MvPolynomial S ℂ} {a b : ℕ} (hp0 : p ≠ 0)
+  (hp : MvPolynomial.IsWeightedHomogeneous w p a) (hpq : MvPolynomial.IsWeightedHomogeneous w (p * q) (a + b)) :
+  MvPolynomial.IsWeightedHomogeneous w q b
+
+AKLT.Uniq.residualDegree {L N : AKLT.Challenge.Size} (E : Finset (AKLT.Challenge.Bond L N))
+  (x : AKLT.Challenge.Site L N) : ℕ
+
+AKLT.Uniq.subset_bondDegree_le_four {L N : AKLT.Challenge.Size} (E : Finset (AKLT.Challenge.Bond L N))
+  (x : AKLT.Challenge.Site L N) : ∑ e ∈ E, AKLT.Uniq.bondDegree e x ≤ 4
+
+AKLT.Uniq.product_siteDegrees {L N : AKLT.Challenge.Size} (E : Finset (AKLT.Challenge.Bond L N)) :
+  AKLT.Uniq.HasSiteDegrees (∏ e ∈ E, AKLT.Challenge.singlet e) fun x => ∑ e ∈ E, AKLT.Uniq.bondDegree e x
+
+AKLT.Uniq.product_singlet_ne_zero {L N : AKLT.Challenge.Size} (E : Finset (AKLT.Challenge.Bond L N)) :
+  ∏ e ∈ E, AKLT.Challenge.singlet e ≠ 0
+
+AKLT.Uniq.QuotientDegreesStatement : Prop
+
+AKLT.Uniq.quotientDegrees : AKLT.Uniq.QuotientDegreesStatement
+
+AKLT.Uniq.PolynomialDivisibilityStatement : Prop
+
+AKLT.Uniq.polynomialDivisibility : AKLT.Uniq.PolynomialDivisibilityStatement
+
+AKLT.Uniq.incidentBonds {L N : AKLT.Challenge.Size} (R : Finset (AKLT.Challenge.Site L N)) :
+  Finset (AKLT.Challenge.Bond L N)
+
+AKLT.Uniq.IndependentOn {L N : AKLT.Challenge.Size} (R : Finset (AKLT.Challenge.Site L N))
+  (p : AKLT.Challenge.SpinorPolynomial L N) : Prop
+
+AKLT.Uniq.incident_degree {L N : AKLT.Challenge.Size} (R : Finset (AKLT.Challenge.Site L N))
+  {x : AKLT.Challenge.Site L N} (hx : x ∈ R) : ∑ e ∈ AKLT.Uniq.incidentBonds R, AKLT.Uniq.bondDegree e x = 4
+
+AKLT.Uniq.independentOn_of_degrees {L N : AKLT.Challenge.Size} {R : Finset (AKLT.Challenge.Site L N)}
+  {q : AKLT.Challenge.SpinorPolynomial L N}
+  (hq : AKLT.Uniq.HasSiteDegrees q (AKLT.Uniq.residualDegree (AKLT.Uniq.incidentBonds R))) : AKLT.Uniq.IndependentOn R q
+
+AKLT.Uniq.PolynomialLocalDivisibilityStatement : Prop
+
+AKLT.Uniq.polynomialLocalDivisibility : AKLT.Uniq.PolynomialLocalDivisibilityStatement
+
+AKLT.Uniq.h_energy (L N : AKLT.Challenge.Size) (v : AKLT.Challenge.Hilbert L N) :
+  (inner ℂ ((AKLT.Challenge.H L N) v) v).re = ∑ e, ‖(AKLT.Challenge.P e) v‖ ^ 2
+
+AKLT.Uniq.HamiltonianKernelStatement : Prop
+
+AKLT.Uniq.hamiltonianKernel : AKLT.Uniq.HamiltonianKernelStatement
+
+AKLT.Uniq.atSite_adjoint {L N : AKLT.Challenge.Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (x : AKLT.Challenge.Site L N) :
+  LinearMap.adjoint (AKLT.Challenge.atSite A x) = AKLT.Challenge.atSite A.conjTranspose x
+
+AKLT.Uniq.onBond_adjoint {L N : AKLT.Challenge.Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (e : AKLT.Challenge.Bond L N) :
+  LinearMap.adjoint (AKLT.Challenge.onBond A e) = AKLT.Challenge.onBond A.conjTranspose e
+
+AKLT.Uniq.spinZ_hermitian : AKLT.Challenge.spinZ.IsHermitian
+
+AKLT.Uniq.onBond_Z_symmetric {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  LinearMap.IsSymmetric (AKLT.Challenge.onBond AKLT.Challenge.spinZ e)
+
+AKLT.Uniq.CasimirSymmetricStatement : Prop
+
+AKLT.Uniq.casimirSymmetric : AKLT.Uniq.CasimirSymmetricStatement
+
+AKLT.Uniq.casimirDefect {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  Module.End ℂ (AKLT.Challenge.Hilbert L N)
+
+AKLT.Uniq.casimirDefect_symmetric {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  LinearMap.IsSymmetric (AKLT.Uniq.casimirDefect e)
+
+AKLT.Uniq.ker_casimirDefect {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  LinearMap.ker (AKLT.Uniq.casimirDefect e) = AKLT.Challenge.spin4Space e
+
+AKLT.Uniq.ProjectionRangeStatement : Prop
+
+AKLT.Uniq.projectionRange : AKLT.Uniq.ProjectionRangeStatement
+
+AKLT.Uniq.projection_eq_zero_iff_range {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (v : AKLT.Challenge.Hilbert L N) : (AKLT.Challenge.P e) v = 0 ↔ ∃ w, (AKLT.Uniq.casimirDefect e) w = v
+
+AKLT.Uniq.transvectant {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (p : AKLT.Challenge.SpinorPolynomial L N) : AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.transvectant_add {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (p q : AKLT.Challenge.SpinorPolynomial L N) :
+  AKLT.Uniq.transvectant e (p + q) = AKLT.Uniq.transvectant e p + AKLT.Uniq.transvectant e q
+
+AKLT.Uniq.transvectant_sub {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (p q : AKLT.Challenge.SpinorPolynomial L N) :
+  AKLT.Uniq.transvectant e (p - q) = AKLT.Uniq.transvectant e p - AKLT.Uniq.transvectant e q
+
+AKLT.Uniq.transvectant_smul {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (c : ℂ)
+  (p : AKLT.Challenge.SpinorPolynomial L N) : AKLT.Uniq.transvectant e (c • p) = c • AKLT.Uniq.transvectant e p
+
+AKLT.Uniq.siteEuler {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N} {x : AKLT.Challenge.Site L N}
+  {n : ℕ} (hp : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight x) p n) :
+  MvPolynomial.X (x, 0) * (MvPolynomial.pderiv (x, 0)) p + MvPolynomial.X (x, 1) * (MvPolynomial.pderiv (x, 1)) p =
+    n • p
+
+AKLT.Uniq.pderiv_zero_of_site_degree_zero {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  {x : AKLT.Challenge.Site L N} (hp : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight x) p 0) (k : Fin 2) :
+  (MvPolynomial.pderiv (x, k)) p = 0
+
+AKLT.Uniq.edgeResidual {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (k : ℕ) (x : AKLT.Challenge.Site L N) :
+  ℕ
+
+AKLT.Uniq.bondDegree_le_one {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (x : AKLT.Challenge.Site L N) :
+  AKLT.Uniq.bondDegree e x ≤ 1
+
+AKLT.Uniq.edgeResidual_deriv_arithmetic {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) {k : ℕ} (hk : k < 4)
+  (x : AKLT.Challenge.Site L N) :
+  AKLT.Uniq.edgeResidual e k x - AKLT.Uniq.siteWeight x (AKLT.Challenge.nextSite e.1 e.2, 1) +
+        AKLT.Uniq.siteWeight x (AKLT.Challenge.nextSite e.1 e.2, 1) =
+      AKLT.Uniq.edgeResidual e k x ∧
+    AKLT.Uniq.edgeResidual e (k + 1) x + AKLT.Uniq.siteWeight x (e.1, 0) =
+      AKLT.Uniq.edgeResidual e k x - AKLT.Uniq.siteWeight x (AKLT.Challenge.nextSite e.1 e.2, 1)
+
+AKLT.Uniq.transvectant_degrees {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) {k : ℕ}
+  {p : AKLT.Challenge.SpinorPolynomial L N} (hk : k < 4)
+  (hp : AKLT.Uniq.HasSiteDegrees p (AKLT.Uniq.edgeResidual e k)) :
+  AKLT.Uniq.HasSiteDegrees (AKLT.Uniq.transvectant e p) (AKLT.Uniq.edgeResidual e (k + 1))
+
+AKLT.Uniq.singlet_pow_mul_physical {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) {k : ℕ} (hk : k ≤ 4)
+  {p : AKLT.Challenge.SpinorPolynomial L N} (hp : AKLT.Uniq.HasSiteDegrees p (AKLT.Uniq.edgeResidual e k)) :
+  AKLT.Uniq.IsPhysical (AKLT.Challenge.singlet e ^ k * p)
+
+AKLT.Uniq.edgeResidual_endpoint {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (k : ℕ) :
+  AKLT.Uniq.edgeResidual e k e.1 = 4 - k ∧ AKLT.Uniq.edgeResidual e k (AKLT.Challenge.nextSite e.1 e.2) = 4 - k
+
+AKLT.Uniq.transvectant_degree_four_zero {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  {p : AKLT.Challenge.SpinorPolynomial L N} (hp : AKLT.Uniq.HasSiteDegrees p (AKLT.Uniq.edgeResidual e 4)) :
+  AKLT.Uniq.transvectant e p = 0
+
+AKLT.Uniq.singlet_endpoint_degrees {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) :
+  MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight e.1) (AKLT.Challenge.singlet e) 1 ∧
+    MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight (AKLT.Challenge.nextSite e.1 e.2))
+      (AKLT.Challenge.singlet e) 1
+
+AKLT.Uniq.transvectant_singlet_mul {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  {p : AKLT.Challenge.SpinorPolynomial L N} {n : ℕ}
+  (hx : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight e.1) p n)
+  (hy : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight (AKLT.Challenge.nextSite e.1 e.2)) p n) :
+  AKLT.Uniq.transvectant e (AKLT.Challenge.singlet e * p) =
+    (2 * n + 2) • p + AKLT.Challenge.singlet e * AKLT.Uniq.transvectant e p
+
+AKLT.Uniq.transvectant_singlet_pow_mul {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  {p : AKLT.Challenge.SpinorPolynomial L N} {n : ℕ}
+  (hx : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight e.1) p n)
+  (hy : MvPolynomial.IsWeightedHomogeneous (AKLT.Uniq.siteWeight (AKLT.Challenge.nextSite e.1 e.2)) p n) (k : ℕ) :
+  AKLT.Uniq.transvectant e (AKLT.Challenge.singlet e ^ (k + 1) * p) =
+    ((k + 1) * (2 * n + k + 2)) • (AKLT.Challenge.singlet e ^ k * p) +
+      AKLT.Challenge.singlet e ^ (k + 1) * AKLT.Uniq.transvectant e p
+
+AKLT.Uniq.transvectantRightInverse {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (p : AKLT.Challenge.SpinorPolynomial L N) : AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.transvectantRightInverse_physical {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  {p : AKLT.Challenge.SpinorPolynomial L N} (hp : AKLT.Uniq.HasSiteDegrees p (AKLT.Uniq.edgeResidual e 1)) :
+  AKLT.Uniq.IsPhysical (AKLT.Uniq.transvectantRightInverse e p)
+
+AKLT.Uniq.transvectant_rightInverse {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  {p : AKLT.Challenge.SpinorPolynomial L N} (hp : AKLT.Uniq.HasSiteDegrees p (AKLT.Uniq.edgeResidual e 1)) :
+  AKLT.Uniq.transvectant e (AKLT.Uniq.transvectantRightInverse e p) = p
+
+AKLT.Uniq.TransvectantSurjectiveStatement : Prop
+
+AKLT.Uniq.transvectantSurjective : AKLT.Uniq.TransvectantSurjectiveStatement
+
+AKLT.Uniq.atSite_apply {L N : AKLT.Challenge.Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (x : AKLT.Challenge.Site L N)
+  (v : AKLT.Challenge.Hilbert L N) (σ : AKLT.Challenge.Configuration L N) :
+  ((AKLT.Challenge.atSite A x) v).ofLp σ = ∑ k, A (σ x) k * v.ofLp (Function.update σ x k)
+
+AKLT.Uniq.singleScale (k : Fin 5) : ℂ
+
+AKLT.Uniq.plus_normalization (i j : Fin 5) :
+  AKLT.Uniq.singleScale i * AKLT.Challenge.spinPlus i j = if ↑i + 1 = ↑j then ↑↑j * AKLT.Uniq.singleScale j else 0
+
+AKLT.Uniq.minus_normalization (i j : Fin 5) :
+  AKLT.Uniq.singleScale i * AKLT.Challenge.spinMinus i j =
+    if ↑j + 1 = ↑i then (4 - ↑↑j) * AKLT.Uniq.singleScale j else 0
+
+AKLT.Uniq.spectatorScale {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) : ℂ
+
+AKLT.Uniq.basisScale_factor {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) : AKLT.Uniq.basisScale σ = AKLT.Uniq.singleScale (σ x) * AKLT.Uniq.spectatorScale σ x
+
+AKLT.Uniq.basisScale_update {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (k : Fin 5) :
+  AKLT.Uniq.basisScale (Function.update σ x k) = AKLT.Uniq.singleScale k * AKLT.Uniq.spectatorScale σ x
+
+AKLT.Uniq.scaled_spinPlus {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (k : Fin 5) :
+  AKLT.Uniq.basisScale σ * AKLT.Challenge.spinPlus (σ x) k =
+    if ↑(σ x) + 1 = ↑k then ↑↑k * AKLT.Uniq.basisScale (Function.update σ x k) else 0
+
+AKLT.Uniq.scaled_spinMinus {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (k : Fin 5) :
+  AKLT.Uniq.basisScale σ * AKLT.Challenge.spinMinus (σ x) k =
+    if ↑k + 1 = ↑(σ x) then (4 - ↑↑k) * AKLT.Uniq.basisScale (Function.update σ x k) else 0
+
+AKLT.Uniq.physical_ext {L N : AKLT.Challenge.Size} {p q : AKLT.Challenge.SpinorPolynomial L N}
+  (hp : AKLT.Uniq.IsPhysical p) (hq : AKLT.Uniq.IsPhysical q)
+  (h :
+    ∀ (σ : AKLT.Challenge.Configuration L N),
+      p.coeff (AKLT.Challenge.monomialDegree σ) = q.coeff (AKLT.Challenge.monomialDegree σ)) :
+  p = q
+
+AKLT.Uniq.X_pderiv_physical {L N : AKLT.Challenge.Size} {p : AKLT.Challenge.SpinorPolynomial L N}
+  (hp : AKLT.Uniq.IsPhysical p) (x : AKLT.Challenge.Site L N) (a b : Fin 2) :
+  AKLT.Uniq.IsPhysical (MvPolynomial.X (x, a) * (MvPolynomial.pderiv (x, b)) p)
+
+AKLT.Uniq.coeff_X_pderiv_self {L N : AKLT.Challenge.Size} (p : AKLT.Challenge.SpinorPolynomial L N)
+  (d : AKLT.Challenge.Site L N × Fin 2 →₀ ℕ) (i : AKLT.Challenge.Site L N × Fin 2) :
+  (MvPolynomial.X i * (MvPolynomial.pderiv i) p).coeff d = ↑(d i) * p.coeff d
+
+AKLT.Uniq.monomialDegree_step_up {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (hk : ↑(σ x) < 4) :
+  ((AKLT.Challenge.monomialDegree σ - fun₀ | (x, 0) => 1) + fun₀ | (x, 1) => 1) =
+    AKLT.Challenge.monomialDegree (Function.update σ x ⟨↑(σ x) + 1, ⋯⟩)
+
+AKLT.Uniq.monomialDegree_step_down {L N : AKLT.Challenge.Size} (σ : AKLT.Challenge.Configuration L N)
+  (x : AKLT.Challenge.Site L N) (hk : 0 < ↑(σ x)) :
+  ((AKLT.Challenge.monomialDegree σ - fun₀ | (x, 1) => 1) + fun₀ | (x, 0) => 1) =
+    AKLT.Challenge.monomialDegree (Function.update σ x ⟨↑(σ x) - 1, ⋯⟩)
+
+AKLT.Uniq.coeff_encode_spinPlus {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N)
+  (v : AKLT.Challenge.Hilbert L N) (σ : AKLT.Challenge.Configuration L N) :
+  (AKLT.Uniq.encode ((AKLT.Challenge.atSite AKLT.Challenge.spinPlus x) v)).coeff (AKLT.Challenge.monomialDegree σ) =
+    ∑ k,
+      if ↑(σ x) + 1 = ↑k then ↑↑k * (AKLT.Uniq.encode v).coeff (AKLT.Challenge.monomialDegree (Function.update σ x k))
+      else 0
+
+AKLT.Uniq.coeff_encode_spinMinus {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N)
+  (v : AKLT.Challenge.Hilbert L N) (σ : AKLT.Challenge.Configuration L N) :
+  (AKLT.Uniq.encode ((AKLT.Challenge.atSite AKLT.Challenge.spinMinus x) v)).coeff (AKLT.Challenge.monomialDegree σ) =
+    ∑ k,
+      if ↑k + 1 = ↑(σ x) then
+        (4 - ↑↑k) * (AKLT.Uniq.encode v).coeff (AKLT.Challenge.monomialDegree (Function.update σ x k))
+      else 0
+
+AKLT.Uniq.encode_spinZ {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.atSite AKLT.Challenge.spinZ x) v) =
+    2 • AKLT.Uniq.encode v - MvPolynomial.X (x, 1) * (MvPolynomial.pderiv (x, 1)) (AKLT.Uniq.encode v)
+
+AKLT.Uniq.encode_spinPlus {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.atSite AKLT.Challenge.spinPlus x) v) =
+    MvPolynomial.X (x, 0) * (MvPolynomial.pderiv (x, 1)) (AKLT.Uniq.encode v)
+
+AKLT.Uniq.encode_spinMinus {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.atSite AKLT.Challenge.spinMinus x) v) =
+    MvPolynomial.X (x, 1) * (MvPolynomial.pderiv (x, 0)) (AKLT.Uniq.encode v)
+
+AKLT.Uniq.SingleSiteActionStatement : Prop
+
+AKLT.Uniq.singleSiteAction : AKLT.Uniq.SingleSiteActionStatement
+
+AKLT.Uniq.pderiv_commute {L N : AKLT.Challenge.Size} (p : AKLT.Challenge.SpinorPolynomial L N)
+  (i j : AKLT.Challenge.Site L N × Fin 2) :
+  (MvPolynomial.pderiv i) ((MvPolynomial.pderiv j) p) = (MvPolynomial.pderiv j) ((MvPolynomial.pderiv i) p)
+
+AKLT.Uniq.polyZ {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (p : AKLT.Challenge.SpinorPolynomial L N) :
+  AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.polyPlus {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (p : AKLT.Challenge.SpinorPolynomial L N) :
+  AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.polyMinus {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (p : AKLT.Challenge.SpinorPolynomial L N) : AKLT.Challenge.SpinorPolynomial L N
+
+AKLT.Uniq.encode_onBond_Z {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N) (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.onBond AKLT.Challenge.spinZ e) v) = AKLT.Uniq.polyZ e (AKLT.Uniq.encode v)
+
+AKLT.Uniq.encode_onBond_plus {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.onBond AKLT.Challenge.spinPlus e) v) = AKLT.Uniq.polyPlus e (AKLT.Uniq.encode v)
+
+AKLT.Uniq.encode_onBond_minus {L N : AKLT.Challenge.Size} (e : AKLT.Challenge.Bond L N)
+  (v : AKLT.Challenge.Hilbert L N) :
+  AKLT.Uniq.encode ((AKLT.Challenge.onBond AKLT.Challenge.spinMinus e) v) = AKLT.Uniq.polyMinus e (AKLT.Uniq.encode v)
+
+AKLT.Uniq.PolynomialCasimirStatement : Prop
+
+AKLT.Uniq.polynomialCasimir : AKLT.Uniq.PolynomialCasimirStatement
+
+AKLT.Uniq.CasimirActionStatement : Prop
+
+AKLT.Uniq.casimirAction : AKLT.Uniq.CasimirActionStatement
+
+AKLT.Uniq.EdgeKernelStatement : Prop
+
+AKLT.Uniq.edgeKernel_of_nodes (action : AKLT.Uniq.CasimirActionStatement)
+  (onto : AKLT.Uniq.TransvectantSurjectiveStatement) : AKLT.Uniq.EdgeKernelStatement
+
+AKLT.Uniq.edgeKernel_of_action (action : AKLT.Uniq.CasimirActionStatement) : AKLT.Uniq.EdgeKernelStatement
+
+AKLT.Uniq.edgeKernel : AKLT.Uniq.EdgeKernelStatement
+
+AKLT.Uniq.EdgeFactorizationStatement : Prop
+
+AKLT.Uniq.edgeFactorization : AKLT.Uniq.EdgeFactorizationStatement
+
+AKLT.Uniq.UniquenessStatement : Prop
+
+AKLT.Uniq.uniqueness_of_edge (edge : AKLT.Uniq.EdgeKernelStatement) (L N : AKLT.Challenge.Size) :
+  AKLT.Challenge.B L N ≠ 0 ∧ LinearMap.ker (AKLT.Challenge.H L N) = ℂ ∙ AKLT.Challenge.B L N
+
+AKLT.Uniq.LocalDivisibilityStatement : Prop
+
+AKLT.Uniq.localDivisibility_of_edge (edge : AKLT.Uniq.EdgeKernelStatement) : AKLT.Uniq.LocalDivisibilityStatement
+
+AKLT.Uniq.uniqueness_of_polynomial_nodes (action : AKLT.Uniq.CasimirActionStatement)
+  (onto : AKLT.Uniq.TransvectantSurjectiveStatement) : AKLT.Uniq.UniquenessStatement
+
+AKLT.Uniq.uniqueness_of_nodes (action : AKLT.Uniq.CasimirActionStatement) (L N : AKLT.Challenge.Size) :
+  AKLT.Challenge.B L N ≠ 0 ∧ LinearMap.ker (AKLT.Challenge.H L N) = ℂ ∙ AKLT.Challenge.B L N
+
+AKLT.Uniq.localDivisibility : AKLT.Uniq.LocalDivisibilityStatement
+
+AKLT.Uniq.uniqueness (L N : AKLT.Challenge.Size) :
+  AKLT.Challenge.B L N ≠ 0 ∧ LinearMap.ker (AKLT.Challenge.H L N) = ℂ ∙ AKLT.Challenge.B L N

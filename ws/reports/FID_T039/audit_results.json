@@ -1,0 +1,151 @@
+{
+  "raw_bit_length": 12582908,
+  "expected_raw_bits": 12582912,
+  "generated_counts": {
+    "0": 1,
+    "1": 4,
+    "2": 12,
+    "3": 36,
+    "4": 108,
+    "5": 316,
+    "6": 916,
+    "7": 2628,
+    "8": 7500,
+    "9": 21268,
+    "10": 60092
+  },
+  "failures": {},
+  "first_failure_examples": {},
+  "edge_kind_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "targets": [
+    {
+      "name": "rawClass_160",
+      "bit_offset": 9945084,
+      "width": 16384,
+      "code_interval": [
+        828757,
+        830122
+      ],
+      "boundary_offsets_mod_12": [
+        0,
+        4
+      ],
+      "exact_sentinel_slice": true,
+      "common_direction_prefixes": [
+        "SEW"
+      ],
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "values": {
+        "3741": 1366
+      },
+      "coverage_failures": [],
+      "valid_examples": [],
+      "local_representative_failures": []
+    },
+    {
+      "name": "rawClass_161",
+      "bit_offset": 9928700,
+      "width": 16384,
+      "code_interval": [
+        827391,
+        828756
+      ],
+      "boundary_offsets_mod_12": [
+        8,
+        0
+      ],
+      "exact_sentinel_slice": true,
+      "common_direction_prefixes": [
+        "SEW"
+      ],
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "values": {
+        "3741": 1366
+      },
+      "coverage_failures": [],
+      "valid_examples": [],
+      "local_representative_failures": []
+    },
+    {
+      "name": "rawClass_162",
+      "bit_offset": 9912316,
+      "width": 16384,
+      "code_interval": [
+        826026,
+        827391
+      ],
+      "boundary_offsets_mod_12": [
+        4,
+        8
+      ],
+      "exact_sentinel_slice": true,
+      "common_direction_prefixes": [
+        "SEW"
+      ],
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "values": {
+        "3741": 1366
+      },
+      "coverage_failures": [],
+      "valid_examples": [],
+      "local_representative_failures": []
+    },
+    {
+      "name": "rawClass_163",
+      "bit_offset": 9895932,
+      "width": 16384,
+      "code_interval": [
+        824661,
+        826026
+      ],
+      "boundary_offsets_mod_12": [
+        0,
+        4
+      ],
+      "exact_sentinel_slice": true,
+      "common_direction_prefixes": [
+        "SEW"
+      ],
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "values": {
+        "3741": 1366
+      },
+      "coverage_failures": [],
+      "valid_examples": [],
+      "local_representative_failures": []
+    },
+    {
+      "name": "rawClass_164",
+      "bit_offset": 9879548,
+      "width": 16384,
+      "code_interval": [
+        823295,
+        824660
+      ],
+      "boundary_offsets_mod_12": [
+        8,
+        0
+      ],
+      "exact_sentinel_slice": true,
+      "common_direction_prefixes": [
+        "SEW"
+      ],
+      "valid_words": 0,
+      "invalid_words": 1366,
+      "values": {
+        "3741": 1366
+      },
+      "coverage_failures": [],
+      "valid_examples": [],
+      "local_representative_failures": []
+    }
+  ]
+}

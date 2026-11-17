@@ -1,0 +1,219 @@
+{
+  "core": {
+    "build_observed_s": 5152.520572002002,
+    "build_cpu_s": 9310.529410000003,
+    "audit_s": 5.75967666899669,
+    "export_s": 79.48848082999757,
+    "lean_s": 471.37445055600256,
+    "nanoda_s": 519.2381826389901
+  },
+  "lanes": {
+    "H1": {
+      "build_h": 139.00213888888877,
+      "compute_proxy_h": 128.2890972222221,
+      "qL": 0.8,
+      "rN": [
+        0.7352437566412231,
+        1.5477808248839022
+      ],
+      "rC": [
+        1.8846339890968906,
+        2.940833923814649
+      ]
+    },
+    "H3": {
+      "build_h": 19.455275000000004,
+      "compute_proxy_h": 6.275558333333333,
+      "qL": 1.0,
+      "rN": [
+        0.5,
+        2.0
+      ],
+      "rC": [
+        2.0,
+        8.0
+      ]
+    }
+  },
+  "assumptions": {
+    "setup_s": 600.0,
+    "protected_challenge_and_comparison_s": 60.0,
+    "conron_core_after_repair_s": 600.0,
+    "conron_cap_s": 1800,
+    "H1_qL_basis": "Complete REL_FEAS owner: 132.64 / 166.49 CPU seconds",
+    "H3_qL_basis": "Numerical-only q=1 assumption AFTER eliminating giant literal parsing",
+    "status": "No guaranteed feasible allowance: core clean source/conron censored, canonical Challenge unresolved; byte count alone does not bound replay."
+  },
+  "profiles": [
+    {
+      "profile": "16x32",
+      "cpus": 16,
+      "ram_gib": 32,
+      "memory_high_gib": 30.4,
+      "memory_max_gib": 31.36,
+      "solo_process_budget_gib": 30.36,
+      "pressure_aware_solo_process_gib": 29.4,
+      "pressure_aware_build_process_gib": 7.35,
+      "build_workers": 4,
+      "per_build_process_gib": 7.59,
+      "old_build_workers": 3,
+      "parallelism": {
+        "Lean": 1,
+        "NanoDa": 4,
+        "conron": 2
+      },
+      "remaining_acceptance_s": 11111.618637304011,
+      "remaining_conron_s": 1200.0,
+      "absolute_cpu_h_intercept": 49.38497172135116,
+      "reference_K_h_intercept": 2.057707155056298,
+      "reference_all_three_K_h_intercept": 0.3333333333333333,
+      "rescheduled_core_sensitivity_s": 3103.5098033333343,
+      "lanes": {
+        "H1": {
+          "K_h_intercept_excluding_literal_IO": [
+            2.4600231116916262,
+            2.1172412054891945
+          ],
+          "uniform_reduction_mandatory": [
+            55.902435904457796,
+            64.34546165185351
+          ],
+          "uniform_reduction_all_three": [
+            362.6669895833329,
+            565.9153937499996
+          ],
+          "mandatory_if_nanoda_effectively_serial": [
+            78.8220621364998,
+            112.59416512608267
+          ]
+        },
+        "H3": {
+          "K_h_intercept_excluding_literal_IO": [
+            1.6244700843209943,
+            1.3567051860702137
+          ],
+          "uniform_reduction_mandatory": [
+            4.388410261516238,
+            5.150855772520164
+          ],
+          "uniform_reduction_all_three": [
+            18.826674999999998,
+            75.30669999999999
+          ],
+          "mandatory_if_nanoda_effectively_serial": [
+            5.150855772520164,
+            8.200637816535867
+          ]
+        }
+      },
+      "illustrative_export_GB_intercepts": {
+        "mandatory": 3.7468676222191837,
+        "all_three": 1.1715361977633905,
+        "rates_s_per_GB": {
+          "export": 994.1520467836256,
+          "Lean": 394.2846807741002,
+          "NanoDa": 1577.1387230964008,
+          "conron": 1024.2961355278228
+        },
+        "old_H3_reduction": 30.55816804324671,
+        "uint32_H3_reduction": 12.231803018428083,
+        "caveat": "Same bounded-8192-bit full-row term/work mixture, no other certificate costs, unmeasured monolithic memory. Not a general GB allowance."
+      },
+      "illustrative_structured_pilot_export_GB_intercept": 0.5689707908597957,
+      "joint_design_gate": {
+        "certificate_K_h": 0.2,
+        "certificate_export_GB": 0.3,
+        "total_export_GB": 1.189805659,
+        "numerical_mandatory_s": 1080.0,
+        "conron_numerical_s": 720,
+        "illustrative_IO_s": 1196.9614758545847,
+        "caveat": "Engineering go/no-go target only. Computation and size gates must be checked jointly on the full environment."
+      }
+    },
+    {
+      "profile": "32x64",
+      "cpus": 32,
+      "ram_gib": 64,
+      "memory_high_gib": 60.8,
+      "memory_max_gib": 62.72,
+      "solo_process_budget_gib": 61.72,
+      "pressure_aware_solo_process_gib": 59.8,
+      "pressure_aware_build_process_gib": 7.475,
+      "build_workers": 8,
+      "per_build_process_gib": 7.715,
+      "old_build_workers": 7,
+      "parallelism": {
+        "Lean": 1,
+        "NanoDa": 4,
+        "conron": 2
+      },
+      "remaining_acceptance_s": 11111.618637304011,
+      "remaining_conron_s": 1200.0,
+      "absolute_cpu_h_intercept": 98.76994344270231,
+      "reference_K_h_intercept": 2.244771441879598,
+      "reference_all_three_K_h_intercept": 0.3333333333333333,
+      "rescheduled_core_sensitivity_s": 1330.0756300000005,
+      "lanes": {
+        "H1": {
+          "K_h_intercept_excluding_literal_IO": [
+            2.757706154222729,
+            2.334088813006053
+          ],
+          "uniform_reduction_mandatory": [
+            47.32441001172624,
+            55.76743575912196
+          ],
+          "uniform_reduction_all_three": [
+            362.6669895833329,
+            565.9153937499996
+          ],
+          "mandatory_if_nanoda_effectively_serial": [
+            70.24403624376824,
+            104.01613923335111
+          ]
+        },
+        "H3": {
+          "K_h_intercept_excluding_literal_IO": [
+            2.0406732496438167,
+            1.6352459455776236
+          ],
+          "uniform_reduction_mandatory": [
+            3.187796702370832,
+            3.9502422133747572
+          ],
+          "uniform_reduction_all_three": [
+            18.826674999999998,
+            75.30669999999999
+          ],
+          "mandatory_if_nanoda_effectively_serial": [
+            3.9502422133747572,
+            7.00002425739046
+          ]
+        }
+      },
+      "illustrative_export_GB_intercepts": {
+        "mandatory": 3.7468676222191837,
+        "all_three": 1.1715361977633905,
+        "rates_s_per_GB": {
+          "export": 994.1520467836256,
+          "Lean": 394.2846807741002,
+          "NanoDa": 1577.1387230964008,
+          "conron": 1024.2961355278228
+        },
+        "old_H3_reduction": 30.55816804324671,
+        "uint32_H3_reduction": 12.231803018428083,
+        "caveat": "Same bounded-8192-bit full-row term/work mixture, no other certificate costs, unmeasured monolithic memory. Not a general GB allowance."
+      },
+      "illustrative_structured_pilot_export_GB_intercept": 0.5689707908597957,
+      "joint_design_gate": {
+        "certificate_K_h": 0.2,
+        "certificate_export_GB": 0.3,
+        "total_export_GB": 1.189805659,
+        "numerical_mandatory_s": 990.0,
+        "conron_numerical_s": 720,
+        "illustrative_IO_s": 1196.9614758545847,
+        "caveat": "Engineering go/no-go target only. Computation and size gates must be checked jointly on the full environment."
+      }
+    }
+  ]
+}

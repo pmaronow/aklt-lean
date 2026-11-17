@@ -1,0 +1,99 @@
+\section{The pair recursion}\label{s:recursion}
+
+In this section we prove Hypothesis~(P) from (H1), (H2) and a bound on the spectral radius of a $2 \times 2$ kernel (H3$'$). The pair correlation $\E^\cdot_D[n_u \cdot n_v]$ is expanded by Proposition~\ref{p:pairwalk} into trails from $u$ to $v$. The difference between the pinned and the free expansion telescopes over the steps of each trail (Lemma~\ref{l:exposure}), and by Lemma~\ref{l:response} the response of each step is a combination of pair responses of the same kind as the one we started from. The main point is that the class of domains and pairs is closed under this operation (Lemma~\ref{l:closure}), so that the worst pair response at a given distance from the pins satisfies a linear recursion.
+
+\subsection{Pair classes}\label{s:pairclass}
+
+Let $D \in \Dcons(G)$. For $X \in \{B, C\}$ let $P_X(D)$ be the set of pairs $(u, v)$ of non-removed sites with $d(u, v) = 2$, collinear ($X = B$) or diagonal ($X = C$), that have a common neighbour $c$ of status $\mathrm X$, and such that each of $u, v$ has status $\mathrm U$, or status $\mathrm D$ with at most one present bond. The site $c$ is the \emph{centre} of the pair (if there are two candidates, as for a diagonal pair, one is designated). For $d \ge 0$ let
+\begin{equation}\label{e:FX}
+\mathsf F_X(d) = \sup \bigl| \E^\tau_D[n_u \cdot n_v] - \E^0_D[n_u \cdot n_v] \bigr|,
+\end{equation}
+the supremum over all finite $G \subset \Z^2$, all pin configurations $\tau$ on the legs of $G$, all $D \in \Dcons(G)$ and all $(u, v) \in P_X(D)$ with $\min(d(u, S), d(v, S)) \ge d$, where $S = S(G)$; set $\mathsf F_X(d) = \mathsf F_X(0)$ for $d < 0$. Since $|n_u \cdot n_v| \le 1$, $\mathsf F_X \le 2$, and $\mathsf F_X$ is nonincreasing.
+
+The domains $G \setminus Y$ with $Y \subset G \setminus S$ belong to $\Dcons(G)$, and a pair of sites of $G \setminus Y$ at distance $2$ with a common neighbour in $Y$ belongs to $P_B(G \setminus Y) \cup P_C(G \setminus Y)$. Therefore Hypothesis~(P) follows from a bound $\mathsf F_B(d), \mathsf F_C(d) \le A \theta^d$.
+
+\subsection{Closure of the class}\label{s:closure}
+
+\begin{lemma}\label{l:closure}
+Let $D \in \Dcons(G)$, $(u, v) \in P_X(D)$ with centre $c$, and $u \notin S$. Let $w$ be a trail in $D$ from $u$ that does not visit $S \cup \{v\}$ before its last site, let $w_j$ be its prefixes and $D_j = D;[w_j]$, where at the first step the site $u$ also drops its bond to $c$. Then for every $j$:
+\begin{enumerate}
+\item every site other than $v_j$ that is visited by $w_j$ has status $\mathrm D$ or $\mathrm X$ in $D_j$;
+\item every bond between two non-removed sites of $D_j$ satisfies (C), every site of status $\mathrm D$ keeps exactly two bonds, and every site of status $\mathrm U$ other than $v_j$ keeps all its bonds; $v_j$ has status $\mathrm U$ or $\mathrm D$ and has dropped exactly its arrival bond, whose other end has status $\mathrm D$ or $\mathrm X$;
+\item the domain $E'_{j + 1}$ obtained from $D_j$ by removing $v_j$ belongs to $\Dcons(G)$.
+\end{enumerate}
+Consequently, if step $j + 1$ is a first visit at $y = v_j \notin S$, its pattern (Definition~\ref{d:pattern}), with arrival site $v_{j - 1}$, or $c$ if $j = 0$, belongs to $\Pext$. Moreover, the pairs $(f, g)$, $(f, o)$, $(g, o)$ of non-removed remaining neighbours of $y$ belong to $P_B(E'_{j + 1}) \cup P_C(E'_{j + 1})$, with centre $y$.
+\end{lemma}
+
+\begin{proof}
+Along $w$, statuses change only from $\mathrm U$ to $\mathrm D$ (at a first visit, keeping the two bonds of the site other than the arrival and out-bonds) and from $\mathrm D$ to $\mathrm X$ (at a revisit). At the first step, $u$ keeps the two bonds other than the out-bond and the bond to $c$, or, if $u$ has status $\mathrm D$ in $D$, it leaves by its only present bond and becomes $\mathrm X$. This gives (1) and the claim on kept sets in (2). A bond dropped by a site of status $\mathrm D$ in $D_j$ is either a bond to a removed site, which is unconstrained, or a bond already dropped in $D$, which satisfies (C) in $D$, or a bond used by $w$. A bond used by $w$ is dropped by both its ends, and both ends were visited by $w$; they have status $\mathrm D$ or $\mathrm X$, except the live end $v_j$ for its arrival bond. This proves (2). Removing $v_j$ makes the arrival bond a bond to a removed site, and $v_j$ was the only site violating the conditions of $\Dcons(G)$, which proves (3).
+
+At a first visit at $y = v_j$, the site $y$ has status $\mathrm U$, its arrival bond is dropped, and the arrival site $s = v_{j - 1}$ (or $c$) has status $\mathrm D$, keeping two of its three bonds other than $\{s, y\}$, or $\mathrm X$. By (2) and (C), every other non-removed site of the template has status $\mathrm U$ with all its bonds, or $\mathrm D$ with exactly two kept bonds, and a neighbour of $y$ of status $\mathrm D$ keeps its bond to $y$, because $y$ keeps all its bonds other than the arrival bond. These are the rules of Definition~\ref{d:pattern}; the statuses of the tips and the bonds of the corners leaving the template are not part of the pattern. Finally, the remaining neighbours $f, g, o$ of $y$ are pairwise at distance $2$ with the common neighbour $y$, which is removed in $E'_{j + 1}$; each has status $\mathrm U$, or status $\mathrm D$ with its bond to $y$ among its two kept bonds and hence at most one present bond in $E'_{j + 1}$.
+\end{proof}
+
+For a straight step the pair $(f, g)$ is collinear and $(f, o), (g, o)$ are diagonal; for a turn, $(f, g)$ and one of $(f, o), (g, o)$ are diagonal and the other is collinear. By Lemma~\ref{l:response} the response of a straight first visit is $\alpha_j r_B + \beta_j(r_C + r_C')$ and that of a turn is $\beta_j r_B + \alpha_j r_C + \beta_j r_C'$, in an obvious notation.
+
+\subsection{The kernel}\label{s:kernel}
+
+Fix $X \in \{B, C\}$, the centre $c = (0, 0)$, $u = (-1, 0)$, and $v = (1, 0)$ if $X = B$, $v = (0, 1)$ if $X = C$. Let $\mathcal T^X_n$ be the set of trails $w = (v_0, \dots, v_n)$ of $\Z^2 \setminus \{c\}$ with $v_0 = u$, $v_n = v$ and $v_i \neq v$ for $i < n$. Call passage $i$ (the step from $v_i$, $0 \le i < n$) a revisit if $v_i \in \{v_0, \dots, v_{i - 1}\}$ and a first visit otherwise, straight or turning with respect to the arrival direction, which for $i = 0$ is the direction from $c$ to $u$. For a first visit $i$ let $x_i = x_{\mathrm s}$ or $x_{\mathrm t}$ according to its type. Its three pairs of neighbours (other than the arrival site) carry the coefficient $\bar\alpha$ for the pair not containing the out-neighbour and $\bar\beta$ for the two pairs containing it; a pair is \emph{dead} if it contains $c$ or a site that $w$ has left twice before passage $i$. For $Y \in \{B, C\}$ and $s \ge 0$ let $\kappa_{Y, s}(i)$ be the sum of the coefficients of the live pairs of passage $i$ of type $Y$ whose \emph{shift} $\max_{z \in \text{pair}} \min(d(z, u), d(z, v))$ equals $s$.
+
+Fix, for every trail $w$, an ordering $\sigma_w$ of its first-visit passages. Define
+\begin{equation}\label{e:kernel}
+M_{XY, s} = \sum_{n \ge 1} \sum_{w \in \mathcal T^X_n} 3^{-n} \Bigl( \frac35 \Bigr)^{\mathrm{rev}(w)} \sum_{k} \kappa_{Y, s}(\sigma_w(k)) \prod_{l \le k} x_{\sigma_w(l)}, \qquad M_\theta[X][Y] = \sum_{s \ge 0} M_{XY, s} \, \theta^{-s},
+\end{equation}
+where $\mathrm{rev}(w)$ is the number of revisits of $w$ and $k$ runs over the first-visit passages in the order $\sigma_w$.
+
+\begin{hypothesis}[H3$'$]\label{h:H3}
+For the constants $\cs, \ct$ of (H1) and (H2), the coefficients $\bar\alpha = 0.18094$, $\bar\beta = 0.36751$, and some choice of the orderings $\sigma_w$, the spectral radius of the nonnegative $2 \times 2$ matrix $M_1$ satisfies $\rho(M_1) < 1$.
+\end{hypothesis}
+
+\begin{lemma}\label{l:Mtheta}
+Assume (H2) and (H3$'$). Then $M_\theta$ is finite for $\theta \in (q^2, 1]$, and there exists $\theta \in (q^2, 1)$ with $\rho(M_\theta) < 1$.
+\end{lemma}
+
+\begin{proof}
+A trail of $\mathcal T^X_n$ visits only sites $z$ with $\min(d(z, u), d(z, v)) \le n/2$, and the pairs of a passage lie within distance $1$ of its site, so every shift is at most $n/2 + 1$. Bounding $\prod_{l \le k} x_{\sigma_w(l)}$ by the product over all first visits, the contribution of $w$ to any entry of $M_\theta$ is at most $n (\bar\alpha + 2\bar\beta) \theta^{-n/2 - 1} \mathsf W(w)$, with $\mathsf W$ as in \S\ref{s:H2def} for the arrival direction from $c$ to $u$. By (H2), the entries of $M_\theta$ are at most $\sum_n n (\bar\alpha + 2\bar\beta) C_V q^n \theta^{-n/2 - 1} < \infty$ for $\theta > q^2$. Since the orderings $\sigma_w$ do not depend on $\theta$, every entry is a power series in $1/\theta$ with nonnegative coefficients, convergent on $(q^2, 1]$, hence continuous there. The spectral radius is a continuous function of the entries, so $\rho(M_\theta) < 1$ for $\theta < 1$ close to $1$.
+\end{proof}
+
+\subsection{The recursion}\label{s:therecursion}
+
+\begin{theorem}\label{t:rec}
+Assume (H1), (H2) and (H3$'$) at the same pair $(\cs, \ct)$. Then there exist $A < \infty$ and $\theta < 1$ such that $\mathsf F_X(d) \le A \theta^d$ for all $d \ge 0$ and $X \in \{B, C\}$. In particular Hypothesis~(P) holds.
+\end{theorem}
+
+\begin{proof}
+Let $\theta \in (q^2, 1)$ be as in Lemma~\ref{l:Mtheta}. We first prove the recursion inequality
+\begin{equation}\label{e:recineq}
+\mathsf F_X(d) \le \sum_{Y \in \{B, C\}} \sum_{s \ge 0} M_{XY, s} \, \mathsf F_Y(d - s) + C_T q^{2d}, \qquad d \ge 1, \qquad C_T = 2 \Bigl( \frac{12}{5} \Bigr)^{24} \Bigl( \frac{C_V}{1 - q} \Bigr)^2 .
+\end{equation}
+Let $G$, $\tau$, $D$ and $(u, v) \in P_X(D)$ with centre $c$ be as in \eqref{e:FX} with $d_0 = \min(d(u, S), d(v, S)) \ge d \ge 1$; in particular $u, v \notin S$, and $u$ has at most three present bonds because $c$ is removed. By Proposition~\ref{p:pairwalk} with $T = S \cup \{v\}$, applied to $\tau$ and to $0$, the trails are the same in both expansions, and
+\begin{equation*}
+\E^\tau_D[n_u \cdot n_v] - \E^0_D[n_u \cdot n_v] = \sum_{w \in \mathcal W_0} 3^{-|w|} \bigl( R^\tau_D(w) - R^0_D(w) \bigr) \kappa_v + \sum_{w \in \mathcal W_1} 3^{-|w|} \bigl( R^\tau_D(w) \mathcal X^\tau(w) - R^0_D(w) \mathcal X^0(w) \bigr) = T_1 + T_2,
+\end{equation*}
+where $\mathcal W_0$ is the set of trails ending at $v$, $\mathcal W_1$ the set of trails ending in $S$, $\kappa_v = \E^\cdot_{D;[w]}|n_v|^2 \in \{1, 3/5\}$ does not depend on the dot, and $\mathcal X^\cdot(w) = \E^\cdot_{D;[w]}[n_{v_{|w|}} \cdot n_v]$.
+
+\emph{The term $T_1$.} Let $w \in \mathcal W_0$. By Lemma~\ref{l:closure}, every first-visit step of $w$ has its pattern in $\Pext$, so by Lemma~\ref{l:local} and (H1), $\rho^\tau_j \le x_j$ with $x_j = x_{\mathrm s}$ or $x_{\mathrm t}$. Lemma~\ref{l:exposure} with the ordering induced by $\sigma_w$ and Lemma~\ref{l:response} give
+\begin{equation*}
+3^{-|w|} |R^\tau_D(w) - R^0_D(w)| \le 3^{-|w|} \Bigl( \frac35 \Bigr)^{\mathrm{rev}_D(w)} \sum_k \Bigl( \sum_{\text{pairs } p \text{ of } \sigma_w(k)} \mathrm{coef}(p) \, |r_p| \Bigr) \prod_{l \le k} x_{\sigma_w(l)},
+\end{equation*}
+where $\mathrm{rev}_D(w)$ counts the steps that leave a site of status $\mathrm D$, and the inner sum runs over the pairs of the step, with their coefficients $\alpha_j$, $\beta_j$ or $\beta'_j$. By Lemma~\ref{l:closure}, each such pair $p$ lies in $P_Y(E')$ for its type $Y$ and a domain $E' \in \Dcons(G)$. Since $d(\cdot, S)$ is $1$-Lipschitz, $\min_{z \in p} d(z, S) \ge d_0 - \mathrm{shift}(p) \ge d - \mathrm{shift}(p)$, so $|r_p| \le \mathsf F_Y(d - \mathrm{shift}(p))$. We now compare with the kernel. The trail $w$ is a trail of $\Z^2 \setminus \{c\}$ from $u$ to $v$ with first arrival at $v$, so it belongs to $\mathcal T^X_{|w|}$ after a lattice symmetry, with the same types and shifts. A step of $w$ that leaves a site of status $\mathrm D$ in $D$ not visited before by $w$ is a revisit in $D$ ($\lambda_j = 0$, factor $3/5$) but a first visit for the kernel ($x \ge 1$, coefficients $\ge 0$), so $\mathrm{rev}_D(w) \ge \mathrm{rev}(w)$, and dropping these steps from the ordering only lowers the products. A pair that is dead in the kernel contains $c$ or a site left twice by $w$, both removed in $E'$, so it does not occur in $D$. A pair that occurs in $D$ has coefficient $\alpha_j \le \bar\alpha$, $\beta_j \le \bar\beta$, or $\beta'_j \le \bar\beta$ (when the other neighbour is removed), and it is live in the kernel with coefficient $\bar\alpha$ or $\bar\beta$. Summing over $w$ and using $\kappa_v \le 1$, we obtain $|T_1| \le \sum_{Y, s} M_{XY, s} \mathsf F_Y(d - s)$.
+
+\emph{The term $T_2$.} Let $w \in \mathcal W_1$, ending at $e \in S$. By Proposition~\ref{p:pairwalk} in $D;[w]$, started at $v$ with target $e$ and stopping set $S$, $|\mathcal X^\cdot(w)| \le \sum_{w' \in \mathcal T_{D;[w]}(v, S)} 3^{-|w'|} R^\cdot_{D;[w]}(w')$. In $D;[w]$ the only violation of the rules of $\Dcons(G)$ is at $e$, whose arrival bond is dropped (Lemma~\ref{l:closure}(2)). A first-visit step of $w'$ at $y'$ whose template does not contain both $e$ and the other end of that bond has its pattern in $\Pext$ by the argument of Lemma~\ref{l:closure}; the remaining first-visit steps have $e \in \mathsf T(y')$ and $y' \neq e$, so there are at most $12$ of them. Every $w \in \mathcal W_1$ belongs to $\mathcal T_D(u, S)$. The proof of Lemma~\ref{l:onepoint} applies to $R^0$ as well as to $R^\tau$, since $\rho^0_j \le 1 \le x_j$ for first visits and $\rho^0_j = 3/5$ for revisits. Applying Lemma~\ref{l:onepoint} in $D$ from $u$ and in $D;[w]$ from $v$, we obtain
+\begin{equation*}
+|T_2| \le 2 \Bigl( \sum_{w \in \mathcal T_D(u, S)} 3^{-|w|} \max(R^\tau_D, R^0_D)(w) \Bigr) \Bigl( \frac{12}{5} \Bigr)^{12} \frac{C_V}{1 - q} q^{d(v, S)} \le C_T q^{d(u, S) + d(v, S)} \le C_T q^{2d} .
+\end{equation*}
+This proves \eqref{e:recineq}.
+
+\emph{The fixed point.} Let $\rho'' \in (\rho(M_\theta), 1)$ and $\mathsf x = \sum_{k \ge 0} (M_\theta/\rho'')^k \mathbf 1$, a vector with positive entries satisfying $M_\theta \mathsf x \le \rho'' \mathsf x$; let $\mathsf x_{\min}$ and $\mathsf x_{\max}$ be its smallest and largest entries. For $N \in \N$ let
+\begin{equation*}
+\Phi_N = \sup_{d \ge 0} \max_{X} \frac{\mathsf F_X(d) \, \theta^{-\min(d, N)}}{\mathsf x_X} \le \frac{2 \theta^{-N}}{\mathsf x_{\min}} < \infty .
+\end{equation*}
+For $d \ge 1$ and $s \ge 0$ we have $\mathsf F_Y(d - s) \le \Phi_N \mathsf x_Y \theta^{\min(d, N) - s}$: if $s \le d$ this follows from $\min(d - s, N) \ge \min(d, N) - s$, and if $s > d$ from $\mathsf F_Y(d - s) = \mathsf F_Y(0) \le \Phi_N \mathsf x_Y \le \Phi_N \mathsf x_Y \theta^{\min(d, N) - s}$. Inserting this into \eqref{e:recineq} and using $q^2 < \theta$, we obtain for $d \ge 1$
+\begin{equation*}
+\mathsf F_X(d) \le \Phi_N \theta^{\min(d, N)} (M_\theta \mathsf x)_X + C_T \theta^{d} \le \bigl( \rho'' \Phi_N \mathsf x_X + C_T \bigr) \theta^{\min(d, N)} ,
+\end{equation*}
+and for $d = 0$ we have $\mathsf F_X(0) \le 2$. Hence $\Phi_N \le \max\bigl( 2/\mathsf x_{\min}, \, \rho'' \Phi_N + C_T / \mathsf x_{\min} \bigr)$, so that $\Phi_N \le \max(2, C_T/(1 - \rho''))/\mathsf x_{\min}$ for every $N$. Letting $N \to \infty$ gives $\mathsf F_X(d) \le A \theta^d$ with $A = \mathsf x_{\max} \max(2, C_T / (1 - \rho''))/\mathsf x_{\min}$. The last statement was shown in \S\ref{s:pairclass}.
+\end{proof}
+
+\begin{remark}\label{r:typedep}
+Lemma~\ref{l:response} uses only the bounds $|m| \le 3/5$ and free positivity. For a step whose pattern satisfies (H1), one also has $\E^\tau_{E'}[I] \ge c_{\mathrm{type}} \E^\tau_{E'}[J] \ge 0.928 \, c_{\mathrm{type}}$, which improves the coefficients to values depending on the type of the step. At $(\cs, \ct) = (0.961, 0.935)$ a ball-arithmetic computation gives, for straight steps, $\alpha \le 0.145217$, $\beta \le 0.352782$, $\beta' \le 0.340008$, and for turns $\alpha \le 0.149953$, $\beta \le 0.357549$, $\beta' \le 0.344661$. With these coefficients in \eqref{e:kernel} the proof of Theorem~\ref{t:rec} is unchanged. We do not use this refinement in the main line of the proof; see \S\ref{s:H3}.
+\end{remark}

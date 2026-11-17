@@ -1,0 +1,61 @@
+def AKLT.Blueprint.Mom.FactorizedConditioningStatement : Prop :=
+∀ (n : ℕ) (w : (Fin n → SpinLetter) → ℝ),
+  (∀ (τ : Fin n → SpinLetter), 0 ≤ w τ) →
+    ∀ (x y : Fin n),
+      x ≠ y →
+        ∀ (σ : Fin n → SpinLetter) (C : ℝ) (u v : SpinLetter → ℝ),
+          (∀ (τ : Fin n → SpinLetter), twoSiteFibre x y σ τ → w τ = C * u (τ x) * v (τ y)) →
+            0 < eventMass (AKLT.Defs.normalize w) (twoSiteFibre x y σ) →
+              ∀ (a b : SpinLetter),
+                (conditionalProbability (AKLT.Defs.normalize w) (twoSiteFibre x y σ) fun τ => τ x = a ∧ τ y = b) =
+                  (conditionalProbability (AKLT.Defs.normalize w) (twoSiteFibre x y σ) fun τ => τ x = a) *
+                    conditionalProbability (AKLT.Defs.normalize w) (twoSiteFibre x y σ) fun τ => τ y = b
+def AKLT.Blueprint.Mom.TripleNormalizerStatement : Prop :=
+∀ (a : Fin 3 → Vec3), siteFunctional Status.U (localProduct a) = 1 + tripleP a / 3
+def AKLT.Blueprint.Mom.TripleNumeratorStatement : Prop :=
+∀ (a : Fin 3 → Vec3) (i : Fin 3), (15 * siteFunctional Status.U fun v => v i * localProduct a v) = tripleV a i
+def AKLT.Blueprint.Mom.TripleGeometryStatement : Prop :=
+∀ (a : Fin 3 → Vec3),
+  (∀ (j : Fin 3), normSq (a j) = 1) →
+    1 / 2 ≤ 1 + tripleP a / 3 ∧ 0 ≤ 1 - dot (a 1) (a 2) ∧ 0 ≤ 1 - dot (a 0) (a 2) ∧ 0 ≤ 1 - dot (a 0) (a 1)
+def AKLT.Blueprint.Mom.TripleSOSIdentityStatement : Prop :=
+∀ (a : Fin 3 → Vec3), (∀ (j : Fin 3), normSq (a j) = 1) → (9 + 3 * tripleP a) ^ 2 - normSq (tripleV a) = tripleSOS a
+def AKLT.Blueprint.Mom.BallFieldSplitStatement : Prop :=
+∀ (a : Vec3),
+  normSq a ≤ 1 → ∃ t e, 0 ≤ t ∧ t ≤ 1 ∧ ∀ (v : Vec3), 1 + dot v a = t * (1 + dot v ↑e) + (1 - t) * (1 + dot v (-↑e))
+def AKLT.Blueprint.Mom.ProductMixtureStatement : Prop :=
+∀ k ≤ 3,
+  ∀ (a : Fin k → Vec3),
+    (∀ (j : Fin k),
+        ∃ t e, 0 ≤ t ∧ t ≤ 1 ∧ ∀ (v : Vec3), 1 + dot v (a j) = t * (1 + dot v ↑e) + (1 - t) * (1 + dot v (-↑e))) →
+      ∃ t b,
+        (∀ (η : Fin 8), 0 ≤ t η) ∧
+          ∑ η, t η = 1 ∧ ∀ (v : Vec3), localProduct a v = ∑ η, t η * localProduct (fun j => ↑(b η j)) v
+def AKLT.Blueprint.Mom.PositiveMixtureEstimateStatement : Prop :=
+∀ (α : Type) [inst : Fintype α] (t A : α → ℝ) (B : α → Vec3) (r : ℝ),
+  0 ≤ r →
+    (∀ (η : α), 0 ≤ t η) →
+      ∑ η, t η = 1 →
+        (∀ (η : α), 1 / 2 ≤ A η) →
+          (∀ (η : α), (normSq fun i => B η i / A η) ≤ r ^ 2) →
+            1 / 2 ≤ ∑ η, t η * A η ∧ (normSq fun i => (∑ η, t η * B η i) / ∑ η, t η * A η) ≤ r ^ 2
+def AKLT.Defs.normalize.{u_1} : {Ω : Type u_1} → [Fintype Ω] → Weight Ω → Weight Ω :=
+fun {Ω} [Fintype Ω] w x => w x / ∑ y, w y
+def normalize.{u_1} : {α : Type u_1} → [inst : MonoidWithZero α] → [NormalizationMonoid α] → α → α :=
+fun {α} [MonoidWithZero α] [NormalizationMonoid α] x => x * ↑(normUnit x)
+def AKLT.Defs.conditionalProbability.{u_1} : {Ω : Type u_1} → [Fintype Ω] → Weight Ω → (Ω → Prop) → (Ω → Prop) → ℝ :=
+fun {Ω} [Fintype Ω] p E A => (∑ σ, if E σ ∧ A σ then p σ else 0) / ∑ σ, if E σ then p σ else 0
+def AKLT.Defs.eventMass.{u_1} : {Ω : Type u_1} → [Fintype Ω] → Weight Ω → (Ω → Prop) → ℝ :=
+fun {Ω} [Fintype Ω] p E => ∑ σ, if E σ then p σ else 0
+def AKLT.Defs.localProduct : {k : ℕ} → (Fin k → Vec3) → Vec3 → ℝ :=
+fun {k} a n => ∏ j, (1 + dot n (a j))
+@[reducible] def AKLT.Defs.UnitVector : Type :=
+{ a // normSq a = 1 }
+def AKLT.Defs.normSq : Vec3 → ℝ :=
+fun a => dot a a
+def AKLT.Defs.dot : Vec3 → Vec3 → ℝ :=
+fun a b => ∑ i, a i * b i
+instFintypeOption
+Fin.sum_univ_three.{u_2} {M : Type u_2} [AddCommMonoid M] (f : Fin 3 → M) : ∑ i, f i = f 0 + f 1 + f 2
+Fintype.sum_prod_type.{u_3, u_4, u_5} {γ : Type u_3} {α₁ : Type u_4} {α₂ : Type u_5} [Fintype α₁] [Fintype α₂]
+  [AddCommMonoid γ] (f : α₁ × α₂ → γ) : ∑ x, f x = ∑ x, ∑ y, f (x, y)

@@ -1,0 +1,29 @@
+import took 2.63s
+parsing took 301ms
+interpretation of elabPackedHex._boxed took 75.5s
+elaboration took 705ms
+'Literal50MB.checked' does not depend on any axioms
+cumulative profiling times:
+	.olean serialization 40.8ms
+	attribute application 0.0243ms
+	compilation (IR) 0.0242ms
+	compilation (LCNF base) 31.6ms
+	compilation (LCNF impure) 0.121ms
+	compilation (LCNF mono) 14.6ms
+	elaboration 706ms
+	fix level params 0.0129ms
+	import 2.63s
+	initialization 26.4ms
+	instantiate metavars 0.00932ms
+	interpretation 75.8s
+	let-to-have transformation 0.0107ms
+	linting 63.6ms
+	module linting 0.00156ms
+	overlappingInstancesLinter 0.746ms
+	parsing 301ms
+	process pre-definitions 0.503ms
+	share common exprs 0.0219ms
+	tactic execution 0.296ms
+	tacticAnalysis 1.77ms
+	type checking 79.1ms
+	typeclass inference 0.905ms

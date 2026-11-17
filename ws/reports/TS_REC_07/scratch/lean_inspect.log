@@ -1,0 +1,152 @@
+def AKLT.Blueprint.Rec.NormalizeStartStatement : Prop :=
+∀ (p : PairData),
+  p.normalized.bonds = p.D.bonds ∧
+    ∀ (b : Bool) (f : (Plane → Vec3) → ℝ), p.normalized.partition p.τ b f = p.D.partition p.τ b f
+def AKLT.Blueprint.Rec.KeptInvariantStatement : Prop :=
+∀ (p : PairSetup) (T : Finset Plane) (n : ℕ) (w : DirectionWord n),
+  StoppedNetworkTrail p.normalized p.u T w →
+    ∀ j ≤ n,
+      have E := prefixNetwork p.normalized p.u w j;
+      have y := wordVertex p.u w j;
+      E.Auxiliary ∧
+        (∀ x ∈ p.G, x ≠ y → E.status x = Status.U → E.kept x = neighbours x ∩ p.G) ∧
+          (∀ x ∈ p.G, x ≠ y → E.status x = Status.D → (E.kept x).card = 2) ∧
+            (∀ x ∈ E.active, ∀ z ∈ E.active, Adjacent x z → (z ∈ E.kept x ↔ x ∈ E.kept z)) ∧
+              ∀ i < j, E.status (wordVertex p.u w i) ≠ Status.U
+def AKLT.Blueprint.Rec.RemovedClosureStatement : Prop :=
+∀ (p : PairSetup) (T : Finset Plane) (n : ℕ) (w : DirectionWord n),
+  StoppedNetworkTrail p.normalized p.u T w →
+    ∀ j ≤ n,
+      wordVertex p.u w j ∉ protectedSites p.G →
+        (removeSite (prefixNetwork p.normalized p.u w j) (wordVertex p.u w j)).Consistent
+def AKLT.Blueprint.Rec.CoveredClosureStatement : Prop :=
+∀ (p : PairSetup) (T : Finset Plane) (n : ℕ) (w : DirectionWord n),
+  StoppedNetworkTrail p.normalized p.u T w →
+    ∀ (i : Fin n),
+      (prefixNetwork p.normalized p.u w ↑i).status (wordVertex p.u w ↑i) = Status.U →
+        CoveredDepartureV2 (prefixNetwork p.normalized p.u w ↑i) (wordVertex p.u w ↑i) (wordIncoming p.incoming w i)
+          (w i)
+def AKLT.Blueprint.Rec.PairClosureStatement : Prop :=
+∀ (p : PairSetup) (T : Finset Plane) (n : ℕ) (w : DirectionWord n),
+  StoppedNetworkTrail p.normalized p.u T w →
+    ∀ (i : Fin n),
+      have E := prefixNetwork p.normalized p.u w ↑i;
+      have y := wordVertex p.u w ↑i;
+      E.status y = Status.U →
+        ∀ a ∈ E.presentNeighbours y,
+          ∀ b ∈ E.presentNeighbours y, a ≠ b → (removeSite E y).ResponsePair (responsePairType {a, b}) a b y
+def AKLT.Blueprint.Rec.TerminalDefectStatement : Prop :=
+∀ (p : PairSetup) (n : ℕ) (w : DirectionWord n),
+  StoppedNetworkTrail p.normalized p.u (protectedSites p.G) w →
+    have E := traceNetwork p.normalized (wordVertices p.u w);
+    have e := wordVertex p.u w n;
+    E.Auxiliary ∧ E.status e = Status.U ∧ ∀ x ∈ protectedSites p.G, x ≠ e → E.kept x = neighbours x ∩ p.G
+def AKLT.Blueprint.Rec.SecondStartStatement : Prop :=
+∀ (p : PairSetup),
+  p.v ∉ protectedSites p.G →
+    ∀ (n : ℕ) (w : DirectionWord n),
+      StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →
+        wordVertex p.u w n ∈ protectedSites p.G →
+          have E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c;
+          E.Auxiliary ∧ E.AdmissibleStart p.v ∧ ¬E.Present p.c p.v ∧ AdmissibleTarget E (wordVertex p.u w n)
+def AKLT.Blueprint.Rec.TerminalExceptionLocationStatement : Prop :=
+∀ (p : PairSetup),
+  p.v ∉ protectedSites p.G →
+    ∀ (n : ℕ) (w : DirectionWord n),
+      StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →
+        wordVertex p.u w n ∈ protectedSites p.G →
+          have E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c;
+          ∀ (incoming : Compass),
+            p.v = p.c + incoming.step →
+              ∀ (m : ℕ) (w' : DirectionWord m),
+                StoppedNetworkTrail E p.v (protectedSites p.G) w' →
+                  ∀ (i : Fin m),
+                    (prefixNetwork E p.v w' ↑i).status (wordVertex p.v w' ↑i) = Status.U →
+                      ¬CoveredDepartureV2 (prefixNetwork E p.v w' ↑i) (wordVertex p.v w' ↑i)
+                            (wordIncoming incoming w' i) (w' i) →
+                        0 < latticeDist (wordVertex p.v w' ↑i) (wordVertex p.u w n) ∧
+                          latticeDist (wordVertex p.v w' ↑i) (wordVertex p.u w n) ≤ 2
+structure AKLT.Blueprint.Rec.PairData : Type
+number of parameters: 0
+fields:
+  AKLT.Blueprint.Rec.PairData.G : Finset Plane
+  AKLT.Blueprint.Rec.PairData.τ : PinAssignment self.G
+  AKLT.Blueprint.Rec.PairData.D : Network self.G
+  AKLT.Blueprint.Rec.PairData.X : PairType
+  AKLT.Blueprint.Rec.PairData.u : Plane
+  AKLT.Blueprint.Rec.PairData.v : Plane
+  AKLT.Blueprint.Rec.PairData.c : Plane
+  AKLT.Blueprint.Rec.PairData.pair : self.D.ResponsePair self.X self.u self.v self.c
+constructor:
+  AKLT.Blueprint.Rec.PairData.mk (G : Finset Plane) (τ : PinAssignment G) (D : Network G) (X : PairType) (u v c : Plane)
+    (pair : D.ResponsePair X u v c) : PairData
+structure AKLT.Blueprint.Rec.PairSetup : Type
+number of parameters: 0
+parents:
+  AKLT.Blueprint.Rec.PairSetup.toPairData : PairData
+fields:
+  AKLT.Blueprint.Rec.PairData.G : Finset Plane
+  AKLT.Blueprint.Rec.PairData.τ : PinAssignment self.G
+  AKLT.Blueprint.Rec.PairData.D : Network self.G
+  AKLT.Blueprint.Rec.PairData.X : PairType
+  AKLT.Blueprint.Rec.PairData.u : Plane
+  AKLT.Blueprint.Rec.PairData.v : Plane
+  AKLT.Blueprint.Rec.PairData.c : Plane
+  AKLT.Blueprint.Rec.PairData.pair : self.D.ResponsePair self.X self.u self.v self.c
+  AKLT.Blueprint.Rec.PairSetup.incoming : Compass
+  AKLT.Blueprint.Rec.PairSetup.incoming_eq : self.u = self.c + self.incoming.step
+  AKLT.Blueprint.Rec.PairSetup.interior : self.u ∉ protectedSites self.G
+constructor:
+  AKLT.Blueprint.Rec.PairSetup.mk (toPairData : PairData) (incoming : Compass)
+    (incoming_eq : toPairData.u = toPairData.c + incoming.step)
+    (interior : toPairData.u ∉ protectedSites toPairData.G) : PairSetup
+field notation resolution order:
+  AKLT.Blueprint.Rec.PairSetup, AKLT.Blueprint.Rec.PairData
+def AKLT.Defs.StoppedNetworkTrail : {G : Finset Plane} →
+  {n : ℕ} → Network G → Plane → Finset Plane → DirectionWord n → Prop :=
+fun {G} {n} D u T w =>
+  Function.Injective (wordBond u w) ∧
+    (∀ (i : Fin n), D.Present (wordVertex u w ↑i) (wordVertex u w (↑i + 1))) ∧
+      (∀ j < n, wordVertex u w j ∉ T ∧ wordVertex u w j ∉ protectedSites G) ∧ wordVertex u w n ∈ T
+def AKLT.Blueprint.Rec.CoveredDepartureV2 : {G : Finset Plane} → Network G → Plane → Compass → Compass → Prop :=
+fun {G} D y incoming outgoing =>
+  ∃ π,
+    π.Covered ∧
+      normalizeRotation incoming π.outgoing.step = outgoing.step ∧
+        ∀ z ∈ templateSites \ templateTips,
+          π.statusAt z = D.status (y + normalizeRotation incoming z) ∧
+            (π.statusAt z ≠ Status.X →
+              Finset.image (fun t => y + normalizeRotation incoming t) (π.keptAt z) ∩ G =
+                D.kept (y + normalizeRotation incoming z))
+def AKLT.Defs.PatternData.Covered : PatternData → Prop :=
+fun π =>
+  π.outgoing ≠ Compass.south ∧
+    π.statusAt (0, 0) = Status.U ∧
+      π.keptAt (0, 0) = {(1, 0), (0, 1), (-1, 0)} ∧
+        (π.statusAt (0, -1) = Status.X ∨
+            π.statusAt (0, -1) = Status.D ∧ (π.keptAt (0, -1)).card = 2 ∧ (0, 0) ∉ π.keptAt (0, -1)) ∧
+          (∀ d ∈ {Compass.east, Compass.north, Compass.west},
+              π.statusAt d.step = Status.U ∨
+                π.statusAt d.step = Status.X ∨
+                  π.statusAt d.step = Status.D ∧ (π.keptAt d.step).card = 2 ∧ (0, 0) ∈ π.keptAt d.step) ∧
+            π.statusAt π.outgoing.step ≠ Status.X ∧
+              (∀ x ∈ templateCorners,
+                  π.statusAt x = Status.U ∨ π.statusAt x = Status.X ∨ π.statusAt x = Status.D ∧ (π.keptAt x).card = 2) ∧
+                (∀ x ∈ templateSites,
+                    x ≠ (0, 0) → x ∉ templateTips → π.statusAt x = Status.U → π.keptAt x = neighbours x) ∧
+                  (∀ x ∈ templateTips, π.statusAt x = Status.U) ∧
+                    ∀ x ∈ templateSites \ templateTips,
+                      ∀ y ∈ templateSites \ templateTips,
+                        π.statusAt x ≠ Status.X →
+                          π.statusAt y ≠ Status.X → Adjacent x y → (y ∈ π.keptAt x ↔ x ∈ π.keptAt y)
+def AKLT.Defs.Network.AdmissibleStart : {G : Finset Plane} → Network G → Plane → Prop :=
+fun {G} D u =>
+  u ∈ D.active ∧
+    u ∉ protectedSites G ∧
+      (D.status u = Status.U ∧ (D.presentNeighbours u).card ≤ 3 ∨
+        D.status u = Status.D ∧ (D.presentNeighbours u).card ≤ 1)
+def AKLT.Defs.AdmissibleTarget : {G : Finset Plane} → Network G → Plane → Prop :=
+fun {G} D v =>
+  v ∈ D.active ∧
+    (D.status v = Status.U ∧ (D.presentNeighbours v).card + {e ∈ originalLegs G | e.1 = v}.card ≤ 3 ∨
+      D.status v = Status.D ∧ (D.presentNeighbours v).card ≤ 1)

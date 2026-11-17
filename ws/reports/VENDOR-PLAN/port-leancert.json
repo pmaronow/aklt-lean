@@ -1,0 +1,189 @@
+{
+  "label": "port-leancert",
+  "seconds": 31.06881809234619,
+  "results": {
+    "LeanCert.Core.DerivativeIntervals": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.464338779449463,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.Dyadic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.356363296508789,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.Expr": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.3101611137390137,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.Interval": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5091536045074463,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalDyadic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.001337766647339,
+      "errors": [],
+      "warnings": [
+        {
+          "caption": "",
+          "data": "Variable name `hx_nn` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hx_nn\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+          "endPos": {
+            "column": 65,
+            "line": 699
+          },
+          "fileName": "/home/ubuntu/aklt/scratch/VENDOR-PLAN/port-leancert/LeanCert/Core/IntervalDyadic.lean",
+          "isSilent": false,
+          "keepFullRange": false,
+          "kind": "linter.unusedVariables",
+          "pos": {
+            "column": 60,
+            "line": 699
+          },
+          "severity": "warning"
+        }
+      ]
+    },
+    "LeanCert.Core.IntervalRat.Basic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 3.0398237705230713,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalRat.LogReduction": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.231411933898926,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalRat.Taylor": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 4.774103403091431,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalRat.Transcendental": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.2191426753997803,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalRat.TrigReduced": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.650726556777954,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalReal": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4291479587554932,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.IntervalRealEndpoints": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.86012601852417,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.Support": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.663405418395996,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.Taylor": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.5775020122528076,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Core.TrigReduction": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.733856439590454,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.Bounds.Lemmas": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.4440932273864746,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.Eval.Core": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.5988173484802246,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.Eval.Extended": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9408655166625977,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.Eval.Result": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.5086719989776611,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.FinSumDyadic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.9322423934936523,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.IntervalEval": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.3963308334350586,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Engine.IntervalEvalDyadic": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 2.736201763153076,
+      "errors": [],
+      "warnings": []
+    },
+    "LeanCert.Validity.DyadicBounds": {
+      "status": "ok",
+      "returncode": 0,
+      "seconds": 1.546210765838623,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "error_count": 0,
+  "ok": 23,
+  "failed": 0,
+  "blocked": 0
+}

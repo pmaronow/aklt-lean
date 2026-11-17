@@ -1,0 +1,90 @@
+\section{The computer-assisted inputs}\label{s:computer}
+
+In this section we state the three computer-assisted inputs of the proof and describe how they are verified. Hypothesis~(H1) is a statement about the $7{,}962$ functions \eqref{e:cpi} of the local patterns; we verify it in exact integer and rational arithmetic. The hypotheses (H2) and (H3$'$) concern only the two numbers $\cs, \ct$; they are statements about weighted sums over trails of $\Z^2$, and we verify them in floating-point arithmetic with upward rounding. The programs and output files are kept with the project; the production records and exact rational assembly for (H3$'$) are identified in \S\ref{s:tailtrust} and are to be included with the accompanying programs.
+
+\begin{theorem}\label{t:inputs}
+At $(\cs, \ct) = (0.961, 0.935)$, Hypothesis~(H1) holds, Hypothesis~(H2) holds with $q \le 0.98075$, and Hypothesis~(H3$'$) holds with $\rho(M_1) \le 0.98779$.
+\end{theorem}
+
+The three parts are proved in \S\ref{s:H1}, \S\ref{s:H2} and \S\ref{s:H3}. The bounds on $q$ and $\rho(M_1)$ are monotone in the constants: every quantity involved is a sum of products of the nonnegative numbers $x_{\mathrm s}$, $x_{\mathrm t}$, $\bar\alpha$, $\bar\beta$, so these two statements also hold for all $(\cs, \ct) \ge (0.961, 0.935)$. Hypothesis~(H1), on the contrary, fails for $\ct > 416114/444675 = 0.935771\ldots$ (Remark~\ref{r:H1sharp}).
+
+\subsection{The trail growth (H2)}\label{s:H2}
+
+For $m \ge 1$, a \emph{window} is a sequence of $m$ unit steps of $\Z^2$ that forms a trail, up to translation. For windows $\varsigma, \varsigma'$ and $k \ge 1$, let $\mathsf M_k(\varsigma, \varsigma')$ be the sum, over the sequences of $k$ further steps that continue $\varsigma$ to a trail of length $m + k$ whose last $m$ steps form $\varsigma'$, of the product of the weights of the $k$ new steps, where a new step is weighted using $\varsigma$ and the earlier new steps as the only history: $x_{\mathrm s}/3$ or $x_{\mathrm t}/3$ if the site it leaves occurs in this history only as its last site (straight or turning according to the previous step), and $1/4$ if that site was already left earlier in this history.
+
+\begin{lemma}\label{l:alm}
+Let $\mathsf A_n(\varsigma)$ be the sum of $\mathsf W(w)$ over the trails $w$ of length $n \ge m$ with a fixed start and arrival direction and with initial reversal forbidden as in \S\ref{s:H2def} whose last $m$ steps form $\varsigma$. Then $\mathsf A_{n + k}(\varsigma') \le \sum_\varsigma \mathsf A_n(\varsigma) \mathsf M_k(\varsigma, \varsigma')$. Consequently, let $h$ be any vector with positive entries and $\lambda = \max_\varsigma (\mathsf M_k h)_\varsigma / h_\varsigma$. Then, with $q = \lambda^{1/k}$ and $\mathsf W_n = \sum_{|w| = n} \mathsf W(w)$,
+\begin{equation*}
+\mathsf W_n \le C_V q^n \quad (n \ge 0), \qquad C_V = \max\Bigl( \max_{n < m} \mathsf W_n q^{-n}, \; \frac{\max_\varsigma h_\varsigma}{\min_\varsigma h_\varsigma} \max_{m \le n < m + k} \mathsf W_n q^{-n} \Bigr),
+\end{equation*}
+so (H2) holds if $\lambda < 1$.
+\end{lemma}
+
+\begin{proof}
+Let $n \ge m$, let $w$ be a trail of length $n + k$ whose last $m$ steps form $\varsigma'$, let $w'$ be its first $n$ steps, $\varsigma$ the last $m$ steps of $w'$, and $e$ the last $k$ steps of $w$. The walk $\varsigma e$ uses bonds of $w$ only, so it is a trail, and its last $m$ steps form $\varsigma'$; the map $w \mapsto (w', e)$ is injective. It therefore suffices to compare the weight of each new step $j > n$ in $\mathsf W(w)$ with its weight in $\mathsf M_k(\varsigma, \varsigma')$. The history known to the window, $(v_{n - m}, \dots, v_{j - 1})$, is a final segment of the true history $(v_0, \dots, v_{j - 1})$. If $v_{j - 1}$ was left within the known history, the step is a true revisit, of weight $1/5 \le 1/4$. If $v_{j - 1}$ was left only before $v_{n - m}$, the step is a true revisit, of weight $1/5$, and a first visit for the window, of weight $x/3 \ge 1/3$. Otherwise it is a first visit for both, and its type is determined by $v_{j - 2}, v_{j - 1}, v_j$, which belong to the known history; the weights agree. This proves the first statement.
+
+Since $\mathsf M_k$ has nonnegative entries, induction gives $\mathsf A_{n + ik} \le \mathsf A_n \mathsf M_k^i$ entrywise for $n \ge m$ and $i \ge 0$, and $\mathsf M_k h \le \lambda h$ gives $\mathsf M_k^i h \le \lambda^i h$. Hence
+\begin{equation*}
+\mathsf W_{n + ik} = \sum_\varsigma \mathsf A_{n + ik}(\varsigma) \le \frac{\mathsf A_n \mathsf M_k^i h}{\min h} \le \frac{\lambda^i \, \mathsf A_n h}{\min h} \le \frac{\max h}{\min h} \, \lambda^i \, \mathsf W_n .
+\end{equation*}
+Every length $N \ge m$ is of the form $n + ik$ with $m \le n < m + k$, which gives the bound for $N \ge m$; for $N < m$ it holds by the definition of $C_V$. The quantities do not depend on the start and the arrival direction, by the lattice symmetries.
+\end{proof}
+
+\emph{Certificate.}
+For the certified instance, \texttt{alm8\_checked.c}, archived under \texttt{reports/ADJ-R5/audit/} relative to the project root, first validates $m=k=8$ and the integer parameters $9610,9350$, and initializes only the powers $4^i$ for $0\le i\le8$; all integer codes and array indices in this instance are within their checked ranges.
+It computes $\mathsf M_8$ on the $7{,}500$ windows with weights given by exact integer quotients rounded upward.
+The matrix sums and products and the final Collatz--Wielandt verification use upward rounding; the intervening power iteration only chooses a test vector. The final upward evaluation bounds
+$\max_\varsigma(\mathsf M_8h)_\varsigma/h_\varsigma$ by $0.85594872$.
+Its upper bound is printed with upward rounding, together with the exact hexadecimal representation of the stored binary64 bound.
+The desired rate is certified by the exact rational comparison
+$0.85594872<(3923/4000)^8$, giving $q\le0.98075$;
+no printed value obtained by taking a numerical root is used as a certificate. The bound was reproduced by an independent program in exact rational arithmetic: the windows are grouped into the $938$ classes of the dihedral group, which preserves $\mathsf M_8$, the test vector $h$ is rational, positive, constant on classes and has $\max h / \min h = 100$, and the exact value of $\max_\varsigma (\mathsf M_8 h)_\varsigma / h_\varsigma$ is at most $0.8559487104$. The exact checker and vector are \texttt{h2\_exact.py} and \texttt{h2\_integer\_certificate.tsv} in the same audit directory. The base sums use the initial-step convention of \S\ref{s:H2def} and $\mathsf W_0=1$.
+At the rational rate $q=0.98075$ they satisfy
+$\max_{n<8}\mathsf W_nq^{-n}<1.473$ and
+$\max_{8\le n<16}\mathsf W_nq^{-n}<1.506$.
+Together with $\max h/\min h=100$ and $\mathsf M_8h\le q^8h$, the induction of Lemma~\ref{l:alm} therefore gives $C_V\le153$. Replacing the window revisit weight $1/4$ by the true value $1/5$, which the proof of Lemma~\ref{l:alm} allows, gives $q \le 0.97606$.
+
+\subsection{The kernel (H3$'$)}\label{s:H3}
+
+We bound $\rho(M_1)$ by the Collatz--Wielandt inequality $\rho(M_1) \le \max_X (M_1 h)_X / h_X$ with $h = (h_B, h_C) = (1, 1.23)$. The orderings $\sigma_w$ in \eqref{e:kernel} are chosen, for trails of length $n \le 20$, to minimize the $h$-weighted contribution of the trail, and for longer trails to put the straight first visits before the turns; both choices are fixed independently of $\theta$, as Lemma~\ref{l:Mtheta} requires. The contribution of each row is split into three parts.
+
+\emph{Short trails.} The trails of length $n \le 20$ are enumerated exactly by depth-first search, with the exact dead pairs and types, and their contributions are summed with upward rounding.
+
+\emph{Intermediate trails, $22 \le n \le 107$.} The trails are split according to their first step, followed exactly for $20$ steps, and then dominated by a weighted walk with memory $10$ on the quotient of $\Z^2$ by $\langle (28, 28), (28, -28) \rangle$, whose nonzero elements have length at least $P = 56$. A step of the memory walk is forbidden if it reverses or reuses a bond of the last $10$ steps; it has weight $1/5$ if it revisits a site of these $10$ steps and the first-visit weight otherwise; four phases carry the straights-first ordering. The walk is deleted at the class of $c$, recorded and deleted at the class of $v$, treats passages at the classes of $u$ and of the second site of the trail as revisits, and drops the pairs through the class of $c$. These rules are exact for closed trails of length $n \le 2P - 5 = 107$ (Lemma~\ref{l:memdom}).
+
+\emph{Long trails, $n \ge 108$.} The same walk without the split by the first step, with the rules only up to time $53 = P - 3$, dominates the trails of every length $n > 53$; after $T = 260$ steps its mass is bounded in $L^\infty$ by a left sub-invariant vector of the walk without rules (Lemma~\ref{l:remainder}; growth $0.979533$, checked with directed rounding), which keeps the point-to-point structure of the closed trails.
+
+\emph{Result.} With $\bar\alpha = 0.18094$, $\bar\beta = 0.36751$ the computation gives the row bounds $0.987763$ (row $B$) and $0.968624$ (row $C$), see Table~\ref{tab:tail}; hence $\rho(M_1) \le 0.98779$. With the type-dependent coefficients of Remark~\ref{r:typedep} and $h = (1, 1.20)$, a variant of the same programs gives $\rho(M_1) \le 0.91825$ (Remark~\ref{r:tailtypedep}); the main line does not use it. The domination and remainder lemmas, the table of certified numbers and a description of what the programs compute are in Appendix~\ref{s:tail}.
+
+\subsection{The local inequalities (H1)}\label{s:H1}
+
+Recall from \S\ref{s:patterns} the patterns $\pi \in \Pext$, the integrals $Z_{\mathrm{cur}}(\pi; m)$ and $Z_{\mathrm{next}}(\pi; m)$ over the spins of the template before and after the step, with unit vectors $m = (m_\ell)$ on the $20$ slots (two at each corner and three at each tip), and the infimum $c(\pi)$ of their ratio \eqref{e:cpi}. Hypothesis~(H1) enters the proof at two places. Lemma~\ref{l:local} turns it into $\rho^\tau_j \le 1/c_{\mathrm{type}}$ for every first-visit step whose pattern lies in $\Pext$, which is used in Lemma~\ref{l:onepoint} and in the term $T_1$ of the proof of Theorem~\ref{t:rec}; and $\cs$, $\ct$ are the constants at which (H2) and (H3$'$) are verified.
+
+\begin{theorem}\label{t:H1}
+Let $\pi \in \Pext$. For all $m \in (\Sph)^{20}$, we have
+\begin{equation*}
+Z_{\mathrm{cur}}(\pi; m) \ge \frac{961}{1000} \, Z_{\mathrm{next}}(\pi; m) \quad \text{if } \pi \text{ is straight}, \qquad Z_{\mathrm{cur}}(\pi; m) \ge \frac{187}{200} \, Z_{\mathrm{next}}(\pi; m) \quad \text{if } \pi \text{ is a turn}.
+\end{equation*}
+In particular, Hypothesis~(H1) holds with $(\cs, \ct) = (0.961, 0.935)$.
+\end{theorem}
+
+The proof is computer-assisted, in exact integer and rational arithmetic, and is given in Appendix~\ref{s:local}. Each inequality concerns a polynomial in unit vectors that is affine in each vector. Integrating out the passage site, the tips and the corners with a single present bond, we replace $Z_{\mathrm{cur}} - c Z_{\mathrm{next}}$ by a function of at most eleven vectors with the same property (Corollary~\ref{c:reduce}). The main step is Lemma~\ref{l:inversion}: such a function is the expectation of an explicit Hermitian operator in products of spin-$\frac12$ coherent states, and after a suitable subset of the vectors is inverted, positive semidefiniteness of this operator implies that the function is nonnegative. The operator commutes with the total spin, so it suffices to test one eigenspace of the total spin component for each exchange symmetry of the diluted corners (Lemma~\ref{l:sector}). After multiplication by an integer, each test is the positive definiteness of a symmetric integer matrix of size at most $245$, which we verify by fraction-free elimination (Proposition~\ref{p:certificate}). We have such a certificate for each of the $7{,}962$ patterns. For the $4{,}735$ patterns in which every site other than $y$ and its neighbours hangs on the rest of the template by a single bond, possibly through a chain of such sites, $c(\pi)$ has a closed form (Proposition~\ref{p:closed}). The proof of the closed form rests on a sharp bound, obtained from the FKG inequality, for the mean of a spin under several fields (Lemma~\ref{l:radius}). It gives a second, independent proof for these patterns, and the exact values of $c(\pi)$ in Table~\ref{tab:H1}. The programs, the certificate files, the checks and what a reader must trust are described in \S\ref{s:localcomp}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lll}
+pattern & value & inversion bound \\ \hline
+straight example (ID 7645) & $c(\pi) = 3825127/3979368 = 0.961240\ldots$ & $0.961240$ \\
+turn example (ID 1382) & $c(\pi) = 1071655/1145463 = 0.935565\ldots$ & $0.935565$ \\
+turn, $\mathsf N$ and $\mathsf s$ removed & $c(\pi) = 416114/444675 = 0.935771\ldots$ & $0.935771$ \\
+generic straight ($k = 11$) & numerical minimum $1.001202$ & $0.992310$ \\
+generic turn ($k = 11$) & numerical minimum $0.960973$ & $0.960973$ \\ \hline
+all $7{,}962$ patterns & closed form for $4{,}735$ & all; integer matrices of size $\le 245$
+\end{tabular}
+\caption{Selected patterns of $\Pext$, which has $2{,}696$ straight patterns and $5{,}266$ turns. The first two rows give the smallest values found numerically in the straight and turning classes; global optimality is not certified. The first three are decoupled, so their values are exact closed forms (\S\ref{s:closed}); in the third, all sites other than $\mathsf N$ and $\mathsf s$ have status $\mathrm U$. In the generic steps, every site of the template has status $\mathrm U$, except the arrival site $\mathsf s$, which has status $\mathrm D$ and keeps its bonds to the corners $(1, -1)$ and $(-1, -1)$; there $k$ is the number of vectors of Appendix~\ref{s:local}. The bound of an inversion certificate is the floating-point value of the supremum of the $c$ for which its integer matrices \eqref{e:Meps} are positive definite; it is not used in the proof, in which the exact test is made at $c = 961/1000$ or $187/200$. With the exchange signs split as in \eqref{e:Meps}, the largest tested matrix has size $179 \times 179$, and the certificates of all $7{,}962$ patterns were produced in about $34$ CPU-minutes.}\label{tab:H1}
+\end{table}
+
+\begin{remark}\label{r:H1sharp}
+The constants of Theorem~\ref{t:H1} cannot be raised much with the present template. For the third pattern of Table~\ref{tab:H1}, $c(\pi) = 416114/444675 = 0.935771\ldots$ exactly, by \eqref{e:5469}, so (H1) fails for every $\ct > 416114/444675$ with the template and the slots of Definition~\ref{d:pattern}. The margins of Theorem~\ref{t:H1} on the first two decoupled examples of Table~\ref{tab:H1} are $2.4 \cdot 10^{-4}$ and $5.6 \cdot 10^{-4}$. We also note that the method of \S\ref{s:H3} does not give $\rho(M_1) < 1$ at $(\cs, \ct) = (0.960, 0.925)$, so that the pair $(0.961, 0.935)$ leaves little room in either direction.
+\end{remark}

@@ -1,0 +1,27 @@
+{
+  "geometry": {
+    "sizes": "3 <= L,N <= 8",
+    "sites_checked": 1089
+  },
+  "frame_separation": {
+    "ordered_frame_letter_pairs": 864,
+    "min_det_normSq": 0.002736566358911097
+  },
+  "fibre_checks": {
+    "random_seed": 6006,
+    "samples": 100,
+    "letters_per_fibre": 12,
+    "identities": [
+      "incident orientation and factorization",
+      "rho invariance",
+      "projection fixed point and least squares",
+      "intertwining",
+      "norm and Dirichlet identities"
+    ]
+  },
+  "signed_weight_algebra": {
+    "polarization_samples": 100,
+    "quotient_mean_and_variance": "passed",
+    "note": "abstract algebra check; these signed weights are not torusLaw"
+  }
+}

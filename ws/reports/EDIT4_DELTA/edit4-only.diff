@@ -1,0 +1,291 @@
+--- pre-edit/main.tex
++++ current/main.tex
+@@ -20,7 +20,6 @@
+ \newcommand{\ct}{c_{\mathrm{t}}}
+ \newcommand{\Pext}{\mathcal{P}_{\mathrm{ext}}}
+ \newcommand{\Dcons}{\mathcal{D}_{\mathrm{cons}}}
+-\newcommand{\certpending}[1]{\textbf{[certificate check pending]}}
+ 
+ \theoremstyle{plain}
+ \newtheorem{theorem}{Theorem}[section]
+@@ -49,9 +48,8 @@
+ type-dependent positive-vector bound for a response kernel. These
+ inputs are checked using exact matrix positivity certificates, a
+ finite-memory test, and stationary Bellman inequalities with finite
+-prefix sums. The accompanying formalization uses the Lean kernel
+-to verify the finite certificate checks; pending checks are marked
+-explicitly.
++prefix sums. The theorem, including these finite checks, has been
++formalized in Lean~4 and checked by the Lean kernel.
+ Three finite coherent-state frames compare the quantum gap with the
+ gap of a finite-state heat-bath dynamics. A sign change on each lifted
+ square permits arbitrary torus parities. A direct periodic block
+--- pre-edit/sec1-result.tex
++++ current/sec1-result.tex
+@@ -7,9 +7,11 @@
+ restriction, for one fixed threshold \(L_0\). The computational inputs
+ are local operator inequalities, an open-trail growth bound, and a
+ type-dependent positive-vector bound obtained from stationary Bellman
+-inequalities and finite prefix sums. The accompanying formalization
+-uses the Lean kernel to verify the finite certificate checks; pending
+-checks are marked explicitly. The polynomial realization of the spin space,
++inequalities and finite prefix sums. Theorem~\ref{t:main}, including
++the finite certificate checks for these inputs, has been formalized
++in Lean~4 and checked by the Lean kernel. Section~\ref{s:inputs}
++describes the accompanying Lean formalization. % CHECK: add repository reference
++The polynomial realization of the spin space,
+ including its Hilbert space normalization, is fixed in
+ Definition~\ref{d:poly}.
+ 
+--- pre-edit/sec8-inputs.tex
++++ current/sec8-inputs.tex
+@@ -1,5 +1,5 @@
+ 
+-\section{Exact computational inputs}
++\section{Exact computational inputs}\label{s:inputs}
+ 
+ The computational inputs have three finite certificates. The local
+ input tests integer Hermitian-form matrices reconstructed from the
+@@ -9,10 +9,25 @@
+ length-twelve prefixes. The certificates consist of the finite
+ integer equalities, inequalities, and divisibility tests specified
+ below and in Appendix C, with positive rational denominators cleared.
+-The accompanying formalization uses proofs checked by the Lean
+-kernel to verify these assertions. Each check whose kernel proof is
+-pending is marked \textbf{[certificate check pending]}. The soundness
+-arguments prove deterministic implications from these finite assertions.
++The soundness arguments prove deterministic implications from these
++finite assertions.
++
++Theorem~\ref{t:main}, including the three inputs (H1), (H2), and
++(H3\(_h\)) and their certificates, has been formalized in Lean~4
++(version 4.35.0-rc2, with Mathlib) and checked by the Lean kernel.
++The accompanying Lean formalization % CHECK: add repository reference
++uses only the standard axioms \texttt{propext},
++\texttt{Classical.choice}, and \texttt{Quot.sound}, and it does not
++use \texttt{native\_decide}. The certificates are checked inside the
++Lean kernel, not by external programs. The certificate for (H1)
++covers all \(7962\) local patterns and their \(12173\) sector
++blocks; its kernel check took about \(139\) CPU-hours. The
++certificate for (H3\(_h\)) consists of \(5035\) generated modules;
++its kernel check took about \(19.5\) CPU-hours. The kernel check
++for (H2) took seconds. Everything in the formalization except the
++certificates for (H1) and (H3\(_h\)), in particular the derivation
++of Theorem~\ref{t:main} from the three inputs, has also been checked
++by two independent implementations of the Lean kernel.
+ 
+ For the local input we use the archived representation and inversion
+ choices, and the division-free Gram/residual format wherever its
+@@ -53,7 +68,6 @@
+  \text{marked assignments with out-neighbour N or E}&123339.
+  \end{array}
+ \]
+-\certpending{h1-pattern-enumeration}
+ In forming an effective record retain the present internal bonds
+ and the status of every non-tip site incident to such a bond.
+ Discard isolated factors as justified below. Identify records under
+@@ -66,7 +80,6 @@
+ correct out-neighbour, and use threshold \(961/1000\) for a
+ straight pattern and \(187/200\) for a turn. Each of the \(7962\)
+ pattern indices must occur exactly once in that choice file.
+-\certpending{h1-pattern-coverage}
+ 
+ For every record, reconstruct its chosen reduced or unreduced
+ representation and its vector groups using Lemma~\ref{l:leaf}.
+@@ -98,14 +111,12 @@
+ input to this reconstruction. Zero-dimensional sectors impose no
+ row tests. The finite construction yields \(12173\) supported
+ nonzero-dimensional blocks, all of size at most \(179\).
+-\certpending{h1-sector-reconstruction}
+ 
+ Of these blocks, \(8439\) satisfy the direct integer inequalities
+ \[
+  (M_\epsilon)_{ii}>
+        \sum_{j\ne i}|(M_\epsilon)_{ij}|\quad\text{for every }i.
+ \]
+-\certpending{h1-direct-dominance}
+ They use the Gram/residual certificate with \(L=0\) and
+ \(g=d=S=1\). The two archived nonzero factors match the regenerated
+ \(131\)-dimensional central sectors of their respective patterns.
+@@ -126,7 +137,6 @@
+ Check each supplied \(L\) to be an integer lower-triangular matrix
+ of the correct size and check every residual row, not just the
+ displayed minimum. These are the only two nonzero factors used.
+-\certpending{h1-gram-residual}
+ 
+ For each of the remaining \(3732\) blocks use the following exact
+ fallback. One may remove a positive integer common scalar
+@@ -153,7 +163,6 @@
+ eigenvalue replaces any requirement. As an additional finite check,
+ all \(3734\) blocks failing the direct dominance test, including
+ the two with supplied nonzero factors, pass this fallback too.
+-\certpending{h1-bareiss}
+ 
+ \begin{theorem}\label{t:H1}
+ For every \(\pi\in\mathcal P_{\rm ext}\) and every
+@@ -170,8 +179,7 @@
+ \begin{proof}
+ We first justify the finite reduction and the implication of its
+ arithmetic tests. The finite assertions specified above constitute
+-the local certificate, verified by the Lean kernel in the accompanying
+-formalization, with pending checks marked at their specifications.
++the local certificate, verified by the Lean kernel.
+ 
+ The pattern enumeration is exhaustive because every free status
+ and kept-set choice in Definition~\ref{d:pattern} appears in its
+@@ -341,7 +349,7 @@
+ and coefficients. Supplied matrices, sector counts, numerical
+ eigenvalues, file hashes, and native exit codes do not replace
+ the prescribed comparisons. Each certificate is a proof of the
+-specified finite assertions checked by the Lean kernel in the
+-accompanying formalization. The placeholders identify the pending
+-kernel checks. None of these arguments assumes a physical window
+-estimate, a frame finite-energy bound, or a spectral-gap conclusion.
++specified finite assertions, checked by the Lean kernel as described
++at the beginning of this section. None of these arguments assumes
++a physical window estimate, a frame finite-energy bound, or a
++spectral-gap conclusion.
+--- pre-edit/app-input-contracts.tex
++++ current/app-input-contracts.tex
+@@ -13,9 +13,9 @@
+ The finite assertions in Propositions~\ref{p:H2-test},
+ \ref{p:automaton10} and \ref{p:stationary-check} specify exact checks
+ of the archived witnesses. The arguments below prove the soundness
+-of those checks. The accompanying formalization verifies these finite
+-assertions by proofs checked by the Lean kernel; pending checks are
+-marked at their full arithmetic specifications. An executable's exit
++of those checks. These finite assertions are verified by proofs
++checked by the Lean kernel, as described at the beginning of
++Section~\ref{s:inputs}. An executable's exit
+ code or a floating approximation is not an additional hypothesis of
+ any soundness lemma.
+ 
+@@ -238,10 +238,8 @@
+ exactly once. Lemma~\ref{l:H2-dihedral} proves that the canonical
+ codes give exactly the needed orbits. The finite data checks are:
+ the stored codes are precisely those \(115\) canonical codes,
+-without repetition, and their integer values are positive.
+-\certpending{h2-vector-indexing}
+-Every regenerated row satisfies the displayed integer inequality.
+-\certpending{h2-row-inequalities}
++without repetition; their integer values are positive; and every
++regenerated row satisfies the displayed integer inequality.
+ In the three cases the weights are exactly
+ \[
+  \frac{1000}{2883}=\frac{935000}{2695605},\qquad
+@@ -257,7 +255,6 @@
+  \min v=186377076276\quad(\text{canonical code }441),\qquad
+  \max v=1000000000000\quad(\text{canonical code }0).
+ \]
+-\certpending{h2-vector-extrema}
+ At canonical code \(428\), the regenerated row has
+ \[
+  v_{428}=224087522845,\qquad
+@@ -268,7 +265,6 @@
+  \frac{603787640626036713}{2695605\cdot224087522845}
+  =\frac{1119948287353}{1120437614225}=q_*.
+ \]
+-\certpending{h2-maximizing-row}
+ The upper row checks and this equality establish the asserted
+ maximum; the two extremum checks establish its asserted vector
+ ratio. The remaining strict comparisons follow by multiplying
+@@ -405,14 +401,12 @@
+  |\Omega_j|&4&12&36&108&316&916&2628&7500&21268&60092.
+  \end{array}
+ \]
+-\certpending{h3-window-enumeration}
+ As proved for that recursion, no word is missing or duplicated.
+ The remaining finite assertions are these: the map rows list exactly
+ these words in that order; all class numbers lie in
+ \(\{0,\ldots,3740\}\); each representative is a generated word
+ and maps to its own class; and the file has exactly the stated
+ number of rows.
+-\certpending{h3-quotient-indexing}
+ 
+ For every raw word, regenerate its endpoint, its used bonds, and its
+ earlier departure vertices. For each of its four directions, compare
+@@ -424,7 +418,6 @@
+ final-direction condition. Representatives mapping to their classes
+ prove surjectivity. Counting the admitted directions in the class
+ rows gives the integer assertions \(2516,5032,1872\), respectively.
+-\certpending{h3-quotient-transitions}
+ This specifies the finite automaton check completely and makes no
+ minimality or spatial-symmetry assertion.
+ \end{proof}
+@@ -770,7 +763,6 @@
+ All response ceilings are specified by the same rational formula
+ with the exact constants of Lemma~\ref{l:log-mean-bounds} and the
+ exact dyadic \(h_C\); a decimal replacement of \(h_C\) is not used.
+-\certpending{h3-transition-ceilings}
+ 
+ \begin{lemma}\label{l:stationary-local-global}
+ Every certificate of Definition~\ref{d:stationary-certificate}
+@@ -973,8 +965,7 @@
+ x_{\rm t}/3\) and of every possible
+ \(x_\tau\kappa_h/3\) from the two types and the four choices of
+ dead non-outgoing neighbours. This is a finite rational divisibility
+-check with the displayed constants. \certpending{h3-prefix-denominator}
+-Multiplying phase weights by
++check with the displayed constants. Multiplying phase weights by
+ \(\Delta^j\) makes every update integral. If \(A\) is the sum
+ of the resulting length-twelve phase numerators times the
+ corresponding stored \(U\) entries, its exact tail contribution is
+@@ -1120,18 +1111,15 @@
+ \((x_1+70)141+(x_2+70)\). This identifies each supplied literal
+ with a mathematical array index. In particular,
+ \(19881=141^2\), rather than a periodic spatial state count.
+-\certpending{h3-array-indexing}
+ 
+ The finite assertions on these arrays are exactly every integer
+ inequality and equality in Definition~\ref{d:stationary-certificate}.
+ For each of the \(4\cdot3741\) phase/class indices, require
+ \(Z>0\), its free row inequality, and the C,D lower terminal
+-bounds. \certpending{h3-free-rows}
+-For each of the \(4\cdot3741\cdot19881\) stored
+-phase/class/site indices, require \(0\le U\le Z\) and the specified
+-center and target equalities. \certpending{h3-caps-and-terminals}
+-Require the nonterminal stationary row inequality when appropriate.
+-The coefficients are regenerated
++bounds. For each of the \(4\cdot3741\cdot19881\) stored
++phase/class/site indices, require \(0\le U\le Z\), the specified
++center and target equalities, and the nonterminal stationary row
++inequality when appropriate. The coefficients are regenerated
+ from the exact formulas following that definition, not inferred
+ from floating values stored in a program.
+ 
+@@ -1153,7 +1141,6 @@
+ cap and terminal checks just specified. These are exact integer
+ inequalities over the five supplied arrays; gzip checksums or the
+ termination status of a native checker are not substitutes for them.
+-\certpending{h3-local-rows}
+ 
+ Evaluate the finite recursion following
+ Definition~\ref{d:prefix-bound} against these same arrays, retaining
+@@ -1169,7 +1156,6 @@
+  \text{short first hits}&937&922&715&1036&861.
+  \end{array}
+ \]
+-\certpending{h3-prefix-enumeration}
+ Counts alone are not the prefix assertion: the check must also
+ evaluate every rational summand. If the exact short sum is
+ \(s/d\), \(d>0\), and the nonnegative integer prefix accumulator
+@@ -1182,17 +1168,14 @@
+ Use respectively
+ \(K=351207554,290599163,527872005,380754375,273048088\).
+ This gives the finite rational prefix tests without a decimal
+-rounding convention. \certpending{h3-prefix-values}
+-A compact lookup is accepted only with the
++rounding convention. A compact lookup is accepted only with the
+ entry-by-entry identity with the full potential described after
+ Definition~\ref{d:prefix-bound}.
+-\certpending{h3-prefix-lookup}
+ The archived exact fractions in the five prefix records identify
+ the values of these finite expressions; the expressions and the
+ cleared inequalities above, together with all the array checks,
+ constitute the stationary certificates. Their proofs are checked by
+-the Lean kernel in the accompanying formalization, with pending
+-checks marked above.
++the Lean kernel.
+ \end{proof}
+ 
+ \begin{lemma}\label{l:stationary-assembly}

@@ -1,0 +1,493 @@
+def AKLT.Blueprint.Win.PredecessorShellStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : Nat) (i : Int),
+  @LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) i →
+    ∀ (x : AKLT.Defs.Plane),
+      @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+          (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+            (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+          (@SDiff.sdiff.{0} (Finset.{0} AKLT.Defs.Plane)
+            (@Finset.instSDiff.{0} AKLT.Defs.Plane fun a b =>
+              @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b)
+            (AKLT.Defs.square a u) (AKLT.Defs.farVolume a y u i))
+          x →
+        @LE.le.{0} ENat instLEENat
+            (AKLT.Defs.setDistance AKLT.Defs.supDist x
+              (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                (@Finset.instSetLike.{0} AKLT.Defs.Plane) (AKLT.Defs.farVolume a y u i)))
+            (@OfNat.ofNat.{0} ENat (nat_lit 1) (@One.toOfNat1.{0} ENat instOneENat)) →
+          @Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+            (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+              (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+            (AKLT.Defs.shell a y u
+              (@HSub.hSub.{0, 0, 0} Int Int Int (@instHSub.{0} Int Int.instSub) i
+                (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1)))))
+            x
+def AKLT.Blueprint.Win.SeedSeparationStatement : Prop :=
+∀ (a y : AKLT.Defs.Plane) (u : Nat),
+  @LE.le.{0} Real Real.instLE
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast AKLT.Blueprint.Win.ShellScaleStatement._proof_5))
+      (AKLT.Defs.shellSpacing u) →
+    ∀ (i : Int),
+      @LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 2) (@instOfNat (nat_lit 2))) i →
+        Not
+          (@LE.le.{0} ENat instLEENat
+            (AKLT.Defs.setDistance AKLT.Defs.supDist y
+              (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+                (@Finset.instSetLike.{0} AKLT.Defs.Plane) (AKLT.Defs.farVolume a y u i)))
+            (@OfNat.ofNat.{0} ENat (nat_lit 1) (@One.toOfNat1.{0} ENat instOneENat)))
+def AKLT.Blueprint.Win.FiniteDepthStatement : Prop :=
+∀ (G : Finset.{0} AKLT.Defs.Plane) (x : AKLT.Defs.Plane),
+  And (@Ne.{1} ENat (AKLT.Defs.boundaryDepth G x) (@Top.top.{0} ENat instTopENat))
+    (And
+      (@Eq.{1} ENat (@Nat.cast.{0} ENat ENat.instNatCast (AKLT.Defs.boundaryDepth G x).toNat)
+        (AKLT.Defs.boundaryDepth G x))
+      (And
+        (Iff
+          (@Eq.{1} ENat (AKLT.Defs.boundaryDepth G x)
+            (@OfNat.ofNat.{0} ENat (nat_lit 0) (@Zero.toOfNat0.{0} ENat instZeroENat)))
+          (x ∉ G))
+        (∀ (y : AKLT.Defs.Plane),
+          @LE.le.{0} Nat instLENat (AKLT.Defs.boundaryDepth G x).toNat
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (AKLT.Defs.latticeDist x y)
+              (AKLT.Defs.boundaryDepth G y).toNat))))
+def AKLT.Blueprint.Win.BoundaryMembershipStatement : Prop :=
+∀ (U : Finset.{0} AKLT.Defs.Plane) (z : AKLT.Defs.Plane),
+  Iff
+    (@Membership.mem.{0, 0} AKLT.Defs.Plane (Finset.{0} AKLT.Defs.Plane)
+      (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane
+        (@Finset.instSetLike.{0} AKLT.Defs.Plane))
+      (AKLT.Blueprint.Win.rawBoundary U) z)
+    (And (z ∉ U)
+      (@Eq.{1} ENat
+        (AKLT.Defs.setDistance AKLT.Defs.supDist z
+          (@SetLike.coe.{0, 0} (Finset.{0} AKLT.Defs.Plane) AKLT.Defs.Plane (@Finset.instSetLike.{0} AKLT.Defs.Plane)
+            U))
+        (@OfNat.ofNat.{0} ENat (nat_lit 1) (@One.toOfNat1.{0} ENat instOneENat))))
+def AKLT.Blueprint.Win.ChainBoxStatement : Prop :=
+∀ (c : AKLT.Blueprint.Win.EdgeChain),
+  ∃ R,
+    And (@LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) R)
+      (AKLT.Blueprint.Win.ChainInBox c R)
+def AKLT.Blueprint.Win.DiagonalEliminationStatement : Prop :=
+∀ (c : AKLT.Blueprint.Win.EdgeChain),
+  AKLT.Blueprint.Win.ChainStar c →
+    AKLT.Blueprint.Win.ChainEven c →
+      ∃ d,
+        And (AKLT.Blueprint.Win.ChainNN d)
+          (And (AKLT.Blueprint.Win.ChainEven d)
+            (@Membership.mem.{0, 0} AKLT.Blueprint.Win.EdgeChain
+              (@Submodule.{0, 0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                AKLT.Blueprint.Win.EdgeChain
+                (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                        Nat.fact_prime_two))))
+                (@Finsupp.instAddCommMonoid.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+                  (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two))))))
+                (@Finsupp.module.{0, 0, 0} AKLT.Blueprint.Win.LatticeEdge
+                  (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          Nat.fact_prime_two))))
+                  (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two)))))
+                  (@Semiring.toModule.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two)))))))
+              (@SetLike.instMembership.{0, 0}
+                (@Submodule.{0, 0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  AKLT.Blueprint.Win.EdgeChain
+                  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          Nat.fact_prime_two))))
+                  (@Finsupp.instAddCommMonoid.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two))))))
+                  (@Finsupp.module.{0, 0, 0} AKLT.Blueprint.Win.LatticeEdge
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two))))
+                    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two)))))
+                    (@Semiring.toModule.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two)))))))
+                AKLT.Blueprint.Win.EdgeChain
+                (@Submodule.setLike.{0, 0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  AKLT.Blueprint.Win.EdgeChain
+                  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          Nat.fact_prime_two))))
+                  (@Finsupp.instAddCommMonoid.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two))))))
+                  (@Finsupp.module.{0, 0, 0} AKLT.Blueprint.Win.LatticeEdge
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two))))
+                    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two)))))
+                    (@Semiring.toModule.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two))))))))
+              AKLT.Blueprint.Win.triangleSpan
+              (@HSub.hSub.{0, 0, 0} AKLT.Blueprint.Win.EdgeChain AKLT.Blueprint.Win.EdgeChain
+                AKLT.Blueprint.Win.EdgeChain
+                (@instHSub.{0} AKLT.Blueprint.Win.EdgeChain
+                  (@SubNegMonoid.toSub.{0} AKLT.Blueprint.Win.EdgeChain
+                    (@AddGroup.toSubNegMonoid.{0} AKLT.Blueprint.Win.EdgeChain
+                      (@Finsupp.instAddGroup.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@AddGroupWithOne.toAddGroup.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Ring.toAddGroupWithOne.{0}
+                            (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@DivisionRing.toRing.{0}
+                              (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                              (@Field.toDivisionRing.{0}
+                                (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                                  Nat.fact_prime_two)))))))))
+                c d)))
+def AKLT.Blueprint.Win.ColumnFluxStatement : Prop :=
+∀ (c : AKLT.Blueprint.Win.EdgeChain),
+  AKLT.Blueprint.Win.ChainNN c →
+    AKLT.Blueprint.Win.ChainEven c →
+      ∀ (R : Int),
+        @LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) R →
+          AKLT.Blueprint.Win.ChainInBox c R →
+            ∀ (i : Int),
+              @Eq.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (∑
+                  r ∈
+                    @Finset.Icc.{0} Int Int.instPreorder Int.instLocallyFiniteOrder (@Neg.neg.{0} Int Int.instNegInt R)
+                      R,
+                  AKLT.Blueprint.Win.horizontal c i r)
+                (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                  (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@instMulZeroClassOfSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@CommSemiring.toSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Semifield.toCommSemiring.{0}
+                            (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                              (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                                Nat.fact_prime_two))))))))
+def AKLT.Blueprint.Win.TailSupportStatement : Prop :=
+∀ (c : AKLT.Blueprint.Win.EdgeChain) (R : Int),
+  @LE.le.{0} Int Int.instLEInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))) R →
+    AKLT.Blueprint.Win.ChainInBox c R →
+      (∀ (i : Int),
+          @Eq.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (∑
+              r ∈ @Finset.Icc.{0} Int Int.instPreorder Int.instLocallyFiniteOrder (@Neg.neg.{0} Int Int.instNegInt R) R,
+              AKLT.Blueprint.Win.horizontal c i r)
+            (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+              (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Semifield.toCommSemiring.{0}
+                        (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                            Nat.fact_prime_two))))))))) →
+        ∃ P,
+          ∀ p ∉ P,
+            @Eq.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (AKLT.Blueprint.Win.tailCoefficient c R (@Prod.fst.{0, 0} Int Int p) (@Prod.snd.{0, 0} Int Int p))
+              (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+                (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@instMulZeroClassOfSemiring.{0}
+                      (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@Semifield.toCommSemiring.{0}
+                          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                              Nat.fact_prime_two))))))))
+def AKLT.Defs.setDistance : (AKLT.Defs.Plane → AKLT.Defs.Plane → Nat) →
+  AKLT.Defs.Plane → Set.{0} AKLT.Defs.Plane → ENat :=
+fun metric x S =>
+  ⨅ y,
+    @Nat.cast.{0} ENat ENat.instNatCast
+      (metric x
+        (@Subtype.val.{1} AKLT.Defs.Plane
+          (fun x =>
+            @Membership.mem.{0, 0} AKLT.Defs.Plane (Set.{0} AKLT.Defs.Plane) (@Set.instMembership.{0} AKLT.Defs.Plane) S
+              x)
+          y))
+def AKLT.Defs.boundaryDepth : Finset.{0} AKLT.Defs.Plane → AKLT.Defs.Plane → ENat :=
+fun G x => AKLT.Defs.setDistance AKLT.Defs.latticeDist x (@Set.ofPred.{0} AKLT.Defs.Plane fun z => z ∉ G)
+def AKLT.Defs.farVolume : AKLT.Defs.Plane → AKLT.Defs.Plane → Nat → Int → Finset.{0} AKLT.Defs.Plane :=
+fun a y u i =>
+  {x ∈ AKLT.Defs.square a u |
+    @LT.lt.{0} Real Real.instLT
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (@Int.cast.{0} Real Real.instIntCast i)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+        (AKLT.Defs.shellSpacing u))
+      (@Nat.cast.{0} Real Real.instNatCast (AKLT.Defs.supDist x y))}
+def AKLT.Defs.shellRadius : Nat → Int → Int :=
+fun u i =>
+  @Int.floor.{0} Real Real.instRing Real.linearOrder Real.instFloorRing
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Int.cast.{0} Real Real.instIntCast i)
+      (AKLT.Defs.shellSpacing u))
+def AKLT.Blueprint.Win.ChainEven : AKLT.Blueprint.Win.EdgeChain → Prop :=
+fun c =>
+  ∀ (x : AKLT.Defs.Plane),
+    @Eq.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (∑
+        e ∈
+          @Finsupp.support.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+            (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                        Nat.fact_prime_two))))))
+            c,
+        @ite.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Membership.mem.{0, 0} AKLT.Defs.Plane AKLT.Blueprint.Win.LatticeEdge
+            (@SetLike.instMembership.{0, 0} AKLT.Blueprint.Win.LatticeEdge AKLT.Defs.Plane
+              (@Sym2.instSetLike.{0} AKLT.Defs.Plane))
+            e x)
+          (@Sym2.Mem.decidable.{0} AKLT.Defs.Plane
+            (fun a b => @instDecidableEqProd.{0, 0} Int Int Int.instDecidableEq Int.instDecidableEq a b) x e)
+          (@DFunLike.coe.{1, 1, 1} AKLT.Blueprint.Win.EdgeChain AKLT.Blueprint.Win.LatticeEdge
+            (fun x => ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@Finsupp.instFunLike.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+              (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          Nat.fact_prime_two)))))))
+            c e)
+          (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+            (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          Nat.fact_prime_two)))))))))
+      (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+        (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      Nat.fact_prime_two))))))))
+def AKLT.Blueprint.Win.ChainInBox : AKLT.Blueprint.Win.EdgeChain → Int → Prop :=
+fun c R =>
+  ∀ (e : AKLT.Blueprint.Win.LatticeEdge),
+    @Membership.mem.{0, 0} AKLT.Blueprint.Win.LatticeEdge (Finset.{0} AKLT.Blueprint.Win.LatticeEdge)
+        (@SetLike.instMembership.{0, 0} (Finset.{0} AKLT.Blueprint.Win.LatticeEdge) AKLT.Blueprint.Win.LatticeEdge
+          (@Finset.instSetLike.{0} AKLT.Blueprint.Win.LatticeEdge))
+        (@Finsupp.support.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+          (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      Nat.fact_prime_two))))))
+          c)
+        e →
+      ∀ (x : AKLT.Defs.Plane),
+        @Membership.mem.{0, 0} AKLT.Defs.Plane AKLT.Blueprint.Win.LatticeEdge
+            (@SetLike.instMembership.{0, 0} AKLT.Blueprint.Win.LatticeEdge AKLT.Defs.Plane
+              (@Sym2.instSetLike.{0} AKLT.Defs.Plane))
+            e x →
+          And
+            (@LE.le.{0} Int Int.instLEInt (@abs.{0} Int instLatticeInt Int.instAddGroup (@Prod.fst.{0, 0} Int Int x)) R)
+            (@LE.le.{0} Int Int.instLEInt (@abs.{0} Int instLatticeInt Int.instAddGroup (@Prod.snd.{0, 0} Int Int x)) R)
+def AKLT.Blueprint.Win.tailCoefficient : AKLT.Blueprint.Win.EdgeChain →
+  Int → Int → Int → ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) :=
+fun c R i j =>
+  ∑ r ∈ @Finset.Icc.{0} Int Int.instPreorder Int.instLocallyFiniteOrder (@Neg.neg.{0} Int Int.instNegInt R) R,
+    @ite.{1} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (@LT.lt.{0} Int Int.instLTInt j r)
+      (j.decLt r) (AKLT.Blueprint.Win.horizontal c i r)
+      (@OfNat.ofNat.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)
+        (@Zero.toOfNat0.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@MulZeroClass.toZero.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@instMulZeroClassOfSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                  (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                    (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      Nat.fact_prime_two))))))))
+def AKLT.Blueprint.Win.triangleSpan : @Submodule.{0, 0}
+  (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) AKLT.Blueprint.Win.EdgeChain
+  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))
+  (@Finsupp.instAddCommMonoid.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))))
+  (@Finsupp.module.{0, 0, 0} AKLT.Blueprint.Win.LatticeEdge
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))
+    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two)))))
+    (@Semiring.toModule.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two)))))) :=
+@Submodule.span.{0, 0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) AKLT.Blueprint.Win.EdgeChain
+  (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))
+  (@Finsupp.instAddCommMonoid.{0, 0} AKLT.Blueprint.Win.LatticeEdge
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))))
+  (@Finsupp.module.{0, 0, 0} AKLT.Blueprint.Win.LatticeEdge
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))
+    (@Semiring.toAddCommMonoid.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two)))))
+    (@Semiring.toModule.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@CommSemiring.toSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@Semifield.toCommSemiring.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@Field.toSemifield.{0} (ZMod (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@ZMod.instField (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) Nat.fact_prime_two))))))
+  (@Set.ofPred.{0} AKLT.Blueprint.Win.EdgeChain fun c =>
+    ∃ x y z,
+      And (AKLT.Blueprint.Win.IsTriangle x y z)
+        (@Eq.{1} AKLT.Blueprint.Win.EdgeChain c (AKLT.Blueprint.Win.triangle x y z)))
+ENat.iInf_natCast_ne_top.{u_1} {ι : Sort u_1} {f : ι → Nat} :
+  Iff (@Ne.{1} ENat (⨅ i, @Nat.cast.{0} ENat ENat.instNatCast (f i)) (@Top.top.{0} ENat instTopENat)) (Nonempty.{u_1} ι)
+ENat.exists_eq_iInf.{u_1} {ι : Sort u_1} [Nonempty.{u_1} ι] (f : ι → ENat) : ∃ a, @Eq.{1} ENat (f a) (⨅ x, f x)
+ENat.iInf_eq_natCast_iff.{u_1} {ι : Sort u_1} {f : ι → ENat} {n : Nat} :
+  Iff (@Eq.{1} ENat (⨅ i, f i) (@Nat.cast.{0} ENat ENat.instNatCast n))
+    (And (∃ i, @Eq.{1} ENat (f i) (@Nat.cast.{0} ENat ENat.instNatCast n))
+      (∀ (i : ι), @LE.le.{0} ENat instLEENat (@Nat.cast.{0} ENat ENat.instNatCast n) (f i)))
+ENat.toNat_top :
+  @Eq.{1} Nat (@Top.top.{0} ENat instTopENat).toNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+Sym2.mem_iff.{u_1} {α : Type u_1} {a b c : α} :
+  Iff
+    (@Membership.mem.{u_1, u_1} α (Sym2.{u_1} α)
+      (@SetLike.instMembership.{u_1, u_1} (Sym2.{u_1} α) α (@Sym2.instSetLike.{u_1} α)) (@Sym2.mk.{u_1} α b c) a)
+    (Or (@Eq.{u_1 + 1} α a b) (@Eq.{u_1 + 1} α a c))
+Sym2.toFinset.{u_1} {α : Type u_1} [DecidableEq.{u_1 + 1} α] (z : Sym2.{u_1} α) : Finset.{u_1} α
+Finsupp.mem_support_iff.{u_1, u_4} {α : Type u_1} {M : Type u_4} [Zero.{u_4} M] {f : @Finsupp.{u_1, u_4} α M inst✝}
+  {a : α} :
+  Iff
+    (@Membership.mem.{u_1, u_1} α (Finset.{u_1} α)
+      (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} α) α (@Finset.instSetLike.{u_1} α))
+      (@Finsupp.support.{u_1, u_4} α M inst✝ f) a)
+    (@Ne.{u_4 + 1} M
+      (@DFunLike.coe.{max (u_1 + 1) (u_4 + 1), u_1 + 1, u_4 + 1} (@Finsupp.{u_1, u_4} α M inst✝) α (fun x => M)
+        (@Finsupp.instFunLike.{u_1, u_4} α M inst✝) f a)
+      (@OfNat.ofNat.{u_4} M (nat_lit 0) (@Zero.toOfNat0.{u_4} M inst✝)))
+Finsupp.single_apply.{u_1, u_4} {α : Type u_1} {M : Type u_4} [Zero.{u_4} M] {a a' : α} {b : M}
+  [Decidable (@Eq.{u_1 + 1} α a a')] :
+  @Eq.{u_4 + 1} M
+    (@DFunLike.coe.{max (u_1 + 1) (u_4 + 1), u_1 + 1, u_4 + 1} (@Finsupp.{u_1, u_4} α M inst✝) α (fun x => M)
+      (@Finsupp.instFunLike.{u_1, u_4} α M inst✝) (@Finsupp.single.{u_1, u_4} α M inst✝ a b) a')
+    (@ite.{u_4 + 1} M (@Eq.{u_1 + 1} α a a') inst✝¹ b (@OfNat.ofNat.{u_4} M (nat_lit 0) (@Zero.toOfNat0.{u_4} M inst✝)))
+⋯
+@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))
+@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))

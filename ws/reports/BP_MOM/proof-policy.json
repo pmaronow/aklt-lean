@@ -1,0 +1,154 @@
+{
+  "author_rule": "Every future leaf proof receives its first attempt from a different, cheaper model. The blueprint agent delivers statements, definitions, designs, prototypes, and proved assembly implications.",
+  "rule_received_after_initial_delivery": true,
+  "lean_source_changed_in_this_revision": false,
+  "existing_leaf_proofs_retained": [
+    {
+      "lean_name": "AKLT.Blueprint.Mom.emptyPartition",
+      "statement_name": "AKLT.Blueprint.Mom.EmptyPartitionStatement",
+      "statement": "def EmptyPartitionStatement : Prop :=\n  \u2200 D : FiniteSpinNetwork 0, \u2200 pinned : Bool, D.partition pinned (fun _ => 1) = 1",
+      "module": "AKLT.Blueprint.Mom.NodesFinite",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+      "source_line": 117,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.frameOptionSum",
+      "statement_name": "AKLT.Blueprint.Mom.FrameOptionSumStatement",
+      "statement": "def FrameOptionSumStatement : Prop :=\n  \u2200 k : \u2115, \u2200 F : FrameData k, \u2200 s : Status, s = .U \u2228 s = .D \u2192\n    \u2200 f : Vec3 \u2192 \u211d,\n      finiteFunctional (frameWeight F s) (frameAtom F) f = momentLawFunctional F s f",
+      "module": "AKLT.Blueprint.Mom.NodesExact",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesExact.lean",
+      "source_line": 35,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.freeEvaluation",
+      "statement_name": "AKLT.Blueprint.Mom.FreeEvaluationStatement",
+      "statement": "def FreeEvaluationStatement : Prop :=\n  \u2200 n : \u2115, \u2200 D : FiniteSpinNetwork n, \u2200 pairs : List (Fin n \u00d7 Fin n),\n    D.partition false (fun a => (pairs.map fun e => dot (a e.1) (a e.2)).prod) =\n      productFunctional D.status\n        (fun a => MvPolynomial.eval (fun z => a z.1 z.2) (freePolynomial D pairs))",
+      "module": "AKLT.Blueprint.Mom.NodesFinite",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean",
+      "source_line": 68,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.icoAntipodal",
+      "statement_name": "AKLT.Blueprint.Mom.IcoAntipodalStatement",
+      "statement": "def IcoAntipodalStatement : Prop := \u2200 j, \u2203 k, icoVector k = -icoVector j",
+      "module": "AKLT.Blueprint.Mom.NodesMoments",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+      "source_line": 20,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.meanPathUnit",
+      "statement_name": "AKLT.Blueprint.Mom.MeanPathUnitStatement",
+      "statement": "def MeanPathUnitStatement : Prop :=\n  \u2200 t : \u211d, \u2200 j, normSq (meanPath t j) = 1",
+      "module": "AKLT.Blueprint.Mom.NodesMean",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean",
+      "source_line": 100,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.momentConstant",
+      "statement_name": "AKLT.Blueprint.Mom.MomentConstantStatement",
+      "statement": "def MomentConstantStatement : Prop := moment (fun _ => 1) = 1",
+      "module": "AKLT.Blueprint.Mom.NodesMoments",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+      "source_line": 49,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.productFactorization",
+      "statement_name": "AKLT.Blueprint.Mom.ProductFactorizationStatement",
+      "statement": "def ProductFactorizationStatement : Prop :=\n  \u2200 n : \u2115, \u2200 (\u03b1 : Fin n \u2192 Type) [\u2200 x, Fintype (\u03b1 x)],\n    \u2200 w : (x : Fin n) \u2192 \u03b1 x \u2192 \u211d, \u2200 v : (x : Fin n) \u2192 \u03b1 x \u2192 Vec3,\n    \u2200 f : Fin n \u2192 Vec3 \u2192 \u211d,\n      productSum \u03b1 w v (fun a => \u220f x, f x (a x)) =\n        \u220f x, finiteFunctional (w x) (v x) (f x)",
+      "module": "AKLT.Blueprint.Mom.NodesCore",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+      "source_line": 76,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.siteLawDecomposition",
+      "statement_name": "AKLT.Blueprint.Mom.SiteLawDecompositionStatement",
+      "statement": "def SiteLawDecompositionStatement : Prop :=\n  (\u2200 f : Vec3 \u2192 \u211d, siteFunctional .U f = moment f) \u2227\n  \u2200 f : Vec3 \u2192 \u211d, siteFunctional .D f = (3 / 5) * moment f + (2 / 5) * f 0",
+      "module": "AKLT.Blueprint.Mom.NodesMoments",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+      "source_line": 58,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.siteWeight",
+      "statement_name": "AKLT.Blueprint.Mom.SiteWeightStatement",
+      "statement": "def SiteWeightStatement : Prop :=\n  \u2200 s : Status, s = .U \u2228 s = .D \u2192\n    (\u2200 j : SpinLetter, 0 \u2264 spinWeight s j) \u2227\n    \u2200 j : IcoLetter, 0 < spinWeight s (some j)",
+      "module": "AKLT.Blueprint.Mom.NodesMoments",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean",
+      "source_line": 75,
+      "status": "proved before the new author rule; retained as instructed"
+    },
+    {
+      "lean_name": "AKLT.Blueprint.Mom.tensorZeroMixture",
+      "statement_name": "AKLT.Blueprint.Mom.TensorZeroMixtureStatement",
+      "statement": "def TensorZeroMixtureStatement : Prop :=\n  \u2200 L : (Vec3 \u2192 \u211d) \u2192 \u211d, \u2200 c q : \u211d, TensorLaw L c \u2192\n    TensorLaw (fun f => q * L f + (1 - q) * f 0) (q * c)",
+      "module": "AKLT.Blueprint.Mom.NodesCore",
+      "file": "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean",
+      "source_line": 98,
+      "status": "proved before the new author rule; retained as instructed"
+    }
+  ],
+  "all_existing_theorems_retained": [
+    "AKLT.Blueprint.Mom.productFactorization",
+    "AKLT.Blueprint.Mom.tensorZeroMixture",
+    "AKLT.Blueprint.Mom.rationalStatusMoment_nonneg",
+    "AKLT.Blueprint.Mom.frameOptionSum",
+    "AKLT.Blueprint.Mom.freeEvaluation",
+    "AKLT.Blueprint.Mom.normSq_nonneg",
+    "AKLT.Blueprint.Mom.emptyPartition",
+    "AKLT.Blueprint.Mom.meanPathUnit",
+    "AKLT.Blueprint.Mom.icoAntipodal",
+    "AKLT.Blueprint.Mom.momentConstant",
+    "AKLT.Blueprint.Mom.siteLawDecomposition",
+    "AKLT.Blueprint.Mom.siteWeight",
+    "AKLT.Blueprint.Mom.productFunctional_eq_productSum",
+    "AKLT.Blueprint.Mom.quadrature_congruence",
+    "AKLT.Blueprint.Mom.scaledMoment_status",
+    "AKLT.Blueprint.Mom.moments_of_leaves",
+    "AKLT.Blueprint.Mom.spinVector_normSq_le_one",
+    "AKLT.Blueprint.Mom.network_weight_nonneg",
+    "AKLT.Blueprint.Mom.network_partition_positive",
+    "AKLT.Blueprint.Mom.finiteFacts_of_leaves",
+    "AKLT.Blueprint.Mom.normSq_div",
+    "AKLT.Blueprint.Mom.siteFunctional_sum",
+    "AKLT.Blueprint.Mom.siteFunctional_mixture",
+    "AKLT.Blueprint.Mom.unitTriple_bound",
+    "AKLT.Blueprint.Mom.threeFactorMean_of_leaves",
+    "AKLT.Blueprint.Mom.exact_of_leaves",
+    "AKLT.Blueprint.Mom.all_of_leaves",
+    "AKLT.Blueprint.Mom.icoSet_card",
+    "AKLT.Blueprint.Mom.freeMean_nonneg",
+    "AKLT.Blueprint.Mom.normalize_probability",
+    "AKLT.Blueprint.Mom.conditionOn_probability",
+    "AKLT.Blueprint.Mom.network_probability_of_parts",
+    "AKLT.Blueprint.Mom.probability_mean_normSq_le_one",
+    "AKLT.Blueprint.Mom.conditioned_spin_mean_normSq_le_one",
+    "AKLT.Blueprint.Mom.conditional_threeFactorMean_of_leaves",
+    "AKLT.Blueprint.Mom.interaction_exact_of_leaves"
+  ],
+  "open_leaf_count": 33,
+  "open_leaf_assignment": {
+    "first_attempt_owner": "a different, cheaper model",
+    "blueprint_agent_may_attempt_leaf_proof": false,
+    "status": "open; awaiting proof-writer assignment",
+    "applies_to": "every future leaf proof, including checker soundness"
+  },
+  "unrecorded_checker_soundness_obligations": [],
+  "lean_source_sha256": {
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/All.lean": "63376a373ca716e97a89240b66e3f83a4f1bf5eab913e56c8fe95aa2ca1b9c8c",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/Assembly.lean": "0f7c2fa42cb2be2084bf65e58a4d787854c275af5c995991c66f2ff08623995f",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/Audit.lean": "0755b4b0a06db4a27f0becf2d324862ffe5e6097ce9d79e93f6148538f6a5f9a",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesConsequences.lean": "9c527bbb0ac49061fe51dba79f71522deeeb49924d49de3883fbbc8448973a7f",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesCore.lean": "e373d59804866cc6cf6d12839023e594f702e44f8728ca406e2705375c6d30b1",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesExact.lean": "612fee562c99ac2e1239e4310517753330a700ebd2fc30112418144679f31d23",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesFinite.lean": "e098dec301d3e0fa0d9726972dba96358baff751ffd0b6917ea1dea6e23f4c6e",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMean.lean": "3566e6fc19a34db5908d2b93ea4ea564253fa334874c4d2cbf995985cbef1524",
+    "/home/ubuntu/aklt/wt/BP_MOM/AKLT/Blueprint/Mom/NodesMoments.lean": "3824238259108ca1a56430f6eb8722e09bcafd2375f8fecefeedb2a10305e27b"
+  }
+}

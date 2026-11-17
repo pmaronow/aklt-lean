@@ -1,0 +1,31 @@
+import took 2.62s
+interpretation of elabPackedHex._boxed took 387ms
+interpretation of elabPackedHex._boxed took 461ms
+interpretation of elabPackedHex._boxed took 376ms
+interpretation of elabPackedHex._boxed took 407ms
+type checking took 124ms
+'checked' depends on axioms: [propext]
+cumulative profiling times:
+	.olean serialization 2.99ms
+	attribute application 0.0685ms
+	compilation (IR) 0.187ms
+	compilation (LCNF base) 3.51ms
+	compilation (LCNF impure) 0.806ms
+	compilation (LCNF mono) 1.63ms
+	elaboration 24.1ms
+	fix level params 0.0452ms
+	import 2.62s
+	initialization 26.2ms
+	instantiate metavars 0.0258ms
+	interpretation 1.88s
+	let-to-have transformation 0.121ms
+	linting 3.69ms
+	module linting 0.00158ms
+	overlappingInstancesLinter 1.51ms
+	parsing 8.66ms
+	process pre-definitions 4.16ms
+	share common exprs 6.15ms
+	tactic execution 0.273ms
+	tacticAnalysis 3.29ms
+	type checking 125ms
+	typeclass inference 2.78ms

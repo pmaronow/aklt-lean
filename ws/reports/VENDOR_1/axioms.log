@@ -1,0 +1,1043 @@
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.mem_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.mem_right' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.mono' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.refl' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.single' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.symm' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.tail' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.trans' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Conn.update' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.esc' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.step' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.IsEscPath.zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.conn_path' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.not_mem' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.of_conn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.JoinedToInf.shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.Mate.starNear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.MateConn.starConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.NN.starNear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.NN.symm' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.NN_add_single' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.Set.Finite.subset_box' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.StarNear.symm' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.boundary_clopen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.box.eq_1' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.box_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.box_mono' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.conn_filled' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.conn_joined' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.conn_shell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.corners.eq_1' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.edgeInd_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.edgeInd_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.exists_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.exists_primitive_of_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_mateConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.exteriorBoundary_starConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.joinedToInf_iff_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.joinedToInf_of_far' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_mateConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.outerBoundary_starConn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.primFn_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.ray.eq_1' does not depend on any axioms
+'AKLT.Vendor.Balaban.LatticeGeom.ray_apply_self' depends on axioms: [propext]
+'AKLT.Vendor.Balaban.LatticeGeom.ray_esc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.ray_isEscPath' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.ray_nn' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.ray_not_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Balaban.LatticeGeom.ray_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.coarea_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.coreDirichlet_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.coreMean.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.coreVariance.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.cutFlow_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.cutMass_add_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.exists_weighted_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.finite_cheeger' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.half_supported_cheeger' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.indicator.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.indicator.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.lowerCut.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.map_core_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.negativePart.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.parts_dirichlet_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.parts_edge_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.parts_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.positivePart.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.retained_core_cheeger' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.retained_core_cheeger_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.square_variation_cauchy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.sum_core_subtype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.sum_plus_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.sum_symmetric_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.upperCut.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.variation._proof_1' depends on axioms: [propext]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:79:14: warning: `AKLT.Vendor.FiniteChain.Cheeger.variation._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.FiniteChain.Cheeger.variation.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.variation_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.variation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.weakLowerCut.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.weightedMass.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.weightedMass_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.Cheeger.weightedVariance_le_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.binaryKL_exp_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.binaryKL_log_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.continuous_finiteChainAverageRegularizedDirichlet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_empty_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_empty_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_mono_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_remove_union_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutFlow_union_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.cutMass_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteAveragedTV_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteAveragedTV_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteAveragedTV_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainAverageMixing.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainAverageMixing_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainAverageMixing_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainAverageRegularizedDirichlet.congr_simp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity_stationary_average' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainDensity_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainGenerator.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainGenerator.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainGenerator_regularized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity.congr_simp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_stationary_average' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainRegularizedDensity_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:127:14: warning: `AKLT.Vendor.FiniteChain.finiteChainSemigroup._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_detailed_balance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_entry_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_stationary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_uniformization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChainSemigroup_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_generator_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_integrated_entropy_dissipation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_mixing_of_balanced_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_mixing_of_retained_poincare' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_pair_sum_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_pair_sum_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_pow_detailed_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_regularized_average_dissipation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_regularized_dissipation_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_regularized_mixing_of_retained_poincare' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_regularized_tv_core_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteChain_summation_by_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDensityEntropy.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDensityEntropy_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDensityEntropy_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDensityEntropy_regularization_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDensityEntropy_regularized_atom_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDirichletForm._proof_1' depends on axioms: [propext]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:155:14: warning: `AKLT.Vendor.FiniteChain.finiteDirichletForm._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.FiniteChain.finiteDirichletForm.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDirichletForm_eq_neg_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteDirichletForm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteEntropyProduction._proof_1' depends on axioms: [propext]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:159:14: warning: `AKLT.Vendor.FiniteChain.finiteEntropyProduction._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.FiniteChain.finiteEntropyProduction.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteEntropyProduction_ge_four_dirichlet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteEntropyProduction_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteGibbs_entropy_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteGibbs_positive_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteKL.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteKL_exp_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteKL_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteKL_partition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteKL_uniform_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteRetainedSqrtMean.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteRetainedSqrtVariance.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteShannonEntropy.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteShannonEntropy_le_log_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteShannonEntropy_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_density_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finiteTotalVariation_stationary_mixture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_average_sqrt_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_balanced_flow_pruning' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_density_average_tv_core_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_density_core_l1_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_density_retained_mass_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_density_tv_core_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_log_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_sqrt_mean_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.finite_weighted_cauchy_schwarz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsPartition_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsProbability_add_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsProbability_constant_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsProbability_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsProbability_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.gibbsShannonEntropy_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.log_ratio_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.log_sqrt_dissipation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.matrix_exp_smul_detailed_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.matrix_exp_smul_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.matrix_exp_smul_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.matrix_exp_smul_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.matrix_exp_smul_row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.quadraticHamiltonian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.quadraticHamiltonian_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.quadraticHamiltonian_add_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.quadraticHamiltonian_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.signedSpin.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteChain.signedSpin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteConditioning.condExp_eq_of_fiber_integrals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.FiniteConditioning.condExp_on_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_2' depends on axioms: [propext]
+'AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_3' depends on axioms: [propext]
+'AKLT.Vendor.FiniteConditioning.condExp_on_fiber._simp_1_4' depends on axioms: [propext]
+'AKLT.Vendor.FiniteConditioning.condIndep_of_fiber_indep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.inj' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.injEq' depends on axioms: [propext]
+'AKLT.Vendor.LeanCert.Core.Dyadic.CanonicalKey.mk.sizeOf_spec' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.ValueEq.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.canonicalKey_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.compare_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.compare_gt_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.compare_lt_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.hasLowBits.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_1' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:225:14: warning: `AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_2' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:226:14: warning: `AKLT.Vendor.LeanCert.Core.Dyadic.instDecidableEqCanonicalKey.decEq._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.Dyadic.instSetoid._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:227:14: warning: `AKLT.Vendor.LeanCert.Core.Dyadic.instSetoid._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.intSqrtNat.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt_nonneg' depends on axioms: [propext]
+'AKLT.Vendor.LeanCert.Core.Dyadic.intSqrt_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.int_lt_succ_sqrt_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.le_iff_toRat_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.le_max_toRat_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.le_max_toRat_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.max_toRat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.min4_le_max4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat_le_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.min_toRat_le_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.mk.inj' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.mk.injEq' depends on axioms: [propext]
+'AKLT.Vendor.LeanCert.Core.Dyadic.mk.sizeOf_spec' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.neg.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.ofInt.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.pow2Nat.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.shiftDown.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.shiftLeftInt.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.shiftRightInt.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.shiftUp.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown_le_sqrtUp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtDown_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp.eq_1' does not depend on any axioms
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.sqrtUp_nonneg._proof_1_2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_3' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_4' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_add._proof_1_5' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_eq._proof_1_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeDown_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_normalizeUp_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_ofInt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_ofInt._simp_1_4' depends on axioms: [propext]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_scale2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_scale2_le_scale2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le._proof_1_2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftDown_le._proof_1_3' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._proof_1_2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._proof_1_3' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_shiftUp_ge._simp_1_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.toRat_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_iff._simp_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:283:14: warning: `AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_iff._simp_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.Dyadic.valueEq_of_toRat_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_1' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:285:14: warning: `AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_2' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:286:14: warning: `AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_3' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:287:14: warning: `AKLT.Vendor.LeanCert.Core.instDecidableEqDyadic.decEq._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.KroneckerDelta.eq_of_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.eq_one_of_same' does not depend on any axioms
+'AKLT.Vendor.Physlib.KroneckerDelta.eq_zero_of_ne' does not depend on any axioms
+'AKLT.Vendor.Physlib.KroneckerDelta.eq_zero_of_not' does not depend on any axioms
+'AKLT.Vendor.Physlib.KroneckerDelta.finset_sum_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.finset_sum_sum_smul_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.generalizedKroneckerDelta_comp_perm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.generalizedKroneckerDelta_swap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta.congr_simp' depends on axioms: [Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta.eq_1' does not depend on any axioms
+'AKLT.Vendor.Physlib.KroneckerDelta.kroneckerDelta_finSumFinEquiv' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_eq_zero_iff''' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_of_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_sub_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.smul_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.sum_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.sum_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.sum_sum_smul_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.symm' depends on axioms: [propext]
+'AKLT.Vendor.Physlib.KroneckerDelta.symmetrize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.KroneckerDelta.symmetrize'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.E.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.assoc_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.assoc_leibniz'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.comm_a_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.comm_a_ac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.comm_ac_ac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_E' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_N_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_N_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_N_ac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.lie_totalN_E' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.mk.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.mk.injEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.mk.sizeOf_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.toGlHom._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:326:14: warning: `AKLT.Vendor.Physlib.LadderSystem.toGlHom._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:327:14: warning: `AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:328:14: warning: `AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:329:14: warning: `AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:330:14: warning: `AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_lie' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.toGlHomLinear_stdBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.toLieModule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LadderSystem.totalN.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LinearMap.lie_apply_eq_of_lie_basis_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.LinearMap.lie_apply_eq_of_lie_span_eq' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:338:14: warning: `AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_4' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:339:14: warning: `AKLT.Vendor.Physlib.Sl2.IsBivariateGrid._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e1_pos' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e1_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e2_pos' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.e2_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f1_last' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f1_lt' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f2_last' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.f2_lt' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.h1_apply' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsBivariateGrid.h2_apply' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.add' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_vNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_vNat_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_ρE' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_ρF' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_ρF_pow' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.apply_ρH' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.coeff_eq_zero_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_ρE' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_ρF' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.comm_ρH' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.eq_smul_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.eq_zero_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.id' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsIntertwiner.smul' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.add' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.cgRestrict_isIntertwiner' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_E' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_F' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.comm_H' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_of_cgRestrict_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.eq_zero_of_forall_ne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.exists_eq_smul_cgProj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.IsTensorIntertwiner.smul' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.linearMap_ext_vNat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.v.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_apply' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_eq_v' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_eq_v._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:379:14: warning: `AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_eq_v._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.StandardSl2Module.vNat_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StringIndex.le_left' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.StringIndex.le_right' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.apply_pow_comm' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.card_stringIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cast_pred' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgCoeff.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgCoeff_rec' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_stringVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_E' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_F' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_symm_sumEnd_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgEquiv_tensorH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgProj._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:396:14: warning: `AKLT.Vendor.Physlib.Sl2.cgProj._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.cgProj._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:397:14: warning: `AKLT.Vendor.Physlib.Sl2.cgProj._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.cgProj.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgProj_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgProj_cgEquiv_symm_lof' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgProj_isTensorIntertwiner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgProj_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgRestrict.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.cgRestrict.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.classification_n_eq_finrank_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.clebsch_gordan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.clebsch_gordan_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.clebsch_gordan_finrank_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.commute_of_hcomm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.commute_of_lie_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.commuting_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.commuting_classification_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.component_sumEnd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.diagEnd.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.diagEnd_add' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.diagEnd_smul' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.diagEnd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.diagEnd_tmul' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.eSub.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.eSub_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.e_mem_subalgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.efhSub._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:423:14: warning: `AKLT.Vendor.Physlib.Sl2.efhSub._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.efhSub.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.efhSub_span_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.endAddLie' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.endLieAdd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.endLieSkew' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.endLieSmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.endSmulLie' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.eq_smul_vNat_zero_of_ρE_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.eq_zero_of_sub_eq_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.equiv_comm_of_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.exists_bivariate_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.exists_decomp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.exists_joint_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.exists_primitive_in_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.exists_stringLieSubmodule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.fSub.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.fSub_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.f_mem_subalgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.finrank_eq_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.finrank_standardSl2Module' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.finrank_standardSl2Module_tensor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.generators_eigenvectors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridFun_isBivariateGrid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_eq_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_e1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_e2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_f1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_f2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridSpan_stable_h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.gridVec.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e1_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e1_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e1_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e2_pos' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e2_succ' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_e2_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_f1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_f1_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_f2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_f2_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_h2' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_hasEigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_linearIndependent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_mem_gridSpan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.grid_primitive1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hSub.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hSub_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.h_mem_subalgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hasPrimitiveVectorWith_of_mem_primSpace' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hasPrimitiveVectorWith_of_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hwVec.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hwVec_hasPrimitiveVectorWith' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.hwVec_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.instAddCommGroupStandardSl2Module._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:482:14: warning: `AKLT.Vendor.Physlib.Sl2.instAddCommGroupStandardSl2Module._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:483:14: warning: `AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:484:14: warning: `AKLT.Vendor.Physlib.Sl2.instModuleStandardSl2Module._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.instNonemptyStringIndex' depends on axioms: [propext]
+'AKLT.Vendor.Physlib.Sl2.int_weight_inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.isSl2Triple_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.isSl2Triple_tensor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_diagEnd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_e_string_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_f_string_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_generator_string_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_h_string_mem' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_mem_of_generators' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.lie_subalgebraBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.linearIndependent_efh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.linearIndependent_efhSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.map_mem_span_of_range' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.mem_primSpace' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.nontrivial_of_isSl2Triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.pow_apply_eq_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.pred_succ_index' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.pred_succ_index._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:503:14: warning: `AKLT.Vendor.Physlib.Sl2.pred_succ_index._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.primSpace._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:504:14: warning: `AKLT.Vendor.Physlib.Sl2.primSpace._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.primSpace.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.primSpace_map_mem' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.primSpace_stable' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_e' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_e_pow_succ' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_f_pow_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_f_pow_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_h' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.prim_h_pow' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_ef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_ef_first' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_ef_last_pos' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_ef_last_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_ef_middle' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_he' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.rel_hf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sepVal.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sepVal_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sepVal_int_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.separator._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:524:14: warning: `AKLT.Vendor.Physlib.Sl2.separator._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.separator._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:525:14: warning: `AKLT.Vendor.Physlib.Sl2.separator._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.separator._proof_3' depends on axioms: [propext]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:526:14: warning: `AKLT.Vendor.Physlib.Sl2.separator._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.separator.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.separator_stringVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.span_efh_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieModule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:531:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:532:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:533:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_4' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:534:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_5' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:535:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule._proof_5` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_pos._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:537:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_pos._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_e_apply_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_last' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_lt._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:541:14: warning: `AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_f_apply_lt._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.standardSl2ModuleLieRingModule_h_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringBasis._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:543:14: warning: `AKLT.Vendor.Physlib.Sl2.stringBasis._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringBasis._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:544:14: warning: `AKLT.Vendor.Physlib.Sl2.stringBasis._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringBasis.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:546:14: warning: `AKLT.Vendor.Physlib.Sl2.stringEquiv._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringEquiv.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_e_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_e_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_e_succ._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:552:14: warning: `AKLT.Vendor.Physlib.Sl2.stringEquiv_e_succ._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_e_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_f_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_f_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_h_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_lie' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringEquiv_lie_of_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringPow_mem_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringSpan.congr_simp' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringSpan.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringSpan_eq_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVec.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVec_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVec_linearIndependent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVec_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVecs._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:569:14: warning: `AKLT.Vendor.Physlib.Sl2.stringVecs._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringVecs._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:570:14: warning: `AKLT.Vendor.Physlib.Sl2.stringVecs._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.stringVecs.congr_simp' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.stringVecs.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.string_hasEigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.string_isBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.string_linearIndependent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.string_weight_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:577:14: warning: `AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:578:14: warning: `AKLT.Vendor.Physlib.Sl2.subalgebraBasis._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.subalgebraBasis.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.subalgebraBasis.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.subalgebraBasis_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sumBasis._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:582:14: warning: `AKLT.Vendor.Physlib.Sl2.sumBasis._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.sumBasis.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sumBasis_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sumEnd_lof' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sumVec.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sumVec_linearIndependent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.sum_arithmetic_progression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:589:14: warning: `AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:590:14: warning: `AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:591:14: warning: `AKLT.Vendor.Physlib.Sl2.tensorCoord._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.tensorCoord.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorCoord_tmul' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorE.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorE_hwVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorE_stringVec_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorE_stringVec_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorF.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorF_pow_hwVec_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorF_pow_hwVec_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorF_stringVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorH.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorH_hwVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorH_stringVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorH_tmul_vNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorStringBasis._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:606:14: warning: `AKLT.Vendor.Physlib.Sl2.tensorStringBasis._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.tensorStringBasis.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorStringBasis.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.tensorStringBasis_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.toEnd_ambient_eq' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.toEnd_ambient_pow' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.top_le_span_gridFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.weight_pair_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:614:14: warning: `AKLT.Vendor.Physlib.Sl2.Φ._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.Φ._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:615:14: warning: `AKLT.Vendor.Physlib.Sl2.Φ._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.Φ._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:616:14: warning: `AKLT.Vendor.Physlib.Sl2.Φ._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.Φ.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_ef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_he' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_hf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_bracket_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.Φ_lie' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρE._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:627:14: warning: `AKLT.Vendor.Physlib.Sl2.ρE._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρE._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:628:14: warning: `AKLT.Vendor.Physlib.Sl2.ρE._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρE._proof_4' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:629:14: warning: `AKLT.Vendor.Physlib.Sl2.ρE._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρE.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρE_vNat_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρE_vNat_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρE_v_pos' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρE_v_pos._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:634:14: warning: `AKLT.Vendor.Physlib.Sl2.ρE_v_pos._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρE_v_zero' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:636:14: warning: `AKLT.Vendor.Physlib.Sl2.ρF._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρF._proof_3' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:637:14: warning: `AKLT.Vendor.Physlib.Sl2.ρF._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρF._proof_4' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:638:14: warning: `AKLT.Vendor.Physlib.Sl2.ρF._proof_4` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρF.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF_pow_vNat_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF_vNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF_v_last' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF_v_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρF_v_lt._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:644:14: warning: `AKLT.Vendor.Physlib.Sl2.ρF_v_lt._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρH._proof_1' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:645:14: warning: `AKLT.Vendor.Physlib.Sl2.ρH._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρH._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:646:14: warning: `AKLT.Vendor.Physlib.Sl2.ρH._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρH._proof_3' depends on axioms: [propext]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:647:14: warning: `AKLT.Vendor.Physlib.Sl2.ρH._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.Sl2.ρH.eq_1' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρH_v' depends on axioms: [propext, Quot.sound]
+'AKLT.Vendor.Physlib.Sl2.ρH_vNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.Physlib.bracketLeft._proof_1' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:651:14: warning: `AKLT.Vendor.Physlib.bracketLeft._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.bracketLeft._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:652:14: warning: `AKLT.Vendor.Physlib.bracketLeft._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.bracketRight._proof_1' does not depend on any axioms
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:653:14: warning: `AKLT.Vendor.Physlib.bracketRight._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.Physlib.bracketRight._proof_2' depends on axioms: [propext, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:654:14: warning: `AKLT.Vendor.Physlib.bracketRight._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.isUnitaryBetween_of_card_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.rank_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsCoisometry.reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsHermitian.mul_norm_sq_le_re_inner_of_spectral_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsHermitian.toEuclideanCLM_eigenvectorBasis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.isUnitaryBetween_of_card_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.rank_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsIsometry.reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.of_mul_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.of_mul_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.IsUnitaryBetween.reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.conjTranspose_mul_mul_eq_conjTranspose_mul_iff_of_mul_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Matrix.isUnitaryBetween_iff_mem_unitaryGroup' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.OrthonormalBasis.norm_sq_repr_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.OrthonormalBasis.re_inner_apply_eq_sum_of_eigen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.OrthonormalBasis.repr_apply_of_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.OrthonormalBasis.sub_smul_eq_repr_symm_of_eigen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:682:14: warning: `AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_1` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:683:14: warning: `AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_2` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+/home/ubuntu/aklt/reports/VENDOR_1/Axioms.lean:684:14: warning: `AKLT.Vendor.QICLean.Submodule.IsCloseTo._proof_3` refers to an auto-generated auxiliary declaration. These are not stable across refactors; consider using a different approach.
+
+Note: This linter can be disabled with `set_option linter.auxLemma false`
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.exists_mem_starProjection_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.exists_mem_starProjection_eq_and_norm_sq_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.inf_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.IsCloseTo.trans_weighted._abel_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.commute_starProjection_spectralSpanLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.isCloseTo_spectralSpanLE_of_perturbation._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mem_spectralSpanLE_iff._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le_of_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.mul_norm_starProjection_orthogonal_spectralSpanLE_le_of_window._abel_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.norm_sq_starProjection_orthogonal_spectralSpanLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.re_inner_apply_le_of_mem_spectralSpanLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.starProjection_inf_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Vendor.QICLean.Submodule.starProjection_orthogonal_spectralSpanLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AKLT.Vendor.QICLean.instCompleteSpace_aKLT' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,116 @@
+def AKLT.Blueprint.H1.BlochPositivityStatement : Prop :=
+∀ (A : Matrix.{0, 0, 0} (Fin 2) (Fin 2) ℂ),
+  Matrix.IsHermitian.{0, 0} A →
+    ∀ (r : ℝ),
+      LE.le.{0} 0 r →
+        LE.le.{0} r 1 →
+          Eq.{1} (HMul.hMul.{0, 0, 0} A A) (HSMul.hSMul.{0, 0, 0} (↑r) 1) →
+            Matrix.PosSemidef.{0, 0} (HSMul.hSMul.{0, 0, 0} (1 / 2) (HAdd.hAdd.{0, 0, 0} 1 A))
+def AKLT.Blueprint.H1.PauliExpansionStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.SupportedVectors J p →
+      ∀ (u : Fin 20 → AKLT.Defs.Vec3),
+        Eq.{1} (AKLT.Defs.evaluateReduced p u)
+          (∑ a,
+            HMul.hMul.{0, 0, 0} (↑((AddMonoidAlgebra.coeff.{0, 0} p) (AKLT.Defs.pauliExponent J a)))
+              (∏ j, AKLT.Blueprint.H1.pauliCoordinate (u ↑j) (a j)))
+def AKLT.Blueprint.H1.PauliProductTraceStatement : Prop :=
+(∀ (a : Fin 4) (u : AKLT.Defs.Vec3),
+    Eq.{1} (Matrix.trace.{0, 0} (HMul.hMul.{0, 0, 0} (AKLT.Defs.pauli a) (AKLT.Defs.spinDensity u)))
+      ↑(AKLT.Blueprint.H1.pauliCoordinate u a)) →
+  ∀ (J : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial) (u : Fin 20 → AKLT.Defs.Vec3),
+    Eq.{1} (Matrix.trace.{0, 0} (HMul.hMul.{0, 0, 0} (AKLT.Defs.pauliOperator J p) (AKLT.Defs.productDensity J u)))
+      ↑(∑ a,
+          HMul.hMul.{0, 0, 0} (↑((AddMonoidAlgebra.coeff.{0, 0} p) (AKLT.Defs.pauliExponent J a)))
+            (∏ j, AKLT.Blueprint.H1.pauliCoordinate (u ↑j) (a j)))
+def AKLT.Blueprint.H1.InversionPolynomialStatement : Prop :=
+∀ (J I : Finset.{0} (Fin 20)) (p : AKLT.Blueprint.H1.VectorPolynomial),
+  AKLT.Defs.VectorAffine p →
+    AKLT.Defs.SupportedVectors J p →
+      AKLT.Defs.VectorAffine (AKLT.Defs.invertPolynomial I p) ∧
+        AKLT.Defs.SupportedVectors J (AKLT.Defs.invertPolynomial I p) ∧
+          ∀ (u : Fin 20 → AKLT.Defs.Vec3),
+            Eq.{1} (AKLT.Defs.evaluateReduced (AKLT.Defs.invertPolynomial I p) (AKLT.Defs.invertVectors I u))
+              (AKLT.Defs.evaluateReduced p u)
+def AKLT.Blueprint.H1.ProductDensityPositiveStatement : Prop :=
+∀ (J : Finset.{0} (Fin 20)) (u : Fin 20 → AKLT.Defs.Vec3),
+  (∀ (j : Fin 20), Membership.mem.{0, 0} J j → Matrix.PosSemidef.{0, 0} (AKLT.Defs.spinDensity (u j))) →
+    Matrix.PosSemidef.{0, 0} (AKLT.Defs.productDensity J u)
+def AKLT.Blueprint.H1.TraceProductPositiveStatement : Prop :=
+∀ (n : Type) [inst : Fintype.{0} n] [DecidableEq.{1} n] (A B : Matrix.{0, 0, 0} n n ℂ),
+  Matrix.PosSemidef.{0, 0} A →
+    Matrix.PosSemidef.{0, 0} B → LE.le.{0} 0 (Matrix.trace.{0, 0} (HMul.hMul.{0, 0, 0} A B)).re
+def AKLT.Blueprint.H1.ReducedDegreeStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∀ (r : AKLT.Defs.Representation) (next : Bool),
+      AKLT.Blueprint.H1.InternalAdmissible (AKLT.Defs.reducedSpinSites π r) (AKLT.Defs.reducedIntegrand π r next)
+def AKLT.Blueprint.H1.ReducedFactorStructureStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∀ (r : AKLT.Defs.Representation) (next : Bool),
+      AKLT.Blueprint.H1.LocalVectorAffine (AKLT.Defs.reducedIntegrand π r next) ∧
+        AKLT.Blueprint.H1.IntegrandInvariant (AKLT.Defs.reducedIntegrand π r next) ∧
+          AKLT.Blueprint.H1.LocalSupportedVectors (AKLT.Defs.reductionVectors π r) (AKLT.Defs.reducedIntegrand π r next)
+AKLT.Blueprint.H1.BlochPositivityStatement : Prop
+AKLT.Blueprint.H1.PauliExpansionStatement : Prop
+AKLT.Blueprint.H1.PauliProductTraceStatement : Prop
+AKLT.Blueprint.H1.InversionPolynomialStatement : Prop
+AKLT.Blueprint.H1.ProductDensityPositiveStatement : Prop
+AKLT.Blueprint.H1.TraceProductPositiveStatement : Prop
+AKLT.Blueprint.H1.ReducedDegreeStatement : Prop
+AKLT.Blueprint.H1.ReducedFactorStructureStatement : Prop
+def AKLT.Defs.pauliExponent : (J : Finset.{0} (Fin 20)) →
+  (↥J → Fin 4) → Finsupp.{0, 0} (Prod.{0, 0} (Fin 20) (Fin 3)) ℕ :=
+fun J a =>
+  (Equiv.symm.{1, 1} Finsupp.equivFunOnFinite.{0, 0}) fun v =>
+    if h : Membership.mem.{0, 0} J v.1 then
+      ite.{1} (Eq.{1} (↑(a (Subtype.mk.{1} v.1 h))) (HAdd.hAdd.{0, 0, 0} (↑v.2) 1)) 1 0
+    else 0
+def AKLT.Blueprint.H1.pauliCoordinate : AKLT.Defs.Vec3 → Fin 4 → ℝ :=
+fun u a => if h : Eq.{1} (↑a) 0 then 1 else u ⟨HSub.hSub.{0, 0, 0} (↑a) 1, ⋯⟩
+Matrix.PosSemidef.kronecker.{u_1, u_2, u_3} {𝕜 : Type u_1} {n : Type u_2} [RCLike.{u_1} 𝕜] [Finite.{u_2 + 1} n]
+  {m : Type u_3} [Finite.{u_3 + 1} m] {x : Matrix.{u_2, u_2, u_1} n n 𝕜} {y : Matrix.{u_3, u_3, u_1} m m 𝕜}
+  (hx : Matrix.PosSemidef.{u_2, u_1} x) (hy : Matrix.PosSemidef.{u_3, u_1} y) :
+  Matrix.PosSemidef.{max u_2 u_3, u_1}
+    (Matrix.kroneckerMap.{u_1, u_1, u_1, u_2, u_2, u_3, u_3} (fun x1 x2 => HMul.hMul.{u_1, u_1, u_1} x1 x2) x y)
+Matrix.PosSemidef.submatrix.{u_1, u_2, u_3} {m : Type u_1} {n : Type u_2} {R : Type u_3} [Ring.{u_3} R]
+  [PartialOrder.{u_3} R] [StarRing.{u_3} R] {M : Matrix.{u_2, u_2, u_3} n n R} (hM : Matrix.PosSemidef.{u_2, u_3} M)
+  (e : m → n) : Matrix.PosSemidef.{u_1, u_3} (Matrix.submatrix.{u_3, u_1, u_2, u_2, u_1} M e e)
+Matrix.IsHermitian.posSemidef_iff_eigenvalues_nonneg.{u_2, u_3} {n : Type u_2} {𝕜 : Type u_3} [Fintype.{u_2} n]
+  [RCLike.{u_3} 𝕜] {A : Matrix.{u_2, u_2, u_3} n n 𝕜} [DecidableEq.{u_2 + 1} n] (hA : Matrix.IsHermitian.{u_3, u_2} A) :
+  Matrix.PosSemidef.{u_2, u_3} A ↔ LE.le.{u_2} 0 (Matrix.IsHermitian.eigenvalues.{u_3, u_2} hA)
+Matrix.PosSemidef.conjTranspose_mul_mul_same.{u_1, u_2, u_3} {m : Type u_1} {n : Type u_2} {R : Type u_3} [Ring.{u_3} R]
+  [PartialOrder.{u_3} R] [StarRing.{u_3} R] [Fintype.{u_2} n] [Finite.{u_1 + 1} m] {A : Matrix.{u_2, u_2, u_3} n n R}
+  (hA : Matrix.PosSemidef.{u_2, u_3} A) (B : Matrix.{u_2, u_1, u_3} n m R) :
+  Matrix.PosSemidef.{u_1, u_3}
+    (HMul.hMul.{max (max u_1 u_2) u_3, max (max u_1 u_2) u_3, max u_1 u_3}
+      (HMul.hMul.{max (max u_1 u_2) u_3, max u_2 u_3, max (max u_1 u_2) u_3} (Matrix.conjTranspose.{u_3, u_2, u_1} B) A)
+      B)
+Matrix.PosSemidef.trace_nonneg.{u_2, u_3} {n : Type u_2} {R : Type u_3} [Ring.{u_3} R] [PartialOrder.{u_3} R]
+  [StarRing.{u_3} R] [Fintype.{u_2} n] [AddLeftMono.{u_3} R] {A : Matrix.{u_2, u_2, u_3} n n R}
+  (hA : Matrix.PosSemidef.{u_2, u_3} A) : LE.le.{u_3} 0 (Matrix.trace.{u_2, u_3} A)
+Matrix.trace_mul_cycle.{u_2, u_3, u_4, u_6} {m : Type u_2} {n : Type u_3} {p : Type u_4} {R : Type u_6}
+  [Fintype.{u_2} m] [Fintype.{u_3} n] [Fintype.{u_4} p] [NonUnitalCommSemiring.{u_6} R]
+  (A : Matrix.{u_2, u_3, u_6} m n R) (B : Matrix.{u_3, u_4, u_6} n p R) (C : Matrix.{u_4, u_2, u_6} p m R) :
+  Eq.{u_6 + 1}
+    (Matrix.trace.{u_2, u_6}
+      (HMul.hMul.{max (max u_2 u_4) u_6, max (max u_2 u_4) u_6, max u_2 u_6}
+        (HMul.hMul.{max (max u_2 u_3) u_6, max (max u_3 u_4) u_6, max (max u_2 u_4) u_6} A B) C))
+    (Matrix.trace.{u_4, u_6}
+      (HMul.hMul.{max (max u_3 u_4) u_6, max (max u_3 u_4) u_6, max u_4 u_6}
+        (HMul.hMul.{max (max u_2 u_4) u_6, max (max u_2 u_3) u_6, max (max u_3 u_4) u_6} C A) B))
+def Matrix.PosSemidef.{u_2, u_3} : {n : Type u_2} →
+  {R : Type u_3} →
+    [inst : Ring.{u_3} R] → [PartialOrder.{u_3} R] → [StarRing.{u_3} R] → Matrix.{u_2, u_2, u_3} n n R → Prop :=
+fun {n} {R} [Ring.{u_3} R] [PartialOrder.{u_3} R] [StarRing.{u_3} R] M =>
+  Matrix.IsHermitian.{u_3, u_2} M ∧
+    ∀ (x : Finsupp.{u_2, u_3} n R),
+      LE.le.{u_3} 0
+        (Finsupp.sum.{u_2, u_3, u_3} x fun i xi =>
+          Finsupp.sum.{u_2, u_3, u_3} x fun j xj =>
+            HMul.hMul.{u_3, u_3, u_3} (HMul.hMul.{u_3, u_3, u_3} (star.{u_3} xi) (M i j)) xj)
+def Matrix.IsHermitian.{u_1, u_4} : {α : Type u_1} →
+  {n : Type u_4} → [Star.{u_1} α] → Matrix.{u_4, u_4, u_1} n n α → Prop :=
+fun {α} {n} [Star.{u_1} α] A => Eq.{max (u_1 + 1) (u_4 + 1)} (Matrix.conjTranspose.{u_1, u_4, u_4} A) A

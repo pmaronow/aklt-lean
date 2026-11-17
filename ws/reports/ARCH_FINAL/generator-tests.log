@@ -1,0 +1,15 @@
+$ python3 /home/ubuntu/aklt/reports/ARCH_FINAL/test_generator.py
+PASS: exact active checklist, 184 source proofs, 236 missing, no Main.lean
+PASS: added or removed active leaf invalidates the frozen signature
+PASS: explicit declaration override and rejection of unknown or non-declaration terms
+PASS: dependency allowlist rejects an unproved dependency
+PASS: complete application rendering preserves all 420 positions
+Checking AKLT.Final.Skeleton
+Checking AKLT.W.Q001.Main
+'AKLT.Final.main' does not depend on any axioms
+'AKLT.W.Q001.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS: real Lean compilation and dependency validation; Main.lean remains absent
+PASS: Lean rejects a proof of the wrong statement
+All generator tests passed in 21.245s
+
+EXIT=0 ELAPSED=21.303s

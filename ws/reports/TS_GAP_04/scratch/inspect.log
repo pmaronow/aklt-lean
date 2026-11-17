@@ -1,0 +1,144 @@
+def AKLT.Blueprint.Gap.ProductPoincareTransportStatement : Prop :=
+∀ (ι κ : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] [inst_2 : Fintype.{0} κ] [inst_3 : DecidableEq.{1} κ]
+  (S : ι → Type) (T : κ → Type) [inst_4 : (x : ι) → Fintype.{0} (S x)] [inst_5 : (y : κ) → Fintype.{0} (T y)]
+  (e : AKLT.Blueprint.Gap.ProductChange S T) (p : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S))
+  (q : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config T)),
+  AKLT.Blueprint.Gap.Carries e p q → ∀ (g : ℝ), AKLT.Defs.PoincareLower.{0, 0} q g → AKLT.Defs.PoincareLower.{0, 0} p g
+def AKLT.Blueprint.Gap.ProductCouplingTransportStatement : Prop :=
+∀ (ι κ : Type) [inst : Fintype.{0} ι] [inst_1 : DecidableEq.{1} ι] [inst_2 : Fintype.{0} κ] [inst_3 : DecidableEq.{1} κ]
+  (S : ι → Type) (T : κ → Type) [inst_4 : (x : ι) → Fintype.{0} (S x)] [inst_5 : (y : κ) → Fintype.{0} (T y)]
+  (e : AKLT.Blueprint.Gap.ProductChange S T) (p p' : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S))
+  (q q' : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config T)),
+  AKLT.Blueprint.Gap.Carries e p q →
+    AKLT.Blueprint.Gap.Carries e p' q' →
+      ∀ (c : AKLT.Defs.Coupling.{0, 0} q q'),
+        ∃ d, Eq.{1} (AKLT.Blueprint.Gap.couplingCost d) (AKLT.Blueprint.Gap.couplingCost c)
+def AKLT.Blueprint.Gap.ThresholdSpacingStatement : Prop :=
+∀ (l u : ℕ), LE.le.{0} (AKLT.Defs.geometryThreshold l) u → LE.le.{0} 16 (AKLT.Defs.shellSpacing u)
+def AKLT.Blueprint.Gap.ContainingBlockCountStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  LE.le.{0} 1 M →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑L →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑N →
+        ∀ (x : AKLT.Challenge.Site L N),
+          Eq.{1} (Finset.card.{0} {a | Membership.mem.{0, 0} (AKLT.Blueprint.Gap.torusSquare L N M a) x})
+            (AKLT.Blueprint.Gap.volumeCount M)
+def AKLT.Blueprint.Gap.ExteriorBlockCountStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  LE.le.{0} 1 M →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑L →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑N →
+        ∀ (x : AKLT.Challenge.Site L N),
+          Eq.{1}
+            (Finset.card.{0}
+              {a |
+                Membership.mem.{0, 0}
+                  (sdiff.{0} (AKLT.Blueprint.Gap.torusHalo L N M a) (AKLT.Blueprint.Gap.torusSquare L N M a)) x})
+            (AKLT.Blueprint.Gap.haloCount M)
+def AKLT.Blueprint.Gap.BlockVolumeBoundStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (M : ℕ),
+  LE.le.{0} 1 M →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑L →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 M) 3) ↑N →
+        LE.le.{0} (AKLT.Blueprint.Gap.volumeCount M) (Fintype.card.{0} (AKLT.Challenge.Site L N))
+def AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size) (S : AKLT.Challenge.Site L N → Type)
+  [inst : (x : AKLT.Challenge.Site L N) → Fintype.{0} (S x)] [∀ (x : AKLT.Challenge.Site L N), Nonempty.{1} (S x)]
+  (μ : AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S)),
+  AKLT.Defs.PositiveProbability.{0} μ →
+    ∀ (M : ℕ) (K : ℝ),
+      LE.le.{0} 1 M →
+        LE.le.{0} 0 K →
+          AKLT.Blueprint.Gap.PeriodicCounts L N M →
+            AKLT.Blueprint.Gap.TorusRangeOne μ M →
+              AKLT.Blueprint.Gap.BlockInfluence μ M K →
+                ∀ (σ τ : (x : AKLT.Challenge.Site L N) → S x),
+                  Eq.{1} (AKLT.Defs.hamming.{0, 0} σ τ) 1 →
+                    ∃ c,
+                      LE.le.{0} (AKLT.Blueprint.Gap.couplingCost c)
+                        (HSub.hSub.{0, 0, 0} 1
+                          (HDiv.hDiv.{0, 0, 0}
+                            (HSub.hSub.{0, 0, 0} (↑(AKLT.Blueprint.Gap.volumeCount M))
+                              (HMul.hMul.{0, 0, 0} (↑(AKLT.Blueprint.Gap.haloCount M)) K))
+                            ↑(Fintype.card.{0} (AKLT.Challenge.Site L N))))
+def AKLT.Blueprint.Gap.TorusColourStatement : Prop :=
+∀ (L N : AKLT.Challenge.Size), AKLT.Defs.ProperTorusColouring (AKLT.Blueprint.Gap.torusColour L N)
+structure AKLT.Blueprint.Gap.ProductChange {ι κ : Type} (S : ι → Type) (T : κ → Type) : Type
+number of parameters: 4
+fields:
+  AKLT.Blueprint.Gap.ProductChange.sites : Equiv.{1, 1} ι κ
+  AKLT.Blueprint.Gap.ProductChange.configurations : Equiv.{1, 1} (AKLT.Blueprint.Gap.Config S)
+      (AKLT.Blueprint.Gap.Config T)
+  AKLT.Blueprint.Gap.ProductChange.coordinate_eq : ∀ (σ τ : AKLT.Blueprint.Gap.Config S) (x : ι),
+      Eq.{1} (σ x) (τ x) ↔ Eq.{1} (self.configurations σ (self.sites x)) (self.configurations τ (self.sites x))
+constructor:
+  AKLT.Blueprint.Gap.ProductChange.mk {ι κ : Type} {S : ι → Type} {T : κ → Type} (sites : Equiv.{1, 1} ι κ)
+    (configurations : Equiv.{1, 1} (AKLT.Blueprint.Gap.Config S) (AKLT.Blueprint.Gap.Config T))
+    (coordinate_eq :
+      ∀ (σ τ : AKLT.Blueprint.Gap.Config S) (x : ι),
+        Eq.{1} (σ x) (τ x) ↔ Eq.{1} (configurations σ (sites x)) (configurations τ (sites x))) :
+    AKLT.Blueprint.Gap.ProductChange S T
+def AKLT.Blueprint.Gap.Carries : {ι κ : Type} →
+  {S : ι → Type} →
+    {T : κ → Type} →
+      AKLT.Blueprint.Gap.ProductChange S T →
+        AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) →
+          AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config T) → Prop :=
+fun {ι κ} {S} {T} e p q => ∀ (σ : AKLT.Blueprint.Gap.Config S), Eq.{1} (q (e.configurations σ)) (p σ)
+def AKLT.Blueprint.Gap.BlockInfluence : {L N : AKLT.Challenge.Size} →
+  {S : AKLT.Challenge.Site L N → Type} →
+    [(x : AKLT.Challenge.Site L N) → Fintype.{0} (S x)] →
+      AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) → ℕ → ℝ → Prop :=
+fun {L N} {S} [(x : AKLT.Challenge.Site L N) → Fintype.{0} (S x)] p M K =>
+  ∀ (a y : AKLT.Challenge.Site L N),
+    Membership.mem.{0, 0} (sdiff.{0} (AKLT.Blueprint.Gap.torusHalo L N M a) (AKLT.Blueprint.Gap.torusSquare L N M a))
+        y →
+      ∀ (σ τ : (x : AKLT.Challenge.Site L N) → S x),
+        AKLT.Defs.AgreeOutside.{0, 0} (singleton.{0, 0} y) σ τ → ∃ c, LE.le.{0} (AKLT.Blueprint.Gap.couplingCost c) K
+def AKLT.Blueprint.Gap.TorusRangeOne : {L N : AKLT.Challenge.Size} →
+  {S : AKLT.Challenge.Site L N → Type} →
+    [(x : AKLT.Challenge.Site L N) → Fintype.{0} (S x)] →
+      AKLT.Defs.Weight.{0} (AKLT.Blueprint.Gap.Config S) → ℕ → Prop :=
+fun {L N} {S} [(x : AKLT.Challenge.Site L N) → Fintype.{0} (S x)] p M =>
+  ∀ (a : AKLT.Challenge.Site L N) (σ τ : AKLT.Blueprint.Gap.Config S),
+    AKLT.Blueprint.Gap.AgreeOn
+        (sdiff.{0} (AKLT.Blueprint.Gap.torusHalo L N M a) (AKLT.Blueprint.Gap.torusSquare L N M a)) σ τ →
+      Eq.{1} (AKLT.Blueprint.Gap.blockLaw p (AKLT.Blueprint.Gap.torusSquare L N M a) σ)
+        (AKLT.Blueprint.Gap.blockLaw p (AKLT.Blueprint.Gap.torusSquare L N M a) τ)
+def AKLT.Blueprint.Gap.PeriodicCounts : AKLT.Challenge.Size → AKLT.Challenge.Size → ℕ → Prop :=
+fun L N M =>
+  (∀ (x : AKLT.Challenge.Site L N),
+      Eq.{1} (Finset.card.{0} {a | Membership.mem.{0, 0} (AKLT.Blueprint.Gap.torusSquare L N M a) x})
+        (AKLT.Blueprint.Gap.volumeCount M)) ∧
+    (∀ (x : AKLT.Challenge.Site L N),
+        Eq.{1}
+          (Finset.card.{0}
+            {a |
+              Membership.mem.{0, 0}
+                (sdiff.{0} (AKLT.Blueprint.Gap.torusHalo L N M a) (AKLT.Blueprint.Gap.torusSquare L N M a)) x})
+          (AKLT.Blueprint.Gap.haloCount M)) ∧
+      LE.le.{0} (AKLT.Blueprint.Gap.volumeCount M) (Fintype.card.{0} (AKLT.Challenge.Site L N))
+def AKLT.Defs.PoincareLower.{u_1, u_2} : {ι : Type u_1} →
+  [Fintype.{u_1} ι] →
+    [DecidableEq.{u_1 + 1} ι] →
+      {S : ι → Type u_2} →
+        [(x : ι) → Fintype.{u_2} (S x)] → AKLT.Defs.Weight.{max u_1 u_2} ((x : ι) → S x) → ℝ → Prop :=
+fun {ι} [Fintype.{u_1} ι] [DecidableEq.{u_1 + 1} ι] {S} [(x : ι) → Fintype.{u_2} (S x)] p g =>
+  ∀ (f : ((x : ι) → S x) → ℂ),
+    LE.le.{0} (HMul.hMul.{0, 0, 0} g (AKLT.Defs.variance.{max u_1 u_2} p f)) (AKLT.Defs.dirichlet.{u_1, u_2} p f)
+structure AKLT.Defs.Coupling.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype.{u_1} Ω] [Fintype.{u_2} Ξ]
+  (p : AKLT.Defs.Weight.{u_1} Ω) (q : AKLT.Defs.Weight.{u_2} Ξ) : Type (max u_1 u_2)
+number of parameters: 6
+fields:
+  AKLT.Defs.Coupling.mass.{u_1, u_2} : Ω → Ξ → ℝ
+  AKLT.Defs.Coupling.nonnegative.{u_1,
+    u_2} : ∀ (x : Ω) (y : Ξ), LE.le.{0} 0 (AKLT.Defs.Coupling.mass.{u_1, u_2} self x y)
+  AKLT.Defs.Coupling.first_marginal.{u_1,
+    u_2} : ∀ (x : Ω), Eq.{1} (∑ y, AKLT.Defs.Coupling.mass.{u_1, u_2} self x y) (p x)
+  AKLT.Defs.Coupling.second_marginal.{u_1,
+    u_2} : ∀ (y : Ξ), Eq.{1} (∑ x, AKLT.Defs.Coupling.mass.{u_1, u_2} self x y) (q y)
+constructor:
+  AKLT.Defs.Coupling.mk.{u_1, u_2} {Ω : Type u_1} {Ξ : Type u_2} [Fintype.{u_1} Ω] [Fintype.{u_2} Ξ]
+    {p : AKLT.Defs.Weight.{u_1} Ω} {q : AKLT.Defs.Weight.{u_2} Ξ} (mass : Ω → Ξ → ℝ)
+    (nonnegative : ∀ (x : Ω) (y : Ξ), LE.le.{0} 0 (mass x y)) (first_marginal : ∀ (x : Ω), Eq.{1} (∑ y, mass x y) (p x))
+    (second_marginal : ∀ (y : Ξ), Eq.{1} (∑ x, mass x y) (q y)) : AKLT.Defs.Coupling.{u_1, u_2} p q

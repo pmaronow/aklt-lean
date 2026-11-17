@@ -1,0 +1,124 @@
+AKLT.Challenge.spinMinus.eq_1 : AKLT.Challenge.spinMinus = AKLT.Challenge.spinPlus.conjTranspose
+'AKLT.Challenge.spinMinus.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.spinPlus.eq_1 (i j : Fin 5) : AKLT.Challenge.spinPlus i j = if ↑i + 1 = ↑j then ↑√↑(↑j * (5 - ↑j)) else 0
+'AKLT.Challenge.spinPlus.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Challenge.spinZ.eq_1 (i j : Fin 5) : AKLT.Challenge.spinZ i j = if i = j then 2 - ↑↑i else 0
+'AKLT.Challenge.spinZ.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Defs.starCasimir.eq_1 (j : Fin 4) :
+  AKLT.Defs.starCasimir j =
+    (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) *
+        (AKLT.Defs.starAtSite AKLT.Challenge.spinZ 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinZ ⟨↑j + 1, ⋯⟩) +
+      (1 / 2) •
+        ((AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) +
+          (AKLT.Defs.starAtSite AKLT.Challenge.spinMinus 0 +
+              AKLT.Defs.starAtSite AKLT.Challenge.spinMinus ⟨↑j + 1, ⋯⟩) *
+            (AKLT.Defs.starAtSite AKLT.Challenge.spinPlus 0 + AKLT.Defs.starAtSite AKLT.Challenge.spinPlus ⟨↑j + 1, ⋯⟩))
+'AKLT.Defs.starCasimir.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Defs.starHamiltonian.eq_1 :
+  AKLT.Defs.starHamiltonian = ∑ j, ↑((AKLT.Defs.starCasimir j).eigenspace 20).starProjection
+'AKLT.Defs.starHamiltonian.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q017.main : AKLT.Blueprint.Q.StarWitnessStatement
+'AKLT.W.Q017.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+Matrix.toEuclideanLin.eq_1.{u_3, u_7, u_8} {𝕜 : Type u_3} [RCLike 𝕜] {m : Type u_7} {n : Type u_8} [Fintype n]
+  [DecidableEq n] : Matrix.toEuclideanLin = Matrix.toLpLin 2 2
+'Matrix.toEuclideanLin.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Blueprint.Q.starEdge.eq_1 {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (j : Fin 4) :
+  AKLT.Blueprint.Q.starEdge x j =
+    if j = 0 then (x, 0) else if j = 1 then ((x.1 - 1, x.2), 0) else if j = 2 then (x, 1) else ((x.1, x.2 - 1), 1)
+'AKLT.Blueprint.Q.starEdge.eq_1' depends on axioms: [propext, Quot.sound]
+AKLT.Challenge.onBond.eq_1 {L N : AKLT.Challenge.Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (e : AKLT.Challenge.Bond L N) :
+  AKLT.Challenge.onBond A e = AKLT.Challenge.atSite A e.1 + AKLT.Challenge.atSite A (AKLT.Challenge.nextSite e.1 e.2)
+'AKLT.Challenge.onBond.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q037.StarCoordinates : Type
+'AKLT.W.Q037.StarCoordinates' does not depend on any axioms
+AKLT.W.Q037.StarLocal : Type
+'AKLT.W.Q037.StarLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q037.main : AKLT.Blueprint.Q.StarCasimirChartStatement
+'AKLT.W.Q037.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q037.starPicked {L N : AKLT.Challenge.Size} (x y : AKLT.Challenge.Site L N) : Prop
+'AKLT.W.Q037.starPicked' depends on axioms: [propext, Quot.sound]
+AKLT.W.Q037.starSites {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) : Fin 5 → AKLT.Challenge.Site L N
+'AKLT.W.Q037.starSites' depends on axioms: [propext, Quot.sound]
+AKLT.W.Q037.starSites.eq_1 {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) (i : Fin 5) :
+  AKLT.W.Q037.starSites x i =
+    if i = 0 then x
+    else
+      if i = 1 then (x.1 + 1, x.2)
+      else if i = 2 then (x.1 - 1, x.2) else if i = 3 then (x.1, x.2 + 1) else (x.1, x.2 - 1)
+'AKLT.W.Q037.starSites.eq_1' depends on axioms: [propext, Quot.sound]
+AKLT.W.Q037.starSites_injective {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) :
+  Function.Injective (AKLT.W.Q037.starSites x)
+'AKLT.W.Q037.starSites_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q037.starSpectators {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) : Type
+'AKLT.W.Q037.starSpectators' depends on axioms: [propext, Quot.sound]
+AKLT.W.Q038.StarChart (n : ℕ) : Type
+'AKLT.W.Q038.StarChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.casimirCopies_starRow {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) {n : ℕ}
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] AKLT.W.Q038.StarChart n) (hCopies : AKLT.Blueprint.Q.casimirCopies x n U)
+  (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) (r : Fin n) (s : Fin 5 → Fin 5) :
+  (U ((AKLT.Challenge.bondCasimir (AKLT.Blueprint.Q.starEdge x j)) ψ)).ofLp (r, s) =
+    ((AKLT.Defs.starCasimir j) (AKLT.W.Q038.starRow (U ψ) r)).ofLp s
+'AKLT.W.Q038.casimirCopies_starRow' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.chart_eigenspace_preimage {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) {n : ℕ}
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] AKLT.W.Q038.StarChart n) (hCopies : AKLT.Blueprint.Q.casimirCopies x n U)
+  (j : Fin 4) (z : AKLT.W.Q038.StarChart n) (hz : z ∈ AKLT.W.Q038.starFibreSpace n j) :
+  U.symm z ∈ (AKLT.Challenge.bondCasimir (AKLT.Blueprint.Q.starEdge x j)).eigenspace 20
+'AKLT.W.Q038.chart_eigenspace_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.chart_projector_mem {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) {n : ℕ}
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] AKLT.W.Q038.StarChart n) (hCopies : AKLT.Blueprint.Q.casimirCopies x n U)
+  (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) :
+  U ((AKLT.Challenge.P (AKLT.Blueprint.Q.starEdge x j)) ψ) ∈ AKLT.W.Q038.starFibreSpace n j
+'AKLT.W.Q038.chart_projector_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.chart_projector_orthogonal {L N : AKLT.Challenge.Size} (x : AKLT.Challenge.Site L N) {n : ℕ}
+  (U : AKLT.Challenge.Hilbert L N ≃ₗᵢ[ℂ] AKLT.W.Q038.StarChart n) (hCopies : AKLT.Blueprint.Q.casimirCopies x n U)
+  (j : Fin 4) (ψ : AKLT.Challenge.Hilbert L N) (z : AKLT.W.Q038.StarChart n) (hz : z ∈ AKLT.W.Q038.starFibreSpace n j) :
+  inner ℂ (U ψ - U ((AKLT.Challenge.P (AKLT.Blueprint.Q.starEdge x j)) ψ)) z = 0
+'AKLT.W.Q038.chart_projector_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.main : AKLT.Blueprint.Q.StarProjectorTransportStatement
+'AKLT.W.Q038.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starFibreProjection_apply {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) (r : Fin n)
+  (s : Fin 5 → Fin 5) :
+  ((AKLT.W.Q038.starFibreSpace n j).starProjection v).ofLp (r, s) =
+    (((AKLT.Defs.starCasimir j).eigenspace 20).starProjection (AKLT.W.Q038.starRow v r)).ofLp s
+'AKLT.W.Q038.starFibreProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starFibreProjection_eq_rowProjection {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) :
+  (AKLT.W.Q038.starFibreSpace n j).starProjection v = AKLT.W.Q038.starRowProjection j v
+'AKLT.W.Q038.starFibreProjection_eq_rowProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starFibreSpace (n : ℕ) (j : Fin 4) : Submodule ℂ (AKLT.W.Q038.StarChart n)
+'AKLT.W.Q038.starFibreSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRow {n : ℕ} (v : AKLT.W.Q038.StarChart n) (r : Fin n) : AKLT.Defs.StarHilbert
+'AKLT.W.Q038.starRow' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRow.eq_1 {n : ℕ} (v : AKLT.W.Q038.StarChart n) (r : Fin n) :
+  AKLT.W.Q038.starRow v r = WithLp.toLp 2 fun s => v.ofLp (r, s)
+'AKLT.W.Q038.starRow.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRowProjection {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) : AKLT.W.Q038.StarChart n
+'AKLT.W.Q038.starRowProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRowProjection.eq_1 {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) :
+  AKLT.W.Q038.starRowProjection j v =
+    WithLp.toLp 2 fun p =>
+      (((AKLT.Defs.starCasimir j).eigenspace 20).starProjection (AKLT.W.Q038.starRow v p.1)).ofLp p.2
+'AKLT.W.Q038.starRowProjection.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRowProjection_apply {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) (r : Fin n) (s : Fin 5 → Fin 5) :
+  (AKLT.W.Q038.starRowProjection j v).ofLp (r, s) =
+    (((AKLT.Defs.starCasimir j).eigenspace 20).starProjection (AKLT.W.Q038.starRow v r)).ofLp s
+'AKLT.W.Q038.starRowProjection_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRowProjection_mem {n : ℕ} (j : Fin 4) (v : AKLT.W.Q038.StarChart n) :
+  AKLT.W.Q038.starRowProjection j v ∈ AKLT.W.Q038.starFibreSpace n j
+'AKLT.W.Q038.starRowProjection_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRowProjection_orthogonal {n : ℕ} (j : Fin 4) (v w : AKLT.W.Q038.StarChart n)
+  (hw : w ∈ AKLT.W.Q038.starFibreSpace n j) : inner ℂ (v - AKLT.W.Q038.starRowProjection j v) w = 0
+'AKLT.W.Q038.starRowProjection_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRow_apply {n : ℕ} (v : AKLT.W.Q038.StarChart n) (r : Fin n) (s : Fin 5 → Fin 5) :
+  (AKLT.W.Q038.starRow v r).ofLp s = v.ofLp (r, s)
+'AKLT.W.Q038.starRow_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRow_eq {n : ℕ} (v : AKLT.W.Q038.StarChart n) (r : Fin n) :
+  AKLT.W.Q038.starRow v r = WithLp.toLp 2 fun s => v.ofLp (r, s)
+'AKLT.W.Q038.starRow_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q038.starRow_zero {n : ℕ} (r : Fin n) : AKLT.W.Q038.starRow 0 r = 0
+'AKLT.W.Q038.starRow_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q016.main : AKLT.Blueprint.Q.StarPositiveStatement
+'AKLT.W.Q016.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.W.Q020.main : AKLT.Blueprint.Q.StarAmplificationStatement
+'AKLT.W.Q020.main' depends on axioms: [propext, Classical.choice, Quot.sound]

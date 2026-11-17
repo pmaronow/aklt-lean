@@ -1,0 +1,21 @@
+import AKLT.Blueprint.H3.NodesAutomaton
+import AKLT.Blueprint.H3.NodesPhase
+set_option pp.universes true
+#print AKLT.Blueprint.H3.RawSuccessorStatement
+#print AKLT.Blueprint.H3.ProjectionRealizationStatement
+#print AKLT.Blueprint.H3.PhaseFoldExpansionStatement
+#print AKLT.Blueprint.H3.SingleChangeFactorStatement
+#print AKLT.Blueprint.H3.ExposureListExpansionStatement
+#print AKLT.Blueprint.H3.LongOrderingMultiplierStatement
+#print AKLT.Blueprint.H3.PrefixCoefficientCausalityStatement
+#print AKLT.Blueprint.H3.PhaseSplitAlgebraStatement
+#check @AKLT.Defs.wordVertex
+#check @AKLT.Defs.wordIncoming
+#check @AKLT.Defs.wordRevisit
+#check @AKLT.Defs.witnessKappa
+#check @AKLT.Defs.truePhaseCoefficient
+#check @AKLT.Blueprint.H3.singleChange
+#check @AKLT.Blueprint.H3.orderedMultiplier
+#check @AKLT.Blueprint.H3.longMultiplier
+#check @AKLT.Defs.prefixPhases
+#check @AKLT.Defs.truePhaseSuffix

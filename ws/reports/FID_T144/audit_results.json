@@ -1,0 +1,118 @@
+{
+  "counts": [
+    1,
+    4,
+    12,
+    36,
+    108,
+    316,
+    916,
+    2628,
+    7500,
+    21268,
+    60092
+  ],
+  "checks": {
+    "raw direction comparisons": 240368,
+    "admissible directions": 169092,
+    "nonrevisit directions": 162372
+  },
+  "edge_counts": {
+    "0": 2516,
+    "1": 5032,
+    "2": 1872
+  },
+  "targets": [
+    {
+      "name": "rawClass_685",
+      "source_line": 1385,
+      "width": 16384,
+      "bit_offset": 1343484,
+      "bit_end": 1359867,
+      "first_code": 111957,
+      "last_code": 113322,
+      "full_lanes": 1365,
+      "touched_lanes": 1366,
+      "valid_touched": 96,
+      "invalid_touched": 1270,
+      "boundary_lanes": {
+        "113322": 356
+      },
+      "first_valid_code": 112912,
+      "first_valid_class": 2187
+    },
+    {
+      "name": "rawClass_686",
+      "source_line": 1387,
+      "width": 16384,
+      "bit_offset": 1327100,
+      "bit_end": 1343483,
+      "first_code": 110591,
+      "last_code": 111956,
+      "full_lanes": 1365,
+      "touched_lanes": 1366,
+      "valid_touched": 1,
+      "invalid_touched": 1365,
+      "boundary_lanes": {
+        "110591": 218
+      },
+      "first_valid_code": 110591,
+      "first_valid_class": 218
+    },
+    {
+      "name": "rawClass_687",
+      "source_line": 1389,
+      "width": 16384,
+      "bit_offset": 1310716,
+      "bit_end": 1327099,
+      "first_code": 109226,
+      "last_code": 110591,
+      "full_lanes": 1364,
+      "touched_lanes": 1366,
+      "valid_touched": 282,
+      "invalid_touched": 1084,
+      "boundary_lanes": {
+        "109226": 356,
+        "110591": 218
+      },
+      "first_valid_code": 109226,
+      "first_valid_class": 356
+    },
+    {
+      "name": "rawClass_688",
+      "source_line": 1391,
+      "width": 16384,
+      "bit_offset": 1294332,
+      "bit_end": 1310715,
+      "first_code": 107861,
+      "last_code": 109226,
+      "full_lanes": 1365,
+      "touched_lanes": 1366,
+      "valid_touched": 222,
+      "invalid_touched": 1144,
+      "boundary_lanes": {
+        "109226": 356
+      },
+      "first_valid_code": 107861,
+      "first_valid_class": 115
+    },
+    {
+      "name": "rawClass_689",
+      "source_line": 1393,
+      "width": 16384,
+      "bit_offset": 1277948,
+      "bit_end": 1294331,
+      "first_code": 106495,
+      "last_code": 107860,
+      "full_lanes": 1365,
+      "touched_lanes": 1366,
+      "valid_touched": 88,
+      "invalid_touched": 1278,
+      "boundary_lanes": {
+        "106495": 3741
+      },
+      "first_valid_code": 107520,
+      "first_valid_class": 0
+    }
+  ]
+}

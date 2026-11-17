@@ -1,0 +1,17 @@
+{
+  "challenge_module": "AKLT.PALFit.Challenge",
+  "solution_module": "AKLT.PALFit.Solution",
+  "theorem_names": [
+    "AKLT.PALFit.conditionalMain"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "external_kernels": {
+    "nanoda": [
+      "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+    ]
+  }
+}

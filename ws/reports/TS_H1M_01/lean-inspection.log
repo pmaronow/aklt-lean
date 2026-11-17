@@ -1,0 +1,83 @@
+AKLT.Blueprint.H1.H1FiniteDataStatementV2 : Prop
+AKLT.Blueprint.H1.CoveredSlotEnumerationStatement : Prop
+AKLT.Blueprint.H1.CornerMeanBoundsStatement : Prop
+AKLT.Blueprint.H1.NormalizedMeanFactorStatement : Prop
+AKLT.Blueprint.H1.PassageSiteMomentsStatement : Prop
+AKLT.Blueprint.H1.PassageFubiniStatement : Prop
+AKLT.Blueprint.H1.PassageNetworkPositiveStatement : Prop
+AKLT.Blueprint.H1.PassageNextLowerBoundStatement : Prop
+def AKLT.Blueprint.H1.H1FiniteDataStatementV2 : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∃ r I,
+      AKLT.Defs.GroupInversion π r I ∧
+        ∃ D₀,
+          AKLT.Defs.ClearsDenominator π r D₀ ∧
+            AKLT.Blueprint.H1.SectorWitnesses π r I D₀ (AKLT.Blueprint.H1.h1Numerator π)
+              (AKLT.Blueprint.H1.h1Denominator π)
+def AKLT.Blueprint.H1.CoveredSlotEnumerationStatement : Prop :=
+∀ (π : AKLT.Defs.PatternData),
+  π.Covered →
+    ∀ (m : Fin 20 → AKLT.Defs.UnitVector),
+      ∀ x ∈ AKLT.Defs.templateCorners ∪ AKLT.Defs.templateTips,
+        π.statusAt x ≠ AKLT.Defs.Status.X →
+          (∃ a,
+              π.statusAt x = AKLT.Defs.Status.U ∧
+                AKLT.Defs.replacementRadius π x = 3 / 5 ∧
+                  AKLT.Defs.coveredSiteField m x = AKLT.Defs.localProduct fun j => ↑(a j)) ∨
+            ∃ a,
+              (π.statusAt x = AKLT.Defs.Status.U ∨ π.statusAt x = AKLT.Defs.Status.D) ∧
+                (AKLT.Defs.replacementRadius π x = if π.statusAt x = AKLT.Defs.Status.U then 1 / 2 else 1 / 3) ∧
+                  AKLT.Defs.coveredSiteField m x = AKLT.Defs.localProduct fun j => ↑(a j)
+def AKLT.Blueprint.H1.CornerMeanBoundsStatement : Prop :=
+AKLT.Blueprint.H1.MonomialMoments →
+  ∀ (a : Fin 2 → AKLT.Defs.UnitVector) (s : AKLT.Defs.Status),
+    s = AKLT.Defs.Status.U ∨ s = AKLT.Defs.Status.D →
+      0 < AKLT.Defs.siteFunctional s (AKLT.Defs.localProduct fun j => ↑(a j)) ∧
+        AKLT.Defs.normSq (AKLT.Defs.localMean s fun j => ↑(a j)) ≤ (if s = AKLT.Defs.Status.U then 1 / 2 else 1 / 3) ^ 2
+def AKLT.Blueprint.H1.NormalizedMeanFactorStatement : Prop :=
+∀ (k : ℕ) (a : Fin k → AKLT.Defs.Vec3) (s : AKLT.Defs.Status) (ρ : ℝ),
+  0 < ρ →
+    0 < AKLT.Defs.siteFunctional s (AKLT.Defs.localProduct a) →
+      AKLT.Defs.normSq (AKLT.Defs.localMean s a) ≤ ρ ^ 2 →
+        ∃ A,
+          0 < A ∧
+            ∃ u,
+              AKLT.Defs.normSq u ≤ 1 ∧
+                ∀ (v : AKLT.Defs.Vec3),
+                  AKLT.Defs.normSq v ≤ 1 →
+                    (AKLT.Defs.siteFunctional s fun n => AKLT.Defs.localProduct a n * (1 + AKLT.Defs.dot n v)) =
+                      A * (1 + ρ * AKLT.Defs.dot u v)
+def AKLT.Blueprint.H1.PassageSiteMomentsStatement : Prop :=
+AKLT.Blueprint.H1.MonomialMoments →
+  ∀ (a b o : AKLT.Defs.Vec3),
+    (AKLT.Defs.siteFunctional AKLT.Defs.Status.U fun n =>
+          (1 + AKLT.Defs.dot n a) * (1 + AKLT.Defs.dot n b) * (1 + AKLT.Defs.dot n o)) =
+        1 + (AKLT.Defs.dot a b + AKLT.Defs.dot a o + AKLT.Defs.dot b o) / 3 ∧
+      (AKLT.Defs.siteFunctional AKLT.Defs.Status.D fun n => (1 + AKLT.Defs.dot n a) * (1 + AKLT.Defs.dot n b)) =
+        1 + AKLT.Defs.dot a b / 5
+def AKLT.Blueprint.H1.PassageFubiniStatement : Prop :=
+(∀ (a b o : AKLT.Defs.Vec3),
+    (AKLT.Defs.siteFunctional AKLT.Defs.Status.U fun n =>
+          (1 + AKLT.Defs.dot n a) * (1 + AKLT.Defs.dot n b) * (1 + AKLT.Defs.dot n o)) =
+        1 + (AKLT.Defs.dot a b + AKLT.Defs.dot a o + AKLT.Defs.dot b o) / 3 ∧
+      (AKLT.Defs.siteFunctional AKLT.Defs.Status.D fun n => (1 + AKLT.Defs.dot n a) * (1 + AKLT.Defs.dot n b)) =
+        1 + AKLT.Defs.dot a b / 5) →
+  ∀ (π : AKLT.Defs.PatternData),
+    π.Covered →
+      ∀ (m : Fin 20 → AKLT.Defs.UnitVector) (f g : AKLT.Defs.Plane),
+        AKLT.Blueprint.H1.PassageNeighbours π f g →
+          AKLT.Defs.patternCurrent π m =
+              AKLT.Defs.withoutPassageFunctional π m (AKLT.Blueprint.H1.passageI π.outgoing.step f g) ∧
+            AKLT.Defs.patternNext π m = AKLT.Defs.withoutPassageFunctional π m (AKLT.Blueprint.H1.passageJ f g)
+def AKLT.Blueprint.H1.PassageNetworkPositiveStatement : Prop :=
+(∀ (n : ℕ) (D : AKLT.Defs.FiniteSpinNetwork n), D.Valid → 0 < D.partition true fun x => 1) →
+  ∀ (π : AKLT.Defs.PatternData),
+    π.Covered → ∀ (m : Fin 20 → AKLT.Defs.UnitVector), 0 < AKLT.Defs.withoutPassageFunctional π m fun x => 1
+def AKLT.Blueprint.H1.PassageNextLowerBoundStatement : Prop :=
+(∀ (j : AKLT.Defs.IcoLetter), AKLT.Defs.normSq (AKLT.Defs.icoVector j) = 1) →
+  ∀ (π : AKLT.Defs.PatternData),
+    π.Covered →
+      ∀ (m : Fin 20 → AKLT.Defs.UnitVector) (f g : AKLT.Defs.Plane),
+        (4 / 5 * AKLT.Defs.withoutPassageFunctional π m fun x => 1) ≤
+          AKLT.Defs.withoutPassageFunctional π m (AKLT.Blueprint.H1.passageJ f g)

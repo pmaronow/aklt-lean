@@ -1,0 +1,10 @@
+AKLT/Probe/BlockedWF.lean:7:0: warning: Definition `chosenWF` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+AKLT/Probe/BlockedWF.lean:15:39: error: Tactic `decide` failed to reduce
+  @decide (chosenSum 1 = 0) (instDecidableEqNat (chosenSum 1) 0)
+to `true` or `false`.
+
+Reduction got stuck at
+  (chosenSum 1).beq 0
+'Probe.result' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

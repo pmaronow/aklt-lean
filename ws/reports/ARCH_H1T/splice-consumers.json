@@ -1,0 +1,636 @@
+[
+  {
+    "declaration": "AKLT.Blueprint.H1.h1Theorem_of_certificate",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/Assembly.lean",
+    "line": 279,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem h1Theorem_of_certificate : Top.CertificateStatement → H1FiniteDataStatementV2 →\n    Top.H1TheoremStatement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1Theorem_of_parts",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/Assembly.lean",
+    "line": 299,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem h1Theorem_of_parts : Top.IntegerCheckStatement → Top.CertificateStatement →\n    H1FiniteDataStatementV2 → Top.H1TheoremStatement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1_of_theorem",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/Assembly.lean",
+    "line": 305,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem h1_of_theorem : Top.H1TheoremStatement → Top.H1Statement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1_of_parts",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/Assembly.lean",
+    "line": 309,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem h1_of_parts : Top.IntegerCheckStatement → Top.CertificateStatement →\n    H1FiniteDataStatementV2 → Top.H1Statement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1_of_certificateV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/Assembly.lean",
+    "line": 314,
+    "explicit_inputs": [
+      "CertificateStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem h1_of_certificateV2 : CertificateStatementV2 → Top.H1Statement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1Theorem_of_shared_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "line": 124,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem h1Theorem_of_shared_partsV2 : Top.IntegerCheckStatement → Top.CertificateStatement →\n    Top.H1FiniteDataStatementV2 → Top.H1TheoremStatement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1_of_shared_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "line": 129,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem h1_of_shared_partsV2 : Top.IntegerCheckStatement → Top.CertificateStatement →\n    Top.H1FiniteDataStatementV2 → Top.H1Statement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.h1_of_shared_certificateV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "line": 134,
+    "explicit_inputs": [
+      "CertificateStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem h1_of_shared_certificateV2 : Top.CertificateStatementV2 → Top.H1Statement",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.inputs_of_shared_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "line": 140,
+    "explicit_inputs": [
+      "CertificateStatementV2"
+    ],
+    "signature": "theorem inputs_of_shared_partsV2 : Top.CertificateStatementV2 → OtherInputPartsV2 →\n    Top.InputsStatementV2",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.main_of_shared_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "line": 148,
+    "explicit_inputs": [
+      "CertificateStatementV2"
+    ],
+    "signature": "theorem main_of_shared_partsV2 : Top.CertificateStatementV2 → OtherInputPartsV2 →\n    Top.RecStatement → Top.CutMOSStatement → Top.MainWStatement → Top.TorusKernelStatement →\n    AKLT.Challenge.MainStatementV2",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.H1FiniteDataStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 17,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "def H1FiniteDataStatementV2 : Prop :=\n  ∀ π : PatternData, π.Covered → ∃ r : Representation, ∃ I : Finset (Fin 20),\n    GroupInversion π r I ∧ ∃ D₀ : ℕ, ClearsDenominator π r D₀ ∧\n      SectorWitnesses π r I D₀ (h1Numerator π) (h1Denominator π)\n\n/-- A concrete V2 handoff if a single certificate interface must imply H1:\ninclude both soundness and actual coverage, not a soundness implication alone. -/",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.CertificateStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/H1/NodesCertificate.lean",
+    "line": 24,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "CertificateStatementV2",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "def CertificateStatementV2 : Prop := AKLT.Blueprint.Top.CertificateStatement ∧ H1FiniteDataStatementV2\n\n/-- `l:integercheck`, lines 743–768; an intermediate closed consumer contract\nrecording the symmetry of the reconstructed threshold matrices. -/",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.SharedH1FiniteDataV2",
+    "kind": "abbrev",
+    "file": "AKLT/Blueprint/H1/NodesV2Handoff.lean",
+    "line": 14,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "abbrev SharedH1FiniteDataV2 : Prop := AKLT.Blueprint.Top.H1FiniteDataStatementV2",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H1.SharedCertificateV2",
+    "kind": "abbrev",
+    "file": "AKLT/Blueprint/H1/NodesV2Handoff.lean",
+    "line": 16,
+    "explicit_inputs": [
+      "CertificateStatementV2"
+    ],
+    "signature": "abbrev SharedCertificateV2 : Prop := AKLT.Blueprint.Top.CertificateStatementV2\n\n/-- Canonical decomposition indices fix unused signs, as required by the referee.\nThe certificate premise still quantifies all signs; duplicate checks are harmless.\nNo orthogonality or normalization theorem is asserted here. -/",
+    "use": "Retired H1 certificate/analytic assembly; preserved but bypassed by H1T."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H3.inputs_of_leaves_and_other_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H3/AssemblyV2.lean",
+    "line": 163,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem inputs_of_leaves_and_other_partsV2 (h : AnalyticLeavesStatement)\n    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)\n    (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement) (hH2 : Top.H2Statement)\n    (hRates : certifiedRate < (2499 / 2500 : ℚ) ∧ (2499 / 2500 : ℚ) < 1)\n    (hH1Data : Top.H1FiniteDataStatementV2) : Top.InputsStatementV2",
+    "use": "H1 used only in input packaging/closing; retain H3 theorem and bypass old input wrapper."
+  },
+  {
+    "declaration": "AKLT.Blueprint.H3.mainV2_of_H3_and_other_partsV2",
+    "kind": "theorem",
+    "file": "AKLT/Blueprint/H3/AssemblyV2.lean",
+    "line": 173,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2",
+      "H1Statement"
+    ],
+    "signature": "theorem mainV2_of_H3_and_other_partsV2 (h : AnalyticLeavesStatement)\n    (hNew : AdaptationLeavesStatementV2) (hAutomaton : Top.Automaton10StatementV2)\n    (hCheck : Top.StationaryCheckStatementV2) (hH1 : Top.H1Statement) (hH2 : Top.H2Statement)\n    (hRates : certifiedRate < (2499 / 2500 : ℚ) ∧ (2499 / 2500 : ℚ) < 1)\n    (hH1Data : Top.H1FiniteDataStatementV2) (hRec : Top.RecStatement)\n    (hCut : Top.CutMOSStatement) (hMainW : Top.MainWStatement) (hKernel : Top.TorusKernelStatement) :\n    AKLT.Challenge.MainStatementV2",
+    "use": "H1 used only in input packaging/closing; retain H3 theorem and bypass old input wrapper."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.ResponseTypedStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/Definitions.lean",
+    "line": 53,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def ResponseTypedStatementV2 : Prop :=\n  Top.H1Statement →\n  (∀ straight : Bool, alphaBound straight ≤ 18094 / 100000 ∧\n    betaBound straight ≤ 36751 / 100000 ∧ betaPrimeBound straight ≤ 36751 / 100000) ∧\n  ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ y : Plane, D.AdmissibleStart y → D.status y = .U →\n    ∀ incoming outgoing : Compass, CoveredDepartureV2 D y incoming outgoing →\n    let o := y + outgoing.step\n    let straight := decide (outgoing = incoming)\n    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →\n      0 < responseBetaPrime D τ y o f ∧\n      responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧\n      responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧\n    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →\n      0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧\n      0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧\n      responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧\n      responseAlpha D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 -\n        reciprocalLogMean (116 / 125) / 5 ∧\n      responseI D τ true y o f g ≥ (localThreshold straight : ℝ) * responseJ D τ true y f g ∧\n      responseI D τ false y o f g ≥ responseJ D τ false y f g ∧\n      responseJ D τ false y f g ≥ 1 ∧ responseJ D τ true y f g ≥ 116 / 125\n\n/-- `l:closure`: erase only the harmless flag pointing at the removed centre. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.CoveredRatioStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesLocal.lean",
+    "line": 44,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def CoveredRatioStatement : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      CoveredDepartureV2 a.D a.y incoming outgoing →\n      stepRatio a.D a.τ true a.y a.o ≤ (passageFactor (decide (outgoing = incoming)) : ℝ)\n\n/-- `l:response-typed`, §7 lines 419–429 and 462–506. Translate the local\npartition inequality into I^τ≥cJ^τ (or I₂^τ≥c). The denominator J is positive. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesLocal.lean",
+    "line": 52,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def CoveredIntegratedLowerStatement : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      CoveredDepartureV2 a.D a.y incoming outgoing →\n      let c : ℝ := localThreshold (decide (outgoing = incoming))\n      (∀ f : Plane, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →\n        c ≤ responseI₂ a.D a.τ true a.y a.o f) ∧\n      ∀ f g : Plane, a.D.presentNeighbours a.y = {a.o, f, g} →\n        a.o ≠ f → a.o ≠ g → f ≠ g →\n        c * responseJ a.D a.τ true a.y f g ≤ responseI a.D a.τ true a.y a.o f g\n\n/-- `l:response-typed`, §7 lines 497–506. This two-variable analytic\ncomparison uses only monotonicity of the positive logarithmic mean. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.TraceKernelLengthStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesRecursion.lean",
+    "line": 70,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def TraceKernelLengthStatement : Prop :=\n  Top.H1Statement → ∀ p : PairData, ∀ d : ℕ, 1 ≤ d → (d : ℕ∞) ≤ p.depth →\n    ∀ n : ℕ, |firstLength p n| ≤\n      ∑ Y : PairType, ∑ s ∈ Finset.range (n + 2),\n        (kernelLengthCoefficient p.X Y s n : ℝ) * responseEnvelope Y ((d : ℤ) - s)\n\n/-- `e:rec-T1`, §7 lines 858–870. Sum the length bounds and exchange\nnonnegative sums. H2 at theta=1 proves real-row summability before toReal. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.FirstTermBoundStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesRecursion.lean",
+    "line": 78,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def FirstTermBoundStatement : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ p : PairData, ∀ d : ℕ, 1 ≤ d → (d : ℕ∞) ≤ p.depth →\n      |firstTerm p| ≤ recursionSeries p.X d\n\n/-- `l:recineq`, §7 lines 872–900. Apply the second pair expansion in\nthe terminal auxiliary network, with target e and stopping set exactly S.\nThe first lost arrival bond gives target degree≤3. Use the twelve exceptions\nand the original distance from v to S. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.ResidualTargetBoundStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesRecursion.lean",
+    "line": 87,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def ResidualTargetBoundStatement : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ p : PairData, p.u ∉ protectedSites p.G → p.v ∉ protectedSites p.G →\n    ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →\n    wordVertex p.u w n ∈ protectedSites p.G → ∀ b : Bool,\n    |(traceNetwork p.normalized (wordVertices p.u w)).expectation p.τ b\n      (fun a => dot (a (wordVertex p.u w n)) (a p.v))| ≤\n        onePointConstant CV q * q^(protectedDistance p.G p.v)\n\n/-- `l:recineq`, §7 lines 902–924. Bound residuals uniformly, then\nsum pointwise maxima in the first expansion enlarged to ALL first hits of S.\nThe two original depths give q^(2d) and exactly the retained C_T. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.SecondTermBoundStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesRecursion.lean",
+    "line": 100,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def SecondTermBoundStatement : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ p : PairData, ∀ d : ℕ, 1 ≤ d → (d : ℕ∞) ≤ p.depth →\n      |secondTerm p| ≤ sourceConstant CV q * q^(2*d)\n\n/-- `l:recineq`, §7 lines 746–764. Subtract the two finite expansions,\nusing the same coefficient and pin-independent target factor in T₁. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.CoveredRatioStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "line": 32,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def CoveredRatioStatementV2 : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n      stepRatio a.D a.τ true a.y a.o ≤ (passageFactor (decide (outgoing = incoming)) : ℝ)\n\n/-- `l:response-typed`, §7 lines 419–429, 462–506; ARCH_0 F1/F1a.\nUse the shared internal-present-bond cover and positive integrated J to pass\nfrom H1 to I^tau >= c J^tau, or I2^tau >= c. The numeric conclusions are unchanged. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.CoveredIntegratedLowerStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesV2Local.lean",
+    "line": 41,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def CoveredIntegratedLowerStatementV2 : Prop :=\n  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n      let c : ℝ := localThreshold (decide (outgoing = incoming))\n      (∀ f : Plane, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →\n        c ≤ responseI₂ a.D a.τ true a.y a.o f) ∧\n      ∀ f g : Plane, a.D.presentNeighbours a.y = {a.o, f, g} →\n        a.o ≠ f → a.o ≠ g → f ≠ g →\n        c * responseJ a.D a.τ true a.y f g ≤ responseI a.D a.τ true a.y a.o f g\n\n/-- `d:pattern`, §6 lines 488–519; ARCH_0 F1a. The frozen intersection\nmatcher is a sufficient specialization of shared internal-bond matching.\nOnly this implication is proposed; external flags prevent a converse. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.OnePointPointwiseStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesV2Walk.lean",
+    "line": 22,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def OnePointPointwiseStatementV2 : Prop :=\n  Top.H1Statement → ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G,\n    D.Auxiliary → ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u → ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail D u (protectedSites G) w → uncoveredCountV2 D u incoming w ≤ 12 →\n      (traceCoefficient D (wordVertices u w) : ℝ) *\n        max (traceRatio D τ true (wordVertices u w)) (traceRatio D τ false (wordVertices u w)) ≤\n          exceptionFactor * (trailWeight u incoming w : ℝ)\n\n/-- `l:onepoint`, §6 lines 755–775; ARCH_0 F1. The shared matcher gives\nthe same sum-of-maxima bound. Preserve the absent incoming bond, original S,\npositive H2 rate, and finite protected distance. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.OnePointSumStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesV2Walk.lean",
+    "line": 34,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def OnePointSumStatementV2 : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u →\n    (∀ n : ℕ, ∀ w : DirectionWord n, StoppedNetworkTrail D u (protectedSites G) w →\n      uncoveredCountV2 D u incoming w ≤ 12) →\n    onePointSum D τ u ≤ onePointConstant CV q * q^(protectedDistance G u)\n\nend AKLT.Blueprint.Rec",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.OnePointPointwiseStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesWalk.lean",
+    "line": 117,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def OnePointPointwiseStatement : Prop :=\n  Top.H1Statement → ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G,\n    D.Auxiliary → ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u → ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail D u (protectedSites G) w → uncoveredCount D u incoming w ≤ 12 →\n      (traceCoefficient D (wordVertices u w) : ℝ) *\n        max (traceRatio D τ true (wordVertices u w)) (traceRatio D τ false (wordVertices u w)) ≤\n          exceptionFactor * (trailWeight u incoming w : ℝ)\n\n/-- `l:onepoint`, §6 lines 755–775. Group by length, enlarge to the H2\nclass with the same incoming direction, and sum a geometric tail.\nThe distance is to original S; it is finite at the admissible start. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Rec.OnePointSumStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Rec/NodesWalk.lean",
+    "line": 129,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def OnePointSumStatement : Prop :=\n  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →\n    ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,\n    ¬ D.Present (u - incoming.step) u →\n    (∀ n : ℕ, ∀ w : DirectionWord n, StoppedNetworkTrail D u (protectedSites G) w →\n      uncoveredCount D u incoming w ≤ 12) →\n    onePointSum D τ u ≤ onePointConstant CV q * q^(protectedDistance G u)\n\n/-- Length-zero coefficients are normalized, with no scalar trace mass. -/",
+    "use": "Closed consumer or assembly wrapper; see Consumers.lean V3 statements and ConsumerAssembly.lean."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.ResponseTypedStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Coefficients.lean",
+    "line": 56,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def ResponseTypedStatement : Prop :=\n  H1Statement →\n  (∀ straight : Bool, alphaBound straight ≤ 18094 / 100000 ∧\n    betaBound straight ≤ 36751 / 100000 ∧ betaPrimeBound straight ≤ 36751 / 100000) ∧\n  ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ y : Plane, D.AdmissibleStart y → D.status y = .U →\n    ∀ incoming outgoing : Compass, CoveredDeparture D y incoming outgoing →\n    let o := y + outgoing.step\n    let straight := decide (outgoing = incoming)\n    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →\n      0 < responseBetaPrime D τ y o f ∧\n      responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧\n      responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧\n    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →\n      0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧\n      0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧\n      responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧\n      responseAlpha D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 -\n        reciprocalLogMean (116 / 125) / 5 ∧\n      responseI D τ true y o f g ≥ (localThreshold straight : ℝ) * responseJ D τ true y f g ∧\n      responseI D τ false y o f g ≥ responseJ D τ false y f g ∧\n      responseJ D τ false y f g ≥ 1 ∧ responseJ D τ true y f g ≥ 116 / 125\n\n/-- `l:response-typed`: paper-scope internal matching, with all external corner\nslots admitted. The original statement remains for proved Rec assemblies. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.ResponseTypedStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Coefficients.lean",
+    "line": 81,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def ResponseTypedStatementV2 : Prop :=\n  H1Statement →\n  (∀ straight : Bool, alphaBound straight ≤ 18094 / 100000 ∧\n    betaBound straight ≤ 36751 / 100000 ∧ betaPrimeBound straight ≤ 36751 / 100000) ∧\n  ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →\n    ∀ y : Plane, D.AdmissibleStart y → D.status y = .U →\n    ∀ incoming outgoing : Compass, CoveredDepartureV2 D y incoming outgoing →\n    let o := y + outgoing.step\n    let straight := decide (outgoing = incoming)\n    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →\n      0 < responseBetaPrime D τ y o f ∧\n      responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧\n      responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧\n    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →\n      0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧\n      0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧\n      responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧\n      responseAlpha D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 -\n        reciprocalLogMean (116 / 125) / 5 ∧\n      responseI D τ true y o f g ≥ (localThreshold straight : ℝ) * responseJ D τ true y f g ∧\n      responseI D τ false y o f g ≥ responseJ D τ false y f g ∧\n      responseJ D τ false y f g ≥ 1 ∧ responseJ D τ true y f g ≥ 116 / 125\n\nend AKLT.Blueprint.Top",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.InputsStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/InputsV2.lean",
+    "line": 10,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "def InputsStatementV2 : Prop :=\n  InputsStatement ∧ H1FiniteDataStatementV2 ∧ Automaton10StatementV2 ∧ StationaryCheckStatementV2\n\nend AKLT.Blueprint.Top",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.CertificateStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Operator.lean",
+    "line": 146,
+    "explicit_inputs": [
+      "CertificateStatement"
+    ],
+    "signature": "def CertificateStatement : Prop :=\n  ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ I : Finset (Fin 20), GroupInversion π r I →\n    ∀ D₀ : ℕ, ClearsDenominator π r D₀ → ∀ p q : ℕ, 0 < p → 0 < q → (p : ℚ) / q < 1 →\n    (∀ ε : ExchangeSigns π, ∃ t : ℕ, ∃ index : Fin t ≃ CentralBasis π r ε, ∃ g d S : ℕ,\n      ∃ L : Matrix (Fin t) (Fin t) ℤ,\n        (∀ i j, i < j → L i j = 0) ∧ GramResidualRows (indexedSectorMatrix π r ε I D₀ p q index) L g d S) →\n      ∀ m : Fin 20 → UnitVector, 0 ≤ patternCurrent π m - ((p : ℝ) / q) * patternNext π m\n\n/-- Corrected full real scope of `c:reduce`.\nThe rational specialization is retained for existing proved blueprint assemblies. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.H1FiniteDataStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Operator.lean",
+    "line": 203,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "def H1FiniteDataStatementV2 : Prop :=\n  ∀ π : PatternData, π.Covered → ∃ r : Representation, ∃ I : Finset (Fin 20),\n    GroupInversion π r I ∧ ∃ D₀ : ℕ, ClearsDenominator π r D₀ ∧\n      H1SectorWitnesses π r I D₀ (h1Numerator π) (h1Denominator π)\n\n/-- Combined `p:certificate` soundness and `t:H1` finite-data existence.\nThe original `CertificateStatement` retains its valid conditional meaning. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.CertificateStatementV2",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Operator.lean",
+    "line": 210,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "CertificateStatementV2",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "def CertificateStatementV2 : Prop := CertificateStatement ∧ H1FiniteDataStatementV2\n\nend AKLT.Blueprint.Top",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.H1Statement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Response.lean",
+    "line": 10,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def H1Statement : Prop := LocalPatternBound (961 / 1000) (187 / 200)\n\n/-- `t:H1`: the operator-only local input theorem has precisely the semantic H1 conclusion. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.InputsStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Response.lean",
+    "line": 25,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def InputsStatement : Prop :=\n  H1Statement ∧ H2Statement ∧ H3Statement ∧ certifiedRate < (2499 / 2500 : ℚ) ∧\n    (2499 / 2500 : ℚ) < 1\n\n/-- `h:P`: existence of the response property supplied to the window lane. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Blueprint.Top.RecStatement",
+    "kind": "def",
+    "file": "AKLT/Blueprint/Top/Response.lean",
+    "line": 46,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def RecStatement : Prop :=\n  ∀ CV q : ℝ, H1Statement → OpenTrailBound CV q → H3Statement →\n    ∃ θ ρ : ℝ, q^2 < θ ∧ θ < 1 ∧ (kernelRho : ℝ) < ρ ∧ ρ < 1 ∧\n      ShiftedWitness θ ρ ∧ ResponseProperty (renewalAmplitude CV q ρ) θ\n\n/-- `l:Mtheta`: every admissible shifted entry is finite with the stated summable\nmajorant, and the same h works for a theta strictly below one. -/",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Cert.H1.Production.Assembly.finiteData_of_checks",
+    "kind": "theorem",
+    "file": "AKLT/Cert/H1/Production/Assembly.lean",
+    "line": 120,
+    "explicit_inputs": [
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem finiteData_of_checks (h : CoveragePremises) (t : Catalogue) (rs : List Representative)\n    (he : CoverageRowsAccepted t axialConfigurations)\n    (hi : representativeCheck t rs = true) (hw : RepresentativesAccepted rs) :\n    AKLT.Blueprint.Top.H1FiniteDataStatementV2",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Cert.H1.Production.Assembly.certificateV2_of_checks",
+    "kind": "theorem",
+    "file": "AKLT/Cert/H1/Production/Assembly.lean",
+    "line": 135,
+    "explicit_inputs": [
+      "CertificateStatementV2"
+    ],
+    "signature": "theorem certificateV2_of_checks (hc : TopLeaves.certificatePremises)\n    (h : CoveragePremises) (t : Catalogue) (rs : List Representative)\n    (he : CoverageRowsAccepted t axialConfigurations)\n    (hi : representativeCheck t rs = true) (hw : RepresentativesAccepted rs) :\n    AKLT.Blueprint.Top.CertificateStatementV2",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Cert.H1.Production.TopAssembly.certificate_of_leaves",
+    "kind": "theorem",
+    "file": "AKLT/Cert/H1/Production/TopAssembly.lean",
+    "line": 17,
+    "explicit_inputs": [
+      "CertificateStatement"
+    ],
+    "signature": "theorem certificate_of_leaves\n    (h : TopLeaves.certificatePremises) : AKLT.Blueprint.Top.CertificateStatement",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Cert.H1.Production.TopAssembly.targets_of_leaves",
+    "kind": "theorem",
+    "file": "AKLT/Cert/H1/Production/TopAssembly.lean",
+    "line": 37,
+    "explicit_inputs": [
+      "CertificateStatement"
+    ],
+    "signature": "theorem targets_of_leaves\n    (hI : TopLeaves.integerCheckPremises) (hC : TopLeaves.certificatePremises) :\n    AKLT.Blueprint.Top.IntegerCheckStatement ∧ AKLT.Blueprint.Top.CertificateStatement",
+    "use": "Statement packaging or local input interface; see report splice table."
+  },
+  {
+    "declaration": "AKLT.Final.main_of_certificates",
+    "kind": "theorem",
+    "file": "AKLT/Final/Conditional.lean",
+    "line": 426,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem main_of_certificates\n    (hH1M068 : AKLT.Blueprint.Top.H1FiniteDataStatementV2)\n    (hCertificate : AKLT.Blueprint.Top.CertificateStatement)\n    (hAutomaton10 : AKLT.Blueprint.Top.Automaton10StatementV2)\n    (hStationaryCheck : AKLT.Blueprint.Top.StationaryCheckStatementV2)\n    : AKLT.Challenge.MainStatementV2",
+    "use": "Old conditional closure; superseded by AKLT.Final.main_of_certificates_T, old file unchanged."
+  },
+  {
+    "declaration": "AKLT.Final.mainV2_of_open",
+    "kind": "theorem",
+    "file": "AKLT/Final/Skeleton.lean",
+    "line": 23,
+    "explicit_inputs": [
+      "CertificateStatement",
+      "H1FiniteDataStatementV2"
+    ],
+    "signature": "theorem mainV2_of_open\n    (hQ001 : AKLT.Blueprint.Q.OrthogonalFamilyStatement)\n    (hQ002 : AKLT.Blueprint.Q.OneSiteMomentEncodingStatement)\n    (hQ003 : AKLT.Blueprint.Q.IcoDistanceStatement)\n    (hQ004 : AKLT.Blueprint.Q.RotationDisplacementStatement)\n    (hQ005 : AKLT.Blueprint.Q.SelfRotationStatement)\n    (hQ006 : AKLT.Blueprint.Q.DisplacedDistanceStatement)\n    (hQ007 : AKLT.Blueprint.Q.RelativeRotationStatement)\n    (hQ008 : AKLT.Blueprint.Q.SpinorChoiceStatement)\n    (hQ009 : AKLT.Blueprint.Q.QuarticKernelDegreeStatement)\n    (hQ010 : AKLT.Blueprint.Q.QuarticKernelEvaluationStatement)\n    (hQ011 : AKLT.Blueprint.Q.ComplexQuadratureStatement)\n    (hQ012 : AKLT.Blueprint.Q.QuarticOffDiagonalStatement)\n    (hQ013 : AKLT.Blueprint.Q.QuarticDiagonalStatement)\n    (hQ014 : AKLT.Blueprint.Q.ResolutionExpansionStatement)\n    (hQ015 : AKLT.Blueprint.Q.TensorResolutionStatement)\n    (hQ016 : AKLT.Blueprint.Q.StarPositiveStatement)\n    (hQ017 : AKLT.Blueprint.Q.StarWitnessStatement)\n    (hQ018 : AKLT.Blueprint.Q.PositiveSpectralMinimumStatement)\n    (hQ019 : AKLT.Blueprint.Q.SpectralKernelCoercivityStatement)\n    (hQ020 : AKLT.Blueprint.Q.StarAmplificationStatement)\n    (hQ021 : AKLT.Blueprint.Q.StateEvaluationStatement)\n    (hQ022 : AKLT.Blueprint.Q.VbsHomogeneityStatement)\n    (hQ023 : AKLT.Blueprint.Q.CoefficientReconstructionStatement)\n    (hQ024 : AKLT.Blueprint.Q.PairDiagonalDivisionStatement)\n    (hQ025 : AKLT.Blueprint.Q.SpectatorDivisibilityStatement)\n    (hQ026 : AKLT.Blueprint.Q.SingletNonassociateStatement)\n    (hQ027 : AKLT.Blueprint.Q.IncidentKernelStatement)\n    (hQ028 : AKLT.Blueprint.Q.PairDiagonalRankStatement)\n    (hQ029 : AKLT.Blueprint.Q.PairTopInclusionStatement)\n    (hQ030 : AKLT.Blueprint.Q.PairTopDimensionStatement)\n    (hQ031 : AKLT.Blueprint.Q.FourVariableDeterminantPrimeStatement)\n    (hQ032 : AKLT.Blueprint.Q.DeterminantPrimeEmbeddingStatement)\n    (hQ033 : AKLT.Blueprint.Q.CentreDegreeCancellationStatement)\n    (hQ034 : AKLT.Blueprint.Q.IncidentProductDegreeStatement)\n    (hQ035 : AKLT.Blueprint.Q.StateCentreDegreeStatement)\n    (hQ036 : AKLT.Blueprint.Q.StarEdgeEnumerationStatement)\n    (hQ037 : AKLT.Blueprint.Q.StarCasimirChartStatement)\n    (hQ038 : AKLT.Blueprint.Q.StarProjectorTransportStatement)\n    (hQ039 : AKLT.Blueprint.Q.DeterminantModulusStatement)\n    (hQ040 : AKLT.Blueprint.Q.GroundProductWeightStatement)\n    (hQ041 : AKLT.Blueprint.Q.IncidentEvaluationStatement)\n    (hQ042 : AKLT.Blueprint.Q.GroundFibreFactorizationStatement)\n    (hQ043 : AKLT.Blueprint.Q.GroundTransformStatement)\n    (hQ044 : AKLT.Blueprint.Q.FibreIntertwiningStatement)\n    (hQ045 : AKLT.Blueprint.Q.FibreProjectionStatement)\n    (hQ046 : AKLT.Blueprint.Q.WeightedPolarizationStatement)\n    (hQ047 : AKLT.Blueprint.Q.GroundQuotientVarianceStatement)\n    (hQ048 : AKLT.Blueprint.Q.BetaNonzeroStatement)\n    (hQ049 : AKLT.Blueprint.Q.FrameWeightsPositiveStatement)\n    (hQ050 : AKLT.Blueprint.Q.PlaneConditioningStatement)\n    (hQ051 : AKLT.Blueprint.Q.TorusMarkovStatement)\n    (hQ052 : AKLT.Blueprint.Q.PlaneOneSiteEnergyStatement)\n    (hQ053 : AKLT.Blueprint.Q.TorusOneSiteEnergyStatement)\n    (hQ054 : AKLT.Blueprint.Q.PartialAssignmentStatement)\n    (hQ055 : AKLT.Blueprint.Q.PlaneAssignmentReindexStatement)\n    (hQ056 : AKLT.Blueprint.Q.PlaneProductReferenceStatement)\n    (hQ057 : AKLT.Blueprint.Q.BoundaryAbsorptionStatement)\n    (hQ058 : AKLT.Blueprint.Q.PlaneDensityBoundsStatement)\n    (hQ059 : AKLT.Blueprint.Q.DensityVarianceStatement)\n    (hQ060 : AKLT.Blueprint.Q.DensityDirichletStatement)\n    (hQ061 : AKLT.Blueprint.Q.ProductPoincareStatement)\n    (hGAP001 : AKLT.Blueprint.Gap.FibreNormalizationStatement)\n    (hGAP002 : AKLT.Blueprint.Gap.ConditionalProjectionStatement)\n    (hGAP003 : AKLT.Blueprint.Gap.ConditionalVarianceStatement)\n    (hGAP004 : AKLT.Blueprint.Gap.MaximalCouplingStatement)\n    (hGAP005 : AKLT.Blueprint.Gap.CouplingMarginalTVStatement)\n    (hGAP006 : AKLT.Blueprint.Gap.MarginalCompletionStatement)\n    (hGAP007 : AKLT.Blueprint.Gap.HammingLocalizationStatement)\n    (hGAP008 : AKLT.Blueprint.Gap.CommonMinorizationStatement)\n    (hGAP009 : AKLT.Blueprint.Gap.SurgeryPreservationStatement)\n    (hGAP010 : AKLT.Blueprint.Gap.ConditionalPatchCouplingStatement)\n    (hGAP011 : AKLT.Blueprint.Gap.FrameProductReferenceStatement)\n    (hGAP012 : AKLT.Blueprint.Gap.FrameInteractionBoundsStatement)\n    (hGAP013 : AKLT.Blueprint.Gap.NormalizedInteractionStatement)\n    (hGAP014 : AKLT.Blueprint.Gap.SignedFrameBlockStatement)\n    (hGAP015 : AKLT.Blueprint.Gap.VariationalCenteringStatement)\n    (hGAP016 : AKLT.Blueprint.Gap.ProductTensorizationStatement)\n    (hGAP017 : AKLT.Blueprint.Gap.DensityComparisonStatement)\n    (hGAP018 : AKLT.Blueprint.Gap.ConditionalBlockComparisonStatement)\n    (hGAP019 : AKLT.Blueprint.Gap.MultiplicityEstimateStatement)\n    (hGAP020 : AKLT.Blueprint.Gap.HammingPathStatement)\n    (hGAP021 : AKLT.Blueprint.Gap.LipschitzCouplingStatement)\n    (hGAP022 : AKLT.Blueprint.Gap.LipschitzEigenvalueStatement)\n    (hGAP023 : AKLT.Blueprint.Gap.ReversibleEigenvalueGapStatement)\n    (hGAP024 : AKLT.Blueprint.Gap.BlockAverageFormStatement)\n    (hGAP025 : AKLT.Blueprint.Gap.ProductPoincareTransportStatement)\n    (hGAP026 : AKLT.Blueprint.Gap.ProductCouplingTransportStatement)\n    (hGAP027 : AKLT.Blueprint.Gap.ThresholdSpacingStatement)\n    (hGAP028 : AKLT.Blueprint.Gap.ContainingBlockCountStatement)\n    (hGAP029 : AKLT.Blueprint.Gap.ExteriorBlockCountStatement)\n    (hGAP030 : AKLT.Blueprint.Gap.BlockVolumeBoundStatement)\n    (hGAP031 : AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement)\n    (hGAP032 : AKLT.Blueprint.Gap.TorusColourStatement)\n    (hGAP033 : AKLT.Blueprint.Gap.PullbackColourStatement)\n    (hGAP034 : AKLT.Blueprint.Gap.HaloInjectionStatement)\n    (hGAP035 : AKLT.Blueprint.Gap.LiftBondStatement)\n    (hGAP036 : AKLT.Blueprint.Gap.BoxCoordinatesStatement)\n    (hGAP037 : AKLT.Blueprint.Gap.BoxGaugeLawStatement)\n    (hGAP038 : AKLT.Blueprint.Gap.TorusRangeTransferStatement)\n    (hGAP039 : AKLT.Blueprint.Gap.SquareInternalEdgesStatement)\n    (hGAP040 : AKLT.Blueprint.Gap.FrameSpecRegularityStatement)\n    (hGAP041 : AKLT.Blueprint.Gap.FrameSpecEnergyStatement)\n    (hGAP042 : AKLT.Blueprint.Gap.FrameWindowTransferStatement)\n    (hGAP043 : AKLT.Blueprint.Gap.ShellNestingStatement)\n    (hGAP044 : AKLT.Blueprint.Gap.FiniteEnergyChainStatement)\n    (hGAP045 : AKLT.Blueprint.Gap.ShellRowStatement)\n    (hGAP046 : AKLT.Blueprint.Gap.TraceMarginalsStatement)\n    (hGAP047 : AKLT.Blueprint.Gap.TrialCountStatement)\n    (hGAP048 : AKLT.Blueprint.Gap.ShellAbsorptionStatement)\n    (hGAP049 : AKLT.Blueprint.Gap.FiniteTrialFailureStatement)\n    (hGAP050 : AKLT.Blueprint.Gap.TraceDisagreementStatement)\n    (hGAP051 : AKLT.Blueprint.Gap.TerminalRadiusStatement)\n    (hGAP052 : AKLT.Blueprint.Gap.ScaleExistenceStatement)\n    (hGAP053 : AKLT.Blueprint.Gap.BinomialTailStatement)\n    (hGAP054 : AKLT.Blueprint.Gap.ScaleGeometryStatement)\n    (hGAP055 : AKLT.Blueprint.Gap.HammingCardinalityStatement)\n    (hGAP056 : AKLT.Blueprint.Gap.HammingBudgetStatement)\n    (hGAP057 : AKLT.Blueprint.Gap.FarBoundaryEqualityStatement)\n    (hGAP058 : AKLT.Blueprint.Gap.StoppedHammingConversionStatement)\n    (hWIN001 : AKLT.Blueprint.Win.ShellScaleStatement)\n    (hWIN002 : AKLT.Blueprint.Win.CloseCornerStatement)\n    (hWIN003 : AKLT.Blueprint.Win.ExceptionalLocalizationStatement)\n    (hWIN004 : AKLT.Blueprint.Win.RadiusGapStatement)\n    (hWIN005 : AKLT.Blueprint.Win.ExceptionalCountStatement)\n    (hWIN006 : AKLT.Blueprint.Win.SideCornerWitnessStatement)\n    (hWIN007 : AKLT.Blueprint.Win.NearShellCountStatement)\n    (hWIN008 : AKLT.Blueprint.Win.ShellInclusionStatement)\n    (hWIN009 : AKLT.Blueprint.Win.PredecessorShellStatement)\n    (hWIN010 : AKLT.Blueprint.Win.SeedSeparationStatement)\n    (hWIN011 : AKLT.Blueprint.Win.FiniteDepthStatement)\n    (hWIN012 : AKLT.Blueprint.Win.BoundaryMembershipStatement)\n    (hWIN013 : AKLT.Blueprint.Win.ChainBoxStatement)\n    (hWIN014 : AKLT.Blueprint.Win.DiagonalEliminationStatement)\n    (hWIN015 : AKLT.Blueprint.Win.ColumnFluxStatement)\n    (hWIN016 : AKLT.Blueprint.Win.TailSupportStatement)\n    (hWIN017 : AKLT.Blueprint.Win.PlaquetteReconstructionStatement)\n    (hWIN018 : AKLT.Blueprint.Win.PlaquetteTrianglesStatement)\n    (hWIN019 : AKLT.Blueprint.Win.CutEdgesNonemptyStatement)\n    (hWIN020 : AKLT.Blueprint.Win.LinkedSeparationStatement)\n    (hWIN021 : AKLT.Blueprint.Win.TriangleCutParityStatement)\n    (hWIN022 : AKLT.Blueprint.Win.TwoCrossingCycleStatement)\n    (hWIN023 : AKLT.Blueprint.Win.TwoCrossingParityStatement)\n    (hWIN024 : AKLT.Blueprint.Win.OuterEndpointTransferStatement)\n    (hWIN025 : AKLT.Blueprint.Win.CrossFactsStatement)\n    (hWIN026 : AKLT.Blueprint.Win.CrossOverlapStatement)\n    (hWIN027 : AKLT.Blueprint.Win.CrossUnionStatement)\n    (hWIN028 : AKLT.Blueprint.Win.NeighbourDecayStatement)\n    (hWIN029 : AKLT.Blueprint.Win.CrossWeightSumStatement)\n    (hWIN030 : AKLT.Blueprint.Win.ConnectedEnumerationStatement)\n    (hWIN031 : AKLT.Blueprint.Win.CutScalesStatement)\n    (hWIN032 : AKLT.Blueprint.Win.CoreConnectedStatement)\n    (hWIN033 : AKLT.Blueprint.Win.RadialPathsStatement)\n    (hWIN034 : AKLT.Blueprint.Win.SquareExteriorStatement)\n    (hWIN035 : AKLT.Blueprint.Win.ComplementEscapeStatement)\n    (hWIN036 : AKLT.Blueprint.Win.WindowBufferStatement)\n    (hWIN037 : AKLT.Blueprint.Win.RawRangeStatement)\n    (hWIN038 : AKLT.Blueprint.Win.RawDistanceObstructionsStatement)\n    (hWIN039 : AKLT.Blueprint.Win.RawDepthArithmeticStatement)\n    (hWIN040 : AKLT.Blueprint.Win.RawHeightStatement)\n    (hWIN041 : AKLT.Blueprint.Win.SignedSideExclusionStatement)\n    (hWIN042 : AKLT.Blueprint.Win.SquareIntersectionStatement)\n    (hWIN043 : AKLT.Blueprint.Win.RawLayerCountStatement)\n    (hWIN044 : AKLT.Blueprint.Win.NearSeriesStatement)\n    (hWIN045 : AKLT.Blueprint.Win.RawWeightSumStatement)\n    (hWIN046 : AKLT.Blueprint.Win.ThickDepthStatement)\n    (hWIN047 : AKLT.Blueprint.Win.CutSeparationStatement)\n    (hWIN048 : AKLT.Blueprint.Win.OriginalPositivityStatement)\n    (hWIN049 : AKLT.Blueprint.Win.PartLawBridgeStatement)\n    (hWIN050 : AKLT.Blueprint.Win.EnumerationStepsStatement)\n    (hWIN051 : AKLT.Blueprint.Win.SurvivorGeometryStatement)\n    (hWIN052 : AKLT.Blueprint.Win.RemovalIntegralStatement)\n    (hWIN053 : AKLT.Blueprint.Win.NeighbourFibresStatement)\n    (hWIN054 : AKLT.Blueprint.Win.PairMeanAveragingStatement)\n    (hWIN055 : AKLT.Blueprint.Win.QuarticMeanBoundStatement)\n    (hWIN056 : AKLT.Blueprint.Win.PolynomialLowerStatement)\n    (hWIN057 : AKLT.Blueprint.Win.RemovedPairResponseStatement)\n    (hWIN058 : AKLT.Blueprint.Win.PairDifferenceStatement)\n    (hWIN059 : AKLT.Blueprint.Win.LogStepIdentityStatement)\n    (hWIN060 : AKLT.Blueprint.Win.LocalLogEstimateStatement)\n    (hWIN061 : AKLT.Blueprint.Win.RemovalTelescopeStatement)\n    (hWIN062 : AKLT.Blueprint.Win.RemovalCostSumStatement)\n    (hWIN063 : AKLT.Blueprint.Win.FrameFibreSumStatement)\n    (hWIN064 : AKLT.Blueprint.Win.ComplementQuadratureStatement)\n    (hWIN065 : AKLT.Blueprint.Win.MarginalNormalizationStatement)\n    (hWIN066 : AKLT.Blueprint.Win.OriginalFactorizationStatement)\n    (hWIN067 : AKLT.Blueprint.Win.ComponentPinsStatement)\n    (hWIN068 : AKLT.Blueprint.Win.WindowWeightPositiveStatement)\n    (hWIN069 : AKLT.Blueprint.Win.WindowRewriteStatement)\n    (hWIN070 : AKLT.Blueprint.Win.BoundedTiltStatement)\n    (hWIN071 : AKLT.Blueprint.Win.OverlapMinorizationStatement)\n    (hWIN072 : AKLT.Blueprint.Win.TailExponentialStatement)\n    (hWIN073 : AKLT.Blueprint.Win.TailThresholdStatement)\n    (hWIN074 : AKLT.Blueprint.Win.FrameWeightPositiveStatement)\n    (hMOM001 : AKLT.Blueprint.Mom.IcoInjectivityStatement)\n    (hMOM002 : AKLT.Blueprint.Mom.IcoUnitStatement)\n    (hMOM003 : AKLT.Blueprint.Mom.OddMonomialStatement)\n    (hMOM004 : AKLT.Blueprint.Mom.SecondScalarMomentStatement)\n    (hMOM005 : AKLT.Blueprint.Mom.FourthScalarMomentStatement)\n    (hMOM006 : AKLT.Blueprint.Mom.MixedScalarMomentStatement)\n    (hMOM007 : AKLT.Blueprint.Mom.ScalarTensorReconstructionStatement)\n    (hMOM008 : AKLT.Blueprint.Mom.TensorMonomialStatement)\n    (hMOM009 : AKLT.Blueprint.Mom.OrthogonalTensorStatement)\n    (hMOM010 : AKLT.Blueprint.Mom.PolynomialExpansionStatement)\n    (hMOM011 : AKLT.Blueprint.Mom.BallDotBoundsStatement)\n    (hMOM012 : AKLT.Blueprint.Mom.LetterAvoidanceStatement)\n    (hMOM013 : AKLT.Blueprint.Mom.GreedyAssignmentStatement)\n    (hMOM014 : AKLT.Blueprint.Mom.FreeCoefficientsStatement)\n    (hMOM015 : AKLT.Blueprint.Mom.FreeDegreeStatement)\n    (hMOM016 : AKLT.Blueprint.Mom.TwoSiteFactorizationStatement)\n    (hMOM017 : AKLT.Blueprint.Mom.FactorizedConditioningStatement)\n    (hMOM018 : AKLT.Blueprint.Mom.TripleNormalizerStatement)\n    (hMOM019 : AKLT.Blueprint.Mom.TripleNumeratorStatement)\n    (hMOM020 : AKLT.Blueprint.Mom.TripleGeometryStatement)\n    (hMOM021 : AKLT.Blueprint.Mom.TripleSOSIdentityStatement)\n    (hMOM022 : AKLT.Blueprint.Mom.BallFieldSplitStatement)\n    (hMOM023 : AKLT.Blueprint.Mom.ProductMixtureStatement)\n    (hMOM024 : AKLT.Blueprint.Mom.PositiveMixtureEstimateStatement)\n    (hMOM025 : AKLT.Blueprint.Mom.DepletedContractionStatement)\n    (hMOM026 : AKLT.Blueprint.Mom.MeanPathContinuityStatement)\n    (hMOM027 : AKLT.Blueprint.Mom.MeanPathEndpointsStatement)\n    (hMOM028 : AKLT.Blueprint.Mom.MeanCovarianceStatement)\n    (hMOM029 : AKLT.Blueprint.Mom.OrthogonalNormStatement)\n    (hMOM030 : AKLT.Blueprint.Mom.OrthogonalTransportStatement)\n    (hMOM031 : AKLT.Blueprint.Mom.SingleSiteQuadratureStatement)\n    (hMOM032 : AKLT.Blueprint.Mom.InteractionDegreeStatement)\n    (hMOM033 : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement)\n    (hREC001 : AKLT.Blueprint.Rec.NetworkPositiveStatement)\n    (hREC002 : AKLT.Blueprint.Rec.ThreeFactorizationStatement)\n    (hREC003 : AKLT.Blueprint.Rec.TwoFactorizationStatement)\n    (hREC004 : AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement)\n    (hREC005 : AKLT.Blueprint.Rec.TwoMeanIntervalsStatement)\n    (hREC006 : AKLT.Blueprint.Rec.FreeRemovedPairStatement)\n    (hREC007 : AKLT.Blueprint.Rec.LogMeanBasicStatement)\n    (hREC008 : AKLT.Blueprint.Rec.LogMeanMonotoneStatement)\n    (hREC009 : AKLT.Blueprint.Rec.CrudeLogEnclosureStatement)\n    (hREC010 : AKLT.Blueprint.Rec.StepRatioPositiveStatement)\n    (hREC011 : AKLT.Blueprint.Rec.FreeRatioUpperStatement)\n    (hREC012 : AKLT.Blueprint.Rec.PinnedRatioUpperStatement)\n    (hREC013 : AKLT.Blueprint.Rec.DStepTrivialStatement)\n    (hREC014 : AKLT.Blueprint.Rec.OneStepTrivialStatement)\n    (hREC015 : AKLT.Blueprint.Rec.BetaPrimePositiveStatement)\n    (hREC016 : AKLT.Blueprint.Rec.BetaPrimeUniformStatement)\n    (hREC017 : AKLT.Blueprint.Rec.TwoLogIdentityStatement)\n    (hREC018 : AKLT.Blueprint.Rec.AlphaPositiveStatement)\n    (hREC019 : AKLT.Blueprint.Rec.AlphaUniformStatement)\n    (hREC020 : AKLT.Blueprint.Rec.BetaPositiveStatement)\n    (hREC021 : AKLT.Blueprint.Rec.BetaUniformStatement)\n    (hREC022 : AKLT.Blueprint.Rec.ThreeLogIdentityStatement)\n    (hREC023 : AKLT.Blueprint.Rec.ReciprocalIntegralStatement)\n    (hREC024 : AKLT.Blueprint.Rec.LogCoefficientMonoXStatement)\n    (hREC025 : AKLT.Blueprint.Rec.LogCoefficientMonoYStatement)\n    (hREC026 : AKLT.Blueprint.Rec.EightTermRemainderStatement)\n    (hREC027 : AKLT.Blueprint.Rec.LogEnclosureLowerStatement)\n    (hREC028 : AKLT.Blueprint.Rec.LogEnclosureUpperStatement)\n    (hREC029 : AKLT.Blueprint.Rec.TipReplacementStatement)\n    (hREC030 : AKLT.Blueprint.Rec.BallSlotConvexityStatement)\n    (hREC034 : AKLT.Blueprint.Rec.BetaPrimeAnalyticStatement)\n    (hREC035 : AKLT.Blueprint.Rec.BetaAnalyticStatement)\n    (hREC036 : AKLT.Blueprint.Rec.AlphaAnalyticStatement)\n    (hREC037 : AKLT.Blueprint.Rec.UStepMomentStatement)\n    (hREC038 : AKLT.Blueprint.Rec.DStepMomentStatement)\n    (hREC039 : AKLT.Blueprint.Rec.TraceDynamicsStatement)\n    (hREC040 : AKLT.Blueprint.Rec.TraceCoefficientStatement)\n    (hREC041 : AKLT.Blueprint.Rec.TraceTelescopeStatement)\n    (hREC042 : AKLT.Blueprint.Rec.CoordinateStepStatement)\n    (hREC043 : AKLT.Blueprint.Rec.PairExpansionStatement)\n    (hREC044 : AKLT.Blueprint.Rec.PairTerminalFactorStatement)\n    (hREC045 : AKLT.Blueprint.Rec.PairDegreeStatement)\n    (hREC046 : AKLT.Blueprint.Rec.ProductExposureStatement)\n    (hREC049 : AKLT.Blueprint.Rec.NormalizeStartStatement)\n    (hREC050 : AKLT.Blueprint.Rec.KeptInvariantStatement)\n    (hREC051 : AKLT.Blueprint.Rec.RemovedClosureStatement)\n    (hREC054 : AKLT.Blueprint.Rec.TerminalDefectStatement)\n    (hREC055 : AKLT.Blueprint.Rec.SecondStartStatement)\n    (hREC057 : AKLT.Blueprint.Rec.UDepartureInjectiveStatement)\n    (hREC058 : AKLT.Blueprint.Rec.DiamondTwelveStatement)\n    (hREC060 : AKLT.Blueprint.Rec.KernelOrderingStatement)\n    (hREC061 : AKLT.Blueprint.Rec.KernelPositivityStatement)\n    (hREC062 : AKLT.Blueprint.Rec.ShiftGeometryStatement)\n    (hREC063 : AKLT.Blueprint.Rec.KernelSupportStatement)\n    (hREC064 : AKLT.Blueprint.Rec.KernelRegroupStatement)\n    (hREC065 : AKLT.Blueprint.Rec.KernelLengthMajorantStatement)\n    (hREC066 : AKLT.Blueprint.Rec.MajorantFiniteStatement)\n    (hREC067 : AKLT.Blueprint.Rec.UnshiftedWitnessStatement)\n    (hREC068 : AKLT.Blueprint.Rec.ShiftPowerIncrementStatement)\n    (hREC069 : AKLT.Blueprint.Rec.TransportChoiceStatement)\n    (hREC070 : AKLT.Blueprint.Rec.WitnessPerturbationStatement)\n    (hREC071 : AKLT.Blueprint.Rec.ShiftedRowsRealStatement)\n    (hREC072 : AKLT.Blueprint.Rec.FiniteKernelTailDominationStatement)\n    (hREC073 : AKLT.Blueprint.Rec.EnvelopeBoundsStatement)\n    (hREC074 : AKLT.Blueprint.Rec.EnvelopeOrderStatement)\n    (hREC075 : AKLT.Blueprint.Rec.ProtectedDistanceFiniteStatement)\n    (hREC076 : AKLT.Blueprint.Rec.PairCanonicalGeometryStatement)\n    (hREC077 : AKLT.Blueprint.Rec.TraceExposureStatement)\n    (hREC078 : AKLT.Blueprint.Rec.PairEnvelopeShiftStatement)\n    (hREC079 : AKLT.Blueprint.Rec.TraceKernelLengthStatement)\n    (hREC080 : AKLT.Blueprint.Rec.ResidualTargetBoundStatement)\n    (hREC081 : AKLT.Blueprint.Rec.SecondTermBoundStatement)\n    (hREC082 : AKLT.Blueprint.Rec.PairResponseSplitStatement)\n    (hREC083 : AKLT.Blueprint.Rec.RemovalEnvelopeStatement)\n    (hREC084 : AKLT.Blueprint.Rec.RenewalActionStatement)\n    (hREC085 : AKLT.Blueprint.Rec.RenewalFiniteIterationStatement)\n    (hREC086 : AKLT.Blueprint.Rec.RenewalRemainderStatement)\n    (hREC087 : AKLT.Blueprint.Rec.RenewalSourceStatement)\n    (hREC088 : AKLT.Blueprint.Rec.RenewalScalarLimitStatement)\n    (hREC089 : AKLT.Blueprint.Rec.LocalMixtureStatementV2)\n    (hREC090 : AKLT.Blueprint.Rec.CoveredRatioStatementV2)\n    (hREC091 : AKLT.Blueprint.Rec.CoveredIntegratedLowerStatementV2)\n    (hREC092 : AKLT.Blueprint.Rec.LegacyCoverComparisonStatementV2)\n    (hREC093 : AKLT.Blueprint.Rec.BoundaryExampleCoveredStatementV2)\n    (hREC094 : AKLT.Blueprint.Rec.OnePointPointwiseStatementV2)\n    (hREC095 : AKLT.Blueprint.Rec.OnePointSumStatementV2)\n    (hREC096 : AKLT.Blueprint.Rec.CoveredClosureStatementV2)\n    (hREC097 : AKLT.Blueprint.Rec.PairClosureStatementV2)\n    (hREC098 : AKLT.Blueprint.Rec.TerminalExceptionLocationStatementV2)\n    (hREC099 : AKLT.Blueprint.Rec.TerminalExceptionCountStatementV2)\n    (hREC100 : AKLT.Blueprint.Rec.ShortKernelOrderingStatementV2)\n    (hREC101 : AKLT.Blueprint.Rec.LongKernelOrderingStatementV2)\n    (hREC102 : AKLT.Blueprint.Rec.StoppedQuotientSumStatementV2)\n    (hH1M002 : AKLT.Blueprint.H1.CoveredSlotEnumerationStatement)\n    (hH1M003 : AKLT.Blueprint.H1.CornerMeanBoundsStatement)\n    (hH1M004 : AKLT.Blueprint.H1.NormalizedMeanFactorStatement)\n    (hH1M005 : AKLT.Blueprint.H1.PassageSiteMomentsStatement)\n    (hH1M006 : AKLT.Blueprint.H1.PassageFubiniStatement)\n    (hH1M007 : AKLT.Blueprint.H1.PassageNetworkPositiveStatement)\n    (hH1M008 : AKLT.Blueprint.H1.PassageNextLowerBoundStatement)\n    (hH1M009 : AKLT.Blueprint.H1.OriginalDegreeStatement)\n    (hH1M010 : AKLT.Blueprint.H1.OriginalFactorStructureStatement)\n    (hH1M011 : AKLT.Blueprint.H1.OriginalRawEvaluationStatement)\n    (hH1M012 : AKLT.Blueprint.H1.MomentContractionStatement)\n    (hH1M013 : AKLT.Blueprint.H1.MomentCovarianceTransferStatement)\n    (hH1M014 : AKLT.Blueprint.H1.ContractionAffineStatement)\n    (hH1M015 : AKLT.Blueprint.H1.ContractionSupportStatement)\n    (hH1M016 : AKLT.Blueprint.H1.BlochAlgebraStatement)\n    (hH1M017 : AKLT.Blueprint.H1.BlochPositivityStatement)\n    (hH1M020 : AKLT.Blueprint.H1.InversionPolynomialStatement)\n    (hH1M022 : AKLT.Blueprint.H1.TraceProductPositiveStatement)\n    (hH1M023 : AKLT.Blueprint.H1.ReducedDegreeStatement)\n    (hH1M024 : AKLT.Blueprint.H1.ReducedFactorStructureStatement)\n    (hH1M025 : AKLT.Blueprint.H1.PeripheralGeometryStatement)\n    (hH1M026 : AKLT.Blueprint.H1.PeripheralFubiniStatement)\n    (hH1M027 : AKLT.Blueprint.H1.PeripheralAssignmentStatement)\n    (hH1M028 : AKLT.Blueprint.H1.BallChordStatement)\n    (hH1M030 : AKLT.Blueprint.H1.ProductBallNonnegativeStatement)\n    (hH1M031 : AKLT.Blueprint.H1.DifferenceStructureStatement)\n    (hH1M032 : AKLT.Blueprint.H1.SectorSpinStableStatement)\n    (hH1M033 : AKLT.Blueprint.H1.SectorWeightBasisStatement)\n    (hH1M034 : AKLT.Blueprint.H1.SpanWeightLatticeStatement)\n    (hH1M035 : AKLT.Blueprint.H1.SpinAdjointStatement)\n    (hH1M036 : AKLT.Blueprint.H1.SpinCommutatorStatement)\n    (hH1M037 : AKLT.Blueprint.H1.WeightLadderTransferStatement)\n    (hH1M038 : AKLT.Blueprint.H1.CommonWeightEigenvectorStatement)\n    (hH1M039 : AKLT.Blueprint.H1.LadderWalkStatement)\n    (hH1M040 : AKLT.Blueprint.H1.PositiveSpectrumStatement)\n    (hH1M041 : AKLT.Blueprint.H1.PauliHermitianStatement)\n    (hH1M042 : AKLT.Blueprint.H1.ReflectionParityStatement)\n    (hH1M043 : AKLT.Blueprint.H1.PauliRealityStatement)\n    (hH1M044 : AKLT.Blueprint.H1.InversionCovarianceStatement)\n    (hH1M045 : AKLT.Blueprint.H1.AdjointPauliCoordinatesStatement)\n    (hH1M046 : AKLT.Blueprint.H1.AdjointPauliOrthogonalStatement)\n    (hH1M047 : AKLT.Blueprint.H1.PauliRotationTransferStatement)\n    (hH1M048 : AKLT.Blueprint.H1.CayleyTensorCommutationStatement)\n    (hH1M049 : AKLT.Blueprint.H1.TensorLinearCoefficientStatement)\n    (hH1M050 : AKLT.Blueprint.H1.SpinGeneratorTransferStatement)\n    (hH1M051 : AKLT.Blueprint.H1.MomentPauliInterchangeStatement)\n    (hH1M052 : AKLT.Blueprint.H1.PairExpansionFromRealizationStatement)\n    (hH1M053 : AKLT.Blueprint.H1.UnitPairSupportStatement)\n    (hH1M054 : AKLT.Blueprint.H1.EqualPairExchangeStatement)\n    (hH1M055 : AKLT.Blueprint.H1.PairExpansionTransferStatement)\n    (hH1M056 : AKLT.Blueprint.H1.PauliExpansionStatementV2)\n    (hH1M057 : AKLT.Blueprint.H1.PauliProductTraceStatementV2)\n    (hH1M058 : AKLT.Blueprint.H1.InversionPolynomialStatementV2)\n    (hH1M059 : AKLT.Blueprint.H1.ProductDensityPositiveStatementV2)\n    (hH1M060 : AKLT.Blueprint.H1.InversionBallStatementV2)\n    (hH1M061 : AKLT.Blueprint.H1.RationalEmbeddingStructureStatementV2)\n    (hH1M062 : AKLT.Blueprint.H1.RationalEmbeddingEvaluationStatementV2)\n    (hH1M063 : AKLT.Blueprint.H1.DifferenceStructureStatementV2)\n    (hH1M064 : AKLT.Blueprint.H1.DifferenceEvaluationStatementV2)\n    (hH1M065 : AKLT.Blueprint.H1.AffineEvaluationStatementV2)\n    (hH1M066 : AKLT.Blueprint.H1.RealDifferencePauliInterpolationStatementV2)\n    (hH1M067 : AKLT.Blueprint.H1.OperatorStructureLinearCombinationStatementV2)\n    (hH1M068 : AKLT.Blueprint.Top.H1FiniteDataStatementV2)\n    (hH3M001 : AKLT.Blueprint.H3.RawSuccessorStatement)\n    (hH3M002 : AKLT.Blueprint.H3.ProjectionRealizationStatement)\n    (hH3M003 : AKLT.Blueprint.H3.PhaseFoldExpansionStatement)\n    (hH3M004 : AKLT.Blueprint.H3.SingleChangeFactorStatement)\n    (hH3M005 : AKLT.Blueprint.H3.ExposureListExpansionStatement)\n    (hH3M006 : AKLT.Blueprint.H3.LongOrderingMultiplierStatement)\n    (hH3M007 : AKLT.Blueprint.H3.PrefixCoefficientCausalityStatement)\n    (hH3M008 : AKLT.Blueprint.H3.PhaseSplitAlgebraStatement)\n    (hH3M009 : AKLT.Blueprint.H3.SuffixWindowValidityStatement)\n    (hH3M010 : AKLT.Blueprint.H3.SuffixWindowLabelsStatement)\n    (hH3M011 : AKLT.Blueprint.H3.IncidentBondBudgetStatement)\n    (hH3M012 : AKLT.Blueprint.H3.DepartureBalanceStatement)\n    (hH3M013 : AKLT.Blueprint.H3.KnownSiteMemoryStatement)\n    (hH3M014 : AKLT.Blueprint.H3.TrueRewardIdentityStatement)\n    (hH3M015 : AKLT.Blueprint.H3.RewardForgettingStatement)\n    (hH3M016 : AKLT.Blueprint.H3.LocalCoefficientComparisonStatement)\n    (hH3M017 : AKLT.Blueprint.H3.ClosedTrailStepGeometryStatement)\n    (hH3M018 : AKLT.Blueprint.H3.SuffixWordComparisonStatement)\n    (hH3M019 : AKLT.Blueprint.H3.StationaryWordExpansionStatement)\n    (hH3M020 : AKLT.Blueprint.H3.StationaryFreeEdgeStatement)\n    (hH3M021 : AKLT.Blueprint.H3.LongTrailPrefixStatement)\n    (hH3M022 : AKLT.Blueprint.H3.LongRowRegroupingStatement)\n    (hH3M023 : AKLT.Blueprint.H3.ReflectionGeometryStatement)\n    (hH3M024 : AKLT.Blueprint.H3.ReflectionLivePairsStatement)\n    (hH3M025 : AKLT.Blueprint.H3.ReflectionPairLabelsStatement)\n    (hH3M026 : AKLT.Blueprint.H3.FirstDirectionPartitionStatement)\n    (hH3M027 : AKLT.Blueprint.H3.LengthShiftSupportStatement)\n    (hH3M028 : AKLT.Blueprint.H3.LengthRewardPartitionStatement)\n    (hH3M029 : AKLT.Blueprint.H3.KernelSeriesRegroupingStatement)\n    (hH3M030 : AKLT.Blueprint.H3.CutoffSeriesLiftStatement)\n    (hH3M031 : AKLT.Blueprint.H3.StationaryCoefficientOffCentreStatementV2)\n    (hH3M032 : AKLT.Blueprint.H3.StationaryCentreZeroOperatorStatementV2)\n    (hH3M033 : AKLT.Blueprint.H3.StationaryContinuationBridgeStatementV2)\n    (hH3M034 : AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2)\n    (hH3M035 : AKLT.Blueprint.H3.StoppedQuotientIntertwiningStatementV2)\n    (hCertificate : AKLT.Blueprint.Top.CertificateStatement)\n    (hAutomaton10 : AKLT.Blueprint.Top.Automaton10StatementV2)\n    (hStationaryCheck : AKLT.Blueprint.Top.StationaryCheckStatementV2)\n    : AKLT.Challenge.MainStatementV2",
+    "use": "Old conditional closure; superseded by AKLT.Final.main_of_certificates_T, old file unchanged."
+  },
+  {
+    "declaration": "AKLT.W.REC079.Residual_OrderedExposureV2",
+    "kind": "def",
+    "file": "AKLT/W/REC079/LocalComparison.lean",
+    "line": 43,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def Residual_OrderedExposureV2 : Prop :=\n  AKLT.Blueprint.Top.H1Statement → ∀ p : PairData, ∀ n : ℕ, ∀ w : DirectionWord n,\n    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →\n    wordVertex p.u w n = p.v →\n    |traceRatio p.normalized p.τ true (wordVertices p.u w) -\n      traceRatio p.normalized p.τ false (wordVertices p.u w)| ≤\n      realExposure (canonicalWord p w) (localResponseReward p w)\n        (kernelOrdering (canonicalWord p w))\n\n/-- Residual 2: ordinary response-pair closure, actual-shift transport, and the\nbounded-supremum upper bound for ONE live pair at ONE true U departure. Only\nnon-arrival kernel pairs occur. Kernel-live endpoints that are actually\nremoved contribute zero through pairSignal. No local logarithmic coefficient,\nexposure ordering, or sum over trails occurs in this obligation. -/",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC079.targetSummand_le_budget",
+    "kind": "theorem",
+    "file": "AKLT/W/REC079/LocalComparison.lean",
+    "line": 108,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem targetSummand_le_budget (hexposure : Residual_OrderedExposureV2)\n    (hlocal : Residual_LocalEnvelopeV2) (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (p : PairData) (d : ℕ) (hd : 1 ≤ d) (hdepth : (d : ℕ∞) ≤ p.depth)\n    {n : ℕ} (w : DirectionWord n)\n    (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)\n    (hend : wordVertex p.u w n = p.v) :\n    |targetSummand p w| ≤ canonicalBudget p.X d (canonicalWord p w)",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC079.covered_partition_bound",
+    "kind": "theorem",
+    "file": "AKLT/W/REC079/LocalInputs.lean",
+    "line": 23,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem covered_partition_bound (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (a : Departure) (hU : a.D.status a.y = .U) (incoming outgoing : Compass)\n    (ho : a.o = a.y + outgoing.step)\n    (hcov : AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing) :\n    (localThreshold (decide (outgoing = incoming)) : ℝ) *\n      (traceStep a.D a.y a.o).partition a.τ true (fun _ => 1) ≤\n        a.D.partition a.τ true (fun _ => 1)",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC079.prefix_coefficients",
+    "kind": "theorem",
+    "file": "AKLT/W/REC079/LocalLogComparison.lean",
+    "line": 127,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem prefix_coefficients (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (p : PairSetup) {n : ℕ} (w : DirectionWord n)\n    (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)\n    (i : Fin n)\n    (hU : (prefixNetwork p.normalized p.u w i.val).status (wordVertex p.u w i.val) = .U) :\n    let a",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC079.local_log_bound",
+    "kind": "theorem",
+    "file": "AKLT/W/REC079/LocalLogComparison.lean",
+    "line": 162,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem local_log_bound (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (p : PairSetup) {n : ℕ} (w : DirectionWord n)\n    (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)\n    (i : Fin n) :\n    |Real.log (stepRatio (prefixNetwork p.normalized p.u w i.val) p.τ false\n        (wordVertex p.u w i.val) (wordVertex p.u w (i.val + 1))) -\n      Real.log (stepRatio (prefixNetwork p.normalized p.u w i.val) p.τ true\n        (wordVertex p.u w i.val) (wordVertex p.u w (i.val + 1)))| ≤\n      localResponseReward p.toPairData w i",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC079.prefix_ratio_le",
+    "kind": "theorem",
+    "file": "AKLT/W/REC079/OrderedExposure.lean",
+    "line": 15,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem prefix_ratio_le (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (p : PairSetup) {n : ℕ} (w : DirectionWord n)\n    (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)\n    (i : Fin n) :\n    stepRatio (prefixNetwork p.normalized p.u w i.val) p.τ true\n      (wordVertex p.u w i.val) (wordVertex p.u w (i.val + 1)) ≤\n        (passageFactor (wordStraight kernelIncoming (canonicalWord p.toPairData w) i) : ℝ)",
+    "use": "Local ratio / integrated I,J / typed coefficients; port helper premises to actual H1, use REC092 shared-cover adapter."
+  },
+  {
+    "declaration": "AKLT.W.REC080.ResidualCoveredRatio",
+    "kind": "def",
+    "file": "AKLT/W/REC080/Main.lean",
+    "line": 37,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def ResidualCoveredRatio : Prop :=\n  AKLT.Blueprint.Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n      stepRatio a.D a.τ true a.y a.o ≤\n        (passageFactor (decide (outgoing = incoming)) : ℝ)\n\n/-- All admissibility premises are discharged. The target is the first\nprotected hit, so inserting it into S does not change the stopping set. -/",
+    "use": "Terminal one-point bound; port local ratio premise, reuse twelve-exception geometry."
+  },
+  {
+    "declaration": "AKLT.W.REC080.terminal_tail_bound",
+    "kind": "theorem",
+    "file": "AKLT/W/REC080/Main.lean",
+    "line": 89,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem terminal_tail_bound (hCovered : ResidualCoveredRatio)\n    (hH1 : AKLT.Blueprint.Top.H1Statement) {CV q : ℝ} (hOpen : OpenTrailBound CV q)\n    (p : PairData) (hu : p.u ∉ protectedSites p.G) (hv : p.v ∉ protectedSites p.G)\n    {n : ℕ} (w : DirectionWord n)\n    (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)\n    (he : wordVertex p.u w n ∈ protectedSites p.G) :\n    onePointSum (terminalNetwork p w) p.τ p.v ≤\n      onePointConstant CV q * q^(protectedDistance p.G p.v)",
+    "use": "Terminal one-point bound; port local ratio premise, reuse twelve-exception geometry."
+  },
+  {
+    "declaration": "AKLT.W.REC081.normalized_onePointSum_of_residuals",
+    "kind": "theorem",
+    "file": "AKLT/W/REC081/Main.lean",
+    "line": 61,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem normalized_onePointSum_of_residuals\n    (hpoint : ResidualSharedMatcherPointwise) (hcover : ResidualFirstTrailCoverage)\n    (hH1 : AKLT.Blueprint.Top.H1Statement) (CV q : ℝ) (hOpen : OpenTrailBound CV q)\n    (p : PairData) (hu : p.u ∉ protectedSites p.G) :\n    onePointSum p.normalized p.τ p.u ≤\n      onePointConstant CV q * q ^ protectedDistance p.G p.u",
+    "use": "Pass H1 to residual and one-point estimates; V3 premises, same tail algebra."
+  },
+  {
+    "declaration": "AKLT.W.REC090.h1_ball_pattern_bound",
+    "kind": "theorem",
+    "file": "AKLT/W/REC090/BallPatterns.lean",
+    "line": 75,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem h1_ball_pattern_bound (hH1 : AKLT.Blueprint.Top.H1Statement)\n    (π : PatternData) (hπ : π.Covered) (b : Fin 20 → Vec3)\n    (hb : ∀ j, normSq (b j) ≤ 1) :\n    (if π.outgoing = .north then (961 / 1000 : ℝ) else 187 / 200) *\n      patternBallFunctional π true b (fun _ => 1) ≤\n      patternBallFunctional π false b (fun _ => 1)",
+    "use": "Use actual partition inequality in place of the pattern mixture, or pass its V3 ratio consequence."
+  },
+  {
+    "declaration": "AKLT.W.REC091.Residual_PartitionLower",
+    "kind": "def",
+    "file": "AKLT/W/REC091/Main.lean",
+    "line": 34,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "def Residual_PartitionLower : Prop :=\n  AKLT.Blueprint.Top.H1Statement →\n    ∀ a : AKLT.Blueprint.Rec.Departure, a.D.status a.y = .U →\n    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →\n    AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →\n    let c : ℝ := localThreshold (decide (outgoing = incoming))\n    c * (traceStep a.D a.y a.o).partition a.τ true (fun _ => 1) ≤\n      a.D.partition a.τ true (fun _ => 1)",
+    "use": "Use actual partition inequality in place of the pattern mixture, or pass its V3 ratio consequence."
+  },
+  {
+    "declaration": "AKLT.W.REC094.local_step_comparison",
+    "kind": "theorem",
+    "file": "AKLT/W/REC094/Main.lean",
+    "line": 35,
+    "explicit_inputs": [
+      "H1Statement"
+    ],
+    "signature": "theorem local_step_comparison (hCovered : AKLT.Blueprint.Rec.CoveredRatioStatementV2)\n    (hH1 : AKLT.Blueprint.Top.H1Statement)\n    {G : Finset Plane} {n : ℕ} {D : Network G} (τ : PinAssignment G)\n    (hD : D.Auxiliary) {u : Plane} (hu : D.AdmissibleStart u)\n    (incoming : Compass) {w : DirectionWord n}\n    (hTrail : StoppedNetworkTrail D u (protectedSites G) w)\n    (i : Fin n) (b : Bool) :\n    let P",
+    "use": "Use actual partition inequality in place of the pattern mixture, or pass its V3 ratio consequence."
+  }
+]

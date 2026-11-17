@@ -1,468 +1,435 @@
 STATUS: COMPLETE
 
-| Leaf / node | Paper label | Difficulty | State |
-|---|---|---|---|
-| [NetworkPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:11) | `d:domain` | hard | open |
-| [ThreeFactorizationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:17) | `d:ratios` | medium | open |
-| [TwoFactorizationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:27) | `d:ratios` | medium | open |
-| [RemovedMeanIntervalsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:38) | `l:response` | hard | open |
-| [TwoMeanIntervalsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:50) | `l:response` | medium | open |
-| [FreeRemovedPairStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:59) | `l:response` | medium | open |
-| [LogMeanBasicStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:65) | `l:response` | medium | open |
-| [LogMeanMonotoneStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:73) | `l:response` | medium | open |
-| [CrudeLogEnclosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:79) | `l:response` | medium | open |
-| [StepRatioPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:84) | `l:response` | medium | open |
-| [FreeRatioUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:89) | `l:response` | medium | open |
-| [PinnedRatioUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:94) | `l:response` | medium | open |
-| [DStepTrivialStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:99) | `d:ratios` | easy | open |
-| [OneStepTrivialStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:105) | `l:response` | easy | open |
-| [BetaPrimePositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:110) | `l:response` | easy | open |
-| [BetaPrimeUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:117) | `l:response` | medium | open |
-| [TwoLogIdentityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:124) | `l:response` | medium | open |
-| [AlphaPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:132) | `l:response` | easy | open |
-| [AlphaUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:139) | `l:response` | medium | open |
-| [BetaPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:145) | `l:response` | easy | open |
-| [BetaUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:152) | `l:response` | medium | open |
-| [ThreeLogIdentityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:159) | `l:response` | medium | open |
-| [CrudeRationalStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:168) | `l:response` | easy | proved |
-| [ReciprocalIntegralStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:11) | `e:rec-log-integral` | medium | open |
-| [LogCoefficientMonoXStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:17) | `l:log-mean-bounds` | medium | open |
-| [LogCoefficientMonoYStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:24) | `l:log-mean-bounds` | medium | open |
-| [EightTermRemainderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:31) | `l:log-mean-bounds` | medium | open |
-| [LogEnclosureLowerStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:39) | `l:log-mean-bounds` | medium | open |
-| [LogEnclosureUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:44) | `l:log-mean-bounds` | medium | open |
-| [LogRationalRowsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:48) | `e:rec-log-table` | easy | proved |
-| [TypedCrudeRowsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:69) | `l:response-typed` | easy | proved |
-| [TipReplacementStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:12) | `l:local` | medium | open |
-| [BallSlotConvexityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:22) | `l:local` | medium | open |
-| [LocalMixtureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:31) | `l:local` | hard | open |
-| [CoveredRatioStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:44) | `l:local` | medium | open |
-| [CoveredIntegratedLowerStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:52) | `l:response-typed` | medium | open |
-| [BetaPrimeAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:65) | `l:response-typed` | medium | open |
-| [BetaAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:71) | `l:response-typed` | medium | open |
-| [AlphaAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:78) | `l:response-typed` | medium | open |
-| [UStepMomentStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:11) | `l:stepid` | medium | open |
-| [DStepMomentStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:19) | `l:stepid` | medium | open |
-| [TraceDynamicsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:27) | `d:trace` | hard | open |
-| [TraceCoefficientStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:38) | `d:trace` | medium | open |
-| [TraceTelescopeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:49) | `d:trace` | medium | open |
-| [CoordinateStepStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:59) | `p:pairwalk` | medium | open |
-| [PairExpansionStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:70) | `p:pairwalk` | hard | open |
-| [PairTerminalFactorStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:81) | `p:pairwalk` | medium | open |
-| [PairDegreeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:97) | `p:pairwalk` | medium | open |
-| [ProductExposureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:108) | `l:exposure` | medium | open |
-| [OnePointPointwiseStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:117) | `l:onepoint` | medium | open |
-| [OnePointSumStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:129) | `l:onepoint` | medium | open |
-| [NormalizeStartStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:11) | `l:closure` | easy | open |
-| [KeptInvariantStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:19) | `l:closure` | hard | open |
-| [RemovedClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:32) | `l:closure` | medium | open |
-| [CoveredClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:41) | `l:closure` | hard | open |
-| [PairClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:50) | `l:closure` | medium | open |
-| [TerminalDefectStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:60) | `l:closure` | medium | open |
-| [SecondStartStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:72) | `l:terminalcover` | medium | open |
-| [TerminalExceptionLocationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:83) | `l:terminalcover` | hard | open |
-| [UDepartureInjectiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:98) | `l:terminalcover` | easy | open |
-| [DiamondTwelveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:108) | `l:terminalcover` | easy | open |
-| [TerminalExceptionCountStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:113) | `l:terminalcover` | medium | open |
-| [KernelOrderingStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:11) | `d:kernel-order` | easy | open |
-| [KernelPositivityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:17) | `d:kernel` | easy | open |
-| [ShiftGeometryStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:24) | `l:Mtheta` | medium | open |
-| [KernelSupportStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:30) | `d:kernel` | easy | open |
-| [KernelRegroupStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:36) | `d:kernel` | medium | open |
-| [KernelLengthMajorantStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:43) | `l:Mtheta` | hard | open |
-| [MajorantFiniteStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:50) | `l:Mtheta` | medium | open |
-| [UnshiftedWitnessStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:56) | `h:H3` | medium | open |
-| [ShiftPowerIncrementStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:63) | `l:Mtheta` | medium | open |
-| [TransportChoiceStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:70) | `l:Mtheta` | medium | open |
-| [WitnessPerturbationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:80) | `l:Mtheta` | hard | open |
-| [ShiftedRowsRealStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:92) | `l:renewal` | medium | open |
-| [FiniteKernelTailDominationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:100) | `e:rec-T1` | medium | open |
-| [EnvelopeBoundsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:11) | `d:pairenv` | medium | open |
-| [EnvelopeOrderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:16) | `d:pairenv` | easy | open |
-| [ProtectedDistanceFiniteStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:22) | `t:rec` | medium | open |
-| [PairCanonicalGeometryStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:29) | `l:recineq` | medium | open |
-| [TraceExposureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:37) | `l:recineq` | medium | open |
-| [PairEnvelopeShiftStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:55) | `e:rec-pair-envelope` | medium | open |
-| [TraceKernelLengthStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:70) | `l:recineq` | hard | open |
-| [FirstTermBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:78) | `e:rec-T1` | medium | assembled |
-| [ResidualTargetBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:87) | `l:recineq` | medium | open |
-| [SecondTermBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:100) | `l:recineq` | medium | open |
-| [PairResponseSplitStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:107) | `l:recineq` | medium | open |
-| [RemovalEnvelopeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:127) | `t:rec` | hard | open |
-| [RenewalActionStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:12) | `l:renewal` | medium | open |
-| [RenewalFiniteIterationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:23) | `e:rec-renewal-iterate` | medium | open |
-| [RenewalRemainderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:37) | `e:rec-renewal-remainder` | medium | open |
-| [RenewalSourceStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:47) | `l:renewal` | medium | open |
-| [RenewalScalarLimitStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:56) | `l:renewal` | easy | open |
+| Leaf / node | Paper label | Difficulty | Adaptation | Proof state |
+|---|---|---|---|---|
+| [NetworkPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:11) | `d:domain` | hard | kept | open |
+| [ThreeFactorizationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:17) | `d:ratios` | medium | kept | open |
+| [TwoFactorizationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:27) | `d:ratios` | medium | kept | open |
+| [RemovedMeanIntervalsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:38) | `l:response` | hard | kept | open |
+| [TwoMeanIntervalsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:50) | `l:response` | medium | kept | open |
+| [FreeRemovedPairStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:59) | `l:response` | medium | kept | open |
+| [LogMeanBasicStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:65) | `l:response` | medium | kept | open |
+| [LogMeanMonotoneStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:73) | `l:response` | medium | kept | open |
+| [CrudeLogEnclosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:79) | `l:response` | medium | kept | open |
+| [StepRatioPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:84) | `l:response` | medium | kept | open |
+| [FreeRatioUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:89) | `l:response` | medium | kept | open |
+| [PinnedRatioUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:94) | `l:response` | medium | kept | open |
+| [DStepTrivialStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:99) | `d:ratios` | easy | kept | open |
+| [OneStepTrivialStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:105) | `l:response` | easy | kept | open |
+| [BetaPrimePositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:110) | `l:response` | easy | kept | open |
+| [BetaPrimeUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:117) | `l:response` | medium | kept | open |
+| [TwoLogIdentityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:124) | `l:response` | medium | kept | open |
+| [AlphaPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:132) | `l:response` | easy | kept | open |
+| [AlphaUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:139) | `l:response` | medium | kept | open |
+| [BetaPositiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:145) | `l:response` | easy | kept | open |
+| [BetaUniformStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:152) | `l:response` | medium | kept | open |
+| [ThreeLogIdentityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:159) | `l:response` | medium | kept | open |
+| [CrudeRationalStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:168) | `l:response` | easy | kept | proved |
+| [ReciprocalIntegralStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:11) | `e:rec-log-integral` | medium | kept | open |
+| [LogCoefficientMonoXStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:17) | `l:log-mean-bounds` | medium | kept | open |
+| [LogCoefficientMonoYStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:24) | `l:log-mean-bounds` | medium | kept | open |
+| [EightTermRemainderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:31) | `l:log-mean-bounds` | medium | kept | open |
+| [LogEnclosureLowerStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:39) | `l:log-mean-bounds` | medium | kept | open |
+| [LogEnclosureUpperStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:44) | `l:log-mean-bounds` | medium | kept | open |
+| [LogRationalRowsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:48) | `e:rec-log-table` | easy | kept | proved |
+| [TypedCrudeRowsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:69) | `l:response-typed` | easy | kept | proved |
+| [TipReplacementStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:12) | `l:local` | medium | kept | open |
+| [BallSlotConvexityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:22) | `l:local` | medium | kept | open |
+| [LocalMixtureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:31) | `l:local` | hard | superseded | open |
+| [CoveredRatioStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:44) | `l:local` | medium | superseded | open |
+| [CoveredIntegratedLowerStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:52) | `l:response-typed` | medium | superseded | open |
+| [BetaPrimeAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:65) | `l:response-typed` | medium | kept | open |
+| [BetaAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:71) | `l:response-typed` | medium | kept | open |
+| [AlphaAnalyticStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:78) | `l:response-typed` | medium | kept | open |
+| [UStepMomentStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:11) | `l:stepid` | medium | kept | open |
+| [DStepMomentStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:19) | `l:stepid` | medium | kept | open |
+| [TraceDynamicsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:27) | `d:trace` | hard | kept | open |
+| [TraceCoefficientStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:38) | `d:trace` | medium | kept | open |
+| [TraceTelescopeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:49) | `d:trace` | medium | kept | open |
+| [CoordinateStepStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:59) | `p:pairwalk` | medium | kept | open |
+| [PairExpansionStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:70) | `p:pairwalk` | hard | kept | open |
+| [PairTerminalFactorStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:81) | `p:pairwalk` | medium | kept | open |
+| [PairDegreeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:97) | `p:pairwalk` | medium | kept | open |
+| [ProductExposureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:108) | `l:exposure` | medium | kept | open |
+| [OnePointPointwiseStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:117) | `l:onepoint` | medium | superseded | open |
+| [OnePointSumStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:129) | `l:onepoint` | medium | superseded | open |
+| [NormalizeStartStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:11) | `l:closure` | easy | kept | open |
+| [KeptInvariantStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:19) | `l:closure` | hard | kept | open |
+| [RemovedClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:32) | `l:closure` | medium | kept | open |
+| [CoveredClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:41) | `l:closure` | hard | superseded | open |
+| [PairClosureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:50) | `l:closure` | medium | superseded | open |
+| [TerminalDefectStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:60) | `l:closure` | medium | kept | open |
+| [SecondStartStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:72) | `l:terminalcover` | medium | kept | open |
+| [TerminalExceptionLocationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:83) | `l:terminalcover` | hard | superseded | open |
+| [UDepartureInjectiveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:98) | `l:terminalcover` | easy | kept | open |
+| [DiamondTwelveStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:108) | `l:terminalcover` | easy | kept | open |
+| [TerminalExceptionCountStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean:113) | `l:terminalcover` | medium | superseded | open |
+| [KernelOrderingStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:11) | `d:kernel-order` | easy | kept | open |
+| [KernelPositivityStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:17) | `d:kernel` | easy | kept | open |
+| [ShiftGeometryStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:24) | `l:Mtheta` | medium | kept | open |
+| [KernelSupportStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:30) | `d:kernel` | easy | kept | open |
+| [KernelRegroupStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:36) | `d:kernel` | medium | kept | open |
+| [KernelLengthMajorantStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:43) | `l:Mtheta` | hard | kept | open |
+| [MajorantFiniteStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:50) | `l:Mtheta` | medium | kept | open |
+| [UnshiftedWitnessStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:56) | `h:H3` | medium | kept | open |
+| [ShiftPowerIncrementStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:63) | `l:Mtheta` | medium | kept | open |
+| [TransportChoiceStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:70) | `l:Mtheta` | medium | kept | open |
+| [WitnessPerturbationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:80) | `l:Mtheta` | hard | kept | open |
+| [ShiftedRowsRealStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:92) | `l:renewal` | medium | kept | open |
+| [FiniteKernelTailDominationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:100) | `e:rec-T1` | medium | kept | open |
+| [EnvelopeBoundsStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:11) | `d:pairenv` | medium | kept | open |
+| [EnvelopeOrderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:16) | `d:pairenv` | easy | kept | open |
+| [ProtectedDistanceFiniteStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:22) | `t:rec` | medium | kept | open |
+| [PairCanonicalGeometryStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:29) | `l:recineq` | medium | kept | open |
+| [TraceExposureStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:37) | `l:recineq` | medium | kept | open |
+| [PairEnvelopeShiftStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:55) | `e:rec-pair-envelope` | medium | kept | open |
+| [TraceKernelLengthStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:70) | `l:recineq` | hard | kept | open |
+| [FirstTermBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:78) | `e:rec-T1` | medium | kept | assembled |
+| [ResidualTargetBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:87) | `l:recineq` | medium | kept | open |
+| [SecondTermBoundStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:100) | `l:recineq` | medium | kept | open |
+| [PairResponseSplitStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:107) | `l:recineq` | medium | kept | open |
+| [RemovalEnvelopeStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:127) | `t:rec` | hard | kept | open |
+| [RenewalActionStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:12) | `l:renewal` | medium | kept | open |
+| [RenewalFiniteIterationStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:23) | `e:rec-renewal-iterate` | medium | kept | open |
+| [RenewalRemainderStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:37) | `e:rec-renewal-remainder` | medium | kept | open |
+| [RenewalSourceStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:47) | `l:renewal` | medium | kept | open |
+| [RenewalScalarLimitStatement](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean:56) | `l:renewal` | easy | kept | open |
+| [LocalMixtureStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean:18) | `l:local` | hard | new | open |
+| [CoveredRatioStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean:32) | `l:local` | medium | new | open |
+| [CoveredIntegratedLowerStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean:41) | `l:response-typed` | medium | new | open |
+| [LegacyCoverComparisonStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean:55) | `d:pattern` | medium | new | open |
+| [BoundaryExampleCoveredStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean:64) | `l:local` | easy | new | open |
+| [OnePointPointwiseStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Walk.lean:22) | `l:onepoint` | medium | new | open |
+| [OnePointSumStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Walk.lean:34) | `l:onepoint` | medium | new | open |
+| [CoveredClosureStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean:18) | `l:closure` | hard | new | open |
+| [PairClosureStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean:28) | `l:closure` | medium | new | open |
+| [TerminalExceptionLocationStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean:42) | `l:terminalcover` | hard | new | open |
+| [TerminalExceptionCountStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean:58) | `l:terminalcover` | medium | new | open |
+| [ShortKernelOrderingStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Ordering.lean:14) | `d:kernel-order` | medium | new | open |
+| [LongKernelOrderingStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Ordering.lean:22) | `d:kernel-order` | easy | new | open |
+| [StoppedQuotientSumStatementV2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Handoff.lean:41) | `l:automaton-quotient` | medium | new | open |
 
-## Delivery and scope
+## Adaptation
 
-All files are under `AKLT/Blueprint/Rec/`, with namespace `AKLT.Blueprint.Rec`. The design covers the mass-free §6 expansion and the §7 closure, typed coefficients, shifted kernel, response recursion and renewal. There are 92 statement nodes: 88 open proof tasks, three unconditional rational leaf proofs, and one intermediate statement assembled from finer leaves. The five requested original Top interfaces and the useful typed V2 interface have checked assembly implications.
+Adapted to the repaired layer merged by the orchestrator and the findings in [ARCH_0/stmt-fix.md](/home/ubuntu/aklt/reports/ARCH_0/stmt-fix.md), [REF2_5](/home/ubuntu/aklt/reports/REF2_5/report.md), [REF2_6](/home/ubuntu/aklt/reports/REF2_6/report.md) and [REF2_7](/home/ubuntu/aklt/reports/REF2_7/report.md). All thirteen existing Rec Lean files are byte-identical to the post-merge baseline, including every old leaf, definition, proof, assembly and audit. Every source addition is a new file. Hash evidence is in [adaptation-baseline.json](/home/ubuntu/aklt/reports/BP_REC/adaptation-baseline.json).
 
-`leaves.json` contains every open task, its exact Lean statement, source location, paper label, difficulty, estimated proof size, definition/library dependencies, route, donor pointers and individual trap check. `nodes.json` also includes the proved and assembled nodes. No dependency list grants another Rec leaf as a hypothesis. All leaf statements are closed, and all assembly arguments are closed Props. Semantic premises such as an admissible network, a numerical row inequality or H1/H2/H3 are stated inside the relevant universal statement.
+The updated manifest contains all 88 old open entries, marked `kept` (79) or `superseded` (9), plus 14 new open leaves. Thus 93 tasks remain in the active proof queue; nine additional historical true statements are retained as superseded records. `proof_status` is separate from `adaptation_status` and `status`; every entry in `leaves.json` remains unproved. The three retained rational leaf proofs and the existing assembled intermediate remain in `nodes.json` and the pre-rule proof inventory. Superseded means replaced in the paper-facing blueprint, never found false or edited.
 
-Proof-size estimates in the manifest are planning estimates (90/220/380 lines for easy/medium/hard). The finite expansion is split into moment identities, dynamics, coordinate iteration, terminal factors and degree accounting. Closure is split into normalization, prefix invariant, ordinary removal, covering, pair closure, terminal defect, second start, location and count. The kernel splits ordering, positivity, support, geometry, nonnegative regrouping, one-length majorization, summability, unshifted witness, power increment, explicit choice and perturbation. T1 further separates the finite trace comparison from its infinite summation. Bounded renewal has separate action, finite iteration, remainder, source and scalar limit tasks. Refinement nodes state independent mathematical facts; their proofs may call imported proved helpers, and never assume another open leaf proposition.
+| Old target | Current target | Changed or added leaves |
+|---|---|---|
+| `Top.ResponseStatement` | `Top.ResponseStatement` (same contract) | None; the frozen uniform response leaves are reused. |
+| `Top.LogMeanBoundsStatement` | `Top.LogMeanBoundsStatement` (same contract) | None; the frozen analytic leaves and retained exact rational checks are reused. |
+| `Top.ResponseTypedStatement`; frozen `Rec.ResponseTypedStatementV2` | `Top.ResponseTypedStatementV2` | `CoveredIntegratedLowerStatementV2`; supporting `LocalMixtureStatementV2`, `CoveredRatioStatementV2`, `LegacyCoverComparisonStatementV2`, and `BoundaryExampleCoveredStatementV2`. |
+| `Top.MThetaStatement` | `Top.MThetaStatement` (same contract) | No change to the numerical conclusion or its leaves. New `ShortKernelOrderingStatementV2` and `LongKernelOrderingStatementV2` make the paper ordering scope explicit. |
+| `Top.RecStatement` | `Top.RecStatement`, still required by `mainV2_of_partsV2` | New covering, non-arrival pair and exception/one-point refinement leaves listed below. Matcher-independent finite T1/T2, envelope, summability and renewal conclusions are kept. |
+| Old local matcher and closure/one-point refinements | Shared `Defs.CoveredDepartureV2` | `CoveredClosureStatementV2`, `PairClosureStatementV2`, `TerminalExceptionLocationStatementV2`, `TerminalExceptionCountStatementV2`, `OnePointPointwiseStatementV2`, `OnePointSumStatementV2`. |
+| Phase-to-kernel and stopped quotient handoffs | Length-qualified `LongPhaseKernelStatementV2`; explicit `StoppedQuotientSumStatementV2` | Long ordering is a new leaf; the phase-to-kernel conversion is an assembly from BP_H3M's `Top.PhaseExpansionStatementV2`. Terminal indicator and reward pullbacks are explicit in the new open handoff. |
 
-Forty-one open statements are immediate inputs of `AssemblyLeaves`; the other forty-seven provide the finer mathematical steps needed to implement those inputs. The blueprint exposes these refinements explicitly instead of adding them as hypotheses to an open leaf.
+### Shared matcher and unchanged conclusions
 
-| File | Purpose |
+The shared `AKLT.Defs.CoveredDepartureV2` matches internal present bonds between non-tips, not whole kept sets or kept sets intersected with G. It ignores external directions even when they remain inside G, and ignores inactive flags toward removed sites. At covering tips it preserves every actual bond and permits an added cover bond with zero effective mean. Every new use is fully qualified to avoid confusion with the frozen, stricter `AKLT.Blueprint.Rec.CoveredDepartureV2`.
+
+The frozen local proposal remains a sufficient specialization and is not used as the full shared scope. Its comparison to the shared predicate is a new open leaf, not a newly proved bridge. The old matcher diagnostic proofs keep their exact original meanings. Shared acceptance of the concrete boundary example is likewise an open V2 leaf.
+
+The core assembly has 41 immediate closed leaf inputs, as before: the new integrated lower-bound leaf replaces the old one, and all other numeric/recursion conclusions retain their definitions. The retained `TraceKernelLengthStatement`, `ResidualTargetBoundStatement` and `SecondTermBoundStatement` are matcher-independent estimates; their manifest proof routes now explicitly use the shared typed statement and corrected refinements. No implication from shared matching to the stricter local matcher is assumed.
+
+### Referee findings and lane boundaries
+
+1. **Closure pairs (REF2_5 finding 1):** `nonarrivalNeighboursV2` explicitly erases the arrival site and intersects with active sites. `PairClosureStatementV2` uses pairs from this set. An arrival D endpoint may keep two present bonds after deletion and is not admitted. The frozen leaf only used present neighbours in the live pre-step network, which already excludes the deleted arrival bond; it remains true and byte-identical.
+2. **Ordering domain (REF2_5 finding 2):** the new ordering leaves quantify `ClosedTrail X w`, the defined canonical u-to-v first-hit class with distinct endpoints. They do not require graph cycles. The short branch includes n=12 and preserves the rational key, zero-reward infinity case and path-index tie break.
+3. **Within-type order and phase qualification (REF2_6 finding 2):** the long branch has n>12 and strict increasing path index within both type subsequences. `longPhaseKernel_of_partsV2` converts the phase algebra to `closedContribution` only under that long-trail hypothesis. Short hits are never evaluated with the phase ordering. The phase algebra itself remains BP_H3M's closed Top input.
+4. **Stopped quotient data (REF2_6 finding 3):** the new raw and quotient operators permit state-dependent stopping data. Their exact finite-sum handoff requires both the raw terminal indicator and raw reward to be pullbacks through Q.project. The zero-horizon reward counterexample is therefore excluded explicitly. This is an open handoff available to BP_H3M, not an automatically discharged certificate fact.
+5. **Unresolved H1/H3 witnesses (REF2_6 critical finding):** the new main assembly requires `Top.InputsStatementV2` as a closed input, including the explicit H1 finite-data, designated automaton and corrected stationary checks. No archive existence or passing check is inferred from enumeration counts, data literals, the referee's native H2 verifier or imported definitions. These numerical obligations remain with their certificate lanes.
+6. **Appendix D (REF2_7):** the referee found no defect. ARCH_0's real-polynomial/operator and finite-data repairs are owned by BP_H1M/CERT_H1. Rec retains its exact H1 semantic input and the same degree-four moments; no operator leaf is silently claimed proved here.
+
+### New source files
+
+| File | Contents |
 |---|---|
-| [Definitions.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Definitions.lean) | Corrected matcher; actual network/trace data; finite stopped sums; exact T1/T2; explicit transport constants; real summable renewal rows. |
-| [NodesResponse.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean) | Finite integration, conditional means, uniform response and crude logarithm bounds. |
-| [NodesLogMean.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean) | Reciprocal integral, coordinate monotonicities, eight-term enclosure and proved exact amended tables. |
-| [NodesLocal.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean) | One-tip replacement, one-slot convexity, common local mixture and typed analytic comparisons. |
-| [NodesWalk.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean) | Degree-four step identities, valid traces, finite pair expansion, terminal values, exposure and common one-point bounds. |
-| [NodesClosure.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesClosure.lean) | Ordinary-domain closure and the sole terminal protected defect; arbitrary-position twelve exceptions. |
-| [NodesKernel.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean) | Fixed-order nonnegative kernel, shifts, summability, same-witness transport and real-row conversion. |
-| [NodesRecursion.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean) | Ordinary envelopes, canonical geometry, T1/T2 decomposition and comparisons, and removal-domain realization. |
-| [NodesRenewal.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRenewal.lean) | Bounded positive action, finite iteration, unweighted remainder, weighted source and scalar limit. |
-| [Assembly.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Assembly.lean) | Checked response, log-mean, typed original/V2, Mtheta, T1, bounded-renewal and Rec implications; combined target export. |
-| [Counterexample.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Counterexample.lean) | Concrete boundary-corner rejection by old matching and acceptance by V2, both kernel-checked. |
-| [Audit.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Audit.lean) | Axiom output for every manually declared exported theorem. |
-| [All.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/All.lean) | Single import of the complete deliverable and audit. |
+| [NodesV2Local.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Local.lean) | Shared-cover local transfer, typed lower bounds, legacy comparison and diagnostic statements. |
+| [NodesV2Walk.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Walk.lean) | Shared-matcher uncoveredCountV2 and the two one-point statements. |
+| [NodesV2Closure.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Closure.lean) | Shared coverage, explicit non-arrival response pairs and terminal exception statements. |
+| [NodesV2Ordering.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Ordering.lean) | Short rational-key order and long path order on the canonical kernel-trail domain. |
+| [NodesV2Handoff.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesV2Handoff.lean) | Generalized stopped raw/quotient operators and the terminal-data-pullback leaf. |
+| [AssemblyV2.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/AssemblyV2.lean) | Eleven proved assemblies for the repaired interfaces, ordering/phase handoff and repaired main assembly. |
+| [AuditV2.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/AuditV2.lean) | Axiom reports for every new assembly theorem. |
+| [AllV2.lean](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/AllV2.lean) | Single import of the adaptation and audit. |
 
-## Author rule and retained proofs
+### Kept and superseded leaves
 
-The author rule arrived after the initial complete blueprint delivery. Every future leaf proof, including a new checker soundness proof or a short helper proof, must receive its first attempt from a different, cheaper model selected by the orchestrator. This agent continues with statements, definitions, designs, executable checkers, data exporters, measurements/prototypes and proved assembly implications. The 88 remaining tasks in `leaves.json` now carry that assignment explicitly. No Lean source or proof was changed for this policy amendment.
+Every old record is individually marked in [leaves.json](/home/ubuntu/aklt/reports/BP_REC/leaves.json). The nine replacements are:
 
-The following eleven non-assembly proofs already existed before the rule. They are retained under the explicit exception; no cheaper-model first attempt is claimed for them. The three proofs of named leaf statements are `crudeRational`, `logRationalRows` and `typedCrudeRows`. The other entries are existing helpers or matcher diagnostics. The ten assembly theorems remain within this agent's authorized scope. [proof-policy.json](/home/ubuntu/aklt/reports/BP_REC/proof-policy.json) records the complete inventory, signatures and source hashes at the policy cutover.
+| Frozen old leaf | New leaf | Reason |
+|---|---|---|
+| `LocalMixtureStatement` | `LocalMixtureStatementV2` | Replace intersection/full-kept matching by shared internal-present-bond and one-sided tip matching. |
+| `CoveredRatioStatement` | `CoveredRatioStatementV2` | Broaden the pointwise local comparison to the shared paper-scope matcher. |
+| `CoveredIntegratedLowerStatement` | `CoveredIntegratedLowerStatementV2` | Top.ResponseTypedStatementV2 requires the shared matcher rather than the frozen Rec-local predicate. |
+| `OnePointPointwiseStatement` | `OnePointPointwiseStatementV2` | Count exceptions with the shared matcher; the new exception count can be smaller. |
+| `OnePointSumStatement` | `OnePointSumStatementV2` | Use the shared-matcher exception premise in the sum-of-maxima contract. |
+| `CoveredClosureStatement` | `CoveredClosureStatementV2` | Conclude shared internal-bond coverage rather than the frozen local intersection predicate. |
+| `PairClosureStatement` | `PairClosureStatementV2` | Expose the corrected non-arrival neighbour clause, broadening the old present-neighbour specialization. |
+| `TerminalExceptionLocationStatement` | `TerminalExceptionLocationStatementV2` | Detect uncovered sites with shared present-bond matching. |
+| `TerminalExceptionCountStatement` | `TerminalExceptionCountStatementV2` | Use uncoveredCountV2 built from the shared matcher. |
 
-| Retained declaration | Classification |
-|---|---|
-| [boundaryExample_v2_covered](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Counterexample.lean:27) | retained kernel computation |
-| [boundaryExample_not_old_covered](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/Counterexample.lean:39) | retained diagnostic proof |
-| [witness_positive](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:107) | retained helper proof |
-| [kernelRho_pos](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesKernel.lean:110) | retained helper proof |
-| [coveredDeparture_to_v2](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLocal.lean:85) | retained helper proof |
-| [logRationalRows](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:56) | retained leaf proof |
-| [reciprocalLogMean_one](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:64) | retained helper proof |
-| [typedCrudeRows](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesLogMean.lean:73) | retained leaf proof |
-| [envelope_le_of_pair_bounds](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesRecursion.lean:113) | retained helper proof |
-| [crudeRational](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesResponse.lean:173) | retained leaf proof |
-| [traceCoefficient_singleton](/home/ubuntu/aklt/wt/BP_REC/AKLT/Blueprint/Rec/NodesWalk.lean:139) | retained helper proof |
+### New open statements
 
-No new checker or soundness claim was introduced in this amendment. Existing kernel computations are retained. Any future soundness obligation must be stated as an exact closed open leaf in `leaves.json` before proof work is assigned.
-
-
-## Exported declarations and statements
-
-Open leaf statements are reproduced verbatim in `leaves.json`; the node table links to each source. `TargetsStatement` is the conjunction of `Top.ResponseStatement`, `Top.LogMeanBoundsStatement`, `Top.ResponseTypedStatement`, `ResponseTypedStatementV2`, `Top.MThetaStatement` and `Top.RecStatement`. `targets_of_leaves` proves that conjunction from one closed `AssemblyLeaves` proposition.
-
-`ResponseLeaves`, `TypedLeaves`, `MThetaLeaves`, `RecursionLeaves` and `AssemblyLeaves` are closed proof bundles. The exact bundle fields and the assembled bounded-renewal statement are:
+All fourteen statements below are unproved. Their full dependency lists, proof routes, difficulty and trap checks are in [leaves-new-v2.json](/home/ubuntu/aklt/reports/BP_REC/leaves-new-v2.json) and the combined manifest.
 
 ```lean
-structure ResponseLeaves : Prop where
-  positive : StepRatioPositiveStatement
-  freeUpper : FreeRatioUpperStatement
-  pinnedUpper : PinnedRatioUpperStatement
-  dTrivial : DStepTrivialStatement
-  oneTrivial : OneStepTrivialStatement
-  betaPrimePositive : BetaPrimePositiveStatement
-  betaPrimeUniform : BetaPrimeUniformStatement
-  twoLog : TwoLogIdentityStatement
-  alphaPositive : AlphaPositiveStatement
-  alphaUniform : AlphaUniformStatement
-  betaPositive : BetaPositiveStatement
-  betaUniform : BetaUniformStatement
-  threeLog : ThreeLogIdentityStatement
+def LocalMixtureStatementV2 : Prop :=
+  ∀ a : Departure, a.D.status a.y = .U → ∀ incoming outgoing : Compass,
+    a.o = a.y + outgoing.step → AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →
+    ∃ k : ℕ, ∃ π : Fin k → PatternData, ∃ m : Fin k → (Fin 20 → UnitVector),
+      ∃ weight : Fin k → ℝ,
+      (∀ i, 0 ≤ weight i ∧ (π i).Covered ∧
+        ((π i).outgoing = .north ↔ outgoing = incoming)) ∧
+      a.D.partition a.τ true (fun _ => 1) = ∑ i, weight i * patternCurrent (π i) (m i) ∧
+      (traceStep a.D a.y a.o).partition a.τ true (fun _ => 1) =
+        ∑ i, weight i * patternNext (π i) (m i)
 
-structure TypedLeaves : Prop where
-  lower : CoveredIntegratedLowerStatement
-  threeIntervals : RemovedMeanIntervalsStatement
-  twoIntervals : TwoMeanIntervalsStatement
-  betaPrime : BetaPrimeAnalyticStatement
-  beta : BetaAnalyticStatement
-  alpha : AlphaAnalyticStatement
+def CoveredRatioStatementV2 : Prop :=
+  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →
+    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →
+      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →
+      stepRatio a.D a.τ true a.y a.o ≤ (passageFactor (decide (outgoing = incoming)) : ℝ)
 
-structure MThetaLeaves : Prop where
-  regroup : KernelRegroupStatement
-  lengthBound : KernelLengthMajorantStatement
-  finiteMajorant : MajorantFiniteStatement
-  geometry : ShiftGeometryStatement
-  unshifted : UnshiftedWitnessStatement
-  choice : TransportChoiceStatement
-  perturbation : WitnessPerturbationStatement
+def CoveredIntegratedLowerStatementV2 : Prop :=
+  Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →
+    ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →
+      AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →
+      let c : ℝ := localThreshold (decide (outgoing = incoming))
+      (∀ f : Plane, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+        c ≤ responseI₂ a.D a.τ true a.y a.o f) ∧
+      ∀ f g : Plane, a.D.presentNeighbours a.y = {a.o, f, g} →
+        a.o ≠ f → a.o ≠ g → f ≠ g →
+        c * responseJ a.D a.τ true a.y f g ≤ responseI a.D a.τ true a.y a.o f g
 
-structure RecursionLeaves : Prop where
-  envelopes : EnvelopeBoundsStatement
-  split : PairResponseSplitStatement
-  lengthComparison : TraceKernelLengthStatement
-  finiteTail : FiniteKernelTailDominationStatement
-  second : SecondTermBoundStatement
-  removal : RemovalEnvelopeStatement
-  realRows : ShiftedRowsRealStatement
+def LegacyCoverComparisonStatementV2 : Prop :=
+  ∀ G : Finset Plane, ∀ D : Network G, D.Auxiliary → ∀ y : Plane,
+    ∀ incoming outgoing : Compass,
+      AKLT.Blueprint.Rec.CoveredDepartureV2 D y incoming outgoing →
+        AKLT.Defs.CoveredDepartureV2 D y incoming outgoing
 
-structure AssemblyLeaves : Prop where
-  response : ResponseLeaves
-  logX : LogCoefficientMonoXStatement
-  logY : LogCoefficientMonoYStatement
-  logLower : LogEnclosureLowerStatement
-  logUpper : LogEnclosureUpperStatement
-  typed : TypedLeaves
-  matrix : MThetaLeaves
-  iterate : RenewalFiniteIterationStatement
-  remainder : RenewalRemainderStatement
-  source : RenewalSourceStatement
-  limit : RenewalScalarLimitStatement
-  recursion : RecursionLeaves
+def BoundaryExampleCoveredStatementV2 : Prop :=
+  AKLT.Defs.CoveredDepartureV2 (normalizeStart boundaryExampleD (0, 0) (-1, 0))
+    (0, 0) .east .east
 
-def BoundedRenewalStatement : Prop :=
-  ∀ m : PairType → PairType → ℕ → ℝ, ∀ h : PairType → ℝ,
-    ∀ q θ ρ CT : ℝ, 0 < q → q^2 < θ → θ < 1 → 0 < ρ → ρ < 1 → 0 ≤ CT →
-    RenewalRows m h θ ρ → ∀ F : PairType → ℤ → ℝ,
-    (∀ X d, 0 ≤ F X d ∧ F X d ≤ 2) →
-    (∀ X : PairType, ∀ d : ℕ, 1 ≤ d → F X d ≤ renewalOp m F X d + CT * q^(2*d)) →
-    2 ≤ genericAmplitude h CT ρ ∧
-      ∀ X : PairType, ∀ d : ℕ, F X d ≤ genericAmplitude h CT ρ * θ^d
+def OnePointPointwiseStatementV2 : Prop :=
+  Top.H1Statement → ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G,
+    D.Auxiliary → ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,
+    ¬ D.Present (u - incoming.step) u → ∀ n : ℕ, ∀ w : DirectionWord n,
+    StoppedNetworkTrail D u (protectedSites G) w → uncoveredCountV2 D u incoming w ≤ 12 →
+      (traceCoefficient D (wordVertices u w) : ℝ) *
+        max (traceRatio D τ true (wordVertices u w)) (traceRatio D τ false (wordVertices u w)) ≤
+          exceptionFactor * (trailWeight u incoming w : ℝ)
+
+def OnePointSumStatementV2 : Prop :=
+  Top.H1Statement → ∀ CV q : ℝ, OpenTrailBound CV q →
+    ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →
+    ∀ u : Plane, D.AdmissibleStart u → ∀ incoming : Compass,
+    ¬ D.Present (u - incoming.step) u →
+    (∀ n : ℕ, ∀ w : DirectionWord n, StoppedNetworkTrail D u (protectedSites G) w →
+      uncoveredCountV2 D u incoming w ≤ 12) →
+    onePointSum D τ u ≤ onePointConstant CV q * q^(protectedDistance G u)
+
+def CoveredClosureStatementV2 : Prop :=
+  ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,
+    StoppedNetworkTrail p.normalized p.u T w → ∀ i : Fin n,
+    (prefixNetwork p.normalized p.u w i.val).status (wordVertex p.u w i.val) = .U →
+      AKLT.Defs.CoveredDepartureV2 (prefixNetwork p.normalized p.u w i.val)
+        (wordVertex p.u w i.val) (wordIncoming p.incoming w i) (w i)
+
+def PairClosureStatementV2 : Prop :=
+  ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,
+    StoppedNetworkTrail p.normalized p.u T w → ∀ i : Fin n,
+    let E := prefixNetwork p.normalized p.u w i.val
+    let y := wordVertex p.u w i.val
+    let incoming := wordIncoming p.incoming w i
+    E.status y = .U →
+    ∀ a ∈ nonarrivalNeighboursV2 E y incoming,
+    ∀ b ∈ nonarrivalNeighboursV2 E y incoming, a ≠ b →
+      (removeSite E y).ResponsePair (responsePairType {a, b}) a b y
+
+def TerminalExceptionLocationStatementV2 : Prop :=
+  ∀ p : PairSetup, p.v ∉ protectedSites p.G → ∀ n : ℕ, ∀ w : DirectionWord n,
+    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →
+    wordVertex p.u w n ∈ protectedSites p.G →
+    let E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c
+    ∀ incoming : Compass, p.v = p.c + incoming.step → ∀ m : ℕ, ∀ w' : DirectionWord m,
+      StoppedNetworkTrail E p.v (protectedSites p.G) w' → ∀ i : Fin m,
+      (prefixNetwork E p.v w' i.val).status (wordVertex p.v w' i.val) = .U →
+      ¬ AKLT.Defs.CoveredDepartureV2 (prefixNetwork E p.v w' i.val)
+        (wordVertex p.v w' i.val) (wordIncoming incoming w' i) (w' i) →
+      0 < latticeDist (wordVertex p.v w' i.val) (wordVertex p.u w n) ∧
+        latticeDist (wordVertex p.v w' i.val) (wordVertex p.u w n) ≤ 2
+
+def TerminalExceptionCountStatementV2 : Prop :=
+  ∀ p : PairSetup, p.v ∉ protectedSites p.G → ∀ n : ℕ, ∀ w : DirectionWord n,
+    StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w →
+    wordVertex p.u w n ∈ protectedSites p.G →
+    let E := normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c
+    ∀ incoming : Compass, p.v = p.c + incoming.step → ∀ m : ℕ, ∀ w' : DirectionWord m,
+      StoppedNetworkTrail E p.v (protectedSites p.G) w' → uncoveredCountV2 E p.v incoming w' ≤ 12
+
+def ShortKernelOrderingStatementV2 : Prop :=
+  ∀ n : ℕ, ∀ X : PairType, ∀ w : DirectionWord n, ClosedTrail X w → n ≤ 12 →
+    kernelOrdering w = (firstVisitList w).mergeSort (shortOrderLE w) ∧
+      (kernelOrdering w).Pairwise (fun i j => shortOrderLE w i j = true)
+
+def LongKernelOrderingStatementV2 : Prop :=
+  ∀ n : ℕ, ∀ X : PairType, ∀ w : DirectionWord n, ClosedTrail X w → 12 < n →
+    kernelOrdering w = longOrdering w ∧
+      ((firstVisitList w).filter (wordStraight kernelIncoming w)).Pairwise
+        (fun i j => i.val < j.val) ∧
+      ((firstVisitList w).filter (fun i => !wordStraight kernelIncoming w i)).Pairwise
+        (fun i j => i.val < j.val)
+
+def StoppedQuotientSumStatementV2 : Prop :=
+  ∀ m q p : ℕ, 1 ≤ m → ∀ Q : MemoryQuotient m q, Q.Correct →
+    ∀ weight : Fin p → Fin p → StepKind → Compass → Compass → Plane → ℚ,
+      (∀ φ ψ d a a' x, weight φ ψ .revisit d a x = weight φ ψ .revisit d a' x) →
+    ∀ rawStop : Fin p → DirectionWord m → Plane → Bool,
+    ∀ quotientStop : Fin p → Fin q → Plane → Bool,
+      (∀ φ w, RawWindow w → ∀ x,
+        rawStop φ w x = quotientStop φ (Q.project w) x) →
+    ∀ rawReward : Fin p × DirectionWord m × Plane → ℚ,
+    ∀ quotientReward : Fin p × Fin q × Plane → ℚ,
+      (∀ φ w, RawWindow w → ∀ x,
+        rawReward (φ, w, x) = quotientReward (φ, Q.project w, x)) →
+    ∀ R : ℕ, ∀ φ : Fin p, ∀ w : DirectionWord m, RawWindow w → ∀ x : Plane,
+      finiteOperatorSum (rawStoppedOperatorV2 weight rawStop) rawReward R (φ, w, x) =
+        finiteOperatorSum (quotientStoppedOperatorV2 Q weight quotientStop)
+          quotientReward R (φ, Q.project w, x)
+
 ```
 
-The theorem signatures below include both assemblies and the elementary proofs. Each signature is checked in the project with `autoImplicit=false`.
+### New assembly declarations
+
+All hypotheses of the following assemblies are closed Props. `TypedLeavesV2` changes only its local lower-bound field. `AssemblyLeavesV2` otherwise reuses the frozen response, logarithmic-mean, Mtheta, finite T1/T2 and renewal bundles.
 
 ```lean
-theorem response_of_leaves (h : ResponseLeaves) : Top.ResponseStatement
+theorem response_of_leavesV2 (h : ResponseLeaves) : Top.ResponseStatement
 
-theorem logMeanBounds_of_leaves (hx : LogCoefficientMonoXStatement)
+theorem logMeanBounds_of_leavesV2 (hx : LogCoefficientMonoXStatement)
     (hy : LogCoefficientMonoYStatement) (hl : LogEnclosureLowerStatement)
     (hu : LogEnclosureUpperStatement) : Top.LogMeanBoundsStatement
 
-theorem responseTypedV2_of_leaves (hR : Top.ResponseStatement)
-    (hL : Top.LogMeanBoundsStatement) (h : TypedLeaves) : ResponseTypedStatementV2
+theorem responseTyped_shared_of_leavesV2 (hR : Top.ResponseStatement)
+    (hL : Top.LogMeanBoundsStatement) (h : TypedLeavesV2) : Top.ResponseTypedStatementV2
 
-theorem responseTyped_of_v2 (h : ResponseTypedStatementV2) : Top.ResponseTypedStatement
+theorem legacyTyped_of_sharedV2 (hT : Top.ResponseTypedStatementV2)
+    (hcover : LegacyCoverComparisonStatementV2) : Top.ResponseTypedStatement
 
-theorem mTheta_of_leaves (h : MThetaLeaves) : Top.MThetaStatement
+theorem mTheta_of_leavesV2 (h : MThetaLeaves) : Top.MThetaStatement
 
-theorem boundedRenewal_of_leaves (hi : RenewalFiniteIterationStatement)
-    (hr : RenewalRemainderStatement) (hs : RenewalSourceStatement)
-    (hl : RenewalScalarLimitStatement) : BoundedRenewalStatement
-
-theorem firstTermBound_of_leaves (hl : TraceKernelLengthStatement)
-    (ht : FiniteKernelTailDominationStatement) (he : EnvelopeBoundsStatement) :
-    FirstTermBoundStatement
-
-theorem rec_of_leaves (hM : Top.MThetaStatement) (hN : BoundedRenewalStatement)
+theorem rec_of_leavesV2 (hM : Top.MThetaStatement) (hN : BoundedRenewalStatement)
     (h : RecursionLeaves) : Top.RecStatement
 
-theorem responseTyped_of_leaves (hR : Top.ResponseStatement)
-    (hL : Top.LogMeanBoundsStatement) (h : TypedLeaves) : Top.ResponseTypedStatement
+theorem kernelOrderScope_of_leavesV2 (hp : KernelOrderingStatement)
+    (hs : ShortKernelOrderingStatementV2) (hl : LongKernelOrderingStatementV2) :
+    KernelOrderScopeStatementV2
 
-theorem targets_of_leaves (h : AssemblyLeaves) : TargetsStatement
+theorem longPhaseKernel_of_partsV2 (hPhase : Top.PhaseExpansionStatementV2)
+    (hLong : LongKernelOrderingStatementV2) : LongPhaseKernelStatementV2
 
-theorem boundaryExample_v2_covered :
-    CoveredDepartureV2 (normalizeStart boundaryExampleD (0, 0) (-1, 0))
-      (0, 0) .east .east
+theorem targets_of_leavesV2 (h : AssemblyLeavesV2) : TargetsStatementV2
 
-theorem boundaryExample_not_old_covered :
-    ¬ CoveredDeparture (normalizeStart boundaryExampleD (0, 0) (-1, 0))
-      (0, 0) .east .east
+theorem responseProperty_of_inputsV2 (hInputs : Top.InputsStatementV2)
+    (hRec : Top.RecStatement) : Top.PStatement
 
-theorem witness_positive (X : PairType) : 0 < witnessReal X
-
-theorem kernelRho_pos : (0 : ℝ) < kernelRho
-
-theorem coveredDeparture_to_v2 {G : Finset Plane} {D : Network G} (hD : D.Auxiliary)
-    {y : Plane} {a o : Compass} (h : CoveredDeparture D y a o) :
-    CoveredDepartureV2 D y a o
-
-theorem logRationalRows : LogRationalRowsStatement
-
-theorem reciprocalLogMean_one : reciprocalLogMean 1 = 1
-
-theorem typedCrudeRows : TypedCrudeRowsStatement
-
-theorem envelope_le_of_pair_bounds (X : PairType) (d : ℕ) (B : ℝ) (hB : 0 ≤ B)
-    (h : ∀ p : PairData, p.X = X → (d : ℕ∞) ≤ p.depth → |p.response| ≤ B) :
-    responseEnvelope X d ≤ B
-
-theorem crudeRational : CrudeRationalStatement
-
-theorem traceCoefficient_singleton {G : Finset Plane} (D : Network G) (u : Plane) :
-    traceCoefficient D [u] = 1
+theorem mainV2_of_blueprintV2 (hInputs : Top.InputsStatementV2)
+    (h : AssemblyLeavesV2) (hCut : Top.CutMOSStatement)
+    (hMainW : Top.MainWStatement) (hKernel : Top.TorusKernelStatement) :
+    AKLT.Challenge.MainStatementV2
 
 ```
 
-## Axiom audit
+### Trap check and proof policy
 
-Fresh `lake env lean AKLT/Blueprint/Rec/Audit.lean` output follows. All 21 exported theorems use only the three allowed axioms. Leaf definitions assert no proofs and introduce no axioms.
+All existing eight-field trap checks are retained. Every new leaf has the usual separate checks for explicit premises, vacuity/degeneracy, coercions, sums, natural subtraction, divisions, instance arguments and the specific scope change. The decisive checks are:
 
-```text
-'AKLT.Blueprint.Rec.crudeRational' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.logRationalRows' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.reciprocalLogMean_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.typedCrudeRows' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.coveredDeparture_to_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.traceCoefficient_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.witness_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.kernelRho_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.envelope_le_of_pair_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.boundaryExample_not_old_covered' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.boundaryExample_v2_covered' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.response_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.logMeanBounds_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.responseTypedV2_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.responseTyped_of_v2' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.responseTyped_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.mTheta_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.boundedRenewal_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.rec_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.targets_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AKLT.Blueprint.Rec.firstTermBound_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
-```
-
-## Top/Defs problem and V2 replacement
-
-One fidelity problem was found in the reviewed interfaces. No frozen file was edited.
-
-1. `AKLT.Defs.CoveredDeparture`, [Response.lean:69](/home/ubuntu/aklt/wt/BP_REC/AKLT/Defs/Response.lean:69), compares the entire transformed template kept set to the actual kept set. `Network.LocalRules` restricts every actual kept set to `neighbours x ∩ G`. The template requires a non-tip U corner to keep all four neighbours. Thus the matcher rejects a U boundary corner that has original leg directions leaving G. The paper explicitly treats those directions as external original-leg slots (§6 lines 564–572 and 607–623); it does not require them to be kept bonds inside G. This makes the matcher too restrictive for `l:closure`, and correspondingly the original `Top.ResponseTypedStatement` too narrow to supply the claimed general closure step. The original typed statement itself need not be false.
-
-Concrete ordinary-domain example: let G={x : d(x,(-2,0))≤4}, remove c=(-1,0), and give every other site U status with full kept sets inside G. The ordered B pair u=(0,0), v=(-2,0) has this removed common centre. The depths of u,c,v from the complement are 3,4,5, respectively, so the centre and endpoints satisfy the required interior restrictions. Normalize the flag from u to c and depart east. The non-tip corner (1,1) is a protected U boundary site; (2,1) and (1,2) lie outside G. Its actual kept set has only two elements, while the covering U corner has four directions. `boundaryExample_not_old_covered` proves old-matcher rejection. `boundaryExample_v2_covered` constructs the covered pattern and proves acceptance by V2 using kernel computation. The consistency/depth explanation here is the elementary geometry of the displayed domain; the two exported counterexample theorems specifically check the matcher claims.
-
-Proposed replacements in this directory: `CoveredDepartureV2` intersects the transformed template kept set with original G before comparing it to the actual kept set. `ResponseTypedStatementV2` uses that matcher with the same coefficients and conclusions. `coveredDeparture_to_v2` proves the original matcher implies V2 for an auxiliary network, so the checked typed V2 assembly also recovers the original Top statement. All covering, exceptional-departure and one-point nodes consume V2. No kernel definition, H1 pattern class, H2 trail weight or Top theorem was changed.
-
-The manuscript repair `v ∉ S(G)` in `l:terminalcover` is explicitly retained in the second-start, exception and residual nodes. This is a required premise in the supplied paper, not an additional unresolved Top/Defs defect. No further defect was found in the five target Top statements during this review.
-
-## Trap check
-
-Every open entry in `leaves.json` has eight separate audit fields: missing premises; vacuity/degeneracy; coercions; finite versus Fintype sums; natural subtraction; division; instance retention; and a statement-specific check. These are statement reviews, not proofs of the open facts. The statement-specific results are recorded below.
-
-| Open leaf | Specific trap checked |
+| New leaf | Specific check |
 |---|---|
-| `NetworkPositiveStatement` | Check the zero-active-site product explicitly: the partition is one even when G is empty; zero-weight U atoms are not asserted to lie on the unit sphere. |
-| `ThreeFactorizationStatement` | The three neighbours are pairwise distinct by three separate inequalities. Integrate the current U law and the next D law without rescaling their masses. |
-| `TwoFactorizationStatement` | o != f is retained; the next D law has one remaining bond, whose integrated scalar is one. |
-| `RemovedMeanIntervalsStatement` | The free inequalities use degree-admissible pair insertions after removal; do not infer free positivity for arbitrary high-degree observables. |
-| `TwoMeanIntervalsStatement` | The two present neighbours are distinct, unpinned and nonadjacent after y is removed. |
-| `FreeRemovedPairStatement` | Distinct endpoints are explicit. If the departure is D its degree bound makes this two-neighbour class empty, which is legitimate rather than an extra case. |
-| `LogMeanBasicStatement` | Check x=y separately before using a log difference as denominator; the defining diagonal gives the divided-difference identity too. |
-| `LogMeanMonotoneStatement` | Both smaller inputs are strictly positive and both larger inputs inherit positivity. |
-| `CrudeLogEnclosureStatement` | The strict s<1 premise excludes the removable endpoint of the crude rational expression. |
-| `StepRatioPositiveStatement` | The post-step network must still satisfy LocalRules, including D degree<=2 and unchanged protected laws. |
-| `FreeRatioUpperStatement` | Treat D, one-, two- and three-neighbour U departures; free positivity is used only for degree-four pair insertions. |
-| `PinnedRatioUpperStatement` | The pointwise I>=1/2 estimate uses norm<=1 of positive-weight support atoms; zero-weight U zero atoms cannot invalidate a weighted inequality. |
-| `DStepTrivialStatement` | D has at most its outgoing present bond and no original pin, so deleting it destroys no other present bond. |
-| `OneStepTrivialStatement` | Present outgoing membership rules out a zero-neighbour case; card=1 leaves exactly that bond. |
-| `BetaPrimePositiveStatement` | The two I2 arguments have lower bound 22/25, so the logarithmic mean is strictly positive. |
-| `BetaPrimeUniformStatement` | Use the 22/25 endpoint, not the weaker three-neighbour endpoint. |
-| `TwoLogIdentityStatement` | Even when the two I2 values coincide, the same beta-prime definition is used and the response vanishes correctly. |
-| `AlphaPositiveStatement` | The lower estimate 25/102-25/116=175/5916 is strictly positive; a negative subtraction is not silently discarded. |
-| `AlphaUniformStatement` | Subtract a justified lower bound 25/134 for the second reciprocal mean. |
-| `BetaPositiveStatement` | Every I argument has lower bound 41/50; avoid proving positivity by an unjustified division simplification. |
-| `BetaUniformStatement` | The crude rational enclosure gives 367502/10^6, strictly below 36751/100000. |
-| `ThreeLogIdentityStatement` | Order of the log subtraction and pin choices matches the paper. The alpha term multiplies only the fg response. |
-| `ReciprocalIntegralStatement` | On the diagonal the integrand is constant 1/x; both endpoints of the affine denominator remain positive. |
-| `LogCoefficientMonoXStatement` | Use 5c>=3 and c<=1 simultaneously; monotonicity would not follow for arbitrary positive c. |
-| `LogCoefficientMonoYStatement` | The larger y inherits positivity and the closed t interval includes both endpoints. |
-| `EightTermRemainderStatement` | The geometric identity has eight terms k=0..7 and exponent 16 in the remainder; integration gives exponent 17 and divisor 17. |
-| `LogEnclosureLowerStatement` | Rat.cast preserves the exact finite sum and all positive denominators; no floating logarithm enters. |
-| `LogEnclosureUpperStatement` | The remainder denominator includes all of 17, 1-t^2 and 1-s. |
-| `TipReplacementStatement` | v may be any vector because the integrated factor is affine in v. The effective mean is realized by unit U fields even for an actual D tip. |
-| `BallSlotConvexityStatement` | b=0 needs a chosen unit direction; t=1/2 then fills a missing factor. Endpoints t=0,1 are allowed. |
-| `LocalMixtureStatement` | Both partitions use the same nonnegative weights; proportional tip normalizers are absorbed in those weights, not silently equated. |
-| `CoveredRatioStatement` | Incoming and outgoing are related to an actual present outgoing neighbour. The normalized pattern type agrees with decide(outgoing=incoming). |
-| `CoveredIntegratedLowerStatement` | J is positive when converting ratio<=1/c to I>=cJ; use I2>=c in the two-neighbour case. |
-| `BetaPrimeAnalyticStatement` | c>0 and I0>=1 supply positivity of both mean arguments even though It>0 is not separately listed. |
-| `BetaAnalyticStatement` | c>=3/5, Jt>=116/125, and J0>=1 imply all four mean arguments are positive. |
-| `AlphaAnalyticStatement` | Preserve the same Jt,J0 subtraction when lowering I, then lower the J arguments using monotonicity of G_c. |
-| `UStepMomentStatement` | k=0 has zero inserted first moment; k=3 has total degree four, exactly the maximum permitted. |
-| `DStepMomentStatement` | The explicit k<=1 premise excludes the false two-bond mass-free D identity. |
-| `TraceDynamicsStatement` | A D removal destroys only the outgoing present bond; this is the key fact making trails of initial bonds valid in the evolving trace. |
-| `TraceCoefficientStatement` | ND counts evolving D departures. Positive coefficient excludes visits to removed departure sites. |
-| `TraceTelescopeStatement` | Use positive normalizers at every prefix and include the zero-step empty product. |
-| `CoordinateStepStatement` | The target degree restriction counts original legs and is not replaced by its present degree alone. |
-| `PairExpansionStatement` | Use insert v S as the stopping set. Sum lengths through card(bonds), including the empty class at length zero. |
-| `PairTerminalFactorStatement` | A D target loses its sole arrival bond and is isolated, yielding 3/5 rather than the U value one. |
-| `PairDegreeStatement` | At a terminal self-pair the same site receives two insertions; factorDegree then has at most two remaining factors. |
-| `ProductExposureStatement` | c_i<=1 and x_i>=1 are both used. Empty products and sums give the exact zero-step statement. |
-| `OnePointPointwiseStatement` | The maximum is pointwise before summing. Each exceptional U departure costs 12/5, and the exception positions are unrestricted. |
-| `OnePointSumStatement` | The absent virtual incoming bond enforces forbidden initial reversal in H2; do not enlarge to unrestricted first-step trails. |
-| `NormalizeStartStatement` | Partition equality holds for every observable and both pin choices because only a flag to an X site changes. |
-| `KeptInvariantStatement` | At zero length an initially D start retains two kept flags. Only positive-length arrivals leave a live D with one. |
-| `RemovedClosureStatement` | The hypothesis excludes removing a protected terminal. The removed centre remains inside original G. |
-| `CoveredClosureStatement` | V2 is essential here: a U boundary corner keeps neighbours intersect G, while outside directions are original leg slots. |
-| `PairClosureStatement` | The response endpoints are distinct nonremoved present neighbours; their D present degree drops to at most one after deletion. |
-| `TerminalDefectStatement` | No ordinary-domain membership after removing the protected e is claimed. Its law and original legs survive. |
-| `SecondStartStatement` | v outside S is explicit; the paper gives a counterexample without it. The target e has lost one arrival bond. |
-| `TerminalExceptionLocationStatement` | Only 0<distance<=2 is asserted for exceptional U departures; a departure at protected e is prohibited. |
-| `UDepartureInjectiveStatement` | Two distinct indices cannot both have status U at the same evolving site. Initially D sites need no special first-visit assertion. |
-| `DiamondTwelveStatement` | Use taxicab distance and the punctured ball, not a 24-site sup-distance shell. |
-| `TerminalExceptionCountStatement` | Inject exceptional U indices into the twelve sites, using U-departure uniqueness rather than bounding all revisits. |
-| `KernelOrderingStatement` | Permutation and Nodup do not require the score comparator to satisfy a linear-order law. Zero rewards have a separate branch. |
-| `KernelPositivityStatement` | A response pair is a powersetCard 2 element, not an ordered double count; every table coefficient is positive. |
-| `ShiftGeometryStatement` | pairShift is the maximum over the pair of minimum distances to the original endpoints. n=0 has no departure index. |
-| `KernelSupportStatement` | The finite cutoff range(n+2) includes s=n+1. Strict n+1<s is the vanishing condition. |
-| `KernelRegroupStatement` | Regroup in ENNReal before any toReal conversion; theta>0 rules out vanishing zpow weights. |
-| `KernelLengthMajorantStatement` | At most n first visits each contribute total coefficient <=alpha-bar+2 beta-bar. A fixed entry is below this full reward. |
-| `MajorantFiniteStatement` | H2 has positive q. Thus q^2<theta gives q/sqrt(theta)<1 and theta>0, rather than only an absolute-value bound. |
-| `UnshiftedWitnessStatement` | Every finite H3 cutoff is needed; a finite numerical prefix alone is insufficient. n=0 is exactly zero. |
-| `ShiftPowerIncrementStatement` | s=0 has increment zero. Negative powers use positive bases b,theta; s<=n+1 justifies the common exponent bound. |
-| `TransportChoiceStatement` | The minimum defining epsilon has two strictly positive arguments; B_*>0 uses CV>=1 and q>0. |
-| `WitnessPerturbationStatement` | The same dyadic h and orderings are used at theta=1 and theta<1. The row premise is concrete and local, not another leaf Prop. |
-| `ShiftedRowsRealStatement` | Finite entries plus positive h and positive theta weights justify real coefficient summability, not merely finite real tsums. |
-| `FiniteKernelTailDominationStatement` | F is any bounded nonnegative function with its bound explicit. A real tsum is used only after H2 row finiteness. |
-| `EnvelopeBoundsStatement` | The defining set contains zero and is bounded above by two; conditional completeness of real sSup is respected. |
-| `EnvelopeOrderStatement` | Negative d uses Int.toNat=0. Antitonicity is on all integers, including the clamped half-line. |
-| `ProtectedDistanceFiniteStatement` | G.Nonempty is essential. The conclusion gives a point of protectedSites and rules out infinity for every ambient x. |
-| `PairCanonicalGeometryStatement` | The chosen equivalence preserves both ordered endpoints and the designated centre, so a single symmetry works for every trail. |
-| `TraceExposureStatement` | The permutation covers all n departures; D log responses vanish. All x_i>=1 and pinned step upper bounds are explicit. |
-| `PairEnvelopeShiftStatement` | Depth loss is integer subtraction. A negative resulting depth is handled by the envelope constant extension, not Nat subtraction. |
-| `TraceKernelLengthStatement` | The pair has d>=1. Compare true D departures to lattice revisits, and use beta-prime only when one non-outgoing live neighbour remains. |
-| `ResidualTargetBoundStatement` | Both endpoints outside original S are explicit. The target e must be an S endpoint of the first stopped trail. |
-| `SecondTermBoundStatement` | Use the first-trail sum of maxima and a second-trail bound uniform in the first trail. Source exponent is exactly 2*d. |
-| `PairResponseSplitStatement` | The second endpoint is outside S, so target and boundary terminal classes are disjoint. The same trace coefficients are used for both pin choices. |
-| `RemovalEnvelopeStatement` | Y is a subset of G minus original S, and the common removed centre lies in Y. Nonempty endpoint data force finite protected distance. |
-| `RenewalActionStatement` | Real-row summability is explicit. B is existential and the zero function is covered; positivity follows termwise. |
-| `RenewalFiniteIterationStatement` | All integer depths are covered. Negative-source value two extends the inequality without needing an unproved fixed point. |
-| `RenewalRemainderStatement` | The remainder bound is unweighted and uniform on negative d; weighted norm control of F itself is not assumed. |
-| `RenewalSourceStatement` | The source is bounded by h theta^d on negative as well as nonnegative integers. zpow is used for d<0. |
-| `RenewalScalarLimitStatement` | a,b are nonnegative and 0<rho<1; k=0 is included and the geometric partial sum is empty then. |
+| `LocalMixtureStatementV2` | Shared matching constrains only internal present bonds, not external directions still inside G or flags to X sites. The one-sided tip condition forbids losing an actual tip bond; adding one is handled by mean zero. No claim that the shared matcher implies the stricter frozen local matcher is made. |
+| `CoveredRatioStatementV2` | The actual outgoing neighbour is present by Departure; external slot fields are not assumed to be actual bonds. H1 thresholds are positive and at most one. |
+| `CoveredIntegratedLowerStatementV2` | The needed premise is the shared matcher, explicitly qualified AKLT.Defs.CoveredDepartureV2. J>0 is justified before multiplying through a ratio. The exact two- and three-neighbour distinctness premises remain. |
+| `LegacyCoverComparisonStatementV2` | This is only frozen-local-cover implies shared-cover. The converse is not stated and would impose forbidden external kept-flag constraints. Auxiliary supplies status X outside G and kept subsets inside G. |
+| `BoundaryExampleCoveredStatementV2` | No theorem about shared coverage is inferred merely by reusing the name V2: the retained Rec-local and shared Defs predicates are distinct declarations. |
+| `OnePointPointwiseStatementV2` | The maximum is taken before summing. The absent designated incoming bond is retained, and at most twelve uncovered U departures may occur at arbitrary positions. |
+| `OnePointSumStatementV2` | H2 contains CV>=1 and 0<q<1. The protected set is the original S(G); do not use distances to holes. Empty trail families and the length-zero convention remain explicit. |
+| `CoveredClosureStatementV2` | Do not conclude ordinary-domain membership for the live pre-step network. Shared matching, not Rec-local intersection matching, is the conclusion. The whole radius-two template lies inside original G at an interior departure. |
+| `PairClosureStatementV2` | The incoming/arrival neighbour is explicitly erased. It can be D with TWO remaining present bonds, so the unrestricted nonremoved-neighbour assertion is not used. The old present-neighbour specialization remains true. |
+| `TerminalExceptionLocationStatementV2` | v outside original S is required. No second departure is at protected e, no original leg is removed, and no claim is made that the whole terminal auxiliary network is ordinary. |
+| `TerminalExceptionCountStatementV2` | Count U departures rather than all visits. Exceptions can occur anywhere in the second trail; the second endpoint remains outside original S. |
+| `ShortKernelOrderingStatementV2` | The domain is the canonical u-to-v first-hit class ClosedTrail X, not cycles. Length twelve is short. No assertion equates short ordering with the phase path ordering. |
+| `LongKernelOrderingStatementV2` | Strict n>12 is required for kernel/phase order agreement. Both straight and turn subsequences retain increasing path index; type order alone is insufficient. |
+| `StoppedQuotientSumStatementV2` | BOTH raw terminal indicator and raw terminal reward must be pullbacks. A raw reward distinguishing windows in the same quotient class is excluded even at horizon zero. Memory m>=1 is retained; p=0 and horizon R=0 are allowed. |
 
-Common checks: every original pin remains a `PinAssignment G`, including a protected terminal and after interior removals. The stopped sum is finite with lengths `range (D.bonds.card+1)`; word sums are over `DirectionWord n` and are filtered by the actual trail predicate. Zero-length and empty classes are explicit. The response supremum adjoins zero, is bounded by two, and uses negative-depth constant extension via `Int.toNat`. All depth losses are integer subtraction. Distance-to-empty is infinity in the shared definitions; active starting/pair data force original protected S to be nonempty before its `toNat` distance is used. Kernel infinite sums stay ENNReal through finiteness; the real renewal kernel carries explicit Summable rows. Rational and real arithmetic are cast explicitly in the typed assembly. The same exact dyadic witness and the same fixed ordering are used before and after shifting.
+All original pins remain `PinAssignment G`, distances remain to original S(G), and auxiliary terminal networks are not coerced to ordinary domains. D starts still have at most one present bond; both endpoints are outside S in the second expansion. Exact coefficients, true revisit weight 1/5, twelve exceptions, source constant, fixed dyadic h and prescribed kernel orderings are unchanged. The stopped quotient lemma is a rational finite-sum equality and assumes no stochastic normalization or positivity of its signed weights. Weighted kernel sums still use ENNReal until the frozen finiteness/real-row bridges apply.
 
-## Reuse and implementation handoff
+No leaf proof was written in this adaptation, including the easy ordering and diagnostic facts. Every active old/new open task has its first attempt assigned to a different, cheaper model. The eleven pre-rule non-assembly proofs are retained and inventoried in [proof-policy.json](/home/ubuntu/aklt/reports/BP_REC/proof-policy.json); the ten old assemblies remain unchanged. The eleven new theorems are all in AssemblyV2.lean and are assembly implications. No new checker soundness result was introduced or proved.
 
-The supplied reuse map gives no complete donor theorem for the walk expansion, covering argument, closure, type-dependent recursion, shifted witness or bounded renewal. The manifest records that limitation instead of treating a numerical checker or approximate result as a theorem. The relevant primary APIs are Mathlib finite sums, interval integration, conditional-complete suprema, ENNReal tsums, the first and second geometric moments, and geometric convergence.
+### Retained pre-rule proof inventory
 
-`AKLT.Vendor.FiniteConditioning.condExp_on_fiber` supplies fibre identification; finite product reindexing and the independent-neighbour conditional mean bridge remain tasks here. `AKLT.Gen.Bellman.System.step_mono`, `step_add` and `horizon_eq_sum` work for arbitrary label types, so they can be instantiated directly with shift labels. The real finite-row/toReal bridge must still be proved. `AKLT.Gen.Bellman.Growth` supplies finite witness-growth patterns; it does not prove the spatial shift estimate. The Gram and Packed libraries belong to the separate certificate implementation and are not asserted as analytic response results.
+These eleven non-assembly proofs were written before the author rule and remain byte-identical. The three named leaf proofs are crudeRational, logRationalRows and typedCrudeRows; the other eight entries are retained helpers or diagnostics. No cheaper-model first attempt is claimed for these pre-rule proofs.
 
-Common moment, finite-facts and three-factor mean results are expected as proved imports when implementing leaves. There is no frame, window, classical-gap or quantum-gap premise anywhere in the Rec design. H1/H2/H3 are the exact semantic computational contracts appearing inside the target statements; no computational certificate search or proof is part of this delivery.
+`crudeRational`, `logRationalRows`, `typedCrudeRows`, `reciprocalLogMean_one`, `witness_positive`, `kernelRho_pos`, `traceCoefficient_singleton`, `coveredDeparture_to_v2`, `envelope_le_of_pair_bounds`, `boundaryExample_not_old_covered`, `boundaryExample_v2_covered`.
 
-## Validation
+### Build and axiom audit
+
+The build recompiled the relevant merged statement dependency graph and all frozen Rec modules, then checked the eight new modules. It used the pinned Lake environment, at most two Lean processes, explicit autoImplicit=false and relaxedAutoImplicit=false, and an isolated olean root under the assigned report directory. It generated no C for the 3.2 MB designated automaton literal, changed no package or frozen source, and did not build Mathlib.
 
 ```bash
-PATH="$HOME/.elan/bin:$PATH" lake build AKLT.Blueprint.Rec.All
-PATH="$HOME/.elan/bin:$PATH" lake env lean AKLT/Blueprint/Rec/Audit.lean
-PATH="$HOME/.elan/bin:$PATH" lake env lean /tmp/BP_REC_dependencies.lean
+PATH="$HOME/.elan/bin:$PATH" lake env python3 /home/ubuntu/aklt/reports/BP_REC/build_adaptation.py AKLT.Blueprint.Rec.AllV2
 ```
 
-- [build.log](/home/ubuntu/aklt/reports/BP_REC/build.log): success; elapsed 11.58 seconds.
-- [axioms.log](/home/ubuntu/aklt/reports/BP_REC/axioms.log): success; elapsed 3.36 seconds.
-- [dependencies-check.log](/home/ubuntu/aklt/reports/BP_REC/dependencies-check.log): success; elapsed 3.50 seconds.
+The new eight-module build passed in 29.19 seconds; [adaptation-build.json](/home/ubuntu/aklt/reports/BP_REC/adaptation-build.json) records commands, module timings and the parallel limit. Logs: [new build](/home/ubuntu/aklt/reports/BP_REC/adaptation-build.log), [merged-layer/frozen rebuild](/home/ubuntu/aklt/reports/BP_REC/adaptation-base-build.log).
 
-The final module build and axiom audit pass. All referenced Mathlib APIs and dependency definitions were checked by Lean; the vendored fibre lemma was checked by source location and exact namespace. A separate static review verifies the manifest covers exactly the open node set, no dependency list names another Rec leaf, every open leaf has a specific trap check, every exported theorem has an axiom entry, and all deliverable source paths are inside the assigned namespace directory. No Mathlib build/update, new axioms, unchecked proof commands, or forbidden proof placeholders are delivered. Source changes are confined to the new Rec directory; `git status --short` shows only that untracked directory.
+All definition and library names in the new manifest were also checked by Lean: [adaptation-dependencies-check.log](/home/ubuntu/aklt/reports/BP_REC/adaptation-dependencies-check.log). Constraint/manifest verification is recorded in [adaptation-validation.json](/home/ubuntu/aklt/reports/BP_REC/adaptation-validation.json).
 
-## Open work
+Every new assembly axiom report is:
 
-This is a complete blueprint, not a proof of the analytic leaves. Exactly the 88 open Lean names in `leaves.json` remain to be proved, each with its first attempt assigned to a different, cheaper model. This agent will add no leaf proofs. The three retained pre-rule rational statement proofs are unconditional. `FirstTermBoundStatement` is discharged as an intermediate implication from its finite comparison, finite-tail domination and envelope inputs. The five Top targets are assembly implications from the closed bundles; their open mathematical inputs remain explicit.
+```text
+'AKLT.Blueprint.Rec.response_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.logMeanBounds_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.responseTyped_shared_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.legacyTyped_of_sharedV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.mTheta_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.rec_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.kernelOrderScope_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.longPhaseKernel_of_partsV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.targets_of_leavesV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.responseProperty_of_inputsV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.Rec.mainV2_of_blueprintV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+The twenty-one retained exported theorem audits also passed against the merged layer. The combined [adaptation-axioms.log](/home/ubuntu/aklt/reports/BP_REC/adaptation-axioms.log) contains all thirty-two reports; only propext, Classical.choice and Quot.sound occur. [adaptation-summary.json](/home/ubuntu/aklt/reports/BP_REC/adaptation-summary.json) records the counts and old-to-new map.
+
+### Preserved prior delivery
+
+The original detailed node descriptions, proof inventory, all old theorem signatures, trap checks and earlier report are preserved in [report-pre-adaptation.md](/home/ubuntu/aklt/reports/BP_REC/report-pre-adaptation.md). Earlier claims about the proposed local V2 refer to the frozen Rec-local specialization and are superseded for the full published scope by the shared matcher described above. No legacy declaration has been retargeted by changing its body.
 
 ## ORCH-SUMMARY
-Delivered: 13 Lean modules under AKLT/Blueprint/Rec, 92 nodes, 88 open tasks, exact rational proofs, 10 assembly theorems, 21-theorem axiom audit.
-Delivered: report.md, leaves.json, nodes.json, proof-policy.json, build.log, axioms.log, dependencies-check.log, reproducible report generators.
-Author rule: every future leaf proof first goes to a different, cheaper model; this agent retains blueprint and assembly work.
-Retained pre-rule proofs: three named leaf proofs and eight helpers/diagnostics, all inventoried in proof-policy.json; no new leaf proof was added.
-All five requested Top statements follow from closed leaves; corrected typed V2 is exported too.
-Build and axiom audit pass; only propext, Classical.choice and Quot.sound occur.
-Problem to pass to fidelity owner: Defs.CoveredDeparture must intersect transformed kept flags with G at boundary corners.
-V2 repair, old-to-V2 bridge, and two kernel-checked matcher examples are in this directory; frozen files were untouched.
-Retain v outside original S for the second trace; all removals keep original legs and all distances use original S.
-Open exact names below are in namespace AKLT.Blueprint.Rec (grouped by source module):
+Adaptation complete: 8 new files; all 13 existing Rec Lean files preserved byte-for-byte.
+Leaves: 79 old open kept, 9 old open superseded, 14 new open; active queue 93; no new leaf proofs.
+All 11 new assemblies and 21 retained theorem audits pass with only the three allowed axioms.
+Shared Top.ResponseTypedStatementV2 is the changed target; four targets and main's required RecStatement retain their contracts.
+Non-arrival pairs, exact within-type order, n>12 phase-to-kernel conversion and both terminal-data pullbacks are explicit.
+All active leaf proofs first go to a different, cheaper model; all names below are in AKLT.Blueprint.Rec.
+Kept open names:
 NodesResponse: NetworkPositiveStatement, ThreeFactorizationStatement, TwoFactorizationStatement, RemovedMeanIntervalsStatement, TwoMeanIntervalsStatement, FreeRemovedPairStatement, LogMeanBasicStatement, LogMeanMonotoneStatement, CrudeLogEnclosureStatement, StepRatioPositiveStatement, FreeRatioUpperStatement, PinnedRatioUpperStatement, DStepTrivialStatement, OneStepTrivialStatement, BetaPrimePositiveStatement, BetaPrimeUniformStatement, TwoLogIdentityStatement, AlphaPositiveStatement, AlphaUniformStatement, BetaPositiveStatement, BetaUniformStatement, ThreeLogIdentityStatement
 NodesLogMean: ReciprocalIntegralStatement, LogCoefficientMonoXStatement, LogCoefficientMonoYStatement, EightTermRemainderStatement, LogEnclosureLowerStatement, LogEnclosureUpperStatement
-NodesLocal: TipReplacementStatement, BallSlotConvexityStatement, LocalMixtureStatement, CoveredRatioStatement, CoveredIntegratedLowerStatement, BetaPrimeAnalyticStatement, BetaAnalyticStatement, AlphaAnalyticStatement
-NodesWalk: UStepMomentStatement, DStepMomentStatement, TraceDynamicsStatement, TraceCoefficientStatement, TraceTelescopeStatement, CoordinateStepStatement, PairExpansionStatement, PairTerminalFactorStatement, PairDegreeStatement, ProductExposureStatement, OnePointPointwiseStatement, OnePointSumStatement
-NodesClosure: NormalizeStartStatement, KeptInvariantStatement, RemovedClosureStatement, CoveredClosureStatement, PairClosureStatement, TerminalDefectStatement, SecondStartStatement, TerminalExceptionLocationStatement, UDepartureInjectiveStatement, DiamondTwelveStatement, TerminalExceptionCountStatement
+NodesLocal: TipReplacementStatement, BallSlotConvexityStatement, BetaPrimeAnalyticStatement, BetaAnalyticStatement, AlphaAnalyticStatement
+NodesWalk: UStepMomentStatement, DStepMomentStatement, TraceDynamicsStatement, TraceCoefficientStatement, TraceTelescopeStatement, CoordinateStepStatement, PairExpansionStatement, PairTerminalFactorStatement, PairDegreeStatement, ProductExposureStatement
+NodesClosure: NormalizeStartStatement, KeptInvariantStatement, RemovedClosureStatement, TerminalDefectStatement, SecondStartStatement, UDepartureInjectiveStatement, DiamondTwelveStatement
 NodesKernel: KernelOrderingStatement, KernelPositivityStatement, ShiftGeometryStatement, KernelSupportStatement, KernelRegroupStatement, KernelLengthMajorantStatement, MajorantFiniteStatement, UnshiftedWitnessStatement, ShiftPowerIncrementStatement, TransportChoiceStatement, WitnessPerturbationStatement, ShiftedRowsRealStatement, FiniteKernelTailDominationStatement
 NodesRecursion: EnvelopeBoundsStatement, EnvelopeOrderStatement, ProtectedDistanceFiniteStatement, PairCanonicalGeometryStatement, TraceExposureStatement, PairEnvelopeShiftStatement, TraceKernelLengthStatement, ResidualTargetBoundStatement, SecondTermBoundStatement, PairResponseSplitStatement, RemovalEnvelopeStatement
 NodesRenewal: RenewalActionStatement, RenewalFiniteIterationStatement, RenewalRemainderStatement, RenewalSourceStatement, RenewalScalarLimitStatement
-No analytic leaf or numerical input is claimed proved except the three listed rational leaf statements.
-The orchestrator should allocate the closed tasks, adopt or coordinate the matcher V2, and provide proved common moment/finite-law imports.
-No remaining design blocker; proof-size estimates should be revisited only if implementation exposes an unanticipated library bridge.
+New open names:
+NodesV2Local: LocalMixtureStatementV2, CoveredRatioStatementV2, CoveredIntegratedLowerStatementV2, LegacyCoverComparisonStatementV2, BoundaryExampleCoveredStatementV2
+NodesV2Walk: OnePointPointwiseStatementV2, OnePointSumStatementV2
+NodesV2Closure: CoveredClosureStatementV2, PairClosureStatementV2, TerminalExceptionLocationStatementV2, TerminalExceptionCountStatementV2
+NodesV2Ordering: ShortKernelOrderingStatementV2, LongKernelOrderingStatementV2
+NodesV2Handoff: StoppedQuotientSumStatementV2
+mainV2_of_blueprintV2 keeps InputsStatementV2, CutMOS, MainW and uniqueness as closed external inputs; H1/H3 finite checks remain open.
+StoppedQuotientSumStatementV2 is an explicit open BP_H3M handoff. Superseded exact names and replacements are in the manifest/report table.

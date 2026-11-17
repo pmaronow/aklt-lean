@@ -1,0 +1,44 @@
+theorem CertData.Close.h1 : AKLT.Blueprint.Top.H1Statement :=
+AKLT.Blueprint.H1.h1_of_theorem (AKLT.Blueprint.H1.h1Theorem_of_certificate H1.Close.certificate H1.Close.finiteData)
+theorem CertData.Close.h2 : AKLT.Blueprint.Top.H2Statement :=
+AKLT.Cert.H2.h2
+theorem CertData.Close.h3 : AKLT.Blueprint.Top.H3Statement :=
+AKLT.Blueprint.H3.h3_of_leaves_and_checksV2
+  ⟨AKLT.W.H3M001.main,
+    ⟨AKLT.W.H3M002.main,
+      ⟨AKLT.W.H3M003.main,
+        ⟨AKLT.W.H3M004.main,
+          ⟨AKLT.W.H3M005.main,
+            ⟨AKLT.W.H3M006.main,
+              ⟨AKLT.W.H3M007.main,
+                ⟨AKLT.W.H3M008.main,
+                  ⟨AKLT.W.H3M009.main,
+                    ⟨AKLT.W.H3M010.main,
+                      ⟨AKLT.W.H3M011.main,
+                        ⟨AKLT.W.H3M012.main,
+                          ⟨AKLT.W.H3M013.main,
+                            ⟨AKLT.W.H3M014.main,
+                              ⟨AKLT.W.H3M015.main,
+                                ⟨AKLT.W.H3M016.main,
+                                  ⟨AKLT.W.H3M017.main,
+                                    ⟨AKLT.W.H3M018.main,
+                                      ⟨AKLT.W.H3M019.main,
+                                        ⟨AKLT.W.H3M020.main,
+                                          ⟨AKLT.W.H3M021.main,
+                                            ⟨AKLT.W.H3M022.main,
+                                              ⟨AKLT.W.H3M023.main,
+                                                ⟨AKLT.W.H3M024.main,
+                                                  ⟨AKLT.W.H3M025.main,
+                                                    ⟨AKLT.W.H3M026.main,
+                                                      ⟨AKLT.W.H3M027.main,
+                                                        ⟨AKLT.W.H3M028.main,
+                                                          ⟨AKLT.W.H3M029.main,
+                                                            AKLT.W.H3M030.main⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩
+  ⟨AKLT.W.H3M031.main, ⟨AKLT.W.H3M032.main, ⟨AKLT.W.H3M033.main, ⟨AKLT.W.H3M034.main, AKLT.W.H3M035.main⟩⟩⟩⟩
+  H3.Close.automaton10 H3.Close.stationaryCheck
+theorem CertData.Close.main : AKLT.Challenge.MainStatementV2 :=
+AKLT.Final.main_of_certificates H1.Close.finiteData H1.Close.certificate H3.Close.automaton10 H3.Close.stationaryCheck
+'CertData.Close.h1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertData.Close.h2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertData.Close.h3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertData.Close.main' depends on axioms: [propext, Classical.choice, Quot.sound]

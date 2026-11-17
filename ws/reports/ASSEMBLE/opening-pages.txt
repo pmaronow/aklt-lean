@@ -1,0 +1,102 @@
+  THE SPECTRAL GAP OF THE SPIN-2 AKLT MODEL ON THE SQUARE
+                          LATTICE
+
+       Abstract. We prove that the spin-2 AKLT Hamiltonian on the square-lattice torus has a unique
+       ground state for every pair of integers L, N ≥ 3 and a spectral gap bounded below by one positive
+       constant for all integers L, N ≥ L0 , for some fixed L0 , with either parity allowed for each period.
+       The proof is computer-assisted. Its computational inputs are local operator inequalities, an open-
+       trail growth bound, and a type-dependent positive-vector bound for a response kernel. These
+       inputs are checked using exact matrix positivity certificates, a finite-memory test, and stationary
+       Bellman inequalities with finite prefix sums. All computations are checked in exact arithmetic.
+       Three finite coherent-state frames compare the quantum gap with the gap of a finite-state heat-
+       bath dynamics. A sign change on each lifted square permits arbitrary torus parities. A direct
+       periodic block argument reduces the heat-bath gap to window estimates, which follow from a
+       separating-cut factorization, a walk expansion, and a contracting response recursion. Uniqueness
+       follows independently from polynomial divisibility.
+
+
+
+
+                                                  Contents
+  1. The result and conventions                                                                                 1
+  2. Finite moment algebra and the response input                                                               3
+  3. The quantum model, uniqueness, and positive frames                                                         7
+  4. Physical windows and the periodic gap                                                                     16
+  5. Physical windows from a separating cut                                                                    22
+  6. Walk expansion without scalar trace masses                                                                30
+  7. Pair closure, a positive-vector witness, and renewal                                                      38
+  8. Exact computational inputs                                                                                50
+  Appendix A. Finite probability and operator tools                                                            53
+  Appendix B. Star-connected boundaries and connected thickening                                               57
+  Appendix C. Finite trail and stationary Bellman certificates                                                 59
+  Appendix D. Operator certificates for the local inequalities                                                 73
+  References                                                                                                   82
+
+
+
+
+                                   1. The result and conventions
+   We study the spin-2 square-lattice AKLT model of Affleck, Kennedy, Lieb, and Tasaki [1, 2]. We
+prove uniqueness of its ground state on every torus with integer periods L, N ≥ 3 and a uniform
+positive spectral gap for all integers L, N ≥ L0 , with no parity restriction, for one fixed threshold
+L0 . The computational inputs are local operator inequalities, an open-trail growth bound, and
+a type-dependent positive-vector bound obtained from stationary Bellman inequalities and finite
+prefix sums. All computations are checked in exact arithmetic. The polynomial realization of the
+spin space, including its Hilbert space normalization, is fixed in Definition 3.1.
+
+Definition 1.1. For integers L, N ≥ 3, let Λ = ΛL,N = ZN        L × ZN with its simple, unoriented
+nearest-neighbour edge set EL,N . The Hilbert space is HΛ = x∈Λ V4 . Each site carries the spin-2
+space V4 , and P{x,y} is the orthogonal projection onto total spin 4 in V4 ⊗ V4 . Fix one orientation
+                                                        1
+2             THE SPECTRAL GAP OF THE SPIN-2 AKLT MODEL ON THE SQUARE LATTICE
+
+
+of each edge and set
+                                                         Y                        X
+               qxy = zx,1 zy,2 − zx,2 zy,1 ,   BL,N =            qe ,   HL,N =            Pe .
+                                                        e∈EL,N                   e∈EL,N
+
+Every edge is counted once. The spectral gap of HL,N means its smallest positive eigenvalue.
+   Here an edge joins two distinct sites whose difference is one of (1, 0), (−1, 0), (0, 1), (0, −1), with
+coordinates reduced modulo the periods. The edge set is a set of unordered pairs, so that an edge
+is included only once even if it has more than one description. The notation qe uses the chosen
+orientation; Pe does not. The polynomial BL,N is the valence-bond state.
+Theorem 1.2. For every L, N ≥ 3, BL,N ̸= 0 and ker HL,N = CBL,N . There exist c > 0 and an
+integer L0 ≥ 3 such that, for all integers L, N ≥ L0 , every nonzero eigenvalue of HL,N is at least
+c.
+Proof. Proposition 3.4 proves the nonvanishing and kernel assertions for every L, N ≥ 3. For the
+uniform gap, Theorem 8.2 supplies (H1), (H2) with
+                                                         1119948287353
+                            CV = 10 ≥ 1,       0<q=                    < 1,
+                                                         1120437614225
+and (H3h ) for the prescribed type-dependent kernel and fixed orderings. The common thresholds
+are cs = 961/1000 and ct = 187/200. These are exactly the hypotheses of Theorem 7.13, which
+gives finite A ≥ 2 and 0 < θ < 1 such that P(A, θ) holds. Theorem 5.7 then gives W(64, p0 , M⋆ )
+for the plane frame family, with one p0 ∈ (0, 1] and one integer M⋆ ≥ 1 valid for every proper
+plane three-colouring and every translate. This is the hypothesis of the periodic assembly theorem,
+Theorem 4.7, proved in Section 4, for the plane frame family of Definition 3.11. Its direct quantum
+conclusion supplies c > 0 and an integer L0 ≥ 3 with the asserted spectral bound for all integers
+L, N ≥ L0 .                                                                                       □
+
+1.1. Structure of the proof. The uniqueness assertion has a separate algebraic proof. The
+kernel of each edge projection consists of multiples of its edge determinant. Unique factorization
+combines these divisibilities, and degree four at every torus site leaves a scalar quotient. This
+argument applies also when either period is three.
+   For the gap, finite fourth moments in Section 2 give tight frames of coherent states. In Section 3
+we assign three explicit rotated icosahedral frames according to a proper torus colouring. Their
+separation makes the squared modulus of the frame image of BL,N strictly positive. The resulting
+antiferromagnetic probability law on the torus has a single-site heat bath whose gap bounds the
+quantum gap from below. A conditional physical square lifts to the plane, where a coordinatewise
+sign change converts its law to the positive-interaction plane specification. This sign change is
+defined on the lift.
+   Section 4 uses a uniform estimate for window marginals to choose one square scale. A stopped
+coupling bounds the Hamming cost of changing one exterior letter. Counting all periodic translates
+of that square gives a gap for block updates, and comparison of conditional block and site Dirichlet
+forms gives the torus site gap. Theorem 4.7 combines this with the quantum comparison of Theo-
+rem 3.13 to obtain the uniform quantum gap. Section 5 proves the required window estimate from
+the pair-response bound P(A, θ), uniformly over plane colourings and placements. Sections 6–8
+prove that response bound using a walk expansion, a contracting positive-vector recursion, and the
+exact computational inputs. Thus the gap implication is
+                           exact computational inputs =⇒ P =⇒ W
+                       =⇒ periodic block gap =⇒ site gap =⇒ quantum gap.
+

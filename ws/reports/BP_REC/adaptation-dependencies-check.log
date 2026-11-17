@@ -1,0 +1,102 @@
+AKLT.Blueprint.Rec.CoveredDepartureV2 {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y : AKLT.Defs.Plane)
+  (incoming outgoing : AKLT.Defs.Compass) : Prop
+AKLT.Blueprint.Rec.Departure : Type
+AKLT.Blueprint.Rec.PairSetup : Type
+AKLT.Blueprint.Rec.boundaryExampleD : AKLT.Defs.Network AKLT.Blueprint.Rec.boundaryExampleG
+AKLT.Blueprint.Rec.boundaryExamplePattern : AKLT.Defs.PatternData
+AKLT.Blueprint.Rec.nonarrivalNeighboursV2 {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y : AKLT.Defs.Plane)
+  (incoming : AKLT.Defs.Compass) : Finset AKLT.Defs.Plane
+AKLT.Blueprint.Rec.normalizeStart {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (u c : AKLT.Defs.Plane) :
+  AKLT.Defs.Network G
+AKLT.Blueprint.Rec.onePointConstant (CV q : ℝ) : ℝ
+AKLT.Blueprint.Rec.onePointSum {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (u : AKLT.Defs.Plane) : ℝ
+AKLT.Blueprint.Rec.prefixNetwork {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (w : AKLT.Defs.DirectionWord n) (j : ℕ) : AKLT.Defs.Network G
+AKLT.Blueprint.Rec.quotientStoppedOperatorV2 {m q p : ℕ} (Q : AKLT.Defs.MemoryQuotient m q)
+  (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ)
+  (stop : Fin p → Fin q → AKLT.Defs.Plane → Bool) (F : Fin p × Fin q × AKLT.Defs.Plane → ℚ)
+  (s : Fin p × Fin q × AKLT.Defs.Plane) : ℚ
+AKLT.Blueprint.Rec.rawStoppedOperatorV2 {m p : ℕ}
+  (weight : Fin p → Fin p → AKLT.Defs.StepKind → AKLT.Defs.Compass → AKLT.Defs.Compass → AKLT.Defs.Plane → ℚ)
+  (stop : Fin p → AKLT.Defs.DirectionWord m → AKLT.Defs.Plane → Bool)
+  (F : Fin p × AKLT.Defs.DirectionWord m × AKLT.Defs.Plane → ℚ)
+  (s : Fin p × AKLT.Defs.DirectionWord m × AKLT.Defs.Plane) : ℚ
+AKLT.Blueprint.Rec.responseI₂ {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y o f : AKLT.Defs.Plane) : ℝ
+AKLT.Blueprint.Rec.uncoveredCountV2 {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) : ℕ
+AKLT.Defs.ClosedTrail {n : ℕ} (X : AKLT.Defs.PairType) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.CoveredDepartureV2 {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y : AKLT.Defs.Plane)
+  (incoming outgoing : AKLT.Defs.Compass) : Prop
+AKLT.Defs.LocalPatternBound (cs ct : ℝ) : Prop
+AKLT.Defs.MemoryQuotient.Correct {m q : ℕ} (Q : AKLT.Defs.MemoryQuotient m q) : Prop
+AKLT.Defs.Network.Present {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (x y : AKLT.Defs.Plane) : Prop
+AKLT.Defs.Network.ResponsePair {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (X : AKLT.Defs.PairType)
+  (u v c : AKLT.Defs.Plane) : Prop
+AKLT.Defs.OpenTrailBound (CV q : ℝ) : Prop
+AKLT.Defs.PatternData.InternalPresent (π : AKLT.Defs.PatternData) (z t : AKLT.Defs.Plane) : Prop
+AKLT.Defs.RawWindow {m : ℕ} (w : AKLT.Defs.DirectionWord m) : Prop
+AKLT.Defs.StoppedNetworkTrail {G : Finset AKLT.Defs.Plane} {n : ℕ} (D : AKLT.Defs.Network G) (u : AKLT.Defs.Plane)
+  (T : Finset AKLT.Defs.Plane) (w : AKLT.Defs.DirectionWord n) : Prop
+AKLT.Defs.finiteOperatorSum.{u_1} {α : Type u_1} (T : (α → ℚ) → α → ℚ) (g : α → ℚ) (R : ℕ) (s : α) : ℚ
+AKLT.Defs.firstVisitList {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.kernelOrdering {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.latticeDist (x y : AKLT.Defs.Plane) : ℕ
+AKLT.Defs.longOrdering {n : ℕ} (w : AKLT.Defs.DirectionWord n) : List (Fin n)
+AKLT.Defs.normalizeRotation (a : AKLT.Defs.Compass) (z : AKLT.Defs.Plane) : AKLT.Defs.Plane
+AKLT.Defs.patternCurrent (π : AKLT.Defs.PatternData) (m : Fin 20 → AKLT.Defs.UnitVector) : ℝ
+AKLT.Defs.patternNext (π : AKLT.Defs.PatternData) (m : Fin 20 → AKLT.Defs.UnitVector) : ℝ
+AKLT.Defs.removeSite {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (y : AKLT.Defs.Plane) : AKLT.Defs.Network G
+AKLT.Defs.responseI {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y o f g : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.responseJ {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y f g : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.responsePairType (p : Finset AKLT.Defs.Plane) : AKLT.Defs.PairType
+AKLT.Defs.shortOrderLE {n : ℕ} (w : AKLT.Defs.DirectionWord n) (i j : Fin n) : Bool
+AKLT.Defs.square (a : AKLT.Defs.Plane) (u : ℕ) : Finset AKLT.Defs.Plane
+AKLT.Defs.stepRatio {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (y o : AKLT.Defs.Plane) : ℝ
+AKLT.Defs.traceCoefficient {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) : List AKLT.Defs.Plane → ℚ
+AKLT.Defs.traceRatio {G : Finset AKLT.Defs.Plane} (D : AKLT.Defs.Network G) (τ : AKLT.Defs.PinAssignment G)
+  (pinned : Bool) (w : List AKLT.Defs.Plane) : ℝ
+AKLT.Defs.trailWeight {n : ℕ} (u : AKLT.Defs.Plane) (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) : ℚ
+AKLT.Defs.wordStraight {n : ℕ} (incoming : AKLT.Defs.Compass) (w : AKLT.Defs.DirectionWord n) (i : Fin n) : Bool
+Finset.card_image_iff.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Finset α} {f : α → β} [DecidableEq β] :
+  (Finset.image f s).card = s.card ↔ Set.InjOn f ↑s
+Finset.card_le_card.{u_1} {α : Type u_1} {s t : Finset α} : s ⊆ t → s.card ≤ t.card
+Finset.mem_erase.{u_1} {α : Type u_1} [DecidableEq α] {a b : α} {s : Finset α} : a ∈ s.erase b ↔ a ≠ b ∧ a ∈ s
+Finset.mem_image.{u_1, u_2} {α : Type u_1} {β : Type u_2} [DecidableEq β] {f : α → β} {s : Finset α} {b : β} :
+  b ∈ Finset.image f s ↔ ∃ a ∈ s, f a = b
+Finset.mem_inter.{u_1} {α : Type u_1} [DecidableEq α] {a : α} {s₁ s₂ : Finset α} : a ∈ s₁ ∩ s₂ ↔ a ∈ s₁ ∧ a ∈ s₂
+Finset.mem_sdiff.{u_1} {α : Type u_1} [DecidableEq α] {s t : Finset α} {a : α} : a ∈ s \ t ↔ a ∈ s ∧ a ∉ t
+Finset.mul_sum.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+Finset.prod_le_prod.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [CommMonoid N] [Preorder N] {f g : ι → N} {s : Finset ι}
+  [MulLeftMono N] (h : ∀ i ∈ s, f i ≤ g i) : ∏ i ∈ s, f i ≤ ∏ i ∈ s, g i
+Finset.prod_mul_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [CommMonoid M] {f g : ι → M} :
+  ∏ x ∈ s, f x * g x = (∏ x ∈ s, f x) * ∏ x ∈ s, g x
+Finset.sum_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f g : ι → M}
+  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g
+Finset.sum_le_sum.{u_1, u_5} {ι : Type u_1} {N : Type u_5} [AddCommMonoid N] [Preorder N] {f g : ι → N} {s : Finset ι}
+  [AddLeftMono N] (h : ∀ i ∈ s, f i ≤ g i) : ∑ i ∈ s, f i ≤ ∑ i ∈ s, g i
+Finset.sum_mul.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)
+  (a : R) : (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+List.mergeSort_perm.{u_1} {α : Type u_1} (l : List α) (le : α → α → Bool) : (l.mergeSort le).Perm l
+List.pairwise_filter.{u_1} {α : Type u_1} {R : α → α → Prop} {p : α → Bool} {l : List α} :
+  List.Pairwise R (List.filter p l) ↔ List.Pairwise (fun x y => p x = true → p y = true → R x y) l
+List.pairwise_lt_finRange (n : ℕ) : List.Pairwise (fun x1 x2 => x1 < x2) (List.finRange n)
+List.pairwise_mergeSort.{u_1} {α : Type u_1} {le : α → α → Bool}
+  (trans : ∀ (a b c : α), le a b = true → le b c = true → le a c = true)
+  (total : ∀ (a b : α), (le a b || le b a) = true) (l : List α) :
+  List.Pairwise (fun a b => le a b = true) (l.mergeSort le)
+div_le_iff₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀} (hc : 0 < c) :
+  b / c ≤ a ↔ b ≤ a * c
+hasSum_geometric_of_lt_one {r : ℝ} (h₁ : 0 ≤ r) (h₂ : r < 1) : HasSum (fun n => r ^ n) (1 - r)⁻¹
+le_div_iff₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀} (hc : 0 < c) :
+  a ≤ b / c ↔ a * c ≤ b
+max_le.{u_1} {α : Type u_1} [LinearOrder α] {a b c : α} (h₁ : a ≤ c) (h₂ : b ≤ c) : max a b ≤ c
+mul_le_mul_of_nonneg_left.{u_1} {α : Type u_1} [Mul α] [Zero α] [Preorder α] {a b c : α} [PosMulMono α] (hbc : b ≤ c)
+  (ha : 0 ≤ a) : a * b ≤ a * c
+
+elapsed_seconds=3.25
