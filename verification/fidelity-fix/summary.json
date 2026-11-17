@@ -1,0 +1,283 @@
+{
+  "regression_export_byte_identical_to_rename": true,
+  "status": "PASS",
+  "verified_source_commit": "24c9476bce8985f17ac1dea113a283eef3f7d6dc",
+  "baseline_commit": "d1320320e7cbf2d216d0afc87be92aabb206d690",
+  "scope": "Fidelity fixes, complete sanity proofs, physical statement identity, and two-input regression. The unconditional full Solution replay still awaits regenerated certificates.",
+  "lean_sources": 1117,
+  "challenge_lines": 159,
+  "challenge_bytes": 7973,
+  "protected_module_count": 65,
+  "protected_hashes_unchanged": true,
+  "physical_statement_comparator_lean_nanoda": true,
+  "negative_spin_control_rejected": true,
+  "byte_exact_generation_check": true,
+  "generation_negative_control": {
+    "clean_output_accepted": true,
+    "one_extra_byte_rejected": true,
+    "stale_output_not_modified": true,
+    "diagnostic": "Generated statement is stale: Challenge.lean"
+  },
+  "strict_audit_constant_entries": 21899,
+  "strict_audit_explicit_exports": 18,
+  "new_theorem_axiom_prints": 17,
+  "unproved_sanity_propositions": [],
+  "rank_attempt": {
+    "started_unix": 1794894424.6608806,
+    "rational_monomial_basis_multiplicities": {
+      "0": 1,
+      "2": 3,
+      "6": 5,
+      "12": 7,
+      "20": 9
+    },
+    "note": "Exact finite subproblem only; not yet transferred to the normalized full torus Casimir.",
+    "completed_unix": 1794895303.903922,
+    "elapsed_attempt_s": 879.2430415153503,
+    "status": "full-bond-rank-and-four-by-four-proved",
+    "shipped_proof": "AKLT/Challenge/BondRank.lean",
+    "proof_strategy": "Existing proved polynomial edge factorization, general multigrade coordinates, dimension count, and rank-nullity; no finite spectral premise.",
+    "finite_probe": "Separate exact rational Casimir multiplicity 9, not needed by the shipped proof."
+  },
+  "proof_body_changes_to_existing_declarations": [],
+  "deferred_under_freeze": [
+    "AKLT/Challenge/Main.lean: stale comments and unused superseded MainStatement",
+    "AKLT/Blueprint/Top/Response.lean: modified kernel comment",
+    "AKLT/Defs/Kernel.lean, Stationary.lean, Response.lean, Operator.lean, OperatorContracts.lean: reader remarks recorded in docs/STATEMENT-NOTES.md"
+  ],
+  "metadata_findings": [
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ],
+  "measurements": [
+    {
+      "label": "Affected sources: fresh objects (first pass)",
+      "wall_s": 247.33271689200774,
+      "cpu_s": 488.28709399999997,
+      "peak_tree_rss_gib": 26.514854431152344,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/affected-clean-rebuild/result.json"
+    },
+    {
+      "label": "Completed sanity proofs: fresh affected objects",
+      "wall_s": 125.90803732699715,
+      "cpu_s": 346.511476,
+      "peak_tree_rss_gib": 18.050758361816406,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/final-affected-clean-build/result.json"
+    },
+    {
+      "label": "Final Challenge: fresh objects",
+      "wall_s": 13.459301911992952,
+      "cpu_s": 17.582973,
+      "peak_tree_rss_gib": 3.768810272216797,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/final-challenge-clean-build/result.json"
+    },
+    {
+      "label": "Strict hand-written Audit",
+      "wall_s": 6.2892008570051985,
+      "cpu_s": 6.23955,
+      "peak_tree_rss_gib": 4.754238128662109,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/final-strict-handwritten-audit/result.json"
+    },
+    {
+      "label": "Explicit Audit transcript guard",
+      "wall_s": 0.2046342569956323,
+      "cpu_s": 0.10452899999999998,
+      "peak_tree_rss_gib": 0.012264251708984375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/final-axiom-transcript/result.json"
+    },
+    {
+      "label": "All Lean headers",
+      "wall_s": 2.6524486299895216,
+      "cpu_s": 2.566029,
+      "peak_tree_rss_gib": 1.7112579345703125,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/final-official-headers/result.json"
+    },
+    {
+      "label": "All 17 new theorem signatures and axioms",
+      "wall_s": 5.463082325994037,
+      "cpu_s": 5.366025,
+      "peak_tree_rss_gib": 4.382781982421875,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "stages/sanity-export-signatures/result.json"
+    },
+    {
+      "label": "Physical statement: build-FidelityStatementChallenge",
+      "wall_s": 5.862289975004387,
+      "cpu_s": 5.6852100000000005,
+      "peak_tree_rss_gib": 3.620502471923828,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "release-statement/stages/build-FidelityStatementChallenge/result.json"
+    },
+    {
+      "label": "Physical statement: build-FidelityStatementSolution",
+      "wall_s": 4.75237604600261,
+      "cpu_s": 4.689369,
+      "peak_tree_rss_gib": 3.607421875,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "release-statement/stages/build-FidelityStatementSolution/result.json"
+    },
+    {
+      "label": "Physical statement: export-challenge",
+      "wall_s": 15.058251786991605,
+      "cpu_s": 14.968703,
+      "peak_tree_rss_gib": 6.358848571777344,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "release-statement/stages/export-challenge/result.json"
+    },
+    {
+      "label": "Physical statement: export-solution",
+      "wall_s": 14.927353669001604,
+      "cpu_s": 14.885409999999998,
+      "peak_tree_rss_gib": 6.35882568359375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "release-statement/stages/export-solution/result.json"
+    },
+    {
+      "label": "Physical statement: statement-comparator",
+      "wall_s": 60.34785367798759,
+      "cpu_s": 73.91,
+      "peak_tree_rss_gib": 0.5878982543945312,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "release-statement/stages/statement-comparator/result.json"
+    },
+    {
+      "label": "Negative spin-matrix control",
+      "wall_s": 17.45769135300361,
+      "cpu_s": 17.31,
+      "peak_tree_rss_gib": 0.4339942932128906,
+      "exit_code": 1,
+      "outcome": "EXPECTED REJECTION",
+      "receipt": "negative-spin/stages/statement-comparator/result.json"
+    },
+    {
+      "label": "Two-input: statement-generation-check",
+      "wall_s": 0.10381196001253556,
+      "cpu_s": 0.05732999999999999,
+      "peak_tree_rss_gib": 0.00054168701171875,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/statement-generation-check/result.json"
+    },
+    {
+      "label": "Two-input: source-configuration",
+      "wall_s": 5.437150654994184,
+      "cpu_s": 5.320289,
+      "peak_tree_rss_gib": 0.0658721923828125,
+      "exit_code": 1,
+      "outcome": "AUTHOR TODOs ONLY",
+      "receipt": "regression-final/stages/source-configuration/result.json"
+    },
+    {
+      "label": "Two-input: lean-header-parser",
+      "wall_s": 0.20644700799311977,
+      "cpu_s": 0.121277,
+      "peak_tree_rss_gib": 0.09114456176757812,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/lean-header-parser/result.json"
+    },
+    {
+      "label": "Two-input: explicit-targets",
+      "wall_s": 8.995652487006737,
+      "cpu_s": 12.531447,
+      "peak_tree_rss_gib": 0.9413375854492188,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/explicit-targets/result.json"
+    },
+    {
+      "label": "Two-input: strict-audit",
+      "wall_s": 5.56659966299776,
+      "cpu_s": 5.486701,
+      "peak_tree_rss_gib": 4.502372741699219,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/strict-audit/result.json"
+    },
+    {
+      "label": "Two-input: axiom-transcript",
+      "wall_s": 0.10428847800358199,
+      "cpu_s": 0.047619,
+      "peak_tree_rss_gib": 0.00042724609375,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/axiom-transcript/result.json"
+    },
+    {
+      "label": "Two-input: protected-challenge-build",
+      "wall_s": 7.5306272549933055,
+      "cpu_s": 7.37,
+      "peak_tree_rss_gib": 3.662425994873047,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/protected-challenge-build/result.json"
+    },
+    {
+      "label": "Two-input: challenge-export",
+      "wall_s": 15.13263385699247,
+      "cpu_s": 14.97,
+      "peak_tree_rss_gib": 6.365520477294922,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/challenge-export/result.json"
+    },
+    {
+      "label": "Two-input: solution-export",
+      "wall_s": 60.87411790699116,
+      "cpu_s": 60.67,
+      "peak_tree_rss_gib": 7.080219268798828,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/solution-export/result.json"
+    },
+    {
+      "label": "Two-input: protected-comparator",
+      "wall_s": 1036.7085913449991,
+      "cpu_s": 1112.66,
+      "peak_tree_rss_gib": 23.226619720458984,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/protected-comparator/result.json"
+    },
+    {
+      "label": "Two-input: conron-replay",
+      "wall_s": 697.8303352410003,
+      "cpu_s": 862.92,
+      "peak_tree_rss_gib": 47.1896858215332,
+      "exit_code": 0,
+      "outcome": "PASS",
+      "receipt": "regression-final/stages/conron-replay/result.json"
+    }
+  ],
+  "regression_solution_export": {
+    "path": "/home/ubuntu/aklt/reports/PAL_FIT/fidelity-fix/regression-final/exports/solution.ndjson",
+    "bytes": 671986654,
+    "sha256": "ea82aaec07c458ff23d38403de8cc22fc93b488cebc3a99ebe4ed6701d7fab6d"
+  },
+  "statement_comparator_transcript": "Running nanoda kernel on solution\nnanoda kernel accepts the solution\nRunning Lean default kernel on solution\nLean default kernel accepts the solution\nYour solution is okay!",
+  "negative_control_diagnostic": "error: Const does not match between challenge and target 'AKLT.Challenge.bondCasimir'"
+}
