@@ -1,0 +1,572 @@
+module
+
+public import Mathlib
+
+/-! The spin-2 square-lattice AKLT headline, conditional on the paper's (H1)
+and (H3_h). Definitions are copied faithfully from the statement layers;
+no certificate or analytic proof module is imported. See FIDELITY.md. -/
+
+@[expose] public section
+set_option backward.proofsInPublic true
+noncomputable section
+open scoped BigOperators ENNReal
+
+/- Statement source: AKLT/Defs/Geometry.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `d:moment`: the ambient plane, never a quotient in the analytic lanes. -/
+abbrev Plane := ℤ × ℤ
+
+/-- `d:moment`: ambient nearest-neighbour distance. -/
+def latticeDist (x y : Plane) : ℕ := (x.1 - y.1).natAbs + (x.2 - y.2).natAbs
+
+/-- `d:memory-automaton`: absolute compass directions. -/
+inductive Compass where
+  | east | north | west | south
+  deriving DecidableEq, Repr
+
+instance : Fintype Compass :=
+  ⟨{.east, .north, .west, .south}, by intro d; cases d <;> simp⟩
+
+/-- The unit displacement of an absolute direction. -/
+def Compass.step : Compass → Plane
+  | .east => (1, 0)
+  | .north => (0, 1)
+  | .west => (-1, 0)
+  | .south => (0, -1)
+
+/-- Reversal of an absolute direction. -/
+def Compass.reverse : Compass → Compass
+  | .east => .west
+  | .north => .south
+  | .west => .east
+  | .south => .north
+
+/-- Nearest-neighbour adjacency, always in the ambient plane. -/
+def Adjacent (x y : Plane) : Prop := latticeDist x y = 1
+
+instance (x y : Plane) : Decidable (Adjacent x y) := inferInstanceAs (Decidable (_ = _))
+
+/-- Four physical neighbours. -/
+def neighbours (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
+
+/-- The positive orientations, used solely to count each internal bond once. -/
+def positiveNeighbours (x : Plane) : Finset Plane := {(x.1 + 1, x.2), (x.1, x.2 + 1)}
+
+/-- `d:pinmodel`: each internal unoriented edge, indexed once. -/
+def internalBonds (G : Finset Plane) : Finset (Plane × Plane) :=
+  G.biUnion fun x => (positiveNeighbours x ∩ G).image (fun y => (x, y))
+
+/-- `d:shells`: the translated physical square of integer radius `u`. -/
+def square (a : Plane) (u : ℕ) : Finset Plane :=
+  (Finset.Icc (a.1 - (u : ℤ)) (a.1 + u)).product
+    (Finset.Icc (a.2 - (u : ℤ)) (a.2 + u))
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Defs/Moment.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `d:moment`: three real coordinates; Euclidean geometry is expressed by `dot`. -/
+abbrev Vec3 := Fin 3 → ℝ
+
+/-- The Euclidean scalar product. -/
+def dot (a b : Vec3) : ℝ := ∑ i, a i * b i
+
+/-- The Euclidean squared norm. -/
+def normSq (a : Vec3) : ℝ := dot a a
+
+/-- `d:moment`: arbitrary unit pins, independent of any frame alphabet. -/
+abbrev UnitVector := {a : Vec3 // normSq a = 1}
+
+/-- `d:moment`: the golden ratio. -/
+def goldenRatio : ℝ := (1 + Real.sqrt 5) / 2
+
+/-- `d:moment`: normalization of each icosahedron vertex. -/
+def icoRadius : ℝ := Real.sqrt (goldenRatio + 2)
+
+/-- `d:moment`: twelve labels, with the two signs independent. -/
+abbrev IcoLetter := Fin 3 × Fin 2 × Fin 2
+
+/-- The two independent sign values. -/
+def signValue (j : Fin 2) : ℝ := if j = 0 then 1 else -1
+
+/-- `d:moment`: the twelve explicit icosahedron vectors, without assuming their moments. -/
+def icoVector (j : IcoLetter) : Vec3 :=
+  let a := signValue j.2.1
+  let b := signValue j.2.2 * goldenRatio
+  let v : Vec3 := if j.1 = 0 then ![0, a, b]
+    else if j.1 = 1 then ![a, b, 0] else ![b, 0, a]
+  fun k => v k / icoRadius
+
+/-- `d:domain`: site status; there is no scalar trace mass. -/
+inductive Status where
+  | U | D | X
+  deriving DecidableEq, Repr
+
+instance : Fintype Status := ⟨{.U, .D, .X}, by intro s; cases s <;> simp⟩
+
+/-- A common finite support: twelve unit labels and one zero label.
+The extra label has weight zero at a U site. -/
+abbrev SpinLetter := Option IcoLetter
+
+/-- The zero atom and the twelve geometric atoms. -/
+def spinVector : SpinLetter → Vec3
+  | none => 0
+  | some j => icoVector j
+
+/-- `d:moment`: exact weights of `lambda_U` and `lambda_D`.
+X sites are omitted from every partition sum. -/
+def spinWeight (s : Status) : SpinLetter → ℝ
+  | none => if s = .D then 2 / 5 else 0
+  | some _ => if s = .U then 1 / 12 else if s = .D then 1 / 20 else 0
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Defs/Domain.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `d:pairenv`: the two pair types, collinear B and diagonal C. -/
+inductive PairType where
+  | B | C
+  deriving DecidableEq, Repr
+
+instance : Fintype PairType := ⟨{.B, .C}, by intro X; cases X <;> simp⟩
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Defs/Trails.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `h:H1`: the two frozen rational local thresholds. -/
+def localThreshold : Bool → ℚ := fun straight => if straight then 961 / 1000 else 187 / 200
+
+/-- `d:weights`: the inverse local threshold. -/
+def passageFactor (straight : Bool) : ℚ := (localThreshold straight)⁻¹
+
+/-- `l:log-mean-bounds`: the adopted exact alpha table; turn alpha is 150000/10^6. -/
+def alphaBound (straight : Bool) : ℚ := if straight then 145217 / 10^6 else 150000 / 10^6
+
+/-- `l:log-mean-bounds`: the adopted exact beta table. -/
+def betaBound (straight : Bool) : ℚ := if straight then 352782 / 10^6 else 357549 / 10^6
+
+/-- `l:log-mean-bounds`: the one-live-neighbour beta-prime table. -/
+def betaPrimeBound (straight : Bool) : ℚ := if straight then 340008 / 10^6 else 344661 / 10^6
+
+/-- `d:weights`: a finite direction word; there is no spatial quotient. -/
+abbrev DirectionWord (n : ℕ) := Fin n → Compass
+
+/-- The j-th vertex of a word, with a clamped natural index for convenient prefix definitions. -/
+def wordVertex {n : ℕ} (u : Plane) (w : DirectionWord n) (j : ℕ) : Plane :=
+  u + ∑ i : Fin n, if i.val < j then (w i).step else 0
+
+/-- The unoriented edge at a departure. -/
+def wordBond {n : ℕ} (u : Plane) (w : DirectionWord n) (i : Fin n) : Finset Plane :=
+  {wordVertex u w i.val, wordVertex u w (i.val + 1)}
+
+/-- `d:weights`: distinct unoriented bonds and the forbidden initial reversal. -/
+def IsTrail {n : ℕ} (u : Plane) (incoming : Compass) (w : DirectionWord n) : Prop :=
+  Function.Injective (wordBond u w) ∧ ∀ i : Fin n, i.val = 0 → w i ≠ incoming.reverse
+
+/-- Incoming direction at a departure, including the designated virtual first bond. -/
+def wordIncoming {n : ℕ} (incoming : Compass) (w : DirectionWord n) (i : Fin n) : Compass :=
+  if h : i.val = 0 then incoming else w ⟨i.val - 1, by omega⟩
+
+/-- A straight departure compares actual outgoing and incoming directions. -/
+def wordStraight {n : ℕ} (incoming : Compass) (w : DirectionWord n) (i : Fin n) : Bool :=
+  decide (w i = wordIncoming incoming w i)
+
+/-- Departure count before index i; arrivals alone do not count as revisits. -/
+def departureCount {n : ℕ} (u : Plane) (w : DirectionWord n) (i : ℕ) (x : Plane) : ℕ :=
+  ((Finset.range (min i n)).filter fun j => wordVertex u w j = x).card
+
+/-- `d:weights`: true revisit means a previous departure from the same site. -/
+def wordRevisit {n : ℕ} (u : Plane) (w : DirectionWord n) (i : Fin n) : Bool :=
+  decide (0 < departureCount u w i.val (wordVertex u w i.val))
+
+/-- `d:weights`: the true lattice trail weight, including the revisit factor 1/5. -/
+def trailWeight {n : ℕ} (u : Plane) (incoming : Compass) (w : DirectionWord n) : ℚ :=
+  ∏ i, if wordRevisit u w i then 1 / 5 else passageFactor (wordStraight incoming w i) / 3
+
+/-- The mass-free coefficient before exposure products, equal to 3^-n(3/5)^rev. -/
+def trailBaseWeight {n : ℕ} (u : Plane) (w : DirectionWord n) : ℚ :=
+  ∏ i, if wordRevisit u w i then 1 / 5 else 1 / 3
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Defs/Kernel.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `d:kernel`: the fixed start, centre, target and incoming direction of each row. -/
+def kernelStart : Plane := (-1, 0)
+def kernelCentre : Plane := (0, 0)
+def kernelTarget : PairType → Plane | .B => (1, 0) | .C => (0, 1)
+def kernelIncoming : Compass := .west
+
+/-- `d:kernel`: first hit of v, avoiding c, with no used unoriented bond repeated. -/
+def ClosedTrail {n : ℕ} (X : PairType) (w : DirectionWord n) : Prop :=
+  IsTrail kernelStart kernelIncoming w ∧ wordVertex kernelStart w n = kernelTarget X ∧
+  (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre) ∧
+  ∀ j < n, wordVertex kernelStart w j ≠ kernelTarget X
+
+/-- `d:kernel`: dead sites are the centre and sites with two previous departures. -/
+def deadAt {n : ℕ} (w : DirectionWord n) (i : Fin n) (z : Plane) : Prop :=
+  z = kernelCentre ∨ 2 ≤ departureCount kernelStart w i.val z
+
+/-- `d:kernel`: the three nonarrival neighbours, with the actual outgoing neighbour distinguished. -/
+def responseNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane :=
+  (neighbours (wordVertex kernelStart w i.val)).erase
+    (wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step)
+
+/-- Live non-outgoing neighbours; this is where the beta-prime case is decided. -/
+def liveOtherNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
+  classical
+  exact ((responseNeighbours w i).erase (wordVertex kernelStart w (i.val + 1))).filter
+    fun z => ¬ deadAt w i z
+
+/-- `d:kernel`: live response pairs, represented as two-element finite sets. -/
+def responsePairs {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset (Finset Plane) :=
+  (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).powersetCard 2
+
+/-- `d:kernel`: exact type-dependent coefficient, including one-live-neighbour beta-prime. -/
+def pairCoefficient {n : ℕ} (w : DirectionWord n) (i : Fin n) (p : Finset Plane) : ℚ :=
+  let straight := wordStraight kernelIncoming w i
+  if wordVertex kernelStart w (i.val + 1) ∈ p then
+    if (liveOtherNeighbours w i).card = 1 then betaPrimeBound straight else betaBound straight
+  else alphaBound straight
+
+/-- Pair type is collinear exactly when both sites share a coordinate. -/
+def responsePairType (p : Finset Plane) : PairType := by
+  classical
+  exact if ∀ x ∈ p, ∀ y ∈ p, x.1 = y.1 ∨ x.2 = y.2 then .B else .C
+
+/-- `d:kernel-order`: the exact dyadic witness (not the rational 6/5). -/
+def kernelWitness : PairType → ℚ
+  | .B => 1
+  | .C => 5404319552844595 / 4503599627370496
+
+/-- `d:kernel-order`: the exact adopted contraction ceiling. -/
+def kernelRho : ℚ := 993015 / 10^6
+
+/-- `d:kernel-order`: the finite h-weighted reward at a departure. -/
+def witnessKappa {n : ℕ} (w : DirectionWord n) (i : Fin n) : ℚ :=
+  ∑ p ∈ responsePairs w i, pairCoefficient w i p * kernelWitness (responsePairType p)
+
+/-- List of lattice first visits in path order. -/
+def firstVisitList {n : ℕ} (w : DirectionWord n) : List (Fin n) :=
+  (List.finRange n).filter fun i => !wordRevisit kernelStart w i
+
+/-- `d:kernel-order`: comparison of short-order scores, with infinity for zero reward
+and path-index tie breaking. -/
+def shortOrderLE {n : ℕ} (w : DirectionWord n) (i j : Fin n) : Bool :=
+  let ki := witnessKappa w i
+  let kj := witnessKappa w j
+  let xi := passageFactor (wordStraight kernelIncoming w i)
+  let xj := passageFactor (wordStraight kernelIncoming w j)
+  if ki = 0 then decide (kj = 0 ∧ i.val ≤ j.val)
+  else if kj = 0 then true else
+    let si := (xi - 1) / (xi * ki)
+    let sj := (xj - 1) / (xj * kj)
+    decide (si < sj ∨ (si = sj ∧ i.val ≤ j.val))
+
+/-- `d:kernel-order`: the fixed cutoff-twelve ordering, independent of theta. -/
+def kernelOrdering {n : ℕ} (w : DirectionWord n) : List (Fin n) :=
+  let first := firstVisitList w
+  if n ≤ 12 then first.mergeSort (shortOrderLE w) else
+    first.filter (wordStraight kernelIncoming w) ++ first.filter (fun i => !wordStraight kernelIncoming w i)
+
+/-- Exposure sum in a specified order: each reward gets every x up to and including its place. -/
+def exposureSum {n : ℕ} (w : DirectionWord n) (reward : Fin n → ℚ) : List (Fin n) → ℚ
+  | [] => 0
+  | i :: rest => passageFactor (wordStraight kernelIncoming w i) * (reward i + exposureSum w reward rest)
+
+/-- Exact finite h-weighted contribution of one closed trail. -/
+def closedContribution {n : ℕ} (w : DirectionWord n) : ℚ :=
+  trailBaseWeight kernelStart w * exposureSum w (witnessKappa w) (kernelOrdering w)
+
+/-- `h:H3`: a finite-cutoff row sum, with the exact fixed short/long orderings. -/
+def kernelPartialRow (X : PairType) (R : ℕ) : ℚ := by
+  classical
+  exact ∑ n ∈ Finset.Icc 1 R, ∑ w : DirectionWord n,
+    if ClosedTrail X w then closedContribution w else 0
+
+/-- `h:H3`: every finite true-trail cutoff, rather than a finite numerical prefix. -/
+def PositiveVectorBound : Prop :=
+  ∀ X : PairType, ∀ R : ℕ, kernelPartialRow X R ≤ kernelRho * kernelWitness X
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Defs/Pattern.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Defs
+
+/-- `d:pattern`: the thirteen sites in the radius-two taxicab template. -/
+def templateSites : Finset Plane := (square (0, 0) 2).filter fun z => latticeDist z (0, 0) ≤ 2
+
+/-- `d:pattern`: the four covering tips. -/
+def templateTips : Finset Plane := {(2, 0), (0, 2), (-2, 0), (0, -2)}
+
+/-- `d:pattern`: the four corners, each with both external slots. -/
+def templateCorners : Finset Plane := {(1, 1), (-1, 1), (-1, -1), (1, -1)}
+
+/-- `d:pattern`: all twenty slots, with a fixed transparent order. -/
+def externalSlot : Fin 20 → Plane × Compass :=
+  ![((1, 1), .east), ((1, 1), .north), ((-1, 1), .north), ((-1, 1), .west),
+    ((-1, -1), .west), ((-1, -1), .south), ((1, -1), .south), ((1, -1), .east),
+    ((2, 0), .east), ((2, 0), .north), ((2, 0), .south),
+    ((0, 2), .east), ((0, 2), .north), ((0, 2), .west),
+    ((-2, 0), .north), ((-2, 0), .west), ((-2, 0), .south),
+    ((0, -2), .east), ((0, -2), .west), ((0, -2), .south)]
+
+/-- `d:pattern`: finite raw data; coveredness is a separate predicate. -/
+structure PatternData where
+  outgoing : Compass
+  status : templateSites → Status
+  kept : templateSites → Finset Compass
+
+/-- Template status, with removed values outside its finite support. -/
+def PatternData.statusAt (π : PatternData) (x : Plane) : Status :=
+  if h : x ∈ templateSites then π.status ⟨x, h⟩ else .X
+
+/-- Kept half-bonds of a template site, expressed in absolute directions. -/
+def PatternData.keptAt (π : PatternData) (x : Plane) : Finset Plane :=
+  if h : x ∈ templateSites then (π.kept ⟨x, h⟩).image (fun d => x + d.step) else ∅
+
+/-- `d:pattern`: the corrected covered rules, including the covering-tip exception. -/
+def PatternData.Covered (π : PatternData) : Prop :=
+  π.outgoing ≠ .south ∧ π.statusAt (0, 0) = .U ∧
+  π.keptAt (0, 0) = {(1, 0), (0, 1), (-1, 0)} ∧
+  (π.statusAt (0, -1) = .X ∨ (π.statusAt (0, -1) = .D ∧
+    (π.keptAt (0, -1)).card = 2 ∧ (0, 0) ∉ π.keptAt (0, -1))) ∧
+  (∀ d ∈ ({Compass.east, .north, .west} : Finset Compass),
+    π.statusAt d.step = .U ∨ π.statusAt d.step = .X ∨
+      (π.statusAt d.step = .D ∧ (π.keptAt d.step).card = 2 ∧ (0, 0) ∈ π.keptAt d.step)) ∧
+  π.statusAt π.outgoing.step ≠ .X ∧
+  (∀ x ∈ templateCorners, π.statusAt x = .U ∨ π.statusAt x = .X ∨
+    (π.statusAt x = .D ∧ (π.keptAt x).card = 2)) ∧
+  (∀ x ∈ templateSites, x ≠ (0, 0) → x ∉ templateTips → π.statusAt x = .U →
+    π.keptAt x = neighbours x) ∧
+  (∀ x ∈ templateTips, π.statusAt x = .U) ∧
+  ∀ x ∈ templateSites \ templateTips, ∀ y ∈ templateSites \ templateTips,
+    π.statusAt x ≠ .X → π.statusAt y ≠ .X → Adjacent x y →
+      (y ∈ π.keptAt x ↔ x ∈ π.keptAt y)
+
+/-- Present template bonds ignore any global kept set at a covering tip. -/
+def PatternData.bonds (π : PatternData) : Finset (Plane × Plane) :=
+  (internalBonds templateSites).filter fun e =>
+    π.statusAt e.1 ≠ .X ∧ π.statusAt e.2 ≠ .X ∧
+    (e.1 ∈ templateTips ∨ e.2 ∈ π.keptAt e.1) ∧
+    (e.2 ∈ templateTips ∨ e.1 ∈ π.keptAt e.2)
+
+/-- Active sites of a covered template. -/
+def PatternData.active (π : PatternData) : Finset Plane :=
+  templateSites.filter fun x => π.statusAt x ≠ .X
+
+/-- Finite template spin coordinates. -/
+def PatternData.spins (π : PatternData) (n : (x : π.active) → SpinLetter) (x : Plane) : Vec3 :=
+  if h : x ∈ π.active then spinVector (n ⟨x, h⟩) else 0
+
+/-- `d:pattern`: finite current/next functional. Every external slot is retained.
+For next, the passage law changes to D and its out-bond is dropped. -/
+def patternFunctional (π : PatternData) (next : Bool) (m : Fin 20 → UnitVector)
+    (f : (Plane → Vec3) → ℝ) : ℝ :=
+  ∑ n : (x : π.active) → SpinLetter,
+    (∏ x : π.active,
+      spinWeight (if next ∧ x.val = (0, 0) then .D else π.statusAt x.val) (n x)) *
+    f (π.spins n) *
+    (∏ e ∈ π.bonds,
+      if next ∧ ({e.1, e.2} : Finset Plane) = {(0, 0), π.outgoing.step} then 1
+      else 1 + dot (π.spins n e.1) (π.spins n e.2)) *
+    ∏ j : Fin 20,
+      if π.statusAt (externalSlot j).1 = .X then 1
+      else 1 + dot (m j).val (π.spins n (externalSlot j).1)
+
+/-- `d:pattern`: current covered local partition polynomial. -/
+def patternCurrent (π : PatternData) (m : Fin 20 → UnitVector) : ℝ :=
+  patternFunctional π false m (fun _ => 1)
+
+/-- `d:pattern`: next covered local partition polynomial. -/
+def patternNext (π : PatternData) (m : Fin 20 → UnitVector) : ℝ :=
+  patternFunctional π true m (fun _ => 1)
+
+/-- `h:H1`: pointwise inequalities; no optimality or minimizer is asserted. -/
+def LocalPatternBound (cs ct : ℝ) : Prop :=
+  0 < cs ∧ cs ≤ 1 ∧ 0 < ct ∧ ct ≤ 1 ∧
+  ∀ π : PatternData, π.Covered → ∀ m : Fin 20 → UnitVector,
+    (if π.outgoing = .north then cs else ct) * patternNext π m ≤ patternCurrent π m
+
+end AKLT.Defs
+
+/- Statement source: AKLT/Challenge/Main.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Challenge
+
+/-- Side lengths in the domain of §1: natural numbers at least three. -/
+abbrev Size := {n : ℕ // 3 ≤ n}
+
+/-- The §1 side bound supplies a nonzero modulus for finite `ZMod` instances. -/
+@[expose] instance size_neZero (L : Size) : NeZero L.val := ⟨by have := L.property; omega⟩
+
+/-- The torus Λ_{L,N} = ℤ/Lℤ × ℤ/Nℤ (§1, before (e:H)). -/
+abbrev Site (L N : Size) := ZMod L.val × ZMod N.val
+
+/-- Positive coordinate directions: `0` is horizontal, `1` vertical. -/
+abbrev Direction := Fin 2
+
+/-- Each unoriented nearest-neighbour bond is indexed once by its initial
+site and positive direction. The bound in `Size` excludes loops and repetitions. -/
+abbrev Bond (L N : Size) := Site L N × Direction
+
+/-- The terminal endpoint of a positively oriented bond (§1, the set E). -/
+def nextSite {L N : Size} (x : Site L N) (d : Direction) : Site L N :=
+  if d = 0 then (x.1 + 1, x.2) else (x.1, x.2 + 1)
+
+/-- Spin 2 in orthonormal coordinates e_k = √(choose 4 k) z₁^(4-k) z₂^k,
+k = 0,…,4. This is Sym⁴ ℂ² with the SU(2) action f(z) ↦ f(g⁻¹z),
+unitary for (e:Vinner). Thus the standard ℓ² inner product here is precisely
+the paper's inner product, not the unweighted monomial inner product. -/
+abbrev V := EuclideanSpace ℂ (Fin 5)
+
+/-- J_z in the standard spin-2 basis, with magnetic labels 2-k.
+Together with `spinPlus` and `spinMinus` this fixes the concrete model of V. -/
+def spinZ : Matrix (Fin 5) (Fin 5) ℂ :=
+  fun i j => if i = j then (2 : ℂ) - (i.val : ℂ) else 0
+
+/-- J₊ e_k = √(k(5-k)) e_{k-1}; missing boundary entries are zero.
+These are the usual degree-four symmetric-power spin matrices (§1, spin 2). -/
+def spinPlus : Matrix (Fin 5) (Fin 5) ℂ :=
+  fun i j => if i.val + 1 = j.val then
+    (Real.sqrt ((j.val * (5 - j.val) : ℕ) : ℝ) : ℂ) else 0
+
+/-- J₋ = J₊*. In particular J² = J_z² + (J₊J₋ + J₋J₊)/2 = 6I. -/
+def spinMinus : Matrix (Fin 5) (Fin 5) ℂ := spinPlus.conjTranspose
+
+/-- Tensor-product basis labels for ⊗_x V (§1, before (e:H)). -/
+abbrev Configuration (L N : Size) := Site L N → Fin 5
+
+/-- The finite-dimensional Hilbert space ℋ_Λ, with the standard sum inner
+product on its tensor-product orthonormal coordinates (§1; §2, (e:Vinner)). -/
+abbrev Hilbert (L N : Size) := EuclideanSpace ℂ (Configuration L N)
+
+/-- A single-site matrix tensored with the identity at every other site.
+The off-site Kronecker deltas are written as equality of configurations. -/
+def atSite {L N : Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (x : Site L N) :
+    Module.End ℂ (Hilbert L N) :=
+  Matrix.toEuclideanLin fun σ τ =>
+    if ∀ y, y ≠ x → σ y = τ y then A (σ x) (τ x) else 0
+
+/-- A component of the total spin at the endpoints of e (§1, P_e). -/
+def onBond {L N : Size} (A : Matrix (Fin 5) (Fin 5) ℂ) (e : Bond L N) :
+    Module.End ℂ (Hilbert L N) :=
+  atSite A e.1 + atSite A (nextSite e.1 e.2)
+
+/-- (J_x + J_y)² = Z² + (J₊J₋ + J₋J₊)/2, where the components in
+this formula are total components on the bond. Multiplication composes maps.
+All other tensor factors are identities (§1, total-spin-4 subspace). -/
+def bondCasimir {L N : Size} (e : Bond L N) : Module.End ℂ (Hilbert L N) :=
+  let Z := onBond spinZ e
+  let U := onBond spinPlus e
+  let D := onBond spinMinus e
+  Z * Z + (1 / 2 : ℂ) • (U * D + D * U)
+
+/-- The eigenvalue 4(4+1)=20 space of the bond Casimir: the total-spin-4
+summand of V_x ⊗ V_y tensored with all spectator factors (§1, P_e). -/
+def spin4Space {L N : Size} (e : Bond L N) : Submodule ℂ (Hilbert L N) :=
+  Module.End.eigenspace (bondCasimir e) 20
+
+/-- P_e of §1: the orthogonal projection onto the specified spin-4 space.
+Finite dimension supplies the orthogonal projection with no spectral choices. -/
+def P {L N : Size} (e : Bond L N) : Module.End ℂ (Hilbert L N) :=
+  (spin4Space e).starProjection.toLinearMap
+
+/-- The spin-2 AKLT Hamiltonian, exactly (e:H), with coefficient one per bond. -/
+def H (L N : Size) : Module.End ℂ (Hilbert L N) := ∑ e : Bond L N, P e
+
+/-- The polynomial ring in the two spinor variables at each site (§2, §s:poly). -/
+abbrev SpinorPolynomial (L N : Size) := MvPolynomial (Site L N × Fin 2) ℂ
+
+/-- q_xy = z_{x,1}z_{y,2} - z_{x,2}z_{y,1}, using zero-based variable
+indices and the positive-coordinate orientation (§2, immediately before (e:B)). -/
+def singlet {L N : Size} (e : Bond L N) : SpinorPolynomial L N :=
+  let y := nextSite e.1 e.2
+  MvPolynomial.X (e.1, 0) * MvPolynomial.X (y, 1) -
+    MvPolynomial.X (e.1, 1) * MvPolynomial.X (y, 0)
+
+/-- The unnormalised VBS polynomial ∏_e q_e, exactly (e:B).
+There are four incident bonds per site, hence degree four at every site. -/
+def vbsPolynomial (L N : Size) : SpinorPolynomial L N :=
+  ∏ e : Bond L N, singlet e
+
+/-- The exponent vector of ∏_x z_{x,1}^(4-σ_x) z_{x,2}^σ_x (§2, (e:B)). -/
+def monomialDegree {L N : Size} (σ : Configuration L N) :
+    (Site L N × Fin 2) →₀ ℕ :=
+  Finsupp.equivFunOnFinite.symm fun p =>
+    if p.2 = 0 then 4 - (σ p.1).val else (σ p.1).val
+
+/-- B of (e:B), expressed in the orthonormal basis fixed in `V`.
+Divide monomial coefficients by ∏_x √(choose 4 σ_x) to change coordinates;
+no global normalisation or rescaling of the polynomial is introduced. -/
+def B (L N : Size) : Hilbert L N :=
+  WithLp.toLp 2 fun σ =>
+    (vbsPolynomial L N).coeff (monomialDegree σ) /
+      ∏ x : Site L N, (Real.sqrt (Nat.choose 4 (σ x).val : ℝ) : ℂ)
+
+end AKLT.Challenge
+
+/- Statement source: AKLT/Challenge/MainV2.lean. -/
+/- Reset only Lean’s auxiliary-proof cache at the original source boundary,
+preserving generated proof names. All declarations remain kernel checked. -/
+run_elab Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.modifyState env (fun _ => {})
+namespace AKLT.Challenge
+
+/-- `t:main`: for every torus with both periods at least three, the VBS vector
+is nonzero and spans the kernel. There are a positive constant and one size
+threshold above which every nonzero eigenvalue has that uniform lower bound.
+Both assertions allow every parity; uniqueness has no eventual-size restriction.
+The subtype `Size` already expresses the lower bound three on each period. -/
+def MainStatementV2 : Prop :=
+  (∀ L N : Size, B L N ≠ 0 ∧
+    LinearMap.ker (H L N) = Submodule.span ℂ {B L N}) ∧
+  ∃ c : ℝ, 0 < c ∧ ∃ L₀ : ℕ, 3 ≤ L₀ ∧
+    ∀ L N : Size, L₀ ≤ L.val → L₀ ≤ N.val →
+      ∀ μ : ℝ, μ ≠ 0 → (H L N).HasEigenvalue (μ : ℂ) → c ≤ μ
+
+end AKLT.Challenge
+
+namespace AKLTPalomar
+
+/-- Paper (H1), sec6-walks.tex, h:H1, at the exact thresholds in t:H1:
+every covered radius-two pattern and every assignment of its twenty unit pins. -/
+def H1 : Prop := AKLT.Defs.LocalPatternBound (961 / 1000) (187 / 200)
+
+/-- Paper (H3_h), sec7-recursion.tex, h:H3, with the constants in t:inputs:
+every true-trail cutoff, the fixed dyadic vector, and cutoff-twelve orderings. -/
+def H3 : Prop := AKLT.Defs.PositiveVectorBound
+
+/-- Paper t:main: all-period ground-state uniqueness, and an eventual uniform gap. -/
+def Main : Prop := AKLT.Challenge.MainStatementV2
+
+/-- The certified reduction. The two computational inputs are explicit premises. -/
+theorem aklt_gap_of_inputs : H1 → H3 → Main := by
+  sorry
+
+end AKLTPalomar
