@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "baseline": "61f109327968ca76e99c22c4564de56387df96b5",
+  "changed_lean_files": {
+    "AKLT/Blueprint/Top/Response.lean": {
+      "added": 1,
+      "removed": 1,
+      "before_lines": 68,
+      "after_lines": 68
+    },
+    "AKLT/Challenge/Main.lean": {
+      "added": 51,
+      "removed": 54,
+      "before_lines": 147,
+      "after_lines": 144
+    },
+    "AKLT/Challenge/MainV2.lean": {
+      "added": 1,
+      "removed": 1,
+      "before_lines": 31,
+      "after_lines": 31
+    },
+    "AKLT/Challenge/Sanity.lean": {
+      "added": 1,
+      "removed": 15,
+      "before_lines": 222,
+      "after_lines": 208
+    },
+    "Challenge.lean": {
+      "added": 46,
+      "removed": 44,
+      "before_lines": 159,
+      "after_lines": 161
+    },
+    "Solution.lean": {
+      "added": 0,
+      "removed": 0,
+      "before_lines": 20,
+      "after_lines": 20
+    }
+  },
+  "all_retained_definition_statement_proof_code_identical": true,
+  "authorized_deletions": [
+    "AKLT.Challenge.MainStatement",
+    "AKLT.Challenge.EvenSizesUnbounded",
+    "AKLT.Challenge.even_sizes_unbounded"
+  ],
+  "generated_comment_blocks_verbatim": 24,
+  "labels_only_once_in_each_module_header": true,
+  "old_closure_handwritten_changes_since_d132032": [
+    "AKLT/Blueprint/Top/Response.lean",
+    "AKLT/Challenge/Main.lean"
+  ],
+  "solution_unchanged": true
+}
