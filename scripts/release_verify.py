@@ -100,6 +100,8 @@ class Pipeline:
    if head!=entry['rev']:raise RuntimeError('Dependency pin mismatch: '+entry['name'])
    pins.append({'name':entry['name'],'rev':head,'path':str(path)})
   self.receipt['dependencies']=pins
+  # A new clone has no build directory yet; create it so that it stays on the Solution search path.
+  (ROOT/'.lake/build/lib/lean').mkdir(parents=True,exist_ok=True)
   lp=subprocess.check_output([str(lake),'env','printenv','LEAN_PATH'],cwd=ROOT,env=self.env,text=True).strip()
   paths=[str((ROOT/Path(x)).resolve()) if not Path(x).is_absolute() else str(Path(x).resolve()) for x in lp.split(os.pathsep) if x]
   paths=[x for x in paths if Path(x).is_dir()]
