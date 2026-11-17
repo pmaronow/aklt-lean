@@ -2,7 +2,7 @@
 """Time a stage with 16-CPU affinity and process-tree RSS telemetry.
 External cgroup limits, when present, remain the authoritative memory limits.
 """
-import argparse,datetime,json,os,resource,signal,subprocess,time
+import argparse,datetime,json,os,resource,shutil,signal,subprocess,time
 from pathlib import Path
 
 def stat(pid):
@@ -81,6 +81,7 @@ def main():
    if any(exceeds_affinity(x['pid'],cpus) for x in rows):limit='affinity_violation'
    elif now-clock>a.timeout:limit='wall_timeout'
    elif rss>a.rss_cap_gb*10**9:limit='diagnostic_rss_cap'
+   elif shutil.disk_usage(a.cwd).free<20*1024**3:limit='workspace_free_below_20_GiB'
    elif nlean>a.max_lean:limit='lean_process_cap'
    if limit:kill(proc.pid,rows)
    time.sleep(.10)

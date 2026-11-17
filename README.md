@@ -70,7 +70,8 @@ reduce build memory. `--build-threads` changes that local scheduling choice. Thi
 setting is recorded: Palomar's production environment does not currently pass
 `LEAN_NUM_THREADS` through its outer sandbox, so this harness does not certify the
 production scheduler or replace its authenticated cgroup supervision. Run one
-cold verification per enclosing cgroup. The cgroup is inherited throughout;
+cold verification per enclosing cgroup. Each stage also monitors the 20-GiB
+free-workspace floor. The cgroup is inherited throughout;
 the runner does not start a sibling systemd scope or escape the caller's limits.
 
 `receipt.json`, `verification/receipt.json`, and per-stage stdout, stderr, resource
