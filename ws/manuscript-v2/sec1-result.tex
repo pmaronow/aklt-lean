@@ -14,7 +14,7 @@ Definition~\ref{d:poly}.
 
 \begin{definition}\label{d:model}
 For integers \(L,N\ge3\), let \(\Lambda=\Lambda_{L,N}=\mathbb Z_L\times\mathbb Z_N\)
-with its simple, unoriented nearest-neighbour edge set \(E_{L,N}\).
+with its simple, unoriented nearest-neighbor edge set \(E_{L,N}\).
 The Hilbert space is \(\mathcal H_\Lambda=\bigotimes_{x\in\Lambda}V_4\).
 Each site carries the spin-\(2\) space \(V_4\), and \(P_{\{x,y\}}\)
 is the orthogonal projection onto total spin \(4\) in \(V_4\otimes V_4\).
@@ -60,7 +60,7 @@ gives finite \(A\ge2\) and \(0<\theta<1\) such that
 Theorem~\ref{t:cutMOS} then gives
 \(\mathsf W(64,p_0,M_\star)\) for the plane frame family, with
 one \(p_0\in(0,1]\) and one integer \(M_\star\ge1\) valid for
-every proper plane three-colouring and every translate.
+every proper plane three-coloring and every translate.
 This is the hypothesis of the periodic assembly theorem,
 Theorem~\ref{t:mainW}, proved in Section~4, for the plane frame
 family of Definition~\ref{d:framemodel}. Its direct quantum
@@ -78,7 +78,7 @@ also when either period is three.
 
 For the gap, finite fourth moments in Section~2 give tight frames of
 coherent states. In Section~3 we assign three explicit rotated
-icosahedral frames according to a proper torus colouring. Their
+icosahedral frames according to a proper torus coloring. Their
 separation makes the squared modulus of the frame image of
 \(B_{L,N}\) strictly positive. The resulting antiferromagnetic
 probability law on the torus has a single-site heat bath whose gap
@@ -95,7 +95,7 @@ and site Dirichlet forms gives the torus site gap.
 Theorem~\ref{t:mainW} combines this with the quantum comparison of
 Theorem~\ref{t:QD} to obtain the uniform quantum gap.
 Section~5 proves the required window estimate from the pair-response
-bound \(\mathsf P(A,\theta)\), uniformly over plane colourings and
+bound \(\mathsf P(A,\theta)\), uniformly over plane colorings and
 placements. Sections~6--8 prove that response bound using a walk
 expansion, a contracting positive-vector recursion, and the exact
 computational inputs. Thus the gap implication is
@@ -112,7 +112,7 @@ computational inputs. Thus the gap implication is
 The finite probability and comparison tools are proved in Appendix~A;
 the planar topology and the computational certificate arguments are
 proved in Appendices~B--D. All scale choices precede the choice of the
-torus periods, colouring, block placement and exterior configuration.
+torus periods, coloring, block placement and exterior configuration.
 
 \emph{Formal verification.}
 Theorem~\ref{t:main} has been formalized in Lean~4 and checked by the
@@ -137,7 +137,7 @@ On the plane,
  d(x,y)=|x_1-y_1|+|x_2-y_2|,\qquad
  |x-y|_\infty=\max\{|x_1-y_1|,|x_2-y_2|\}.
 \]
-We write \(x\sim y\) for nearest neighbours and
+We write \(x\sim y\) for nearest neighbors and
 \(d(x,S)=\min_{y\in S}d(x,y)\), with the value \(+\infty\) if
 \(S=\varnothing\). Distances in plane estimates are these ambient
 distances, even if sites have been removed. A torus distance, when

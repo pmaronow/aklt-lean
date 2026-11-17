@@ -1,4 +1,4 @@
-STATUS: PARTIAL (production source integration requires repository-wide module migration; final independent replays pending)
+STATUS: PARTIAL (semantic source integration requires repository-wide module migration outside the assigned directory)
 
 The splice analysis was written first, before checker implementation. The design chooses the actual-departure V3 route. The standalone finite certificate is now proved in Lean; the semantic and final assemblies are checked implications with explicit new mathematical leaves. No mathematical leaf proof is supplied.
 
@@ -76,7 +76,7 @@ Files under [AKLT/Blueprint/H1T/](/home/ubuntu/aklt/wt/ARCH_H1T/AKLT/Blueprint/H
 | `Finite.lean`, `Bookkeeping.lean` | Closed finite proposition, binding and shape checks, count/maximal-model diagnostics |
 | `Definitions.lean` | Actual finite-sum model semantics `Z`, `Cij`, `Zcur`, `Znext`; assignments in the listed balls; actual and conditional H1 |
 | `Operators.lean` | Independent rational moment contraction, full Pauli operator, integer symmetric-pair basis, actual central Hermitian form and `15qD₀` reconstruction equality |
-| `Nodes.lean` | 45 closed mathematical leaf Props, with paper locator, route, difficulty and traps in docstrings |
+| `Nodes.lean` | 46 closed mathematical leaf Props, with paper locator, route, difficulty and traps in docstrings |
 | `Consumers.lean` | Seven consumer V3 leaves, typed V3 interface and V3 renewal interface |
 | `Assembly.lean` | Checked tree, mean and actual-H1 assemblies from finite input + explicit mathematical leaves |
 | `ConsumerAssembly.lean` | Checked V3 typed response, first-term and renewal assemblies |
@@ -84,7 +84,7 @@ Files under [AKLT/Blueprint/H1T/](/home/ubuntu/aklt/wt/ARCH_H1T/AKLT/Blueprint/H
 | `Final.lean` | Requested `AKLT.Final.main_of_certificates_T`, located inside the permitted directory |
 | `Checks/`, `Certificates/`, `Certificate.lean` | Kernel receipts and their purely structural assembly; exported `finite_checked : H1TreeFiniteStatement` |
 | `Export.lean` | Full standalone finite-receipt export root |
-| `leaves.json`, `tools/` | 52-leaf dispatch catalogue; deterministic data generation, bounded build/replay and audit tools |
+| `leaves.json`, `tools/` | 53-leaf dispatch catalogue; deterministic data generation, bounded build/replay and audit tools |
 
 The catalogue uses the requested seven-field format. [declarations.json](declarations.json) additionally includes every full leaf statement and source location. Routes name proved-index declarations, particularly MOM004/005/006, MOM011/012/013, MOM018–031, H1M003/004/012/013, the generic H1M Pauli/ladder/sector leaves, REC001/002/003/092/096–102, and `AKLT.Cert.H1.packed_outer_product` / moment-contraction soundness / `AKLT.Gen.Gram.checker_sound_complex`. Reuse is through explicit forest/token adapters where the old theorem was wrapped in `PatternData.Covered`.
 
@@ -109,8 +109,10 @@ Paper-to-leaf map:
 | Lemma 1.14, steps 4–5 | U/D upper leaves, retained bridges, path/degree bookkeeping and isolated mean lookup |
 | Lemma 1.15 | Cartesian exhaustion, effective-corner projection completeness, record/key lookup soundness and Boolean branch coverage |
 | Lemma 1.16 | Path/component relabeling and radius extension, preserving laws and outgoing flags |
-| Theorem 1.17 | Explicit conditional-mixture gluing obligation, then outside-sum integration to actual H1 |
+| Theorem 1.17 | Proved weighted-sum/radius-extension assembly from the exact mixture; outside-sum integration leaf to actual H1 |
 | Proposition 1.18 | Seven V3 consumer tasks and checked V3 closing assemblies |
+
+The mixture leaf returns exact current/next sums with common nonnegative weights, bounded model assignments, unchanged type and checked domination. It has no H1-tree or desired-inequality premise. `actual_of_leaves` proves the inequality by radius extension, the separate empty-model evaluation leaf, and summing the weighted model inequalities.
 
 The larger remaining mathematical adapters are explicitly named `ActualRecordCoverageStatement`, `ActualMixtureSoundnessStatement`, `PackedReconstructionSoundnessStatement`, `CentralSectorPromotionStatement`, and `TensorPauliTraceStatement`. In particular the conditional gluing obligation is not declared proved merely because its individual algebraic identities are available. Its route explains the case order and common coefficients; it can be subdivided further by the proof writers if its finite-sum bookkeeping is too large for one sitting.
 
@@ -166,11 +168,11 @@ The measured per-process commands use one Lean worker. The following timings are
 | **Total** | **918.886** | **1129.43** | **0.958 max** |
 
 
-The finite-check kernel subtotal is **15.31 minutes**, about **2.1% above a strict 900 s interpretation** of the requested “~15 minutes.” This is not a claim that the future analytic leaf proofs fit in that same budget. Matrix reconstruction dominates (342.8 s); coverage reduction and raw projection together take 444.2 s. To create headroom, first deduplicate local-table checks across identical site specs ignoring `stride` (83.1 s currently), then reduce repeated mean/model lookups or stream smaller central packed row blocks. The checker already caches site matrices: a representative largest four-row reconstruction dropped from about 11 s / 1.8 GiB to about 5.5 s / 0.96 GiB. These proposed additional cuts are not claimed measured.
+The finite-check kernel subtotal is **15.31 minutes**, about **2.1% above a strict 900 s interpretation** of the requested “~15 minutes.” This is not a claim that the future analytic leaf proofs fit in that same budget. Matrix reconstruction dominates (342.8 s); coverage reduction and raw projection together take 444.2 s. To create headroom, first deduplicate local-table checks across identical site specs ignoring `stride` (128 checks collapse to 30 specs; 83.1 s currently, sharing not yet benchmarked), then reduce repeated mean/model lookups or stream smaller central packed row blocks. The checker already caches site matrices: a representative largest four-row reconstruction dropped from about 11 s / 1.8 GiB to about 5.5 s / 0.96 GiB. These proposed additional cuts are not claimed measured.
 
 Exact per-module kernel/CPU/RSS are in [kernel-per-check.csv](kernel-per-check.csv) and [kernel-metrics.json](kernel-metrics.json), with all `--profile` outputs in `measure/`. Pure finite/structural receipt assembly is recorded separately in [final-certificate.log](logs/final-certificate.log): the complete `finite_checked` assembly takes about 0.6 s and adds no mathematical hypothesis. The frozen sweep uses at most four Lean processes; semantic compatibility checks use one.
 
-The new Lean sources total **3,081,671 bytes**, in 1,103 files; maximum **847 physical lines**, maximum integer literal **119 bits**. Every new Lean file has a `module` header. The full source inventory and hashes are [source-manifest.json](source-manifest.json). The audit found no forbidden declaration, tactic, effectful command, zero heartbeat setting or nonstandard axiom in the delivered Lean sources.
+The new Lean sources total **3,084,775 bytes**, in 1,103 files; maximum **847 physical lines**, maximum integer literal **119 bits**. Every new Lean file has a `module` header. The full source inventory and hashes are [source-manifest.json](source-manifest.json). The audit found no forbidden declaration, tactic, effectful command, zero heartbeat setting or nonstandard axiom in the delivered Lean sources.
 
 Reproduction, without touching Mathlib or `.lake/packages`:
 
@@ -188,7 +190,14 @@ The generator writes only task-owned source modules. Submitted builds consume th
 
 Final full finite export: **41,973,221 bytes**, **8,885 selected receipts including `finite_checked`**, **846 imported root modules**, SHA-256 **b9b5523224a3562696bd52ac7c705d1d97d42c6ee77c358a4f5531a97f3bd76c**. It contains the whole finite-certificate dependency closure, not concatenated independent shard receipts. [replay/export-summary.json](replay/export-summary.json) and [replay/tool-hashes.json](replay/tool-hashes.json) record commands/digests.
 
-FINAL_REPLAY_RESULTS
+| Kernel | Workers | Result | Wall s | Peak RSS GiB |
+|---|---:|---|---:|---:|
+| con-ron | 1 | INCONCLUSIVE: local timeout | 1800.04 | 1.507 |
+| nanoda | 1 | ACCEPTED | 683.83 | 0.611 |
+| leanchecker | 1 | ACCEPTED | 965.20 | 0.820 |
+| con-ron | 2 | ACCEPTED | 1306.48 | 2.888 |
+
+Commands, exit statuses and bounded telemetry are in replay/replay-summary.json and replay/parallel-two/replay-summary.json. Single-worker con-ron exhausted the local 1,800 s cap without a recorded rejection. It is not an authenticated Palomar capacity decision.
 
 The initial uncached control was a separate 23.7 MB full receipt export. NanoDa accepted all 29,153 declarations in 549.36 s / 2.45 GiB, with “no typechecker errors”; its pretty-printer-only axiom message is preserved in the log. Both one- and two-worker con-ron controls exceeded the local 4 GiB cap while checking the monolithic Gram receipt (24.26 / 19.75 s). These controls motivated eight-row Gram pages. The initial leanchecker command omitted `--from-export`; that invocation checked nothing and is not counted as acceptance. The final invocation uses the official from-export form.
 
@@ -210,7 +219,7 @@ theorem main_of_certificates_T
     (hSecond : H1T.SecondTermBoundStatementV3) : AKLT.Challenge.MainStatementV2
 ```
 
-The proof constructs actual H1 using `actual_of_leaves`; builds unchanged MTheta and bounded renewal from REC062/064/065/066/067/069/070 and REC085–088; uses the V3 recursion with unchanged REC071/072/073/082/083; gets H2 from the existing certificate and H3 from its two unchanged certificate statements; then enters the unchanged window/gap/uniqueness tree at `PStatement`. The two old H1 certificate propositions are absent. `hLeaves` contains 45 closed mathematical statements; `hLength` and `hSecond` are the only direct consumer ports in this minimal final route. The other five consumer ports remain documented proof dependencies.
+The proof constructs actual H1 using `actual_of_leaves`; builds unchanged MTheta and bounded renewal from REC062/064/065/066/067/069/070 and REC085–088; uses the V3 recursion with unchanged REC071/072/073/082/083; gets H2 from the existing certificate and H3 from its two unchanged certificate statements; then enters the unchanged window/gap/uniqueness tree at `PStatement`. The two old H1 certificate propositions are absent. `hLeaves` contains 46 closed mathematical statements; `hLength` and `hSecond` are the only direct consumer ports in this minimal final route. The other five consumer ports remain documented proof dependencies.
 
 Every assembly has `#print axioms`. Verbatim final outputs are in [assembly-axioms.txt](assembly-axioms.txt):
 
@@ -227,6 +236,119 @@ Every assembly has `#print axioms`. Verbatim final outputs are in [assembly-axio
 'AKLT.Blueprint.H1T.raw_coverage_checked' depends on axioms: [propext, Quot.sound]
 'AKLT.Blueprint.H1T.reduction_coverage_checked' depends on axioms: [propext]
 'AKLT.Blueprint.H1T.finite_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables05_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction05_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase05_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables12_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction12_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase12_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables13_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction13_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase13_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables14_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction14_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase14_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables15_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction15_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase15_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables16_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction16_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase16_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables17_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction17_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase17_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables18_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction18_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase18_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables19_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction19_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase19_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables20_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction20_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase20_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables26_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction26_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase26_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables33_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction33_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase33_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables34_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction34_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase34_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables35_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction35_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase35_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables36_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction36_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase36_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allTables37_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.allReconstruction37_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.matrixCase37_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLT.Blueprint.H1T.coverageShard000_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree000_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree001_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree002_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree003_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree004_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree005_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree006_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree007_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree008_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree009_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree010_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree011_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree012_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree013_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree014_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree015_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree016_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree017_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree018_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree019_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree020_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree021_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree022_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree023_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree024_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree025_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree026_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree027_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree028_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree029_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree030_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree031_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree032_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree033_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree034_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree035_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree036_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree037_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree038_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree039_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree040_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree041_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree042_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree043_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree044_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree045_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree046_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree047_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree048_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree049_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree050_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree051_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree052_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree053_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree054_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree055_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree056_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree057_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree058_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree059_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree060_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree061_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree062_checked' depends on axioms: [propext]
+'AKLT.Blueprint.H1T.recordTree063_checked' depends on axioms: [propext]
 ```
 
 **Production module migration is a real, unresolved integration prerequisite.** Existing `AKLT.Defs.*`, `AKLT.Blueprint.*`, `AKLT.Gen.Gram.*`, leaf and closing modules are non-module sources. Lean 4.35 rejects importing, for example, `AKLT.Blueprint.Rec.Definitions` from a module file. Merely inserting a new H1T module cannot fix that restriction. The task forbids editing the surrounding directories, so those sources were left unchanged.
@@ -235,14 +357,14 @@ All eight semantic architecture files were instead checked against the exact exi
 
 The four requested verifier documents were read in the read-only checkout at commit `14aa8d6b3c2f14a8540605e37144560b9a00e7e7`. They specify default 16 CPU / 32 GiB, one 19,800 s setup/cache/fresh-build/comparison/replay allowance, 350 minute job timeout, 95%/98% memory thresholds and at least 20 GiB workspace; the 32 CPU / 64 GiB retry needs authenticated validated resource evidence and has the same budget. Lean and NanoDa must accept the full Solution export. Con-ron has a 30-minute attempt cap; a recognized capacity decline is inconclusive. Every submitted Lean file, including unused old sources, requires module syntax and ≤10,000 lines; Challenge limits remain 1,000 lines / 100 KiB. This task certifies those file constraints only for its own directory.
 
-Open work is therefore explicit: prove the 45 mathematical leaves and seven consumer ports; consider further splitting the conditional reduction gluing and forest-sector adapters; migrate the existing dependency/source closure to public modules and retire the old H1 catalogue from the submission build; create finite-kernel headroom if 900 s is strict; then build/export/compare the actual completed Solution under the production profile. No permission request or outside-namespace edit was needed to make these deliverables reviewable.
+Open work is therefore explicit: prove the 46 mathematical leaves and seven consumer ports; consider further splitting the conditional reduction gluing and forest-sector adapters; migrate the existing dependency/source closure to public modules and retire the old H1 catalogue from the submission build; create finite-kernel headroom if 900 s is strict; then build/export/compare the actual completed Solution under the production profile. No permission request or outside-namespace edit was needed to make these deliverables reviewable.
 
 ## ORCH-SUMMARY
 
 - Splice choice (b): actual H1; the old artificial D-slot pattern statement is not derived.
 - Old H1/V2/Final/leaf files are untouched; explicit legacy-use inventory has 56 entries.
 - Core: `AKLT/Blueprint/H1T/` models, semantics, checkers, data, leaf catalogue and assemblies.
-- 52 closed dispatch leaves: 45 mathematics + REC079/080/081/090/091/094/095 V3.
+- 53 closed dispatch leaves: 46 mathematics + REC079/080/081/090/091/094/095 V3.
 - Minimal final directly needs V3 REC079 and REC081; the other five are their dependencies.
 - `AKLT.Final.main_of_certificates_T` takes tree finite input + unchanged two H3 inputs + explicit new leaves.
 - `finite_checked : H1TreeFiniteStatement` is proved from kernel receipts, with no mathematical leaf premise.
@@ -251,9 +373,9 @@ Open work is therefore explicit: prove the 45 mathematical leaves and seven cons
 - Finite kernel subtotal 918.886 s (15.31 min); max process RSS 0.958 GiB.
 - This exceeds strict 900 s by 2.1% before future analytic proofs; local-table deduplication is the first cut.
 - 3.08 MB Lean source, 1,103 files, max 847 lines, max integer literal 119 bits; all module headers.
-- REPLAY_SUMMARY_LINE
+- Final finite export accepted by Lean default, NanoDa and con-ron; exact times/RSS in the replay table.
 - All conditional assembly axiom prints contain only propext, Classical.choice, Quot.sound.
 - Production semantic source build remains blocked by existing non-module dependencies outside allowed edits.
 - Strict compatibility check of all eight architecture files succeeds; that legacy view uses about 6.6 GiB.
 - No completed Solution/Comparator acceptance or authenticated Palomar resource outcome is claimed.
-- Hand off exact mathematical/consumer names in leaves.json; global module port and final replay are orchestrator work.
+- Hand off exact mathematical/consumer names in leaves.json; global module port and completed-Solution replay are orchestrator work.

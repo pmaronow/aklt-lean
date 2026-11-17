@@ -1,8 +1,8 @@
 \section{Star-connected boundaries and connected thickening}
 \label{s:topology}
 
-Two sites are nearest neighbours when their ambient \(\ell^1\)
-distance is one, and star-neighbours when their ambient
+Two sites are nearest neighbors when their ambient \(\ell^1\)
+distance is one, and star-neighbors when their ambient
 \(\ell^\infty\) distance is one.  A path in either graph is
 a finite sequence of vertices with consecutive vertices adjacent
 in that graph.  A one-point set is connected in both senses.
@@ -12,16 +12,16 @@ If \(A\subset\mathbb Z^2\) is finite, nonempty and star-connected,
 and \(A^c\) is star-connected, then
 \(\partial_\infty A=\{z\notin A:\operatorname{dist}_\infty(z,A)=1\}\)
 is nonempty and star-connected.
-Here star-neighbours differ by \(\ell^\infty\) distance one.
+Here star-neighbors differ by \(\ell^\infty\) distance one.
 \end{lemma}
 
 \begin{proof}
 Let \(\mathcal K\) be the graph whose vertices are \(\mathbb Z^2\)
-and whose edges join star-neighbours.  Finite edge sets form
+and whose edges join star-neighbors.  Finite edge sets form
 a vector space over \(\mathbb F_2\), with addition given by
 symmetric difference.  An edge set is called even if each
 vertex has even degree in it.  A triangle consists of three
-pairwise star-neighbouring vertices and its boundary is its
+pairwise star-neighboring vertices and its boundary is its
 three-edge set.  Such a triangle lies in a square
 \((i,j)+\{0,1\}^2\).
 
@@ -58,7 +58,7 @@ vanishes both above its highest horizontal edge and below
 its lowest one.
 
 Let \(P_{ij}=(i,j)+\{0,1\}^2\), and let \(\partial P_{ij}\)
-be its four nearest-neighbour edges.  We claim that
+be its four nearest-neighbor edges.  We claim that
 \[
                     Z'=\sum_{i,j}n(i,j)\partial P_{ij}.
 \]
@@ -88,7 +88,7 @@ about even edge sets.
 Let \(\mathcal B\) be the set of edges of \(\mathcal K\)
 with one endpoint in \(A\) and one in \(A^c\).  It is finite,
 and it is nonempty because a point of \(A\) of largest first
-coordinate has its right nearest neighbour outside \(A\).
+coordinate has its right nearest neighbor outside \(A\).
 Say that two edges of \(\mathcal B\) are linked if some
 triangle boundary contains both.  We prove that any two
 edges of \(\mathcal B\) can be joined by a finite sequence
@@ -127,7 +127,7 @@ Every edge of \(\mathcal B\) has a unique endpoint in
 \(A^c\), and these outer endpoints are precisely the
 vertices of \(\partial_\infty A\).  Outer endpoints of
 two linked edges lie in the same triangle, so they are
-equal or star-neighbours.  A sequence of linked edges
+equal or star-neighbors.  A sequence of linked edges
 thus gives a star-path between their outer endpoints,
 after deleting consecutive repetitions.  Surjectivity of
 the outer-endpoint map proves star-connectivity of
@@ -137,7 +137,7 @@ the outer-endpoint map proves star-connectivity of
 
 \begin{lemma}\label{l:thicken}
 If \(X_0\) is finite, nonempty and star-connected, then
-\(X=\{z:d(z,X_0)\le1\}\) is nearest-neighbour connected.
+\(X=\{z:d(z,X_0)\le1\}\) is nearest-neighbor connected.
 For any finite \(G\) containing \(X\), every \(0<\vartheta<1\)
 satisfies
 \[
@@ -150,20 +150,20 @@ satisfies
 \begin{proof}
 For each \(x\) put
 \(C(x)=\{x,x+(1,0),x-(1,0),x+(0,1),x-(0,1)\}\).
-This five-point cross is nearest-neighbour connected,
+This five-point cross is nearest-neighbor connected,
 and \(X=\bigcup_{x\in X_0}C(x)\).
-For star-neighbours \(x,x'\), if their difference has
-one zero coordinate then they are nearest neighbours
-and \(C(x)\cap C(x')\) contains both centres.
+For star-neighbors \(x,x'\), if their difference has
+one zero coordinate then they are nearest neighbors
+and \(C(x)\cap C(x')\) contains both centers.
 Otherwise \(x'-x=(\epsilon_1,\epsilon_2)\), where
 \(\epsilon_1,\epsilon_2\in\{-1,1\}\), and their crosses
 share the two points \(x+(\epsilon_1,0)\) and
 \(x+(0,\epsilon_2)\).  These are all possibilities for
-star-neighbours.  A star-path between centres therefore
+star-neighbors.  A star-path between centers therefore
 gives a chain of intersecting connected crosses.  Any
 two points of their union can be joined by concatenating
 paths inside the crosses through these intersection
-points.  This proves nearest-neighbour connectedness
+points.  This proves nearest-neighbor connectedness
 of \(X\), including when \(X_0\) is a singleton.
 
 For finite \(G\supset X\), its complement is nonempty

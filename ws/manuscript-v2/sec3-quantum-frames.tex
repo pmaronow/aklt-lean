@@ -146,7 +146,7 @@ of every \(z_x\), \(x\in R\).
 \begin{proof}
 The four sites \(x+(1,0),x-(1,0),x+(0,1),x-(0,1)\) are
 different from \(x\) and pairwise distinct. Indeed, within a
-coordinate the equality of the two neighbours would make its period
+coordinate the equality of the two neighbors would make its period
 divide two; between coordinates an equality would make a period
 divide one. Neither is possible for periods at least three.
 Thus there are exactly four distinct incident edges at every site.
@@ -190,13 +190,13 @@ those variables. This also covers \(R=\varnothing\), where
 
 \begin{proposition}\label{p:toruskernel}
 For every \(L,N\ge3\), the torus is simple and has four distinct
-neighbours at each site, \(B_{L,N}\ne0\), and
+neighbors at each site, \(B_{L,N}\ne0\), and
 \(\ker H_{L,N}=\mathbb C B_{L,N}\).
 Changing edge orientations does not change this one-dimensional space.
 \end{proposition}
 
 \begin{proof}
-The neighbour calculation in Lemma~\ref{l:divisibility} proves
+The neighbor calculation in Lemma~\ref{l:divisibility} proves
 the asserted degree and the absence of loops, including at period
 three; the edge set in Definition~\ref{d:model} has no repeated
 unordered pairs. Each determinant is nonzero, so their product is
@@ -242,10 +242,10 @@ therefore nonempty and has a strictly positive minimum \(g_\star\).
 The spectral theorem gives
 \(h_\star\ge g_\star(I-\Pi_{\ker h_\star})\).
 
-The centre \(x\) and its four neighbours are distinct, so relabelling
+The center \(x\) and its four neighbors are distinct, so relabelling
 those five tensor factors identifies \(H_x\) with
 \(h_\star\) tensored with the identity on the other sites.
-Edges between the neighbours do not occur in \(H_x\) and do not
+Edges between the neighbors do not occur in \(H_x\) and do not
 affect this identification. Tensoring the preceding inequality
 proves the first assertion for \(H_x\). Each unoriented edge has
 two different endpoints and occurs once at each endpoint in
@@ -438,20 +438,20 @@ For \(m\ge3\) and representatives \(0\le i<m\), put
  \end{cases}
 \]
 Then \(\kappa(i,j)=a_L(i)+a_N(j)\pmod3\) is a proper
-three-colouring of \(\Lambda_{L,N}\) for every \(L,N\ge3\).
+three-coloring of \(\Lambda_{L,N}\) for every \(L,N\ge3\).
 \end{lemma}
 
 \begin{proof}
-If \(m\) is even, the two colours zero and one alternate along
+If \(m\) is even, the two colors zero and one alternate along
 the cycle, and the wraparound edge joins the odd index \(m-1\)
 to index zero. If \(m\) is odd, they alternate on indices
 \(0,\ldots,m-2\); the last of these indices is odd and has
-colour one. The remaining vertex \(m-1\) has colour two and is
-adjacent to that vertex and to index zero, whose colour is zero.
+color one. The remaining vertex \(m-1\) has color two and is
+adjacent to that vertex and to index zero, whose color is zero.
 This covers \(m=3\) as well. Thus every cycle edge changes
 \(a_m\) by a nonzero element of \(\mathbb Z_3\).
 A torus edge changes exactly one summand in the formula for
-\(\kappa\), leaving the other fixed, so its endpoint colours
+\(\kappa\), leaving the other fixed, so its endpoint colors
 are different modulo three.
 \end{proof}
 
@@ -488,7 +488,7 @@ Substitution proves the assertion.
 \subsection{Frame specifications and the quantum comparison}
 
 \begin{definition}\label{d:framemodel}
-Given any proper three-colouring \(\kappa\) of a plane or torus,
+Given any proper three-coloring \(\kappa\) of a plane or torus,
 put \(D_x=D^{(\kappa(x))}\), with weights \(1/12\).
 On the torus define
 \[
@@ -497,7 +497,7 @@ On the torus define
        \prod_{\{x,y\}\in E_{L,N}}(1-s_x\cdot s_y).
 \]
 On the plane, for finite \(W\subset\mathbb Z^2\) and
-\(\eta_z\in D_z\) at exterior neighbour sites, define
+\(\eta_z\in D_z\) at exterior neighbor sites, define
 \[
  \mu^{+,\eta}_{\kappa,W}(n)=\frac1{Z^{+,\eta}_{\kappa,W}}
  \prod_{x\in W}\frac1{12}
@@ -517,21 +517,21 @@ always equivalently a Poincare inequality, including one-point spaces.
 \end{definition}
 
 Indeed, every interaction factor in this definition lies in
-\([b,2-b]\), by proper colouring and Lemma~\ref{l:threeframes}.
+\([b,2-b]\), by proper coloring and Lemma~\ref{l:threeframes}.
 There are finitely many configurations, each of strictly positive
 weight, so every normalizer is finite and positive. For
 \(W=\varnothing\) the normalizer is one and the configuration
 space has one point.
 On a positive finite law the conditional expectation \(E_U\) is
 the orthogonal projection onto the functions of the letters off
-\(U\): this follows by summing on each fixed exterior fibre.
+\(U\): this follows by summing on each fixed exterior fiber.
 In particular,
 \[
  \mu(\operatorname{Var}_U f)=\|(I-E_U)f\|_{L^2(\mu)}^2,
  \qquad \mathcal L_\mu=\sum_x(E_x-I).
 \]
 If \(\mathcal D_\mu(f)=0\), full support makes \(f\) constant
-on every single-site fibre. Any two product configurations can be
+on every single-site fiber. Any two product configurations can be
 joined by changing their coordinates one at a time, so \(f\) is
 constant. The finite-dimensional spectral theorem consequently
 gives \(\lambda(\mu)>0\) whenever the configuration space has
@@ -555,7 +555,7 @@ All products are evaluated at the corresponding frame spinors.
 Then \(\iota B=\beta_x\rho_x\), and if
 \(\psi=(\prod_{e\ni x}q_e)\chi\) with \(\chi\) independent of \(z_x\),
 then \(\iota\psi=c_x\beta_x\,\iota\chi\).
-Let \(\mathcal P_x\) be the fibrewise orthogonal projection in
+Let \(\mathcal P_x\) be the fiberwise orthogonal projection in
 \(\ell^2(\Omega,\pi)\) onto the span of \(\beta_x\), and put
 \(Uf=f\,\iota B/\|B\|\).
 The map \(U:L^2(\mu^{\rm af})\to\ell^2(\Omega,\pi)\) is unitary,
@@ -598,7 +598,7 @@ and its inverse on the full finite function space is
 \(h\mapsto\|B\|h/(\iota B)\). Therefore it is unitary.
 
 Fix an exterior configuration \(s_{\Lambda\setminus\{x\}}\)
-and let \(\sigma\) denote its neighbour letters. The conditional
+and let \(\sigma\) denote its neighbor letters. The conditional
 probabilities, by either the factorization or
 \eqref{e:frame-ground-law}, are
 \[
@@ -606,7 +606,7 @@ probabilities, by either the factorization or
  =\frac{5w_x(t)|\beta_x(t;\sigma)|^2}
         {\sum_{u\in D_x}5w_x(u)|\beta_x(u;\sigma)|^2}.
 \]
-The denominator is strictly positive. On the same fibre the
+The denominator is strictly positive. On the same fiber the
 orthogonal projection formula in \(\ell^2(D_x,5w_x)\) is
 \[
  (\mathcal P_xh)(t,s_{\Lambda\setminus\{x\}})
@@ -615,8 +615,8 @@ orthogonal projection formula in \(\ell^2(D_x,5w_x)\) is
                          h(u,s_{\Lambda\setminus\{x\}})}
        {\sum_{u\in D_x}5w_x(u)|\beta_x(u;\sigma)|^2}.
 \]
-Since the outside factor of \(\pi\) is constant on that fibre,
-these orthogonal fibre projections combine to an orthogonal
+Since the outside factor of \(\pi\) is constant on that fiber,
+these orthogonal fiber projections combine to an orthogonal
 projection on \(\ell^2(\Omega,\pi)\).
 Substitute \(h=Uf=\beta_x\rho_x f/\|B\|\) in the formula.
 The result is \(\beta_x\rho_x(E_xf)/\|B\|=U(E_xf)\), proving
@@ -626,7 +626,7 @@ If \(\psi\in\mathcal S_x\), positivity of its four projection
 terms implies \(P_e\psi=0\) for all \(e\ni x\).
 Lemma~\ref{l:divisibility}, with \(R=\{x\}\), gives the
 factorization of \(\psi\) used in the statement with a quotient
-independent of \(z_x\). Its evaluated fibre is consequently a
+independent of \(z_x\). Its evaluated fiber is consequently a
 multiple of \(\beta_x\). This proves the inclusion
 \(\iota\mathcal S_x\subset\operatorname{Ran}\mathcal P_x\).
 It follows that
@@ -644,7 +644,7 @@ of Lemma~\ref{l:tight}.
 \end{proof}
 
 \begin{theorem}\label{t:QD}
-For every \(L,N\ge3\) and every proper torus three-colouring,
+For every \(L,N\ge3\) and every proper torus three-coloring,
 \[
  \mu^{\mathrm{af}}(s)=
  \frac{\pi(s)|\iota B_{L,N}(s)|^2}{\|B_{L,N}\|^2},\qquad
@@ -690,9 +690,9 @@ positive spectrum of \(H_{L,N}\), proving the last assertion.
 
 \begin{lemma}\label{l:planeenergy}
 All the frame specifications above are consistent under conditioning
-and have nearest-neighbour Markov dependence. Uniformly over proper
-colourings, finite volumes, admissible frame-valued boundaries, and
-fully specified one-site fibres, every letter has conditional
+and have nearest-neighbor Markov dependence. Uniformly over proper
+colorings, finite volumes, admissible frame-valued boundaries, and
+fully specified one-site fibers, every letter has conditional
 probability at least
 \[
  \alpha=\frac1{12}r_b^4\in(0,1].
@@ -711,14 +711,14 @@ and fix the letters on its complement. Every site or edge factor
 not meeting \(U\) is then constant and cancels between the
 conditional weight and its normalizer. The remaining factors are
 exactly the site factors on \(U\), the internal edge factors of
-\(U\), and the crossing factors with the newly fixed neighbour
+\(U\), and the crossing factors with the newly fixed neighbor
 letters. They have the same sign of interaction as the initial
 specification. This proves consistency, both for the torus law and
-for the plane laws, and shows that only exterior nearest-neighbour
+for the plane laws, and shows that only exterior nearest-neighbor
 letters affect the conditional law. The assertion also holds for
 \(U=\varnothing\), whose conditional space has one point.
 
-For a fully specified fibre at a site \(x\), the unnormalized
+For a fully specified fiber at a site \(x\), the unnormalized
 weight of a proposed letter \(t\in D_x\) is \(1/12\) times
 at most four factors, each in \([b,2-b]\). If their number is
 \(d_x\le4\), the numerator is at least \(b^{d_x}/12\),
@@ -745,7 +745,7 @@ and the asserted bound are both one. The argument also applies to
 a positive event determined by fewer outside letters, by averaging.
 
 For the block-gap assertion, fix a finite plane block \(Q\) and
-all its exterior neighbour letters \(\eta\). Absorb every fixed
+all its exterior neighbor letters \(\eta\). Absorb every fixed
 boundary factor into its endpoint site weight by setting
 \[
  h_x(t)=\frac1{12}
@@ -794,18 +794,18 @@ blocks and blocks with no internal edges.
 \end{proof}
 
 The finite-energy bound in this lemma concerns admissible frame
-letters on neighbour sites. Arbitrary unit-vector pins, which are
+letters on neighbor sites. Arbitrary unit-vector pins, which are
 used in the separate response estimates, are not included in its
 quantifiers.
 
 \begin{lemma}\label{l:boxlift}
 Let \(Q'=a+\{-M,\ldots,M\}^2\subset\mathbb Z^2\), \(M\ge1\),
 and \(L,N\ge2M+3\). Reduction modulo the periods is injective
-on the \(\ell^\infty\) one-neighbourhood of \(Q'\), preserves exactly
-the internal nearest-neighbour edges of \(Q'\), and identifies all its
+on the \(\ell^\infty\) one-neighborhood of \(Q'\), preserves exactly
+the internal nearest-neighbor edges of \(Q'\), and identifies all its
 crossing bonds with the torus crossing bonds of its image \(Q\).
 For every torus outside configuration \(\sigma\), pull back the
-colouring and set
+coloring and set
 \[
  n_z=(-1)^{z_1+z_2}s_{p(z)}\quad(z\in Q'),\qquad
  \eta_z=(-1)^{z_1+z_2}\sigma_{p(z)}
@@ -814,12 +814,12 @@ colouring and set
 This coordinatewise bijection carries the conditional
 antiferromagnetic law in \(Q\) to
 \(\mu^{+,\eta}_{\kappa\circ p,Q'}\), intertwines every site update,
-and preserves Hamming distances between configurations in each fibre.
+and preserves Hamming distances between configurations in each fiber.
 \end{lemma}
 
 \begin{proof}
 Let \(p:\mathbb Z^2\to\mathbb Z_L\times\mathbb Z_N\) be
-coordinatewise reduction. The indicated one-neighbourhood is
+coordinatewise reduction. The indicated one-neighborhood is
 \[
  A'=a+\{-M-1,\ldots,M+1\}^2.
 \]
@@ -829,8 +829,8 @@ value at most \(2M+2<L\), and the analogous bound is
 both differences are multiples of their periods, so both are zero.
 This proves injectivity on \(A'\).
 
-Plane nearest neighbours reduce to distinct torus nearest neighbours.
-Conversely, if \(z,w\in Q'\) have nearest-neighbour reductions,
+Plane nearest neighbors reduce to distinct torus nearest neighbors.
+Conversely, if \(z,w\in Q'\) have nearest-neighbor reductions,
 the congruent coordinate differences are \(\pm1\) and zero,
 in one order. A difference in \([-2M,2M]\) congruent to zero
 modulo its period must be zero. A difference in that interval
@@ -843,7 +843,7 @@ For a torus edge leaving \(Q=p(Q')\), lift its endpoint in \(Q\)
 uniquely to \(z\in Q'\). Its other endpoint has the form
 \(p(z+v)\), with a unique
 \(v\in\{(1,0),(-1,0),(0,1),(0,-1)\}\); the four torus
-neighbours are distinct. Then \(z+v\in A'\), and it is outside
+neighbors are distinct. Then \(z+v\in A'\), and it is outside
 \(Q'\) since the torus endpoint is outside \(Q\).
 Conversely, a plane crossing bond from \(z\in Q'\) to
 \(w\notin Q'\) has \(w\in A'\); injectivity on \(A'\)
@@ -851,9 +851,9 @@ ensures \(p(w)\notin Q\). These operations are inverse on
 crossing bonds. They also show that all required exterior sites
 are represented without identifications.
 
-The function \(\kappa\circ p\) is a proper plane colouring:
-each plane nearest-neighbour edge maps to a torus edge whose
-colours differ. Put \(\varepsilon_z=(-1)^{z_1+z_2}\) for the
+The function \(\kappa\circ p\) is a proper plane coloring:
+each plane nearest-neighbor edge maps to a torus edge whose
+colors differ. Put \(\varepsilon_z=(-1)^{z_1+z_2}\) for the
 plane sites involved in the lift. Each alphabet is antipodal with
 uniform weights, so multiplication by \(\varepsilon_z\) is a
 weight-preserving bijection on its alphabet. The displayed \(\eta\)
@@ -877,7 +877,7 @@ equal. This proves the asserted transport of laws.
 
 For \(x=p(z)\), let \(Jf(s)=f((\varepsilon_w s_{p(w)})_{w\in Q'})\)
 be pullback on the corresponding conditional function spaces.
-It is unitary by the transported law. In a single-site fibre all
+It is unitary by the transported law. In a single-site fiber all
 other coordinates are fixed, and summing over the letter at \(x\)
 is exactly summing over its image letter at \(z\) with the
 transported conditional probabilities. Therefore

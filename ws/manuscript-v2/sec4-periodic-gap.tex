@@ -31,7 +31,7 @@ All these are sets of physical sites.
 \begin{definition}[(W)]\label{d:W}
 The family of plane frame specifications has \(\mathsf W(l_0,p_0,M_\star)\)
 if \(l_0,M_\star\) are positive integers, \(0<p_0\le1\), and,
-for every proper plane three-colouring, every translate \(C_u(a)\)
+for every proper plane three-coloring, every translate \(C_u(a)\)
 with integer \(u\ge M_\star\), every \(y\) as in Definition~\ref{d:shells},
 every integer \(2\le i\le u^{1/4}\) outside \(I_0\), and every two
 admissible frame-valued boundary conditions \(\eta,\xi\) for \(F_i\),
@@ -114,8 +114,8 @@ for the current pair \((\omega,\omega')\), let \(p_i,p'_i\) be its
 two specification laws on \(F_i\), with the respective complements
 and original boundaries fixed.  If
 \(\omega_{D_{i-1}}=\omega'_{D_{i-1}}\), these laws coincide:
-all their exterior neighbours inside \(C\) belong to the agreeing
-separator \(D_{i-1}\), and their exterior neighbours outside \(C\)
+all their exterior neighbors inside \(C\) belong to the agreeing
+separator \(D_{i-1}\), and their exterior neighbors outside \(C\)
 have identical boundary letters because none is \(y\).  In this
 case draw one sample from the common law and use it in both components
 on \(F_i\).
@@ -315,7 +315,7 @@ over coordinate lifts.
 Let \(M\ge1\), \(L,N\ge2M+3\), and let \(\mu>0\) be a
 probability on a finite product over \(\Lambda_{L,N}\) whose
 conditional law on any set depends only on letters in its exterior
-\(\ell^\infty\) one-neighbourhood.
+\(\ell^\infty\) one-neighborhood.
 For every translated square \(Q\) of side \(2M+1\), suppose that:
 the single-site heat bath of every conditional law on \(Q\) has Poincare gap at least
 \(g>0\); and any two conditional block laws whose outside
@@ -334,12 +334,12 @@ In particular, \(K\le M/1000\) implies
 \end{theorem}
 
 \begin{proof}
-For a centre label \(a\in\Lambda_{L,N}\), let
+For a center label \(a\in\Lambda_{L,N}\), let
 \(Q_a=a+\{-M,\ldots,M\}^2\), with coordinates reduced modulo
 the periods.  There are \(A=LN\) labels.  We count these labels
 without making any assumption on symmetries of \(\mu\).
 
-Fix a site \(x\).  The centre labels for which \(x\in Q_a\) are
+Fix a site \(x\).  The center labels for which \(x\in Q_a\) are
 exactly \(a=x-z\), where \(z\in\{-M,\ldots,M\}^2\).
 Reduction is injective on this offset square, so their number is
 \(T_M=(2M+1)^2\).  Likewise, the labels with
@@ -356,8 +356,8 @@ period.  Hence exactly
 \]
 labels exclude \(x\) but have it at distance one.  This count
 includes the four corner offsets, which may have no interaction with
-\(Q_a\) for a nearest-neighbour specification.  In particular, the
-maximal site multiplicity of the labelled block family is \(T_M\).
+\(Q_a\) for a nearest-neighbor specification.  In particular, the
+maximal site multiplicity of the labeled block family is \(T_M\).
 
 Set \(P=A^{-1}\sum_aE_{Q_a}\).  Consider two input configurations
 differing only at site \(x\), and choose the same uniformly random
@@ -411,18 +411,18 @@ at least \(c\), for all integers \(L,N\ge L_0\).
 \begin{proof}
 Fix constants \((l_0,p_0,M_\star)\) witnessing (W).
 Lemma~\ref{l:planeenergy} supplies a consistent positive,
-nearest-neighbour plane family with a common one-site bound
+nearest-neighbor plane family with a common one-site bound
 \(\alpha=12^{-1}r_b^4\in(0,1]\).  Choose \(n\) by
 Lemma~\ref{l:hamming}, once and for all, and put
 \[
  M=n^8,\qquad L_0=2M+3,\qquad
  g_M=r_b^{\,2(2M+1)(2M)}>0.
 \]
-These choices precede the torus periods, colouring, block placement
-and exterior fibre.
+These choices precede the torus periods, coloring, block placement
+and exterior fiber.
 
 Let \(L,N\ge L_0\).  In particular \(L,N\ge3\), so
-Lemma~\ref{l:colour} provides the proper torus three-colouring
+Lemma~\ref{l:colour} provides the proper torus three-coloring
 \[
  \kappa(i,j)=a_L(i)+a_N(j)\pmod3,\qquad
  a_m(i)=\begin{cases}
@@ -434,14 +434,14 @@ Lemma~\ref{l:colour} provides the proper torus three-colouring
 Consider
 \(\mu=\mu^{\mathrm{af}}_{\kappa,L,N}\) from
 Definition~\ref{d:framemodel}.  This measure has full support and
-nearest-neighbour conditional dependence by
+nearest-neighbor conditional dependence by
 Lemma~\ref{l:planeenergy}.  The periodic pullback
 \(\bar\kappa(z)=\kappa(p(z))\), where
 \(p:\mathbb Z^2\to\Lambda_{L,N}\) is reduction, is a proper plane
-colouring.  Indeed each plane nearest-neighbour edge reduces to a
+coloring.  Indeed each plane nearest-neighbor edge reduces to a
 torus edge between distinct vertices since \(L,N\ge3\).
 
-For every labelled square \(Q\), choose its lift
+For every labeled square \(Q\), choose its lift
 \(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
 \(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
 Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
@@ -457,7 +457,7 @@ the local sign change in that lemma is
 \]
 Injectivity ensures \(p(z)\notin Q\) for
 \(z\in Q'^+\setminus Q'\), so the displayed boundary values
-are defined.  Only nearest-neighbour exterior letters enter the law.
+are defined.  Only nearest-neighbor exterior letters enter the law.
 Lemma~\ref{l:boxlift} identifies the conditional torus law under
 this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
 Antipodality of each alphabet
@@ -470,24 +470,24 @@ The number of internal edges of \(Q'\) is
 \(2M+1\) horizontal rows and the same number vertically.
 Lemma~\ref{l:planeenergy}, equivalently the density comparison in
 Lemma~\ref{l:density}, therefore gives conditional single-site
-Poincare gap at least \(g_M\), uniformly over all such fibres.
+Poincare gap at least \(g_M\), uniformly over all such fibers.
 
 Now take two torus exterior configurations for \(Q\) differing at
 just one site \(y\) at \(\ell^\infty\) distance one.
-The image \(p(Q'^+)\) is the full torus one-neighbourhood of \(Q\):
+The image \(p(Q'^+)\) is the full torus one-neighborhood of \(Q\):
 every one-step coordinate displacement lifts to
 \(\{-1,0,1\}^2\), and
 \(Q'^+=Q'+\{-1,0,1\}^2\).
-Thus the one-neighbourhood injection in Lemma~\ref{l:boxlift}
+Thus the one-neighborhood injection in Lemma~\ref{l:boxlift}
 gives an existing, unique exterior lift of \(y\).
 Under the same local
 sign change the two plane boundary assignments differ at most at
-that lift.  Only nearest-neighbour exterior letters are needed; if
+that lift.  Only nearest-neighbor exterior letters are needed; if
 necessary, extend the other exterior letters identically and
 arbitrarily in their site alphabets.  For a corner site that has no
-crossing nearest-neighbour bond the two conditional laws are already
+crossing nearest-neighbor bond the two conditional laws are already
 equal.  In all other cases Lemma~\ref{l:hamming}, applied to this
-plane colouring and placement, provides a coupling of expected
+plane coloring and placement, provides a coupling of expected
 Hamming cost at most \(K=M/1000\).  The inverse coordinatewise
 bijection carries it to a coupling of the two conditional torus laws
 with exactly the same Hamming cost.
@@ -501,9 +501,9 @@ Use the constant defined and proved positive in Lemma~\ref{l:star}:
 \(g_\star\) is the smallest positive eigenvalue of
 \(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
 It is independent of the torus periods.  Theorem~\ref{t:QD} applies
-to every \(L,N\ge3\) and every proper torus three-colouring using
+to every \(L,N\ge3\) and every proper torus three-coloring using
 the frames of Definition~\ref{d:framemodel}; these hypotheses hold
-for the periods and colouring just chosen.  Its precise operator
+for the periods and coloring just chosen.  Its precise operator
 inequality is
 \[
  H_{L,N}\big|_{B_{L,N}^{\perp}}
@@ -546,7 +546,7 @@ Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
 Theorem~\ref{t:cutMOS} supplies
 \(\mathsf W(64,p_0,M_\star)\) with common
 \(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
-every proper plane colouring and every translate.
+every proper plane coloring and every translate.
 Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
 \(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
 whenever \(L,N\ge L_0\), as required.

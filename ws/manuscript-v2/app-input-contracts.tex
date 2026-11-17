@@ -371,7 +371,7 @@ There are \(60092\) raw windows in \(\Omega_{10}\).
 The supplied map to \(Q=\{0,\ldots,3740\}\), with its supplied
 representative per class, is surjective and satisfies every
 hypothesis of Lemma~\ref{l:automaton-quotient}.
-Its admissible labelled edges consist of \(2516\) straight,
+Its admissible labeled edges consist of \(2516\) straight,
 \(5032\) turning and \(1872\) revisit edges.
 \end{proposition}
 
@@ -444,15 +444,15 @@ type-dependent live-pair reward from Definition~\ref{d:kernel}.
 \end{definition}
 
 Here \(\kappa_h=\sum_{Y,s}\kappa_{Y,s}h_Y\). In the free
-three-neighbour rule its two possible values are
+three-neighbor rule its two possible values are
 \[
  \kappa_{h,\rm s}^{\circ}=a_{\rm s}+2b_{\rm s}h_C,
  \qquad
  \kappa_{h,\rm t}^{\circ}=b_{\rm t}+(a_{\rm t}+b_{\rm t})h_C.
 \]
-Indeed, the pair of non-outgoing neighbours is opposite on a
+Indeed, the pair of non-outgoing neighbors is opposite on a
 straight passage and perpendicular on a turn; among the two pairs
-with the outgoing neighbour, both are perpendicular in the straight
+with the outgoing neighbor, both are perpendicular in the straight
 case, and one is opposite in the turning case. A sole surviving
 pair instead gives \(b'_\tau h_Y\) with its actual pair type \(Y\).
 
@@ -513,7 +513,7 @@ Its edge-weight product is the product of the factors with indices
 less than \(r\) and those with indices at least \(r\).
 Grouping by the phase at the split proves the factorization.
 When used for a true suffix, its weights retain the prefix history
-in deciding revisits and dead neighbours. The assertion requires
+in deciding revisits and dead neighbors. The assertion requires
 no independence or loss of that history.
 \end{proof}
 
@@ -531,14 +531,14 @@ every other allowed departure there has weight \(1/5\),
 in the same phase and with no response.
 At other positions use the automaton kind and the phase weights.
 For a non-revisit response, declare only \(c\) dead among the three
-neighbours other than the arrival site, and use the type-dependent
-three-neighbour or two-neighbour reward rule of Definition~\ref{d:kernel}.
+neighbors other than the arrival site, and use the type-dependent
+three-neighbor or two-neighbor reward rule of Definition~\ref{d:kernel}.
 A transition into \(c\) has zero contribution.
 Let \(T_{X,d_0}\) be this nonnegative backward operator, with zero
 terminal rows, and \(g(\varphi,q,x)=\mathbf1_{\{x=v\}}g_\varphi\).
 The free operator \(\mathsf W\) omits positions and special-site
 rules, uses the same quotient automaton and phase weights, and
-treats all three response neighbours as live.
+treats all three response neighbors as live.
 \end{definition}
 
 Directions remain separate summation indices even if two automaton
@@ -551,7 +551,7 @@ means the finite sum
                          H(\psi,q d,x+d),
 \]
 where forbidden transitions have coefficient zero. One may delete
-edges into the centre because its continuation value is zero.
+edges into the center because its continuation value is zero.
 The quotient operator is well-defined by
 Lemma~\ref{l:automaton-quotient}.
 
@@ -566,7 +566,7 @@ for their nonnegative suprema.
 In this comparison:
 forgotten true revisits have weight \(1/5\) no greater than any
 relaxed first-visit diagonal weight; forgetting dead non-outgoing
-neighbours only increases the reward, using \(b'_\tau\le b_\tau\);
+neighbors only increases the reward, using \(b'_\tau\le b_\tau\);
 and the known-site killing rules cannot kill a true continuation.
 Indeed, the known initial departures at times \(0,1\) are outside
 the memory at every suffix time, and a memory-detected additional
@@ -581,9 +581,9 @@ window. The next bond is not a used window bond, and reversing
 would reuse its last bond. Its direction is therefore admitted by
 the raw automaton and, by Lemma~\ref{l:automaton-quotient}, by the
 quotient. The new window class is the quotient successor.
-The centre is never visited. The target is not visited before time
+The center is never visited. The target is not visited before time
 \(n\); its terminal reward is exactly the phase reward. Thus the
-centre and target stopping rules discard none of these histories.
+center and target stopping rules discard none of these histories.
 
 We verify the permanent initial-site rules explicitly. The bond
 \(\{u,a\}\) was used at time zero and cannot be reused in either
@@ -623,17 +623,17 @@ departure is lost in this case, because a true revisit never responds.
 At a true first departure the window also has a first departure,
 with the same incoming and outgoing directions. Its diagonal factors
 agree. For a responding departure compare the rewards as follows.
-The centre is truly dead, so every neighbour declared dead in the
-relaxation is truly dead. If both true non-outgoing neighbours are
+The center is truly dead, so every neighbor declared dead in the
+relaxation is truly dead. If both true non-outgoing neighbors are
 live, the relaxed and true pair rules coincide. If precisely one is
 live and the relaxation retains the other as dead, the rules again
-coincide. If the relaxation forgets that dead neighbour, its
+coincide. If the relaxation forgets that dead neighbor, its
 coefficient on the existing pair increases from \(b'_\tau\) to
 \(b_\tau\), and its other added pair coefficients are nonnegative.
-If both true non-outgoing neighbours are dead, the true reward is
+If both true non-outgoing neighbors are dead, the true reward is
 zero. These cases, together with \(0<b'_\tau\le b_\tau\) and
 \(h_B,h_C>0\), prove that the relaxed response factor is at least
-the true response factor. The outgoing neighbour cannot be dead
+the true response factor. The outgoing neighbor cannot be dead
 on a true continuation, and a true transition never enters \(c\).
 
 Multiplying the comparisons proves domination of the chosen
@@ -732,7 +732,7 @@ modulo four. For distinct directions define
 \(H(e,e')=1\) for opposite directions and \(H(e,e')=h_C\)
 for perpendicular directions. If \(\delta\) specifies the direction
 from the site to \(c\), use \(\delta=4\) when \(c\) is not a
-neighbour. For an edge not entering \(c\), its response reward is
+neighbor. For an edge not entering \(c\), its response reward is
 \[
  K(a,d,\delta)=
  \begin{cases}
@@ -802,11 +802,11 @@ assigned the specified \(Z/V\), with no periodic identification.
 We justify also the free-row comparison used outside. Ignoring
 positions, a non-special stationary edge has the same diagonal
 coefficient as the corresponding free edge. Its response coefficient
-is no greater: when one non-outgoing neighbour is the centre the
+is no greater: when one non-outgoing neighbor is the center the
 surviving coefficient \(b'_\tau\) is at most the free coefficient
 \(b_\tau\), and the other free pair contributions are nonnegative.
 Otherwise the response coefficients agree. Removing an edge into
-the centre can only decrease a row. At a known site the diagonal
+the center can only decrease a row. At a known site the diagonal
 coefficient is reduced to \(1/5\), which is no larger than any
 free diagonal coefficient, all response coefficients are removed,
 and additional edges may be killed. At a terminal site all outgoing
@@ -839,7 +839,7 @@ avoiding \(c\) and \(v\), with first direction \(d_0\).
 For \(P\) in this set, let \(p_\varphi(P)\) be the sum of its
 exact phase-history products ending in phase \(\varphi\), starting
 with weights one in A and B. Use actual trail revisits, actual dead
-neighbours and the type-dependent rewards, with the long-trail
+neighbors and the type-dependent rewards, with the long-trail
 straight-first phase weights.
 Write \(x(P)\) for its endpoint and \(q(P)\) for its last-window class.
 For the potential of its case define the rational number
@@ -877,8 +877,8 @@ the reverse of its incoming direction is already excluded by the
 used-bond test. The true kind is a revisit exactly when the
 preincrement value \(N(x)\) is positive. On a first departure
 compute \(\kappa=\kappa_h\) using the predeparture counts: a
-neighbour \(y\) is dead exactly when \(y=c\) or \(N(y)\ge2\).
-The outgoing neighbour of an allowed true extension is not dead.
+neighbor \(y\) is dead exactly when \(y=c\) or \(N(y)\ge2\).
+The outgoing neighbor of an allowed true extension is not dead.
 Use the actual three-, two-, or zero-pair rule of
 Definition~\ref{d:kernel}, without a ceiling.
 
@@ -923,19 +923,19 @@ length twelve. At any revisited noninitial site each previous
 arrival/departure pair uses two distinct bonds. A third departure
 would require six bonds. At \(u\), a third departure would require
 five, while only three avoid \(c\). Thus no branch can depart
-from a twice-departed neighbour; equivalently every allowed outgoing
-neighbour is live. These observations justify both the departure
+from a twice-departed neighbor; equivalently every allowed outgoing
+neighbor is live. These observations justify both the departure
 counts and the actual dead-site rule at every node. More explicitly,
 a twice-departed noninitial site has used all four of its incident
 bonds, so a further arrival there is impossible. A twice-departed
 \(u\) has used all three bonds available after exclusion of \(c\).
-This proves the asserted outgoing-neighbour property even for a
+This proves the asserted outgoing-neighbor property even for a
 move that would otherwise be the last step of a branch.
 
 Induction on length using the displayed updates proves that the
 phase vector is exactly the sum of phase-history products. Keeping
 the full word and counts makes each \(\kappa_h(i)\) its value at
-the time of that departure; later changes of a neighbour's status
+the time of that departure; later changes of a neighbor's status
 do not change an earlier reward. The short sorting is an exact
 comparison of rationals: for positive rewards compare
 \[
@@ -963,7 +963,7 @@ edge coefficients is
 It is divisible by the denominators of \(1/3,1/5,x_{\rm s}/3,
 x_{\rm t}/3\) and of every possible
 \(x_\tau\kappa_h/3\) from the two types and the four choices of
-dead non-outgoing neighbours. This is a finite rational divisibility
+dead non-outgoing neighbors. This is a finite rational divisibility
 check with the displayed constants. Multiplying phase weights by
 \(\Delta^j\) makes every update integral. If \(A\) is the sum
 of the resulting length-twelve phase numerators times the
@@ -973,7 +973,7 @@ short part specifies \(J_{X,d_0}\) by finite integer arithmetic.
 
 For a compact endpoint lookup, every length-twelve endpoint satisfies
 \(|x-u|_1\le12\) and
-\((x_1-u_1)+(x_2-u_2)\equiv12\pmod2\): each nearest-neighbour
+\((x_1-u_1)+(x_2-u_2)\equiv12\pmod2\): each nearest-neighbor
 step changes this parity and changes distance by at most one.
 All these sites lie in \(B_{70}\). A compact table must copy the
 entry with spatial index
@@ -1038,17 +1038,17 @@ No corresponding reduction is asserted for row C.
 Let \(r(x_1,x_2)=(x_1,-x_2)\). In row B it fixes the three
 specified sites and the incoming direction \(\mathrm W\), and
 interchanges \(\mathrm N\) and \(\mathrm S\). It maps each
-unoriented nearest-neighbour bond bijectively to such a bond. Thus
+unoriented nearest-neighbor bond bijectively to such a bond. Thus
 \(w\mapsto rw\) is a bijection, inverse to itself, between the
-two first-direction classes, preserving length, centre avoidance,
+two first-direction classes, preserving length, center avoidance,
 first-hit stopping and the set of path indices of earlier
 departures. At every index it preserves straightness, turning,
 revisit status and every departure count.
 
-It maps the three non-arrival neighbours to the corresponding
-neighbours of the reflected departure, and fixes the centre as a
-set. Hence a neighbour is dead if and only if its image is dead.
-It preserves the outgoing neighbour and may interchange the two
+It maps the three non-arrival neighbors to the corresponding
+neighbors of the reflected departure, and fixes the center as a
+set. Hence a neighbor is dead if and only if its image is dead.
+It preserves the outgoing neighbor and may interchange the two
 other slots, whose rules are symmetric. The actual assigned
 coefficients \(a_\tau,b_\tau,b'_\tau\) therefore agree for each
 corresponding live pair. Opposite pairs remain opposite and
@@ -1127,7 +1127,7 @@ change-of-phase possibilities, and every admitted successor are
 included in those rows. At a known site remove the initial bond
 directions and every detected-revisit direction, use \(1/5\) on
 the remaining same-phase edges, and include no response edge.
-At the centre and target check the terminal values instead of an
+At the center and target check the terminal values instead of an
 outgoing row. For an outside successor substitute its \(Z\) entry.
 The quotient transitions and representative incoming directions
 are justified by the raw reconstruction in
@@ -1191,7 +1191,7 @@ therefore (H3\(_h\)) holds for the type-dependent kernel.
 
 \begin{proof}
 Every true trail from \(u\) has first direction N, W or S: direction
-E enters the forbidden centre. For row B,
+E enters the forbidden center. For row B,
 Lemma~\ref{l:kernel-reflection} identifies the true N and S sums
 at every finite cutoff; apply Lemma~\ref{l:prefix-domination}
 to B/N and B/W. For row C apply that lemma separately to its

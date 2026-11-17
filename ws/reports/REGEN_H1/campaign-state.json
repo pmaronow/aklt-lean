@@ -1,0 +1,23 @@
+{
+  "phase": "paired pilot dependency closure running",
+  "pilot_exec_session": 18761,
+  "pilot_manifest": "/home/ubuntu/aklt/reports/REGEN_H1/pilot.json",
+  "pilot_log": "/home/ubuntu/aklt/reports/REGEN_H1/pilot-run.log",
+  "status_watch_exec_session": 29006,
+  "smoke_complete": true,
+  "all_sources_regenerated_and_byte_compared": true,
+  "source_archive_sha256": "a27c7dc50ccf88bf53ddeb1d739764eebe623c763bc31ec3f34fd521af9c543f",
+  "git_release_read_only": true,
+  "writable_patch_clone": "/tmp/regen-h1-commit",
+  "remaining": [
+    "Wait for pilot to finish successfully.",
+    "Run production_build.py production.json --jobs 35 --cap-gib 7 in the same report directory; it reuses only fresh hash-matched receipts.",
+    "Run independent production_receipts.py verify production.json.",
+    "Run production_close.py to build existing Main/Audit and verify exact closed types/axioms.",
+    "Refresh production_status.py once so all 50 pilot rows include terminal global assemblies.",
+    "Stop report watcher using report-finalized marker and wait for session 29006 to exit.",
+    "Run production_measure.py and production_handoff.py after all audited results exist.",
+    "Create actual commit in writable scratch clone and format-patch/bundle, because release .git is read-only; do not bypass that mount.",
+    "Record patch SHA/commit ID and final ORCH-SUMMARY, with git mount as exact remaining delivery constraint."
+  ]
+}

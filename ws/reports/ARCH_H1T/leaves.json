@@ -1,0 +1,479 @@
+[
+  {
+    "lean_name": "AKLT.Blueprint.H1T.SingleSitePositiveStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:elementary",
+    "paper_locator": "h1tree.tex Lemma 1.3, positive normalizers",
+    "difficulty": "easy",
+    "suggested_proof_route": "Reuse AKLT.W.MOM011.main, AKLT.W.MOM012.main, AKLT.W.MOM013.main and AKLT.W.REC001 site positivity: at most four factors exclude at most four of the twelve U letters.",
+    "trap_note": "Zero global marginal weight is allowed; prove the local sum positive independently."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.LeafSummationStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:leaf",
+    "paper_locator": "h1tree.tex Lemma 1.3, equation (1.3)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Adapt AKLT.W.H1M004.main (NormalizedMeanFactorStatement); finite-sum linearity, then cancel the positive normalizer.",
+    "trap_note": "The identity is for arbitrary v; do not divide before proving the normalizer nonzero."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.BallAffinityStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:convexfield",
+    "paper_locator": "h1tree.tex Lemma 1.3, equation (1.4)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Adapt AKLT.W.REC030.main; split r=0 and v=0, normalize the remaining vector.",
+    "trap_note": "This is separate affinity, not monotonicity of a partition ratio."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.UTwoFieldMeanStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:elementary",
+    "paper_locator": "h1tree.tex Lemma 1.3, two U fields",
+    "difficulty": "easy",
+    "suggested_proof_route": "Reuse sphere bound AKLT.W.H1M003.main, extend to balls using positive normalizer weights and BallAffinityStatement.",
+    "trap_note": "Unnormalized means are affine; normalized means use weights t_eta A_eta / sum t_xi A_xi."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.DOneFieldMeanStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:elementary",
+    "paper_locator": "h1tree.tex Lemma 1.3, one D field",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use AKLT.W.MOM004.main / MOM006 and the zero odd moments; finite dimension extensionality.",
+    "trap_note": "The tip-only D radius is 3/25, not the stronger U replacement radius."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ThreeFieldMeanStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:elementary",
+    "paper_locator": "h1tree.tex Lemma 1.3, three fields",
+    "difficulty": "medium",
+    "suggested_proof_route": "Reuse the proved moment/mean lane AKLT.W.MOM018–MOM031; pad zero fields and use positive mixtures.",
+    "trap_note": "Actual tips may be D or may lack the covering bond; preserve their common normalizer."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.BernsteinCubeStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:bernformula",
+    "paper_locator": "h1tree.tex Lemma 1.6, equation (1.8)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Each Bernstein basis factor is nonnegative; finite sum positivity.",
+    "trap_note": "The cube is a sufficient enlargement; no Gram determinant hypothesis is needed."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.MeanPolynomialIdentityStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:meanformula",
+    "paper_locator": "h1tree.tex Lemma 1.6, equation (1.6)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Expand degree-four products using AKLT.W.H1M012.main and AKLT.W.MOM004.main, AKLT.W.MOM005.main, AKLT.W.MOM006.main; componentwise ring identities.",
+    "trap_note": "This totalized identity alone does not establish denominator positivity or any proposed bound for other radii."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.MeanBernsteinSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:meanbern",
+    "paper_locator": "h1tree.tex Lemma 1.6, all 21 rows",
+    "difficulty": "medium",
+    "suggested_proof_route": "Show bern2Weights reconstructs 64 times the Bernstein tensor and meanPolynomial is P times bound.den^2 D^6; then use positive scaling and the mean identity.",
+    "trap_note": "meanCheck uses integer sample values outside the cube only to reconstruct the polynomial; verify the 4x transform and all denominators."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.SpecialCoordinateEstimateStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:specialpoly",
+    "paper_locator": "h1tree.tex Lemma 1.7, coordinate estimate",
+    "difficulty": "easy",
+    "suggested_proof_route": "nlinarith after 0 <= t^2 <= 1 and compare 2+4t^2 <= 4+2t^2.",
+    "trap_note": "Complete orthogonal coordinates at t=0,1; division by the vanished b+c or b-c is forbidden."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.SpecialBernsteinSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:specialmean",
+    "paper_locator": "h1tree.tex Lemma 1.7, degree (4,4)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Prove the fixed bern4Weights transform (scale 144 in each coordinate), use the coordinate estimate and the moment identity.",
+    "trap_note": "Only r=1/10 and 3/25 are required. The additional r=1/25 replay is deliberately outside specialRows."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.QuadraticIntervalStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:scalartests",
+    "paper_locator": "h1tree.tex Lemma 1.8, quadratic minimization",
+    "difficulty": "easy",
+    "suggested_proof_route": "Split q2=0, interior vertex, or monotone interval; complete the square.",
+    "trap_note": "Test the vertex only when it lies strictly inside (-1,1); endpoint and q2=0 cases are separate."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ScalarTestSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:scalar",
+    "paper_locator": "h1tree.tex Lemma 1.8, 22 scalar models",
+    "difficulty": "medium",
+    "suggested_proof_route": "Use Cauchy-Schwarz on the outgoing mean; scalarCheck scales L by 15qD^2 and Q by its square; then apply QuadraticIntervalStatement.",
+    "trap_note": "A missing outgoing mark means radius zero while the two non-outgoing marks still contribute Cfg/5."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.LocalTableSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:tensorrecipe",
+    "paper_locator": "h1tree.tex Definition 1.9, local tables",
+    "difficulty": "easy",
+    "suggested_proof_route": "Adapt AKLT.Cert.H1.tableCheck_sound, using List.all_eq_true and zipIdx membership.",
+    "trap_note": "Default-zero lookup is sound only after checking every index in the local table."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.PackedReconstructionSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrix",
+    "paper_locator": "h1tree.tex Definition 1.9, equation (1.13)",
+    "difficulty": "hard",
+    "suggested_proof_route": "Reuse AKLT.Cert.H1.packed_outer_product, contractSpins_add and contractSpins_monomial. Prove generalized rational-radius local entries, ring strides, no-carry coefficientBound, signed digit extraction, then the integer symmetric-pair sandwich.",
+    "trap_note": "Formal 3R means are degree-two identities even when 3R>1. Put large operands first, and distinguish Hermitian forms from normalized matrices."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.GramCheckerRefinementStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:gramchecks",
+    "paper_locator": "h1tree.tex Lemma 1.10, Gram residual checker",
+    "difficulty": "easy",
+    "suggested_proof_route": "Prove mulI a b = a*b and match the eight-row pages to streaming residuals, triangular prefixes and Int.natAbs in AKLT.Gen.Gram.Checker.",
+    "trap_note": "The Gram coefficient is 1. witness.normalization is the external equality M=gN, not a multiplier of LL^T."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.GramFormTransportStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, real/complex positivity",
+    "difficulty": "easy",
+    "suggested_proof_route": "Apply AKLT.Gen.Gram.checker_sound_complex, transport along ids.length=matrix.length and the getD interpretation.",
+    "trap_note": "No floating Cholesky result is used; every residual row must be strictly diagonally dominant."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.CentralScalingStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrix",
+    "paper_locator": "h1tree.tex Lemma 1.10, positive scaling",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use positive q, denominatorScale and normalization from the checked site denominators, then cancel the positive scalar.",
+    "trap_note": "Do not use an orthonormal-coordinate similarity argument for the unnormalized pair basis."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ForestHermitianStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, Hermiticity",
+    "difficulty": "medium",
+    "suggested_proof_route": "Reuse AKLT.W.H1M041.main and AKLT.W.H1M043.main through a token-index embedding into Fin 20.",
+    "trap_note": "Matrix reality is a consequence of reflection of second coordinates; do not silently drop imaginary coefficients in reconstruction."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ForestCovarianceStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, orthogonal covariance",
+    "difficulty": "medium",
+    "suggested_proof_route": "Adapt AKLT.W.H1M013.main and AKLT.W.H1M012.main, checking separate degree <=4 at U and <=2 at the retained D arrival.",
+    "trap_note": "Orthogonal covariance holds for the moment tensor of degree <=4, not for arbitrary functions of the icosahedron law."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.PairSupportStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, pair support",
+    "difficulty": "hard",
+    "suggested_proof_route": "Adapt AKLT.W.H1M020/022/023.main for each unmarked U pair; use the projector onto the integer-coordinate product basis with its Gram norms.",
+    "trap_note": "Only whole unit-field pairs are inverted. Symmetric middle vectors have squared norm 2; dividing by their Gram norms is essential."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.CentralSectorPromotionStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, central sector to full operator",
+    "difficulty": "hard",
+    "suggested_proof_route": "Reuse generic AKLT.W.H1M034/035/036/037/038/039.main after token-index transport. Establish product single/symmetric-pair ladder actions, weight basis completeness and parity kappa=0 or 1/2 for these forests.",
+    "trap_note": "This is a new forest adapter; the old PatternData.Covered wrappers cannot be applied directly. The discarded pair spaces carry zero action, not strict positivity."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.TensorPauliTraceStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:matrixcert",
+    "paper_locator": "h1tree.tex Lemma 1.10, Pauli trace evaluation",
+    "difficulty": "hard",
+    "suggested_proof_route": "Reuse AKLT.W.H1M056/057/058/059/060/061/066.main: normalize physical fields and means to unit-ball directions, expand tensor moments, and evaluate against the positive product density with the same inversion.",
+    "trap_note": "Mean encoding has one formal 3R field; its direction is m/R, not the physical vector 3m. Omit zero fields before indexing."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.InputPartitionStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:certified",
+    "paper_locator": "h1tree.tex Proposition 1.11, partition of 38 rows",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use the checked sorted index list 0..37, list getD membership, and the explicit lengths.",
+    "trap_note": "The old 19 closed boxes are not this partition."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.CoverageCheckerSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:coverage",
+    "paper_locator": "h1tree.tex Lemma 1.15, finite coverage checker soundness",
+    "difficulty": "medium",
+    "suggested_proof_route": "Use allKeys = coverageTree.keys by definition; prove key membership gives a row in that tree, then use CoverageTree.all soundness and the selected branch target.",
+    "trap_note": "The lookup keys are projected from the same record tree checked by the reduction receipts. Reflection is a separate semantic transport."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.RawCartesianExhaustionStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:coverage",
+    "paper_locator": "h1tree.tex Lemma 1.15, 2,048,000 factorized raw choices",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use List.filter membership at each corner and product-list induction.",
+    "trap_note": "Removed endpoints impose no consistency comparison; all eight directed ring comparisons still have to be represented."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ProjectedRawCompletenessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:coverage",
+    "paper_locator": "h1tree.tex Lemma 1.15, collapse identical effective corner records",
+    "difficulty": "medium",
+    "suggested_proof_route": "At each corner effectiveCorners retains a representative for cornerProjection; assemble the four independent choices and show recordOf depends only on those projections.",
+    "trap_note": "Erasing an isolated unmarked corner is justified by its common positive scalar, not by declaring its original status removed."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ActualFieldCountsStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:counts",
+    "paper_locator": "h1tree.tex Lemma 1.13, original pins and D capacity",
+    "difficulty": "medium",
+    "suggested_proof_route": "Use Departure.start outside protectedSites, lattice-distance triangle inequalities, and Auxiliary.LocalRules present-degree <=2.",
+    "trap_note": "A D corner with k internal bonds has at most 2-k external factors; do not fill two artificial D slots."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.TipReductionStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 1, tips",
+    "difficulty": "easy",
+    "suggested_proof_route": "Assemble the three supplied elementary statements; absent tip bonds keep only A and assign a prospective zero field.",
+    "trap_note": "A removed tip contributes one; no artificial pin is created."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.DZeroLawStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:dlaw",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 2, equation (1.17)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Unfold spinWeight and split the Option SpinLetter sum.",
+    "trap_note": "A zero term deletes every incident bond and every mark insertion, including a possible outgoing mark."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.UpperDTwoBondStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:topd",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 2, equation (1.18)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use zero first moments and second D moment 1/5 from AKLT.W.MOM004.main, AKLT.W.MOM006.main.",
+    "trap_note": "The two-internal-bond D corner has no external fields before law expansion."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.UpperLostEndpointStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:topd",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 2, lost endpoint",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use constant moment one and odd moment zero.",
+    "trap_note": "An activated D bridge that loses an endpoint integrates to exactly one; it is not a generic two-field U leaf."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ArrivalSplitStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:arrivalcut",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(a), equation (1.19)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Reuse first and second U moments and square of sqrt(3/5).",
+    "trap_note": "This is a common positive auxiliary-spin mixture, not independence of lower corners."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ArrivalSplitWeightsStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:splitweights",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(a), equation (1.20)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Apply single-site positivity after appending the auxiliary ball field.",
+    "trap_note": "The two normalizers exclude side marks and passage insertions, so their product is common to current and next."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ArrivalOneAliveStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:onealive",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(b), equation (1.21)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Apply the same D second-moment identity; opposite lower U mean <=1/2 gives radius 1/10.",
+    "trap_note": "Integrate the opposite corner first, then S, then the attached corner."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ArrivalTipStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:arrivaltip",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(c), equation (1.22)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use ArrivalOneAliveStatement and normSq of scalar multiplication.",
+    "trap_note": "The attached U corner needs the (1,1,3/25) special check, not a generic three-field 3/5 bound."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ArrivalAbsentStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(c), no tip/no other lower bond",
+    "difficulty": "easy",
+    "suggested_proof_route": "Constant and first moments only; removed S has no integration.",
+    "trap_note": "Kept flags to removed endpoints supply no factor."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.PreservedLowerPathStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:preserve",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 3(d), equation (1.23)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Finite Fubini and distributivity; retain the three integrations as one five-vertex component.",
+    "trap_note": "Precisely E,W alive, N absent, SL/SR present and both original lower corners U. Independent 3/5 fields give the explicit false intermediate inequality."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.UpperULeafStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 4, U upper leaf",
+    "difficulty": "easy",
+    "suggested_proof_route": "Assemble two-field U mean, positivity and leaf summation.",
+    "trap_note": "Retain a bridge when both marks survive; insert zeros before enlarging retained bridge fields to (1,1)."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.UpperDLeafStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 4, one-bond D upper leaf",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use the D one-field moment formula.",
+    "trap_note": "Only one external field is available at a one-internal-bond D corner."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ForestDegreeStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, step 5, path geometry",
+    "difficulty": "medium",
+    "suggested_proof_route": "Inspect the two upper bridge possibilities and the disjoint retained-lower-path branch; finite graph reasoning on E,A,N,B,W,L,S,R.",
+    "trap_note": "No cycle remains; unmarked vertices have degree two. The direct endpoint walk relies on the supplied E,N,W order."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ActualRecordCoverageStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:actual",
+    "paper_locator": "h1tree.tex Definition 1.12 and Lemma 1.15, actual mask realization",
+    "difficulty": "hard",
+    "suggested_proof_route": "Extract the covered PatternData witness from the shared matcher, encode its non-tip masks, and use raw completeness plus rawGroupCheck. Reflect E/W when needed; then remove only isolated unmarked factors.",
+    "trap_note": "The shared matcher is not the frozen Rec-local matcher. Covering tips may add absent bonds; physical D external capacity must still come from the actual domain."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.EmptyModelEvaluationStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemma 1.14, empty-mark branches",
+    "difficulty": "easy",
+    "suggested_proof_route": "Factor the finite product of Dirac zero-atom weights and use empty products/sums.",
+    "trap_note": "Do not unfold the 13^8 dummy-spin assignments by computation; use finite product-sum identities."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ActualMixtureSoundnessStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:localcases",
+    "paper_locator": "h1tree.tex Lemmas 1.14–1.15, exact conditional mixture",
+    "difficulty": "hard",
+    "suggested_proof_route": "Disintegrate only local variables; select the realized raw mask, use the positive law/auxiliary-spin/affine mixtures case by case, and return the exact common-weight representation with its checked dominating model. Split this bookkeeping task further if needed; no old 7,962-pattern inequality is available.",
+    "trap_note": "This is an explicit new proof obligation, not claimed solved by importing the per-case identities. Coefficients and positive normalizers must be identical for current and next, including empty-mark branches."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ModelRelabelRadiusStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:extension",
+    "paper_locator": "h1tree.tex Lemma 1.16, relabeling and radius extension",
+    "difficulty": "medium",
+    "suggested_proof_route": "Reindex finite spin sums under component permutations/path reversal; expand each smaller field or mean into antipodal boundary vectors with common nonnegative coefficients.",
+    "trap_note": "Preserve laws, marked flags and outgoing flags; do not relabel a missing outgoing mark onto another vertex."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ConditionalGlobalStatement",
+    "module": "AKLT.Blueprint.H1T.Nodes",
+    "paper_label": "ht:reduction",
+    "paper_locator": "h1tree.tex Theorem 1.17, outside integration",
+    "difficulty": "medium",
+    "suggested_proof_route": "Finite Fubini over template and complement. Outside weights are identical and nonnegative; use AKLT.W.REC001.main for normalizers only when converting to a ratio.",
+    "trap_note": "Conditional fibres of zero global marginal weight still need their pointwise inequality; do not divide by that marginal."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.CoveredRatioStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC090 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 6.10)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Apply H1ActualStatement directly to the actual partitions, use AKLT.W.REC001.main for positivity, and divide by c and Zcur. Eliminate the old pattern-mixture dependency.",
+    "trap_note": "Use the shared AKLT.Defs.CoveredDepartureV2; the frozen Rec-local matcher is different."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.CoveredIntegratedLowerStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC091 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 7.6)",
+    "difficulty": "easy",
+    "suggested_proof_route": "Use H1ActualStatement with AKLT.W.REC002.main and AKLT.W.REC003.main, cancel the positive removed-site partition from AKLT.W.REC001.main.",
+    "trap_note": "Handle both I2 >= c and I >= c J; no bound on artificially filled D slots is available."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.OnePointPointwiseStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC094 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 6.13)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Port AKLT.W.REC094.main and its LocalBounds helper to CoveredRatioStatementV3. Reuse AKLT.W.REC010.main, AKLT.W.REC011.main and AKLT.W.REC012.main; keep the common maximum before summing.",
+    "trap_note": "Preserve absent incoming bond, original protected set and shared uncoveredCountV2 <= 12."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.OnePointSumStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC095 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 6.13)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Port AKLT.W.REC095.main using the V3 pointwise estimate; retain its length grouping and H2 geometric tail without numerical changes.",
+    "trap_note": "The maximum must be taken pointwise before the sum. Do not replace it with a maximum of two sums."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.TraceKernelLengthStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC079 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 7.7)",
+    "difficulty": "hard",
+    "suggested_proof_route": "Port AKLT.W.REC079.main, LocalInputs, OrderedExposure and LocalLogComparison. Use actual ratios and responseTyped_of_leavesV3; AKLT.W.REC092.main converts the frozen cover when needed. Reuse AKLT.W.REC096.main, AKLT.W.REC097.main, AKLT.W.REC100.main, AKLT.W.REC101.main and AKLT.W.REC102.main for geometry/order.",
+    "trap_note": "Preserve true first-visit U indices, missing-neighbour beta-prime cases and exactly the existing kernel/order."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.ResidualTargetBoundStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC080 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 7.7)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Port AKLT.W.REC080.main with OnePointPointwiseStatementV3 / OnePointSumStatementV3 and actual local ratios. Reuse AKLT.W.REC098.main and AKLT.W.REC099.main for the fixed terminal defect and twelve exceptions.",
+    "trap_note": "The terminal auxiliary network is not ordinary; its original pins and protected set stay fixed."
+  },
+  {
+    "lean_name": "AKLT.Blueprint.H1T.SecondTermBoundStatementV3",
+    "module": "AKLT.Blueprint.H1T.Consumers",
+    "paper_label": "REC081 V3",
+    "paper_locator": "h1tree.tex Proposition 1.18 (P.Lemma 7.7)",
+    "difficulty": "medium",
+    "suggested_proof_route": "Port AKLT.W.REC081.main using the V3 residual-target and one-point-sum leaves; retain the same stopped first-hit expansion, coefficient and sourceConstant.",
+    "trap_note": "Keep the two original depths and the same q^(2*d) source term."
+  }
+]

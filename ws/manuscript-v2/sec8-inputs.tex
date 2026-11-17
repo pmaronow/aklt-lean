@@ -29,7 +29,7 @@ The finite assertions to be checked from these data are as follows.
 First enumerate the patterns from Definition~\ref{d:pattern},
 rather than assuming that the supplied pattern list is exhaustive.
 Encode a kept set by a four-bit mask in direction order E,N,W,S.
-Each of the three non-arrival neighbours has five choices: U
+Each of the three non-arrival neighbors has five choices: U
 keeping all four bonds, X, or D keeping its passage bond and one
 of its three other bonds. The arrival site has four choices: X,
 or D keeping two of its three non-passage bonds. Each corner has
@@ -38,13 +38,13 @@ The passage site's kept set and status, and all covering U tips,
 are fixed. There are therefore
 \(4\cdot5^3\cdot8^4=2048000\) assignments before consistency is
 tested. Retain exactly those satisfying the nonremoved non-tip
-bond consistency rule. Choose every nonremoved out-neighbour
+bond consistency rule. Choose every nonremoved out-neighbor
 among E,N,W. The finite enumeration assertions are
 \[
  \begin{array}{c|r}
  \text{consistent status/kept-set assignments}&106101\\
- \text{such assignments with a marked out-neighbour}&184914\\
- \text{marked assignments with out-neighbour N or E}&123339.
+ \text{such assignments with a marked out-neighbor}&184914\\
+ \text{marked assignments with out-neighbor N or E}&123339.
  \end{array}
 \]
 In forming an effective record retain the present internal bonds
@@ -56,7 +56,7 @@ coverage test requires that their canonical keys are precisely
 the \(7962\) distinct keys in the supplied pattern file. Every
 entry in the operator-choice file must refer to the corresponding
 pattern, use the covered model and tip radius \(3/5\), have the
-correct out-neighbour, and use threshold \(961/1000\) for a
+correct out-neighbor, and use threshold \(961/1000\) for a
 straight pattern and \(187/200\) for a turn. Each of the \(7962\)
 pattern indices must occur exactly once in that choice file.
 
@@ -66,7 +66,7 @@ The group's order is the ring-site order
 \[
  (1,0),(1,1),(0,1),(-1,1),(-1,0),(-1,-1),(0,-1),(1,-1),
 \]
-omitting empty groups. A neighbour contributes its single bonded-tip
+omitting empty groups. A neighbor contributes its single bonded-tip
 vector when that bond is present. A corner contributes its single
 leaf vector in the reduced one-bond case, and its two slot vectors
 otherwise. The inversion field lists zero-based vector indices;
@@ -166,8 +166,8 @@ and kept-set choice in Definition~\ref{d:pattern} appears in its
 indicated finite option list. Each complete assignment appears
 exactly once in their Cartesian product. The consistency predicate
 is precisely the requirement that both nonremoved non-tip ends
-make the same keep decision. A permitted out-neighbour is exactly
-a nonremoved E,N or W neighbour: it keeps its passage bond, and
+make the same keep decision. A permitted out-neighbor is exactly
+a nonremoved E,N or W neighbor: it keeps its passage bond, and
 the passage site keeps that bond, so the out-bond is present.
 These observations prove that filtering and marking produce
 exactly all raw patterns, without a geometric or boundary assumption.
@@ -178,7 +178,7 @@ the same factor in the current and next partition polynomials,
 because the only change is at the passage site and its out-bond.
 An isolated arrival site has no slot factors, and its probability
 functional applied to \(1\) is \(1\). The other nonremoved
-non-arrival neighbours are incident to their passage bonds and
+non-arrival neighbors are incident to their passage bonds and
 are not isolated. Removed sites contribute no factor. Thus all
 discarded factors are common and positive. Every remaining factor
 is determined by the present internal bonds, the remaining statuses
@@ -200,7 +200,7 @@ from a list of pattern IDs.
 All moment contractions used in the reconstruction have separate
 degree at most four. A bonded tip has its three slots and its one
 bond. A corner has its two slots and at most two internal bonds.
-After passage integration, a neighbouring site has at most its
+After passage integration, a neighboring site has at most its
 three remaining factors and one inserted coordinate from a passage
 pair; the two members of such a pair are distinct. The arrival
 site has at most two present bonds and no passage insertion.
@@ -295,7 +295,7 @@ open-trail bound, and Lemma~\ref{l:H2-CV} permits \(C_V=10\).
 Thus Definition~\ref{h:H2} holds uniformly in the start and
 designated incoming direction, with initial reversal forbidden.
 
-Proposition~\ref{p:automaton10} checks the labelled memory-ten
+Proposition~\ref{p:automaton10} checks the labeled memory-ten
 quotient. Proposition~\ref{p:stationary-check} gives the five
 finite supersolution and exact-prefix assertions at
 \(L=12\ge10+2\), \(R=70\) and the stated two scales.
@@ -321,7 +321,7 @@ Definition~\ref{d:kernel}, with turning coefficient
 \(a_{\rm t}=150000/10^6\), the exact dyadic vector and the
 fixed orderings of Definition~\ref{d:kernel-order}. The stationary
 certificates retain the initial bond and initial-site rules,
-centre exclusion and first-hit target stopping at every suffix
+center exclusion and first-hit target stopping at every suffix
 time. No periodic spatial walk, long-time remainder or parity
 improvement enters these input theorems.
 

@@ -1,6 +1,10 @@
-STATUS: PORT PARTIAL (release materialized; port and verification in progress)
+STATUS: FIDELITY FIXES COMPLETE
 
-The earlier PAL_FIT feasibility study below is historical; the new two-input release work is recorded in the final release package section.
+Author direction supersedes the earlier conditional/resource-fit target. The current result is the hand-written port for the complete unconditional formalization; earlier phases below are historical. See the final complete-release section.
+
+Current deliverable: the two-input standalone release is materialized and ported; all three checker engines and protected statement comparison accept. The earlier four-premise feasibility study below is historical. See the final [release package](#release-package) section for current scope, package commit, measurements and remaining author/infrastructure work.
+
+## Historical feasibility study
 
 PAL_FIT establishes a sound four-premise conditional theorem and identifies concrete packaging and resource blockers. **The present source tree is not an admissible Palomar submission at either profile.** Direct Lean and NanoDa accept the conditional theorem's complete 889.806 MB export; a fresh legacy source build and con-ron do not complete under the conservative local memory envelope. The larger profile does not parallelize the mandatory Lean replay or extend the 30-minute con-ron cap.
 
@@ -261,7 +265,7 @@ Ask initially for the validated 64-GiB profile, measure full installed-environme
 
 Build/export/checker command lines, start timestamps, exit status, CPU, RSS, VMS, threads and hashes are in the linked JSON receipts. [make_candidate.py](tools/make_candidate.py) and [make_minimal.py](tools/make_minimal.py) recreate the source layouts; [pilot_h2.py](tools/pilot_h2.py) builds only the selected part and prerequisites; [probe_reader.py](tools/probe_reader.py) isolates the unused-literal effect; [h1_archive_sources.py](tools/h1_archive_sources.py) audits final archived owner sources without restoration. These scripts are study helpers, not an approved Palomar submission runner. The existing dependency cache and one warm H2 proof are explicitly disclosed. The invalid early launches and under-sized Comparator control are retained for audit but excluded from performance conclusions. No full certificate, cold-cache timing, authentic cgroup memory peak, complete protected statement comparison, successful core con-ron run or sufficient full-export upper bound has been manufactured.
 
-ORCH-SUMMARY
+Historical campaign handoff
 - Delivered exact `AKLT.PALFit.conditionalMain`: four explicit certificate premises; all 416 main leaves supplied.
 - Open contract names: `AKLT.Blueprint.Top.H1FiniteDataStatementV2`, `AKLT.Blueprint.Top.CertificateStatement`, `AKLT.Blueprint.Top.Automaton10StatementV2`, `AKLT.Blueprint.Top.StationaryCheckStatementV2`.
 - Strict 418-print audit: only propext, Classical.choice, Quot.sound; no extra main leaf premise.
@@ -287,78 +291,800 @@ ORCH-SUMMARY
 
 ## release package
 
-Release source pin: d77c3ca85754582f91354dd848ac5a830f73727d; unported package first commit: 933e99cddadb1ae6b85d5f4aff551b6f14f91f42. Materialization hashes and exact 618-file inventory: `release/materialization.json`. The legacy tree is unchanged.
+The standalone release is [_pkg/README.md](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/README.md), with its own Git repository. Current package commit: **`125b6ceb182a2e68f86e76033109352da984f4a4`**. First commit: **`933e99cddadb1ae6b85d5f4aff551b6f14f91f42`**, the exact unported copy from main **`d77c3ca85754582f91354dd848ac5a830f73727d`**. [Materialization receipt](release/materialization.json) verifies every input blob against `port-list.tsv`. Main and the original legacy worktree were never ported or edited. The package has **618 first-party Lean files / 7,297,224 bytes**, exactly the 616-file Solution closure plus Challenge and Audit. All 615 legacy source files were converted; no extra experiment or probe Lean file is in the release root. External dependency source under `.lake/packages` is excluded from this first-party inventory.
 
-Release stage `source-configuration`: wall 1.409 s, CPU 1.340 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/source-configuration/result.json`.
+The result proved and checked is exactly:
 
-Release stage `official-supervisor`: wall 0.203 s, CPU 0.117 s, peak tree RSS 0.032 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-supervisor/result.json`.
+```lean
+AKLT.Final.main_of_inputs :
+  AKLT.Blueprint.Top.H1Statement → AKLT.Blueprint.Top.H3Statement →
+  AKLT.Challenge.MainStatementV2
 
-Release stage `official-bwrap-install`: wall 0.203 s, CPU 0.062 s, peak tree RSS 0.016 GiB, exit 127, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-install/result.json`.
+AKLTPalomar.h1_iff : AKLTPalomar.H1 ↔ AKLT.Blueprint.Top.H1Statement
+AKLTPalomar.h3_iff : AKLTPalomar.H3 ↔ AKLT.Blueprint.Top.H3Statement
+AKLTPalomar.main_iff : AKLTPalomar.Main ↔ AKLT.Challenge.MainStatementV2
+AKLTPalomar.aklt_gap_of_inputs : AKLTPalomar.H1 → AKLTPalomar.H3 → AKLTPalomar.Main
+```
 
-Release stage `build-default-a1`: wall 666.134 s, CPU 3191.072 s, peak tree RSS 35.136 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/build-default-a1/result.json`.
+The three equivalences retain their original `Iff.rfl` proofs; Solution and Audit themselves are byte-unchanged from the skeleton. H1 and H3 are the paper's semantic inputs, explicitly assumed, with H2 proved internally. No additional premise, finite-certificate attachment, or H1/H3 certificate/semantic assembly is imported. The independent Challenge imports only Mathlib and is now **575 lines / 26,919 bytes**. Its one intentional placeholder is the only proof hole. Its slight increase retains an original auxiliary definition, described below; the three advertised statement definitions are unchanged.
 
-Release stage `official-bwrap-install-a2`: wall 0.707 s, CPU 0.552 s, peak tree RSS 0.057 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-install-a2/result.json`.
+**Proof-body changes: none.** [PORT-CHANGES.md](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/PORT-CHANGES.md), [PORT-MANIFEST.tsv](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/PORT-MANIFEST.tsv), and [port-fidelity.json](release/port-fidelity.json) record the transformation. All 616 closure files match the documented mechanical visibility transform (including the already-modern Solution); every original definition and proof body is preserved. The two additional interface adjustments are:
 
-Release stage `official-bwrap-debug`: wall 0.606 s, CPU 0.538 s, peak tree RSS 0.052 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-debug/result.json`.
+| File / declaration | Change | Reason |
+|---|---|---|
+| All 615 `AKLT/` files | `module`; public imports; public/exposed section; `backward.privateInPublic` and `backward.proofsInPublic` | Preserve the legacy exported interfaces under the module system; no kernel bypass |
+| `AKLT/Challenge/Main.lean`, `AKLT.Challenge.size_neZero` | Explicit `@[expose]` on the Prop-valued instance; original proof unchanged | A public/exposed section alone does not expose this instance |
+| `Challenge.lean`, `AKLT.Defs.moment` | Add the original definition verbatim at its original position; update the generator | `spinWeight` reuses `moment._proof_1` in the tree. Omitting its owner created a different helper name in Challenge |
 
-Release stage `official-bwrap-install-a3`: wall 1.010 s, CPU 1.000 s, peak tree RSS 0.064 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-install-a3/result.json`.
+The known `Compass.step` matcher difference is fixed by the module conversion itself. The first post-port comparison then exposed the `spinWeight` helper difference; retaining `moment` fixes it without changing `spinWeight`. The final recursive statement comparison passes with **no definition exemptions**. Generator fixes recognize the exposed instance and use the standalone root by default. No theorem was renamed. No new axiom, unsafe implementation, native proof, external implementation, or opaque declaration was introduced. The original H2 unlimited-heartbeat setting remains the named campaign exception.
 
-Release stage `official-bwrap-debug-a2`: wall 0.908 s, CPU 0.978 s, peak tree RSS 0.051 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-debug-a2/result.json`.
+The strict Audit prints exactly `[propext, Classical.choice, Quot.sound]` for all five exported theorems. Full transcript: [final serial Audit](release/stages/serial-strict-audit/stdout.log) and the package's [axioms.log](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/axioms.log). The automated axiom transcript checker passes. These remain conditional theorems, not a proof of the two premises.
 
-Release stage `official-bwrap-install-a4`: wall 0.909 s, CPU 0.982 s, peak tree RSS 0.066 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/stages/official-bwrap-install-a4/result.json`.
+| Stage (16-CPU affinity) | Wall s | CPU s | Peak tree RSS GiB | Result |
+|---|---:|---:|---:|---|
+| Source/configuration | 1.41 | 1.35 | 0.062 | All 618 headers/line caps and config pass; only author TODOs and root LICENSE remain |
+| Lean header parser | 0.10 | 0.06 | 0.001 | 618/618 parsed as modules, no header errors |
+| Fresh default build, four compilers (development baseline) | 666.13 | 3191.07 | 35.136 | Pass; existing pinned dependency cache; no project artifacts |
+| Fresh default build, one compiler (cold-run scheduling) | 2595.60 | 3170.19 | 26.331 | Pass; empty .lake/build, no reused project objects |
+| Challenge + Solution + Audit after serial rebuild | 10.27 | 10.15 | 3.803 | Pass; one authorized Challenge placeholder warning |
+| Strict Audit after serial rebuild | 2.82 | 2.75 | 4.502 | Pass; all five expected axiom prints and exact types |
+| Canonical Challenge, trusted dependency paths only | 3.94 | ≈3.83 | 3.663 | Pass; independent random alias; source is Mathlib-only |
+| Canonical Challenge stock export | 8.57 | ≈8.42 | 6.366 | Pass |
+| Solution stock export, protected policy | 32.98 | ≈32.82 | 7.084 | Pass; full target closure |
+| Protected Comparator: NanoDa then Lean | 553.58 | ≈599.91 | 23.226 | Statement comparison and both mandatory kernels accept |
+| Official pinned con-ron, verified, two workers | 420.76 | ≈519.88 | 47.189 | Accepts 63,516 declarations; local peak exceeds default RAM |
+| Stock export after final serial rebuild | 33.05 | 32.99 | 7.873 | Pass; byte identity to the independently checked export |
 
-Release stage `source-configuration`: wall 1.410 s, CPU 1.345 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a1/stages/source-configuration/result.json`.
+All timed stages inherit affinity **0–15**, and the monitor samples descendants through **every thread's** children. The four-worker and one-worker builds each started with an empty project `.lake/build`; only the pinned, prebuilt dependency cache was reused. All nine dependency Git heads match the manifest. No `lake update`, Mathlib source build, package-store write or legacy project olean was used. The largest line count is 1636, below 10,000. Challenge also satisfies 1,000 lines / 100 KiB, although 575 lines exceeds the preferred 300-line review surface (a warning, not a hard failure).
 
-Release stage `lean-header-parser`: wall 0.103 s, CPU 0.061 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a1/stages/lean-header-parser/result.json`.
+The local resource authorization was up to 48 Lean processes / 300 GB; observed compiler concurrency was four, then one. The measurement harness uses 16-CPU affinity, a per-process 240-GiB virtual-address backstop, and a 260-GB sampled tree-RSS abort threshold. Independent-checker runs overlapped part of the serial build locally; combined observed use stayed well below 300 GB and CPU affinity stayed inside the same 16 CPUs. The budget total below adds stage wall times serially and takes no credit for that overlap. **This is not a 32-GiB cgroup acceptance run.** RSS sums may double-count shared mappings; parent/controller overhead and page-cache accounting need the real cgroup.
 
-Release stage `source-configuration`: wall 1.409 s, CPU 1.348 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/source-configuration/result.json`.
+The official supervisor probe fails here because cgroup delegation is unavailable (`sudo` is blocked by the inherited no-new-privileges setting; the cgroup filesystem is read-only). [Supervisor receipt](release/stages/official-supervisor/result.json) and [error](release/stages/official-supervisor/stderr.log) preserve the actual result. The installed bubblewrap was 0.9.0; the official pinned 0.12.0 installer was successfully run into a writable local tools directory after rootless build-tool/header setup. The final canonical build, exports and judge use the official namespace/read-allowlist policy and Comparator's nested sandbox. The official supervisor's authenticated cgroup/status/seccomp protocol was not reproduced, so no registry/production acceptance or validated profile retry is asserted.
 
-Release stage `lean-header-parser`: wall 0.103 s, CPU 0.061 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/lean-header-parser/result.json`.
+Namespace PID 1 does not propagate descendant CPU rusage. The unadjusted wrapper `wait4` totals are preserved in raw receipts; **≈ CPU values** use sampled process-tree sums instead. This correction is in [metrics.json](release/metrics.json), without rewriting raw evidence. The Comparator's internal observed processes used approximately **332.38 CPU s NanoDa / 240.50 CPU s Lean**, with peaks **18.842 / 23.118 GiB**. Parsing/comparison adds approximately 26.61 CPU s. NanoDa is configured for four check threads, Lean replay is serial, and they execute sequentially. Con-ron used approximately **519.68 process CPU s**, two workers, and **47.19 GiB**. These internal wall/CPU estimates have sampling error; they are not independent duplicate replay measurements.
 
-Release stage `explicit-targets`: wall 10.582 s, CPU 10.370 s, peak tree RSS 3.806 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/explicit-targets/result.json`.
+The full stock Solution export is **671,987,125 bytes**, SHA-256 **`9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a`**. The canonical Challenge export is **154,767,051 bytes**. Both are frozen outside the source root. The final serial re-export equality receipt is [serial-export-equality.json](release/serial-export-equality.json); byte identity binds the earlier three-kernel acceptance to the final fresh source build without repeating those expensive checks. Full primitive/root lists are [export-roots.json](release/export-roots.json). The con-ron used is the official 4.36.0-rc1 override, binary SHA-256 `4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef`.
 
-Release stage `strict-audit`: wall 3.027 s, CPU 2.970 s, peak tree RSS 4.500 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/strict-audit/result.json`.
+The measured serial component path totals **3630.03 s (1.008 h)**, including source/header checks, the fresh default build, explicit targets, strict Audit, both exports, protected Comparator and full con-ron. CPU for that path totals approximately **4349.36 s (1.208 CPU-hours)**. The redundant final re-export is shown separately. Add an explicitly **unmeasured cold Mathlib-cache fetch estimate of 600–1,800 s**, 60–180 s for pinned dependency checkout, and 120–600 s for a missing checker override/tool bootstrap: approximately **4410–6210 s (1.23–1.73 h)**, versus **19,800 s**. This is conditional on the pinned cache being available; slow/unavailable providers are not bounded by the estimate. The cold runner refuses a missing/stale cache instead of building Mathlib. This local study does not claim a measured cold fetch.
 
-Release stage `axiom-transcript`: wall 0.102 s, CPU 0.026 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/axiom-transcript/result.json`.
+**Memory conclusion:** the measured serial build (26.33 GiB aggregate RSS) and mandatory Comparator (23.23 GiB) are below the nominal 32-GiB ceiling, with no physical-cgroup claim. Full con-ron acceptance as measured requires more than 32 GiB; its 47.19-GiB footprint fits a nominal 64-GiB host. On the default profile an authenticated con-ron capacity limit may leave that advisory replay inconclusive. The local numbers do not authorize the larger profile. Also, the cold runner deliberately sets `LEAN_NUM_THREADS=1`, whereas the production verifier currently strips that variable from its outer sandbox; its actual automatic Lake scheduling still needs an official run. No claim that the four-worker RSS sum is a cgroup OOM is made.
 
-Release stage `protected-challenge-build`: wall 0.102 s, CPU 0.004 s, peak tree RSS 0.001 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a2/stages/protected-challenge-build/result.json`.
+**Cold runner.** [scripts/cold-verify.sh](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/cold-verify.sh) clones a given full package commit and invokes only the clone's verification code. It has no dependency on this worktree, its build objects, reports, the original main repository, or the shared package store. Required external inputs are the Git repository/commit, official verifier checkout, installed toolchain, network-accessible pinned dependencies/cache, and normal Linux build utilities. Homes, caches, bootstrap tools, canonical source copies, logs and JSON receipts stay under the chosen output directory, outside the source root. The pipeline fetches exact pins through the official helper without update hooks, gets the trusted Mathlib cache, checks it with `--no-build`, then runs all mechanical stages and verified con-ron with the shared execution deadline and 30-minute replay cap.
 
-Release stage `source-configuration`: wall 1.409 s, CPU 1.343 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/source-configuration/result.json`.
+```sh
+systemd-run --user --scope -p CPUQuota=1600% -p MemoryMax=32G -p MemorySwapMax=0 \
+  bash /path/to/package/scripts/cold-verify.sh \
+  --repository /path/to/package --commit 125b6ceb182a2e68f86e76033109352da984f4a4 \
+  --verifier /path/to/PalomarSubmission --output /tmp/aklt-cold-release
+```
 
-Release stage `lean-header-parser`: wall 0.103 s, CPU 0.061 s, peak tree RSS 0.000 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/lean-header-parser/result.json`.
+The output path must be new. It inherits the caller's cgroup throughout, never creates a sibling scope, and records stage checkpoints as they complete. Exit 0 means all mechanical components accepted, with registry preparation still required. Exit 2 means mandatory acceptance plus locally evidenced con-ron deadline/OOM capacity; this is not an authenticated Palomar verdict. Other failures exit 1. The committed-clone/budget smoke test ([receipt](release/cold-budget-smoke/receipt.json)) checks an exact clean package checkout and noninteractive JSON failure under a deliberately tiny shared budget, before fetching dependencies. The full network/cold-cache path has not been executed here; it is the supplied orchestrator rerun, and its cache timing remains estimated. Script syntax, source inventory, source hashes and strict axiom checks were also checked.
 
-Release stage `explicit-targets`: wall 7.052 s, CPU 6.191 s, peak tree RSS 0.931 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/explicit-targets/result.json`.
+**Remaining findings owned by the author/maintainers:** `formalization.yaml` still explicitly marks formalization author and responsible maintainer identities/ORCIDs, manuscript and companion authors, SPDX license/root LICENSE text, immutable public manuscript/companion URLs/commits/manifests/receipts, and underlying proof-development provenance as TODO. The official metadata minimum rejects the placeholder identities; the source helper reports `package.metadata_todo` and `package.license_missing`. Existing QICLean license notices are preserved. Independent review of FIDELITY remains pending. None of these TODOs was filled with an invented identity or license. Authenticated 16×32 production/cold-cache evidence and any advisory con-ron capacity classification remain for the orchestrator/official service.
 
-Release stage `strict-audit`: wall 3.026 s, CPU 2.961 s, peak tree RSS 4.502 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/strict-audit/result.json`.
+All findings in the module port, public interfaces, declaration matching and local mechanical checks that are ours to fix have been fixed. Development harness corrections (header JSON nesting, filtering nonexistent optional dependency library paths, and namespace CPU accounting) are recorded in the retained attempts; no failed development control is presented as a theorem rejection or final acceptance. Port and verification source code is committed; source proofs remain unchanged.
 
-Release stage `axiom-transcript`: wall 0.102 s, CPU 0.026 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/axiom-transcript/result.json`.
+ORCH-SUMMARY
+- Release root: `/home/ubuntu/aklt/wt/PAL_FIT/_pkg`; independent Git repository.
+- Package commit: `125b6ceb182a2e68f86e76033109352da984f4a4`; unported first commit: `933e99cddadb1ae6b85d5f4aff551b6f14f91f42`.
+- Origin pin: main `d77c3ca85754582f91354dd848ac5a830f73727d`; legacy tree untouched.
+- Exactly 618 first-party Lean files; all module-system, all under line caps; Challenge 575 lines.
+- The reduction is exactly H1Statement → H3Statement → MainStatementV2; H2 proved internally.
+- `h1_iff`, `h3_iff`, `main_iff` remain Iff.rfl; original proof-body changes: none.
+- Compass matcher fixed by port; size_neZero explicitly exposed; moment retained for helper identity.
+- Fresh builds, strict five-theorem Audit, independent statement comparison, Lean and NanoDa pass.
+- Verified con-ron accepts 63,516 declarations in 421 s, peak ≈47.19 GiB.
+- Serial fresh build: 2,596 s / 3,170 CPU s / 26.33 GiB; final export identity checked.
+- Measured serial mechanical path ≈3630 s; cold setup estimate gives ≈4410–6210 s < 19,800 s.
+- Default RAM fits observed build/mandatory replay; full con-ron needs more than 32 GiB.
+- Namespace-stage CPU uses approximate process-tree sampling; raw wrapper usage is preserved.
+- Full official cgroup/status/seccomp supervision unavailable; no production verdict or retry entitlement.
+- Cold clone runner, logs, JSON receipts and deadline smoke test delivered; actual cache fetch estimated.
+- Production Lake scheduling may differ because it strips LEAN_NUM_THREADS; run the real cgroup check.
+- Author identities/ORCIDs, license, public provenance/companion receipts and fidelity review remain TODO.
 
-Release stage `protected-challenge-build`: wall 4.038 s, CPU 0.003 s, peak tree RSS 3.663 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/protected-challenge-build/result.json`.
+## complete release — hand-written port
 
-Release stage `challenge-export`: wall 8.676 s, CPU 0.003 s, peak tree RSS 6.366 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/challenge-export/result.json`.
+The assigned hand-written port phase is complete. The release now targets the
+**unconditional** `AKLTPalomar.aklt_gap : AKLTPalomar.Main`, with proof source
+`main_iff.mpr CertData.Close.main`. The two-input reduction remains the ordinary
+library theorem `AKLT.Final.main_of_inputs`. The generated certificate sources
+are deliberately absent pending the two regeneration agents; no unproved
+certificate or analytic assertion was inserted to make the closing modules build.
+The unconditional Solution/export is therefore **not yet verified**.
 
-Release stage `solution-export`: wall 33.387 s, CPU 0.003 s, peak tree RSS 7.084 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/solution-export/result.json`.
+### Package, files, and exact scope
 
-Release stage `protected-comparator`: wall 22.793 s, CPU 0.003 s, peak tree RSS 1.143 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a3/stages/protected-comparator/result.json`.
+Release root: [`_pkg`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/README.md). Source revision:
+`8f59d336acf2fc13428893faf26097890f4f288b`. Package commit: **`169a4007abea6cc73e4630ef99b797491a1708a7`**.
+The first commit of the independent package remains the exact unported copy
+`933e99cddadb1ae6b85d5f4aff551b6f14f91f42`. The legacy development and certificate
+objects were not changed or reused as project build inputs.
 
-Release stage `source-configuration`: wall 1.409 s, CPU 1.337 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a4/stages/source-configuration/result.json`.
+- **1,104 original hand-written files**: the 1,102-file hand-written closure of
+  `CertData.Close.All` plus the empty H1 generation root and its closing Audit.
+  This extends the previous 615 original AKLT files by 489 original sources.
+- **1,115 first-party Lean files** in the final package, totaling
+  **10,654,396 bytes**. All use `module`; the longest is
+  `AKLT/Defs/Automaton10Data.lean`, **1,636 lines**. No line-cap violation remains.
+- Root Challenge imports **Mathlib only**, has **161 lines / 7,736 bytes**, has no
+  H1/H3 premise definitions, and contains the one conventional placeholder.
+  Main and MainStatementV2 retain the original physical statement and definitions.
+- Root Solution imports `CertData.Close.All`; Audit prints the four closed inputs/
+  headline and the two Solution theorems once regenerated certificates are present.
+- [`port-list.tsv`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/port-list.tsv), [`PORT-MANIFEST.tsv`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/PORT-MANIFEST.tsv),
+  and `verification/source-inventory.json` give the exact source paths and hashes.
+  Generated sources are excluded from Git. The generated inventory has exactly
+  **7,964 H1 + 5,032 H3 = 12,996** module names; 2,340 legacy H3 literal sources
+  were compacted, so their regeneration cannot be replaced by copying old files.
 
-Release stage `lean-header-parser`: wall 0.103 s, CPU 0.061 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a4/stages/lean-header-parser/result.json`.
+Lake libraries separate `AKLT`, hand-written `CertKernels`, `CertDataH1`,
+`CertDataH3`, and `CertDataClose`; default targets are Solution and Audit.
+Challenge is explicit. `Handwritten` covers all original unblocked sources and
+the samples. All **1,109 currently buildable Lean files** now have fresh project
+objects; the dependency packages are the existing pinned cache, not a Mathlib
+source build. No `lake update` ran and `.lake/packages` was not changed.
 
-Release stage `explicit-targets`: wall 10.272 s, CPU 10.153 s, peak tree RSS 3.783 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a4/stages/explicit-targets/result.json`.
+### Visibility, proof bodies, exposed declarations, and prose
 
-Release stage `source-configuration`: wall 1.409 s, CPU 1.350 s, peak tree RSS 0.062 GiB, exit 1, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/source-configuration/result.json`.
+**Original proof-code changes: none.** The 1,104-file token fidelity check passes
+against the pinned source after comment removal and exactly the visibility edits
+below. Statements, definition bodies, theorem names, and existing private
+modifiers are preserved. `h1_iff`, `h3_iff`, and `main_iff` in the retained regression
+still use their original `Iff.rfl` proofs.
 
-Release stage `lean-header-parser`: wall 0.102 s, CPU 0.059 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/lean-header-parser/result.json`.
+| File / declarations | Required change | Proof-body change |
+| --- | --- | --- |
+| Newly imported legacy modules | `module`, public imports, public/exposed section, the two backward visibility migration options | None |
+| `AKLT/Challenge/Main.lean`, `AKLT.Challenge.size_neZero` | Retain the prior explicit `@[expose]` on the Prop-valued instance | None |
+| `AKLT/Cert/H1/Literals.lean`, `rowExpr`, `elabIntRow` | `meta section`, required for term elaborators under modules | None |
+| `CertData/H3/Kernel/Literal.lean`, `decodeHexBalanced`, `elabH3Hex` | `meta section`; output remains an ordinary numeral | None |
+| `CertData/H3/Kernel/PrefixView.lean`, `mergeFuel_eq`, `mergeSortFuel_eq` | `import all Init.Data.List.Sort.Basic` makes the original sort bodies visible | None |
+| Root Solution | Authorized new unconditional wrapper `aklt_gap := main_iff.mpr CertData.Close.main`; old conditional wrapper retained unchanged in Regression.Solution | New package wrapper only |
+| RegenSamples.H1/H1Consumer/H3/H3Consumer | New tiny kernel reductions and applications of existing soundness lemmas | New interface tests only |
 
-Release stage `explicit-targets`: wall 10.478 s, CPU 10.275 s, peak tree RSS 3.804 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/explicit-targets/result.json`.
+The module port exposes public checker/arithmetic bodies for downstream kernel
+reduction. The actual compiled interface inventory records **1,153 H1** and
+**1,083 H3** available bodies in their dependency surfaces. More focused reduction
+lists identify **410 H1** and **392 H3** entries, including generated matchers and
+projections. Representative names are H1 `Gaussian.mul`, `Table.get`,
+`packedThresholdRow`, production `sparsePack`, `packedRowCheck`, `RowsAccepted`,
+`constructedSectorRows`, `Block.Accepted`, and `Case.Accepted`; H3 `PlaneTree.get`,
+`packedRowCheck`, and production `Graph.quotient`, `Tables.data`, `planeBatch`,
+`rawBatch`, `prefixBatch`, and `sumResults`. Full names, modules, and actual body
+visibility are in [`verification/regen-interface/`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/regen-interface/resolution.json).
+The complete named API surfaces cover implicit constructors, projections,
+instances, and conservative short-name resolution; the 100/69 lexical candidate
+lists are not represented as exact elaboration traces of every generated file.
 
-Release stage `strict-audit`: wall 2.925 s, CPU 2.844 s, peak tree RSS 4.501 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/strict-audit/result.json`.
+[`REGEN-INTERFACE.md`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/REGEN-INTERFACE.md) lists H1's eight and H3's nine direct
+hand-written imports, unchanged module/declaration names, public/exposed generated
+headers, and the actual compiling sample/consumer pair for each family. It also
+names the `h1_row%` and `h3_hex%` syntax registrations and handlers. No original
+mathematical proof is rewritten. Detailed edits are in
+[`PORT-CHANGES.md`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/PORT-CHANGES.md) and the fidelity/prose receipts.
 
-Release stage `axiom-transcript`: wall 0.102 s, CPU 0.026 s, peak tree RSS 0.001 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/axiom-transcript/result.json`.
+American English and serial commas are applied to authored prose and imported
+comments/doc strings. Identifiers are not renamed; **419 identifier tokens** with
+British spellings and their source locations are listed in
+[`BRITISH-IDENTIFIERS.tsv`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/BRITISH-IDENTIFIERS.tsv), including external Mathlib
+names. Manuscript labels, such as `l:colour`, retain their exact spelling. Raw
+checker transcripts remain verbatim. `ClosedTrail` has a one-line first-hit-path
+doc comment everywhere it is defined, including the regression template.
+References now use `d:model` in `sec1-result.tex` for the model, Hamiltonian, and
+VBS product; `d:poly` in `sec3-quantum-frames.tex` for normalization; and `t:main`
+for nonvanishing. The nonexistent old labels are removed from the current Lean comments.
 
-Release stage `protected-challenge-build`: wall 3.935 s, CPU 0.003 s, peak tree RSS 3.663 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/protected-challenge-build/result.json`.
+### Builds, strict Audit, and protected regression
 
-Release stage `challenge-export`: wall 8.574 s, CPU 0.003 s, peak tree RSS 6.366 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/challenge-export/result.json`.
+The final clean build starts with a newly empty `.lake/build`, uses 12 compiler
+workers with affinity 0–15, and completes all unblocked originals plus Challenge
+and the regression targets. The corrected audit helper is then built, and the
+post-edit builds and final strict Audit pass. Inherited trailing whitespace from
+copied legacy proofs is retained to preserve the source bodies; it causes no
+official source finding. Earlier development failures are retained under
+`full-port/stages/`: literal meta marking, private standard sort bodies, the H1
+empty-root glob, and audit-helper type inference. An initial overlapping Lake
+repair invocation also caused stale-object lookup failures; the independent
+final clean build has no such failure.
 
-Release stage `solution-export`: wall 32.975 s, CPU 0.003 s, peak tree RSS 7.084 GiB, exit 0, limit None. Receipt: `/home/ubuntu/aklt/reports/PAL_FIT/release/verify-a5/stages/solution-export/result.json`.
+Commands (PATH begins with `$HOME/.elan/bin`):
+
+```sh
+LEAN_NUM_THREADS=12 lake build Handwritten Challenge Regression.Solution Regression.Audit
+lake build AuditHandwritten
+lake env lean -j1 -DautoImplicit=false -DrelaxedAutoImplicit=false -DwarningAsError=true AuditHandwritten.lean
+python3 scripts/check_axioms.py AUDIT_LOG --mode handwritten
+python3 scripts/verify_headers.py --verifier VERIFIER --report HEADERS_JSON
+python3 scripts/release_verify.py --verifier VERIFIER --work NEW_OUTPUT --existing-dependencies --regression-inputs
+```
+
+| Stage | Wall, s | CPU, s | Peak tree RSS, GiB | Result |
+| --- | ---: | ---: | ---: | --- |
+| Official source/configuration checks | 3.426 | 3.342 | 0.065 | 2 author-owned TODO findings |
+| Lean header parser, all 1,115 files | 2.242 | 2.272 | 1.712 | PASS |
+| Fresh hand-written + Challenge + regression build | 699.726 | 8624.126 | 56.848 | PASS |
+| Available-source Audit target build | 13.307 | 13.789 | 4.029 | PASS |
+| Paper-reference comment rebuild | 13.954 | 21.059 | 3.831 | PASS |
+| Serial-comma comment rebuild | 39.499 | 154.899 | 17.940 | PASS |
+| Final American English comment rebuild | 25.681 | 92.067 | 23.582 | PASS |
+| Strict available-source Audit | 5.665 | 5.630 | 4.761 | PASS |
+| Axiom transcript guard | 0.103 | 0.095 | 0.001 | PASS |
+| Protected two-input Challenge build | 8.845 | ≈8.750 | 3.667 | PASS |
+| Protected two-input Challenge export | 17.114 | ≈16.940 | 6.366 | PASS |
+| Regression.Solution full export | 49.483 | ≈49.300 | 7.084 | PASS |
+| Protected Comparator: NanoDa, then Lean | 662.867 | ≈740.070 | 23.226 | PASS |
+| Verified con-ron, two workers | 627.995 | ≈740.140 | 47.186 | PASS |
+| Final-source export identity check | 46.557 | ≈46.370 | 7.081 | PASS |
+
+
+The accounting sum of these stages is **2216.464 wall seconds** and
+**10518.850 CPU seconds (2.922 CPU-hours)**. Stages overlapped;
+this is not an isolated cold end-to-end timing. All timing processes and their
+children inherit a verified 16-CPU affinity mask. The measured builds use at most
+12 Lean compiler processes; occasional header probes remain below the 48-process
+allowance. Local diagnostics use 240-GiB per-process virtual-address limits and
+285-GB sampled RSS watchdogs. The observed cgroup high-water mark during overlapping
+stages is 93.94 GB, below the authorized 300 GB. Its limits are not a Palomar
+profile. No 32-GiB cgroup run is claimed or required by the author's revised target.
+RSS sums may double-count shared mappings. Namespace wrapper `wait4` can omit
+child CPU; stage receipts use sampled child totals where necessary and mark them
+approximate. These resource observations are not used as acceptance limits.
+
+Comparator runs NanoDa, then Lean, sequentially. Sampled internal times are
+approximately **344.85 s wall / 423.17 s CPU** for NanoDa and
+**281.93 s wall / 282.00 s CPU** for Lean replay.
+Verified con-ron uses two workers. The actual protected Comparator compiles a
+randomly named independent Challenge with trusted dependency paths only and
+replays both exports without candidate sources/objects in the judge sandbox.
+Official verifier checkout: `14aa8d6b3c2f14a8540605e37144560b9a00e7e7`;
+con-ron override: 4.36.0-rc1, official pinned digest
+`4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef`.
+The toolchain and all nine dependency Git pins match the manifest.
+
+**Lean and NanoDa accept the full two-input Solution export; con-ron accepts
+63,516 declarations.** The export is **671,987,125 bytes**, SHA-256
+`9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a`.
+The final source re-export is byte-identical to that three-checker export and to
+the earlier two-input release export. The later source changes are documentation
+and the independent audit helper, with an explicit source-binding receipt.
+These independent checker claims apply to Regression.Solution. The new certificate
+kernels/leaf proofs are Lean-built and axiom-audited; their independent full
+unconditional export replay remains a task after certificate regeneration.
+
+Strict Audit checks **21,855 declaration entries** through Lean.collectAxioms,
+the same API used by `#print axioms`; module-local realizations can repeat names.
+The AKLT/CertData interface inventory has 18,955 distinct names, plus sample and
+regression declarations. The explicit axiom prints for all 15 available package/
+sample exports pass. The six reduction/identity prints have exactly
+`[propext, Classical.choice, Quot.sound]`. H1's Boolean/signed-packing reductions
+and H3's packed-row check use `[propext]`; literal reductions and the H3 walk step
+use no axioms; the two soundness-consumer proofs use the three permitted axioms.
+The full exact transcript is
+[`verification/full-port/axioms-and-interface.log`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/full-port/axioms-and-interface.log).
+
+Available ordinary statement:
+
+```lean
+AKLT.Final.main_of_inputs :
+  AKLT.Blueprint.Top.H1Statement → AKLT.Blueprint.Top.H3Statement →
+  AKLT.Challenge.MainStatementV2
+```
+
+New root source statements, awaiting generated imports:
+
+```lean
+AKLTPalomar.main_iff : AKLTPalomar.Main ↔ AKLT.Challenge.MainStatementV2
+AKLTPalomar.aklt_gap : AKLTPalomar.Main
+```
+
+The H1 sample exports `checked : lowerTriangularCheck rows = true` and
+`packed_reduces : packed = -15`; its consumer proves the actual matrix's
+above-diagonal entries vanish for every finite index and repeats the literal
+and packed reductions. The H3 sample exports its true packed-row check and the
+one-step walk equation; its consumer proves the actual component bound using
+`packedRowCheck_sound` and repeats the literal reduction. All full signatures
+and source are in the four small RegenSamples modules.
+
+### Pending generated dependencies and remaining findings
+
+Only `CertData.H1.Close.Main` and `CertData.H3.Close.Main` directly import generated
+modules. Their direct requirements are respectively
+`CertData.H1.Generated.Bridge.Targetassembly0000` and `CertData.H3.Bridge.All`.
+The exact 12,996 transitive generated names, direct imports, and six blocked
+hand-written targets are in `verification/generated-modules.json`:
+
+1. `CertData.H1.Close.Main` — the H1 target assembly and its generated closure.
+2. `CertData.H1.Close.Audit` — transitively the same H1 closure.
+3. `CertData.H3.Close.Main` — the H3 bridge and its generated closure.
+4. `CertData.Close.All` — both families.
+5. `Solution` — both families through CertData.Close.All.
+6. `Audit` — the complete Solution.
+
+The regeneration agents must update generator output headers, regenerate the
+compacted literal shards, build every generated module against this release,
+and supply input pins, source archives, manifests, and per-theorem receipts.
+If they split files, update the exact module inventory, Lake globs, and ignore
+rules together. Then build the six closing targets, run strict root Audit,
+and run the **unconditional** protected Comparator/export/con-ron pipeline.
+No remaining mathematical leaf premise is introduced in the root theorem.
+
+Official source/header checks report no mechanical tree violation. The remaining
+author-owned fields are author/maintainer identities and verified ORCIDs,
+manuscript/artifact authorship and immutable public provenance, release SPDX
+license and matching root LICENSE, and underlying proof-development provenance.
+Independent fidelity review remains pending. This project is not being submitted
+to Palomar; no registry preparation or production capacity approval is requested.
+
+The fresh-clone runner supports hash-pinned H1/H3 generated-source archives,
+fetches the exact dependency/cache pins, and runs the full workflow. It has no
+default wall limit; optional wall, RSS, and virtual-address watchdogs are
+configurable and recorded. `--regression-inputs` selects the available historical
+reduction while certificates are absent. A two-second committed-clone smoke test
+correctly retains an incomplete JSON receipt at its intentional deadline; no
+cold dependency/cache fetch or full cold run is claimed. The archive installer
+passed digest/install/overwrite/path-escape smoke checks outside the release.
+All runner code uses paths relative to the clone, the supplied verifier, and
+explicit artifact inputs, not this campaign's report directory or package store.
+
+Receipts: [`verification/full-port/README.md`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/full-port/README.md),
+[`summary.json`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/full-port/summary.json),
+[`port-fidelity.json`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/full-port/port-fidelity.json),
+and the complete stage logs under [`reports/PAL_FIT/full-port`](/home/ubuntu/aklt/reports/PAL_FIT/full-port/metrics.json).
+
+## Previous phase summary
+
+- FULL PORT COMPLETE for the assigned hand-written phase; package commit 169a4007abea.
+- Root Challenge/Solution now state the unconditional main theorem; no H1/H3 antecedents.
+- 1,104 original hand-written files; 1,115 Lean files total; all module headers, max 1,636 lines.
+- Challenge: 161 lines / 7,736 bytes, Mathlib only, one conventional placeholder.
+- No original proof-code changes; only recorded visibility/exposure and prose edits.
+- Both literal elaborators are meta; PrefixView imports all standard sort implementation bodies.
+- 1,109 available sources build from fresh project objects; strict axiom audit passes.
+- Protected two-input regression accepted by Lean, NanoDa, and con-ron; final export hash unchanged.
+- REGEN-INTERFACE.md gives APIs, headers, exposed bodies, and compiling H1/H3 sample consumers.
+- Regenerate 7,964 H1 and 5,032 H3 modules against this package; legacy objects cannot be reused.
+- Pending: CertData.H1.Close.Main/Audit, CertData.H3.Close.Main, CertData.Close.All, Solution, Audit.
+- Then verify the unconditional full build, root Audit, Comparator, and con-ron export.
+- Author metadata/provenance, LICENSE, and independent fidelity review remain TODO.
+- Authored prose is American English; 419 British identifier tokens are listed without renaming.
+- No Palomar resource profile is an acceptance constraint; cached-dependency timings are recorded.
+- No cold full run or unconditional export acceptance is claimed; clone/archive smoke checks are scoped.
+
+## American-English identifier rename
+
+**STATUS: RENAME COMPLETE.** All first-party identifiers in the release now use
+American English, including declarations, namespaces, structure fields, local
+binders/definitions, imports, analytic source filenames, generator output names,
+and references in comments, notes, and inventories. No compatibility aliases with
+the old spellings remain. The package is committed and clean.
+
+Package commit: **`d1320320e7cbf2d216d0afc87be92aabb206d690`**. Verified source commit:
+`e0597c0c7910b671f8bc816983e4ba61a26160eb`; later commits add records only.
+Baseline: `169a4007abea6cc73e4630ef99b797491a1708a7`.
+Release root: [`_pkg`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/README.md).
+
+### Map, counts, and renamed paths
+
+The following substitutions apply inside identifiers, case-insensitively.
+Character case is retained through the corresponding character positions, so
+lowercase, uppercase, title case, and mixed-case occurrences are covered.
+
+| British spelling | American spelling |
+| --- | --- |
+| `neighbour` | `neighbor` |
+| `colour` | `color` |
+| `fibre` | `fiber` |
+| `centre` | `center` |
+| `labelled` | `labeled` |
+| `labelling` | `labeling` |
+| `catalogue` | `catalog` |
+
+These seven rules cover the original list. The first-party source contained no
+additional spelling family from that list requiring another rule.
+
+- **419 listed source identifier-token spellings** updated. These include
+  qualified references and local names, so they are not a declaration count.
+- **646 compiled declaration names** change, including private/generated helper
+  names: 422 public names under AKLT, 223 private AKLT names, and one CertData name.
+- **356 Lean files** receive spelling edits, plus the independent regression
+  Challenge template. **Eight Lean files** change names; **zero directories**
+  require renaming. Imports and private module-name components change together.
+- The source/docs/archive commit has **393 changed-path entries**: 368 modified
+  files, eight detected renames, one new current-name inventory, and 16 obsolete
+  historical records removed from the current tree. Eleven current verification
+  files are added afterward, for **404 changed-path entries** across the phase.
+- There are **1,199 tracked files**, including **1,115 Lean files**. The available
+  **1,109** Lean files have fresh project objects; the same six closing targets
+  remain blocked on generated certificates.
+
+| Original source path | Current source path |
+| --- | --- |
+| `AKLT/W/REC004/FibreExpansion.lean` | `AKLT/W/REC004/FiberExpansion.lean` |
+| `AKLT/W/REC005/Fibres.lean` | `AKLT/W/REC005/Fibers.lean` |
+| `AKLT/W/REC012/Fibres.lean` | `AKLT/W/REC012/Fibers.lean` |
+| `AKLT/W/REC019/R4/FibreExpansion.lean` | `AKLT/W/REC019/R4/FiberExpansion.lean` |
+| `AKLT/W/REC021/Fibres.lean` | `AKLT/W/REC021/Fibers.lean` |
+| `AKLT/W/REC043/Fibres.lean` | `AKLT/W/REC043/Fibers.lean` |
+| `AKLT/W/REC082/PE/Fibres.lean` | `AKLT/W/REC082/PE/Fibers.lean` |
+| `AKLT/W/REC089/FibreFactors.lean` | `AKLT/W/REC089/FiberFactors.lean` |
+
+[`AMERICAN-ENGLISH-IDENTIFIERS.tsv`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/AMERICAN-ENGLISH-IDENTIFIERS.tsv) replaces
+the old identifier inventory. The exact old-to-new declaration map is retained
+outside the current source tree in [`declaration-map.tsv`](/home/ubuntu/aklt/reports/PAL_FIT/rename/declaration-map.tsv),
+so stale first-party names are not left in tracked notes. Source/import lists,
+PORT-MANIFEST.tsv, statement-source hashes, the regeneration API inventories,
+README, FIDELITY.md, PORT-CHANGES.md, and REGEN-INTERFACE.md contain current names.
+Both Comparator configurations were checked; their headline theorem names needed
+no spelling change.
+
+### Exclusions and semantic checks
+
+**Paper labels:** every original citation-label multiset is preserved. The only
+remaining affected spellings in tracked files are **`l:colour`** and
+**`l:quantumfibre`**. In Lean comments these occur in
+`AKLT/Blueprint/Gap/NodesPeriodic.lean` (one),
+`AKLT/Blueprint/Q/NodesPolynomial.lean` (two), and
+`AKLT/Blueprint/Q/NodesQuantum.lean` (six). REGEN-INTERFACE.md cites `l:colour`,
+and the search/semantic receipts record the same exact labels. The final scan
+finds **15 matching lines**, all within these allowed citation-label strings.
+All other paper labels, including those without affected spelling, are unchanged.
+
+**External names:** Mathlib, Lean, and other dependency names are unchanged, as
+are all nine dependency pins and their sources. A read-only inventory of the
+loaded dependency environment found 52 case-insensitive spelling matches,
+including `Lean.labelled`, Quiver's labelling API, FibreFunctor names, and a
+case-insensitive false positive in `Real.fibRec`. The complete preserved list is
+[`external-names.json`](/home/ubuntu/aklt/reports/PAL_FIT/rename/external-names.json). None is an affected reference in
+the current tracked Lean source. No dependency source was edited or rebuilt.
+
+**External data keys:** all **27 certificate-generator scripts** were reviewed.
+The ten affected string literals are eight emitted Lean code fragments in the
+H1 coverage/index generators and two Lean leaf-name metadata values in the H3
+audit generator. There is **no affected external input key to rename**. All
+**851 literal string-key accesses** compare identically before and after the
+change, and all Lean string-literal values compare identically. Numeric literals,
+packed input data, binary formats, input filenames, and arithmetic are unchanged.
+The generators now emit/use `Catalog`, `catalog`, `catalogCheck`, and
+`CenterZeroV2Leaf`, consistently with the new kernel API.
+
+Every one of the **1,115 Lean sources plus the regression template** is checked
+against the exact mechanical spelling transform of the baseline, with citations
+and external names protected. No extra proof rewrite, axiom, premise, or semantic
+workaround was introduced. Fresh compilation validates the resulting resolution
+of the renamed references. The available alias theorems `h1_iff`, `h3_iff`, and
+`main_iff` retain `Iff.rfl` and pass the strict audit.
+
+Root **Challenge.lean is byte-identical to the baseline**: its own physical
+statement definitions already had American names. It remains Mathlib-only,
+**161 lines / 7,736 bytes**, with one conventional placeholder and no H1/H3
+premise definitions. It has **no spelling-pattern match at all**, including
+comments. The conditional regression template's analytic names are updated to
+match the in-tree definitions.
+
+### Collision check
+
+Before editing, the complete 18,955-name compiled first-party declaration set
+was mapped to proposed names. No proposed full declaration name collides with
+another declaration. Target paths have no collision. A conservative per-file
+check found neither an old name and existing new counterpart together nor a
+many-to-one local-name mapping. No alternative spelling or guessed resolution
+was needed.
+
+A baseline prefix audit also checks **23,952 namespace/declaration prefixes**,
+with zero merging collisions. After the fresh build, the current compiled set is
+**exactly** the expected renamed image of the baseline: **18,955 names, zero
+missing, zero extra**. Every current regeneration-interface name resolves in that
+fresh environment. These results are in
+[`declaration-bijection.json`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/rename/declaration-bijection.json)
+and [`collision-check.json`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/rename/collision-check.json).
+
+### Verification and measurements
+
+The original `.lake/build` was moved outside the release root, and all available
+sources were rebuilt with **12 Lean compiler workers**. No legacy project olean
+was used. The pinned Mathlib/dependency artifacts were already cached; no
+`lake update` or Mathlib source build occurred. All measured stages run under
+verified CPU affinity 0–15 with the authorized local memory envelope.
+
+| Stage | Wall, s | CPU, s | Peak tree RSS, GiB | Result |
+| --- | ---: | ---: | ---: | --- |
+| External-name inventory (read only) | 19.743 | 19.714 | 4.742 | PASS |
+| Fresh hand-written tree + Challenge + audit + samples | 738.088 | 8985.206 | 55.378 | PASS |
+| Strict whole available-tree Audit | 5.164 | 5.160 | 4.761 | PASS |
+| Explicit axiom transcript guard | 0.204 | 0.104 | 0.001 | PASS |
+| Official Lean header parser, all files | 2.246 | 2.232 | 1.660 | PASS |
+| New-name generator ABI probe | 4.656 | 4.593 | 4.426 | PASS |
+| Official source/configuration checks | 2.517 | 2.495 | 0.062 | 2 author-owned TODOs |
+| Protected pipeline header parse | 0.104 | 0.087 | 0.001 | PASS |
+| Regression explicit targets | 10.480 | 11.392 | 0.949 | PASS |
+| Strict regression Audit | 3.437 | 3.399 | 4.505 | PASS |
+| Explicit axiom transcript guard | 0.103 | 0.028 | 0.001 | PASS |
+| Protected independent regression Challenge | 4.446 | ≈4.340 | 3.678 | PASS |
+| Protected Challenge export | 9.196 | ≈9.030 | 6.365 | PASS |
+| Full renamed regression export | 35.353 | ≈35.190 | 7.082 | PASS |
+| Comparator: NanoDa then Lean | 719.238 | ≈792.710 | 23.226 | PASS |
+| Verified con-ron replay (two workers) | 579.757 | ≈727.110 | 47.182 | PASS |
+
+
+The full official source/configuration check reports only the existing
+**author metadata TODOs and missing root LICENSE**. Every module header is parsed
+by Lean; there is no line-cap or soundness-token finding. The maximum Lean source
+length remains **1,636 lines**. Strict Audit passes for **21,855 declaration
+entries** (18,955 distinct AKLT/CertData names plus samples/regression and repeated
+module-local realizations), allowing only `propext`, `Classical.choice`, and
+`Quot.sound`. All 15 explicit available-export axiom prints pass.
+
+Both existing regeneration sample/consumer pairs build from the fresh tree.
+An additional fixture outside the release executes the actual H1 generator tree
+printer and compiles a small `Catalog` lookup, checks the `catalogCheck` ABI,
+resolves `CenterZeroV2Leaf`, and kernel-proves `kernelCenter = (0, 0)`. It is an
+interface test, not a production coverage certificate.
+
+The protected independent two-input Challenge and full regression Solution pass
+**both NanoDa and Lean**, followed by **con-ron acceptance of 63,516 declarations**.
+The new export is **671,986,654 bytes**, SHA-256:
+`ea82aaec07c458ff23d38403de8cc22fc93b488cebc3a99ebe4ed6701d7fab6d`.
+It is expected to differ from the baseline: serialized identifier spellings,
+generated hygiene fingerprints, and name interning change. A positional wire
+comparison is not a semantic comparison, and no byte-equivalence claim is made.
+The exact source substitution, collision/bijection checks, data invariants,
+fresh Lean kernel build, and independent checkers are the evidence for this phase.
+
+The Compiler/NanoDa/Lean/con-ron resource measurements are recorded above; namespace
+CPU accounting may use sampled child totals, and summed RSS can double-count
+shared mappings. Comparator runs NanoDa and Lean serially; con-ron uses two workers.
+No Palomar production resource ceiling is an acceptance constraint for this task.
+
+### Records and next phase
+
+Historical transcripts were archived **without modifying them** in
+[`rename/baseline-records`](/home/ubuntu/aklt/reports/PAL_FIT/rename/baseline-records/verification/README.md) and remain
+in Git history at the baseline commit. Their removal from the current source
+prevents stale first-party names from surviving in tracked logs/notes and avoids
+misrepresenting old receipts as verification of renamed sources. Current records
+are in [`verification/rename/README.md`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/rename/README.md) and
+[`summary.json`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/rename/summary.json).
+
+The final search covers every tracked text file and path, including scripts,
+generators, notes, inventories, API tables, and fresh logs. It reports **zero
+unexcluded matches**. The exact search receipt is
+[`tracked-search.json`](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/rename/tracked-search.json); the full
+matching-line list is in [`tracked-search-final.json`](/home/ubuntu/aklt/reports/PAL_FIT/rename/tracked-search-final.json).
+
+This is ready for regeneration against the committed current names. The pending
+builds remain `CertData.H1.Close.Main`, `CertData.H1.Close.Audit`,
+`CertData.H3.Close.Main`, `CertData.Close.All`, root Solution, and root Audit.
+Regenerate the **7,964 H1 and 5,032 H3** modules, then run the unconditional closing
+build and full export/checker pipeline. The ordinary reduction remains available.
+Author metadata, LICENSE, and independent fidelity review are unchanged TODOs.
+No other rename or collision resolution remains open.
+
+## Earlier ORCH-SUMMARY
+
+- RENAME COMPLETE; package commit d1320320e7cb (verified source e0597c0c7910).
+- All 419 listed source spellings updated; 646 compiled declaration names change.
+- Seven case-insensitive rules, including catalog and relabeling, are listed above.
+- 356 Lean files edited; eight analytic files renamed; no directory rename.
+- No declaration, namespace-prefix, local-name, or target-path collision.
+- Exact compiled-name image: 18,955 declarations; zero missing or extra.
+- Numeric data, Lean string literals, and 851 generator key accesses unchanged.
+- All 27 generators reviewed; new emitted Lean/leaf names match the kernels.
+- Fresh 1,109-source build, all headers, strict Audit, samples, and ABI probe pass.
+- Protected two-input regression accepted by Lean, NanoDa, and con-ron (63,516 declarations).
+- Root Challenge byte-identical, 161 lines / 7,736 bytes, no affected identifier.
+- Tracked search: zero unexcluded matches; only two exact paper labels remain.
+- Old transcripts archived unchanged; current records contain current names only.
+- Regeneration can proceed: 7,964 H1 and 5,032 H3 modules, then six closing targets.
+- Metadata/LICENSE/review TODOs remain; no rename issue remains open.
+
+## fidelity fix round
+
+Package: `/home/ubuntu/aklt/wt/PAL_FIT/_pkg`. Final package commit: **`61f109327968ca76e99c22c4564de56387df96b5`**. The verified Lean source
+commit is `24c9476bce8985f17ac1dea113a283eef3f7d6dc`; later changes add verification records only.
+The original main repository and the official verifier checkout remain unchanged.
+
+Both reviews were read in full: [Fable](/home/ubuntu/aklt/reports/FID_FABLE/report.md)
+and [Astra](/home/ubuntu/aklt/reports/FID_ASTRA/report.md), each **FAITHFUL WITH REMARKS**,
+with no Fatal or Major finding. The fixes preserve all existing mathematical
+statements, definitions, and proof bodies. They add proofs of all remaining sanity
+propositions and remove the two unneeded Challenge cache resets.
+
+### Protected certificate dependency closure
+
+The requested traversal was computed **before editing**, using the 17 modules in
+`verification/regen-interface/H1-imports.tsv` and `H3-imports.tsv` as roots.
+It contains **65**, rather than the estimated 35, hand-written modules. Lean's
+`--deps-json` header parser independently confirmed every import edge. Each edit
+path was checked against this closure; a final Git changed-path check has an
+empty intersection, and all 65 SHA-256 hashes remain identical to baseline
+`d1320320e7cbf2d216d0afc87be92aabb206d690`.
+
+The complete names, hashes, and shortest import paths are in
+[protected-closure.json](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/protected-closure.json).
+Two material paths are:
+
+- `AKLT.Cert.H1.Production.Semantics → AKLT.Blueprint.Top.Operator → Top.Common → AKLT.Defs.FrameModel → AKLT.Defs.Polynomial → AKLT.Challenge.Main`.
+- `CertData.H3.Bridge.Interface → AKLT.Blueprint.Top.ComputationV2 → Top.Computation → Top.Coefficients → Top.Response`.
+
+Thus both Main.lean and Top/Response.lean are protected. Their comments and the
+unused old MainStatement remain unchanged under the hard freeze. This is the
+reason those requested source edits are documented instead. No certificate
+kernel, checker, packed arithmetic, literal consumer, or generator interface
+changed. Certificate rebuilding can continue against the identical dependencies.
+
+### Review findings and their disposition
+
+| Review finding | Result |
+|---|---|
+| Fable Minor 1; Astra Minor 4: paper locations | MainV2 and the regenerated Challenge cite Definition 1.1 (`d:model`, `sec1-result.tex`) for the torus, bonds, determinant, VBS product, and Hamiltonian; Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`) for the polynomial model and norm; and Theorem 1.2 (`t:main`) for the headline. Revision-plan and FIDELITY.md references are absent from these statement files. Main.lean is frozen, so the generator corrects copied comments only and the notes record the library exception. |
+| Fable Minor 2; Astra Minor 1: old MainStatement | Search confirms no Lean caller of the old definition. Deletion or relocation would modify protected Main.lean, so it is deferred under the freeze. Notes explicitly identify its even-only, eventual-kernel, no-nonvanishing differences. Sanity references now select MainStatementV2, and the even-size check is described as auxiliary arithmetic. The independent Challenge omits the obsolete definition. |
+| Fable Minor 3: main_iff and copying | Solution and regression doc comments say main_iff is Iff.rfl on its alias, not a comparison of separate environments. The generator has a read-only `--check` mode. Both source verification and the end-to-end runner require exact Challenge and source-record bytes. A one-byte negative test is rejected without rewriting the file. |
+| Fable Minor 4: environment modification | Both run_elab cache resets are removed from the release Challenge. No library restructuring was necessary. Lean and NanoDa accept the physical statement comparison without them. The separate conditional regression template retains its naming machinery and is identified as a distinct test surface. |
+| Fable Minor 5; Astra Minor 4: spin convention | The generated spinZ doc comment states that e_k has the negative of the paper's displayed monomial weight, preserving the Casimir, projection, and Hamiltonian. The frozen library comment is covered in the reader notes. No spin matrix changes. |
+| Fable Minor 6: sanity propositions | BNonzero, BondRank, and FourByFourNondegenerate now all have downstream proofs. The rank attempt completed in 14.65 minutes, within the requested hour. No unproved sanity proposition remains. |
+| Fable Minor 7; Astra Minor 2: trails, legacy matchers, and stationary operators | docs/STATEMENT-NOTES.md explains first-hit trails T_n^X (Definition 7.7), unconditional insertion of the outgoing neighbor, the two distinct Rec/Defs V2 matcher names, and exactly which legacy/V2 interfaces use each operator. It records the 1/5-versus-zero center-entry example, center-zero operator agreement, stopped-iterate agreement, and the passing-predicate equivalence with proved bridge names. All affected dependency files are frozen. |
+| Fable Minor 7: modified kernel | Top/Response.lean is protected transitively; the notes state the correct term, type-dependent kernel. The source phrase is preserved as required by the freeze. |
+| Astra Minor 3: redundant signs | Notes distinguish raw ExchangeSigns from EffectiveExchangeSigns, explain ignored signs on singles and U pairs, and restrict nonredundant decompositions or enumeration to the latter. The relevant source files remain frozen. |
+| Fable Minor 8: review bundle limits | The release contains the hand-written proof development and closing modules. The checks below cover what currently builds, plus the physical statement identity and the complete two-input export. Unconditional Solution/Audit replays still await generated certificates; no stronger claim is inferred from the statement-only reviews. |
+
+Reader-facing notes: [STATEMENT-NOTES.md](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/docs/STATEMENT-NOTES.md).
+Generation and copying: [make_challenge.py](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/make_challenge.py),
+[source verification](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/verify_sources.py), and
+[the runner](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/release_verify.py).
+
+### New sanity proofs and proof-body changes
+
+**No existing declaration's proof body changed.** Comment-stripped code for
+Main.lean, MainV2.lean, Sanity.lean, Solution.lean, and Regression/Solution.lean
+is identical to baseline. Challenge code is identical after removing exactly
+its two cache-reset commands. `main_iff`, `h1_iff`, and `h3_iff` retain their
+reflexive proofs. Comparator configuration and permitted axioms are unchanged.
+See [semantic checks](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/semantic-checks.json).
+
+The added files are [BondRank.lean](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/AKLT/Challenge/BondRank.lean) and
+[SanityProofs.lean](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/AKLT/Challenge/SanityProofs.lean).
+The public convenience theorems have exactly these statements:
+
+```lean
+AKLT.Challenge.b_nonzero (L N : Size) : BNonzero L N
+AKLT.Challenge.bond_rank (L N : Size) : BondRank L N
+AKLT.Challenge.four_by_four_nondegenerate : FourByFourNondegenerate
+```
+
+The existing polynomial edge factorization identifies ker P_e with polynomials
+of site degrees (3,3,4,…,4). A general coefficient-coordinate linear equivalence
+proves that this space has dimension 16·5^(LN−2). Rank-nullity in the actual
+normalized physical Hilbert space gives rank 9·5^(LN−2). This handles all
+spectator sites and all permitted periods. Nonvanishing reuses the existing
+proved AKLT.Uniq.B_ne_zero. The 4×4 result combines those facts with the proved
+bond geometry. No finite spectral fact or sanity proposition is assumed.
+
+BondRank.lean adds 14 public helper theorems; SanityProofs exports the three
+convenience theorems above. All 17 exact signatures and `#print axioms` outputs
+are in [sanity-exports.log](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/sanity-exports.log).
+Every axiom set is a subset of propext, Classical.choice, and Quot.sound.
+An independent exact rational two-site Casimir calculation also proved
+multiplicity nine at eigenvalue 20 during the attempt; the shipped proof does
+not depend on that calculation. Its valid scratch source and transcript are
+retained under `fidelity-fix/RankProbe.lean` and `stages/finite-casimir-rank-proof/`.
+Failed intermediate attempts remain outside the package and are not proof evidence.
+
+### Verification and measurements
+
+The release has **1,117 Lean files**, all tracked and all with module headers.
+The longest has 1,636 lines. Challenge has **159 lines / 7,973 bytes**, imports
+only Mathlib, contains its one conventional placeholder, and has no run_elab.
+All current manifest hashes match. No British-spelled identifier was introduced;
+only the preserved paper labels l:colour and l:quantumfibre match the spelling scan.
+
+The first fresh build removed 896 artifacts over 61 affected modules. After the
+rank proof closed, another 656 artifacts over 46 affected modules were removed
+and rebuilt, followed by a forced fresh Challenge build for the last paper-comment
+correction. All available targets build, including both regeneration consumers:
+
+```sh
+LEAN_NUM_THREADS=12 lake build Handwritten Challenge Regression.Solution Regression.Audit AuditHandwritten RegenSamples.H1Consumer RegenSamples.H3Consumer
+lake env lean -j1 -DautoImplicit=false -DrelaxedAutoImplicit=false -DwarningAsError=true AuditHandwritten.lean
+python3 scripts/make_challenge.py --check
+```
+
+Strict Audit checks **21,899** available constant entries and all **18** explicitly
+required exports; all pass the allowed-axiom guard. The full source/configuration
+check has only the two preexisting author-owned findings: metadata/provenance TODOs
+and the missing selected root LICENSE. There are no mechanical source, header,
+line-cap, forbidden-token, generation, or axiom findings.
+
+| Stage | Wall (s) | CPU (s) | Peak tree RSS (GiB) | Outcome |
+|---|---:|---:|---:|---|
+| Affected sources: fresh objects (first pass) | 247.333 | 488.287 | 26.515 | PASS |
+| Completed sanity proofs: fresh affected objects | 125.908 | 346.511 | 18.051 | PASS |
+| Final Challenge: fresh objects | 13.459 | 17.583 | 3.769 | PASS |
+| Strict hand-written Audit | 6.289 | 6.240 | 4.754 | PASS |
+| Explicit Audit transcript guard | 0.205 | 0.105 | 0.012 | PASS |
+| All Lean headers | 2.652 | 2.566 | 1.711 | PASS |
+| All 17 new theorem signatures and axioms | 5.463 | 5.366 | 4.383 | PASS |
+| Physical statement: build-FidelityStatementChallenge | 5.862 | 5.685 | 3.621 | PASS |
+| Physical statement: build-FidelityStatementSolution | 4.752 | 4.689 | 3.607 | PASS |
+| Physical statement: export-challenge | 15.058 | 14.969 | 6.359 | PASS |
+| Physical statement: export-solution | 14.927 | 14.885 | 6.359 | PASS |
+| Physical statement: statement-comparator | 60.348 | 73.910 | 0.588 | PASS |
+| Negative spin-matrix control | 17.458 | 17.310 | 0.434 | EXPECTED REJECTION |
+| Two-input: statement-generation-check | 0.104 | 0.057 | 0.001 | PASS |
+| Two-input: source-configuration | 5.437 | 5.320 | 0.066 | AUTHOR TODOs ONLY |
+| Two-input: lean-header-parser | 0.206 | 0.121 | 0.091 | PASS |
+| Two-input: explicit-targets | 8.996 | 12.531 | 0.941 | PASS |
+| Two-input: strict-audit | 5.567 | 5.487 | 4.502 | PASS |
+| Two-input: axiom-transcript | 0.104 | 0.048 | 0.000 | PASS |
+| Two-input: protected-challenge-build | 7.531 | 7.370 | 3.662 | PASS |
+| Two-input: challenge-export | 15.133 | 14.970 | 6.366 | PASS |
+| Two-input: solution-export | 60.874 | 60.670 | 7.080 | PASS |
+| Two-input: protected-comparator | 1036.709 | 1112.660 | 23.227 | PASS |
+| Two-input: conron-replay | 697.830 | 862.920 | 47.190 | PASS |
+
+
+Every timed stage used affinity CPUs 0–15, enforced by sched_setaffinity and
+checked for its descendant processes by measure_stage.py. The final fresh build
+used at most seven concurrent Lean processes (12 requested Lake worker threads),
+well below 48. Large replay stages used a 150 GB sampled RSS watchdog and a
+140 GiB per-process address-space limit. These are recorded local safeguards,
+not a Palomar 32 GiB cgroup; the author removed the production resource caps.
+RSS is the sampled sum across the process tree and can double-count shared pages.
+Dependencies and Mathlib objects were already pinned and cached; no Mathlib source
+build or cold cache fetch was repeated. Some independent stages ran concurrently,
+so summing their wall times is not a cold end-to-end production measurement.
+
+The physical statement test compares separate reflexive main_iff adapters for
+the exact generated Challenge definitions and the library definitions. It uses
+no definition exemptions. Both kernels accept; changing only the independent
+spinZ constant from 2 to 3 is rejected at AKLT.Challenge.bondCasimir. This
+establishes statement identity, not the unavailable unconditional proof.
+
+The protected two-input pipeline compiles its canonical Challenge independently,
+then Lean and NanoDa accept the full Regression.Solution export. Verified con-ron
+accepts that same export. It has **671,986,654 bytes**
+and SHA-256 `ea82aaec07c458ff23d38403de8cc22fc93b488cebc3a99ebe4ed6701d7fab6d`.
+The final receipt records the clean verified source commit and all 1,117 source
+hashes. The export is also byte-for-byte identical to the previously accepted
+two-input export in the rename-phase receipt. A preliminary pipeline was interrupted after the sanity proofs closed;
+its receipt is explicitly marked interrupted and is not used as final evidence.
+The initial cross-mount object-archive attempt failed before removing objects;
+the subsequent explicit deletion and successful fresh builds above provide the
+required fresh-object evidence.
+
+Evidence: [summary](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/summary.json),
+[protected regression receipt](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/regression-receipt.json),
+[statement comparison](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/statement-comparison.log), and
+[Audit](/home/ubuntu/aklt/wt/PAL_FIT/_pkg/verification/fidelity-fix/axioms-and-interface.log).
+Full per-stage logs and samples remain under `/home/ubuntu/aklt/reports/PAL_FIT/fidelity-fix`.
+
+### Remaining scope
+
+The hard freeze defers deleting or correcting the unused MainStatement and editing
+comments in Main.lean and Top/Response.lean. The reader notes provide the requested
+corrections without changing certificate dependencies. Generated certificates
+are being rebuilt separately. The six dependent modules (`CertData.H1.Close.Main`, `CertData.H1.Close.Audit`,
+`CertData.H3.Close.Main`, `CertData.Close.All`, `Solution`, and `Audit`), and the
+full unconditional export and independent replays, remain pending that
+materialization. Author identities, ORCIDs, provenance, and license metadata are
+still author-owned TODOs. There are no remaining unproved sanity propositions.
+
+## ORCH-SUMMARY
+STATUS: FIDELITY FIXES COMPLETE.
+Package commit: 61f109327968ca76e99c22c4564de56387df96b5.
+Verified Lean source commit: 24c9476bce8985f17ac1dea113a283eef3f7d6dc.
+Both fidelity reviews read; all Minor findings fixed or documented under the freeze.
+Actual certificate dependency closure is 65 modules; all hashes remain unchanged.
+Main.lean and Top/Response.lean are frozen transitively; obsolete text is covered in notes.
+Challenge: 159 lines, 7,973 bytes, Mathlib only, one placeholder, no cache resets.
+Generation is checked byte-for-byte; positive and negative controls pass.
+Existing statements, definitions, and theorem proof bodies remain unchanged.
+BNonzero, BondRank, and FourByFourNondegenerate are all proved downstream.
+Rank proof completed in 14.65 minutes using polynomial coordinates and rank-nullity.
+Fresh affected builds, all 1,117 headers, strict Audit, and regeneration consumers pass.
+Physical statement identity passes Lean/NanoDa; the altered-spin control is rejected.
+Protected two-input Regression.Solution passes Lean, NanoDa, and verified con-ron.
+Full unconditional Solution/Audit replays still await generated certificates.
+Metadata, provenance, ORCIDs, and LICENSE remain author-owned TODOs.
+No subagents, Mathlib builds, main-tree edits, or certificate dependency edits.
+Orchestrator: preserve the frozen interface and pass the statement notes to the author.

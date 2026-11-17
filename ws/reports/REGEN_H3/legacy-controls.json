@@ -1,0 +1,107 @@
+[
+  {
+    "module": "CertData.H3.B1.Check.Prefix.P0085",
+    "role": "read-only legacy timing control; never a release dependency",
+    "exit": 0,
+    "wall": 82.47435402870178,
+    "source_sha256": "cdbfc2dcd25dc9871e8e2e04e970c02df1617208a17d91ad8a53e55bfd822d7d",
+    "command": [
+      "prlimit",
+      "--as=68719476736",
+      "--core=0",
+      "--",
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-B1.Check.Prefix.P0085.time",
+      "timeout",
+      "3600",
+      "lean",
+      "-DautoImplicit=false",
+      "-DrelaxedAutoImplicit=false",
+      "-DElab.async=false",
+      "-Dprofiler=true",
+      "/home/ubuntu/aklt/wt/CLOSE_H3/CertData/H3/B1/Check/Prefix/P0085.lean"
+    ],
+    "log": "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-B1.Check.Prefix.P0085.log",
+    "axioms": {
+      "CertData.H3.B1.Check.Prefix.P0085.checked": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "user_s": 78.49,
+    "sys_s": 3.79,
+    "rss_kib": 16279480,
+    "cpu": 82.28
+  },
+  {
+    "module": "CertData.H3.C1.Check.Prefix.P0106",
+    "role": "read-only legacy timing control; never a release dependency",
+    "exit": 0,
+    "wall": 94.73611521720886,
+    "source_sha256": "c9b444501647bcd96b57c7ec333c714517c22edb378a36b1b105948eeda4f264",
+    "command": [
+      "prlimit",
+      "--as=68719476736",
+      "--core=0",
+      "--",
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-C1.Check.Prefix.P0106.time",
+      "timeout",
+      "3600",
+      "lean",
+      "-DautoImplicit=false",
+      "-DrelaxedAutoImplicit=false",
+      "-DElab.async=false",
+      "-Dprofiler=true",
+      "/home/ubuntu/aklt/wt/CLOSE_H3/CertData/H3/C1/Check/Prefix/P0106.lean"
+    ],
+    "log": "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-C1.Check.Prefix.P0106.log",
+    "axioms": {
+      "CertData.H3.C1.Check.Prefix.P0106.checked": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "user_s": 91.57,
+    "sys_s": 3.13,
+    "rss_kib": 16229952,
+    "cpu": 94.69999999999999
+  },
+  {
+    "module": "CertData.H3.C3.Plane.G0170",
+    "role": "read-only legacy timing control; never a release dependency",
+    "exit": 0,
+    "wall": 41.47949576377869,
+    "source_sha256": "f553f5ac1383eee33ae3fa7bea3c12e4e36e7e970f7fd1ebf290e72a8a47b717",
+    "command": [
+      "prlimit",
+      "--as=68719476736",
+      "--core=0",
+      "--",
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-C3.Plane.G0170.time",
+      "timeout",
+      "3600",
+      "lean",
+      "-DautoImplicit=false",
+      "-DrelaxedAutoImplicit=false",
+      "-DElab.async=false",
+      "-Dprofiler=true",
+      "--stdin"
+    ],
+    "log": "/home/ubuntu/aklt/reports/REGEN_H3/legacy-control-C3.Plane.G0170.log",
+    "axioms": {},
+    "user_s": 39.9,
+    "sys_s": 1.54,
+    "rss_kib": 7197652,
+    "cpu": 41.44
+  }
+]
