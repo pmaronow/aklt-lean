@@ -43,9 +43,9 @@ def tipEquiv : Fin 4 ≃ templateTips :=
 @[simp] theorem tipEquiv_val (t : Fin 4) : (tipEquiv t).val = tipPoint t := rfl
 
 theorem tipEdge_endpoints (t : Fin 4) :
-    tipEdge t = (tipNeighbour t, tipPoint t) ∨
-      tipEdge t = (tipPoint t, tipNeighbour t) := by
-  fin_cases t <;> simp [tipEdge, tipNeighbour, tipPoint]
+    tipEdge t = (tipNeighbor t, tipPoint t) ∨
+      tipEdge t = (tipPoint t, tipNeighbor t) := by
+  fin_cases t <;> simp [tipEdge, tipNeighbor, tipPoint]
 
 theorem tipEdge_internal (t : Fin 4) : tipEdge t ∈ internalBonds templateSites := by
   revert t
@@ -70,7 +70,7 @@ theorem coverTipBond_iff (π : PatternData) (t : Fin 4) :
   have hn : ((tipEdge t).2, (tipEdge t).1) ∉ π.bonds :=
     fun h => hnot (Finset.mem_filter.mp h).1
   fin_cases t <;>
-    simp_all [coverTipBond, PatternData.InternalPresent, tipNeighbour, tipPoint, tipEdge]
+    simp_all [coverTipBond, PatternData.InternalPresent, tipNeighbor, tipPoint, tipEdge]
 
 theorem pattern_bonds_split (π : PatternData) :
     π.bonds = coreBonds π ∪
@@ -170,7 +170,7 @@ theorem corner_slot_core (j : Fin 8) :
   revert j
   decide +kernel
 
-theorem tip_not_centre (t : Fin 4) : tipPoint t ≠ (0, 0) := by
+theorem tip_not_center (t : Fin 4) : tipPoint t ≠ (0, 0) := by
   revert t
   decide +kernel
 

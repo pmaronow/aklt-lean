@@ -20,14 +20,14 @@ theorem step_injective : Function.Injective Compass.step := by
   intro a b h
   cases a <;> cases b <;> simp_all [Compass.step]
 
-theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
-  rw [neighbours, Finset.card_image_of_injective _
+theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
+  rw [neighbors, Finset.card_image_of_injective _
     (fun _ _ h => step_injective (add_left_cancel h))]
   rfl
 
 theorem adjacent_iff (x z : Plane) :
-    Adjacent x z ↔ z ∈ neighbours x := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+    Adjacent x z ↔ z ∈ neighbors x := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · rcases x with ⟨a, b⟩
     rcases z with ⟨c, d⟩
@@ -85,8 +85,8 @@ theorem chart_adjacent (y x z : Plane) (d : Compass) :
   unfold Adjacent
   rw [chart_dist]
 
-theorem chart_neighbours (y x : Plane) (d : Compass) :
-    (neighbours x).image (chart y d) = neighbours (chart y d x) := by
+theorem chart_neighbors (y x : Plane) (d : Compass) :
+    (neighbors x).image (chart y d) = neighbors (chart y d x) := by
   ext z
   simp only [Finset.mem_image]
   constructor

@@ -136,7 +136,7 @@ private theorem bondLexLt {π : PatternData} {e : Plane × Plane}
   have hyPos := (Finset.mem_inter.mp hy).1
   have : e = (x, y) := hEq.symm
   subst e
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hyPos
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hyPos
   rcases hyPos with hyPos | hyPos
   · subst y
     exact Prod.Lex.left _ _ (by omega)

@@ -39,14 +39,14 @@ def IncidentEvaluationStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ∀ x : Site L N,
     ∀ ψ : Hilbert L N, ∀ χ : SpinorPolynomial L N,
       statePolynomial ψ = incidentProduct x * χ → independentAt x χ →
-      (∀ σ, frameEval κ ψ σ = centreSign x * beta κ x σ *
+      (∀ σ, frameEval κ ψ σ = centerSign x * beta κ x σ *
         MvPolynomial.eval (fun v => frameSpinor (κ v.1) (σ v.1) v.2) χ) ∧
-      inFibreSpan κ x (frameEval κ ψ)
+      inFiberSpan κ x (frameEval κ ψ)
 
 /-- `l:quantumfibre`, lines 570–579: separate the incident factors of B and
 show rho is constant on each center fiber. The actual evaluation/product
 identity is supplied explicitly, without a second definition of B. -/
-def GroundFibreFactorizationStatement : Prop :=
+def GroundFiberFactorizationStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3,
     (∀ σ, frameEval κ (B L N) σ = ∏ e : Bond L N,
       determinant (frameSpinor (κ e.1) (σ e.1))
@@ -71,7 +71,7 @@ def GroundTransformStatement : Prop :=
 /-- `l:quantumfibre`, sec3 lines 600–623: compare the two finite fiber
 quotients. Include the integrated residual identity needed by t:QD.
 Positive beta makes every displayed fiber denominator positive. -/
-def FibreIntertwiningStatement : Prop :=
+def FiberIntertwiningStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ∀ x : Site L N, B L N ≠ 0 →
     (∀ σ, beta κ x σ ≠ 0) →
     (∀ σ, frameEval κ (B L N) σ = beta κ x σ * rho κ x σ) →
@@ -80,23 +80,23 @@ def FibreIntertwiningStatement : Prop :=
       Complex.normSq (frameEval κ (B L N) σ) / ‖B L N‖^2) →
     (∀ σ, frameEval κ (B L N) σ ≠ 0) →
     (∀ f, groundTransform κ (conditionalExpectation (torusLaw L N κ) {x} f) =
-      fibreProjection κ x (groundTransform κ f)) ∧
+      fiberProjection κ x (groundTransform κ f)) ∧
     ∀ f, blockDirichlet (torusLaw L N κ) {x} f =
       weightedNorm (torusReference L N)
-        (groundTransform κ f - fibreProjection κ x (groundTransform κ f))
+        (groundTransform κ f - fiberProjection κ x (groundTransform κ f))
 
 /-- `l:quantumfibre`, sec3 lines 609–620, 634–643: the explicit fiber formula
 is the orthogonal projection onto beta. Prove positivity of the denominator,
 then the finite weighted least-squares identity. Its best-approximation form
 is exactly what is needed for the physical-space inclusion argument. -/
-def FibreProjectionStatement : Prop :=
+def FiberProjectionStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ∀ x : Site L N,
     (∀ σ, beta κ x σ ≠ 0) →
-    (∀ σ, 0 < fibreDenominator κ x σ) ∧
-    (∀ h, inFibreSpan κ x (fibreProjection κ x h)) ∧
-    (∀ h, inFibreSpan κ x h → fibreProjection κ x h = h) ∧
-    ∀ h k, inFibreSpan κ x k →
-      weightedNorm (torusReference L N) (h - fibreProjection κ x h) ≤
+    (∀ σ, 0 < fiberDenominator κ x σ) ∧
+    (∀ h, inFiberSpan κ x (fiberProjection κ x h)) ∧
+    (∀ h, inFiberSpan κ x h → fiberProjection κ x h = h) ∧
+    ∀ h k, inFiberSpan κ x k →
+      weightedNorm (torusReference L N) (h - fiberProjection κ x h) ≤
         weightedNorm (torusReference L N) (h - k)
 
 /-- `t:QD`, sec3 lines 660–667: polarization of a linear weighted norm

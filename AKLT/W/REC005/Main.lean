@@ -14,8 +14,8 @@ namespace AKLT.W.REC005
 /-- The two-neighbor response interval, with its free lower bound. -/
 theorem main : AKLT.Blueprint.Rec.TwoMeanIntervalsStatement := by
   intro a _hU f hN hne
-  have hf : f ∈ a.D.presentNeighbours a.y := by rw [hN]; simp
-  have ho : a.o ∈ a.D.presentNeighbours a.y := a.present
+  have hf : f ∈ a.D.presentNeighbors a.y := by rw [hN]; simp
+  have ho : a.o ∈ a.D.presentNeighbors a.y := a.present
   have hbound (b : Bool) := removed_pair_bound a.D a.τ a.y f a.o
     a.start.1 a.start.2.1 hf ho (Ne.symm hne) b
   constructor

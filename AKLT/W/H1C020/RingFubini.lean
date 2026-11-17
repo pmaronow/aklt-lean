@@ -63,11 +63,11 @@ lemma varsIn_ringBond (i : Nat) (hi : i < 8) : VarsIn (ringV π r) (ringBond π 
       (mem_ringV h.2.2 (ptOf_ne_origin _ (Nat.mod_lt _ (by decide)))))
   · exact varsIn_one _
 
-lemma leafNeighbour_ring (i : Nat) (hi : i < 8) (hg : groupPoint i ∈ reductionGroups π)
+lemma leafNeighbor_ring (i : Nat) (hi : i < 8) (hg : groupPoint i ∈ reductionGroups π)
     (hp : groupIsPair π r (groupPoint i) = false) :
-    ∃ j < 8, leafNeighbour π (groupPoint i) = ptOf j := by
+    ∃ j < 8, leafNeighbor π (groupPoint i) = ptOf j := by
   by_cases he : i % 2 = 0
-  · exact ⟨i, hi, tip_leafNeighbour π i hi he hg⟩
+  · exact ⟨i, hi, tip_leafNeighbor π i hi he hg⟩
   · have hodd : i % 2 = 1 := by omega
     have hs := (AKLT.W.H1M023.group_single π r hg hp).1
     rw [groupPoint_odd i hodd] at hs ⊢
@@ -82,8 +82,8 @@ lemma varsIn_groupAt (i : Nat) (hi : i < 8) : VarsIn (ringV π r) (groupAt π r 
     unfold groupFactor
     cases hp : groupIsPair π r (groupPoint i)
     · rw [if_neg (by decide)]
-      obtain ⟨j, hj, hnb⟩ := leafNeighbour_ring i hi hg hp
-      have hmem := AKLT.W.H1M023.group_single_neighbour_retained π r hg hp
+      obtain ⟨j, hj, hnb⟩ := leafNeighbor_ring i hi hg hp
+      have hmem := AKLT.W.H1M023.group_single_neighbor_retained π r hg hp
       rw [hnb] at hmem ⊢
       exact (varsIn_one _).add ((varsIn_C _ _).mul
         (varsIn_formalDot_inl_inr (mem_ringV hmem (ptOf_ne_origin j hj)) _))

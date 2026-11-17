@@ -40,10 +40,10 @@ noncomputable def quotient (A : Automaton S D K) (π : S → Q)
 
 theorem quotient_compatible (A : Automaton S D K) (π : S → Q)
     (hsurj : Function.Surjective π)
-    (hfibre : ∀ s t, π s = π t → ∀ d, project π (A.trans s d) = project π (A.trans t d)) :
+    (hfiber : ∀ s t, π s = π t → ∀ d, project π (A.trans s d) = project π (A.trans t d)) :
     A.Compatible (A.quotient π hsurj) π := by
   intro s d
-  exact hfibre s (Classical.choose (hsurj (π s)))
+  exact hfiber s (Classical.choose (hsurj (π s)))
     (Classical.choose_spec (hsurj (π s))).symm d
 
 /-- Coefficients on the quotient can likewise be obtained from representatives. -/
@@ -53,11 +53,11 @@ noncomputable def quotientCoeff (a : C → S → D → K → ℝ≥0∞) (π : S
 
 theorem quotientCoeff_compatible (A : Automaton S D K)
     (a : C → S → D → K → ℝ≥0∞) (π : S → Q) (hsurj : Function.Surjective π)
-    (hfibre : ∀ c s t, π s = π t → ∀ d k u, A.trans s d = some (k, u) →
+    (hfiber : ∀ c s t, π s = π t → ∀ d k u, A.trans s d = some (k, u) →
       a c s d k = a c t d k)
     (c : C) (s : S) (d : D) (k : K) (u : S) (he : A.trans s d = some (k, u)) :
     a c s d k = quotientCoeff a π hsurj c (π s) d k :=
-  hfibre c s (Classical.choose (hsurj (π s)))
+  hfiber c s (Classical.choose (hsurj (π s)))
     (Classical.choose_spec (hsurj (π s))).symm d k u he
 
 /-- Arrival-dependent coefficients are needed only for the specified kinds of edges. -/

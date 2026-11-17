@@ -18,7 +18,7 @@ theorem deadMask_proved : CertData.H3.Bridge.DeadMaskLeaf := by
       interval_cases hjv : j.val <;> decide +kernel
     have hi : siteIndex (-(direction j.val).step)<19881 := by
       interval_cases hjv : j.val <;> decide +kernel
-    simp only [deadMask, hj, ↓reduceIte, centreNeighbourMask, oneMask]
+    simp only [deadMask, hj, ↓reduceIte, centerNeighborMask, oneMask]
     rw [spike_pack 80 19881 _ hi,
       lane_packFn _ _ _ (by intro i hi; split <;> norm_num), if_pos hs]
     simp only [gridSite_eq s _ hbox]
@@ -31,11 +31,11 @@ theorem deadMask_proved : CertData.H3.Bridge.DeadMaskLeaf := by
         b≠a ∧ c≠a ∧ c≠b ∧ d≠a ∧ d≠b ∧ d≠c := by decide +kernel
     rcases hi with ⟨ha,hb,hc,hd,hba,hca,hcb,hda,hdb,hdc⟩
     simp only [deadMask, hj, ↓reduceIte]
-    have he : allMask-centreNeighbourMasks =
+    have he : allMask-centerNeighborMasks =
         (2^(80*19881)-1) - (2^80-1) <<< (80*a) - (2^80-1) <<< (80*b) -
           (2^80-1) <<< (80*c) - (2^80-1) <<< (80*d) := by
-      simp only [centreNeighbourMasks, List.range_succ, List.range_zero,
-        List.foldl_append, List.foldl_cons, List.foldl_nil, centreNeighbourMask,
+      simp only [centerNeighborMasks, List.range_succ, List.range_zero,
+        List.foldl_append, List.foldl_cons, List.foldl_nil, centerNeighborMask,
         direction, Nat.zero_add, allMask, oneMask, Nat.sub_sub, Nat.add_assoc, a,b,c,d]
     rw [he, full_pack, erase_full 80 19881 a ha,
       erase_mask 80 19881 (fun s => s≠a) b hb hba,

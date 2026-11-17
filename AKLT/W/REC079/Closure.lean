@@ -32,7 +32,7 @@ theorem remove_present {G : Finset Plane} (E : Network G) (y x z : Plane) :
 theorem remove_auxiliary {G : Finset Plane} (E : Network G) (y : Plane)
     (hE : E.Auxiliary) (hS : y ∉ protectedSites G) : (removeSite E y).Auxiliary := by
   classical
-  have hsub (x : Plane) : (removeSite E y).presentNeighbours x ⊆ E.presentNeighbours x := by
+  have hsub (x : Plane) : (removeSite E y).presentNeighbors x ⊆ E.presentNeighbors x := by
     intro z hz
     exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp hz).1,
       ((remove_present E y x z).mp (Finset.mem_filter.mp hz).2).1⟩
@@ -76,7 +76,7 @@ theorem invariant_remove_consistent {G : Finset Plane} {E : Network G} {y arriva
 
 theorem invariant_nonarrival_present {G : Finset Plane} {E : Network G} {y arrival z : Plane}
     (h : PrefixInvariant E y arrival) (hy : y ∈ E.active) (hU : E.status y = .U)
-    (hz : z ∈ (neighbours y).erase arrival ∩ E.active) : E.Present y z := by
+    (hz : z ∈ (neighbors y).erase arrival ∩ E.active) : E.Present y z := by
   have hzn := (Finset.mem_erase.mp (Finset.mem_inter.mp hz).1).2
   have hza := (Finset.mem_erase.mp (Finset.mem_inter.mp hz).1).1
   have hzact := (Finset.mem_inter.mp hz).2
@@ -86,8 +86,8 @@ theorem invariant_nonarrival_present {G : Finset Plane} {E : Network G} {y arriv
   have hadj := (adjacent_iff y z).mpr hzn
   exact ⟨hy, hzact, hadj, hzk, (h.agree y hy z hzact hadj).mp hzk⟩
 
-theorem neighbours_pair_distance {y a b : Plane} (ha : a ∈ neighbours y)
-    (hb : b ∈ neighbours y) (hab : a ≠ b) : latticeDist a b = 2 := by
+theorem neighbors_pair_distance {y a b : Plane} (ha : a ∈ neighbors y)
+    (hb : b ∈ neighbors y) (hab : a ≠ b) : latticeDist a b = 2 := by
   obtain ⟨da, _, rfl⟩ := Finset.mem_image.mp ha
   obtain ⟨db, _, rfl⟩ := Finset.mem_image.mp hb
   have hd : da ≠ db := by rintro rfl; exact hab rfl
@@ -111,16 +111,16 @@ theorem pair_type_pair {a b : Plane} (hd : latticeDist a b = 2) :
 theorem invariant_pair_closure {G : Finset Plane} {E : Network G} {y arrival a b : Plane}
     (h : PrefixInvariant E y arrival) (hE : E.Auxiliary) (hy : y ∈ E.active)
     (hS : y ∉ protectedSites G) (hU : E.status y = .U)
-    (ha : a ∈ (neighbours y).erase arrival ∩ E.active)
-    (hb : b ∈ (neighbours y).erase arrival ∩ E.active) (hab : a ≠ b) :
+    (ha : a ∈ (neighbors y).erase arrival ∩ E.active)
+    (hb : b ∈ (neighbors y).erase arrival ∩ E.active) (hab : a ≠ b) :
     (removeSite E y).ResponsePair (responsePairType {a, b}) a b y := by
   have hpa := invariant_nonarrival_present h hy hU ha
   have hpb := invariant_nonarrival_present h hy hU hb
   have hay : a ≠ y := (adjacent_ne hpa.2.2.1).symm
   have hby : b ≠ y := (adjacent_ne hpb.2.2.1).symm
-  have hneighbour (z : Plane) (hp : E.Present y z) (hzy : z ≠ y) :
+  have hneighbor (z : Plane) (hp : E.Present y z) (hzy : z ≠ y) :
       (removeSite E y).status z = .U ∨
-        ((removeSite E y).status z = .D ∧ ((removeSite E y).presentNeighbours z).card ≤ 1) := by
+        ((removeSite E y).status z = .D ∧ ((removeSite E y).presentNeighbors z).card ≤ 1) := by
     have hzG := (Finset.mem_filter.mp hp.2.1).1
     have hs := (Finset.mem_filter.mp hp.2.1).2
     have hstat : (removeSite E y).status z = E.status z := by simp [removeSite, hzy]
@@ -130,7 +130,7 @@ theorem invariant_pair_closure {G : Finset Plane} {E : Network G} {y arrival a b
     | D =>
       right
       refine ⟨hstat.trans hsz, ?_⟩
-      have hsub : (removeSite E y).presentNeighbours z ⊆ (E.kept z).erase y := by
+      have hsub : (removeSite E y).presentNeighbors z ⊆ (E.kept z).erase y := by
         intro x hx
         have hx' := (remove_present E y z x).mp (Finset.mem_filter.mp hx).2
         exact Finset.mem_erase.mpr ⟨hx'.2.2, hx'.1.2.2.2.1⟩
@@ -138,10 +138,10 @@ theorem invariant_pair_closure {G : Finset Plane} {E : Network G} {y arrival a b
         rw [Finset.card_erase_of_mem hp.2.2.2.2, h.d_two z hzG hzy hsz])
   refine ⟨invariant_remove_consistent h hE hS, ?_, ?_,
     (Finset.mem_filter.mp hy).1, by simp [removeSite], adjacent_symm hpa.2.2.1,
-    adjacent_symm hpb.2.2.1, pair_type_pair ?_, hneighbour a hpa hay, hneighbour b hpb hby⟩
+    adjacent_symm hpb.2.2.1, pair_type_pair ?_, hneighbor a hpa hay, hneighbor b hpb hby⟩
   · rw [remove_active]; exact Finset.mem_erase.mpr ⟨hay, hpa.2.1⟩
   · rw [remove_active]; exact Finset.mem_erase.mpr ⟨hby, hpb.2.1⟩
-  · exact neighbours_pair_distance (Finset.mem_of_mem_erase (Finset.mem_inter.mp ha).1)
+  · exact neighbors_pair_distance (Finset.mem_of_mem_erase (Finset.mem_inter.mp ha).1)
       (Finset.mem_of_mem_erase (Finset.mem_inter.mp hb).1) hab
 
 def prefixDeparture (p : PairSetup) {n : ℕ} (T : Finset Plane) (w : DirectionWord n)
@@ -160,14 +160,14 @@ def prefixDeparture (p : PairSetup) {n : ℕ} (T : Finset Plane) (w : DirectionW
     | U =>
       left
       refine ⟨rfl, ?_⟩
-      have hsub : E.presentNeighbours y ⊆ (neighbours y).erase (arrivalSite p w i.val) := by
+      have hsub : E.presentNeighbors y ⊆ (neighbors y).erase (arrivalSite p w i.val) := by
         intro z hz
         have hk := (Finset.mem_filter.mp hz).2.2.2.2.1
         rw [hinv.liveU hsy] at hk
         exact Finset.mem_erase.mpr ⟨(Finset.mem_erase.mp hk).1,
           (Finset.mem_filter.mp hz).1⟩
       exact (Finset.card_le_card hsub).trans (by
-        rw [Finset.card_erase_of_mem ((adjacent_iff _ _).mp hinv.arrival_adj), neighbours_card])
+        rw [Finset.card_erase_of_mem ((adjacent_iff _ _).mp hinv.arrival_adj), neighbors_card])
     | D =>
       right
       refine ⟨rfl, Finset.card_le_one.mpr ?_⟩
@@ -175,7 +175,7 @@ def prefixDeparture (p : PairSetup) {n : ℕ} (T : Finset Plane) (w : DirectionW
       exact hinv.liveD hsy x z (Finset.mem_filter.mp hx).2 (Finset.mem_filter.mp hz).2
   exact ⟨p.G, p.τ, E, y, wordVertex p.u w (i.val + 1),
     (AKLT.W.REC050.main p T n w hw i.val (Nat.le_of_lt i.isLt)).1,
-    hstart, present_mem_neighbours hp⟩
+    hstart, present_mem_neighbors hp⟩
 
 /-- The repaired, non-arrival-only response-pair leaf follows from the proved
 strong prefix invariant. -/
@@ -186,8 +186,8 @@ theorem pair_closure : PairClosureStatementV2 := by
   have hi := (prefix_invariant p T w hw i.val (Nat.le_of_lt i.isLt)).1
   let hd := prefixDeparture p T w hw i
   apply invariant_pair_closure hi hd.auxiliary hd.start.1 hd.start.2.1 hU
-  · simpa only [nonarrivalNeighboursV2, ← arrival_eq] using ha
-  · simpa only [nonarrivalNeighboursV2, ← arrival_eq] using hb
+  · simpa only [nonarrivalNeighborsV2, ← arrival_eq] using ha
+  · simpa only [nonarrivalNeighborsV2, ← arrival_eq] using hb
   · exact hab
 
 end AKLT.W.REC079

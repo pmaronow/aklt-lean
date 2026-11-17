@@ -12,7 +12,7 @@ namespace AKLT.Defs
 open AKLT.Challenge
 
 /-- `p:toruskernel`: four actual neighbors on the frozen torus, also at period three. -/
-def torusNeighbours {L N : Size} (x : Site L N) : Finset (Site L N) :=
+def torusNeighbors {L N : Size} (x : Site L N) : Finset (Site L N) :=
   {(x.1 + 1, x.2), (x.1 - 1, x.2), (x.1, x.2 + 1), (x.1, x.2 - 1)}
 
 /-- Convert an ordinary physical polynomial to the frozen orthonormal coordinates. -/

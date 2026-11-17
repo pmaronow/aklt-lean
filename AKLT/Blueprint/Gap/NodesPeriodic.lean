@@ -36,7 +36,7 @@ def BlockVolumeBoundStatement : Prop :=
 /-- `t:periodic`, sec4:362-381. Same uniformly chosen label: erase the changed
 site in containing blocks, incur at most 1+K on adjacent exterior blocks, and use
 identical resampling elsewhere. Sum the three costs using the exact label counts. -/
-def PeriodicNeighbourCouplingStatement : Prop :=
+def PeriodicNeighborCouplingStatement : Prop :=
   ∀ (L N : Size) (S : Site L N → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
     (μ : Weight (Config S)), PositiveProbability μ →
     ∀ M K, 1 ≤ M → 0 ≤ K → PeriodicCounts L N M → TorusRangeOne μ M → BlockInfluence μ M K →
@@ -54,14 +54,14 @@ def PeriodicBudgetStatement : Prop :=
 
 /-- `l:colour`, PLAN:664-689; sec4:428-438. Verify adjacent residues for the
 explicit odd/even cycle formula, including the wrap edge at period three. -/
-def TorusColourStatement : Prop :=
-  ∀ L N : Size, ProperTorusColouring (torusColour L N)
+def TorusColorStatement : Prop :=
+  ∀ L N : Size, ProperTorusColoring (torusColor L N)
 
 /-- `t:mainW`, sec4:442-444. Every plane edge reduces to one of the frozen torus
 bonds, perhaps with reversed orientation; Size ensures distinct endpoints. -/
-def PullbackColourStatement : Prop :=
-  ∀ (L N : Size) (κ : Site L N → Fin 3), ProperTorusColouring κ →
-    ProperPlaneColouring (κ ∘ reduction L N)
+def PullbackColorStatement : Prop :=
+  ∀ (L N : Size) (κ : Site L N → Fin 3), ProperTorusColoring κ →
+    ProperPlaneColoring (κ ∘ reduction L N)
 
 /-- `l:boxlift`, PLAN:877-885; sec4:448-450. Lift to one physical square plus its
 halo. Modulo-period differences have absolute value ≤2M+2, hence vanish as integers. -/
@@ -91,20 +91,20 @@ def paritySign (z : Plane) : ℝ := if Even (z.1 + z.2) then 1 else -1
 
 /-- Coordinate part of l:boxlift, before any probability-law identity. -/
 structure BoxCoordinates (L N : Size) (M : ℕ) (a : Site L N) (κ : Site L N → Fin 3) where
-  centre : Plane
-  centre_reduces : reduction L N centre = a
+  center : Plane
+  center_reduces : reduction L N center = a
   change : ProductChange (fun _ : torusSquare L N M a => IcoLetter)
-    (fun _ : square centre M => IcoLetter)
+    (fun _ : square center M => IcoLetter)
   site_reduces : ∀ x, reduction L N (change.sites x).val = x.val
   vector_change : ∀ ω x, frameVector (κ x.val) (change.configurations ω (change.sites x)) =
     paritySign (change.sites x).val • frameVector (κ x.val) (ω x)
   boundary : TorusConfiguration L N → Config (fun _ : Plane => IcoLetter)
-  boundary_vector : ∀ σ z, z ∈ exteriorSites (square centre M) →
+  boundary_vector : ∀ σ z, z ∈ exteriorSites (square center M) →
     frameVector (κ (reduction L N z)) (boundary σ z) =
       paritySign z • frameVector (κ (reduction L N z)) (σ (reduction L N z))
   boundary_change : ∀ y, y ∈ torusHalo L N M a \ torusSquare L N M a →
     ∀ σ τ, AgreeOutside {y} σ τ → ∃ z : Plane,
-      z ∉ square centre M ∧ setDistance supDist z (↑(square centre M) : Set Plane) = 1 ∧
+      z ∉ square center M ∧ setDistance supDist z (↑(square center M) : Set Plane) = 1 ∧
       ∀ w, w ≠ z → boundary σ w = boundary τ w
 
 /-- `l:boxlift`, PLAN:886-901; sec4:451-463,478-486 (coordinates). Injectivity and
@@ -125,17 +125,17 @@ def BoxGaugeLawStatement : Prop :=
     0 < 1 + dot (frameVector i a) (frameVector j b) ∧
     0 < 1 - dot (frameVector i a) (frameVector j b)) →
   ∀ (L N : Size) M, 1 ≤ M → 2*M+3 ≤ L.val → 2*M+3 ≤ N.val →
-    ∀ κ : Site L N → Fin 3, ProperTorusColouring κ → ∀ a,
-    ∀ C : BoxCoordinates L N M a κ, LiftBonds L N M C.centre →
+    ∀ κ : Site L N → Fin 3, ProperTorusColoring κ → ∀ a,
+    ∀ C : BoxCoordinates L N M a κ, LiftBonds L N M C.center →
     ∀ σ, Carries C.change (blockLaw (torusLaw L N κ) (torusSquare L N M a) σ)
-      ((frameSpec (κ ∘ reduction L N)).law (square C.centre M) (C.boundary σ))
+      ((frameSpec (κ ∘ reduction L N)).law (square C.center M) (C.boundary σ))
 
 /-- `t:mainW`, sec4:440-441. The four nearest neighbors belong to the full
 one-neighborhood halo. The local Markov input from planeenergy therefore implies
 the sup-distance-one version required by the periodic criterion. -/
 def TorusRangeTransferStatement : Prop :=
   ∀ (L N : Size) (κ : Site L N → Fin 3),
-    (∀ U σ τ, (∀ z ∈ (U.biUnion torusNeighbours) \ U, σ z = τ z) →
+    (∀ U σ τ, (∀ z ∈ (U.biUnion torusNeighbors) \ U, σ z = τ z) →
       conditionalTorusLaw L N κ U σ = conditionalTorusLaw L N κ U τ) →
     ∀ M, 1 ≤ M → TorusRangeOne (torusLaw L N κ) M
 
@@ -148,7 +148,7 @@ def SquareInternalEdgesStatement : Prop :=
 boundaries to total assignments and prove plane range one directly from the four
 nearest-neighbor weight factors. -/
 def FrameSpecRegularityStatement : Prop :=
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ →
   (∀ W η, PositiveProbability (planeLaw κ W η)) →
   (∀ W V, V ⊆ W → ∀ η σ,
     conditionalPlaneLaw κ W V η σ = planeLaw κ V (inducedBoundary W V η σ)) →
@@ -170,6 +170,6 @@ def FrameSpecEnergyStatement : Prop :=
 finite nearest-neighbor boundary. Since B⊆F, extending a sample off F has no effect. -/
 def FrameWindowTransferStatement : Prop :=
   ∀ l p Mstar, WindowProperty l p Mstar → ∀ κ : Plane → Fin 3,
-    ProperPlaneColouring κ → SpecWindow (frameSpec κ) l p Mstar
+    ProperPlaneColoring κ → SpecWindow (frameSpec κ) l p Mstar
 
 end AKLT.Blueprint.Gap

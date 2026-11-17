@@ -87,7 +87,7 @@ private theorem blockLaw_eq_slice_normalize {ι : Type} [Fintype ι] [DecidableE
       (F := fun τ => if restrict U τ = η then
         if AgreeOutside U σ τ then p τ else 0 else 0)]
     simp [glue_restrict, glue_agreeOutside_iff]
-  unfold blockLaw marginal fibre conditionOn AKLT.Defs.normalize
+  unfold blockLaw marginal fiber conditionOn AKLT.Defs.normalize
   rw [condition_mass_eq_slice (S := S) p U σ]
   have hsum :
       (∑ τ, if restrict U τ = η then

@@ -20,23 +20,23 @@ private theorem successor_vertex {n : ℕ} (w : DirectionWord n) (i : Fin n) :
 
 private theorem live_other_eq_true_reward_live {n : ℕ} (w : DirectionWord n)
     (i : Fin n) :
-    liveOtherNeighbours w i =
-      (((neighbours (wordVertex kernelStart w i.val)).erase
+    liveOtherNeighbors w i =
+      (((neighbors (wordVertex kernelStart w i.val)).erase
           (wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step)).erase
         (wordVertex kernelStart w i.val + (w i).step)) \
         (trueDeadSet w i) := by
   classical
   ext z
-  by_cases hc : z = kernelCentre
-  · simp [liveOtherNeighbours, responseNeighbours, trueDeadSet, deadAt,
+  by_cases hc : z = kernelCenter
+  · simp [liveOtherNeighbors, responseNeighbors, trueDeadSet, deadAt,
       successor_vertex, hc]
   · by_cases hd : 2 ≤ departureCount kernelStart w i.val z
-    · simp [liveOtherNeighbours, responseNeighbours, trueDeadSet, deadAt,
+    · simp [liveOtherNeighbors, responseNeighbors, trueDeadSet, deadAt,
         successor_vertex, hc, hd]
       intro _ _ hz
       have hnot : ¬ departureCount kernelStart w i.val z ≤ 1 := by omega
       simp [hz, hnot]
-    · simp [liveOtherNeighbours, responseNeighbours, trueDeadSet, deadAt,
+    · simp [liveOtherNeighbors, responseNeighbors, trueDeadSet, deadAt,
         successor_vertex, hc, hd]
       intro _ _ _
       have hsmall : departureCount kernelStart w i.val z ≤ 1 := by omega

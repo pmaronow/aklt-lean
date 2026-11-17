@@ -17,10 +17,10 @@ namespace AKLT.W.REC080
 theorem normalize_auxiliary {G : Finset Plane} (D : Network G) (u c : Plane)
     (hD : D.Auxiliary) (hc : D.status c = .X) :
     (normalizeStart D u c).Auxiliary := by
-  have hn (x : Plane) : (normalizeStart D u c).presentNeighbours x =
-      D.presentNeighbours x := by
+  have hn (x : Plane) : (normalizeStart D u c).presentNeighbors x =
+      D.presentNeighbors x := by
     ext z
-    simp only [Network.presentNeighbours, Finset.mem_filter, normalize_present D u c hc]
+    simp only [Network.presentNeighbors, Finset.mem_filter, normalize_present D u c hc]
   refine ⟨⟨hD.1.1, ?_, ?_, ?_⟩, hD.2⟩
   · intro x z hz
     apply hD.1.2.1 x
@@ -51,15 +51,15 @@ theorem terminal_auxiliary (p : PairData) (hu : p.u ∉ protectedSites p.G)
 All other kept-set defects are at the moving endpoint. -/
 structure DefectInvariant {G : Finset Plane} (E : Network G) (y a e : Plane) : Prop where
   outside : ∀ x, x ∉ G → E.status x = .X
-  kept_sub : ∀ x, E.kept x ⊆ neighbours x ∩ G
+  kept_sub : ∀ x, E.kept x ⊆ neighbors x ∩ G
   u_full : ∀ x ∈ G, x ≠ y → x ≠ e → E.status x = .U →
-    E.kept x = neighbours x ∩ G
+    E.kept x = neighbors x ∩ G
   d_two : ∀ x ∈ G, x ≠ y → E.status x = .D → (E.kept x).card = 2
   agree : ∀ x ∈ E.active, ∀ z ∈ E.active, Adjacent x z →
     (z ∈ E.kept x ↔ x ∈ E.kept z)
   arrival_adj : Adjacent y a
   arrival_notU : E.status a ≠ .U
-  liveU : E.status y = .U → E.kept y = (neighbours y ∩ G).erase a
+  liveU : E.status y = .U → E.kept y = (neighbors y ∩ G).erase a
   liveD : E.status y = .D → ∀ x z, E.Present y x → E.Present y z → x = z
   fixedU : E.status e = .U
 
@@ -72,7 +72,7 @@ theorem defect_step {G : Finset Plane} {E : Network G} {y a e o : Plane}
   have hoG := (Finset.mem_filter.mp hp.2.1).1
   have hyo := AKLT.W.REC096.adjacent_ne hp.2.2.1
   have hye : y ≠ e := by rintro rfl; exact hy he
-  have hfull : neighbours y ∩ G = neighbours y := by
+  have hfull : neighbors y ∩ G = neighbors y := by
     apply Finset.inter_eq_left.mpr
     intro z hz
     exact AKLT.W.REC096.interior_ball hyG hy
@@ -80,7 +80,7 @@ theorem defect_step {G : Finset Plane} {E : Network G} {y a e o : Plane}
   have hUcard (hu : E.status y = .U) : (E.kept y).card = 3 := by
     rw [h.liveU hu, hfull,
       Finset.card_erase_of_mem ((AKLT.W.REC096.adjacent_iff _ _).mp h.arrival_adj),
-      neighbours_card]
+      neighbors_card]
   refine ⟨?_, ?_, ?_, ?_, ?_, AKLT.W.REC096.adjacent_symm hp.2.2.1,
     ?_, ?_, ?_, ?_⟩
   · intro x hx
@@ -263,7 +263,7 @@ theorem terminal_defect_initial (p : PairData) (hu : p.u ∉ protectedSites p.G)
   · intro x hx z hz hadj
     rw [hflag x z hz, hflag z x hx]
     exact hI.agree x hx z hz hadj
-  · rw [terminal_centre_removed]
+  · rw [terminal_center_removed]
     decide
   · intro hvU
     change F.status p.v = .U at hvU
@@ -277,8 +277,8 @@ theorem terminal_defect_initial (p : PairData) (hu : p.u ∉ protectedSites p.G)
     · have hbad : Status.D = .U := hvD.symm.trans hU.1
       cases hbad
     · exact (Finset.card_le_one.mp hD.2) x
-        (AKLT.W.REC096.present_mem_neighbours hpx) z
-        (AKLT.W.REC096.present_mem_neighbours hpz)
+        (AKLT.W.REC096.present_mem_neighbors hpx) z
+        (AKLT.W.REC096.present_mem_neighbors hpz)
 
 theorem terminal_defect_prefix (p : PairData) (hu : p.u ∉ protectedSites p.G)
     (hv : p.v ∉ protectedSites p.G) {n : ℕ} (w : DirectionWord n)

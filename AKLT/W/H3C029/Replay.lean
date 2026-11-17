@@ -123,8 +123,8 @@ theorem trail_append_of_goodStep {n : Nat} (w : DirectionWord n) (s : Walk)
   simp only [goodStep, Bool.and_eq_true] at hg
   have hlegal : bond s.pos (advance s.pos d.val) ∉ s.used := by
     simpa [Walk.legal] using hg.1.2
-  have hcentre : advance s.pos d.val ≠ kernelCentre := by
-    simpa [kernelCentre] using hg.2
+  have hcenter : advance s.pos d.val ≠ kernelCenter := by
+    simpa [kernelCenter] using hg.2
   have hpos := hrep.2.1
   have hused := hrep.2.2.2.2.2
   have hnew (i : Fin n) :
@@ -159,7 +159,7 @@ theorem trail_append_of_goodStep {n : Nat} (w : DirectionWord n) (s : Walk)
       intro hrev
       have hd : direction d.val = kernelIncoming.reverse := by
         simpa [appendWords, hi] using hrev
-      apply hcentre
+      apply hcenter
       rw [hstart, advance_eq, hd]
       rfl
 
@@ -213,7 +213,7 @@ theorem replay_sound_of_prefixStep (hstep : PrefixStepLeaf)
     PrefixRepresents E (decodeWord n c) s ∧
     IsTrail kernelStart kernelIncoming (decodeWord n c) ∧
     (0 < n → FirstDirection (decodeWord n c) (direction d₀.val)) ∧
-    ∀ j ≤ n, wordVertex kernelStart (decodeWord n c) j ≠ kernelCentre ∧
+    ∀ j ≤ n, wordVertex kernelStart (decodeWord n c) j ≠ kernelCenter ∧
       wordVertex kernelStart (decodeWord n c) j ≠ kernelTarget X := by
   induction n generalizing c s with
   | zero =>
@@ -230,7 +230,7 @@ theorem replay_sound_of_prefixStep (hstep : PrefixStepLeaf)
     · intro j hj
       have hj0 : j = 0 := by omega
       subst j
-      cases X <;> simp [wordVertex, kernelStart, kernelCentre, kernelTarget]
+      cases X <;> simp [wordVertex, kernelStart, kernelCenter, kernelTarget]
   | succ n ih =>
     rw [replayPrefix_snoc] at hs
     obtain ⟨t, ht, hlast⟩ := Option.bind_eq_some_iff.mp hs
@@ -277,7 +277,7 @@ theorem replay_sound_of_prefixStep (hstep : PrefixStepLeaf)
             constructor
             · have hg := hgood
               simp only [goodStep, Bool.and_eq_true] at hg
-              simpa [kernelCentre] using hg.2
+              simpa [kernelCenter] using hg.2
             · cases X <;> simpa [transition_walk, Walk.step, d, target, kernelTarget] using htarget
     next hgood => cases hlast
 

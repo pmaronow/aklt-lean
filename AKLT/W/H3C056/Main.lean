@@ -20,8 +20,8 @@ def RowTermsAgreementV2 : Prop :=
     (φ : Phase) (a : Fin q),
     Q.Correct → (X,d₀) ∈ stationaryCases →
     (∀ ψ b, cap ψ b < 2^26 ∧ Fits (plane ψ b) 80 19881 ∧
-      lane (plane ψ b) 80 (siteIndex kernelCentre) = 0) →
-    ∀ s < 19881, gridSite s ≠ kernelCentre → gridSite s ≠ kernelTarget X →
+      lane (plane ψ b) 80 (siteIndex kernelCenter) = 0) →
+    ∀ s < 19881, gridSite s ≠ kernelCenter → gridSite s ≠ kernelTarget X →
       component 80 s (rowTerms Q plane cap X d₀ φ a) =
         ∑ d : Compass, ∑ ψ : Phase,
           coefficientCeiling (stationaryCoefficientV2 Q X d₀ φ a (gridSite s) d ψ) *
@@ -51,8 +51,8 @@ transfers it to the legacy coefficient used by the frozen statement. -/
 theorem legacy_transfer (hV2 : RowTermsAgreementV2) :
     AKLT.Cert.H3.RowTermsAgreement := by
   classical
-  intro m q Q plane cap X d₀ φ a hQ hcase hdata s hs hcentre htarget
-  have hV2row := hV2 m q Q plane cap X d₀ φ a hQ hcase hdata s hs hcentre htarget
+  intro m q Q plane cap X d₀ φ a hQ hcase hdata s hs hcenter htarget
+  have hV2row := hV2 m q Q plane cap X d₀ φ a hQ hcase hdata s hs hcenter htarget
   have hsum :
       (∑ d : Compass, ∑ ψ : Phase,
         coefficientCeiling (stationaryCoefficientV2 Q X d₀ φ a (gridSite s) d ψ) *
@@ -68,10 +68,10 @@ theorem legacy_transfer (hV2 : RowTermsAgreementV2) :
     intro d hd
     apply Finset.sum_congr rfl
     intro ψ hψ
-    by_cases hdest : gridSite s + d.step = kernelCentre
+    by_cases hdest : gridSite s + d.step = kernelCenter
     · have hbox : gridSite s + d.step ∈ square (0,0) certificateRadius := by
         rw [hdest]
-        simp [square, kernelCentre, certificateRadius]
+        simp [square, kernelCenter, certificateRadius]
       have hvalue :
           (if (gridSite s+d.step) ∈ square (0,0) certificateRadius then
             lane (plane ψ (Q.successor a d)) 80 (siteIndex (gridSite s+d.step))

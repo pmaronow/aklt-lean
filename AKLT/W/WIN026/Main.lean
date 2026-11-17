@@ -20,7 +20,7 @@ private theorem mem_cross_iff (x z : Plane) :
       (z.1 + 1 = x.1 ∧ z.2 = x.2) ∨
       (z.1 = x.1 ∧ z.2 + 1 = x.2) := by
   classical
-  simp only [cross, Finset.mem_insert, neighbours, Finset.mem_image,
+  simp only [cross, Finset.mem_insert, neighbors, Finset.mem_image,
     Finset.mem_univ, true_and]
   constructor
   · intro hz

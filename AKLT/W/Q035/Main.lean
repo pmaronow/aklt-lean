@@ -22,7 +22,7 @@ theorem statePolynomial_eq_encode {L N : Size} (ψ : Hilbert L N) :
   congr 1
   ring
 
-theorem main : AKLT.Blueprint.Q.StateCentreDegreeStatement := by
+theorem main : AKLT.Blueprint.Q.StateCenterDegreeStatement := by
   intro L N ψ x m hm
   have hhom := AKLT.Uniq.encode_physical (L := L) (N := N) ψ x
   have hweight := hhom (MvPolynomial.mem_support_iff.mp

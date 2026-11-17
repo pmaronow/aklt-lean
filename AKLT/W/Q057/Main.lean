@@ -42,7 +42,7 @@ private lemma internalBond_adjacent {W : Finset Plane} {e : Plane × Plane}
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image] at he
   rcases he with ⟨x, hx, y, hy, rfl⟩
   rcases Finset.mem_inter.mp hy with ⟨hypos, hyW⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hypos
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hypos
   rcases hypos with hy | hy
   · rw [hy]
     simp [Adjacent, latticeDist]
@@ -50,7 +50,7 @@ private lemma internalBond_adjacent {W : Finset Plane} {e : Plane × Plane}
     simp [Adjacent, latticeDist]
 
 private lemma frameInteraction_pos (κ : Plane → Fin 3) (hBounds : interactionBounds)
-    (hκ : ProperPlaneColouring κ) {x y : Plane} (hadj : Adjacent x y)
+    (hκ : ProperPlaneColoring κ) {x y : Plane} (hadj : Adjacent x y)
     (a b : IcoLetter) : 0 < 1 + dot (frameVector (κ x) a) (frameVector (κ y) b) := by
   have hcol := hκ x y hadj
   exact lt_of_lt_of_le frameBound_pos (hBounds (κ x) (κ y) hcol a b).1
@@ -61,7 +61,7 @@ private def siteNormalizer {W : Finset Plane} (κ : Plane → Fin 3)
 
 set_option maxHeartbeats 400000 in
 private lemma planeSiteWeight_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hBounds : interactionBounds) (hκ : ProperPlaneColouring κ)
+    (hBounds : interactionBounds) (hκ : ProperPlaneColoring κ)
     (η : FrameBoundary W) (x : W) (a : IcoLetter) :
     0 < planeSiteWeight κ W η x a := by
   unfold planeSiteWeight
@@ -75,7 +75,7 @@ private lemma planeSiteWeight_pos {W : Finset Plane} (κ : Plane → Fin 3)
   exact hpos
 
 private lemma siteNormalizer_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hBounds : interactionBounds) (hκ : ProperPlaneColouring κ)
+    (hBounds : interactionBounds) (hκ : ProperPlaneColoring κ)
     (η : FrameBoundary W) (x : W) : 0 < siteNormalizer κ η x := by
   unfold siteNormalizer
   apply Finset.sum_pos
@@ -84,7 +84,7 @@ private lemma siteNormalizer_pos {W : Finset Plane} (κ : Plane → Fin 3)
   · exact Finset.univ_nonempty
 
 private lemma planeInteraction_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hBounds : interactionBounds) (hκ : ProperPlaneColouring κ)
+    (hBounds : interactionBounds) (hκ : ProperPlaneColoring κ)
     (σ : PlaneConfiguration W) : 0 < planeInteraction κ W σ := by
   unfold planeInteraction
   apply Finset.prod_pos
@@ -93,7 +93,7 @@ private lemma planeInteraction_pos {W : Finset Plane} (κ : Plane → Fin 3)
     (extendLetters σ e.1) (extendLetters σ e.2)
 
 private lemma planeProductReference_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hBounds : interactionBounds) (hκ : ProperPlaneColouring κ)
+    (hBounds : interactionBounds) (hκ : ProperPlaneColoring κ)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) :
     0 < planeProductReference κ W η σ := by
   unfold planeProductReference

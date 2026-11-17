@@ -60,7 +60,7 @@ def replacementRadius (π : PatternData) (x : Plane) : ℚ :=
   if x ∈ templateTips then 3 / 5 else if π.statusAt x = .U then 1 / 2 else 1 / 3
 
 /-- The unique internal neighbor of a singly bonded leaf, with a harmless totalization. -/
-def leafNeighbour (π : PatternData) (x : Plane) : Plane :=
+def leafNeighbor (π : PatternData) (x : Plane) : Plane :=
   ((π.bonds.toList.filterMap fun e =>
     if e.1 = x then some e.2 else if e.2 = x then some e.1 else none).headD (0, 0))
 
@@ -105,7 +105,7 @@ def reducedIntegrand (π : PatternData) (r : Representation) (next : Bool) :
       (1 + formalDot (fun k => .inl (x, k)) (fun k => .inr (groupLeader x, k))) *
       (1 + formalDot (fun k => .inl (x, k)) (fun k => .inr (groupSecond x, k)))
     else 1 + MvPolynomial.C (replacementRadius π x) *
-      formalDot (fun k => .inl (leafNeighbour π x, k)) (fun k => .inr (groupLeader x, k)))
+      formalDot (fun k => .inl (leafNeighbor π x, k)) (fun k => .inr (groupLeader x, k)))
 
 /-- `d:reduction`: the reconstructed current and next polynomials, not supplied certificate matrices. -/
 def reducedPolynomial (π : PatternData) (r : Representation) (next : Bool) :

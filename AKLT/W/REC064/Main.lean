@@ -69,9 +69,9 @@ theorem wordVertex_succ {n : ℕ} (u : Plane) (w : DirectionWord n) (i : Fin n) 
   rw [hsum]
   simp [add_assoc]
 
-theorem neighbours_dist_one {x z : Plane} (hz : z ∈ neighbours x) : latticeDist z x = 1 := by
+theorem neighbors_dist_one {x z : Plane} (hz : z ∈ neighbors x) : latticeDist z x = 1 := by
   classical
-  unfold neighbours at hz
+  unfold neighbors at hz
   rcases Finset.mem_image.mp hz with ⟨d, hd, rfl⟩
   cases d <;> norm_num [latticeDist, Compass.step]
 
@@ -141,19 +141,19 @@ lemma responsePair_shift_le {n : ℕ} (X : PairType) (w : DirectionWord n)
   change p.sup (fun z => min (latticeDist z kernelStart) (latticeDist z (kernelTarget X))) ≤ n + 1
   apply Finset.sup_le
   intro z hz
-  have hsub : p ⊆ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i) :=
+  have hsub : p ⊆ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i) :=
     (Finset.mem_powersetCard.mp hp).1
-  have hneigh : z ∈ neighbours (wordVertex kernelStart w i.val) := by
+  have hneigh : z ∈ neighbors (wordVertex kernelStart w i.val) := by
     rcases Finset.mem_insert.mp (hsub hz) with hnext | hother
     · subst z
       rw [wordVertex_succ]
       exact Finset.mem_image.mpr ⟨w i, Finset.mem_univ _, rfl⟩
-    · have hresp : z ∈ responseNeighbours w i := by
-        unfold liveOtherNeighbours at hother
+    · have hresp : z ∈ responseNeighbors w i := by
+        unfold liveOtherNeighbors at hother
         rcases Finset.mem_filter.mp hother with ⟨hrest, _⟩
         exact (Finset.mem_erase.mp hrest).2
       exact Finset.erase_subset _ _ hresp
-  have hdist : latticeDist z (wordVertex kernelStart w i.val) = 1 := neighbours_dist_one hneigh
+  have hdist : latticeDist z (wordVertex kernelStart w i.val) = 1 := neighbors_dist_one hneigh
   have hpath := wordVertex_latticeDist_start_le kernelStart w i.val
   calc
     min (latticeDist z kernelStart) (latticeDist z (kernelTarget X)) ≤ latticeDist z kernelStart := Nat.min_le_left _ _
@@ -237,7 +237,7 @@ end AKLT.W.REC064
 #print axioms AKLT.W.REC064.latticeDist_triangle
 #print axioms AKLT.W.REC064.latticeDist_symm
 #print axioms AKLT.W.REC064.wordVertex_succ
-#print axioms AKLT.W.REC064.neighbours_dist_one
+#print axioms AKLT.W.REC064.neighbors_dist_one
 #print axioms AKLT.W.REC064.wordVertex_latticeDist_start_le
 #print axioms AKLT.W.REC064.responsePair_shift_le
 #print axioms AKLT.W.REC064.exposureSum_zero_of_reward_zero

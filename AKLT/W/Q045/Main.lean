@@ -16,56 +16,56 @@ variable (κ : Site L N → Fin 3) (x : Site L N)
 
 private abbrev Outside (x : Site L N) := {y : Site L N // y ≠ x} → IcoLetter
 
-private def fibreConfig (x : Site L N) (a : IcoLetter) (ω : Outside x) :
+private def fiberConfig (x : Site L N) (a : IcoLetter) (ω : Outside x) :
     TorusConfiguration L N := fun y => if h : y = x then a else ω ⟨y, h⟩
 
 private def configEquiv (x : Site L N) : TorusConfiguration L N ≃ IcoLetter × Outside x where
   toFun σ := (σ x, fun y => σ y.1)
-  invFun p := fibreConfig x p.1 p.2
+  invFun p := fiberConfig x p.1 p.2
   left_inv σ := by
     funext y
     by_cases h : y = x
     · subst y
-      simp [fibreConfig]
-    · simp [fibreConfig, h]
+      simp [fiberConfig]
+    · simp [fiberConfig, h]
   right_inv p := by
     rcases p with ⟨a, ω⟩
     apply Prod.ext
-    · simp [fibreConfig]
+    · simp [fiberConfig]
     · funext y
-      simp [fibreConfig, y.2]
+      simp [fiberConfig, y.2]
 
 private lemma card_icoLetter : Fintype.card IcoLetter = 12 := by
   norm_num [IcoLetter, Fintype.card_prod]
 
-private lemma sum_update_fibre (g : TorusConfiguration L N → ℝ) :
+private lemma sum_update_fiber (g : TorusConfiguration L N → ℝ) :
     ∑ σ, ∑ a : IcoLetter, g (Function.update σ x a) =
       (Fintype.card IcoLetter : ℝ) * ∑ σ, g σ := by
   classical
   let e := configEquiv (L := L) (N := N) x
   have hleft : (∑ σ, ∑ a : IcoLetter, g (Function.update σ x a)) =
       ∑ p : IcoLetter × Outside x, ∑ a : IcoLetter,
-        g (fibreConfig x a p.2) := by
+        g (fiberConfig x a p.2) := by
     apply Fintype.sum_equiv e
     intro σ
     apply Finset.sum_congr rfl
     intro a _
     have hcfg : Function.update σ x a =
-        fibreConfig x a (fun y : {y : Site L N // y ≠ x} => σ y.1) := by
+        fiberConfig x a (fun y : {y : Site L N // y ≠ x} => σ y.1) := by
       funext y
       by_cases hy : y = x
       · subst y
-        simp [fibreConfig]
-      · simp [fibreConfig, hy]
+        simp [fiberConfig]
+      · simp [fiberConfig, hy]
     simpa [e, configEquiv] using congrArg g hcfg
   have hright : (∑ σ, g σ) =
-      ∑ p : IcoLetter × Outside x, g (fibreConfig x p.1 p.2) := by
+      ∑ p : IcoLetter × Outside x, g (fiberConfig x p.1 p.2) := by
     apply Fintype.sum_equiv e
     intro σ
     have hcfg := (configEquiv (L := L) (N := N) x).left_inv σ
     simpa [e, configEquiv] using congrArg g hcfg.symm
   rw [hleft, hright]
-  let F : IcoLetter → Outside x → ℝ := fun a ω => g (fibreConfig x a ω)
+  let F : IcoLetter → Outside x → ℝ := fun a ω => g (fiberConfig x a ω)
   conv_lhs => rw [Fintype.sum_prod_type]
   conv_rhs => arg 2; rw [Fintype.sum_prod_type]
   change (∑ b : IcoLetter, ∑ ω : Outside x, ∑ a : IcoLetter, F a ω) =
@@ -93,62 +93,62 @@ private lemma sum_update_fibre (g : TorusConfiguration L N → ℝ) :
           congr 1
           exact Finset.sum_comm
 
-private def fibreNumerator (κ : Site L N → Fin 3) (x : Site L N)
+private def fiberNumerator (κ : Site L N → Fin 3) (x : Site L N)
     (h : TorusConfiguration L N → ℂ) (σ : TorusConfiguration L N) : ℂ :=
   ∑ a : IcoLetter, (5 / 12 : ℂ) *
     star (AKLT.Blueprint.Q.beta κ x (Function.update σ x a)) *
       h (Function.update σ x a)
 
-private lemma fibreDenominator_pos (hβ : ∀ σ, AKLT.Blueprint.Q.beta κ x σ ≠ 0)
-    (σ : TorusConfiguration L N) : 0 < AKLT.Blueprint.Q.fibreDenominator κ x σ := by
-  unfold AKLT.Blueprint.Q.fibreDenominator
+private lemma fiberDenominator_pos (hβ : ∀ σ, AKLT.Blueprint.Q.beta κ x σ ≠ 0)
+    (σ : TorusConfiguration L N) : 0 < AKLT.Blueprint.Q.fiberDenominator κ x σ := by
+  unfold AKLT.Blueprint.Q.fiberDenominator
   apply Finset.sum_pos (fun a ha =>
     mul_pos (by norm_num) (Complex.normSq_pos.mpr (hβ (Function.update σ x a))))
   exact ⟨(0, 0, 0), by simp⟩
 
 private lemma numerator_update (h : TorusConfiguration L N → ℂ) (σ : TorusConfiguration L N)
-    (a : IcoLetter) : fibreNumerator κ x h (Function.update σ x a) =
-      fibreNumerator κ x h σ := by
-  simp [fibreNumerator, Function.update_idem]
+    (a : IcoLetter) : fiberNumerator κ x h (Function.update σ x a) =
+      fiberNumerator κ x h σ := by
+  simp [fiberNumerator, Function.update_idem]
 
 private lemma denominator_update (σ : TorusConfiguration L N) (a : IcoLetter) :
-    AKLT.Blueprint.Q.fibreDenominator κ x (Function.update σ x a) =
-      AKLT.Blueprint.Q.fibreDenominator κ x σ := by
-  simp [AKLT.Blueprint.Q.fibreDenominator, Function.update_idem]
+    AKLT.Blueprint.Q.fiberDenominator κ x (Function.update σ x a) =
+      AKLT.Blueprint.Q.fiberDenominator κ x σ := by
+  simp [AKLT.Blueprint.Q.fiberDenominator, Function.update_idem]
 
-private lemma projection_fibre_formula (h : TorusConfiguration L N → ℂ)
+private lemma projection_fiber_formula (h : TorusConfiguration L N → ℂ)
     (σ : TorusConfiguration L N) (a : IcoLetter) :
-    AKLT.Blueprint.Q.fibreProjection κ x h (Function.update σ x a) =
+    AKLT.Blueprint.Q.fiberProjection κ x h (Function.update σ x a) =
       AKLT.Blueprint.Q.beta κ x (Function.update σ x a) *
-        (fibreNumerator κ x h σ /
-          (AKLT.Blueprint.Q.fibreDenominator κ x σ : ℂ)) := by
+        (fiberNumerator κ x h σ /
+          (AKLT.Blueprint.Q.fiberDenominator κ x σ : ℂ)) := by
   change (AKLT.Blueprint.Q.beta κ x (Function.update σ x a) *
-      fibreNumerator κ x h (Function.update σ x a)) /
-      (AKLT.Blueprint.Q.fibreDenominator κ x (Function.update σ x a) : ℂ) = _
+      fiberNumerator κ x h (Function.update σ x a)) /
+      (AKLT.Blueprint.Q.fiberDenominator κ x (Function.update σ x a) : ℂ) = _
   rw [denominator_update, numerator_update (κ := κ) (x := x)]
   rw [mul_div_assoc]
 
-private lemma fibre_span_projection (h : TorusConfiguration L N → ℂ) :
-    AKLT.Blueprint.Q.inFibreSpan κ x (AKLT.Blueprint.Q.fibreProjection κ x h) := by
+private lemma fiber_span_projection (h : TorusConfiguration L N → ℂ) :
+    AKLT.Blueprint.Q.inFiberSpan κ x (AKLT.Blueprint.Q.fiberProjection κ x h) := by
   intro σ
-  refine ⟨fibreNumerator κ x h σ /
-    (AKLT.Blueprint.Q.fibreDenominator κ x σ : ℂ), ?_⟩
+  refine ⟨fiberNumerator κ x h σ /
+    (AKLT.Blueprint.Q.fiberDenominator κ x σ : ℂ), ?_⟩
   intro a
-  rw [projection_fibre_formula κ x h σ a]
+  rw [projection_fiber_formula κ x h σ a]
   ring
 
 private lemma projection_fixed (hβ : ∀ σ, AKLT.Blueprint.Q.beta κ x σ ≠ 0)
     (h : TorusConfiguration L N → ℂ)
-    (hk : AKLT.Blueprint.Q.inFibreSpan κ x h) :
-    AKLT.Blueprint.Q.fibreProjection κ x h = h := by
+    (hk : AKLT.Blueprint.Q.inFiberSpan κ x h) :
+    AKLT.Blueprint.Q.fiberProjection κ x h = h := by
   funext σ
   obtain ⟨c, hc⟩ := hk σ
-  have hden := fibreDenominator_pos κ x hβ σ
-  have hdenC : (AKLT.Blueprint.Q.fibreDenominator κ x σ : ℂ) ≠ 0 :=
+  have hden := fiberDenominator_pos κ x hβ σ
+  have hdenC : (AKLT.Blueprint.Q.fiberDenominator κ x σ : ℂ) ≠ 0 :=
     (Complex.ofReal_ne_zero.mpr hden.ne')
-  have hnum : fibreNumerator κ x h σ = c *
-      (AKLT.Blueprint.Q.fibreDenominator κ x σ : ℂ) := by
-    unfold fibreNumerator AKLT.Blueprint.Q.fibreDenominator
+  have hnum : fiberNumerator κ x h σ = c *
+      (AKLT.Blueprint.Q.fiberDenominator κ x σ : ℂ) := by
+    unfold fiberNumerator AKLT.Blueprint.Q.fiberDenominator
     rw [Complex.ofReal_sum]
     rw [Finset.mul_sum]
     apply Finset.sum_congr rfl
@@ -161,8 +161,8 @@ private lemma projection_fixed (hβ : ∀ σ, AKLT.Blueprint.Q.beta κ x σ ≠ 
     norm_num
   have hval : h σ = c * AKLT.Blueprint.Q.beta κ x σ := by
     simpa using hc (σ x)
-  change (AKLT.Blueprint.Q.beta κ x σ * fibreNumerator κ x h σ) /
-      (AKLT.Blueprint.Q.fibreDenominator κ x σ : ℂ) = h σ
+  change (AKLT.Blueprint.Q.beta κ x σ * fiberNumerator κ x h σ) /
+      (AKLT.Blueprint.Q.fiberDenominator κ x σ : ℂ) = h σ
   rw [hnum]
   field_simp
   rw [hval]
@@ -295,12 +295,12 @@ private lemma localCost_le (b h : IcoLetter → ℂ) (c : ℂ)
   exact le_add_of_nonneg_right
     (mul_nonneg (le_of_lt hD) (Complex.normSq_nonneg _))
 
-private lemma weightedNorm_fibreSum (f : TorusConfiguration L N → ℂ) :
+private lemma weightedNorm_fiberSum (f : TorusConfiguration L N → ℂ) :
     AKLT.Blueprint.Q.weightedNorm (torusReference L N) f =
       ((∏ _y : Site L N, (5 / 12 : ℝ)) / 5) *
         ∑ σ, ∑ a : IcoLetter, (5 / 12 : ℝ) *
           Complex.normSq (f (Function.update σ x a)) := by
-  have hsum := sum_update_fibre (L := L) (N := N) x (fun σ => Complex.normSq (f σ))
+  have hsum := sum_update_fiber (L := L) (N := N) x (fun σ => Complex.normSq (f σ))
   rw [card_icoLetter] at hsum
   norm_num at hsum
   have htotal : (∑ σ, ∑ a : IcoLetter, (5 / 12 : ℝ) *
@@ -329,17 +329,17 @@ private lemma weightedNorm_fibreSum (f : TorusConfiguration L N → ℂ) :
   rw [← Finset.mul_sum, htotal]
   ring
 
-theorem main : AKLT.Blueprint.Q.FibreProjectionStatement := by
+theorem main : AKLT.Blueprint.Q.FiberProjectionStatement := by
   intro L N κ x hβ
   refine ⟨?_, ?_, ?_, ?_⟩
   · intro σ
-    exact fibreDenominator_pos κ x hβ σ
+    exact fiberDenominator_pos κ x hβ σ
   · intro h
-    exact fibre_span_projection κ x h
+    exact fiber_span_projection κ x h
   · intro h hk
     exact projection_fixed κ x hβ h hk
   · intro h k hk
-    let P : TorusConfiguration L N → ℂ := AKLT.Blueprint.Q.fibreProjection κ x h
+    let P : TorusConfiguration L N → ℂ := AKLT.Blueprint.Q.fiberProjection κ x h
     let r : TorusConfiguration L N → ℂ := h - P
     let q : TorusConfiguration L N → ℂ := h - k
     have hlocal :
@@ -353,20 +353,20 @@ theorem main : AKLT.Blueprint.Q.FibreProjectionStatement := by
       let b : IcoLetter → ℂ := fun a =>
         AKLT.Blueprint.Q.beta κ x (Function.update σ x a)
       let g : IcoLetter → ℂ := fun a => h (Function.update σ x a)
-      have hD : localDenominator b = AKLT.Blueprint.Q.fibreDenominator κ x σ := by
+      have hD : localDenominator b = AKLT.Blueprint.Q.fiberDenominator κ x σ := by
         rfl
       have hDpos : 0 < localDenominator b := by
         rw [hD]
-        exact fibreDenominator_pos κ x hβ σ
-      have hN : localNumerator b g = fibreNumerator κ x h σ := by
-        unfold localNumerator fibreNumerator b g
+        exact fiberDenominator_pos κ x hβ σ
+      have hN : localNumerator b g = fiberNumerator κ x h σ := by
+        unfold localNumerator fiberNumerator b g
         apply Finset.sum_congr rfl
         intro a ha
         norm_num
       have hproj (a : IcoLetter) : P (Function.update σ x a) =
           b a * (localNumerator b g / (localDenominator b : ℂ)) := by
-        change AKLT.Blueprint.Q.fibreProjection κ x h (Function.update σ x a) = _
-        rw [projection_fibre_formula κ x h σ a]
+        change AKLT.Blueprint.Q.fiberProjection κ x h (Function.update σ x a) = _
+        rw [projection_fiber_formula κ x h σ a]
         rw [hN, hD]
       have hleft : localCost b g
           (localNumerator b g / (localDenominator b : ℂ)) =
@@ -393,8 +393,8 @@ theorem main : AKLT.Blueprint.Q.FibreProjectionStatement := by
       rw [← hleft, ← hright]
       exact localCost_le b g c hDpos
     have hfactor : 0 ≤ ((∏ _y : Site L N, (5 / 12 : ℝ)) / 5) := by positivity
-    have hleft := weightedNorm_fibreSum (L := L) (N := N) (x := x) r
-    have hright := weightedNorm_fibreSum (L := L) (N := N) (x := x) q
+    have hleft := weightedNorm_fiberSum (L := L) (N := N) (x := x) r
+    have hright := weightedNorm_fiberSum (L := L) (N := N) (x := x) q
     change AKLT.Blueprint.Q.weightedNorm (torusReference L N) (h - P) ≤
       AKLT.Blueprint.Q.weightedNorm (torusReference L N) (h - k)
     rw [hleft, hright]

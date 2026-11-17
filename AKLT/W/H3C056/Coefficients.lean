@@ -41,15 +41,15 @@ theorem dead_region_unique (x : Plane) (j k : Fin 5)
 
 theorem reward_region (x : Plane) (incoming outgoing : Compass) (j : Fin 5)
     (hj : deadRegion j.val x) :
-    relaxedReward x incoming outgoing {kernelCentre} =
+    relaxedReward x incoming outgoing {kernelCenter} =
       relaxedReward (0,0) incoming outgoing
         (if j.val<4 then {(direction j.val).step} else ∅) := by
   by_cases h : j.val<4
   · simp only [deadRegion, h, ite_true] at hj
     rw [ite_eq_left h, reward_shift_singleton, hj]
-    simp only [kernelCentre, show (0,0)=(0:Plane) from rfl, zero_sub, neg_neg]
+    simp only [kernelCenter, show (0,0)=(0:Plane) from rfl, zero_sub, neg_neg]
   · simp only [deadRegion, h, ite_false] at hj
-    rw [ite_eq_right h, reward_erase_irrelevant x kernelCentre incoming outgoing, reward_shift_empty]
+    rw [ite_eq_right h, reward_erase_irrelevant x kernelCenter incoming outgoing, reward_shift_empty]
     intro hz
     obtain ⟨d,hd,he⟩ := Finset.mem_image.mp hz
     apply hj d
@@ -96,19 +96,19 @@ theorem phase_row (k : StepKind) (incoming outgoing : Compass) (x : Plane)
     (hs : k=.straight → outgoing=incoming) (ht : k=.turn → outgoing≠incoming)
     (hr : k≠.revisit → outgoing≠incoming.reverse) :
     (∑ ψ : Phase, coefficientCeiling
-      (phaseTransition k (relaxedReward x incoming outgoing {kernelCentre}) φ ψ)*v ψ) =
+      (phaseTransition k (relaxedReward x incoming outgoing {kernelCenter}) φ ψ)*v ψ) =
       diagonal φ k*v φ +
         (if (φ=.A ∧ k=.turn) ∨ (φ=.B ∧ k=.straight) then
           response (directionCode incoming) (directionCode outgoing) j.val *
             v (if k=.turn then .C else .D) else 0) := by
   have hturn (hk : k=.turn) : coefficientCeiling
-      (passageFactor false*relaxedReward x incoming outgoing {kernelCentre}/3) =
+      (passageFactor false*relaxedReward x incoming outgoing {kernelCenter}/3) =
         response (directionCode incoming) (directionCode outgoing) j.val := by
     rw [reward_region x incoming outgoing j hj]
     have hnr : k≠.revisit := by simp [hk]
     simpa only [ht hk, decide_false] using response_ceiling incoming outgoing j (hr hnr)
   have hstraight (hk : k=.straight) : coefficientCeiling
-      (passageFactor true*relaxedReward x incoming outgoing {kernelCentre}/3) =
+      (passageFactor true*relaxedReward x incoming outgoing {kernelCenter}/3) =
         response (directionCode incoming) (directionCode outgoing) j.val := by
     rw [reward_region x incoming outgoing j hj]
     have hnr : k≠.revisit := by simp [hk]

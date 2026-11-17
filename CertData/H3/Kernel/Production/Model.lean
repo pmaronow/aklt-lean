@@ -76,7 +76,7 @@ def planeCheck (G : Graph) (T : Tables) (X : PairType) (d₀ : Compass) (key : N
   localRowCheck G.quotient T.planeFn T.capFn X d₀ (phase p) (finState a) &&
   packedRowCheck 79 19881 26 1 (repeatLane 80 19881 Z) [(1,U)] &&
   decide (0<Z ∧ Z<2^26) && decide (p<2 ∨ 65536≤Z) &&
-  decide (lane U 80 (siteIndex kernelCentre)=0) &&
+  decide (lane U 80 (siteIndex kernelCenter)=0) &&
   decide (lane U 80 (siteIndex (kernelTarget X))=(if p<2 then 0 else 65536)) &&
   decide (freeRow G T p a ≤ coefficientScale*Z) &&
   (rectangle U == T.endpoint key)

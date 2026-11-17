@@ -21,7 +21,7 @@ def NetworkPositiveStatement : Prop :=
 the remaining measure is exactly the departure-deleted network. -/
 def ThreeFactorizationStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     ∀ b : Bool,
       a.D.partition a.τ b (fun _ => 1) =
         (removeSite a.D a.y).partition a.τ b (fun _ => 1) * responseI a.D a.τ b a.y a.o f g ∧
@@ -31,7 +31,7 @@ def ThreeFactorizationStatement : Prop :=
 /-- `d:ratios`, §6 lines 272–280. Two neighbors give I₂ and post-step scalar one. -/
 def TwoFactorizationStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
-    a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f → ∀ b : Bool,
+    a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f → ∀ b : Bool,
       a.D.partition a.τ b (fun _ => 1) =
         (removeSite a.D a.y).partition a.τ b (fun _ => 1) * responseI₂ a.D a.τ b a.y a.o f ∧
       (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
@@ -42,7 +42,7 @@ neighbors are nonadjacent, unpinned, and have at most three remaining factors.
 Use the three-factor mean bound; do not assert arbitrary-function covariance. -/
 def RemovedMeanIntervalsStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     (∀ b : Bool,
       41 / 50 ≤ responseI a.D a.τ b a.y a.o f g ∧
       responseI a.D a.τ b a.y a.o f g ≤ 34 / 25 ∧
@@ -54,7 +54,7 @@ def RemovedMeanIntervalsStatement : Prop :=
 /-- `l:response`, §6 lines 393–408. The analogous two-neighbor fiber estimate. -/
 def TwoMeanIntervalsStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
-    a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+    a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
     (∀ b : Bool, 22 / 25 ≤ responseI₂ a.D a.τ b a.y a.o f ∧
       responseI₂ a.D a.τ b a.y a.o f ≤ 28 / 25) ∧
     1 ≤ responseI₂ a.D a.τ false a.y a.o f
@@ -62,7 +62,7 @@ def TwoMeanIntervalsStatement : Prop :=
 /-- `l:response`, §6 lines 360–367. Degree-four free positivity after removal.
 Each inserted endpoint has lost its bond to y. -/
 def FreeRemovedPairStatement : Prop :=
-  ∀ a : Departure, ∀ f ∈ a.D.presentNeighbours a.y, ∀ g ∈ a.D.presentNeighbours a.y, f ≠ g →
+  ∀ a : Departure, ∀ f ∈ a.D.presentNeighbors a.y, ∀ g ∈ a.D.presentNeighbors a.y, f ≠ g →
     0 ≤ removedPairMean a.D a.τ false a.y f g
 
 /-- `l:response`, §6 lines 303–317. Positive logarithmic mean, its min/max
@@ -108,27 +108,27 @@ def DStepTrivialStatement : Prop :=
 /-- `l:response`, §6 lines 406–408. A U site with only its outgoing bond
 has both pre- and post-step integrated factor one. -/
 def OneStepTrivialStatement : Prop :=
-  ∀ a : Departure, a.D.status a.y = .U → (a.D.presentNeighbours a.y).card = 1 →
+  ∀ a : Departure, a.D.status a.y = .U → (a.D.presentNeighbors a.y).card = 1 →
     stepRatio a.D a.τ true a.y a.o = 1 ∧ stepRatio a.D a.τ false a.y a.o = 1
 
 /-- `l:response`, §6 lines 393–408. Positive I₂ arguments give beta-prime>0. -/
 def BetaPrimePositiveStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
-    a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+    a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
     0 < responseBetaPrime a.D a.τ a.y a.o f
 
 /-- `l:response`, §6 lines 393–408. Apply the crude enclosure at 22/25
 and clear its positive rational denominator. -/
 def BetaPrimeUniformStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
-    a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+    a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
     responseBetaPrime a.D a.τ a.y a.o f ≤ 35510 / 100000
 
 /-- `l:response`, §6 lines 393–408. Divide the two integrated partitions;
 apply the positive divided difference to I₂, including coincident values. -/
 def TwoLogIdentityStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
-    a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+    a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
     Real.log (stepRatio a.D a.τ false a.y a.o) - Real.log (stepRatio a.D a.τ true a.y a.o) =
       responseBetaPrime a.D a.τ a.y a.o f * pairResponse a.D a.τ a.y f a.o
 
@@ -136,34 +136,34 @@ def TwoLogIdentityStatement : Prop :=
 alpha≥175/5916; no optimized coefficient hypothesis is needed. -/
 def AlphaPositiveStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     0 < responseAlpha a.D a.τ a.y a.o f g
 
 /-- `l:response`, §6 lines 387–391. Bound beta at 41/50 and subtract
 25/134 from it. Clear positive denominators to obtain the crude alpha. -/
 def AlphaUniformStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     responseAlpha a.D a.τ a.y a.o f g ≤ 18094 / 100000
 
 /-- `l:response`, §6 lines 365–370. Positive I arguments imply beta>0. -/
 def BetaPositiveStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     0 < responseBeta a.D a.τ a.y a.o f g
 
 /-- `l:response`, §6 lines 387–391. Logarithmic-mean monotonicity and
 the crude enclosure at 41/50 give beta≤36751/100000. -/
 def BetaUniformStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     responseBeta a.D a.τ a.y a.o f g ≤ 36751 / 100000
 
 /-- `l:response`, §6 lines 319–336. Subtract log(J/I) in the two pin
 choices and collect the three scalar-product responses. -/
 def ThreeLogIdentityStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     Real.log (stepRatio a.D a.τ false a.y a.o) - Real.log (stepRatio a.D a.τ true a.y a.o) =
       responseAlpha a.D a.τ a.y a.o f g * pairResponse a.D a.τ a.y f g +
       responseBeta a.D a.τ a.y a.o f g *

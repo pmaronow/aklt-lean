@@ -182,13 +182,13 @@ private theorem isTrail_reflect {n : ℕ} (w : DirectionWord n) :
 private theorem closedTrail_reflect_forward {n : ℕ} (w : DirectionWord n) :
     ClosedTrail .B w → ClosedTrail .B (reflectWord w) := by
   intro h
-  rcases h with ⟨htrail, hend, hcentre, htarget⟩
+  rcases h with ⟨htrail, hend, hcenter, htarget⟩
   refine ⟨isTrail_reflect w |>.mp htrail, ?_, ?_, ?_⟩
   · simpa [wordVertex_reflect, kernelTarget, reflectSite] using congrArg reflectSite hend
   · intro j hj heq
-    apply hcentre j hj
+    apply hcenter j hj
     apply reflectSite_injective
-    simpa [wordVertex_reflect, kernelCentre, reflectSite] using heq
+    simpa [wordVertex_reflect, kernelCenter, reflectSite] using heq
   · intro j hj heq
     apply htarget j hj
     apply reflectSite_injective

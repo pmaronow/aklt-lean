@@ -44,13 +44,13 @@ theorem responsePair_shift_le {n : ℕ} (X : PairType) (w : DirectionWord n) (i 
     (p : Finset Plane) (hp : p ∈ responsePairs w i) : pairShift X p ≤ n + 1 := by
   apply Finset.sup_le
   intro z hz
-  have hs : p ⊆ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i) :=
+  have hs : p ⊆ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i) :=
     (Finset.mem_powersetCard.mp hp).1
   have hz' := hs hz
   rcases Finset.mem_insert.mp hz' with hz' | hz'
   · subst z
     exact (min_le_left _ _).trans ((vertex_distance_le kernelStart w (i.val + 1) (by omega)).trans (by omega))
-  · have hn : z ∈ neighbours (wordVertex kernelStart w i.val) := by
+  · have hn : z ∈ neighbors (wordVertex kernelStart w i.val) := by
       exact Finset.mem_of_mem_erase (Finset.mem_of_mem_erase (Finset.mem_filter.mp hz').1)
     obtain ⟨a, _, rfl⟩ := Finset.mem_image.mp hn
     apply (min_le_left _ _).trans

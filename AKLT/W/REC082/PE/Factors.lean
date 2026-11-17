@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC082.PE.Fibres
+public import AKLT.W.REC082.PE.Fibers
 public import AKLT.W.REC082.PE.Bonds
 
 @[expose] public section
@@ -87,13 +87,13 @@ theorem factors_update {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) {u : Plane} (hu : u ∉ protectedSites G) (s : Plane → Vec3) (a : Vec3) :
     (∏ e ∈ D.bonds, (1 + dot (Function.update s u a e.1) (Function.update s u a e.2))) *
       legFactors D τ b (Function.update s u a) =
-        (∏ o ∈ D.presentNeighbours u, (1 + dot a (s o))) * exteriorFactors D τ b u s := by
+        (∏ o ∈ D.presentNeighbors u, (1 + dot a (s o))) * exteriorFactors D τ b u s := by
   rw [bond_product_split D u
     (fun x y => 1 + dot (Function.update s u a x) (Function.update s u a y))
     (fun x y => by rw [dot_comm])]
-  have hp : (∏ o ∈ D.presentNeighbours u,
+  have hp : (∏ o ∈ D.presentNeighbors u,
       (1 + dot (Function.update s u a u) (Function.update s u a o))) =
-      ∏ o ∈ D.presentNeighbours u, (1 + dot a (s o)) := by
+      ∏ o ∈ D.presentNeighbors u, (1 + dot a (s o)) := by
     apply Finset.prod_congr rfl
     intro o ho
     have hp := (Finset.mem_filter.mp ho).2
@@ -102,7 +102,7 @@ theorem factors_update {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
       simpa [Adjacent, latticeDist] using hp.2.2.1
     rw [Function.update_self, Function.update_of_ne hne]
   rw [hp, mul_assoc]
-  exact congrArg (fun x => (∏ o ∈ D.presentNeighbours u, (1 + dot a (s o))) * x)
+  exact congrArg (fun x => (∏ o ∈ D.presentNeighbors u, (1 + dot a (s o))) * x)
     (exteriorFactors_update D τ b hu s a)
 
 /-- The padded one-site law, with delta-zero rather than zero mass at X. -/
@@ -111,15 +111,15 @@ def paddedSiteFunctional (s : Status) (f : Vec3 → ℝ) : ℝ :=
 
 /-- Exact disintegration at an unprotected site. This identity retains the
 untouched original leg product inside the common exterior factor. -/
-theorem partition_site_fibre {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
+theorem partition_site_fiber {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (u : G) (hu : u.val ∉ protectedSites G) (f : (Plane → Vec3) → ℝ) :
     D.partition τ b f =
       ∑ n : {x : G // x ≠ u} → SpinLetter,
         (∏ x : {x : G // x ≠ u}, paddedWeight (D.status x.val.val) (n x)) *
-          exteriorFactors D τ b u.val (fibreSpins u n) *
+          exteriorFactors D τ b u.val (fiberSpins u n) *
             paddedSiteFunctional (D.status u.val) (fun a =>
-              f (Function.update (fibreSpins u n) u.val a) *
-                ∏ o ∈ D.presentNeighbours u.val, (1 + dot a (fibreSpins u n o))) := by
+              f (Function.update (fiberSpins u n) u.val a) *
+                ∏ o ∈ D.presentNeighbors u.val, (1 + dot a (fiberSpins u n o))) := by
   classical
   rw [partition_eq_padded]
   have he : paddedPartition D τ b f =
@@ -131,7 +131,7 @@ theorem partition_site_fibre {G : Finset Plane} (D : Network G) (τ : PinAssignm
     apply Finset.sum_congr rfl
     intro n hn
     ring
-  rw [he, finite_site_fibre D u (fun a => f a *
+  rw [he, finite_site_fiber D u (fun a => f a *
     (∏ e ∈ D.bonds, (1 + dot (a e.1) (a e.2))) * legFactors D τ b a)]
   apply Finset.sum_congr rfl
   intro n hn

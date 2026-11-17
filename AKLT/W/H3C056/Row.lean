@@ -34,7 +34,7 @@ def edgeTerms {m q : Nat} (Q : MemoryQuotient m q)
     diag ++ known ++ resp
 
 def ordinaryRegion (X : PairType) (d₀ : Compass) (x : Plane) : Prop :=
-  x ≠ kernelCentre ∧ x ≠ kernelTarget X ∧ x ≠ kernelStart ∧ x ≠ kernelStart+d₀.step
+  x ≠ kernelCenter ∧ x ≠ kernelTarget X ∧ x ≠ kernelStart ∧ x ≠ kernelStart+d₀.step
 
 def knownRegion (d₀ d : Compass) (x : Plane) : Prop :=
   (x=kernelStart ∧ d≠d₀) ∨ (x=kernelStart+d₀.step ∧ d≠d₀.reverse)

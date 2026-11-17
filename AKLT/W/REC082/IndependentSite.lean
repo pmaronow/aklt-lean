@@ -90,7 +90,7 @@ theorem spins_eq_of_agree_away {G : Finset Plane} (D : Network G) (v x : Plane)
 
 theorem interactionWeight_independent {G : Finset Plane} (D : Network G)
     (τ : PinAssignment G) (b : Bool) (v : Plane)
-    (hiso : D.presentNeighbours v = ∅) (hv : v ∉ protectedSites G)
+    (hiso : D.presentNeighbors v = ∅) (hv : v ∉ protectedSites G)
     (m n : (x : D.active) → SpinLetter)
     (hmn : ∀ i : D.active, i.val ≠ v → m i = n i) :
     interactionWeight D τ b m = interactionWeight D τ b n := by
@@ -102,12 +102,12 @@ theorem interactionWeight_independent {G : Finset Plane} (D : Network G)
     have hp : D.Present e.1 e.2 := (Finset.mem_filter.mp he).2
     have h1 : e.1 ≠ v := by
       intro h
-      have hmem := present_mem_neighbours hp
+      have hmem := present_mem_neighbors hp
       rw [h, hiso] at hmem
       exact Finset.notMem_empty _ hmem
     have h2 : e.2 ≠ v := by
       intro h
-      have hmem := present_mem_neighbours (present_symm hp)
+      have hmem := present_mem_neighbors (present_symm hp)
       rw [h, hiso] at hmem
       exact Finset.notMem_empty _ hmem
     rw [spins_eq_of_agree_away D v e.1 m n hmn h1,
@@ -151,7 +151,7 @@ theorem partition_norm_U {G : Finset Plane} (D : Network G) (τ : PinAssignment 
 partition function of the remaining network vanishes. -/
 theorem partition_norm_D {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (v : Plane) (hv : v ∈ D.active) (hs : D.status v = .D)
-    (hiso : D.presentNeighbours v = ∅) (hvp : v ∉ protectedSites G) :
+    (hiso : D.presentNeighbors v = ∅) (hvp : v ∉ protectedSites G) :
     D.partition τ b (fun a => normSq (a v)) =
       (3 / 5) * D.partition τ b (fun _ => 1) := by
   classical

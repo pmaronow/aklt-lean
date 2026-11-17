@@ -13,13 +13,13 @@ open AKLT.Defs
 namespace AKLT.W.REC089
 
 def tipPoint : Fin 4 → Plane := ![(2, 0), (0, 2), (-2, 0), (0, -2)]
-def tipNeighbour : Fin 4 → Plane := ![(1, 0), (0, 1), (-1, 0), (0, -1)]
+def tipNeighbor : Fin 4 → Plane := ![(1, 0), (0, 1), (-1, 0), (0, -1)]
 
 theorem tipPoint_mem (t : Fin 4) : tipPoint t ∈ templateSites ∧ tipPoint t ∈ templateTips := by
   revert t
   decide +kernel
 
-theorem tipNeighbour_mem (t : Fin 4) : tipNeighbour t ∈ templateSites \ templateTips := by
+theorem tipNeighbor_mem (t : Fin 4) : tipNeighbor t ∈ templateSites \ templateTips := by
   revert t
   decide +kernel
 
@@ -70,13 +70,13 @@ def cornerKernel (π : PatternData) (c : Fin 8 → Vec3)
 
 def coverTipBond (π : PatternData) (t : Fin 4) : Bool := by
   classical
-  exact decide (π.InternalPresent (tipNeighbour t) (tipPoint t))
+  exact decide (π.InternalPresent (tipNeighbor t) (tipPoint t))
 
 def actualTipStatus (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) (t : Fin 4) : Status :=
   a.D.status (localChart a incoming (tipPoint t))
 
 def actualTipBond (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) (t : Fin 4) : Bool :=
-  decide (a.D.Present (localChart a incoming (tipNeighbour t))
+  decide (a.D.Present (localChart a incoming (tipNeighbor t))
     (localChart a incoming (tipPoint t)))
 
 /-- The actual four tips have been summed, leaving the nine-site core. -/
@@ -84,7 +84,7 @@ def actualReduced (π : PatternData) (s : Fin 4 → Status) (bond : Fin 4 → Bo
     (c : Fin 8 → Vec3) (b : Fin 4 → Fin 3 → Vec3) (next : Bool) : ℝ :=
   ∑ σ : coreSites π → SpinLetter, coreKernel π next σ * cornerKernel π c σ *
     ∏ t : Fin 4,
-      tipValue (s t) (bond t) (b t) (supportSpins (coreSites π) σ (tipNeighbour t))
+      tipValue (s t) (bond t) (b t) (supportSpins (coreSites π) σ (tipNeighbor t))
 
 /-- The covering four U tips, with ball external fields. -/
 def coveredReduced (π : PatternData) (c : Fin 8 → Vec3)
@@ -92,7 +92,7 @@ def coveredReduced (π : PatternData) (c : Fin 8 → Vec3)
   ∑ σ : coreSites π → SpinLetter, coreKernel π next σ * cornerKernel π c σ *
     ∏ t : Fin 4,
       coveredTipValue (coverTipBond π t) (b t)
-        (supportSpins (coreSites π) σ (tipNeighbour t))
+        (supportSpins (coreSites π) σ (tipNeighbor t))
 
 /-- Independent finite mixtures tensorize, keeping both passage laws. -/
 theorem reduced_tip_mixture (π : PatternData) (s : Fin 4 → Status) (bond : Fin 4 → Bool)
@@ -144,7 +144,7 @@ theorem matches_tip_kept (a : AKLT.Blueprint.Rec.Departure) (incoming outgoing :
     (hb : actualTipBond a incoming t = true) : coverTipBond π t = true := by
   classical
   have htip := (tipPoint_mem t).2
-  have hp := h.2.2.2 (tipNeighbour t) (tipNeighbour_mem t) (tipPoint t) (tipPoint_mem t).1
+  have hp := h.2.2.2 (tipNeighbor t) (tipNeighbor_mem t) (tipPoint t) (tipPoint_mem t).1
   simp only [htip, ite_true] at hp
   exact decide_eq_true (hp (of_decide_eq_true hb))
 

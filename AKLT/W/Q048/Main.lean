@@ -36,7 +36,7 @@ theorem main : AKLT.Blueprint.Q.BetaNonzeroStatement := by
   dsimp [AKLT.Blueprint.Q.beta]
   apply Finset.prod_ne_zero_iff.mpr
   intro y hy
-  simp only [torusNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+  simp only [torusNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
   rcases hy with hy | hy | hy | hy
   · subst y
     exact det_ne_zero_of_normSq_pos _ _ (by

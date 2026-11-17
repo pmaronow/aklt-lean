@@ -103,7 +103,7 @@ theorem weight_factor (G Y : Finset Plane) (τ : PinAssignment G) (x : Plane)
     rw [spins_retained G Y x hstep.2.1 r a u (hne u h.1),
       spins_retained G Y x hstep.2.1 r a v (hne v h.2.1)]
   have hinc :
-      (∏ z ∈ neighbours x ∩ E, (1 + dot (extendIcoSpins s x) (extendIcoSpins s z))) =
+      (∏ z ∈ neighbors x ∩ E, (1 + dot (extendIcoSpins s x) (extendIcoSpins s z))) =
       ∏ z ∈ survivors G Y x, (1 + dot (icoVector a) (extendIcoSpins r z)) := by
     apply Finset.prod_congr rfl
     intro z hz
@@ -150,6 +150,6 @@ theorem siteFiber (hM : AKLT.Blueprint.Top.MomentsStatement)
   simp_rw [weight_factor G Y τ x hstep pinned r]
   rw [← Finset.mul_sum, ← Finset.mul_sum]
   exact congrArg (partWeight pinned G (insert x Y) τ r * ·)
-    (neighbour_moment hM x (survivors G Y x) Finset.inter_subset_left (extendIcoSpins r))
+    (neighbor_moment hM x (survivors G Y x) Finset.inter_subset_left (extendIcoSpins r))
 
 end AKLT.W.WIN052

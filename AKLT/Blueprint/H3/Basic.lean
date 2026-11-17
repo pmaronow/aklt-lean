@@ -56,7 +56,7 @@ def arrivalCount {n : ℕ} (w : DirectionWord n) (z : Plane) : ℕ :=
 /-- A finite set of genuinely dead neighbors; the center is included even when remote. -/
 def trueDeadSet {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
   classical
-  exact insert kernelCentre ((neighbours (wordVertex kernelStart w i.val)).filter (deadAt w i))
+  exact insert kernelCenter ((neighbors (wordVertex kernelStart w i.val)).filter (deadAt w i))
 
 /-- Remembered raw word immediately before the indicated departure. -/
 def suffixWindow {n : ℕ} (w : DirectionWord n) (j : ℕ) : DirectionWord 10 :=

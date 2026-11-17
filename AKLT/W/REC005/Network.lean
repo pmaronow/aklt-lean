@@ -30,7 +30,7 @@ lemma bond_increases {G : Finset Plane} (D : Network G) (e : D.bonds) :
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter] at h
   obtain ⟨u, _, v, hv, he⟩ := h
   have hp := hv.1
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp
   rw [← he]
   rcases hp with rfl | rfl <;> simp
 
@@ -84,43 +84,43 @@ lemma other_injective {G : Finset Plane} (D : Network G) (x : D.active) :
         simpa only [netL, netR] using h
       exact Subtype.ext (Prod.ext hL hR)
 
-lemma other_neighbour {G : Finset Plane} (D : Network G) (x : D.active) (e : D.bonds)
+lemma other_neighbor {G : Finset Plane} (D : Network G) (x : D.active) (e : D.bonds)
     (he : e ∈ incident (netL D) (netR D) x) :
-    (otherEnd (netL D) (netR D) x e).val ∈ neighbours x.val := by
+    (otherEnd (netL D) (netR D) x e).val ∈ neighbors x.val := by
   have hei : netL D e = x ∨ netR D e = x := by simpa [incident] using he
   have hadj := (bond_present D e).2.2.1
   change Adjacent (netL D e).val (netR D e).val at hadj
   by_cases heL : netL D e = x
   · rw [heL] at hadj
-    simpa [otherEnd, heL] using adjacent_mem_neighbours _ _ hadj
+    simpa [otherEnd, heL] using adjacent_mem_neighbors _ _ hadj
   · have heR := hei.resolve_left heL
     rw [heR] at hadj
     have hsym : Adjacent x.val (netL D e).val := by
       unfold Adjacent at *
       rw [dist_symm]
       exact hadj
-    simpa [otherEnd, heL] using adjacent_mem_neighbours _ _ hsym
+    simpa [otherEnd, heL] using adjacent_mem_neighbors _ _ hsym
 
 lemma net_degree_le_three {G : Finset Plane} (D : Network G) (x : D.active)
-    (y : Plane) (hy : y ∉ D.active) (hx : x.val ∈ neighbours y) :
+    (y : Plane) (hy : y ∉ D.active) (hx : x.val ∈ neighbors y) :
     (incident (netL D) (netR D) x).card ≤ 3 := by
   classical
-  have hcard : (incident (netL D) (netR D) x).card ≤ ((neighbours x.val).erase y).card := by
+  have hcard : (incident (netL D) (netR D) x).card ≤ ((neighbors x.val).erase y).card := by
     apply Finset.card_le_card_of_injOn (fun e : D.bonds => (otherEnd (netL D) (netR D) x e).val)
     · intro e he
       apply Finset.mem_erase.mpr
-      refine ⟨?_, other_neighbour D x e he⟩
+      refine ⟨?_, other_neighbor D x e he⟩
       intro h
       apply hy
       rw [← h]
       exact (otherEnd (netL D) (netR D) x e).property
     · exact other_injective D x
-  have hymem : y ∈ neighbours x.val := by
-    apply adjacent_mem_neighbours
+  have hymem : y ∈ neighbors x.val := by
+    apply adjacent_mem_neighbors
     unfold Adjacent
     rw [dist_symm]
-    exact neighbour_dist _ _ hx
-  rw [Finset.card_erase_of_mem hymem, neighbour_card] at hcard
+    exact neighbor_dist _ _ hx
+  rw [Finset.card_erase_of_mem hymem, neighbor_card] at hcard
   exact hcard
 
 def netPins {G : Finset Plane} (D : Network G) (τ : PinAssignment G) (pinned : Bool)
@@ -215,10 +215,10 @@ lemma network_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignment 
       unfold Adjacent at *
       rw [dist_symm]
       exact ha
-  have hf := graph_fibre_reduction (fun x : D.active => D.status x) (netL D) (netR D)
+  have hf := graph_fiber_reduction (fun x : D.active => D.status x) (netL D) (netR D)
     (netPins D τ pinned) (netPins_nonneg D τ pinned) x y hxy (net_no_loop D) hcross
     hdegx hdegy (netPins_fixed D τ pinned x y hlegx hlegy)
-  have h := pair_bound_of_fibres
+  have h := pair_bound_of_fibers
     (graphWeight (fun x : D.active => D.status x) (netL D) (netR D) (netPins D τ pinned))
     x y hxy (D.status x) (D.status y) hf
   unfold Network.expectation
@@ -229,7 +229,7 @@ lemma network_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignment 
 in the departure-deleted network, for either choice of pins. -/
 theorem removed_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y a b : Plane) (hy : y ∈ D.active) (hp : y ∉ protectedSites G)
-    (ha : a ∈ D.presentNeighbours y) (hb : b ∈ D.presentNeighbours y) (hab : a ≠ b)
+    (ha : a ∈ D.presentNeighbors y) (hb : b ∈ D.presentNeighbors y) (hab : a ≠ b)
     (pinned : Bool) :
     -(9 / 25 : ℝ) ≤ removedPairMean D τ pinned y a b ∧
       removedPairMean D τ pinned y a b ≤ 9 / 25 := by
@@ -237,12 +237,12 @@ theorem removed_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignmen
   have hNb := (present_mem_active D hb).2.2
   have hay : a ≠ y := by
     intro h
-    have hd := neighbour_dist y a hNa
+    have hd := neighbor_dist y a hNa
     rw [h] at hd
     simpa [latticeDist] using hd
   have hby : b ≠ y := by
     intro h
-    have hd := neighbour_dist y b hNb
+    have hd := neighbor_dist y b hNb
     rw [h] at hd
     simpa [latticeDist] using hd
   let E := removeSite D y
@@ -256,8 +256,8 @@ theorem removed_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignmen
   let z : E.active := ⟨b, hbE⟩
   have hxz : x ≠ z := by intro h; exact hab (congrArg Subtype.val h)
   have hyE : y ∉ E.active := by rw [removed_active]; simp
-  exact network_pair_bound E τ pinned x z hxz (neighbours_nonadjacent y a b hNa hNb)
-    (no_neighbour_legs D y a hy hp hNa) (no_neighbour_legs D y b hy hp hNb)
+  exact network_pair_bound E τ pinned x z hxz (neighbors_nonadjacent y a b hNa hNb)
+    (no_neighbor_legs D y a hy hp hNa) (no_neighbor_legs D y b hy hp hNb)
     (net_degree_le_three E x y hyE hNa) (net_degree_le_three E z y hyE hNb)
 
 end AKLT.W.REC005

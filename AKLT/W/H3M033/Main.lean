@@ -11,34 +11,34 @@ open AKLT.Defs
 
 namespace AKLT.W.H3M033
 
-lemma stationaryReward_centre_zero (X : PairType) (φ : Phase) (a : Fin 3741) :
-    stationaryReward X φ a kernelCentre = 0 := by
-  cases X <;> simp [stationaryReward, kernelCentre, kernelTarget]
+lemma stationaryReward_center_zero (X : PairType) (φ : Phase) (a : Fin 3741) :
+    stationaryReward X φ a kernelCenter = 0 := by
+  cases X <;> simp [stationaryReward, kernelCenter, kernelTarget]
 
-lemma stationaryApplyV2_centre_zero
+lemma stationaryApplyV2_center_zero
     (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
     (F : Phase → Fin 3741 → Plane → ℚ) (φ : Phase) (a : Fin 3741) :
-    stationaryApplyV2 Q X d₀ F φ a kernelCentre = 0 := by
-  simp [stationaryApplyV2, stationaryCoefficientV2, kernelCentre]
+    stationaryApplyV2 Q X d₀ F φ a kernelCenter = 0 := by
+  simp [stationaryApplyV2, stationaryCoefficientV2, kernelCenter]
 
-lemma stationaryApply_centre_zero
+lemma stationaryApply_center_zero
     (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
     (F : Phase → Fin 3741 → Plane → ℚ) (φ : Phase) (a : Fin 3741) :
-    stationaryApply Q X d₀ F φ a kernelCentre = 0 := by
-  simp [stationaryApply, stationaryCoefficient, kernelCentre]
+    stationaryApply Q X d₀ F φ a kernelCenter = 0 := by
+  simp [stationaryApply, stationaryCoefficient, kernelCenter]
 
-lemma stationaryCoefficient_eq_of_destination_ne_centre
+lemma stationaryCoefficient_eq_of_destination_ne_center
     (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
     (φ : Phase) (a : Fin 3741) (x : Plane) (d : Compass) (ψ : Phase)
-    (h : x + d.step ≠ kernelCentre) :
+    (h : x + d.step ≠ kernelCenter) :
     stationaryCoefficientV2 Q X d₀ φ a x d ψ =
       stationaryCoefficient Q X d₀ φ a x d ψ := by
   simp [stationaryCoefficientV2, stationaryCoefficient, h]
 
-lemma stationaryApplyV2_eq_of_centre_zero
+lemma stationaryApplyV2_eq_of_center_zero
     (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
     (F : Phase → Fin 3741 → Plane → ℚ)
-    (hF : ∀ φ a, F φ a kernelCentre = 0)
+    (hF : ∀ φ a, F φ a kernelCenter = 0)
     (φ : Phase) (a : Fin 3741) (x : Plane) :
     stationaryApplyV2 Q X d₀ F φ a x = stationaryApply Q X d₀ F φ a x := by
   unfold stationaryApplyV2 stationaryApply
@@ -46,15 +46,15 @@ lemma stationaryApplyV2_eq_of_centre_zero
   intro d hd
   apply Finset.sum_congr rfl
   intro ψ hψ
-  by_cases hdest : x + d.step = kernelCentre
+  by_cases hdest : x + d.step = kernelCenter
   · simp [hdest, hF]
-  · rw [stationaryCoefficient_eq_of_destination_ne_centre Q X d₀ φ a x d ψ hdest]
+  · rw [stationaryCoefficient_eq_of_destination_ne_center Q X d₀ φ a x d ψ hdest]
 
 lemma stationaryContinuation_iterates_joint
     (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass) :
     ∀ j : ℕ,
-      (∀ φ a, ((stationaryApplyV2 Q X d₀)^[j]) (stationaryReward X) φ a kernelCentre = 0) ∧
-      (∀ φ a, ((stationaryApply Q X d₀)^[j]) (stationaryReward X) φ a kernelCentre = 0) ∧
+      (∀ φ a, ((stationaryApplyV2 Q X d₀)^[j]) (stationaryReward X) φ a kernelCenter = 0) ∧
+      (∀ φ a, ((stationaryApply Q X d₀)^[j]) (stationaryReward X) φ a kernelCenter = 0) ∧
       (∀ φ a x, ((stationaryApplyV2 Q X d₀)^[j]) (stationaryReward X) φ a x =
         ((stationaryApply Q X d₀)^[j]) (stationaryReward X) φ a x) := by
   intro j
@@ -62,23 +62,23 @@ lemma stationaryContinuation_iterates_joint
   | zero =>
       constructor
       · intro φ a
-        exact stationaryReward_centre_zero X φ a
+        exact stationaryReward_center_zero X φ a
       constructor
       · intro φ a
-        exact stationaryReward_centre_zero X φ a
+        exact stationaryReward_center_zero X φ a
       · intro φ a x
         rfl
   | succ j ih =>
-      rcases ih with ⟨hV2centre, hLegacycentre, hEq⟩
+      rcases ih with ⟨hV2center, hLegacycenter, hEq⟩
       constructor
       · intro φ a
         simpa only [Function.iterate_succ_apply'] using
-          (stationaryApplyV2_centre_zero Q X d₀
+          (stationaryApplyV2_center_zero Q X d₀
             (((stationaryApplyV2 Q X d₀)^[j]) (stationaryReward X)) φ a)
       constructor
       · intro φ a
         simpa only [Function.iterate_succ_apply'] using
-          (stationaryApply_centre_zero Q X d₀
+          (stationaryApply_center_zero Q X d₀
             (((stationaryApply Q X d₀)^[j]) (stationaryReward X)) φ a)
       · intro φ a x
         rw [Function.iterate_succ_apply', Function.iterate_succ_apply']
@@ -87,8 +87,8 @@ lemma stationaryContinuation_iterates_joint
           funext ψ b y
           exact hEq ψ b y
         rw [hfun]
-        exact stationaryApplyV2_eq_of_centre_zero Q X d₀
-          (((stationaryApply Q X d₀)^[j]) (stationaryReward X)) hLegacycentre φ a x
+        exact stationaryApplyV2_eq_of_center_zero Q X d₀
+          (((stationaryApply Q X d₀)^[j]) (stationaryReward X)) hLegacycenter φ a x
 
 end AKLT.W.H3M033
 

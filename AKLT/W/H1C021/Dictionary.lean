@@ -191,26 +191,26 @@ theorem slot_sum_two {N : Nat} (hN : N = 2) (z l : Fin N) (hz : z.val = 0) (hl :
 /-! ### The Pauli label determined by the color lists -/
 
 /-- Color list of the ring site carrying a group point. -/
-def colourList (css : List (List Nat)) (x : Plane) : List Nat := css.getD (groupSite x) []
+def colorList (css : List (List Nat)) (x : Plane) : List Nat := css.getD (groupSite x) []
 
 /-- The color at one slot of one group, as a Pauli label. -/
-def slotColour (π : PatternData) (r : Representation) (css : List (List Nat))
+def slotColor (π : PatternData) (r : Representation) (css : List (List Nat))
     (p : Σ x : reductionGroups π, GroupSlot π r x) : Fin 4 :=
-  ⟨(colourList css p.1.val).getD p.2.val 0 % 4, Nat.mod_lt _ (by norm_num)⟩
+  ⟨(colorList css p.1.val).getD p.2.val 0 % 4, Nat.mod_lt _ (by norm_num)⟩
 
 /-- The Pauli label of every reduction token, read from its group's color list. -/
-def colourLabel (π : PatternData) (r : Representation) (css : List (List Nat)) :
+def colorLabel (π : PatternData) (r : Representation) (css : List (List Nat)) :
     reductionVectors π r → Fin 4 := fun j =>
-  slotColour π r css ((groupSlotEquiv π r).symm j)
+  slotColor π r css ((groupSlotEquiv π r).symm j)
 
-theorem colourLabel_token (π : PatternData) (r : Representation) (css : List (List Nat))
+theorem colorLabel_token (π : PatternData) (r : Representation) (css : List (List Nat))
     (x : reductionGroups π) (k : GroupSlot π r x) :
-    colourLabel π r css (groupSlotToken π r x k) =
-      ⟨(colourList css x.val).getD k.val 0 % 4, Nat.mod_lt _ (by norm_num)⟩ := by
+    colorLabel π r css (groupSlotToken π r x k) =
+      ⟨(colorList css x.val).getD k.val 0 % 4, Nat.mod_lt _ (by norm_num)⟩ := by
   have h : (groupSlotEquiv π r).symm (groupSlotToken π r x k) = ⟨x, k⟩ := by
     rw [← groupSlotEquiv_apply]
     exact (groupSlotEquiv π r).symm_apply_apply _
-  unfold colourLabel
+  unfold colorLabel
   rw [h]
   rfl
 
@@ -295,7 +295,7 @@ theorem pauliMonomial_eq_prod (J : Finset (Fin 20)) (d : J → Fin 4) :
   intro j _
   rw [pauliFactor_monomial]
 
-theorem pauliFactor_colour (j : Fin 20) (c : Nat) (hc : c < 4) :
+theorem pauliFactor_color (j : Fin 20) (c : Nat) (hc : c < 4) :
     pauliFactor j ⟨c % 4, Nat.mod_lt _ (by norm_num)⟩ =
       if c == 0 then 1 else vectorVariable j.val c := by
   simp only [pauliFactor, Nat.mod_eq_of_lt hc, beq_iff_eq]
@@ -323,15 +323,15 @@ theorem groupSlotToken_last_val (π : PatternData) (r : Representation) (x : red
 
 theorem vectorMonomial_group (π : PatternData) (r : Representation) (css : List (List Nat))
     (x : reductionGroups π)
-    (hlen : (colourList css x.val).length = if groupIsPair π r x.val then 2 else 1)
-    (hb : ∀ c ∈ colourList css x.val, c < 4) :
-    vectorMonomial (groupLeader x.val).val (colourList css x.val) =
+    (hlen : (colorList css x.val).length = if groupIsPair π r x.val then 2 else 1)
+    (hb : ∀ c ∈ colorList css x.val, c < 4) :
+    vectorMonomial (groupLeader x.val).val (colorList css x.val) =
       ∏ k : GroupSlot π r x, pauliFactor (groupSlotToken π r x k).val
-        (colourLabel π r css (groupSlotToken π r x k)) := by
+        (colorLabel π r css (groupSlotToken π r x k)) := by
   by_cases hp : groupIsPair π r x.val = true
   · rw [slot_prod_two (by simp only [hp, ↓reduceIte]) (groupSlotZero π r x)
       (groupSlotLast π r x) (groupSlotZero_val π r x) (groupSlotLast_val π r x hp)]
-    rw [colourLabel_token, colourLabel_token, groupSlotToken_zero_val,
+    rw [colorLabel_token, colorLabel_token, groupSlotToken_zero_val,
       groupSlotToken_last_val π r x hp, groupSlotZero_val, groupSlotLast_val π r x hp]
     rw [ite_eq_left hp] at hlen
     obtain ⟨c, e, hce⟩ := List.length_eq_two.mp hlen
@@ -339,17 +339,17 @@ theorem vectorMonomial_group (π : PatternData) (r : Representation) (css : List
     have hc : c < 4 := hb c (by simp)
     have he : e < 4 := hb e (by simp)
     simp only [List.getD_cons_zero, List.getD_cons_succ]
-    rw [pauliFactor_colour _ _ hc, pauliFactor_colour _ _ he]
+    rw [pauliFactor_color _ _ hc, pauliFactor_color _ _ he]
     have hs : (groupSecond x.val).val = (groupLeader x.val).val + 1 := groupSecond_val x.val
     simp only [vectorMonomial, hs, mul_one]
   · rw [slot_prod_one (by simp only [hp, Bool.false_eq_true, ↓reduceIte]) (groupSlotZero π r x)]
-    rw [colourLabel_token, groupSlotToken_zero_val, groupSlotZero_val]
+    rw [colorLabel_token, groupSlotToken_zero_val, groupSlotZero_val]
     rw [ite_eq_right hp] at hlen
     obtain ⟨c, hc1⟩ := List.length_eq_one_iff.mp hlen
     rw [hc1] at hb ⊢
     have hc : c < 4 := hb c (by simp)
     simp only [List.getD_cons_zero]
-    rw [pauliFactor_colour _ _ hc]
+    rw [pauliFactor_color _ _ hc]
     simp only [vectorMonomial, mul_one]
 
 /-! ### One group: form side -/
@@ -399,23 +399,23 @@ theorem single_sum (A B : Nat) (hA : A < 2) (hB : B < 2) (P : Matrix (Fin 2) (Fi
 
 theorem localForm_group (π : PatternData) (r : Representation) (ε : ExchangeSigns π)
     (css : List (List Nat)) (a b : ExchangeBasis π r ε) (x : reductionGroups π)
-    (hlen : (colourList css x.val).length = if groupIsPair π r x.val then 2 else 1)
-    (hb : ∀ c ∈ colourList css x.val, c < 4) :
-    gaussianValue (localForm (colourList css x.val)
+    (hlen : (colorList css x.val).length = if groupIsPair π r x.val then 2 else 1)
+    (hb : ∀ c ∈ colorList css x.val, c < 4) :
+    gaussianValue (localForm (colorList css x.val)
       (groupDigit π r ε a x.val) (groupDigit π r ε b x.val)) =
       ∑ s : GroupSlot π r x → Fin 2, ∑ t : GroupSlot π r x → Fin 2,
         (groupBasisCoeff π r ε a x s : ℂ) *
-          (∏ k, pauli (colourLabel π r css (groupSlotToken π r x k)) (s k) (t k)) *
+          (∏ k, pauli (colorLabel π r css (groupSlotToken π r x k)) (s k) (t k)) *
             (groupBasisCoeff π r ε b x t : ℂ) := by
   by_cases hp : groupIsPair π r x.val = true
   · refine Eq.trans ?_ (slot_sum_two (by simp only [hp, ↓reduceIte]) (groupSlotZero π r x)
       (groupSlotLast π r x) (groupSlotZero_val π r x) (groupSlotLast_val π r x hp)
-      (fun k => colourLabel π r css (groupSlotToken π r x k))
+      (fun k => colorLabel π r css (groupSlotToken π r x k))
       (fun i j => ((AKLT.W.H1M032.localVector (groupIsPair π r x.val)
         (π.statusAt x.val = .D ∧ ε x = false) (a x).val i j : ℤ) : ℂ))
       (fun i j => ((AKLT.W.H1M032.localVector (groupIsPair π r x.val)
         (π.statusAt x.val = .D ∧ ε x = false) (b x).val i j : ℤ) : ℂ))).symm
-    simp only [colourLabel_token, groupSlotZero_val, groupSlotLast_val π r x hp]
+    simp only [colorLabel_token, groupSlotZero_val, groupSlotLast_val π r x hp]
     rw [ite_eq_left hp] at hlen
     obtain ⟨c, e, hce⟩ := List.length_eq_two.mp hlen
     rw [hce] at hb ⊢
@@ -431,12 +431,12 @@ theorem localForm_group (π : PatternData) (r : Representation) (ε : ExchangeSi
     simp only [pairCoeff_localVector π r ε a x hp, pairCoeff_localVector π r ε b x hp]
   · refine Eq.trans ?_ (slot_sum_one (by simp only [hp, Bool.false_eq_true, ↓reduceIte])
       (groupSlotZero π r x) (groupSlotLast π r x)
-      (fun k => colourLabel π r css (groupSlotToken π r x k))
+      (fun k => colorLabel π r css (groupSlotToken π r x k))
       (fun i j => ((AKLT.W.H1M032.localVector (groupIsPair π r x.val)
         (π.statusAt x.val = .D ∧ ε x = false) (a x).val i j : ℤ) : ℂ))
       (fun i j => ((AKLT.W.H1M032.localVector (groupIsPair π r x.val)
         (π.statusAt x.val = .D ∧ ε x = false) (b x).val i j : ℤ) : ℂ))).symm
-    simp only [colourLabel_token, groupSlotZero_val]
+    simp only [colorLabel_token, groupSlotZero_val]
     rw [ite_eq_right hp] at hlen
     obtain ⟨c, hc1⟩ := List.length_eq_one_iff.mp hlen
     rw [hc1] at hb ⊢
@@ -473,15 +473,15 @@ theorem monomialCongruence : Residual_monomialCongruence := by
     rw [hsite i hi]
     simp only [groupSlots, hn, ↓reduceIte]
   have hglen : ∀ x : reductionGroups π,
-      (colourList css x.val).length = if groupIsPair π r x.val then 2 else 1 := by
+      (colorList css x.val).length = if groupIsPair π r x.val then 2 else 1 := by
     intro x
     obtain ⟨h8, hpt⟩ := groupSite_spec _ (reductionGroups_template π x)
-    rw [colourList, hsite _ h8, hpt]
+    rw [colorList, hsite _ h8, hpt]
     simp only [groupSlots, x.property, ↓reduceIte]
-  have hgcol : ∀ x : reductionGroups π, ∀ c ∈ colourList css x.val, c < 4 :=
+  have hgcol : ∀ x : reductionGroups π, ∀ c ∈ colorList css x.val, c < 4 :=
     fun x => hcol _ (groupSite_spec _ (reductionGroups_template π x)).1
   have hmono : monomialProduct 0 css = MvPolynomial.monomial
-      (pauliExponent (reductionVectors π r) (colourLabel π r css)) 1 := by
+      (pauliExponent (reductionVectors π r) (colorLabel π r css)) 1 := by
     rw [monomialProduct_range, hl8, pauliMonomial_eq_prod, prod_tokens_eq_prod_groups]
     simp only [zero_add]
     rw [prod_sites_eq_prod_groups π _ (fun i hi hn => by rw [hnil i hi hn]; rfl)]

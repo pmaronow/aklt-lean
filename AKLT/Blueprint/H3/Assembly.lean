@@ -95,7 +95,7 @@ theorem stationaryDomination_of_nodes
     obtain ⟨hnext, hc, hv, hnc⟩ := hGeometry X n w hw i
     obtain ⟨hnoReverse, hreward⟩ := hReward n w hw.1 i
     have hrewardLe : witnessKappa w i ≤ relaxedReward (wordVertex kernelStart w i.val)
-        (wordIncoming kernelIncoming w i) (w i) {kernelCentre} := by
+        (wordIncoming kernelIncoming w i) (w i) {kernelCenter} := by
       rw [hreward]
       exact hForget _ _ _ hnoReverse _ _ (by simp [trueDeadSet])
     have hfacts : TrueStepFacts X d₀ w i :=
@@ -133,9 +133,9 @@ theorem stationaryLocalGlobal_of_nodes (hFree : StationaryFreeEdgeStatement) :
   have hrow : ∀ φ a x, stationaryReward X φ a x + stationaryApply Q X d₀ C.potential φ a x ≤
       C.potential φ a x := by
     intro φ a x
-    by_cases hc : x = kernelCentre
+    by_cases hc : x = kernelCenter
     · subst x
-      have hct : kernelCentre ≠ kernelTarget X := by cases X <;> decide
+      have hct : kernelCenter ≠ kernelTarget X := by cases X <;> decide
       simp [stationaryReward, stationaryApply, stationaryCoefficient, hct,
         StationaryData.potential, (hC.2.2.2.2.1 φ a).1]
     by_cases hv : x = kernelTarget X

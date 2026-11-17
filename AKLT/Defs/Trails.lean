@@ -98,8 +98,8 @@ def stoppedNetworkTrails {G : Finset Plane} (D : Network G) (u : Plane) (T : Fin
 /-- `p:pairwalk`: precisely the target degree restriction, including original legs. -/
 def AdmissibleTarget {G : Finset Plane} (D : Network G) (v : Plane) : Prop :=
   v ∈ D.active ∧
-    ((D.status v = .U ∧ (D.presentNeighbours v).card +
+    ((D.status v = .U ∧ (D.presentNeighbors v).card +
       ((originalLegs G).filter fun e => e.1 = v).card ≤ 3) ∨
-    (D.status v = .D ∧ (D.presentNeighbours v).card ≤ 1))
+    (D.status v = .D ∧ (D.presentNeighbors v).card ≤ 1))
 
 end AKLT.Defs

@@ -121,17 +121,17 @@ private theorem wordVertex_dist_end {n : ℕ} (w : DirectionWord n) (j : ℕ) (h
     latticeDist (wordVertex kernelStart w j) (wordVertex kernelStart w n) ≤ n - j := by
   exact wordVertex_dist_end_aux w (n - j) j (by omega)
 
-private theorem mem_neighbours_dist {x z : Plane} (hz : z ∈ neighbours x) :
+private theorem mem_neighbors_dist {x z : Plane} (hz : z ∈ neighbors x) :
     latticeDist z x = 1 := by
   classical
-  unfold neighbours at hz
+  unfold neighbors at hz
   rcases Finset.mem_image.mp hz with ⟨d, _, rfl⟩
   cases d <;> simp [latticeDist, Compass.step]
 
-private theorem responsePair_mem_neighbours {n : ℕ} (X : PairType) (w : DirectionWord n)
+private theorem responsePair_mem_neighbors {n : ℕ} (X : PairType) (w : DirectionWord n)
     (hclosed : ClosedTrail X w) (i : Fin n) (p : Finset Plane)
     (hp : p ∈ responsePairs w i) {z : Plane} (hz : z ∈ p) :
-    z ∈ neighbours (wordVertex kernelStart w i.val) := by
+    z ∈ neighbors (wordVertex kernelStart w i.val) := by
   classical
   have hsub := (Finset.mem_powersetCard.mp hp).1
   have hmem := hsub hz
@@ -139,11 +139,11 @@ private theorem responsePair_mem_neighbours {n : ℕ} (X : PairType) (w : Direct
   · subst z
     have hi : i.val < n := i.isLt
     rw [wordVertex_succ kernelStart w i.val hi]
-    unfold neighbours
+    unfold neighbors
     apply Finset.mem_image.mpr
     exact ⟨w i, Finset.mem_univ _, rfl⟩
-  · have hlive : z ∈ liveOtherNeighbours w i := h
-    unfold liveOtherNeighbours at hlive
+  · have hlive : z ∈ liveOtherNeighbors w i := h
+    unfold liveOtherNeighbors at hlive
     have hresp' := (Finset.mem_filter.mp hlive).1
     have hresp := (Finset.mem_erase.mp hresp').2
     exact (Finset.mem_erase.mp hresp).2
@@ -156,7 +156,7 @@ private theorem pairShift_le_half_add_one {n : ℕ} (X : PairType) (w : Directio
   have hzbound : ∀ z ∈ p, min (latticeDist z kernelStart)
       (latticeDist z (kernelTarget X)) ≤ (n + 2) / 2 := by
     intro z hz
-    have hzn := mem_neighbours_dist (responsePair_mem_neighbours X w hclosed i p hp hz)
+    have hzn := mem_neighbors_dist (responsePair_mem_neighbors X w hclosed i p hp hz)
     have hstart := wordVertex_dist_start w i.val (by omega)
     have hend := wordVertex_dist_end w i.val (by omega)
     have hstart' : latticeDist (wordVertex kernelStart w i.val) kernelStart ≤ i.val := by

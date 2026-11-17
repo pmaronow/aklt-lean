@@ -122,7 +122,7 @@ theorem positiveLetters_not_antipodal (j : IcoLetter) (hj : j ∈ positiveLetter
       nlinarith [goldenRatio_pos]
 
 theorem originalLeg_mem {G : Finset Plane} {e : Plane × Plane}
-    (he : e ∈ originalLegs G) : e.1 ∈ G ∧ e.2 ∈ neighbours e.1 ∧ e.2 ∉ G := by
+    (he : e ∈ originalLegs G) : e.1 ∈ G ∧ e.2 ∈ neighbors e.1 ∧ e.2 ∉ G := by
   rcases Finset.mem_biUnion.mp he with ⟨x, hx, he⟩
   rcases Finset.mem_image.mp he with ⟨z, hz, rfl⟩
   exact ⟨hx, (Finset.mem_sdiff.mp hz).1, (Finset.mem_sdiff.mp hz).2⟩
@@ -131,18 +131,18 @@ theorem originalLegs_at_card_le (G : Finset Plane) (x : Plane) :
     (Finset.univ.filter fun e : originalLegs G => e.val.1 = x).card ≤ 4 := by
   classical
   let s := Finset.univ.filter fun e : originalLegs G => e.val.1 = x
-  have hc : s.card ≤ (neighbours x).card := by
+  have hc : s.card ≤ (neighbors x).card := by
     apply Finset.card_le_card_of_injOn (fun e : originalLegs G => e.val.2)
     · intro e he
       have heq := (Finset.mem_filter.mp he).2
-      change e.val.2 ∈ neighbours x
+      change e.val.2 ∈ neighbors x
       simpa only [heq] using (originalLeg_mem e.property).2.1
     · intro e he f hf hef
       apply Subtype.ext
       apply Prod.ext
       · exact (Finset.mem_filter.mp he).2.trans (Finset.mem_filter.mp hf).2.symm
       · exact hef
-  have hn : (neighbours x).card ≤ 4 := by
+  have hn : (neighbors x).card ≤ 4 := by
     exact le_trans Finset.card_image_le (by decide)
   exact hc.trans hn
 

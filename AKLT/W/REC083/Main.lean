@@ -13,7 +13,7 @@ namespace AKLT.W.REC083
 
 private def removalDomain {G : Finset Plane} (Y : Finset Plane) : Network G where
   status := fun x => if x ∈ G \ Y then .U else .X
-  kept := fun x => neighbours x ∩ G
+  kept := fun x => neighbors x ∩ G
 
 private theorem removal_active {G : Finset Plane} (Y : Finset Plane)
     (_hYG : Y ⊆ G) : (removalDomain (G := G) Y).active = G \ Y := by
@@ -58,8 +58,8 @@ private theorem pair_type_of_distance (u v : Plane) (h : latticeDist u v = 2) :
     · exact ⟨.B, h, Or.inr hy⟩
     · exact ⟨.C, h, ⟨hx, hy⟩⟩
 
-private theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
-  rw [neighbours, Finset.card_image_of_injOn]
+private theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
+  rw [neighbors, Finset.card_image_of_injOn]
   · exact (by decide : Fintype.card Compass = 4)
   · intro a ha b hb hab
     have hstep : a.step = b.step := add_left_cancel hab
@@ -80,13 +80,13 @@ private theorem removal_local (G Y : Finset Plane) (hYG : Y ⊆ G) :
     · simp [D, removalDomain, hxG, hy] at hs
     · simp [D, removalDomain, hxG, hy] at hs
   · intro x hxActive
-    let P := D.presentNeighbours x
+    let P := D.presentNeighbors x
     let L := (originalLegs G).filter fun e => e.1 = x
     let T := L.image Prod.snd
-    have hPsub : P ⊆ neighbours x := by
+    have hPsub : P ⊆ neighbors x := by
       intro z hz
       exact (Finset.mem_filter.mp hz).1
-    have hTsub : T ⊆ neighbours x \ G := by
+    have hTsub : T ⊆ neighbors x \ G := by
       intro z hz
       rcases Finset.mem_image.mp hz with ⟨e, heL, rfl⟩
       rcases Finset.mem_filter.mp heL with ⟨he, hfst⟩
@@ -124,13 +124,13 @@ private theorem removal_local (G Y : Finset Plane) (hYG : Y ⊆ G) :
       calc
         P.card + L.card = P.card + T.card := by rw [hcardT]
         _ = (P ∪ T).card := (Finset.card_union_of_disjoint hdisj).symm
-        _ ≤ (neighbours x).card := Finset.card_le_card (Finset.union_subset hPsub (Finset.Subset.trans hTsub Finset.sdiff_subset))
-        _ = 4 := neighbours_card x
-    simpa [D, P, L, Network.presentNeighbours] using hbound
+        _ ≤ (neighbors x).card := Finset.card_le_card (Finset.union_subset hPsub (Finset.Subset.trans hTsub Finset.sdiff_subset))
+        _ = 4 := neighbors_card x
+    simpa [D, P, L, Network.presentNeighbors] using hbound
 
-private theorem neighbour_symm {x y : Plane} (h : y ∈ neighbours x) :
-    x ∈ neighbours y := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at h ⊢
+private theorem neighbor_symm {x y : Plane} (h : y ∈ neighbors x) :
+    x ∈ neighbors y := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at h ⊢
   rcases h with ⟨d, rfl⟩
   cases d with
   | east => exact ⟨Compass.west, by simp [Compass.step]; abel⟩
@@ -162,8 +162,8 @@ private theorem removal_consistent (G Y : Finset Plane)
   · intro x hx y hy hxy
     have hxG : x ∈ G := (Finset.mem_filter.mp hx).1
     have hyG : y ∈ G := (Finset.mem_filter.mp hy).1
-    have hxyN : y ∈ neighbours x ↔ x ∈ neighbours y :=
-      ⟨neighbour_symm, neighbour_symm⟩
+    have hxyN : y ∈ neighbors x ↔ x ∈ neighbors y :=
+      ⟨neighbor_symm, neighbor_symm⟩
     simp [D, removalDomain, hxG, hyG, hxyN]
 
 private def liftIco {V : Finset Plane} (a : (x : V) → IcoLetter) :
@@ -224,24 +224,24 @@ private theorem sum_spinletter_supported {V : Finset Plane}
       exact Finset.sum_subset (Finset.subset_univ _) hbad
     _ = ∑ a : (x : V) → IcoLetter, F (liftIco a) := hsumGood
 
-@[simp] private theorem east_mem_neighbours (x : Plane) :
-    (x.1 + 1, x.2) ∈ neighbours x := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+@[simp] private theorem east_mem_neighbors (x : Plane) :
+    (x.1 + 1, x.2) ∈ neighbors x := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   exact ⟨.east, by cases x with | mk a b => simp [Compass.step]⟩
 
-@[simp] private theorem west_mem_neighbours (x : Plane) :
-    x ∈ neighbours (x.1 + 1, x.2) := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+@[simp] private theorem west_mem_neighbors (x : Plane) :
+    x ∈ neighbors (x.1 + 1, x.2) := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   exact ⟨.west, by cases x with | mk a b => norm_num [Compass.step]⟩
 
-@[simp] private theorem north_mem_neighbours (x : Plane) :
-    (x.1, x.2 + 1) ∈ neighbours x := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+@[simp] private theorem north_mem_neighbors (x : Plane) :
+    (x.1, x.2 + 1) ∈ neighbors x := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   exact ⟨.north, by cases x with | mk a b => simp [Compass.step]⟩
 
-@[simp] private theorem south_mem_neighbours (x : Plane) :
-    x ∈ neighbours (x.1, x.2 + 1) := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+@[simp] private theorem south_mem_neighbors (x : Plane) :
+    x ∈ neighbors (x.1, x.2 + 1) := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   exact ⟨.south, by cases x with | mk a b => norm_num [Compass.step]⟩
 
 @[simp] private theorem east_adjacent (x : Plane) : Adjacent x (x.1 + 1, x.2) := by
@@ -256,7 +256,7 @@ private theorem removal_bonds (G Y : Finset Plane) (hYG : Y ⊆ G) :
   ext e
   rcases e with ⟨x, y⟩
   simp [Network.bonds, Network.Present, removalDomain, Network.active, internalBonds,
-    positiveNeighbours, Finset.mem_sdiff]
+    positiveNeighbors, Finset.mem_sdiff]
   constructor
   · rintro ⟨⟨hxG, hpos, hyG⟩, ⟨_, hxY⟩, ⟨_, hyY⟩, _, _, _, _⟩
     exact ⟨⟨hxG, hxY⟩, hpos, hyG, hyY⟩
@@ -264,10 +264,10 @@ private theorem removal_bonds (G Y : Finset Plane) (hYG : Y ⊆ G) :
     rcases hpos with he | hn
     · subst y
       exact ⟨⟨hxG, Or.inl rfl, hyG⟩, ⟨hxG, hxY⟩, ⟨hyG, hyY⟩,
-        east_adjacent x, ⟨east_mem_neighbours x, hyG⟩, west_mem_neighbours x, hxG⟩
+        east_adjacent x, ⟨east_mem_neighbors x, hyG⟩, west_mem_neighbors x, hxG⟩
     · subst y
       exact ⟨⟨hxG, Or.inr rfl, hyG⟩, ⟨hxG, hxY⟩, ⟨hyG, hyY⟩,
-        north_adjacent x, ⟨north_mem_neighbours x, hyG⟩, south_mem_neighbours x, hxG⟩
+        north_adjacent x, ⟨north_mem_neighbors x, hyG⟩, south_mem_neighbors x, hxG⟩
 
 private theorem ico_unit : ∀ j : IcoLetter, normSq (icoVector j) = 1 := by
   have hφ : goldenRatio ^ 2 = goldenRatio + 1 := by

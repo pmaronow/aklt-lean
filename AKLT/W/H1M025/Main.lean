@@ -33,14 +33,14 @@ private theorem tip_edge (π : PatternData) {x : Plane} (hx : x ∈ templateTips
   rcases Finset.mem_image.mp hImage with ⟨q, hq, rfl⟩
   rcases p with ⟨a, b⟩
   rcases q with ⟨c, d⟩
-  have hqPos : (c, d) ∈ positiveNeighbours (a, b) := (Finset.mem_inter.mp hq).1
+  have hqPos : (c, d) ∈ positiveNeighbors (a, b) := (Finset.mem_inter.mp hq).1
   have hqSite : (c, d) ∈ templateSites := (Finset.mem_inter.mp hq).2
   have hpB := template_bounds hp
   have hqB := template_bounds hqSite
   have hpD := template_distance_bound hp
   have hqD := template_distance_bound hqSite
   have hqCases : (c = a + 1 ∧ d = b) ∨ (c = a ∧ d = b + 1) := by
-    simpa [positiveNeighbours] using hqPos
+    simpa [positiveNeighbors] using hqPos
   simp [templateTips] at hx
   rcases hx with hxt | hxt | hxt | hxt
   · subst x
@@ -184,10 +184,10 @@ private theorem bond_adjacent (π : PatternData) {e : Plane × Plane}
   have hb : e ∈ internalBonds templateSites := (Finset.mem_filter.mp he).1
   rcases Finset.mem_biUnion.mp hb with ⟨p, hp, hImage⟩
   rcases Finset.mem_image.mp hImage with ⟨q, hq, rfl⟩
-  have hqPos : q ∈ positiveNeighbours p := (Finset.mem_inter.mp hq).1
+  have hqPos : q ∈ positiveNeighbors p := (Finset.mem_inter.mp hq).1
   change Adjacent p q
   have hqCases : q = (p.1 + 1, p.2) ∨ q = (p.1, p.2 + 1) := by
-    simpa [positiveNeighbours] using hqPos
+    simpa [positiveNeighbors] using hqPos
   rcases hqCases with h | h
   · subst q
     norm_num [Adjacent, latticeDist]
@@ -230,10 +230,10 @@ private theorem headD_filterMap_eq {α β : Type} (l : List α) (f : α → Opti
               exact hsome
           simp [hfa, hbq]
 
-private theorem leaf_neighbour_eq_other (π : PatternData) (x : Plane)
+private theorem leaf_neighbor_eq_other (π : PatternData) (x : Plane)
     {e : Plane × Plane} (he : e ∈ π.bonds) (hi : e.1 = x ∨ e.2 = x)
     (huniq : ∀ f ∈ π.bonds, (f.1 = x ∨ f.2 = x) → f = e) :
-    leafNeighbour π x = if e.1 = x then e.2 else e.1 := by
+    leafNeighbor π x = if e.1 = x then e.2 else e.1 := by
   classical
   let q : Plane := if e.1 = x then e.2 else e.1
   let f : Plane × Plane → Option Plane := fun z =>
@@ -325,8 +325,8 @@ theorem main : AKLT.Blueprint.H1.PeripheralGeometryStatement := by
       intro f hf hfi
       have hfS : f ∈ S := Finset.mem_filter.mpr ⟨hf, hfi⟩
       exact (Finset.card_le_one.mp hcard) f hfS e heS
-    have hleaf : leafNeighbour π x = if e.1 = x then e.2 else e.1 :=
-      leaf_neighbour_eq_other π x heB hi huniq
+    have hleaf : leafNeighbor π x = if e.1 = x then e.2 else e.1 :=
+      leaf_neighbor_eq_other π x heB hi huniq
     let q : Plane := if e.1 = x then e.2 else e.1
     have hqactive : q ∈ π.active := by
       dsimp [q]

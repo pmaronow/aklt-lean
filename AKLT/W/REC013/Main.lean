@@ -17,12 +17,12 @@ theorem d_step_partition (a : AKLT.Blueprint.Rec.Departure) (hD : a.D.status a.y
     (b : Bool) :
     (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
       a.D.partition a.τ b (fun _ => 1) := by
-  have hc : (a.D.presentNeighbours a.y).card ≤ 1 := by
+  have hc : (a.D.presentNeighbors a.y).card ≤ 1 := by
     rcases a.start.2.2 with h | h
     · rw [hD] at h
       cases h.1
     · exact h.2
-  have hs : a.D.presentNeighbours a.y = {a.o} := by
+  have hs : a.D.presentNeighbors a.y = {a.o} := by
     apply Finset.eq_singleton_iff_unique_mem.mpr
     refine ⟨a.present, ?_⟩
     intro z hz

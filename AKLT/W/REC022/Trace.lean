@@ -25,11 +25,11 @@ theorem active_trace (D : Network G) (y o : Plane) (hU : D.status y = .U) :
   · subst x; simp [hU]
   · simp [hx]
 
-theorem trace_neighbours (D : Network G) (y o : Plane) (hU : D.status y = .U)
+theorem trace_neighbors (D : Network G) (y o : Plane) (hU : D.status y = .U)
     (hyo : y ≠ o) :
-    (traceStep D y o).presentNeighbours y = (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y = (D.presentNeighbors y).erase o := by
   ext z
-  rw [mem_presentNeighbours,Finset.mem_erase,mem_presentNeighbours]
+  rw [mem_presentNeighbors,Finset.mem_erase,mem_presentNeighbors]
   simp only [Network.Present,active_trace D y o hU]
   simp only [traceStep,ite_true]
   by_cases hzy : z = y

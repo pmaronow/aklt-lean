@@ -51,7 +51,7 @@ theorem partition_integrate {G : Finset Plane} (D : Network G) (τ : PinAssignme
     (hleg : ∀ e : originalLegs G, e.val.1 ≠ y) :
     D.partition τ b (fun _ => 1) =
       (removeSite D y).partition τ b (fun n => siteFunctional (D.status y)
-        (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)))) := by
+        (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)))) := by
   have hnot : y ∉ (removeSite D y).active := by simp [remove_active]
   have hs : D.active = insert y (removeSite D y).active := by
     rw [remove_active, Finset.insert_erase hy]

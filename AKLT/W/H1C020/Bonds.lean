@@ -190,7 +190,7 @@ lemma Gf_eq {i : Nat} {s : SiteSpec} (h : SiteFlags π r i s) (hi : i < 8) :
       have ht : s.tip = true := h.tip.mpr ⟨he, hg⟩
       rw [if_pos hg, hn, colorChoices_one]
       unfold groupFactor
-      rw [hpair, if_neg (by decide), tip_leafNeighbour π i hi he hg,
+      rw [hpair, if_neg (by decide), tip_leafNeighbor π i hi he hg,
         ← ring_token_leader i hi, formalDot_inl_inr]
       have hrad : replacementRadius π (groupPoint i) = 3/5 := by
         simp [replacementRadius, htipx]

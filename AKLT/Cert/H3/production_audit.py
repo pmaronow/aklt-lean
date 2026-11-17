@@ -31,7 +31,7 @@ def main():
             assert re.match(r'def \w+\s*:\s*Prop\s*:=',body),body[:100]
             mod=str(p.relative_to(ROOT).with_suffix('')).replace('/','.')
             dependencies=[]
-            if local in {'PlaneSoundLeaf','RowTermsV2Leaf','CentreZeroV2Leaf','PassesEquivalenceLeaf'}:dependencies.append('F9')
+            if local in {'PlaneSoundLeaf','RowTermsV2Leaf','CenterZeroV2Leaf','PassesEquivalenceLeaf'}:dependencies.append('F9')
             if p.name=='Production.lean' or local in {'RawTrieBoundsLeaf','RepresentativeBoundsLeaf','FieldCheckSoundLeaf'}:dependencies.append('F7')
             checked=p.with_suffix('.olean').exists() and p.with_suffix('.olean').stat().st_mtime_ns>=p.stat().st_mtime_ns
             leaves.append(dict(id=name,name=name,status='OPEN',role='mathematical_leaf',source=str(p.relative_to(ROOT)),line=line,
@@ -50,7 +50,7 @@ def main():
       'RawTrieProjectionLeaf':['RawRowSoundLeaf','RawTrieCoverageLeaf','RawReplaySoundLeaf'],
       'RawTrieBoundsLeaf':['RawTrieCoverageLeaf'],
       'RawTrieCountLeaf':['RawReplaySoundLeaf','RawReplayCompleteLeaf','CodeEncodeLeaf'],
-      'RowTermsV2Leaf':['OrdinaryMaskLeaf','KnownMaskLeaf','DeadMaskLeaf','PullLeaf','CentreZeroV2Leaf'],
+      'RowTermsV2Leaf':['OrdinaryMaskLeaf','KnownMaskLeaf','DeadMaskLeaf','PullLeaf','CenterZeroV2Leaf'],
       'PlaneSoundLeaf':['TableBoundsLeaf','FreeRowLeaf','RowTermsV2Leaf'],
       'RowCoverageLeaf':['PlaneBatchSoundLeaf','IntervalCoverageLeaf'],
       'EndpointTableSoundLeaf':['RectangleLeaf','TableBoundsLeaf'],

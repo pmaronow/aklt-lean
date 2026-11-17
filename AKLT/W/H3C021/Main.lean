@@ -227,23 +227,23 @@ private theorem gridSite_eq_iff (s : Nat) (hs : s < 19881) (x : Plane)
 
 private theorem reserved_indices (X : PairType) (d₀ : Compass)
     (hcase : (X,d₀) ∈ stationaryCases) :
-    let i₁ := siteIndex kernelCentre
+    let i₁ := siteIndex kernelCenter
     let i₂ := siteIndex (kernelTarget X)
     let i₃ := siteIndex kernelStart
     let i₄ := siteIndex (kernelStart + d₀.step)
     i₁ < 19881 ∧ i₂ < 19881 ∧ i₃ < 19881 ∧ i₄ < 19881 ∧
       i₁ ≠ i₂ ∧ i₁ ≠ i₃ ∧ i₁ ≠ i₄ ∧ i₂ ≠ i₃ ∧ i₂ ≠ i₄ ∧ i₃ ≠ i₄ := by
-  cases X <;> cases d₀ <;> simp_all [stationaryCases, kernelCentre, kernelTarget,
+  cases X <;> cases d₀ <;> simp_all [stationaryCases, kernelCenter, kernelTarget,
     kernelStart, Compass.step, siteIndex]
 
 theorem main : CertData.H3.Bridge.OrdinaryMaskLeaf := by
   intro X d₀ hcase s hs
   obtain ⟨hi₁, hi₂, hi₃, hi₄, h12, h13, h14, h23, h24, h34⟩ := reserved_indices X d₀ hcase
-  have hmask := lane_removeFour (siteIndex kernelCentre) (siteIndex (kernelTarget X))
+  have hmask := lane_removeFour (siteIndex kernelCenter) (siteIndex (kernelTarget X))
     (siteIndex kernelStart) (siteIndex (kernelStart + d₀.step)) s
     hi₁ hi₂ hi₃ hi₄ h12 h13 h14 h23 h24 h34 hs
-  have h1 := gridSite_eq_iff s hs kernelCentre (by norm_num [kernelCentre])
-    (by norm_num [kernelCentre]) (by norm_num [kernelCentre]) (by norm_num [kernelCentre])
+  have h1 := gridSite_eq_iff s hs kernelCenter (by norm_num [kernelCenter])
+    (by norm_num [kernelCenter]) (by norm_num [kernelCenter]) (by norm_num [kernelCenter])
   have h2 := gridSite_eq_iff s hs (kernelTarget X) (by cases X <;> norm_num [kernelTarget, PairType])
     (by cases X <;> norm_num [kernelTarget, PairType]) (by cases X <;> norm_num [kernelTarget, PairType])
     (by cases X <;> norm_num [kernelTarget, PairType])
@@ -254,7 +254,7 @@ theorem main : CertData.H3.Bridge.OrdinaryMaskLeaf := by
     (by cases d₀ <;> norm_num [kernelStart, Compass.step])
     (by cases d₀ <;> norm_num [kernelStart, Compass.step])
     (by cases d₀ <;> norm_num [kernelStart, Compass.step])
-  change lane (removeFour (siteIndex kernelCentre) (siteIndex (kernelTarget X))
+  change lane (removeFour (siteIndex kernelCenter) (siteIndex (kernelTarget X))
     (siteIndex kernelStart) (siteIndex (kernelStart + d₀.step))) 80 s = _
   simpa only [h1, h2, h3, h4] using hmask
 

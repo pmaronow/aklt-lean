@@ -11,16 +11,16 @@ open AKLT.Defs AKLT.Blueprint.Win
 
 namespace AKLT.W.WIN063
 
-lemma mem_pos (x y : Plane) : y ∈ positiveNeighbours x ↔ y = (x.1 + 1, x.2) ∨ y = (x.1, x.2 + 1) := by
-  simp [positiveNeighbours]
+lemma mem_pos (x y : Plane) : y ∈ positiveNeighbors x ↔ y = (x.1 + 1, x.2) ∨ y = (x.1, x.2 + 1) := by
+  simp [positiveNeighbors]
 
 lemma mem_orig (G : Finset Plane) (x y : Plane) :
-    (x, y) ∈ originalLegs G ↔ x ∈ G ∧ y ∉ G ∧ y ∈ neighbours x := by
+    (x, y) ∈ originalLegs G ↔ x ∈ G ∧ y ∉ G ∧ y ∈ neighbors x := by
   simp [originalLegs, Finset.mem_biUnion, Finset.mem_image, Finset.mem_sdiff]
   tauto
 
 lemma mem_bonds (G : Finset Plane) (x y : Plane) :
-    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbours x := by
+    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbors x := by
   simp [internalBonds, Finset.mem_biUnion, Finset.mem_image]
   tauto
 
@@ -34,42 +34,42 @@ lemma add_west (x : Plane) : x + (-1, 0) = (x.1 + -1, x.2) := by
 lemma add_south (x : Plane) : x + (0, -1) = (x.1, x.2 + -1) := by
   apply Prod.ext <;> simp [Prod.fst_add, Prod.snd_add]
 
-lemma neigh_pos_cover {x y : Plane} (h : y ∈ neighbours x) :
-    y ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours y := by
+lemma neigh_pos_cover {x y : Plane} (h : y ∈ neighbors x) :
+    y ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors y := by
   rcases Finset.mem_image.mp h with ⟨d, hd, rfl⟩
   cases d
   · left
-    simp [positiveNeighbours, Compass.step, add_east]
+    simp [positiveNeighbors, Compass.step, add_east]
   · left
-    simp [positiveNeighbours, Compass.step, add_north]
+    simp [positiveNeighbors, Compass.step, add_north]
   · right
-    simp [positiveNeighbours, Compass.step, add_west]
+    simp [positiveNeighbors, Compass.step, add_west]
   · right
-    simp [positiveNeighbours, Compass.step, add_south]
+    simp [positiveNeighbors, Compass.step, add_south]
 
 
 
-lemma adjacent_of_mem_neighbours {x y : Plane} (h : y ∈ neighbours x) : Adjacent x y := by
+lemma adjacent_of_mem_neighbors {x y : Plane} (h : y ∈ neighbors x) : Adjacent x y := by
   rcases Finset.mem_image.mp h with ⟨d, hd, rfl⟩
   cases d <;>
     simp [Adjacent, latticeDist, Compass.step, add_east, add_north, add_west, add_south,
       Int.natAbs] <;> rfl
 
 
-lemma pos_asymm {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours y := by
+lemma pos_asymm {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors y := by
   intro hxy
   cases x with
   | mk a b =>
     cases y with
     | mk c d =>
-      simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+      simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
         Prod.mk.injEq] at h hxy
       rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩ <;>
       rcases hxy with ⟨h3, h4⟩ | ⟨h3, h4⟩ <;> omega
 
-lemma pos_mem_neigh {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    y ∈ neighbours x ∧ x ∈ neighbours y := by
+lemma pos_mem_neigh {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    y ∈ neighbors x ∧ x ∈ neighbors y := by
   rcases (mem_pos _ _).mp h with h | h
   · rw [h]
     constructor
@@ -90,12 +90,12 @@ lemma pos_mem_neigh {x y : Plane} (h : y ∈ positiveNeighbours x) :
 
 
 private def orient (e : Plane × Plane) : Plane × Plane :=
-  if e.2 ∈ positiveNeighbours e.1 then e else e.swap
+  if e.2 ∈ positiveNeighbors e.1 then e else e.swap
 
 private lemma orient_eq_imp {e f : Plane × Plane} (h : orient e = orient f) :
     e = f ∨ e = f.swap := by
-  by_cases he : e.2 ∈ positiveNeighbours e.1 <;>
-    by_cases hf : f.2 ∈ positiveNeighbours f.1
+  by_cases he : e.2 ∈ positiveNeighbors e.1 <;>
+    by_cases hf : f.2 ∈ positiveNeighbors f.1
   · exact Or.inl (by simpa [orient, he, hf] using h)
   · exact Or.inr (by simpa [orient, he, hf] using h)
   · right
@@ -116,13 +116,13 @@ private lemma orient_inj (G : Finset Plane) :
 
 private lemma mem_oriented_legs (G : Finset Plane) (e : Plane × Plane) :
     e ∈ (originalLegs G).image orient ↔
-      e.2 ∈ positiveNeighbours e.1 ∧
+      e.2 ∈ positiveNeighbors e.1 ∧
         ((e.1 ∈ G ∧ e.2 ∉ G) ∨ (e.2 ∈ G ∧ e.1 ∉ G)) := by
   constructor
   · intro h
     obtain ⟨f, hf, rfl⟩ := Finset.mem_image.mp h
     obtain ⟨hf1, hf2, hfn⟩ := (mem_orig G f.1 f.2).mp hf
-    by_cases hp : f.2 ∈ positiveNeighbours f.1
+    by_cases hp : f.2 ∈ positiveNeighbors f.1
     · simp [orient, hp, hf1, hf2]
     · have hr := (neigh_pos_cover hfn).resolve_left hp
       simp [orient, hp, hr, hf1, hf2]
@@ -140,7 +140,7 @@ private def volumeEdges (G : Finset Plane) : Finset (Plane × Plane) :=
 
 private lemma mem_volumeEdges (G : Finset Plane) (e : Plane × Plane) :
     e ∈ volumeEdges G ↔
-      e.2 ∈ positiveNeighbours e.1 ∧ (e.1 ∈ G ∨ e.2 ∈ G) := by
+      e.2 ∈ positiveNeighbors e.1 ∧ (e.1 ∈ G ∨ e.2 ∈ G) := by
   rcases e with ⟨x, y⟩
   simp only [volumeEdges, Finset.mem_union, mem_bonds, mem_oriented_legs]
   tauto
@@ -182,7 +182,7 @@ private lemma volumeEdges_split {F B : Finset Plane} (hBF : B ⊆ F)
         · exact Or.inl ⟨hxB, hyB, hp⟩
         · have hyF : y ∈ F := by
             by_contra hyF
-            exact hNo x hxB y hyF (adjacent_of_mem_neighbours (pos_mem_neigh hp).1)
+            exact hNo x hxB y hyF (adjacent_of_mem_neighbors (pos_mem_neigh hp).1)
           exact Or.inr ⟨hp, Or.inr ⟨hyF, hyB⟩⟩
       · exact Or.inr ⟨hp, Or.inl ⟨hxF, hxB⟩⟩
     · by_cases hyB : y ∈ B
@@ -190,7 +190,7 @@ private lemma volumeEdges_split {F B : Finset Plane} (hBF : B ⊆ F)
         · exact Or.inl ⟨hxB, hyB, hp⟩
         · have hxF : x ∈ F := by
             by_contra hxF
-            exact hNo y hyB x hxF (adjacent_of_mem_neighbours (pos_mem_neigh hp).2)
+            exact hNo y hyB x hxF (adjacent_of_mem_neighbors (pos_mem_neigh hp).2)
           exact Or.inr ⟨hp, Or.inl ⟨hxF, hxB⟩⟩
       · exact Or.inr ⟨hp, Or.inr ⟨hyF, hyB⟩⟩
   · rintro (⟨hxB, hyB, hp⟩ | ⟨hp, ⟨hxF, _⟩ | ⟨hyF, _⟩⟩)

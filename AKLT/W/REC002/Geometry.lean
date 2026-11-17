@@ -20,21 +20,21 @@ theorem adjacent_ne {x y : Plane} (h : Adjacent x y) : x ≠ y := by
   norm_num [Adjacent, latticeDist] at h
 
 theorem adjacent_iff_positive (x y : Plane) :
-    Adjacent x y ↔ y ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours y := by
+    Adjacent x y ↔ y ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors y := by
   rcases x with ⟨a, b⟩
   rcases y with ⟨c, d⟩
-  simp only [Adjacent, latticeDist, positiveNeighbours, Finset.mem_insert,
+  simp only [Adjacent, latticeDist, positiveNeighbors, Finset.mem_insert,
     Finset.mem_singleton, Prod.mk.injEq]
   omega
 
-theorem neighbour_iff (x y : Plane) : y ∈ neighbours x ↔ Adjacent x y := by
+theorem neighbor_iff (x y : Plane) : y ∈ neighbors x ↔ Adjacent x y := by
   rw [adjacent_iff_positive]
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · rintro ⟨d, rfl⟩
-    fin_cases d <;> simp [positiveNeighbours, Compass.step, Prod.ext_iff]
+    fin_cases d <;> simp [positiveNeighbors, Compass.step, Prod.ext_iff]
   · intro h
-    simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+    simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
       Prod.ext_iff] at h
     rcases h with (h | h) | (h | h)
     · exact ⟨.east, by simpa [Compass.step, Prod.ext_iff] using ⟨h.1.symm, h.2.symm⟩⟩
@@ -54,17 +54,17 @@ theorem present_symm {G : Finset Plane} (D : Network G) (x y : Plane) :
 theorem present_ne {G : Finset Plane} {D : Network G} {x y : Plane}
     (h : D.Present x y) : x ≠ y := adjacent_ne h.2.2.1
 
-theorem mem_presentNeighbours {G : Finset Plane} (D : Network G) (x y : Plane) :
-    y ∈ D.presentNeighbours x ↔ D.Present x y := by
-  simp only [Network.presentNeighbours, Finset.mem_filter, neighbour_iff]
+theorem mem_presentNeighbors {G : Finset Plane} (D : Network G) (x y : Plane) :
+    y ∈ D.presentNeighbors x ↔ D.Present x y := by
+  simp only [Network.presentNeighbors, Finset.mem_filter, neighbor_iff]
   exact ⟨And.right, fun h => ⟨h.2.2.1, h⟩⟩
 
 theorem mem_internal (G : Finset Plane) (x y : Plane) :
-    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbours x := by
+    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbors x := by
   simp [internalBonds, and_comm, and_left_comm, and_assoc]
 
 theorem mem_bonds {G : Finset Plane} (D : Network G) (x y : Plane) :
-    (x, y) ∈ D.bonds ↔ D.Present x y ∧ y ∈ positiveNeighbours x := by
+    (x, y) ∈ D.bonds ↔ D.Present x y ∧ y ∈ positiveNeighbors x := by
   simp only [Network.bonds, Finset.mem_filter, mem_internal]
   constructor
   · tauto
@@ -100,7 +100,7 @@ theorem no_leg {G : Finset Plane} {D : Network G} {y : Plane}
   have hxy : x = y := (congrArg Prod.fst heq).trans h
   subst x
   have hd : boundaryDepth G y ≤ 2 := by
-    have hz' : latticeDist y z = 1 := (neighbour_iff y z).mp hz
+    have hz' : latticeDist y z = 1 := (neighbor_iff y z).mp hz
     unfold boundaryDepth setDistance
     exact iInf_le_of_le ⟨z, hzout⟩ (by simpa only [hz', Nat.cast_one] using
       (show (1 : ℕ∞) ≤ 2 by norm_num))

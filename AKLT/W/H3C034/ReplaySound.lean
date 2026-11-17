@@ -17,7 +17,7 @@ set_option maxHeartbeats 2000000
 /-- First-hit geometry, retaining either a surviving or a terminal final state. -/
 def TraceValid (X : PairType) (d₀ : Compass) {n : Nat} (w : DirectionWord n) : Prop :=
   IsTrail kernelStart kernelIncoming w ∧ (n=0 ∨ FirstDirection w d₀) ∧
-    (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre) ∧
+    (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCenter) ∧
     ∀ j < n, wordVertex kernelStart w j ≠ kernelTarget X
 
 theorem initial_rep (E : Exact) (c : Nat) : PrefixRepresents E (decodeWord 0 c) initial := by
@@ -38,7 +38,7 @@ theorem initial_trace (X : PairType) (d₀ : Compass) (c : Nat) :
   · intro j hj
     have he : j=0 := by omega
     subst j
-    simp [wordVertex, kernelStart, kernelCentre]
+    simp [wordVertex, kernelStart, kernelCenter]
   · intro j hj; omega
 
 theorem trace_snoc {E : Exact} {X : PairType} {d₀ : Fin 4} {n : Nat}
@@ -47,9 +47,9 @@ theorem trace_snoc {E : Exact} {X : PairType} {d₀ : Fin 4} {n : Nat}
     (d : Fin 4) (hg : goodStep d₀.val s.walk d.val = true) :
     TraceValid X (direction d₀.val) (snoc w (direction d.val)) := by
   have hg' : ((s.walk.depth ≠ 0 ∨ d.val=d₀.val) ∧ s.walk.legal d.val=true) ∧
-      advance s.walk.pos d.val ≠ kernelCentre := by
+      advance s.walk.pos d.val ≠ kernelCenter := by
     simpa only [goodStep, Bool.and_eq_true, Bool.or_eq_true, bne_iff_ne, beq_iff_eq,
-      kernelCentre] using hg
+      kernelCenter] using hg
   have hv : wordVertex kernelStart (snoc w (direction d.val)) (n+1) =
       advance s.walk.pos d.val := by
     rw [vertex_succ _ _ n (by omega), snoc_vertex _ _ _ n le_rfl,

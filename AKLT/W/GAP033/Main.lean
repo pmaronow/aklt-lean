@@ -39,7 +39,7 @@ private theorem adjacent_reductions_are_bond {L N : Size} (x y : Plane)
       refine ⟨0, Or.inl ?_⟩
       ext <;> simp [reduction, nextSite, hx', hyEq]
 
-theorem main : AKLT.Blueprint.Gap.PullbackColourStatement := by
+theorem main : AKLT.Blueprint.Gap.PullbackColorStatement := by
   intro L N κ hκ x y hxy
   obtain ⟨d, hbond | hreverse⟩ := adjacent_reductions_are_bond (L := L) (N := N) x y hxy
   · have hcol := hκ (reduction L N x, d)

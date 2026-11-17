@@ -10,10 +10,10 @@ open AKLT.Defs
 
 namespace AKLT.W.REC098
 
-theorem adjacent_iff (x z : Plane) : Adjacent x z ↔ z ∈ neighbours x := by
+theorem adjacent_iff (x z : Plane) : Adjacent x z ↔ z ∈ neighbors x := by
   rcases x with ⟨x₁, x₂⟩
   rcases z with ⟨z₁, z₂⟩
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · intro h
     have hd : (x₁ - z₁).natAbs + (x₂ - z₂).natAbs = 1 := h
@@ -40,8 +40,8 @@ theorem step_injective : Function.Injective Compass.step := by
   intro a b h
   cases a <;> cases b <;> simp_all [Compass.step]
 
-theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
-  rw [neighbours, Finset.card_image_of_injective]
+theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
+  rw [neighbors, Finset.card_image_of_injective]
   · rfl
   · intro a b h
     exact step_injective (add_left_cancel h)
@@ -54,8 +54,8 @@ theorem interior_ball {G : Finset Plane} {y : Plane} (hyG : y ∈ G)
   refine ⟨hyG, ?_⟩
   exact le_trans (iInf_le_of_le ⟨z, hzG⟩ le_rfl) (by exact_mod_cast hz)
 
-theorem interior_neighbours {G : Finset Plane} {y : Plane} (hyG : y ∈ G)
-    (hyS : y ∉ protectedSites G) : neighbours y ∩ G = neighbours y := by
+theorem interior_neighbors {G : Finset Plane} {y : Plane} (hyG : y ∈ G)
+    (hyS : y ∉ protectedSites G) : neighbors y ∩ G = neighbors y := by
   apply Finset.inter_eq_left.mpr
   intro z hz
   exact interior_ball hyG hyS (by have := (adjacent_iff y z).mpr hz; unfold Adjacent at this; omega)

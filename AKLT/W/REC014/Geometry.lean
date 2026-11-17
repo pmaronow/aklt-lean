@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.W.REC014
 
-theorem neighbour_adjacent {x z : Plane} (h : z ∈ neighbours x) : Adjacent x z := by
+theorem neighbor_adjacent {x z : Plane} (h : z ∈ neighbors x) : Adjacent x z := by
   obtain ⟨d, _, rfl⟩ := Finset.mem_image.mp h
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
@@ -23,7 +23,7 @@ theorem adjacent_ne {x z : Plane} (h : Adjacent x z) : x ≠ z := by
   rintro rfl
   norm_num [Adjacent, latticeDist] at h
 
-theorem adjacent_neighbour {x z : Plane} (h : Adjacent x z) : z ∈ neighbours x := by
+theorem adjacent_neighbor {x z : Plane} (h : Adjacent x z) : z ∈ neighbors x := by
   rcases x with ⟨a,b⟩
   rcases z with ⟨c,d⟩
   have hh : (a - c).natAbs + (b - d).natAbs = 1 := h
@@ -39,12 +39,12 @@ theorem present_symm {G : Finset Plane} (D : Network G) {x z : Plane}
     (h : D.Present x z) : D.Present z x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem present_neighbour {G : Finset Plane} (D : Network G) {x z : Plane}
-    (h : D.Present x z) : z ∈ D.presentNeighbours x :=
-  Finset.mem_filter.mpr ⟨adjacent_neighbour h.2.2.1, h⟩
+theorem present_neighbor {G : Finset Plane} (D : Network G) {x z : Plane}
+    (h : D.Present x z) : z ∈ D.presentNeighbors x :=
+  Finset.mem_filter.mpr ⟨adjacent_neighbor h.2.2.1, h⟩
 
 theorem leg_data {G : Finset Plane} {e : Plane × Plane} (h : e ∈ originalLegs G) :
-    e.1 ∈ G ∧ e.2 ∈ neighbours e.1 ∧ e.2 ∉ G := by
+    e.1 ∈ G ∧ e.2 ∈ neighbors e.1 ∧ e.2 ∉ G := by
   obtain ⟨x,hx,h⟩ := Finset.mem_biUnion.mp h
   obtain ⟨z,hz,he⟩ := Finset.mem_image.mp h
   cases he
@@ -60,18 +60,18 @@ theorem leg_protected {G : Finset Plane} (e : originalLegs G) :
     calc
       _ ≤ (latticeDist e.val.1 e.val.2 : ℕ∞) :=
         iInf_le_of_le ⟨e.val.2, hout⟩ le_rfl
-      _ = 1 := by rw [show latticeDist e.val.1 e.val.2 = 1 from neighbour_adjacent hz]; rfl
+      _ = 1 := by rw [show latticeDist e.val.1 e.val.2 = 1 from neighbor_adjacent hz]; rfl
   exact hdist.trans (by norm_num)
 
 theorem leg_count {G : Finset Plane} (x : Plane) :
     ((originalLegs G).filter fun e => e.1 = x).card ≤ 4 := by
   let s := (originalLegs G).filter fun e => e.1 = x
   calc
-    s.card ≤ (neighbours x).card := by
+    s.card ≤ (neighbors x).card := by
       apply Finset.card_le_card_of_injOn Prod.snd
       · intro e he
         obtain ⟨he,hx⟩ := Finset.mem_filter.mp he
-        change e.2 ∈ neighbours x
+        change e.2 ∈ neighbors x
         simpa only [hx] using (leg_data he).2.1
       · intro e he f hf hef
         apply Prod.ext
@@ -81,7 +81,7 @@ theorem leg_count {G : Finset Plane} (x : Plane) :
     _ = 4 := by decide
 
 theorem bonds_data {G : Finset Plane} {e : Plane × Plane} (h : e ∈ internalBonds G) :
-    e.1 ∈ G ∧ e.2 ∈ positiveNeighbours e.1 ∧ e.2 ∈ G := by
+    e.1 ∈ G ∧ e.2 ∈ positiveNeighbors e.1 ∧ e.2 ∈ G := by
   obtain ⟨x,hx,h⟩ := Finset.mem_biUnion.mp h
   obtain ⟨z,hz,he⟩ := Finset.mem_image.mp h
   cases he
@@ -94,7 +94,7 @@ theorem bond_orientation_unique {G : Finset Plane} {e f : Plane × Plane}
   · exact Prod.ext h1 h2
   · have he := (bonds_data he).2.1
     have hf := (bonds_data hf).2.1
-    simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at he hf
+    simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at he hf
     rw [h1,h2] at he
     rcases he with he | he <;> rcases hf with hf | hf
     all_goals
@@ -108,7 +108,7 @@ theorem bond_orientation_unique {G : Finset Plane} {e f : Plane × Plane}
 theorem present_bond {G : Finset Plane} (D : Network G) {y o : Plane}
     (h : D.Present y o) :
     ∃ e ∈ D.bonds, (e.1 = y ∧ e.2 = o) ∨ (e.1 = o ∧ e.2 = y) := by
-  have hn := adjacent_neighbour h.2.2.1
+  have hn := adjacent_neighbor h.2.2.1
   obtain ⟨d,_,hd⟩ := Finset.mem_image.mp hn
   have hy : y ∈ G := (Finset.mem_filter.mp h.1).1
   have ho : o ∈ G := (Finset.mem_filter.mp h.2.1).1
@@ -118,11 +118,11 @@ theorem present_bond {G : Finset Plane} (D : Network G) {y o : Plane}
     refine ⟨(y,o), Finset.mem_filter.mpr ⟨?_,h⟩, Or.inl ⟨rfl,rfl⟩⟩
     apply Finset.mem_biUnion.mpr
     refine ⟨y,hy,Finset.mem_image.mpr ⟨o,Finset.mem_inter.mpr ⟨?_,ho⟩,rfl⟩⟩
-    simp [positiveNeighbours, ← hd]
+    simp [positiveNeighbors, ← hd]
   case west | south =>
     refine ⟨(o,y), Finset.mem_filter.mpr ⟨?_,present_symm D h⟩, Or.inr ⟨rfl,rfl⟩⟩
     apply Finset.mem_biUnion.mpr
     refine ⟨o,ho,Finset.mem_image.mpr ⟨y,Finset.mem_inter.mpr ⟨?_,hy⟩,rfl⟩⟩
-    simp [positiveNeighbours, ← hd, Prod.ext_iff]
+    simp [positiveNeighbors, ← hd, Prod.ext_iff]
 
 end AKLT.W.REC014

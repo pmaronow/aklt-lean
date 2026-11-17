@@ -67,7 +67,7 @@ def CoordinateStepStatement : Prop :=
     ∀ b : Bool, ∀ k : Fin 3,
       D.partition τ b (fun a => a u k * a v k) =
         (if D.status u = .U then (1 / 3 : ℝ) else 1 / 5) *
-          ∑ o ∈ D.presentNeighbours u,
+          ∑ o ∈ D.presentNeighbors u,
             (traceStep D u o).partition τ b (fun a => a o k * a v k)
 
 /-- `p:pairwalk`, §6 lines 196–212. Induct on the finite set of unused
@@ -94,7 +94,7 @@ def PairTerminalFactorStatement : Prop :=
 
 /-- Factor count, including the original leg factors that survive the trace. -/
 def factorDegree {G : Finset Plane} (D : Network G) (x : Plane) : ℕ :=
-  (D.presentNeighbours x).card + ((originalLegs G).filter fun e => e.1 = x).card
+  (D.presentNeighbors x).card + ((originalLegs G).filter fun e => e.1 = x).card
 
 /-- `p:pairwalk`, §6 lines 224–237. Every numerator in the iteration
 has separate degree≤4. In particular a terminal protected endpoint has

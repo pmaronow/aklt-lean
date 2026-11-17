@@ -42,7 +42,7 @@ private theorem all_mem {α : Type} {l : List α} {f : α → Bool}
       · simpa [hab] using hall.1
       · exact ih hall.2 ha
 
-private theorem coverage_at_mem (t : Catalogue) {rows : List (List RawOption)}
+private theorem coverage_at_mem (t : Catalog) {rows : List (List RawOption)}
     (hrows : CoverageRowsAccepted t rows) {axes : List RawOption}
     (haxes : axes ∈ rows) : CoverageAccepted t axes := by
   induction rows with
@@ -54,7 +54,7 @@ private theorem coverage_at_mem (t : Catalogue) {rows : List (List RawOption)}
         exact hrows.1
       · exact ih hrows.2 hmem
 
-private theorem shard_at (t : Catalogue) (axes : List RawOption)
+private theorem shard_at (t : Catalog) (axes : List RawOption)
     (h : CoverageAccepted t axes) (i : Nat) (hi : i < cornerOptions.length) :
     coverageShard t axes i = true := by
   have h8 : i < 8 := by simpa [cornerOptions] using hi
@@ -149,7 +149,7 @@ private theorem corners_shape (corners : List RawOption) (hlen : corners.length 
                   | nil => exact ⟨c0, c1, c2, c3, rfl⟩
                   | cons c4 xs => simp at hlen
 
-private theorem lookup_of_coverage (t : Catalogue) (axes : List RawOption)
+private theorem lookup_of_coverage (t : Catalog) (axes : List RawOption)
     (hcoverage : CoverageAccepted t axes)
     (corners : List RawOption) (hlen : corners.length = 4)
     (hcorners : (corners.zipIdx.all

@@ -89,16 +89,16 @@ private theorem deadAt_reflect {n : ℕ} (w : DirectionWord n) (i : Fin n) (z : 
     deadAt (reflectWord w) i (reflectSite z) ↔ deadAt w i z := by
   unfold deadAt
   rw [departureCount_reflect]
-  have hc : reflectSite (kernelCentre : Plane) = kernelCentre := rfl
-  have heq : reflectSite z = kernelCentre ↔ z = kernelCentre := by
+  have hc : reflectSite (kernelCenter : Plane) = kernelCenter := rfl
+  have heq : reflectSite z = kernelCenter ↔ z = kernelCenter := by
     rw [← hc]
     exact reflectSite_eq_iff _ _
   simp only [heq]
 
-private theorem neighbours_reflect (x : Plane) :
-    (neighbours x).image reflectSite = neighbours (reflectSite x) := by
+private theorem neighbors_reflect (x : Plane) :
+    (neighbors x).image reflectSite = neighbors (reflectSite x) := by
   classical
-  unfold neighbours
+  unfold neighbors
   have hdirs : (Finset.univ : Finset Compass).image reflectDirection = Finset.univ := by
     ext d
     constructor
@@ -125,25 +125,25 @@ private theorem reflectSite_sub (x y : Plane) :
   change reflectHom (x - y) = reflectHom x - reflectHom y
   exact map_sub reflectHom x y
 
-private theorem responseNeighbours_reflect {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    (responseNeighbours w i).image reflectSite = responseNeighbours (reflectWord w) i := by
+private theorem responseNeighbors_reflect {n : ℕ} (w : DirectionWord n) (i : Fin n) :
+    (responseNeighbors w i).image reflectSite = responseNeighbors (reflectWord w) i := by
   classical
-  unfold responseNeighbours
+  unfold responseNeighbors
   rw [Finset.image_erase (fun _ _ h => reflectSite_eq_iff _ _ |>.mp h)]
-  rw [neighbours_reflect, wordVertex_reflect, reflectSite_sub, reflectSite_step,
+  rw [neighbors_reflect, wordVertex_reflect, reflectSite_sub, reflectSite_step,
     wordVertex_reflect, wordIncoming_reflect]
 
 private theorem liveOther_image {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    (liveOtherNeighbours w i).image reflectSite = liveOtherNeighbours (reflectWord w) i := by
+    (liveOtherNeighbors w i).image reflectSite = liveOtherNeighbors (reflectWord w) i := by
   classical
-  unfold liveOtherNeighbours
-  let s := (responseNeighbours w i).erase (wordVertex kernelStart w (i.val + 1))
+  unfold liveOtherNeighbors
+  let s := (responseNeighbors w i).erase (wordVertex kernelStart w (i.val + 1))
   have hs : s.image reflectSite =
-      (responseNeighbours (reflectWord w) i).erase
+      (responseNeighbors (reflectWord w) i).erase
         (wordVertex kernelStart (reflectWord w) (i.val + 1)) := by
     dsimp [s]
     rw [Finset.image_erase (fun _ _ h => reflectSite_eq_iff _ _ |>.mp h)]
-    rw [responseNeighbours_reflect, wordVertex_reflect]
+    rw [responseNeighbors_reflect, wordVertex_reflect]
   calc
     (s.filter (fun z => ¬ deadAt w i z)).image reflectSite =
       (s.image reflectSite).filter (fun z => ¬ deadAt (reflectWord w) i z) := by
@@ -153,12 +153,12 @@ private theorem liveOther_image {n : ℕ} (w : DirectionWord n) (i : Fin n) :
           apply Finset.filter_congr
           intro z hz
           exact not_congr (deadAt_reflect w i z)
-    _ = ((responseNeighbours (reflectWord w) i).erase
+    _ = ((responseNeighbors (reflectWord w) i).erase
         (wordVertex kernelStart (reflectWord w) (i.val + 1))).filter
           (fun z => ¬ deadAt (reflectWord w) i z) := by rw [hs]
 
 private theorem liveOther_card {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    (liveOtherNeighbours (reflectWord w) i).card = (liveOtherNeighbours w i).card := by
+    (liveOtherNeighbors (reflectWord w) i).card = (liveOtherNeighbors w i).card := by
   rw [← liveOther_image]
   exact Finset.card_image_of_injective _ (fun x y h => reflectSite_eq_iff x y |>.mp h)
 

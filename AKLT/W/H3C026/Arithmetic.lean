@@ -60,21 +60,21 @@ response sum, with the sum taken before rounding. -/
 theorem near_response_ceiling (ain d : Compass) (j : Fin 4)
     (hr : d ≠ ain.reverse) :
     coefficientCeiling (passageFactor (decide (d=ain)) *
-      relaxedReward (-(direction j.val).step) ain d {kernelCentre} / 3) =
+      relaxedReward (-(direction j.val).step) ain d {kernelCenter} / 3) =
       response (directionCode ain) (directionCode d) j.val := by
   fin_cases j <;> cases ain <;> cases d <;> norm_num [Compass.reverse] at hr <;>
-    norm_num [relaxedReward, neighbours, compass_univ, Compass.step, Compass.reverse,
+    norm_num [relaxedReward, neighbors, compass_univ, Compass.step, Compass.reverse,
       responsePairType, kernelWitness, betaPrimeBound, betaBound, alphaBound,
-      kernelCentre, coefficientCeiling, certificateCoefficientScale,
+      kernelCenter, coefficientCeiling, certificateCoefficientScale,
       passageFactor, localThreshold, response, responseTable, direction, directionCode,
       Finset.powersetCard_succ_insert, Finset.powersetCard_zero,
       Finset.powersetCard_one, Finset.erase_insert, Finset.erase_singleton,
       Finset.erase_insert_of_ne, Finset.sdiff_singleton_eq_erase, Prod.mk.injEq,
       pairs_singleton, pairs_empty, pair_eq_pair, plane_zero] <;>
     simp only [plane_zero] <;>
-    norm_num [relaxedReward, neighbours, compass_univ, Compass.step, Compass.reverse,
+    norm_num [relaxedReward, neighbors, compass_univ, Compass.step, Compass.reverse,
       responsePairType, kernelWitness, betaPrimeBound, betaBound, alphaBound,
-      kernelCentre, coefficientCeiling, certificateCoefficientScale,
+      kernelCenter, coefficientCeiling, certificateCoefficientScale,
       passageFactor, localThreshold, response, responseTable, direction, directionCode,
       Finset.powersetCard_succ_insert, Finset.powersetCard_zero,
       Finset.powersetCard_one, Finset.erase_insert, Finset.erase_singleton,
@@ -86,9 +86,9 @@ theorem far_response_ceiling (ain d : Compass) (hr : d ≠ ain.reverse) :
       relaxedReward (0,0) ain d ∅ / 3) =
       response (directionCode ain) (directionCode d) 4 := by
   cases ain <;> cases d <;> norm_num [Compass.reverse] at hr <;>
-    norm_num [relaxedReward, neighbours, compass_univ, Compass.step, Compass.reverse,
+    norm_num [relaxedReward, neighbors, compass_univ, Compass.step, Compass.reverse,
       responsePairType, kernelWitness, betaPrimeBound, betaBound, alphaBound,
-      kernelCentre, coefficientCeiling, certificateCoefficientScale,
+      kernelCenter, coefficientCeiling, certificateCoefficientScale,
       passageFactor, localThreshold, response, responseTable, direction, directionCode,
       Finset.powersetCard_succ_insert, Finset.powersetCard_zero,
       Finset.powersetCard_one, Finset.erase_insert, Finset.erase_singleton,

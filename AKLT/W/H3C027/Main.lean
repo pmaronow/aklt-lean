@@ -11,11 +11,11 @@ open AKLT.Defs AKLT.Cert.H3 AKLT.Cert.H3.Production AKLT.Gen.Packed
 
 namespace AKLT.W.H3C027
 
-private theorem neighbours_zero :
-    neighbours (0, 0) = {(1, 0), (0, 1), (-1, 0), (0, -1)} := by
+private theorem neighbors_zero :
+    neighbors (0, 0) = {(1, 0), (0, 1), (-1, 0), (0, -1)} := by
   classical
   ext x
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and,
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and,
     Finset.mem_insert, Finset.mem_singleton]
   constructor
   · rintro ⟨d, rfl⟩

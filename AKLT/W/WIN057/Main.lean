@@ -32,17 +32,17 @@ private theorem adjacent_symm {x y : Plane} (h : Adjacent x y) : Adjacent y x :=
   rw [h₁, h₂]
   exact h
 
-private theorem adjacent_of_mem_neighbours {x z : Plane} (h : z ∈ neighbours x) :
+private theorem adjacent_of_mem_neighbors {x z : Plane} (h : z ∈ neighbors x) :
     Adjacent x z := by
   rcases Finset.mem_image.mp h with ⟨d, -, rfl⟩
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
-private theorem neighbours_pair_dist_two {x z w : Plane}
-    (hz : z ∈ neighbours x) (hw : w ∈ neighbours x) (hne : z ≠ w) :
+private theorem neighbors_pair_dist_two {x z w : Plane}
+    (hz : z ∈ neighbors x) (hw : w ∈ neighbors x) (hne : z ≠ w) :
     latticeDist z w = 2 := by
   rcases Finset.mem_image.mp hz with ⟨d, -, rfl⟩
   rcases Finset.mem_image.mp hw with ⟨e, -, rfl⟩
-  cases d <;> cases e <;> simp_all [neighbours, latticeDist, Compass.step]
+  cases d <;> cases e <;> simp_all [neighbors, latticeDist, Compass.step]
 
 private theorem boundaryDepth_le_dist_add (G : Finset Plane) (x s : Plane) :
     boundaryDepth G x ≤ (latticeDist x s : ℕ∞) + boundaryDepth G s := by
@@ -124,9 +124,9 @@ theorem AKLT.W.WIN057.main : AKLT.Blueprint.Win.RemovedPairResponseStatement := 
   have hz' : z ∈ survivors G Y x := hz
   have hw' : w ∈ survivors G Y x := hw
   simp only [survivors, Finset.mem_inter] at hz' hw'
-  have hzx : Adjacent z x := adjacent_symm (adjacent_of_mem_neighbours hz'.1)
-  have hwx : Adjacent w x := adjacent_symm (adjacent_of_mem_neighbours hw'.1)
-  have hdistzw : latticeDist z w = 2 := neighbours_pair_dist_two hz'.1 hw'.1 hne
+  have hzx : Adjacent z x := adjacent_symm (adjacent_of_mem_neighbors hz'.1)
+  have hwx : Adjacent w x := adjacent_symm (adjacent_of_mem_neighbors hw'.1)
+  have hdistzw : latticeDist z w = 2 := neighbors_pair_dist_two hz'.1 hw'.1 hne
   have hresp := hP.2.2.2 G τ (insert x Y) hremove z w hz'.2 hw'.2 hdistzw
     ⟨x, Finset.mem_insert_self x Y, hzx, hwx⟩
   have hdz := depthShift_le_protected_setDistance G x z (adjacent_symm hzx)

@@ -160,7 +160,7 @@ theorem network_present_symm {G : Finset Plane} (D : Network G) {x y : Plane}
     omega
   exact ⟨hy, hx, hdist, hyx, hxy⟩
 
-theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbours x := by
+theorem adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) : y ∈ neighbors x := by
   have hsum : (x.1 - y.1).natAbs + (x.2 - y.2).natAbs = 1 := h
   have hsplit : ((x.1 - y.1).natAbs = 1 ∧ (x.2 - y.2).natAbs = 0) ∨
       ((x.1 - y.1).natAbs = 0 ∧ (x.2 - y.2).natAbs = 1) := by omega
@@ -191,13 +191,13 @@ theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbo
         · simp [Compass.step]; omega
   rcases hdir with he | hn | hw | hs
   · rw [he]
-    simp [neighbours]
+    simp [neighbors]
   · rw [hn]
-    simp [neighbours]
+    simp [neighbors]
   · rw [hw]
-    simp [neighbours]
+    simp [neighbors]
   · rw [hs]
-    simp [neighbours]
+    simp [neighbors]
 
 theorem originalLeg_root_is_protected {G : Finset Plane} {x z : Plane}
     (hx : x ∈ G) (he : (x, z) ∈ originalLegs G) : x ∈ protectedSites G := by
@@ -253,16 +253,16 @@ def Residual_FirstHitIsolation : Prop :=
     ∀ n : ℕ, ∀ w : DirectionWord n,
       StoppedNetworkTrail D u (insert v (protectedSites G)) w →
       wordVertex u w n = v → D.status v = .D →
-      (traceNetwork D (wordVertices u w)).presentNeighbours v = ∅ ∧
+      (traceNetwork D (wordVertices u w)).presentNeighbors v = ∅ ∧
       ∀ e ∈ originalLegs G, e.1 ≠ v
 
-theorem firstHit_D_no_neighbours :
+theorem firstHit_D_no_neighbors :
     ∀ G : Finset Plane, ∀ D : Network G,
       D.Auxiliary → ∀ u v : Plane, D.AdmissibleStart u → AdmissibleTarget D v →
       u ≠ v → ∀ n : ℕ, ∀ w : DirectionWord n,
       StoppedNetworkTrail D u (insert v (protectedSites G)) w →
       wordVertex u w n = v → D.status v = .D →
-      (traceNetwork D (wordVertices u w)).presentNeighbours v = ∅ := by
+      (traceNetwork D (wordVertices u w)).presentNeighbors v = ∅ := by
   intro G D hD u v hstart htarget hne n w htrail hend hDv
   have hn : 0 < n := by
     by_contra hn
@@ -279,8 +279,8 @@ theorem firstHit_D_no_neighbours :
       have h := hpresent ⟨n - 1, by omega⟩
       simpa [p, show n - 1 + 1 = n by omega, hend] using h
     have hArrivalV : D.Present v p := network_present_symm D hArrival
-    have hpNbr : p ∈ D.presentNeighbours v := by
-      exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbours hArrivalV.2.2.1, hArrivalV⟩
+    have hpNbr : p ∈ D.presentNeighbors v := by
+      exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbors hArrivalV.2.2.1, hArrivalV⟩
     have hsplit := wordVertices_split_terminal u v w hn hend
     have hNoArrival : ¬ (traceNetwork D (wordVertices u w)).Present v p := by
       rw [hsplit]
@@ -290,8 +290,8 @@ theorem firstHit_D_no_neighbours :
     intro z hz
     have hz' := Finset.mem_filter.mp hz
     have hzInitial : D.Present v z := traceNetwork_present_mono D (wordVertices u w) hz'.2
-    have hzNbr : z ∈ D.presentNeighbours v :=
-      Finset.mem_filter.mpr ⟨adjacent_mem_neighbours hzInitial.2.2.1, hzInitial⟩
+    have hzNbr : z ∈ D.presentNeighbors v :=
+      Finset.mem_filter.mpr ⟨adjacent_mem_neighbors hzInitial.2.2.1, hzInitial⟩
     have hsame := (Finset.card_le_one.mp hdegree) z hzNbr p hpNbr
     subst z
     exact hNoArrival hz'.2
@@ -319,7 +319,7 @@ theorem firstHit_D_no_original_legs :
 
 theorem firstHitIsolation : Residual_FirstHitIsolation := by
   intro G D hD u v hstart htarget hne n w htrail hend hDv
-  exact ⟨firstHit_D_no_neighbours G D hD u v hstart htarget hne n w
+  exact ⟨firstHit_D_no_neighbors G D hD u v hstart htarget hne n w
       htrail hend hDv,
     firstHit_D_no_original_legs G D hD u v hstart htarget hne n w htrail hend hDv⟩
 
@@ -329,7 +329,7 @@ def Residual_IsolatedSiteLaw : Prop :=
   ∀ G : Finset Plane, ∀ E : Network G, ∀ τ : PinAssignment G,
     ∀ b : Bool, ∀ v : Plane, v ∈ E.active →
     (E.status v = .U ∨ E.status v = .D) →
-    (E.status v = .D → E.presentNeighbours v = ∅) →
+    (E.status v = .D → E.presentNeighbors v = ∅) →
     (E.status v = .D → ∀ e ∈ originalLegs G, e.1 ≠ v) →
     0 < E.partition τ b (fun _ => 1) →
     E.expectation τ b (fun a => normSq (a v)) = AKLT.Blueprint.Rec.targetFactor E v
@@ -368,10 +368,10 @@ theorem main_of_residuals (hStatus : Residual_FirstHitStatus)
     · rw [hD']
       decide
   have hDterminal : D.status v = .D →
-      E.presentNeighbours v = ∅ ∧ ∀ e ∈ originalLegs G, e.1 ≠ v := by
+      E.presentNeighbors v = ∅ ∧ ∀ e ∈ originalLegs G, e.1 ≠ v := by
     intro hDv
     exact hIsolation G D hD u v hstart htarget hne n w htrail hend hDv
-  have hEmpty : E.status v = .D → E.presentNeighbours v = ∅ := by
+  have hEmpty : E.status v = .D → E.presentNeighbors v = ∅ := by
     intro hEv
     have hDv : D.status v = .D := by rw [← hstatus]; exact hEv
     exact (hDterminal hDv).1
@@ -420,7 +420,7 @@ theorem partition_normSq_U {G : Finset Plane} (E : Network G)
 original pin legs. -/
 theorem interaction_update_isolated {G : Finset Plane} (E : Network G)
     (τ : PinAssignment G) (b : Bool) (v : Plane)
-    (hiso : E.presentNeighbours v = ∅)
+    (hiso : E.presentNeighbors v = ∅)
     (hlegs : ∀ e ∈ originalLegs G, e.1 ≠ v)
     (m : Plane → Vec3) (z : Vec3) :
     AKLT.W.REC003.interaction E τ b (Function.update m v z) =
@@ -434,11 +434,11 @@ theorem interaction_update_isolated {G : Finset Plane} (E : Network G)
     have hn : e.1 ≠ v ∧ e.2 ≠ v := by
       constructor
       · intro h
-        have hmem := (mem_presentNeighbours E e.1 e.2).2 hp
+        have hmem := (mem_presentNeighbors E e.1 e.2).2 hp
         rw [h, hiso] at hmem
         simp at hmem
       · intro h
-        have hmem := (mem_presentNeighbours E e.2 e.1).2 (present_symm hp)
+        have hmem := (mem_presentNeighbors E e.2 e.1).2 (present_symm hp)
         rw [h, hiso] at hmem
         simp at hmem
     rw [Function.update_of_ne hn.1, Function.update_of_ne hn.2]
@@ -450,7 +450,7 @@ theorem interaction_update_isolated {G : Finset Plane} (E : Network G)
 unnormalized partition; no division is used in this identity. -/
 theorem partition_normSq_D {G : Finset Plane} (E : Network G)
     (τ : PinAssignment G) (b : Bool) (v : Plane) (hv : v ∈ E.active)
-    (hD : E.status v = .D) (hiso : E.presentNeighbours v = ∅)
+    (hD : E.status v = .D) (hiso : E.presentNeighbors v = ∅)
     (hlegs : ∀ e ∈ originalLegs G, e.1 ≠ v) :
     E.partition τ b (fun a => normSq (a v)) =
       (3 / 5 : ℝ) * E.partition τ b (fun _ => 1) := by

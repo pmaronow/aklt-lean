@@ -182,9 +182,9 @@ private theorem cornerUMask (o : RawOption) (ho : o ∈ cornerOptions)
   rcases ho with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> simp_all
 
 private theorem decodedKeptFull (x : Plane) :
-    decodedKeptAt x ⟨1, 15⟩ = neighbours x := by
+    decodedKeptAt x ⟨1, 15⟩ = neighbors x := by
   ext y
-  simp [decodedKeptAt, hasDirection, compassAt, Compass.step, neighbours,
+  simp [decodedKeptAt, hasDirection, compassAt, Compass.step, neighbors,
     List.range, List.range.loop]
   constructor
   · rintro (h | h | h | h)
@@ -203,12 +203,12 @@ private theorem inputStatusAtRing (a : Input) (x : Plane)
 private theorem inputKeptAtFull (a : Input) (x : Plane)
     (hx : x ∈ templateSites) (hc : x ≠ (0,0))
     (hm : (a.optionAt x).mask = 15) :
-    (inputPattern a).keptAt x = neighbours x := by
+    (inputPattern a).keptAt x = neighbors x := by
   calc
     (inputPattern a).keptAt x = decodedKeptAt x (a.optionAt x) := by
       simp [inputPattern, PatternData.keptAt, hx, hc, decodedKeptAt]
     _ = decodedKeptAt x ⟨1, 15⟩ := by simp [decodedKeptAt, hm]
-    _ = neighbours x := decodedKeptFull x
+    _ = neighbors x := decodedKeptFull x
 
 private theorem inputKeptAtEqDecoded (a : Input) (x : Plane)
     (hx : x ∈ templateSites) (hc : x ≠ (0,0)) :

@@ -11,18 +11,18 @@ open AKLT.Blueprint.Rec
 
 namespace AKLT.W.REC093
 
-private theorem adjacent_positiveNeighbours (x y : Plane) (h : Adjacent x y) :
-    y ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours y := by
+private theorem adjacent_positiveNeighbors (x y : Plane) (h : Adjacent x y) :
+    y ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors y := by
   rcases x with ⟨x₁, x₂⟩
   rcases y with ⟨y₁, y₂⟩
-  simp [Adjacent, latticeDist, positiveNeighbours] at h ⊢
+  simp [Adjacent, latticeDist, positiveNeighbors] at h ⊢
   omega
 
-private theorem positiveNeighbours_adjacent (x y : Plane)
-    (h : y ∈ positiveNeighbours x) : Adjacent x y := by
+private theorem positiveNeighbors_adjacent (x y : Plane)
+    (h : y ∈ positiveNeighbors x) : Adjacent x y := by
   rcases x with ⟨x₁, x₂⟩
   rcases y with ⟨y₁, y₂⟩
-  simp [positiveNeighbours] at h
+  simp [positiveNeighbors] at h
   rcases h with h | h
   · rcases h with ⟨h₁, h₂⟩
     subst y₁
@@ -45,12 +45,12 @@ private theorem internalBond_adjacent (G : Finset Plane) {x y : Plane}
     cases b
     simp_all
   rcases hab' with ⟨rfl, rfl⟩
-  exact positiveNeighbours_adjacent _ _ hb
+  exact positiveNeighbors_adjacent _ _ hb
 
 private theorem adjacent_internalBond (G : Finset Plane) {x y : Plane}
     (hx : x ∈ G) (hy : y ∈ G) (h : Adjacent x y) :
     (x, y) ∈ internalBonds G ∨ (y, x) ∈ internalBonds G := by
-  rcases adjacent_positiveNeighbours x y h with hxy | hyx
+  rcases adjacent_positiveNeighbors x y h with hxy | hyx
   · left
     rw [internalBonds, Finset.mem_biUnion]
     exact ⟨x, hx, Finset.mem_image.mpr ⟨y, Finset.mem_inter.mpr ⟨hxy, hy⟩, rfl⟩⟩

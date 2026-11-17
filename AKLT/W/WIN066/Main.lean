@@ -41,8 +41,8 @@ private theorem sum_union_prod {α : Type*} [DecidableEq α]
       exact (Fintype.sum_mul_sum f g).symm
 
 
-private theorem positive_adj {x y : Plane} (h : y ∈ AKLT.Defs.positiveNeighbours x) : Adjacent x y := by
-  simp only [AKLT.Defs.positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+private theorem positive_adj {x y : Plane} (h : y ∈ AKLT.Defs.positiveNeighbors x) : Adjacent x y := by
+  simp only [AKLT.Defs.positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with h | h
   · subst y
     simp [Adjacent, latticeDist]

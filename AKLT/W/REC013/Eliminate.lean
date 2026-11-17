@@ -51,14 +51,14 @@ theorem join_legs {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
   · rw [if_neg hp, if_neg (fun h => hp ⟨h.1,h.2.1⟩)]
 
 theorem join_bonds {G : Finset Plane} (D : Network G) (y o : Plane)
-    (hy : y ∈ D.active) (hs : D.presentNeighbours y = {o})
+    (hy : y ∈ D.active) (hs : D.presentNeighbors y = {o})
     (j : SpinLetter) (n : (removeSite D y).active → SpinLetter) :
     (∏ t ∈ D.bonds, (1 + dot (D.spins (joinSpin D y j n) t.1)
       (D.spins (joinSpin D y j n) t.2))) =
     (1 + dot (spinVector j) ((removeSite D y).spins n o)) *
       ∏ t ∈ (removeSite D y).bonds, (1 + dot ((removeSite D y).spins n t.1)
         ((removeSite D y).spins n t.2)) := by
-  have ho : o ∈ D.presentNeighbours y := by rw [hs]; simp
+  have ho : o ∈ D.presentNeighbors y := by rw [hs]; simp
   obtain ⟨e,he,hed⟩ := exists_selected_bond ho
   have hyo : y ≠ o := by
     rcases hed with h | h
@@ -81,7 +81,7 @@ theorem join_bonds {G : Finset Plane} (D : Network G) (y o : Plane)
 /-- Direct finite summation over the unique one-bond D departure. -/
 theorem d_partition_eq_remove {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (y o : Plane) (hy : y ∈ D.active) (hn : y ∉ protectedSites G)
-    (hD : D.status y = .D) (hs : D.presentNeighbours y = {o}) :
+    (hD : D.status y = .D) (hs : D.presentNeighbors y = {o}) :
     D.partition τ b (fun _ => 1) = (removeSite D y).partition τ b (fun _ => 1) := by
   unfold Network.partition
   rw [sum_split D y hy]

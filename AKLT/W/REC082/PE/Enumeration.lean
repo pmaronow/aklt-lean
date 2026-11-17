@@ -44,8 +44,8 @@ private theorem compass_step_injective : Function.Injective Compass.step := by
 private theorem sum_present_directions {G : Finset Plane} (D : Network G) (u : Plane)
     (f : Plane → ℝ) :
     (∑ d : Compass, if D.Present u (u + d.step) then f (u + d.step) else 0) =
-      ∑ o ∈ D.presentNeighbours u, f o := by
-  rw [Network.presentNeighbours, Finset.sum_filter, neighbours, Finset.sum_image]
+      ∑ o ∈ D.presentNeighbors u, f o := by
+  rw [Network.presentNeighbors, Finset.sum_filter, neighbors, Finset.sum_image]
   intro d hd e he hde
   exact compass_step_injective (add_left_cancel hde)
 
@@ -83,7 +83,7 @@ theorem lengthTerm_step {G : Finset Plane} {D : Network G} {u : Plane}
     (F : Network G → Plane → ℝ) (n : ℕ) :
     lengthTerm D T F (n + 1) u =
       (if D.status u = .U then (1 / 3 : ℝ) else 1 / 5) *
-        ∑ o ∈ D.presentNeighbours u, lengthTerm (traceStep D u o) T F n o := by
+        ∑ o ∈ D.presentNeighbors u, lengthTerm (traceStep D u o) T F n o := by
   classical
   unfold lengthTerm
   rw [sum_word_cons]

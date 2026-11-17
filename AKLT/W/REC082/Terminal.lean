@@ -31,10 +31,10 @@ theorem target_partition_factor (p : PairData) (hv : p.v ∉ protectedSites p.G)
   rcases p.pair.2.2.2.2.2.2.2.2.2 with hU | ⟨hD, hdeg⟩
   · have h := partition_norm_U E p.τ b p.v ha (hstatus.trans hU)
     simpa [targetFactor, hU] using h
-  · have hdeg' : (p.normalized.presentNeighbours p.v).card ≤ 1 := by
+  · have hdeg' : (p.normalized.presentNeighbors p.v).card ≤ 1 := by
       simpa only [PairData.normalized,
-        normalizeStart_presentNeighbours p.D p.u p.c p.v (pair_c_removed p)] using hdeg
-    have hiso : E.presentNeighbours p.v = ∅ :=
+        normalizeStart_presentNeighbors p.D p.u p.c p.v (pair_c_removed p)] using hdeg
+    have hiso : E.presentNeighbors p.v = ∅ :=
       stopped_target_isolated (pair_ne p) hdeg' hw he
     have h := partition_norm_D E p.τ b p.v ha (hstatus.trans hD) hiso hv
     simpa [targetFactor, hD] using h

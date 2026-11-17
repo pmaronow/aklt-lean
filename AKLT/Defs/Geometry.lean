@@ -46,18 +46,18 @@ def Adjacent (x y : Plane) : Prop := latticeDist x y = 1
 instance (x y : Plane) : Decidable (Adjacent x y) := inferInstanceAs (Decidable (_ = _))
 
 /-- Four physical neighbors. -/
-def neighbours (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
+def neighbors (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
 
 /-- The positive orientations, used solely to count each internal bond once. -/
-def positiveNeighbours (x : Plane) : Finset Plane := {(x.1 + 1, x.2), (x.1, x.2 + 1)}
+def positiveNeighbors (x : Plane) : Finset Plane := {(x.1 + 1, x.2), (x.1, x.2 + 1)}
 
 /-- `d:pinmodel`: each internal unoriented edge, indexed once. -/
 def internalBonds (G : Finset Plane) : Finset (Plane × Plane) :=
-  G.biUnion fun x => (positiveNeighbours x ∩ G).image (fun y => (x, y))
+  G.biUnion fun x => (positiveNeighbors x ∩ G).image (fun y => (x, y))
 
 /-- `d:pinmodel`: original legs, before any removals. -/
 def originalLegs (G : Finset Plane) : Finset (Plane × Plane) :=
-  G.biUnion fun x => (neighbours x \ G).image (fun z => (x, z))
+  G.biUnion fun x => (neighbors x \ G).image (fun z => (x, z))
 
 /-- `d:moment`: distance to a set, including value infinity for the empty set. -/
 noncomputable def setDistance (metric : Plane → Plane → ℕ) (x : Plane)

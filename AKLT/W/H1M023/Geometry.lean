@@ -101,7 +101,7 @@ def otherEnd (x : Plane) (e : Plane × Plane) : Plane := if e.1 = x then e.2 els
 
 lemma leaf_bond (π : PatternData) {x : Plane} (hx : patternDegree π x = 1) :
     ∃ e ∈ π.bonds, (e.1 = x ∨ e.2 = x) ∧
-      leafNeighbour π x = otherEnd x e ∧
+      leafNeighbor π x = otherEnd x e ∧
       ∀ f ∈ π.bonds, (f.1 = x ∨ f.2 = x) → f = e := by
   obtain ⟨e, he⟩ := Finset.card_eq_one.mp hx
   have he' : e ∈ π.bonds ∧ (e.1 = x ∨ e.2 = x) := by
@@ -136,9 +136,9 @@ lemma leaf_bond (π : PatternData) {x : Plane} (hx : patternDegree π x = 1) :
     · by_cases h1 : e.1 = x <;> simpa [h, h1, otherEnd] using hfm.symm
   exact ⟨e, he'.1, he'.2, hval, hu⟩
 
-lemma group_single_neighbour_retained (π : PatternData) (r : Representation) {x : Plane}
+lemma group_single_neighbor_retained (π : PatternData) (r : Representation) {x : Plane}
     (hx : x ∈ reductionGroups π) (hp : groupIsPair π r x = false) :
-    leafNeighbour π x ∈ reducedSpinSites π r := by
+    leafNeighbor π x ∈ reducedSpinSites π r := by
   classical
   have hs := group_single π r hx hp
   obtain ⟨e, he, hei, hne, hu⟩ := leaf_bond π hs.1.1

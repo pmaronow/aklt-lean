@@ -15,7 +15,7 @@ theorem template_sites_eq : templateSites =
       (1, 1), (-1, 1), (-1, -1), (1, -1), (2, 0), (0, 2), (-2, 0), (0, -2)} := by
   decide +kernel
 
-theorem neighbours_zero : neighbours (0, 0) = {(1, 0), (0, 1), (-1, 0), (0, -1)} := by
+theorem neighbors_zero : neighbors (0, 0) = {(1, 0), (0, 1), (-1, 0), (0, -1)} := by
   decide +kernel
 
 def canonicalOutgoing : Compass → Compass → Compass
@@ -50,7 +50,7 @@ def pullKept {G : Finset Plane} (E : Network G) (y : Plane) (a : Compass)
   simp [pullKept, Equiv.symm_apply_eq]
 
 theorem pullKept_sub {G : Finset Plane} {E : Network G} {y arrival : Plane} {a : Compass}
-    (h : PrefixInvariant E y arrival) (z : Plane) : pullKept E y a z ⊆ neighbours z := by
+    (h : PrefixInvariant E y arrival) (z : Plane) : pullKept E y a z ⊆ neighbors z := by
   intro t ht
   have hm := (Finset.mem_inter.mp (h.kept_sub _ ((mem_pullKept _ _ _ _ _).mp ht))).1
   rw [← adjacent_iff, ← chart_adjacent y z t a]
@@ -58,10 +58,10 @@ theorem pullKept_sub {G : Finset Plane} {E : Network G} {y arrival : Plane} {a :
 
 def completedKept {G : Finset Plane} (E : Network G) (y : Plane) (a : Compass)
     (z : Plane) : Finset Plane :=
-  if E.status (chart y a z) = .U ∧ z ≠ (0, 0) then neighbours z else pullKept E y a z
+  if E.status (chart y a z) = .U ∧ z ≠ (0, 0) then neighbors z else pullKept E y a z
 
 theorem completedKept_sub {G : Finset Plane} {E : Network G} {y arrival : Plane} {a : Compass}
-    (h : PrefixInvariant E y arrival) (z : Plane) : completedKept E y a z ⊆ neighbours z := by
+    (h : PrefixInvariant E y arrival) (z : Plane) : completedKept E y a z ⊆ neighbors z := by
   unfold completedKept
   split_ifs
   · exact Finset.Subset.refl _
@@ -121,26 +121,26 @@ theorem completed_center {G : Finset Plane} {E : Network G} {y : Plane} {a : Com
     (h : PrefixInvariant E y (y - a.step))
     (hy : y ∈ G) (hS : y ∉ protectedSites G) (hu : E.status y = .U) :
     completedKept E y a (0, 0) = {(1, 0), (0, 1), (-1, 0)} := by
-  have hnG : neighbours y ∩ G = neighbours y := by
+  have hnG : neighbors y ∩ G = neighbors y := by
     apply Finset.inter_eq_left.mpr
     intro t ht
     exact interior_ball hy hS (((adjacent_iff _ _).mpr ht).le.trans (by decide))
-  have hcanonical : completedKept E y a (0, 0) = (neighbours (0, 0)).erase (0, -1) := by
+  have hcanonical : completedKept E y a (0, 0) = (neighbors (0, 0)).erase (0, -1) := by
     ext t
     simp only [completedKept, ne_eq, not_true_eq_false, and_false, ↓reduceIte,
       mem_pullKept, chart_zero, h.liveU hu, hnG, Finset.mem_erase]
     have he : chart y a t ≠ y - a.step ↔ t ≠ (0, -1) := by
       rw [← chart_south y a]
       exact not_congr (chart y a).injective.eq_iff
-    have hn : chart y a t ∈ neighbours y ↔ t ∈ neighbours (0, 0) := by
+    have hn : chart y a t ∈ neighbors y ↔ t ∈ neighbors (0, 0) := by
       rw [← adjacent_iff, ← adjacent_iff]
       simpa only [chart_zero] using chart_adjacent y (0, 0) t a
     exact and_congr he hn
-  rw [hcanonical, neighbours_zero]
+  rw [hcanonical, neighbors_zero]
   decide +kernel
 
 theorem internalBonds_iff (S : Finset Plane) (x z : Plane) :
-    (x, z) ∈ internalBonds S ↔ x ∈ S ∧ z ∈ S ∧ z ∈ positiveNeighbours x := by
+    (x, z) ∈ internalBonds S ↔ x ∈ S ∧ z ∈ S ∧ z ∈ positiveNeighbors x := by
   simp [internalBonds, Finset.mem_biUnion, Finset.mem_image, Prod.ext_iff, and_comm,
     and_left_comm, and_assoc]
 
@@ -148,14 +148,14 @@ theorem unoriented_internalBonds (S : Finset Plane) (x z : Plane) :
     ((x, z) ∈ internalBonds S ∨ (z, x) ∈ internalBonds S) ↔
       x ∈ S ∧ z ∈ S ∧ Adjacent x z := by
   rw [internalBonds_iff, internalBonds_iff]
-  have ha : Adjacent x z ↔ z ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours z := by
+  have ha : Adjacent x z ↔ z ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors z := by
     rw [adjacent_iff]
-    simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+    simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
     constructor
     · rintro ⟨d, rfl⟩
-      cases d <;> simp [positiveNeighbours, Compass.step, Prod.ext_iff]
+      cases d <;> simp [positiveNeighbors, Compass.step, Prod.ext_iff]
     · intro hm
-      simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hm
+      simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hm
       rcases hm with (hm | hm) | (hm | hm)
       · exact ⟨.east, by simpa [Compass.step, Prod.ext_iff] using hm.symm⟩
       · exact ⟨.north, by simpa [Compass.step, Prod.ext_iff] using hm.symm⟩

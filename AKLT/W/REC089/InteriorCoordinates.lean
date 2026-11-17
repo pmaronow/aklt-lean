@@ -163,7 +163,7 @@ theorem tip_commonStatus (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
   have h0 : localChart a incoming (0, 0) = a.y := AKLT.W.REC096.chart_zero _ _
   have hn : localChart a incoming (tipPoint t.val) ≠ a.y := by
     rw [← h0]
-    exact (chartEquiv a incoming).injective.ne (tip_not_centre t.val)
+    exact (chartEquiv a incoming).injective.ne (tip_not_center t.val)
   cases next <;> simp [commonStatus, tipInterior, traceStep, hn, actualTipStatus]
 
 #print axioms interiorSiteEquiv

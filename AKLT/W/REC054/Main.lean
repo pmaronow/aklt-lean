@@ -135,7 +135,7 @@ theorem main :
   constructor
   · exact hstatus
   · intro x hx hxe
-    change E.kept x = neighbours x ∩ p.G
+    change E.kept x = neighbors x ∩ p.G
     have hnot : x ∉ wordVertices p.u w := by
       rw [hsplit]
       simp only [List.mem_append, List.mem_singleton]

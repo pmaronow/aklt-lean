@@ -55,7 +55,7 @@ def PatternData.Covered (π : PatternData) : Prop :=
   (∀ x ∈ templateCorners, π.statusAt x = .U ∨ π.statusAt x = .X ∨
     (π.statusAt x = .D ∧ (π.keptAt x).card = 2)) ∧
   (∀ x ∈ templateSites, x ≠ (0, 0) → x ∉ templateTips → π.statusAt x = .U →
-    π.keptAt x = neighbours x) ∧
+    π.keptAt x = neighbors x) ∧
   (∀ x ∈ templateTips, π.statusAt x = .U) ∧
   ∀ x ∈ templateSites \ templateTips, ∀ y ∈ templateSites \ templateTips,
     π.statusAt x ≠ .X → π.statusAt y ≠ .X → Adjacent x y →

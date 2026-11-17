@@ -16,13 +16,13 @@ theorem main : AKLT.Blueprint.Win.CrossFactsStatement := by
   have hstep_inj : Function.Injective (fun d : Compass => x + d.step) := by
     intro d e h
     cases d <;> cases e <;> simp [Compass.step] at h ⊢
-  have hx_not_neigh : x ∉ neighbours x := by
+  have hx_not_neigh : x ∉ neighbors x := by
     intro h
-    unfold neighbours at h
+    unfold neighbors at h
     rcases Finset.mem_image.mp h with ⟨d, hd, hdeq⟩
     cases d <;> simp [Compass.step] at hdeq
-  have hneigh_card : (neighbours x).card = 4 := by
-    unfold neighbours
+  have hneigh_card : (neighbors x).card = 4 := by
+    unfold neighbors
     rw [Finset.card_image_of_injective _ hstep_inj]
     decide
   have hcard : (cross x).card = 5 := by
@@ -38,7 +38,7 @@ theorem main : AKLT.Blueprint.Win.CrossFactsStatement := by
       rcases hz with hzx | hz
       · exact Or.inl hzx
       · right
-        unfold neighbours at hz
+        unfold neighbors at hz
         rcases Finset.mem_image.mp hz with ⟨d, hd, hdz⟩
         cases d with
         | east => exact Or.inl hdz.symm

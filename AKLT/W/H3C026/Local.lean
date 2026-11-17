@@ -53,10 +53,10 @@ theorem tables_extended (T : Tables) (φ : Phase) (a : Fin 3741) (x : Plane) :
     lane (T.planeFn φ a) 80 (siteIndex x) else T.capFn φ a) = _
   simp only [mem_square_iff, valueAt]
 
-theorem tables_centre (T : Tables) (hT : CertData.H3.Bridge.TableBounds T)
-    (φ : Phase) (a : Fin 3741) : T.data.extended φ a kernelCentre = 0 := by
+theorem tables_center (T : Tables) (hT : CertData.H3.Bridge.TableBounds T)
+    (φ : Phase) (a : Fin 3741) : T.data.extended φ a kernelCenter = 0 := by
   rw [tables_extended]
-  simpa [valueAt, inBox, kernelCentre] using (hT φ a).2.2.2
+  simpa [valueAt, inBox, kernelCenter] using (hT φ a).2.2.2
 
 end AKLT.W.H3C026
 
@@ -66,4 +66,4 @@ end AKLT.W.H3C026
 #print axioms AKLT.W.H3C026.known_reverse_edge
 #print axioms AKLT.W.H3C026.correct_edge
 #print axioms AKLT.W.H3C026.tables_extended
-#print axioms AKLT.W.H3C026.tables_centre
+#print axioms AKLT.W.H3C026.tables_center

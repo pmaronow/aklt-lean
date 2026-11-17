@@ -115,8 +115,8 @@ private theorem right_add_one_ne_sub_one {N : Size} (a : ZMod N.val) : a + 1 ≠
   exact (AKLT.Challenge.small_natCast_ne_zero N 2 (by omega)
     (by have hh := N.property; omega)) (by simpa using h2)
 
-private theorem centreSign_eq_one {L N : Size} (x : Site L N) :
-    AKLT.Blueprint.Q.centreSign x = 1 := by
+private theorem centerSign_eq_one {L N : Size} (x : Site L N) :
+    AKLT.Blueprint.Q.centerSign x = 1 := by
   classical
   change (∏ e : Bond L N, if x ∈ bondSites e then AKLT.Blueprint.Q.edgeSign x e else 1) = 1
   rw [← Finset.prod_filter]
@@ -132,7 +132,7 @@ private theorem centreSign_eq_one {L N : Size} (x : Site L N) :
   simp [Finset.prod_insert, AKLT.Blueprint.Q.edgeSign, Prod.mk.injEq,
     hleft, hright]
 
-private theorem torus_neighbours_pairwise {L N : Size} (x : Site L N) :
+private theorem torus_neighbors_pairwise {L N : Size} (x : Site L N) :
     let a := (x.1 + 1, x.2)
     let b := (x.1 - 1, x.2)
     let c := (x.1, x.2 + 1)
@@ -237,8 +237,8 @@ private theorem beta_prod_formula {L N : Size} (κ : Site L N → Fin 3)
     AKLT.Blueprint.Q.determinant (frameSpinor (κ x) (σ x))
       (frameSpinor (κ (x.1, x.2 - 1)) (σ (x.1, x.2 - 1))) := by
   classical
-  unfold AKLT.Blueprint.Q.beta torusNeighbours
-  rcases torus_neighbours_pairwise x with ⟨hab,hac,had,hbc,hbd,hcd⟩
+  unfold AKLT.Blueprint.Q.beta torusNeighbors
+  rcases torus_neighbors_pairwise x with ⟨hab,hac,had,hbc,hbd,hcd⟩
   simp [Finset.prod_insert, hab, hac, had, hbc, hbd, hcd] <;> ring
 
 private theorem incident_eval {L N : Size} (κ : Site L N → Fin 3)
@@ -246,8 +246,8 @@ private theorem incident_eval {L N : Size} (κ : Site L N → Fin 3)
     (∏ e ∈ incident x, AKLT.Blueprint.Q.determinant
       (frameSpinor (κ e.1) (σ e.1))
       (frameSpinor (κ (nextSite e.1 e.2)) (σ (nextSite e.1 e.2)))) =
-      AKLT.Blueprint.Q.centreSign x * AKLT.Blueprint.Q.beta κ x σ := by
-  rw [incident_prod_formula, beta_prod_formula, centreSign_eq_one]
+      AKLT.Blueprint.Q.centerSign x * AKLT.Blueprint.Q.beta κ x σ := by
+  rw [incident_prod_formula, beta_prod_formula, centerSign_eq_one]
   have h1 := det_swap (frameSpinor (κ (x.1 - 1, x.2)) (σ (x.1 - 1, x.2)))
     (frameSpinor (κ x) (σ x))
   have h2 := det_swap (frameSpinor (κ (x.1, x.2 - 1)) (σ (x.1, x.2 - 1)))
@@ -306,7 +306,7 @@ private theorem rho_update {L N : Size} (κ : Site L N → Fin 3)
       simp [bondSites, heq]
     simp [h, Function.update_of_ne, h₁, h₂]
 
-theorem main : AKLT.Blueprint.Q.GroundFibreFactorizationStatement := by
+theorem main : AKLT.Blueprint.Q.GroundFiberFactorizationStatement := by
   intro L N κ hEval x
   constructor
   · intro σ

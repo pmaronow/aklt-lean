@@ -35,18 +35,18 @@ def LogMeanBoundsStatement : Prop :=
 zero one-bond and D responses, and the free/pinned ratio bounds. -/
 def ResponseStatement : Prop :=
   ∀ G : Finset Plane, ∀ τ : PinAssignment G, ∀ D : Network G, D.Auxiliary →
-    ∀ y : Plane, D.AdmissibleStart y → ∀ o ∈ D.presentNeighbours y,
+    ∀ y : Plane, D.AdmissibleStart y → ∀ o ∈ D.presentNeighbors y,
     0 < stepRatio D τ false y o ∧ stepRatio D τ false y o ≤ 1 ∧
     0 < stepRatio D τ true y o ∧ stepRatio D τ true y o ≤ 12 / 5 ∧
     (D.status y = .D → stepRatio D τ true y o = 1 ∧ stepRatio D τ false y o = 1) ∧
-    (D.status y = .U → (D.presentNeighbours y).card = 1 →
+    (D.status y = .U → (D.presentNeighbors y).card = 1 →
       stepRatio D τ true y o = 1 ∧ stepRatio D τ false y o = 1) ∧
-    (∀ f : Plane, D.status y = .U → D.presentNeighbours y = {o, f} → o ≠ f →
+    (∀ f : Plane, D.status y = .U → D.presentNeighbors y = {o, f} → o ≠ f →
       0 < responseBetaPrime D τ y o f ∧ responseBetaPrime D τ y o f ≤ 35510 / 100000 ∧
       Real.log (stepRatio D τ false y o) - Real.log (stepRatio D τ true y o) =
         responseBetaPrime D τ y o f *
           (removedPairMean D τ true y f o - removedPairMean D τ false y f o)) ∧
-    ∀ f g : Plane, D.status y = .U → D.presentNeighbours y = {o, f, g} →
+    ∀ f g : Plane, D.status y = .U → D.presentNeighbors y = {o, f, g} →
       o ≠ f → o ≠ g → f ≠ g →
       0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ 18094 / 100000 ∧
       0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ 36751 / 100000 ∧
@@ -67,11 +67,11 @@ def ResponseTypedStatement : Prop :=
     ∀ incoming outgoing : Compass, CoveredDeparture D y incoming outgoing →
     let o := y + outgoing.step
     let straight := decide (outgoing = incoming)
-    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →
+    (∀ f : Plane, D.presentNeighbors y = {o, f} → o ≠ f →
       0 < responseBetaPrime D τ y o f ∧
       responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧
       responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧
-    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
+    ∀ f g : Plane, D.presentNeighbors y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
       0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧
       0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧
       responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧
@@ -92,11 +92,11 @@ def ResponseTypedStatementV2 : Prop :=
     ∀ incoming outgoing : Compass, CoveredDepartureV2 D y incoming outgoing →
     let o := y + outgoing.step
     let straight := decide (outgoing = incoming)
-    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →
+    (∀ f : Plane, D.presentNeighbors y = {o, f} → o ≠ f →
       0 < responseBetaPrime D τ y o f ∧
       responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧
       responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧
-    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
+    ∀ f g : Plane, D.presentNeighbors y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
       0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧
       0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧
       responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧

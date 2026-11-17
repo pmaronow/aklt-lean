@@ -181,8 +181,8 @@ theorem exists_positiveLetter {ι : Type*} [DecidableEq ι]
   intro hz
   exact hj (Finset.mem_biUnion.mpr ⟨i, hi, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hz.symm⟩⟩)
 
-theorem originalLegs_neighbour {G : Finset Plane} {e : Plane × Plane}
-    (he : e ∈ originalLegs G) : e.2 ∈ neighbours e.1 := by
+theorem originalLegs_neighbor {G : Finset Plane} {e : Plane × Plane}
+    (he : e ∈ originalLegs G) : e.2 ∈ neighbors e.1 := by
   obtain ⟨x, _, he⟩ := Finset.mem_biUnion.mp he
   obtain ⟨z, hz, heq⟩ := Finset.mem_image.mp he
   cases heq
@@ -199,12 +199,12 @@ theorem originalLegs_at_card_le_four (G : Finset Plane) (x : Plane) :
     exact Prod.ext (hax.trans hbx.symm) hab
   calc
     s.card = (s.image Prod.snd).card := (Finset.card_image_iff.mpr hinj).symm
-    _ ≤ (neighbours x).card := Finset.card_le_card (by
+    _ ≤ (neighbors x).card := Finset.card_le_card (by
       intro z hz
       obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hz
       have hx := (Finset.mem_filter.mp he).2
       rw [← hx]
-      exact originalLegs_neighbour (Finset.mem_filter.mp he).1)
+      exact originalLegs_neighbor (Finset.mem_filter.mp he).1)
     _ ≤ 4 := by
       exact (Finset.card_image_le).trans (by decide)
 

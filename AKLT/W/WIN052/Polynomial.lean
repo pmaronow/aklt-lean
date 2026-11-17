@@ -12,11 +12,11 @@ open AKLT.Defs AKLT.Blueprint.Win
 namespace AKLT.W.WIN052
 
 /-- The tensor calculation on any subset of the four physical neighbors. -/
-theorem neighbour_moment (hM : AKLT.Blueprint.Top.MomentsStatement)
-    (x : Plane) (V : Finset Plane) (hV : V ⊆ neighbours x) (n : Plane → Vec3) :
+theorem neighbor_moment (hM : AKLT.Blueprint.Top.MomentsStatement)
+    (x : Plane) (V : Finset Plane) (hV : V ⊆ neighbors x) (n : Plane → Vec3) :
     moment (fun v => ∏ z ∈ V, (1 + dot v (n z))) = removalPolynomial x V n := by
   classical
-  have hfilter : V = (neighbours x).filter (fun z => z ∈ V) := by
+  have hfilter : V = (neighbors x).filter (fun z => z ∈ V) := by
     ext z
     simp only [Finset.mem_filter]
     exact ⟨fun hz => ⟨hV hz, hz⟩, And.right⟩
@@ -30,7 +30,7 @@ theorem neighbour_moment (hM : AKLT.Blueprint.Top.MomentsStatement)
     by_cases hs : x + Compass.south.step ∈ V <;>
     by_cases hn : x + Compass.north.step ∈ V
   all_goals
-    simp only [neighbours_explicit, Finset.filter_insert, Finset.filter_singleton,
+    simp only [neighbors_explicit, Finset.filter_insert, Finset.filter_singleton,
       he, hw, hs, hn, ite_true, ite_false] at hfilter
     simp only [he, hw, hs, hn, ite_true, ite_false, dot_zero, zero_dot,
       zero_add, add_zero, zero_mul, mul_zero, one_mul, mul_one] at hm

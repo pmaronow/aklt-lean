@@ -48,9 +48,9 @@ def CoveredIntegratedLowerStatementV2 : Prop :=
     ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →
       AKLT.Defs.CoveredDepartureV2 a.D a.y incoming outgoing →
       let c : ℝ := localThreshold (decide (outgoing = incoming))
-      (∀ f : Plane, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+      (∀ f : Plane, a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
         c ≤ responseI₂ a.D a.τ true a.y a.o f) ∧
-      ∀ f g : Plane, a.D.presentNeighbours a.y = {a.o, f, g} →
+      ∀ f g : Plane, a.D.presentNeighbors a.y = {a.o, f, g} →
         a.o ≠ f → a.o ≠ g → f ≠ g →
         c * responseJ a.D a.τ true a.y f g ≤ responseI a.D a.τ true a.y a.o f g
 

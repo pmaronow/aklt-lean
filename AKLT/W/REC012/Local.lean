@@ -62,7 +62,7 @@ theorem dot_abs_le_one {u v : Vec3} (hu : normSq u ≤ 1) (hv : normSq v ≤ 1) 
 
 /-- The pointwise three-neighbor comparison in §6: integrated U factor is
 at least one half, while the post-step D factor is at most six fifths. -/
-theorem threeNeighbourLocalBounds (a b c : Vec3)
+theorem threeNeighborLocalBounds (a b c : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) (hc : normSq c ≤ 1) :
     1 / 2 ≤ 1 + (dot a b + dot a c + dot b c) / 3 ∧
       1 + dot b c / 5 ≤ 6 / 5 := by
@@ -83,24 +83,24 @@ theorem threeNeighbourLocalBounds (a b c : Vec3)
     nlinarith
   · nlinarith
 
-theorem threeNeighbourScalarComparison (a b c : Vec3)
+theorem threeNeighborScalarComparison (a b c : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) (hc : normSq c ≤ 1) :
     1 + dot b c / 5 ≤
       (12 / 5 : ℝ) * (1 + (dot a b + dot a c + dot b c) / 3) := by
-  have h := threeNeighbourLocalBounds a b c ha hb hc
+  have h := threeNeighborLocalBounds a b c ha hb hc
   nlinarith
 
 /-- The two-neighbor version of the same pointwise estimate. -/
-theorem twoNeighbourLocalBound (a b : Vec3)
+theorem twoNeighborLocalBound (a b : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) :
     2 / 3 ≤ 1 + dot a b / 3 := by
   have h := dot_abs_le_one ha hb
   nlinarith
 
-theorem twoNeighbourScalarComparison (a b : Vec3)
+theorem twoNeighborScalarComparison (a b : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) :
     1 ≤ (12 / 5 : ℝ) * (1 + dot a b / 3) := by
-  have h := twoNeighbourLocalBound a b ha hb
+  have h := twoNeighborLocalBound a b ha hb
   nlinarith
 
 theorem goldenRatio_sq :

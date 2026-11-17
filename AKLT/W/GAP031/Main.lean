@@ -39,15 +39,15 @@ private lemma fillBlock_unique {ι : Type} [DecidableEq ι] {S : ι → Type} (U
     simpa [restrict, fillBlock, hx] using this
   · simp [fillBlock, hx, hτ x hx]
 
-private lemma fibre_zero_of_not_agree {ι : Type} [Fintype ι] [DecidableEq ι]
+private lemma fiber_zero_of_not_agree {ι : Type} [Fintype ι] [DecidableEq ι]
     {S : ι → Type} [∀ x, Fintype (S x)]
     (p : Weight (Config S)) (U : Finset ι) (η τ : Config S)
-    (h : ¬ AgreeOutside U η τ) : fibre p U η τ = 0 := by
-  simp [fibre, conditionOn, AKLT.Defs.normalize, h]
+    (h : ¬ AgreeOutside U η τ) : fiber p U η τ = 0 := by
+  simp [fiber, conditionOn, AKLT.Defs.normalize, h]
 
-private lemma fibre_probability {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
+private lemma fiber_probability {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (hp : PositiveProbability p)
-    (U : Finset ι) (η : Config S) : Probability (fibre p U η) := by
+    (U : Finset ι) (η : Config S) : Probability (fiber p U η) := by
   classical
   let w : Config S → ℝ := fun τ => if AgreeOutside U η τ then p τ else 0
   have hw_nonneg : ∀ τ, 0 ≤ w τ := by
@@ -62,9 +62,9 @@ private lemma fibre_probability {ι : Type} [Fintype ι] [DecidableEq ι] {S : �
     simp [w, AgreeOutside, hp.1]
   refine ⟨?_, ?_⟩
   · intro τ
-    simp only [fibre, conditionOn, AKLT.Defs.normalize]
+    simp only [fiber, conditionOn, AKLT.Defs.normalize]
     exact div_nonneg (hw_nonneg τ) hw_pos.le
-  · simp only [fibre, conditionOn, AKLT.Defs.normalize]
+  · simp only [fiber, conditionOn, AKLT.Defs.normalize]
     rw [← Finset.sum_div]
     exact div_self hw_pos.ne'
 
@@ -83,11 +83,11 @@ private lemma marginal_probability {Ω Ξ : Type} [Fintype Ω] [Fintype Ξ] [Dec
 private lemma blockLaw_probability {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (hp : PositiveProbability p)
     (U : Finset ι) (η : Config S) : Probability (blockLaw p U η) := by
-  exact marginal_probability (fibre p U η) (fibre_probability p hp U η) (restrict U)
+  exact marginal_probability (fiber p U η) (fiber_probability p hp U η) (restrict U)
 
 private lemma blockLaw_fill {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι) (η : Config S)
-    (b : (x : U) → S x.val) : blockLaw p U η b = fibre p U η (fillBlock U η b) := by
+    (b : (x : U) → S x.val) : blockLaw p U η b = fiber p U η (fillBlock U η b) := by
   classical
   unfold blockLaw marginal
   rw [Finset.sum_eq_single (fillBlock U η b)]
@@ -98,7 +98,7 @@ private lemma blockLaw_fill {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι �
       · have hu := fillBlock_unique U η τ he b hr
         exact False.elim (hneq hu)
       · simp only [ite_eq_left hr]
-        exact fibre_zero_of_not_agree p U η τ he
+        exact fiber_zero_of_not_agree p U η τ he
     · simp [hr]
   · intro hmem
     exact (hmem (Finset.mem_univ _)).elim
@@ -148,7 +148,7 @@ private def liftBlockCoupling {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι 
     [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
     (p q : Weight (Config S)) (U : Finset ι) (η ξ : Config S)
     (c : Coupling (blockLaw p U η) (blockLaw q U ξ)) :
-    Coupling (fibre p U η) (fibre q U ξ) := by
+    Coupling (fiber p U η) (fiber q U ξ) := by
   classical
   let mass := liftBlockMass p q U η ξ c
   refine ⟨mass, ?_, ?_, ?_⟩
@@ -161,22 +161,22 @@ private def liftBlockCoupling {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι 
     by_cases hσ : AgreeOutside U η σ
     · have hfill : fillBlock U η (restrict U σ) = σ :=
         (fillBlock_unique U η σ hσ (restrict U σ) rfl).symm
-      change (∑ τ, liftBlockMass p q U η ξ c σ τ) = fibre p U η σ
+      change (∑ τ, liftBlockMass p q U η ξ c σ τ) = fiber p U η σ
       simp only [liftBlockMass, ite_eq_left hσ]
       rw [sum_agree_restrict U ξ (fun b => c.mass (restrict U σ) b)]
       rw [c.first_marginal, blockLaw_fill, hfill]
-    · change (∑ τ, liftBlockMass p q U η ξ c σ τ) = fibre p U η σ
-      simp [liftBlockMass, hσ, fibre_zero_of_not_agree p U η σ hσ]
+    · change (∑ τ, liftBlockMass p q U η ξ c σ τ) = fiber p U η σ
+      simp [liftBlockMass, hσ, fiber_zero_of_not_agree p U η σ hσ]
   · intro τ
     by_cases hτ : AgreeOutside U ξ τ
     · have hfill : fillBlock U ξ (restrict U τ) = τ :=
         (fillBlock_unique U ξ τ hτ (restrict U τ) rfl).symm
-      change (∑ σ, liftBlockMass p q U η ξ c σ τ) = fibre q U ξ τ
+      change (∑ σ, liftBlockMass p q U η ξ c σ τ) = fiber q U ξ τ
       simp only [liftBlockMass, ite_eq_left hτ]
       rw [sum_agree_restrict U η (fun b => c.mass b (restrict U τ))]
       rw [c.second_marginal, blockLaw_fill, hfill]
-    · change (∑ σ, liftBlockMass p q U η ξ c σ τ) = fibre q U ξ τ
-      simp [liftBlockMass, hτ, fibre_zero_of_not_agree q U ξ τ hτ]
+    · change (∑ σ, liftBlockMass p q U η ξ c σ τ) = fiber q U ξ τ
+      simp [liftBlockMass, hτ, fiber_zero_of_not_agree q U ξ τ hτ]
 
 private lemma liftBlockCoupling_cost {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
@@ -343,9 +343,9 @@ private lemma diagonalCouplingOfEq_cost {ι : Type} [Fintype ι] [DecidableEq ι
   classical
   simp [couplingCost, diagonalCouplingOfEq, hamming]
 
-private lemma fibre_eq_of_agree {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
+private lemma fiber_eq_of_agree {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι) (η ξ : Config S)
-    (h : AgreeOutside U η ξ) : fibre p U η = fibre p U ξ := by
+    (h : AgreeOutside U η ξ) : fiber p U η = fiber p U ξ := by
   classical
   have hPred : AgreeOutside U η = AgreeOutside U ξ := by
     funext τ
@@ -359,7 +359,7 @@ private lemma fibre_eq_of_agree {ι : Type} [Fintype ι] [DecidableEq ι] {S : �
       calc
         η z = ξ z := h z hz
         _ = τ z := hτ z hz
-  unfold fibre
+  unfold fiber
   rw [hPred]
 
 private lemma hamming_one_site {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
@@ -378,10 +378,10 @@ private lemma hamming_one_site {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι
   · have hmem : x ∈ D := by rw [hDx]; simp
     exact (Finset.mem_filter.mp hmem).2
 
-private lemma blockLaw_eq_of_fibre_eq {ι : Type} [Fintype ι] [DecidableEq ι]
+private lemma blockLaw_eq_of_fiber_eq {ι : Type} [Fintype ι] [DecidableEq ι]
     {S : ι → Type} [∀ x, Fintype (S x)]
     (p : Weight (Config S)) (U : Finset ι) (η ξ : Config S)
-    (h : fibre p U η = fibre p U ξ) : blockLaw p U η = blockLaw p U ξ := by
+    (h : fiber p U η = fiber p U ξ) : blockLaw p U η = blockLaw p U ξ := by
   simp [blockLaw, h]
 
 private def averageCoupling {Ω J : Type} [Fintype Ω] [Fintype J]
@@ -535,8 +535,8 @@ private lemma labelCoupling {L N : Size} {S : Site L N → Type}
     (hRange : TorusRangeOne μ M) (hInfluence : BlockInfluence μ M K)
     {σ τ : Config S} (x : Site L N) (hDiff : AgreeOutside {x} σ τ) :
     ∀ a : Site L N,
-      ∃ c : Coupling (fibre μ (torusSquare L N M a) σ)
-          (fibre μ (torusSquare L N M a) τ),
+      ∃ c : Coupling (fiber μ (torusSquare L N M a) σ)
+          (fiber μ (torusSquare L N M a) τ),
         couplingCost c ≤
           if x ∈ torusSquare L N M a then 0
           else if x ∈ torusHalo L N M a \ torusSquare L N M a then 1 + K else 1 := by
@@ -551,10 +551,10 @@ private lemma labelCoupling {L N : Size} {S : Site L N → Type}
       simp only [Finset.mem_singleton]
       intro hxy
       exact hy (hxy ▸ hxU)
-    have hfib := fibre_eq_of_agree μ U σ τ hAgree
-    have hnonneg : ∀ z, 0 ≤ fibre μ U σ z :=
-      (fibre_probability μ hμ U σ).1
-    let c := diagonalCouplingOfEq (fibre μ U σ) (fibre μ U τ) hfib hnonneg
+    have hfib := fiber_eq_of_agree μ U σ τ hAgree
+    have hnonneg : ∀ z, 0 ≤ fiber μ U σ z :=
+      (fiber_probability μ hμ U σ).1
+    let c := diagonalCouplingOfEq (fiber μ U σ) (fiber μ U τ) hfib hnonneg
     refine ⟨c, ?_⟩
     simpa [c, U, hxU] using (diagonalCouplingOfEq_cost hfib hnonneg).le
   · by_cases hxV : x ∈ V
@@ -584,14 +584,14 @@ private lemma labelCoupling {L N : Size} {S : Site L N → Type}
         simpa [d] using diagonalCouplingOfEq_cost hLaw hblockNonneg
       simpa [c, U, V, hxU, hxV, hdiag'] using hcost
 
-theorem main : AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement := by
+theorem main : AKLT.Blueprint.Gap.PeriodicNeighborCouplingStatement := by
   classical
   intro L N S hS hSnonempty μ hμ M K hM hK hCounts hRange hInfluence σ τ hH
   obtain ⟨x, hDiff, hxDiff⟩ := hamming_one_site σ τ hH
   have hPerLabel := labelCoupling μ hμ M K hRange hInfluence x hDiff
   let cLabel : ∀ a : Site L N,
-      Coupling (fibre μ (torusSquare L N M a) σ)
-        (fibre μ (torusSquare L N M a) τ) := fun a => Classical.choose (hPerLabel a)
+      Coupling (fiber μ (torusSquare L N M a) σ)
+        (fiber μ (torusSquare L N M a) τ) := fun a => Classical.choose (hPerLabel a)
   have hLabelCost (a : Site L N) :
       couplingCost (cLabel a) ≤
         if x ∈ torusSquare L N M a then 0
@@ -604,16 +604,16 @@ theorem main : AKLT.Blueprint.Gap.PeriodicNeighbourCouplingStatement := by
   let c : Coupling (blockAverage μ (torusSquare L N M) σ)
       (blockAverage μ (torusSquare L N M) τ) :=
     averageCoupling
-      (fun a => fibre μ (torusSquare L N M a) σ)
-      (fun a => fibre μ (torusSquare L N M a) τ) cLabel hCardPos
+      (fun a => fiber μ (torusSquare L N M a) σ)
+      (fun a => fiber μ (torusSquare L N M a) τ) cLabel hCardPos
   have hCostEq : couplingCost c =
       (∑ a, couplingCost (cLabel a)) / (Fintype.card (Site L N) : ℝ) := by
     change couplingCost (averageCoupling
-      (fun a => fibre μ (torusSquare L N M a) σ)
-      (fun a => fibre μ (torusSquare L N M a) τ) cLabel hCardPos) = _
+      (fun a => fiber μ (torusSquare L N M a) σ)
+      (fun a => fiber μ (torusSquare L N M a) τ) cLabel hCardPos) = _
     exact averageCoupling_cost
-      (fun a => fibre μ (torusSquare L N M a) σ)
-      (fun a => fibre μ (torusSquare L N M a) τ) cLabel hCardPos
+      (fun a => fiber μ (torusSquare L N M a) σ)
+      (fun a => fiber μ (torusSquare L N M a) τ) cLabel hCardPos
   have hSum : (∑ a : Site L N, couplingCost (cLabel a)) ≤
       (Fintype.card (Site L N) : ℝ) - (volumeCount M : ℝ) +
         (haloCount M : ℝ) * K := by

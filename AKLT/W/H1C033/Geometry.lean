@@ -68,7 +68,7 @@ def edgeEquiv : (Plane × Plane) ≃ (Plane × Plane) :=
   have mem (a b : Plane) : (a,b) ∈ internalBonds templateSites ↔
       a ∈ templateSites ∧ b ∈ templateSites ∧
       (b = (a.1 + 1,a.2) ∨ b = (a.1,a.2 + 1)) := by
-    simp [internalBonds, positiveNeighbours, and_assoc, and_left_comm, and_comm]
+    simp [internalBonds, positiveNeighbors, and_assoc, and_left_comm, and_comm]
   rcases e with ⟨⟨a,b⟩,⟨c,d⟩⟩
   by_cases h : b = d
   · simp only [flipEdge, h, ite_true, mem, flip_sites]
@@ -86,7 +86,7 @@ def edgeEquiv : (Plane × Plane) ≃ (Plane × Plane) :=
     obtain ⟨x, hx, hm⟩ := Finset.mem_biUnion.mp h
     obtain ⟨y, hy, he⟩ := Finset.mem_image.mp hm
     cases he
-    simpa only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] using (Finset.mem_inter.mp hy).1
+    simpa only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] using (Finset.mem_inter.mp hy).1
   intro hr
   have hp := pos h
   have hq := pos hr
@@ -245,9 +245,9 @@ def tokenEquiv : Fin 20 ≃ Fin 20 :=
         exact Finset.mem_image.mpr ⟨flipToken j,hj,flipToken_flipToken j⟩
     simpa only [mem, hl, hs] using hI.2 (flip x) hg hp'
 
- theorem mirror_neighbour (π ρ : PatternData) (h : MirrorEffectiveData π ρ)
+ theorem mirror_neighbor (π ρ : PatternData) (h : MirrorEffectiveData π ρ)
     (x : Plane) (hx : patternDegree π x = 1) :
-    leafNeighbour ρ (flip x) = flip (leafNeighbour π x) := by
+    leafNeighbor ρ (flip x) = flip (leafNeighbor π x) := by
   obtain ⟨e,he,hei,hne,hu⟩ := AKLT.W.H1M023.leaf_bond π hx
   have hx' : patternDegree ρ (flip x) = 1 := (mirror_degree π ρ h x).symm.trans hx
   obtain ⟨f,hf,hfi,hnf,huf⟩ := AKLT.W.H1M023.leaf_bond ρ hx'

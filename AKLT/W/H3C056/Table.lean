@@ -43,7 +43,7 @@ theorem response_ceiling (incoming outgoing : Compass) (j : Fin 5)
   all_goals fin_cases j
   all_goals
     norm_num [coefficientCeiling, certificateCoefficientScale, passageFactor, localThreshold,
-      relaxedReward, neighbours, Compass.step, responsePairType, kernelWitness,
+      relaxedReward, neighbors, Compass.step, responsePairType, kernelWitness,
       alphaBound, betaBound, betaPrimeBound, response, responseTable, direction, directionCode,
       show (Finset.univ : Finset Compass) = {.east,.north,.west,.south} from rfl,
       Finset.erase_insert, Finset.erase_insert_of_ne, Finset.powersetCard_succ_insert,

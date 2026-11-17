@@ -56,11 +56,11 @@ theorem planeWeight_edges (κ : Plane → Fin 3) (W : Finset Plane)
 /-- The coordinate data give the signed spin identity at every endpoint used by a plane factor. -/
 theorem gauge_vector {L N : Size} {M : ℕ} {a : Site L N}
     {κ : Site L N → Fin 3} (C : BoxCoordinates L N M a κ)
-    (hB : LiftBonds L N M C.centre) (σ : TorusConfiguration L N)
+    (hB : LiftBonds L N M C.center) (σ : TorusConfiguration L N)
     (ω : (x : torusSquare L N M a) → IcoLetter) (z : Plane)
-    (hz : z ∈ square C.centre M ∨ z ∈ exteriorSites (square C.centre M)) :
+    (hz : z ∈ square C.center M ∨ z ∈ exteriorSites (square C.center M)) :
     frameVector (κ (reduction L N z))
-      (insertBlock (square C.centre M) (C.boundary σ) (C.change.configurations ω) z) =
+      (insertBlock (square C.center M) (C.boundary σ) (C.change.configurations ω) z) =
     paritySign z • frameVector (κ (reduction L N z))
       (insertBlock (torusSquare L N M a) σ ω (reduction L N z)) := by
   rcases hz with hz | hz
@@ -82,10 +82,10 @@ theorem gauge_vector {L N : Size} {M : ℕ} {a : Site L N}
 /-- The two lifted parity signs turn each local antiferromagnetic factor into its plane factor. -/
 theorem gauge_factor {L N : Size} {M : ℕ} {a : Site L N}
     {κ : Site L N → Fin 3} (C : BoxCoordinates L N M a κ)
-    (hB : LiftBonds L N M C.centre) (σ : TorusConfiguration L N)
+    (hB : LiftBonds L N M C.center) (σ : TorusConfiguration L N)
     (ω : (x : torusSquare L N M a) → IcoLetter)
-    (e : Plane × Plane) (he : e ∈ planeEdges (square C.centre M)) :
-    planeFactor (κ ∘ reduction L N) (square C.centre M) (C.boundary σ)
+    (e : Plane × Plane) (he : e ∈ planeEdges (square C.center M)) :
+    planeFactor (κ ∘ reduction L N) (square C.center M) (C.boundary σ)
       (C.change.configurations ω) e =
     torusFactor κ (insertBlock (torusSquare L N M a) σ ω) (edgeBond L N e) := by
   have hd := planeEdges_data he
@@ -99,11 +99,11 @@ theorem gauge_factor {L N : Size} {M : ℕ} {a : Site L N}
 /-- Reindex all local factors by the exact lifted bonds. -/
 theorem gauge_product {L N : Size} {M : ℕ} {a : Site L N}
     {κ : Site L N → Fin 3} (C : BoxCoordinates L N M a κ)
-    (hB : LiftBonds L N M C.centre)
-    (hI : Set.InjOn (reduction L N) (↑(square C.centre (M+1)) : Set Plane))
+    (hB : LiftBonds L N M C.center)
+    (hI : Set.InjOn (reduction L N) (↑(square C.center (M+1)) : Set Plane))
     (σ : TorusConfiguration L N) (ω : (x : torusSquare L N M a) → IcoLetter) :
-    (∏ e ∈ planeEdges (square C.centre M),
-      planeFactor (κ ∘ reduction L N) (square C.centre M) (C.boundary σ)
+    (∏ e ∈ planeEdges (square C.center M),
+      planeFactor (κ ∘ reduction L N) (square C.center M) (C.boundary σ)
         (C.change.configurations ω) e) =
     ∏ b ∈ localBonds (torusSquare L N M a),
       torusFactor κ (insertBlock (torusSquare L N M a) σ ω) b := by
@@ -112,9 +112,9 @@ theorem gauge_product {L N : Size} {M : ℕ} {a : Site L N}
     rw [← coordinates_image C]
     exact edgeBond_local he
   · intro e he f hf hef
-    exact edgeBond_injective L N M C.centre hI he hf hef
+    exact edgeBond_injective L N M C.center hI he hf hef
   · intro b hb
-    obtain ⟨e,he,heb⟩ := edgeBond_surjective L N M C.centre hB b (by rwa [coordinates_image C])
+    obtain ⟨e,he,heb⟩ := edgeBond_surjective L N M C.center hB b (by rwa [coordinates_image C])
     exact ⟨e,he,heb⟩
   · intro e he
     exact gauge_factor C hB σ ω e he
@@ -124,7 +124,7 @@ theorem torusFactor_pos
     (hPositive : ∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
       0 < 1 + dot (frameVector i a) (frameVector j b) ∧
       0 < 1 - dot (frameVector i a) (frameVector j b))
-    {L N : Size} (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    {L N : Size} (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (σ : TorusConfiguration L N) (b : Bond L N) : 0 < torusFactor κ σ b :=
   (hPositive _ _ (hκ b) _ _).2
 
@@ -132,7 +132,7 @@ theorem torusWeight_pos
     (hPositive : ∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
       0 < 1 + dot (frameVector i a) (frameVector j b) ∧
       0 < 1 - dot (frameVector i a) (frameVector j b))
-    {L N : Size} (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    {L N : Size} (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (σ : TorusConfiguration L N) : 0 < torusWeight L N κ σ := by
   apply mul_pos
   · exact Finset.prod_pos (by intros; norm_num)
@@ -154,17 +154,17 @@ theorem liftedWeightFactorization
       0 < 1 + dot (frameVector i a) (frameVector j b) ∧
       0 < 1 - dot (frameVector i a) (frameVector j b))
     {L N : Size} {M : ℕ} {a : Site L N} {κ : Site L N → Fin 3}
-    (hκ : ProperTorusColouring κ) (C : BoxCoordinates L N M a κ)
-    (hB : LiftBonds L N M C.centre)
-    (hI : Set.InjOn (reduction L N) (↑(square C.centre (M+1)) : Set Plane))
+    (hκ : ProperTorusColoring κ) (C : BoxCoordinates L N M a κ)
+    (hB : LiftBonds L N M C.center)
+    (hI : Set.InjOn (reduction L N) (↑(square C.center (M+1)) : Set Plane))
     (σ : TorusConfiguration L N) :
     ∃ c : ℝ, 0 < c ∧ ∀ ω : (x : torusSquare L N M a) → IcoLetter,
       torusWeight L N κ (insertBlock (torusSquare L N M a) σ ω) =
-        c * planeWeight (κ ∘ reduction L N) (square C.centre M)
+        c * planeWeight (κ ∘ reduction L N) (square C.center M)
           (fun z => C.boundary σ z) (C.change.configurations ω) := by
   let Q := torusSquare L N M a
   let T : ℝ := ∏ _x : Site L N, (1/12 : ℝ)
-  let P : ℝ := (1/12 : ℝ)^(square C.centre M).card
+  let P : ℝ := (1/12 : ℝ)^(square C.center M).card
   let E : ℝ := ∏ b ∈ Finset.univ.filter (fun b : Bond L N => ¬Touches Q b), torusFactor κ σ b
   have hT : 0 < T := Finset.prod_pos (by intros; norm_num)
   have hP : 0 < P := pow_pos (by norm_num) _
@@ -182,7 +182,7 @@ theorem liftedWeightFactorization
     rw [← Finset.prod_filter_mul_prod_filter_not Finset.univ (Touches Q)
       (torusFactor κ (insertBlock Q σ ω)), hext]
     rfl
-  have hp : planeWeight (κ ∘ reduction L N) (square C.centre M)
+  have hp : planeWeight (κ ∘ reduction L N) (square C.center M)
       (fun z => C.boundary σ z) (C.change.configurations ω) =
       P * (∏ b ∈ localBonds Q, torusFactor κ (insertBlock Q σ ω) b) := by
     rw [planeWeight_edges, gauge_product C hB hI σ ω]

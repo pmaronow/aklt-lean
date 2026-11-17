@@ -56,7 +56,7 @@ theorem local_step_comparison (hCovered : AKLT.Blueprint.Rec.CoveredRatioStateme
   obtain ⟨haux, hdyn⟩ := trail_dynamics hD hu hTrail
   let a : AKLT.Blueprint.Rec.Departure :=
     ⟨G, τ, P, y, o, haux i.val (Nat.le_of_lt i.isLt),
-      (hdyn i).1, present_mem_neighbours (hdyn i).2⟩
+      (hdyn i).1, present_mem_neighbors (hdyn i).2⟩
   have hp : 1 ≤ (passageFactor (wordStraight incoming w i) : ℝ) :=
     passageFactor_one_le _
   refine ⟨(stepRatio_pos P τ b y o).le, ?_⟩

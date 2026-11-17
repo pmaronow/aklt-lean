@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC021.Fibres
+public import AKLT.W.REC021.Fibers
 
 @[expose] public section
 set_option backward.privateInPublic true
@@ -43,24 +43,24 @@ theorem productFunctional_sum {ι κ : Type*} [Fintype ι] [Fintype κ] (s : ι 
   simp only [productFunctional, Finset.mul_sum]
   exact Finset.sum_comm
 
-def CubicFibre.localFactor (F : CubicFibre) (i : Fin 3) (n : Vec3) : ℝ :=
+def CubicFiber.localFactor (F : CubicFiber) (i : Fin 3) (n : Vec3) : ℝ :=
   cubicWeight (F.field i 0) (F.field i 1) (F.field i 2) n
 
-def CubicFibre.weight (F : CubicFibre) (σ : Fin 3 → SpinLetter) : ℝ :=
+def CubicFiber.weight (F : CubicFiber) (σ : Fin 3 → SpinLetter) : ℝ :=
   F.coefficient * ((∏ i, spinWeight (F.status i) (σ i)) *
     ∏ i, F.localFactor i (spinVector (σ i)))
 
-theorem CubicFibre.sum_weight (F : CubicFibre) : ∑ σ, F.weight σ = F.mass := by
+theorem CubicFiber.sum_weight (F : CubicFiber) : ∑ σ, F.weight σ = F.mass := by
   change (∑ σ, F.coefficient * _) = _
   rw [← Finset.mul_sum]
   have h := productFunctional_separated F.status F.localFactor
   rw [productFunctional_eq_sum] at h
   rw [h]
-  simp [CubicFibre.mass, CubicFibre.A, cubicA, CubicFibre.localFactor, Fin.prod_univ_three]
+  simp [CubicFiber.mass, CubicFiber.A, cubicA, CubicFiber.localFactor, Fin.prod_univ_three]
   left
   rfl
 
-theorem CubicFibre.sum_weight_pairs (F : CubicFibre) :
+theorem CubicFiber.sum_weight_pairs (F : CubicFiber) :
     (∑ σ, F.weight σ *
       (dot (spinVector (σ 0)) (spinVector (σ 1)) +
        dot (spinVector (σ 0)) (spinVector (σ 2)) +
@@ -81,7 +81,7 @@ theorem CubicFibre.sum_weight_pairs (F : CubicFibre) :
   calc
     _ = F.coefficient * productFunctional F.status (fun n =>
         (∏ i, W i (n i)) * (dot (n 0) (n 1) + dot (n 0) (n 2) + dot (n 1) (n 2))) := by
-      simp only [CubicFibre.weight, productFunctional_eq_sum, Finset.mul_sum, W]
+      simp only [CubicFiber.weight, productFunctional_eq_sum, Finset.mul_sum, W]
       apply Finset.sum_congr rfl
       intro σ _
       ring
@@ -91,8 +91,8 @@ theorem CubicFibre.sum_weight_pairs (F : CubicFibre) :
     _ = F.pairMass := by
       simp_rw [T, productFunctional_add, productFunctional_separated]
       apply congrArg (fun v : ℝ => F.coefficient * v)
-      simp [CubicFibre.pairMass, CubicFibre.B, CubicFibre.A, cubicB, cubicA,
-        CubicFibre.localFactor, W, dot, Fin.prod_univ_three, Fin.sum_univ_three, mul_comm]
+      simp [CubicFiber.pairMass, CubicFiber.B, CubicFiber.A, cubicB, cubicA,
+        CubicFiber.localFactor, W, dot, Fin.prod_univ_three, Fin.sum_univ_three, mul_comm]
       simp only [show ∀ i : Fin 3, F.localFactor i =
         cubicWeight (F.field i 0) (F.field i 1) (F.field i 2) from fun _ => rfl]
       ring
@@ -143,8 +143,8 @@ theorem sum_blockUpdate {ι Ω : Type*} [Fintype ι] [DecidableEq ι] [Fintype �
 #print axioms productFunctional_eq_sum
 #print axioms productFunctional_add
 #print axioms productFunctional_sum
-#print axioms CubicFibre.sum_weight
-#print axioms CubicFibre.sum_weight_pairs
+#print axioms CubicFiber.sum_weight
+#print axioms CubicFiber.sum_weight_pairs
 #print axioms sum_update
 #print axioms sum_fin3_function
 #print axioms sum_blockUpdate

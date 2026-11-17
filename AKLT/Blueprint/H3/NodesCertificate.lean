@@ -83,7 +83,7 @@ theorem checked_free_row (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Com
 Successors outside the square use the extended cap, exactly as the integer row does. -/
 theorem checked_inside_row (Q : MemoryQuotient 10 3741) (X : PairType) (d₀ : Compass)
     (C : StationaryData 3741) (hC : C.Passes Q X d₀) (φ : Phase) (a : Fin 3741)
-    (x : square (0, 0) certificateRadius) (hc : x.val ≠ kernelCentre) (hv : x.val ≠ kernelTarget X) :
+    (x : square (0, 0) certificateRadius) (hc : x.val ≠ kernelCenter) (hv : x.val ≠ kernelTarget X) :
     stationaryApply Q X d₀ C.potential φ a x.val ≤ C.potential φ a x.val := by
   have hh := rational_scaled_row (Finset.univ : Finset (Compass × Phase))
     (fun e => stationaryCoefficient Q X d₀ φ a x.val e.1 e.2)

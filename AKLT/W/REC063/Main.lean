@@ -46,9 +46,9 @@ private theorem vertex_distance_bound {n : ℕ} (w : DirectionWord n) :
         _ ≤ j + 1 := Nat.add_le_add_right (ih (by omega)) 1
 
 private theorem neighbor_distance_bound {n : ℕ} (w : DirectionWord n) (i : Fin n)
-    {z : Plane} (hz : z ∈ neighbours (wordVertex kernelStart w i.val)) :
+    {z : Plane} (hz : z ∈ neighbors (wordVertex kernelStart w i.val)) :
     latticeDist z kernelStart ≤ i.val + 1 := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hz
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hz
   rcases hz with ⟨d, rfl⟩
   calc
     latticeDist (wordVertex kernelStart w i.val + d.step) kernelStart
@@ -61,10 +61,10 @@ private theorem neighbor_distance_bound {n : ℕ} (w : DirectionWord n) (i : Fin
 
 private theorem responsePairs_subset_neighbors {n : ℕ} (w : DirectionWord n) (i : Fin n)
     (p : Finset Plane) (hp : p ∈ responsePairs w i) :
-    p ⊆ neighbours (wordVertex kernelStart w i.val) := by
+    p ⊆ neighbors (wordVertex kernelStart w i.val) := by
   classical
   intro z hz
-  have hz' : z ∈ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i) :=
+  have hz' : z ∈ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i) :=
     (Finset.mem_powersetCard.mp (by simpa [responsePairs] using hp)).1 hz
   rcases Finset.mem_insert.mp hz' with hout | hother
   · subst z
@@ -72,13 +72,13 @@ private theorem responsePairs_subset_neighbors {n : ℕ} (w : DirectionWord n) (
       Finset.univ.image (fun d : Compass => wordVertex kernelStart w i.val + d.step)
     rw [AKLT.Cert.H2.vertex_succ kernelStart w i.val (by omega)]
     exact Finset.mem_image.mpr ⟨w i, Finset.mem_univ _, rfl⟩
-  · have hresp : z ∈ responseNeighbours w i := by
-      change z ∈ ((responseNeighbours w i).erase
+  · have hresp : z ∈ responseNeighbors w i := by
+      change z ∈ ((responseNeighbors w i).erase
         (wordVertex kernelStart w (i.val + 1))).filter (fun z => ¬deadAt w i z) at hother
       have hf := Finset.mem_filter.mp hother
       exact (Finset.mem_erase.mp hf.1).2
-    have hneigh : z ∈ neighbours (wordVertex kernelStart w i.val) := by
-      exact (Finset.mem_erase.mp (show z ∈ (neighbours (wordVertex kernelStart w i.val)).erase
+    have hneigh : z ∈ neighbors (wordVertex kernelStart w i.val) := by
+      exact (Finset.mem_erase.mp (show z ∈ (neighbors (wordVertex kernelStart w i.val)).erase
         (wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step) by
           exact hresp)).2
     exact hneigh

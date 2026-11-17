@@ -23,7 +23,7 @@ theorem main : CertData.H3.Bridge.TableBoundsLeaf := by
   have hcap' : 0 < T.cap (phaseCode φ * 3741 + a.val) ∧
       T.cap (phaseCode φ * 3741 + a.val) < 2^26 := of_decide_eq_true hcap
   have hcenter' : lane (T.plane (phaseCode φ * 3741 + a.val)) 80
-      (siteIndex kernelCentre) = 0 := of_decide_eq_true hcenter
+      (siteIndex kernelCenter) = 0 := of_decide_eq_true hcenter
   simp only [packedRowCheck, Bool.and_eq_true] at hp
   rcases hp with ⟨⟨⟨⟨⟨_, _⟩, _⟩, _⟩, hall⟩, _⟩
   have hplaneCap : capCheck 80 19881 26 (T.plane (phaseCode φ * 3741 + a.val)) = true := by

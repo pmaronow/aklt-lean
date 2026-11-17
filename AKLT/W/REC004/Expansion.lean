@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC004.FibreExpansion
+public import AKLT.W.REC004.FiberExpansion
 public import AKLT.W.REC002.Bonds
 
 @[expose] public section
@@ -13,7 +13,7 @@ open AKLT.Defs
 namespace AKLT.W.REC004
 
 open AKLT.W.REC002 (spinSum extend bondProduct legProduct spinSum_insert bondProduct_remove
-  partition_spinSum mem_presentNeighbours mem_remove_active)
+  partition_spinSum mem_presentNeighbors mem_remove_active)
 
 /-- One-site integration, written again as a spin sum over the smaller volume. -/
 lemma spinSum_insert' (V : Finset Plane) (y : Plane) (hy : y ∉ V)
@@ -67,41 +67,41 @@ lemma legProduct_update {G : Finset Plane} (V : Finset Plane) (τ : PinAssignmen
 
 /-- Remove three mutually nonadjacent sites from the bond product. -/
 lemma bond_split3 {G : Finset Plane} (D : Network G) (f g o : Plane)
-    (hgf : ∀ z ∈ (removeSite D o).presentNeighbours g, z ≠ f)
-    (hof : ∀ z ∈ D.presentNeighbours o, z ≠ f)
-    (hog : ∀ z ∈ D.presentNeighbours o, z ≠ g)
+    (hgf : ∀ z ∈ (removeSite D o).presentNeighbors g, z ≠ f)
+    (hof : ∀ z ∈ D.presentNeighbors o, z ≠ f)
+    (hog : ∀ z ∈ D.presentNeighbors o, z ≠ g)
     (m : Plane → Vec3) (v1 v2 v3 : Vec3) :
     bondProduct D.bonds
         (Function.update (Function.update (Function.update m f v1) g v2) o v3) =
       bondProduct (removeSite (removeSite (removeSite D o) g) f).bonds m *
-        (∏ z ∈ (removeSite (removeSite D o) g).presentNeighbours f, (1 + dot v1 (m z))) *
-        (∏ z ∈ (removeSite D o).presentNeighbours g, (1 + dot v2 (m z))) *
-        (∏ z ∈ D.presentNeighbours o, (1 + dot v3 (m z))) := by
+        (∏ z ∈ (removeSite (removeSite D o) g).presentNeighbors f, (1 + dot v1 (m z))) *
+        (∏ z ∈ (removeSite D o).presentNeighbors g, (1 + dot v2 (m z))) *
+        (∏ z ∈ D.presentNeighbors o, (1 + dot v3 (m z))) := by
   rw [bondProduct_remove D o, bondProduct_remove (removeSite D o) g,
     bondProduct_remove (removeSite (removeSite D o) g) f]
-  have h2 : (∏ z ∈ (removeSite D o).presentNeighbours g,
+  have h2 : (∏ z ∈ (removeSite D o).presentNeighbors g,
       (1 + dot v2 (Function.update m f v1 z))) =
-      ∏ z ∈ (removeSite D o).presentNeighbours g, (1 + dot v2 (m z)) := by
+      ∏ z ∈ (removeSite D o).presentNeighbors g, (1 + dot v2 (m z)) := by
     apply Finset.prod_congr rfl
     intro z hz
     rw [Function.update_of_ne (hgf z hz)]
-  have h3 : (∏ z ∈ D.presentNeighbours o,
+  have h3 : (∏ z ∈ D.presentNeighbors o,
       (1 + dot v3 (Function.update (Function.update m f v1) g v2 z))) =
-      ∏ z ∈ D.presentNeighbours o, (1 + dot v3 (m z)) := by
+      ∏ z ∈ D.presentNeighbors o, (1 + dot v3 (m z)) := by
     apply Finset.prod_congr rfl
     intro z hz
     rw [Function.update_of_ne (hog z hz), Function.update_of_ne (hof z hz)]
   rw [h2, h3]
 
-lemma remove_presentNeighbours_subset {G : Finset Plane} (D : Network G) (x z : Plane) :
-    (removeSite D x).presentNeighbours z ⊆ D.presentNeighbours z := by
+lemma remove_presentNeighbors_subset {G : Finset Plane} (D : Network G) (x z : Plane) :
+    (removeSite D x).presentNeighbors z ⊆ D.presentNeighbors z := by
   intro w hw
-  rw [mem_presentNeighbours] at hw ⊢
+  rw [mem_presentNeighbors] at hw ⊢
   exact ⟨((mem_remove_active D x z).1 hw.1).1, ((mem_remove_active D x w).1 hw.2.1).1,
     hw.2.2.1, hw.2.2.2.1, hw.2.2.2.2⟩
 
 lemma adjacent_of_mem_pN {G : Finset Plane} {D : Network G} {x z : Plane}
-    (h : z ∈ D.presentNeighbours x) : Adjacent x z := (Finset.mem_filter.1 h).2.2.2.1
+    (h : z ∈ D.presentNeighbors x) : Adjacent x z := (Finset.mem_filter.1 h).2.2.2.1
 
 lemma extend_ball (V : Finset Plane) (n : V → SpinLetter) (x : Plane) :
     normSq (extend V n x) ≤ 1 := by
@@ -133,7 +133,7 @@ lemma config_identity (sf sg so : Status) (Wt B L : ℝ)
     Wt * siteFunctional sf (fun v1 => siteFunctional sg (fun v2 => siteFunctional so
       (fun v3 => F ![v1, v2, v3] * (B * Pf v1 * Pg v2 * Po v3) * L))) =
     (Wt * B * L) * ∑ t : Fin 3 → SpinLetter,
-      (∏ j, fibreDensity ![sf, sg, so] ![af, ag, ao] j (t j)) *
+      (∏ j, fiberDensity ![sf, sg, so] ![af, ag, ao] j (t j)) *
         F (fun j => spinVector (t j)) := by
   rw [sum_three]
   simp only [siteFunctional, Finset.mul_sum]
@@ -148,7 +148,7 @@ lemma config_identity (sf sg so : Status) (Wt B L : ℝ)
     funext j
     fin_cases j <;> rfl
   rw [hv, Fin.prod_univ_three, hPf x, hPg y, hPo z]
-  simp only [fibreDensity, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+  simp only [fiberDensity, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
     Matrix.head_cons, Matrix.tail_cons]
   ring
 
@@ -157,8 +157,8 @@ nonadjacent active sites with at most three present bonds and no original legs. 
 theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment G) (b : Bool)
     (f g o : Plane) (hfg : f ≠ g) (hfo : f ≠ o) (hgo : g ≠ o)
     (hfA : f ∈ D.active) (hgA : g ∈ D.active) (hoA : o ∈ D.active)
-    (hfc : (D.presentNeighbours f).card ≤ 3) (hgc : (D.presentNeighbours g).card ≤ 3)
-    (hoc : (D.presentNeighbours o).card ≤ 3)
+    (hfc : (D.presentNeighbors f).card ≤ 3) (hgc : (D.presentNeighbors g).card ≤ 3)
+    (hoc : (D.presentNeighbors o).card ≤ 3)
     (ngf : ¬ Adjacent g f) (nof : ¬ Adjacent o f) (nog : ¬ Adjacent o g)
     (hlf : ∀ e : originalLegs G, e.val.1 ≠ f) (hlg : ∀ e : originalLegs G, e.val.1 ≠ g)
     (hlo : ∀ e : originalLegs G, e.val.1 ≠ o) :
@@ -166,7 +166,7 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
       (∀ r, 0 ≤ C r) ∧ ∀ F : (Fin 3 → Vec3) → ℝ,
         D.partition τ b (fun v => F ![v f, v g, v o]) =
           ∑ r, C r * ∑ t : Fin 3 → SpinLetter,
-            (∏ j, fibreDensity ![D.status f, D.status g, D.status o] (fields r) j (t j)) *
+            (∏ j, fiberDensity ![D.status f, D.status g, D.status o] (fields r) j (t j)) *
               F (fun j => spinVector (t j)) := by
   obtain ⟨W, hWdef⟩ : ∃ W : Finset Plane, W = ((D.active.erase o).erase g).erase f :=
     ⟨_, rfl⟩
@@ -180,29 +180,29 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
   have ng : g ∉ insert f W := by rw [h1]; exact Finset.notMem_erase g _
   have no : o ∉ insert g (insert f W) := by
     rw [h1, h2]; exact Finset.notMem_erase o _
-  have hgf' : ∀ z ∈ (removeSite D o).presentNeighbours g, z ≠ f := by
+  have hgf' : ∀ z ∈ (removeSite D o).presentNeighbors g, z ≠ f := by
     intro z hz hzf
     subst hzf
     exact ngf (adjacent_of_mem_pN hz)
-  have hof' : ∀ z ∈ D.presentNeighbours o, z ≠ f := by
+  have hof' : ∀ z ∈ D.presentNeighbors o, z ≠ f := by
     intro z hz hzf
     subst hzf
     exact nof (adjacent_of_mem_pN hz)
-  have hog' : ∀ z ∈ D.presentNeighbours o, z ≠ g := by
+  have hog' : ∀ z ∈ D.presentNeighbors o, z ≠ g := by
     intro z hz hzg
     subst hzg
     exact nog (adjacent_of_mem_pN hz)
-  have hNf : ((removeSite (removeSite D o) g).presentNeighbours f).card ≤ 3 :=
-    (Finset.card_le_card ((remove_presentNeighbours_subset _ g f).trans
-      (remove_presentNeighbours_subset D o f))).trans hfc
-  have hNg : ((removeSite D o).presentNeighbours g).card ≤ 3 :=
-    (Finset.card_le_card (remove_presentNeighbours_subset D o g)).trans hgc
+  have hNf : ((removeSite (removeSite D o) g).presentNeighbors f).card ≤ 3 :=
+    (Finset.card_le_card ((remove_presentNeighbors_subset _ g f).trans
+      (remove_presentNeighbors_subset D o f))).trans hfc
+  have hNg : ((removeSite D o).presentNeighbors g).card ≤ 3 :=
+    (Finset.card_le_card (remove_presentNeighbors_subset D o g)).trans hgc
   choose af haf using fun n : W → SpinLetter =>
-    pad_fields (letterOf W n) 3 ((removeSite (removeSite D o) g).presentNeighbours f) hNf
+    pad_fields (letterOf W n) 3 ((removeSite (removeSite D o) g).presentNeighbors f) hNf
   choose ag hag using fun n : W → SpinLetter =>
-    pad_fields (letterOf W n) 3 ((removeSite D o).presentNeighbours g) hNg
+    pad_fields (letterOf W n) 3 ((removeSite D o).presentNeighbors g) hNg
   choose ao hao using fun n : W → SpinLetter =>
-    pad_fields (letterOf W n) 3 (D.presentNeighbours o) hoc
+    pad_fields (letterOf W n) 3 (D.presentNeighbors o) hoc
   let C : (W → SpinLetter) → ℝ := fun n =>
     (∏ x : W, spinWeight (D.status x) (n x)) *
       bondProduct (removeSite (removeSite (removeSite D o) g) f).bonds (extend W n) *
@@ -216,7 +216,7 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
       (bondProduct_extend_nonneg _ _ _)) (legProduct_extend_nonneg _ _ _ _ _)
   · intro F
     rw [e.symm.sum_comp (fun n => C n * ∑ t : Fin 3 → SpinLetter,
-      (∏ j, fibreDensity ![D.status f, D.status g, D.status o] (fields n) j (t j)) *
+      (∏ j, fiberDensity ![D.status f, D.status g, D.status o] (fields n) j (t j)) *
         F (fun j => spinVector (t j)))]
     rw [partition_spinSum]
     have hA : spinSum D.active D.status
@@ -239,21 +239,21 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
       rw [dot_zero_right]
       ring
     have hPf : ∀ x : SpinLetter,
-        (∏ z ∈ (removeSite (removeSite D o) g).presentNeighbours f,
+        (∏ z ∈ (removeSite (removeSite D o) g).presentNeighbors f,
           (1 + dot (spinVector x) (extend W n z))) =
         localProduct (fun k => spinVector (af n k)) (spinVector x) := by
       intro x
       simp only [extend_eq_letter]
       exact haf n (fun l => 1 + dot (spinVector x) (spinVector l)) (h0 x)
     have hPg : ∀ x : SpinLetter,
-        (∏ z ∈ (removeSite D o).presentNeighbours g,
+        (∏ z ∈ (removeSite D o).presentNeighbors g,
           (1 + dot (spinVector x) (extend W n z))) =
         localProduct (fun k => spinVector (ag n k)) (spinVector x) := by
       intro x
       simp only [extend_eq_letter]
       exact hag n (fun l => 1 + dot (spinVector x) (spinVector l)) (h0 x)
     have hPo : ∀ x : SpinLetter,
-        (∏ z ∈ D.presentNeighbours o, (1 + dot (spinVector x) (extend W n z))) =
+        (∏ z ∈ D.presentNeighbors o, (1 + dot (spinVector x) (extend W n z))) =
         localProduct (fun k => spinVector (ao n k)) (spinVector x) := by
       intro x
       simp only [extend_eq_letter]
@@ -262,33 +262,33 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
       (∏ x : W, spinWeight (D.status x) (n x))
       (bondProduct (removeSite (removeSite (removeSite D o) g) f).bonds (extend W n))
       (legProduct D.active τ b (extend W n))
-      (fun v => ∏ z ∈ (removeSite (removeSite D o) g).presentNeighbours f,
+      (fun v => ∏ z ∈ (removeSite (removeSite D o) g).presentNeighbors f,
         (1 + dot v (extend W n z)))
-      (fun v => ∏ z ∈ (removeSite D o).presentNeighbours g, (1 + dot v (extend W n z)))
-      (fun v => ∏ z ∈ D.presentNeighbours o, (1 + dot v (extend W n z)))
+      (fun v => ∏ z ∈ (removeSite D o).presentNeighbors g, (1 + dot v (extend W n z)))
+      (fun v => ∏ z ∈ D.presentNeighbors o, (1 + dot v (extend W n z)))
       (af n) (ag n) (ao n) hPf hPg hPo F
 
 /-- The residual of `Fiberexpansion.lean`, proved. -/
-theorem fibreExpansion : Residual_FibreExpansion := by
+theorem fiberExpansion : Residual_FiberExpansion := by
   intro a hU f g hN hof hog hfg b
-  have hfN : f ∈ a.D.presentNeighbours a.y := by rw [hN]; simp
-  have hgN : g ∈ a.D.presentNeighbours a.y := by rw [hN]; simp
-  have hoN : a.o ∈ a.D.presentNeighbours a.y := a.present
+  have hfN : f ∈ a.D.presentNeighbors a.y := by rw [hN]; simp
+  have hgN : g ∈ a.D.presentNeighbors a.y := by rw [hN]; simp
+  have hoN : a.o ∈ a.D.presentNeighbors a.y := a.present
   have aF := adjacent_of_mem_pN hfN
   have aG := adjacent_of_mem_pN hgN
   have aO := adjacent_of_mem_pN hoN
-  obtain ⟨hfA, hfS⟩ := neighbour_survives hfN
-  obtain ⟨hgA, hgS⟩ := neighbour_survives hgN
-  obtain ⟨hoA, hoS⟩ := neighbour_survives hoN
+  obtain ⟨hfA, hfS⟩ := neighbor_survives hfN
+  obtain ⟨hgA, hgS⟩ := neighbor_survives hgN
+  obtain ⟨hoA, hoS⟩ := neighbor_survives hoN
   obtain ⟨N, C, fields, hC, hE⟩ := expansion_general (removeSite a.D a.y) a.τ b f g a.o
     hfg hof.symm hog.symm hfA hgA hoA
-    (neighbour_removed_card a.auxiliary hfN) (neighbour_removed_card a.auxiliary hgN)
-    (neighbour_removed_card a.auxiliary hoN)
-    (neighbours_nonadjacent a.y g f aG aF) (neighbours_nonadjacent a.y a.o f aO aF)
-    (neighbours_nonadjacent a.y a.o g aO aG)
-    (fun e => no_leg_at_neighbour a.start hfN e.val e.property)
-    (fun e => no_leg_at_neighbour a.start hgN e.val e.property)
-    (fun e => no_leg_at_neighbour a.start hoN e.val e.property)
+    (neighbor_removed_card a.auxiliary hfN) (neighbor_removed_card a.auxiliary hgN)
+    (neighbor_removed_card a.auxiliary hoN)
+    (neighbors_nonadjacent a.y g f aG aF) (neighbors_nonadjacent a.y a.o f aO aF)
+    (neighbors_nonadjacent a.y a.o g aO aG)
+    (fun e => no_leg_at_neighbor a.start hfN e.val e.property)
+    (fun e => no_leg_at_neighbor a.start hgN e.val e.property)
+    (fun e => no_leg_at_neighbor a.start hoN e.val e.property)
   refine ⟨N, C, ![(removeSite a.D a.y).status f, (removeSite a.D a.y).status g,
     (removeSite a.D a.y).status a.o], fields, hC, ?_, hE⟩
   intro j

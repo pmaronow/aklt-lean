@@ -143,7 +143,7 @@ def groupFactor (π : PatternData) (r : Representation) (x : Plane) : LPoly :=
     (1 + formalDot (fun k => .inl (x, k)) (fun k => .inr (groupLeader x, k))) *
     (1 + formalDot (fun k => .inl (x, k)) (fun k => .inr (groupSecond x, k)))
   else 1 + MvPolynomial.C (replacementRadius π x) *
-    formalDot (fun k => .inl (leafNeighbour π x, k)) (fun k => .inr (groupLeader x, k))
+    formalDot (fun k => .inl (leafNeighbor π x, k)) (fun k => .inr (groupLeader x, k))
 
 lemma reducedIntegrand_eq (π : PatternData) (r : Representation) (next : Bool) :
     reducedIntegrand π r next = (∏ e ∈ π.bonds, bondFactorL π r next e) *

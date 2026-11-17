@@ -45,15 +45,15 @@ identical coefficients along them; its fixed-reward continuation sum is identifi
 separate open continuation bridge. Every premise here is a closed Prop. -/
 theorem stationaryDomination_of_legacyV2 (hDomination : Top.StationaryDominationStatement)
     (hGeometry : ClosedTrailStepGeometryStatement)
-    (hOffCentre : StationaryCoefficientOffCentreStatementV2)
+    (hOffCenter : StationaryCoefficientOffCenterStatementV2)
     (hContinuation : StationaryContinuationBridgeStatementV2) :
     Top.StationaryDominationStatementV2 := by
   constructor
   · intro Q hQ X d₀ hd n L hL hLn w hw hP i hi φ ψ
-    obtain ⟨hnext, _, _, hNoCentre⟩ := hGeometry X n w hw i
-    have hDestination : wordVertex kernelStart w i.val + (w i).step ≠ kernelCentre := by
-      simpa only [hnext] using hNoCentre
-    rw [hOffCentre 10 3741 Q X d₀ φ _ _ _ ψ hDestination]
+    obtain ⟨hnext, _, _, hNoCenter⟩ := hGeometry X n w hw i
+    have hDestination : wordVertex kernelStart w i.val + (w i).step ≠ kernelCenter := by
+      simpa only [hnext] using hNoCenter
+    rw [hOffCenter 10 3741 Q X d₀ φ _ _ _ ψ hDestination]
     exact hDomination.1 Q hQ X d₀ hd n L hL hLn w hw hP i hi φ ψ
   · intro Q hQ X d₀ hd L hL P hP φ R
     rw [hContinuation Q X d₀ φ _ _ R]
@@ -64,23 +64,23 @@ Its checked center value is zero, so the second open bridge transfers the Bellma
 the third transfers every finite stopped sum. No equality on arbitrary functions is claimed. -/
 theorem stationaryLocalGlobal_of_legacyV2 (hGlobal : Top.StationaryLocalGlobalStatement)
     (hCertificate : StationaryCertificateBridgeStatementV2)
-    (hOperator : StationaryCentreZeroOperatorStatementV2)
+    (hOperator : StationaryCenterZeroOperatorStatementV2)
     (hContinuation : StationaryContinuationBridgeStatementV2) :
     Top.StationaryLocalGlobalStatementV2 := by
   refine ⟨hGlobal.1, ?_⟩
   intro Q hQ X d₀ hd C hC
   have hOld : C.Passes Q X d₀ := hCertificate 10 3741 Q X d₀ C hC
   have hValues := hGlobal.2 Q hQ X d₀ hd C hOld
-  have hCentre : ∀ φ a, C.potential φ a kernelCentre = 0 := by
+  have hCenter : ∀ φ a, C.potential φ a kernelCenter = 0 := by
     intro φ a
-    change (C.extended φ a kernelCentre : ℚ) / certificateValueScale = 0
+    change (C.extended φ a kernelCenter : ℚ) / certificateValueScale = 0
     rw [(hOld.2.2.2.2.1 φ a).1]
     simp only [Nat.cast_zero, zero_div]
   refine ⟨hValues.1, ?_⟩
   intro φ a x
   obtain ⟨hNonneg, hCap, hOutside, hRow, hFinite⟩ := hValues.2 φ a x
   refine ⟨hNonneg, hCap, hOutside, ?_, ?_⟩
-  · rw [hOperator 10 3741 Q X d₀ C.potential hCentre φ a x]
+  · rw [hOperator 10 3741 Q X d₀ C.potential hCenter φ a x]
     exact hRow
   · intro R
     rw [hContinuation Q X d₀ φ a x R]
@@ -125,7 +125,7 @@ theorem allTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement)
     hValid, hLabels, hIncident, hBalance, hKnown, hReward, hForget, hLocal, hGeometry,
     hWord, hExpansion, hFree, hPrefix, hRegroup, hReflectGeometry, hReflectLive, hReflectLabels,
     hPartition, hSupport, hLength, hSeries, hLift⟩ := h
-  obtain ⟨hOffCentre, hOperator, hContinuation, hCertificate, _⟩ := hNew
+  obtain ⟨hOffCenter, hOperator, hContinuation, hCertificate, _⟩ := hNew
   have hPhase := phaseExpansion_of_nodes hFold hFactor
     (longExposureExpansion_of_nodes hExposureList hLongOrder) hCausal hSplit
   have hDom := stationaryDomination_of_nodes hValid hLabels hIncident hBalance hKnown
@@ -138,7 +138,7 @@ theorem allTargets_of_leaves_and_checksV2 (h : AnalyticLeavesStatement)
     hLength hSeries hLift
   have hAssemblyV2 := stationaryAssembly_of_legacyV2 hAssembly hCertificate
   exact ⟨automatonQuotient_of_nodes hRaw hProjection, phaseExpansion_of_legacyV2 hPhase,
-    stationaryDomination_of_legacyV2 hDom hGeometry hOffCentre hContinuation, bellmanSoundness,
+    stationaryDomination_of_legacyV2 hDom hGeometry hOffCenter hContinuation, bellmanSoundness,
     stationaryLocalGlobal_of_legacyV2 hGlobal hCertificate hOperator hContinuation,
     prefixDomination_of_legacyV2 hPrefixTop hCertificate, hReflection, hAssemblyV2,
     h3_of_checksV2 hAutomaton hCheck hAssemblyV2⟩

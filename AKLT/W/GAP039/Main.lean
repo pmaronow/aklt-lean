@@ -35,7 +35,7 @@ private theorem internalBonds_eq (a : Plane) (M : ℕ) :
     rcases Finset.mem_Icc.mp hx1 with ⟨hx1lo, hx1hi⟩
     rcases Finset.mem_Icc.mp hx2 with ⟨hx2lo, hx2hi⟩
     rcases hy with ⟨hpos, hysq⟩
-    simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hpos
+    simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hpos
     rcases hpos with hpos | hpos
     · change y ∈ (Finset.Icc (a.1 - (M : ℤ)) (a.1 + M) ×ˢ
         Finset.Icc (a.2 - (M : ℤ)) (a.2 + M)) at hysq
@@ -91,8 +91,8 @@ private theorem internalBonds_eq (a : Plane) (M : ℕ) :
       simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image,
         Finset.mem_inter]
       refine ⟨(q.1, q.2), hsource, (q.1 + 1, q.2), ?_, rfl⟩
-      have hp : (q.1 + 1, q.2) ∈ positiveNeighbours (q.1, q.2) := by
-        simp [positiveNeighbours]
+      have hp : (q.1 + 1, q.2) ∈ positiveNeighbors (q.1, q.2) := by
+        simp [positiveNeighbors]
       exact ⟨hp, htarget⟩
     · rw [vert, Finset.mem_image] at he
       rcases he with ⟨q, hq, hqe⟩
@@ -115,8 +115,8 @@ private theorem internalBonds_eq (a : Plane) (M : ℕ) :
       simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image,
         Finset.mem_inter]
       refine ⟨(q.1, q.2), hsource, (q.1, q.2 + 1), ?_, rfl⟩
-      have hp : (q.1, q.2 + 1) ∈ positiveNeighbours (q.1, q.2) := by
-        simp [positiveNeighbours]
+      have hp : (q.1, q.2 + 1) ∈ positiveNeighbors (q.1, q.2) := by
+        simp [positiveNeighbors]
       exact ⟨hp, htarget⟩
 
 private theorem card_Icc_center (c : ℤ) (M : ℕ) :

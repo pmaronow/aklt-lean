@@ -131,14 +131,14 @@ def rawEncoding : Prop := ∀ π : PatternData, π.Covered →
     ∃ out : Nat, out < 3 ∧ (rawEdges axes corners).getD out false = true ∧
       effectivePatternCode π = rawKey axes corners out
 
-def enumerationSoundness : Prop := ∀ t : Catalogue,
+def enumerationSoundness : Prop := ∀ t : Catalog,
   CoverageRowsAccepted t axialConfigurations → ∀ axes ∈ axialConfigurations,
   ∀ corners : List RawOption, corners.length = 4 →
   (corners.zipIdx.all (fun (x,i) => cornerOptions.contains x && cornerCompatible axes i x)) = true →
   ∀ out : Nat, out < 3 → (rawEdges axes corners).getD out false = true →
     ∃ pid : Nat, t.find (rawKey axes corners out) = some pid
 
-def representativeLookup : Prop := ∀ t : Catalogue, ∀ rs : List Representative,
+def representativeLookup : Prop := ∀ t : Catalog, ∀ rs : List Representative,
   representativeCheck t rs = true → ∀ key pid : Nat, t.find key = some pid →
     ∃ r ∈ rs, r.pid = pid ∧ r.key = key
 

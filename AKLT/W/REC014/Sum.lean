@@ -12,7 +12,7 @@ open AKLT.Defs
 namespace AKLT.W.REC014
 
 /-- Equality may be checked by summing over one coordinate on every fiber. -/
-theorem sum_eq_of_fibre {ι : Type*} [Fintype ι] [DecidableEq ι]
+theorem sum_eq_of_fiber {ι : Type*} [Fintype ι] [DecidableEq ι]
     (y : ι) (F H : (ι → SpinLetter) → ℝ)
     (h : ∀ n, (∑ j, F (Function.update n y j)) =
       ∑ j, H (Function.update n y j)) : (∑ n, F n) = ∑ n, H n := by
@@ -53,7 +53,7 @@ theorem integrate_leaf {ι : Type*} [Fintype ι] [DecidableEq ι]
     (∑ n, (∏ x, spinWeight (s x) (n x)) * H n *
         (1 + dot (spinVector (n y)) (spinVector (n o)))) =
       ∑ n, (∏ x, spinWeight ((Function.update s y .D) x) (n x)) * H n := by
-  apply sum_eq_of_fibre y
+  apply sum_eq_of_fiber y
   intro n
   simp_rw [prod_update, hH, Function.update_self, Function.update_of_ne hyo, hy]
   have hp : (∏ x ∈ Finset.univ.erase y,

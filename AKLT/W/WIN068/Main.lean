@@ -16,9 +16,9 @@ private theorem internalBond_adjacent {B : Finset Plane} {e : Plane × Plane}
   rw [internalBonds, Finset.mem_biUnion] at he
   rcases he with ⟨x, hx, he⟩
   rcases Finset.mem_image.mp he with ⟨y, hy, hxy⟩
-  have hp : y ∈ positiveNeighbours x := (Finset.mem_inter.mp hy).1
+  have hp : y ∈ positiveNeighbors x := (Finset.mem_inter.mp hy).1
   cases hxy
-  simp [positiveNeighbours] at hp
+  simp [positiveNeighbors] at hp
   rcases hp with hp | hp
   · rw [hp]
     simp [Adjacent, latticeDist]

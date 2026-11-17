@@ -83,13 +83,13 @@ theorem active_status {G : Finset Plane} (D : Network G) (x : D.active) :
   cases hs : D.status x <;> simp_all
 
 /-- Collect the factors at three unpinned, mutually nonadjacent sites. -/
-theorem network_cubicFibre {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
+theorem network_cubicFiber {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (x : Fin 3 → D.active) (hinj : Function.Injective x)
     (hnobond : ∀ e ∈ D.bonds, ∀ i j, ¬ (e.1 = (x i).val ∧ e.2 = (x j).val))
-    (hdegree : ∀ i, (D.presentNeighbours (x i).val).card ≤ 3)
+    (hdegree : ∀ i, (D.presentNeighbors (x i).val).card ≤ 3)
     (hpin : ∀ e : originalLegs G, ∀ i, e.val.1 ≠ (x i).val)
     (σ : D.active → SpinLetter) :
-    ∃ F : CubicFibre, ∀ j, networkWeight D τ pinned (blockUpdate x σ j) = F.weight j := by
+    ∃ F : CubicFiber, ∀ j, networkWeight D τ pinned (blockUpdate x σ j) = F.weight j := by
   let xp : Fin 3 → Plane := fun i => (x i).val
   have hxp : Function.Injective xp := Subtype.val_injective.comp hinj
   have hfields (i : Fin 3) : ∃ a : Fin 3 → Vec3, (∀ k, normSq (a k) ≤ 1) ∧
@@ -115,7 +115,7 @@ theorem network_cubicFibre {G : Finset Plane} (D : Network G) (τ : PinAssignmen
         · exact one_add_dot_nonneg (spins_ball D σ e.1) (spins_ball D σ e.2)
         · norm_num
     · exact pinWeight_nonneg D τ pinned σ
-  let F : CubicFibre :=
+  let F : CubicFiber :=
     { coefficient := C
       coefficient_nonneg := hC
       status := fun i => D.status (x i).val
@@ -130,7 +130,7 @@ theorem network_cubicFibre {G : Finset Plane} (D : Network G) (τ : PinAssignmen
     spins_blockUpdate]
   rw [three_bond_factorization D (D.spins σ) xp hxp hnobond (fun i => spinVector (j i)),
     hfieldsprod 0, hfieldsprod 1, hfieldsprod 2]
-  dsimp [F, CubicFibre.weight, CubicFibre.localFactor, C, xp]
+  dsimp [F, CubicFiber.weight, CubicFiber.localFactor, C, xp]
   simp only [Fin.prod_univ_three]
   ring
 
@@ -162,7 +162,7 @@ factor 13³; no division by an outside-spin fiber mass is used. -/
 theorem network_three_pair_lower {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (x : Fin 3 → D.active) (hinj : Function.Injective x)
     (hnobond : ∀ e ∈ D.bonds, ∀ i j, ¬ (e.1 = (x i).val ∧ e.2 = (x j).val))
-    (hdegree : ∀ i, (D.presentNeighbours (x i).val).card ≤ 3)
+    (hdegree : ∀ i, (D.presentNeighbors (x i).val).card ≤ 3)
     (hpin : ∀ e : originalLegs G, ∀ i, e.val.1 ≠ (x i).val) :
     -(27 / 50 : ℝ) * D.partition τ pinned (fun _ => 1) ≤
       D.partition τ pinned (fun n => dot (n (x 0).val) (n (x 1).val) +
@@ -175,7 +175,7 @@ theorem network_three_pair_lower {G : Finset Plane} (D : Network G) (τ : PinAss
   have hrow (σ : D.active → SpinLetter) :
       -(27 / 50 : ℝ) * (∑ j, W (blockUpdate x σ j)) ≤
         ∑ j, W (blockUpdate x σ j) * P (blockUpdate x σ j) := by
-    obtain ⟨F, hF⟩ := network_cubicFibre D τ pinned x hinj hnobond hdegree hpin σ
+    obtain ⟨F, hF⟩ := network_cubicFiber D τ pinned x hinj hnobond hdegree hpin σ
     have hp (j : Fin 3 → SpinLetter) : P (blockUpdate x σ j) =
         dot (spinVector (j 0)) (spinVector (j 1)) +
         dot (spinVector (j 0)) (spinVector (j 2)) +

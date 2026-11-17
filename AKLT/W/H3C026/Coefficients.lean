@@ -29,7 +29,7 @@ theorem response_sum (x : Plane) (ain d : Compass) (hr : d ≠ ain.reverse) (v :
     ((List.range 5).map fun j => response (directionCode ain) (directionCode d) j *
       (if deadSite x j then v else 0)).sum =
       coefficientCeiling (passageFactor (decide (d=ain)) *
-        relaxedReward x ain d {kernelCentre} / 3) * v := by
+        relaxedReward x ain d {kernelCenter} / 3) * v := by
   by_cases h₀ : x = -Compass.east.step
   · subst x
     simpa [deadSite, List.range_succ, direction, Compass.step, compass_forall]

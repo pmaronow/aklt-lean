@@ -11,19 +11,19 @@ open AKLT.Defs AKLT.Blueprint.Q
 
 namespace AKLT.W.Q052
 
-lemma sum_fullFibre {W : Finset Plane} (x : W) (σ : PlaneConfiguration W)
+lemma sum_fullFiber {W : Finset Plane} (x : W) (σ : PlaneConfiguration W)
     (f : PlaneConfiguration W → ℝ) :
-    (by classical exact (∑ τ, if fullFibreEvent x σ τ then f τ else 0) =
+    (by classical exact (∑ τ, if fullFiberEvent x σ τ then f τ else 0) =
       ∑ a : IcoLetter, f (Function.update σ x a)) := by
   classical
   symm
   apply Fintype.sum_of_injective (fun a : IcoLetter => Function.update σ x a)
     (Function.update_injective σ x)
     (fun a => f (Function.update σ x a))
-    (fun τ => if fullFibreEvent x σ τ then f τ else 0)
+    (fun τ => if fullFiberEvent x σ τ then f τ else 0)
   · intro τ hτ
     change ¬ ∃ a, Function.update σ x a = τ at hτ
-    have hnot : ¬ fullFibreEvent x σ τ := by
+    have hnot : ¬ fullFiberEvent x σ τ := by
       intro he
       apply hτ
       refine ⟨τ x, ?_⟩
@@ -34,7 +34,7 @@ lemma sum_fullFibre {W : Finset Plane} (x : W) (σ : PlaneConfiguration W)
       · simp [Function.update_of_ne hy, he y hy]
     simp [hnot]
   · intro a
-    have he : fullFibreEvent x σ (Function.update σ x a) := by
+    have he : fullFiberEvent x σ (Function.update σ x a) := by
       intro y hy
       simp [Function.update_of_ne hy]
     simp [he]
@@ -46,7 +46,7 @@ lemma internal_adj {W : Finset Plane} {e : Plane × Plane}
   rcases he with ⟨u, hu, v, hv, huv⟩
   cases huv
   rcases Finset.mem_inter.mp hv with ⟨hpos, _⟩
-  simp [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hpos
+  simp [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hpos
   rcases hpos with hpos | hpos
   · have h1 : u.1 + 1 = v.1 := by simpa using (congrArg Prod.fst hpos).symm
     have h2 : u.2 = v.2 := by simpa using (congrArg Prod.snd hpos).symm
@@ -67,7 +67,7 @@ lemma internal_orientation {W : Finset Plane} {e : Plane × Plane}
   rcases he with ⟨u, hu, v, hv, huv⟩
   cases huv
   rcases Finset.mem_inter.mp hv with ⟨hpos, _⟩
-  simp [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hpos
+  simp [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hpos
   rcases hpos with hpos | hpos
   · left
     apply Prod.ext
@@ -133,8 +133,8 @@ lemma leg_adj {W : Finset Plane} {e : Plane × Plane}
   rcases he with ⟨u, hu, v, hv, huv⟩
   cases huv
   change latticeDist u v = 1
-  have hv' : v ∈ neighbours u := (Finset.mem_sdiff.mp hv).1
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hv'
+  have hv' : v ∈ neighbors u := (Finset.mem_sdiff.mp hv).1
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hv'
   rcases hv' with ⟨d, hd⟩
   cases d <;> simp [Compass.step] at hd
   · have hx : u.1 + 1 = v.1 := by simpa using congrArg Prod.fst hd
@@ -158,7 +158,7 @@ lemma leg_adj {W : Finset Plane} {e : Plane × Plane}
     have h2 : u.2 - v.2 = 1 := by omega
     norm_num [latticeDist, h1, h2]
 
-lemma adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbours x := by
+lemma adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) : y ∈ neighbors x := by
   classical
   have hsum : (x.1 - y.1).natAbs + (x.2 - y.2).natAbs = 1 := h
   have hcases :
@@ -236,7 +236,7 @@ def localIndex (W : Finset Plane) (x : W) : Finset (Bool × (Plane × Plane)) :=
   Finset.image (fun e => (false, e)) (internalAt W x) ∪
     Finset.image (fun e => (true, e)) (legsAt W x)
 
-def indexNeighbour {W : Finset Plane} (x : W) (q : Bool × (Plane × Plane)) : Plane :=
+def indexNeighbor {W : Finset Plane} (x : W) (q : Bool × (Plane × Plane)) : Plane :=
   if q.1 = false then if q.2.1 = x.val then q.2.2 else q.2.1 else q.2.2
 
 lemma localIndex_card {W : Finset Plane} (x : W) :
@@ -266,9 +266,9 @@ lemma localIndex_card {W : Finset Plane} (x : W) :
     _ = (internalAt W x).card + (legsAt W x).card := by
       rw [hi_card, hl_card]
 
-lemma neighbours_card_le_four (x : Plane) : (neighbours x).card ≤ 4 := by
+lemma neighbors_card_le_four (x : Plane) : (neighbors x).card ≤ 4 := by
   classical
-  unfold neighbours
+  unfold neighbors
   calc
     (Finset.univ.image (fun d : Compass => x + d.step)).card ≤ Finset.univ.card :=
       Finset.card_image_le
@@ -281,9 +281,9 @@ lemma adjacent_symm {u v : Plane} (h : Adjacent u v) : Adjacent v u := by
   rw [h1, h2, Int.natAbs_neg, Int.natAbs_neg]
   simpa [Nat.add_comm] using h
 
-lemma indexNeighbour_maps {W : Finset Plane} (x : W)
+lemma indexNeighbor_maps {W : Finset Plane} (x : W)
     {q : Bool × (Plane × Plane)} (hq : q ∈ localIndex W x) :
-    indexNeighbour x q ∈ neighbours x := by
+    indexNeighbor x q ∈ neighbors x := by
   classical
   unfold localIndex at hq
   rcases Finset.mem_union.mp hq with hq | hq
@@ -291,21 +291,21 @@ lemma indexNeighbour_maps {W : Finset Plane} (x : W)
     have hI := (Finset.mem_filter.mp he).1
     rcases (Finset.mem_filter.mp he).2 with hs | ht
     · have ha : Adjacent x.val e.2 := by simpa [hs] using internal_adj hI
-      simpa [indexNeighbour, hs] using adjacent_mem_neighbours ha
+      simpa [indexNeighbor, hs] using adjacent_mem_neighbors ha
     · have ha : Adjacent x.val e.1 := by
         exact adjacent_symm (by simpa [ht] using internal_adj hI)
       have hne : e.1 ≠ x.val := by
         intro heq
         exact internal_no_self hI (heq.trans ht.symm)
-      simpa [indexNeighbour, hne] using adjacent_mem_neighbours ha
+      simpa [indexNeighbor, hne] using adjacent_mem_neighbors ha
   · rcases Finset.mem_image.mp hq with ⟨e, he, rfl⟩
     have hL := (Finset.mem_filter.mp he).1
     have hs := (Finset.mem_filter.mp he).2
     have ha : Adjacent x.val e.2 := by simpa [hs] using leg_adj hL
-    simpa [indexNeighbour, hs] using adjacent_mem_neighbours ha
+    simpa [indexNeighbor, hs] using adjacent_mem_neighbors ha
 
-lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
-    Set.InjOn (indexNeighbour x) (↑(localIndex W x) : Set (Bool × (Plane × Plane))) := by
+lemma indexNeighbor_injOn {W : Finset Plane} (x : W) :
+    Set.InjOn (indexNeighbor x) (↑(localIndex W x) : Set (Bool × (Plane × Plane))) := by
   classical
   intro q hq r hr hEq
   unfold localIndex at hq hr
@@ -317,7 +317,7 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
       have hJ := (Finset.mem_filter.mp hf).1
       rcases (Finset.mem_filter.mp he).2 with hs | ht
       · rcases (Finset.mem_filter.mp hf).2 with hs' | ht'
-        · have htar : e.2 = f.2 := by simpa [indexNeighbour, hs, hs'] using hEq
+        · have htar : e.2 = f.2 := by simpa [indexNeighbor, hs, hs'] using hEq
           have hsrc : e.1 = f.1 := hs.trans hs'.symm
           have hef : e = f := Prod.ext hsrc htar
           subst f
@@ -325,7 +325,7 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
         · have hne : f.1 ≠ x.val := by
             intro hf1
             exact internal_no_self hJ (hf1.trans ht'.symm)
-          have htar : e.2 = f.1 := by simpa [indexNeighbour, hs, hne] using hEq
+          have htar : e.2 = f.1 := by simpa [indexNeighbor, hs, hne] using hEq
           have hrev : f = (e.2, e.1) := by
             apply Prod.ext
             · exact htar.symm
@@ -336,7 +336,7 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
         · have hne : e.1 ≠ x.val := by
             intro he1
             exact internal_no_self hI (he1.trans ht.symm)
-          have htar : e.1 = f.2 := by simpa [indexNeighbour, hne, hs'] using hEq
+          have htar : e.1 = f.2 := by simpa [indexNeighbor, hne, hs'] using hEq
           have hrev : f = (e.2, e.1) := by
             apply Prod.ext
             · exact hs'.trans ht.symm
@@ -349,7 +349,7 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
           have hne' : f.1 ≠ x.val := by
             intro hf1
             exact internal_no_self hJ (hf1.trans ht'.symm)
-          have htar : e.1 = f.1 := by simpa [indexNeighbour, hne, hne'] using hEq
+          have htar : e.1 = f.1 := by simpa [indexNeighbor, hne, hne'] using hEq
           have hsrc : e.2 = f.2 := ht.trans ht'.symm
           have hef : e = f := Prod.ext htar hsrc
           subst f
@@ -358,21 +358,21 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
       have hI := (Finset.mem_filter.mp he).1
       have hL := (Finset.mem_filter.mp hf).1
       have htouch := (Finset.mem_filter.mp he).2
-      have hta : indexNeighbour x (false, e) = f.2 := by
+      have hta : indexNeighbor x (false, e) = f.2 := by
         rcases htouch with hs | ht
-        · simpa [indexNeighbour, hs] using hEq
+        · simpa [indexNeighbor, hs] using hEq
         · have hne : e.1 ≠ x.val := by
             intro he1
             exact internal_no_self hI (he1.trans ht.symm)
-          simpa [indexNeighbour, hne] using hEq
-      have hmem : indexNeighbour x (false, e) ∈ W := by
+          simpa [indexNeighbor, hne] using hEq
+      have hmem : indexNeighbor x (false, e) ∈ W := by
         rcases internal_endpoints_mem hI with ⟨h1, h2⟩
         rcases htouch with hs | ht
-        · simpa [indexNeighbour, hs] using h2
+        · simpa [indexNeighbor, hs] using h2
         · have hne : e.1 ≠ x.val := by
             intro he1
             exact internal_no_self hI (he1.trans ht.symm)
-          simpa [indexNeighbour, hne] using h1
+          simpa [indexNeighbor, hne] using h1
       have hfW : f.2 ∈ W := by rw [← hta]; exact hmem
       exact False.elim (leg_target_not_mem hL hfW)
   · rcases Finset.mem_image.mp hq with ⟨e, he, rfl⟩
@@ -381,21 +381,21 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
       have hI := (Finset.mem_filter.mp hf).1
       have hL := (Finset.mem_filter.mp he).1
       have htouch := (Finset.mem_filter.mp hf).2
-      have hta : e.2 = indexNeighbour x (false, f) := by
+      have hta : e.2 = indexNeighbor x (false, f) := by
         rcases htouch with hs | ht
-        · simpa [indexNeighbour, hs] using hEq
+        · simpa [indexNeighbor, hs] using hEq
         · have hne : f.1 ≠ x.val := by
             intro hf1
             exact internal_no_self hI (hf1.trans ht.symm)
-          simpa [indexNeighbour, hne] using hEq
-      have hmem : indexNeighbour x (false, f) ∈ W := by
+          simpa [indexNeighbor, hne] using hEq
+      have hmem : indexNeighbor x (false, f) ∈ W := by
         rcases internal_endpoints_mem hI with ⟨h1, h2⟩
         rcases htouch with hs | ht
-        · simpa [indexNeighbour, hs] using h2
+        · simpa [indexNeighbor, hs] using h2
         · have hne : f.1 ≠ x.val := by
             intro hf1
             exact internal_no_self hI (hf1.trans ht.symm)
-          simpa [indexNeighbour, hne] using h1
+          simpa [indexNeighbor, hne] using h1
       have heW : e.2 ∈ W := by rw [hta]; exact hmem
       exact False.elim (leg_target_not_mem hL heW)
     · rcases Finset.mem_image.mp hr with ⟨f, hf, rfl⟩
@@ -403,7 +403,7 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
       have hL' := (Finset.mem_filter.mp hf).1
       have hs := (Finset.mem_filter.mp he).2
       have hs' := (Finset.mem_filter.mp hf).2
-      have htar : e.2 = f.2 := by simpa [indexNeighbour, hs, hs'] using hEq
+      have htar : e.2 = f.2 := by simpa [indexNeighbor, hs, hs'] using hEq
       have hsrc : e.1 = f.1 := hs.trans hs'.symm
       have hef : e = f := Prod.ext hsrc htar
       subst f
@@ -412,12 +412,12 @@ lemma indexNeighbour_injOn {W : Finset Plane} (x : W) :
 lemma incident_card_le_four {W : Finset Plane} (x : W) :
     (internalAt W x).card + (legsAt W x).card ≤ 4 := by
   classical
-  have hc : (localIndex W x).card ≤ (neighbours x.val).card :=
-    Finset.card_le_card_of_injOn (indexNeighbour x)
-      (by intro q hq; exact indexNeighbour_maps x hq)
-      (indexNeighbour_injOn x)
+  have hc : (localIndex W x).card ≤ (neighbors x.val).card :=
+    Finset.card_le_card_of_injOn (indexNeighbor x)
+      (by intro q hq; exact indexNeighbor_maps x hq)
+      (indexNeighbor_injOn x)
   rw [localIndex_card] at hc
-  exact hc.trans (neighbours_card_le_four x.val)
+  exact hc.trans (neighbors_card_le_four x.val)
 
 lemma planeWeight_split {W : Finset Plane} (κ : Plane → Fin 3)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) (x : W) :
@@ -476,7 +476,7 @@ lemma frameBound_pos_lt_one : 0 < frameBound ∧ frameBound < 1 := by
   constructor <;> nlinarith
 
 lemma plus_bounds {κ : Plane → Fin 3} (hb : interactionBounds)
-    (hp : ProperPlaneColouring κ) {u v : Plane} (hadj : Adjacent u v)
+    (hp : ProperPlaneColoring κ) {u v : Plane} (hadj : Adjacent u v)
     (a b : IcoLetter) :
     frameBound ≤ 1 + dot (frameVector (κ u) a) (frameVector (κ v) b) ∧
     1 + dot (frameVector (κ u) a) (frameVector (κ v) b) ≤ 2 - frameBound := by
@@ -485,7 +485,7 @@ lemma plus_bounds {κ : Plane → Fin 3} (hb : interactionBounds)
     (hb (κ u) (κ v) hc a b).2.1⟩
 
 lemma planeWeight_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) : 0 < planeWeight κ W η σ := by
   classical
   have hbpos := frameBound_pos_lt_one.1
@@ -507,7 +507,7 @@ lemma planeWeight_pos {W : Finset Plane} (κ : Plane → Fin 3)
   exact mul_pos (mul_pos (pow_pos (by norm_num) _) hI) hL
 
 lemma internal_local_bounds {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds)
     (σ : PlaneConfiguration W) (x : W) {e : Plane × Plane}
     (he : e ∈ internalAt W x) :
     frameBound ≤ internalFactor κ σ e ∧ internalFactor κ σ e ≤ 2 - frameBound := by
@@ -517,7 +517,7 @@ lemma internal_local_bounds {W : Finset Plane} (κ : Plane → Fin 3)
   simpa [internalFactor] using h
 
 lemma leg_local_bounds {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) (x : W)
     {e : Plane × Plane} (he : e ∈ legsAt W x) :
     frameBound ≤ legFactor κ η σ e ∧ legFactor κ η σ e ≤ 2 - frameBound := by
@@ -571,7 +571,7 @@ lemma prod_upper_pow {ι : Type} [DecidableEq ι] (s : Finset ι)
       _ = c ^ (s.card + 1) := by rw [pow_succ]; ring
 
 lemma localWeight_estimate {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) (x : W) :
     0 < localWeight κ η σ x ∧
       frameBound ^ ((internalAt W x).card + (legsAt W x).card) ≤ localWeight κ η σ x ∧
@@ -635,7 +635,7 @@ lemma pow_ratio_degree {k : ℕ} (hk : k ≤ 4) : frameRatio ^ 4 ≤ frameRatio 
     _ = frameRatio ^ k := by ring
 
 lemma localWeight_ratio_bound {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) (x : W) (a : IcoLetter) :
     frameEnergy ≤
       localWeight κ η (Function.update σ x a) x /
@@ -688,7 +688,7 @@ lemma localWeight_ratio_bound {W : Finset Plane} (κ : Plane → Fin 3)
     _ ≤ _ := hdiv
 
 lemma planePartition_pos {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds) (η : FrameBoundary W) :
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds) (η : FrameBoundary W) :
     0 < ∑ σ : PlaneConfiguration W, planeWeight κ W η σ := by
   classical
   apply Finset.sum_pos
@@ -697,9 +697,9 @@ lemma planePartition_pos {W : Finset Plane} (κ : Plane → Fin 3)
   · exact ⟨(fun _ : W => default), Finset.mem_univ _⟩
 
 lemma conditionalProbability_local {W : Finset Plane} (κ : Plane → Fin 3)
-    (hp : ProperPlaneColouring κ) (hb : interactionBounds) (η : FrameBoundary W)
+    (hp : ProperPlaneColoring κ) (hb : interactionBounds) (η : FrameBoundary W)
     (x : W) (σ : PlaneConfiguration W) (a : IcoLetter) :
-    conditionalProbability (planeLaw κ W η) (fullFibreEvent x σ) (fun τ => τ x = a) =
+    conditionalProbability (planeLaw κ W η) (fullFiberEvent x σ) (fun τ => τ x = a) =
       localWeight κ η (Function.update σ x a) x /
         ∑ b : IcoLetter, localWeight κ η (Function.update σ x b) x := by
   classical
@@ -708,15 +708,15 @@ lemma conditionalProbability_local {W : Finset Plane} (κ : Plane → Fin 3)
   letI : DecidablePred (fun τ : PlaneConfiguration W => τ x = a) :=
     fun τ => Classical.propDecidable _
   have hN :
-      (∑ τ, if fullFibreEvent x σ τ ∧ τ x = a then planeLaw κ W η τ else 0) =
+      (∑ τ, if fullFiberEvent x σ τ ∧ τ x = a then planeLaw κ W η τ else 0) =
         planeLaw κ W η (Function.update σ x a) := by
-    have hs := sum_fullFibre x σ
+    have hs := sum_fullFiber x σ
       (fun τ => if τ x = a then planeLaw κ W η τ else 0)
     simpa [← ite_and, Function.update_self] using hs
   have hD :
-      (∑ τ, if fullFibreEvent x σ τ then planeLaw κ W η τ else 0) =
+      (∑ τ, if fullFiberEvent x σ τ then planeLaw κ W η τ else 0) =
         ∑ b : IcoLetter, planeLaw κ W η (Function.update σ x b) := by
-    simpa using sum_fullFibre x σ (planeLaw κ W η)
+    simpa using sum_fullFiber x σ (planeLaw κ W η)
   have hfixed :
       0 < fixedWeight κ η σ x := by
     have hloc := (localWeight_estimate κ hp hb η (Function.update σ x a) x).1
@@ -751,7 +751,7 @@ lemma conditionalProbability_local {W : Finset Plane} (κ : Plane → Fin 3)
     div_ne_zero (ne_of_gt hfixed) (ne_of_gt hZ)
   have hratio := congrArg₂ (fun n d : ℝ => n / d) hN hD
   calc
-    conditionalProbability (planeLaw κ W η) (fullFibreEvent x σ) (fun τ => τ x = a) =
+    conditionalProbability (planeLaw κ W η) (fullFiberEvent x σ) (fun τ => τ x = a) =
         planeLaw κ W η (Function.update σ x a) /
           ∑ b : IcoLetter, planeLaw κ W η (Function.update σ x b) := by
       unfold conditionalProbability

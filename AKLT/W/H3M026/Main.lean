@@ -51,9 +51,9 @@ private theorem length_partition {n : ℕ} (hn : 1 ≤ n) (X : PairType) :
     by_cases hc : ClosedTrail X w
     · have hnotEast : w i₀ ≠ .east := by
         intro he
-        have hvertex : wordVertex kernelStart w 1 = kernelCentre := by
+        have hvertex : wordVertex kernelStart w 1 = kernelCenter := by
           rw [wordVertex_one_eq_first w (by omega)]
-          simp [kernelStart, kernelCentre, i₀, he, Compass.step]
+          simp [kernelStart, kernelCenter, i₀, he, Compass.step]
         exact hc.2.2.1 1 (by omega) hvertex
       cases hd : w i₀ with
       | east => exact (hnotEast hd).elim

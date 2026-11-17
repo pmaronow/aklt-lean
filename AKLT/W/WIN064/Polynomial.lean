@@ -144,7 +144,7 @@ private lemma internal_endpoints (D : Finset Plane) (e : Plane × Plane)
   obtain ⟨x, hx, y, hy, rfl⟩ := he
   refine ⟨hx, (Finset.mem_inter.mp hy).2, ?_⟩
   have hp : y = (x.1 + 1, x.2) ∨ y = (x.1, x.2 + 1) := by
-    simpa [positiveNeighbours] using (Finset.mem_inter.mp hy).1
+    simpa [positiveNeighbors] using (Finset.mem_inter.mp hy).1
   intro hxy
   change x = y at hxy
   subst y

@@ -146,12 +146,12 @@ theorem incident_other_injective {G : Finset Plane} (D : Network G) (x : D.activ
       exact Prod.ext ho (h.trans h'.symm)
 
 theorem incident_card_le {G : Finset Plane} (D : Network G)
-    (hkept : ∀ z, D.kept z ⊆ neighbours z ∩ G) (x : D.active) :
+    (hkept : ∀ z, D.kept z ⊆ neighbors z ∩ G) (x : D.active) :
     Fintype.card {e : D.bonds // FiniteGraph.Inc (bondLeft D) (bondRight D) x e} ≤
-      (D.presentNeighbours x).card := by
+      (D.presentNeighbors x).card := by
   classical
   let f : {e : D.bonds // FiniteGraph.Inc (bondLeft D) (bondRight D) x e} →
-      D.presentNeighbours x := fun e => ⟨(FiniteGraph.other (bondLeft D) (bondRight D) x e.val).val, by
+      D.presentNeighbors x := fun e => ⟨(FiniteGraph.other (bondLeft D) (bondRight D) x e.val).val, by
         have hp := bond_present e.val
         by_cases he : bondLeft D e.val = x
         · have h := congrArg Subtype.val he
@@ -169,7 +169,7 @@ theorem incident_card_le {G : Finset Plane} (D : Network G)
   have hi : Function.Injective f := by
     intro e d h
     apply incident_other_injective D x
-    exact congrArg (fun z : D.presentNeighbours x => z.val) h
+    exact congrArg (fun z : D.presentNeighbors x => z.val) h
   simpa using Fintype.card_le_of_injective f hi
 
 theorem bond_separate {G : Finset Plane} (D : Network G) {x y : D.active}

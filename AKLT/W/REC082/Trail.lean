@@ -19,9 +19,9 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x y : Plane}
     (h : D.Present x y) : D.Present y x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem present_mem_neighbours {G : Finset Plane} {D : Network G} {x y : Plane}
-    (h : D.Present x y) : y ∈ D.presentNeighbours x :=
-  Finset.mem_filter.mpr ⟨(adjacent_iff_mem_neighbours x y).mp h.2.2.1, h⟩
+theorem present_mem_neighbors {G : Finset Plane} {D : Network G} {x y : Plane}
+    (h : D.Present x y) : y ∈ D.presentNeighbors x :=
+  Finset.mem_filter.mpr ⟨(adjacent_iff_mem_neighbors x y).mp h.2.2.1, h⟩
 
 theorem traceStep_active_subset {G : Finset Plane} (D : Network G) (y o : Plane) :
     (traceStep D y o).active ⊆ D.active := by
@@ -129,10 +129,10 @@ theorem stopped_target_status {G : Finset Plane} {D : Network G}
 /-- At a first hit, a target of initial degree at most one is isolated. -/
 theorem stopped_target_isolated {G : Finset Plane} {D : Network G}
     {u v : Plane} {n : ℕ} {w : DirectionWord n} (huv : u ≠ v)
-    (hdeg : (D.presentNeighbours v).card ≤ 1)
+    (hdeg : (D.presentNeighbors v).card ≤ 1)
     (hw : StoppedNetworkTrail D u (insert v (protectedSites G)) w)
     (he : wordVertex u w n = v) :
-    (traceNetwork D (wordVertices u w)).presentNeighbours v = ∅ := by
+    (traceNetwork D (wordVertices u w)).presentNeighbors v = ∅ := by
   classical
   have hn : 0 < n := by
     by_contra h
@@ -144,12 +144,12 @@ theorem stopped_target_isolated {G : Finset Plane} {D : Network G}
   have hp : D.Present q v := by
     have h := hw.2.1 ⟨n - 1, by omega⟩
     simpa only [hsucc, he] using h
-  have hq : q ∈ D.presentNeighbours v := present_mem_neighbours (present_symm hp)
+  have hq : q ∈ D.presentNeighbors v := present_mem_neighbors (present_symm hp)
   apply Finset.eq_empty_iff_forall_notMem.mpr
   intro z hz
   have hp' := (Finset.mem_filter.mp hz).2
-  have hz' : z ∈ D.presentNeighbours v :=
-    present_mem_neighbours (traceNetwork_present_mono D _ v z hp')
+  have hz' : z ∈ D.presentNeighbors v :=
+    present_mem_neighbors (traceNetwork_present_mono D _ v z hp')
   have hzq : z = q := Finset.card_le_one.mp hdeg z hz' q hq
   subst z
   have hnot := traceNetwork_not_present_edge D (wordVertices u w) (n - 1)

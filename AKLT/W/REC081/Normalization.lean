@@ -49,10 +49,10 @@ theorem normalized_present_iff (p : PairData) (x y : Plane) :
       · exact Finset.mem_erase.mpr ⟨hxc, h.2.2.2.2⟩
       · exact h.2.2.2.2
 
-theorem normalized_presentNeighbours (p : PairData) (x : Plane) :
-    p.normalized.presentNeighbours x = p.D.presentNeighbours x := by
+theorem normalized_presentNeighbors (p : PairData) (x : Plane) :
+    p.normalized.presentNeighbors x = p.D.presentNeighbors x := by
   ext y
-  simp only [Network.presentNeighbours, Finset.mem_filter, normalized_present_iff]
+  simp only [Network.presentNeighbors, Finset.mem_filter, normalized_present_iff]
 
 theorem normalized_auxiliary (p : PairData) : p.normalized.Auxiliary := by
   obtain ⟨hcons, _, _, _, _, _, _, _, _, _⟩ := p.pair
@@ -61,41 +61,41 @@ theorem normalized_auxiliary (p : PairData) : p.normalized.Auxiliary := by
   · intro x
     exact (normalized_kept_subset p x).trans (hlocal.2.1 x)
   · intro x hx hD
-    rw [normalized_presentNeighbours]
+    rw [normalized_presentNeighbors]
     exact hlocal.2.2.1 x hx hD
   · intro x hx
-    rw [normalized_presentNeighbours]
+    rw [normalized_presentNeighbors]
     exact hlocal.2.2.2 x hx
   · intro x hx
     exact (hcons.1.2 x hx).1
 
-theorem adjacent_mem_neighbours (x y : Plane) (h : Adjacent x y) : y ∈ neighbours x := by
+theorem adjacent_mem_neighbors (x y : Plane) (h : Adjacent x y) : y ∈ neighbors x := by
   have hsym : Adjacent y x := by
     unfold Adjacent latticeDist at h ⊢
     omega
   obtain ⟨incoming, hin⟩ := adjacent_compass y x hsym
   exact Finset.mem_image.mpr ⟨incoming, Finset.mem_univ _, hin.symm⟩
 
-theorem neighbours_card_le (x : Plane) : (neighbours x).card ≤ 4 := by
+theorem neighbors_card_le (x : Plane) : (neighbors x).card ≤ 4 := by
   exact (Finset.card_image_le).trans (by decide : Finset.univ.card ≤ 4)
 
 theorem normalized_start (p : PairData) (hinterior : p.u ∉ protectedSites p.G) :
     p.normalized.AdmissibleStart p.u := by
   obtain ⟨_, hu, _, _, hc, huc, _, _, hcases, _⟩ := p.pair
   refine ⟨hu, hinterior, ?_⟩
-  rw [normalized_presentNeighbours]
+  rw [normalized_presentNeighbors]
   rcases hcases with hU | hD
   · refine Or.inl ⟨hU, ?_⟩
-    have hnot : p.c ∉ p.D.presentNeighbours p.u := by
+    have hnot : p.c ∉ p.D.presentNeighbors p.u := by
       intro h
       have hcactive := ((Finset.mem_filter.mp h).2).2.1
       exact (Finset.mem_filter.mp hcactive).2 hc
-    have hsub : insert p.c (p.D.presentNeighbours p.u) ⊆ neighbours p.u := by
+    have hsub : insert p.c (p.D.presentNeighbors p.u) ⊆ neighbors p.u := by
       intro y hy
       rcases Finset.mem_insert.mp hy with rfl | hy
-      · exact adjacent_mem_neighbours _ _ huc
+      · exact adjacent_mem_neighbors _ _ huc
       · exact (Finset.mem_filter.mp hy).1
-    have hcard := (Finset.card_le_card hsub).trans (neighbours_card_le p.u)
+    have hcard := (Finset.card_le_card hsub).trans (neighbors_card_le p.u)
     rw [Finset.card_insert_of_notMem hnot] at hcard
     omega
   · exact Or.inr hD

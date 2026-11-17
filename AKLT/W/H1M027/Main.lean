@@ -23,18 +23,18 @@ theorem deletedLeafChoices
     ∃ v : {x // x ∈ deletedLeafSites π r} → Vec3,
       (∀ x, 0 < A x) ∧
       (∀ x, normSq (v x) ≤ 1) ∧
-      (∀ x n, normSq (n (leafNeighbour π x.1)) ≤ 1 →
+      (∀ x n, normSq (n (leafNeighbor π x.1)) ≤ 1 →
         integratedLeafFactor π m x.1 n = A x *
         (if patternDegree π x.1 = 0 then 1 else
-          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbour π x.1)))) := by
+          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbor π x.1)))) := by
   classical
   let D := {x // x ∈ deletedLeafSites π r}
   have hlocal : ∀ x : D, ∃ p : ℝ × Vec3,
       0 < p.1 ∧ normSq p.2 ≤ 1 ∧
-      ∀ n, normSq (n (leafNeighbour π x.1)) ≤ 1 →
+      ∀ n, normSq (n (leafNeighbor π x.1)) ≤ 1 →
         integratedLeafFactor π m x.1 n = p.1 *
         (if patternDegree π x.1 = 0 then 1 else
-          1 + (replacementRadius π x.1 : ℝ) * dot p.2 (n (leafNeighbour π x.1))) := by
+          1 + (replacementRadius π x.1 : ℝ) * dot p.2 (n (leafNeighbor π x.1))) := by
     intro x
     have hx := hGeometry x.1 x.2
     have hactive : x.1 ∈ π.active := by
@@ -53,7 +53,7 @@ theorem deletedLeafChoices
         (hRule x.1 hperiph hnotX).2 hone
       refine ⟨(A, u), hA, hu, ?_⟩
       intro n hn
-      simpa [integratedLeafFactor, hone] using hfactor (n (leafNeighbour π x.1)) hn
+      simpa [integratedLeafFactor, hone] using hfactor (n (leafNeighbor π x.1)) hn
   choose p hp using hlocal
   refine ⟨fun x => (p x).1, fun x => (p x).2, ?_, ?_, ?_⟩
   · intro x

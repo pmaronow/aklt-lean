@@ -15,7 +15,7 @@ namespace AKLT.Blueprint.H3
 /-- Index package for exactly five new open V2 leaves, not an additional leaf.
 Every V1 leaf remains useful and is retained byte-for-byte in its original module. -/
 def AdaptationLeavesStatementV2 : Prop :=
-  StationaryCoefficientOffCentreStatementV2 ∧ StationaryCentreZeroOperatorStatementV2 ∧
+  StationaryCoefficientOffCenterStatementV2 ∧ StationaryCenterZeroOperatorStatementV2 ∧
   StationaryContinuationBridgeStatementV2 ∧ StationaryCertificateBridgeStatementV2 ∧
   StoppedQuotientIntertwiningStatementV2
 

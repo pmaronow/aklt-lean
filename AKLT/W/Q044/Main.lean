@@ -41,17 +41,17 @@ private lemma sum_agree_update {ι : Type*} [Fintype ι] [DecidableEq ι]
     have hx := congrFun hab x
     simpa [Function.update] using hx
 
-private lemma fibre_denominator_pos {L N : Size}
+private lemma fiber_denominator_pos {L N : Size}
     (κ : Site L N → Fin 3) (x : Site L N)
     (hβ : ∀ σ, beta κ x σ ≠ 0) (σ : TorusConfiguration L N) :
-    0 < fibreDenominator κ x σ := by
-  unfold fibreDenominator
+    0 < fiberDenominator κ x σ := by
+  unfold fiberDenominator
   apply Finset.sum_pos
   · intro a ha
     exact mul_pos (by norm_num) (Complex.normSq_pos.mpr (hβ (Function.update σ x a)))
   · exact Finset.univ_nonempty
 
-theorem main : AKLT.Blueprint.Q.FibreIntertwiningStatement := by
+theorem main : AKLT.Blueprint.Q.FiberIntertwiningStatement := by
   classical
   intro L N κ x hB hβ hFactor hRho hLaw hGroundEval
   have hBnorm : 0 < ‖B L N‖ := norm_pos_iff.mpr hB
@@ -64,7 +64,7 @@ theorem main : AKLT.Blueprint.Q.FibreIntertwiningStatement := by
     simp
   have hIntertwine :
       ∀ f, groundTransform κ (conditionalExpectation (torusLaw L N κ) {x} f) =
-        fibreProjection κ x (groundTransform κ f) := by
+        fiberProjection κ x (groundTransform κ f) := by
     intro f
     funext σ
     let b : IcoLetter → ℂ := fun a => beta κ x (Function.update σ x a)
@@ -143,18 +143,18 @@ theorem main : AKLT.Blueprint.Q.FibreIntertwiningStatement := by
         _ = (b a * star (b a)) * f (Function.update σ x a) * rho κ x σ := by ring
         _ = (Complex.normSq (b a) : ℂ) * f (Function.update σ x a) * rho κ x σ := by
           simp [Complex.mul_conj]
-    have hFibreDen :
-        (fibreDenominator κ x σ : ℂ) = (5 / 12 : ℂ) * (s : ℂ) := by
-      unfold fibreDenominator
+    have hFiberDen :
+        (fiberDenominator κ x σ : ℂ) = (5 / 12 : ℂ) * (s : ℂ) := by
+      unfold fiberDenominator
       simp [s, b, Complex.ofReal_sum, Complex.ofReal_mul, Finset.mul_sum]
-    have hFibreDenPos := fibre_denominator_pos κ x hβ σ
-    have hFibreDenNe : (fibreDenominator κ x σ : ℂ) ≠ 0 :=
-      Complex.ofReal_ne_zero.mpr (ne_of_gt hFibreDenPos)
+    have hFiberDenPos := fiber_denominator_pos κ x hβ σ
+    have hFiberDenNe : (fiberDenominator κ x σ : ℂ) ≠ 0 :=
+      Complex.ofReal_ne_zero.mpr (ne_of_gt hFiberDenPos)
     have hw : (5 / 12 : ℂ) ≠ 0 := by norm_num
     have hwSNe : (5 / 12 : ℂ) * (s : ℂ) ≠ 0 := by
-      rw [← hFibreDen]
-      exact hFibreDenNe
-    have hFibreNum :
+      rw [← hFiberDen]
+      exact hFiberDenNe
+    have hFiberNum :
         (∑ a : IcoLetter, (5 / 12 : ℂ) * star (b a) *
           groundTransform κ f (Function.update σ x a)) =
             (5 / 12 : ℂ) * (rho κ x σ / (‖B L N‖ : ℂ)) * aSum := by
@@ -185,10 +185,10 @@ theorem main : AKLT.Blueprint.Q.FibreIntertwiningStatement := by
       beta κ x σ *
         (∑ a : IcoLetter, (5 / 12 : ℂ) * star (b a) *
           groundTransform κ f (Function.update σ x a)) /
-        (fibreDenominator κ x σ : ℂ)
+        (fiberDenominator κ x σ : ℂ)
     rw [hCE]
     rw [hFactor σ]
-    rw [hFibreNum, hFibreDen]
+    rw [hFiberNum, hFiberDen]
     field_simp [hsNe, hBnormC, hw, hwSNe]
   have hNormPoint (f g : TorusConfiguration L N → ℂ) (σ : TorusConfiguration L N) :
       torusLaw L N κ σ * Complex.normSq (f σ - g σ) =
@@ -209,7 +209,7 @@ theorem main : AKLT.Blueprint.Q.FibreIntertwiningStatement := by
   change torusLaw L N κ σ * Complex.normSq
       (f σ - conditionalExpectation (torusLaw L N κ) {x} f σ) =
     torusReference L N σ * Complex.normSq
-      (groundTransform κ f σ - fibreProjection κ x (groundTransform κ f) σ)
+      (groundTransform κ f σ - fiberProjection κ x (groundTransform κ f) σ)
   rw [← congrFun (hIntertwine f) σ]
   exact hNormPoint f (conditionalExpectation (torusLaw L N κ) {x} f) σ
 

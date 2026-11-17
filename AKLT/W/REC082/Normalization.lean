@@ -44,12 +44,12 @@ theorem normalizeStart_bonds {G : Finset Plane} (D : Network G) (u c : Plane)
   simp only [Network.bonds, Finset.mem_filter]
   rw [normalizeStart_present D u c e.1 e.2 hc]
 
-theorem normalizeStart_presentNeighbours {G : Finset Plane} (D : Network G)
+theorem normalizeStart_presentNeighbors {G : Finset Plane} (D : Network G)
     (u c x : Plane) (hc : D.status c = .X) :
-    (normalizeStart D u c).presentNeighbours x = D.presentNeighbours x := by
+    (normalizeStart D u c).presentNeighbors x = D.presentNeighbors x := by
   classical
   ext y
-  simp only [Network.presentNeighbours, Finset.mem_filter]
+  simp only [Network.presentNeighbors, Finset.mem_filter]
   rw [normalizeStart_present D u c x y hc]
 
 /-- The normalization changes no spin law, bond factor, or original pin factor. -/
@@ -81,9 +81,9 @@ theorem normalizeStart_auxiliary {G : Finset Plane} (D : Network G) (u c : Plane
     · exact Finset.mem_of_mem_erase hz
     · exact hz
   · intro x hx hs
-    simpa only [normalizeStart_presentNeighbours D u c x hc] using hDdeg x hx hs
+    simpa only [normalizeStart_presentNeighbors D u c x hc] using hDdeg x hx hs
   · intro x hx
-    simpa only [normalizeStart_presentNeighbours D u c x hc] using hdeg x hx
+    simpa only [normalizeStart_presentNeighbors D u c x hc] using hdeg x hx
 
 /-- The pair assumptions provide ordinary local rules without any further leaves. -/
 theorem pair_auxiliary (p : PairData) : p.D.Auxiliary :=

@@ -15,10 +15,10 @@ theorem leaf_product (π : PatternData) (r : Representation)
     (hGeometry : PeripheralGeometry π r) (m : Fin 20 → UnitVector)
     (A : {x // x ∈ deletedLeafSites π r} → ℝ)
     (v : {x // x ∈ deletedLeafSites π r} → Vec3)
-    (hfactor : ∀ x n, normSq (n (leafNeighbour π x.1)) ≤ 1 →
+    (hfactor : ∀ x n, normSq (n (leafNeighbor π x.1)) ≤ 1 →
       integratedLeafFactor π m x.1 n = A x *
         (if patternDegree π x.1 = 0 then 1 else
-          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbour π x.1))))
+          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbor π x.1))))
     (n : Plane → Vec3) (hn : ∀ x, normSq (n x) ≤ 1) :
     (∏ x ∈ deletedLeafSites π r, integratedLeafFactor π m x n) =
       (∏ x : {x // x ∈ deletedLeafSites π r}, A x) *
@@ -49,10 +49,10 @@ theorem retained_leaf_product (π : PatternData) (r : Representation)
     (hGeometry : PeripheralGeometry π r) (m : Fin 20 → UnitVector)
     (A : {x // x ∈ deletedLeafSites π r} → ℝ)
     (v : {x // x ∈ deletedLeafSites π r} → Vec3)
-    (hfactor : ∀ x n, normSq (n (leafNeighbour π x.1)) ≤ 1 →
+    (hfactor : ∀ x n, normSq (n (leafNeighbor π x.1)) ≤ 1 →
       integratedLeafFactor π m x.1 n = A x *
         (if patternDegree π x.1 = 0 then 1 else
-          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbour π x.1))))
+          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbor π x.1))))
     (next : Bool) (n : Plane → Vec3) (hn : ∀ x, normSq (n x) ≤ 1) :
     retainedOriginalFactors π r next m n *
         (∏ x ∈ deletedLeafSites π r, integratedLeafFactor π m x n) =
@@ -83,10 +83,10 @@ theorem separated_factorization
     (m : Fin 20 → UnitVector)
     (A : {x // x ∈ deletedLeafSites π r} → ℝ)
     (v : {x // x ∈ deletedLeafSites π r} → Vec3)
-    (hfactor : ∀ x n, normSq (n (leafNeighbour π x.1)) ≤ 1 →
+    (hfactor : ∀ x n, normSq (n (leafNeighbor π x.1)) ≤ 1 →
       integratedLeafFactor π m x.1 n = A x *
         (if patternDegree π x.1 = 0 then 1 else
-          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbour π x.1))))
+          1 + (replacementRadius π x.1 : ℝ) * dot (v x) (n (leafNeighbor π x.1))))
     (next : Bool) :
     separatedLeafFunctional π r next m =
       (∏ x : {x // x ∈ deletedLeafSites π r}, A x) *

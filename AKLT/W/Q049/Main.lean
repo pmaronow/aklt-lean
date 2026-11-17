@@ -28,18 +28,18 @@ private theorem minus_factor_pos (hB : AKLT.Blueprint.Q.interactionBounds)
     0 < 1 - dot (frameVector i a) (frameVector j b) :=
   lt_of_lt_of_le frameBound_pos (hB i j hij a b).2.2.1
 
-private theorem adjacent_of_positiveNeighbours {x y : Plane}
-    (hy : y ∈ positiveNeighbours x) : Adjacent x y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+private theorem adjacent_of_positiveNeighbors {x y : Plane}
+    (hy : y ∈ positiveNeighbors x) : Adjacent x y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
   rcases hy with hy | hy
   · subst y
     simp [Adjacent, latticeDist]
   · subst y
     simp [Adjacent, latticeDist]
 
-private theorem adjacent_of_neighbours {x y : Plane}
-    (hy : y ∈ neighbours x) : Adjacent x y := by
-  unfold neighbours at hy
+private theorem adjacent_of_neighbors {x y : Plane}
+    (hy : y ∈ neighbors x) : Adjacent x y := by
+  unfold neighbors at hy
   rcases Finset.mem_image.mp hy with ⟨d, _, rfl⟩
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
@@ -48,9 +48,9 @@ private theorem originalLeg_adjacent {W : Finset Plane} {e : Plane × Plane}
   unfold originalLegs at he
   rcases Finset.mem_biUnion.mp he with ⟨x, hx, he⟩
   rcases Finset.mem_image.mp he with ⟨z, hz, heq⟩
-  have hneigh : z ∈ neighbours x := (Finset.mem_sdiff.mp hz).1
+  have hneigh : z ∈ neighbors x := (Finset.mem_sdiff.mp hz).1
   have heq' : e = (x, z) := heq.symm
-  have hxy : Adjacent x z := adjacent_of_neighbours hneigh
+  have hxy : Adjacent x z := adjacent_of_neighbors hneigh
   have hfst : e.1 = x := congrArg Prod.fst heq'
   have hsnd : e.2 = z := congrArg Prod.snd heq'
   simpa [hfst, hsnd] using hxy
@@ -76,10 +76,10 @@ theorem main : AKLT.Blueprint.Q.FrameWeightsPositiveStatement := by
         unfold internalBonds at he
         rcases Finset.mem_biUnion.mp he with ⟨x, hx, he⟩
         rcases Finset.mem_image.mp he with ⟨y, hy, heq⟩
-        have hypos : y ∈ positiveNeighbours x := (Finset.mem_inter.mp hy).1
+        have hypos : y ∈ positiveNeighbors x := (Finset.mem_inter.mp hy).1
         have hyW : y ∈ W := (Finset.mem_inter.mp hy).2
         have hpair : e = (x, y) := heq.symm
-        have hxy : Adjacent x y := adjacent_of_positiveNeighbours hypos
+        have hxy : Adjacent x y := adjacent_of_positiveNeighbors hypos
         have hcol : κ x ≠ κ y := hκ x y hxy
         have hpos := plus_factor_pos hB hcol
           (extendLetters σ x) (extendLetters σ y)

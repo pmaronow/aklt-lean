@@ -398,8 +398,8 @@ AKLT.Cert.H3.bits	CertData.H3.Kernel.Common	definition	True
 AKLT.Cert.H3.boundaryMask	CertData.H3.Kernel.Rows	definition	True
 AKLT.Cert.H3.boundaryMask.match_1	CertData.H3.Kernel.Rows	definition	True
 AKLT.Cert.H3.cells	CertData.H3.Kernel.Common	definition	True
-AKLT.Cert.H3.centreNeighbourMask	CertData.H3.Kernel.Rows	definition	True
-AKLT.Cert.H3.centreNeighbourMasks	CertData.H3.Kernel.Rows	definition	True
+AKLT.Cert.H3.centerNeighborMask	CertData.H3.Kernel.Rows	definition	True
+AKLT.Cert.H3.centerNeighborMasks	CertData.H3.Kernel.Rows	definition	True
 AKLT.Cert.H3.closedContribution_view	CertData.H3.Kernel.PrefixView	signature	False
 AKLT.Cert.H3.closedDecidable	CertData.H3.Kernel.Prefix	definition	True
 AKLT.Cert.H3.closedView	CertData.H3.Kernel.PrefixView	definition	True
@@ -733,7 +733,7 @@ AKLT.Defs.Network.mk.sizeOf_spec	AKLT.Defs.Domain	signature	False
 AKLT.Defs.Network.noConfusion	AKLT.Defs.Domain	definition	True
 AKLT.Defs.Network.noConfusionType	AKLT.Defs.Domain	definition	True
 AKLT.Defs.Network.partition	AKLT.Defs.Domain	definition	True
-AKLT.Defs.Network.presentNeighbours	AKLT.Defs.Domain	definition	True
+AKLT.Defs.Network.presentNeighbors	AKLT.Defs.Domain	definition	True
 AKLT.Defs.Network.ratio	AKLT.Defs.Domain	definition	True
 AKLT.Defs.Network.rec	AKLT.Defs.Domain	signature	False
 AKLT.Defs.Network.recOn	AKLT.Defs.Domain	definition	True
@@ -817,8 +817,8 @@ AKLT.Defs.PositiveOn	AKLT.Defs.FiniteNetwork	definition	True
 AKLT.Defs.PositiveProbability	AKLT.Defs.Probability	definition	True
 AKLT.Defs.PositiveVectorBound	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.Probability	AKLT.Defs.Probability	definition	True
-AKLT.Defs.ProperPlaneColouring	AKLT.Defs.FrameModel	definition	True
-AKLT.Defs.ProperTorusColouring	AKLT.Defs.FrameModel	definition	True
+AKLT.Defs.ProperPlaneColoring	AKLT.Defs.FrameModel	definition	True
+AKLT.Defs.ProperTorusColoring	AKLT.Defs.FrameModel	definition	True
 AKLT.Defs.RawWindow	AKLT.Defs.Automaton	definition	True
 AKLT.Defs.Representation	AKLT.Defs.Operator	signature	False
 AKLT.Defs.Representation._sizeOf_1	AKLT.Defs.Operator	definition	True
@@ -1087,7 +1087,7 @@ AKLT.Defs.integerSectorMatrix	AKLT.Defs.Operator	definition	True
 AKLT.Defs.internalBonds	AKLT.Defs.Geometry	definition	True
 AKLT.Defs.invertPolynomial	AKLT.Defs.Operator	definition	True
 AKLT.Defs.invertVectors	AKLT.Defs.FiniteNetwork	definition	True
-AKLT.Defs.kernelCentre	AKLT.Defs.Kernel	definition	True
+AKLT.Defs.kernelCenter	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.kernelIncoming	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.kernelLengthCoefficient	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.kernelOrdering	AKLT.Defs.Kernel	definition	True
@@ -1103,10 +1103,10 @@ AKLT.Defs.kindWeight.match_1	AKLT.Defs.Automaton	definition	True
 AKLT.Defs.lastShellIndex	AKLT.Defs.Geometry	definition	True
 AKLT.Defs.lastWindowWord	AKLT.Defs.Automaton	definition	True
 AKLT.Defs.latticeDist	AKLT.Defs.Geometry	definition	True
-AKLT.Defs.leafNeighbour	AKLT.Defs.Operator	definition	True
+AKLT.Defs.leafNeighbor	AKLT.Defs.Operator	definition	True
 AKLT.Defs.listBackward	AKLT.Defs.Computational	definition	True
-AKLT.Defs.liveOtherNeighbours	AKLT.Defs.Kernel	definition	True
-AKLT.Defs.liveOtherNeighbours.eq_1	CertData.H3.Kernel.PrefixView	theorem	False
+AKLT.Defs.liveOtherNeighbors	AKLT.Defs.Kernel	definition	True
+AKLT.Defs.liveOtherNeighbors.eq_1	CertData.H3.Kernel.PrefixView	theorem	False
 AKLT.Defs.localMean	AKLT.Defs.FiniteNetwork	definition	True
 AKLT.Defs.localProduct	AKLT.Defs.FiniteNetwork	definition	True
 AKLT.Defs.localThreshold	AKLT.Defs.Trails	definition	True
@@ -1126,7 +1126,7 @@ AKLT.Defs.momentLawFunctional._proof_1	AKLT.Defs.Frame	signature	False
 AKLT.Defs.momentLawFunctional._proof_2	AKLT.Defs.Frame	signature	False
 AKLT.Defs.momentLawFunctional._proof_3	AKLT.Defs.Frame	signature	False
 AKLT.Defs.nearShell	AKLT.Defs.Geometry	definition	True
-AKLT.Defs.neighbours	AKLT.Defs.Geometry	definition	True
+AKLT.Defs.neighbors	AKLT.Defs.Geometry	definition	True
 AKLT.Defs.normSq	AKLT.Defs.Moment	definition	True
 AKLT.Defs.normalize	AKLT.Defs.Probability	definition	True
 AKLT.Defs.normalizeRotation	AKLT.Defs.Response	definition	True
@@ -1164,7 +1164,7 @@ AKLT.Defs.planeLaw	AKLT.Defs.FrameModel	definition	True
 AKLT.Defs.planeMarginal	AKLT.Defs.FrameModel	definition	True
 AKLT.Defs.planeWeight	AKLT.Defs.FrameModel	definition	True
 AKLT.Defs.planeWeight._proof_1	AKLT.Defs.FrameModel	signature	False
-AKLT.Defs.positiveNeighbours	AKLT.Defs.Geometry	definition	True
+AKLT.Defs.positiveNeighbors	AKLT.Defs.Geometry	definition	True
 AKLT.Defs.prefixPhases	AKLT.Defs.Stationary	definition	True
 AKLT.Defs.prefixPhases.eq_1	CertData.H3.Kernel.PrefixView	theorem	False
 AKLT.Defs.productDensity	AKLT.Defs.FiniteNetwork	definition	True
@@ -1205,7 +1205,7 @@ AKLT.Defs.responseI._proof_1	AKLT.Defs.Response	signature	False
 AKLT.Defs.responseJ	AKLT.Defs.Response	definition	True
 AKLT.Defs.responseJ._proof_1	AKLT.Defs.Response	signature	False
 AKLT.Defs.responseKappa	AKLT.Defs.Kernel	definition	True
-AKLT.Defs.responseNeighbours	AKLT.Defs.Kernel	definition	True
+AKLT.Defs.responseNeighbors	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.responsePairType	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.responsePairs	AKLT.Defs.Kernel	definition	True
 AKLT.Defs.responsePairs.eq_1	CertData.H3.Kernel.PrefixView	theorem	False
@@ -1406,7 +1406,7 @@ AKLT.Gen.Packed.rowsCheck_sound	AKLT.Gen.Packed.Check	signature	False
 AKLT.Gen.Packed.testBit_lane	AKLT.Gen.Packed.Routing	signature	False
 CertData.H3.Bridge.AutomatonBridgeLeaves	CertData.H3.Bridge.Production	definition	True
 CertData.H3.Bridge.CaseV2	CertData.H3.Bridge.Interface	definition	True
-CertData.H3.Bridge.CentreZeroV2Leaf	CertData.H3.Bridge.Interface	definition	True
+CertData.H3.Bridge.CenterZeroV2Leaf	CertData.H3.Bridge.Interface	definition	True
 CertData.H3.Bridge.ClassDataLeaf	CertData.H3.Bridge.Production	definition	True
 CertData.H3.Bridge.CodeDecodeLeaf	CertData.H3.Bridge.Interface	definition	True
 CertData.H3.Bridge.CodeEncodeLeaf	CertData.H3.Bridge.Interface	definition	True

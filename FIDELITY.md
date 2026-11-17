@@ -59,10 +59,10 @@ the finite stationary/prefix route. The coefficient table is
 
 | Paper clause | Lean clause and correspondence |
 | --- | --- |
-| X is B or C; center 0, start (−1,0), target (1,0) for B or (0,1) for C; incoming is start minus center. | `PairType`, `kernelCentre`, `kernelStart`, `kernelTarget` and `kernelIncoming = .west` give exactly these data. |
+| X is B or C; center 0, start (−1,0), target (1,0) for B or (0,1) for C; incoming is start minus center. | `PairType`, `kernelCenter`, `kernelStart`, `kernelTarget` and `kernelIncoming = .west` give exactly these data. |
 | Length-n plane trails avoid the center, repeat no unoriented bond, and stop at their first target hit. | `DirectionWord n` gives every compass word. `IsTrail` makes `wordBond` injective and forbids the initial reversal. `ClosedTrail` requires the final vertex to be the target, excludes it at every earlier index, and avoids the center at all indices 0,…,n. There is no torus or finite spatial boundary. |
 | A revisit means an earlier departure from the same lattice site. | `departureCount` counts precisely the indices before the current index. `wordRevisit` tests whether this count is positive. Neither an arrival alone nor finite-memory equality is substituted. |
-| Dead neighbors are the center or sites with at least two earlier departures. | `deadAt` is exactly this predicate. `responseNeighbours` removes the actual arrival neighbor; `liveOtherNeighbours` also removes the outgoing neighbor and all dead ones. On a first-hit trail the outgoing neighbor is live, as proved by the lattice argument at paper lines 563–573; it is included unconditionally in `responsePairs`. |
+| Dead neighbors are the center or sites with at least two earlier departures. | `deadAt` is exactly this predicate. `responseNeighbors` removes the actual arrival neighbor; `liveOtherNeighbors` also removes the outgoing neighbor and all dead ones. On a first-hit trail the outgoing neighbor is live, as proved by the lattice argument at paper lines 563–573; it is included unconditionally in `responsePairs`. |
 | With two live other neighbors: a to their mutual pair and b to each outgoing pair; with one: b′ to its outgoing pair; with none: no reward. | `responsePairs` takes all two-element subsets of outgoing plus live others. `pairCoefficient` tests membership of outgoing and whether exactly one other neighbor is live. This gives exactly the three cases. |
 | Exact straight/turn coefficients a, b, b′. | `alphaBound = (145217,150000)/10^6`, `betaBound = (352782,357549)/10^6`, and `betaPrimeBound = (340008,344661)/10^6`, in straight/turn order. `passageFactor` is the reciprocal of the corresponding H1 threshold. |
 | Pair type B is collinear; C is diagonal. | For a two-element response pair of neighbors of the same site, `responsePairType` tests whether the two sites share a coordinate. This is exactly the collinear/diagonal distinction. |
@@ -129,10 +129,19 @@ remains available as `AKLT.Final.main_of_inputs`.
 
 ## Module-system port note
 
-The standalone hand-written port preserves every original statement, definition
-body, and proof body. It makes public/exposed interfaces explicit and retains the
+The standalone hand-written port preserves every mathematical assertion and definition/proof body up to the consistent
+American English identifier substitution. It preserves numeric/string data. It makes public/exposed interfaces explicit and retains the
 explicit exposure of `AKLT.Challenge.size_neZero`. Literal elaborators are meta,
 and the H3 sorting proof module imports the standard sorting implementation with
 `import all` so its unchanged proofs can unfold the required bodies. The source
 fidelity receipt checks all 1,104 imported hand-written files. See
 PORT-CHANGES.md, REGEN-INTERFACE.md, and the scoped verification records.
+
+## Identifier spelling update
+
+The independent Challenge, regression template, and proof development use the
+same current American English names. The alias identifications still use
+Iff.rfl. Declaration, binder, field, module, and import spellings change together;
+no mathematical premise, numeric input, or semantic definition changes. Paper
+citation labels and external dependency names are preserved. Verification after
+the fresh rebuild is recorded separately under verification/rename/.

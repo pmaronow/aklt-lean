@@ -76,7 +76,7 @@ theorem vertex_product (s : α → Status) {x y : α} (hxy : x ≠ y)
   have hx := (Finset.mem_erase.mp (Finset.mem_erase.mp hz).2).1
   rw [Function.update_of_ne hy, Function.update_of_ne hx]
 
-theorem fibre_factorization (s : α → Status) (l r : β → α)
+theorem fiber_factorization (s : α → Status) (l r : β → α)
     (hloop : ∀ e, l e ≠ r e) {x y : α} (hxy : x ≠ y)
     (hsep : ∀ e, Inc l r x e → ¬Inc l r y e)
     (P : (α → SpinLetter) → ℝ) (hP : ∀ σ, 0 ≤ P σ)
@@ -156,9 +156,9 @@ theorem pair_lower (s : α → Status) (l r : β → α)
   classical
   let H : (α → SpinLetter) → ℝ := fun σ => weight s l r P σ *
     (dot (spinVector (σ x)) (spinVector (σ y)) + 9 / 25)
-  have hfibre (σ : α → SpinLetter) :
+  have hfiber (σ : α → SpinLetter) :
       0 ≤ ∑ a, ∑ b, H (Function.update (Function.update σ x a) y b) := by
-    obtain ⟨C, hC, hfactor⟩ := fibre_factorization s l r hloop hxy hsep P hP hrefresh σ
+    obtain ⟨C, hC, hfactor⟩ := fiber_factorization s l r hloop hxy hsep P hP hrefresh σ
     have hlocal := local_pair_lower hxdeg hydeg
       (fun e : {e // Inc l r x e} => spinVector (σ (other l r x e)))
       (fun e : {e // Inc l r y e} => spinVector (σ (other l r y e)))
@@ -181,7 +181,7 @@ theorem pair_lower (s : α → Status) (l r : β → α)
     rw [heq]
     exact mul_nonneg hC hlocal
   have htotal : 0 ≤ ∑ σ, H σ := by
-    have h := Finset.sum_nonneg (fun σ (_ : σ ∈ Finset.univ) => hfibre σ)
+    have h := Finset.sum_nonneg (fun σ (_ : σ ∈ Finset.univ) => hfiber σ)
     rw [sum_refresh_pair x y H] at h
     have hcard : 0 < (Fintype.card SpinLetter : ℝ)^2 := by
       norm_num [SpinLetter, IcoLetter, Fintype.card_option, Fintype.card_prod]

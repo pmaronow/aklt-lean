@@ -87,16 +87,16 @@ theorem halfLetter_not_antipodal (j k : HalfLetter) :
     simp only [inv_mul_cancel₀ hr] at h0 h1 h2 <;>
     first | contradiction | linarith
 
-theorem neighbours_card_le (x : Plane) : (neighbours x).card ≤ 4 := by
+theorem neighbors_card_le (x : Plane) : (neighbors x).card ≤ 4 := by
   calc
-    (neighbours x).card ≤ Fintype.card Compass := Finset.card_image_le
+    (neighbors x).card ≤ Fintype.card Compass := Finset.card_image_le
     _ = 4 := by decide +kernel
 
 /-- A local original leg is determined by its exterior endpoint. -/
 theorem local_legs_card_le (G : Finset Plane) (x : Plane) :
     Fintype.card {e : originalLegs G // e.val.1 = x} ≤ 4 := by
   classical
-  let f : {e : originalLegs G // e.val.1 = x} → ↥(neighbours x) := fun e =>
+  let f : {e : originalLegs G // e.val.1 = x} → ↥(neighbors x) := fun e =>
     ⟨e.val.val.2, by
       have he := e.val.property
       simp only [originalLegs, Finset.mem_biUnion, Finset.mem_image] at he
@@ -114,7 +114,7 @@ theorem local_legs_card_le (G : Finset Plane) (x : Plane) :
     · exact e.property.trans d.property.symm
     · exact congrArg Subtype.val h
   exact (Fintype.card_le_of_injective f hf).trans (by
-    simpa only [Fintype.card_coe] using neighbours_card_le x)
+    simpa only [Fintype.card_coe] using neighbors_card_le x)
 
 #print axioms normSq_nonneg
 #print axioms normSq_add
@@ -125,7 +125,7 @@ theorem local_legs_card_le (G : Finset Plane) (x : Plane) :
 #print axioms icoRadius_pos
 #print axioms halfLetter_injective
 #print axioms halfLetter_not_antipodal
-#print axioms neighbours_card_le
+#print axioms neighbors_card_le
 #print axioms local_legs_card_le
 
 end AKLT.W.WIN048

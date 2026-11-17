@@ -33,7 +33,7 @@ ends; choose a signed coordinate permutation sending the designated triple
 to the canonical one. This preserves all factors, pins, and distances. -/
 def PairCanonicalGeometryStatement : Prop :=
   ∀ p : PairData, ∃ φ : Plane ≃ Plane,
-    φ p.c = kernelCentre ∧ φ p.u = kernelStart ∧ φ p.v = kernelTarget p.X ∧
+    φ p.c = kernelCenter ∧ φ p.u = kernelStart ∧ φ p.v = kernelTarget p.X ∧
     ∀ x y : Plane, latticeDist (φ x) (φ y) = latticeDist x y
 
 /-- `l:recineq`, §7 lines 774–789. At each U departure, expose the

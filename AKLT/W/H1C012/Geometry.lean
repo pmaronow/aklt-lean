@@ -14,7 +14,7 @@ noncomputable section
 private theorem mem_internal_iff {G : Finset Plane} {a b : Plane} :
     (a,b) ∈ internalBonds G ↔ a ∈ G ∧ b ∈ G ∧
       (b = (a.1+1,a.2) ∨ b = (a.1,a.2+1)) := by
-  simp [internalBonds, positiveNeighbours, and_assoc, and_left_comm, and_comm]
+  simp [internalBonds, positiveNeighbors, and_assoc, and_left_comm, and_comm]
 
 private theorem internal_no_reverse {G : Finset Plane} {a b : Plane}
     (h : (a,b) ∈ internalBonds G) : (b,a) ∉ internalBonds G := by

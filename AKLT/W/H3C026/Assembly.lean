@@ -30,11 +30,11 @@ theorem rowTermsV2_from_leaves
       apply scalarDirection_semantics G.quotient hQ X d₀ φ a (gridSite s) d hc ht
       intro hdest ψ
       rw [hdest]
-      exact tables_centre T hT ψ (G.quotient.successor a d)
+      exact tables_center T hT ψ (G.quotient.successor a d)
     _ = ∑ d : Compass, ∑ ψ : Phase,
           coefficientCeiling (stationaryCoefficientV2 G.quotient X d₀ φ a (gridSite s) d ψ) *
             T.data.extended ψ (G.quotient.successor a d) (gridSite s+d.step) :=
-      AKLT.W.H3C024.main G.quotient T.data X d₀ (tables_centre T hT) φ a (gridSite s)
+      AKLT.W.H3C024.main G.quotient T.data X d₀ (tables_center T hT) φ a (gridSite s)
 
 end AKLT.W.H3C026
 

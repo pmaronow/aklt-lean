@@ -11,15 +11,15 @@ open AKLT.Defs
 
 namespace AKLT.W.REC082.PE
 
-private theorem positive_not_reverse {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours y := by
+private theorem positive_not_reverse {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors y := by
   rcases x with ⟨x₁, x₂⟩
   rcases y with ⟨y₁, y₂⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at *
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at *
   omega
 
 private theorem bond_positive {G : Finset Plane} {D : Network G} {e : Plane × Plane}
-    (h : e ∈ D.bonds) : e.2 ∈ positiveNeighbours e.1 := by
+    (h : e ∈ D.bonds) : e.2 ∈ positiveNeighbors e.1 := by
   obtain ⟨hi, _⟩ := Finset.mem_filter.mp h
   obtain ⟨x, hx, he⟩ := Finset.mem_biUnion.mp hi
   obtain ⟨y, hy, he⟩ := Finset.mem_image.mp he
@@ -27,7 +27,7 @@ private theorem bond_positive {G : Finset Plane} {D : Network G} {e : Plane × P
   exact (Finset.mem_inter.mp hy).1
 
 private def canonicalBond (u o : Plane) : Plane × Plane :=
-  if o ∈ positiveNeighbours u then (u, o) else (o, u)
+  if o ∈ positiveNeighbors u then (u, o) else (o, u)
 
 private theorem canonicalBond_mem {G : Finset Plane} {D : Network G} {u o : Plane}
     (h : D.Present u o) : canonicalBond u o ∈ D.bonds := by
@@ -40,7 +40,7 @@ private theorem canonicalBond_injective (u : Plane) : Function.Injective (canoni
   intro o p h
   have hh (o : Plane) : (if (canonicalBond u o).1 = u then
       (canonicalBond u o).2 else (canonicalBond u o).1) = o := by
-    by_cases ho : o ∈ positiveNeighbours u
+    by_cases ho : o ∈ positiveNeighbors u
     · simp [canonicalBond, ho]
     · by_cases hou : o = u <;> simp [canonicalBond, ho, hou]
   have he := congrArg (fun e : Plane × Plane => if e.1 = u then e.2 else e.1) h
@@ -55,10 +55,10 @@ unoriented present bond once in both enumerations. -/
 theorem bond_product_split {G : Finset Plane} (D : Network G) (u : Plane)
     (f : Plane → Plane → ℝ) (hf : ∀ x y, f x y = f y x) :
     (∏ e ∈ D.bonds, f e.1 e.2) =
-      (∏ o ∈ D.presentNeighbours u, f u o) *
+      (∏ o ∈ D.presentNeighbors u, f u o) *
         ∏ e ∈ exteriorBonds D u, f e.1 e.2 := by
   classical
-  have hi : (∏ o ∈ D.presentNeighbours u, f u o) =
+  have hi : (∏ o ∈ D.presentNeighbors u, f u o) =
       ∏ e ∈ D.bonds.filter (fun e => e.1 = u ∨ e.2 = u), f e.1 e.2 := by
     apply Finset.prod_bij (fun o _ => canonicalBond u o)
     · intro o ho
@@ -72,9 +72,9 @@ theorem bond_product_split {G : Finset Plane} (D : Network G) (u : Plane)
       have hp := (Finset.mem_filter.mp hb).2
       rcases e with ⟨x, y⟩
       rcases he with rfl | rfl
-      · refine ⟨y, mem_presentNeighbours hp, ?_⟩
+      · refine ⟨y, mem_presentNeighbors hp, ?_⟩
         simp [canonicalBond, bond_positive hb]
-      · refine ⟨x, mem_presentNeighbours (present_symm hp), ?_⟩
+      · refine ⟨x, mem_presentNeighbors (present_symm hp), ?_⟩
         simp [canonicalBond, positive_not_reverse (bond_positive hb)]
     · intro o ho
       dsimp [canonicalBond]
@@ -101,11 +101,11 @@ theorem exteriorBonds_step {G : Finset Plane} {D : Network G} {u o : Plane}
     exact hne (hm.imp Eq.symm Eq.symm)
 
 /-- Exactly the out-neighbor disappears from the departure neighbor set. -/
-theorem departureNeighbours_step {G : Finset Plane} {D : Network G} {u o : Plane}
+theorem departureNeighbors_step {G : Finset Plane} {D : Network G} {u o : Plane}
     (hu : D.AdmissibleStart u) (hp : D.Present u o) :
-    (traceStep D u o).presentNeighbours u = (D.presentNeighbours u).erase o := by
+    (traceStep D u o).presentNeighbors u = (D.presentNeighbors u).erase o := by
   ext x
-  simp only [Network.presentNeighbours, Finset.mem_filter, Finset.mem_erase]
+  simp only [Network.presentNeighbors, Finset.mem_filter, Finset.mem_erase]
   constructor
   · rintro ⟨hn, hh⟩
     refine ⟨?_, hn, traceStep_present_subset D u o hh⟩

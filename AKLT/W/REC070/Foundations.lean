@@ -83,7 +83,7 @@ lemma lattice_symm (x y : Plane) : latticeDist x y = latticeDist y x := by
   unfold latticeDist
   omega
 
-lemma neighbour_dist (v z : Plane) (hz : z ∈ neighbours v) : latticeDist z v = 1 := by
+lemma neighbor_dist (v z : Plane) (hz : z ∈ neighbors v) : latticeDist z v = 1 := by
   obtain ⟨d, _, rfl⟩ := Finset.mem_image.mp hz
   cases d <;> simp [latticeDist, Compass.step]
 
@@ -95,15 +95,15 @@ lemma vertex_dist {n : ℕ} (w : DirectionWord n) (j : ℕ) (hj : j ≤ n) :
     rw [AKLT.Cert.H2.vertex_succ _ _ j (by omega)]
     apply (lattice_triangle _ (wordVertex kernelStart w j) _).trans
     have hn : wordVertex kernelStart w j + (w ⟨j, by omega⟩).step ∈
-        neighbours (wordVertex kernelStart w j) := by
+        neighbors (wordVertex kernelStart w j) := by
       exact Finset.mem_image.mpr ⟨_, Finset.mem_univ _, rfl⟩
-    rw [neighbour_dist _ _ hn]
+    rw [neighbor_dist _ _ hn]
     have := ih (by omega)
     omega
 
 lemma response_near {n : ℕ} (w : DirectionWord n) (i : Fin n)
     (p : Finset Plane) (hp : p ∈ responsePairs w i) {z : Plane} (hz : z ∈ p) :
-    z ∈ neighbours (wordVertex kernelStart w i.val) := by
+    z ∈ neighbors (wordVertex kernelStart w i.val) := by
   have hsub := (Finset.mem_powersetCard.mp hp).1 hz
   rcases Finset.mem_insert.mp hsub with he | he
   · subst z
@@ -117,7 +117,7 @@ lemma pairShift_le {n : ℕ} (X : PairType) (w : DirectionWord n) (i : Fin n)
   intro z hz
   apply (min_le_left _ _).trans
   apply (lattice_triangle _ (wordVertex kernelStart w i.val) _).trans
-  rw [neighbour_dist _ _ (response_near w i p hp hz)]
+  rw [neighbor_dist _ _ (response_near w i p hp hz)]
   have := vertex_dist w i.val (Nat.le_of_lt i.isLt)
   omega
 

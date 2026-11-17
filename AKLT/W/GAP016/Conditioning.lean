@@ -16,7 +16,7 @@ variable {ι : Type} [Fintype ι] [DecidableEq ι]
 variable {S : ι → Type} [∀ i, Fintype (S i)]
 
 /-- A singleton fiber is parametrized by the letter at that site. -/
-lemma single_fibre_sum {R : Type*} [AddCommMonoid R]
+lemma single_fiber_sum {R : Type*} [AddCommMonoid R]
     (σ : Config S) (i : ι) (g : Config S → R) :
     (∑ τ, if AgreeOutside {i} σ τ then g τ else 0) =
       ∑ a, g (Function.update σ i a) := by
@@ -50,7 +50,7 @@ lemma conditionalExpectation_product_singleton
       average (fun j a => (π j a : ℂ)) i f σ := by
   classical
   unfold conditionalExpectation
-  rw [single_fibre_sum, single_fibre_sum]
+  rw [single_fiber_sum, single_fiber_sum]
   let c : ℝ := ∏ j ∈ Finset.univ.erase i, π j (σ j)
   have hc : 0 < c := Finset.prod_pos fun j _ => (hπ j).1 (σ j)
   have hc' : (c : ℂ) ≠ 0 := by exact_mod_cast hc.ne'

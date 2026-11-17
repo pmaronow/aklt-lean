@@ -18,7 +18,7 @@ theorem originalLeg_outside {G : Finset Plane} {e : Plane × Plane}
   obtain ⟨z, hz, rfl⟩ := Finset.mem_image.mp hx
   exact (Finset.mem_sdiff.mp hz).2
 
-theorem neighbour_distance {y z : Plane} (hz : z ∈ neighbours y) : latticeDist y z = 1 := by
+theorem neighbor_distance {y z : Plane} (hz : z ∈ neighbors y) : latticeDist y z = 1 := by
   obtain ⟨d, _, rfl⟩ := Finset.mem_image.mp hz
   cases d <;> dsimp [latticeDist, Compass.step] <;> omega
 
@@ -28,7 +28,7 @@ theorem no_original_leg_of_unprotected {G : Finset Plane} {y : Plane}
   intro e he
   have hdist : latticeDist y e.val.2 = 1 := by
     rw [← he]
-    exact neighbour_distance (originalLeg_neighbour e.property)
+    exact neighbor_distance (originalLeg_neighbor e.property)
   have hdepth : boundaryDepth G y ≤ 1 := by
     have h : boundaryDepth G y ≤ (latticeDist y e.val.2 : ℕ∞) :=
       iInf_le (fun z : {z : Plane // z ∉ G} => (latticeDist y z.val : ℕ∞))
@@ -48,13 +48,13 @@ theorem trace_active {G : Finset Plane} (D : Network G) (y o : Plane) (hU : D.st
     simp [traceStep, hU]
   · simp [traceStep, hx]
 
-theorem trace_neighbours {G : Finset Plane} (D : Network G) (y o : Plane)
+theorem trace_neighbors {G : Finset Plane} (D : Network G) (y o : Plane)
     (hU : D.status y = .U) :
-    (traceStep D y o).presentNeighbours y = (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y = (D.presentNeighbors y).erase o := by
   classical
   ext z
-  rw [Network.presentNeighbours, Finset.mem_filter, Finset.mem_erase,
-    Network.presentNeighbours, Finset.mem_filter]
+  rw [Network.presentNeighbors, Finset.mem_filter, Finset.mem_erase,
+    Network.presentNeighbors, Finset.mem_filter]
   simp only [Network.Present, trace_active D y o hU]
   by_cases hz : z = y
   · subst z
@@ -105,10 +105,10 @@ theorem remove_trace_partition {G : Finset Plane} (D : Network G) (y o : Plane)
 theorem departure_disintegration (a : Departure) (hU : a.D.status a.y = .U) (b : Bool) :
     a.D.partition a.τ b (fun _ => 1) =
       (removeSite a.D a.y).partition a.τ b (fun n => siteFunctional .U
-        (fun v => ∏ z ∈ a.D.presentNeighbours a.y, (1 + dot v (n z)))) ∧
+        (fun v => ∏ z ∈ a.D.presentNeighbors a.y, (1 + dot v (n z)))) ∧
     (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
       (removeSite a.D a.y).partition a.τ b (fun n => siteFunctional .D
-        (fun v => ∏ z ∈ (a.D.presentNeighbours a.y).erase a.o, (1 + dot v (n z)))) := by
+        (fun v => ∏ z ∈ (a.D.presentNeighbors a.y).erase a.o, (1 + dot v (n z)))) := by
   have hy := a.start.1
   have hleg := no_original_leg_of_unprotected (Finset.mem_filter.mp hy).1 a.start.2.1
   constructor
@@ -116,6 +116,6 @@ theorem departure_disintegration (a : Departure) (hU : a.D.status a.y = .U) (b :
   · have hy' : a.y ∈ (traceStep a.D a.y a.o).active := by rw [trace_active _ _ _ hU]; exact hy
     have h := partition_integrate_site (traceStep a.D a.y a.o) a.τ b a.y hy' hleg
     have hs : (traceStep a.D a.y a.o).status a.y = .D := by simp [traceStep, hU]
-    simpa only [hs, trace_neighbours _ _ _ hU, remove_trace_partition] using h
+    simpa only [hs, trace_neighbors _ _ _ hU, remove_trace_partition] using h
 
 end AKLT.W.REC091

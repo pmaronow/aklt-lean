@@ -16,12 +16,12 @@ namespace AKLT.W.REC042
 the fixed target can be any distinct site. -/
 theorem coordinate_step {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (u v : Plane) (hu : u ∈ D.active) (huS : u ∉ protectedSites G)
-    (hstatus : (D.status u = .U ∧ (D.presentNeighbours u).card ≤ 3) ∨
-      (D.status u = .D ∧ (D.presentNeighbours u).card ≤ 1))
+    (hstatus : (D.status u = .U ∧ (D.presentNeighbors u).card ≤ 3) ∨
+      (D.status u = .D ∧ (D.presentNeighbors u).card ≤ 1))
     (huv : u ≠ v) (k : Fin 3) :
     D.partition τ b (fun m => m u k * m v k) =
       (if D.status u = .U then (1 / 3 : ℝ) else 1 / 5) *
-        ∑ o ∈ D.presentNeighbours u,
+        ∑ o ∈ D.presentNeighbors u,
           (traceStep D u o).partition τ b (fun m => m o k * m v k) := by
   rcases hstatus with ⟨hU, hdeg⟩ | ⟨hD, hdeg⟩
   · rw [ite_eq_left hU]
@@ -29,12 +29,12 @@ theorem coordinate_step {G : Finset Plane} (D : Network G) (τ : PinAssignment G
       D.partition τ b (fun m => m u k * m v k) =
           (removeSite D u).partition τ b (fun m =>
             siteFunctional (D.status u)
-              (fun n => n k * ∏ z ∈ D.presentNeighbours u, (1 + dot n (m z))) * m v k) :=
+              (fun n => n k * ∏ z ∈ D.presentNeighbors u, (1 + dot n (m z))) * m v k) :=
         partition_coordinate D τ b u v hu huS huv k
       _ = (removeSite D u).partition τ b (fun m =>
-          (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbours u,
+          (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbors u,
             siteFunctional .D
-              (fun n => ∏ z ∈ (D.presentNeighbours u).erase o, (1 + dot n (m z))) *
+              (fun n => ∏ z ∈ (D.presentNeighbors u).erase o, (1 + dot n (m z))) *
                 (m o k * m v k)) := by
         congr 1
         funext m
@@ -43,13 +43,13 @@ theorem coordinate_step {G : Finset Plane} (D : Network G) (τ : PinAssignment G
         apply Finset.sum_congr rfl
         intro o _
         ring
-      _ = (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbours u,
+      _ = (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbors u,
           (removeSite D u).partition τ b (fun m =>
             siteFunctional .D
-              (fun n => ∏ z ∈ (D.presentNeighbours u).erase o, (1 + dot n (m z))) *
+              (fun n => ∏ z ∈ (D.presentNeighbors u).erase o, (1 + dot n (m z))) *
                 (m o k * m v k)) := by
         rw [AKLT.W.REC002.partition_smul, partition_finset_sum]
-      _ = (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbours u,
+      _ = (1 / 3 : ℝ) * ∑ o ∈ D.presentNeighbors u,
           (traceStep D u o).partition τ b (fun m => m o k * m v k) := by
         congr 1
         apply Finset.sum_congr rfl
@@ -61,17 +61,17 @@ theorem coordinate_step {G : Finset Plane} (D : Network G) (τ : PinAssignment G
       D.partition τ b (fun m => m u k * m v k) =
           (removeSite D u).partition τ b (fun m =>
             siteFunctional (D.status u)
-              (fun n => n k * ∏ z ∈ D.presentNeighbours u, (1 + dot n (m z))) * m v k) :=
+              (fun n => n k * ∏ z ∈ D.presentNeighbors u, (1 + dot n (m z))) * m v k) :=
         partition_coordinate D τ b u v hu huS huv k
       _ = (removeSite D u).partition τ b (fun m =>
-          (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbours u, m o k * m v k) := by
+          (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbors u, m o k * m v k) := by
         congr 1
         funext m
         rw [hD, siteD_coordinate_finset _ hdeg, mul_assoc, Finset.sum_mul]
-      _ = (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbours u,
+      _ = (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbors u,
           (removeSite D u).partition τ b (fun m => m o k * m v k) := by
         rw [AKLT.W.REC002.partition_smul, partition_finset_sum]
-      _ = (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbours u,
+      _ = (1 / 5 : ℝ) * ∑ o ∈ D.presentNeighbors u,
           (traceStep D u o).partition τ b (fun m => m o k * m v k) := by
         congr 1
         apply Finset.sum_congr rfl

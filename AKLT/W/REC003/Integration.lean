@@ -27,7 +27,7 @@ def interaction {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
 theorem bondProduct_update {G : Finset Plane} (D : Network G) (y : Plane)
     (m : Plane → Vec3) (v : Vec3) :
     bondProduct D (Function.update m y v) = bondProduct (removeSite D y) m *
-      ∏ z ∈ D.presentNeighbours y, (1 + dot v (m z)) := by
+      ∏ z ∈ D.presentNeighbors y, (1 + dot v (m z)) := by
   unfold bondProduct
   rw [bonds_split D y, Finset.prod_union (bonds_split_disjoint D y)]
   congr 1
@@ -38,7 +38,7 @@ theorem bondProduct_update {G : Finset Plane} (D : Network G) (y : Plane)
   · rw [Finset.prod_image (fun _ _ _ _ h => edge_injective y h)]
     apply Finset.prod_congr rfl
     intro z hz
-    have hzy : z ≠ y := (adjacent_ne ((mem_presentNeighbours D y z).mp hz).2.2.1).symm
+    have hzy : z ≠ y := (adjacent_ne ((mem_presentNeighbors D y z).mp hz).2.2.1).symm
     rcases edge_cases y z with he | he
     · simp only [he, Function.update_self, Function.update_of_ne hzy]
     · simp only [he, Function.update_self, Function.update_of_ne hzy]
@@ -61,7 +61,7 @@ theorem legProduct_update {G : Finset Plane} (D : Network G) (τ : PinAssignment
 theorem interaction_update {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (y : Plane) (hy : y ∉ protectedSites G) (m : Plane → Vec3) (v : Vec3) :
     interaction D τ b (Function.update m y v) = interaction (removeSite D y) τ b m *
-      ∏ z ∈ D.presentNeighbours y, (1 + dot v (m z)) := by
+      ∏ z ∈ D.presentNeighbors y, (1 + dot v (m z)) := by
   unfold interaction
   rw [bondProduct_update, legProduct_update D τ b y hy]
   ring
@@ -92,7 +92,7 @@ theorem partition_eliminate {G : Finset Plane} (D : Network G) (τ : PinAssignme
     (b : Bool) (y : Plane) (hy : y ∈ D.active) (hyS : y ∉ protectedSites G) :
     D.partition τ b (fun _ => 1) = (removeSite D y).partition τ b
       (fun m => siteFunctional (D.status y)
-        (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (m z)))) := by
+        (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (m z)))) := by
   rw [partition_repr, partition_repr, removed_integral]
   simp only [one_mul]
   rw [spinIntegral_site D.active y hy]
@@ -101,8 +101,8 @@ theorem partition_eliminate {G : Finset Plane} (D : Network G) (τ : PinAssignme
   intro n _
   simp_rw [interaction_update D τ b y hyS]
   have hfun : (fun v => interaction (removeSite D y) τ b (extendSpins (D.active.erase y) n) *
-      ∏ z ∈ D.presentNeighbours y, (1 + dot v (extendSpins (D.active.erase y) n z))) =
-      (fun v => (∏ z ∈ D.presentNeighbours y, (1 + dot v (extendSpins (D.active.erase y) n z))) *
+      ∏ z ∈ D.presentNeighbors y, (1 + dot v (extendSpins (D.active.erase y) n z))) =
+      (fun v => (∏ z ∈ D.presentNeighbors y, (1 + dot v (extendSpins (D.active.erase y) n z))) *
         interaction (removeSite D y) τ b (extendSpins (D.active.erase y) n)) := by
     funext v
     exact mul_comm _ _

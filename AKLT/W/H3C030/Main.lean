@@ -161,7 +161,7 @@ theorem replayTrace_from_prefix (E : Exact) (X : PairType) (d₀ : Nat) :
       decodeWord m c = suffixWord w k m hlen →
       WalkPrefix w k s →
       IsTrail kernelStart kernelIncoming w → FirstDirection w (direction d₀) →
-      (∀ j ≤ total, wordVertex kernelStart w j ≠ kernelCentre ∧
+      (∀ j ≤ total, wordVertex kernelStart w j ≠ kernelCenter ∧
         wordVertex kernelStart w j ≠ target X) →
       ReplayTrace E X d₀ m c s := by
   intro hd₀ total k m
@@ -194,7 +194,7 @@ theorem replayTrace_from_prefix (E : Exact) (X : PairType) (d₀ : Nat) :
       have hadvance : advance (wordVertex kernelStart w k) (directionCode (w i)) =
           wordVertex kernelStart w k + (w i).step := by
         cases w i <;> rfl
-      have hnotCentre : advance s.walk.pos q ≠ kernelCentre := by
+      have hnotCenter : advance s.walk.pos q ≠ kernelCenter := by
         have hc := (havoid (k + 1) (by omega)).1
         rw [hpos, hq, hadvance, ← hstepGeom]
         exact hc
@@ -216,13 +216,13 @@ theorem replayTrace_from_prefix (E : Exact) (X : PairType) (d₀ : Nat) :
           simp [hdepth, hk0, hq0]
         · simp [hdepth, hk0]
       have hlegalQ : s.walk.legal q = true := by simpa [hq] using hlegal
-      have hnotCentreBool : (advance s.walk.pos q != kernelCentre) = true := by
-        simp [hnotCentre]
+      have hnotCenterBool : (advance s.walk.pos q != kernelCenter) = true := by
+        simp [hnotCenter]
       have hgood : goodStep d₀ s.walk q = true := by
         change ((s.walk.depth != 0 || q == d₀) && s.walk.legal q &&
           (advance s.walk.pos q != (0, 0))) = true
         rw [hfirstTest, hlegalQ]
-        simpa [kernelCentre] using hnotCentreBool
+        simpa [kernelCenter] using hnotCenterBool
       have hwalk' : WalkPrefix w (k + 1) (transition E s q) := by
         simpa [q, hq] using walkPrefix_transition w k hk E s ⟨hdepth, hpos, hused⟩
       have hlen' : (k + 1) + m = total := by omega

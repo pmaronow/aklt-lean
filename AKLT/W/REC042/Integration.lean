@@ -24,7 +24,7 @@ theorem partition_site {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     D.partition τ b (fun m => g (m y) * f m) =
       (removeSite D y).partition τ b (fun m =>
         siteFunctional (D.status y)
-          (fun n => g n * ∏ z ∈ D.presentNeighbours y, (1 + dot n (m z))) * f m) := by
+          (fun n => g n * ∏ z ∈ D.presentNeighbors y, (1 + dot n (m z))) * f m) := by
   rw [partition_repr, partition_repr, removed_integral,
     spinIntegral_site D.active y hy]
   unfold spinIntegral
@@ -34,10 +34,10 @@ theorem partition_site {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
   let m := extendSpins (D.active.erase y) σ
   change _ * siteFunctional (D.status y)
       (fun n => g n * f m * (interaction (removeSite D y) τ b m *
-        ∏ z ∈ D.presentNeighbours y, (1 + dot n (m z)))) = _
+        ∏ z ∈ D.presentNeighbors y, (1 + dot n (m z)))) = _
   rw [show (fun n => g n * f m * (interaction (removeSite D y) τ b m *
-      ∏ z ∈ D.presentNeighbours y, (1 + dot n (m z)))) =
-      (fun n => (g n * ∏ z ∈ D.presentNeighbours y, (1 + dot n (m z))) *
+      ∏ z ∈ D.presentNeighbors y, (1 + dot n (m z)))) =
+      (fun n => (g n * ∏ z ∈ D.presentNeighbors y, (1 + dot n (m z))) *
         (f m * interaction (removeSite D y) τ b m)) by funext n; ring,
     site_mul_const]
   ring
@@ -87,21 +87,21 @@ theorem partition_coordinate {G : Finset Plane} (D : Network G) (τ : PinAssignm
     D.partition τ b (fun m => m u k * m v k) =
       (removeSite D u).partition τ b (fun m =>
         siteFunctional (D.status u)
-          (fun n => n k * ∏ z ∈ D.presentNeighbours u, (1 + dot n (m z))) * m v k) := by
+          (fun n => n k * ∏ z ∈ D.presentNeighbors u, (1 + dot n (m z))) * m v k) := by
   exact partition_site D τ b u hu huS (fun n => n k) (fun m => m v k)
     (fun m n => by rw [Function.update_of_ne huv.symm])
 
 /-- At a U departure the selected edge is deleted and the residual law is D. -/
 theorem trace_partition_U {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (b : Bool) (u v o : Plane) (hu : u ∈ D.active) (huS : u ∉ protectedSites G)
-    (hU : D.status u = .U) (huv : u ≠ v) (ho : o ∈ D.presentNeighbours u)
+    (hU : D.status u = .U) (huv : u ≠ v) (ho : o ∈ D.presentNeighbors u)
     (k : Fin 3) :
     (traceStep D u o).partition τ b (fun m => m o k * m v k) =
       (removeSite D u).partition τ b (fun m =>
         siteFunctional .D
-          (fun n => ∏ z ∈ (D.presentNeighbours u).erase o, (1 + dot n (m z))) *
+          (fun n => ∏ z ∈ (D.presentNeighbors u).erase o, (1 + dot n (m z))) *
         (m o k * m v k)) := by
-  have huo : u ≠ o := adjacent_ne ((mem_presentNeighbours D u o).mp ho).2.2.1
+  have huo : u ≠ o := adjacent_ne ((mem_presentNeighbors D u o).mp ho).2.2.1
   have hu' : u ∈ (traceStep D u o).active := by
     rw [trace_active D u o hU]
     exact hu
@@ -112,7 +112,7 @@ theorem trace_partition_U {G : Finset Plane} (D : Network G) (τ : PinAssignment
     rw [Function.update_of_ne huo.symm, Function.update_of_ne huv.symm]
   have h := partition_site (traceStep D u o) τ b u hu' huS
     (fun _ => 1) (fun m => m o k * m v k) hf
-  simp only [one_mul, hs, trace_neighbours D u o hU huo] at h
+  simp only [one_mul, hs, trace_neighbors D u o hU huo] at h
   rw [remove_trace_partition_all] at h
   exact h
 

@@ -26,71 +26,71 @@ private theorem sum_if_subtype {Ω : Type*} [Fintype Ω] (P : Ω → Prop)
     _ = ∑ x : {x // P x}, f x :=
       Finset.sum_subtype (s := Finset.univ.filter P) (h := by simp) f
 
-private def fibreConfig {n : ℕ} (x y : Fin n) (σ : Fin n → SpinLetter)
+private def fiberConfig {n : ℕ} (x y : Fin n) (σ : Fin n → SpinLetter)
     (a b : SpinLetter) : Fin n → SpinLetter :=
   Function.update (Function.update σ x a) y b
 
-private theorem fibreConfig_mem {n : ℕ} (x y : Fin n)
+private theorem fiberConfig_mem {n : ℕ} (x y : Fin n)
     (σ : Fin n → SpinLetter) (a b : SpinLetter) :
-    twoSiteFibre x y σ (fibreConfig x y σ a b) := by
+    twoSiteFiber x y σ (fiberConfig x y σ a b) := by
   intro z hzx hzy
-  simp [fibreConfig, Function.update_of_ne hzy, Function.update_of_ne hzx]
+  simp [fiberConfig, Function.update_of_ne hzy, Function.update_of_ne hzx]
 
-private def fibreEquiv {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
+private def fiberEquiv {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
     (σ : Fin n → SpinLetter) :
-    {τ : Fin n → SpinLetter // twoSiteFibre x y σ τ} ≃ SpinLetter × SpinLetter where
+    {τ : Fin n → SpinLetter // twoSiteFiber x y σ τ} ≃ SpinLetter × SpinLetter where
   toFun τ := (τ.1 x, τ.1 y)
-  invFun ab := ⟨fibreConfig x y σ ab.1 ab.2, fibreConfig_mem x y σ ab.1 ab.2⟩
+  invFun ab := ⟨fiberConfig x y σ ab.1 ab.2, fiberConfig_mem x y σ ab.1 ab.2⟩
   left_inv := by
     intro τ
     apply Subtype.ext
     funext z
     by_cases hx : z = x
     · subst z
-      simp [fibreConfig, hxy]
+      simp [fiberConfig, hxy]
     · by_cases hy : z = y
       · subst z
-        simp [fibreConfig]
+        simp [fiberConfig]
       · calc
-          fibreConfig x y σ (τ.1 x) (τ.1 y) z = σ z := by
-            simp [fibreConfig, Function.update_of_ne hy, Function.update_of_ne hx]
+          fiberConfig x y σ (τ.1 x) (τ.1 y) z = σ z := by
+            simp [fiberConfig, Function.update_of_ne hy, Function.update_of_ne hx]
           _ = τ.1 z := (τ.2 z hx hy).symm
   right_inv := by
     rintro ⟨a, b⟩
-    simp [fibreConfig, Function.update_of_ne hxy, Function.update_self]
+    simp [fiberConfig, Function.update_of_ne hxy, Function.update_self]
 
-private theorem sum_on_fibre {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
+private theorem sum_on_fiber {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
     (σ : Fin n → SpinLetter) (f : (Fin n → SpinLetter) → ℝ) :
-    eventMass f (twoSiteFibre x y σ) =
-      ∑ a : SpinLetter, ∑ b : SpinLetter, f (fibreConfig x y σ a b) := by
+    eventMass f (twoSiteFiber x y σ) =
+      ∑ a : SpinLetter, ∑ b : SpinLetter, f (fiberConfig x y σ a b) := by
   classical
   unfold eventMass
   rw [sum_if_subtype]
   calc
-    (∑ τ : {τ : Fin n → SpinLetter // twoSiteFibre x y σ τ}, f τ.1) =
-        ∑ ab : SpinLetter × SpinLetter, f (fibreConfig x y σ ab.1 ab.2) :=
-      Fintype.sum_equiv (fibreEquiv x y hxy σ) (fun τ => f τ.1)
-        (fun ab => f (fibreConfig x y σ ab.1 ab.2)) (by
+    (∑ τ : {τ : Fin n → SpinLetter // twoSiteFiber x y σ τ}, f τ.1) =
+        ∑ ab : SpinLetter × SpinLetter, f (fiberConfig x y σ ab.1 ab.2) :=
+      Fintype.sum_equiv (fiberEquiv x y hxy σ) (fun τ => f τ.1)
+        (fun ab => f (fiberConfig x y σ ab.1 ab.2)) (by
           intro τ
           congr 1
-          exact (congrArg Subtype.val ((fibreEquiv x y hxy σ).left_inv τ)).symm)
-    _ = ∑ a : SpinLetter, ∑ b : SpinLetter, f (fibreConfig x y σ a b) := by
+          exact (congrArg Subtype.val ((fiberEquiv x y hxy σ).left_inv τ)).symm)
+    _ = ∑ a : SpinLetter, ∑ b : SpinLetter, f (fiberConfig x y σ a b) := by
       simp [Fintype.sum_prod_type]
 
-private theorem eventMass_inter_fibre {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
+private theorem eventMass_inter_fiber {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
     (σ : Fin n → SpinLetter) (w : (Fin n → SpinLetter) → ℝ)
     (P : (Fin n → SpinLetter) → Prop) [DecidablePred P] :
-    eventMass w (fun τ => twoSiteFibre x y σ τ ∧ P τ) =
+    eventMass w (fun τ => twoSiteFiber x y σ τ ∧ P τ) =
       ∑ a : SpinLetter, ∑ b : SpinLetter,
-        if P (fibreConfig x y σ a b) then w (fibreConfig x y σ a b) else 0 := by
+        if P (fiberConfig x y σ a b) then w (fiberConfig x y σ a b) else 0 := by
   classical
-  rw [show eventMass w (fun τ => twoSiteFibre x y σ τ ∧ P τ) =
-      eventMass (fun τ => if P τ then w τ else 0) (twoSiteFibre x y σ) by
+  rw [show eventMass w (fun τ => twoSiteFiber x y σ τ ∧ P τ) =
+      eventMass (fun τ => if P τ then w τ else 0) (twoSiteFiber x y σ) by
         unfold eventMass
         congr 1
         funext τ
-        by_cases hf : twoSiteFibre x y σ τ <;> simp [hf]]
-  rw [sum_on_fibre x y hxy σ]
+        by_cases hf : twoSiteFiber x y σ τ <;> simp [hf]]
+  rw [sum_on_fiber x y hxy σ]
 
 private theorem sum_indicator_pair {α β : Type*} [Fintype α] [Fintype β]
     [DecidableEq α] [DecidableEq β] (a : α) (b : β) (f : α → β → ℝ) :
@@ -183,39 +183,39 @@ private theorem conditionalProbability_normalize {Ω : Type*} [Fintype Ω]
 private theorem factorized_sums {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
     (σ : Fin n → SpinLetter) (w : (Fin n → SpinLetter) → ℝ)
     (C : ℝ) (u v : SpinLetter → ℝ)
-    (hw : ∀ τ, twoSiteFibre x y σ τ → w τ = C * u (τ x) * v (τ y)) :
-    let F := twoSiteFibre x y σ
+    (hw : ∀ τ, twoSiteFiber x y σ τ → w τ = C * u (τ x) * v (τ y)) :
+    let F := twoSiteFiber x y σ
     eventMass w F = C * (∑ a : SpinLetter, u a) * (∑ b : SpinLetter, v b) ∧
     (∀ a b, eventMass w (fun τ => F τ ∧ τ x = a ∧ τ y = b) = C * u a * v b) ∧
     (∀ a, eventMass w (fun τ => F τ ∧ τ x = a) = C * u a * ∑ b : SpinLetter, v b) ∧
     (∀ b, eventMass w (fun τ => F τ ∧ τ y = b) = C * (∑ a : SpinLetter, u a) * v b) := by
   classical
-  let F : (Fin n → SpinLetter) → Prop := twoSiteFibre x y σ
-  have hcx : ∀ a b, fibreConfig x y σ a b x = a := by
+  let F : (Fin n → SpinLetter) → Prop := twoSiteFiber x y σ
+  have hcx : ∀ a b, fiberConfig x y σ a b x = a := by
     intro a b
-    simp [fibreConfig, hxy]
-  have hcy : ∀ a b, fibreConfig x y σ a b y = b := by
+    simp [fiberConfig, hxy]
+  have hcy : ∀ a b, fiberConfig x y σ a b y = b := by
     intro a b
-    simp [fibreConfig]
+    simp [fiberConfig]
   have hall : eventMass w F = ∑ a : SpinLetter, ∑ b : SpinLetter,
       C * u a * v b := by
-    rw [sum_on_fibre x y hxy σ]
+    rw [sum_on_fiber x y hxy σ]
     apply Finset.sum_congr rfl
     intro a _
     apply Finset.sum_congr rfl
     intro b _
-    rw [hw _ (fibreConfig_mem x y σ a b), hcx, hcy]
+    rw [hw _ (fiberConfig_mem x y σ a b), hcx, hcy]
   have hj : ∀ a b, eventMass w (fun τ => F τ ∧ τ x = a ∧ τ y = b) =
       C * u a * v b := by
     intro a b
-    rw [eventMass_inter_fibre x y hxy σ w (fun τ => τ x = a ∧ τ y = b)]
-    simp_rw [hw _ (fibreConfig_mem x y σ _ _), hcx, hcy]
+    rw [eventMass_inter_fiber x y hxy σ w (fun τ => τ x = a ∧ τ y = b)]
+    simp_rw [hw _ (fiberConfig_mem x y σ _ _), hcx, hcy]
     exact sum_indicator_pair a b (fun c d => C * u c * v d)
   have hl : ∀ a, eventMass w (fun τ => F τ ∧ τ x = a) =
       C * u a * ∑ b : SpinLetter, v b := by
     intro a
-    rw [eventMass_inter_fibre x y hxy σ w (fun τ => τ x = a)]
-    simp_rw [hw _ (fibreConfig_mem x y σ _ _), hcx, hcy]
+    rw [eventMass_inter_fiber x y hxy σ w (fun τ => τ x = a)]
+    simp_rw [hw _ (fiberConfig_mem x y σ _ _), hcx, hcy]
     calc
       (∑ c : SpinLetter, ∑ d : SpinLetter,
           if c = a then C * u c * v d else 0) =
@@ -227,8 +227,8 @@ private theorem factorized_sums {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
   have hr : ∀ b, eventMass w (fun τ => F τ ∧ τ y = b) =
       C * (∑ a : SpinLetter, u a) * v b := by
     intro b
-    rw [eventMass_inter_fibre x y hxy σ w (fun τ => τ y = b)]
-    simp_rw [hw _ (fibreConfig_mem x y σ _ _), hcx, hcy]
+    rw [eventMass_inter_fiber x y hxy σ w (fun τ => τ y = b)]
+    simp_rw [hw _ (fiberConfig_mem x y σ _ _), hcx, hcy]
     calc
       (∑ c : SpinLetter, ∑ d : SpinLetter,
           if d = b then C * u c * v d else 0) =
@@ -262,7 +262,7 @@ private theorem factorized_sums {n : ℕ} (x y : Fin n) (hxy : x ≠ y)
 theorem main : AKLT.Blueprint.Mom.FactorizedConditioningStatement := by
   classical
   intro n w hw x y hxy σ C u v hfactor hpos a b
-  let F : (Fin n → SpinLetter) → Prop := twoSiteFibre x y σ
+  let F : (Fin n → SpinLetter) → Prop := twoSiteFiber x y σ
   obtain ⟨hmass, hjoint, hleft, hright⟩ :=
     factorized_sums x y hxy σ w C u v hfactor
   have htotalnonneg : 0 ≤ ∑ τ, w τ := Finset.sum_nonneg fun τ _ => hw τ

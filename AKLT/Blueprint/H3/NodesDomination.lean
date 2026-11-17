@@ -82,10 +82,10 @@ def TrueStepFacts {n : ℕ} (X : PairType) (d₀ : Compass) (w : DirectionWord n
   (windowKind (suffixWindow w i.val) (w i) = .revisit → wordRevisit kernelStart w i = true) ∧
   (wordRevisit kernelStart w i = false → windowKind (suffixWindow w i.val) (w i) = trueKind w i) ∧
   witnessKappa w i ≤ relaxedReward (wordVertex kernelStart w i.val)
-    (wordIncoming kernelIncoming w i) (w i) {kernelCentre} ∧
-  wordVertex kernelStart w i.val ≠ kernelCentre ∧
+    (wordIncoming kernelIncoming w i) (w i) {kernelCenter} ∧
+  wordVertex kernelStart w i.val ≠ kernelCenter ∧
   wordVertex kernelStart w i.val ≠ kernelTarget X ∧
-  wordVertex kernelStart w i.val + (w i).step ≠ kernelCentre ∧
+  wordVertex kernelStart w i.val + (w i).step ≠ kernelCenter ∧
   ((wordVertex kernelStart w i.val = kernelStart ∨
       wordVertex kernelStart w i.val = kernelStart + d₀.step) →
     wordRevisit kernelStart w i = true ∧ windowKind (suffixWindow w i.val) (w i) ≠ .revisit ∧
@@ -109,9 +109,9 @@ is valid even on the last departure. This intentionally has no quotient premise.
 def ClosedTrailStepGeometryStatement : Prop :=
   ∀ X : PairType, ∀ n : ℕ, ∀ w : DirectionWord n, ClosedTrail X w → ∀ i : Fin n,
     wordVertex kernelStart w (i.val + 1) = wordVertex kernelStart w i.val + (w i).step ∧
-    wordVertex kernelStart w i.val ≠ kernelCentre ∧
+    wordVertex kernelStart w i.val ≠ kernelCenter ∧
     wordVertex kernelStart w i.val ≠ kernelTarget X ∧
-    wordVertex kernelStart w (i.val + 1) ≠ kernelCentre
+    wordVertex kernelStart w (i.val + 1) ≠ kernelCenter
 
 /-- `l:stationary-domination`, lines 641–647: a fixed true suffix is bounded by its
 relaxed direction word. Induct along the suffix, using the two explicit pointwise premises

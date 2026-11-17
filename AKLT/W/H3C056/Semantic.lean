@@ -51,8 +51,8 @@ theorem edge_agreement {m q : Nat} (Q : MemoryQuotient m q)
     (plane cap : Phase → Fin q → Nat) (X : PairType) (d₀ : Compass)
     (φ : Phase) (a : Fin q) (d : Compass) (hQ : Q.Correct) (hd₀ : d₀≠.east)
     (hdata : ∀ ψ b, cap ψ b<2^26 ∧ Fits (plane ψ b) 80 19881 ∧
-      lane (plane ψ b) 80 (siteIndex kernelCentre)=0)
-    (s : Nat) (hs : s<19881) (hc : gridSite s≠kernelCentre)
+      lane (plane ψ b) 80 (siteIndex kernelCenter)=0)
+    (s : Nat) (hs : s<19881) (hc : gridSite s≠kernelCenter)
     (htarget : gridSite s≠kernelTarget X) :
     component 80 s (edgeTerms Q plane cap X d₀ φ a d) =
       ∑ ψ : Phase, coefficientCeiling
@@ -61,10 +61,10 @@ theorem edge_agreement {m q : Nat} (Q : MemoryQuotient m q)
   rw [component_edge Q plane cap X d₀ φ a d s hs hd₀ (fun ψ b => (hdata ψ b).1)]
   by_cases ha : Q.allowed a d = true
   · rw [ite_eq_left ha]
-    by_cases hdest : gridSite s+d.step=kernelCentre
+    by_cases hdest : gridSite s+d.step=kernelCenter
     · have hv (ψ : Phase) : valueAt plane cap (Q.successor a d) (gridSite s) d ψ=0 := by
         unfold valueAt
-        rw [hdest, ite_eq_left centre_mem]
+        rw [hdest, ite_eq_left center_mem]
         exact (hdata ψ _).2.2
       simp [hv, stationaryCoefficientV2, hdest]
     · by_cases hknown : gridSite s=kernelStart ∨ gridSite s=kernelStart+d₀.step

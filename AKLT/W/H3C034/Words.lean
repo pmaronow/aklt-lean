@@ -174,7 +174,7 @@ theorem goodStep_iff {n : Nat} (w : DirectionWord n) (s : PrefixState)
     (hw : IsTrail kernelStart kernelIncoming w) (d₀ : Nat) (d : Fin 4) :
     goodStep d₀ s.walk d.val = true ↔
       IsTrail kernelStart kernelIncoming (snoc w (direction d.val)) ∧
-        wordVertex kernelStart (snoc w (direction d.val)) (n+1) ≠ kernelCentre := by
+        wordVertex kernelStart (snoc w (direction d.val)) (n+1) ≠ kernelCenter := by
   have hv : wordVertex kernelStart (snoc w (direction d.val)) (n+1) =
       advance s.walk.pos d.val := by
     rw [vertex_succ _ _ n (by omega), snoc_vertex _ _ _ n le_rfl, hrep.2.1,

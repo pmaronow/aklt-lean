@@ -84,25 +84,25 @@ def rawCode (axes corners : List RawOption) (out : Nat) (reflect : Bool) : Nat :
 def rawKey (axes corners : List RawOption) (out : Nat) : Nat :=
   min (rawCode axes corners out false) (rawCode axes corners out true)
 
-inductive Catalogue where
+inductive Catalog where
   | empty
-  | node (key pid : Nat) (left right : Catalogue)
+  | node (key pid : Nat) (left right : Catalog)
   deriving BEq, DecidableEq
 
-def Catalogue.find : Catalogue → Nat → Option Nat
+def Catalog.find : Catalog → Nat → Option Nat
   | .empty, _ => none
   | .node key pid l r, x =>
     if x == key then some pid else if x < key then l.find x else r.find x
 
-def Catalogue.entries : Catalogue → List (Nat × Nat)
+def Catalog.entries : Catalog → List (Nat × Nat)
   | .empty => []
   | .node key pid l r => l.entries ++ [(key,pid)] ++ r.entries
 
-def catalogueCheck (t : Catalogue) (codes pids : List Nat) : Bool :=
+def catalogCheck (t : Catalog) (codes pids : List Nat) : Bool :=
   (t.entries == codes.zip pids) && strictlyIncreasing codes &&
     (codes.length == 7962) && (pids.length == 7962)
 
-def markedCheck (t : Catalogue) (axes corners : List RawOption) : Bool :=
+def markedCheck (t : Catalog) (axes corners : List RawOption) : Bool :=
   let edges := rawEdges axes corners
   let status := rawStatusDigits axes corners edges
   let plain := encodeDigits 3 status * 65536 + encodeDigits 2 (edges.map Bool.toNat)
@@ -114,7 +114,7 @@ def markedCheck (t : Catalogue) (axes corners : List RawOption) : Bool :=
 
 /-- The first corner is fixed, leaving only locally consistent choices of the
 other three. Invalid first choices contribute true, and have no raw completion. -/
-def coverageShard (t : Catalogue) (axes : List RawOption) (first : Nat) : Bool :=
+def coverageShard (t : Catalog) (axes : List RawOption) (first : Nat) : Bool :=
   let c0 := cornerOptions.getD first ⟨0,0⟩
   if (axes.take 3).all (fun a => a.status == 0) then true
   else if cornerCompatible axes 0 c0 then
@@ -123,16 +123,16 @@ def coverageShard (t : Catalogue) (axes : List RawOption) (first : Nat) : Bool :
   else true
 
 /-- A replay frontier explicitly lists the eight first-corner obligations. -/
-def CoverageAccepted (t : Catalogue) (axes : List RawOption) : Prop :=
+def CoverageAccepted (t : Catalog) (axes : List RawOption) : Prop :=
   coverageShard t axes 0 = true ∧ coverageShard t axes 1 = true ∧
   coverageShard t axes 2 = true ∧ coverageShard t axes 3 = true ∧
   coverageShard t axes 4 = true ∧ coverageShard t axes 5 = true ∧
   coverageShard t axes 6 = true ∧ coverageShard t axes 7 = true
 
-def FullCoverageAccepted (t : Catalogue) : Prop :=
+def FullCoverageAccepted (t : Catalog) : Prop :=
   ∀ axes ∈ axialConfigurations, CoverageAccepted t axes
 
-def CoverageRowsAccepted (t : Catalogue) : List (List RawOption) → Prop
+def CoverageRowsAccepted (t : Catalog) : List (List RawOption) → Prop
   | [] => True
   | axes :: rest => CoverageAccepted t axes ∧ CoverageRowsAccepted t rest
 

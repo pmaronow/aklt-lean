@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC089.FibreFactors
+public import AKLT.W.REC089.FiberFactors
 public import AKLT.W.REC089.InteriorCoordinates
 
 @[expose] public section
@@ -100,7 +100,7 @@ def actualTipFactor (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
     (π : PatternData) (b : Fin 4 → Fin 3 → Vec3)
     (σ : coreSites π → SpinLetter) (t : ActiveTips a incoming) (d : SpinLetter) : ℝ :=
   (if actualTipBond a incoming t.val then
-    1 + dot (spinVector d) (supportSpins (coreSites π) σ (tipNeighbour t.val)) else 1) *
+    1 + dot (spinVector d) (supportSpins (coreSites π) σ (tipNeighbor t.val)) else 1) *
       tipExternal (b t.val) (spinVector d)
 
 theorem actual_factors_separate (a : AKLT.Blueprint.Rec.Departure) (hU : a.D.status a.y = .U)
@@ -131,11 +131,11 @@ theorem actual_factors_separate (a : AKLT.Blueprint.Rec.Departure) (hU : a.D.sta
       joined_core a incoming outgoing π hm η ω
       (Finset.mem_sdiff.mpr ⟨(Finset.mem_filter.mp hs.2).1, h.2.2⟩)]
   have ht : (∏ t : Fin 4, if actualTipBond a incoming t then
-      1 + dot (v (localChart a incoming (tipPoint t))) (v (localChart a incoming (tipNeighbour t)))
+      1 + dot (v (localChart a incoming (tipPoint t))) (v (localChart a incoming (tipNeighbor t)))
         else 1) =
       ∏ t : ActiveTips a incoming, if actualTipBond a incoming t.val then
         1 + dot (spinVector (η (tipInterior a incoming t)))
-          (supportSpins (coreSites π) (actualCoreSpins a incoming outgoing π hm η) (tipNeighbour t.val))
+          (supportSpins (coreSites π) (actualCoreSpins a incoming outgoing π hm η) (tipNeighbor t.val))
         else 1 := by
     rw [prod_activeTips a incoming _ (by
       intro t hx
@@ -146,7 +146,7 @@ theorem actual_factors_separate (a : AKLT.Blueprint.Rec.Departure) (hU : a.D.sta
     rw [show v (localChart a incoming (tipPoint t.val)) = spinVector (η (tipInterior a incoming t)) from
       joined_interior a incoming η ω (tipInterior a incoming t)]
     dsimp only [v]
-    rw [joined_core a incoming outgoing π hm η ω (tipNeighbour_mem t.val)]
+    rw [joined_core a incoming outgoing π hm η ω (tipNeighbor_mem t.val)]
   rw [hc, ht]
   unfold patternCoreFactors actualTipFactor
   rw [Finset.prod_mul_distrib]

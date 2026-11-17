@@ -122,8 +122,8 @@ theorem keptMask_two (π : PatternData) (x : Plane) (hx : x ∈ templateSites)
     norm_num [h0, h1, h2, h3] at hcard
   all_goals norm_num [keptMask, h0, h1, h2, h3]
 
-theorem dirPoint_neighbour (x : Plane) (d : Fin 4) :
-    dirPoint x d ∈ neighbours x := by
+theorem dirPoint_neighbor (x : Plane) (d : Fin 4) :
+    dirPoint x d ∈ neighbors x := by
   exact Finset.mem_image.mpr ⟨compassAt d.val, Finset.mem_univ _, rfl⟩
 
 theorem rawOption_direction (π : PatternData) (hπ : π.Covered) (x : Plane)
@@ -138,7 +138,7 @@ theorem rawOption_direction (π : PatternData) (hπ : π.Covered) (x : Plane)
     rw [hk]
     have hb : hasDirection 15 d.val = true := by
       fin_cases d <;> norm_num [hasDirection]
-    simpa [rawOptionAt, he, hb] using (decide_eq_true (dirPoint_neighbour x d)).symm
+    simpa [rawOptionAt, he, hb] using (decide_eq_true (dirPoint_neighbor x d)).symm
   | D =>
     simpa [rawOptionAt, he, keptDirs] using keptMask_hasDirection π x d
 
@@ -226,7 +226,7 @@ theorem axes_mem (π : PatternData) (hπ : π.Covered) : axesOf π ∈ axialConf
 #print axioms rawOption_nonzero
 #print axioms card_four
 #print axioms keptMask_two
-#print axioms dirPoint_neighbour
+#print axioms dirPoint_neighbor
 #print axioms rawOption_direction
 #print axioms rawOption_corner
 #print axioms axial_X

@@ -59,17 +59,17 @@ private theorem latticeDist_triangle (a b c : Plane) :
       _ ≤ _ := Int.natAbs_add_le _ _
   omega
 
-private theorem neighbor_eq_step {x z : Plane} (hz : z ∈ neighbours x) :
+private theorem neighbor_eq_step {x z : Plane} (hz : z ∈ neighbors x) :
     ∃ d : Compass, z = x + d.step := by
-  unfold neighbours at hz
+  unfold neighbors at hz
   rcases Finset.mem_image.mp hz with ⟨d, -, rfl⟩
   exact ⟨d, rfl⟩
 
-private theorem neighbor_adjacent {x z : Plane} (hz : z ∈ neighbours x) : Adjacent x z := by
+private theorem neighbor_adjacent {x z : Plane} (hz : z ∈ neighbors x) : Adjacent x z := by
   obtain ⟨d, rfl⟩ := neighbor_eq_step hz
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
-private theorem adjacent_neighbor {x z : Plane} (h : Adjacent x z) : z ∈ neighbours x := by
+private theorem adjacent_neighbor {x z : Plane} (h : Adjacent x z) : z ∈ neighbors x := by
   unfold Adjacent latticeDist at h
   have hs : (x.1 - z.1).natAbs = 1 ∧ (x.2 - z.2).natAbs = 0 ∨
       (x.1 - z.1).natAbs = 0 ∧ (x.2 - z.2).natAbs = 1 := by omega
@@ -81,12 +81,12 @@ private theorem adjacent_neighbor {x z : Plane} (h : Adjacent x z) : z ∈ neigh
     · have hz : z = x + Compass.west.step := by
         apply Prod.ext <;> simp [Compass.step] <;> omega
       rw [hz]
-      unfold neighbours
+      unfold neighbors
       exact Finset.mem_image.mpr ⟨Compass.west, Finset.mem_univ _, rfl⟩
     · have hz : z = x + Compass.east.step := by
         apply Prod.ext <;> simp [Compass.step] <;> omega
       rw [hz]
-      unfold neighbours
+      unfold neighbors
       exact Finset.mem_image.mpr ⟨Compass.east, Finset.mem_univ _, rfl⟩
   · have hx' : x.1 - z.1 = 0 := Int.natAbs_eq_zero.mp hx
     have hy' : x.2 - z.2 = 1 ∨ x.2 - z.2 = -1 := by
@@ -95,19 +95,19 @@ private theorem adjacent_neighbor {x z : Plane} (h : Adjacent x z) : z ∈ neigh
     · have hz : z = x + Compass.south.step := by
         apply Prod.ext <;> simp [Compass.step] <;> omega
       rw [hz]
-      unfold neighbours
+      unfold neighbors
       exact Finset.mem_image.mpr ⟨Compass.south, Finset.mem_univ _, rfl⟩
     · have hz : z = x + Compass.north.step := by
         apply Prod.ext <;> simp [Compass.step] <;> omega
       rw [hz]
-      unfold neighbours
+      unfold neighbors
       exact Finset.mem_image.mpr ⟨Compass.north, Finset.mem_univ _, rfl⟩
 
 private theorem adjacent_symmetric {x y : Plane} (h : Adjacent x y) : Adjacent y x := by
-  have hn : y ∈ neighbours x := adjacent_neighbor h
+  have hn : y ∈ neighbors x := adjacent_neighbor h
   obtain ⟨d, rfl⟩ := neighbor_eq_step hn
-  have hr : x ∈ neighbours (x + d.step) := by
-    unfold neighbours
+  have hr : x ∈ neighbors (x + d.step) := by
+    unfold neighbors
     cases d with
     | east => exact Finset.mem_image.mpr ⟨Compass.west, Finset.mem_univ _, by
         ext <;> simp [Compass.step]⟩
@@ -126,7 +126,7 @@ private theorem internalBond_orientation {D : Finset Plane} {e : Plane × Plane}
   rcases Finset.mem_biUnion.mp he with ⟨u, hu, hb⟩
   rcases Finset.mem_image.mp hb with ⟨v, hv, rfl⟩
   have hp := (Finset.mem_inter.mp hv).1
-  simp [positiveNeighbours] at hp
+  simp [positiveNeighbors] at hp
   change u.1 < v.1 ∨ (u.1 = v.1 ∧ u.2 < v.2)
   rcases hp with hp | hp
   · rcases Prod.mk.inj hp with ⟨hpx, hpy⟩
@@ -141,10 +141,10 @@ private theorem internalBond_adjacent {D : Finset Plane} {e : Plane × Plane}
   rcases Finset.mem_image.mp hb with ⟨v, hv, heq⟩
   have hu' : u = e.1 := congrArg Prod.fst heq
   have hv' : v = e.2 := congrArg Prod.snd heq
-  have hp : e.2 ∈ positiveNeighbours e.1 := by
+  have hp : e.2 ∈ positiveNeighbors e.1 := by
     have hp := (Finset.mem_inter.mp hv).1
     simpa [hu', hv'] using hp
-  simp [positiveNeighbours, Adjacent, latticeDist] at hp ⊢
+  simp [positiveNeighbors, Adjacent, latticeDist] at hp ⊢
   rcases hp with hp | hp <;> simp_all
 
 private theorem internalBond_reverse_false {D : Finset Plane} {z q : Plane}
@@ -158,7 +158,7 @@ private theorem internalBond_reverse_false {D : Finset Plane} {z q : Plane}
 
 private theorem incident_other_neighbor {D : Finset Plane} {z : Plane}
     {e : Plane × Plane} (he : e ∈ incidentBonds D z) :
-    otherEndpoint z e ∈ neighbours z := by
+    otherEndpoint z e ∈ neighbors z := by
   have he' : e ∈ internalBonds D := (Finset.mem_filter.mp he).1
   have ht := (Finset.mem_filter.mp he).2
   by_cases hs : e.1 = z
@@ -222,7 +222,7 @@ private theorem incident_other_injective {D : Finset Plane} {z : Plane}
     exact Prod.ext h₃ (h₁.trans h₂.symm)
 
 private theorem neighbor_nonadjacent {x z w : Plane}
-    (hz : z ∈ neighbours x) (hw : w ∈ neighbours x) (hzw : z ≠ w) :
+    (hz : z ∈ neighbors x) (hw : w ∈ neighbors x) (hzw : z ≠ w) :
     ¬ Adjacent z w := by
   obtain ⟨d, rfl⟩ := neighbor_eq_step hz
   obtain ⟨e, rfl⟩ := neighbor_eq_step hw
@@ -232,8 +232,8 @@ private theorem neighbor_nonadjacent {x z w : Plane}
     exact hzw rfl
   cases d <;> cases e <;> simp_all [Compass.step, Adjacent, latticeDist]
 
-private theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
-  unfold neighbours
+private theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
+  unfold neighbors
   rw [Finset.card_image_of_injective _]
   · change Fintype.card Compass = 4
     decide
@@ -256,8 +256,8 @@ private theorem survivors_subset (G Y : Finset Plane) (x : Plane) :
   intro z hz
   exact (Finset.mem_inter.mp hz).2
 
-private theorem survivors_are_neighbours (G Y : Finset Plane) (x z : Plane)
-    (hz : z ∈ survivors G Y x) : z ∈ neighbours x :=
+private theorem survivors_are_neighbors (G Y : Finset Plane) (x z : Plane)
+    (hz : z ∈ survivors G Y x) : z ∈ neighbors x :=
   (Finset.mem_inter.mp hz).1
 
 private theorem removal_x_not_live {G Y : Finset Plane} {x : Plane}
@@ -272,32 +272,32 @@ private theorem incident_card_le_three {G Y : Finset Plane} {x z : Plane}
   have hxD : x ∉ D := by
     dsimp [D]
     exact removal_x_not_live hstep
-  have hxN : x ∈ neighbours z := by
-    have hzN := survivors_are_neighbours G Y x z hz
+  have hxN : x ∈ neighbors z := by
+    have hzN := survivors_are_neighbors G Y x z hz
     exact adjacent_neighbor (adjacent_symmetric (neighbor_adjacent hzN))
-  have hmap : ∀ e : I.attach, otherEndpoint z e ∈ (neighbours z).erase x := by
+  have hmap : ∀ e : I.attach, otherEndpoint z e ∈ (neighbors z).erase x := by
     intro e
     apply Finset.mem_erase.mpr
     refine ⟨?_, incident_other_neighbor e.val.property⟩
     intro hEq
     exact hxD (hEq ▸ incident_other_mem e.val.property)
   have hinj : Function.Injective (fun e : I.attach =>
-      (⟨otherEndpoint z e, hmap e⟩ : (neighbours z).erase x)) := by
+      (⟨otherEndpoint z e, hmap e⟩ : (neighbors z).erase x)) := by
     intro e f h
     apply Subtype.ext
     apply Subtype.ext
     exact incident_other_injective (z := z) (e := e.val.val) (f := f.val.val)
       e.val.property f.val.property (congrArg Subtype.val h)
   have hcard := Fintype.card_le_of_injective _ hinj
-  have hsmall : ((neighbours z).erase x).card = 3 := by
-    rw [Finset.card_erase_of_mem hxN, neighbours_card]
+  have hsmall : ((neighbors z).erase x).card = 3 := by
+    rw [Finset.card_erase_of_mem hxN, neighbors_card]
   simpa [I, Finset.card_attach, hsmall] using hcard
 
 private theorem survivor_pair_not_adjacent {G Y : Finset Plane} {x z w : Plane}
     (hz : z ∈ survivors G Y x) (hw : w ∈ survivors G Y x) (hzw : z ≠ w) :
     ¬ Adjacent z w :=
-  neighbor_nonadjacent (survivors_are_neighbours G Y x z hz)
-    (survivors_are_neighbours G Y x w hw) hzw
+  neighbor_nonadjacent (survivors_are_neighbors G Y x z hz)
+    (survivors_are_neighbors G Y x w hw) hzw
 
 private theorem incident_disjoint_of_not_adjacent {D : Finset Plane} {z w : Plane}
     (hzw : z ≠ w) (hn : ¬ Adjacent z w) :
@@ -564,7 +564,7 @@ private theorem survivor_originalLeg_source_false
     (hz : z ∈ survivors G Y x) {e : originalLegs G} (hsrc : e.val.1 = z) :
     False := by
   have hdepth := hstep.2.2
-  have hzx := survivors_are_neighbours G Y x z hz
+  have hzx := survivors_are_neighbors G Y x z hz
   have hmem : e.val ∈ originalLegs G := e.property
   unfold originalLegs at hmem
   rcases Finset.mem_biUnion.mp hmem with ⟨u, hu, he⟩
@@ -574,7 +574,7 @@ private theorem survivor_originalLeg_source_false
     simpa [hsrc] using this
   have hv' : v = e.val.2 := by
     exact congrArg Prod.snd heq
-  have hvN : v ∈ neighbours z := by
+  have hvN : v ∈ neighbors z := by
     have h := (Finset.mem_sdiff.mp hv).1
     simpa [hu'] using h
   have hvG : v ∉ G := by
@@ -670,7 +670,7 @@ private theorem partLaw_cross
     _ = (partWeight pinned G (insert x Y) τ (patchConfig (survivors_subset G Y x) b σ) / Z) *
         ∏ z : survivors G Y x, localWeight D z.val σ (a z) := by ring
 
-private def fibreEquiv {D V : Finset Plane} (hVD : V ⊆ D)
+private def fiberEquiv {D V : Finset Plane} (hVD : V ⊆ D)
     (σ : PlaneConfiguration D) :
     {ω : PlaneConfiguration D // restEvent V σ ω} ≃ PlaneConfiguration V := by
   classical
@@ -692,7 +692,7 @@ private def fibreEquiv {D V : Finset Plane} (hVD : V ⊆ D)
       funext z
       simp [patchConfig, z.property] }
 
-private theorem fibre_sum_eq {D V : Finset Plane} (hVD : V ⊆ D)
+private theorem fiber_sum_eq {D V : Finset Plane} (hVD : V ⊆ D)
     (σ : PlaneConfiguration D) [DecidablePred (restEvent V σ)]
     (f : PlaneConfiguration D → ℝ) :
     (∑ ω : PlaneConfiguration D, if restEvent V σ ω then f ω else 0) =
@@ -714,7 +714,7 @@ private theorem fibre_sum_eq {D V : Finset Plane} (hVD : V ⊆ D)
         ∑ ω : {ω : PlaneConfiguration D // P ω}, f ω.val := hsub.symm
     _ = ∑ a : PlaneConfiguration V, f (patchConfig hVD a σ) := by
       symm
-      apply Fintype.sum_equiv (fibreEquiv hVD σ).symm
+      apply Fintype.sum_equiv (fiberEquiv hVD σ).symm
       intro a
       rfl
 
@@ -964,7 +964,7 @@ private theorem factorized_pair_expectation {I : Type} [Fintype I] [DecidableEq 
   field_simp [Z, hc, hZz, hZw, hZrest]
   <;> ring
 
-theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
+theorem main : AKLT.Blueprint.Win.NeighborFibersStatement := by
   intro hMom hThree G Y τ x hstep pinned
   classical
   intro σ hMass
@@ -1017,7 +1017,7 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
   have hMassReindex : eventMass p (restEvent V σ) =
       ∑ a : PlaneConfiguration V, p (patch a) := by
     unfold eventMass
-    rw [fibre_sum_eq hVD σ (fun ω => p ω)]
+    rw [fiber_sum_eq hVD σ (fun ω => p ω)]
   have hMassFactor : eventMass p (restEvent V σ) =
       c * ∏ z : V, ∑ l : IcoLetter, q z l := by
     rw [hMassReindex]
@@ -1038,11 +1038,11 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
     rw [hMassFactor, hcz] at hMass
     simp at hMass
   have hmean (z : V) :
-      fibreSpinMean p V σ z.val = fun i : Fin 3 =>
+      fiberSpinMean p V σ z.val = fun i : Fin 3 =>
         (∑ l : IcoLetter, q z l * icoVector l i) /
           (∑ l : IcoLetter, q z l) := by
     funext i
-    unfold fibreSpinMean fibreMean
+    unfold fiberSpinMean fiberMean
     have hnum :
         (∑ ω : PlaneConfiguration D,
           if restEvent V σ ω then
@@ -1052,7 +1052,7 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
       calc
         _ = ∑ a : PlaneConfiguration V,
             p (patch a) * extendIcoSpins (patch a) z.val i := by
-          rw [fibre_sum_eq hVD σ (fun ω => p ω * extendIcoSpins ω z.val i)]
+          rw [fiber_sum_eq hVD σ (fun ω => p ω * extendIcoSpins ω z.val i)]
         _ = _ := by
           apply Finset.sum_congr rfl
           intro a ha
@@ -1083,10 +1083,10 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
       intro he
       exact hzw (congrArg Subtype.val he)
     have hpair :
-        fibreMean p V σ (fun ω => dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
-          dot (fibreSpinMean p V σ z) (fibreSpinMean p V σ w) := by
+        fiberMean p V σ (fun ω => dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
+          dot (fiberSpinMean p V σ z) (fiberSpinMean p V σ w) := by
       -- The product fiber separates the two site observables coordinate by coordinate.
-      unfold fibreMean
+      unfold fiberMean
       have hnum :
           (∑ ω : PlaneConfiguration D,
             if restEvent V σ ω then
@@ -1098,7 +1098,7 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
           _ = ∑ a : PlaneConfiguration V,
               p (patch a) * dot (extendIcoSpins (patch a) z)
                 (extendIcoSpins (patch a) w) := by
-            rw [fibre_sum_eq hVD σ (fun ω =>
+            rw [fiber_sum_eq hVD σ (fun ω =>
               p ω * dot (extendIcoSpins ω z) (extendIcoSpins ω w))]
           _ = _ := by
             calc

@@ -241,10 +241,10 @@ private lemma setDistance_ring_eq_one (c z : Plane) (M : ℕ)
     have hpos : 1 ≤ supDist z y.val := Nat.one_le_iff_ne_zero.mpr hnotzero
     exact_mod_cast hpos
 
-private lemma adjacent_of_neighbours {x z : Plane} (hz : z ∈ neighbours x) :
+private lemma adjacent_of_neighbors {x z : Plane} (hz : z ∈ neighbors x) :
     Adjacent x z := by
   rcases Finset.mem_image.mp hz with ⟨d, -, rfl⟩
-  cases d <;> norm_num [neighbours, Compass.step, Adjacent, latticeDist]
+  cases d <;> norm_num [neighbors, Compass.step, Adjacent, latticeDist]
 
 private lemma exteriorSites_ring (c : Plane) (M : ℕ) (z : Plane)
     (hz : z ∈ exteriorSites (square c M)) :
@@ -254,9 +254,9 @@ private lemma exteriorSites_ring (c : Plane) (M : ℕ) (z : Plane)
   unfold originalLegs at he
   rcases Finset.mem_biUnion.mp he with ⟨u, hu, he⟩
   rcases Finset.mem_image.mp he with ⟨v, hv, rfl⟩
-  have hv' : v ∈ neighbours u \ square c M := by simpa using hv
+  have hv' : v ∈ neighbors u \ square c M := by simpa using hv
   rcases Finset.mem_sdiff.mp hv' with ⟨hv, hvout⟩
-  have hadj : Adjacent u v := adjacent_of_neighbours hv
+  have hadj : Adjacent u v := adjacent_of_neighbors hv
   have hcoords := adjacent_coordinate_bounds hadj
   have humem := (square_mem_iff c u M).mp hu
   have hvbig : v ∈ square c (M + 1) := by

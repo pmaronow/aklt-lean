@@ -80,12 +80,12 @@ private theorem reflectDeadAt {n : ℕ} (w : DirectionWord n) (i : Fin n) (z : P
   · rintro (hz | hc)
     · left
       apply reflectSite_injective
-      simpa [AKLT.Blueprint.H3.reflectSite, kernelCentre] using hz
+      simpa [AKLT.Blueprint.H3.reflectSite, kernelCenter] using hz
     · exact Or.inr hc
   · rintro (hz | hc)
     · left
       rw [hz]
-      simp [AKLT.Blueprint.H3.reflectSite, kernelCentre]
+      simp [AKLT.Blueprint.H3.reflectSite, kernelCenter]
     · exact Or.inr hc
 
 private theorem reflectWordIncoming {n : ℕ} (w : DirectionWord n) (i : Fin n) :
@@ -96,11 +96,11 @@ private theorem reflectWordIncoming {n : ℕ} (w : DirectionWord n) (i : Fin n) 
   · simp [wordIncoming, h, AKLT.Blueprint.H3.reflectWord,
       AKLT.Defs.reflectDirection]
 
-private theorem reflectNeighbours (x : Plane) :
-    (neighbours x).image AKLT.Blueprint.H3.reflectSite =
-      neighbours (AKLT.Blueprint.H3.reflectSite x) := by
+private theorem reflectNeighbors (x : Plane) :
+    (neighbors x).image AKLT.Blueprint.H3.reflectSite =
+      neighbors (AKLT.Blueprint.H3.reflectSite x) := by
   classical
-  unfold neighbours
+  unfold neighbors
   rw [Finset.image_image]
   calc
     (Finset.univ.image fun d : Compass =>
@@ -123,23 +123,23 @@ private theorem reflectNeighbours (x : Plane) :
             exact ⟨AKLT.Defs.reflectDirection d, by
               simp only [AKLT.Blueprint.H3.reflectDirection_involutive]⟩
 
-private theorem reflectResponseNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    responseNeighbours (AKLT.Blueprint.H3.reflectWord w) i =
-      (responseNeighbours w i).image AKLT.Blueprint.H3.reflectSite := by
+private theorem reflectResponseNeighbors {n : ℕ} (w : DirectionWord n) (i : Fin n) :
+    responseNeighbors (AKLT.Blueprint.H3.reflectWord w) i =
+      (responseNeighbors w i).image AKLT.Blueprint.H3.reflectSite := by
   classical
   have hv := reflectWordVertex w i.val
   have hi := reflectWordIncoming w i
-  unfold responseNeighbours
+  unfold responseNeighbors
   rw [hv, hi]
   rw [← reflectSite_step, ← reflectSite_sub]
-  rw [← reflectNeighbours]
+  rw [← reflectNeighbors]
   exact (Finset.image_erase reflectSite_injective _ _).symm
 
-private theorem reflectLiveOtherNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    liveOtherNeighbours (AKLT.Blueprint.H3.reflectWord w) i =
-      (liveOtherNeighbours w i).image AKLT.Blueprint.H3.reflectSite := by
+private theorem reflectLiveOtherNeighbors {n : ℕ} (w : DirectionWord n) (i : Fin n) :
+    liveOtherNeighbors (AKLT.Blueprint.H3.reflectWord w) i =
+      (liveOtherNeighbors w i).image AKLT.Blueprint.H3.reflectSite := by
   classical
-  rw [liveOtherNeighbours, reflectResponseNeighbours, reflectWordVertex]
+  rw [liveOtherNeighbors, reflectResponseNeighbors, reflectWordVertex]
   rw [← Finset.image_erase reflectSite_injective]
   rw [Finset.filter_image]
   congr 1
@@ -189,15 +189,15 @@ private theorem reflectResponsePairs {n : ℕ} (w : DirectionWord n) (i : Fin n)
   classical
   have hbase :
       insert (wordVertex kernelStart (AKLT.Blueprint.H3.reflectWord w) (i.val + 1))
-          (liveOtherNeighbours (AKLT.Blueprint.H3.reflectWord w) i) =
-        (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).image
+          (liveOtherNeighbors (AKLT.Blueprint.H3.reflectWord w) i) =
+        (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)).image
           AKLT.Blueprint.H3.reflectSite := by
-    rw [Finset.image_insert, reflectWordVertex, reflectLiveOtherNeighbours]
+    rw [Finset.image_insert, reflectWordVertex, reflectLiveOtherNeighbors]
   unfold responsePairs
   rw [hbase]
   exact image_powersetCard_involutive AKLT.Blueprint.H3.reflectSite
     (by intro x; exact AKLT.Blueprint.H3.reflectSite_involutive x)
-    (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)) 2
+    (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)) 2
 
 theorem main : AKLT.Blueprint.H3.ReflectionLivePairsStatement := by
   intro n w i

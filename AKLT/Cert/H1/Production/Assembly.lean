@@ -122,7 +122,7 @@ structure CoveragePremises : Prop where
   same : Leaves.sameDataWitness
   mirror : Leaves.mirrorDataWitness
 
-theorem finiteData_of_checks (h : CoveragePremises) (t : Catalogue) (rs : List Representative)
+theorem finiteData_of_checks (h : CoveragePremises) (t : Catalog) (rs : List Representative)
     (he : CoverageRowsAccepted t axialConfigurations)
     (hi : representativeCheck t rs = true) (hw : RepresentativesAccepted rs) :
     AKLT.Blueprint.Top.H1FiniteDataStatementV2 := by
@@ -138,7 +138,7 @@ theorem finiteData_of_checks (h : CoveragePremises) (t : Catalogue) (rs : List R
   · exact h.mirror π (inputPattern r.input) hπ hρ hm hwρ
 
 theorem certificateV2_of_checks (hc : TopLeaves.certificatePremises)
-    (h : CoveragePremises) (t : Catalogue) (rs : List Representative)
+    (h : CoveragePremises) (t : Catalog) (rs : List Representative)
     (he : CoverageRowsAccepted t axialConfigurations)
     (hi : representativeCheck t rs = true) (hw : RepresentativesAccepted rs) :
     AKLT.Blueprint.Top.CertificateStatementV2 :=

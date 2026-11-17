@@ -17,39 +17,39 @@ theorem adjacent_symm {x y : Plane} (h : Adjacent x y) : Adjacent y x := by
     show y.2 - x.2 = -(x.2 - y.2) by ring, Int.natAbs_neg, Int.natAbs_neg]
   exact h
 
-theorem positive_ne (x y : Plane) (h : y ∈ positiveNeighbours x) : x ≠ y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem positive_ne (x y : Plane) (h : y ∈ positiveNeighbors x) : x ≠ y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with h | h <;> intro he <;>
     have hs := congrArg (fun p : Plane => p.1 + p.2) h <;>
     have ht := congrArg (fun p : Plane => p.1 + p.2) he <;> dsimp at hs ht <;> omega
 
-theorem positive_no_reverse (x y : Plane) (h : y ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at *
+theorem positive_no_reverse (x y : Plane) (h : y ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at *
   rcases h with h | h <;> rcases h with rfl <;> intro he <;>
     rcases he with he | he <;>
     have he := congrArg (fun p : Plane => p.1 + p.2) he <;> dsimp at he <;> omega
 
-theorem positive_neighbour {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    y ∈ neighbours x := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem positive_neighbor {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    y ∈ neighbors x := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · exact Finset.mem_image.mpr ⟨.east, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
   · exact Finset.mem_image.mpr ⟨.north, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
 
-theorem reverse_positive_neighbour {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    x ∈ neighbours y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem reverse_positive_neighbor {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    x ∈ neighbors y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · exact Finset.mem_image.mpr ⟨.west, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
   · exact Finset.mem_image.mpr ⟨.south, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
 
-theorem neighbour_orientation {x y : Plane} (h : y ∈ neighbours x) :
-    y ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours y := by
+theorem neighbor_orientation {x y : Plane} (h : y ∈ neighbors x) :
+    y ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors y := by
   rcases Finset.mem_image.mp h with ⟨d, hd, rfl⟩
-  cases d <;> simp [positiveNeighbours, Compass.step, Prod.add_def]
+  cases d <;> simp [positiveNeighbors, Compass.step, Prod.add_def]
 
-theorem neighbour_adjacent {x y : Plane} (h : y ∈ neighbours x) : Adjacent x y := by
+theorem neighbor_adjacent {x y : Plane} (h : y ∈ neighbors x) : Adjacent x y := by
   rcases Finset.mem_image.mp h with ⟨d, hd, rfl⟩
   cases d <;> simp [Adjacent, latticeDist, Compass.step, Prod.add_def]
 
@@ -58,7 +58,7 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x y : Plane}
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
 theorem mem_internal {G : Finset Plane} {e : Plane × Plane} :
-    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ positiveNeighbours e.1 ∧ e.2 ∈ G := by
+    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ positiveNeighbors e.1 ∧ e.2 ∈ G := by
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter]
   constructor
   · rintro ⟨x, hx, z, ⟨hz, hzg⟩, he⟩
@@ -68,7 +68,7 @@ theorem mem_internal {G : Finset Plane} {e : Plane × Plane} :
     exact ⟨e.1, hx, e.2, ⟨hz, hzg⟩, rfl⟩
 
 theorem mem_bonds {G : Finset Plane} {D : Network G} {e : Plane × Plane} :
-    e ∈ D.bonds ↔ e.2 ∈ positiveNeighbours e.1 ∧ D.Present e.1 e.2 := by
+    e ∈ D.bonds ↔ e.2 ∈ positiveNeighbors e.1 ∧ D.Present e.1 e.2 := by
   simp only [Network.bonds, Finset.mem_filter, mem_internal]
   constructor
   · exact fun h => ⟨h.1.2.1, h.2⟩
@@ -86,7 +86,7 @@ theorem no_leg_at_start {G : Finset Plane} {D : Network G} {y : Plane}
   subst x
   have hd : boundaryDepth G y ≤ (1 : ℕ∞) := by
     unfold boundaryDepth setDistance
-    exact iInf_le_of_le ⟨z, hzg⟩ (by rw [neighbour_adjacent hz]; exact le_rfl)
+    exact iInf_le_of_le ⟨z, hzg⟩ (by rw [neighbor_adjacent hz]; exact le_rfl)
   apply hy.2.1
   exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp hy.1).1, hd.trans (by norm_num)⟩
 

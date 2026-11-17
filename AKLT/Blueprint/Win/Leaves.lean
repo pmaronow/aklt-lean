@@ -42,7 +42,7 @@ structure TopologyLeaves : Prop where
   crossFacts : CrossFactsStatement
   crossOverlap : CrossOverlapStatement
   crossUnion : CrossUnionStatement
-  neighbourDecay : NeighbourDecayStatement
+  neighborDecay : NeighborDecayStatement
   crossWeightSum : CrossWeightSumStatement
   connectedEnumeration : ConnectedEnumerationStatement
 
@@ -71,7 +71,7 @@ structure RemovalLeaves : Prop where
   enumerationSteps : EnumerationStepsStatement
   survivorGeometry : SurvivorGeometryStatement
   removalIntegral : RemovalIntegralStatement
-  neighbourFibres : NeighbourFibresStatement
+  neighborFibers : NeighborFibersStatement
   pairMeanAveraging : PairMeanAveragingStatement
   quarticMeanBound : QuarticMeanBoundStatement
   polynomialLower : PolynomialLowerStatement
@@ -83,7 +83,7 @@ structure RemovalLeaves : Prop where
   removalCostSum : RemovalCostSumStatement
 
 structure CutLeaves : Prop where
-  frameFibreSum : FrameFibreSumStatement
+  frameFiberSum : FrameFiberSumStatement
   complementQuadrature : ComplementQuadratureStatement
   marginalNormalization : MarginalNormalizationStatement
   originalFactorization : OriginalFactorizationStatement

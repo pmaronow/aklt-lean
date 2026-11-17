@@ -71,7 +71,7 @@ theorem main : AKLT.Blueprint.Gap.ContainingBlockCountStatement := by
         _ = x - (x - reduction L N w) := by rw [hzw]
         _ = reduction L N w := by abel
     exact reduction_injective_on_square L N M hL hN hz hw hred
-  have hcentres :
+  have hcenters :
       (Finset.univ.filter fun a : Site L N => x ∈ torusSquare L N M a) =
         (square (0, 0) M).image f := by
     classical
@@ -90,7 +90,7 @@ theorem main : AKLT.Blueprint.Gap.ContainingBlockCountStatement := by
       calc
         a + reduction L N z = (x - reduction L N z) + reduction L N z := by rw [ha]
         _ = x := by simp
-  rw [hcentres, Finset.card_image_of_injOn hf]
+  rw [hcenters, Finset.card_image_of_injOn hf]
   rw [square_card, AKLT.Blueprint.Gap.volumeCount]
 
 end AKLT.W.GAP028

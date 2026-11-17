@@ -163,7 +163,7 @@ theorem main : AKLT.Blueprint.Rec.PairCanonicalGeometryStatement := by
   have huc : p.u - p.c = a.step := by rw [ha]; abel
   have hvc : p.v - p.c = b.step := by rw [hb]; abel
   refine ⟨φ, ?_, ?_, ?_, ?_⟩
-  · change canonicalQ p.X a b (p.c - p.c) = kernelCentre
+  · change canonicalQ p.X a b (p.c - p.c) = kernelCenter
     rw [sub_self]
     change canonicalQ p.X a b (0, 0) = (0, 0)
     exact canonicalQ_zero p.X a b

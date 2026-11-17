@@ -48,24 +48,24 @@ lemma nonreverse {n : ℕ} (w : DirectionWord n) (hw : IsTrail kernelStart kerne
     dsimp [j] at hh
     omega
 
-lemma neighbours_card (v : Plane) : (neighbours v).card = 4 := by
-  rw [neighbours, Finset.card_image_of_injective]
+lemma neighbors_card (v : Plane) : (neighbors v).card = 4 := by
+  rw [neighbors, Finset.card_image_of_injective]
   · rfl
   · intro a b h
     exact step_injective (add_left_cancel h)
 
-lemma responseNeighbours_card {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    (responseNeighbours w i).card = 3 := by
+lemma responseNeighbors_card {n : ℕ} (w : DirectionWord n) (i : Fin n) :
+    (responseNeighbors w i).card = 3 := by
   have hm : wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step ∈
-      neighbours (wordVertex kernelStart w i.val) := by
+      neighbors (wordVertex kernelStart w i.val) := by
     apply Finset.mem_image.mpr
     refine ⟨(wordIncoming kernelIncoming w i).reverse, Finset.mem_univ _, ?_⟩
     simp [AKLT.Cert.H2.reverse_step, sub_eq_add_neg]
-  rw [responseNeighbours, Finset.card_erase_of_mem hm, neighbours_card]
+  rw [responseNeighbors, Finset.card_erase_of_mem hm, neighbors_card]
 
 lemma outgoing_mem {n : ℕ} (w : DirectionWord n) (hw : IsTrail kernelStart kernelIncoming w)
-    (i : Fin n) : wordVertex kernelStart w (i.val + 1) ∈ responseNeighbours w i := by
-  rw [responseNeighbours, Finset.mem_erase]
+    (i : Fin n) : wordVertex kernelStart w (i.val + 1) ∈ responseNeighbors w i := by
+  rw [responseNeighbors, Finset.mem_erase]
   constructor
   · rw [AKLT.Cert.H2.vertex_succ kernelStart w i.val i.isLt]
     intro h
@@ -78,7 +78,7 @@ lemma outgoing_mem {n : ℕ} (w : DirectionWord n) (hw : IsTrail kernelStart ker
 
 lemma pair_sum_cap {n : ℕ} (w : DirectionWord n) (hw : IsTrail kernelStart kernelIncoming w)
     (i : Fin n) : (∑ p ∈ responsePairs w i, pairCoefficient w i p) ≤ responseCap := by
-  let S := responseNeighbours w i
+  let S := responseNeighbors w i
   let o := wordVertex kernelStart w (i.val + 1)
   let f : Finset Plane → ℚ := fun p => if o ∈ p then 36751 / 100000 else 18094 / 100000
   have hsub : responsePairs w i ⊆ S.powersetCard 2 := by
@@ -89,10 +89,10 @@ lemma pair_sum_cap {n : ℕ} (w : DirectionWord n) (hw : IsTrail kernelStart ker
   have hyes : ((S.powersetCard 2).filter fun p => o ∈ p).card = 2 := by
     have := Finset.card_filter_powersetCard_subset {o} S 2
       (Finset.singleton_subset_iff.mpr (outgoing_mem w hw i)) (by simp)
-    simpa [S, responseNeighbours_card, Finset.singleton_subset_iff] using this
+    simpa [S, responseNeighbors_card, Finset.singleton_subset_iff] using this
   have hno : ((S.powersetCard 2).filter fun p => ¬o ∈ p).card = 1 := by
     have h := Finset.card_filter_add_card_filter_not (s := S.powersetCard 2) (fun p => o ∈ p)
-    rw [hyes, Finset.card_powersetCard, show S.card = 3 from responseNeighbours_card w i] at h
+    rw [hyes, Finset.card_powersetCard, show S.card = 3 from responseNeighbors_card w i] at h
     norm_num at h
     omega
   calc

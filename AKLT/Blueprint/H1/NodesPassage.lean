@@ -28,7 +28,7 @@ def PassageFubiniStatement : Prop :=
       1 + (dot a b + dot a o + dot b o) / 3 ∧
     siteFunctional .D (fun n => (1 + dot n a) * (1 + dot n b)) = 1 + dot a b / 5) →
   ∀ π : PatternData, π.Covered → ∀ m : Fin 20 → UnitVector, ∀ f g : Plane,
-    PassageNeighbours π f g →
+    PassageNeighbors π f g →
     patternCurrent π m = withoutPassageFunctional π m (passageI π.outgoing.step f g) ∧
     patternNext π m = withoutPassageFunctional π m (passageJ f g)
 

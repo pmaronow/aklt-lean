@@ -47,7 +47,7 @@ private theorem frameBound_pos : 0 < frameBound := by
   positivity
 
 private theorem edgeFactor_pos {L N : Size} (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (τ : TorusConfiguration L N) (e : Bond L N) : 0 < edgeFactor κ τ e := by
   have hdiff : κ e.1 ≠ κ (nextSite e.1 e.2) := hκ e
   exact lt_of_lt_of_le frameBound_pos (hBounds _ _ hdiff _ _).2.2.1
@@ -73,40 +73,40 @@ private theorem swapConfig_inside {L N : Size} (U : Finset (Site L N))
     swapConfig U σ ξ τ x.val = τ x.val := by
   simp [swapConfig, x.property]
 
-private theorem boundary_neighbour_of_crossing {L N : Size}
+private theorem boundary_neighbor_of_crossing {L N : Size}
     (U : Finset (Site L N)) (e : Bond L N)
     (hTouch : e.1 ∈ U ∨ nextSite e.1 e.2 ∈ U)
     (hOne : ¬ (e.1 ∈ U ∧ nextSite e.1 e.2 ∈ U)) :
     (if e.1 ∈ U then nextSite e.1 e.2 else e.1) ∈
-      U.biUnion torusNeighbours \ U := by
+      U.biUnion torusNeighbors \ U := by
   classical
   rcases hTouch with hs | ht
   · have hout : nextSite e.1 e.2 ∉ U := by
       intro h
       exact hOne ⟨hs, h⟩
-    have hn : nextSite e.1 e.2 ∈ torusNeighbours e.1 := by
+    have hn : nextSite e.1 e.2 ∈ torusNeighbors e.1 := by
       have hd : e.2.val = 0 ∨ e.2.val = 1 := by omega
       rcases hd with hd | hd
       · have hdir : e.2 = 0 := Fin.ext hd
         rw [hdir]
-        simp [nextSite, torusNeighbours]
+        simp [nextSite, torusNeighbors]
       · have hdir : e.2 = 1 := Fin.ext hd
         rw [hdir]
-        simp [nextSite, torusNeighbours]
+        simp [nextSite, torusNeighbors]
     rw [if_pos hs]
     exact Finset.mem_sdiff.mpr ⟨Finset.mem_biUnion.mpr ⟨e.1, hs, hn⟩, hout⟩
   · have hout : e.1 ∉ U := by
       intro h
       exact hOne ⟨h, ht⟩
-    have hn : e.1 ∈ torusNeighbours (nextSite e.1 e.2) := by
+    have hn : e.1 ∈ torusNeighbors (nextSite e.1 e.2) := by
       have hd : e.2.val = 0 ∨ e.2.val = 1 := by omega
       rcases hd with hd | hd
       · have hdir : e.2 = 0 := Fin.ext hd
         rw [hdir]
-        simp [nextSite, torusNeighbours]
+        simp [nextSite, torusNeighbors]
       · have hdir : e.2 = 1 := Fin.ext hd
         rw [hdir]
-        simp [nextSite, torusNeighbours]
+        simp [nextSite, torusNeighbors]
     rw [if_neg hout]
     exact Finset.mem_sdiff.mpr ⟨Finset.mem_biUnion.mpr ⟨nextSite e.1 e.2, ht, hn⟩, hout⟩
 
@@ -145,8 +145,8 @@ private def exteriorScale {L N : Size} (κ : Site L N → Fin 3) (U : Finset (Si
 
 private theorem swapConfig_eq_fixed {L N : Size} (U : Finset (Site L N))
     (σ ξ τ : TorusConfiguration L N) (hτ : AgreeOutside U σ τ)
-    (hBoundary : ∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z)
-    {x : Site L N} (hx : x ∈ U ∨ x ∈ U.biUnion torusNeighbours \ U) :
+    (hBoundary : ∀ z ∈ U.biUnion torusNeighbors \ U, σ z = ξ z)
+    {x : Site L N} (hx : x ∈ U ∨ x ∈ U.biUnion torusNeighbors \ U) :
     swapConfig U σ ξ τ x = τ x := by
   rcases hx with hx | hx
   · simp [swapConfig, hx]
@@ -157,15 +157,15 @@ private theorem swapConfig_eq_fixed {L N : Size} (U : Finset (Site L N))
 
 private theorem touchedEndpoints_fixed {L N : Size} (U : Finset (Site L N))
     (e : Bond L N) (ht : edgeTouches U e) :
-    (e.1 ∈ U ∨ e.1 ∈ U.biUnion torusNeighbours \ U) ∧
-      (nextSite e.1 e.2 ∈ U ∨ nextSite e.1 e.2 ∈ U.biUnion torusNeighbours \ U) := by
+    (e.1 ∈ U ∨ e.1 ∈ U.biUnion torusNeighbors \ U) ∧
+      (nextSite e.1 e.2 ∈ U ∨ nextSite e.1 e.2 ∈ U.biUnion torusNeighbors \ U) := by
   rcases ht with hs | hd
   · constructor
     · exact Or.inl hs
     · by_cases hdt : nextSite e.1 e.2 ∈ U
       · exact Or.inl hdt
       · refine Or.inr ?_
-        have hb := boundary_neighbour_of_crossing U e (Or.inl hs) (by
+        have hb := boundary_neighbor_of_crossing U e (Or.inl hs) (by
           intro h
           exact hdt h.2)
         simpa [hs] using hb
@@ -173,7 +173,7 @@ private theorem touchedEndpoints_fixed {L N : Size} (U : Finset (Site L N))
     · by_cases hs : e.1 ∈ U
       · exact Or.inl hs
       · refine Or.inr ?_
-        have hb := boundary_neighbour_of_crossing U e (Or.inr hd) (by
+        have hb := boundary_neighbor_of_crossing U e (Or.inr hd) (by
           intro h
           exact hs h.1)
         simpa [hs] using hb
@@ -181,10 +181,10 @@ private theorem touchedEndpoints_fixed {L N : Size} (U : Finset (Site L N))
 
 private theorem edgeFactor_swap_touched {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ τ : TorusConfiguration L N)
     (hτ : AgreeOutside U σ τ)
-    (hBoundary : ∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z)
+    (hBoundary : ∀ z ∈ U.biUnion torusNeighbors \ U, σ z = ξ z)
     (e : Bond L N) (ht : edgeTouches U e) :
     edgeFactor κ (swapConfig U σ ξ τ) e = edgeFactor κ τ e := by
   have hend := touchedEndpoints_fixed U e ht
@@ -207,10 +207,10 @@ private theorem edgeFactor_swap_untouched {L N : Size}
 
 private theorem edgeFactor_swap_scale {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ τ : TorusConfiguration L N)
     (hτ : AgreeOutside U σ τ)
-    (hBoundary : ∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z)
+    (hBoundary : ∀ z ∈ U.biUnion torusNeighbors \ U, σ z = ξ z)
     (e : Bond L N) :
     edgeFactor κ (swapConfig U σ ξ τ) e = edgeScale κ U σ ξ e * edgeFactor κ τ e := by
   by_cases ht : edgeTouches U e
@@ -229,7 +229,7 @@ private theorem edgeFactor_swap_scale {L N : Size}
 
 private theorem edgeScale_pos {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ : TorusConfiguration L N)
     (e : Bond L N) : 0 < edgeScale κ U σ ξ e := by
   by_cases ht : edgeTouches U e
@@ -239,7 +239,7 @@ private theorem edgeScale_pos {L N : Size}
 
 private theorem exteriorScale_pos {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ : TorusConfiguration L N) :
     0 < exteriorScale κ U σ ξ := by
   unfold exteriorScale
@@ -247,10 +247,10 @@ private theorem exteriorScale_pos {L N : Size}
 
 private theorem torusWeight_swap_scale {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ τ : TorusConfiguration L N)
     (hτ : AgreeOutside U σ τ)
-    (hBoundary : ∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z) :
+    (hBoundary : ∀ z ∈ U.biUnion torusNeighbors \ U, σ z = ξ z) :
     torusWeight L N κ (swapConfig U σ ξ τ) =
       exteriorScale κ U σ ξ * torusWeight L N κ τ := by
   have hp : ∀ e : Bond L N,
@@ -299,7 +299,7 @@ private theorem ratio_normalize {Ω : Type} [Fintype Ω] (w : Weight Ω)
 
 private theorem torusWeight_pos {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (τ : TorusConfiguration L N) : 0 < torusWeight L N κ τ := by
   unfold torusWeight
   apply mul_pos
@@ -308,36 +308,36 @@ private theorem torusWeight_pos {L N : Size}
 
 private theorem torusPartition_pos {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ) :
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ) :
     0 < ∑ τ : TorusConfiguration L N, torusWeight L N κ τ := by
   classical
   have hne : (Finset.univ : Finset (TorusConfiguration L N)).Nonempty :=
     ⟨fun _ => default, Finset.mem_univ _⟩
   exact Finset.sum_pos (fun τ _ => torusWeight_pos hBounds κ hκ τ) hne
 
-private def fibreSum {L N : Size} (κ : Site L N → Fin 3)
+private def fiberSum {L N : Size} (κ : Site L N → Fin 3)
     (U : Finset (Site L N)) (σ : TorusConfiguration L N)
     (P : TorusConfiguration L N → Prop) (dP : DecidablePred P) : ℝ := by
   classical
   letI : DecidablePred P := dP
   exact ∑ τ, if AgreeOutside U σ τ ∧ P τ then torusWeight L N κ τ else 0
 
-private theorem fibreSum_swap_scale {L N : Size}
+private theorem fiberSum_swap_scale {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ ξ : TorusConfiguration L N)
-    (hBoundary : ∀ z ∈ U.biUnion torusNeighbours \ U, σ z = ξ z)
+    (hBoundary : ∀ z ∈ U.biUnion torusNeighbors \ U, σ z = ξ z)
     (P : TorusConfiguration L N → Prop)
     (dP : DecidablePred P)
     (hP : ∀ τ, P (swapConfig U σ ξ τ) ↔ P τ) :
-    fibreSum κ U ξ P dP = exteriorScale κ U σ ξ * fibreSum κ U σ P dP := by
+    fiberSum κ U ξ P dP = exteriorScale κ U σ ξ * fiberSum κ U σ P dP := by
   classical
   let e := swapConfigEquiv U σ ξ
   calc
-    fibreSum κ U ξ P dP =
+    fiberSum κ U ξ P dP =
         ∑ τ, if AgreeOutside U ξ (e τ) ∧ P (e τ) then
             torusWeight L N κ (e τ) else 0 := by
-      unfold fibreSum
+      unfold fiberSum
       exact (Equiv.sum_comp e
         (fun τ => if AgreeOutside U ξ τ ∧ P τ then torusWeight L N κ τ else 0)).symm
     _ = ∑ τ, exteriorScale κ U σ ξ *
@@ -357,19 +357,19 @@ private theorem fibreSum_swap_scale {L N : Size}
           intro hh
           exact hp ⟨hf.mp hh.1, hq.mp hh.2⟩
         simp [hp, hp']
-    _ = exteriorScale κ U σ ξ * fibreSum κ U σ P dP := by
+    _ = exteriorScale κ U σ ξ * fiberSum κ U σ P dP := by
       rw [← Finset.mul_sum]
       rfl
 
-private theorem conditionalTorusLaw_fibreSum {L N : Size}
+private theorem conditionalTorusLaw_fiberSum {L N : Size}
     (hBounds : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (U : Finset (Site L N)) (σ : TorusConfiguration L N)
     (ζ : U → IcoLetter) :
     conditionalTorusLaw L N κ U σ ζ =
-      fibreSum κ U σ (fun τ => (fun x : U => τ x.val) = ζ)
+      fiberSum κ U σ (fun τ => (fun x : U => τ x.val) = ζ)
         (fun τ => Fintype.decidablePiFintype (fun x : U => τ x.val) ζ) /
-        fibreSum κ U σ (fun _ => True) (fun _ => isTrue trivial) := by
+        fiberSum κ U σ (fun _ => True) (fun _ => isTrue trivial) := by
   classical
   letI : DecidablePred (fun τ : TorusConfiguration L N =>
       (fun x : U => τ x.val) = ζ) :=
@@ -384,7 +384,7 @@ private theorem conditionalTorusLaw_fibreSum {L N : Size}
   have hZ : (∑ τ : TorusConfiguration L N, torusWeight L N κ τ) ≠ 0 :=
     (torusPartition_pos hBounds κ hκ).ne'
   simp only [torusLaw]
-  simpa [fibreSum] using ratio_normalize (torusWeight L N κ)
+  simpa [fiberSum] using ratio_normalize (torusWeight L N κ)
     (fun τ => AgreeOutside U σ τ ∧ (fun x : U => τ x.val) = ζ)
     (fun τ => AgreeOutside U σ τ) hZ
 
@@ -395,8 +395,8 @@ theorem main : AKLT.Blueprint.Q.TorusMarkovStatement := by
   let dζ : DecidablePred (fun τ : TorusConfiguration L N =>
       (fun x : U => τ x.val) = ζ) :=
     fun τ => Fintype.decidablePiFintype (fun x : U => τ x.val) ζ
-  rw [conditionalTorusLaw_fibreSum hBounds κ hκ U σ ζ,
-    conditionalTorusLaw_fibreSum hBounds κ hκ U ξ ζ]
+  rw [conditionalTorusLaw_fiberSum hBounds κ hκ U σ ζ,
+    conditionalTorusLaw_fiberSum hBounds κ hκ U ξ ζ]
   have hP : ∀ τ, (fun x : U => swapConfig U σ ξ τ x.val) = ζ ↔
       (fun x : U => τ x.val) = ζ := by
     intro τ
@@ -405,16 +405,16 @@ theorem main : AKLT.Blueprint.Q.TorusMarkovStatement := by
       funext x
       exact swapConfig_inside U σ ξ τ x
     rw [hinside]
-  have hNum := fibreSum_swap_scale hBounds κ hκ U σ ξ hBoundary
+  have hNum := fiberSum_swap_scale hBounds κ hκ U σ ξ hBoundary
     (fun τ => (fun x : U => τ x.val) = ζ) dζ hP
-  have hMass := fibreSum_swap_scale hBounds κ hκ U σ ξ hBoundary
+  have hMass := fiberSum_swap_scale hBounds κ hκ U σ ξ hBoundary
     (fun _ => True) (fun _ => isTrue trivial) (by intro τ; simp)
   have hc : exteriorScale κ U σ ξ ≠ 0 :=
     ne_of_gt (exteriorScale_pos hBounds κ hκ U σ ξ)
-  change fibreSum κ U σ (fun τ => (fun x : U => τ x.val) = ζ) dζ /
-      fibreSum κ U σ (fun _ => True) (fun _ => isTrue trivial) =
-    fibreSum κ U ξ (fun τ => (fun x : U => τ x.val) = ζ) dζ /
-      fibreSum κ U ξ (fun _ => True) (fun _ => isTrue trivial)
+  change fiberSum κ U σ (fun τ => (fun x : U => τ x.val) = ζ) dζ /
+      fiberSum κ U σ (fun _ => True) (fun _ => isTrue trivial) =
+    fiberSum κ U ξ (fun τ => (fun x : U => τ x.val) = ζ) dζ /
+      fiberSum κ U ξ (fun _ => True) (fun _ => isTrue trivial)
   rw [hNum, hMass]
   field_simp [hc]
 

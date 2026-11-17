@@ -47,13 +47,13 @@ theorem incident_product (D : Network G) (y : Plane) (q n : Plane → Vec3)
     (hqn : ∀ x, x ≠ y → q x = n x) :
     (∏ e ∈ D.bonds.filter (fun e => ¬ (e.1 ≠ y ∧ e.2 ≠ y)),
       (1 + dot (q e.1) (q e.2))) =
-      ∏ z ∈ D.presentNeighbours y, (1 + dot (q y) (n z)) := by
+      ∏ z ∈ D.presentNeighbors y, (1 + dot (q y) (n z)) := by
   classical
   apply Finset.prod_bij (fun e _ => otherEnd y e)
   · intro e he
     rcases Finset.mem_filter.mp he with ⟨he,hi⟩
     have hp := (Finset.mem_filter.mp he).2
-    apply (mem_presentNeighbours D y _).mpr
+    apply (mem_presentNeighbors D y _).mpr
     by_cases hx : e.1 = y
     · simpa [otherEnd,hx] using hp
     · have hz : e.2 = y := by tauto
@@ -63,7 +63,7 @@ theorem incident_product (D : Network G) (y : Plane) (q n : Plane → Vec3)
     rcases Finset.mem_filter.mp he' with ⟨he',hi'⟩
     exact otherEnd_inj D y e e' he he' (by tauto) (by tauto) hh
   · intro z hz
-    have hp := (mem_presentNeighbours D y z).mp hz
+    have hp := (mem_presentNeighbors D y z).mp hz
     have hyG := (Finset.mem_filter.mp hp.1).1
     have hzG := (Finset.mem_filter.mp hp.2.1).1
     have hn := adjacent_ne hp.2.2.1
@@ -89,7 +89,7 @@ theorem bond_product_split (D : Network G) (y : Plane) (q n : Plane → Vec3)
     (hqn : ∀ x, x ≠ y → q x = n x) :
     (∏ e ∈ D.bonds, (1 + dot (q e.1) (q e.2))) =
       (∏ e ∈ (removeSite D y).bonds, (1 + dot (n e.1) (n e.2))) *
-        ∏ z ∈ D.presentNeighbours y, (1 + dot (q y) (n z)) := by
+        ∏ z ∈ D.presentNeighbors y, (1 + dot (q y) (n z)) := by
   classical
   rw [← Finset.prod_filter_mul_prod_filter_not D.bonds
     (fun e => e.1 ≠ y ∧ e.2 ≠ y) (fun e => 1 + dot (q e.1) (q e.2)),
@@ -120,7 +120,7 @@ theorem join_netWeight (D : Network G) (τ : PinAssignment G) (b : Bool)
     (p : SpinLetter × ((removeSite D y).active → SpinLetter)) :
     netWeight D τ b (joinSpin D y hy p) =
       netWeight (removeSite D y) τ b p.2 * spinWeight (D.status y) p.1 *
-        ∏ z ∈ D.presentNeighbours y,
+        ∏ z ∈ D.presentNeighbors y,
           (1 + dot (spinVector p.1) ((removeSite D y).spins p.2 z)) := by
   have hq : ∀ x, x ≠ y → D.spins (joinSpin D y hy p) x =
       (removeSite D y).spins p.2 x := by
@@ -135,7 +135,7 @@ theorem integrate_site (D : Network G) (τ : PinAssignment G) (b : Bool)
     (y : Plane) (hy : y ∈ D.active) (hno : ∀ e ∈ originalLegs G, e.1 ≠ y) :
     D.partition τ b (fun _ => 1) =
       (removeSite D y).partition τ b (fun n => siteFunctional (D.status y)
-        (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)))) := by
+        (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)))) := by
   classical
   rw [partition_sum,partition_sum]
   simp only [mul_one]

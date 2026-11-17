@@ -23,7 +23,7 @@ theorem initial_invariant (p : PairSetup) : PrefixInvariant p.normalized p.u p.c
   refine ⟨hcon.1.1.1, ?_, ?_, ?_, ?_, hadj, ?_, ?_, ?_⟩
   · intro x
     change (if x = p.u ∧ p.D.status p.u = .U then (p.D.kept x).erase p.c
-      else p.D.kept x) ⊆ neighbours x ∩ p.G
+      else p.D.kept x) ⊆ neighbors x ∩ p.G
     split_ifs
     · intro z hz
       exact hcon.1.1.2.1 x (Finset.mem_of_mem_erase hz)
@@ -56,8 +56,8 @@ theorem initial_invariant (p : PairSetup) : PrefixInvariant p.normalized p.u p.c
     rw [he] at hpx hpz
     rcases huc with hU | ⟨_, hdeg⟩
     · exact (hdU hU).elim
-    · exact (Finset.card_le_one.mp hdeg) x (present_mem_neighbours hpx)
-        z (present_mem_neighbours hpz)
+    · exact (Finset.card_le_one.mp hdeg) x (present_mem_neighbors hpx)
+        z (present_mem_neighbors hpz)
 
 theorem word_vertex_zero {n : ℕ} (u : Plane) (w : DirectionWord n) :
     wordVertex u w 0 = u := by simp [wordVertex]

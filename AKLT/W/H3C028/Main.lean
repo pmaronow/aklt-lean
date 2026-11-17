@@ -23,7 +23,7 @@ private theorem planeCheck_fields (G : Graph) (T : Tables) (X : PairType)
       (repeatLane 80 19881 (T.cap key)) [(1, T.plane key)] = true ∧
     0 < T.cap key ∧ T.cap key < 2^26 ∧
     (key / 3741 < 2 ∨ 65536 ≤ T.cap key) ∧
-    lane (T.plane key) 80 (siteIndex kernelCentre) = 0 ∧
+    lane (T.plane key) 80 (siteIndex kernelCenter) = 0 ∧
     lane (T.plane key) 80 (siteIndex (kernelTarget X)) =
       (if key / 3741 < 2 then 0 else 65536) ∧
     freeRow G T (key / 3741) (key % 3741) ≤ coefficientScale * T.cap key := by
@@ -92,9 +92,9 @@ private theorem target_mem_square (X : PairType) :
   cases X <;> simp [square, kernelTarget, certificateRadius, Finset.mem_product,
     Finset.mem_Icc]
 
-private theorem centre_mem_square :
-    kernelCentre ∈ square (0,0) certificateRadius := by
-  simp [square, kernelCentre, certificateRadius, Finset.mem_product, Finset.mem_Icc]
+private theorem center_mem_square :
+    kernelCenter ∈ square (0,0) certificateRadius := by
+  simp [square, kernelCenter, certificateRadius, Finset.mem_product, Finset.mem_Icc]
 
 private theorem repeatedLane_value (z s : Nat) (hz : z < 2^80) (hs : s < 19881) :
     lane (repeatLane 80 19881 z) 80 s = z := by
@@ -155,10 +155,10 @@ theorem main : CertData.H3.Bridge.PlaneSoundLeaf := by
       simpa [component, hrep] using hrow
     simpa [Tables.data, Tables.planeFn, Tables.capFn, phaseKey, phaseCode] using hrow'
   have hterminal :
-      (T.data.extended φ a kernelCentre = 0 ∧
+      (T.data.extended φ a kernelCenter = 0 ∧
         (T.data.extended φ a (kernelTarget X) : ℚ) =
           certificateValueScale * phaseTerminal φ) := by
-    have hcVal : T.data.value φ a ⟨kernelCentre, centre_mem_square⟩ = 0 := by
+    have hcVal : T.data.value φ a ⟨kernelCenter, center_mem_square⟩ = 0 := by
       simpa [Tables.data, Tables.planeFn, phaseKey, phaseCode, siteIndex] using hcenter
     have htVal : T.data.value φ a ⟨kernelTarget X, target_mem_square X⟩ =
         certificateValueScale * phaseTerminal φ := by
@@ -171,21 +171,21 @@ theorem main : CertData.H3.Bridge.PlaneSoundLeaf := by
       rw [hraw']
       cases φ <;> norm_num [phaseCode, phaseTerminal, certificateValueScale]
     constructor
-    · rw [extended_eq_value T.data φ a kernelCentre centre_mem_square]
+    · rw [extended_eq_value T.data φ a kernelCenter center_mem_square]
       exact hcVal
     · rw [extended_eq_value T.data φ a (kernelTarget X) (target_mem_square X)]
       exact htVal
   have hlocalRows := AKLT.W.H3C026.main G T X d₀ hQ hBounds hCase
   refine ⟨hpos, hthreshold, hfreeFinal, hvalue, hterminal, ?_⟩
-  intro x hxCentre hxTarget
+  intro x hxCenter hxTarget
   let s := siteIndex x.val
   have hs : s < 19881 := siteIndex_lt_radius x.property
   have hgrid : gridSite s = x.val := gridSite_siteIndex x.property
-  have hsCentre : gridSite s ≠ kernelCentre := by simpa [hgrid] using hxCentre
+  have hsCenter : gridSite s ≠ kernelCenter := by simpa [hgrid] using hxCenter
   have hsTarget : gridSite s ≠ kernelTarget X := by simpa [hgrid] using hxTarget
   have hlocal' := hlocal
   rw [hkey.1, hkey.2] at hlocal'
-  have hrow := hlocalRows φ a s hs hsCentre hsTarget
+  have hrow := hlocalRows φ a s hs hsCenter hsTarget
   have hcheckRow : component 80 s
       (rowTerms G.quotient T.planeFn T.capFn X d₀ φ a) ≤
       coefficientScale * lane (T.planeFn φ a) 80 s :=

@@ -23,8 +23,8 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
   classical
   let A := (internalBonds D).filter fun e => e.1 = z ∨ e.2 = z
   let L := (originalLegs G).filter fun e => e.1 = z
-  let N := neighbours z ∩ D
-  let O := neighbours z \ G
+  let N := neighbors z ∩ D
+  let O := neighbors z \ G
   have hzG : z ∈ G := hDG hz
   have hAmap : ∀ e ∈ A, otherEnd z e ∈ N := by
     intro e he
@@ -35,20 +35,20 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
     have hpos := (Finset.mem_inter.mp hy).1
     have hyD := (Finset.mem_inter.mp hy).2
     change x = z ∨ y = z at hinc
-    change (if x = z then y else x) ∈ neighbours z ∩ D
+    change (if x = z then y else x) ∈ neighbors z ∩ D
     apply Finset.mem_inter.mpr
     constructor
     · by_cases hxz : x = z
       · subst x
         have hp : y = (z.1 + 1, z.2) ∨ y = (z.1, z.2 + 1) := by
-          simpa [positiveNeighbours] using hpos
+          simpa [positiveNeighbors] using hpos
         rcases hp with hp | hp
         · subst y
-          rw [neighbours]
+          rw [neighbors]
           apply Finset.mem_image.mpr
           exact ⟨Compass.east, Finset.mem_univ _, by rcases z with ⟨a,b⟩; simp [Compass.step]⟩
         · subst y
-          rw [neighbours]
+          rw [neighbors]
           apply Finset.mem_image.mpr
           exact ⟨Compass.north, Finset.mem_univ _, by rcases z with ⟨a,b⟩; simp [Compass.step]⟩
       · have hyz : y = z := by
@@ -58,7 +58,7 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
         simp only [ite_eq_right hxz]
         have hp : z = (x.1 + 1, x.2) ∨ z = (x.1, x.2 + 1) := by
           have hp' : y = (x.1 + 1, x.2) ∨ y = (x.1, x.2 + 1) := by
-            simpa [positiveNeighbours] using hpos
+            simpa [positiveNeighbors] using hpos
           simpa [hyz] using hp'
         rcases hp with hp | hp
         · have hfst := congrArg Prod.fst hp
@@ -66,7 +66,7 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
           simp at hfst hsnd
           have hx : x = (z.1 - 1, z.2) := by apply Prod.ext <;> omega
           rw [hx]
-          rw [neighbours]
+          rw [neighbors]
           apply Finset.mem_image.mpr
           exact ⟨Compass.west, Finset.mem_univ _, by rcases z with ⟨a,b⟩; simp [Compass.step]; omega⟩
         · have hfst := congrArg Prod.fst hp
@@ -74,7 +74,7 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
           simp at hfst hsnd
           have hx : x = (z.1, z.2 - 1) := by apply Prod.ext <;> omega
           rw [hx]
-          rw [neighbours]
+          rw [neighbors]
           apply Finset.mem_image.mpr
           exact ⟨Compass.south, Finset.mem_univ _, by rcases z with ⟨a,b⟩; simp [Compass.step]; omega⟩
     · by_cases hxz : x = z
@@ -110,9 +110,9 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
     change x₁ = z ∨ y₁ = z at hi₁
     change x₂ = z ∨ y₂ = z at hi₂
     have hp₁ : y₁ = (x₁.1 + 1, x₁.2) ∨ y₁ = (x₁.1, x₁.2 + 1) := by
-      simpa [positiveNeighbours] using (Finset.mem_inter.mp hy₁).1
+      simpa [positiveNeighbors] using (Finset.mem_inter.mp hy₁).1
     have hp₂ : y₂ = (x₂.1 + 1, x₂.2) ∨ y₂ = (x₂.1, x₂.2 + 1) := by
-      simpa [positiveNeighbours] using (Finset.mem_inter.mp hy₂).1
+      simpa [positiveNeighbors] using (Finset.mem_inter.mp hy₂).1
     have hnot₁ : x₁ ≠ y₁ := by
       intro he
       subst y₁
@@ -176,23 +176,23 @@ theorem incidence_bound (G D : Finset Plane) (hDG : D ⊆ G) (z : Plane)
     have hx₁ := (Finset.mem_filter.mp he₁).2
     have hx₂ := (Finset.mem_filter.mp he₂).2
     exact Prod.ext (hx₁.trans hx₂.symm) heq
-  have hsum : N.card + O.card ≤ (neighbours z).card := by
+  have hsum : N.card + O.card ≤ (neighbors z).card := by
     have hdis : Disjoint N O := by
       apply Finset.disjoint_left.mpr
       intro w hwN hwO
       have hwG : w ∈ G := hDG ((Finset.mem_inter.mp hwN).2)
       exact (Finset.mem_sdiff.mp hwO).2 hwG
-    have hsub : N ∪ O ⊆ neighbours z := by
+    have hsub : N ∪ O ⊆ neighbors z := by
       intro w hw
       rcases Finset.mem_union.mp hw with h | h
       · exact (Finset.mem_inter.mp h).1
       · exact (Finset.mem_sdiff.mp h).1
     calc
       N.card + O.card = (N ∪ O).card := (Finset.card_union_of_disjoint hdis).symm
-      _ ≤ (neighbours z).card := Finset.card_le_card hsub
+      _ ≤ (neighbors z).card := Finset.card_le_card hsub
   have hN : A.card ≤ N.card := Finset.card_le_card_of_injOn (otherEnd z) hAmap hAinj
   have hO : L.card ≤ O.card := Finset.card_le_card_of_injOn Prod.snd hLmap hLin
-  have hn : (neighbours z).card = 4 := by
+  have hn : (neighbors z).card = 4 := by
     change (Finset.univ.image (fun d : Compass => z + d.step)).card = 4
     have hinj : Set.InjOn (fun d : Compass => z + d.step)
         (↑(Finset.univ : Finset Compass) : Set Compass) := by

@@ -36,16 +36,16 @@ def otherEnd (y : Plane) (e : Plane × Plane) : Plane :=
 
 theorem incident_other {G : Finset Plane} {D : Network G} {y : Plane}
     {e : Plane × Plane} (he : e ∈ D.bonds) (hi : e.1 = y ∨ e.2 = y) :
-    otherEnd y e ∈ D.presentNeighbours y := by
+    otherEnd y e ∈ D.presentNeighbors y := by
   rcases mem_bonds.mp he with ⟨hp, he⟩
   rcases hi with h | h
   · simp only [otherEnd, h, ite_true]
     subst y
-    exact Finset.mem_filter.mpr ⟨positive_neighbour hp, he⟩
+    exact Finset.mem_filter.mpr ⟨positive_neighbor hp, he⟩
   · have hn : e.1 ≠ y := by rw [← h]; exact positive_ne _ _ hp
     simp only [otherEnd, hn, ite_false]
     subst y
-    exact Finset.mem_filter.mpr ⟨reverse_positive_neighbour hp, present_symm he⟩
+    exact Finset.mem_filter.mpr ⟨reverse_positive_neighbor hp, present_symm he⟩
 
 theorem incident_injective {G : Finset Plane} {D : Network G} {y : Plane}
     {e f : Plane × Plane} (he : e ∈ D.bonds) (hf : f ∈ D.bonds)
@@ -72,10 +72,10 @@ theorem incident_injective {G : Finset Plane} {D : Network G} {y : Plane}
     exact Prod.ext hv (h1'.trans h2'.symm)
 
 theorem incident_surjective {G : Finset Plane} {D : Network G} {y z : Plane}
-    (hz : z ∈ D.presentNeighbours y) :
+    (hz : z ∈ D.presentNeighbors y) :
     ∃ e ∈ D.bonds, (e.1 = y ∨ e.2 = y) ∧ otherEnd y e = z := by
   rcases Finset.mem_filter.mp hz with ⟨hn, hp⟩
-  rcases neighbour_orientation hn with h | h
+  rcases neighbor_orientation hn with h | h
   · refine ⟨(y, z), mem_bonds.mpr ⟨h, hp⟩, Or.inl rfl, ?_⟩
     simp [otherEnd]
   · refine ⟨(z, y), mem_bonds.mpr ⟨h, present_symm hp⟩, Or.inr rfl, ?_⟩
@@ -85,7 +85,7 @@ theorem bondProduct_split {G : Finset Plane} (D : Network G) (y : Plane)
     (n : Plane → Vec3) (v : Vec3) :
     bondProduct D (Function.update n y v) =
       bondProduct (removeSite D y) n *
-        ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)) := by
+        ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)) := by
   classical
   let p := fun e : Plane × Plane => e.1 ≠ y ∧ e.2 ≠ y
   unfold bondProduct
@@ -138,11 +138,11 @@ theorem trace_present {G : Finset Plane} (D : Network G) (y o x z : Plane)
     by_cases hzy : z = y <;> by_cases hzo : z = o <;>
     simp_all [traceStep]
 
-theorem trace_neighbours {G : Finset Plane} (D : Network G) (y o : Plane)
+theorem trace_neighbors {G : Finset Plane} (D : Network G) (y o : Plane)
     (hy : D.status y = .U) (hne : y ≠ o) :
-    (traceStep D y o).presentNeighbours y = (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y = (D.presentNeighbors y).erase o := by
   ext z
-  simp only [Network.presentNeighbours, Finset.mem_filter, Finset.mem_erase,
+  simp only [Network.presentNeighbors, Finset.mem_filter, Finset.mem_erase,
     trace_present D y o y z hy]
   simp only [true_and]
   tauto

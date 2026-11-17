@@ -23,34 +23,34 @@ theorem adjacent_ne {x z : Plane} (h : Adjacent x z) : x ≠ z := by
   norm_num [Adjacent, latticeDist] at h
 
 theorem adjacent_positive (x z : Plane) :
-    Adjacent x z ↔ z ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours z := by
+    Adjacent x z ↔ z ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors z := by
   rcases x with ⟨x₁, x₂⟩
   rcases z with ⟨z₁, z₂⟩
-  simp only [Adjacent, latticeDist, positiveNeighbours, Finset.mem_insert,
+  simp only [Adjacent, latticeDist, positiveNeighbors, Finset.mem_insert,
     Finset.mem_singleton, Prod.mk.injEq]
   omega
 
-theorem positive_asymm {x z : Plane} (h : z ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours z := by
+theorem positive_asymm {x z : Plane} (h : z ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors z := by
   rcases x with ⟨x₁, x₂⟩
   rcases z with ⟨z₁, z₂⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
     Prod.mk.injEq] at *
   omega
 
-theorem mem_neighbours (x z : Plane) : z ∈ neighbours x ↔ Adjacent x z := by
+theorem mem_neighbors (x z : Plane) : z ∈ neighbors x ↔ Adjacent x z := by
   rw [adjacent_positive]
-  simp only [neighbours, Finset.mem_image]
+  simp only [neighbors, Finset.mem_image]
   constructor
   · rintro ⟨d, _, rfl⟩
-    cases d <;> simp [positiveNeighbours, Compass.step, Prod.ext_iff]
+    cases d <;> simp [positiveNeighbors, Compass.step, Prod.ext_iff]
   · intro h
     rcases h with hp | hp
-    · simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp
+    · simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp
       rcases hp with rfl | rfl
       · exact ⟨.east, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
       · exact ⟨.north, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
-    · simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp
+    · simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp
       rcases hp with hp | hp
       · refine ⟨.west, Finset.mem_univ _, ?_⟩
         rw [hp]
@@ -60,7 +60,7 @@ theorem mem_neighbours (x z : Plane) : z ∈ neighbours x ↔ Adjacent x z := by
         ext <;> simp [Compass.step]
 
 theorem mem_internal (G : Finset Plane) (e : Plane × Plane) :
-    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ positiveNeighbours e.1 ∧ e.2 ∈ G := by
+    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ positiveNeighbors e.1 ∧ e.2 ∈ G := by
   constructor
   · intro he
     obtain ⟨x, hxG, he⟩ := Finset.mem_biUnion.mp he
@@ -75,14 +75,14 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x z : Plane}
     (h : D.Present x z) : D.Present z x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem mem_presentNeighbours {G : Finset Plane} (D : Network G) (x z : Plane) :
-    z ∈ D.presentNeighbours x ↔ D.Present x z := by
-  simp only [Network.presentNeighbours, Finset.mem_filter]
-  exact and_iff_right_of_imp fun h => (mem_neighbours x z).2 h.2.2.1
+theorem mem_presentNeighbors {G : Finset Plane} (D : Network G) (x z : Plane) :
+    z ∈ D.presentNeighbors x ↔ D.Present x z := by
+  simp only [Network.presentNeighbors, Finset.mem_filter]
+  exact and_iff_right_of_imp fun h => (mem_neighbors x z).2 h.2.2.1
 
 /-- The orientation used by `internalBonds`. -/
 def edge (x z : Plane) : Plane × Plane :=
-  if z ∈ positiveNeighbours x then (x, z) else (z, x)
+  if z ∈ positiveNeighbors x then (x, z) else (z, x)
 
 theorem edge_cases (x z : Plane) : edge x z = (x, z) ∨ edge x z = (z, x) := by
   unfold edge
@@ -125,17 +125,17 @@ theorem mem_remove_bonds {G : Finset Plane} (D : Network G) (y : Plane)
 
 theorem incident_edge {G : Finset Plane} (D : Network G) (y : Plane)
     {e : Plane × Plane} (he : e ∈ D.bonds) (hi : e.1 = y ∨ e.2 = y) :
-    ∃ z ∈ D.presentNeighbours y, e = edge y z := by
+    ∃ z ∈ D.presentNeighbors y, e = edge y z := by
   have hp := (Finset.mem_filter.mp he).2
   have ho := (mem_internal G e).mp (Finset.mem_filter.mp he).1
   rcases e with ⟨x, z⟩
   rcases hi with rfl | rfl
-  · exact ⟨z, (mem_presentNeighbours _ _ _).2 hp, by simp [edge, ho.2.1]⟩
-  · exact ⟨x, (mem_presentNeighbours _ _ _).2 (present_symm hp),
+  · exact ⟨z, (mem_presentNeighbors _ _ _).2 hp, by simp [edge, ho.2.1]⟩
+  · exact ⟨x, (mem_presentNeighbors _ _ _).2 (present_symm hp),
       by simp [edge, positive_asymm ho.2.1]⟩
 
 theorem bonds_split {G : Finset Plane} (D : Network G) (y : Plane) :
-    D.bonds = (removeSite D y).bonds ∪ (D.presentNeighbours y).image (edge y) := by
+    D.bonds = (removeSite D y).bonds ∪ (D.presentNeighbors y).image (edge y) := by
   ext e
   constructor
   · intro he
@@ -148,10 +148,10 @@ theorem bonds_split {G : Finset Plane} (D : Network G) (y : Plane) :
     rcases Finset.mem_union.mp he with he | he
     · exact ((mem_remove_bonds D y e).1 he).1
     · obtain ⟨z, hz, rfl⟩ := Finset.mem_image.mp he
-      exact edge_mem_bonds ((mem_presentNeighbours D y z).1 hz)
+      exact edge_mem_bonds ((mem_presentNeighbors D y z).1 hz)
 
 theorem bonds_split_disjoint {G : Finset Plane} (D : Network G) (y : Plane) :
-    Disjoint (removeSite D y).bonds ((D.presentNeighbours y).image (edge y)) := by
+    Disjoint (removeSite D y).bonds ((D.presentNeighbors y).image (edge y)) := by
   rw [Finset.disjoint_left]
   intro e he hi
   obtain ⟨z, _, rfl⟩ := Finset.mem_image.mp hi
@@ -166,7 +166,7 @@ theorem no_original_leg {G : Finset Plane} {y : Plane} (hy : y ∉ protectedSite
   obtain ⟨hzN, hzG⟩ := Finset.mem_sdiff.mp hz
   have hxy : x = y := (congrArg Prod.fst hze).trans heq
   rw [hxy] at hxG hzN
-  have hd : latticeDist y z = 1 := (mem_neighbours y z).1 hzN
+  have hd : latticeDist y z = 1 := (mem_neighbors y z).1 hzN
   apply hy
   apply Finset.mem_filter.mpr
   refine ⟨hxG, ?_⟩

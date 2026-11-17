@@ -91,7 +91,7 @@ theorem pair_retained (π : PatternData) (r : Representation) (x : reductionGrou
 
 def groupVector (π : PatternData) (r : Representation) (n : Plane → Vec3)
     (x : Plane) : Vec3 :=
-  if groupIsPair π r x then n x else (replacementRadius π x : ℝ) • n (leafNeighbour π x)
+  if groupIsPair π r x then n x else (replacementRadius π x : ℝ) • n (leafNeighbor π x)
 
 def tokenVector (π : PatternData) (r : Representation) (n : Plane → Vec3)
     (j : Fin 20) : Vec3 := groupVector π r n (externalSlot j).1

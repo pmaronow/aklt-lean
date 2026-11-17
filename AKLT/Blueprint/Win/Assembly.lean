@@ -127,7 +127,7 @@ theorem thickening_of_leaves (h : TopologyLeaves) :
   exact h.crossWeightSum X₀ (fun z => decay θ (boundaryDepth G z))
     (fun z => decay_nonnegative θ hθ.le _) θ⁻¹ (inv_nonneg.mpr hθ.le)
     (fun x => (h.crossFacts x).1)
-    (fun x _ z hz => h.neighbourDecay G θ hθ hθ1 x z ((h.crossFacts x).2.1 z |>.mp hz))
+    (fun x _ z hz => h.neighborDecay G θ hθ hθ1 x z ((h.crossFacts x).2.1 z |>.mp hz))
 
 /-- `l:cutgeom`, sec5-window.tex:441–512. Assemble radial paths, the inner
 shell core, and escape paths to the connected exterior square. -/
@@ -257,7 +257,7 @@ theorem removalEstimate_of_leaves (h : RemovalLeaves)
     have hq := fun p => h.quarticMeanBound hMom (G \ insert x Y) _ (hbridge p).1 x
     have hpair := fun p => h.pairMeanAveraging (G \ insert x Y) V
       (fun z hz => (Finset.mem_inter.mp hz).2) _ (hbridge p).1
-      (h.neighbourFibres hMom hMean G Y τ x hstep p)
+      (h.neighborFibers hMom hMean G Y τ x hstep p)
     have hlo : ∀ p : Bool, (1 / 2 : ℝ) ≤ partMean p G (insert x Y) τ (removalPolynomial x V) := by
       intro p
       rw [(hbridge p).2]
@@ -305,7 +305,7 @@ theorem cutMinorization_of_leaves (h : WindowLeaves)
     (hFacts : AKLT.Blueprint.Top.FiniteFactsStatement)
     (hFrames : AKLT.Blueprint.Top.ThreeFramesStatement)
     (hExact : AKLT.Blueprint.Top.ExactStatement) :
-    ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
+    ∀ κ : Plane → Fin 3, ProperPlaneColoring κ →
     ∀ F B X G₁ G₂ : Finset Plane, SeparatingCut F B X G₁ G₂ →
     ∀ E : ℝ, 0 ≤ E →
     (∀ τ : PinAssignment (F \ B), |cutError (F \ B) X τ| ≤ E) →
@@ -329,7 +329,7 @@ theorem cutMinorization_of_leaves (h : WindowLeaves)
     rw [h.cut.marginalNormalization κ F B hsep.1 η hz]
     congr 1
     funext s
-    rw [h.cut.frameFibreSum hFrames κ hκ F B hsep.1 hsep.2.1 unit η s,
+    rw [h.cut.frameFiberSum hFrames κ hκ F B hsep.1 hsep.2.1 unit η s,
       h.cut.complementQuadrature hFrames hExact]
   obtain ⟨w, hw, hrewrite⟩ := h.cut.windowRewrite κ F B X G₁ G₂ hsep unit
     (h.removal.originalPositivity hFacts) (h.cut.windowWeightPositive hFrames κ hκ B)

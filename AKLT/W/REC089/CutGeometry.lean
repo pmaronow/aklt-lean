@@ -151,7 +151,7 @@ theorem bonds_cut_union (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) 
             ⟨hi, AKLT.W.REC003.present_symm hpres⟩, ?_⟩
           rcases chartEdge_cases a incoming (t, z) with h | h
           · have hn := (AKLT.W.REC003.mem_internal _ _).mp (Finset.mem_filter.mp he).1 |>.2.1
-            have hrev : e.1 ∈ positiveNeighbours e.2 := by
+            have hrev : e.1 ∈ positiveNeighbors e.2 := by
               have := (AKLT.W.REC003.mem_internal _ _).mp (Finset.mem_filter.mp
                 (chartEdge_mem a incoming (AKLT.W.REC003.present_symm hpres))).1 |>.2.1
               simpa [h, hz, ht] using this

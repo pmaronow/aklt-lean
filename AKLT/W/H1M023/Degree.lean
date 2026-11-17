@@ -164,7 +164,7 @@ private lemma group_factor_bound (π : PatternData) (r : Representation)
         (1 + formalDot (fun k => .inl (y, k)) (fun k => .inr (groupLeader y, k))) *
         (1 + formalDot (fun k => .inl (y, k)) (fun k => .inr (groupSecond y, k)))
       else 1 + MvPolynomial.C (replacementRadius π y) *
-        formalDot (fun k => .inl (leafNeighbour π y, k))
+        formalDot (fun k => .inl (leafNeighbor π y, k))
           (fun k => .inr (groupLeader y, k)))
       x (pairCost π r x y + singleCost π r x y) := by
   by_cases hp : groupIsPair π r y = true
@@ -177,7 +177,7 @@ private lemma group_factor_bound (π : PatternData) (r : Representation)
     rw [ite_eq_right (by simp [hp])]
     have hd := degreeBound_sum _ _ _ _ _ (degreeBound_one x)
       (degreeBound_C_mul (replacementRadius π y) _ _ _
-        (degreeBound_formalDot_internal_vector x (leafNeighbour π y) (groupLeader y)))
+        (degreeBound_formalDot_internal_vector x (leafNeighbor π y) (groupLeader y)))
     simpa [pairCost, singleCost, hp] using hd
 
 /-- Every surviving factor is charged to an original bond or a retained corner slot. -/

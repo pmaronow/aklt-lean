@@ -64,13 +64,13 @@ private theorem prefixNetwork_zero {G : Finset Plane} {n : ℕ}
     prefixNetwork D u w 0 = D := by
   simp [prefixNetwork, wordVertices, List.range_succ_eq_map, wordVertex, traceNetwork]
 
-private theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) :
-    y ∈ neighbours x := by
+private theorem adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) :
+    y ∈ neighbors x := by
   rcases x with ⟨x₁, x₂⟩
   rcases y with ⟨y₁, y₂⟩
   change (x₁ - y₁).natAbs + (x₂ - y₂).natAbs = 1 at h
   have h₁ : (x₁ - y₁).natAbs = 1 ∨ (x₂ - y₂).natAbs = 1 := by omega
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   rcases h₁ with h₁ | h₂
   · have h₂' : (x₂ - y₂).natAbs = 0 := by omega
     have heq₂ : x₂ = y₂ := by
@@ -97,17 +97,17 @@ private theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) :
       simp [Compass.step, heq₁]
       omega
 
-private theorem card_neighbours (x : Plane) : (neighbours x).card = 4 := by
+private theorem card_neighbors (x : Plane) : (neighbors x).card = 4 := by
   have hinj : Function.Injective (Compass.step) := by
     intro a b h
     cases a <;> cases b <;> simp [Compass.step] at h ⊢
-  rw [neighbours, Finset.card_image_iff.mpr (by
+  rw [neighbors, Finset.card_image_iff.mpr (by
     intro a ha b hb hab
     exact hinj (add_left_cancel hab))]
   decide
 
-private theorem interior_neighbours_subset {G : Finset Plane} {x : Plane}
-    (hxG : x ∈ G) (hxS : x ∉ protectedSites G) : neighbours x ⊆ G := by
+private theorem interior_neighbors_subset {G : Finset Plane} {x : Plane}
+    (hxG : x ∈ G) (hxS : x ∉ protectedSites G) : neighbors x ⊆ G := by
   intro z hz
   by_contra hzG
   have hnot : ¬ boundaryDepth G x ≤ 2 := by
@@ -177,9 +177,9 @@ private theorem traceStep_active_subset {G : Finset Plane} (E : Network G)
     · simp [traceStep, haU] at hstatus
   · simpa [traceStep, hxa] using hstatus
 
-private theorem traceStep_presentNeighbours_subset {G : Finset Plane} (E : Network G)
+private theorem traceStep_presentNeighbors_subset {G : Finset Plane} (E : Network G)
     (a b x : Plane) :
-    (traceStep E a b).presentNeighbours x ⊆ E.presentNeighbours x := by
+    (traceStep E a b).presentNeighbors x ⊆ E.presentNeighbors x := by
   intro z hz
   rcases Finset.mem_filter.mp hz with ⟨hzN, hzP⟩
   refine Finset.mem_filter.mpr ⟨hzN, ?_⟩
@@ -239,28 +239,28 @@ private theorem traceStep_auxiliary {G : Finset Plane} (E : Network G)
       have hcard : ((traceStep E y z).kept y).card = 2 := by
         simp only [traceStep, ite_true]
         rw [Finset.card_erase_of_mem hzy, hUcard hyU]
-      have hsub : (traceStep E y z).presentNeighbours y ⊆
+      have hsub : (traceStep E y z).presentNeighbors y ⊆
           (traceStep E y z).kept y := by
         intro t ht
         exact (Finset.mem_filter.mp ht).2.2.2.2.1
       calc
-        ((traceStep E y z).presentNeighbours y).card ≤
+        ((traceStep E y z).presentNeighbors y).card ≤
             ((traceStep E y z).kept y).card := Finset.card_le_card hsub
         _ = 2 := hcard
     · have hxD' : E.status x = .D := by
         simpa [traceStep, Function.update_apply, hxy] using hxD
       calc
-        ((traceStep E y z).presentNeighbours x).card ≤
-            (E.presentNeighbours x).card :=
-          Finset.card_le_card (traceStep_presentNeighbours_subset E y z x)
+        ((traceStep E y z).presentNeighbors x).card ≤
+            (E.presentNeighbors x).card :=
+          Finset.card_le_card (traceStep_presentNeighbors_subset E y z x)
         _ ≤ 2 := hDdeg x hxG hxD'
   · intro x hx
     have hxE := traceStep_active_subset E y z hx
     have hFactor' := hFactor x hxE
-    have hCard := Finset.card_le_card (traceStep_presentNeighbours_subset E y z x)
-    change ((traceStep E y z).presentNeighbours x).card +
+    have hCard := Finset.card_le_card (traceStep_presentNeighbors_subset E y z x)
+    change ((traceStep E y z).presentNeighbors x).card +
       ((originalLegs G).filter fun e => e.1 = x).card ≤ 4
-    change (E.presentNeighbours x).card +
+    change (E.presentNeighbors x).card +
       ((originalLegs G).filter fun e => e.1 = x).card ≤ 4 at hFactor'
     omega
   · intro x hxS
@@ -316,9 +316,9 @@ private theorem normalizeStart_kept_subset {G : Finset Plane} (D : Network G)
     (u c x t : Plane) (h : t ∈ (normalizeStart D u c).kept x) : t ∈ D.kept x :=
   (normalizeStart_kept_mem_iff D u c x t).mp h |>.1
 
-private theorem normalizeStart_presentNeighbours_subset {G : Finset Plane}
+private theorem normalizeStart_presentNeighbors_subset {G : Finset Plane}
     (D : Network G) (u c x : Plane) :
-    (normalizeStart D u c).presentNeighbours x ⊆ D.presentNeighbours x := by
+    (normalizeStart D u c).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
   rcases Finset.mem_filter.mp hz with ⟨hzN, hzP⟩
   refine Finset.mem_filter.mpr ⟨hzN, ?_⟩
@@ -376,19 +376,19 @@ private theorem normalizeStart_auxiliary {G : Finset Plane} (D : Network G)
   · intro x hxG hxD
     have hxD' : D.status x = .D := by simpa [normalizeStart] using hxD
     calc
-      ((normalizeStart D u c).presentNeighbours x).card ≤
-          (D.presentNeighbours x).card :=
-        Finset.card_le_card (normalizeStart_presentNeighbours_subset D u c x)
+      ((normalizeStart D u c).presentNeighbors x).card ≤
+          (D.presentNeighbors x).card :=
+        Finset.card_le_card (normalizeStart_presentNeighbors_subset D u c x)
       _ ≤ 2 := hDdeg x hxG hxD'
   · intro x hx
     have hxD : x ∈ D.active := by
       rcases Finset.mem_filter.mp hx with ⟨hxG, hxstatus⟩
       exact Finset.mem_filter.mpr ⟨hxG, by simpa [normalizeStart] using hxstatus⟩
     have hFactor' := hFactor x hxD
-    have hCard := Finset.card_le_card (normalizeStart_presentNeighbours_subset D u c x)
-    change ((normalizeStart D u c).presentNeighbours x).card +
+    have hCard := Finset.card_le_card (normalizeStart_presentNeighbors_subset D u c x)
+    change ((normalizeStart D u c).presentNeighbors x).card +
       ((originalLegs G).filter fun e => e.1 = x).card ≤ 4
-    change (D.presentNeighbours x).card +
+    change (D.presentNeighbors x).card +
       ((originalLegs G).filter fun e => e.1 = x).card ≤ 4 at hFactor'
     omega
   · intro x hxS
@@ -396,7 +396,7 @@ private theorem normalizeStart_auxiliary {G : Finset Plane} (D : Network G)
 
 private def PrefixInvariant (G : Finset Plane) (E : Network G) (y : Plane) : Prop :=
   E.Auxiliary ∧
-  (∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbours x ∩ G) ∧
+  (∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbors x ∩ G) ∧
   (∀ x ∈ G, x ≠ y → E.status x = .D → (E.kept x).card = 2) ∧
   (∀ x ∈ E.active, ∀ z ∈ E.active, Adjacent x z →
     (z ∈ E.kept x ↔ x ∈ E.kept z)) ∧
@@ -420,12 +420,12 @@ private theorem normalizeStart_prefixInvariant {G : Finset Plane} (D : Network G
   · intro huU
     have huU' : D.status u = .U := by simpa [normalizeStart] using huU
     have hfull := hD.2.1 u huG huU'
-    have hInterior := interior_neighbours_subset huG huS
-    have hEq : neighbours u ∩ G = neighbours u := Finset.inter_eq_left.mpr hInterior
-    have hfullCard : (D.kept u).card = 4 := by rw [hfull, hEq, card_neighbours]
+    have hInterior := interior_neighbors_subset huG huS
+    have hEq : neighbors u ∩ G = neighbors u := Finset.inter_eq_left.mpr hInterior
+    have hfullCard : (D.kept u).card = 4 := by rw [hfull, hEq, card_neighbors]
     have hcin : c ∈ D.kept u := by
       rw [hfull]
-      exact Finset.mem_inter.mpr ⟨adjacent_mem_neighbours huc, hcG⟩
+      exact Finset.mem_inter.mpr ⟨adjacent_mem_neighbors huc, hcG⟩
     have hcard := Finset.card_erase_of_mem hcin
     have hN : (normalizeStart D u c).kept u = (D.kept u).erase c := by
       simp [normalizeStart, huU']
@@ -438,7 +438,7 @@ private theorem prefixInvariant_step {G : Finset Plane} (E : Network G)
     (hyz : y ≠ z) (hflags : z ∈ E.kept y ∧ y ∈ E.kept z) :
     PrefixInvariant G (traceStep E y z) z := by
   have hAux := traceStep_auxiliary E y z hInv.1 hyG hyS hInv.2.2.2.2 hflags.1
-  have hInterior := interior_neighbours_subset hzG hzS
+  have hInterior := interior_neighbors_subset hzG hzS
   refine ⟨hAux, ?_, ?_, ?_, ?_⟩
   · intro x hxG hxz hxU
     by_cases hxy : x = y
@@ -472,9 +472,9 @@ private theorem prefixInvariant_step {G : Finset Plane} (E : Network G)
     have hzU' : E.status z = .U := by
       simpa [traceStep, hyz.symm] using hzU
     have hzfull := hInv.2.1 z hzG (Ne.symm hyz) hzU'
-    have hEq : neighbours z ∩ G = neighbours z := Finset.inter_eq_left.mpr hInterior
+    have hEq : neighbors z ∩ G = neighbors z := Finset.inter_eq_left.mpr hInterior
     have hzcard : (E.kept z).card = 4 := by
-      rw [hzfull, hEq, card_neighbours]
+      rw [hzfull, hEq, card_neighbors]
     have hKeep : (traceStep E y z).kept z = (E.kept z).erase y := by
       simp [traceStep, hyz.symm]
     rw [hKeep, Finset.card_erase_of_mem hflags.2, hzcard]
@@ -490,9 +490,9 @@ private theorem removeSite_active_subset {G : Finset Plane} (E : Network G)
     simp [removeSite] at hxstatus
   · simpa [removeSite, hxy] using hxstatus
 
-private theorem removeSite_presentNeighbours_subset {G : Finset Plane} (E : Network G)
+private theorem removeSite_presentNeighbors_subset {G : Finset Plane} (E : Network G)
     (y x : Plane) :
-    (removeSite E y).presentNeighbours x ⊆ E.presentNeighbours x := by
+    (removeSite E y).presentNeighbors x ⊆ E.presentNeighbors x := by
   intro z hz
   rcases Finset.mem_filter.mp hz with ⟨hzN, hzP⟩
   refine Finset.mem_filter.mpr ⟨hzN, ?_⟩
@@ -520,16 +520,16 @@ private theorem removeSite_consistent_of_prefixInvariant {G : Finset Plane}
       · have hxD : E.status x = .D := by
           simpa [removeSite, hxy] using hxD'
         calc
-          ((removeSite E y).presentNeighbours x).card ≤ (E.presentNeighbours x).card :=
-            Finset.card_le_card (removeSite_presentNeighbours_subset E y x)
+          ((removeSite E y).presentNeighbors x).card ≤ (E.presentNeighbors x).card :=
+            Finset.card_le_card (removeSite_presentNeighbors_subset E y x)
           _ ≤ 2 := hDdeg x hxG hxD
     · intro x hx
       have hxE : x ∈ E.active := removeSite_active_subset E y hx
       have hF := hFactor x hxE
-      have hCard := Finset.card_le_card (removeSite_presentNeighbours_subset E y x)
-      change ((removeSite E y).presentNeighbours x).card +
+      have hCard := Finset.card_le_card (removeSite_presentNeighbors_subset E y x)
+      change ((removeSite E y).presentNeighbors x).card +
         ((originalLegs G).filter fun e => e.1 = x).card ≤ 4
-      change (E.presentNeighbours x).card +
+      change (E.presentNeighbors x).card +
         ((originalLegs G).filter fun e => e.1 = x).card ≤ 4 at hF
       omega
   have hOrd : (removeSite E y).Ordinary := by

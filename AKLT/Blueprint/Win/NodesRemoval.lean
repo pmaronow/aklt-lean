@@ -55,16 +55,16 @@ def RemovalIntegralStatement : Prop :=
         partSum pinned G (insert x Y) τ (removalPolynomial x (survivors G Y x))
 
 /-- `l:removal`, sec5-window.tex:287–301. Freeze the other spins on a positive fiber. Nonadjacency of the neighbors factors that fiber into one-site laws with at most three unit fields. Apply the three-factor mean bound and retain only positive fibers. -/
-def NeighbourFibresStatement : Prop :=
+def NeighborFibersStatement : Prop :=
   AKLT.Blueprint.Top.MomentsStatement → AKLT.Blueprint.Top.ThreeFactorMeanStatement →
     ∀ G Y : Finset Plane, ∀ τ : PinAssignment G, ∀ x : Plane, RemovalStep G Y x →
     ∀ pinned : Bool,
-      NeighbourControl (partLaw pinned G (insert x Y) τ) (survivors G Y x)
+      NeighborControl (partLaw pinned G (insert x Y) τ) (survivors G Y x)
 
 /-- `l:removal`, sec5-window.tex:303–310. On every positive fiber use 2∑mᵣ·mₜ=|∑mᵣ|²−∑|mᵣ|². Average the resulting lower bound; zero-mass fibers contribute zero. -/
 def PairMeanAveragingStatement : Prop :=
   ∀ D V : Finset Plane, V ⊆ D → ∀ p : Weight (PlaneConfiguration D),
-    Probability p → NeighbourControl p V →
+    Probability p → NeighborControl p V →
     -(9 / 50 : ℝ) * (V.card : ℝ) ≤
       expectation p (fun σ => pairSum V (extendIcoSpins σ))
 

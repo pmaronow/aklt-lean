@@ -49,11 +49,11 @@ private theorem responsePairType_image_tr (p : Finset Plane) (t : Plane) :
       exact congrArg (fun z : ℤ => z + t.2) h
 
 private def localLive (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) : Finset Plane :=
-  ((neighbours x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
+  ((neighbors x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
 
-private theorem neighbours_tr (x t : Plane) :
-    neighbours (x + t) = (neighbours x).image (tr t) := by
-  unfold neighbours tr
+private theorem neighbors_tr (x t : Plane) :
+    neighbors (x + t) = (neighbors x).image (tr t) := by
+  unfold neighbors tr
   rw [Finset.image_image]
   congr 1
   funext d
@@ -63,7 +63,7 @@ private theorem localLive_tr (x t : Plane) (incoming outgoing : Compass) (dead :
     localLive (x + t) incoming outgoing (dead.image (tr t)) =
       (localLive x incoming outgoing dead).image (tr t) := by
   unfold localLive
-  rw [neighbours_tr]
+  rw [neighbors_tr]
   have hin : (x + t) - incoming.step = tr t (x - incoming.step) := by
     dsimp [tr]
     simp [sub_eq_add_neg, add_assoc, add_left_comm, add_comm]
@@ -199,9 +199,9 @@ theorem snoc_witness_old {n : Nat} (w : DirectionWord n) (d : Compass) (i : Fin 
     split_ifs with hi
     · rfl
     · exact AKLT.Cert.H2.snoc_apply_lt w d _ (by omega)
-  have hlive : liveOtherNeighbours (AKLT.Cert.H2.snoc w d) i.castSucc =
-      liveOtherNeighbours w i := by
-    unfold liveOtherNeighbours responseNeighbours
+  have hlive : liveOtherNeighbors (AKLT.Cert.H2.snoc w d) i.castSucc =
+      liveOtherNeighbors w i := by
+    unfold liveOtherNeighbors responseNeighbors
     simp only [Fin.val_castSucc, AKLT.Cert.H2.snoc_vertex _ w d i.val (by omega),
       AKLT.Cert.H2.snoc_vertex _ w d (i.val + 1) (by omega), hin]
     apply Finset.filter_congr
@@ -242,22 +242,22 @@ theorem deadMaskAt_lt (walk : Walk) : deadMaskAt walk < 16 := by
 
 theorem deadMaskAt_mem (walk : Walk) (c : Compass) :
     c.step ∈ deadSet (deadMaskAt walk) ↔
-      advance walk.pos (directionCode c) = kernelCentre ∨
+      advance walk.pos (directionCode c) = kernelCenter ∨
         2 ≤ departures walk (advance walk.pos (directionCode c)) := by
   by_cases h0 : advance walk.pos 0 = (0,0) ∨ 2 ≤ departures walk (advance walk.pos 0) <;>
     by_cases h1 : advance walk.pos 1 = (0,0) ∨ 2 ≤ departures walk (advance walk.pos 1) <;>
     by_cases h2 : advance walk.pos 2 = (0,0) ∨ 2 ≤ departures walk (advance walk.pos 2) <;>
     by_cases h3 : advance walk.pos 3 = (0,0) ∨ 2 ≤ departures walk (advance walk.pos 3) <;>
     cases c <;>
-    simp [deadMaskAt, dirs, h0, h1, h2, h3, kernelCentre, directionCode, deadSet,
+    simp [deadMaskAt, dirs, h0, h1, h2, h3, kernelCenter, directionCode, deadSet,
       show (Finset.univ : Finset Compass) = {.east, .north, .west, .south} by decide,
       Compass.step, Nat.testBit] <;> decide +kernel
 
 
 theorem deadMaskAt_image_mem {n : Nat} (w : DirectionWord n) (walk : Walk)
-    (h : WalkRepresents kernelStart 2 w walk) (z : Point) (hz : z ∈ neighbours walk.pos) :
+    (h : WalkRepresents kernelStart 2 w walk) (z : Point) (hz : z ∈ neighbors walk.pos) :
     z ∈ (deadSet (deadMaskAt walk)).image (fun y => y + walk.pos) ↔
-      z = kernelCentre ∨ 2 ≤ departureCount kernelStart w n z := by
+      z = kernelCenter ∨ 2 ≤ departureCount kernelStart w n z := by
   classical
   rcases Finset.mem_image.mp hz with ⟨c, hc, rfl⟩
   have him : walk.pos + c.step ∈ (deadSet (deadMaskAt walk)).image (fun y => y + walk.pos) ↔
@@ -289,11 +289,11 @@ theorem witness_last_reward {n : Nat} (w : DirectionWord n) (d : Compass)
   have hlive : liveOtherView (AKLT.Cert.H2.snoc w d) (Fin.last n) =
       localLive walk.pos a d dead := by
     ext z
-    simp only [liveOtherView, responseNeighbours, Fin.val_last, hv, hvnext,
+    simp only [liveOtherView, responseNeighbors, Fin.val_last, hv, hvnext,
       snoc_incoming_last, localLive, Finset.mem_filter, Finset.mem_erase,
       Finset.mem_sdiff, AKLT.Cert.H2.snoc_departure _ w d n le_rfl]
-    by_cases hz : z ∈ neighbours walk.pos
-    · rw [show z ∈ dead ↔ z = kernelCentre ∨ 2 ≤ departureCount kernelStart w n z from
+    by_cases hz : z ∈ neighbors walk.pos
+    · rw [show z ∈ dead ↔ z = kernelCenter ∨ 2 ≤ departureCount kernelStart w n z from
         deadMaskAt_image_mem w walk h z hz]
       simp only [not_or, not_le]
       tauto

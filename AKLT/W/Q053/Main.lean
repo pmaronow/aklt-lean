@@ -12,25 +12,25 @@ open AKLT.Defs AKLT.Challenge
 
 namespace AKLT.W.Q053
 
-private noncomputable def fibreUpdateMass {ι : Type*} [Fintype ι] [DecidableEq ι]
+private noncomputable def fiberUpdateMass {ι : Type*} [Fintype ι] [DecidableEq ι]
     {S : ι → Type*} [∀ x, Fintype (S x)] [∀ x, DecidableEq (S x)]
     (x : ι) (σ : (y : ι) → S y) (f : ((y : ι) → S y) → ℝ) :
     ℝ := by
   classical
-  exact ∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ then f τ else 0
+  exact ∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ then f τ else 0
 
-private noncomputable def fibreUpdatePointMass {ι : Type*} [Fintype ι] [DecidableEq ι]
+private noncomputable def fiberUpdatePointMass {ι : Type*} [Fintype ι] [DecidableEq ι]
     {S : ι → Type*} [∀ x, Fintype (S x)] [∀ x, DecidableEq (S x)]
     (x : ι) (σ : (y : ι) → S y) (a : S x) (f : ((y : ι) → S y) → ℝ) : ℝ := by
   classical
-  exact ∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ ∧ τ x = a then f τ else 0
+  exact ∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ ∧ τ x = a then f τ else 0
 
-private theorem sum_fibre_update {ι : Type*} [Fintype ι] [DecidableEq ι]
+private theorem sum_fiber_update {ι : Type*} [Fintype ι] [DecidableEq ι]
     {S : ι → Type*} [∀ x, Fintype (S x)] [∀ x, DecidableEq (S x)]
     (x : ι) (σ : (y : ι) → S y) (f : ((y : ι) → S y) → ℝ) :
-    fibreUpdateMass x σ f = ∑ a : S x, f (Function.update σ x a) := by
+    fiberUpdateMass x σ f = ∑ a : S x, f (Function.update σ x a) := by
   classical
-  let E : ((y : ι) → S y) → Prop := AKLT.Blueprint.Q.fullFibreEvent x σ
+  let E : ((y : ι) → S y) → Prop := AKLT.Blueprint.Q.fullFiberEvent x σ
   let e : S x ≃ {τ // E τ} :=
     { toFun := fun a => ⟨Function.update σ x a, by
         intro y hy
@@ -49,8 +49,8 @@ private theorem sum_fibre_update {ι : Type*} [Fintype ι] [DecidableEq ι]
           rw [Function.update_of_ne hy]
           exact (τ.2 y hy).symm }
   calc
-    fibreUpdateMass x σ f = ∑ τ ∈ Finset.univ.filter E, f τ := by
-      simp [fibreUpdateMass, E, ← Finset.sum_filter]
+    fiberUpdateMass x σ f = ∑ τ ∈ Finset.univ.filter E, f τ := by
+      simp [fiberUpdateMass, E, ← Finset.sum_filter]
     _ = ∑ τ : {τ // E τ}, f τ.1 := by
       exact Finset.sum_subtype (Finset.univ.filter E) (by intro τ; simp) f
     _ = ∑ a : S x, f (Function.update σ x a) := by
@@ -58,24 +58,24 @@ private theorem sum_fibre_update {ι : Type*} [Fintype ι] [DecidableEq ι]
       exact Fintype.sum_equiv e (fun a : S x => f (Function.update σ x a))
         (fun τ : {τ // E τ} => f τ.1) (by intro a; rfl)
 
-private theorem sum_fibre_update_point {ι : Type*} [Fintype ι] [DecidableEq ι]
+private theorem sum_fiber_update_point {ι : Type*} [Fintype ι] [DecidableEq ι]
     {S : ι → Type*} [∀ x, Fintype (S x)] [∀ x, DecidableEq (S x)]
     (x : ι) (σ : (y : ι) → S y) (a : S x)
     (f : ((y : ι) → S y) → ℝ) :
-    fibreUpdatePointMass x σ a f =
+    fiberUpdatePointMass x σ a f =
       f (Function.update σ x a) := by
   classical
-  rw [show fibreUpdatePointMass x σ a f =
-      ∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ ∧ τ x = a then f τ else 0 by rfl]
-  have hmass : (∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ ∧ τ x = a then f τ else 0) =
-      fibreUpdateMass x σ (fun τ => if τ x = a then f τ else 0) := by
-    unfold fibreUpdateMass
+  rw [show fiberUpdatePointMass x σ a f =
+      ∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ ∧ τ x = a then f τ else 0 by rfl]
+  have hmass : (∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ ∧ τ x = a then f τ else 0) =
+      fiberUpdateMass x σ (fun τ => if τ x = a then f τ else 0) := by
+    unfold fiberUpdateMass
     apply Finset.sum_congr rfl
     intro τ hτ
-    by_cases hE : AKLT.Blueprint.Q.fullFibreEvent x σ τ
+    by_cases hE : AKLT.Blueprint.Q.fullFiberEvent x σ τ
     · by_cases ha : τ x = a <;> simp [hE, ha]
     · simp [hE]
-  rw [hmass, sum_fibre_update]
+  rw [hmass, sum_fiber_update]
   simp [Function.update, eq_comm]
 
 private theorem frameBound_pos : 0 < frameBound := by
@@ -128,8 +128,8 @@ private theorem four_incident_card {L N : Size} (x : Site L N) :
       rw [hdegree]
     _ = 4 := AKLT.Uniq.sum_bondDegree x
 
-private theorem weight_fibre_lower {L N : Size} (hB : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+private theorem weight_fiber_lower {L N : Size} (hB : AKLT.Blueprint.Q.interactionBounds)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (x : Site L N) (σ : TorusConfiguration L N) (a b : IcoLetter) :
     frameRatio ^ 4 * torusWeight L N κ (Function.update σ x b) ≤
       torusWeight L N κ (Function.update σ x a) := by
@@ -222,7 +222,7 @@ private theorem weight_fibre_lower {L N : Size} (hB : AKLT.Blueprint.Q.interacti
 
 private theorem torusWeight_pos {L N : Size}
     (hB : AKLT.Blueprint.Q.interactionBounds)
-    (κ : Site L N → Fin 3) (hκ : ProperTorusColouring κ)
+    (κ : Site L N → Fin 3) (hκ : ProperTorusColoring κ)
     (σ : TorusConfiguration L N) : 0 < torusWeight L N κ σ := by
   rw [torusWeight]
   apply mul_pos
@@ -270,42 +270,42 @@ private theorem conditionalProbability_normalize {Ω : Type*} [Fintype Ω]
         (∑ σ, if E σ then w σ else 0) := by
           field_simp [hZ, hD']
 
-private theorem raw_torus_fibre_probability {L N : Size}
+private theorem raw_torus_fiber_probability {L N : Size}
     (κ : Site L N → Fin 3) (x : Site L N)
     (σ : TorusConfiguration L N) (a : IcoLetter) :
     conditionalProbability (torusWeight L N κ)
-      (AKLT.Blueprint.Q.fullFibreEvent x σ) (fun τ => τ x = a) =
+      (AKLT.Blueprint.Q.fullFiberEvent x σ) (fun τ => τ x = a) =
         torusWeight L N κ (Function.update σ x a) /
           ∑ b : IcoLetter, torusWeight L N κ (Function.update σ x b) := by
   classical
   letI : DecidableEq IcoLetter := fun c d => Classical.propDecidable (c = d)
   unfold conditionalProbability
   have hnum :
-      (∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ ∧ τ x = a then
+      (∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ ∧ τ x = a then
         torusWeight L N κ τ else 0) =
         torusWeight L N κ (Function.update σ x a) := by
     calc
-      (∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ ∧ τ x = a then
+      (∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ ∧ τ x = a then
           torusWeight L N κ τ else 0) =
-        fibreUpdateMass x σ (fun τ => if τ x = a then torusWeight L N κ τ else 0) := by
-          unfold fibreUpdateMass
+        fiberUpdateMass x σ (fun τ => if τ x = a then torusWeight L N κ τ else 0) := by
+          unfold fiberUpdateMass
           apply Finset.sum_congr rfl
           intro τ hτ
-          by_cases hE : AKLT.Blueprint.Q.fullFibreEvent x σ τ
+          by_cases hE : AKLT.Blueprint.Q.fullFiberEvent x σ τ
           · by_cases ha : τ x = a <;> simp [hE, ha]
           · simp [hE]
       _ = ∑ b : IcoLetter,
           if (Function.update σ x b) x = a then
             torusWeight L N κ (Function.update σ x b) else 0 :=
-        sum_fibre_update x σ (fun τ => if τ x = a then torusWeight L N κ τ else 0)
+        sum_fiber_update x σ (fun τ => if τ x = a then torusWeight L N κ τ else 0)
       _ = torusWeight L N κ (Function.update σ x a) := by
         simp [Function.update, eq_comm]
   have hden :
-      (∑ τ, if AKLT.Blueprint.Q.fullFibreEvent x σ τ then
+      (∑ τ, if AKLT.Blueprint.Q.fullFiberEvent x σ τ then
         torusWeight L N κ τ else 0) =
         ∑ b : IcoLetter, torusWeight L N κ (Function.update σ x b) := by
-    simpa [fibreUpdateMass] using
-      (sum_fibre_update x σ (torusWeight L N κ))
+    simpa [fiberUpdateMass] using
+      (sum_fiber_update x σ (torusWeight L N κ))
   exact congrArg₂ (fun n d : ℝ => n / d) hnum hden
 
 theorem main : AKLT.Blueprint.Q.TorusOneSiteEnergyStatement := by
@@ -321,21 +321,21 @@ theorem main : AKLT.Blueprint.Q.TorusOneSiteEnergyStatement := by
     · intro b hb
       exact torusWeight_pos hB κ hκ (Function.update σ x b)
     · exact Finset.univ_nonempty
-  have hraw := raw_torus_fibre_probability κ x σ a
+  have hraw := raw_torus_fiber_probability κ x σ a
   have hmass : (∑ τ : TorusConfiguration L N,
-      if AKLT.Blueprint.Q.fullFibreEvent x σ τ then torusWeight L N κ τ else 0) =
+      if AKLT.Blueprint.Q.fullFiberEvent x σ τ then torusWeight L N κ τ else 0) =
       ∑ b : IcoLetter, torusWeight L N κ (Function.update σ x b) := by
-    simpa [fibreUpdateMass] using sum_fibre_update x σ (torusWeight L N κ)
+    simpa [fiberUpdateMass] using sum_fiber_update x σ (torusWeight L N κ)
   rw [← conditionalProbability_normalize (torusWeight L N κ)
-    (AKLT.Blueprint.Q.fullFibreEvent x σ) (fun τ => τ x = a)
+    (AKLT.Blueprint.Q.fullFiberEvent x σ) (fun τ => τ x = a)
     (ne_of_gt hZpos) (by
       change (∑ τ : TorusConfiguration L N,
-        if AKLT.Blueprint.Q.fullFibreEvent x σ τ then torusWeight L N κ τ else 0) ≠ 0
+        if AKLT.Blueprint.Q.fullFiberEvent x σ τ then torusWeight L N κ τ else 0) ≠ 0
       rw [hmass]
       exact ne_of_gt hDpos)] at hraw
   rw [torusLaw]
   change frameEnergy ≤ conditionalProbability (normalize (torusWeight L N κ))
-    (AKLT.Blueprint.Q.fullFibreEvent x σ) (fun τ => τ x = a)
+    (AKLT.Blueprint.Q.fullFiberEvent x σ) (fun τ => τ x = a)
   rw [hraw]
   apply (le_div_iff₀ hDpos).2
   have hsum :
@@ -351,7 +351,7 @@ theorem main : AKLT.Blueprint.Q.TorusOneSiteEnergyStatement := by
       _ ≤ ∑ b : IcoLetter, torusWeight L N κ (Function.update σ x a) := by
         apply Finset.sum_le_sum
         intro b hb
-        exact weight_fibre_lower hB κ hκ x σ a b
+        exact weight_fiber_lower hB κ hκ x σ a b
       _ = 12 * torusWeight L N κ (Function.update σ x a) := by
         simp [IcoLetter, Fintype.card_prod]
   have hscaled :

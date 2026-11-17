@@ -11,12 +11,12 @@ open AKLT.Defs AKLT.Blueprint.Gap
 
 namespace AKLT.W.GAP009
 
-private theorem fibre_stationary
+private theorem fiber_stationary
     {ι : Type} [Fintype ι] [DecidableEq ι]
     (S : ι → Type) [∀ x, Fintype (S x)]
     (p : Weight (Config S)) (hp : PositiveProbability p)
     (U : Finset ι) (σ : Config S) :
-    ∑ a, p a * fibre p U a σ = p σ := by
+    ∑ a, p a * fiber p U a σ = p σ := by
   classical
   let Z : ℝ := ∑ x, if AgreeOutside U σ x then p x else 0
   have hZlower : p σ ≤ Z := by
@@ -106,21 +106,21 @@ theorem main : AKLT.Blueprint.Gap.SurgeryPreservationStatement := by
               apply Finset.sum_congr rfl
               intro b hb
               rw [← Finset.mul_sum]
-        _ = ∑ a, ∑ b, c.mass a b * fibre p U a σ := by
+        _ = ∑ a, ∑ b, c.mass a b * fiber p U a σ := by
               apply Finset.sum_congr rfl
               intro a ha
               apply Finset.sum_congr rfl
               intro b hb
               rw [(R a b).first_marginal]
-        _ = ∑ a, (∑ b, c.mass a b) * fibre p U a σ := by
+        _ = ∑ a, (∑ b, c.mass a b) * fiber p U a σ := by
               apply Finset.sum_congr rfl
               intro a ha
               rw [← Finset.sum_mul]
-        _ = ∑ a, p a * fibre p U a σ := by
+        _ = ∑ a, p a * fiber p U a σ := by
               apply Finset.sum_congr rfl
               intro a ha
               rw [c.first_marginal a]
-        _ = p σ := fibre_stationary S p hp U σ
+        _ = p σ := fiber_stationary S p hp U σ
     second_marginal := by
       intro τ
       calc
@@ -137,21 +137,21 @@ theorem main : AKLT.Blueprint.Gap.SurgeryPreservationStatement := by
               apply Finset.sum_congr rfl
               intro a ha
               rw [← Finset.mul_sum]
-        _ = ∑ b, ∑ a, c.mass a b * fibre q U b τ := by
+        _ = ∑ b, ∑ a, c.mass a b * fiber q U b τ := by
               apply Finset.sum_congr rfl
               intro b hb
               apply Finset.sum_congr rfl
               intro a ha
               rw [(R a b).second_marginal]
-        _ = ∑ b, (∑ a, c.mass a b) * fibre q U b τ := by
+        _ = ∑ b, (∑ a, c.mass a b) * fiber q U b τ := by
               apply Finset.sum_congr rfl
               intro b hb
               rw [← Finset.sum_mul]
-        _ = ∑ b, q b * fibre q U b τ := by
+        _ = ∑ b, q b * fiber q U b τ := by
               apply Finset.sum_congr rfl
               intro b hb
               rw [c.second_marginal b]
-        _ = q τ := fibre_stationary S q hq U τ
+        _ = q τ := fiber_stationary S q hq U τ
   }
   exact ⟨d, by intro σ τ; rfl⟩
 

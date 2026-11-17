@@ -161,29 +161,29 @@ lemma responseKappa_nonneg {n : ℕ} (X Y : PairType) (s : ℕ)
   intro p hp
   split_ifs <;> [exact pairCoefficient_nonneg _ _ _; exact le_rfl]
 
-lemma step_mem_neighbours (x : Plane) (d : Compass) : x + d.step ∈ neighbours x := by
-  unfold neighbours
+lemma step_mem_neighbors (x : Plane) (d : Compass) : x + d.step ∈ neighbors x := by
+  unfold neighbors
   exact Finset.mem_image.mpr ⟨d, Finset.mem_univ _, rfl⟩
 
 lemma step_latticeDist (x : Plane) (d : Compass) : latticeDist (x + d.step) x = 1 := by
   cases d <;> norm_num [latticeDist, Compass.step]
 
-lemma neighbours_card_le_four (x : Plane) : (neighbours x).card ≤ 4 := by
-  unfold neighbours
+lemma neighbors_card_le_four (x : Plane) : (neighbors x).card ≤ 4 := by
+  unfold neighbors
   calc
     (Finset.univ.image (fun d : Compass => x + d.step)).card ≤ Finset.univ.card := Finset.card_image_le
     _ = 4 := by decide
 
-lemma responseCarrier_subset_neighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) :
-    insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i) ⊆
-      neighbours (wordVertex kernelStart w i.val) := by
+lemma responseCarrier_subset_neighbors {n : ℕ} (w : DirectionWord n) (i : Fin n) :
+    insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i) ⊆
+      neighbors (wordVertex kernelStart w i.val) := by
   classical
   intro z hz
   rcases Finset.mem_insert.mp hz with hz | hz
   · subst z
     rw [AKLT.Cert.H2.vertex_succ _ _ _ i.isLt]
-    exact step_mem_neighbours _ _
-  · unfold liveOtherNeighbours at hz
+    exact step_mem_neighbors _ _
+  · unfold liveOtherNeighbors at hz
     rcases Finset.mem_filter.mp hz with ⟨hz, _⟩
     rcases Finset.mem_erase.mp hz with ⟨_, hz⟩
     rcases Finset.mem_erase.mp hz with ⟨_, hz⟩
@@ -202,14 +202,14 @@ lemma responseKappa_le_six {n : ℕ} (X Y : PairType) (s : ℕ)
       · norm_num
     _ = (responsePairs w i).card := by simp
     _ ≤ 6 := by
-      have hcard : (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).card ≤ 4 := by
-        exact (Finset.card_le_card (responseCarrier_subset_neighbours w i)).trans (neighbours_card_le_four _)
-      have hchoose : ((insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).card).choose 2 ≤ 6 := by
+      have hcard : (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)).card ≤ 4 := by
+        exact (Finset.card_le_card (responseCarrier_subset_neighbors w i)).trans (neighbors_card_le_four _)
+      have hchoose : ((insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)).card).choose 2 ≤ 6 := by
         exact (Nat.choose_le_choose 2 hcard).trans (by decide)
       have hcardPairs : (responsePairs w i).card ≤ 6 := by
         calc
           (responsePairs w i).card =
-              (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).card.choose 2 := by
+              (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)).card.choose 2 := by
             unfold responsePairs
             exact Finset.card_powersetCard 2 _
           _ ≤ 6 := hchoose
@@ -221,9 +221,9 @@ lemma responsePairShift_le {n : ℕ} (X : PairType) (w : DirectionWord n)
   have hsubset := (Finset.mem_powersetCard.mp hp).1
   have hbound : ∀ z ∈ p, latticeDist z kernelStart ≤ n + 1 := by
     intro z hz
-    have hzC : z ∈ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i) := hsubset hz
-    have hzN : z ∈ neighbours (wordVertex kernelStart w i.val) :=
-      responseCarrier_subset_neighbours w i hzC
+    have hzC : z ∈ insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i) := hsubset hz
+    have hzN : z ∈ neighbors (wordVertex kernelStart w i.val) :=
+      responseCarrier_subset_neighbors w i hzC
     rcases Finset.mem_image.mp hzN with ⟨d, hd, heq⟩
     have hstep : latticeDist z (wordVertex kernelStart w i.val) = 1 := by
       rw [← heq]

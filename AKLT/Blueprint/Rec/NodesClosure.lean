@@ -27,7 +27,7 @@ def KeptInvariantStatement : Prop :=
     let E := prefixNetwork p.normalized p.u w j
     let y := wordVertex p.u w j
     E.Auxiliary ∧
-    (∀ x ∈ p.G, x ≠ y → E.status x = .U → E.kept x = neighbours x ∩ p.G) ∧
+    (∀ x ∈ p.G, x ≠ y → E.status x = .U → E.kept x = neighbors x ∩ p.G) ∧
     (∀ x ∈ p.G, x ≠ y → E.status x = .D → (E.kept x).card = 2) ∧
     (∀ x ∈ E.active, ∀ z ∈ E.active, Adjacent x z → (z ∈ E.kept x ↔ x ∈ E.kept z)) ∧
     (∀ i < j, E.status (wordVertex p.u w i) ≠ .U)
@@ -57,7 +57,7 @@ def PairClosureStatement : Prop :=
     StoppedNetworkTrail p.normalized p.u T w → ∀ i : Fin n,
     let E := prefixNetwork p.normalized p.u w i.val
     let y := wordVertex p.u w i.val
-    E.status y = .U → ∀ a ∈ E.presentNeighbours y, ∀ b ∈ E.presentNeighbours y, a ≠ b →
+    E.status y = .U → ∀ a ∈ E.presentNeighbors y, ∀ b ∈ E.presentNeighbors y, a ≠ b →
       (removeSite E y).ResponsePair (responsePairType {a, b}) a b y
 
 /-- `l:closure`, §7 lines 139–145. The terminal hit in S retains its U
@@ -68,7 +68,7 @@ def TerminalDefectStatement : Prop :=
     let E := traceNetwork p.normalized (wordVertices p.u w)
     let e := wordVertex p.u w n
     E.Auxiliary ∧ E.status e = .U ∧
-      ∀ x ∈ protectedSites p.G, x ≠ e → E.kept x = neighbours x ∩ p.G
+      ∀ x ∈ protectedSites p.G, x ≠ e → E.kept x = neighbors x ∩ p.G
 
 /-- `l:terminalcover`, §7 lines 183–210. BOTH endpoints must be outside S.
 After the first trail avoids v and stops in S, the normalized second start

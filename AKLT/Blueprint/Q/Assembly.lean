@@ -141,7 +141,7 @@ theorem tight_of_leaves (hThree : Top.ThreeFramesStatement)
 theorem star_of_leaves (hKernel : Top.TorusKernelStatement)
     (hPositive : StarPositiveStatement) (hWitness : StarWitnessStatement)
     (hMinimum : PositiveSpectralMinimumStatement) (hCoercive : SpectralKernelCoercivityStatement)
-    (hRelabel : StarRelabellingStatement) (hAmplify : StarAmplificationStatement) :
+    (hRelabel : StarRelabelingStatement) (hAmplify : StarAmplificationStatement) :
     Top.StarStatement := by
   obtain ⟨hg, hEigen, hLeast⟩ := hMinimum (Fin 5 → Fin 5) starHamiltonian
     hPositive.1 hPositive.2 ⟨4, by norm_num, hWitness⟩
@@ -287,8 +287,8 @@ theorem qd_of_leaves (hThree : Top.ThreeFramesStatement) (hTight : Top.TightStat
     (hProduct : PrimeProductStatement) (hIncident : IncidentKernelStatement)
     (hDegree : IncidentDegreeStatement) (hModulus : DeterminantModulusStatement)
     (hWeight : GroundProductWeightStatement) (hLocalEval : IncidentEvaluationStatement)
-    (hFactor : GroundFibreFactorizationStatement) (hTransform : GroundTransformStatement)
-    (hIntertwine : FibreIntertwiningStatement) (hProjection : FibreProjectionStatement)
+    (hFactor : GroundFiberFactorizationStatement) (hTransform : GroundTransformStatement)
+    (hIntertwine : FiberIntertwiningStatement) (hProjection : FiberProjectionStatement)
     (hPolar : WeightedPolarizationStatement) (hVariance : GroundQuotientVarianceStatement)
     (hBeta : BetaNonzeroStatement) : Top.QDStatement := by
   classical
@@ -386,17 +386,17 @@ theorem pairSpinFour_of_leaves (hRank : PairDiagonalRankStatement)
 theorem singletPrime_of_leaves (hFour : FourVariableDeterminantPrimeStatement)
     (hEmbed : DeterminantPrimeEmbeddingStatement) : SingletPrimeStatement := hEmbed hFour
 
-theorem incidentDegree_of_leaves (hCancellation : CentreDegreeCancellationStatement)
-    (hProduct : IncidentProductDegreeStatement) (hState : StateCentreDegreeStatement) :
+theorem incidentDegree_of_leaves (hCancellation : CenterDegreeCancellationStatement)
+    (hProduct : IncidentProductDegreeStatement) (hState : StateCenterDegreeStatement) :
     IncidentDegreeStatement := by
   intro L N x ψ χ hχ
   apply hCancellation L N x (incidentProduct x) χ (hProduct L N x).1 (hProduct L N x).2
   rw [← hχ]
   exact hState L N ψ x
 
-theorem starRelabelling_of_leaves (hEnumeration : StarEdgeEnumerationStatement)
+theorem starRelabeling_of_leaves (hEnumeration : StarEdgeEnumerationStatement)
     (hChart : StarCasimirChartStatement) (hTransport : StarProjectorTransportStatement) :
-    StarRelabellingStatement := by
+    StarRelabelingStatement := by
   classical
   intro L N x
   obtain ⟨n, U, hU⟩ := hChart L N x
@@ -436,11 +436,11 @@ def PolynomialInputs : Prop := StateEvaluationStatement ∧ VbsHomogeneityStatem
   SingletNonassociateStatement ∧ IncidentKernelStatement ∧
   PairDiagonalRankStatement ∧ PairTopInclusionStatement ∧ PairTopDimensionStatement ∧
   FourVariableDeterminantPrimeStatement ∧ DeterminantPrimeEmbeddingStatement ∧
-  CentreDegreeCancellationStatement ∧ IncidentProductDegreeStatement ∧ StateCentreDegreeStatement
+  CenterDegreeCancellationStatement ∧ IncidentProductDegreeStatement ∧ StateCenterDegreeStatement
 
 def QuantumInputs : Prop := DeterminantModulusStatement ∧ GroundProductWeightStatement ∧
-  IncidentEvaluationStatement ∧ GroundFibreFactorizationStatement ∧ GroundTransformStatement ∧
-  FibreIntertwiningStatement ∧ FibreProjectionStatement ∧ WeightedPolarizationStatement ∧
+  IncidentEvaluationStatement ∧ GroundFiberFactorizationStatement ∧ GroundTransformStatement ∧
+  FiberIntertwiningStatement ∧ FiberProjectionStatement ∧ WeightedPolarizationStatement ∧
   GroundQuotientVarianceStatement ∧ BetaNonzeroStatement
 
 def EnergyInputs : Prop := FrameWeightsPositiveStatement ∧ PlaneConditioningStatement ∧
@@ -462,7 +462,7 @@ theorem allTargets_of_leaves (hMom : Top.MomentsStatement) (hKernel : Top.TorusK
   rcases hTight with ⟨t1, t2, t3, t4, t5, t6, t7, t8⟩
   have hTight' := tight_of_leaves hThree t1 t2 t3 t4 t5 t6 t7 t8
   rcases hStar with ⟨s1, s2, s3, s4, s5, s6, s7, s8⟩
-  have hStar' := star_of_leaves hKernel s1 s2 s3 s4 (starRelabelling_of_leaves s6 s7 s8) s5
+  have hStar' := star_of_leaves hKernel s1 s2 s3 s4 (starRelabeling_of_leaves s6 s7 s8) s5
   rcases hPoly with ⟨p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15⟩
   rcases hQuantum with ⟨q1, q2, q3, q4, q5, q6, q7, q8, q9, q10⟩
   have hQD := qd_of_leaves hThree hTight' hStar' hKernel p1 p2 p3

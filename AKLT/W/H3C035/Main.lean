@@ -65,7 +65,7 @@ private theorem snoc_append {n : Nat} (w : DirectionWord n) (d : Compass) :
 /-- A node reached before any earlier target hit; the last vertex may be a hit. -/
 private def Reached {n : Nat} (X : PairType) (d₀ : Compass) (w : DirectionWord n) : Prop :=
   IsTrail kernelStart kernelIncoming w ∧
-  (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre) ∧
+  (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCenter) ∧
   (∀ j < n, wordVertex kernelStart w j ≠ kernelTarget X) ∧
   (n = 0 ∨ FirstDirection w d₀)
 
@@ -81,7 +81,7 @@ private theorem trail_snoc_of_fresh {n : Nat} (w : DirectionWord n) (d : Compass
     (hw : IsTrail kernelStart kernelIncoming w)
     (hf : ∀ i, wordBond kernelStart w i ≠
       {wordVertex kernelStart w n, wordVertex kernelStart w n + d.step})
-    (hc : wordVertex kernelStart w n + d.step ≠ kernelCentre) :
+    (hc : wordVertex kernelStart w n + d.step ≠ kernelCenter) :
     IsTrail kernelStart kernelIncoming (snoc w d) := by
   constructor
   · intro i j
@@ -98,7 +98,7 @@ private theorem trail_snoc_of_fresh {n : Nat} (w : DirectionWord n) (d : Compass
       rw [snoc_last]
       intro hd
       subst d
-      exact hc (by simp [kernelStart, kernelCentre, kernelIncoming, Compass.reverse,
+      exact hc (by simp [kernelStart, kernelCenter, kernelIncoming, Compass.reverse,
         Compass.step])
     | cast i =>
       simpa [snoc] using hw.2 i hi
@@ -135,7 +135,7 @@ private theorem reached_snoc {n : Nat} (X : PairType) (d₀ : Compass)
       (n ≠ 0 ∨ d = d₀) ∧
       (∀ i, wordBond kernelStart w i ≠
         {wordVertex kernelStart w n, wordVertex kernelStart w n + d.step}) ∧
-      wordVertex kernelStart w n + d.step ≠ kernelCentre := by
+      wordVertex kernelStart w n + d.step ≠ kernelCenter := by
     have hcode : directionCode d = directionCode d₀ ↔ d = d₀ := by
       constructor
       · intro h
@@ -143,7 +143,7 @@ private theorem reached_snoc {n : Nat} (X : PairType) (d₀ : Compass)
       · rintro rfl
         rfl
     simp only [goodStep, Bool.and_eq_true, Bool.or_eq_true, bne_iff_ne,
-      beq_iff_eq, hs.1, hs.2.1, advance_direction, hcode, kernelCentre,
+      beq_iff_eq, hs.1, hs.2.1, advance_direction, hcode, kernelCenter,
       and_assoc, legal_iff_fresh w s hs d]
   rw [hgood]
   constructor
@@ -386,7 +386,7 @@ private theorem frontier_root (E : Exact) (X : PairType) (d₀ : Compass) (depth
     · simp [IsTrail, Function.Injective]
     · intro j hj
       have hj' : j = 0 := by omega
-      simp [hj', kernelStart, kernelCentre]
+      simp [hj', kernelStart, kernelCenter]
     · intro j hj
       omega
   simp [frontierValue, hr, wordState]

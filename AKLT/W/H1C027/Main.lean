@@ -10,30 +10,30 @@ namespace AKLT.W.H1C027
 open AKLT.Cert.H1.Production
 
 theorem find_some_mem_entries :
-    ∀ (t : Catalogue) (x p : Nat),
+    ∀ (t : Catalog) (x p : Nat),
       t.find x = some p → (x, p) ∈ t.entries := by
   intro t
   induction t with
   | empty =>
       intro x p h
-      simp [Catalogue.find] at h
+      simp [Catalog.find] at h
   | node key pid left right ihl ihr =>
       intro x p h
       by_cases heq : x = key
       · subst x
-        simp [Catalogue.find] at h
+        simp [Catalog.find] at h
         subst p
-        simp [Catalogue.entries]
+        simp [Catalog.entries]
       · by_cases hlt : x < key
         · have hleft : left.find x = some p := by
-            simpa [Catalogue.find, beq_iff_eq, heq, hlt] using h
+            simpa [Catalog.find, beq_iff_eq, heq, hlt] using h
           have hm := ihl x p hleft
-          simp only [Catalogue.entries, List.mem_append]
+          simp only [Catalog.entries, List.mem_append]
           exact Or.inl (Or.inl hm)
         · have hright : right.find x = some p := by
-            simpa [Catalogue.find, beq_iff_eq, heq, hlt] using h
+            simpa [Catalog.find, beq_iff_eq, heq, hlt] using h
           have hm := ihr x p hright
-          simp only [Catalogue.entries, List.mem_append]
+          simp only [Catalog.entries, List.mem_append]
           exact Or.inr hm
 
 theorem main : AKLT.Cert.H1.Production.Leaves.representativeLookup := by

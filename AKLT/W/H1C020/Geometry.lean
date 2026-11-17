@@ -20,7 +20,7 @@ lemma bond_adjacent (π : PatternData) {e : Plane × Plane}
   obtain ⟨q, hq, rfl⟩ := Finset.mem_image.mp hImage
   have hqPos := (Finset.mem_inter.mp hq).1
   have hqCases : q = (p.1+1,p.2) ∨ q = (p.1,p.2+1) := by
-    simpa only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] using hqPos
+    simpa only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] using hqPos
   rcases hqCases with rfl | rfl <;> norm_num [Adjacent, latticeDist]
 
 lemma adjacent_symm {x y : Plane} (h : Adjacent x y) : Adjacent y x := by

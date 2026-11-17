@@ -164,7 +164,7 @@ theorem finiteFacts_of_leaves
     (hBall : BallDotBoundsStatement) (hAvoid : LetterAvoidanceStatement)
     (hGreedy : GreedyAssignmentStatement) (hCoeff : FreeCoefficientsStatement)
     (hDegree : FreeDegreeStatement) (hEval : FreeEvaluationStatement)
-    (hFibre : TwoSiteFactorizationStatement) (hCondition : FactorizedConditioningStatement)
+    (hFiber : TwoSiteFactorizationStatement) (hCondition : FactorizedConditioningStatement)
     (hExpand : PolynomialExpansionStatement) (hFactor : ProductFactorizationStatement) :
     AKLT.Blueprint.Top.FiniteFactsStatement := by
   classical
@@ -194,7 +194,7 @@ theorem finiteFacts_of_leaves
     · intro pinned x y hxy hnot hnot' σ
       dsimp only
       intro hMass a b
-      obtain ⟨C, u, v, _, _, _, hf⟩ := hFibre n D hD pinned x y hxy hnot hnot' σ
+      obtain ⟨C, u, v, _, _, _, hf⟩ := hFiber n D hD pinned x y hxy hnot hnot' σ
       exact hCondition n (D.weight pinned) (network_weight_nonneg hUnit hBall D hD pinned)
         x y hxy σ C u v hf hMass a b
 
@@ -438,7 +438,7 @@ theorem conditional_threeFactorMean_of_leaves
     (x : Fin n) (hPin : D.pinCount x = 0)
     (hDegree : (D.bonds.filter fun e => e.1 = x ∨ e.2 = x).card ≤ 3)
     (σ : Fin n → SpinLetter)
-    (hMass : 0 < eventMass (normalize (D.weight pinned)) (oneSiteFibre x σ)) :
+    (hMass : 0 < eventMass (normalize (D.weight pinned)) (oneSiteFiber x σ)) :
     normSq (conditionalSpinMean (normalize (D.weight pinned)) x σ) ≤ (3 / 5 : ℝ)^2 := by
   obtain ⟨k, hk, a, ha, _, hEq⟩ := hReduction n D hD pinned x hPin hDegree σ hMass
   rw [hEq]

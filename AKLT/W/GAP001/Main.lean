@@ -11,7 +11,7 @@ open AKLT.Defs AKLT.Blueprint.Gap
 
 namespace AKLT.W.GAP001
 
-theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
+theorem main : AKLT.Blueprint.Gap.FiberNormalizationStatement := by
   classical
   intro ι hι hιdec S hS hSnonempty p hp U σ
   let E : Config S → Prop := fun τ => AgreeOutside U σ τ
@@ -31,11 +31,11 @@ theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
     dsimp [Z]
     exact lt_of_lt_of_le hterm hle
   have hZne : Z ≠ 0 := ne_of_gt hZpos
-  have hfibre : fibre p U σ = fun τ => w τ / Z := by
+  have hfiber : fiber p U σ = fun τ => w τ / Z := by
     funext τ
-    simp [fibre, conditionOn, AKLT.Defs.normalize, w, Z, E]
-  have hprob : Probability (fibre p U σ) := by
-    rw [hfibre]
+    simp [fiber, conditionOn, AKLT.Defs.normalize, w, Z, E]
+  have hprob : Probability (fiber p U σ) := by
+    rw [hfiber]
     constructor
     · intro τ
       apply div_nonneg
@@ -47,8 +47,8 @@ theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
         (∑ τ, w τ / Z) = (∑ τ, w τ) / Z := by rw [Finset.sum_div]
         _ = 1 := by simp [Z, hZne]
   refine ⟨hprob, ?_, ?_⟩
-  · change (∀ b, 0 < ∑ τ, if restrict U τ = b then fibre p U σ τ else 0) ∧
-      (∑ b, ∑ τ, if restrict U τ = b then fibre p U σ τ else 0) = 1
+  · change (∀ b, 0 < ∑ τ, if restrict U τ = b then fiber p U σ τ else 0) ∧
+      (∑ b, ∑ τ, if restrict U τ = b then fiber p U σ τ else 0) = 1
     constructor
     · intro b
       let τ₀ : Config S := fun x => if hx : x ∈ U then b ⟨x, hx⟩ else σ x
@@ -58,29 +58,29 @@ theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
       have hτ₀E : E τ₀ := by
         intro x hx
         simp [τ₀, hx]
-      have hterm : 0 < if restrict U τ₀ = b then fibre p U σ τ₀ else 0 := by
+      have hterm : 0 < if restrict U τ₀ = b then fiber p U σ τ₀ else 0 := by
         simp only [hrestrict, eq_self, ite_true]
-        rw [hfibre]
+        rw [hfiber]
         change 0 < w τ₀ / Z
         have : w τ₀ = p τ₀ := by simp [w, hτ₀E]
         rw [this]
         exact div_pos (hp.1 τ₀) hZpos
       have hsum_nonneg : ∀ τ ∈ (Finset.univ : Finset (Config S)),
-          0 ≤ if restrict U τ = b then fibre p U σ τ else 0 := by
+          0 ≤ if restrict U τ = b then fiber p U σ τ else 0 := by
         intro τ hτ
         by_cases h : restrict U τ = b
         · simpa [h] using (hprob.1 τ)
         · simp [h]
-      have hle : (if restrict U τ₀ = b then fibre p U σ τ₀ else 0) ≤
-          ∑ τ, if restrict U τ = b then fibre p U σ τ else 0 := by
+      have hle : (if restrict U τ₀ = b then fiber p U σ τ₀ else 0) ≤
+          ∑ τ, if restrict U τ = b then fiber p U σ τ else 0 := by
         apply Finset.single_le_sum hsum_nonneg (Finset.mem_univ τ₀)
-      change 0 < ∑ τ, if restrict U τ = b then fibre p U σ τ else 0
+      change 0 < ∑ τ, if restrict U τ = b then fiber p U σ τ else 0
       exact lt_of_lt_of_le hterm hle
     · calc
-        (∑ b, ∑ τ, if restrict U τ = b then fibre p U σ τ else 0) =
-            ∑ τ, ∑ b, if restrict U τ = b then fibre p U σ τ else 0 := by
+        (∑ b, ∑ τ, if restrict U τ = b then fiber p U σ τ else 0) =
+            ∑ τ, ∑ b, if restrict U τ = b then fiber p U σ τ else 0 := by
               rw [Finset.sum_comm]
-        _ = ∑ τ, fibre p U σ τ := by
+        _ = ∑ τ, fiber p U σ τ := by
               apply Finset.sum_congr rfl
               intro τ hτ
               simp
@@ -98,8 +98,8 @@ theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
               by_cases h : AgreeOutside U σ τ <;> simp [h]
         _ = (∑ τ, if AgreeOutside U σ τ then p τ else 0 : ℝ) := by
               norm_cast
-    have hmean : complexMean (fibre p U σ) f = N / (Z : ℂ) := by
-      rw [hfibre]
+    have hmean : complexMean (fiber p U σ) f = N / (Z : ℂ) := by
+      rw [hfiber]
       dsimp [complexMean, N]
       calc
         (∑ τ, (((w τ / Z : ℝ) : ℂ) * f τ)) =
@@ -112,7 +112,7 @@ theorem main : AKLT.Blueprint.Gap.FibreNormalizationStatement := by
                 field_simp [hzc]
               · simp [w, h]
         _ = N / (Z : ℂ) := by rw [Finset.sum_div]
-    change N / D = complexMean (fibre p U σ) f
+    change N / D = complexMean (fiber p U σ) f
     rw [hD, hmean]
 
 end AKLT.W.GAP001

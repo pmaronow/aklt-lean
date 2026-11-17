@@ -18,11 +18,11 @@ local instance (α : Type) : DecidableEq α := Classical.decEq α
 
 /-- `l:CE`, app-finite:35-46. Group the finite sum by the exterior fiber; strict
 positivity makes its denominator positive. Also identify the full-state kernel mean. -/
-def FibreNormalizationStatement : Prop :=
+def FiberNormalizationStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)]
     [∀ x, Nonempty (S x)] (p : Weight (Config S)), PositiveProbability p →
-    ∀ U σ, Probability (fibre p U σ) ∧ PositiveProbability (blockLaw p U σ) ∧
-      ∀ f, conditionalExpectation p U f σ = complexMean (fibre p U σ) f
+    ∀ U σ, Probability (fiber p U σ) ∧ PositiveProbability (blockLaw p U σ) ∧
+      ∀ f, conditionalExpectation p U f σ = complexMean (fiber p U σ) f
 
 /-- `l:CE`, app-finite:35-52. Conditional means are idempotent, preserve constants
 and the original mean, and are self-adjoint for the weighted scalar product. -/
@@ -86,7 +86,7 @@ stationarity of the conditional kernel; pair dependence of a row is unrestricted
 def SurgeryPreservationStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)]
     [∀ x, Nonempty (S x)] (p q : Weight (Config S)), PositiveProbability p → PositiveProbability q →
-    ∀ U, ∀ c : Coupling p q, ∀ R : (σ τ : Config S) → Coupling (fibre p U σ) (fibre q U τ),
+    ∀ U, ∀ c : Coupling p q, ∀ R : (σ τ : Config S) → Coupling (fiber p U σ) (fiber q U τ),
       ∃ d : Coupling p q, ∀ σ τ,
         d.mass σ τ = ∑ a, ∑ b, c.mass a b * (R a b).mass σ τ
 
@@ -113,7 +113,7 @@ one-site weights and normalize those weights individually. Exterior corners with
 crossing bond contribute no factor; only internal bonds remain in the interaction. -/
 def FrameProductReferenceStatement : Prop :=
   (∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter, 0 < 1+dot (frameVector i a) (frameVector j b)) →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ (W : Finset Plane) (η : FrameBoundary W),
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ (W : Finset Plane) (η : FrameBoundary W),
     ∃ π : (x : W) → Weight IcoLetter, (∀ x, PositiveProbability (π x)) ∧
     ∃ Z : ℝ, 0 < Z ∧ Z = expectation (fun σ => ∏ x, π x (σ x)) (planeInteraction κ W) ∧
       ∀ σ, planeLaw κ W η σ = (∏ x, π x (σ x)) * planeInteraction κ W σ / Z
@@ -124,7 +124,7 @@ def FrameInteractionBoundsStatement : Prop :=
   (∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
     frameBound ≤ 1+dot (frameVector i a) (frameVector j b) ∧
     1+dot (frameVector i a) (frameVector j b) ≤ 2-frameBound) →
-  0 < frameBound → frameBound < 1 → ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
+  0 < frameBound → frameBound < 1 → ∀ κ : Plane → Fin 3, ProperPlaneColoring κ →
     ∀ W σ, frameBound^(internalBonds W).card ≤ planeInteraction κ W σ ∧
       planeInteraction κ W σ ≤ (2-frameBound)^(internalBonds W).card
 

@@ -145,7 +145,7 @@ theorem kernel_dead_removed (p : PairData) {n : ℕ} (w : DirectionWord n) (i : 
     (z : Plane) (hz : deadAt (canonicalWord p w) i z) :
     (prefixNetwork p.normalized p.u w i.val).status ((canonicalChart p).point.symm z) = .X := by
   rcases hz with rfl | hz
-  · have hc : (canonicalChart p).point.symm kernelCentre = p.c := by
+  · have hc : (canonicalChart p).point.symm kernelCenter = p.c := by
       apply (canonicalChart p).point.injective
       simp
     rw [hc, prefixNetwork_status _ _ _ i.val (by omega)]

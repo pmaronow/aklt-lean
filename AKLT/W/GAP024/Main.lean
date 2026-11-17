@@ -282,12 +282,12 @@ private theorem blockRel_trans {ι : Type} {S : ι → Type} (U : Finset ι)
   intro x hx
   exact (h₁ x hx).trans (h₂ x hx)
 
-private theorem fibre_eq_classKernel {ι : Type} [Fintype ι] [DecidableEq ι]
+private theorem fiber_eq_classKernel {ι : Type} [Fintype ι] [DecidableEq ι]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (U : Finset ι) [DecidableRel (blockRel S U)] (σ τ : Config S) :
-      fibre p U σ τ = classKernel p (blockRel S U) σ τ := by
+      fiber p U σ τ = classKernel p (blockRel S U) σ τ := by
   classical
-  simp only [fibre, conditionOn, AKLT.Defs.normalize, classKernel, classMass]
+  simp only [fiber, conditionOn, AKLT.Defs.normalize, classKernel, classMass]
   congr 1
   · by_cases h : AgreeOutside U σ τ <;> simp [h, blockRel]
   · apply Finset.sum_congr rfl
@@ -355,9 +355,9 @@ private theorem blockKernel_form {ι : Type} [Fintype ι] [DecidableEq ι]
     (p : Weight (Config S)) (hp : ∀ σ, 0 < p σ) (U : Finset ι)
     (f : Config S → ℂ) :
       (weightedInner p f (fun σ => f σ -
-        ∑ τ, (fibre p U σ τ : ℂ) * f τ)).re = blockDirichlet p U f := by
+        ∑ τ, (fiber p U σ τ : ℂ) * f τ)).re = blockDirichlet p U f := by
   classical
-  have haction : ∀ σ, (∑ τ, (fibre p U σ τ : ℂ) * f τ) =
+  have haction : ∀ σ, (∑ τ, (fiber p U σ τ : ℂ) * f τ) =
       conditionalExpectation p U f σ := by
     intro σ
     letI : DecidableRel (blockRel S U) :=
@@ -366,8 +366,8 @@ private theorem blockKernel_form {ι : Type} [Fintype ι] [DecidableEq ι]
     unfold classMean
     apply Finset.sum_congr rfl
     intro τ hτ
-    rw [fibre_eq_classKernel p U σ τ]
-  have haction' : ∀ σ, (∑ τ, (fibre p U σ τ : ℂ) * f τ) =
+    rw [fiber_eq_classKernel p U σ τ]
+  have haction' : ∀ σ, (∑ τ, (fiber p U σ τ : ℂ) * f τ) =
       classMean p (blockRel S U) f σ := by
     intro σ
     letI : DecidableRel (blockRel S U) :=
@@ -389,26 +389,26 @@ private theorem blockAverage_action {ι J : Type} [Fintype ι] [DecidableEq ι]
     (p : Weight (Config S)) (B : J → Finset ι) (σ : Config S)
     (f : Config S → ℂ) :
       (∑ τ, (blockAverage p B σ τ : ℂ) * f τ) =
-        (∑ a, ∑ τ, (fibre p (B a) σ τ : ℂ) * f τ) /
+        (∑ a, ∑ τ, (fiber p (B a) σ τ : ℂ) * f τ) /
           (Fintype.card J : ℂ) := by
   classical
   have hpoint : ∀ τ,
       (blockAverage p B σ τ : ℂ) =
-        (∑ a, (fibre p (B a) σ τ : ℂ)) / (Fintype.card J : ℂ) := by
+        (∑ a, (fiber p (B a) σ τ : ℂ)) / (Fintype.card J : ℂ) := by
     intro τ
     simp [blockAverage, Complex.ofReal_div, Complex.ofReal_sum]
   simp_rw [hpoint]
   calc
-    (∑ τ, ((∑ a, (fibre p (B a) σ τ : ℂ)) /
+    (∑ τ, ((∑ a, (fiber p (B a) σ τ : ℂ)) /
         (Fintype.card J : ℂ)) * f τ) =
-        ∑ τ, ((∑ a, (fibre p (B a) σ τ : ℂ)) * f τ) /
+        ∑ τ, ((∑ a, (fiber p (B a) σ τ : ℂ)) * f τ) /
           (Fintype.card J : ℂ) := by
             apply Finset.sum_congr rfl
             intro τ hτ
             ring
-    _ = (∑ τ, (∑ a, (fibre p (B a) σ τ : ℂ)) * f τ) /
+    _ = (∑ τ, (∑ a, (fiber p (B a) σ τ : ℂ)) * f τ) /
           (Fintype.card J : ℂ) := by rw [← Finset.sum_div]
-    _ = (∑ a, ∑ τ, (fibre p (B a) σ τ : ℂ) * f τ) /
+    _ = (∑ a, ∑ τ, (fiber p (B a) σ τ : ℂ) * f τ) /
           (Fintype.card J : ℂ) := by
             congr 1
             rw [Finset.sum_comm]
@@ -429,7 +429,7 @@ theorem main : AKLT.Blueprint.Gap.BlockAverageFormStatement := by
   have hcardN : 0 < Fintype.card ι := Fintype.card_pos
   have hcardR : 0 < (Fintype.card ι : ℝ) := by exact_mod_cast hcardN
   have hcardC : (Fintype.card ι : ℂ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hcardN)
-  have hsingleProb : ∀ (U : Finset J) (σ : Config S), Probability (fibre p U σ) := by
+  have hsingleProb : ∀ (U : Finset J) (σ : Config S), Probability (fiber p U σ) := by
     intro U σ
     letI : DecidableRel (blockRel S U) :=
       fun (σ τ : Config S) => Classical.propDecidable (blockRel S U σ τ)
@@ -437,16 +437,16 @@ theorem main : AKLT.Blueprint.Gap.BlockAverageFormStatement := by
       (fun x => blockRel_refl U x) σ
     constructor
     · intro τ
-      rw [fibre_eq_classKernel p U σ τ]
+      rw [fiber_eq_classKernel p U σ τ]
       exact hrow.1 τ
     · calc
-        (∑ τ, fibre p U σ τ) = ∑ τ, classKernel p (blockRel S U) σ τ := by
+        (∑ τ, fiber p U σ τ) = ∑ τ, classKernel p (blockRel S U) σ τ := by
           apply Finset.sum_congr rfl
           intro τ hτ
-          rw [fibre_eq_classKernel p U σ τ]
+          rw [fiber_eq_classKernel p U σ τ]
         _ = 1 := hrow.2
   have hsingleDB : ∀ (U : Finset J) (σ τ : Config S),
-      p σ * fibre p U σ τ = p τ * fibre p U τ σ := by
+      p σ * fiber p U σ τ = p τ * fiber p U τ σ := by
     intro U σ τ
     letI : DecidableRel (blockRel S U) :=
       fun (σ τ : Config S) => Classical.propDecidable (blockRel S U σ τ)
@@ -454,7 +454,7 @@ theorem main : AKLT.Blueprint.Gap.BlockAverageFormStatement := by
       (fun x y h => blockRel_symm U h)
       (fun x y z h₁ h₂ => blockRel_trans U h₁ h₂)
       (fun x => blockRel_refl U x) σ τ
-    rw [fibre_eq_classKernel p U σ τ, fibre_eq_classKernel p U τ σ]
+    rw [fiber_eq_classKernel p U σ τ, fiber_eq_classKernel p U τ σ]
     exact hdb
   have hkernelProb : ∀ σ : Config S, Probability (blockAverage p B σ) := by
     intro σ
@@ -468,10 +468,10 @@ theorem main : AKLT.Blueprint.Gap.BlockAverageFormStatement := by
       · exact le_of_lt hcardR
     · unfold blockAverage
       calc
-        (∑ τ, (∑ a, fibre p (B a) σ τ) / (Fintype.card ι : ℝ)) =
-            (∑ τ, ∑ a, fibre p (B a) σ τ) / (Fintype.card ι : ℝ) := by
+        (∑ τ, (∑ a, fiber p (B a) σ τ) / (Fintype.card ι : ℝ)) =
+            (∑ τ, ∑ a, fiber p (B a) σ τ) / (Fintype.card ι : ℝ) := by
               rw [← Finset.sum_div]
-        _ = (∑ a, ∑ τ, fibre p (B a) σ τ) / (Fintype.card ι : ℝ) := by
+        _ = (∑ a, ∑ τ, fiber p (B a) σ τ) / (Fintype.card ι : ℝ) := by
               congr 1
               rw [Finset.sum_comm]
         _ = (∑ a, (1 : ℝ)) / (Fintype.card ι : ℝ) := by
@@ -486,23 +486,23 @@ theorem main : AKLT.Blueprint.Gap.BlockAverageFormStatement := by
     · intro σ τ
       unfold blockAverage
       calc
-        p σ * ((∑ a, fibre p (B a) σ τ) / (Fintype.card ι : ℝ)) =
-            (∑ a, p σ * fibre p (B a) σ τ) / (Fintype.card ι : ℝ) := by
+        p σ * ((∑ a, fiber p (B a) σ τ) / (Fintype.card ι : ℝ)) =
+            (∑ a, p σ * fiber p (B a) σ τ) / (Fintype.card ι : ℝ) := by
               calc
-                _ = (p σ * (∑ a, fibre p (B a) σ τ)) / (Fintype.card ι : ℝ) := by ring
+                _ = (p σ * (∑ a, fiber p (B a) σ τ)) / (Fintype.card ι : ℝ) := by ring
                 _ = _ := by rw [Finset.mul_sum]
-        _ = (∑ a, p τ * fibre p (B a) τ σ) / (Fintype.card ι : ℝ) := by
+        _ = (∑ a, p τ * fiber p (B a) τ σ) / (Fintype.card ι : ℝ) := by
               congr 1
               apply Finset.sum_congr rfl
               intro a ha
               exact hsingleDB (B a) σ τ
-        _ = (p τ * (∑ a, fibre p (B a) τ σ)) / (Fintype.card ι : ℝ) := by
+        _ = (p τ * (∑ a, fiber p (B a) τ σ)) / (Fintype.card ι : ℝ) := by
               congr 1
               rw [Finset.mul_sum]
-        _ = p τ * ((∑ a, fibre p (B a) τ σ) / (Fintype.card ι : ℝ)) := by ring
+        _ = p τ * ((∑ a, fiber p (B a) τ σ) / (Fintype.card ι : ℝ)) := by ring
   · intro f
     let m : ι → Config S → ℂ := fun a σ =>
-      ∑ τ, (fibre p (B a) σ τ : ℂ) * f τ
+      ∑ τ, (fiber p (B a) σ τ : ℂ) * f τ
     let avg : Config S → ℂ := fun σ =>
       (∑ a, m a σ) / (Fintype.card ι : ℂ)
     have hpoint : ∀ σ, (Fintype.card ι : ℂ) * (f σ - avg σ) =

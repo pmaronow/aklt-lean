@@ -15,7 +15,7 @@ namespace AKLT.W.REC003
 
 /-- Integrating the two U bonds gives the prescribed normalized I₂ factor. -/
 theorem pre_factorization (a : Departure) (hy : a.D.status a.y = .U) (f : Plane)
-    (hneigh : a.D.presentNeighbours a.y = {a.o, f}) (hof : a.o ≠ f) (b : Bool) :
+    (hneigh : a.D.presentNeighbors a.y = {a.o, f}) (hof : a.o ≠ f) (b : Bool) :
     a.D.partition a.τ b (fun _ => 1) =
       (removeSite a.D a.y).partition a.τ b (fun _ => 1) * responseI₂ a.D a.τ b a.y a.o f := by
   have h := partition_eliminate a.D a.τ b a.y a.start.1 a.start.2.1
@@ -32,21 +32,21 @@ theorem pre_factorization (a : Departure) (hy : a.D.status a.y = .U) (f : Plane)
 
 /-- The trace leaves one D bond, whose site sum is one. -/
 theorem post_factorization (a : Departure) (hy : a.D.status a.y = .U) (f : Plane)
-    (hneigh : a.D.presentNeighbours a.y = {a.o, f}) (hof : a.o ≠ f) (b : Bool) :
+    (hneigh : a.D.presentNeighbors a.y = {a.o, f}) (hof : a.o ≠ f) (b : Bool) :
     (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
       (removeSite a.D a.y).partition a.τ b (fun _ => 1) := by
-  have hyo : a.y ≠ a.o := adjacent_ne ((mem_presentNeighbours _ _ _).mp a.present).2.2.1
+  have hyo : a.y ≠ a.o := adjacent_ne ((mem_presentNeighbors _ _ _).mp a.present).2.2.1
   have ha : a.y ∈ (traceStep a.D a.y a.o).active := by
     rw [trace_active a.D a.y a.o hy]
     exact a.start.1
   have hs : (traceStep a.D a.y a.o).status a.y = .D := by
     simp [traceStep, hy]
-  have hn : (traceStep a.D a.y a.o).presentNeighbours a.y = {f} := by
-    rw [trace_neighbours a.D a.y a.o hy hyo, hneigh]
+  have hn : (traceStep a.D a.y a.o).presentNeighbors a.y = {f} := by
+    rw [trace_neighbors a.D a.y a.o hy hyo, hneigh]
     simp [hof]
   have h := partition_eliminate (traceStep a.D a.y a.o) a.τ b a.y ha a.start.2.1
   have hfun : (fun m : Plane → Vec3 => siteFunctional ((traceStep a.D a.y a.o).status a.y)
-      (fun v => ∏ z ∈ (traceStep a.D a.y a.o).presentNeighbours a.y, (1 + dot v (m z)))) =
+      (fun v => ∏ z ∈ (traceStep a.D a.y a.o).presentNeighbors a.y, (1 + dot v (m z)))) =
       (fun _ => 1) := by
     funext m
     simp only [hs, hn, Finset.prod_singleton]

@@ -82,7 +82,7 @@ private theorem depthNat_step (G : Finset Plane) (x z : Plane)
       _ = latticeDist z yz + 1 := Nat.add_comm _ _
   simpa [hdx, hdz] using hdist
 
-theorem main : AKLT.Blueprint.Win.NeighbourDecayStatement := by
+theorem main : AKLT.Blueprint.Win.NeighborDecayStatement := by
   intro G θ hθ0 hθ1 x z hstep
   have hdepth := depthNat_step G x z hstep
   have hpow : θ ^ ((boundaryDepth G z).toNat + 1) ≤

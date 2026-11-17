@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC005.Fibres
+public import AKLT.W.REC005.Fibers
 
 @[expose] public section
 set_option backward.privateInPublic true
@@ -105,7 +105,7 @@ lemma graph_edge_factorization (L R : κ → ι) (x y : ι) (hxy : x ≠ y)
   rw [graphFields_product, graphFields_product]
   simp [incident, Finset.prod_filter]
 
-theorem graph_fibre_reduction (s : ι → Status) (L R : κ → ι)
+theorem graph_fiber_reduction (s : ι → Status) (L R : κ → ι)
     (outside : (ι → SpinLetter) → ℝ) (hout : ∀ σ, 0 ≤ outside σ)
     (x y : ι) (hxy : x ≠ y) (hloop : ∀ e, L e ≠ R e)
     (hcross : ∀ e, ¬ (L e = x ∧ R e = y) ∧ ¬ (L e = y ∧ R e = x))

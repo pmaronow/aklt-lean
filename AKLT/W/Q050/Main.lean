@@ -19,7 +19,7 @@ private theorem frameBound_pos : 0 < frameBound := by
   nlinarith [Real.sqrt_nonneg (5 : ℝ)]
 
 private theorem interaction_pos (hBounds : interactionBounds)
-    (κ : Plane → Fin 3) (hκ : ProperPlaneColouring κ)
+    (κ : Plane → Fin 3) (hκ : ProperPlaneColoring κ)
     (a b : Plane) (ha : Adjacent a b) (u v : IcoLetter) :
     0 < 1 + dot (frameVector (κ a) u) (frameVector (κ b) v) := by
   have hcol : κ a ≠ κ b := hκ a b ha
@@ -31,7 +31,7 @@ private theorem adjacent_of_internal {W : Finset Plane} {e : Plane × Plane}
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter] at he
   rcases he with ⟨x, hx, y, hy, heq⟩
   cases heq
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
   rcases hy.1 with hy | hy
   · change Adjacent x y
     rw [hy]
@@ -46,15 +46,15 @@ private theorem adjacent_of_leg {W : Finset Plane} {e : Plane × Plane}
   simp only [originalLegs, Finset.mem_biUnion, Finset.mem_image, Finset.mem_sdiff] at he
   rcases he with ⟨x, hx, y, hy, heq⟩
   cases heq
-  change y ∈ neighbours x ∧ y ∉ W at hy
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hy
+  change y ∈ neighbors x ∧ y ∉ W at hy
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hy
   rcases hy.1 with ⟨d, hd⟩
   change Adjacent x y
   rw [← hd]
   cases d <;> norm_num [Adjacent, latticeDist, Compass.step]
 
 private theorem planeWeight_pos (hBounds : interactionBounds)
-    (κ : Plane → Fin 3) (hκ : ProperPlaneColouring κ)
+    (κ : Plane → Fin 3) (hκ : ProperPlaneColoring κ)
     (W : Finset Plane) (η : FrameBoundary W) (σ : PlaneConfiguration W) :
     0 < planeWeight κ W η σ := by
   unfold planeWeight
@@ -151,7 +151,7 @@ private theorem marginal_conditionOn_fiber {Ω Ξ : Type} [Fintype Ω] [Decidabl
     exact (hnot (Finset.mem_univ _)).elim
 
 private theorem conditionalPlaneLaw_eq_fiberNormalize
-    (hBounds : interactionBounds) (κ : Plane → Fin 3) (hκ : ProperPlaneColouring κ)
+    (hBounds : interactionBounds) (κ : Plane → Fin 3) (hκ : ProperPlaneColoring κ)
     (W V : Finset Plane) (η : FrameBoundary W) (hVW : V ⊆ W)
     (σ : PlaneConfiguration W) :
     conditionalPlaneLaw κ W V η σ =

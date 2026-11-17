@@ -92,20 +92,20 @@ theorem reward_three_le (p : PairData) {n : ℕ} (w : DirectionWord n) (i : Fin 
         (wordVertex p.u w i.val)) p.τ (q.image (canonicalChart p).point.symm)))
   simpa [h₁₂, h₁₃, h₂₃, add_assoc] using hh
 
-theorem present_neighbour_cases (a : Departure) (hU : a.D.status a.y = .U) :
-    (a.D.presentNeighbours a.y).card = 1 ∨
-    (∃ f, a.D.presentNeighbours a.y = {a.o, f} ∧ a.o ≠ f) ∨
-    (∃ f g, a.D.presentNeighbours a.y = {a.o, f, g} ∧ a.o ≠ f ∧ a.o ≠ g ∧ f ≠ g) := by
+theorem present_neighbor_cases (a : Departure) (hU : a.D.status a.y = .U) :
+    (a.D.presentNeighbors a.y).card = 1 ∨
+    (∃ f, a.D.presentNeighbors a.y = {a.o, f} ∧ a.o ≠ f) ∨
+    (∃ f g, a.D.presentNeighbors a.y = {a.o, f, g} ∧ a.o ≠ f ∧ a.o ≠ g ∧ f ≠ g) := by
   classical
-  have hle : (a.D.presentNeighbours a.y).card ≤ 3 := by
+  have hle : (a.D.presentNeighbors a.y).card ≤ 3 := by
     rcases a.start.2.2 with h | h
     · exact h.2
     · simp [hU] at h
   have he := Finset.insert_erase a.present
-  have hc : ((a.D.presentNeighbours a.y).erase a.o).card ≤ 2 := by
+  have hc : ((a.D.presentNeighbors a.y).erase a.o).card ≤ 2 := by
     rw [Finset.card_erase_of_mem a.present]
     omega
-  interval_cases hcard : ((a.D.presentNeighbours a.y).erase a.o).card
+  interval_cases hcard : ((a.D.presentNeighbors a.y).erase a.o).card
   · left
     have hempty := Finset.card_eq_zero.mp hcard
     rw [hempty] at he
@@ -136,10 +136,10 @@ theorem prefix_coefficients (hH1 : AKLT.Blueprint.Top.H1Statement)
     (hU : (prefixNetwork p.normalized p.u w i.val).status (wordVertex p.u w i.val) = .U) :
     let a := prefixDeparture p (insert p.v (protectedSites p.G)) w hw i
     let straight := wordStraight kernelIncoming (canonicalWord p.toPairData w) i
-    (∀ f, a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
+    (∀ f, a.D.presentNeighbors a.y = {a.o, f} → a.o ≠ f →
       0 < responseBetaPrime a.D a.τ a.y a.o f ∧
       responseBetaPrime a.D a.τ a.y a.o f ≤ (betaPrimeBound straight : ℝ)) ∧
-    ∀ f g, a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    ∀ f g, a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
       0 < responseAlpha a.D a.τ a.y a.o f g ∧
       responseAlpha a.D a.τ a.y a.o f g ≤ (alphaBound straight : ℝ) ∧
       0 < responseBeta a.D a.τ a.y a.o f g ∧
@@ -182,13 +182,13 @@ theorem local_log_bound (hH1 : AKLT.Blueprint.Top.H1Statement)
     canonicalWord_vertex p.toPairData w (i.val + 1) (by omega)
   have hmapne {x z : Plane} (h : x ≠ z) : F.point x ≠ F.point z :=
     fun he => h (F.point.injective he)
-  have hpresent {z : Plane} (hz : z ∈ a.D.presentNeighbours a.y) : a.D.Present a.y z :=
+  have hpresent {z : Plane} (hz : z ∈ a.D.presentNeighbors a.y) : a.D.Present a.y z :=
     (Finset.mem_filter.mp hz).2
   change |Real.log (stepRatio a.D a.τ false a.y a.o) -
     Real.log (stepRatio a.D a.τ true a.y a.o)| ≤ _
   by_cases hU : a.D.status a.y = .U
   · have ht := prefix_coefficients hH1 p w hw i hU
-    rcases present_neighbour_cases a hU with hOne | ⟨f, hs, hof⟩ | ⟨f, g, hs, hof, hog, hfg⟩
+    rcases present_neighbor_cases a hU with hOne | ⟨f, hs, hof⟩ | ⟨f, g, hs, hof, hog, hfg⟩
     · have hh := AKLT.W.REC014.main a hU hOne
       rw [hh.1, hh.2]
       simpa only [sub_self, abs_zero] using localResponseReward_nonneg p.toPairData w i
@@ -214,17 +214,17 @@ theorem local_log_bound (hH1 : AKLT.Blueprint.Top.H1Statement)
       have hq₁ := pair_kernel_mem p w hw i hU hf hg hfg
       have hq₂ := pair_kernel_mem p w hw i hU hf hoP hof.symm
       have hq₃ := pair_kernel_mem p w hw i hU hg hoP hog.symm
-      have hfl : F.point f ∈ liveOtherNeighbours cw i :=
+      have hfl : F.point f ∈ liveOtherNeighbors cw i :=
         (Finset.mem_insert.mp (present_kernel_mem p w hw i hU hf)).resolve_left (by
           rw [ho]; exact hmapne hof.symm)
-      have hgl : F.point g ∈ liveOtherNeighbours cw i :=
+      have hgl : F.point g ∈ liveOtherNeighbors cw i :=
         (Finset.mem_insert.mp (present_kernel_mem p w hw i hU hg)).resolve_left (by
           rw [ho]; exact hmapne hog.symm)
-      have hcard : 2 ≤ (liveOtherNeighbours cw i).card := by
-        have hsub : ({F.point f, F.point g} : Finset Plane) ⊆ liveOtherNeighbours cw i :=
+      have hcard : 2 ≤ (liveOtherNeighbors cw i).card := by
+        have hsub : ({F.point f, F.point g} : Finset Plane) ⊆ liveOtherNeighbors cw i :=
           by simp only [Finset.insert_subset_iff, Finset.singleton_subset_iff]; exact ⟨hfl, hgl⟩
         simpa only [Finset.card_pair (hmapne hfg)] using Finset.card_le_card hsub
-      have hnotone : (liveOtherNeighbours cw i).card ≠ 1 := by omega
+      have hnotone : (liveOtherNeighbors cw i).card ≠ 1 := by omega
       have hc₁ : pairCoefficient cw i {F.point f, F.point g} = alphaBound straight := by
         simp only [pairCoefficient, ho, Finset.mem_insert, Finset.mem_singleton,
           hmapne hof, hmapne hog, or_self, ite_false]

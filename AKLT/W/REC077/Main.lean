@@ -32,7 +32,7 @@ theorem main : AKLT.Blueprint.Rec.TraceExposureStatement := by
       present := by
         have hp := (hdyn.2 i).2
         exact Finset.mem_filter.mpr
-          ⟨AKLT.W.REC039.adjacent_mem_neighbours hp.2.2.1, hp⟩ }
+          ⟨AKLT.W.REC039.adjacent_mem_neighbors hp.2.2.1, hp⟩ }
   let r (b : Bool) (i : Fin n) : ℝ :=
     stepRatio (prefixNetwork D u w i.val) τ b
       (wordVertex u w i.val) (wordVertex u w (i.val + 1))

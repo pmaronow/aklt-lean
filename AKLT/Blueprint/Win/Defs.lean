@@ -33,7 +33,7 @@ def ConnectedIn {α : Type*} (R : α → α → Prop) (S : Set α) : Prop :=
 def starBall (x : Plane) : Finset Plane :=
   (Finset.Icc (x.1 - 1) (x.1 + 1)).product (Finset.Icc (x.2 - 1) (x.2 + 1))
 
-def cross (x : Plane) : Finset Plane := insert x (neighbours x)
+def cross (x : Plane) : Finset Plane := insert x (neighbors x)
 
 def rawBoundary (U : Finset Plane) : Finset Plane :=
   (U.biUnion starBall) \ U
@@ -164,7 +164,7 @@ def RemovalStep (G Y : Finset Plane) (x : Plane) : Prop :=
   Y ⊆ G \ protectedSites G ∧ x ∈ G \ Y ∧ 3 ≤ boundaryDepth G x
 
 def survivors (G Y : Finset Plane) (x : Plane) : Finset Plane :=
-  neighbours x ∩ (G \ insert x Y)
+  neighbors x ∩ (G \ insert x Y)
 
 def depthShift (G : Finset Plane) (x : Plane) : ℕ := (boundaryDepth G x).toNat - 3
 
@@ -183,22 +183,22 @@ def partLaw (pinned : Bool) (G Y : Finset Plane) (τ : PinAssignment G) :
 def restEvent {D : Finset Plane} (V : Finset Plane) (σ ω : PlaneConfiguration D) : Prop :=
   ∀ z : D, z.val ∉ V → ω z = σ z
 
-def fibreMean {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane)
+def fiberMean {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane)
     (σ : PlaneConfiguration D) (f : PlaneConfiguration D → ℝ) : ℝ := by
   classical
   exact (∑ ω, if restEvent V σ ω then p ω * f ω else 0) / eventMass p (restEvent V σ)
 
-def fibreSpinMean {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane)
+def fiberSpinMean {D : Finset Plane} (p : Weight (PlaneConfiguration D)) (V : Finset Plane)
     (σ : PlaneConfiguration D) (z : Plane) : Vec3 :=
-  fun k => fibreMean p V σ (fun ω => extendIcoSpins ω z k)
+  fun k => fiberMean p V σ (fun ω => extendIcoSpins ω z k)
 
-def NeighbourControl {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+def NeighborControl {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) : Prop :=
   ∀ σ : PlaneConfiguration D, 0 < eventMass p (restEvent V σ) →
-    (∀ z ∈ V, normSq (fibreSpinMean p V σ z) ≤ (3 / 5 : ℝ)^2) ∧
+    (∀ z ∈ V, normSq (fiberSpinMean p V σ z) ≤ (3 / 5 : ℝ)^2) ∧
     ∀ z ∈ V, ∀ w ∈ V, z ≠ w →
-      fibreMean p V σ (fun ω => dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
-        dot (fibreSpinMean p V σ z) (fibreSpinMean p V σ w)
+      fiberMean p V σ (fun ω => dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
+        dot (fiberSpinMean p V σ z) (fiberSpinMean p V σ w)
 
 def frameSpins {D : Finset Plane} (κ : Plane → Fin 3)
     (σ : PlaneConfiguration D) (z : Plane) : Vec3 :=

@@ -17,7 +17,7 @@ theorem bondWeights_insert {G : Finset Plane} (D : Network G) (y : Plane)
       (D.spins (insertSpin D y hy j m) e.2))) =
     (∏ e ∈ (removeSite D y).bonds,
       (1 + dot ((removeSite D y).spins m e.1) ((removeSite D y).spins m e.2))) *
-    ∏ z ∈ D.presentNeighbours y, (1 + dot (spinVector j) ((removeSite D y).spins m z)) := by
+    ∏ z ∈ D.presentNeighbors y, (1 + dot (spinVector j) ((removeSite D y).spins m z)) := by
   classical
   let p : Plane × Plane → Prop := fun e => e.1 = y ∨ e.2 = y
   let F : Plane × Plane → ℝ := fun e =>
@@ -37,13 +37,13 @@ theorem bondWeights_insert {G : Finset Plane} (D : Network G) (y : Plane)
     exact congrArg (fun t : ℝ => 1 + t) (congrArg₂ dot
       (spins_insert_ne D y hy j m he'.2.1) (spins_insert_ne D y hy j m he'.2.2))
   have hinc : (∏ e ∈ D.bonds.filter p, F e) =
-      ∏ z ∈ D.presentNeighbours y,
+      ∏ z ∈ D.presentNeighbors y,
         (1 + dot (spinVector j) ((removeSite D y).spins m z)) := by
     rw [← incident_image D y, Finset.prod_image (incident_injective D y)]
     apply Finset.prod_congr rfl
     intro e he
     have hi := (Finset.mem_filter.mp (Finset.mem_filter.mp he).1).1
-    have hne := positive_neighbour_ne (mem_internalBonds.mp hi).2.2
+    have hne := positive_neighbor_ne (mem_internalBonds.mp hi).2.2
     by_cases he1 : e.1 = y
     · have he2 : e.2 ≠ y := by simpa [he1] using hne
       simp only [F, otherEndpoint, he1, ite_true,
@@ -82,7 +82,7 @@ theorem networkWeight_insert {G : Finset Plane} (D : Network G) (τ : PinAssignm
     (j : SpinLetter) (m : (removeSite D y).active → SpinLetter) :
     networkWeight D τ b (insertSpin D y hy j m) =
       networkWeight (removeSite D y) τ b m * spinWeight (D.status y) j *
-        ∏ z ∈ D.presentNeighbours y,
+        ∏ z ∈ D.presentNeighbors y,
           (1 + dot (spinVector j) ((removeSite D y).spins m z)) := by
   unfold networkWeight
   rw [siteWeights_insert, bondWeights_insert, legWeights_insert D τ b y hy hleg]
@@ -94,7 +94,7 @@ theorem partition_integrate_site {G : Finset Plane} (D : Network G) (τ : PinAss
     (hleg : ∀ e : originalLegs G, e.val.1 ≠ y) :
     D.partition τ b (fun _ => 1) =
       (removeSite D y).partition τ b (fun n => siteFunctional (D.status y)
-        (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)))) := by
+        (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)))) := by
   rw [partition_eq_sum_weight, ← Equiv.sum_comp (removalConfigEquiv D y hy).symm,
     Fintype.sum_prod_type, Finset.sum_comm, partition_eq_sum_weight]
   apply Finset.sum_congr rfl

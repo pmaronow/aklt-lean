@@ -48,11 +48,11 @@ private theorem responsePairType_image_tr (p : Finset Plane) (t : Plane) :
       exact congrArg (fun z : ℤ => z + t.2) h
 
 private def localLive (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) : Finset Plane :=
-  ((neighbours x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
+  ((neighbors x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
 
-private theorem neighbours_tr (x t : Plane) :
-    neighbours (x + t) = (neighbours x).image (tr t) := by
-  unfold neighbours tr
+private theorem neighbors_tr (x t : Plane) :
+    neighbors (x + t) = (neighbors x).image (tr t) := by
+  unfold neighbors tr
   rw [Finset.image_image]
   congr 1
   funext d
@@ -62,7 +62,7 @@ private theorem localLive_tr (x t : Plane) (incoming outgoing : Compass) (dead :
     localLive (x + t) incoming outgoing (dead.image (tr t)) =
       (localLive x incoming outgoing dead).image (tr t) := by
   unfold localLive
-  rw [neighbours_tr]
+  rw [neighbors_tr]
   have hin : (x + t) - incoming.step = tr t (x - incoming.step) := by
     dsimp [tr]
     simp [sub_eq_add_neg, add_assoc, add_left_comm, add_comm]
@@ -161,19 +161,19 @@ theorem relaxedReward_tr (x t : Plane) (incoming outgoing : Compass) (dead : Fin
 
 theorem relaxedReward_far (x : Plane) (incoming outgoing : Compass)
     (hx : ∀ d : Compass, x ≠ -d.step) :
-    relaxedReward x incoming outgoing {kernelCentre} =
+    relaxedReward x incoming outgoing {kernelCenter} =
       relaxedReward (0,0) incoming outgoing ∅ := by
-  have hnot : kernelCentre ∉ neighbours x := by
+  have hnot : kernelCenter ∉ neighbors x := by
     rintro h
     rcases Finset.mem_image.mp h with ⟨d, hd, he⟩
     apply hx d
     change x + d.step = 0 at he
     exact eq_neg_of_add_eq_zero_left he
-  have hnot' : kernelCentre ∉
-      ((neighbours x).erase (x - incoming.step)).erase (x + outgoing.step) := by
+  have hnot' : kernelCenter ∉
+      ((neighbors x).erase (x - incoming.step)).erase (x + outgoing.step) := by
     intro h
     exact hnot (Finset.mem_of_mem_erase (Finset.mem_of_mem_erase h))
-  have heq : relaxedReward x incoming outgoing {kernelCentre} =
+  have heq : relaxedReward x incoming outgoing {kernelCenter} =
       relaxedReward x incoming outgoing ∅ := by
     simp only [relaxedReward, Finset.sdiff_singleton_eq_erase,
       Finset.erase_eq_of_notMem hnot', Finset.sdiff_empty]

@@ -23,9 +23,9 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x y : Plane}
     (h : D.Present x y) : D.Present y x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem positive_neighbour_facts {x z : Plane} (h : z ∈ positiveNeighbours x) :
-    x ≠ z ∧ z ∈ neighbours x ∧ x ∈ neighbours z := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem positive_neighbor_facts {x z : Plane} (h : z ∈ positiveNeighbors x) :
+    x ≠ z ∧ z ∈ neighbors x ∧ x ∈ neighbors z := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · refine ⟨by simp [Prod.ext_iff], ?_, ?_⟩
     · exact Finset.mem_image.mpr ⟨Compass.east, Finset.mem_univ _, by simp [Compass.step, Prod.ext_iff]⟩
@@ -35,14 +35,14 @@ theorem positive_neighbour_facts {x z : Plane} (h : z ∈ positiveNeighbours x) 
     · exact Finset.mem_image.mpr ⟨Compass.south, Finset.mem_univ _, by simp [Compass.step, Prod.ext_iff]⟩
 
 theorem bond_facts {G : Finset Plane} {D : Network G} {e : Plane × Plane}
-    (he : e ∈ D.bonds) : e.1 ≠ e.2 ∧ e.2 ∈ D.presentNeighbours e.1 ∧
-      e.1 ∈ D.presentNeighbours e.2 := by
+    (he : e ∈ D.bonds) : e.1 ≠ e.2 ∧ e.2 ∈ D.presentNeighbors e.1 ∧
+      e.1 ∈ D.presentNeighbors e.2 := by
   have hp := (Finset.mem_filter.mp he).2
   obtain ⟨x, _, he'⟩ := Finset.mem_biUnion.mp (Finset.mem_filter.mp he).1
   obtain ⟨z, hz, heq⟩ := Finset.mem_image.mp he'
   have hx : x = e.1 := congrArg Prod.fst heq
   have hzz : z = e.2 := congrArg Prod.snd heq
-  have hh := positive_neighbour_facts (Finset.mem_inter.mp hz).1
+  have hh := positive_neighbor_facts (Finset.mem_inter.mp hz).1
   subst x z
   exact ⟨hh.1, Finset.mem_filter.mpr ⟨hh.2.1, hp⟩,
     Finset.mem_filter.mpr ⟨hh.2.2, present_symm hp⟩⟩
@@ -52,15 +52,15 @@ theorem bond_order {G : Finset Plane} {D : Network G} {e : Plane × Plane}
   obtain ⟨x, _, he'⟩ := Finset.mem_biUnion.mp (Finset.mem_filter.mp he).1
   obtain ⟨z, hz, heq⟩ := Finset.mem_image.mp he'
   have hh := (Finset.mem_inter.mp hz).1
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hh
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hh
   rcases hh with rfl | rfl <;> cases heq <;> dsimp <;> omega
 
 theorem exists_selected_bond {G : Finset Plane} {D : Network G} {y o : Plane}
-    (ho : o ∈ D.presentNeighbours y) :
+    (ho : o ∈ D.presentNeighbors y) :
     ∃ e ∈ D.bonds, e = (y,o) ∨ e = (o,y) := by
   have hp := (Finset.mem_filter.mp ho).2
   obtain ⟨d, _, hd⟩ := Finset.mem_image.mp (Finset.mem_filter.mp ho).1
-  have hpos {x z : Plane} (h : D.Present x z) (hz : z ∈ positiveNeighbours x) :
+  have hpos {x z : Plane} (h : D.Present x z) (hz : z ∈ positiveNeighbors x) :
       (x,z) ∈ D.bonds := by
     refine Finset.mem_filter.mpr ⟨?_, h⟩
     exact Finset.mem_biUnion.mpr ⟨x, (Finset.mem_filter.mp h.1).1,
@@ -68,12 +68,12 @@ theorem exists_selected_bond {G : Finset Plane} {D : Network G} {y o : Plane}
         Finset.mem_inter.mpr ⟨hz, (Finset.mem_filter.mp h.2.1).1⟩, rfl⟩⟩
   subst o
   cases d
-  · exact ⟨(y, y + Compass.east.step), hpos hp (by simp [positiveNeighbours, Compass.step, Prod.ext_iff]), Or.inl rfl⟩
-  · exact ⟨(y, y + Compass.north.step), hpos hp (by simp [positiveNeighbours, Compass.step, Prod.ext_iff]), Or.inl rfl⟩
+  · exact ⟨(y, y + Compass.east.step), hpos hp (by simp [positiveNeighbors, Compass.step, Prod.ext_iff]), Or.inl rfl⟩
+  · exact ⟨(y, y + Compass.north.step), hpos hp (by simp [positiveNeighbors, Compass.step, Prod.ext_iff]), Or.inl rfl⟩
   · exact ⟨(y + Compass.west.step, y), hpos (present_symm hp)
-      (by simp [positiveNeighbours, Compass.step, Prod.ext_iff]), Or.inr rfl⟩
+      (by simp [positiveNeighbors, Compass.step, Prod.ext_iff]), Or.inr rfl⟩
   · exact ⟨(y + Compass.south.step, y), hpos (present_symm hp)
-      (by simp [positiveNeighbours, Compass.step, Prod.ext_iff]), Or.inr rfl⟩
+      (by simp [positiveNeighbors, Compass.step, Prod.ext_iff]), Or.inr rfl⟩
 
 @[simp] theorem remove_active {G : Finset Plane} (D : Network G) (y x : Plane) :
     x ∈ (removeSite D y).active ↔ x ∈ D.active ∧ x ≠ y := by
@@ -110,7 +110,7 @@ theorem trace_remove_bonds {G : Finset Plane} (D : Network G) (y o : Plane)
   rfl
 
 theorem remove_bonds_erase {G : Finset Plane} {D : Network G} {y o : Plane}
-    (hs : D.presentNeighbours y = {o}) {e : Plane × Plane} (he : e ∈ D.bonds)
+    (hs : D.presentNeighbors y = {o}) {e : Plane × Plane} (he : e ∈ D.bonds)
     (hed : e = (y,o) ∨ e = (o,y)) : (removeSite D y).bonds = D.bonds.erase e := by
   have hi (t : Plane × Plane) (ht : t ∈ D.bonds) :
       t.1 = y ∨ t.2 = y → t = e := by

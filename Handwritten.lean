@@ -699,13 +699,13 @@ public import AKLT.W.REC003.Weights
 public import AKLT.W.REC004.Algebra
 public import AKLT.W.REC004.Conditioning
 public import AKLT.W.REC004.Expansion
-public import AKLT.W.REC004.FibreExpansion
+public import AKLT.W.REC004.FiberExpansion
 public import AKLT.W.REC004.Free
 public import AKLT.W.REC004.Geometry
 public import AKLT.W.REC004.Local
 public import AKLT.W.REC004.Main
 public import AKLT.W.REC005.Bounds
-public import AKLT.W.REC005.Fibres
+public import AKLT.W.REC005.Fibers
 public import AKLT.W.REC005.Free
 public import AKLT.W.REC005.Geometry
 public import AKLT.W.REC005.Graph
@@ -727,7 +727,7 @@ public import AKLT.W.REC011.Monotone
 public import AKLT.W.REC011.Reindex
 public import AKLT.W.REC012.Ambient
 public import AKLT.W.REC012.Comparison
-public import AKLT.W.REC012.Fibres
+public import AKLT.W.REC012.Fibers
 public import AKLT.W.REC012.Geometry
 public import AKLT.W.REC012.Local
 public import AKLT.W.REC012.LocalProducts
@@ -779,7 +779,7 @@ public import AKLT.W.REC019.NetworkBounds
 public import AKLT.W.REC019.R4.Algebra
 public import AKLT.W.REC019.R4.Conditioning
 public import AKLT.W.REC019.R4.Expansion
-public import AKLT.W.REC019.R4.FibreExpansion
+public import AKLT.W.REC019.R4.FiberExpansion
 public import AKLT.W.REC019.R4.Free
 public import AKLT.W.REC019.R4.Geometry
 public import AKLT.W.REC019.R4.Local
@@ -791,7 +791,7 @@ public import AKLT.W.REC020.Main
 public import AKLT.W.REC021.Conditioning
 public import AKLT.W.REC021.DepartureBound
 public import AKLT.W.REC021.Disintegration
-public import AKLT.W.REC021.Fibres
+public import AKLT.W.REC021.Fibers
 public import AKLT.W.REC021.FreePositivity
 public import AKLT.W.REC021.Geometry
 public import AKLT.W.REC021.LocalBounds
@@ -835,7 +835,7 @@ public import AKLT.W.REC042.Site
 public import AKLT.W.REC043.Bonds
 public import AKLT.W.REC043.Enumeration
 public import AKLT.W.REC043.Factors
-public import AKLT.W.REC043.Fibres
+public import AKLT.W.REC043.Fibers
 public import AKLT.W.REC043.Iteration
 public import AKLT.W.REC043.LocalStep
 public import AKLT.W.REC043.Main
@@ -919,7 +919,7 @@ public import AKLT.W.REC082.Normalization
 public import AKLT.W.REC082.PE.Bonds
 public import AKLT.W.REC082.PE.Enumeration
 public import AKLT.W.REC082.PE.Factors
-public import AKLT.W.REC082.PE.Fibres
+public import AKLT.W.REC082.PE.Fibers
 public import AKLT.W.REC082.PE.Iteration
 public import AKLT.W.REC082.PE.LocalStep
 public import AKLT.W.REC082.PE.Main
@@ -945,7 +945,7 @@ public import AKLT.W.REC089.CutBonds
 public import AKLT.W.REC089.CutGeometry
 public import AKLT.W.REC089.Disintegration
 public import AKLT.W.REC089.ExternalFields
-public import AKLT.W.REC089.FibreFactors
+public import AKLT.W.REC089.FiberFactors
 public import AKLT.W.REC089.FiniteSums
 public import AKLT.W.REC089.InteriorCoordinates
 public import AKLT.W.REC089.InternalBonds

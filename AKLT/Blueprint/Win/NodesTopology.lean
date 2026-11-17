@@ -160,7 +160,7 @@ def CrossUnionStatement : Prop :=
     ConnectedIn Adjacent (↑(thicken X₀))
 
 /-- `l:thicken`, app-topology.tex:169–173. Finite complementary distances are 1-Lipschitz. For positive θ<1, moving one step multiplies θ^depth by at most θ⁻¹, including depth zero. -/
-def NeighbourDecayStatement : Prop :=
+def NeighborDecayStatement : Prop :=
   ∀ G : Finset Plane, ∀ θ : ℝ, 0 < θ → θ < 1 →
     ∀ x z : Plane, latticeDist z x ≤ 1 →
       decay θ (boundaryDepth G z) ≤ θ⁻¹ * decay θ (boundaryDepth G x)

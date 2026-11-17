@@ -28,7 +28,7 @@ lemma productWeight_probability (π : (i : ι) → Weight (S i))
     rw [← Fintype.prod_sum]
     simp only [fun i => (hπ i).2, Finset.prod_const_one]
 
-private lemma sum_single_fibre {R : Type} [AddCommMonoid R] (i : ι) (σ : Config S)
+private lemma sum_single_fiber {R : Type} [AddCommMonoid R] (i : ι) (σ : Config S)
     (g : Config S → R) :
     (∑ τ, if AgreeOutside {i} σ τ then g τ else 0) =
       ∑ a, g (Function.update σ i a) := by
@@ -87,7 +87,7 @@ private lemma ce_product (π : (i : ι) → Weight (S i))
   have hsum : (∑ a, (π i a : ℂ)) = 1 := by
     rw [← Complex.ofReal_sum, (hπ i).2, Complex.ofReal_one]
   unfold conditionalExpectation
-  rw [sum_single_fibre, sum_single_fibre]
+  rw [sum_single_fiber, sum_single_fiber]
   simp_rw [productWeight_update, Complex.ofReal_mul]
   change (∑ a, ((π i a : ℂ) * (C : ℂ)) * f (Function.update σ i a)) /
     (∑ a, (π i a : ℂ) * (C : ℂ)) = coordinateAverage π i f σ

@@ -49,7 +49,7 @@ theorem reduction_inj_halo (L N : Size) (M : ℕ)
 
 theorem coordinates_image {L N : Size} {M : ℕ} {a : Site L N}
     {κ : Site L N → Fin 3} (C : BoxCoordinates L N M a κ) :
-    (square C.centre M).image (reduction L N) = torusSquare L N M a := by
+    (square C.center M).image (reduction L N) = torusSquare L N M a := by
   ext x
   constructor
   · rintro hx
@@ -82,9 +82,9 @@ theorem adjacent_iff_steps (x y : Plane) : Adjacent x y ↔
   · rintro (rfl | rfl | rfl | rfl) <;>
       simp [Adjacent, latticeDist]
 
-theorem mem_neighbours_iff (x y : Plane) : y ∈ neighbours x ↔ Adjacent x y := by
+theorem mem_neighbors_iff (x y : Plane) : y ∈ neighbors x ↔ Adjacent x y := by
   rw [adjacent_iff_steps]
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · rintro ⟨d, rfl⟩
     cases d <;> simp [Compass.step, Prod.add_def]
@@ -95,7 +95,7 @@ theorem mem_neighbours_iff (x y : Plane) : y ∈ neighbours x ↔ Adjacent x y :
     · exact ⟨.south, by rw [h]; simp [Compass.step, Prod.add_def]⟩
 
 @[simp] theorem mem_internalBonds (W : Finset Plane) (e : Plane × Plane) :
-    e ∈ internalBonds W ↔ e.1 ∈ W ∧ e.2 ∈ W ∧ e.2 ∈ positiveNeighbours e.1 := by
+    e ∈ internalBonds W ↔ e.1 ∈ W ∧ e.2 ∈ W ∧ e.2 ∈ positiveNeighbors e.1 := by
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter]
   constructor
   · rintro ⟨x,hx,y,⟨hy,hyW⟩,rfl⟩
@@ -108,13 +108,13 @@ theorem mem_neighbours_iff (x y : Plane) : y ∈ neighbours x ↔ Adjacent x y :
   simp only [originalLegs, Finset.mem_biUnion, Finset.mem_image, Finset.mem_sdiff]
   constructor
   · rintro ⟨x,hx,y,⟨hy,hyW⟩,rfl⟩
-    exact ⟨hx,hyW,(mem_neighbours_iff x y).mp hy⟩
+    exact ⟨hx,hyW,(mem_neighbors_iff x y).mp hy⟩
   · rintro ⟨hx,hy,he⟩
-    exact ⟨e.1,hx,e.2,⟨(mem_neighbours_iff e.1 e.2).mpr he,hy⟩,rfl⟩
+    exact ⟨e.1,hx,e.2,⟨(mem_neighbors_iff e.1 e.2).mpr he,hy⟩,rfl⟩
 
-theorem positive_adjacent {x y : Plane} (h : y ∈ positiveNeighbours x) : Adjacent x y := by
+theorem positive_adjacent {x y : Plane} (h : y ∈ positiveNeighbors x) : Adjacent x y := by
   apply (adjacent_iff_steps x y).mpr
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   tauto
 
 theorem adjacent_in_halo {a x y : Plane} {M : ℕ}
@@ -160,15 +160,15 @@ theorem edgeBond_sites (L N : Size) {e : Plane × Plane} (h : Adjacent e.1 e.2) 
   simp only [edgeBond, dite_eq_left he]
   exact Classical.choose_spec he
 
-theorem positive_asymm {x y : Plane} (hxy : y ∈ positiveNeighbours x)
-    (hyx : x ∈ positiveNeighbours y) : False := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hxy hyx
+theorem positive_asymm {x y : Plane} (hxy : y ∈ positiveNeighbors x)
+    (hyx : x ∈ positiveNeighbors y) : False := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hxy hyx
   rcases hxy with hxy | hxy <;> rcases hyx with hyx | hyx <;>
     have h1 := congrArg Prod.fst hxy <;> have h2 := congrArg Prod.snd hxy <;>
     have h3 := congrArg Prod.fst hyx <;> have h4 := congrArg Prod.snd hyx <;> dsimp at * <;> omega
 
 theorem planeEdges_positive {W : Finset Plane} {e : Plane × Plane}
-    (h : e ∈ planeEdges W) (hy : e.2 ∈ W) : e.2 ∈ positiveNeighbours e.1 := by
+    (h : e ∈ planeEdges W) (hy : e.2 ∈ W) : e.2 ∈ positiveNeighbors e.1 := by
   rcases Finset.mem_union.mp h with h | h
   · exact ((mem_internalBonds W e).mp h).2.2
   · exact (((mem_originalLegs W e).mp h).2.1 hy).elim
@@ -228,13 +228,13 @@ theorem internal_edge_exists {W : Finset Plane} {x y : Plane}
     ∃ e ∈ internalBonds W, ({e.1,e.2} : Finset Plane) = {x,y} := by
   rcases (adjacent_iff_steps x y).mp hxy with h | h | h | h
   · refine ⟨(x,y), (mem_internalBonds W _).mpr ⟨hx,hy,?_⟩, rfl⟩
-    simp [positiveNeighbours,h]
+    simp [positiveNeighbors,h]
   · refine ⟨(x,y), (mem_internalBonds W _).mpr ⟨hx,hy,?_⟩, rfl⟩
-    simp [positiveNeighbours,h]
+    simp [positiveNeighbors,h]
   · refine ⟨(y,x), (mem_internalBonds W _).mpr ⟨hy,hx,?_⟩, Finset.pair_comm _ _⟩
-    simp [positiveNeighbours,h]
+    simp [positiveNeighbors,h]
   · refine ⟨(y,x), (mem_internalBonds W _).mpr ⟨hy,hx,?_⟩, Finset.pair_comm _ _⟩
-    simp [positiveNeighbours,h]
+    simp [positiveNeighbors,h]
 
 /-- The exact lifted bond hypotheses make the reduction onto the local torus bonds. -/
 theorem edgeBond_surjective (L N : Size) (M : ℕ) (a : Plane)

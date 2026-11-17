@@ -36,7 +36,7 @@ structure Departure where
   o : Plane
   auxiliary : D.Auxiliary
   start : D.AdmissibleStart y
-  present : o ∈ D.presentNeighbours y
+  present : o ∈ D.presentNeighbors y
 
 /-- The pinned-minus-free scalar-product response after deleting the passage site. -/
 def pairResponse {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
@@ -64,11 +64,11 @@ def ResponseTypedStatementV2 : Prop :=
     ∀ incoming outgoing : Compass, CoveredDepartureV2 D y incoming outgoing →
     let o := y + outgoing.step
     let straight := decide (outgoing = incoming)
-    (∀ f : Plane, D.presentNeighbours y = {o, f} → o ≠ f →
+    (∀ f : Plane, D.presentNeighbors y = {o, f} → o ≠ f →
       0 < responseBetaPrime D τ y o f ∧
       responseBetaPrime D τ y o f ≤ (betaPrimeBound straight : ℝ) ∧
       responseBetaPrime D τ y o f ≤ reciprocalLogMean (localThreshold straight : ℝ) / 3) ∧
-    ∀ f g : Plane, D.presentNeighbours y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
+    ∀ f g : Plane, D.presentNeighbors y = {o, f, g} → o ≠ f → o ≠ g → f ≠ g →
       0 < responseAlpha D τ y o f g ∧ responseAlpha D τ y o f g ≤ (alphaBound straight : ℝ) ∧
       0 < responseBeta D τ y o f g ∧ responseBeta D τ y o f g ≤ (betaBound straight : ℝ) ∧
       responseBeta D τ y o f g ≤ reciprocalLogMean ((116 / 125) * (localThreshold straight : ℝ)) / 3 ∧

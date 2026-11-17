@@ -48,13 +48,13 @@ theorem knownDirection_iff (d₀ : Compass) (x : Plane) (d : Compass)
 
 theorem scalarDirection_semantics {m q : Nat} (Q : MemoryQuotient m q) (hQ : Q.Correct)
     (X : PairType) (d₀ : Compass) (φ : Phase) (a : Fin q) (x : Plane) (d : Compass)
-    (hc : x ≠ kernelCentre) (ht : x ≠ kernelTarget X) (v : Phase → Nat)
-    (hz : x + d.step = kernelCentre → ∀ ψ, v ψ = 0) :
+    (hc : x ≠ kernelCenter) (ht : x ≠ kernelTarget X) (v : Phase → Nat)
+    (hz : x + d.step = kernelCenter → ∀ ψ, v ψ = 0) :
     scalarDirection Q d₀ φ a x d v =
       ∑ ψ : Phase, coefficientCeiling (stationaryCoefficient Q X d₀ φ a x d ψ) * v ψ := by
   by_cases ha : Q.allowed a d = true
   · have haf : Q.allowed a d ≠ false := by rw [ha]; decide
-    by_cases hdest : x + d.step = kernelCentre
+    by_cases hdest : x + d.step = kernelCenter
     · have hv := hz hdest
       simp [scalarDirection, ha, hv]
     by_cases hks : knownSite d₀ x
@@ -75,7 +75,7 @@ theorem scalarDirection_semantics {m q : Nat} (Q : MemoryQuotient m q) (hQ : Q.C
       intro h; rcases h with ⟨h,_⟩ | ⟨h,_⟩ <;> apply hks <;> simp_all [knownSite]
     rw [show (∑ ψ : Phase, coefficientCeiling (stationaryCoefficient Q X d₀ φ a x d ψ) * v ψ) =
         ∑ ψ : Phase, coefficientCeiling (phaseTransition (Q.kind a d)
-          (relaxedReward x (Q.arrival a) d {kernelCentre}) φ ψ) * v ψ by
+          (relaxedReward x (Q.arrival a) d {kernelCenter}) φ ψ) * v ψ by
       simp only [stationaryCoefficient, hc, ht, haf, false_or, ↓reduceIte,
         show ¬(x=kernelStart ∨ x=kernelStart+d₀.step) from hks, hdest, Bool.true_eq_false]]
     rw [phase_sum]

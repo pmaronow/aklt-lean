@@ -11,8 +11,8 @@ open AKLT.Defs
 
 namespace AKLT.W.MOM033
 
-private def fibreEquiv {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter) :
-    SpinLetter ≃ {τ : Fin n → SpinLetter // AKLT.Blueprint.Mom.oneSiteFibre x σ τ} where
+private def fiberEquiv {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter) :
+    SpinLetter ≃ {τ : Fin n → SpinLetter // AKLT.Blueprint.Mom.oneSiteFiber x σ τ} where
   toFun a := ⟨Function.update σ x a, by
     intro z hz
     exact Function.update_of_ne (a := z) (a' := x) hz a σ⟩
@@ -29,21 +29,21 @@ private def fibreEquiv {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter) :
       rw [Function.update_of_ne (a := z) (a' := x) hz]
       exact (τ.2 z hz).symm
 
-private theorem sum_fibre {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter)
+private theorem sum_fiber {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter)
     (f : (Fin n → SpinLetter) → ℝ)
-    [DecidablePred (fun τ : Fin n → SpinLetter => AKLT.Blueprint.Mom.oneSiteFibre x σ τ)] :
-    (∑ τ, if AKLT.Blueprint.Mom.oneSiteFibre x σ τ then f τ else 0) =
+    [DecidablePred (fun τ : Fin n → SpinLetter => AKLT.Blueprint.Mom.oneSiteFiber x σ τ)] :
+    (∑ τ, if AKLT.Blueprint.Mom.oneSiteFiber x σ τ then f τ else 0) =
       ∑ a : SpinLetter, f (Function.update σ x a) := by
   classical
   rw [Finset.sum_ite]
   simp only [Finset.sum_const_zero, add_zero]
   change (∑ τ ∈ Finset.univ.filter (fun τ : Fin n → SpinLetter =>
-    AKLT.Blueprint.Mom.oneSiteFibre x σ τ), f τ) = _
+    AKLT.Blueprint.Mom.oneSiteFiber x σ τ), f τ) = _
   rw [@Finset.sum_subtype _ _ _ (fun τ : Fin n → SpinLetter =>
-    AKLT.Blueprint.Mom.oneSiteFibre x σ τ) _ (Finset.univ.filter fun τ : Fin n → SpinLetter =>
-    AKLT.Blueprint.Mom.oneSiteFibre x σ τ) (by intro τ; simp) f]
+    AKLT.Blueprint.Mom.oneSiteFiber x σ τ) _ (Finset.univ.filter fun τ : Fin n → SpinLetter =>
+    AKLT.Blueprint.Mom.oneSiteFiber x σ τ) (by intro τ; simp) f]
   symm
-  exact Fintype.sum_equiv (fibreEquiv x σ) (fun a => f (Function.update σ x a))
+  exact Fintype.sum_equiv (fiberEquiv x σ) (fun a => f (Function.update σ x a))
     (fun τ => f τ.1) (by intro a; rfl)
 
 
@@ -125,7 +125,7 @@ private theorem dot_comm3 (a b : Vec3) : dot a b = dot b a := by
 
 private theorem incident_factor {n : ℕ} (D : FiniteSpinNetwork n)
     (hD : D.Valid) (x : Fin n) (σ τ : Fin n → SpinLetter)
-    (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ)
+    (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ)
     (e : Fin n × Fin n) (heB : e ∈ D.bonds) (heI : incidentAt x e) :
     1 + dot (spinVector (τ e.1)) (spinVector (τ e.2)) =
       1 + dot (spinVector (τ x)) (spinVector (edgeNeighbor x σ e)) := by
@@ -144,13 +144,13 @@ private theorem incident_factor {n : ℕ} (D : FiniteSpinNetwork n)
     simp [hother, hsecond, hfixed]
     rw [dot_comm3]
 
-private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
+private theorem fiber_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
     (hD : D.Valid) (pinned : Bool) (x : Fin n) (hpin : D.pinCount x = 0)
     (hdeg : (D.bonds.filter (fun e => e.1 = x ∨ e.2 = x)).card ≤ 3)
     (σ : Fin n → SpinLetter) :
     ∃ k : ℕ, k ≤ 3 ∧ ∃ a : Fin k → Vec3,
       (∀ j, normSq (a j) ≤ 1) ∧ ∃ C : ℝ, ∀ τ,
-        AKLT.Blueprint.Mom.oneSiteFibre x σ τ →
+        AKLT.Blueprint.Mom.oneSiteFiber x σ τ →
         D.weight pinned τ = C *
           (spinWeight (D.status x) (τ x) * localProduct a (spinVector (τ x))) := by
   classical
@@ -174,7 +174,7 @@ private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
   let pinExt : ℝ := ∏ z ∈ Finset.univ.erase x, ∏ j : Fin (D.pinCount z),
     if pinned then 1 + dot (D.pin z j).val (spinVector (σ z)) else 1
   let C := siteExt * edgeExt * pinExt
-  have hlocal (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ) :
+  have hlocal (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ) :
       localProduct a (spinVector (τ x)) =
         ∏ e ∈ I, (1 + dot (spinVector (τ x)) (spinVector (edgeNeighbor x σ e))) := by
     unfold localProduct
@@ -191,7 +191,7 @@ private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
           simpa using (Finset.prod_coe_sort I
             (fun e : Fin n × Fin n => 1 + dot (spinVector (τ x))
               (spinVector (edgeNeighbor x σ e))))
-  have hsite (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ) :
+  have hsite (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ) :
       (∏ z, spinWeight (D.status z) (τ z)) =
         spinWeight (D.status x) (τ x) * siteExt := by
     rw [← Finset.mul_prod_erase Finset.univ (fun z => spinWeight (D.status z) (τ z))
@@ -202,7 +202,7 @@ private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
     intro z hz
     have hzx : z ≠ x := (Finset.mem_erase.mp hz).1
     rw [hτ z hzx]
-  have hedge (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ) :
+  have hedge (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ) :
       (∏ e ∈ D.bonds, (1 + dot (spinVector (τ e.1)) (spinVector (τ e.2)))) =
         (∏ e ∈ I, (1 + dot (spinVector (τ e.1)) (spinVector (τ e.2)))) * edgeExt := by
     rw [← Finset.prod_filter_mul_prod_filter_not D.bonds (incidentAt x)
@@ -215,7 +215,7 @@ private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
     have he1 : e.1 ≠ x := by intro hx; exact hnot (Or.inl hx)
     have he2 : e.2 ≠ x := by intro hx; exact hnot (Or.inr hx)
     rw [hτ e.1 he1, hτ e.2 he2]
-  have hpinprod (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ) :
+  have hpinprod (τ : Fin n → SpinLetter) (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ) :
       (∏ z, ∏ j : Fin (D.pinCount z),
         if pinned then 1 + dot (D.pin z j).val (spinVector (τ z)) else 1) = pinExt := by
     rw [← Finset.mul_prod_erase Finset.univ
@@ -235,7 +235,7 @@ private theorem fibre_weight_factorization {n : ℕ} (D : FiniteSpinNetwork n)
     intro j hj
     rw [hτ z hzx]
   have hincidentProd (τ : Fin n → SpinLetter)
-      (hτ : AKLT.Blueprint.Mom.oneSiteFibre x σ τ) :
+      (hτ : AKLT.Blueprint.Mom.oneSiteFiber x σ τ) :
       (∏ e ∈ I, (1 + dot (spinVector (τ e.1)) (spinVector (τ e.2)))) =
         ∏ e ∈ I, (1 + dot (spinVector (τ x)) (spinVector (edgeNeighbor x σ e))) := by
     apply Finset.prod_congr rfl
@@ -293,9 +293,9 @@ theorem normalized_indicator_sum {α : Type} [Fintype α]
       exact Finset.sum_div Finset.univ (fun x => if E x then w x * g x else 0)
         (∑ y, w y)
 
-private theorem update_fibre {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter)
+private theorem update_fiber {n : ℕ} (x : Fin n) (σ : Fin n → SpinLetter)
     (u : SpinLetter) :
-    AKLT.Blueprint.Mom.oneSiteFibre x σ (Function.update σ x u) := by
+    AKLT.Blueprint.Mom.oneSiteFiber x σ (Function.update σ x u) := by
   intro z hz
   exact Function.update_of_ne (a := z) (a' := x) hz u σ
 
@@ -307,7 +307,7 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
   classical
   intro n D hD pinned x hpin hdeg σ hMass
   obtain ⟨k, hk, fields, hfields, C, hfactor⟩ :=
-    fibre_weight_factorization D hD pinned x hpin hdeg σ
+    fiber_weight_factorization D hD pinned x hpin hdeg σ
   let Z : ℝ := ∑ τ, D.weight pinned τ
   have hZnon : 0 ≤ Z := by
     dsimp [Z]
@@ -316,7 +316,7 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
     intro hz
     have hzsum : (∑ τ, D.weight pinned τ) = 0 := by simpa [Z] using hz
     have hzero : eventMass (AKLT.Defs.normalize (D.weight pinned))
-        (AKLT.Blueprint.Mom.oneSiteFibre x σ) = 0 := by
+        (AKLT.Blueprint.Mom.oneSiteFiber x σ) = 0 := by
       unfold eventMass
       simp [AKLT.Defs.normalize, hzsum]
     exact (ne_of_gt hMass) hzero
@@ -324,13 +324,13 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
     rcases lt_or_eq_of_le hZnon with h | h
     · exact h
     · exact False.elim (hZne h.symm)
-  let M : ℝ := ∑ τ, if AKLT.Blueprint.Mom.oneSiteFibre x σ τ then
+  let M : ℝ := ∑ τ, if AKLT.Blueprint.Mom.oneSiteFiber x σ τ then
     D.weight pinned τ else 0
   have hmassNorm : eventMass (AKLT.Defs.normalize (D.weight pinned))
-      (AKLT.Blueprint.Mom.oneSiteFibre x σ) = M / Z := by
+      (AKLT.Blueprint.Mom.oneSiteFiber x σ) = M / Z := by
     simpa [eventMass, M, Z] using
       AKLT.W.MOM033.normalized_indicator_sum
-        (AKLT.Blueprint.Mom.oneSiteFibre x σ) (D.weight pinned) (fun _ => 1) hZne
+        (AKLT.Blueprint.Mom.oneSiteFiber x σ) (D.weight pinned) (fun _ => 1) hZne
   have hMpos : 0 < M := by
     have hdiv : 0 < M / Z := by rw [← hmassNorm]; exact hMass
     rcases (div_pos_iff.mp hdiv) with ⟨hM, hZ⟩ | ⟨hM, hZ⟩
@@ -341,14 +341,14 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
   let A : ℝ := siteFunctional (D.status x) (localProduct fields)
   have hMfactor : M = C * A := by
     dsimp [M]
-    rw [sum_fibre x σ (fun τ => D.weight pinned τ)]
+    rw [sum_fiber x σ (fun τ => D.weight pinned τ)]
     calc
       (∑ u : SpinLetter, D.weight pinned (Function.update σ x u)) =
           ∑ u : SpinLetter, C *
             (spinWeight (D.status x) u * localProduct fields (spinVector u)) := by
           apply Finset.sum_congr rfl
           intro u hu
-          rw [hfactor _ (update_fibre x σ u)]
+          rw [hfactor _ (update_fiber x σ u)]
           simp [Function.update_self]
       _ = C * A := by
           unfold A siteFunctional
@@ -366,13 +366,13 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
   have hCne : C ≠ 0 := ne_of_gt hCpos
   refine ⟨k, hk, fields, hfields, hApos, ?_⟩
   funext i
-  let N : ℝ := ∑ τ, if AKLT.Blueprint.Mom.oneSiteFibre x σ τ then
+  let N : ℝ := ∑ τ, if AKLT.Blueprint.Mom.oneSiteFiber x σ τ then
     D.weight pinned τ * spinVector (τ x) i else 0
   let B : ℝ := siteFunctional (D.status x)
     (fun v => v i * localProduct fields v)
   have hNfactor : N = C * B := by
     dsimp [N]
-    rw [sum_fibre x σ (fun τ => D.weight pinned τ * spinVector (τ x) i)]
+    rw [sum_fiber x σ (fun τ => D.weight pinned τ * spinVector (τ x) i)]
     calc
       (∑ u : SpinLetter,
         D.weight pinned (Function.update σ x u) * spinVector
@@ -382,7 +382,7 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
               spinVector u i := by
           apply Finset.sum_congr rfl
           intro u hu
-          rw [hfactor _ (update_fibre x σ u)]
+          rw [hfactor _ (update_fiber x σ u)]
           simp [Function.update_self]
       _ = C * B := by
           unfold B siteFunctional
@@ -391,14 +391,14 @@ theorem main : AKLT.Blueprint.Mom.OneSiteConditionalReductionStatement := by
           intro u hu
           ring
   have hnumNorm :
-      (∑ τ, if AKLT.Blueprint.Mom.oneSiteFibre x σ τ then
+      (∑ τ, if AKLT.Blueprint.Mom.oneSiteFiber x σ τ then
         AKLT.Defs.normalize (D.weight pinned) τ * spinVector (τ x) i else 0) = N / Z := by
-    rw [AKLT.W.MOM033.normalized_indicator_sum (AKLT.Blueprint.Mom.oneSiteFibre x σ)
+    rw [AKLT.W.MOM033.normalized_indicator_sum (AKLT.Blueprint.Mom.oneSiteFiber x σ)
       (D.weight pinned) (fun τ => spinVector (τ x) i) hZne]
   change
-    ((∑ τ, if AKLT.Blueprint.Mom.oneSiteFibre x σ τ then
+    ((∑ τ, if AKLT.Blueprint.Mom.oneSiteFiber x σ τ then
         AKLT.Defs.normalize (D.weight pinned) τ * spinVector (τ x) i else 0) /
-      eventMass (AKLT.Defs.normalize (D.weight pinned)) (AKLT.Blueprint.Mom.oneSiteFibre x σ)) =
+      eventMass (AKLT.Defs.normalize (D.weight pinned)) (AKLT.Blueprint.Mom.oneSiteFiber x σ)) =
       (siteFunctional (D.status x) (fun v => v i * localProduct fields v)) /
         siteFunctional (D.status x) (localProduct fields)
   rw [hnumNorm, hmassNorm, hNfactor, hMfactor]

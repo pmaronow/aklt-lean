@@ -18,19 +18,19 @@ namespace AKLT.Blueprint.H3
 Away from a destination equal to the center the corrected guard has no effect. Prove by
 splitting the current-terminal/admissibility and known-site guards. No correctness or
 nonnegativity premise is needed: the assertion compares the literal rational definitions. -/
-def StationaryCoefficientOffCentreStatementV2 : Prop :=
+def StationaryCoefficientOffCenterStatementV2 : Prop :=
   ∀ m q : ℕ, ∀ Q : MemoryQuotient m q, ∀ X : PairType, ∀ d₀ : Compass,
     ∀ φ : Phase, ∀ a : Fin q, ∀ x : Plane, ∀ d : Compass, ∀ ψ : Phase,
-      x + d.step ≠ kernelCentre →
+      x + d.step ≠ kernelCenter →
       stationaryCoefficientV2 Q X d₀ φ a x d ψ = stationaryCoefficient Q X d₀ φ a x d ψ
 
 /-- `l:stationary-local-global`, ARCH_0 F9 / downstream adaptation, lines 763–826.
 The operators agree on functions zero at the center, even though they need not agree on
 arbitrary functions. Split each finite direction/phase summand by its destination; a center
 summand has zero continuation value. No rounding or inequality premise is involved. -/
-def StationaryCentreZeroOperatorStatementV2 : Prop :=
+def StationaryCenterZeroOperatorStatementV2 : Prop :=
   ∀ m q : ℕ, ∀ Q : MemoryQuotient m q, ∀ X : PairType, ∀ d₀ : Compass,
-    ∀ F : Phase → Fin q → Plane → ℚ, (∀ φ a, F φ a kernelCentre = 0) →
+    ∀ F : Phase → Fin q → Plane → ℚ, (∀ φ a, F φ a kernelCenter = 0) →
     ∀ φ a x, stationaryApplyV2 Q X d₀ F φ a x = stationaryApply Q X d₀ F φ a x
 
 /-- `l:stationary-domination` / `l:Bellman-soundness`, ARCH_0 F9, Appendix C lines 555–686.

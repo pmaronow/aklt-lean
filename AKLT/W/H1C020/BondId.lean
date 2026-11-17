@@ -31,7 +31,7 @@ def leafBond (π : PatternData) (r : Representation) (i : Nat) : LPoly :=
       presentBond π (ptOf i) (ptOf ((i+1)%8)) = true then groupAt π r (cornerOf i) else 1
 
 lemma leaf_groupAt (c : Nat) (hc : c < 8) (hodd : c % 2 = 1)
-    (hs : SingleReplacement π r (ptOf c)) (nb : Plane) (hnb : leafNeighbour π (ptOf c) = nb) :
+    (hs : SingleReplacement π r (ptOf c)) (nb : Plane) (hnb : leafNeighbor π (ptOf c) = nb) :
     groupAt π r c = 1 + MvPolynomial.C (replacementRadius π (ptOf c)) *
       formalDot (fun k => (.inl (nb,k) : LocalVariable)) (fun k => .inr (tokenIndex (ringLeader c),k)) := by
   have hgp : groupPoint c = ptOf c := groupPoint_odd c hodd
@@ -91,7 +91,7 @@ theorem bond_identity (i : Nat) (hi : i < 8) (s t : SiteSpec) (hs : SiteFlags π
       · have htleaf : t.leaf = true := ht.leaf.mpr ⟨hjodd, hsing⟩
         have hL : ∀ k, Lf ((i+1)%8) t k = leafVal ((i+1)%8) t k := by
           intro k; unfold Lf; rw [hPl, hP, htleaf]; rfl
-        have hnb : leafNeighbour π (ptOf ((i+1)%8)) = ptOf i := by
+        have hnb : leafNeighbor π (ptOf ((i+1)%8)) = ptOf i := by
           rcases leaf_corner π r _ hj hjodd hsing with ⟨_, _, h⟩ | ⟨h, _, _⟩
           · rw [h]; congr 1; omega
           · rw [show (i+1)%8 - 1 = i by omega] at h
@@ -135,7 +135,7 @@ theorem bond_identity (i : Nat) (hi : i < 8) (s t : SiteSpec) (hs : SiteFlags π
       by_cases hsing : SingleReplacement π r (ptOf i)
       · have hsleaf : s.leaf = true := hs.leaf.mpr ⟨hodd, hsing⟩
         obtain ⟨hleft, hnb⟩ : presentBond π (ptOf (i-1)) (ptOf i) = false ∧
-            leafNeighbour π (ptOf i) = ptOf ((i+1)%8) := by
+            leafNeighbor π (ptOf i) = ptOf ((i+1)%8) := by
           rcases leaf_corner π r i hi hodd hsing with ⟨_, h, _⟩ | ⟨h1, _, h3⟩
           · rw [hP] at h; exact absurd h (by decide)
           · exact ⟨h1, h3⟩

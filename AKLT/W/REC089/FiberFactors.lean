@@ -46,7 +46,7 @@ theorem crossing_term (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
     exact (chartEquiv a incoming).injective.ne (slot_source_not_zero j)
   have h2 : (physicalSlot a incoming j).2 ≠ a.y := by
     intro h
-    exact (physicalSlot_facts a incoming j).2.1 (h ▸ centre_mem_localSites a incoming)
+    exact (physicalSlot_facts a incoming j).2.1 (h ▸ center_mem_localSites a incoming)
   have hn : ({(physicalSlot a incoming j).1, (physicalSlot a incoming j).2} : Finset Plane) ≠
       {a.y, a.o} := by
     simp only [ne_eq, pair_finset_eq]
@@ -66,8 +66,8 @@ theorem outside_bond_product (a : AKLT.Blueprint.Rec.Departure) (incoming : Comp
   apply Finset.prod_congr rfl
   intro e he
   have h := (Finset.mem_filter.mp he).2
-  have h1 : e.1 ≠ a.y := fun hy => h.1 (hy ▸ centre_mem_localSites a incoming)
-  have h2 : e.2 ≠ a.y := fun hy => h.2 (hy ▸ centre_mem_localSites a incoming)
+  have h1 : e.1 ≠ a.y := fun hy => h.1 (hy ▸ center_mem_localSites a incoming)
+  have h2 : e.2 ≠ a.y := fun hy => h.2 (hy ▸ center_mem_localSites a incoming)
   have hn : ({e.1, e.2} : Finset Plane) ≠ {a.y, a.o} := by
     simp only [ne_eq, pair_finset_eq]
     tauto

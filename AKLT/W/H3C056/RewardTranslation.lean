@@ -44,11 +44,11 @@ private theorem responsePairType_image_tr (p : Finset Plane) (t : Plane) :
       exact congrArg (fun z : ℤ => z + t.2) h
 
 private def localLive (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) : Finset Plane :=
-  ((neighbours x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
+  ((neighbors x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
 
-private theorem neighbours_tr (x t : Plane) :
-    neighbours (x + t) = (neighbours x).image (tr t) := by
-  unfold neighbours tr
+private theorem neighbors_tr (x t : Plane) :
+    neighbors (x + t) = (neighbors x).image (tr t) := by
+  unfold neighbors tr
   rw [Finset.image_image]
   congr 1
   funext d
@@ -58,7 +58,7 @@ private theorem localLive_tr (x t : Plane) (incoming outgoing : Compass) (dead :
     localLive (x + t) incoming outgoing (dead.image (tr t)) =
       (localLive x incoming outgoing dead).image (tr t) := by
   unfold localLive
-  rw [neighbours_tr]
+  rw [neighbors_tr]
   have hin : (x + t) - incoming.step = tr t (x - incoming.step) := by
     dsimp [tr]
     simp [sub_eq_add_neg, add_assoc, add_left_comm, add_comm]
@@ -156,10 +156,10 @@ theorem reward_translate (x t : Plane) (incoming outgoing : Compass) (dead : Fin
     (localLive x incoming outgoing dead)
 
 theorem reward_shift_singleton (x : Plane) (incoming outgoing : Compass) :
-    relaxedReward x incoming outgoing {kernelCentre} =
-      relaxedReward (0,0) incoming outgoing {kernelCentre-x} := by
-  have h := reward_translate (0,0) x incoming outgoing {kernelCentre-x}
-  have hdead : ({kernelCentre-x} : Finset Plane).image (tr x) = {kernelCentre} := by
+    relaxedReward x incoming outgoing {kernelCenter} =
+      relaxedReward (0,0) incoming outgoing {kernelCenter-x} := by
+  have h := reward_translate (0,0) x incoming outgoing {kernelCenter-x}
+  have hdead : ({kernelCenter-x} : Finset Plane).image (tr x) = {kernelCenter} := by
     simp only [Finset.image_singleton, tr, sub_add_cancel]
   simpa only [hdead, show (0,0)=(0:Plane) from rfl, zero_add] using h
 
@@ -169,9 +169,9 @@ theorem reward_shift_empty (x : Plane) (incoming outgoing : Compass) :
   simpa only [Finset.image_empty, show (0,0)=(0:Plane) from rfl, zero_add] using h
 
 theorem reward_erase_irrelevant (x z : Plane) (incoming outgoing : Compass)
-    (hz : z ∉ neighbours x) :
+    (hz : z ∉ neighbors x) :
     relaxedReward x incoming outgoing {z} = relaxedReward x incoming outgoing ∅ := by
-  have hm : z ∉ ((neighbours x).erase (x-incoming.step)).erase (x+outgoing.step) := by
+  have hm : z ∉ ((neighbors x).erase (x-incoming.step)).erase (x+outgoing.step) := by
     intro h
     exact hz (Finset.mem_of_mem_erase (Finset.mem_of_mem_erase h))
   simp only [relaxedReward, Finset.sdiff_singleton_eq_erase,

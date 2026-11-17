@@ -63,13 +63,13 @@ private lemma torusSquare_south_mem_halo {L N : Size} (M : ℕ) (a : Site L N)
 private lemma local_agree_of_halo_agree {L N : Size} (M : ℕ) (a : Site L N)
     (σ τ : TorusConfiguration L N)
     (hagree : AgreeOn (torusHalo L N M a \ torusSquare L N M a) σ τ) :
-    ∀ z ∈ ((torusSquare L N M a).biUnion torusNeighbours) \ torusSquare L N M a,
+    ∀ z ∈ ((torusSquare L N M a).biUnion torusNeighbors) \ torusSquare L N M a,
       σ z = τ z := by
   intro z hz
   rcases Finset.mem_sdiff.mp hz with ⟨hzNeighbors, hzOutside⟩
   rcases Finset.mem_biUnion.mp hzNeighbors with ⟨x, hx, hzx⟩
   have hzHalo : z ∈ torusSquare L N (M + 1) a := by
-    simp only [torusNeighbours, Finset.mem_insert, Finset.mem_singleton] at hzx
+    simp only [torusNeighbors, Finset.mem_insert, Finset.mem_singleton] at hzx
     rcases hzx with h | h | h | h
     · rw [h]
       exact torusSquare_east_mem_halo M a hx
@@ -97,7 +97,7 @@ private lemma blockLaw_eq_conditionalTorusLaw {L N : Size} (κ : Site L N → Fi
     (U : Finset (Site L N)) (σ : TorusConfiguration L N) :
     blockLaw (torusLaw L N κ) U σ = AKLT.Defs.conditionalTorusLaw L N κ U σ := by
   classical
-  unfold blockLaw fibre restrict AKLT.Defs.conditionalTorusLaw
+  unfold blockLaw fiber restrict AKLT.Defs.conditionalTorusLaw
   apply marginal_decEq_irrel
 
 theorem main : AKLT.Blueprint.Gap.TorusRangeTransferStatement := by

@@ -242,27 +242,27 @@ private theorem prefix_no_return :
     ((wordVertices p.u w).take (j + 1)) i (wordVertex p.u w i) hGet hBound
 
 
-private theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
+private theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
   have hinj : Function.Injective (fun d : Compass => x + d.step) := by
     intro a b h
     have hstep : a.step = b.step := add_left_cancel h
     cases a <;> cases b <;> simp_all [Compass.step]
-  rw [neighbours, Finset.card_image_of_injective _ hinj]
+  rw [neighbors, Finset.card_image_of_injective _ hinj]
   decide
 
-private theorem neighbour_distance {x z : Plane} (hz : z ∈ neighbours x) :
+private theorem neighbor_distance {x z : Plane} (hz : z ∈ neighbors x) :
     Adjacent x z := by
   obtain ⟨d, _, rfl⟩ := Finset.mem_image.mp hz
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
-private theorem neighbours_symm {x z : Plane} (hz : z ∈ neighbours x) :
-    x ∈ neighbours z := by
+private theorem neighbors_symm {x z : Plane} (hz : z ∈ neighbors x) :
+    x ∈ neighbors z := by
   obtain ⟨d, _, rfl⟩ := Finset.mem_image.mp hz
   refine Finset.mem_image.mpr ⟨d.reverse, Finset.mem_univ _, ?_⟩
   cases d <;> simp [Compass.step, Compass.reverse, Prod.ext_iff]
 
-private theorem interior_neighbours {G : Finset Plane} {x : Plane}
-    (hx : x ∈ G) (hinterior : x ∉ protectedSites G) : neighbours x ⊆ G := by
+private theorem interior_neighbors {G : Finset Plane} {x : Plane}
+    (hx : x ∈ G) (hinterior : x ∉ protectedSites G) : neighbors x ⊆ G := by
   classical
   intro z hz
   by_contra hzg
@@ -270,7 +270,7 @@ private theorem interior_neighbours {G : Finset Plane} {x : Plane}
   refine Finset.mem_filter.mpr ⟨hx, ?_⟩
   change (⨅ a : {a : Plane // a ∉ G}, (latticeDist x a.val : ℕ∞)) ≤ 2
   exact (iInf_le _ ⟨z, hzg⟩).trans (by
-    have hd := neighbour_distance hz
+    have hd := neighbor_distance hz
     change latticeDist x z = 1 at hd
     simp [hd])
 
@@ -293,7 +293,7 @@ private theorem present_symm {G : Finset Plane} {D : Network G} {x z : Plane}
   exact hdist.trans h.2.2.1
 
 private theorem present_mem {G : Finset Plane} {D : Network G} (hlocal : D.LocalRules)
-    {x z : Plane} (h : D.Present x z) : z ∈ D.presentNeighbours x := by
+    {x z : Plane} (h : D.Present x z) : z ∈ D.presentNeighbors x := by
   exact Finset.mem_filter.mpr ⟨(Finset.mem_inter.mp (hlocal.2.1 x h.2.2.2.1)).1, h⟩
 
 private theorem step_present_subset {G : Finset Plane} (D : Network G) (y o : Plane)
@@ -302,8 +302,8 @@ private theorem step_present_subset {G : Finset Plane} (D : Network G) (y o : Pl
     active_traceStep_subset D y o h.2.1, h.2.2.1,
     step_kept_subset D y o x h.2.2.2.1, step_kept_subset D y o z h.2.2.2.2⟩
 
-private theorem step_neighbours_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
-    (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+private theorem step_neighbors_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
+    (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
   obtain ⟨hzn, hp⟩ := Finset.mem_filter.mp hz
   exact Finset.mem_filter.mpr ⟨hzn, step_present_subset D y o hp⟩
@@ -317,8 +317,8 @@ private theorem normalize_present_subset {G : Finset Plane} (D : Network G) (u c
     · exact Finset.Subset.refl _
   exact ⟨h.1, h.2.1, h.2.2.1, hk x h.2.2.2.1, hk z h.2.2.2.2⟩
 
-private theorem normalize_neighbours_subset {G : Finset Plane} (D : Network G)
-    (u c x : Plane) : (normalizeStart D u c).presentNeighbours x ⊆ D.presentNeighbours x := by
+private theorem normalize_neighbors_subset {G : Finset Plane} (D : Network G)
+    (u c x : Plane) : (normalizeStart D u c).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
   obtain ⟨hzn, hp⟩ := Finset.mem_filter.mp hz
   exact Finset.mem_filter.mpr ⟨hzn, normalize_present_subset D u c hp⟩
@@ -332,11 +332,11 @@ private theorem normalize_auxiliary {G : Finset Plane} (D : Network G) (u c : Pl
     · exact (Finset.erase_subset ..).trans (haux.1.2.1 x)
     · exact haux.1.2.1 x
   · intro x hx hs
-    exact (Finset.card_le_card (normalize_neighbours_subset D u c x)).trans
+    exact (Finset.card_le_card (normalize_neighbors_subset D u c x)).trans
       (haux.1.2.2.1 x hx hs)
   · intro x hx
     exact (Nat.add_le_add_right
-      (Finset.card_le_card (normalize_neighbours_subset D u c x)) _).trans
+      (Finset.card_le_card (normalize_neighbors_subset D u c x)) _).trans
       (haux.1.2.2.2 x hx)
 
 private theorem traceNetwork_snoc {G : Finset Plane} (D : Network G)
@@ -378,8 +378,8 @@ private theorem present_ne {G : Finset Plane} {D : Network G} {y o : Plane}
   subst o
   simp [Adjacent, latticeDist] at ha
 
-private theorem presentNeighbours_subset_kept {G : Finset Plane} (D : Network G)
-    (x : Plane) : D.presentNeighbours x ⊆ D.kept x := by
+private theorem presentNeighbors_subset_kept {G : Finset Plane} (D : Network G)
+    (x : Plane) : D.presentNeighbors x ⊆ D.kept x := by
   intro z hz
   exact (Finset.mem_filter.mp hz).2.2.2.2.1
 
@@ -401,14 +401,14 @@ private theorem step_auxiliary {G : Finset Plane} {D : Network G} {y o : Plane}
         by_cases h : D.status y = .U
         · exact h
         · simp [traceStep, h] at hs
-      exact (Finset.card_le_card (presentNeighbours_subset_kept (traceStep D y o) y)).trans
+      exact (Finset.card_le_card (presentNeighbors_subset_kept (traceStep D y o) y)).trans
         (hU hyU)
     · have hsD : D.status x = .D := by simpa [traceStep, hxy] using hs
-      exact (Finset.card_le_card (step_neighbours_subset D y o x)).trans
+      exact (Finset.card_le_card (step_neighbors_subset D y o x)).trans
         (haux.1.2.2.1 x hx hsD)
   · intro x hx
     exact (Nat.add_le_add_right
-      (Finset.card_le_card (step_neighbours_subset D y o x)) _).trans
+      (Finset.card_le_card (step_neighbors_subset D y o x)) _).trans
       (haux.1.2.2.2 x (active_traceStep_subset D y o hx))
   · intro x hx
     have hxy : x ≠ y := by intro h; subst x; exact hyS hx
@@ -417,11 +417,11 @@ private theorem step_auxiliary {G : Finset Plane} {D : Network G} {y o : Plane}
 /-- The two live-site facts needed in addition to the nonlive rules. -/
 private def PrefixInvariant {G : Finset Plane} (E : Network G) (y : Plane) : Prop :=
   E.Auxiliary ∧
-  (∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbours x ∩ G) ∧
+  (∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbors x ∩ G) ∧
   (∀ x ∈ G, x ≠ y → E.status x = .D → (E.kept x).card = 2) ∧
-  (E.status y = .U → ∃ a ∈ neighbours y ∩ G,
-    E.kept y = (neighbours y ∩ G).erase a) ∧
-  (E.status y = .D → (E.presentNeighbours y).card ≤ 1)
+  (E.status y = .U → ∃ a ∈ neighbors y ∩ G,
+    E.kept y = (neighbors y ∩ G).erase a) ∧
+  (E.status y = .D → (E.presentNeighbors y).card ≤ 1)
 
 private theorem invariant_step {G : Finset Plane} {D : Network G} {y o : Plane}
     (h : PrefixInvariant D y) (hp : D.Present y o) (hyS : y ∉ protectedSites G) :
@@ -435,10 +435,10 @@ private theorem invariant_step {G : Finset Plane} {D : Network G} {y o : Plane}
   have hin : y ∈ D.kept o := hp.2.2.2.2
   have hnewU (hs : D.status y = .U) : ((traceStep D y o).kept y).card = 2 := by
     obtain ⟨a, ha, hka⟩ := h.2.2.2.1 hs
-    have hfull : neighbours y ∩ G = neighbours y :=
-      Finset.inter_eq_left.mpr (interior_neighbours hyG hyS)
+    have hfull : neighbors y ∩ G = neighbors y :=
+      Finset.inter_eq_left.mpr (interior_neighbors hyG hyS)
     have hcard : (D.kept y).card = 3 := by
-      rw [hka, Finset.card_erase_of_mem ha, hfull, neighbours_card]
+      rw [hka, Finset.card_erase_of_mem ha, hfull, neighbors_card]
     simp only [traceStep, ite_true, Finset.card_erase_of_mem hout, hcard]
   refine ⟨step_auxiliary h.1 hp hyS (fun hs => (hnewU hs).le), ?_, ?_, ?_, ?_⟩
   · intro x hx hxo hs
@@ -465,12 +465,12 @@ private theorem invariant_step {G : Finset Plane} {D : Network G} {y o : Plane}
     have hcard : ((traceStep D y o).kept o).card = 1 := by
       simp only [traceStep, ite_eq_right hoy, ite_true]
       rw [Finset.card_erase_of_mem hin, h.2.2.1 o hoG hoy hsD]
-    exact (Finset.card_le_card (presentNeighbours_subset_kept (traceStep D y o) o)).trans
+    exact (Finset.card_le_card (presentNeighbors_subset_kept (traceStep D y o) o)).trans
       hcard.le
 
 private theorem step_preserves_unused {G : Finset Plane} {D : Network G}
     {y o x z : Plane} (hlocal : D.LocalRules) (hp : D.Present y o)
-    (hD : D.status y = .D → (D.presentNeighbours y).card ≤ 1)
+    (hD : D.status y = .D → (D.presentNeighbors y).card ≤ 1)
     (hxz : D.Present x z) (hne : ({x, z} : Finset Plane) ≠ {y, o}) :
     (traceStep D y o).Present x z := by
   classical
@@ -520,18 +520,18 @@ private theorem initial_invariant (p : PairSetup) : PrefixInvariant p.normalized
     simpa [PairData.normalized, normalizeStart, hxu] using hcons.2.2.1 x hx hsD
   · intro hs
     have hsU : p.D.status p.u = .U := hs
-    have hun : p.u ∈ neighbours p.c :=
+    have hun : p.u ∈ neighbors p.c :=
       Finset.mem_image.mpr ⟨p.incoming, Finset.mem_univ _, p.incoming_eq.symm⟩
-    refine ⟨p.c, Finset.mem_inter.mpr ⟨neighbours_symm hun, hcG⟩, ?_⟩
+    refine ⟨p.c, Finset.mem_inter.mpr ⟨neighbors_symm hun, hcG⟩, ?_⟩
     simp only [PairData.normalized, normalizeStart, hsU, and_self, ite_true]
     rw [hcons.2.1 p.u huG hsU]
   · intro hs
     have hsD : p.D.status p.u = .D := hs
-    have hdeg : (p.D.presentNeighbours p.u).card ≤ 1 := by
+    have hdeg : (p.D.presentNeighbors p.u).card ≤ 1 := by
       rcases hustart with hsU | ⟨_, hd⟩
       · simp [hsD] at hsU
       · exact hd
-    exact (Finset.card_le_card (normalize_neighbours_subset p.D p.u p.c p.u)).trans hdeg
+    exact (Finset.card_le_card (normalize_neighbors_subset p.D p.u p.c p.u)).trans hdeg
 
 /-- Simultaneously track the kept-set invariant and the bonds still to be used.
 Removing a D site cannot destroy another future bond: its current degree is at

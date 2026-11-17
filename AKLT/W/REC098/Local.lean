@@ -45,8 +45,8 @@ theorem chart_add_step (y z : Plane) (a d : Compass) :
 theorem chart_south (y : Plane) (a : Compass) : chart y a (0, -1) = y - a.step := by
   cases a <;> ext <;> simp [chart, normalizeRotation, Compass.step] <;> omega
 
-theorem chart_mem_neighbours (y z t : Plane) (a : Compass) :
-    chart y a t ∈ neighbours (chart y a z) ↔ t ∈ neighbours z := by
+theorem chart_mem_neighbors (y z t : Plane) (a : Compass) :
+    chart y a t ∈ neighbors (chart y a z) ↔ t ∈ neighbors z := by
   constructor
   · rintro ht
     obtain ⟨d, _, hd⟩ := Finset.mem_image.mp ht
@@ -60,7 +60,7 @@ theorem chart_mem_neighbours (y z t : Plane) (a : Compass) :
 
 theorem chart_adjacent (y z t : Plane) (a : Compass) :
     Adjacent (chart y a z) (chart y a t) ↔ Adjacent z t := by
-  rw [adjacent_iff, adjacent_iff, chart_mem_neighbours]
+  rw [adjacent_iff, adjacent_iff, chart_mem_neighbors]
 
 theorem chart_dist (y z t : Plane) (a : Compass) :
     latticeDist (chart y a z) (chart y a t) = latticeDist z t := by
@@ -83,14 +83,14 @@ theorem chart_ball (y : Plane) (a : Compass) {z : Plane} (hz : z ∈ templateSit
     decide +kernel
 
 theorem internalBonds_mem {G : Finset Plane} {x z : Plane} :
-    (x, z) ∈ internalBonds G ↔ x ∈ G ∧ z ∈ G ∧ z ∈ positiveNeighbours x := by
+    (x, z) ∈ internalBonds G ↔ x ∈ G ∧ z ∈ G ∧ z ∈ positiveNeighbors x := by
   simp [internalBonds, and_assoc, and_left_comm]
 
 theorem positive_either (x z : Plane) :
-    z ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours z ↔ Adjacent x z := by
+    z ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors z ↔ Adjacent x z := by
   rcases x with ⟨x₁, x₂⟩
   rcases z with ⟨z₁, z₂⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq,
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq,
     Adjacent, latticeDist]
   omega
 
@@ -108,7 +108,7 @@ def localFlags {G : Finset Plane} (D : Network G) (y : Plane) (a : Compass)
   Finset.univ.filter fun d => chart y a (z + d.step) ∈ D.kept (chart y a z)
 
 theorem localFlags_match {G : Finset Plane} (D : Network G) (y : Plane) (a : Compass)
-    (z t : Plane) (hsub : D.kept (chart y a z) ⊆ neighbours (chart y a z)) :
+    (z t : Plane) (hsub : D.kept (chart y a z) ⊆ neighbors (chart y a z)) :
     t ∈ (localFlags D y a z).image (fun d => z + d.step) ↔
       chart y a t ∈ D.kept (chart y a z) := by
   constructor
@@ -116,13 +116,13 @@ theorem localFlags_match {G : Finset Plane} (D : Network G) (y : Plane) (a : Com
     obtain ⟨d, hd, rfl⟩ := Finset.mem_image.mp ht
     exact (Finset.mem_filter.mp hd).2
   · intro ht
-    have hn := (chart_mem_neighbours y z t a).mp (hsub ht)
+    have hn := (chart_mem_neighbors y z t a).mp (hsub ht)
     obtain ⟨d, _, hd⟩ := Finset.mem_image.mp hn
     exact Finset.mem_image.mpr ⟨d, Finset.mem_filter.mpr
       ⟨Finset.mem_univ _, by simpa [hd] using ht⟩, hd⟩
 
 theorem localFlags_image {G : Finset Plane} (D : Network G) (y : Plane) (a : Compass)
-    (z : Plane) (hsub : D.kept (chart y a z) ⊆ neighbours (chart y a z)) :
+    (z : Plane) (hsub : D.kept (chart y a z) ⊆ neighbors (chart y a z)) :
     (localFlags D y a z).image (fun d => chart y a (z + d.step)) = D.kept (chart y a z) := by
   ext t
   constructor
@@ -137,7 +137,7 @@ theorem localFlags_image {G : Finset Plane} (D : Network G) (y : Plane) (a : Com
       ⟨Finset.mem_univ _, hchart ▸ ht⟩, hchart⟩
 
 theorem localFlags_card {G : Finset Plane} (D : Network G) (y : Plane) (a : Compass)
-    (z : Plane) (hsub : D.kept (chart y a z) ⊆ neighbours (chart y a z)) :
+    (z : Plane) (hsub : D.kept (chart y a z) ⊆ neighbors (chart y a z)) :
     ((localFlags D y a z).image (fun d => z + d.step)).card = (D.kept (chart y a z)).card := by
   have hi : Function.Injective (fun d : Compass => z + d.step) :=
     fun _ _ h => step_injective (add_left_cancel h)
@@ -169,8 +169,8 @@ theorem localPattern_center_kept {G : Finset Plane} (D : Network G) (y : Plane)
 theorem localPattern_kept_U {G : Finset Plane} (D : Network G) (y : Plane)
     (a out : Compass) {z : Plane} (hz : z ∈ templateSites) (hne : z ≠ (0, 0))
     (hU : D.status (chart y a z) = .U) :
-    (localPattern D y a out).keptAt z = neighbours z := by
-  simp [PatternData.keptAt, localPattern, hz, hne, hU, neighbours]
+    (localPattern D y a out).keptAt z = neighbors z := by
+  simp [PatternData.keptAt, localPattern, hz, hne, hU, neighbors]
 
 theorem localPattern_kept_notU {G : Finset Plane} (D : Network G) (y : Plane)
     (a out : Compass) {z : Plane} (hz : z ∈ templateSites) (hne : z ≠ (0, 0))
@@ -187,24 +187,24 @@ theorem localPattern_kept_match {G : Finset Plane} {D : Network G} {y : Plane}
     {z t : Plane} (hz : z ∈ templateSites \ templateTips) (ht : t ∈ templateSites) :
     t ∈ (localPattern D y a out).keptAt z ↔ chart y a t ∈ D.kept (chart y a z) := by
   have hzS := (Finset.mem_sdiff.mp hz).1
-  have hsub : D.kept (chart y a z) ⊆ neighbours (chart y a z) :=
+  have hsub : D.kept (chart y a z) ⊆ neighbors (chart y a z) :=
     fun _ hx => (Finset.mem_inter.mp (hs.subset _ hx)).1
   by_cases hz0 : z = (0, 0)
   · subst z
     rw [localPattern_center_kept, chart_zero, hs.liveU hU, ← chart_south]
     have heq : ({(1, 0), (0, 1), (-1, 0)} : Finset Plane) =
-        (neighbours (0, 0)).erase (0, -1) := by decide +kernel
+        (neighbors (0, 0)).erase (0, -1) := by decide +kernel
     rw [heq]
     simp only [Finset.mem_erase, Finset.mem_inter]
-    rw [(chart_injective y a).ne_iff, show chart y a t ∈ neighbours y ↔ t ∈ neighbours (0, 0) from
-      by simpa [chart_zero] using chart_mem_neighbours y (0, 0) t a]
+    rw [(chart_injective y a).ne_iff, show chart y a t ∈ neighbors y ↔ t ∈ neighbors (0, 0) from
+      by simpa [chart_zero] using chart_mem_neighbors y (0, 0) t a]
     simp [hG t ht]
   · have hzy : chart y a z ≠ y := by
       intro heq
       exact hz0 (chart_injective y a (heq.trans (chart_zero y a).symm))
     by_cases hUz : D.status (chart y a z) = .U
     · rw [localPattern_kept_U D y a out hzS hz0 hUz, hs.fullU _ hzy (hb z hzS) hUz]
-      simp [hG t ht, chart_mem_neighbours]
+      simp [hG t ht, chart_mem_neighbors]
     · rw [localPattern_kept_notU D y a out hzS hz0 hUz]
       exact localFlags_match D y a z t hsub
 

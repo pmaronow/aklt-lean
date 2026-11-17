@@ -81,7 +81,7 @@ def passageI (o f g : Plane) (n : Plane → Vec3) : ℝ :=
 
 def passageJ (f g : Plane) (n : Plane → Vec3) : ℝ := 1 + dot (n f) (n g) / 5
 
-def PassageNeighbours (π : PatternData) (f g : Plane) : Prop :=
+def PassageNeighbors (π : PatternData) (f g : Plane) : Prop :=
   ({π.outgoing.step, f, g} : Finset Plane) = {(1, 0), (0, 1), (-1, 0)} ∧
     π.outgoing.step ≠ f ∧ π.outgoing.step ≠ g ∧ f ≠ g
 
@@ -100,13 +100,13 @@ def deletedLeafSites (π : PatternData) (r : Representation) : Finset Plane :=
 def PeripheralGeometry (π : PatternData) (r : Representation) : Prop :=
   ∀ x ∈ deletedLeafSites π r,
     x ∈ templateCorners ∪ templateTips ∧ patternDegree π x ≤ 1 ∧
-    (patternDegree π x = 1 → leafNeighbour π x ∈ reducedSpinSites π r) ∧
+    (patternDegree π x = 1 → leafNeighbor π x ∈ reducedSpinSites π r) ∧
     ∀ y ∈ deletedLeafSites π r, ¬ Adjacent x y
 
 def integratedLeafFactor (π : PatternData) (m : Fin 20 → UnitVector) (x : Plane)
     (n : Plane → Vec3) : ℝ :=
   siteFunctional (π.statusAt x) (fun z => coveredSiteField m x z *
-    (if patternDegree π x = 0 then 1 else 1 + dot z (n (leafNeighbour π x))))
+    (if patternDegree π x = 0 then 1 else 1 + dot z (n (leafNeighbor π x))))
 
 /-- Original factors wholly on the retained spin sites; all deleted-site factors
 are accounted for separately by `integratedLeafFactor`. -/

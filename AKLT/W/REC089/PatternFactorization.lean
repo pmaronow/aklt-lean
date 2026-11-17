@@ -22,7 +22,7 @@ theorem pattern_bond_product_split (π : PatternData) (next : Bool) (v : Plane �
     (∏ e ∈ π.bonds, templateBondTerm π next v e) =
       (∏ e ∈ coreBonds π, templateBondTerm π next v e) *
       ∏ t : Fin 4, if coverTipBond π t then
-        1 + dot (v (tipPoint t)) (v (tipNeighbour t)) else 1 := by
+        1 + dot (v (tipPoint t)) (v (tipNeighbor t)) else 1 := by
   classical
   calc
     _ = (∏ e ∈ coreBonds π, templateBondTerm π next v e) *
@@ -87,7 +87,7 @@ def patternCoreFactors (π : PatternData) (next : Bool) (c : Fin 8 → Vec3)
 def patternTipFactor (π : PatternData) (b : Fin 4 → Fin 3 → Vec3)
     (σ : coreSites π → SpinLetter) (t : Fin 4) (d : SpinLetter) : ℝ :=
   (if coverTipBond π t then
-    1 + dot (spinVector d) (supportSpins (coreSites π) σ (tipNeighbour t)) else 1) *
+    1 + dot (spinVector d) (supportSpins (coreSites π) σ (tipNeighbor t)) else 1) *
       tipExternal (b t) (spinVector d)
 
 theorem pattern_factors_separate (π : PatternData) (hπ : π.Covered) (next : Bool)
@@ -118,7 +118,7 @@ theorem pattern_factors_separate (π : PatternData) (hπ : π.Covered) (next : B
   unfold patternCoreFactors patternTipFactor
   rw [Finset.prod_mul_distrib]
   simp_rw [pattern_spins_tip π hπ n,
-    pattern_spins_core π hπ n (Finset.mem_sdiff.mp (tipNeighbour_mem _)).2]
+    pattern_spins_core π hπ n (Finset.mem_sdiff.mp (tipNeighbor_mem _)).2]
   ring
 
 /-- Integrate all four U tips while retaining both external slots at each corner. -/
@@ -148,14 +148,14 @@ theorem pattern_tip_factorization (π : PatternData) (hπ : π.Covered)
   have ht (t : Fin 4) : (∑ d : SpinLetter, w (e.symm (.inr t)) d *
       patternTipFactor π b σ t d) =
       coveredTipValue (coverTipBond π t) (b t)
-        (supportSpins (coreSites π) σ (tipNeighbour t)) := by
+        (supportSpins (coreSites π) σ (tipNeighbor t)) := by
     unfold coveredTipValue siteFunctional patternTipFactor
     apply Finset.sum_congr rfl
     intro d _
     have hw : w (e.symm (.inr t)) d = spinWeight .U d := by
       change spinWeight (if next ∧ tipPoint t = (0, 0) then .D
         else π.statusAt (tipPoint t)) d = _
-      simp only [tip_not_centre t, and_false, ite_false,
+      simp only [tip_not_center t, and_false, ite_false,
         hπ.2.2.2.2.2.2.2.2.1 _ (tipPoint_mem t).2]
     rw [hw]
   simp_rw [ht]

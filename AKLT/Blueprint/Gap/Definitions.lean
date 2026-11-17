@@ -28,7 +28,7 @@ def AgreeOn {ι : Type} {S : ι → Type} (U : Finset ι) (σ τ : Config S) : P
   ∀ x ∈ U, σ x = τ x
 
 /-- Full-state conditional law, supported on the specified exterior fiber. -/
-def fibre {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
+def fiber {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι) (σ : Config S) :
     Weight (Config S) := conditionOn p (AgreeOutside U σ)
 
@@ -37,7 +37,7 @@ def blockLaw {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι) (σ : Config S) :
     Weight ((x : U) → S x) := by
   classical
-  exact marginal (fibre p U σ) (restrict U)
+  exact marginal (fiber p U σ) (restrict U)
 
 /-- Complex weighted scalar product, linear in its second argument. -/
 def weightedInner {Ω : Type} [Fintype Ω] (p : Weight Ω) (f h : Ω → ℂ) : ℂ :=
@@ -57,7 +57,7 @@ def BlockGap {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J]
 def blockAverage {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (B : J → Finset ι) (σ : Config S) : Weight (Config S) :=
-  fun τ => (∑ a, fibre p (B a) σ τ) / Fintype.card J
+  fun τ => (∑ a, fiber p (B a) σ τ) / Fintype.card J
 
 /-- A real stochastic kernel with detailed balance. -/
 def Reversible {Ω : Type} [Fintype Ω] (p : Weight Ω) (K : Ω → Weight Ω) : Prop :=
@@ -95,7 +95,7 @@ def AssignmentBound {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type} 
     α ^ U.card ≤ conditionalProbability p (fun σ => AgreeOn J σ a) (fun σ => AgreeOn U σ b)
 
 /-- A coordinate change includes the precise equality-of-letters correspondence.
-It permits permutations of sites and sitewise relabelling, including local antipodes. -/
+It permits permutations of sites and sitewise relabeling, including local antipodes. -/
 structure ProductChange {ι κ : Type} (S : ι → Type) (T : κ → Type) where
   sites : ι ≃ κ
   configurations : Config S ≃ Config T
@@ -201,9 +201,9 @@ structure SurgeryKernels (P : PlaneSpec) (a y : Plane) (u l h : ℕ)
       ∀ v, kernel j ω v = if v = ω then 1 else 0
     else
       (∀ σ, ∑ τ, kernel j ω (σ, τ) =
-        fibre (P.law (square a u) η) (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 σ) ∧
+        fiber (P.law (square a u) η) (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 σ) ∧
       (∀ τ, ∑ σ, kernel j ω (σ, τ) =
-        fibre (P.law (square a u) ξ) (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.2 τ)
+        fiber (P.law (square a u) ξ) (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.2 τ)
   fixed_exterior : ∀ j ω v, 0 < kernel j ω v →
     AgreeOutside (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 v.1 ∧
     AgreeOutside (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.2 v.2
@@ -231,10 +231,10 @@ def internalCount (M : ℕ) : ℕ := 2 * (2 * M + 1) * (2 * M)
 def blockGapConstant (M : ℕ) : ℝ := frameRatio ^ internalCount M
 
 /-- Explicit all-parity cycle color, with a third color at the last odd site. -/
-def cycleColour (m i : ℕ) : ℕ := if Odd m ∧ i = m - 1 then 2 else i % 2
+def cycleColor (m i : ℕ) : ℕ := if Odd m ∧ i = m - 1 then 2 else i % 2
 
-def torusColour (L N : Size) (x : Site L N) : Fin 3 :=
-  ⟨(cycleColour L.val x.1.val + cycleColour N.val x.2.val) % 3, Nat.mod_lt _ (by decide)⟩
+def torusColor (L N : Size) (x : Site L N) : Fin 3 :=
+  ⟨(cycleColor L.val x.1.val + cycleColor N.val x.2.val) % 3, Nat.mod_lt _ (by decide)⟩
 
 /-- Markov dependence relative to the full physical halo (corner sites included). -/
 def TorusRangeOne {L N : Size} {S : Site L N → Type} [∀ x, Fintype (S x)]
@@ -261,16 +261,16 @@ def PeriodicCounts (L N : Size) (M : ℕ) : Prop :=
 
 /-- One local gauge, common to all exterior fibers of a labeled block. -/
 structure BoxGauge (L N : Size) (M : ℕ) (a : Site L N) (κ : Site L N → Fin 3) where
-  centre : Plane
-  centre_reduces : reduction L N centre = a
+  center : Plane
+  center_reduces : reduction L N center = a
   change : ProductChange (fun _ : torusSquare L N M a => IcoLetter)
-    (fun _ : square centre M => IcoLetter)
+    (fun _ : square center M => IcoLetter)
   boundary : TorusConfiguration L N → Config (fun _ : Plane => IcoLetter)
   carries : ∀ σ, Carries change (blockLaw (torusLaw L N κ) (torusSquare L N M a) σ)
-    ((frameSpec (κ ∘ reduction L N)).law (square centre M) (boundary σ))
+    ((frameSpec (κ ∘ reduction L N)).law (square center M) (boundary σ))
   boundary_change : ∀ y, y ∈ torusHalo L N M a \ torusSquare L N M a →
     ∀ σ τ, AgreeOutside {y} σ τ → ∃ z : Plane,
-      z ∉ square centre M ∧ setDistance supDist z (↑(square centre M) : Set Plane) = 1 ∧
+      z ∉ square center M ∧ setDistance supDist z (↑(square center M) : Set Plane) = 1 ∧
       ∀ w, w ≠ z → boundary σ w = boundary τ w
 
 /-- The four explicit scale inequalities in l:hamming, chosen before torus periods. -/
@@ -287,9 +287,9 @@ def RowConditions (P : PlaneSpec) (a y : Plane) (u l h : ℕ) (p α : ℝ)
   (if (j.val + 2 : ℤ) ∈ exceptionalIndices a y u then
     ∀ v, r v = if v = ω then 1 else 0
   else
-    (∀ σ, ∑ τ, r (σ, τ) = fibre (P.law (square a u) η)
+    (∀ σ, ∑ τ, r (σ, τ) = fiber (P.law (square a u) η)
       (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 σ) ∧
-    (∀ τ, ∑ σ, r (σ, τ) = fibre (P.law (square a u) ξ)
+    (∀ τ, ∑ σ, r (σ, τ) = fiber (P.law (square a u) ξ)
       (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.2 τ)) ∧
   (∀ v, 0 < r v →
     AgreeOutside (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 v.1 ∧

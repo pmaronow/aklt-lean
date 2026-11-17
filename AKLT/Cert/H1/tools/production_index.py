@@ -77,10 +77,10 @@ end {check}
     proof=balanced([m+'.checked' for m in keychecks],lambda a,b:f'congrArg₂ List.append ({a}) ({b})')
     write(header,'\n'.join([f'import {data}',f'import {coverage_data}',*('import '+m for m in keychecks),
       'set_option maxHeartbeats 0','set_option maxRecDepth 1000000',f'namespace {header}',f'open {CORE}.Production {data}',
-      f'theorem entries : keys = {coverage_data}.catalogue.entries := by decide +kernel',
+      f'theorem entries : keys = {coverage_data}.catalog.entries := by decide +kernel',
       'theorem keys_checked : representatives.map (fun r => (r.key,r.pid)) = keys := by',
       f'  unfold representatives keys\n  simp only [List.map_append]\n  exact {proof}',
-      f'theorem checked : representativeCheck {coverage_data}.catalogue representatives = true := by',
+      f'theorem checked : representativeCheck {coverage_data}.catalog representatives = true := by',
       '  simp only [representativeCheck, beq_iff_eq]',
       '  exact entries.symm.trans keys_checked.symm',
       '#print axioms entries','#print axioms keys_checked','#print axioms checked',f'end {header}\n']))
@@ -102,7 +102,7 @@ namespace {target}
 open {CORE}.Production
 theorem finiteData (h : Assembly.ConstructorPremises) (hc : Assembly.CoveragePremises)
     (ha : Leaves.representativesAppend) : AKLT.Blueprint.Top.H1FiniteDataStatementV2 :=
-  Assembly.finiteData_of_checks hc {coverage_data}.catalogue {data}.representatives
+  Assembly.finiteData_of_checks hc {coverage_data}.catalog {data}.representatives
     {cov}.accepted {header}.checked ({allw}.accepted h ha)
 theorem certificateV2 (h : Assembly.ConstructorPremises) (hc : Assembly.CoveragePremises)
     (ha : Leaves.representativesAppend) (hs : TopLeaves.certificatePremises) :

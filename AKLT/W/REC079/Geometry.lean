@@ -99,7 +99,7 @@ theorem adjacent_direction {x y : Plane} (h : Adjacent x y) :
 
 /-- The designated triple admits one fixed chart, for all its trail lengths. -/
 theorem pair_chart (p : PairData) : ∃ F : LatticeChart,
-    F.point p.c = kernelCentre ∧ F.point p.u = kernelStart ∧
+    F.point p.c = kernelCenter ∧ F.point p.u = kernelStart ∧
       F.point p.v = kernelTarget p.X := by
   obtain ⟨a, ha⟩ := adjacent_direction p.pair.2.2.2.2.2.1
   obtain ⟨b, hb⟩ := adjacent_direction p.pair.2.2.2.2.2.2.1
@@ -110,7 +110,7 @@ theorem pair_chart (p : PairData) : ∃ F : LatticeChart,
   obtain ⟨s, ax, ay, hu, hv⟩ := direction_chart p.X a b ht
   let Q := LatticeChart.orient s ax ay
   refine ⟨(LatticeChart.translate (-p.c)).trans Q, ?_, ?_, ?_⟩
-  · change Q.point (-p.c + p.c) = kernelCentre
+  · change Q.point (-p.c + p.c) = kernelCenter
     rw [neg_add_cancel]
     exact LatticeChart.orient_zero s ax ay
   · change Q.point (-p.c + p.u) = kernelStart

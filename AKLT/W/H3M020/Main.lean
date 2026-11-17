@@ -45,11 +45,11 @@ private theorem responsePairType_image_tr (p : Finset Plane) (t : Plane) :
       exact congrArg (fun z : ℤ => z + t.2) h
 
 private def localLive (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) : Finset Plane :=
-  ((neighbours x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
+  ((neighbors x).erase (x - incoming.step) |>.erase (x + outgoing.step)) \ dead
 
-private theorem neighbours_tr (x t : Plane) :
-    neighbours (x + t) = (neighbours x).image (tr t) := by
-  unfold neighbours tr
+private theorem neighbors_tr (x t : Plane) :
+    neighbors (x + t) = (neighbors x).image (tr t) := by
+  unfold neighbors tr
   rw [Finset.image_image]
   congr 1
   funext d
@@ -59,7 +59,7 @@ private theorem localLive_tr (x t : Plane) (incoming outgoing : Compass) (dead :
     localLive (x + t) incoming outgoing (dead.image (tr t)) =
       (localLive x incoming outgoing dead).image (tr t) := by
   unfold localLive
-  rw [neighbours_tr]
+  rw [neighbors_tr]
   have hin : (x + t) - incoming.step = tr t (x - incoming.step) := by
     dsimp [tr]
     simp [sub_eq_add_neg, add_assoc, add_left_comm, add_comm]
@@ -272,7 +272,7 @@ theorem main : AKLT.Blueprint.H3.StationaryFreeEdgeStatement := by
   intro Q hQ X d₀ hd₀ φ a x d ψ
   have hfree_nonneg : 0 ≤ freeCoefficient Q φ a d ψ :=
     AKLT.Blueprint.H3.freeCoefficient_nonneg Q φ a d ψ
-  by_cases hc : x = kernelCentre
+  by_cases hc : x = kernelCenter
   · simpa [stationaryCoefficient, hc] using hfree_nonneg
   by_cases ht : x = kernelTarget X
   · simpa [stationaryCoefficient, hc, ht] using hfree_nonneg
@@ -302,31 +302,31 @@ theorem main : AKLT.Blueprint.H3.StationaryFreeEdgeStatement := by
           simp [stationaryCoefficient, hc, ht, hallow0, hknown, hkill, hphase]
         rw [hzero]
         exact hfree_nonneg
-  · by_cases hcentreEdge : x + d.step = kernelCentre
+  · by_cases hcenterEdge : x + d.step = kernelCenter
     · have hzero : stationaryCoefficient Q X d₀ φ a x d ψ = 0 := by
-        simp [stationaryCoefficient, hc, ht, hallow0, hknown, hcentreEdge]
+        simp [stationaryCoefficient, hc, ht, hallow0, hknown, hcenterEdge]
       rw [hzero]
       exact hfree_nonneg
-    · have hshift : relaxedReward x (Q.arrival a) d {kernelCentre} =
-          relaxedReward (0, 0) (Q.arrival a) d {kernelCentre - x} := by
+    · have hshift : relaxedReward x (Q.arrival a) d {kernelCenter} =
+          relaxedReward (0, 0) (Q.arrival a) d {kernelCenter - x} := by
         have htr := (relaxedReward_tr x (-x) (Q.arrival a) d
-          ({kernelCentre} : Finset Plane)).symm
+          ({kernelCenter} : Finset Plane)).symm
         have hzero : x + -x = (0, 0) := by ext <;> simp
-        have hdead : ({kernelCentre} : Finset Plane).image (tr (-x)) =
-            {kernelCentre - x} := by simp [tr, sub_eq_add_neg]
+        have hdead : ({kernelCenter} : Finset Plane).image (tr (-x)) =
+            {kernelCenter - x} := by simp [tr, sub_eq_add_neg]
         rw [hzero, hdead] at htr
         have h00 : (0 : Plane) = (0, 0) := rfl
         simpa only [h00] using htr
-      have hmono : relaxedReward (0, 0) (Q.arrival a) d {kernelCentre - x} ≤
+      have hmono : relaxedReward (0, 0) (Q.arrival a) d {kernelCenter - x} ≤
           relaxedReward (0, 0) (Q.arrival a) d ∅ := by
         apply relaxedReward_mono_dead (0, 0) (Q.arrival a) d
         intro z hz
         simp at hz
-      have hreward : relaxedReward x (Q.arrival a) d {kernelCentre} ≤
+      have hreward : relaxedReward x (Q.arrival a) d {kernelCenter} ≤
           relaxedReward (0, 0) (Q.arrival a) d ∅ := hshift.le.trans hmono
       have hstat : stationaryCoefficient Q X d₀ φ a x d ψ =
-          phaseTransition (Q.kind a d) (relaxedReward x (Q.arrival a) d {kernelCentre}) φ ψ := by
-        simp [stationaryCoefficient, hc, ht, hallow0, hknown, hcentreEdge]
+          phaseTransition (Q.kind a d) (relaxedReward x (Q.arrival a) d {kernelCenter}) φ ψ := by
+        simp [stationaryCoefficient, hc, ht, hallow0, hknown, hcenterEdge]
       have hfree : freeCoefficient Q φ a d ψ =
           phaseTransition (Q.kind a d) (relaxedReward (0, 0) (Q.arrival a) d ∅) φ ψ := by
         simp [freeCoefficient, hallow]

@@ -115,36 +115,36 @@ theorem trace_last_arrival_absent {G : Finset Plane} (D : Network G) (u : Plane)
   rw [hxs, trace_append_pair]
   exact traceStep_arrival_absent _ _ _
 
-theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
+theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
   have hi : Function.Injective (fun d : Compass => x + d.step) := by
     intro a b hab
     have h : a.step = b.step := add_left_cancel hab
     cases a <;> cases b <;> simp_all [Compass.step]
-  rw [neighbours, Finset.card_image_of_injective _ hi]
+  rw [neighbors, Finset.card_image_of_injective _ hi]
   decide
 
-theorem neighbour_of_adjacent {x y : Plane} (h : Adjacent x y) : x ∈ neighbours y := by
+theorem neighbor_of_adjacent {x y : Plane} (h : Adjacent x y) : x ∈ neighbors y := by
   obtain ⟨d, hd⟩ := adjacent_direction h
   exact Finset.mem_image.mpr ⟨d, Finset.mem_univ _, hd.symm⟩
 
-theorem removed_neighbour_degree {G : Finset Plane} (D : Network G) (v c : Plane)
-    (hvc : Adjacent v c) (hc : D.status c = .X) : (D.presentNeighbours v).card ≤ 3 := by
+theorem removed_neighbor_degree {G : Finset Plane} (D : Network G) (v c : Plane)
+    (hvc : Adjacent v c) (hc : D.status c = .X) : (D.presentNeighbors v).card ≤ 3 := by
   classical
   obtain ⟨incoming, hi⟩ := adjacent_direction hvc
-  have hcv : c ∈ neighbours v := by
+  have hcv : c ∈ neighbors v := by
     apply Finset.mem_image.mpr
     refine ⟨incoming.reverse, Finset.mem_univ _, ?_⟩
     rw [reverse_step, hi]
     abel
-  have hnot : c ∉ D.presentNeighbours v := by
+  have hnot : c ∉ D.presentNeighbors v := by
     intro h
     have hcAct := (Finset.mem_filter.mp h).2.2.1
     exact (Finset.mem_filter.mp hcAct).2 hc
-  have hsub : D.presentNeighbours v ⊆ (neighbours v).erase c := by
+  have hsub : D.presentNeighbors v ⊆ (neighbors v).erase c := by
     intro x hx
     exact Finset.mem_erase.mpr ⟨fun h => hnot (h ▸ hx), (Finset.mem_filter.mp hx).1⟩
   have hcard := Finset.card_le_card hsub
-  rw [Finset.card_erase_of_mem hcv, neighbours_card] at hcard
+  rw [Finset.card_erase_of_mem hcv, neighbors_card] at hcard
   exact hcard
 
 theorem terminal_present (p : PairData) {n : ℕ} (w : DirectionWord n) (x y : Plane) :
@@ -153,8 +153,8 @@ theorem terminal_present (p : PairData) {n : ℕ} (w : DirectionWord n) (x y : P
   apply normalize_present
   exact trace_removed p.normalized p.c p.pair.2.2.2.2.1 (wordVertices p.u w)
 
-theorem terminal_neighbours_subset (p : PairData) {n : ℕ} (w : DirectionWord n) (x : Plane) :
-    (terminalNetwork p w).presentNeighbours x ⊆ p.D.presentNeighbours x := by
+theorem terminal_neighbors_subset (p : PairData) {n : ℕ} (w : DirectionWord n) (x : Plane) :
+    (terminalNetwork p w).presentNeighbors x ⊆ p.D.presentNeighbors x := by
   classical
   intro y hy
   obtain ⟨hneigh, hp⟩ := Finset.mem_filter.mp hy
@@ -176,9 +176,9 @@ theorem terminal_start_admissible (p : PairData) (hv : p.v ∉ protectedSites p.
   refine ⟨hactive, hv, ?_⟩
   rcases p.pair.2.2.2.2.2.2.2.2.2 with hU | ⟨hD, hdeg⟩
   · exact Or.inl ⟨hstat.trans hU,
-      removed_neighbour_degree _ p.v p.c p.pair.2.2.2.2.2.2.1 (terminal_centre_removed p w)⟩
+      removed_neighbor_degree _ p.v p.c p.pair.2.2.2.2.2.2.1 (terminal_center_removed p w)⟩
   · exact Or.inr ⟨hstat.trans hD,
-      (Finset.card_le_card (terminal_neighbours_subset p w p.v)).trans hdeg⟩
+      (Finset.card_le_card (terminal_neighbors_subset p w p.v)).trans hdeg⟩
 
 /-- At the first protected terminal, the unchanged U law and the erased
 arrival bond give degree at most three, including all original legs. -/
@@ -200,32 +200,32 @@ theorem terminal_target_admissible (p : PairData) (hu : p.u ∉ protectedSites p
   have hstat : (terminalNetwork p w).status e = .U :=
     (stopped_status_protected p.normalized p.u (insert p.v (protectedSites p.G)) w hw e he).trans heU
   have heActive : e ∈ p.D.active := Finset.mem_filter.mpr ⟨heG, by simp [heU]⟩
-  have hbase : (p.D.presentNeighbours e).card +
+  have hbase : (p.D.presentNeighbors e).card +
       ((originalLegs p.G).filter fun t => t.1 = e).card ≤ 4 :=
     p.pair.1.1.1.2.2.2 e heActive
   have harrival : p.normalized.Present a e := hw.2.1 ⟨k, Nat.lt_succ_self k⟩
-  have haNeigh : a ∈ neighbours e := neighbour_of_adjacent harrival.2.2.1
-  have haBase : a ∈ p.D.presentNeighbours e := by
+  have haNeigh : a ∈ neighbors e := neighbor_of_adjacent harrival.2.2.1
+  have haBase : a ∈ p.D.presentNeighbors e := by
     apply Finset.mem_filter.mpr
     refine ⟨haNeigh, ?_⟩
     exact (normalize_present p.D p.u p.c p.pair.2.2.2.2.1 e a).mp
       (present_symm p.normalized harrival)
-  have haAbsent : a ∉ (terminalNetwork p w).presentNeighbours e := by
+  have haAbsent : a ∉ (terminalNetwork p w).presentNeighbors e := by
     intro h
     have hp := (terminal_present p w e a).mp (Finset.mem_filter.mp h).2
     exact trace_last_arrival_absent p.normalized p.u k w hp.2.2.2.1
-  have hsub : (terminalNetwork p w).presentNeighbours e ⊆ (p.D.presentNeighbours e).erase a := by
+  have hsub : (terminalNetwork p w).presentNeighbors e ⊆ (p.D.presentNeighbors e).erase a := by
     intro x hx
     exact Finset.mem_erase.mpr
-      ⟨fun h => haAbsent (h ▸ hx), terminal_neighbours_subset p w e hx⟩
+      ⟨fun h => haAbsent (h ▸ hx), terminal_neighbors_subset p w e hx⟩
   have hdeg := Finset.card_le_card hsub
   rw [Finset.card_erase_of_mem haBase] at hdeg
-  have hpos : 0 < (p.D.presentNeighbours e).card := Finset.card_pos.mpr ⟨a, haBase⟩
+  have hpos : 0 < (p.D.presentNeighbors e).card := Finset.card_pos.mpr ⟨a, haBase⟩
   refine ⟨Finset.mem_filter.mpr ⟨heG, ?_⟩, Or.inl ⟨hstat, ?_⟩⟩
   · change (terminalNetwork p w).status e ≠ .X
     rw [hstat]
     decide
-  · change ((terminalNetwork p w).presentNeighbours e).card +
+  · change ((terminalNetwork p w).presentNeighbors e).card +
       ((originalLegs p.G).filter fun t => t.1 = e).card ≤ 3
     omega
 

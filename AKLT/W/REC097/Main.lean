@@ -93,23 +93,23 @@ private theorem prefixNetwork_succ {G : Finset Plane} {n : ℕ}
   unfold prefixNetwork
   rw [hsplit, traceNetwork_append_singleton, wordVertices_lastPrefix u w (by omega)]
 
-private theorem neighbours_card (x : Plane) : (neighbours x).card = 4 := by
-  unfold neighbours
+private theorem neighbors_card (x : Plane) : (neighbors x).card = 4 := by
+  unfold neighbors
   rw [Finset.card_image_of_injective]
   · simpa using (show Fintype.card Compass = 4 by decide)
   · intro a b hab
     cases a <;> cases b <;> simp [Compass.step] at hab ⊢
 
-private theorem adjacent_of_mem_neighbours {x z : Plane} (hz : z ∈ neighbours x) : Adjacent x z := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hz
+private theorem adjacent_of_mem_neighbors {x z : Plane} (hz : z ∈ neighbors x) : Adjacent x z := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hz
   rcases hz with ⟨d, rfl⟩
   cases d <;> norm_num [Adjacent, latticeDist, Compass.step]
 
-private theorem mem_neighbours_of_adjacent {x z : Plane} (h : Adjacent x z) :
-    z ∈ neighbours x := by
+private theorem mem_neighbors_of_adjacent {x z : Plane} (h : Adjacent x z) :
+    z ∈ neighbors x := by
   have hdist : (x.1 - z.1).natAbs + (x.2 - z.2).natAbs = 1 := h
   have hzero : (x.1 - z.1).natAbs = 0 ∨ (x.2 - z.2).natAbs = 0 := by omega
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   rcases hzero with hfirst | hsecond
   · have heq : x.1 - z.1 = 0 := Int.natAbs_eq_zero.mp hfirst
     have hval : (x.2 - z.2).natAbs = 1 := by omega
@@ -248,21 +248,21 @@ private theorem prefix_edge_kept {G : Finset Plane} {n : ℕ} {T : Finset Plane}
 
 private def CoreInvariant {G : Finset Plane} (D : Network G) (y arrival : Plane) : Prop :=
   D.LocalRules ∧
-  (∀ x ∈ D.active, x ≠ y → D.status x = .U → D.kept x = neighbours x ∩ G) ∧
+  (∀ x ∈ D.active, x ≠ y → D.status x = .U → D.kept x = neighbors x ∩ G) ∧
   (∀ x ∈ D.active, x ≠ y → D.status x = .D → (D.kept x).card = 2) ∧
   (∀ x ∈ D.active, ∀ z ∈ D.active, Adjacent x z → (z ∈ D.kept x ↔ x ∈ D.kept z)) ∧
-  (∀ x ∈ protectedSites G, D.status x = .U ∧ D.kept x = neighbours x ∩ G) ∧
-  (D.status y = .U → D.kept y = (neighbours y ∩ G).erase arrival)
+  (∀ x ∈ protectedSites G, D.status x = .U ∧ D.kept x = neighbors x ∩ G) ∧
+  (D.status y = .U → D.kept y = (neighbors y ∩ G).erase arrival)
 
-private theorem notProtected_neighbours_in_G {G : Finset Plane} {y : Plane}
-    (hyG : y ∈ G) (hyS : y ∉ protectedSites G) : neighbours y ⊆ G := by
+private theorem notProtected_neighbors_in_G {G : Finset Plane} {y : Plane}
+    (hyG : y ∈ G) (hyS : y ∉ protectedSites G) : neighbors y ⊆ G := by
   intro z hz
   by_contra hzg
   have hbd : boundaryDepth G y ≤ (1 : ℕ∞) := by
     unfold boundaryDepth
     exact le_trans (iInf_le (fun q : {z : Plane // z ∉ G} =>
       (latticeDist y q.val : ℕ∞)) ⟨z, hzg⟩)
-      (by rw [adjacent_of_mem_neighbours hz]; norm_num)
+      (by rw [adjacent_of_mem_neighbors hz]; norm_num)
   have hmem : y ∈ protectedSites G := by
     unfold protectedSites
     rw [Finset.mem_filter]
@@ -296,11 +296,11 @@ private theorem normalize_present_iff {G : Finset Plane} (D : Network G)
       (normalize_kept_mem_iff D u c y x hcX hy).mpr hyx,
       (normalize_kept_mem_iff D u c x y hcX hx).mpr hxy⟩
 
-private theorem normalize_presentNeighbours_eq {G : Finset Plane} (D : Network G)
+private theorem normalize_presentNeighbors_eq {G : Finset Plane} (D : Network G)
     (u c x : Plane) (hcX : D.status c = .X) :
-    (normalizeStart D u c).presentNeighbours x = D.presentNeighbours x := by
+    (normalizeStart D u c).presentNeighbors x = D.presentNeighbors x := by
   ext z
-  simp only [Network.presentNeighbours, Finset.mem_filter]
+  simp only [Network.presentNeighbors, Finset.mem_filter]
   constructor
   · rintro ⟨hz, hp⟩
     exact ⟨hz, (normalize_present_iff D u c x z hcX).mp hp⟩
@@ -325,11 +325,11 @@ private theorem normalize_core_of_consistent {G : Finset Plane} (D : Network G)
         · simpa [normalizeStart, hxu] using hz
       exact (hLocal.2.1 x hzD)
     · intro x hxG hxD
-      rw [normalize_presentNeighbours_eq D u c x hcX]
+      rw [normalize_presentNeighbors_eq D u c x hcX]
       exact hLocal.2.2.1 x hxG (by simpa [normalizeStart] using hxD)
     · intro x hxActive
       have hxD : x ∈ D.active := hxActive
-      rw [normalize_presentNeighbours_eq D u c x hcX]
+      rw [normalize_presentNeighbors_eq D u c x hcX]
       exact hLocal.2.2.2 x hxD
   · intro x hxActive hxu hxU
     have hxD : x ∈ D.active := hxActive
@@ -389,11 +389,11 @@ private theorem traceStep_kept_mem_backward {G : Finset Plane} (D : Network G)
       exact (Finset.mem_erase.mp this).2
     · simpa [traceStep, hxy, hxo] using hz
 
-private theorem traceStep_presentNeighbours_subset {G : Finset Plane} (D : Network G)
-    (y o x : Plane) : (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+private theorem traceStep_presentNeighbors_subset {G : Finset Plane} (D : Network G)
+    (y o x : Plane) : (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
-  have hz' : z ∈ (traceStep D y o).presentNeighbours x := hz
-  simp only [Network.presentNeighbours, Finset.mem_filter] at hz' ⊢
+  have hz' : z ∈ (traceStep D y o).presentNeighbors x := hz
+  simp only [Network.presentNeighbors, Finset.mem_filter] at hz' ⊢
   rcases hz' with ⟨hzNbr, hp⟩
   rcases hp with ⟨hxA, hzA, hadj, hzx, hxz⟩
   have hxOld := traceStep_active_backward D y o x hxA
@@ -416,7 +416,7 @@ private theorem traceStep_kept_mem_iff {G : Finset Plane} (D : Network G)
 
 private theorem traceStep_core {G : Finset Plane} (E : Network G) (y arrival o : Plane)
     (hCore : CoreInvariant E y arrival) (hyG : y ∈ G) (hoG : o ∈ G)
-    (harrivalNbr : arrival ∈ neighbours y) (hyS : y ∉ protectedSites G) (hoS : o ∉ protectedSites G)
+    (harrivalNbr : arrival ∈ neighbors y) (hyS : y ∉ protectedSites G) (hoS : o ∉ protectedSites G)
     (hyo : Adjacent y o) (hkeptYO : o ∈ E.kept y) :
     CoreInvariant (traceStep E y o) o y := by
   rcases hCore with ⟨hLocal, hUfull, hDcard, hmut, hProt, hLive⟩
@@ -425,21 +425,21 @@ private theorem traceStep_core {G : Finset Plane} (E : Network G) (y arrival o :
   have hcardY : E.status y = .U → (E'.kept y).card = 2 := by
     intro hs
     have hkept : E'.kept y = (E.kept y).erase o := by simp [E', traceStep]
-    have hinter : neighbours y ∩ G = neighbours y :=
-      Finset.inter_eq_left.mpr (notProtected_neighbours_in_G hyG hyS)
-    have hsource : E.kept y = (neighbours y).erase arrival := by
+    have hinter : neighbors y ∩ G = neighbors y :=
+      Finset.inter_eq_left.mpr (notProtected_neighbors_in_G hyG hyS)
+    have hsource : E.kept y = (neighbors y).erase arrival := by
       rw [hLive hs, hinter]
-    have hoBase : o ∈ (neighbours y).erase arrival := by
+    have hoBase : o ∈ (neighbors y).erase arrival := by
       rw [← hsource]
       exact hkeptYO
     have hor : o ≠ arrival := (Finset.mem_erase.mp hoBase).1
-    have hoNbr : o ∈ neighbours y := (Finset.mem_erase.mp hoBase).2
-    have hmem : o ∈ (neighbours y).erase arrival := Finset.mem_erase.mpr ⟨hor, hoNbr⟩
+    have hoNbr : o ∈ neighbors y := (Finset.mem_erase.mp hoBase).2
+    have hmem : o ∈ (neighbors y).erase arrival := Finset.mem_erase.mpr ⟨hor, hoNbr⟩
     rw [hkept, hsource, Finset.card_erase_of_mem hmem,
-      Finset.card_erase_of_mem harrivalNbr, neighbours_card]
-  have hpnKept : E'.presentNeighbours y ⊆ E'.kept y := by
+      Finset.card_erase_of_mem harrivalNbr, neighbors_card]
+  have hpnKept : E'.presentNeighbors y ⊆ E'.kept y := by
     intro z hz
-    simp only [Network.presentNeighbours, Finset.mem_filter] at hz
+    simp only [Network.presentNeighbors, Finset.mem_filter] at hz
     simp only [Network.Present] at hz
     exact hz.2.2.2.2.1
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
@@ -465,17 +465,17 @@ private theorem traceStep_core {G : Finset Plane} (E : Network G) (y arrival o :
       by_cases hxy : x = y
       · subst x
         have hs : E.status y = .U := by simpa [E', traceStep] using hxD
-        have hcard : (E'.presentNeighbours y).card ≤ (E'.kept y).card :=
+        have hcard : (E'.presentNeighbors y).card ≤ (E'.kept y).card :=
           Finset.card_le_card hpnKept
         rw [hcardY hs] at hcard
         exact hcard
       · have hsD : E.status x = .D := by simpa [E', traceStep, hxy] using hxD
-        exact (Finset.card_le_card (traceStep_presentNeighbours_subset E y o x)).trans
+        exact (Finset.card_le_card (traceStep_presentNeighbors_subset E y o x)).trans
           (hLocal.2.2.1 x hxG hsD)
     · intro x hxActive
       have hxOld : x ∈ E.active := traceStep_active_backward E y o x hxActive
-      have hcard : (E'.presentNeighbours x).card ≤ (E.presentNeighbours x).card :=
-        Finset.card_le_card (traceStep_presentNeighbours_subset E y o x)
+      have hcard : (E'.presentNeighbors x).card ≤ (E.presentNeighbors x).card :=
+        Finset.card_le_card (traceStep_presentNeighbors_subset E y o x)
       have hfactor := hLocal.2.2.2 x hxOld
       exact (Nat.add_le_add_right hcard _).trans hfactor
   · intro x hxActive hxy hxU
@@ -598,15 +598,15 @@ private theorem prefix_core (p : PairSetup) (T : Finset Plane)
       have hyo : Adjacent y o := hbond.2.2.1
       have hyS : y ∉ protectedSites p.G := (htrailD.2.2.1 j hjlt).2
       have hoS : o ∉ protectedSites p.G := (htrailD.2.2.1 (j + 1) hj1lt).2
-      have hArrivalNbr : prefixArrival p.u p.c w j ∈ neighbours y := by
+      have hArrivalNbr : prefixArrival p.u p.c w j ∈ neighbors y := by
         cases j with
-        | zero => simpa [y, prefixArrival, wordVertex] using mem_neighbours_of_adjacent huc
+        | zero => simpa [y, prefixArrival, wordVertex] using mem_neighbors_of_adjacent huc
         | succ k =>
           have hklt : k < n := by omega
           have hprevBond : D.Present (wordVertex p.u w k)
               (wordVertex p.u w (k + 1)) := htrailD.2.1 ⟨k, hklt⟩
           simpa [y, prefixArrival] using
-            (mem_neighbours_of_adjacent (adjacent_symm hprevBond.2.2.1))
+            (mem_neighbors_of_adjacent (adjacent_symm hprevBond.2.2.1))
       have hkept := prefix_edge_kept htrailD hjlt
       have hnext := traceStep_core (prefixNetwork D p.u w j) y
         (prefixArrival p.u p.c w j) o hprev hyG hoG hArrivalNbr hyS hoS hyo hkept
@@ -625,10 +625,10 @@ private theorem removeSite_active_backward {G : Finset Plane} (E : Network G)
       simpa [removeSite, hxy] using hxStatus
     exact Finset.mem_filter.mpr ⟨hxG, hxStatusOld⟩
 
-private theorem removeSite_presentNeighbours_subset {G : Finset Plane} (E : Network G)
-    (y x : Plane) : (removeSite E y).presentNeighbours x ⊆ E.presentNeighbours x := by
+private theorem removeSite_presentNeighbors_subset {G : Finset Plane} (E : Network G)
+    (y x : Plane) : (removeSite E y).presentNeighbors x ⊆ E.presentNeighbors x := by
   intro z hz
-  simp only [Network.presentNeighbours, Finset.mem_filter] at hz ⊢
+  simp only [Network.presentNeighbors, Finset.mem_filter] at hz ⊢
   rcases hz with ⟨hzNbr, ⟨hxActive, hzActive, hadj, hzx, hxz⟩⟩
   have hxOld := removeSite_active_backward E y x hxActive
   have hzOld := removeSite_active_backward E y z hzActive
@@ -643,7 +643,7 @@ private theorem removeSite_consistent_of_core {G : Finset Plane} (E : Network G)
   have hyInactive : y ∉ E'.active := by simp [E', Network.active, removeSite]
   have hKeep : ∀ x, E'.kept x = E.kept x := by intro x; rfl
   have hProt' : ∀ x ∈ protectedSites G,
-      E'.status x = .U ∧ E'.kept x = neighbours x ∩ G := by
+      E'.status x = .U ∧ E'.kept x = neighbors x ∩ G := by
     intro x hxS
     have hxy : x ≠ y := by intro h; subst x; exact hyS hxS
     have hstatus : E'.status x = E.status x := by simp [E', removeSite, hxy]
@@ -666,12 +666,12 @@ private theorem removeSite_consistent_of_core {G : Finset Plane} (E : Network G)
       · subst x
         simp [E', removeSite] at hxD
       · have hxDold : E.status x = .D := by simpa [E', removeSite, hxy] using hxD
-        exact (Finset.card_le_card (removeSite_presentNeighbours_subset E y x)).trans
+        exact (Finset.card_le_card (removeSite_presentNeighbors_subset E y x)).trans
           (hLocal.2.2.1 x hxG hxDold)
     · intro x hxActive
       have hxOld : x ∈ E.active := removeSite_active_backward E y x hxActive
-      have hcard : (E'.presentNeighbours x).card ≤ (E.presentNeighbours x).card :=
-        Finset.card_le_card (removeSite_presentNeighbours_subset E y x)
+      have hcard : (E'.presentNeighbors x).card ≤ (E.presentNeighbors x).card :=
+        Finset.card_le_card (removeSite_presentNeighbors_subset E y x)
       have hfactor := hLocal.2.2.2 x hxOld
       exact (Nat.add_le_add_right hcard _).trans hfactor
   · intro x hxG hxU
@@ -696,11 +696,11 @@ private theorem removeSite_consistent_of_core {G : Finset Plane} (E : Network G)
     rw [hKeep, hKeep]
     exact hmut x hxOld z hzOld hadj
 
-private theorem response_type_neighbours {a b y : Plane}
-    (ha : a ∈ neighbours y) (hb : b ∈ neighbours y) (hab : a ≠ b) :
+private theorem response_type_neighbors {a b y : Plane}
+    (ha : a ∈ neighbors y) (hb : b ∈ neighbors y) (hab : a ≠ b) :
     HasPairType (responsePairType {a, b}) a b := by
   classical
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at ha hb
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at ha hb
   rcases ha with ⟨d, rfl⟩
   rcases hb with ⟨e, he⟩
   subst b
@@ -739,16 +739,16 @@ private theorem present_from_nonarrival {G : Finset Plane} (E : Network G)
     (hCore : CoreInvariant E y arrival)
     (hArrival : y - incoming.step = arrival)
     (hyU : E.status y = .U) (hyG : y ∈ G)
-    (ha : a ∈ nonarrivalNeighboursV2 E y incoming) : E.Present y a := by
+    (ha : a ∈ nonarrivalNeighborsV2 E y incoming) : E.Present y a := by
   classical
   rcases hCore with ⟨_, hU, _, hmut, _, hLive⟩
-  have haParts : a ∈ (neighbours y).erase arrival ∧ a ∈ E.active := by
-    change a ∈ ((neighbours y).erase (y - incoming.step)) ∩ E.active at ha
+  have haParts : a ∈ (neighbors y).erase arrival ∧ a ∈ E.active := by
+    change a ∈ ((neighbors y).erase (y - incoming.step)) ∩ E.active at ha
     rw [hArrival] at ha
     exact Finset.mem_inter.mp ha
   rcases haParts with ⟨haErase, haActive⟩
   rcases Finset.mem_erase.mp haErase with ⟨hneArrival, haNbr⟩
-  have hadj : Adjacent y a := adjacent_of_mem_neighbours haNbr
+  have hadj : Adjacent y a := adjacent_of_mem_neighbors haNbr
   have hya : y ≠ a := ne_of_adjacent hadj
   have haG : a ∈ G := active_mem_G haActive
   have haKept : a ∈ E.kept y := by
@@ -764,7 +764,7 @@ private theorem removed_endpoint_condition {G : Finset Plane} (E : Network G)
     (hPresent : E.Present y x) (hxy : x ≠ y) :
     (removeSite E y).status x = .U ∨
       ((removeSite E y).status x = .D ∧
-        ((removeSite E y).presentNeighbours x).card ≤ 1) := by
+        ((removeSite E y).presentNeighbors x).card ≤ 1) := by
   classical
   let E' := removeSite E y
   have hxG : x ∈ G := active_mem_G hPresent.2.1
@@ -779,9 +779,9 @@ private theorem removed_endpoint_condition {G : Finset Plane} (E : Network G)
     change y ∈ E.kept x
     exact present_kept_left hPresent
   have hSameKept : E'.kept x = E.kept x := by rfl
-  have hsubset : E'.presentNeighbours x ⊆ (E'.kept x).erase y := by
+  have hsubset : E'.presentNeighbors x ⊆ (E'.kept x).erase y := by
     intro z hz
-    simp only [Network.presentNeighbours, Finset.mem_filter] at hz
+    simp only [Network.presentNeighbors, Finset.mem_filter] at hz
     rcases hz with ⟨_, hp⟩
     have hzy : z ≠ y := by
       intro h
@@ -803,7 +803,7 @@ private theorem removed_endpoint_condition {G : Finset Plane} (E : Network G)
         have herase : ((E'.kept x).erase y).card = 1 := by
           rw [Finset.card_erase_of_mem hyKept, hcard]
         calc
-          (E'.presentNeighbours x).card ≤ ((E'.kept x).erase y).card :=
+          (E'.presentNeighbors x).card ≤ ((E'.kept x).erase y).card :=
             Finset.card_le_card hsubset
           _ = 1 := herase
   | X =>
@@ -818,8 +818,8 @@ theorem main : AKLT.Blueprint.Rec.PairClosureStatementV2 := by
   let y := wordVertex p.u w i.val
   let incoming := wordIncoming p.incoming w i
   change E.status y = .U →
-    ∀ a ∈ nonarrivalNeighboursV2 E y incoming,
-      ∀ b ∈ nonarrivalNeighboursV2 E y incoming, a ≠ b →
+    ∀ a ∈ nonarrivalNeighborsV2 E y incoming,
+      ∀ b ∈ nonarrivalNeighborsV2 E y incoming, a ≠ b →
         (removeSite E y).ResponsePair (responsePairType {a, b}) a b y
   intro hyU a ha b hb hab
   have hCore : CoreInvariant E y (prefixArrival p.u p.c w i.val) := by
@@ -856,8 +856,8 @@ theorem main : AKLT.Blueprint.Rec.PairClosureStatementV2 := by
     rw [hs]
     exact (Finset.mem_filter.mp hpb.2.1).2
   have hGeom : HasPairType (responsePairType {a, b}) a b :=
-    response_type_neighbours (mem_neighbours_of_adjacent hpa.2.2.1)
-      (mem_neighbours_of_adjacent hpb.2.2.1) hab
+    response_type_neighbors (mem_neighbors_of_adjacent hpa.2.2.1)
+      (mem_neighbors_of_adjacent hpb.2.2.1) hab
   refine ⟨hRemoved, haActive, hbActive, hyG, ?_, ?_, ?_, hGeom, ?_, ?_⟩
   · simp [removeSite]
   · exact adjacent_symm hpa.2.2.1

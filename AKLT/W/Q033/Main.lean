@@ -13,7 +13,7 @@ open AKLT.Uniq
 
 namespace AKLT.W.Q033
 
-theorem main : AKLT.Blueprint.Q.CentreDegreeCancellationStatement := by
+theorem main : AKLT.Blueprint.Q.CenterDegreeCancellationStatement := by
   intro L N x p χ hp hdegP hdegProd
   have hpHom : p.IsWeightedHomogeneous (siteWeight x) 4 := by
     intro d hd

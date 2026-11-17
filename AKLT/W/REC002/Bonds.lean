@@ -12,9 +12,9 @@ open AKLT.Defs
 
 namespace AKLT.W.REC002
 
-theorem positive_asymm {x z : Plane} (h : z ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours z := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+theorem positive_asymm {x z : Plane} (h : z ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors z := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
     Prod.ext_iff] at *
   omega
 
@@ -22,10 +22,10 @@ def otherEnd (y : Plane) (e : Plane × Plane) : Plane := if e.1 = y then e.2 els
 
 theorem incident_other {G : Finset Plane} (D : Network G) (y : Plane)
     (e : Plane × Plane) (he : e ∈ D.bonds.filter (fun e => e.1 = y ∨ e.2 = y)) :
-    otherEnd y e ∈ D.presentNeighbours y := by
+    otherEnd y e ∈ D.presentNeighbors y := by
   obtain ⟨he, h⟩ := Finset.mem_filter.mp he
   have hp := (mem_bonds D e.1 e.2).mp he
-  rw [mem_presentNeighbours]
+  rw [mem_presentNeighbors]
   rcases h with h | h
   · simpa [otherEnd, h] using hp.1
   · have hn : e.1 ≠ y := by simpa [h] using present_ne hp.1
@@ -57,9 +57,9 @@ theorem incident_injective {G : Finset Plane} (D : Network G) (y : Plane)
     · exact (hai.resolve_left hax).trans (hbi.resolve_left hbx).symm
 
 theorem incident_surjective {G : Finset Plane} (D : Network G) (y z : Plane)
-    (hz : z ∈ D.presentNeighbours y) :
+    (hz : z ∈ D.presentNeighbors y) :
     ∃ e ∈ D.bonds.filter (fun e => e.1 = y ∨ e.2 = y), otherEnd y e = z := by
-  have hp := (mem_presentNeighbours D y z).mp hz
+  have hp := (mem_presentNeighbors D y z).mp hz
   rcases (adjacent_iff_positive y z).mp hp.2.2.1 with h | h
   · refine ⟨(y, z), Finset.mem_filter.mpr ⟨(mem_bonds D y z).mpr ⟨hp, h⟩,
       Or.inl rfl⟩, ?_⟩
@@ -72,7 +72,7 @@ theorem bondProduct_remove {G : Finset Plane} (D : Network G) (y : Plane)
     (n : Plane → Vec3) (v : Vec3) :
     bondProduct D.bonds (Function.update n y v) =
       bondProduct (removeSite D y).bonds n *
-        ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)) := by
+        ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)) := by
   unfold bondProduct
   rw [← Finset.prod_filter_not_mul_prod_filter D.bonds
     (fun e => e.1 = y ∨ e.2 = y)]

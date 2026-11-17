@@ -62,7 +62,7 @@ private theorem takeWord_wordBond {n : ℕ} (hn : 12 ≤ n)
 
 theorem main : AKLT.Blueprint.H3.LongTrailPrefixStatement := by
   intro X d₀ n hn w hclosed hfirst
-  rcases hclosed with ⟨htrail, hterminal, hcentre, hfirstHit⟩
+  rcases hclosed with ⟨htrail, hterminal, hcenter, hfirstHit⟩
   rcases htrail with ⟨hinj, hinitial⟩
   rcases hfirst with ⟨i, hi0, hid⟩
   refine ⟨?_, ?_, ?_⟩
@@ -85,7 +85,7 @@ theorem main : AKLT.Blueprint.H3.LongTrailPrefixStatement := by
     have hvertex := wordVertex_takeWord (n := n) (L := 12) (by omega) w j hj
     constructor
     · rw [hvertex]
-      exact hcentre j (by omega)
+      exact hcenter j (by omega)
     · rw [hvertex]
       exact hfirstHit j (by omega)
 

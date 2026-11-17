@@ -97,7 +97,7 @@ theorem onePointPointwise_of_coveredRatio (hCovered : CoveredRatioStatementV2) :
   have hDyn := AKLT.W.REC039.main G D hD u hu (protectedSites G) n w hw
   let dep (i : Fin n) : Departure :=
     ⟨G, τ, E i, y i, o i, hDyn.1 i.val (Nat.le_of_lt i.isLt),
-      (hDyn.2 i).1, AKLT.W.REC096.present_mem_neighbours (hDyn.2 i).2⟩
+      (hDyn.2 i).1, AKLT.W.REC096.present_mem_neighbors (hDyn.2 i).2⟩
   have hstep (i : Fin n) (b : Bool) :
       coeff i * stepRatio (E i) τ b (y i) (o i) ≤ penalty i * lattice i := by
     have hpass := passageFactor_ge_one (wordStraight incoming w i)

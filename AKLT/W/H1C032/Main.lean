@@ -73,7 +73,7 @@ private lemma reduced_integrand_eq {π ρ : PatternData} (h : SameEffectiveData 
     have hstatus := h.2.2 x (by
       exact (Finset.mem_filter.mp hxπ).2)
     rw [reduced_pair_eq h r x]
-    simp [replacementRadius, leafNeighbour, hbonds, hstatus]
+    simp [replacementRadius, leafNeighbor, hbonds, hstatus]
 
 private lemma formalDot_vars_subset (a b : Fin 3 → LocalVariable) :
     (formalDot a b).vars ⊆
@@ -133,9 +133,9 @@ private lemma formalDot_good (π : PatternData) (a b : Fin 3 → LocalVariable)
   · rcases Finset.mem_image.mp h with ⟨k, -, rfl⟩
     exact hb k
 
-private lemma degree_pos_leafNeighbour {π : PatternData} {x : Plane}
+private lemma degree_pos_leafNeighbor {π : PatternData} {x : Plane}
     (hx : 0 < patternDegree π x) :
-    0 < patternDegree π (leafNeighbour π x) := by
+    0 < patternDegree π (leafNeighbor π x) := by
   classical
   unfold patternDegree at hx
   obtain ⟨e, he⟩ := Finset.card_pos.mp hx
@@ -159,17 +159,17 @@ private lemma degree_pos_leafNeighbour {π : PatternData} {x : Plane}
       π.bonds.toList.filterMap f := by
     rw [List.headD_eq_getD, List.getD_eq_getElem _ _ hlen]
     exact List.getElem_mem hlen
-  have hchosen : leafNeighbour π x ∈ π.bonds.toList.filterMap f := by
-    simpa [leafNeighbour, f] using hhead
+  have hchosen : leafNeighbor π x ∈ π.bonds.toList.filterMap f := by
+    simpa [leafNeighbor, f] using hhead
   rw [List.mem_filterMap] at hchosen
   obtain ⟨e', he'list, he'val⟩ := hchosen
   have he' : e' ∈ π.bonds := Finset.mem_toList.mp he'list
   by_cases h1 : e'.1 = x
-  · have hout : e'.2 = leafNeighbour π x := by simpa [f, h1] using he'val
+  · have hout : e'.2 = leafNeighbor π x := by simpa [f, h1] using he'val
     rw [← hout]
     exact degree_pos_right he'
   · by_cases h2 : e'.2 = x
-    · have hout : e'.1 = leafNeighbour π x := by simpa [f, h1, h2] using he'val
+    · have hout : e'.1 = leafNeighbor π x := by simpa [f, h1, h2] using he'val
       rw [← hout]
       exact degree_pos_left he'
     · simp [f, h1, h2] at he'val
@@ -204,7 +204,7 @@ private lemma reduced_integrand_good (π : PatternData) (r : Representation) (ne
         (1 + formalDot (fun k => Sum.inl (x,k)) (fun k => Sum.inr (groupLeader x,k))) *
         (1 + formalDot (fun k => Sum.inl (x,k)) (fun k => Sum.inr (groupSecond x,k)))
       else 1 + MvPolynomial.C (replacementRadius π x) *
-        formalDot (fun k => Sum.inl (leafNeighbour π x,k)) (fun k => Sum.inr (groupLeader x,k))
+        formalDot (fun k => Sum.inl (leafNeighbor π x,k)) (fun k => Sum.inr (groupLeader x,k))
     have hs := MvPolynomial.vars_prod (s := reductionGroups π) fg
     have hvgs := hs hvg
     rcases Finset.mem_biUnion.mp hvgs with ⟨x, hx, hvx⟩
@@ -234,8 +234,8 @@ private lemma reduced_integrand_good (π : PatternData) (r : Representation) (ne
     · dsimp [fg] at hvx
       have hp' : groupIsPair π r x = false := Bool.eq_false_of_not_eq_true hp
       simp [hp'] at hvx
-      have hn : 0 < patternDegree π (leafNeighbour π x) := degree_pos_leafNeighbour hxpos
-      have hdot := formalDot_good π (fun k => Sum.inl (leafNeighbour π x,k))
+      have hn : 0 < patternDegree π (leafNeighbor π x) := degree_pos_leafNeighbor hxpos
+      have hdot := formalDot_good π (fun k => Sum.inl (leafNeighbor π x,k))
         (fun k => Sum.inr (groupLeader x,k))
         (by intro k; exact hn) (by intro k; trivial)
       have hmul := mul_good π _ _ (const_good π (replacementRadius π x)) hdot

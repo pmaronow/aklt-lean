@@ -1,6 +1,6 @@
 module
 public import AKLT.W.REC004.Free
-public import AKLT.W.REC004.FibreExpansion
+public import AKLT.W.REC004.FiberExpansion
 public import AKLT.W.REC004.Expansion
 
 @[expose] public section
@@ -26,12 +26,12 @@ theorem free_response_comparison {G : Finset Plane} (D : Network G)
 
 /-- Reduction of the frozen target to one exact finite-sum identity,
 which is proved as `fiberexpansion` in `Expansion.lean`. -/
-theorem main_from_residuals (h : Residual_FibreExpansion) :
+theorem main_from_residuals (h : Residual_FiberExpansion) :
     AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement := by
   intro a hU f g hN hof hog hfg
   refine ⟨?_, free_response_comparison a.D a.τ a.y a.o f g⟩
   intro b
-  obtain ⟨hp, hs⟩ := removed_pair_bounds_from_fibres h a hU f g hN hof hog hfg b
+  obtain ⟨hp, hs⟩ := removed_pair_bounds_from_fibers h a hU f g hN hof hog hfg b
   dsimp only [responseI, responseJ]
   constructor
   · linarith [hs.1]
@@ -43,6 +43,6 @@ theorem main_from_residuals (h : Residual_FibreExpansion) :
 
 /-- The frozen target, unconditionally: the fiber residual is proved in `Expansion.lean`. -/
 theorem main : AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement :=
-  main_from_residuals fibreExpansion
+  main_from_residuals fiberExpansion
 
 end AKLT.W.REC004

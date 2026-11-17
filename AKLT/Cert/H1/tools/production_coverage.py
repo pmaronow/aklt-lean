@@ -25,7 +25,7 @@ def main():
     def raw(xs):return lean_list('⟨%d, %d⟩'%({'x':0,'u':1,'d':2}[t],m) for t,m in xs)
     data=f'{NS}.Data.Coverage'
     text=[f'import {CORE}.Production.Coverage','set_option maxHeartbeats 0','set_option maxRecDepth 1000000',f'namespace {data}',f'open {CORE}.Production',
-          f'def catalogue : Catalogue := {tree(entries)}',
+          f'def catalog : Catalog := {tree(entries)}',
           f'def codes : List Nat := {lean_list(k for k,p in entries)}',
           f'def pids : List Nat := {lean_list(p for k,p in entries)}']
     for i,a in enumerate(axes):text.append(f'def axes{i:03d} : List RawOption := {raw(a)}')
@@ -37,7 +37,7 @@ set_option maxHeartbeats 0
 set_option maxRecDepth 1000000
 namespace {header}
 open {CORE}.Production {data}
-theorem checked : catalogueCheck catalogue codes pids = true := by decide +kernel
+theorem checked : catalogCheck catalog codes pids = true := by decide +kernel
 #print axioms checked
 end {header}
 ''')
@@ -48,10 +48,10 @@ end {header}
         lines=[f'import {data}','set_option maxHeartbeats 0','set_option maxRecDepth 1000000',
                f'namespace {module}',f'open {CORE}.Production {data}']
         for c in range(8):
-            lines += [f'theorem corner{c} : coverageShard catalogue axes{i:03d} {c} = true := by decide +kernel',f'#print axioms corner{c}']
+            lines += [f'theorem corner{c} : coverageShard catalog axes{i:03d} {c} = true := by decide +kernel',f'#print axioms corner{c}']
         proof='corner7'
         for c in reversed(range(7)):proof=f'And.intro corner{c} ({proof})'
-        lines += [f'theorem accepted : CoverageAccepted catalogue axes{i:03d} := {proof}',
+        lines += [f'theorem accepted : CoverageAccepted catalog axes{i:03d} := {proof}',
                   '#print axioms accepted',f'end {module}\n']
         write(module,'\n'.join(lines))
         jobs.append(dict(module=module,kind='coverage_frontier',deps=[data],axial_frontier=i,corner_shards=8))
@@ -59,7 +59,7 @@ end {header}
     for module in reversed(modules):proof=f'And.intro {module}.accepted ({proof})'
     write(final,'\n'.join([*('import '+m for m in [header,*modules]),'set_option maxHeartbeats 0','set_option maxRecDepth 1000000',
         f'namespace {final}',f'open {CORE}.Production {data}',
-        f'theorem accepted : CoverageRowsAccepted catalogue axialConfigurations := by\n  exact {proof}',
+        f'theorem accepted : CoverageRowsAccepted catalog axialConfigurations := by\n  exact {proof}',
         '#print axioms accepted',f'end {final}\n']))
     jobs.append(dict(module=final,kind='coverage_assembly',deps=[header,*modules]))
     args.manifest.write_text(json.dumps(dict(format='h1-coverage-v2',jobs=jobs,raw_cartesian=2048000,frontiers=500,corner_shards=4000),indent=2)+'\n')

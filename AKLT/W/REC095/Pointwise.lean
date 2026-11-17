@@ -88,7 +88,7 @@ theorem pointwise_of_coveredRatio (hcovered : Residual_CoveredRatio) :
   have hdyn := traceDynamics G D hD u hu (protectedSites G) n w hstop
   let a (i : Fin n) : Departure :=
     ⟨G, τ, E i, y i, o i, hdyn.1 i.val (Nat.le_of_lt i.isLt),
-      (hdyn.2 i).1, present_neighbour (hdyn.1 i.val (Nat.le_of_lt i.isLt)).1
+      (hdyn.2 i).1, present_neighbor (hdyn.1 i.val (Nat.le_of_lt i.isLt)).1
         (hdyn.2 i).2⟩
   let exceptional (i : Fin n) : Prop :=
     (E i).status (y i) = .U ∧

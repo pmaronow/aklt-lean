@@ -91,20 +91,20 @@ private theorem takeWord_deadAt {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
   unfold deadAt
   rw [takeWord_departureCount w hL i z]
 
-private theorem takeWord_responseNeighbours {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
+private theorem takeWord_responseNeighbors {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
     (i : Fin L) :
-    responseNeighbours (takeWord w L) i =
-      responseNeighbours w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ := by
-  simp [responseNeighbours, takeWord_vertex w hL i.val (Nat.le_of_lt i.isLt),
+    responseNeighbors (takeWord w L) i =
+      responseNeighbors w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ := by
+  simp [responseNeighbors, takeWord_vertex w hL i.val (Nat.le_of_lt i.isLt),
     takeWord_incoming w hL i]
 
-private theorem takeWord_liveOtherNeighbours {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
+private theorem takeWord_liveOtherNeighbors {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
     (i : Fin L) :
-    liveOtherNeighbours (takeWord w L) i =
-      liveOtherNeighbours w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ := by
+    liveOtherNeighbors (takeWord w L) i =
+      liveOtherNeighbors w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ := by
   classical
-  unfold liveOtherNeighbours
-  rw [takeWord_responseNeighbours w hL i]
+  unfold liveOtherNeighbors
+  rw [takeWord_responseNeighbors w hL i]
   rw [takeWord_vertex w hL (i.val + 1) (by omega)]
   apply Finset.filter_congr
   intro z hz
@@ -114,7 +114,7 @@ private theorem takeWord_responsePairs {n L : ℕ} (w : DirectionWord n) (hL : L
     (i : Fin L) :
     responsePairs (takeWord w L) i =
       responsePairs w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ := by
-  simp [responsePairs, takeWord_liveOtherNeighbours w hL i,
+  simp [responsePairs, takeWord_liveOtherNeighbors w hL i,
     takeWord_vertex w hL (i.val + 1) (by omega)]
 
 private theorem takeWord_pairCoefficient {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
@@ -123,7 +123,7 @@ private theorem takeWord_pairCoefficient {n L : ℕ} (w : DirectionWord n) (hL :
       pairCoefficient w ⟨i.val, lt_of_lt_of_le i.isLt hL⟩ p := by
   simp [pairCoefficient, takeWord_straight w hL i,
     takeWord_vertex w hL (i.val + 1) (by omega),
-    takeWord_liveOtherNeighbours w hL i]
+    takeWord_liveOtherNeighbors w hL i]
 
 private theorem takeWord_witnessKappa {n L : ℕ} (w : DirectionWord n) (hL : L ≤ n)
     (i : Fin L) :

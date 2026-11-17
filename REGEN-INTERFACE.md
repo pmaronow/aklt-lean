@@ -5,7 +5,9 @@ This handoff is the complete-formalization hand-written port from main
 Regenerate the certificates **against this release's module-system sources and
 fresh objects**. Do not copy or import any legacy olean. Lean is 4.35.0-rc2;
 Mathlib is pinned to `065356127b1dc0016f66b7283ce0ce2c4055aa55`.
-No module name or mathematical declaration name changes in this port. In
+First-party identifiers now use American English. Eight analytic source files
+were renamed consistently with their imports; no direct H1/H3 kernel import
+module name changed. Declaration inventories below contain the current names. In
 particular, several H3 files live under `CertData/H3/Kernel/` while their original
 namespace remains `AKLT.Cert.H3`; use the existing names, not a namespace inferred
 from the relocated directory.
@@ -132,8 +134,8 @@ checkers, raw replay, prefix replay, and batch consumers have exposed bodies.
 Generated graph blocks, `PlaneTree` catalogs, tables, caps, endpoint selectors,
 and intermediate result definitions also need public/exposed bodies. Public
 certificate theorems feed the unchanged graph and case soundness assemblies.
-No arithmetic, check predicate, numeric value, or theorem statement is changed
-by this port.
+No arithmetic, check predicate, numeric value, or mathematical assertion changes;
+identifier spelling is updated consistently in definitions and statements.
 
 `RegenSamples.H3` elaborates a tiny hexadecimal literal, proves a packed-row
 Boolean check by `decide +kernel`, and reduces `Walk.step` through the production
@@ -147,7 +149,7 @@ generated import is `CertData.H3.Bridge.All`. It references these generated obje
 `CertData.H3.Check.BlockLookup.checked`, `CertData.H3.GraphAssembly.raw_receipt`,
 `CertData.H3.GraphAssembly.representative_receipt`,
 `CertData.H3.GraphAssembly.field_receipt`, `CertData.H3.Check.EdgeCounts.checked`,
-and `CertData.H3.Bridge.All.stationary_from_leaves`. Preserve all names and types.
+and `CertData.H3.Bridge.All.stationary_from_leaves`. Use the current names and types shown here.
 The H3 manifest lists their transitive generated dependencies.
 
 ## Exposed computational bodies
@@ -204,6 +206,8 @@ con-ron on the final full export after regeneration. Earlier conditional receipt
 do not certify that final export. Resources are recorded, not constrained by
 Palomar's production acceptance budget.
 
-All prose uses American English. Do not rename mathematical identifiers for
-spelling. `BRITISH-IDENTIFIERS.tsv` lists retained identifier tokens, including
-external Mathlib identifiers; manuscript labels such as `l:colour` stay exact.
+All prose and first-party identifiers use American English.
+`AMERICAN-ENGLISH-IDENTIFIERS.tsv` lists the current identifier spellings. External
+Mathlib identifiers and manuscript labels such as `l:colour` stay exact.
+The generator input-key audit found no affected external data key: only emitted
+Lean names and Lean leaf-name metadata values change.

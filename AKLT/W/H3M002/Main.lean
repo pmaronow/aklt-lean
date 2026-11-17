@@ -37,22 +37,22 @@ theorem main : AKLT.Blueprint.H3.ProjectionRealizationStatement := by
       let v := r (π w)
       have hv : RawWindow v := (Classical.choose_spec (hπ.1 (π w))).1
       have hclass : π w = π v := (Classical.choose_spec (hπ.1 (π w))).2.symm
-      have hfibre := hπ.2 w v hw hv hclass
+      have hfiber := hπ.2 w v hw hv hclass
       constructor
       · change (decide (WindowAdmissible (r (π w)) d) = true ↔
           WindowAdmissible w d)
         rw [decide_eq_true_eq]
-        exact (hfibre.1 d).1.symm
+        exact (hfiber.1 d).1.symm
       · intro hadm
         refine ⟨?_, ?_, ?_⟩
         · change windowKind (r (π w)) d = windowKind w d
-          exact (hfibre.1 d).2.1.symm
+          exact (hfiber.1 d).2.1.symm
         · change π (windowSuccessor (r (π w)) d) =
             π (windowSuccessor w d)
-          exact ((hfibre.1 d).2.2 hadm).symm
+          exact ((hfiber.1 d).2.2 hadm).symm
         · intro hnonrevisit
           change windowArrival (r (π w)) = windowArrival w
-          exact (hfibre.2 ⟨d, hadm, hnonrevisit⟩).symm
+          exact (hfiber.2 ⟨d, hadm, hnonrevisit⟩).symm
   · intro w hw
     rfl
 

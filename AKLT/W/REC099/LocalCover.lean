@@ -207,15 +207,15 @@ private theorem second_initial_invariant (p : PairSetup) (hv : p.v ∉ protected
     change (traceNetwork p.normalized (wordVertices p.u w)).status p.v = .D at hd
     rw [trace_status_untouched p.normalized _ hnot] at hd
     exact hd
-  have hdeg : (p.D.presentNeighbours p.v).card ≤ 1 := by
+  have hdeg : (p.D.presentNeighbors p.v).card ≤ 1 := by
     rcases hvc with hU | ⟨_, hdeg⟩
     · rw [hdOrig] at hU
       cases hU
     · exact hdeg
   apply Finset.card_le_one.mp hdeg
-  · exact present_mem_neighbours
+  · exact present_mem_neighbors
       (normalize_present_subset p.D p.u p.c (trace_present_subset p.normalized _ hpx))
-  · exact present_mem_neighbours
+  · exact present_mem_neighbors
       (normalize_present_subset p.D p.u p.c (trace_present_subset p.normalized _ hpz))
 
 /-- Only the bonds through the requested departure are needed by the prefix

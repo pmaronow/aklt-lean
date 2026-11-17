@@ -10,24 +10,24 @@ open AKLT.Defs AKLT.Blueprint.Rec
 
 namespace AKLT.W.REC054
 
-private theorem neighbours_card_le (x : Plane) : (neighbours x).card ≤ 4 := by
+private theorem neighbors_card_le (x : Plane) : (neighbors x).card ≤ 4 := by
   calc
-    (neighbours x).card ≤ (Finset.univ : Finset Compass).card := Finset.card_image_le
+    (neighbors x).card ≤ (Finset.univ : Finset Compass).card := Finset.card_image_le
     _ = 4 := by decide
 
 private theorem kept_card_le {G : Finset Plane} {D : Network G}
     (hD : D.LocalRules) (x : Plane) : (D.kept x).card ≤ 4 :=
   (Finset.card_le_card ((hD.2.1 x).trans Finset.inter_subset_left)).trans
-    (neighbours_card_le x)
+    (neighbors_card_le x)
 
-private theorem presentNeighbours_subset_kept {G : Finset Plane} (D : Network G)
-    (x : Plane) : D.presentNeighbours x ⊆ D.kept x := by
+private theorem presentNeighbors_subset_kept {G : Finset Plane} (D : Network G)
+    (x : Plane) : D.presentNeighbors x ⊆ D.kept x := by
   intro z hz
   exact (Finset.mem_filter.mp hz).2.2.2.2.1
 
-private theorem presentNeighbours_mono {G : Finset Plane} {D E : Network G}
+private theorem presentNeighbors_mono {G : Finset Plane} {D E : Network G}
     (ha : E.active ⊆ D.active) (hk : ∀ x, E.kept x ⊆ D.kept x) (x : Plane) :
-    E.presentNeighbours x ⊆ D.presentNeighbours x := by
+    E.presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
   rcases Finset.mem_filter.mp hz with ⟨hz, hx, hz', hadj, hkx, hkz⟩
   exact Finset.mem_filter.mpr ⟨hz, ha hx, ha hz', hadj, hk x hkx, hk z hkz⟩
@@ -36,8 +36,8 @@ private theorem localRules_kept_subset {G : Finset Plane} {D E : Network G}
     (hD : D.LocalRules) (hs : E.status = D.status)
     (hk : ∀ x, E.kept x ⊆ D.kept x) : E.LocalRules := by
   have ha : E.active = D.active := by simp [Network.active, hs]
-  have hn (x : Plane) : (E.presentNeighbours x).card ≤ (D.presentNeighbours x).card :=
-    Finset.card_le_card (presentNeighbours_mono (by rw [ha]) hk x)
+  have hn (x : Plane) : (E.presentNeighbors x).card ≤ (D.presentNeighbors x).card :=
+    Finset.card_le_card (presentNeighbors_mono (by rw [ha]) hk x)
   refine ⟨?_, ?_, ?_, ?_⟩
   · intro x hx
     rw [hs]
@@ -71,8 +71,8 @@ private theorem traceStep_localRules {G : Finset Plane} {D : Network G}
     (hy : D.status y = .U → (D.kept y).card ≤ 3) (ho : o ∈ D.kept y) :
     (traceStep D y o).LocalRules := by
   have hn (x : Plane) :
-      ((traceStep D y o).presentNeighbours x).card ≤ (D.presentNeighbours x).card :=
-    Finset.card_le_card (presentNeighbours_mono (traceStep_active_subset D y o)
+      ((traceStep D y o).presentNeighbors x).card ≤ (D.presentNeighbors x).card :=
+    Finset.card_le_card (presentNeighbors_mono (traceStep_active_subset D y o)
       (traceStep_kept_subset D y o) x)
   refine ⟨?_, ?_, ?_, ?_⟩
   · intro x hx
@@ -92,7 +92,7 @@ private theorem traceStep_localRules {G : Finset Plane} {D : Network G}
         have := Finset.card_erase_add_one ho
         have := hy hU
         omega
-      exact (Finset.card_le_card (presentNeighbours_subset_kept (traceStep D y o) y)).trans
+      exact (Finset.card_le_card (presentNeighbors_subset_kept (traceStep D y o) y)).trans
         (by simpa [traceStep] using hc)
     · have hs' : D.status x = .D := by simpa [traceStep, hxy] using hs
       exact (hn x).trans (hD.2.2.1 x hx hs')
@@ -202,7 +202,7 @@ private theorem normalized_start_card (p : PairSetup) (hs : p.normalized.status 
     (p.normalized.kept p.u).card ≤ 3 := by
   have huG : p.u ∈ p.G := (Finset.mem_filter.mp p.pair.2.1).1
   have hfull := p.pair.1.2.1 p.u huG hs
-  have hcu : p.c ∈ neighbours p.u := by
+  have hcu : p.c ∈ neighbors p.u := by
     apply Finset.mem_image.mpr
     refine ⟨p.incoming.reverse, Finset.mem_univ _, ?_⟩
     rw [p.incoming_eq]

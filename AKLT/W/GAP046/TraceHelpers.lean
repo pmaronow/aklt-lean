@@ -226,10 +226,10 @@ private lemma conditionalMix {Ω : Type} [Fintype Ω] [DecidableEq Ω]
     _ = p y := by
           exact div_mul_cancel₀ _ hmass.ne'
 
-private lemma fibre_mixture {ι : Type} [Fintype ι] [DecidableEq ι]
+private lemma fiber_mixture {ι : Type} [Fintype ι] [DecidableEq ι]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (hp : PositiveProbability p) (U : Finset ι) (σ : Config S) :
-    (∑ ω, p ω * fibre p U ω σ) = p σ := by
+    (∑ ω, p ω * fiber p U ω σ) = p σ := by
   classical
   let E : Config S → Config S → Prop := AgreeOutside U
   have hE : Equivalence E := by
@@ -240,7 +240,7 @@ private lemma fibre_mixture {ι : Type} [Fintype ι] [DecidableEq ι]
       exact (h z hz).symm
     · intro x y z hxy hyz w hw
       exact (hxy w hw).trans (hyz w hw)
-  simpa [fibre, E] using conditionalMix E hE p hp σ
+  simpa [fiber, E] using conditionalMix E hE p hp σ
 
 private def pairAdvance {Ω : Type} [Fintype Ω] (q : Weight (Ω × Ω))
     (K : Ω × Ω → Weight (Ω × Ω)) : Weight (Ω × Ω) :=
@@ -264,7 +264,7 @@ private lemma pairAdvance_first_cond {ι : Type} [Fintype ι] [DecidableEq ι]
     (hp : PositiveProbability p) (U : Finset ι) (q : Weight (Config S × Config S))
     (K : Config S × Config S → Weight (Config S × Config S))
     (hinput : ∀ σ, (∑ τ, q (σ, τ)) = p σ)
-    (hrow : ∀ ω σ, (∑ τ, K ω (σ, τ)) = fibre p U ω.1 σ) :
+    (hrow : ∀ ω σ, (∑ τ, K ω (σ, τ)) = fiber p U ω.1 σ) :
     ∀ σ, (∑ τ, pairAdvance q K (σ, τ)) = p σ := by
   intro σ
   unfold pairAdvance
@@ -275,22 +275,22 @@ private lemma pairAdvance_first_cond {ι : Type} [Fintype ι] [DecidableEq ι]
           apply Finset.sum_congr rfl
           intro ω hω
           rw [← Finset.mul_sum]
-    _ = ∑ ω, q ω * fibre p U ω.1 σ := by
+    _ = ∑ ω, q ω * fiber p U ω.1 σ := by
           apply Finset.sum_congr rfl
           intro ω hω
           rw [hrow]
-    _ = ∑ x, (∑ y, q (x, y)) * fibre p U x σ := pairSumFst q (fun x => fibre p U x σ)
+    _ = ∑ x, (∑ y, q (x, y)) * fiber p U x σ := pairSumFst q (fun x => fiber p U x σ)
     _ = p σ := by
-          rw [show (∑ x, (∑ y, q (x, y)) * fibre p U x σ) =
-            ∑ x, p x * fibre p U x σ by simp_rw [hinput]]
-          exact fibre_mixture p hp U σ
+          rw [show (∑ x, (∑ y, q (x, y)) * fiber p U x σ) =
+            ∑ x, p x * fiber p U x σ by simp_rw [hinput]]
+          exact fiber_mixture p hp U σ
 
 private lemma pairAdvance_second_cond {ι : Type} [Fintype ι] [DecidableEq ι]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (hp : PositiveProbability p) (U : Finset ι) (q : Weight (Config S × Config S))
     (K : Config S × Config S → Weight (Config S × Config S))
     (hinput : ∀ τ, (∑ σ, q (σ, τ)) = p τ)
-    (hrow : ∀ ω τ, (∑ σ, K ω (σ, τ)) = fibre p U ω.2 τ) :
+    (hrow : ∀ ω τ, (∑ σ, K ω (σ, τ)) = fiber p U ω.2 τ) :
     ∀ τ, (∑ σ, pairAdvance q K (σ, τ)) = p τ := by
   intro τ
   unfold pairAdvance
@@ -301,15 +301,15 @@ private lemma pairAdvance_second_cond {ι : Type} [Fintype ι] [DecidableEq ι]
           apply Finset.sum_congr rfl
           intro ω hω
           rw [← Finset.mul_sum]
-    _ = ∑ ω, q ω * fibre p U ω.2 τ := by
+    _ = ∑ ω, q ω * fiber p U ω.2 τ := by
           apply Finset.sum_congr rfl
           intro ω hω
           rw [hrow]
-    _ = ∑ y, (∑ x, q (x, y)) * fibre p U y τ := pairSumSnd q (fun y => fibre p U y τ)
+    _ = ∑ y, (∑ x, q (x, y)) * fiber p U y τ := pairSumSnd q (fun y => fiber p U y τ)
     _ = p τ := by
-          rw [show (∑ y, (∑ x, q (x, y)) * fibre p U y τ) =
-            ∑ y, p y * fibre p U y τ by simp_rw [hinput]]
-          exact fibre_mixture p hp U τ
+          rw [show (∑ y, (∑ x, q (x, y)) * fiber p U y τ) =
+            ∑ y, p y * fiber p U y τ by simp_rw [hinput]]
+          exact fiber_mixture p hp U τ
 
 private lemma pairAdvance_pointMass {Ω : Type} [Fintype Ω]
     (q : Weight (Ω × Ω)) :
@@ -474,12 +474,12 @@ private lemma surgeryStepPreserves (P : PlaneSpec) (a y : Plane)
   · have hmarg := R.marginals j
     simp only [if_neg hex] at hmarg
     have hrowFirst : ∀ ω σ, (∑ τ, R.kernel j ω (σ, τ)) =
-        fibre (P.law (square a u) η)
+        fiber (P.law (square a u) η)
           (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.1 σ := by
       intro ω σ
       exact (hmarg ω).1 σ
     have hrowSecond : ∀ ω τ, (∑ σ, R.kernel j ω (σ, τ)) =
-        fibre (P.law (square a u) ξ)
+        fiber (P.law (square a u) ξ)
           (sitesInVolume (square a u) (farVolume a y u (j.val + 2))) ω.2 τ := by
       intro ω τ
       exact (hmarg ω).2 τ

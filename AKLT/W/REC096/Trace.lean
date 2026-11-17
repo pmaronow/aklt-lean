@@ -14,8 +14,8 @@ theorem present_symm {G : Finset Plane} {E : Network G} {x z : Plane}
     (h : E.Present x z) : E.Present z x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem present_mem_neighbours {G : Finset Plane} {E : Network G} {x z : Plane}
-    (h : E.Present x z) : z ∈ E.presentNeighbours x := by
+theorem present_mem_neighbors {G : Finset Plane} {E : Network G} {x z : Plane}
+    (h : E.Present x z) : z ∈ E.presentNeighbors x := by
   exact Finset.mem_filter.mpr ⟨(adjacent_iff _ _).mp h.2.2.1, h⟩
 
 theorem step_status_ne {G : Finset Plane} (E : Network G) (y o x : Plane)
@@ -43,14 +43,14 @@ theorem step_kept_iff {G : Finset Plane} (E : Network G) (y o x z : Plane) :
 /-- The sole exceptional kept set is at the live endpoint. -/
 structure PrefixInvariant {G : Finset Plane} (E : Network G) (y a : Plane) : Prop where
   outside : ∀ x, x ∉ G → E.status x = .X
-  kept_sub : ∀ x, E.kept x ⊆ neighbours x ∩ G
-  u_full : ∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbours x ∩ G
+  kept_sub : ∀ x, E.kept x ⊆ neighbors x ∩ G
+  u_full : ∀ x ∈ G, x ≠ y → E.status x = .U → E.kept x = neighbors x ∩ G
   d_two : ∀ x ∈ G, x ≠ y → E.status x = .D → (E.kept x).card = 2
   agree : ∀ x ∈ E.active, ∀ z ∈ E.active, Adjacent x z →
     (z ∈ E.kept x ↔ x ∈ E.kept z)
   arrival_adj : Adjacent y a
   arrival_notU : E.status a ≠ .U
-  liveU : E.status y = .U → E.kept y = (neighbours y ∩ G).erase a
+  liveU : E.status y = .U → E.kept y = (neighbors y ∩ G).erase a
   liveD : E.status y = .D → ∀ x z, E.Present y x → E.Present y z → x = z
 
 theorem invariant_step {G : Finset Plane} {E : Network G} {y a o : Plane}
@@ -60,13 +60,13 @@ theorem invariant_step {G : Finset Plane} {E : Network G} {y a o : Plane}
   have hyG := (Finset.mem_filter.mp hp.1).1
   have hoG := (Finset.mem_filter.mp hp.2.1).1
   have hyo := adjacent_ne hp.2.2.1
-  have hfull : neighbours y ∩ G = neighbours y := by
+  have hfull : neighbors y ∩ G = neighbors y := by
     apply Finset.inter_eq_left.mpr
     intro z hz
     exact interior_ball hyG hS (by rw [← adjacent_iff] at hz; exact hz.le.trans (by decide))
   have hUcard (hu : E.status y = .U) : (E.kept y).card = 3 := by
     rw [h.liveU hu, hfull, Finset.card_erase_of_mem ((adjacent_iff _ _).mp h.arrival_adj),
-      neighbours_card]
+      neighbors_card]
   refine ⟨?_, ?_, ?_, ?_, ?_, adjacent_symm hp.2.2.1, ?_, ?_, ?_⟩
   · intro x hx
     rw [step_status_ne E y o x (fun he => hx (he ▸ hyG))]

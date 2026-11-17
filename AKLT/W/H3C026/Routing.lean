@@ -57,7 +57,7 @@ theorem routed_direction
     (G : Graph) (T : Tables) (X : PairType) (d₀ : Compass)
     (hT : CertData.H3.Bridge.TableBounds T) (hcase : (X,d₀) ∈ stationaryCases)
     (φ : Phase) (a : Fin 3741) (s : Nat) (hs : s < 19881)
-    (hc : gridSite s ≠ kernelCentre) (ht : gridSite s ≠ kernelTarget X) (d : Compass) :
+    (hc : gridSite s ≠ kernelCenter) (ht : gridSite s ≠ kernelTarget X) (d : Compass) :
     component 80 s (directionTerms G.quotient T.planeFn T.capFn X d₀ φ a d) =
       scalarDirection G.quotient d₀ φ a (gridSite s) d
         (fun ψ => T.data.extended ψ (G.quotient.successor a d) (gridSite s + d.step)) := by

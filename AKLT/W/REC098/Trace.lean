@@ -15,13 +15,13 @@ namespace AKLT.W.REC098
 structure TraceState {G : Finset Plane} (D : Network G) (bad : Finset Plane)
     (y a : Plane) : Prop where
   outside : ∀ x, x ∉ G → D.status x = .X
-  subset : ∀ x, D.kept x ⊆ neighbours x ∩ G
+  subset : ∀ x, D.kept x ⊆ neighbors x ∩ G
   mutualKept : ∀ x ∈ D.active, ∀ z ∈ D.active, Adjacent x z →
     (z ∈ D.kept x ↔ x ∈ D.kept z)
-  fullU : ∀ x, x ≠ y → x ∉ bad → D.status x = .U → D.kept x = neighbours x ∩ G
+  fullU : ∀ x, x ≠ y → x ∉ bad → D.status x = .U → D.kept x = neighbors x ∩ G
   twoD : ∀ x, x ≠ y → D.status x = .D → (D.kept x).card = 2
-  liveU : D.status y = .U → D.kept y = (neighbours y ∩ G).erase a
-  liveD : D.status y = .D → (D.presentNeighbours y).card ≤ 1
+  liveU : D.status y = .U → D.kept y = (neighbors y ∩ G).erase a
+  liveD : D.status y = .D → (D.presentNeighbors y).card ≤ 1
   arrival : D.status a = .X ∨
     (D.status a = .D ∧ (D.kept a).card = 2 ∧ y ∉ D.kept a)
   arrival_adj : Adjacent y a
@@ -31,8 +31,8 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x z : Plane}
     (h : D.Present x z) : D.Present z x := by
   exact ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem present_neighbour {G : Finset Plane} {D : Network G} {x z : Plane}
-    (h : D.Present x z) : z ∈ D.presentNeighbours x := by
+theorem present_neighbor {G : Finset Plane} {D : Network G} {x z : Plane}
+    (h : D.Present x z) : z ∈ D.presentNeighbors x := by
   exact Finset.mem_filter.mpr ⟨(adjacent_iff x z).mp h.2.2.1, h⟩
 
 theorem traceStep_active_subset {G : Finset Plane} (D : Network G) (y o : Plane) :
@@ -61,12 +61,12 @@ theorem traceStep_present_subset {G : Finset Plane} (D : Network G) (y o : Plane
 
 theorem preserve_present {G : Finset Plane} {D : Network G} {y o x z : Plane}
     (hyo : D.Present y o)
-    (hD : D.status y = .D → (D.presentNeighbours y).card ≤ 1)
+    (hD : D.status y = .D → (D.presentNeighbors y).card ≤ 1)
     (hxz : D.Present x z) (hne : ({x, z} : Finset Plane) ≠ {y, o}) :
     (traceStep D y o).Present x z := by
   have uniq : D.status y = .D → ∀ t, D.Present y t → t = o := by
     intro hs t ht
-    exact Finset.card_le_one.mp (hD hs) t (present_neighbour ht) o (present_neighbour hyo)
+    exact Finset.card_le_one.mp (hD hs) t (present_neighbor ht) o (present_neighbor hyo)
   have xa : x ∈ (traceStep D y o).active := by
     refine Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp hxz.1).1, ?_⟩
     by_cases hxy : x = y
@@ -102,8 +102,8 @@ theorem preserve_present {G : Finset Plane} {D : Network G} {y o x z : Plane}
     · exact Finset.mem_erase.mpr ⟨by intro h; exact hne (by simp_all), hxz.2.2.2.2⟩
     · exact hxz.2.2.2.2
 
-theorem presentNeighbours_card_le_kept {G : Finset Plane} (D : Network G) (x : Plane) :
-    (D.presentNeighbours x).card ≤ (D.kept x).card := by
+theorem presentNeighbors_card_le_kept {G : Finset Plane} (D : Network G) (x : Plane) :
+    (D.presentNeighbors x).card ≤ (D.kept x).card := by
   apply Finset.card_le_card
   intro z hz
   exact (Finset.mem_filter.mp hz).2.2.2.2.1
@@ -116,17 +116,17 @@ theorem TraceState.step {G : Finset Plane} {D : Network G} {bad : Finset Plane}
   have hyX := (Finset.mem_filter.mp hyo.1).2
   have hyo_ne : y ≠ o := adjacent_ne hyo.2.2.1
   have hoy_ne := Ne.symm hyo_ne
-  have hN : neighbours y ∩ G = neighbours y := interior_neighbours hyG hyS
-  have haN : a ∈ neighbours y := (adjacent_iff y a).mp hs.arrival_adj
+  have hN : neighbors y ∩ G = neighbors y := interior_neighbors hyG hyS
+  have haN : a ∈ neighbors y := (adjacent_iff y a).mp hs.arrival_adj
   have hoK : o ∈ D.kept y := hyo.2.2.2.1
   have hyK : y ∈ D.kept o := hyo.2.2.2.2
   have departed_two (hU : D.status y = .U) :
       ((traceStep D y o).kept y).card = 2 := by
     have hk := hs.liveU hU
     rw [hN] at hk
-    have hoN : o ∈ (neighbours y).erase a := by simpa [hk] using hoK
+    have hoN : o ∈ (neighbors y).erase a := by simpa [hk] using hoK
     simp only [traceStep, ite_true]
-    rw [hk, Finset.card_erase_of_mem hoN, Finset.card_erase_of_mem haN, neighbours_card]
+    rw [hk, Finset.card_erase_of_mem hoN, Finset.card_erase_of_mem haN, neighbors_card]
   have stat_o : (traceStep D y o).status o = D.status o := by
     simp [traceStep, hoy_ne]
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, adjacent_symm hyo.2.2.1, ?_⟩
@@ -165,7 +165,7 @@ theorem TraceState.step {G : Finset Plane} {D : Network G} {bad : Finset Plane}
     have hc : ((traceStep D y o).kept o).card = 1 := by
       simp only [traceStep, hoy_ne, ite_false, ite_true]
       rw [Finset.card_erase_of_mem hyK, hk]
-    exact (presentNeighbours_card_le_kept _ _).trans (by omega)
+    exact (presentNeighbors_card_le_kept _ _).trans (by omega)
   · by_cases hU : D.status y = .U
     · right
       exact ⟨by simp [traceStep, hU], departed_two hU, by simp [traceStep]⟩
@@ -296,7 +296,7 @@ theorem initial_state (p : AKLT.Blueprint.Rec.PairSetup) :
     simp [normalizeStart, hU, hcons.2.1 p.u huG hU]
   · intro hD
     change p.D.status p.u = .D at hD
-    have hd : (p.D.presentNeighbours p.u).card ≤ 1 := by
+    have hd : (p.D.presentNeighbors p.u).card ≤ 1 := by
       rcases hupair with hU | ⟨_, hd⟩
       · simp_all
       · exact hd
@@ -339,7 +339,7 @@ theorem prefix_status_unvisited {G : Finset Plane} {n : ℕ} (D : Network G)
 theorem TraceState.restart {G : Finset Plane} {D : Network G} {e a v c : Plane}
     (hs : TraceState D ∅ e a) (he : e ∈ protectedSites G) (hve : v ≠ e)
     (hc : D.status c = .X) (hvc : Adjacent v c)
-    (hdeg : D.status v = .D → (D.presentNeighbours v).card ≤ 1) :
+    (hdeg : D.status v = .D → (D.presentNeighbors v).card ≤ 1) :
     TraceState (normalizeStart D v c) {e} v c := by
   refine ⟨hs.outside, ?_, normalizeStart_mutual hc hs.mutualKept, ?_, ?_, ?_, ?_,
     Or.inl hc, hvc, hs.protectedU⟩
@@ -409,9 +409,9 @@ theorem second_state (p : AKLT.Blueprint.Rec.PairSetup) (hpv : p.v ∉ protected
     · intro k hk hkv
       have ha := (hfirst.2.2.1 k hk).1
       exact ha (by simp [hkv])
-  have hdeg : F.status p.v = .D → (F.presentNeighbours p.v).card ≤ 1 := by
+  have hdeg : F.status p.v = .D → (F.presentNeighbors p.v).card ≤ 1 := by
     intro hvD
-    have hd : (p.D.presentNeighbours p.v).card ≤ 1 := by
+    have hd : (p.D.presentNeighbors p.v).card ≤ 1 := by
       rcases p.pair.2.2.2.2.2.2.2.2.2 with hU | ⟨_, hd⟩
       · simp_all
       · exact hd
@@ -420,7 +420,7 @@ theorem second_state (p : AKLT.Blueprint.Rec.PairSetup) (hpv : p.v ∉ protected
     have hpres := (Finset.mem_filter.mp hz).2
     have horig := normalizeStart_present_subset p.D p.u p.c
       (traceNetwork_present_subset p.normalized (wordVertices p.u w) hpres)
-    exact present_neighbour horig
+    exact present_neighbor horig
   have hi0 := ht.restart he hve hc p.pair.2.2.2.2.2.2.1 hdeg
   have hb : ∀ k ≤ i.val, wordVertex p.v w' k ∉ ({e} : Finset Plane) := by
     intro k hk

@@ -83,15 +83,15 @@ def PlaneSpec (G : Graph) (T : Tables) (X : PairType) (d₀ : Compass) (φ : Pha
   ((∑ d : Compass, ∑ ψ : Phase, coefficientCeiling (freeCoefficient G.quotient φ a d ψ)*
     T.capFn ψ (G.quotient.successor a d)) ≤ certificateCoefficientScale*T.capFn φ a) ∧
   (∀ x : square (0,0) certificateRadius, T.data.value φ a x ≤ T.capFn φ a) ∧
-  (T.data.extended φ a kernelCentre=0 ∧
+  (T.data.extended φ a kernelCenter=0 ∧
     (T.data.extended φ a (kernelTarget X) : ℚ)=certificateValueScale*phaseTerminal φ) ∧
-  ∀ x : square (0,0) certificateRadius, x.val ≠ kernelCentre → x.val ≠ kernelTarget X →
+  ∀ x : square (0,0) certificateRadius, x.val ≠ kernelCenter → x.val ≠ kernelTarget X →
     (∑ d : Compass, ∑ ψ : Phase, coefficientCeiling (stationaryCoefficientV2 G.quotient X d₀ φ a x.val d ψ)*
       T.data.extended ψ (G.quotient.successor a d) (x.val+d.step)) ≤ certificateCoefficientScale*T.data.value φ a x
 
 def OrdinaryMaskLeaf : Prop := ∀ (X : PairType) (d₀ : Compass), (X,d₀)∈stationaryCases →
   ∀ s<19881, lane (ordinaryMask X d₀) 80 s =
-    if gridSite s=kernelCentre ∨ gridSite s=kernelTarget X ∨ gridSite s=kernelStart ∨
+    if gridSite s=kernelCenter ∨ gridSite s=kernelTarget X ∨ gridSite s=kernelStart ∨
       gridSite s=kernelStart+d₀.step then 0 else 2^80-1
 def KnownMaskLeaf : Prop := ∀ (d₀ d : Compass), d₀ ≠ .east → ∀ s<19881,
   lane (knownMask d₀ d) 80 s =
@@ -101,20 +101,20 @@ def DeadMaskLeaf : Prop := ∀ j : Fin 5, ∀ s<19881, lane (deadMask j.val) 80 
   if (if j.val<4 then gridSite s = -(direction j.val).step
       else ∀ d : Compass, gridSite s ≠ -d.step) then 2^80-1 else 0
 
-def CentreZeroV2Leaf : Prop := ∀ (Q : MemoryQuotient 10 3741) (C : StationaryData 3741)
-    (X : PairType) (d₀ : Compass), (∀ φ a, C.extended φ a kernelCentre=0) → ∀ φ a x,
+def CenterZeroV2Leaf : Prop := ∀ (Q : MemoryQuotient 10 3741) (C : StationaryData 3741)
+    (X : PairType) (d₀ : Compass), (∀ φ a, C.extended φ a kernelCenter=0) → ∀ φ a x,
   (∑ d : Compass, ∑ ψ : Phase, coefficientCeiling (stationaryCoefficient Q X d₀ φ a x d ψ)*
     C.extended ψ (Q.successor a d) (x+d.step)) =
   ∑ d : Compass, ∑ ψ : Phase, coefficientCeiling (stationaryCoefficientV2 Q X d₀ φ a x d ψ)*
     C.extended ψ (Q.successor a d) (x+d.step)
 def TableBounds (T : Tables) : Prop := ∀ (φ : Phase) (a : Fin 3741),
   0<T.capFn φ a ∧ T.capFn φ a<2^26 ∧ Fits (T.planeFn φ a) 80 19881 ∧
-    lane (T.planeFn φ a) 80 (siteIndex kernelCentre)=0
+    lane (T.planeFn φ a) 80 (siteIndex kernelCenter)=0
 def TableBoundsLeaf : Prop := ∀ (G : Graph) (T : Tables) (X : PairType) (d₀ : Compass),
   (∀ (φ : Phase) (a : Fin 3741), planeCheck G T X d₀ (phaseKey (phaseCode φ) a.val)=true) → TableBounds T
 def RowTermsV2Leaf : Prop := ∀ (G : Graph) (T : Tables) (X : PairType) (d₀ : Compass),
   G.quotient.Correct → TableBounds T → (X,d₀)∈stationaryCases → ∀ (φ : Phase) (a : Fin 3741),
-  ∀ s<19881, gridSite s ≠ kernelCentre → gridSite s ≠ kernelTarget X →
+  ∀ s<19881, gridSite s ≠ kernelCenter → gridSite s ≠ kernelTarget X →
   component 80 s (rowTerms G.quotient T.planeFn T.capFn X d₀ φ a)=
     ∑ d : Compass, ∑ ψ : Phase,
       coefficientCeiling (stationaryCoefficientV2 G.quotient X d₀ φ a (gridSite s) d ψ)*

@@ -56,7 +56,7 @@ theorem blockComparison_of_parts (hCond : ConditionalBlockComparisonStatement)
 /-- t:periodic, including the exact block gap before division by block multiplicity. -/
 theorem periodicCriterion_of_parts
     (hInside : ContainingBlockCountStatement) (hOutside : ExteriorBlockCountStatement)
-    (hVolume : BlockVolumeBoundStatement) (hNeighbour : PeriodicNeighbourCouplingStatement)
+    (hVolume : BlockVolumeBoundStatement) (hNeighbor : PeriodicNeighborCouplingStatement)
     (hContract : FiniteContractionStatement) (hCompare : BlockComparisonStatement) :
     PeriodicCriterionStatement := by
   intro L N S _ _ μ hμ M g K hM hL hN hg hK hRange hBlocks hInfluence hStrict
@@ -71,7 +71,7 @@ theorem periodicCriterion_of_parts
     nlinarith
   have hGap := hContract (Site L N) (Site L N) S μ hμ (torusSquare L N M)
     ((volumeCount M : ℝ)-(haloCount M : ℝ)*K) hc hcA
-    (hNeighbour L N S μ hμ M K hM hK hCounts hRange hInfluence)
+    (hNeighbor L N S μ hμ M K hM hK hCounts hRange hInfluence)
   refine ⟨hGap, ?_⟩
   have hSingle := hCompare (Site L N) (Site L N) S μ hμ (torusSquare L N M)
     (volumeCount M) g ((volumeCount M : ℝ)-(haloCount M : ℝ)*K) ht hg hc
@@ -157,8 +157,8 @@ Only the constants of the paper enter c=(499/1000)g_star g_M and L0=2M+3. -/
 theorem mainW_of_core
     (hChoose : ScaleExistenceStatement) (hHamming : HammingAtScaleStatement)
     (hRegular : FrameSpecRegularityStatement) (hEnergyTransfer : FrameSpecEnergyStatement)
-    (hWindow : FrameWindowTransferStatement) (hColour : TorusColourStatement)
-    (hPullback : PullbackColourStatement) (hInject : HaloInjectionStatement)
+    (hWindow : FrameWindowTransferStatement) (hColor : TorusColorStatement)
+    (hPullback : PullbackColorStatement) (hInject : HaloInjectionStatement)
     (hBonds : LiftBondStatement) (hCoordinates : BoxCoordinatesStatement)
     (hGauge : BoxGaugeLawStatement) (hRange : TorusRangeTransferStatement)
     (hEdges : SquareInternalEdgesStatement) (hTransportGap : ProductPoincareTransportStatement)
@@ -189,8 +189,8 @@ theorem mainW_of_core
     mul_pos (div_pos hStar.1 (by norm_num)) (mul_pos (by norm_num) hg),
     2*M+3, by omega, ?_⟩
   intro L N hL hN
-  let κ := torusColour L N
-  have hκ : ProperTorusColouring κ := hColour L N
+  let κ := torusColor L N
+  have hκ : ProperTorusColoring κ := hColor L N
   have hκbar := hPullback L N κ hκ
   have hPlanePos := fun W η => (hPlane (κ ∘ reduction L N) hκbar W η).1
   have hReg : RegularSpec (frameSpec (κ ∘ reduction L N)) :=
@@ -203,27 +203,27 @@ theorem mainW_of_core
     intro a
     obtain ⟨C⟩ := hCoordinates hAnti L N M hM hL hN (hInject L N M hM hL hN) κ a
     exact ⟨{
-      centre := C.centre
-      centre_reduces := C.centre_reduces
+      center := C.center
+      center_reduces := C.center_reduces
       change := C.change
       boundary := C.boundary
       carries := hGauge hPositive L N M hM hL hN κ hκ a C
-        (hBonds L N M hM hL hN C.centre (hInject L N M hM hL hN C.centre))
+        (hBonds L N M hM hL hN C.center (hInject L N M hM hL hN C.center))
       boundary_change := C.boundary_change }⟩
   have hBlocks : UniformBlockGap (torusLaw L N κ) M (blockGapConstant M) := by
     intro a σ
     obtain ⟨G⟩ := hGauges a
     have hPlaneGap : PoincareLower
-        ((frameSpec (κ ∘ reduction L N)).law (square G.centre M) (G.boundary σ)) (blockGapConstant M) := by
-      simpa only [frameSpec, blockGapConstant, hEdges G.centre M] using
-        (hPlane _ hκbar (square G.centre M) (fun z => G.boundary σ z)).2.2.2
+        ((frameSpec (κ ∘ reduction L N)).law (square G.center M) (G.boundary σ)) (blockGapConstant M) := by
+      simpa only [frameSpec, blockGapConstant, hEdges G.center M] using
+        (hPlane _ hκbar (square G.center M) (fun z => G.boundary σ z)).2.2.2
     exact hTransportGap _ _ (fun _ => IcoLetter) (fun _ => IcoLetter) G.change _ _
       (G.carries σ) _ hPlaneGap
   have hInfluence : BlockInfluence (torusLaw L N κ) M ((M : ℝ)/1000) := by
     intro a y hy σ τ hστ
     obtain ⟨G⟩ := hGauges a
     obtain ⟨z, hz, _, hBoundary⟩ := G.boundary_change y hy σ τ hστ
-    obtain ⟨c, hc⟩ := hHam G.centre z hz (G.boundary σ) (G.boundary τ) hBoundary
+    obtain ⟨c, hc⟩ := hHam G.center z hz (G.boundary σ) (G.boundary τ) hBoundary
     obtain ⟨d, hd⟩ := hTransportCost _ _ (fun _ => IcoLetter) (fun _ => IcoLetter)
       G.change _ _ _ _ (G.carries σ) (G.carries τ) c
     exact ⟨d, hd.trans_le hc⟩
@@ -256,15 +256,15 @@ theorem mainW_of_parts (hFinite : FiniteAssemblyLeaves) (hShell : ShellAssemblyL
   rcases hFinite with ⟨hForm, hLip, hEigen, hSpectralGap, hCond, hMult⟩
   rcases hShell with ⟨hRows, hTrace, hCount, hAbsorb, hFailure, hEndpoint, hSpacing,
     hScale, hTail, hCard, hBudget, hConvert, hFar, hChoose⟩
-  rcases hLocal with ⟨hInside, hOutside, hVolume, hNeighbour, hRegular, hFE, hWindow,
-    hColour, hPullback, hInject, hBonds, hCoordinates, hGauge, hRange, hEdges, hTGap, hTCost⟩
+  rcases hLocal with ⟨hInside, hOutside, hVolume, hNeighbor, hRegular, hFE, hWindow,
+    hColor, hPullback, hInject, hBonds, hCoordinates, hGauge, hRange, hEdges, hTGap, hTCost⟩
   have hSpectral := reversibleSpectral_of_parts hEigen hSpectralGap
   have hContract := finiteContraction_of_parts hForm hLip hSpectral
   have hCompare := blockComparison_of_parts hCond hMult
-  have hPeriodic := periodicCriterion_of_parts hInside hOutside hVolume hNeighbour hContract hCompare
+  have hPeriodic := periodicCriterion_of_parts hInside hOutside hVolume hNeighbor hContract hCompare
   have hStopped := stoppedCoupling_of_parts hRows hTrace hCount hAbsorb hFailure hEndpoint hSpacing hGeometry
   have hHamming := hammingAtScale_of_parts hStopped hScale hTail hCard hBudget hConvert hFar
-  exact mainW_of_core hChoose hHamming hRegular hFE hWindow hColour hPullback hInject hBonds
+  exact mainW_of_core hChoose hHamming hRegular hFE hWindow hColor hPullback hInject hBonds
     hCoordinates hGauge hRange hEdges hTGap hTCost hPeriodic periodicBudget hFrames hStar hEnergy hQD hKernel
 
 #print axioms reversibleSpectral_of_parts

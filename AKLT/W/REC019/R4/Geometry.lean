@@ -31,8 +31,8 @@ lemma adjacent_iff (x y : Plane) : Adjacent x y ↔
   simp only [Adjacent, latticeDist, Compass.step, Prod.mk_add_mk, Prod.mk.injEq]
   omega
 
-lemma mem_neighbours_iff (x y : Plane) : y ∈ neighbours x ↔ Adjacent x y := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+lemma mem_neighbors_iff (x y : Plane) : y ∈ neighbors x ↔ Adjacent x y := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   rw [adjacent_iff]
   constructor
   · rintro ⟨d, rfl⟩
@@ -48,7 +48,7 @@ lemma adjacent_ne (x y : Plane) (h : Adjacent x y) : x ≠ y := by
   subst y
   norm_num [Adjacent, latticeDist] at h
 
-lemma neighbours_nonadjacent (y f g : Plane)
+lemma neighbors_nonadjacent (y f g : Plane)
     (hf : Adjacent y f) (hg : Adjacent y g) : ¬ Adjacent f g := by
   rcases (adjacent_iff y f).1 hf with rfl | rfl | rfl | rfl <;>
     rcases (adjacent_iff y g).1 hg with rfl | rfl | rfl | rfl <;>
@@ -59,10 +59,10 @@ lemma originalLeg_mem {G : Finset Plane} {e : Plane × Plane}
   simp only [originalLegs, Finset.mem_biUnion, Finset.mem_image,
     Finset.mem_sdiff] at he
   rcases he with ⟨x, hx, z, ⟨hz, hzG⟩, rfl⟩
-  exact ⟨hx, hzG, (mem_neighbours_iff x z).1 hz⟩
+  exact ⟨hx, hzG, (mem_neighbors_iff x z).1 hz⟩
 
-lemma no_leg_at_neighbour {G : Finset Plane} {D : Network G} {y f : Plane}
-    (hy : D.AdmissibleStart y) (hf : f ∈ D.presentNeighbours y) :
+lemma no_leg_at_neighbor {G : Finset Plane} {D : Network G} {y f : Plane}
+    (hy : D.AdmissibleStart y) (hf : f ∈ D.presentNeighbors y) :
     ∀ e ∈ originalLegs G, e.1 ≠ f := by
   intro e he hef
   have hyG : y ∈ G := (Finset.mem_filter.1 hy.1).1
@@ -88,32 +88,32 @@ lemma present_symm {G : Finset Plane} {D : Network G} {x y : Plane}
   exact ⟨h.2.1, h.1, by simpa [Adjacent, latticeDist_comm] using h.2.2.1,
     h.2.2.2.2, h.2.2.2.1⟩
 
-lemma present_mem_neighbours {G : Finset Plane} {D : Network G} {x y : Plane}
-    (h : D.Present x y) : y ∈ D.presentNeighbours x := by
-  exact Finset.mem_filter.2 ⟨(mem_neighbours_iff x y).2 h.2.2.1, h⟩
+lemma present_mem_neighbors {G : Finset Plane} {D : Network G} {x y : Plane}
+    (h : D.Present x y) : y ∈ D.presentNeighbors x := by
+  exact Finset.mem_filter.2 ⟨(mem_neighbors_iff x y).2 h.2.2.1, h⟩
 
-lemma remove_neighbours {G : Finset Plane} (D : Network G) {x y : Plane} (hxy : x ≠ y) :
-    (removeSite D y).presentNeighbours x = (D.presentNeighbours x).erase y := by
+lemma remove_neighbors {G : Finset Plane} (D : Network G) {x y : Plane} (hxy : x ≠ y) :
+    (removeSite D y).presentNeighbors x = (D.presentNeighbors x).erase y := by
   ext z
   by_cases hzy : z = y
   · subst z
-    simp [Network.presentNeighbours, Network.Present, Network.active, removeSite,
+    simp [Network.presentNeighbors, Network.Present, Network.active, removeSite,
       Function.update_apply, Finset.mem_filter]
-  · simp [Network.presentNeighbours, Network.Present, Network.active, removeSite,
+  · simp [Network.presentNeighbors, Network.Present, Network.active, removeSite,
       Function.update_apply, hxy, hzy]
 
-lemma neighbour_removed_card {G : Finset Plane} {D : Network G} {y f : Plane}
-    (hD : D.Auxiliary) (hf : f ∈ D.presentNeighbours y) :
-    ((removeSite D y).presentNeighbours f).card ≤ 3 := by
+lemma neighbor_removed_card {G : Finset Plane} {D : Network G} {y f : Plane}
+    (hD : D.Auxiliary) (hf : f ∈ D.presentNeighbors y) :
+    ((removeSite D y).presentNeighbors f).card ≤ 3 := by
   have hp := (Finset.mem_filter.1 hf).2
   have hfy : f ≠ y := (adjacent_ne y f hp.2.2.1).symm
-  have hy : y ∈ D.presentNeighbours f := present_mem_neighbours (present_symm hp)
+  have hy : y ∈ D.presentNeighbors f := present_mem_neighbors (present_symm hp)
   have hcard := hD.1.2.2.2 f hp.2.1
-  rw [remove_neighbours D hfy, Finset.card_erase_of_mem hy]
+  rw [remove_neighbors D hfy, Finset.card_erase_of_mem hy]
   omega
 
-lemma neighbour_survives {G : Finset Plane} {D : Network G} {y f : Plane}
-    (hf : f ∈ D.presentNeighbours y) :
+lemma neighbor_survives {G : Finset Plane} {D : Network G} {y f : Plane}
+    (hf : f ∈ D.presentNeighbors y) :
     f ∈ (removeSite D y).active ∧
       ((removeSite D y).status f = .U ∨ (removeSite D y).status f = .D) := by
   have hp := (Finset.mem_filter.1 hf).2

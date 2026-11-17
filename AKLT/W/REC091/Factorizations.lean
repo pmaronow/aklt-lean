@@ -41,7 +41,7 @@ theorem twoFactorization : TwoFactorizationStatement := by
   constructor
   · rw [hcur]
     have hfun : (fun n : Plane → Vec3 => siteFunctional .U
-        (fun v => ∏ z ∈ a.D.presentNeighbours a.y, (1 + dot v (n z)))) =
+        (fun v => ∏ z ∈ a.D.presentNeighbors a.y, (1 + dot v (n z)))) =
         (fun n => 1 + dot (n f) (n a.o) / 3) := by
       funext n
       rw [hneigh]
@@ -64,7 +64,7 @@ theorem threeFactorization : ThreeFactorizationStatement := by
   constructor
   · rw [hcur]
     have hfun : (fun n : Plane → Vec3 => siteFunctional .U
-        (fun v => ∏ z ∈ a.D.presentNeighbours a.y, (1 + dot v (n z)))) =
+        (fun v => ∏ z ∈ a.D.presentNeighbors a.y, (1 + dot v (n z)))) =
         (fun n => 1 + (dot (n f) (n g) + dot (n f) (n a.o) + dot (n g) (n a.o)) / 3) := by
       funext n
       rw [hneigh]
@@ -80,7 +80,7 @@ theorem threeFactorization : ThreeFactorizationStatement := by
     rfl
   · rw [hnext]
     have hfun : (fun n : Plane → Vec3 => siteFunctional .D
-        (fun v => ∏ z ∈ (a.D.presentNeighbours a.y).erase a.o, (1 + dot v (n z)))) =
+        (fun v => ∏ z ∈ (a.D.presentNeighbors a.y).erase a.o, (1 + dot v (n z)))) =
         (fun n => 1 + dot (n f) (n g) / 5) := by
       funext n
       simpa [hneigh, hof, hog, hfg, Ne.symm hof, Ne.symm hog] using
@@ -89,7 +89,7 @@ theorem threeFactorization : ThreeFactorizationStatement := by
     rfl
 
 theorem stepRatio_two (a : Departure) (hU : a.D.status a.y = .U)
-    (f : Plane) (hn : a.D.presentNeighbours a.y = {a.o, f}) (hne : a.o ≠ f) (b : Bool) :
+    (f : Plane) (hn : a.D.presentNeighbors a.y = {a.o, f}) (hne : a.o ≠ f) (b : Bool) :
     stepRatio a.D a.τ b a.y a.o = (responseI₂ a.D a.τ b a.y a.o f)⁻¹ := by
   obtain ⟨hc, hnxt⟩ := twoFactorization a hU f hn hne b
   unfold stepRatio traceRatio
@@ -101,7 +101,7 @@ theorem stepRatio_two (a : Departure) (hU : a.D.status a.y = .U)
     (mul_div_mul_left (1 : ℝ) (responseI₂ a.D a.τ b a.y a.o f) hp)
 
 theorem stepRatio_three (a : Departure) (hU : a.D.status a.y = .U)
-    (f g : Plane) (hn : a.D.presentNeighbours a.y = {a.o, f, g})
+    (f g : Plane) (hn : a.D.presentNeighbors a.y = {a.o, f, g})
     (hof : a.o ≠ f) (hog : a.o ≠ g) (hfg : f ≠ g) (b : Bool) :
     stepRatio a.D a.τ b a.y a.o =
       responseJ a.D a.τ b a.y f g / responseI a.D a.τ b a.y a.o f g := by

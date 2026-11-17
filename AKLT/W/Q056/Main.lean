@@ -12,16 +12,16 @@ open AKLT.Blueprint.Q
 
 namespace AKLT.W.Q056
 
-private theorem originalLeg_colours_ne {κ : Plane → Fin 3}
-    (hκ : ProperPlaneColouring κ) {W : Finset Plane} {e : Plane × Plane}
+private theorem originalLeg_colors_ne {κ : Plane → Fin 3}
+    (hκ : ProperPlaneColoring κ) {W : Finset Plane} {e : Plane × Plane}
     (he : e ∈ originalLegs W) : κ e.1 ≠ κ e.2 := by
   classical
   unfold originalLegs at he
   obtain ⟨x, hx, he⟩ := Finset.mem_biUnion.mp he
   obtain ⟨z, hz, heq⟩ := Finset.mem_image.mp he
   subst e
-  have hz' : z ∈ neighbours x := (Finset.mem_sdiff.mp hz).1
-  unfold neighbours at hz'
+  have hz' : z ∈ neighbors x := (Finset.mem_sdiff.mp hz).1
+  unfold neighbors at hz'
   obtain ⟨d, _, hzd⟩ := Finset.mem_image.mp hz'
   have hadj : Adjacent x z := by
     change latticeDist x z = 1
@@ -60,7 +60,7 @@ theorem main : AKLT.Blueprint.Q.PlaneProductReferenceStatement := by
     · apply Finset.prod_pos
       intro e he
       rcases Finset.mem_filter.mp he with ⟨he, hfirst⟩
-      have hcol : κ e.1 ≠ κ e.2 := originalLeg_colours_ne hκ he
+      have hcol : κ e.1 ≠ κ e.2 := originalLeg_colors_ne hκ he
       have hb := (hBounds (κ e.1) (κ e.2) hcol a
         (extendBoundary η e.2)).1
       have hb' : frameBound ≤

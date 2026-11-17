@@ -24,7 +24,7 @@ private theorem latticeDist_cross_le_one {x z : Plane} (hz : z ∈ cross x) :
   rcases Finset.mem_insert.mp hz with h | hz
   · subst z
     simp [latticeDist]
-  · unfold neighbours at hz
+  · unfold neighbors at hz
     rcases Finset.mem_image.mp hz with ⟨d, _, hdz⟩
     subst z
     cases d <;> simp [latticeDist, Compass.step]

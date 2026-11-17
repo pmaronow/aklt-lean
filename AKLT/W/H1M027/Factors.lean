@@ -138,14 +138,14 @@ def leafRemainder (π : PatternData) (r : Representation)
     (v : {x // x ∈ deletedLeafSites π r} → Vec3) (n : Plane → Vec3) (x : Plane) : ℝ :=
   if h : x ∈ deletedLeafSites π r then
     if patternDegree π x = 0 then 1 else
-      1 + (replacementRadius π x : ℝ) * dot (v ⟨x, h⟩) (n (leafNeighbour π x))
+      1 + (replacementRadius π x : ℝ) * dot (v ⟨x, h⟩) (n (leafNeighbor π x))
   else 1
 
 def groupFactor (π : PatternData) (r : Representation) (u : Fin 20 → Vec3)
     (n : Plane → Vec3) (x : Plane) : ℝ :=
   if groupIsPair π r x then
     (1 + dot (n x) (u (groupLeader x))) * (1 + dot (n x) (u (groupSecond x)))
-  else 1 + (replacementRadius π x : ℝ) * dot (n (leafNeighbour π x)) (u (groupLeader x))
+  else 1 + (replacementRadius π x : ℝ) * dot (n (leafNeighbor π x)) (u (groupLeader x))
 
 theorem assigned_leader (π : PatternData) (r : Representation) (m : Fin 20 → UnitVector)
     (v : {x // x ∈ deletedLeafSites π r} → Vec3) {x : Plane}

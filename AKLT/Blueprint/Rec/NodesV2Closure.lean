@@ -13,9 +13,9 @@ namespace AKLT.Blueprint.Rec
 
 /-- `l:closure`: the distinct active neighbors other than the arrival site.
 Presence is derived by consistency at a live U site, not presumed for an arrival. -/
-def nonarrivalNeighboursV2 {G : Finset Plane} (D : Network G) (y : Plane)
+def nonarrivalNeighborsV2 {G : Finset Plane} (D : Network G) (y : Plane)
     (incoming : Compass) : Finset Plane :=
-  (neighbours y).erase (y - incoming.step) ∩ D.active
+  (neighbors y).erase (y - incoming.step) ∩ D.active
 
 /-- `l:closure`, §7 lines 147–158; ARCH_0 F1/F1a. Check shared internal
 present bonds, non-tip statuses and the one-sided tip condition. External
@@ -37,8 +37,8 @@ def PairClosureStatementV2 : Prop :=
     let y := wordVertex p.u w i.val
     let incoming := wordIncoming p.incoming w i
     E.status y = .U →
-    ∀ a ∈ nonarrivalNeighboursV2 E y incoming,
-    ∀ b ∈ nonarrivalNeighboursV2 E y incoming, a ≠ b →
+    ∀ a ∈ nonarrivalNeighborsV2 E y incoming,
+    ∀ b ∈ nonarrivalNeighborsV2 E y incoming, a ≠ b →
       (removeSite E y).ResponsePair (responsePairType {a, b}) a b y
 
 /-- `l:terminalcover`, §7 lines 212–240; ARCH_0 F1. Repeat the one-fixed-

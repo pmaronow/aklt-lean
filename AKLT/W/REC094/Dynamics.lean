@@ -20,7 +20,7 @@ theorem adjacent_ne {x y : Plane} (h : Adjacent x y) : x ≠ y := by
   rintro rfl
   norm_num [Adjacent, latticeDist] at h
 
-theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbours x := by
+theorem adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) : y ∈ neighbors x := by
   have hh : (x.1 - y.1).natAbs + (x.2 - y.2).natAbs = 1 := h
   have hx' := Int.natAbs_eq (x.1 - y.1)
   have hy' := Int.natAbs_eq (x.2 - y.2)
@@ -35,9 +35,9 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x y : Plane}
     (h : D.Present x y) : D.Present y x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem present_mem_neighbours {G : Finset Plane} {D : Network G} {x y : Plane}
-    (h : D.Present x y) : y ∈ D.presentNeighbours x :=
-  Finset.mem_filter.mpr ⟨adjacent_mem_neighbours h.2.2.1, h⟩
+theorem present_mem_neighbors {G : Finset Plane} {D : Network G} {x y : Plane}
+    (h : D.Present x y) : y ∈ D.presentNeighbors x :=
+  Finset.mem_filter.mpr ⟨adjacent_mem_neighbors h.2.2.1, h⟩
 
 theorem traceStep_active_subset {G : Finset Plane} (D : Network G) (y o : Plane) :
     (traceStep D y o).active ⊆ D.active := by
@@ -61,10 +61,10 @@ theorem traceStep_present_subset {G : Finset Plane} (D : Network G) (y o : Plane
     dsimp [traceStep] at hh
     split_ifs at hh <;> simp_all
 
-theorem traceStep_neighbours_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
-    (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+theorem traceStep_neighbors_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
+    (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
-  exact present_mem_neighbours (traceStep_present_subset D y o (Finset.mem_filter.mp hz).2)
+  exact present_mem_neighbors (traceStep_present_subset D y o (Finset.mem_filter.mp hz).2)
 
 theorem traceStep_not_present {G : Finset Plane} (D : Network G) (y o : Plane) :
     ¬ (traceStep D y o).Present y o := by
@@ -72,20 +72,20 @@ theorem traceStep_not_present {G : Finset Plane} (D : Network G) (y o : Plane) :
   have hh := h.2.2.2.1
   simp [traceStep] at hh
 
-theorem traceStep_neighbours_subset_erase {G : Finset Plane} (D : Network G)
+theorem traceStep_neighbors_subset_erase {G : Finset Plane} (D : Network G)
     (y o : Plane) :
-    (traceStep D y o).presentNeighbours y ⊆ (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y ⊆ (D.presentNeighbors y).erase o := by
   intro z hz
-  refine Finset.mem_erase.mpr ⟨?_, traceStep_neighbours_subset D y o y hz⟩
+  refine Finset.mem_erase.mpr ⟨?_, traceStep_neighbors_subset D y o y hz⟩
   intro he
   apply traceStep_not_present D y o
   simpa only [he] using (Finset.mem_filter.mp hz).2
 
-theorem traceStep_arrival_neighbours_subset_erase {G : Finset Plane} (D : Network G)
+theorem traceStep_arrival_neighbors_subset_erase {G : Finset Plane} (D : Network G)
     (y o : Plane) :
-    (traceStep D y o).presentNeighbours o ⊆ (D.presentNeighbours o).erase y := by
+    (traceStep D y o).presentNeighbors o ⊆ (D.presentNeighbors o).erase y := by
   intro z hz
-  refine Finset.mem_erase.mpr ⟨?_, traceStep_neighbours_subset D y o o hz⟩
+  refine Finset.mem_erase.mpr ⟨?_, traceStep_neighbors_subset D y o o hz⟩
   intro he
   apply traceStep_not_present D y o
   simpa only [he] using (present_symm (Finset.mem_filter.mp hz).2)
@@ -94,9 +94,9 @@ theorem traceStep_auxiliary {G : Finset Plane} {D : Network G} {y o : Plane}
     (hD : D.Auxiliary) (hy : D.AdmissibleStart y) (ho : D.Present y o) :
     (traceStep D y o).Auxiliary := by
   have hne := adjacent_ne ho.2.2.1
-  have hom := present_mem_neighbours ho
-  have hcard : ((traceStep D y o).presentNeighbours y).card ≤ 2 := by
-    have hc := Finset.card_le_card (traceStep_neighbours_subset_erase D y o)
+  have hom := present_mem_neighbors ho
+  have hcard : ((traceStep D y o).presentNeighbors y).card ≤ 2 := by
+    have hc := Finset.card_le_card (traceStep_neighbors_subset_erase D y o)
     have he := Finset.card_erase_of_mem hom
     rcases hy.2.2 with ⟨hu, hcU⟩ | ⟨hd, hcD⟩ <;> omega
   constructor
@@ -114,11 +114,11 @@ theorem traceStep_auxiliary {G : Finset Plane} {D : Network G} {y o : Plane}
       by_cases he : x = y
       · subst x; exact hcard
       · have hstatus : D.status x = .D := by simpa [traceStep, he] using hxD
-        exact (Finset.card_le_card (traceStep_neighbours_subset D y o x)).trans
+        exact (Finset.card_le_card (traceStep_neighbors_subset D y o x)).trans
           (hD.1.2.2.1 x hx hstatus)
     · intro x hx
       have hc := hD.1.2.2.2 x (traceStep_active_subset D y o hx)
-      have hd := Finset.card_le_card (traceStep_neighbours_subset D y o x)
+      have hd := Finset.card_le_card (traceStep_neighbors_subset D y o x)
       omega
   · intro x hx
     have he : x ≠ y := fun he => hy.2.1 (he ▸ hx)
@@ -134,8 +134,8 @@ theorem traceStep_arrival_admissible {G : Finset Plane} {D : Network G} {y o : P
   refine ⟨hactive, hprot, ?_⟩
   have hoG := (Finset.mem_filter.mp ho.2.1).1
   have hostat := (Finset.mem_filter.mp ho.2.1).2
-  have hm := present_mem_neighbours (present_symm ho)
-  have hc := Finset.card_le_card (traceStep_arrival_neighbours_subset_erase D y o)
+  have hm := present_mem_neighbors (present_symm ho)
+  have hc := Finset.card_le_card (traceStep_arrival_neighbors_subset_erase D y o)
   have he := Finset.card_erase_of_mem hm
   cases hs : D.status o with
   | U =>
@@ -169,7 +169,7 @@ theorem traceStep_present_of_distinct {G : Finset Plane} {D : Network G}
       rcases hy.2.2 with ⟨hu, _⟩ | ⟨hd, hc⟩
       · simp [traceStep, hu]
       · have hto := Finset.card_le_one_iff.mp hc
-          (present_mem_neighbours hvt) (present_mem_neighbours ho)
+          (present_mem_neighbors hvt) (present_mem_neighbors ho)
         exact False.elim (ht rfl hto)
     · simpa [traceStep, hv] using hvX
   refine ⟨ha x z hp (fun hxy hzo => hno ⟨hxy, hzo⟩),

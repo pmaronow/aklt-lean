@@ -12,11 +12,11 @@ open scoped BigOperators
 namespace AKLT.Defs
 
 /-- `d:framemodel`: a proper plane coloring is quantified, not assumed translation invariant. -/
-def ProperPlaneColouring (κ : Plane → Fin 3) : Prop :=
+def ProperPlaneColoring (κ : Plane → Fin 3) : Prop :=
   ∀ x y, Adjacent x y → κ x ≠ κ y
 
 /-- `d:framemodel`: proper coloring on the actual frozen torus bonds. -/
-def ProperTorusColouring {L N : AKLT.Challenge.Size}
+def ProperTorusColoring {L N : AKLT.Challenge.Size}
     (κ : AKLT.Challenge.Site L N → Fin 3) : Prop :=
   ∀ e : AKLT.Challenge.Bond L N, κ e.1 ≠ κ (AKLT.Challenge.nextSite e.1 e.2)
 
@@ -87,7 +87,7 @@ def frameEval {L N : AKLT.Challenge.Size} (κ : AKLT.Challenge.Site L N → Fin 
 /-- `d:W`: the entire uniform physical-site window property, with all colorings and translates. -/
 def WindowProperty (l₀ : ℕ) (p₀ : ℝ) (Mstar : ℕ) : Prop :=
   1 ≤ l₀ ∧ 1 ≤ Mstar ∧ 0 < p₀ ∧ p₀ ≤ 1 ∧
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ a : Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ a : Plane,
     ∀ u : ℕ, Mstar ≤ u → ∀ y : Plane,
     setDistance supDist y (↑(square a u) : Set Plane) = 1 →
     ∀ i : ℤ, 2 ≤ i → (i : ℝ) ≤ shellSpacing u → i ∉ exceptionalIndices a y u →

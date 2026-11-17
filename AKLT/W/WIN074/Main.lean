@@ -19,10 +19,10 @@ private theorem internalBonds_adjacent {F : Finset Plane} {e : Plane × Plane}
   obtain ⟨x, hx, he⟩ := he
   simp only [Finset.mem_image] at he
   obtain ⟨y, hy, he⟩ := he
-  have hy' : y ∈ positiveNeighbours x := (Finset.mem_inter.mp hy).1
+  have hy' : y ∈ positiveNeighbors x := (Finset.mem_inter.mp hy).1
   simp only [Prod.mk.injEq] at he
   rcases he with ⟨rfl, rfl⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy'
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy'
   rcases hy' with hy' | hy'
   · rw [hy']
     simp [Adjacent, latticeDist]
@@ -37,10 +37,10 @@ private theorem originalLegs_adjacent {F : Finset Plane} {e : Plane × Plane}
   obtain ⟨x, hx, he⟩ := he
   simp only [Finset.mem_image] at he
   obtain ⟨y, hy, he⟩ := he
-  have hy' : y ∈ neighbours x := (Finset.mem_sdiff.mp hy).1
+  have hy' : y ∈ neighbors x := (Finset.mem_sdiff.mp hy).1
   simp only [Prod.mk.injEq] at he
   rcases he with ⟨rfl, rfl⟩
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hy'
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hy'
   obtain ⟨d, rfl⟩ := hy'
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 

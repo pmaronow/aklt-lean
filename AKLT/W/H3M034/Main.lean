@@ -27,7 +27,7 @@ theorem main : AKLT.Blueprint.H3.StationaryCertificateBridgeStatementV2 := by
     intro d hd
     apply Finset.sum_congr rfl
     intro ψ hψ
-    by_cases hdest : x.val + d.step = kernelCentre
+    by_cases hdest : x.val + d.step = kernelCenter
     · have hzero : C.extended ψ (Q.successor a d) (x.val + d.step) = 0 := by
         rw [hdest]
         exact (hterminal ψ (Q.successor a d)).1

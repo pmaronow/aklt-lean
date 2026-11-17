@@ -132,7 +132,7 @@ private theorem incident_product_reindex {L N : Size} (x : Site L N)
   rw [← starBond_image x]
   rw [Finset.prod_image (starBond_injective x).injOn]
 
-private def starNeighbour {L N : Size} (x : Site L N) (j : Fin 4) : Site L N :=
+private def starNeighbor {L N : Size} (x : Site L N) (j : Fin 4) : Site L N :=
   if j.val = 0 then (x.1 + 1, x.2) else if j.val = 1 then (x.1 - 1, x.2)
   else if j.val = 2 then (x.1, x.2 + 1) else (x.1, x.2 - 1)
 
@@ -182,15 +182,15 @@ private theorem plus_minus_ne_N (N : Size) (a : ZMod N.val) : a + 1 ≠ a - 1 :=
       (2 : ZMod N.val) = (a + 1) - (a - 1) := by ring
       _ = 0 := hd)
 
-private theorem starNeighbour_injective {L N : Size} (x : Site L N) :
-    Function.Injective (starNeighbour x) := by
+private theorem starNeighbor_injective {L N : Size} (x : Site L N) :
+    Function.Injective (starNeighbor x) := by
   intro j k hjk
   have hEw := plus_minus_ne_L L x.1
   have hW_e := sub_one_ne_self_L L x.1
   have hE_e := add_one_ne_self_L L x.1
   have hNs := plus_minus_ne_N N x.2
   fin_cases j <;> fin_cases k
-  all_goals dsimp [starNeighbour] at hjk
+  all_goals dsimp [starNeighbor] at hjk
   all_goals
     first
     | exact Fin.ext rfl
@@ -203,35 +203,35 @@ private theorem starNeighbour_injective {L N : Size} (x : Site L N) :
     | have h := congrArg Prod.snd hjk; exact False.elim (hNs h)
     | have h := congrArg Prod.snd hjk; exact False.elim (hNs h.symm)
 
-private theorem starNeighbour_image {L N : Size} (x : Site L N) :
-    Finset.univ.image (starNeighbour x) = torusNeighbours x := by
+private theorem starNeighbor_image {L N : Size} (x : Site L N) :
+    Finset.univ.image (starNeighbor x) = torusNeighbors x := by
   classical
   ext y
   constructor
   · intro hy
     rcases Finset.mem_image.mp hy with ⟨j, -, rfl⟩
-    fin_cases j <;> simp [starNeighbour, torusNeighbours]
+    fin_cases j <;> simp [starNeighbor, torusNeighbors]
   · intro hy
-    simp only [torusNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+    simp only [torusNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
     rcases hy with h | h | h | h
     · refine Finset.mem_image.mpr ⟨(0 : Fin 4), Finset.mem_univ _, ?_⟩
-      simp [starNeighbour, h]
+      simp [starNeighbor, h]
     · refine Finset.mem_image.mpr ⟨(1 : Fin 4), Finset.mem_univ _, ?_⟩
-      simp [starNeighbour, h]
+      simp [starNeighbor, h]
     · refine Finset.mem_image.mpr ⟨(2 : Fin 4), Finset.mem_univ _, ?_⟩
-      simp [starNeighbour, h]
+      simp [starNeighbor, h]
     · refine Finset.mem_image.mpr ⟨(3 : Fin 4), Finset.mem_univ _, ?_⟩
-      simp [starNeighbour, h]
+      simp [starNeighbor, h]
 
 private theorem beta_reindex {L N : Size} (κ : Site L N → Fin 3)
     (x : Site L N) (σ : TorusConfiguration L N) :
     beta κ x σ = ∏ j : Fin 4,
       determinant (frameSpinor (κ x) (σ x))
-        (frameSpinor (κ (starNeighbour x j)) (σ (starNeighbour x j))) := by
+        (frameSpinor (κ (starNeighbor x j)) (σ (starNeighbor x j))) := by
   classical
   unfold beta
-  rw [← starNeighbour_image x]
-  rw [Finset.prod_image (starNeighbour_injective x).injOn]
+  rw [← starNeighbor_image x]
+  rw [Finset.prod_image (starNeighbor_injective x).injOn]
 
 private theorem singlet_eval {L N : Size} (z : Site L N → Spinor) (e : Bond L N) :
     MvPolynomial.eval (fun (i : Site L N × Fin 2) => z i.1 i.2) (singlet e) =
@@ -243,24 +243,24 @@ private theorem starSinglet_eval {L N : Size} (z : Site L N → Spinor)
     (x : Site L N) (j : Fin 4) :
     MvPolynomial.eval (fun (i : Site L N × Fin 2) => z i.1 i.2)
       (singlet (starBond x j)) =
-      edgeSign x (starBond x j) * determinant (z x) (z (starNeighbour x j)) := by
+      edgeSign x (starBond x j) * determinant (z x) (z (starNeighbor x j)) := by
   have hwest : (x.1 - 1, x.2) ≠ x := by
     intro h
     exact sub_one_ne_self_L L x.1 (congrArg Prod.fst h)
   have hsouth : (x.1, x.2 - 1) ≠ x := by
     intro h
     exact sub_one_ne_self_N N x.2 (congrArg Prod.snd h)
-  fin_cases j <;> simp [starBond, starNeighbour, singlet_eval, edgeSign,
+  fin_cases j <;> simp [starBond, starNeighbor, singlet_eval, edgeSign,
     nextSite, determinant, hwest, hsouth] <;> ring
 
 private theorem incidentProduct_eval {L N : Size} (κ : Site L N → Fin 3)
     (x : Site L N) (σ : TorusConfiguration L N) :
     MvPolynomial.eval (fun (i : Site L N × Fin 2) => frameSpinor (κ i.1) (σ i.1) i.2)
-      (incidentProduct x) = centreSign x * beta κ x σ := by
+      (incidentProduct x) = centerSign x * beta κ x σ := by
   classical
   let z : Site L N → Spinor := fun y => frameSpinor (κ y) (σ y)
-  have hsign : centreSign x = ∏ j : Fin 4, edgeSign x (starBond x j) := by
-    simpa [centreSign] using incident_product_reindex x (fun e => edgeSign x e)
+  have hsign : centerSign x = ∏ j : Fin 4, edgeSign x (starBond x j) := by
+    simpa [centerSign] using incident_product_reindex x (fun e => edgeSign x e)
   calc
     MvPolynomial.eval (fun (i : Site L N × Fin 2) => z i.1 i.2) (incidentProduct x) =
         ∏ e : Bond L N, if x ∈ bondSites e then
@@ -274,14 +274,14 @@ private theorem incidentProduct_eval {L N : Size} (κ : Site L N → Fin 3)
           (singlet (starBond x j)) := incident_product_reindex x (fun e =>
             MvPolynomial.eval (fun (i : Site L N × Fin 2) => z i.1 i.2) (singlet e))
     _ = ∏ j : Fin 4,
-        edgeSign x (starBond x j) * determinant (z x) (z (starNeighbour x j)) := by
+        edgeSign x (starBond x j) * determinant (z x) (z (starNeighbor x j)) := by
           apply Finset.prod_congr rfl
           intro j hj
           exact starSinglet_eval z x j
     _ = (∏ j : Fin 4, edgeSign x (starBond x j)) *
-        ∏ j : Fin 4, determinant (z x) (z (starNeighbour x j)) := by
+        ∏ j : Fin 4, determinant (z x) (z (starNeighbor x j)) := by
           rw [Finset.prod_mul_distrib]
-    _ = centreSign x * beta κ x σ := by
+    _ = centerSign x * beta κ x σ := by
           rw [← hsign, ← beta_reindex]
 
 private theorem eval_monomialDegree {L N : Size} (σ : Configuration L N)
@@ -343,18 +343,18 @@ theorem main : AKLT.Blueprint.Q.IncidentEvaluationStatement := by
       congrArg (MvPolynomial.eval (fun (i : Site L N × Fin 2) =>
         frameSpinor (κ i.1) (τ i.1) i.2)) hfactor
   have hincidentAt (τ : TorusConfiguration L N) :
-      evalAt τ (incidentProduct x) = centreSign x * beta κ x τ := by
+      evalAt τ (incidentProduct x) = centerSign x * beta κ x τ := by
     simpa [evalAt] using incidentProduct_eval κ x τ
   have heval (τ : TorusConfiguration L N) :
-      frameEval κ ψ τ = centreSign x * beta κ x τ * evalAt τ χ := by
+      frameEval κ ψ τ = centerSign x * beta κ x τ * evalAt τ χ := by
     calc
       frameEval κ ψ τ = evalAt τ (statePolynomial ψ) := hframe τ
       _ = evalAt τ (incidentProduct x) * evalAt τ χ := hfactorAt τ
-      _ = centreSign x * beta κ x τ * evalAt τ χ := by
+      _ = centerSign x * beta κ x τ * evalAt τ χ := by
         rw [hincidentAt]
   refine ⟨heval, ?_⟩
   intro σ
-  refine ⟨centreSign x * evalAt σ χ, ?_⟩
+  refine ⟨centerSign x * evalAt σ χ, ?_⟩
   intro a
   have hres : evalAt (Function.update σ x a) χ = evalAt σ χ := by
     dsimp [evalAt]
@@ -365,9 +365,9 @@ theorem main : AKLT.Blueprint.Q.IncidentEvaluationStatement := by
     simp [hy]
   calc
     frameEval κ ψ (Function.update σ x a) =
-        centreSign x * beta κ x (Function.update σ x a) *
+        centerSign x * beta κ x (Function.update σ x a) *
           evalAt (Function.update σ x a) χ := heval _
-    _ = (centreSign x * evalAt σ χ) *
+    _ = (centerSign x * evalAt σ χ) *
         beta κ x (Function.update σ x a) := by rw [hres]; ring
 
 end AKLT.W.Q041

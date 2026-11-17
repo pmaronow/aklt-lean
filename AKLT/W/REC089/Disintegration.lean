@@ -62,7 +62,7 @@ abbrev ExteriorSpins (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) :=
 abbrev InteriorSpins (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) :=
   {x : a.D.active // insideTemplate a incoming x} → SpinLetter
 
-theorem centre_mem_localSites (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) :
+theorem center_mem_localSites (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass) :
     a.y ∈ localSites a incoming := by
   have h0 : (0, 0) ∈ templateSites := by decide +kernel
   have hz : localChart a incoming (0, 0) = a.y := by
@@ -96,7 +96,7 @@ def exteriorMass (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
   exact ∏ x, spinWeight (a.D.status x.val.val) (ω x)
 
 /-- The actual conditioned template sum, with the original bonds and pins unchanged. -/
-def actualFibre (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
+def actualFiber (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
     (ω : ExteriorSpins a incoming) (next : Bool) : ℝ := by
   classical
   exact ∑ η : InteriorSpins a incoming,
@@ -142,13 +142,13 @@ theorem partition_disintegration (a : AKLT.Blueprint.Rec.Departure)
     (hU : a.D.status a.y = .U) (incoming : Compass) (next : Bool) :
     (if next then traceStep a.D a.y a.o else a.D).partition a.τ true (fun _ => 1) =
       ∑ ω : ExteriorSpins a incoming, exteriorMass a incoming ω *
-        actualFibre a incoming ω next := by
+        actualFiber a incoming ω next := by
   classical
   rw [common_partition a hU next]
   rw [finite_disintegration (insideTemplate a incoming)]
   apply Finset.sum_congr rfl
   intro ω _
-  unfold actualFibre exteriorMass
+  unfold actualFiber exteriorMass
   congr 1
   apply Finset.prod_congr rfl
   intro x _
@@ -157,7 +157,7 @@ theorem partition_disintegration (a : AKLT.Blueprint.Rec.Departure)
     apply x.property
     change x.val.val ∈ localSites a incoming
     rw [he]
-    exact centre_mem_localSites a incoming
+    exact center_mem_localSites a incoming
   cases next <;> simp [commonStatus, traceStep, hxy]
 
 #print axioms finite_disintegration

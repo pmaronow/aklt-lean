@@ -81,7 +81,7 @@ theorem origin_pair_eq (x o : Plane) (hx : x ≠ (0, 0)) :
     rfl
 
 theorem passage_edges_product (π : PatternData) (next : Bool) (N : Plane → Vec3)
-    (f g : Plane) (hn : PassageNeighbours π f g) :
+    (f g : Plane) (hn : PassageNeighbors π f g) :
     (∏ e ∈ passageEdges, bondFactor π next N e) =
       localPassageFactor next (N (0, 0)) (N f) (N g) (N π.outgoing.step) := by
   classical
@@ -103,7 +103,7 @@ theorem passage_edges_product (π : PatternData) (next : Bool) (N : Plane → Ve
 
 theorem factor_bonds (π : PatternData) (hπ : π.Covered) (next : Bool)
     (N : Plane → Vec3) (hzero : ∀ x, π.statusAt x = .X → N x = 0)
-    (f g : Plane) (hn : PassageNeighbours π f g) :
+    (f g : Plane) (hn : PassageNeighbors π f g) :
     bondProduct π next N = remainingBondProduct π N *
       localPassageFactor next (N (0, 0)) (N f) (N g) (N π.outgoing.step) := by
   rw [split_bond_product π hπ next N hzero, passage_edges_product π next N f g hn]

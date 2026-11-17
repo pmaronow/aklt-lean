@@ -81,7 +81,7 @@ theorem main : AKLT.Blueprint.H3.RewardForgettingStatement := by
   intro x incoming outgoing _ dead₁ dead₂ hdead
   classical
   let outgoingSite := x + outgoing.step
-  let base := (neighbours x).erase (x - incoming.step) |>.erase outgoingSite
+  let base := (neighbors x).erase (x - incoming.step) |>.erase outgoingSite
   let live₁ := base \ dead₁
   let live₂ := base \ dead₂
   have hlive : live₂ ⊆ live₁ := by

@@ -58,7 +58,7 @@ theorem row_of_local (P : PlaneSpec) (hP : RegularSpec P)
   have hF : F ⊆ W := Finset.filter_subset _ _
   let d := liftLocalCoupling P hP W F hF η ξ ω.1 ω.2 c
   let r : Weight (PlaneConfig P W × PlaneConfig P W) := fun z => d.mass z.1 z.2
-  have hr : Probability r := coupling_probability (fibre_probability P hP W F η ω.1) d
+  have hr : Probability r := coupling_probability (fiber_probability P hP W F η ω.1) d
   refine ⟨r, hr, ?_, ?_, ?_, ?_⟩
   · simp only [hex, ↓reduceIte]
     exact ⟨d.first_marginal, d.second_marginal⟩

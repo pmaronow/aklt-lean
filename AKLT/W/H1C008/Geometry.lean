@@ -12,7 +12,7 @@ open AKLT.Defs AKLT.Cert.H1 AKLT.Cert.H1.Production
 private theorem mem_internalBonds {G : Finset Plane} {s t : Plane} :
     (s,t) ∈ internalBonds G ↔ s ∈ G ∧ t ∈ G ∧
       (t = (s.1+1,s.2) ∨ t = (s.1,s.2+1)) := by
-  simp [internalBonds, positiveNeighbours, and_assoc, and_left_comm, and_comm]
+  simp [internalBonds, positiveNeighbors, and_assoc, and_left_comm, and_comm]
 
 private def candidateEdges (x : Plane) : Finset (Plane × Plane) :=
   {((x.1 - 1, x.2), x), ((x.1, x.2 - 1), x), (x, (x.1 + 1, x.2)),

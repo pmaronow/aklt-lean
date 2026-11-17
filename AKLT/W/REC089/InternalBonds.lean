@@ -90,7 +90,7 @@ theorem inside_bond_product (a : AKLT.Blueprint.Rec.Departure) (incoming outgoin
         templateBondTerm π next (fun z => v (localChart a incoming z)) e) *
       ∏ t : Fin 4, if actualTipBond a incoming t then
         1 + dot (v (localChart a incoming (tipPoint t)))
-          (v (localChart a incoming (tipNeighbour t))) else 1 := by
+          (v (localChart a incoming (tipNeighbor t))) else 1 := by
   simp_rw [networkBondTerm_canonical a incoming outgoing ho π hm]
   conv_lhs => rw [inside_bonds_split a incoming outgoing π hm,
     Finset.prod_union (inside_bonds_disjoint a incoming π)]

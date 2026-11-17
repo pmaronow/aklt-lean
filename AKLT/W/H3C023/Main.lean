@@ -42,11 +42,11 @@ private theorem gridSite_index (s : Nat) :
     s / 141 * 141 + s % 141 = 141 * (s / 141) + s % 141 := by ring
     _ = s := Nat.div_add_mod s 141
 
-private theorem gridSite_index_neighbour (d : Compass) :
+private theorem gridSite_index_neighbor (d : Compass) :
     gridSite (siteIndex (-d.step)) = -d.step := by
   cases d <;> norm_num [gridSite, siteIndex, Compass.step]
 
-private theorem gridSite_eq_neighbour_iff (s : Nat) (d : Compass) :
+private theorem gridSite_eq_neighbor_iff (s : Nat) (d : Compass) :
     gridSite s = -d.step ↔ s = siteIndex (-d.step) := by
   constructor
   · intro h
@@ -54,7 +54,7 @@ private theorem gridSite_eq_neighbour_iff (s : Nat) (d : Compass) :
     simpa [gridSite_index s] using this
   · intro h
     rw [h]
-    exact gridSite_index_neighbour d
+    exact gridSite_index_neighbor d
 
 private theorem oneMask_fits (i : Nat) (hi : i < 19881) :
     Fits (oneMask i) 80 19881 := by
@@ -80,25 +80,25 @@ private theorem oneMask_packed (i : Nat) (hi : i < 19881) :
   · intro t ht
     split_ifs <;> omega
 
-private def neighbourIndex (s : Nat) : Prop :=
+private def neighborIndex (s : Nat) : Prop :=
   s = 9799 ∨ s = 9939 ∨ s = 10081 ∨ s = 9941
 
-private instance (s : Nat) : Decidable (neighbourIndex s) := by
-  unfold neighbourIndex
+private instance (s : Nat) : Decidable (neighborIndex s) := by
+  unfold neighborIndex
   infer_instance
 
-private theorem centreNeighbourMasks_sum :
-    centreNeighbourMasks = oneMask 9799 + oneMask 9939 + oneMask 10081 + oneMask 9941 := by
-  norm_num [centreNeighbourMasks, centreNeighbourMask, direction, siteIndex,
+private theorem centerNeighborMasks_sum :
+    centerNeighborMasks = oneMask 9799 + oneMask 9939 + oneMask 10081 + oneMask 9941 := by
+  norm_num [centerNeighborMasks, centerNeighborMask, direction, siteIndex,
     Compass.step, List.range, List.range.loop]
 
-private theorem centreNeighbourMasks_packed :
-    centreNeighbourMasks = packFn 80 19881 (fun s => if neighbourIndex s then 2 ^ 80 - 1 else 0) := by
+private theorem centerNeighborMasks_packed :
+    centerNeighborMasks = packFn 80 19881 (fun s => if neighborIndex s then 2 ^ 80 - 1 else 0) := by
   have h0 := oneMask_packed 9799 (by norm_num)
   have h1 := oneMask_packed 9939 (by norm_num)
   have h2 := oneMask_packed 10081 (by norm_num)
   have h3 := oneMask_packed 9941 (by norm_num)
-  have hfun : (fun s => if neighbourIndex s then 2 ^ 80 - 1 else 0) =
+  have hfun : (fun s => if neighborIndex s then 2 ^ 80 - 1 else 0) =
       (fun s => if s = 9799 then 2 ^ 80 - 1 else 0) +
       (fun s => if s = 9939 then 2 ^ 80 - 1 else 0) +
       (fun s => if s = 10081 then 2 ^ 80 - 1 else 0) +
@@ -106,16 +106,16 @@ private theorem centreNeighbourMasks_packed :
     funext s
     by_cases h0 : s = 9799 <;> by_cases h1 : s = 9939 <;>
       by_cases h2 : s = 10081 <;> by_cases h3 : s = 9941 <;>
-      simp [neighbourIndex, h0, h1, h2, h3]
+      simp [neighborIndex, h0, h1, h2, h3]
   calc
-    centreNeighbourMasks = oneMask 9799 + oneMask 9939 + oneMask 10081 + oneMask 9941 :=
-      centreNeighbourMasks_sum
+    centerNeighborMasks = oneMask 9799 + oneMask 9939 + oneMask 10081 + oneMask 9941 :=
+      centerNeighborMasks_sum
     _ = packFn 80 19881 (fun s => if s = 9799 then 2 ^ 80 - 1 else 0) +
           packFn 80 19881 (fun s => if s = 9939 then 2 ^ 80 - 1 else 0) +
           packFn 80 19881 (fun s => if s = 10081 then 2 ^ 80 - 1 else 0) +
           packFn 80 19881 (fun s => if s = 9941 then 2 ^ 80 - 1 else 0) := by
       rw [h0, h1, h2, h3]
-    _ = packFn 80 19881 (fun s => if neighbourIndex s then 2 ^ 80 - 1 else 0) := by
+    _ = packFn 80 19881 (fun s => if neighborIndex s then 2 ^ 80 - 1 else 0) := by
       rw [← packFn_add, ← packFn_add, ← packFn_add, hfun]
       rfl
 
@@ -127,37 +127,37 @@ private theorem allMask_packed : allMask = packFn 80 19881 (fun _ => 2 ^ 80 - 1)
   rw [hconst, hr]
 
 private def complementLane (s : Nat) : Nat :=
-  if s < 19881 ∧ ¬ neighbourIndex s then 2 ^ 80 - 1 else 0
+  if s < 19881 ∧ ¬ neighborIndex s then 2 ^ 80 - 1 else 0
 
-private theorem allMask_sub_neighbours :
-    allMask - centreNeighbourMasks = packFn 80 19881 complementLane := by
+private theorem allMask_sub_neighbors :
+    allMask - centerNeighborMasks = packFn 80 19881 complementLane := by
   have hpoint (s : Nat) (hs : s < 19881) :
-      (if neighbourIndex s then 2 ^ 80 - 1 else 0) + complementLane s =
+      (if neighborIndex s then 2 ^ 80 - 1 else 0) + complementLane s =
         2 ^ 80 - 1 := by
-    by_cases hn : neighbourIndex s <;> simp [complementLane, hs, hn]
-  have hsum : allMask = centreNeighbourMasks + packFn 80 19881 complementLane := by
-    rw [allMask_packed, centreNeighbourMasks_packed]
+    by_cases hn : neighborIndex s <;> simp [complementLane, hs, hn]
+  have hsum : allMask = centerNeighborMasks + packFn 80 19881 complementLane := by
+    rw [allMask_packed, centerNeighborMasks_packed]
     rw [← packFn_add]
     apply packFn_congr
     intro s hs
     exact (hpoint s hs).symm
   omega
 
-private theorem neighbourIndex_iff (s : Nat) :
-    neighbourIndex s ↔ ∃ d : Compass, gridSite s = -d.step := by
+private theorem neighborIndex_iff (s : Nat) :
+    neighborIndex s ↔ ∃ d : Compass, gridSite s = -d.step := by
   constructor
   · intro h
     rcases h with h | h | h | h
-    · exact ⟨.east, (gridSite_eq_neighbour_iff s .east).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
-    · exact ⟨.north, (gridSite_eq_neighbour_iff s .north).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
-    · exact ⟨.west, (gridSite_eq_neighbour_iff s .west).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
-    · exact ⟨.south, (gridSite_eq_neighbour_iff s .south).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
+    · exact ⟨.east, (gridSite_eq_neighbor_iff s .east).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
+    · exact ⟨.north, (gridSite_eq_neighbor_iff s .north).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
+    · exact ⟨.west, (gridSite_eq_neighbor_iff s .west).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
+    · exact ⟨.south, (gridSite_eq_neighbor_iff s .south).2 (by norm_num [siteIndex, Compass.step] at h ⊢; exact h)⟩
   · rintro ⟨d, h⟩
     cases d with
-    | east => exact Or.inl ((gridSite_eq_neighbour_iff s .east).1 h)
-    | north => exact Or.inr (Or.inl ((gridSite_eq_neighbour_iff s .north).1 h))
-    | west => exact Or.inr (Or.inr (Or.inl ((gridSite_eq_neighbour_iff s .west).1 h)))
-    | south => exact Or.inr (Or.inr (Or.inr ((gridSite_eq_neighbour_iff s .south).1 h)))
+    | east => exact Or.inl ((gridSite_eq_neighbor_iff s .east).1 h)
+    | north => exact Or.inr (Or.inl ((gridSite_eq_neighbor_iff s .north).1 h))
+    | west => exact Or.inr (Or.inr (Or.inl ((gridSite_eq_neighbor_iff s .west).1 h)))
+    | south => exact Or.inr (Or.inr (Or.inr ((gridSite_eq_neighbor_iff s .south).1 h)))
 
 theorem main : CertData.H3.Bridge.DeadMaskLeaf := by
   unfold CertData.H3.Bridge.DeadMaskLeaf
@@ -166,25 +166,25 @@ theorem main : CertData.H3.Bridge.DeadMaskLeaf := by
   · change lane (oneMask (siteIndex (-Compass.east.step))) 80 s =
       if gridSite s = -Compass.east.step then 2 ^ 80 - 1 else 0
     rw [lane_oneMask]
-    simp only [← gridSite_eq_neighbour_iff s .east]
+    simp only [← gridSite_eq_neighbor_iff s .east]
   · change lane (oneMask (siteIndex (-Compass.north.step))) 80 s =
       if gridSite s = -Compass.north.step then 2 ^ 80 - 1 else 0
     rw [lane_oneMask]
-    simp only [← gridSite_eq_neighbour_iff s .north]
+    simp only [← gridSite_eq_neighbor_iff s .north]
   · change lane (oneMask (siteIndex (-Compass.west.step))) 80 s =
       if gridSite s = -Compass.west.step then 2 ^ 80 - 1 else 0
     rw [lane_oneMask]
-    simp only [← gridSite_eq_neighbour_iff s .west]
+    simp only [← gridSite_eq_neighbor_iff s .west]
   · change lane (oneMask (siteIndex (-Compass.south.step))) 80 s =
       if gridSite s = -Compass.south.step then 2 ^ 80 - 1 else 0
     rw [lane_oneMask]
-    simp only [← gridSite_eq_neighbour_iff s .south]
-  · change lane (allMask - centreNeighbourMasks) 80 s =
+    simp only [← gridSite_eq_neighbor_iff s .south]
+  · change lane (allMask - centerNeighborMasks) 80 s =
       if (∀ d : Compass, gridSite s ≠ -d.step) then 2 ^ 80 - 1 else 0
-    rw [allMask_sub_neighbours]
+    rw [allMask_sub_neighbors]
     rw [lane_packFn]
-    · have hiff : (∀ d : Compass, gridSite s ≠ -d.step) ↔ ¬ neighbourIndex s := by
-        rw [neighbourIndex_iff s]
+    · have hiff : (∀ d : Compass, gridSite s ≠ -d.step) ↔ ¬ neighborIndex s := by
+        rw [neighborIndex_iff s]
         simp
       simp [complementLane, hs, hiff]
     · intro t ht

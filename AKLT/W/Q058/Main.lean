@@ -35,8 +35,8 @@ theorem main : AKLT.Blueprint.Q.PlaneDensityBoundsStatement := by
     rcases he with ⟨x, hxW, he⟩
     simp only [Finset.mem_image] at he
     rcases he with ⟨y, hy, rfl⟩
-    have hypos : y ∈ positiveNeighbours x := (Finset.mem_inter.mp hy).1
-    simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hypos
+    have hypos : y ∈ positiveNeighbors x := (Finset.mem_inter.mp hy).1
+    simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hypos
     rcases hypos with hy | hy
     · subst y
       norm_num [Adjacent, latticeDist]

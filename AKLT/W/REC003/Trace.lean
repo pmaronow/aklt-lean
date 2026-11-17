@@ -34,11 +34,11 @@ theorem trace_present_at_y {G : Finset Plane} (D : Network G) (y o z : Plane)
       simp [traceStep, hyo.symm]
     · simp [traceStep, hzy, hzo]
 
-theorem trace_neighbours {G : Finset Plane} (D : Network G) (y o : Plane)
+theorem trace_neighbors {G : Finset Plane} (D : Network G) (y o : Plane)
     (hy : D.status y = .U) (hyo : y ≠ o) :
-    (traceStep D y o).presentNeighbours y = (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y = (D.presentNeighbors y).erase o := by
   ext z
-  rw [mem_presentNeighbours, Finset.mem_erase, mem_presentNeighbours,
+  rw [mem_presentNeighbors, Finset.mem_erase, mem_presentNeighbors,
     trace_present_at_y D y o z hy hyo]
   tauto
 

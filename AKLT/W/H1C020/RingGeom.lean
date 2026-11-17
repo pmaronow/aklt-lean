@@ -150,8 +150,8 @@ lemma otherEnd_of_right {x y : Plane} {e : Plane × Plane} (h1 : e.1 = x) (h2 : 
   rw [if_pos h1, h2]
 
 /-- The replaced tip has its axial ring site as unique neighbor. -/
-lemma tip_leafNeighbour (π : PatternData) (i : Nat) (hi : i < 8) (he : i % 2 = 0)
-    (hg : groupPoint i ∈ reductionGroups π) : leafNeighbour π (groupPoint i) = ptOf i := by
+lemma tip_leafNeighbor (π : PatternData) (i : Nat) (hi : i < 8) (he : i % 2 = 0)
+    (hg : groupPoint i ∈ reductionGroups π) : leafNeighbor π (groupPoint i) = ptOf i := by
   have hpos : 0 < patternDegree π (groupPoint i) := (Finset.mem_filter.mp hg).2
   have hle := AKLT.W.H1M023.pattern_tip_degree_bound π (even_groupPoint_tip i hi he)
   obtain ⟨e, he', hinc, hval, _⟩ :=
@@ -161,7 +161,7 @@ lemma tip_leafNeighbour (π : PatternData) (i : Nat) (hi : i < 8) (he : i % 2 = 
   · exact otherEnd_of_left h1 h2 (groupPoint_ne_ptOf i hi he)
   · exact otherEnd_of_right h1 h2
 
-lemma ring_neighbours_ne (c : Nat) (hc : c < 8) (hodd : c % 2 = 1) :
+lemma ring_neighbors_ne (c : Nat) (hc : c < 8) (hodd : c % 2 = 1) :
     ptOf (c-1) ≠ ptOf ((c+1)%8) ∧ ptOf (c-1) ≠ ptOf c ∧ ptOf ((c+1)%8) ≠ ptOf c := by
   interval_cases c <;> simp_all [ptOf, ringSites]
 
@@ -171,12 +171,12 @@ lemma leaf_corner (π : PatternData) (r : Representation) (c : Nat) (hc : c < 8)
     (hodd : c % 2 = 1) (hs : SingleReplacement π r (ptOf c)) :
     (presentBond π (ptOf (c-1)) (ptOf c) = true ∧
         presentBond π (ptOf c) (ptOf ((c+1)%8)) = false ∧
-        leafNeighbour π (ptOf c) = ptOf (c-1)) ∨
+        leafNeighbor π (ptOf c) = ptOf (c-1)) ∨
       (presentBond π (ptOf (c-1)) (ptOf c) = false ∧
         presentBond π (ptOf c) (ptOf ((c+1)%8)) = true ∧
-        leafNeighbour π (ptOf c) = ptOf ((c+1)%8)) := by
+        leafNeighbor π (ptOf c) = ptOf ((c+1)%8)) := by
   obtain ⟨e, he, hinc, hval, huniq⟩ := AKLT.W.H1M023.leaf_bond π hs.1
-  obtain ⟨hne1, hne2, hne3⟩ := ring_neighbours_ne c hc hodd
+  obtain ⟨hne1, hne2, hne3⟩ := ring_neighbors_ne c hc hodd
   have hother : ∀ {a b : Plane}, presentBond π a b = true →
       (a = ptOf c ∨ b = ptOf c) → (a = e.1 ∧ b = e.2) ∨ (a = e.2 ∧ b = e.1) := by
     intro a b hab hx

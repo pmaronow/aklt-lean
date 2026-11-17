@@ -90,7 +90,7 @@ theorem sum_update {R : Type} [CommSemiring R]
     _ = ∑ σ, ∑ a, (∏ j, w j (σ j)) * w i a * f σ := h'.symm
     _ = _ := by simp [← Finset.sum_mul, ← Finset.mul_sum, hw, mul_assoc]
 
-theorem sum_fibre_singleton {R : Type} [AddCommMonoid R]
+theorem sum_fiber_singleton {R : Type} [AddCommMonoid R]
     (i : ι) (σ : Config S) (f : Config S → R) :
     (∑ τ, if AgreeOutside {i} σ τ then f τ else 0) =
       ∑ a, f (Function.update σ i a) := by
@@ -125,7 +125,7 @@ theorem conditional_product_singleton (π : (i : ι) → Weight (S i))
   classical
   funext σ
   unfold conditionalExpectation
-  rw [sum_fibre_singleton, sum_fibre_singleton]
+  rw [sum_fiber_singleton, sum_fiber_singleton]
   have hpos : 0 < ∏ j ∈ Finset.univ.erase i, π j (σ j) :=
     Finset.prod_pos fun j _ => (hπ j).1 (σ j)
   have hne : ((∏ j ∈ Finset.univ.erase i, π j (σ j) : ℝ) : ℂ) ≠ 0 := by

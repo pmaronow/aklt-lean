@@ -69,7 +69,7 @@ namespace AKLT.W.H1C033
 #print axioms flip_second
 #print axioms mirror_vectors
 #print axioms mirror_inversion
-#print axioms mirror_neighbour
+#print axioms mirror_neighbor
 #print axioms isolated_exponent
 #print axioms mirror_bondedSpins
 #print axioms trim_contract

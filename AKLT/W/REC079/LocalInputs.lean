@@ -113,7 +113,7 @@ theorem response_typed : AKLT.Blueprint.Top.ResponseTypedStatementV2 := by
       (betaPrimeBound straight : ℝ) := by exact_mod_cast row.2.2.1
   constructor
   · intro f hs hne
-    have ho : o ∈ D.presentNeighbours y := by rw [hs]; simp [o]
+    have ho : o ∈ D.presentNeighbors y := by rw [hs]; simp [o]
     let a : Departure := ⟨G, τ, D, y, o, hD, hy, ho⟩
     have low := (covered_integrated_lower hH1 a hU incoming outgoing rfl hcov).1 f hs hne
     have free := (AKLT.W.REC005.main a hU f hs hne).2
@@ -121,7 +121,7 @@ theorem response_typed : AKLT.Blueprint.Top.ResponseTypedStatementV2 := by
       AKLT.W.REC034.main _ _ _ (by linarith [hc.1]) low free
     exact ⟨AKLT.W.REC015.main a hU f hs hne, by linarith, ana⟩
   · intro f g hs hof hog hfg
-    have ho : o ∈ D.presentNeighbours y := by rw [hs]; simp [o]
+    have ho : o ∈ D.presentNeighbors y := by rw [hs]; simp [o]
     let a : Departure := ⟨G, τ, D, y, o, hD, hy, ho⟩
     have low := (covered_integrated_lower hH1 a hU incoming outgoing rfl hcov).2 f g hs hof hog hfg
     have ints := AKLT.W.REC004.main a hU f g hs hof hog hfg

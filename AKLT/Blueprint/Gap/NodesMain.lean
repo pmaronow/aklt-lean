@@ -197,8 +197,8 @@ def ShellAssemblyLeaves : Prop :=
 /-- Minimal periodic counting and local gauge inputs, each a closed writer obligation. -/
 def PeriodicAssemblyLeaves : Prop :=
   ContainingBlockCountStatement ∧ ExteriorBlockCountStatement ∧ BlockVolumeBoundStatement ∧
-  PeriodicNeighbourCouplingStatement ∧ FrameSpecRegularityStatement ∧ FrameSpecEnergyStatement ∧
-  FrameWindowTransferStatement ∧ TorusColourStatement ∧ PullbackColourStatement ∧ HaloInjectionStatement ∧
+  PeriodicNeighborCouplingStatement ∧ FrameSpecRegularityStatement ∧ FrameSpecEnergyStatement ∧
+  FrameWindowTransferStatement ∧ TorusColorStatement ∧ PullbackColorStatement ∧ HaloInjectionStatement ∧
   LiftBondStatement ∧ BoxCoordinatesStatement ∧ BoxGaugeLawStatement ∧ TorusRangeTransferStatement ∧
   SquareInternalEdgesStatement ∧ ProductPoincareTransportStatement ∧ ProductCouplingTransportStatement
 

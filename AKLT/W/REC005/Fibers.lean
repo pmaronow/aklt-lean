@@ -71,7 +71,7 @@ lemma sum_pair_dot (C : ℝ) (u v : SpinLetter → ℝ) :
   simp only [dot, Fin.sum_univ_three, mul_add, Finset.sum_add_distrib, hc]
   ring
 
-lemma fibre_bound (C : ℝ) (hC : 0 ≤ C) (s t : Status) (l r : List SpinLetter)
+lemma fiber_bound (C : ℝ) (hC : 0 ≤ C) (s t : Status) (l r : List SpinLetter)
     (hl : l.length ≤ 3) (hr : r.length ≤ 3) :
     let A := ∑ a, ∑ b, C * localWeight s l a * localWeight t r b
     let B := ∑ a, ∑ b,
@@ -117,7 +117,7 @@ lemma sum_pair_updates {ι : Type*} [Fintype ι] [DecidableEq ι] (x y : ι)
   ring
 
 /-- Explicit finite averaging, with no normalization of zero-mass fibers. -/
-theorem pair_bound_of_fibres {ι : Type*} [Fintype ι] [DecidableEq ι]
+theorem pair_bound_of_fibers {ι : Type*} [Fintype ι] [DecidableEq ι]
     (w : (ι → SpinLetter) → ℝ) (x y : ι) (hxy : x ≠ y) (s t : Status)
     (hF : ∀ σ : ι → SpinLetter, ∃ (C : ℝ) (l r : List SpinLetter),
       0 ≤ C ∧ l.length ≤ 3 ∧ r.length ≤ 3 ∧
@@ -135,7 +135,7 @@ theorem pair_bound_of_fibres {ι : Type*} [Fintype ι] [DecidableEq ι]
         (9 / 25 : ℝ) * (∑ a, ∑ b, w (updatePair x y σ a b)) := by
     obtain ⟨C, l, r, hC, hl, hr, heq⟩ := hF σ
     simp_rw [heq]
-    exact fibre_bound C hC s t l r hl hr
+    exact fiber_bound C hC s t l r hl hr
   have hZ : 0 ≤ (169 : ℝ) * Z := by
     rw [← sum_pair_updates x y w]
     exact Finset.sum_nonneg (fun σ _ => (hpoint σ).1)

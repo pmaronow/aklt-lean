@@ -24,7 +24,7 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x z : Plane}
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
 theorem mem_internalBonds {G : Finset Plane} {e : Plane × Plane} :
-    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ G ∧ e.2 ∈ positiveNeighbours e.1 := by
+    e ∈ internalBonds G ↔ e.1 ∈ G ∧ e.2 ∈ G ∧ e.2 ∈ positiveNeighbors e.1 := by
   constructor
   · intro he
     obtain ⟨x, hx, he⟩ := Finset.mem_biUnion.mp he
@@ -40,7 +40,7 @@ theorem internalBonds_asymm {G : Finset Plane} {x z : Plane}
   intro hr
   have hp := (mem_internalBonds.mp h).2.2
   have hq := (mem_internalBonds.mp hr).2.2
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp hq
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp hq
   rcases hp with hp | hp <;> rcases hq with hq | hq
   all_goals
     have hp1 := congrArg Prod.fst hp
@@ -50,8 +50,8 @@ theorem internalBonds_asymm {G : Finset Plane} {x z : Plane}
     dsimp at *
     omega
 
-theorem positive_neighbour_ne {x z : Plane} (h : z ∈ positiveNeighbours x) : z ≠ x := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem positive_neighbor_ne {x z : Plane} (h : z ∈ positiveNeighbors x) : z ≠ x := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with h | h
   all_goals
     intro he
@@ -61,9 +61,9 @@ theorem positive_neighbour_ne {x z : Plane} (h : z ∈ positiveNeighbours x) : z
     dsimp at *
     omega
 
-theorem positive_mem_neighbours {x z : Plane} (h : z ∈ positiveNeighbours x) :
-    z ∈ neighbours x ∧ x ∈ neighbours z := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+theorem positive_mem_neighbors {x z : Plane} (h : z ∈ positiveNeighbors x) :
+    z ∈ neighbors x ∧ x ∈ neighbors z := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · constructor
     · exact Finset.mem_image.mpr ⟨.east, Finset.mem_univ _, by
@@ -79,14 +79,14 @@ theorem positive_mem_neighbours {x z : Plane} (h : z ∈ positiveNeighbours x) :
       apply Prod.ext <;> dsimp [Compass.step] <;> omega
 
 theorem present_edge {G : Finset Plane} {D : Network G} {x z : Plane}
-    (hz : z ∈ D.presentNeighbours x) : (x, z) ∈ D.bonds ∨ (z, x) ∈ D.bonds := by
+    (hz : z ∈ D.presentNeighbors x) : (x, z) ∈ D.bonds ∨ (z, x) ∈ D.bonds := by
   obtain ⟨hn, hp⟩ := Finset.mem_filter.mp hz
   obtain ⟨d, _, hd⟩ := Finset.mem_image.mp hn
   have hxG : x ∈ G := (Finset.mem_filter.mp hp.1).1
   have hzG : z ∈ G := (Finset.mem_filter.mp hp.2.1).1
-  have he (hq : z ∈ positiveNeighbours x) : (x, z) ∈ D.bonds :=
+  have he (hq : z ∈ positiveNeighbors x) : (x, z) ∈ D.bonds :=
     Finset.mem_filter.mpr ⟨mem_internalBonds.mpr ⟨hxG, hzG, hq⟩, hp⟩
-  have hr (hq : x ∈ positiveNeighbours z) : (z, x) ∈ D.bonds :=
+  have hr (hq : x ∈ positiveNeighbors z) : (z, x) ∈ D.bonds :=
     Finset.mem_filter.mpr ⟨mem_internalBonds.mpr ⟨hzG, hxG, hq⟩, present_symm hp⟩
   cases d with
   | east =>
@@ -127,7 +127,7 @@ def otherEndpoint (y : Plane) (e : Plane × Plane) : Plane :=
 
 theorem incident_image {G : Finset Plane} (D : Network G) (y : Plane) :
     ((D.bonds.filter fun e => e.1 = y ∨ e.2 = y).image (otherEndpoint y)) =
-      D.presentNeighbours y := by
+      D.presentNeighbors y := by
   classical
   ext z
   constructor
@@ -135,7 +135,7 @@ theorem incident_image {G : Finset Plane} (D : Network G) (y : Plane) :
     obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hz
     obtain ⟨hb, hy⟩ := Finset.mem_filter.mp he
     obtain ⟨hi, hp⟩ := Finset.mem_filter.mp hb
-    have hn := positive_mem_neighbours (mem_internalBonds.mp hi).2.2
+    have hn := positive_mem_neighbors (mem_internalBonds.mp hi).2.2
     by_cases heq : e.1 = y
     · simp only [otherEndpoint, ite_eq_left heq]
       subst y
@@ -148,7 +148,7 @@ theorem incident_image {G : Finset Plane} (D : Network G) (y : Plane) :
     rcases present_edge hz with hb | hb
     · refine Finset.mem_image.mpr ⟨(y, z), Finset.mem_filter.mpr ⟨hb, Or.inl rfl⟩, ?_⟩
       simp [otherEndpoint]
-    · have hne : z ≠ y := positive_neighbour_ne (mem_internalBonds.mp
+    · have hne : z ≠ y := positive_neighbor_ne (mem_internalBonds.mp
         (Finset.mem_filter.mp hb).1).2.2 |>.symm
       refine Finset.mem_image.mpr ⟨(z, y), Finset.mem_filter.mpr ⟨hb, Or.inr rfl⟩, ?_⟩
       simp [otherEndpoint, hne]

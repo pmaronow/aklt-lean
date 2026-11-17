@@ -84,13 +84,13 @@ private lemma pairSum_lower (s : Finset Plane) (m : Plane → Vec3)
   rw [pairSum_identity]
   nlinarith
 
-private lemma fibreMean_sum {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private lemma fiberMean_sum {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (σ : PlaneConfiguration D) (s : Finset Plane)
     (f : Plane → PlaneConfiguration D → ℝ) :
-    fibreMean p V σ (fun ω => ∑ z ∈ s, f z ω) =
-      ∑ z ∈ s, fibreMean p V σ (f z) := by
+    fiberMean p V σ (fun ω => ∑ z ∈ s, f z ω) =
+      ∑ z ∈ s, fiberMean p V σ (f z) := by
   classical
-  unfold fibreMean
+  unfold fiberMean
   have hnum :
       (∑ ω, if restEvent V σ ω then p ω * (∑ z ∈ s, f z ω) else 0) =
         ∑ z ∈ s, ∑ ω, if restEvent V σ ω then p ω * f z ω else 0 := by
@@ -104,12 +104,12 @@ private lemma fibreMean_sum {D : Finset Plane} (p : Weight (PlaneConfiguration D
       _ = _ := Finset.sum_comm
   rw [hnum, Finset.sum_div]
 
-private lemma fibreMean_scale {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private lemma fiberMean_scale {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (σ : PlaneConfiguration D) (c : ℝ)
     (f : PlaneConfiguration D → ℝ) :
-    fibreMean p V σ (fun ω => c * f ω) = c * fibreMean p V σ f := by
+    fiberMean p V σ (fun ω => c * f ω) = c * fiberMean p V σ f := by
   classical
-  unfold fibreMean
+  unfold fiberMean
   have hnum :
       (∑ ω, if restEvent V σ ω then p ω * (c * f ω) else 0) =
         c * (∑ ω, if restEvent V σ ω then p ω * f ω else 0) := by
@@ -139,70 +139,70 @@ private lemma restEvent_iff_outsideConfig {D : Finset Plane} (V : Finset Plane)
     have hz' : outsideConfig V ω r = outsideConfig V σ r := congrFun h r
     exact hz'
 
-private def fibreMass {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private def fiberMass {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (q : PlaneConfiguration (D \ V)) : ℝ :=
   ∑ σ, if outsideConfig V σ = q then p σ else 0
 
-private def fibreNumerator {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private def fiberNumerator {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (q : PlaneConfiguration (D \ V))
     (f : PlaneConfiguration D → ℝ) : ℝ :=
   ∑ σ, if outsideConfig V σ = q then p σ * f σ else 0
 
-private lemma eventMass_eq_fibreMass {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private lemma eventMass_eq_fiberMass {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (σ : PlaneConfiguration D) :
-    eventMass p (restEvent V σ) = fibreMass p V (outsideConfig V σ) := by
+    eventMass p (restEvent V σ) = fiberMass p V (outsideConfig V σ) := by
   classical
-  unfold eventMass fibreMass
+  unfold eventMass fiberMass
   apply Finset.sum_congr rfl
   intro ω hω
   simp [restEvent_iff_outsideConfig]
 
-private lemma fibreNumerator_eq_conditional {D : Finset Plane}
+private lemma fiberNumerator_eq_conditional {D : Finset Plane}
     (p : Weight (PlaneConfiguration D)) (V : Finset Plane) (σ : PlaneConfiguration D)
     (f : PlaneConfiguration D → ℝ)
     (hmass : 0 < eventMass p (restEvent V σ)) :
-    fibreNumerator p V (outsideConfig V σ) f =
-      fibreMean p V σ f * fibreMass p V (outsideConfig V σ) := by
+    fiberNumerator p V (outsideConfig V σ) f =
+      fiberMean p V σ f * fiberMass p V (outsideConfig V σ) := by
   classical
-  have hnum : fibreNumerator p V (outsideConfig V σ) f =
+  have hnum : fiberNumerator p V (outsideConfig V σ) f =
       ∑ ω, if restEvent V σ ω then p ω * f ω else 0 := by
-    unfold fibreNumerator
+    unfold fiberNumerator
     apply Finset.sum_congr rfl
     intro ω hω
     simp [restEvent_iff_outsideConfig]
-  rw [hnum, ← eventMass_eq_fibreMass]
-  unfold fibreMean
+  rw [hnum, ← eventMass_eq_fiberMass]
+  unfold fiberMean
   dsimp [eventMass]
   have hden : (∑ σ_1, if restEvent V σ σ_1 then p σ_1 else 0) ≠ 0 := by
     simpa [eventMass] using (ne_of_gt hmass)
   field_simp [hden]
 
-private lemma fibrePairMean {D : Finset Plane} (p : Weight (PlaneConfiguration D))
+private lemma fiberPairMean {D : Finset Plane} (p : Weight (PlaneConfiguration D))
     (V : Finset Plane) (σ : PlaneConfiguration D)
-    (hc : NeighbourControl p V) (hmass : 0 < eventMass p (restEvent V σ)) :
-    fibreMean p V σ (fun ω => pairSum V (extendIcoSpins ω)) =
-      pairSum V (fun z => fibreSpinMean p V σ z) := by
+    (hc : NeighborControl p V) (hmass : 0 < eventMass p (restEvent V σ)) :
+    fiberMean p V σ (fun ω => pairSum V (extendIcoSpins ω)) =
+      pairSum V (fun z => fiberSpinMean p V σ z) := by
   classical
   have hsum :
-      fibreMean p V σ (fun ω =>
+      fiberMean p V σ (fun ω =>
         ∑ z ∈ V, ∑ w ∈ V,
           if z = w then 0 else dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
         ∑ z ∈ V, ∑ w ∈ V,
-          if z = w then 0 else dot (fibreSpinMean p V σ z) (fibreSpinMean p V σ w) := by
-    rw [fibreMean_sum]
+          if z = w then 0 else dot (fiberSpinMean p V σ z) (fiberSpinMean p V σ w) := by
+    rw [fiberMean_sum]
     apply Finset.sum_congr rfl
     intro z hz
-    rw [fibreMean_sum]
+    rw [fiberMean_sum]
     apply Finset.sum_congr rfl
     intro w hw
     by_cases hzw : z = w
-    · simp [hzw, fibreMean]
+    · simp [hzw, fiberMean]
     · simp only [hzw, ↓reduceIte]
       exact (hc σ hmass).2 z hz w hw hzw
-  change fibreMean p V σ (fun ω => (1 / 2 : ℝ) *
+  change fiberMean p V σ (fun ω => (1 / 2 : ℝ) *
       ∑ z ∈ V, ∑ w ∈ V,
         if z = w then 0 else dot (extendIcoSpins ω z) (extendIcoSpins ω w)) = _
-  rw [fibreMean_scale, hsum]
+  rw [fiberMean_scale, hsum]
   rfl
 
 theorem main : AKLT.Blueprint.Win.PairMeanAveragingStatement := by
@@ -212,50 +212,50 @@ theorem main : AKLT.Blueprint.Win.PairMeanAveragingStatement := by
   let c : ℝ := -(9 / 50 : ℝ) * (V.card : ℝ)
   have hp0 : ∀ σ, 0 ≤ p σ := hp.1
   have hlocal : ∀ σ, 0 < eventMass p (restEvent V σ) →
-      c ≤ fibreMean p V σ f := by
+      c ≤ fiberMean p V σ f := by
     intro σ hmass
     have hcontrol := hc σ hmass
-    have hmean := pairSum_lower V (fun z => fibreSpinMean p V σ z)
+    have hmean := pairSum_lower V (fun z => fiberSpinMean p V σ z)
       (fun z hz => hcontrol.1 z hz)
     rw [show c = -(9 / 50 : ℝ) * (V.card : ℝ) by rfl]
     change -(9 / 50 : ℝ) * (V.card : ℝ) ≤
-      fibreMean p V σ (fun ω => pairSum V (extendIcoSpins ω))
-    rw [fibrePairMean p V σ hc hmass]
+      fiberMean p V σ (fun ω => pairSum V (extendIcoSpins ω))
+    rw [fiberPairMean p V σ hc hmass]
     exact hmean
-  have hfibre : ∀ q : PlaneConfiguration (D \ V),
-      c * fibreMass p V q ≤ fibreNumerator p V q f := by
+  have hfiber : ∀ q : PlaneConfiguration (D \ V),
+      c * fiberMass p V q ≤ fiberNumerator p V q f := by
     intro q
-    have hmassNonneg : 0 ≤ fibreMass p V q := by
-      unfold fibreMass
+    have hmassNonneg : 0 ≤ fiberMass p V q := by
+      unfold fiberMass
       apply Finset.sum_nonneg
       intro ω hω
       by_cases he : outsideConfig V ω = q
       · simp [he, hp0 ω]
       · simp [he]
-    by_cases hmpos : 0 < fibreMass p V q
+    by_cases hmpos : 0 < fiberMass p V q
     · have hq : ∃ σ, outsideConfig V σ = q := by
         by_contra h
         have hneq : ∀ σ, outsideConfig V σ ≠ q := by
           intro σ hσ
           exact h ⟨σ, hσ⟩
-        have hz : fibreMass p V q = 0 := by simp [fibreMass, hneq]
+        have hz : fiberMass p V q = 0 := by simp [fiberMass, hneq]
         linarith
       let σ : PlaneConfiguration D := Classical.choose hq
       have hσ : outsideConfig V σ = q := Classical.choose_spec hq
-      have hmEq : eventMass p (restEvent V σ) = fibreMass p V q := by
-        rw [eventMass_eq_fibreMass, hσ]
+      have hmEq : eventMass p (restEvent V σ) = fiberMass p V q := by
+        rw [eventMass_eq_fiberMass, hσ]
       have hm : 0 < eventMass p (restEvent V σ) := by
         rw [hmEq]
         exact hmpos
-      have hnum := fibreNumerator_eq_conditional p V σ f hm
-      have hbound : c ≤ fibreMean p V σ f := hlocal σ hm
+      have hnum := fiberNumerator_eq_conditional p V σ f hm
+      have hbound : c ≤ fiberMean p V σ f := hlocal σ hm
       calc
-        c * fibreMass p V q ≤ fibreMean p V σ f * fibreMass p V q :=
+        c * fiberMass p V q ≤ fiberMean p V σ f * fiberMass p V q :=
           mul_le_mul_of_nonneg_right hbound hmassNonneg
-        _ = fibreNumerator p V q f := by
+        _ = fiberNumerator p V q f := by
           rw [← hσ]
           exact hnum.symm
-    · have hmass0 : fibreMass p V q = 0 := le_antisymm (le_of_not_gt hmpos) hmassNonneg
+    · have hmass0 : fiberMass p V q = 0 := le_antisymm (le_of_not_gt hmpos) hmassNonneg
       have hterms : ∀ σ, (if outsideConfig V σ = q then p σ else 0) = 0 := by
         have hsumzero : (∑ σ, if outsideConfig V σ = q then p σ else 0) = 0 := hmass0
         have hnonneg : ∀ σ ∈ (Finset.univ : Finset (PlaneConfiguration D)),
@@ -266,8 +266,8 @@ theorem main : AKLT.Blueprint.Win.PairMeanAveragingStatement := by
           · simp [he]
         exact fun σ =>
           (Finset.sum_eq_zero_iff_of_nonneg hnonneg).mp hsumzero σ (Finset.mem_univ σ)
-      have hnumzero : fibreNumerator p V q f = 0 := by
-        unfold fibreNumerator
+      have hnumzero : fiberNumerator p V q f = 0 := by
+        unfold fiberNumerator
         apply Finset.sum_eq_zero
         intro σ hσ
         by_cases he : outsideConfig V σ = q
@@ -275,24 +275,24 @@ theorem main : AKLT.Blueprint.Win.PairMeanAveragingStatement := by
           simp [he, hpσ]
         · simp [he]
       simp [hmass0, hnumzero]
-  have hmassTotal : (∑ q : PlaneConfiguration (D \ V), fibreMass p V q) = 1 := by
-    unfold fibreMass
+  have hmassTotal : (∑ q : PlaneConfiguration (D \ V), fiberMass p V q) = 1 := by
+    unfold fiberMass
     rw [Finset.sum_comm]
     simp [Finset.sum_ite_eq, hp.2]
   have hdecomp :
-      expectation p f = ∑ q : PlaneConfiguration (D \ V), fibreNumerator p V q f := by
-    unfold expectation fibreNumerator
+      expectation p f = ∑ q : PlaneConfiguration (D \ V), fiberNumerator p V q f := by
+    unfold expectation fiberNumerator
     rw [← Finset.sum_fiberwise (s := Finset.univ) (g := outsideConfig V)
       (f := fun σ => p σ * f σ)]
     simp [Finset.sum_filter]
   calc
-    c = c * (∑ q : PlaneConfiguration (D \ V), fibreMass p V q) := by
+    c = c * (∑ q : PlaneConfiguration (D \ V), fiberMass p V q) := by
       rw [hmassTotal]
       ring
-    _ = ∑ q : PlaneConfiguration (D \ V), c * fibreMass p V q := by
+    _ = ∑ q : PlaneConfiguration (D \ V), c * fiberMass p V q := by
       rw [Finset.mul_sum]
-    _ ≤ ∑ q : PlaneConfiguration (D \ V), fibreNumerator p V q f :=
-      Finset.sum_le_sum (fun q hq => hfibre q)
+    _ ≤ ∑ q : PlaneConfiguration (D \ V), fiberNumerator p V q f :=
+      Finset.sum_le_sum (fun q hq => hfiber q)
     _ = expectation p f := hdecomp.symm
 
 end AKLT.W.WIN054

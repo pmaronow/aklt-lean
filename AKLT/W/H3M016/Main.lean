@@ -42,7 +42,7 @@ theorem main : AKLT.Blueprint.H3.LocalCoefficientComparisonStatement := by
   intro Q hQ X d₀ n w i hFacts φ ψ
   rcases hFacts with
     ⟨hraw, hadmissible, hArrival, hWindowRevisit, hWindowFirst,
-      hReward, hxCentre, hxTarget, hxNextCentre, hKnown⟩
+      hReward, hxCenter, hxTarget, hxNextCenter, hKnown⟩
   let win := AKLT.Blueprint.H3.suffixWindow w i.val
   let x := wordVertex kernelStart w i.val
   let a := Q.project win
@@ -56,7 +56,7 @@ theorem main : AKLT.Blueprint.H3.LocalCoefficientComparisonStatement := by
       exact hnotWindowRevisit
     unfold truePhaseCoefficient
     rw [htrueRevisit]
-    simp [stationaryCoefficient, x, a, win, hxCentre, hxTarget, hallowed,
+    simp [stationaryCoefficient, x, a, win, hxCenter, hxTarget, hallowed,
       hknown, hnotKnownBond, hnotQuotientRevisit, phaseTransition, phaseDiagonal]
   · by_cases htrueRevisit : wordRevisit kernelStart w i = true
     · by_cases hwindowRevisit : windowKind win (w i) = .revisit
@@ -64,18 +64,18 @@ theorem main : AKLT.Blueprint.H3.LocalCoefficientComparisonStatement := by
           rw [hkind, hwindowRevisit]
         unfold truePhaseCoefficient
         rw [htrueRevisit]
-        simp [stationaryCoefficient, x, a, win, hxCentre, hxTarget, hxNextCentre,
+        simp [stationaryCoefficient, x, a, win, hxCenter, hxTarget, hxNextCenter,
           hallowed, hknown, hquotientRevisit, phaseTransition]
       · have hquotientNotRevisit : Q.kind a (w i) ≠ .revisit := by
           rw [hkind]
           exact hwindowRevisit
         have hrelaxedNonneg :
-            0 ≤ relaxedReward x (Q.arrival a) (w i) {kernelCentre} :=
+            0 ≤ relaxedReward x (Q.arrival a) (w i) {kernelCenter} :=
           relaxedReward_nonneg _ _ _ _
         have hstationary : stationaryCoefficient Q X d₀ φ a x (w i) ψ =
             phaseTransition (Q.kind a (w i))
-              (relaxedReward x (Q.arrival a) (w i) {kernelCentre}) φ ψ := by
-          simp [stationaryCoefficient, x, a, win, hxCentre, hxTarget, hxNextCentre,
+              (relaxedReward x (Q.arrival a) (w i) {kernelCenter}) φ ψ := by
+          simp [stationaryCoefficient, x, a, win, hxCenter, hxTarget, hxNextCenter,
             hallowed, hknown]
         by_cases hdiag : φ = ψ
         · subst ψ
@@ -106,8 +106,8 @@ theorem main : AKLT.Blueprint.H3.LocalCoefficientComparisonStatement := by
           _ = wordIncoming kernelIncoming w i := hArrival
       have hstationary : stationaryCoefficient Q X d₀ φ a x (w i) ψ =
           phaseTransition (trueKind w i)
-            (relaxedReward x (wordIncoming kernelIncoming w i) (w i) {kernelCentre}) φ ψ := by
-        simp [stationaryCoefficient, x, a, win, hxCentre, hxTarget, hxNextCentre,
+            (relaxedReward x (wordIncoming kernelIncoming w i) (w i) {kernelCenter}) φ ψ := by
+        simp [stationaryCoefficient, x, a, win, hxCenter, hxTarget, hxNextCenter,
           hallowed, hknown, hquotientKind, harrival]
       rw [show truePhaseCoefficient w i φ ψ =
           phaseTransition (trueKind w i) (witnessKappa w i) φ ψ by

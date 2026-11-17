@@ -10,7 +10,7 @@ open AKLT.Defs AKLT.Cert.H1
 
 theorem mem_internal (S : Finset Plane) (a b : Plane) :
     (a,b) ∈ internalBonds S ↔
-      a ∈ S ∧ b ∈ S ∧ b ∈ positiveNeighbours a := by
+      a ∈ S ∧ b ∈ S ∧ b ∈ positiveNeighbors a := by
   simp [internalBonds, Finset.mem_biUnion, Finset.mem_image, Prod.ext_iff,
     and_comm, and_left_comm, and_assoc]
 
@@ -22,7 +22,7 @@ theorem internal_template {a b : Plane} (he : (a,b) ∈ internalBonds templateSi
     have h := (Finset.mem_filter.mp ha).1
     simpa [square] using h
   rcases hbounds with ⟨⟨haxl,haxu⟩,⟨hayl,hayu⟩⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp
   rcases hp with rfl | rfl
   all_goals
     interval_cases ax <;> interval_cases ay <;>
@@ -37,7 +37,7 @@ theorem template_internal (a b : Plane) (he : (a,b) ∈ templateEdges) :
     he | he | he | he | he | he | he | he
   all_goals
     cases he
-    norm_num [mem_internal, templateSites, square, latticeDist, positiveNeighbours]
+    norm_num [mem_internal, templateSites, square, latticeDist, positiveNeighbors]
 
 def bondCondition (π : PatternData) (a b : Plane) : Prop :=
   π.statusAt a ≠ .X ∧ π.statusAt b ≠ .X ∧

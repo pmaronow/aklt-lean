@@ -25,24 +25,24 @@ theorem spins_ball {G : Finset Plane} (D : Network G) (σ : D.active → SpinLet
   · simp [Network.spins, h, normSq, dot]
 
 theorem mem_internalBonds {G : Finset Plane} {x y : Plane} :
-    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbours x := by
+    (x, y) ∈ internalBonds G ↔ x ∈ G ∧ y ∈ G ∧ y ∈ positiveNeighbors x := by
   simp [internalBonds, Finset.mem_biUnion, Finset.mem_image, Prod.mk.injEq,
     and_left_comm, and_assoc]
 
-theorem positiveNeighbours_asymm {x y : Plane} (h : y ∈ positiveNeighbours x) :
-    x ∉ positiveNeighbours y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+theorem positiveNeighbors_asymm {x y : Plane} (h : y ∈ positiveNeighbors x) :
+    x ∉ positiveNeighbors y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
     Prod.ext_iff] at *
   omega
 
 theorem bond_orientation {G : Finset Plane} (D : Network G) (e : Plane × Plane)
-    (he : e ∈ D.bonds) : e.2 ∈ positiveNeighbours e.1 :=
+    (he : e ∈ D.bonds) : e.2 ∈ positiveNeighbors e.1 :=
   (mem_internalBonds.mp (Finset.mem_filter.mp he).1).2.2
 
 theorem bond_ne {G : Finset Plane} (D : Network G) (e : Plane × Plane)
     (he : e ∈ D.bonds) : e.1 ≠ e.2 := by
   have h := bond_orientation D e he
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
     Prod.ext_iff] at h
   intro hh
   have h1 := congrArg Prod.fst hh
@@ -56,22 +56,22 @@ def otherEnd (x : Plane) (e : Plane × Plane) : Plane := if e.1 = x then e.2 els
 
 theorem incident_other_mem {G : Finset Plane} (D : Network G) (x : Plane)
     (e : Plane × Plane) (he : e ∈ incidentBonds D x) :
-    otherEnd x e ∈ D.presentNeighbours x := by
+    otherEnd x e ∈ D.presentNeighbors x := by
   obtain ⟨he, hx⟩ := Finset.mem_filter.mp he
   have hp := (Finset.mem_filter.mp he).2
-  rw [Network.presentNeighbours, Finset.mem_filter]
+  rw [Network.presentNeighbors, Finset.mem_filter]
   rcases hx with hx | hx
   · have hpr : D.Present x e.2 := by simpa [hx] using hp
     simpa [otherEnd, hx] using
-      (show e.2 ∈ neighbours x ∧ D.Present x e.2 from
-        ⟨(mem_neighbours_iff _ _).mpr hpr.2.2.1, hpr⟩)
+      (show e.2 ∈ neighbors x ∧ D.Present x e.2 from
+        ⟨(mem_neighbors_iff _ _).mpr hpr.2.2.1, hpr⟩)
   · have hh : e.1 ≠ x := by
       intro hh
       exact bond_ne D e he (hh.trans hx.symm)
     have hpr : D.Present x e.1 := by simpa [hx] using present_symm D hp
     simpa [otherEnd, hh] using
-      (show e.1 ∈ neighbours x ∧ D.Present x e.1 from
-        ⟨(mem_neighbours_iff _ _).mpr hpr.2.2.1, hpr⟩)
+      (show e.1 ∈ neighbors x ∧ D.Present x e.1 from
+        ⟨(mem_neighbors_iff _ _).mpr hpr.2.2.1, hpr⟩)
 
 theorem incident_other_injective {G : Finset Plane} (D : Network G) (x : Plane) :
     Set.InjOn (otherEnd x) (↑(incidentBonds D x) : Set (Plane × Plane)) := by
@@ -87,13 +87,13 @@ theorem incident_other_injective {G : Finset Plane} (D : Network G) (x : Plane) 
     exact Prod.ext (hx.trans hx'.symm) hh
   · have hnx : e'.1 ≠ x := by intro h; exact hn' (h.trans hx'.symm)
     simp only [otherEnd, hx, hnx, ite_true, ite_false] at hh
-    have hc := positiveNeighbours_asymm ho
+    have hc := positiveNeighbors_asymm ho
     apply False.elim
     apply hc
     simpa [hx, hx', hh] using ho'
   · have hnx : e.1 ≠ x := by intro h; exact hn (h.trans hx.symm)
     simp only [otherEnd, hx', hnx, ite_true, ite_false] at hh
-    have hc := positiveNeighbours_asymm ho
+    have hc := positiveNeighbors_asymm ho
     apply False.elim
     apply hc
     simpa [hx, hx', hh] using ho'
@@ -103,7 +103,7 @@ theorem incident_other_injective {G : Finset Plane} (D : Network G) (x : Plane) 
     exact Prod.ext hh (hx.trans hx'.symm)
 
 theorem incident_card_le {G : Finset Plane} (D : Network G) (x : Plane) :
-    (incidentBonds D x).card ≤ (D.presentNeighbours x).card := by
+    (incidentBonds D x).card ≤ (D.presentNeighbors x).card := by
   exact Finset.card_le_card_of_injOn (otherEnd x)
     (fun e he => incident_other_mem D x e he) (incident_other_injective D x)
 

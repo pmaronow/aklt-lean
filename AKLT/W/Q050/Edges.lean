@@ -19,24 +19,24 @@ def glueConfig {W V : Finset Plane} (_hVW : V ⊆ W)
 
 private theorem mem_internal (W : Finset Plane) (e : Plane × Plane) :
     e ∈ internalBonds W ↔
-      e.1 ∈ W ∧ e.2 ∈ W ∧ e.2 ∈ positiveNeighbours e.1 := by
+      e.1 ∈ W ∧ e.2 ∈ W ∧ e.2 ∈ positiveNeighbors e.1 := by
   rcases e with ⟨x, y⟩
   simp [internalBonds, and_assoc, and_left_comm, and_comm]
 
 private theorem mem_leg (W : Finset Plane) (e : Plane × Plane) :
     e ∈ originalLegs W ↔
-      e.1 ∈ W ∧ e.2 ∉ W ∧ e.2 ∈ neighbours e.1 := by
+      e.1 ∈ W ∧ e.2 ∉ W ∧ e.2 ∈ neighbors e.1 := by
   rcases e with ⟨x, y⟩
   simp [originalLegs, and_assoc, and_left_comm, and_comm]
 
-private theorem mem_neighbours (x y : Plane) :
-    y ∈ neighbours x ↔ y ∈ positiveNeighbours x ∨ x ∈ positiveNeighbours y := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+private theorem mem_neighbors (x y : Plane) :
+    y ∈ neighbors x ↔ y ∈ positiveNeighbors x ∨ x ∈ positiveNeighbors y := by
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · rintro ⟨d, rfl⟩
-    cases d <;> simp [positiveNeighbours, Compass.step, Prod.add_def]
+    cases d <;> simp [positiveNeighbors, Compass.step, Prod.add_def]
   · intro h
-    simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+    simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
     rcases h with (rfl | rfl) | h | h
     · exact ⟨.east, by simp [Compass.step, Prod.add_def]⟩
     · exact ⟨.north, by simp [Compass.step, Prod.add_def]⟩
@@ -46,21 +46,21 @@ private theorem mem_neighbours (x y : Plane) :
       exact ⟨.south, by simp [Compass.step, Prod.add_def]⟩
 
 private theorem not_positive_reverse {x y : Plane}
-    (h : y ∈ positiveNeighbours x) : x ∉ positiveNeighbours y := by
+    (h : y ∈ positiveNeighbors x) : x ∉ positiveNeighbors y := by
   rcases x with ⟨x1, x2⟩
   rcases y with ⟨y1, y2⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton,
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton,
     Prod.mk.injEq] at h ⊢
   omega
 
 /-- Canonical orientation of an edge, regardless of which endpoint is in the volume. -/
 private def orient (e : Plane × Plane) : Plane × Plane :=
-  if e.2 ∈ positiveNeighbours e.1 then e else e.swap
+  if e.2 ∈ positiveNeighbors e.1 then e else e.swap
 
 private theorem orient_eq_imp {e f : Plane × Plane} (h : orient e = orient f) :
     e = f ∨ e = f.swap := by
-  by_cases he : e.2 ∈ positiveNeighbours e.1 <;>
-    by_cases hf : f.2 ∈ positiveNeighbours f.1
+  by_cases he : e.2 ∈ positiveNeighbors e.1 <;>
+    by_cases hf : f.2 ∈ positiveNeighbors f.1
   · exact Or.inl (by simpa [orient, he, hf] using h)
   · exact Or.inr (by simpa [orient, he, hf] using h)
   · right
@@ -81,24 +81,24 @@ private theorem orient_inj (W : Finset Plane) :
 
 private theorem mem_oriented_legs (W : Finset Plane) (e : Plane × Plane) :
     e ∈ (originalLegs W).image orient ↔
-      e.2 ∈ positiveNeighbours e.1 ∧
+      e.2 ∈ positiveNeighbors e.1 ∧
         ((e.1 ∈ W ∧ e.2 ∉ W) ∨ (e.2 ∈ W ∧ e.1 ∉ W)) := by
   constructor
   · intro h
     obtain ⟨f, hf, rfl⟩ := Finset.mem_image.mp h
     obtain ⟨hf1, hf2, hfn⟩ := (mem_leg W f).mp hf
-    by_cases hp : f.2 ∈ positiveNeighbours f.1
+    by_cases hp : f.2 ∈ positiveNeighbors f.1
     · simp [orient, hp, hf1, hf2]
-    · have hr := (mem_neighbours f.1 f.2).mp hfn
-      have hr' : f.1 ∈ positiveNeighbours f.2 := hr.resolve_left hp
+    · have hr := (mem_neighbors f.1 f.2).mp hfn
+      have hr' : f.1 ∈ positiveNeighbors f.2 := hr.resolve_left hp
       simp [orient, hp, hr', hf1, hf2]
   · rintro ⟨hp, (⟨h1, h2⟩ | ⟨h2, h1⟩)⟩
     · refine Finset.mem_image.mpr ⟨e, ?_, ?_⟩
-      · exact (mem_leg W e).mpr ⟨h1, h2, (mem_neighbours _ _).mpr (Or.inl hp)⟩
+      · exact (mem_leg W e).mpr ⟨h1, h2, (mem_neighbors _ _).mpr (Or.inl hp)⟩
       · simp [orient, hp]
     · refine Finset.mem_image.mpr ⟨e.swap, ?_, ?_⟩
       · exact (mem_leg W e.swap).mpr
-          ⟨h2, h1, (mem_neighbours _ _).mpr (Or.inr hp)⟩
+          ⟨h2, h1, (mem_neighbors _ _).mpr (Or.inr hp)⟩
       · simp [orient, not_positive_reverse hp]
 
 /-- Every nearest-neighbor edge meeting a volume, counted in positive orientation. -/
@@ -107,7 +107,7 @@ private def volumeEdges (W : Finset Plane) : Finset (Plane × Plane) :=
 
 private theorem mem_volumeEdges (W : Finset Plane) (e : Plane × Plane) :
     e ∈ volumeEdges W ↔
-      e.2 ∈ positiveNeighbours e.1 ∧ (e.1 ∈ W ∨ e.2 ∈ W) := by
+      e.2 ∈ positiveNeighbors e.1 ∧ (e.1 ∈ W ∨ e.2 ∈ W) := by
   simp only [volumeEdges, Finset.mem_union, mem_internal, mem_oriented_legs]
   tauto
 
@@ -177,7 +177,7 @@ private theorem planeWeight_edges (κ : Plane → Fin 3) (W : Finset Plane)
   ring
 
 private theorem mem_exteriorSites (V : Finset Plane) (x : Plane) :
-    x ∈ exteriorSites V ↔ x ∉ V ∧ ∃ y ∈ V, x ∈ neighbours y := by
+    x ∈ exteriorSites V ↔ x ∉ V ∧ ∃ y ∈ V, x ∈ neighbors y := by
   constructor
   · intro hx
     obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hx
@@ -195,12 +195,12 @@ private theorem volumeEdges_endpoints {V : Finset Plane} {e : Plane × Plane}
     · exact Or.inl h1
     · right
       exact (mem_exteriorSites V _).mpr
-        ⟨h1, e.2, hm.resolve_left h1, (mem_neighbours _ _).mpr (Or.inr hp)⟩
+        ⟨h1, e.2, hm.resolve_left h1, (mem_neighbors _ _).mpr (Or.inr hp)⟩
   · by_cases h2 : e.2 ∈ V
     · exact Or.inl h2
     · right
       exact (mem_exteriorSites V _).mpr
-        ⟨h2, e.1, hm.resolve_right h2, (mem_neighbours _ _).mpr (Or.inl hp)⟩
+        ⟨h2, e.1, hm.resolve_right h2, (mem_neighbors _ _).mpr (Or.inl hp)⟩
 
 private theorem filledLetters_glue {W V : Finset Plane} (hVW : V ⊆ W)
     (η : FrameBoundary W) (σ : PlaneConfiguration W) (v : PlaneConfiguration V)

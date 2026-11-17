@@ -13,16 +13,16 @@ open AKLT.Defs AKLT.Blueprint.Gap
 
 namespace AKLT.W.GAP011
 
-private lemma adjacent_of_mem_neighbours {x y : Plane} (hy : y ∈ neighbours x) :
+private lemma adjacent_of_mem_neighbors {x y : Plane} (hy : y ∈ neighbors x) :
     Adjacent x y := by
   classical
   rcases Finset.mem_image.mp hy with ⟨d, -, hxy⟩
   subst y
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
 
-private lemma adjacent_of_mem_positiveNeighbours {x y : Plane}
-    (hy : y ∈ positiveNeighbours x) : Adjacent x y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+private lemma adjacent_of_mem_positiveNeighbors {x y : Plane}
+    (hy : y ∈ positiveNeighbors x) : Adjacent x y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
   rcases hy with hy | hy
   · rw [hy]
     simp [Adjacent, latticeDist]
@@ -35,7 +35,7 @@ private lemma original_endpoints {W : Finset Plane} {e : Plane × Plane}
   rcases Finset.mem_biUnion.mp he with ⟨x, hx, hxe⟩
   rcases Finset.mem_image.mp hxe with ⟨y, hy, hxy⟩
   have hy' := Finset.mem_sdiff.mp hy
-  have hAdj := adjacent_of_mem_neighbours hy'.1
+  have hAdj := adjacent_of_mem_neighbors hy'.1
   subst e
   exact ⟨hx, hy'.2, hAdj⟩
 
@@ -44,14 +44,14 @@ private lemma internal_adjacent {W : Finset Plane} {e : Plane × Plane}
   classical
   rcases Finset.mem_biUnion.mp he with ⟨x, hx, hxe⟩
   rcases Finset.mem_image.mp hxe with ⟨y, hy, hxy⟩
-  have hyN := adjacent_of_mem_positiveNeighbours (Finset.mem_inter.mp hy).1
+  have hyN := adjacent_of_mem_positiveNeighbors (Finset.mem_inter.mp hy).1
   subst e
   exact hyN
 
 private lemma boundary_factor_pos
     (hframe : ∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
       0 < 1 + dot (frameVector i a) (frameVector j b))
-    {κ : Plane → Fin 3} (hκ : ProperPlaneColouring κ)
+    {κ : Plane → Fin 3} (hκ : ProperPlaneColoring κ)
     {W : Finset Plane} (η : FrameBoundary W) {e : Plane × Plane}
     (he : e ∈ originalLegs W) (a : IcoLetter) :
     0 < 1 + dot (frameVector (κ e.1) a)
@@ -62,7 +62,7 @@ private lemma boundary_factor_pos
 private lemma planeSiteWeight_pos
     (hframe : ∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
       0 < 1 + dot (frameVector i a) (frameVector j b))
-    {κ : Plane → Fin 3} (hκ : ProperPlaneColouring κ)
+    {κ : Plane → Fin 3} (hκ : ProperPlaneColoring κ)
     {W : Finset Plane} (η : FrameBoundary W) (x : W) (a : IcoLetter) :
     0 < AKLT.Blueprint.Q.planeSiteWeight κ W η x a := by
   unfold AKLT.Blueprint.Q.planeSiteWeight

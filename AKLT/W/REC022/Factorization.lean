@@ -13,7 +13,7 @@ open AKLT.Defs AKLT.Blueprint.Rec
 namespace AKLT.W.REC022
 
 theorem three_integrated (a : Departure) (hU : a.D.status a.y = .U)
-    (f g : Plane) (hn : a.D.presentNeighbours a.y = {a.o,f,g})
+    (f g : Plane) (hn : a.D.presentNeighbors a.y = {a.o,f,g})
     (hof : a.o ≠ f) (hog : a.o ≠ g) (hfg : f ≠ g) (b : Bool) :
     a.D.partition a.τ b (fun _ => 1) =
       (removeSite a.D a.y).partition a.τ b (fun n => scalarI n a.o f g) ∧
@@ -25,7 +25,7 @@ theorem three_integrated (a : Departure) (hU : a.D.status a.y = .U)
     rw [← hh]
     exact leg_protected he
   have hyo : a.y ≠ a.o :=
-    adjacent_ne ((mem_presentNeighbours a.D a.y a.o).mp a.present).2.2.1
+    adjacent_ne ((mem_presentNeighbors a.D a.y a.o).mp a.present).2.2.1
   constructor
   · rw [integrate_site a.D a.τ b a.y a.start.1 hno]
     apply congrArg ((removeSite a.D a.y).partition a.τ b)
@@ -42,8 +42,8 @@ theorem three_integrated (a : Departure) (hU : a.D.status a.y = .U)
   · have hat : a.y ∈ (traceStep a.D a.y a.o).active := by
       rw [active_trace a.D a.y a.o hU]
       exact a.start.1
-    have hnt : (traceStep a.D a.y a.o).presentNeighbours a.y = {f,g} := by
-      rw [trace_neighbours a.D a.y a.o hU hyo,hn]
+    have hnt : (traceStep a.D a.y a.o).presentNeighbors a.y = {f,g} := by
+      rw [trace_neighbors a.D a.y a.o hU hyo,hn]
       simp [hof,hog]
     have hst : (traceStep a.D a.y a.o).status a.y = .D := by
       simp [traceStep,hU]
@@ -67,7 +67,7 @@ theorem three_factorization : ThreeFactorizationStatement := by
     hJ.trans (scalarJ_partition a.D a.τ b a.y f g)⟩
 
 theorem step_log_ratio (a : Departure) (hU : a.D.status a.y = .U)
-    (f g : Plane) (hn : a.D.presentNeighbours a.y = {a.o,f,g})
+    (f g : Plane) (hn : a.D.presentNeighbors a.y = {a.o,f,g})
     (hof : a.o ≠ f) (hog : a.o ≠ g) (hfg : f ≠ g) (b : Bool) :
     Real.log (stepRatio a.D a.τ b a.y a.o) =
       Real.log (responseJ a.D a.τ b a.y f g / responseI a.D a.τ b a.y a.o f g) := by

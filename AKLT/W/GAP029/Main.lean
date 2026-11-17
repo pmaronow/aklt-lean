@@ -9,7 +9,7 @@ open AKLT.Defs AKLT.Challenge
 open AKLT.Blueprint.Gap
 namespace AKLT.W.GAP029
 
-private def centreOf {L N : Size} (x : Site L N) (z : Plane) : Site L N :=
+private def centerOf {L N : Size} (x : Site L N) (z : Plane) : Site L N :=
   x - reduction L N z
 
 private theorem offsetSquare_card (r : ℕ) :
@@ -23,14 +23,14 @@ private theorem offsetSquare_card (r : ℕ) :
   rw [htn]
   ring
 
-private theorem centreOf_injOn {L N : Size} (M : ℕ) (x : Site L N)
+private theorem centerOf_injOn {L N : Size} (M : ℕ) (x : Site L N)
     (hL : 2*M+3 ≤ L.val) (hN : 2*M+3 ≤ N.val) :
-    Set.InjOn (centreOf (L := L) (N := N) x)
+    Set.InjOn (centerOf (L := L) (N := N) x)
       (↑(square (0, 0) (M+1)) : Set Plane) := by
   intro z hz w hw hzw
   have hred : reduction L N z = reduction L N w := by
     have h := congrArg (fun y : Site L N => x - y) hzw
-    simpa [centreOf, sub_sub_cancel] using h
+    simpa [centerOf, sub_sub_cancel] using h
   have hfst : (z.1 : ZMod L.val) = (w.1 : ZMod L.val) := congrArg Prod.fst hred
   have hsnd : (z.2 : ZMod N.val) = (w.2 : ZMod N.val) := congrArg Prod.snd hred
   have hzprod := Finset.mem_product.mp hz
@@ -57,9 +57,9 @@ private theorem centreOf_injOn {L N : Size} (M : ℕ) (x : Site L N)
     constructor <;> omega
   exact Prod.ext (sub_eq_zero.mp hz1zero) (sub_eq_zero.mp hz2zero)
 
-private theorem centres_filter_eq_image {L N : Size} (x : Site L N) (r : ℕ) :
+private theorem centers_filter_eq_image {L N : Size} (x : Site L N) (r : ℕ) :
     (Finset.univ.filter fun a : Site L N => x ∈ torusSquare L N r a) =
-      (square (0, 0) r).image (centreOf (L := L) (N := N) x) := by
+      (square (0, 0) r).image (centerOf (L := L) (N := N) x) := by
   ext a
   simp only [Finset.mem_filter, Finset.mem_univ, true_and]
   constructor
@@ -69,7 +69,7 @@ private theorem centres_filter_eq_image {L N : Size} (x : Site L N) (r : ℕ) :
     rcases hxa with ⟨z, hz, hzx⟩
     apply Finset.mem_image.mpr
     refine ⟨z, hz, ?_⟩
-    dsimp [centreOf]
+    dsimp [centerOf]
     exact ((eq_sub_iff_add_eq).2 hzx).symm
   · intro ha
     rcases Finset.mem_image.mp ha with ⟨z, hz, hza⟩
@@ -77,15 +77,15 @@ private theorem centres_filter_eq_image {L N : Size} (x : Site L N) (r : ℕ) :
     apply Finset.mem_image.mpr
     refine ⟨z, hz, ?_⟩
     rw [← hza]
-    simp [centreOf]
+    simp [centerOf]
 
 private theorem exterior_filter_eq_image_sdiff {L N : Size} (x : Site L N) (M : ℕ) :
     (Finset.univ.filter fun a : Site L N =>
       x ∈ torusHalo L N M a \ torusSquare L N M a) =
-      (square (0, 0) (M+1)).image (centreOf (L := L) (N := N) x) \
-        (square (0, 0) M).image (centreOf (L := L) (N := N) x) := by
-  have hH := centres_filter_eq_image (L := L) (N := N) x (M+1)
-  have hQ := centres_filter_eq_image (L := L) (N := N) x M
+      (square (0, 0) (M+1)).image (centerOf (L := L) (N := N) x) \
+        (square (0, 0) M).image (centerOf (L := L) (N := N) x) := by
+  have hH := centers_filter_eq_image (L := L) (N := N) x (M+1)
+  have hQ := centers_filter_eq_image (L := L) (N := N) x M
   ext a
   simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_sdiff]
   change (x ∈ torusSquare L N (M+1) a ∧ ¬ x ∈ torusSquare L N M a) ↔ _
@@ -94,7 +94,7 @@ private theorem exterior_filter_eq_image_sdiff {L N : Size} (x : Site L N) (M : 
 
 theorem main : AKLT.Blueprint.Gap.ExteriorBlockCountStatement := by
   intro L N M hM hL hN x
-  have hinj := centreOf_injOn (L := L) (N := N) M x hL hN
+  have hinj := centerOf_injOn (L := L) (N := N) M x hL hN
   have hsub : square (0, 0) M ⊆ square (0, 0) (M+1) := by
     change Finset.Icc (0 - (M : ℤ)) (0 + M) ×ˢ Finset.Icc (0 - (M : ℤ)) (0 + M) ⊆
       Finset.Icc (0 - ((M+1 : ℕ) : ℤ)) (0 + (M+1 : ℤ)) ×ˢ
@@ -109,7 +109,7 @@ theorem main : AKLT.Blueprint.Gap.ExteriorBlockCountStatement := by
   rw [exterior_filter_eq_image_sdiff (L := L) (N := N) x M]
   rw [← Finset.image_sdiff_of_injOn (s := square (0, 0) (M+1))
     (t := square (0, 0) M) hinj hsub]
-  have hinjAnn : Set.InjOn (centreOf (L := L) (N := N) x)
+  have hinjAnn : Set.InjOn (centerOf (L := L) (N := N) x)
       (↑(square (0, 0) (M+1) \ square (0, 0) M) : Set Plane) :=
     Set.InjOn.mono (Finset.coe_subset.mpr Finset.sdiff_subset) hinj
   rw [Finset.card_image_iff.mpr hinjAnn]

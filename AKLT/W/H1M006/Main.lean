@@ -13,7 +13,7 @@ namespace AKLT.W.H1M006
 
 /-- Summing the passage coordinate first gives the current and next passage factors. -/
 theorem main : AKLT.Blueprint.H1.PassageFubiniStatement := by
-  intro hSite π hCovered m f g hNeighbours
+  intro hSite π hCovered m f g hNeighbors
   have h0active : (0, 0) ∈ π.active := origin_active π hCovered
   let e := splitAssignments π h0active
   have hCurrentSum : patternCurrent π m =
@@ -36,7 +36,7 @@ theorem main : AKLT.Blueprint.H1.PassageFubiniStatement := by
               n := by
           apply Finset.sum_congr rfl
           intro n hn
-          exact (local_fubini hSite π hCovered m f g hNeighbours n).1
+          exact (local_fubini hSite π hCovered m f g hNeighbors n).1
       _ = withoutPassageFunctional π m (passageI π.outgoing.step f g) := rfl
   · rw [hNextSum]
     calc
@@ -51,7 +51,7 @@ theorem main : AKLT.Blueprint.H1.PassageFubiniStatement := by
               n := by
           apply Finset.sum_congr rfl
           intro n hn
-          exact (local_fubini hSite π hCovered m f g hNeighbours n).2
+          exact (local_fubini hSite π hCovered m f g hNeighbors n).2
       _ = withoutPassageFunctional π m (passageJ f g) := rfl
 
 end AKLT.W.H1M006

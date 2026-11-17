@@ -11,9 +11,9 @@ open AKLT.Defs
 
 namespace AKLT.W.REC021
 
-theorem neighbour_offsets (x y : Plane) : x ∈ neighbours y ↔
+theorem neighbor_offsets (x y : Plane) : x ∈ neighbors y ↔
     x = y + (1, 0) ∨ x = y + (0, 1) ∨ x = y + (-1, 0) ∨ x = y + (0, -1) := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and]
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and]
   constructor
   · rintro ⟨d, rfl⟩
     cases d <;> simp [Compass.step]
@@ -23,8 +23,8 @@ theorem neighbour_offsets (x y : Plane) : x ∈ neighbours y ↔
     · exact ⟨.west, rfl⟩
     · exact ⟨.south, rfl⟩
 
-theorem mem_neighbours_iff (x y : Plane) : x ∈ neighbours y ↔ Adjacent y x := by
-  rw [neighbour_offsets]
+theorem mem_neighbors_iff (x y : Plane) : x ∈ neighbors y ↔ Adjacent y x := by
+  rw [neighbor_offsets]
   simp only [Adjacent, latticeDist, Prod.ext_iff, Prod.add_def]
   omega
 
@@ -43,9 +43,9 @@ theorem latticeDist_triangle (x y z : Plane) :
   unfold latticeDist
   omega
 
-theorem neighbours_nonadjacent {y a b : Plane} (ha : a ∈ neighbours y)
-    (hb : b ∈ neighbours y) : ¬ Adjacent a b := by
-  rw [neighbour_offsets] at ha hb
+theorem neighbors_nonadjacent {y a b : Plane} (ha : a ∈ neighbors y)
+    (hb : b ∈ neighbors y) : ¬ Adjacent a b := by
+  rw [neighbor_offsets] at ha hb
   rcases ha with rfl | rfl | rfl | rfl <;>
     rcases hb with rfl | rfl | rfl | rfl <;>
     simp [Adjacent, latticeDist, Prod.add_def] <;> omega
@@ -71,31 +71,31 @@ theorem present_remove {G : Finset Plane} (D : Network G) (y x z : Plane) :
   simp only [Finset.mem_erase]
   tauto
 
-theorem neighbours_remove {G : Finset Plane} (D : Network G) (y x : Plane) (hxy : x ≠ y) :
-    (removeSite D y).presentNeighbours x = (D.presentNeighbours x).erase y := by
+theorem neighbors_remove {G : Finset Plane} (D : Network G) (y x : Plane) (hxy : x ≠ y) :
+    (removeSite D y).presentNeighbors x = (D.presentNeighbors x).erase y := by
   ext z
-  simp only [Network.presentNeighbours, Finset.mem_filter, Finset.mem_erase, present_remove]
+  simp only [Network.presentNeighbors, Finset.mem_filter, Finset.mem_erase, present_remove]
   tauto
 
-theorem removed_neighbour_degree (a : AKLT.Blueprint.Rec.Departure)
-    (x : Plane) (hx : x ∈ a.D.presentNeighbours a.y) :
-    ((removeSite a.D a.y).presentNeighbours x).card ≤ 3 := by
+theorem removed_neighbor_degree (a : AKLT.Blueprint.Rec.Departure)
+    (x : Plane) (hx : x ∈ a.D.presentNeighbors a.y) :
+    ((removeSite a.D a.y).presentNeighbors x).card ≤ 3 := by
   have hpx := (Finset.mem_filter.mp hx).2
   have hxy : x ≠ a.y := by
     intro h
     subst x
     have hh := hpx.2.2.1
     simp [Adjacent, latticeDist] at hh
-  have hy : a.y ∈ a.D.presentNeighbours x := by
+  have hy : a.y ∈ a.D.presentNeighbors x := by
     apply Finset.mem_filter.mpr
-    exact ⟨(mem_neighbours_iff _ _).mpr (present_symm a.D hpx).2.2.1,
+    exact ⟨(mem_neighbors_iff _ _).mpr (present_symm a.D hpx).2.2.1,
       present_symm a.D hpx⟩
   have hd := a.auxiliary.1.2.2.2 x hpx.2.1
-  rw [neighbours_remove a.D a.y x hxy, Finset.card_erase_of_mem hy]
+  rw [neighbors_remove a.D a.y x hxy, Finset.card_erase_of_mem hy]
   omega
 
-theorem originalLeg_no_neighbour (a : AKLT.Blueprint.Rec.Departure)
-    (x : Plane) (hx : x ∈ neighbours a.y) (e : originalLegs a.G) : e.val.1 ≠ x := by
+theorem originalLeg_no_neighbor (a : AKLT.Blueprint.Rec.Departure)
+    (x : Plane) (hx : x ∈ neighbors a.y) (e : originalLegs a.G) : e.val.1 ≠ x := by
   intro he
   rcases e with ⟨⟨ex, ez⟩, hm⟩
   dsimp at he
@@ -106,8 +106,8 @@ theorem originalLeg_no_neighbour (a : AKLT.Blueprint.Rec.Departure)
   subst v
   rw [he] at hz
   have hdist : latticeDist a.y z ≤ 2 := by
-    have hyx : latticeDist a.y x = 1 := (mem_neighbours_iff _ _).mp hx
-    have hxz : latticeDist x z = 1 := (mem_neighbours_iff _ _).mp hz
+    have hyx : latticeDist a.y x = 1 := (mem_neighbors_iff _ _).mp hx
+    have hxz : latticeDist x z = 1 := (mem_neighbors_iff _ _).mp hz
     have ht := latticeDist_triangle a.y x z
     omega
   have hb : boundaryDepth a.G a.y ≤ 2 := by
@@ -116,7 +116,7 @@ theorem originalLeg_no_neighbour (a : AKLT.Blueprint.Rec.Departure)
   apply a.start.2.1
   exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp a.start.1).1, hb⟩
 
-#print axioms removed_neighbour_degree
-#print axioms originalLeg_no_neighbour
+#print axioms removed_neighbor_degree
+#print axioms originalLeg_no_neighbor
 
 end AKLT.W.REC021

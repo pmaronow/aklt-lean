@@ -22,28 +22,28 @@ lemma present_symm {G : Finset Plane} (D : Network G) {x y : Plane} :
   rw [latticeDist_symm x y]
   tauto
 lemma mem_internalBonds {G : Finset Plane} {e : Plane × Plane} (h : e ∈ internalBonds G) :
-    e.1 ∈ G ∧ e.2 ∈ G ∧ e.2 ∈ positiveNeighbours e.1 := by
+    e.1 ∈ G ∧ e.2 ∈ G ∧ e.2 ∈ positiveNeighbors e.1 := by
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter] at h
   obtain ⟨x, hx, z, ⟨hz, hzG⟩, he⟩ := h
   cases he
   exact ⟨hx, hzG, hz⟩
-lemma positive_neighbour_ne {x y : Plane} (h : y ∈ positiveNeighbours x) : x ≠ y := by
+lemma positive_neighbor_ne {x y : Plane} (h : y ∈ positiveNeighbors x) : x ≠ y := by
   rcases x with ⟨x₁,x₂⟩; rcases y with ⟨y₁,y₂⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at h
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at h
   intro he
   cases he
   omega
-lemma positive_asymm {x y : Plane} (h : y ∈ positiveNeighbours x) : x ∉ positiveNeighbours y := by
+lemma positive_asymm {x y : Plane} (h : y ∈ positiveNeighbors x) : x ∉ positiveNeighbors y := by
   rcases x with ⟨x₁,x₂⟩; rcases y with ⟨y₁,y₂⟩
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at *
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton, Prod.mk.injEq] at *
   omega
-lemma positive_neighbour_mem {x y : Plane} (h : y ∈ positiveNeighbours x) : y ∈ neighbours x := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+lemma positive_neighbor_mem {x y : Plane} (h : y ∈ positiveNeighbors x) : y ∈ neighbors x := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · exact Finset.mem_image.mpr ⟨.east, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
   · exact Finset.mem_image.mpr ⟨.north, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
-lemma positive_neighbour_mem_reverse {x y : Plane} (h : y ∈ positiveNeighbours x) : x ∈ neighbours y := by
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h
+lemma positive_neighbor_mem_reverse {x y : Plane} (h : y ∈ positiveNeighbors x) : x ∈ neighbors y := by
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h
   rcases h with rfl | rfl
   · exact Finset.mem_image.mpr ⟨.west, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
   · exact Finset.mem_image.mpr ⟨.south, Finset.mem_univ _, by ext <;> simp [Compass.step]⟩
@@ -58,25 +58,25 @@ lemma incident_other_ne {G : Finset Plane} (D : Network G) (y : Plane)
     {e : Plane × Plane} (he : e ∈ incident D y) : otherEnd y e ≠ y := by
   obtain ⟨hb, hi⟩ := Finset.mem_filter.mp he
   have hp := (mem_internalBonds (Finset.mem_filter.mp hb).1).2.2
-  have hn := positive_neighbour_ne hp
+  have hn := positive_neighbor_ne hp
   rcases hi with hi | hi
   · simpa [otherEnd, hi] using Ne.symm hn
   · simp only [otherEnd]
     split_ifs with h <;> simp_all
 
 lemma incident_other_mem {G : Finset Plane} (D : Network G) (y : Plane)
-    {e : Plane × Plane} (he : e ∈ incident D y) : otherEnd y e ∈ D.presentNeighbours y := by
+    {e : Plane × Plane} (he : e ∈ incident D y) : otherEnd y e ∈ D.presentNeighbors y := by
   obtain ⟨hb, hi⟩ := Finset.mem_filter.mp he
   obtain ⟨hedge, hpres⟩ := Finset.mem_filter.mp hb
   have hp := (mem_internalBonds hedge).2.2
   apply Finset.mem_filter.mpr
   rcases hi with hi | hi
   · simp only [otherEnd, hi, ↓reduceIte]
-    exact ⟨hi ▸ positive_neighbour_mem hp, hi ▸ hpres⟩
-  · have hn := positive_neighbour_ne hp
+    exact ⟨hi ▸ positive_neighbor_mem hp, hi ▸ hpres⟩
+  · have hn := positive_neighbor_ne hp
     have hy : e.1 ≠ y := by simpa [hi] using hn
     simp only [otherEnd, hy, ↓reduceIte]
-    exact ⟨hi ▸ positive_neighbour_mem_reverse hp, hi ▸ (present_symm D).mp hpres⟩
+    exact ⟨hi ▸ positive_neighbor_mem_reverse hp, hi ▸ (present_symm D).mp hpres⟩
 
 lemma incident_other_injective {G : Finset Plane} (D : Network G) (y : Plane) :
     Set.InjOn (otherEnd y) (incident D y) := by
@@ -100,11 +100,11 @@ lemma incident_other_injective {G : Finset Plane} (D : Network G) (y : Plane) :
     · exact (hei.resolve_left hey).trans (hfi.resolve_left hfy).symm
 
 lemma incident_card_le {G : Finset Plane} (D : Network G) (y : Plane) :
-    (incident D y).card ≤ (D.presentNeighbours y).card :=
+    (incident D y).card ≤ (D.presentNeighbors y).card :=
   Finset.card_le_card_of_injOn (otherEnd y) (fun _ h => incident_other_mem D y h)
     (incident_other_injective D y)
 
-lemma neighbour_dist {y z : Plane} (hz : z ∈ neighbours y) : latticeDist y z = 1 := by
+lemma neighbor_dist {y z : Plane} (hz : z ∈ neighbors y) : latticeDist y z = 1 := by
   obtain ⟨d, hd, rfl⟩ := Finset.mem_image.mp hz
   cases d <;> simp [latticeDist, Compass.step]
 
@@ -119,7 +119,7 @@ lemma no_legs_at_start {G : Finset Plane} (D : Network G) (y : Plane)
   subst x
   have hd : boundaryDepth G y ≤ 1 := by
     unfold boundaryDepth setDistance
-    exact iInf_le_of_le ⟨z, hzG⟩ (by simp [neighbour_dist hz])
+    exact iInf_le_of_le ⟨z, hzG⟩ (by simp [neighbor_dist hz])
   apply hy.2.1
   simp only [protectedSites, Finset.mem_filter]
   exact ⟨hyG, le_trans hd (by norm_num)⟩
@@ -141,13 +141,13 @@ lemma trace_present_off {G : Finset Plane} (D : Network G) (y o x z : Plane)
   unfold Network.Present
   rw [trace_active_off D y o x hx, trace_active_off D y o z hz, hk x z hx hz, hk z x hz hx]
 
-lemma trace_neighbours_U {G : Finset Plane} (D : Network G) (y o : Plane)
-    (hU : D.status y = .U) (ho : o ∈ D.presentNeighbours y) :
-    (traceStep D y o).presentNeighbours y = (D.presentNeighbours y).erase o := by
+lemma trace_neighbors_U {G : Finset Plane} (D : Network G) (y o : Plane)
+    (hU : D.status y = .U) (ho : o ∈ D.presentNeighbors y) :
+    (traceStep D y o).presentNeighbors y = (D.presentNeighbors y).erase o := by
   have hp := (Finset.mem_filter.mp ho).2
   have hyo := adjacent_ne hp.2.2.1
   ext x
-  change x ∈ (neighbours y).filter _ ↔ x ∈ ((neighbours y).filter _).erase o
+  change x ∈ (neighbors y).filter _ ↔ x ∈ ((neighbors y).filter _).erase o
   rw [Finset.mem_erase, Finset.mem_filter, Finset.mem_filter]
   by_cases hxy : x = y
   · subst x
@@ -158,9 +158,9 @@ lemma trace_neighbours_U {G : Finset Plane} (D : Network G) (y o : Plane)
   · simp [Network.Present, Network.active, Finset.mem_filter,
       traceStep, hU, hxy, hxo]
 
-lemma trace_neighbours_D {G : Finset Plane} (D : Network G) (y o : Plane)
-    (hD : D.status y = .D) : (traceStep D y o).presentNeighbours y = ∅ := by
+lemma trace_neighbors_D {G : Finset Plane} (D : Network G) (y o : Plane)
+    (hD : D.status y = .D) : (traceStep D y o).presentNeighbors y = ∅ := by
   ext x
-  simp [Network.presentNeighbours, Finset.mem_filter, Network.Present, Network.active, traceStep, hD]
+  simp [Network.presentNeighbors, Finset.mem_filter, Network.Present, Network.active, traceStep, hD]
 
 end AKLT.W.REC012

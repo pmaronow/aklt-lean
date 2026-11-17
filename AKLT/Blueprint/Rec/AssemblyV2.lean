@@ -71,7 +71,7 @@ theorem responseTyped_shared_of_leavesV2 (hR : Top.ResponseStatement)
       (betaPrimeBound straight : ℝ) := by exact_mod_cast row.2.2.1
   constructor
   · intro f hs hne
-    have ho : o ∈ D.presentNeighbours y := by rw [hs]; simp [o]
+    have ho : o ∈ D.presentNeighbors y := by rw [hs]; simp [o]
     let a : Departure := ⟨G, τ, D, y, o, hD, hy, ho⟩
     rcases hR G τ D hD y hy o ho with ⟨_, _, _, _, _, _, htwo, _⟩
     have low := (h.lower hH1 a hU incoming outgoing rfl hcov).1 f hs hne
@@ -80,7 +80,7 @@ theorem responseTyped_shared_of_leavesV2 (hR : Top.ResponseStatement)
       h.betaPrime _ _ _ (by linarith [hc.1]) low free
     exact ⟨(htwo f hU hs hne).1, by linarith, ana⟩
   · intro f g hs hof hog hfg
-    have ho : o ∈ D.presentNeighbours y := by rw [hs]; simp [o]
+    have ho : o ∈ D.presentNeighbors y := by rw [hs]; simp [o]
     let a : Departure := ⟨G, τ, D, y, o, hD, hy, ho⟩
     rcases hR G τ D hD y hy o ho with ⟨_, _, _, _, _, _, _, hthree⟩
     have base := hthree f g hU hs hof hog hfg

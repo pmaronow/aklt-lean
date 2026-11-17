@@ -15,9 +15,9 @@ namespace AKLT.Blueprint.Q
 is strictly positive. Proper coloring is essential for both signs. -/
 def FrameWeightsPositiveStatement : Prop :=
   interactionBounds →
-  (∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  (∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W, ∀ σ, 0 < planeWeight κ W η σ) ∧
-  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
+  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColoring κ →
     ∀ σ, 0 < torusWeight L N κ σ
 
 /-- `d:framemodel`, lines 521–524: positive weights on a nonempty finite
@@ -31,7 +31,7 @@ then push forward to the actual smaller configuration space. Empty V and W
 are included; V⊆W is needed for the induced boundary identification. -/
 def PlaneConditioningStatement : Prop :=
   interactionBounds →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W, ∀ V : Finset Plane, V ⊆ W → ∀ σ : PlaneConfiguration W,
       conditionalPlaneLaw κ W V η σ = planeLaw κ V (inducedBoundary W V η σ)
 
@@ -39,9 +39,9 @@ def PlaneConditioningStatement : Prop :=
 a torus conditional block law. Crossings are counted once by frozen bonds. -/
 def TorusMarkovStatement : Prop :=
   interactionBounds →
-  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
+  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColoring κ →
     ∀ U : Finset (Site L N), ∀ σ ξ : TorusConfiguration L N,
-      (∀ z ∈ (U.biUnion torusNeighbours) \ U, σ z = ξ z) →
+      (∀ z ∈ (U.biUnion torusNeighbors) \ U, σ z = ξ z) →
         conditionalTorusLaw L N κ U σ = conditionalTorusLaw L N κ U ξ
 
 /-- `l:planeenergy`, lines 721–730: in a fully fixed plane one-site fiber,
@@ -49,17 +49,17 @@ at most four factors lie between b and 2-b. Bound numerator and denominator
 separately to get (1/12)r_b^4 for each of the twelve letters. -/
 def PlaneOneSiteEnergyStatement : Prop :=
   interactionBounds →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W, ∀ x : W, ∀ σ : PlaneConfiguration W, ∀ a : IcoLetter,
-      frameEnergy ≤ conditionalProbability (planeLaw κ W η) (fullFibreEvent x σ) (fun τ => τ x = a)
+      frameEnergy ≤ conditionalProbability (planeLaw κ W η) (fullFiberEvent x σ) (fun τ => τ x = a)
 
 /-- `l:planeenergy`, lines 721–730: the same fiber ratio for the all-parity
 antiferromagnetic torus; its four incident factors use the minus sign. -/
 def TorusOneSiteEnergyStatement : Prop :=
   interactionBounds →
-  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
+  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColoring κ →
     ∀ x : Site L N, ∀ σ : TorusConfiguration L N, ∀ a : IcoLetter,
-      frameEnergy ≤ conditionalProbability (torusLaw L N κ) (fullFibreEvent x σ) (fun τ => τ x = a)
+      frameEnergy ≤ conditionalProbability (torusLaw L N κ) (fullFiberEvent x σ) (fun τ => τ x = a)
 
 /-- `l:planeenergy`, lines 732–745: average fully fixed fibers, then use a
 chain rule on a finite set of distinct sites. Positivity of every intermediate
@@ -68,7 +68,7 @@ def PartialAssignmentStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι], ∀ S : ι → Type,
     ∀ (_ : ∀ x, Fintype (S x)) (_ : ∀ x, Nonempty (S x)),
     ∀ p : Weight ((x : ι) → S x), PositiveProbability p → ∀ α : ℝ, 0 < α → α ≤ 1 →
-      (∀ x σ a, α ≤ conditionalProbability p (fullFibreEvent x σ) (fun τ => τ x = a)) →
+      (∀ x σ a, α ≤ conditionalProbability p (fullFiberEvent x σ) (fun τ => τ x = a)) →
       ∀ U J : Finset ι, Disjoint U J → ∀ a b : (x : ι) → S x,
         conditionalProbability p (fun σ => ∀ x ∈ J, σ x = a x)
           (fun σ => ∀ x ∈ U, σ x = b x) ≥ α ^ U.card
@@ -90,7 +90,7 @@ a positive endpoint weight. Thus the reference is a positive product law,
 including the product over an empty volume. -/
 def PlaneProductReferenceStatement : Prop :=
   interactionBounds →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W,
       (∀ x : W, PositiveProbability (normalize (planeSiteWeight κ W η x))) ∧
       PositiveProbability (planeProductReference κ W η)
@@ -99,7 +99,7 @@ def PlaneProductReferenceStatement : Prop :=
 and cancel the local normalizers. All remaining interactions are internal. -/
 def BoundaryAbsorptionStatement : Prop :=
   interactionBounds →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W,
       planeLaw κ W η = normalize (fun σ => planeProductReference κ W η σ * planeInteraction κ W σ)
 
@@ -108,7 +108,7 @@ product, prove its positive mean, and cancel that same mean in m/M.
 The supplied product-law and absorption premises are explicit finite facts. -/
 def PlaneDensityBoundsStatement : Prop :=
   interactionBounds →
-  ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
+  ∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane,
     ∀ η : FrameBoundary W, PositiveProbability (planeProductReference κ W η) →
       (planeLaw κ W η = normalize
         (fun σ => planeProductReference κ W η σ * planeInteraction κ W σ)) →

@@ -136,33 +136,33 @@ def amplifiesStar {ι : Type*} [Fintype ι]
 def edgeSign {L N : Size} (x : Site L N) (e : Bond L N) : ℂ :=
   if e.1 = x then 1 else -1
 
-def centreSign {L N : Size} (x : Site L N) : ℂ :=
+def centerSign {L N : Size} (x : Site L N) : ℂ :=
   ∏ e : Bond L N, if x ∈ bondSites e then edgeSign x e else 1
 
 def beta {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
     (σ : TorusConfiguration L N) : ℂ :=
-  ∏ y ∈ torusNeighbours x, determinant (frameSpinor (κ x) (σ x)) (frameSpinor (κ y) (σ y))
+  ∏ y ∈ torusNeighbors x, determinant (frameSpinor (κ x) (σ x)) (frameSpinor (κ y) (σ y))
 
 def rho {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
     (σ : TorusConfiguration L N) : ℂ :=
-  centreSign x * ∏ e : Bond L N, if x ∈ bondSites e then 1 else
+  centerSign x * ∏ e : Bond L N, if x ∈ bondSites e then 1 else
     determinant (frameSpinor (κ e.1) (σ e.1))
       (frameSpinor (κ (nextSite e.1 e.2)) (σ (nextSite e.1 e.2)))
 
-def inFibreSpan {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
+def inFiberSpan {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
     (h : TorusConfiguration L N → ℂ) : Prop :=
   ∀ σ, ∃ c : ℂ, ∀ a : IcoLetter,
     h (Function.update σ x a) = c * beta κ x (Function.update σ x a)
 
-def fibreDenominator {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
+def fiberDenominator {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
     (σ : TorusConfiguration L N) : ℝ :=
   ∑ a : IcoLetter, (5 / 12 : ℝ) * Complex.normSq (beta κ x (Function.update σ x a))
 
-def fibreProjection {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
+def fiberProjection {L N : Size} (κ : Site L N → Fin 3) (x : Site L N)
     (h : TorusConfiguration L N → ℂ) (σ : TorusConfiguration L N) : ℂ :=
   beta κ x σ *
     (∑ a : IcoLetter, (5 / 12 : ℂ) * star (beta κ x (Function.update σ x a)) *
-      h (Function.update σ x a)) / (fibreDenominator κ x σ : ℂ)
+      h (Function.update σ x a)) / (fiberDenominator κ x σ : ℂ)
 
 def groundScale (L N : Size) : ℝ := 5 ^ Fintype.card (Site L N) / 2 ^ Fintype.card (Bond L N)
 
@@ -197,7 +197,7 @@ def planeDensityLower (κ : Plane → Fin 3) (W : Finset Plane) (η : FrameBound
 def planeDensityUpper (κ : Plane → Fin 3) (W : Finset Plane) (η : FrameBoundary W) : ℝ :=
   (2 - frameBound) ^ (internalBonds W).card / planeInteractionMean κ W η
 
-def fullFibreEvent {ι : Type*} [DecidableEq ι] {S : ι → Type*}
+def fullFiberEvent {ι : Type*} [DecidableEq ι] {S : ι → Type*}
     (x : ι) (σ τ : (x : ι) → S x) : Prop := ∀ y, y ≠ x → τ y = σ y
 
 end AKLT.Blueprint.Q

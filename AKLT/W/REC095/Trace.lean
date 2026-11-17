@@ -44,8 +44,8 @@ private theorem prefix_succ {G : Finset Plane} {n : ℕ} (D : Network G) (u : Pl
     traceNetwork_append_pair D ((List.range j).map (wordVertex u w))
       (wordVertex u w j) (wordVertex u w (j + 1))
 
-theorem present_neighbour {G : Finset Plane} {D : Network G} {x y : Plane}
-    (hD : D.LocalRules) (h : D.Present x y) : y ∈ D.presentNeighbours x := by
+theorem present_neighbor {G : Finset Plane} {D : Network G} {x y : Plane}
+    (hD : D.LocalRules) (h : D.Present x y) : y ∈ D.presentNeighbors x := by
   exact Finset.mem_filter.mpr ⟨(Finset.mem_inter.mp (hD.2.1 x h.2.2.2.1)).1, h⟩
 
 private theorem traceStep_status_ne_U {G : Finset Plane} (D : Network G) (y o : Plane) :

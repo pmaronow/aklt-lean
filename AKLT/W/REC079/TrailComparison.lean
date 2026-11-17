@@ -25,9 +25,9 @@ theorem canonical_initial_direction (p : PairSetup) :
     (canonicalChart p.toPairData).direction p.incoming = kernelIncoming := by
   apply step_injective
   have h := (canonicalChart p.toPairData).step p.c p.incoming
-  rw [← p.incoming_eq, canonicalChart_start, canonicalChart_centre] at h
-  rw [show kernelCentre = (0 : Plane) from rfl, zero_add] at h
-  simpa [kernelStart, kernelCentre, kernelIncoming, Compass.step] using h.symm
+  rw [← p.incoming_eq, canonicalChart_start, canonicalChart_center] at h
+  rw [show kernelCenter = (0 : Plane) from rfl, zero_add] at h
+  simpa [kernelStart, kernelCenter, kernelIncoming, Compass.step] using h.symm
 
 theorem canonical_word_incoming (p : PairSetup) {n : ℕ} (w : DirectionWord n) (i : Fin n) :
     wordIncoming kernelIncoming (canonicalWord p.toPairData w) i =
@@ -53,8 +53,8 @@ theorem canonical_arrival (p : PairSetup) {n : ℕ} (w : DirectionWord n) (i : F
   rw [arrival_eq, chart_sub_step, canonical_word_incoming,
     canonicalWord_vertex _ _ _ (Nat.le_of_lt i.isLt)]
 
-theorem chart_neighbours (F : LatticeChart) (y z : Plane) :
-    F.point z ∈ neighbours (F.point y) ↔ z ∈ neighbours y := by
+theorem chart_neighbors (F : LatticeChart) (y z : Plane) :
+    F.point z ∈ neighbors (F.point y) ↔ z ∈ neighbors y := by
   rw [← adjacent_iff, ← adjacent_iff]
   unfold Adjacent
   rw [F.distance]
@@ -101,7 +101,7 @@ theorem present_kernel_mem (p : PairSetup) {n : ℕ} (w : DirectionWord n)
     (hz : (prefixNetwork p.normalized p.u w i.val).Present (wordVertex p.u w i.val) z) :
     (canonicalChart p.toPairData).point z ∈
       insert (wordVertex kernelStart (canonicalWord p.toPairData w) (i.val + 1))
-        (liveOtherNeighbours (canonicalWord p.toPairData w) i) := by
+        (liveOtherNeighbors (canonicalWord p.toPairData w) i) := by
   classical
   let F := canonicalChart p.toPairData
   let cw := canonicalWord p.toPairData w
@@ -110,9 +110,9 @@ theorem present_kernel_mem (p : PairSetup) {n : ℕ} (w : DirectionWord n)
     have hk := hz.2.2.2.1
     rw [hinv.liveU hU] at hk
     exact (Finset.mem_erase.mp hk).1
-  have hzn : F.point z ∈ neighbours (wordVertex kernelStart cw i.val) := by
+  have hzn : F.point z ∈ neighbors (wordVertex kernelStart cw i.val) := by
     rw [canonicalWord_vertex _ _ _ (Nat.le_of_lt i.isLt)]
-    exact (chart_neighbours F _ z).mpr ((adjacent_iff _ _).mp hz.2.2.1)
+    exact (chart_neighbors F _ z).mpr ((adjacent_iff _ _).mp hz.2.2.1)
   by_cases hout : F.point z = wordVertex kernelStart cw (i.val + 1)
   · exact Finset.mem_insert.mpr (Or.inl hout)
   · apply Finset.mem_insert.mpr ∘ Or.inr
@@ -134,9 +134,9 @@ theorem kernel_member_nonarrival (p : PairSetup) {n : ℕ} (w : DirectionWord n)
     (hU : (prefixNetwork p.normalized p.u w i.val).status (wordVertex p.u w i.val) = .U)
     {z : Plane} (hz : z ∈ insert
       (wordVertex kernelStart (canonicalWord p.toPairData w) (i.val + 1))
-      (liveOtherNeighbours (canonicalWord p.toPairData w) i)) :
+      (liveOtherNeighbors (canonicalWord p.toPairData w) i)) :
     (canonicalChart p.toPairData).point.symm z ∈
-      (neighbours (wordVertex p.u w i.val)).erase (arrivalSite p w i.val) := by
+      (neighbors (wordVertex p.u w i.val)).erase (arrivalSite p w i.val) := by
   classical
   let F := canonicalChart p.toPairData
   have hinv := (prefix_invariant p _ w hw i.val (Nat.le_of_lt i.isLt)).1
@@ -157,11 +157,11 @@ theorem kernel_member_nonarrival (p : PairSetup) {n : ℕ} (w : DirectionWord n)
       apply hza
       rw [← canonical_arrival p w i, ← he]
       exact (F.point.apply_symm_apply z).symm
-    · apply (chart_neighbours F _ _).mp
+    · apply (chart_neighbors F _ _).mp
       simpa only [F, Equiv.apply_symm_apply,
         canonicalWord_vertex _ _ _ (Nat.le_of_lt i.isLt)] using hzn
 
-theorem neighbour_pair_type_formula (y : Plane) (a b : Compass) (hab : a ≠ b) :
+theorem neighbor_pair_type_formula (y : Plane) (a b : Compass) (hab : a ≠ b) :
     responsePairType {y + a.step, y + b.step} =
       if a = b.reverse then PairType.B else PairType.C := by
   classical
@@ -169,13 +169,13 @@ theorem neighbour_pair_type_formula (y : Plane) (a b : Compass) (hab : a ≠ b) 
     simp_all [responsePairType, Compass.reverse, Compass.step] <;> omega
 
 theorem chart_pair_type (F : LatticeChart) {y a b : Plane}
-    (ha : a ∈ neighbours y) (hb : b ∈ neighbours y) (hab : a ≠ b) :
+    (ha : a ∈ neighbors y) (hb : b ∈ neighbors y) (hab : a ≠ b) :
     responsePairType {F.point a, F.point b} = responsePairType {a, b} := by
   obtain ⟨da, _, rfl⟩ := Finset.mem_image.mp ha
   obtain ⟨db, _, rfl⟩ := Finset.mem_image.mp hb
   have hd : da ≠ db := by rintro rfl; exact hab rfl
-  rw [F.step, F.step, neighbour_pair_type_formula _ _ _ (fun h => hd (F.direction.injective h)),
-    neighbour_pair_type_formula _ _ _ hd, ← F.reverse]
+  rw [F.step, F.step, neighbor_pair_type_formula _ _ _ (fun h => hd (F.direction.injective h)),
+    neighbor_pair_type_formula _ _ _ hd, ← F.reverse]
   simp only [Equiv.apply_eq_iff_eq]
 
 /-- Close the envelope obligation with the actual pair shift. Extra initial
@@ -198,20 +198,20 @@ theorem local_envelope : Residual_LocalEnvelopeV2 := by
     exact hab (F.point.symm.injective he)
   have ha := kernel_member_nonarrival ps w hw i hU (hsub (by simp : a ∈ ({a, b} : Finset Plane)))
   have hb := kernel_member_nonarrival ps w hw i hU (hsub (by simp : b ∈ ({a, b} : Finset Plane)))
-  change a' ∈ (neighbours y).erase (arrivalSite ps w i.val) at ha
-  change b' ∈ (neighbours y).erase (arrivalSite ps w i.val) at hb
+  change a' ∈ (neighbors y).erase (arrivalSite ps w i.val) at ha
+  change b' ∈ (neighbors y).erase (arrivalSite ps w i.val) at hb
   have himage : ({a, b} : Finset Plane).image F.point.symm = {a', b'} := by simp [a', b']
   change pairSignal (removeSite E y) p.τ (({a, b} : Finset Plane).image F.point.symm) ≤ _
   rw [himage]
   by_cases haa : a' ∈ E.active
   · by_cases hba : b' ∈ E.active
-    · have hpa : a' ∈ nonarrivalNeighboursV2 E y (wordIncoming ps.incoming w i) := by
-        change a' ∈ (neighbours y).erase (y - (wordIncoming ps.incoming w i).step) ∩ E.active
+    · have hpa : a' ∈ nonarrivalNeighborsV2 E y (wordIncoming ps.incoming w i) := by
+        change a' ∈ (neighbors y).erase (y - (wordIncoming ps.incoming w i).step) ∩ E.active
         have harr : arrivalSite ps w i.val = y - (wordIncoming ps.incoming w i).step := arrival_eq ps w i
         rw [← harr]
         exact Finset.mem_inter.mpr ⟨ha, haa⟩
-      have hpb : b' ∈ nonarrivalNeighboursV2 E y (wordIncoming ps.incoming w i) := by
-        change b' ∈ (neighbours y).erase (y - (wordIncoming ps.incoming w i).step) ∩ E.active
+      have hpb : b' ∈ nonarrivalNeighborsV2 E y (wordIncoming ps.incoming w i) := by
+        change b' ∈ (neighbors y).erase (y - (wordIncoming ps.incoming w i).step) ∩ E.active
         have harr : arrivalSite ps w i.val = y - (wordIncoming ps.incoming w i).step := arrival_eq ps w i
         rw [← harr]
         exact Finset.mem_inter.mpr ⟨hb, hba⟩

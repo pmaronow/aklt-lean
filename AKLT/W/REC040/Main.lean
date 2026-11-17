@@ -12,7 +12,7 @@ open AKLT.Blueprint.Rec
 
 namespace AKLT.W.REC040
 
-lemma adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbours x := by
+lemma adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) : y ∈ neighbors x := by
   have hsum : (x.1 - y.1).natAbs + (x.2 - y.2).natAbs = 1 := h
   have hcases : ((x.1 - y.1).natAbs = 1 ∧ (x.2 - y.2).natAbs = 0) ∨
       ((x.1 - y.1).natAbs = 0 ∧ (x.2 - y.2).natAbs = 1) := by omega
@@ -92,9 +92,9 @@ lemma present_symm {G : Finset Plane} (D : Network G) {x y : Plane}
     (h : D.Present x y) : D.Present y x := by
   exact ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-lemma present_mem_neighbours {G : Finset Plane} (D : Network G) {x y : Plane}
-    (h : D.Present x y) : y ∈ D.presentNeighbours x := by
-  exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbours h.2.2.1, h⟩
+lemma present_mem_neighbors {G : Finset Plane} (D : Network G) {x y : Plane}
+    (h : D.Present x y) : y ∈ D.presentNeighbors x := by
+  exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbors h.2.2.1, h⟩
 
 def tailWord {n : ℕ} (w : DirectionWord (n + 1)) : DirectionWord n :=
   fun i => w i.succ
@@ -187,8 +187,8 @@ lemma traceStep_present_old {G : Finset Plane} (D : Network G) (y o x z : Plane)
       · simpa [traceStep, hay, hao] using hk
   exact ⟨activeOld x hx, activeOld z hz, hadj, keptOld x z hzx, keptOld z x hxz⟩
 
-lemma traceStep_neighbours_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
-    (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+lemma traceStep_neighbors_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
+    (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
   exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp hz).1,
     traceStep_present_old D y o x z (Finset.mem_filter.mp hz).2⟩
@@ -226,9 +226,9 @@ lemma traceStep_outgoing_not_present {G : Finset Plane} (D : Network G) (y o : P
     simpa [traceStep, hyo] using ho
   exact (Finset.mem_erase.mp ho').1 rfl
 
-lemma traceStep_departure_neighbours_subset_erase {G : Finset Plane} (D : Network G)
+lemma traceStep_departure_neighbors_subset_erase {G : Finset Plane} (D : Network G)
     (y o : Plane) (hp : D.Present y o) :
-    (traceStep D y o).presentNeighbours y ⊆ (D.presentNeighbours y).erase o := by
+    (traceStep D y o).presentNeighbors y ⊆ (D.presentNeighbors y).erase o := by
   rcases hp with ⟨_, _, hadj, _, _⟩
   have hyo : y ≠ o := by
     intro h
@@ -243,9 +243,9 @@ lemma traceStep_departure_neighbours_subset_erase {G : Finset Plane} (D : Networ
   refine Finset.mem_erase.mpr ⟨hne, Finset.mem_filter.mpr ⟨hz'.1, ?_⟩⟩
   exact traceStep_present_old D y o y z hz'.2
 
-lemma traceStep_arrival_neighbours_subset_erase {G : Finset Plane} (D : Network G)
+lemma traceStep_arrival_neighbors_subset_erase {G : Finset Plane} (D : Network G)
     (y o : Plane) (hp : D.Present y o) :
-    (traceStep D y o).presentNeighbours o ⊆ (D.presentNeighbours o).erase y := by
+    (traceStep D y o).presentNeighbors o ⊆ (D.presentNeighbors o).erase y := by
   rcases hp with ⟨_, _, hadj, _, _⟩
   have hyo : y ≠ o := by
     intro h
@@ -287,19 +287,19 @@ lemma traceStep_auxiliary {G : Finset Plane} (D : Network G) (y o : Plane)
           by_cases h : D.status y = .U
           · exact h
           · simp [traceStep, h] at hDx
-        have hdegStart : (D.presentNeighbours y).card ≤ 3 := by
+        have hdegStart : (D.presentNeighbors y).card ≤ 3 := by
           rcases hstartStatus with ⟨hu, hdeg⟩ | ⟨hd, hdeg⟩
           · exact hdeg
           · rw [hU] at hd
             contradiction
-        have ho : o ∈ D.presentNeighbours y := by
+        have ho : o ∈ D.presentNeighbors y := by
           have hadj : Adjacent y o := hp.2.2.1
-          exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbours hadj, hp⟩
-        have hcard : ((traceStep D y o).presentNeighbours y).card ≤
-            (D.presentNeighbours y).card - 1 := by
+          exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbors hadj, hp⟩
+        have hcard : ((traceStep D y o).presentNeighbors y).card ≤
+            (D.presentNeighbors y).card - 1 := by
           calc
-            _ ≤ ((D.presentNeighbours y).erase o).card :=
-              Finset.card_le_card (traceStep_departure_neighbours_subset_erase D y o hp)
+            _ ≤ ((D.presentNeighbors y).erase o).card :=
+              Finset.card_le_card (traceStep_departure_neighbors_subset_erase D y o hp)
             _ = _ := Finset.card_erase_of_mem ho
         omega
       · have hDxOld : D.status x = .D := by
@@ -307,12 +307,12 @@ lemma traceStep_auxiliary {G : Finset Plane} (D : Network G) (y o : Plane)
         have hxOld : x ∈ D.active := by
           exact Finset.mem_filter.mpr ⟨hx, by simp [hDxOld]⟩
         have hbound := hDdegree x hx hDxOld
-        have hcard := Finset.card_le_card (traceStep_neighbours_subset D y o x)
+        have hcard := Finset.card_le_card (traceStep_neighbors_subset D y o x)
         omega
     · intro x hx
       have hxOld : x ∈ D.active := traceStep_active_subset D y o hx
       have hbound := hdegree x hxOld
-      have hcard := Finset.card_le_card (traceStep_neighbours_subset D y o x)
+      have hcard := Finset.card_le_card (traceStep_neighbors_subset D y o x)
       omega
   · intro x hx
     have hxy : x ≠ y := by
@@ -338,7 +338,7 @@ lemma traceStep_next_admissible {G : Finset Plane} (D : Network G) (y o : Plane)
     simpa [traceStep, hyo.symm] using hos
   have hoStatus : (traceStep D y o).status o = D.status o := by
     simp [traceStep, hyo.symm]
-  have hyNeighbor : y ∈ D.presentNeighbours o := by
+  have hyNeighbor : y ∈ D.presentNeighbors o := by
     have hadjSymm : Adjacent o y := by
       have h1 : (o.1 - y.1).natAbs = (y.1 - o.1).natAbs := by
         rw [show o.1 - y.1 = -(y.1 - o.1) by omega, Int.natAbs_neg]
@@ -350,12 +350,12 @@ lemma traceStep_next_admissible {G : Finset Plane} (D : Network G) (y o : Plane)
       exact hp.2.2.1
     have hpSymm : D.Present o y :=
       ⟨hp.2.1, hp.1, hadjSymm, hp.2.2.2.2, hp.2.2.2.1⟩
-    exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbours hadjSymm, hpSymm⟩
-  have hcard : ((traceStep D y o).presentNeighbours o).card ≤
-      (D.presentNeighbours o).card - 1 := by
+    exact Finset.mem_filter.mpr ⟨adjacent_mem_neighbors hadjSymm, hpSymm⟩
+  have hcard : ((traceStep D y o).presentNeighbors o).card ≤
+      (D.presentNeighbors o).card - 1 := by
     calc
-      _ ≤ ((D.presentNeighbours o).erase y).card :=
-        Finset.card_le_card (traceStep_arrival_neighbours_subset_erase D y o hp)
+      _ ≤ ((D.presentNeighbors o).erase y).card :=
+        Finset.card_le_card (traceStep_arrival_neighbors_subset_erase D y o hp)
       _ = _ := Finset.card_erase_of_mem hyNeighbor
   have hstatusOld : D.status o ≠ .X := (Finset.mem_filter.mp hoOld).2
   have hcases : D.status o = .U ∨ D.status o = .D := by
@@ -409,18 +409,18 @@ lemma traceStep_future_present {G : Finset Plane} (D : Network G) (y o a b : Pla
     exact hbond rfl
   have hNoY : D.status y = .D → a ≠ y ∧ b ≠ y := by
     intro hD
-    have hdegree : (D.presentNeighbours y).card ≤ 1 := by
+    have hdegree : (D.presentNeighbors y).card ≤ 1 := by
       rcases hstartStatus with ⟨hU, _⟩ | ⟨_, hdeg⟩
       · rw [hD] at hU
         contradiction
       · exact hdeg
-    have ho : o ∈ D.presentNeighbours y := present_mem_neighbours D hout
+    have ho : o ∈ D.presentNeighbors y := present_mem_neighbors D hout
     constructor
     · intro ha
       subst a
-      have hb : b ∈ D.presentNeighbours y := present_mem_neighbours D hab
+      have hb : b ∈ D.presentNeighbors y := present_mem_neighbors D hab
       have hne : b ≠ o := hya rfl
-      have hsub : ({o, b} : Finset Plane) ⊆ D.presentNeighbours y := by
+      have hsub : ({o, b} : Finset Plane) ⊆ D.presentNeighbors y := by
         intro z hz
         simp only [Finset.mem_insert, Finset.mem_singleton] at hz
         rcases hz with rfl | rfl
@@ -432,10 +432,10 @@ lemma traceStep_future_present {G : Finset Plane} (D : Network G) (y o a b : Pla
       omega
     · intro hbEq
       subst b
-      have haMem : a ∈ D.presentNeighbours y :=
-        present_mem_neighbours D (present_symm D hab)
+      have haMem : a ∈ D.presentNeighbors y :=
+        present_mem_neighbors D (present_symm D hab)
       have hne : a ≠ o := hyb rfl
-      have hsub : ({o, a} : Finset Plane) ⊆ D.presentNeighbours y := by
+      have hsub : ({o, a} : Finset Plane) ⊆ D.presentNeighbors y := by
         intro z hz
         simp only [Finset.mem_insert, Finset.mem_singleton] at hz
         rcases hz with rfl | rfl

@@ -45,16 +45,16 @@ lemma traceStep_present_imp {G : Finset Plane} (D : Network G) (y o x z : Plane)
         exact Finset.mem_of_mem_erase hzk
       · simpa [traceStep, hzy, hzo] using hzk
 
-lemma traceStep_neighbours_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
-    (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+lemma traceStep_neighbors_subset {G : Finset Plane} (D : Network G) (y o x : Plane) :
+    (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
   intro z hz
-  simp only [Network.presentNeighbours, Finset.mem_filter] at hz ⊢
+  simp only [Network.presentNeighbors, Finset.mem_filter] at hz ⊢
   exact ⟨hz.1, traceStep_present_imp D y o x z hz.2⟩
 
 lemma traceStep_factorDegree_le {G : Finset Plane} (D : Network G) (y o x : Plane) :
     AKLT.Blueprint.Rec.factorDegree (traceStep D y o) x ≤ AKLT.Blueprint.Rec.factorDegree D x := by
   unfold AKLT.Blueprint.Rec.factorDegree
-  exact Nat.add_le_add_right (Finset.card_le_card (traceStep_neighbours_subset D y o x)) _
+  exact Nat.add_le_add_right (Finset.card_le_card (traceStep_neighbors_subset D y o x)) _
 
 lemma traceNetwork_active_subset {G : Finset Plane} (D : Network G) (xs : List Plane) :
     (traceNetwork D xs).active ⊆ D.active := by
@@ -78,9 +78,9 @@ lemma traceNetwork_factorDegree_le {G : Finset Plane} (D : Network G) (xs : List
           simp only [traceNetwork]
           exact (ih (traceStep D y o)).trans (traceStep_factorDegree_le D y o x)
 
-lemma traceNetwork_neighbours_subset {G : Finset Plane} (D : Network G) (xs : List Plane)
+lemma traceNetwork_neighbors_subset {G : Finset Plane} (D : Network G) (xs : List Plane)
     (x : Plane) :
-    (traceNetwork D xs).presentNeighbours x ⊆ D.presentNeighbours x := by
+    (traceNetwork D xs).presentNeighbors x ⊆ D.presentNeighbors x := by
   induction xs generalizing D with
   | nil => simp [traceNetwork]
   | cons y xs ih =>
@@ -88,7 +88,7 @@ lemma traceNetwork_neighbours_subset {G : Finset Plane} (D : Network G) (xs : Li
       | nil => simp [traceNetwork]
       | cons o rest =>
           simp only [traceNetwork]
-          exact (ih (traceStep D y o)).trans (traceStep_neighbours_subset D y o x)
+          exact (ih (traceStep D y o)).trans (traceStep_neighbors_subset D y o x)
 
 lemma traceNetwork_append_pair {G : Finset Plane} (D : Network G) (xs : List Plane)
     (y x : Plane) :
@@ -151,7 +151,7 @@ lemma present_symm {G : Finset Plane} (D : Network G) {x y : Plane}
   rcases h with ⟨hx, hy, hadj, hyx, hxy⟩
   exact ⟨hy, hx, adjacent_symm hadj, hxy, hyx⟩
 
-lemma adjacent_of_mem_neighbours {x z : Plane} (h : z ∈ neighbours x) : Adjacent x z := by
+lemma adjacent_of_mem_neighbors {x z : Plane} (h : z ∈ neighbors x) : Adjacent x z := by
   rcases Finset.mem_image.mp h with ⟨d, hd, hdz⟩
   subst z
   cases d <;> simp [Adjacent, latticeDist, Compass.step]
@@ -163,7 +163,7 @@ lemma protected_of_originalLeg {G : Finset Plane} {x : Plane} {e : Plane × Plan
   have hax : a = x := (congrArg Prod.fst heq).trans hfirst
   subst a
   have hzout : z ∉ G := (Finset.mem_sdiff.mp hz).2
-  have hadj : Adjacent x z := adjacent_of_mem_neighbours (Finset.mem_sdiff.mp hz).1
+  have hadj : Adjacent x z := adjacent_of_mem_neighbors (Finset.mem_sdiff.mp hz).1
   have hbd : boundaryDepth G x ≤ 2 := by
     calc
       boundaryDepth G x ≤ (latticeDist x z : ℕ∞) := by
@@ -212,23 +212,23 @@ lemma start_factorDegree_le_three {G : Finset Plane} {D : Network G}
   rcases hu.2.2 with ⟨_, hdeg⟩ | ⟨_, hdeg⟩ <;> omega
 
 lemma factorDegree_drop_neighbor {G : Finset Plane} (D E : Network G) (x z : Plane)
-    (hsub : E.presentNeighbours x ⊆ D.presentNeighbours x)
-    (hzD : z ∈ D.presentNeighbours x) (hzE : z ∉ E.presentNeighbours x) :
+    (hsub : E.presentNeighbors x ⊆ D.presentNeighbors x)
+    (hzD : z ∈ D.presentNeighbors x) (hzE : z ∉ E.presentNeighbors x) :
     AKLT.Blueprint.Rec.factorDegree E x + 1 ≤ AKLT.Blueprint.Rec.factorDegree D x := by
-  have hnotSub : ¬ D.presentNeighbours x ⊆ E.presentNeighbours x := by
+  have hnotSub : ¬ D.presentNeighbors x ⊆ E.presentNeighbors x := by
     intro hrev
     exact hzE (hrev hzD)
-  have hcardlt : (E.presentNeighbours x).card < (D.presentNeighbours x).card :=
+  have hcardlt : (E.presentNeighbors x).card < (D.presentNeighbors x).card :=
     Finset.card_lt_card ⟨hsub, hnotSub⟩
-  have hcard' : (E.presentNeighbours x).card + 1 ≤ (D.presentNeighbours x).card :=
+  have hcard' : (E.presentNeighbors x).card + 1 ≤ (D.presentNeighbors x).card :=
     Nat.succ_le_iff.mpr hcardlt
   unfold AKLT.Blueprint.Rec.factorDegree
   calc
-    (E.presentNeighbours x).card +
+    (E.presentNeighbors x).card +
         ((originalLegs G).filter fun e => e.1 = x).card + 1 =
-      ((E.presentNeighbours x).card + 1) +
+      ((E.presentNeighbors x).card + 1) +
         ((originalLegs G).filter fun e => e.1 = x).card := by omega
-    _ ≤ (D.presentNeighbours x).card +
+    _ ≤ (D.presentNeighbors x).card +
         ((originalLegs G).filter fun e => e.1 = x).card :=
       Nat.add_le_add_right hcard' _
 
@@ -277,19 +277,19 @@ theorem main : AKLT.Blueprint.Rec.PairDegreeStatement := by
       simpa [prev, live, i, Nat.sub_add_cancel (by omega : 1 ≤ j)] using hp
     have hrev := present_symm D hstep
     rcases hrev with ⟨_, _, _, hprevKept, _⟩
-    have hprevNbr : prev ∈ neighbours live :=
+    have hprevNbr : prev ∈ neighbors live :=
       (Finset.mem_inter.mp (hD.1.2.1 live hprevKept)).1
-    have hprevD : prev ∈ D.presentNeighbours live := by
+    have hprevD : prev ∈ D.presentNeighbors live := by
       exact Finset.mem_filter.mpr ⟨hprevNbr, present_symm D hstep⟩
     have hnot : ¬ E.Present live prev := by
       have h := prefixNetwork_arrival_absent D u w hjpos hj
       simpa [E, live, prev] using h
-    have hprevE : prev ∉ E.presentNeighbours live := by
+    have hprevE : prev ∉ E.presentNeighbors live := by
       intro he
       exact hnot (Finset.mem_filter.mp he).2
-    have hsub : E.presentNeighbours live ⊆ D.presentNeighbours live := by
-      change (traceNetwork D ((wordVertices u w).take (j + 1))).presentNeighbours live ⊆ _
-      exact traceNetwork_neighbours_subset D ((wordVertices u w).take (j + 1)) live
+    have hsub : E.presentNeighbors live ⊆ D.presentNeighbors live := by
+      change (traceNetwork D ((wordVertices u w).take (j + 1))).presentNeighbors live ⊆ _
+      exact traceNetwork_neighbors_subset D ((wordVertices u w).take (j + 1)) live
     exact factorDegree_drop_neighbor D E live prev hsub hprevD hprevE
   by_cases hend : x = live
   · subst x

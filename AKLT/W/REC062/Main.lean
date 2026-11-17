@@ -97,16 +97,16 @@ private theorem wordVertex_dist_le {n : ℕ} (u : Plane) (w : DirectionWord n)
         subst i
         simp [latticeDist]
 
-private theorem neighbours_dist_one {x z : Plane} (hz : z ∈ neighbours x) :
+private theorem neighbors_dist_one {x z : Plane} (hz : z ∈ neighbors x) :
     latticeDist z x = 1 := by
-  simp only [neighbours, Finset.mem_image, Finset.mem_univ, true_and] at hz
+  simp only [neighbors, Finset.mem_image, Finset.mem_univ, true_and] at hz
   rcases hz with ⟨d, rfl⟩
   cases d <;> simp [latticeDist, Compass.step] <;> norm_num
 
-private theorem pair_site_neighbour {n : ℕ} (w : DirectionWord n) (i : Fin n)
+private theorem pair_site_neighbor {n : ℕ} (w : DirectionWord n) (i : Fin n)
     (z : Plane) (hz : z ∈ insert (wordVertex kernelStart w (i.val + 1))
-      (liveOtherNeighbours w i)) :
-    z ∈ neighbours (wordVertex kernelStart w i.val) := by
+      (liveOtherNeighbors w i)) :
+    z ∈ neighbors (wordVertex kernelStart w i.val) := by
   classical
   rcases Finset.mem_insert.mp hz with hz | hz
   · subst z
@@ -114,7 +114,7 @@ private theorem pair_site_neighbour {n : ℕ} (w : DirectionWord n) (i : Fin n)
     rw [hstep]
     exact Finset.mem_image.mpr ⟨w i, Finset.mem_univ _, rfl⟩
   · have hfilter := Finset.mem_filter.mp hz
-    have hresponse : z ∈ responseNeighbours w i := (Finset.mem_erase.mp hfilter.1).2
+    have hresponse : z ∈ responseNeighbors w i := (Finset.mem_erase.mp hfilter.1).2
     exact (Finset.mem_erase.mp hresponse).2
 
 private theorem shift_nat_bound {n : ℕ} (X : PairType) (w : DirectionWord n)
@@ -141,10 +141,10 @@ private theorem shift_nat_bound {n : ℕ} (X : PairType) (w : DirectionWord n)
   apply Finset.sup_le_iff.mpr
   intro z hz
   have hzBase := hpSubset hz
-  have hneigh : z ∈ neighbours (wordVertex kernelStart w i.val) :=
-    pair_site_neighbour w i z hzBase
+  have hneigh : z ∈ neighbors (wordVertex kernelStart w i.val) :=
+    pair_site_neighbor w i z hzBase
   have hstepdist : latticeDist z (wordVertex kernelStart w i.val) = 1 :=
-    neighbours_dist_one hneigh
+    neighbors_dist_one hneigh
   have hleft : latticeDist z kernelStart ≤ i.val + 1 := by
     calc
       latticeDist z kernelStart ≤

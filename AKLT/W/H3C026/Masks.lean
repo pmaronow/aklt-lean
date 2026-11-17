@@ -77,7 +77,7 @@ theorem gridSite_eq (s : Nat) (x : Plane) (hx : inBox x) :
 
 theorem ordinaryMask_proved : CertData.H3.Bridge.OrdinaryMaskLeaf := by
   intro X d₀ hcase s hs
-  let c := siteIndex kernelCentre
+  let c := siteIndex kernelCenter
   let t := siteIndex (kernelTarget X)
   let u := siteIndex kernelStart
   let v := siteIndex (kernelStart+d₀.step)
@@ -85,7 +85,7 @@ theorem ordinaryMask_proved : CertData.H3.Bridge.OrdinaryMaskLeaf := by
       t≠c ∧ u≠c ∧ u≠t ∧ v≠c ∧ v≠t ∧ v≠u := by
     cases X <;> cases d₀ <;> simp [stationaryCases] at hcase <;> decide +kernel
   rcases hi with ⟨hc,ht,hu,hv,htc,huc,hut,hvc,hvt,hvu⟩
-  have hcbox : inBox kernelCentre := by decide +kernel
+  have hcbox : inBox kernelCenter := by decide +kernel
   have htbox : inBox (kernelTarget X) := by cases X <;> decide +kernel
   have hubox : inBox kernelStart := by decide +kernel
   have hvbox : inBox (kernelStart+d₀.step) := by cases d₀ <;> decide +kernel
@@ -96,7 +96,7 @@ theorem ordinaryMask_proved : CertData.H3.Bridge.OrdinaryMaskLeaf := by
     erase_mask 80 19881 (fun s => s≠c ∧ s≠t) u hu ⟨huc,hut⟩,
     erase_mask 80 19881 (fun s => (s≠c ∧ s≠t) ∧ s≠u) v hv ⟨⟨hvc,hvt⟩,hvu⟩]
   rw [lane_packFn _ _ _ (by intro i hi; split <;> norm_num), if_pos hs]
-  simp only [gridSite_eq s kernelCentre hcbox, gridSite_eq s (kernelTarget X) htbox,
+  simp only [gridSite_eq s kernelCenter hcbox, gridSite_eq s (kernelTarget X) htbox,
     gridSite_eq s kernelStart hubox, gridSite_eq s (kernelStart+d₀.step) hvbox]
   by_cases hsc : s=c <;> by_cases hst : s=t <;> by_cases hsu : s=u <;>
     by_cases hsv : s=v <;> simp_all [c,t,u,v]

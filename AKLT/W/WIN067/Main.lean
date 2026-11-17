@@ -24,9 +24,9 @@ private theorem originalLeg_facts {G : Finset Plane} (e : originalLegs G) :
       simpa using hh
     · have hh := congrArg Prod.snd hpair.symm
       simpa using hh
-  have hz' : z ∈ neighbours x ∧ z ∉ G := Finset.mem_sdiff.mp hz
+  have hz' : z ∈ neighbors x ∧ z ∉ G := Finset.mem_sdiff.mp hz
   have hnot : e.val.2 ∉ G := by rw [hcoords.2]; exact hz'.2
-  unfold neighbours at hz'
+  unfold neighbors at hz'
   rcases Finset.mem_image.mp hz'.1 with ⟨d, _, hdz⟩
   have hadj : Adjacent x z := by
     rw [← hdz]

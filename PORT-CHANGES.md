@@ -40,8 +40,8 @@ Audit. Generated certificate sources and legacy objects are not copied into Git.
   labels are replaced with `d:model` and `d:poly` at their actual manuscript files.
   The Sanity doc comments also use the actual normalization and theorem labels.
 - Comments, doc strings, and notes use American English. Lean identifiers and paper
-  labels retain their spelling. `BRITISH-IDENTIFIERS.tsv` lists source identifier
-  tokens with British spelling and their locations.
+  labels retain their spelling. `AMERICAN-ENGLISH-IDENTIFIERS.tsv` now lists the corresponding American
+  spellings; the earlier source inventory is available in Git history.
 
 ### Original proof-body changes in this extension
 
@@ -72,3 +72,19 @@ including the unnormalized VBS terminology and the corrected model/polynomial
 paper references in Main and Sanity. Code tokens remain unchanged. The complete
 prose-change inventory is retained with the phase records. Manuscript labels,
 Lean identifiers, and raw tool transcripts keep their original spelling.
+
+## American English identifier update
+
+All first-party declaration names, namespace components, fields, binders,
+references, and eight analytic source filenames use American English. The
+renaming is consistent in the independent Challenge template, generators,
+regeneration interface, and inventories. No collision exists among full
+compiled declaration names, file paths, or conservative per-file local names.
+No term is rewritten beyond the consistent identifier substitution. Numeric and
+string-literal values in Lean are unchanged. All 851 literal generator key
+accesses are unchanged; the input data schemas are preserved.
+
+The old verification transcripts are retained unchanged in Git history and the
+campaign report archive. They are not relabeled as verification of renamed
+sources. Current verification records are under verification/rename/. The exact
+old-to-new spelling map and declaration map are in the campaign report.

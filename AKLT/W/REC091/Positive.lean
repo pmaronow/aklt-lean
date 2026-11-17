@@ -30,8 +30,8 @@ theorem hemisphere_avoid {ι : Type*} [Fintype ι] (hι : Fintype.card ι ≤ 4)
   norm_num [Fintype.card_prod] at hc
   omega
 
-theorem originalLeg_neighbour {G : Finset Plane} {e : Plane × Plane}
-    (he : e ∈ originalLegs G) : e.2 ∈ neighbours e.1 := by
+theorem originalLeg_neighbor {G : Finset Plane} {e : Plane × Plane}
+    (he : e ∈ originalLegs G) : e.2 ∈ neighbors e.1 := by
   obtain ⟨x, _, hx⟩ := Finset.mem_biUnion.mp he
   obtain ⟨z, hz, he⟩ := Finset.mem_image.mp hx
   subst e
@@ -47,17 +47,17 @@ theorem originalLegs_at_card (G : Finset Plane) (x : Plane) :
     apply Prod.ext
     · exact (Finset.mem_filter.mp ha).2.trans (Finset.mem_filter.mp hb).2.symm
     · exact hab
-  have hsub : L.image (fun e => e.2) ⊆ neighbours x := by
+  have hsub : L.image (fun e => e.2) ⊆ neighbors x := by
     intro z hz
     obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hz
     have hl := Finset.mem_filter.mp he
     rw [← hl.2]
-    exact originalLeg_neighbour hl.1
+    exact originalLeg_neighbor hl.1
   calc
     L.card = (L.image fun e => e.2).card := (Finset.card_image_of_injOn hinj).symm
-    _ ≤ (neighbours x).card := Finset.card_le_card hsub
+    _ ≤ (neighbors x).card := Finset.card_le_card hsub
     _ ≤ 4 := by
-      unfold neighbours
+      unfold neighbors
       exact (Finset.card_image_le).trans (by decide)
 
 theorem network_spins_ball {G : Finset Plane} (D : Network G)

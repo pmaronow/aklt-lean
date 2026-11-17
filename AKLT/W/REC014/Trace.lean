@@ -46,17 +46,17 @@ theorem trace_present_away {G : Finset Plane} (D : Network G) (y o : Plane)
     · exact Finset.mem_erase.mpr ⟨hx,h.2.2.2.2⟩
     · exact h.2.2.2.2
 
-theorem sole_neighbour (a : AKLT.Blueprint.Rec.Departure)
-    (hc : (a.D.presentNeighbours a.y).card = 1) {z : Plane}
+theorem sole_neighbor (a : AKLT.Blueprint.Rec.Departure)
+    (hc : (a.D.presentNeighbors a.y).card = 1) {z : Plane}
     (hz : a.D.Present a.y z) : z = a.o :=
-  Finset.card_le_one.mp (le_of_eq hc) z (present_neighbour a.D hz) a.o a.present
+  Finset.card_le_one.mp (le_of_eq hc) z (present_neighbor a.D hz) a.o a.present
 
 theorem trace_no_departure (a : AKLT.Blueprint.Rec.Departure)
-    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbours a.y).card = 1)
+    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbors a.y).card = 1)
     {x z : Plane} (h : (traceStep a.D a.y a.o).Present x z) :
     x ≠ a.y ∧ z ≠ a.y := by
   have hn {t : Plane} (ht : (traceStep a.D a.y a.o).Present a.y t) : False := by
-    have ho : t = a.o := sole_neighbour a hc (trace_present_old a.D a.y a.o hy ht)
+    have ho : t = a.o := sole_neighbor a hc (trace_present_old a.D a.y a.o hy ht)
     have hk := ht.2.2.2.1
     simp [traceStep, ho] at hk
   constructor
@@ -64,7 +64,7 @@ theorem trace_no_departure (a : AKLT.Blueprint.Rec.Departure)
   · rintro rfl; exact hn (present_symm _ h)
 
 theorem leaf_bonds (a : AKLT.Blueprint.Rec.Departure)
-    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbours a.y).card = 1) :
+    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbors a.y).card = 1) :
     ∃ e ∈ a.D.bonds,
       ((e.1 = a.y ∧ e.2 = a.o) ∨ (e.1 = a.o ∧ e.2 = a.y)) ∧
       (traceStep a.D a.y a.o).bonds = a.D.bonds.erase e ∧
@@ -74,8 +74,8 @@ theorem leaf_bonds (a : AKLT.Blueprint.Rec.Departure)
     have hp := (Finset.mem_filter.mp hf).2
     have hor : (f.1 = a.y ∧ f.2 = a.o) ∨ (f.1 = a.o ∧ f.2 = a.y) := by
       rcases hfy with h | h
-      · exact Or.inl ⟨h, sole_neighbour a hc (h ▸ hp)⟩
-      · exact Or.inr ⟨sole_neighbour a hc (h ▸ present_symm a.D hp), h⟩
+      · exact Or.inl ⟨h, sole_neighbor a hc (h ▸ hp)⟩
+      · exact Or.inr ⟨sole_neighbor a hc (h ▸ present_symm a.D hp), h⟩
     apply bond_orientation_unique (Finset.mem_filter.mp hf).1 (Finset.mem_filter.mp he).1
     rcases hor with ⟨h1,h2⟩ | ⟨h1,h2⟩ <;>
       rcases hform with ⟨h3,h4⟩ | ⟨h3,h4⟩ <;> simp_all

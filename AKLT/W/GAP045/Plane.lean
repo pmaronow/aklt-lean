@@ -46,16 +46,16 @@ lemma marginal_supported_inverse {Ω Ξ : Type} [Fintype Ω] [Fintype Ξ]
     · simp [Function.comp_def, h x hx, hxz]
   · simp
 
-lemma fibre_probability (P : PlaneSpec) (hP : RegularSpec P)
+lemma fiber_probability (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (η : Config P.Letter) (σ : PlaneConfig P W) :
-    Probability (fibre (P.law W η) (sitesInVolume W V) σ) := by
+    Probability (fiber (P.law W η) (sitesInVolume W V) σ) := by
   apply condition_probability (fun x => (hP.1 W η).1 x |>.le)
   exact event_pos_of_atom (fun x => (hP.1 W η).1 x |>.le) _ σ
     (fun _ _ => rfl) ((hP.1 W η).1 σ)
 
-lemma fibre_to_local (P : PlaneSpec) (hP : RegularSpec P)
+lemma fiber_to_local (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (hV : V ⊆ W) (η : Config P.Letter) (σ : PlaneConfig P W) :
-    marginal (fibre (P.law W η) (sitesInVolume W V) σ)
+    marginal (fiber (P.law W η) (sitesInVolume W V) σ)
       (fun τ => restrict V (fill P W η τ)) = P.law V (fill P W η σ) := by
   have he : AgreeOutside (sitesInVolume W V) σ =
       (fun τ => ∀ x : W, x.val ∉ V → τ x = σ x) := by
@@ -63,17 +63,17 @@ lemma fibre_to_local (P : PlaneSpec) (hP : RegularSpec P)
     apply propext
     simp only [AgreeOutside, sitesInVolume, Finset.mem_filter, Finset.mem_univ, true_and]
     constructor <;> intro h x hx <;> exact (h x hx).symm
-  simpa only [fibre, he] using hP.2.1 W V hV η σ
+  simpa only [fiber, he] using hP.2.1 W V hV η σ
 
-lemma local_to_fibre (P : PlaneSpec) (hP : RegularSpec P)
+lemma local_to_fiber (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (hV : V ⊆ W) (η : Config P.Letter) (σ : PlaneConfig P W) :
     marginal (P.law V (fill P W η σ)) (insertVolume P W V σ) =
-      fibre (P.law W η) (sitesInVolume W V) σ := by
-  rw [← fibre_to_local P hP W V hV η σ]
+      fiber (P.law W η) (sitesInVolume W V) σ := by
+  rw [← fiber_to_local P hP W V hV η σ]
   apply marginal_supported_inverse
   intro τ ht
-  have hpos : 0 < fibre (P.law W η) (sitesInVolume W V) σ τ :=
-    lt_of_le_of_ne ((fibre_probability P hP W V η σ).1 τ) (Ne.symm ht)
+  have hpos : 0 < fiber (P.law W η) (sitesInVolume W V) σ τ :=
+    lt_of_le_of_ne ((fiber_probability P hP W V η σ).1 τ) (Ne.symm ht)
   have hs := condition_support (AgreeOutside (sitesInVolume W V) σ) τ hpos
   funext x
   by_cases hx : x.val ∈ V
@@ -86,19 +86,19 @@ def liftLocalCoupling (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (hV : V ⊆ W) (η ξ : Config P.Letter)
     (σ τ : PlaneConfig P W)
     (c : Coupling (P.law V (fill P W η σ)) (P.law V (fill P W ξ τ))) :
-    Coupling (fibre (P.law W η) (sitesInVolume W V) σ)
-      (fibre (P.law W ξ) (sitesInVolume W V) τ) where
+    Coupling (fiber (P.law W η) (sitesInVolume W V) σ)
+      (fiber (P.law W ξ) (sitesInVolume W V) τ) where
   mass := (mapCoupling c (insertVolume P W V σ) (insertVolume P W V τ)).mass
   nonnegative := (mapCoupling c (insertVolume P W V σ) (insertVolume P W V τ)).nonnegative
   first_marginal x := ((mapCoupling c (insertVolume P W V σ)
-    (insertVolume P W V τ)).first_marginal x).trans (congrFun (local_to_fibre P hP W V hV η σ) x)
+    (insertVolume P W V τ)).first_marginal x).trans (congrFun (local_to_fiber P hP W V hV η σ) x)
   second_marginal y := ((mapCoupling c (insertVolume P W V σ)
-    (insertVolume P W V τ)).second_marginal y).trans (congrFun (local_to_fibre P hP W V hV ξ τ) y)
+    (insertVolume P W V τ)).second_marginal y).trans (congrFun (local_to_fiber P hP W V hV ξ τ) y)
 
 lemma lifted_support (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (η ξ : Config P.Letter) (σ τ : PlaneConfig P W)
-    (c : Coupling (fibre (P.law W η) (sitesInVolume W V) σ)
-      (fibre (P.law W ξ) (sitesInVolume W V) τ))
+    (c : Coupling (fiber (P.law W η) (sitesInVolume W V) σ)
+      (fiber (P.law W ξ) (sitesInVolume W V) τ))
     (v : PlaneConfig P W × PlaneConfig P W) (hv : 0 < c.mass v.1 v.2) :
     AgreeOutside (sitesInVolume W V) σ v.1 ∧ AgreeOutside (sitesInVolume W V) τ v.2 := by
   exact ⟨condition_support _ _ (hv.trans_le (coupling_atom_first c _ _)),

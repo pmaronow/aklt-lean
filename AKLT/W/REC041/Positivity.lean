@@ -107,25 +107,25 @@ private def siteLegs (G : Finset Plane) (x : Plane) : Finset (originalLegs G) :=
   Finset.univ.filter fun e => e.val.1 = x
 
 private theorem leg_snd_mem {G : Finset Plane} {e : Plane × Plane}
-    (he : e ∈ originalLegs G) : e.2 ∈ neighbours e.1 := by
+    (he : e ∈ originalLegs G) : e.2 ∈ neighbors e.1 := by
   obtain ⟨x, _, he⟩ := Finset.mem_biUnion.mp he
   obtain ⟨z, hz, rfl⟩ := Finset.mem_image.mp he
   exact (Finset.mem_sdiff.mp hz).1
 
 private theorem siteLegs_card_le (G : Finset Plane) (x : Plane) :
     (siteLegs G x).card ≤ 4 := by
-  have hc : (siteLegs G x).card ≤ (neighbours x).card := by
+  have hc : (siteLegs G x).card ≤ (neighbors x).card := by
     apply Finset.card_le_card_of_injOn (fun e : originalLegs G => e.val.2)
     · intro e he
       have hx := (Finset.mem_filter.mp he).2
-      change e.val.2 ∈ neighbours x
+      change e.val.2 ∈ neighbors x
       simpa only [hx] using leg_snd_mem e.property
     · intro e he f hf hh
       apply Subtype.ext
       apply Prod.ext
       · exact (Finset.mem_filter.mp he).2.trans (Finset.mem_filter.mp hf).2.symm
       · exact hh
-  have hn : (neighbours x).card ≤ 4 := by
+  have hn : (neighbors x).card ≤ 4 := by
     exact (Finset.card_image_le).trans (by decide)
   omega
 

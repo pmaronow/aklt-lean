@@ -180,7 +180,7 @@ structure Representative where
 
 def Representative.key (r : Representative) : Nat := rawKey r.input.axes r.input.corners r.input.outgoing
 
-def representativeCheck (t : Catalogue) (rs : List Representative) : Bool :=
+def representativeCheck (t : Catalog) (rs : List Representative) : Bool :=
   t.entries == rs.map (fun r => (r.key,r.pid))
 
 def RepresentativesAccepted : List Representative → Prop

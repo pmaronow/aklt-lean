@@ -43,7 +43,7 @@ theorem partition_on {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
   simp only [Network.partition,partitionOn,Network.spins,extendSpins,mul_one]
 
 theorem partition_collapse (a : AKLT.Blueprint.Rec.Departure)
-    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbours a.y).card = 1)
+    (hy : a.D.status a.y = .U) (hc : (a.D.presentNeighbors a.y).card = 1)
     (b : Bool) : (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
       a.D.partition a.τ b (fun _ => 1) := by
   classical

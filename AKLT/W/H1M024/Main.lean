@@ -178,7 +178,7 @@ theorem groupFactor_structure (π : PatternData) (r : Representation) (x : Plane
         (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupLeader x) k)) *
         (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupSecond x) k))
       else 1 + MvPolynomial.C (replacementRadius π x) *
-        formalDot (fun k => internalVar (leafNeighbour π x) k)
+        formalDot (fun k => internalVar (leafNeighbor π x) k)
           (fun k => vectorVar (groupLeader x) k)) := by
   classical
   by_cases hp : groupIsPair π r x = true
@@ -200,7 +200,7 @@ theorem groupFactor_structure (π : PatternData) (r : Representation) (x : Plane
     simpa [groupTokens, hp] using hmul
   · simp [hp]
     have hsingle := singleTokenFactor_structure (replacementRadius π x)
-      (leafNeighbour π x) (groupLeader x)
+      (leafNeighbor π x) (groupLeader x)
     simpa [groupTokens, hp] using hsingle
 
 theorem prodTokenStructure {α : Type*} [DecidableEq α] (s : Finset α)
@@ -319,7 +319,7 @@ theorem groupProduct_structure (π : PatternData) (r : Representation) :
         (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupLeader x) k)) *
         (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupSecond x) k))
       else 1 + MvPolynomial.C (replacementRadius π x) *
-        formalDot (fun k => internalVar (leafNeighbour π x) k)
+        formalDot (fun k => internalVar (leafNeighbor π x) k)
           (fun k => vectorVar (groupLeader x) k)) := by
   classical
   have hprod := prodTokenStructure
@@ -329,7 +329,7 @@ theorem groupProduct_structure (π : PatternData) (r : Representation) :
       (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupLeader x) k)) *
       (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupSecond x) k))
     else 1 + MvPolynomial.C (replacementRadius π x) *
-      formalDot (fun k => internalVar (leafNeighbour π x) k)
+      formalDot (fun k => internalVar (leafNeighbor π x) k)
         (fun k => vectorVar (groupLeader x) k))
     (by
       intro x hx
@@ -372,7 +372,7 @@ theorem reducedIntegrand_structure (π : PatternData) (r : Representation) (next
       (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupLeader x) k)) *
       (1 + formalDot (fun k => internalVar x k) (fun k => vectorVar (groupSecond x) k))
     else 1 + MvPolynomial.C (replacementRadius π x) *
-      formalDot (fun k => internalVar (leafNeighbour π x) k)
+      formalDot (fun k => internalVar (leafNeighbor π x) k)
         (fun k => vectorVar (groupLeader x) k))
     hdisj hb hg
   have htarget : TokenStructure (reductionVectors π r) (reducedIntegrand π r next) := by

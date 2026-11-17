@@ -232,7 +232,7 @@ private lemma bond_products_split {n : ℕ} (D : FiniteSpinNetwork n) (x y : Fin
     (edgeAt σ)
 
 private lemma update_agrees_off {n : ℕ} (σ τ : Fin n → SpinLetter) (x y : Fin n)
-    (a : SpinLetter) (hτ : AKLT.Blueprint.Mom.twoSiteFibre x y σ τ)
+    (a : SpinLetter) (hτ : AKLT.Blueprint.Mom.twoSiteFiber x y σ τ)
     (z : Fin n) (hzx : z ≠ x) (hzy : z ≠ y) :
     Function.update σ x a z = τ z := by
   have hz := hτ z hzx hzy
@@ -305,7 +305,7 @@ theorem main : AKLT.Blueprint.Mom.TwoSiteFactorizationStatement := by
         · simp [Function.update, h2]
       unfold edgeAt
       rw [← hprof1, ← hprof2]
-    have hτswap : AKLT.Blueprint.Mom.twoSiteFibre y x σ τ := by
+    have hτswap : AKLT.Blueprint.Mom.twoSiteFiber y x σ τ := by
       intro z hz1 hz2
       exact hτ z hz2 hz1
     have hBondY :

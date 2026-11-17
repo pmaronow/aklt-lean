@@ -18,7 +18,7 @@ private theorem one_ne_zero (L : Size) : (1 : ZMod L.val) ≠ 0 :=
 private theorem two_ne_zero (L : Size) : (2 : ZMod L.val) ≠ 0 :=
   by simpa using AKLT.Challenge.small_natCast_ne_zero L 2 (by omega) (by have := L.property; omega)
 
-private theorem four_neighbours_pairwise {L N : Size} (x : Site L N) :
+private theorem four_neighbors_pairwise {L N : Size} (x : Site L N) :
     let a := (x.1 + 1, x.2)
     let b := (x.1 - 1, x.2)
     let c := (x.1, x.2 + 1)
@@ -65,16 +65,16 @@ private theorem four_neighbours_pairwise {L N : Size} (x : Site L N) :
       (2 : ZMod N.val) = (x.2 + 1) - (x.2 - 1) := by ring
       _ = 0 := sub_eq_zero.mpr (congrArg Prod.snd h)
 
-private theorem torusNeighbours_card4 {L N : Size} (x : Site L N) :
-    (torusNeighbours x).card = 4 := by
-  rcases four_neighbours_pairwise x with ⟨hab, hac, had, hbc, hbd, hcd⟩
-  simp [torusNeighbours, Finset.card_insert_of_notMem, hab, hac, had, hbc, hbd, hcd]
+private theorem torusNeighbors_card4 {L N : Size} (x : Site L N) :
+    (torusNeighbors x).card = 4 := by
+  rcases four_neighbors_pairwise x with ⟨hab, hac, had, hbc, hbd, hcd⟩
+  simp [torusNeighbors, Finset.card_insert_of_notMem, hab, hac, had, hbc, hbd, hcd]
 
-private theorem site_not_torusNeighbours {L N : Size} (x : Site L N) :
-    x ∉ torusNeighbours x := by
+private theorem site_not_torusNeighbors {L N : Size} (x : Site L N) :
+    x ∉ torusNeighbors x := by
   have h1L := one_ne_zero L
   have h1N := one_ne_zero N
-  simp only [torusNeighbours, Finset.mem_insert, Finset.mem_singleton, not_or]
+  simp only [torusNeighbors, Finset.mem_insert, Finset.mem_singleton, not_or]
   refine ⟨?_, ?_, ?_, ?_⟩
   · intro h
     exact h1L (by
@@ -133,7 +133,7 @@ theorem torusKernel : AKLT.Blueprint.Top.TorusKernelStatement := by
   refine ⟨AKLT.Challenge.bonds_haveTwoSites L N, AKLT.Challenge.bonds_areDistinct L N,
     ?_, hnz, hker, ?_⟩
   · intro x
-    exact ⟨torusNeighbours_card4 x, site_not_torusNeighbours x⟩
+    exact ⟨torusNeighbors_card4 x, site_not_torusNeighbors x⟩
   · intro ε
     obtain ⟨c, hc, hscalar⟩ := reorientedB_is_scalar ε
     apply le_antisymm

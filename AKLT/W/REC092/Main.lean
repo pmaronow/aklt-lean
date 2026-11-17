@@ -94,7 +94,7 @@ private lemma internalBonds_adj {S : Finset Plane} {z t : Plane}
   subst x
   subst u
   have hu' := (Finset.mem_inter.mp hu).1
-  simp [positiveNeighbours] at hu'
+  simp [positiveNeighbors] at hu'
   rcases hu' with hright | hup
   · subst t
     simp [Adjacent, latticeDist]
@@ -144,16 +144,16 @@ private lemma internalBonds_or {S : Finset Plane} {z t : Plane}
     exact adjacent_coordinate_cases hadj
   rcases hor with he | hn | hw | hs
   · left
-    simp [internalBonds, positiveNeighbours, Finset.mem_biUnion,
+    simp [internalBonds, positiveNeighbors, Finset.mem_biUnion,
       Finset.mem_image, hz, ht, he]
   · left
-    simp [internalBonds, positiveNeighbours, Finset.mem_biUnion,
+    simp [internalBonds, positiveNeighbors, Finset.mem_biUnion,
       Finset.mem_image, hz, ht, hn]
   · right
-    simp [internalBonds, positiveNeighbours, Finset.mem_biUnion,
+    simp [internalBonds, positiveNeighbors, Finset.mem_biUnion,
       Finset.mem_image, hz, ht, hw]
   · right
-    simp [internalBonds, positiveNeighbours, Finset.mem_biUnion,
+    simp [internalBonds, positiveNeighbors, Finset.mem_biUnion,
       Finset.mem_image, hz, ht, hs]
 
 private lemma bond_mem_kept {π : PatternData} {z t : Plane}

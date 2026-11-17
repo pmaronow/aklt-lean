@@ -27,7 +27,7 @@ theorem adjacent_ne {x z : Plane} (h : Adjacent x z) : x ≠ z := by
   rintro rfl
   simp [Adjacent, latticeDist] at h
 
-theorem mem_neighbours_iff (x z : Plane) : z ∈ neighbours x ↔ Adjacent x z := by
+theorem mem_neighbors_iff (x z : Plane) : z ∈ neighbors x ↔ Adjacent x z := by
   rw [adjacent_iff]
   constructor
   · rintro h
@@ -44,13 +44,13 @@ theorem present_symm {G : Finset Plane} {D : Network G} {x z : Plane}
     (h : D.Present x z) : D.Present z x :=
   ⟨h.2.1, h.1, adjacent_symm h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-theorem mem_presentNeighbours {G : Finset Plane} (D : Network G) (x z : Plane) :
-    z ∈ D.presentNeighbours x ↔ D.Present x z := by
-  simp only [Network.presentNeighbours, Finset.mem_filter]
-  exact ⟨And.right, fun h => ⟨(mem_neighbours_iff x z).mpr h.2.2.1, h⟩⟩
+theorem mem_presentNeighbors {G : Finset Plane} (D : Network G) (x z : Plane) :
+    z ∈ D.presentNeighbors x ↔ D.Present x z := by
+  simp only [Network.presentNeighbors, Finset.mem_filter]
+  exact ⟨And.right, fun h => ⟨(mem_neighbors_iff x z).mpr h.2.2.1, h⟩⟩
 
 theorem mem_internalBonds {G : Finset Plane} {x z : Plane} :
-    (x,z) ∈ internalBonds G ↔ x ∈ G ∧ z ∈ G ∧ z ∈ positiveNeighbours x := by
+    (x,z) ∈ internalBonds G ↔ x ∈ G ∧ z ∈ G ∧ z ∈ positiveNeighbors x := by
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_image, Finset.mem_inter]
   constructor
   · rintro ⟨a, ha, b, ⟨hb, hbG⟩, he⟩
@@ -62,7 +62,7 @@ theorem mem_internalBonds {G : Finset Plane} {x z : Plane} :
 theorem internal_ne {G : Finset Plane} {e : Plane × Plane}
     (h : e ∈ internalBonds G) : e.1 ≠ e.2 := by
   have hp := (mem_internalBonds.mp h).2.2
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hp
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hp
   rcases hp with h | h <;> intro he
   all_goals rw [← he] at h; have := congrArg Prod.fst h; have := congrArg Prod.snd h; omega
 
@@ -71,7 +71,7 @@ theorem internal_not_reverse {G : Finset Plane} {x z : Plane}
   intro h'
   have h1 := (mem_internalBonds.mp h).2.2
   have h2 := (mem_internalBonds.mp h').2.2
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at h1 h2
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at h1 h2
   rcases h1 with h1 | h1 <;> rcases h2 with h2 | h2
   all_goals have := congrArg Prod.fst h1; have := congrArg Prod.snd h1
             have := congrArg Prod.fst h2; have := congrArg Prod.snd h2; omega
@@ -80,19 +80,19 @@ theorem internal_or_reverse {G : Finset Plane} {x z : Plane}
     (hx : x ∈ G) (hz : z ∈ G) (h : Adjacent x z) :
     (x,z) ∈ internalBonds G ∨ (z,x) ∈ internalBonds G := by
   rcases (adjacent_iff x z).mp h with h | h | h | h
-  · left; apply mem_internalBonds.mpr; exact ⟨hx,hz,by simp [positiveNeighbours,h]⟩
+  · left; apply mem_internalBonds.mpr; exact ⟨hx,hz,by simp [positiveNeighbors,h]⟩
   · right; apply mem_internalBonds.mpr; refine ⟨hz,hx,?_⟩
-    simp [positiveNeighbours,h]
-  · left; apply mem_internalBonds.mpr; exact ⟨hx,hz,by simp [positiveNeighbours,h]⟩
+    simp [positiveNeighbors,h]
+  · left; apply mem_internalBonds.mpr; exact ⟨hx,hz,by simp [positiveNeighbors,h]⟩
   · right; apply mem_internalBonds.mpr; refine ⟨hz,hx,?_⟩
-    simp [positiveNeighbours,h]
+    simp [positiveNeighbors,h]
 
 theorem leg_protected {G : Finset Plane} {e : Plane × Plane}
     (h : e ∈ originalLegs G) : e.1 ∈ protectedSites G := by
   rcases Finset.mem_biUnion.mp h with ⟨x,hx,he⟩
   rcases Finset.mem_image.mp he with ⟨z,hz,rfl⟩
   rcases Finset.mem_sdiff.mp hz with ⟨hn,hout⟩
-  have hd : latticeDist x z = 1 := (mem_neighbours_iff x z).mp hn
+  have hd : latticeDist x z = 1 := (mem_neighbors_iff x z).mp hn
   apply Finset.mem_filter.mpr
   refine ⟨hx, ?_⟩
   have hl : boundaryDepth G x ≤ (latticeDist x z : ℕ∞) := by

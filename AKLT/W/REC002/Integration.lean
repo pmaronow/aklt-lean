@@ -36,7 +36,7 @@ theorem partition_integrate {G : Finset Plane} (D : Network G) (y : Plane)
     D.partition τ b (fun _ => 1) =
       (removeSite D y).partition τ b
         (fun n => siteFunctional (D.status y)
-          (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)))) := by
+          (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)))) := by
   let E := removeSite D y
   let F := fun n => bondProduct D.bonds n * legProduct D.active τ b n
   have hnot : y ∉ E.active := by simp [E, mem_remove_active]
@@ -55,7 +55,7 @@ theorem partition_integrate {G : Finset Plane} (D : Network G) (y : Plane)
       spinSum_insert E.active y hnot D.status F
     _ = spinSum E.active D.status
         (fun n => siteFunctional (D.status y)
-          (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z))) *
+          (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z))) *
             bondProduct E.bonds n * legProduct E.active τ b n) := by
       unfold spinSum
       apply Finset.sum_congr rfl
@@ -66,7 +66,7 @@ theorem partition_integrate {G : Finset Plane} (D : Network G) (y : Plane)
       ring
     _ = E.partition τ b
         (fun n => siteFunctional (D.status y)
-          (fun v => ∏ z ∈ D.presentNeighbours y, (1 + dot v (n z)))) := by
+          (fun v => ∏ z ∈ D.presentNeighbors y, (1 + dot v (n z)))) := by
       rw [partition_spinSum, ← spinSum_status E.active D.status E.status hstatus]
 
 def configWeight {G : Finset Plane} (D : Network G) (τ : PinAssignment G) (b : Bool)

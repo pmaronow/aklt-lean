@@ -80,7 +80,7 @@ theorem freeEvaluation : FreeEvaluationStatement := by
   simp
 
 /-- Agreement outside two sites, exactly the event used in the Top interface. -/
-def twoSiteFibre {n : ℕ} (x y : Fin n) (σ τ : Fin n → SpinLetter) : Prop :=
+def twoSiteFiber {n : ℕ} (x y : Fin n) (σ τ : Fin n → SpinLetter) : Prop :=
   ∀ z, z ≠ x → z ≠ y → τ z = σ z
 
 /-- `l:finitefacts`, lines 159–168: on a two-site fiber without a retained
@@ -92,7 +92,7 @@ def TwoSiteFactorizationStatement : Prop :=
     ∀ σ : Fin n → SpinLetter,
       ∃ C : ℝ, ∃ u v : SpinLetter → ℝ,
         0 ≤ C ∧ (∀ a, 0 ≤ u a) ∧ (∀ b, 0 ≤ v b) ∧
-        ∀ τ, twoSiteFibre x y σ τ → D.weight pinned τ = C * u (τ x) * v (τ y)
+        ∀ τ, twoSiteFiber x y σ τ → D.weight pinned τ = C * u (τ x) * v (τ y)
 
 /-- `l:finitefacts`, lines 169–175: enumerate a two-coordinate fiber, factor
 its normalizer, and cancel it only when its normalized event mass is positive.
@@ -101,13 +101,13 @@ def FactorizedConditioningStatement : Prop :=
   ∀ n : ℕ, ∀ w : (Fin n → SpinLetter) → ℝ, (∀ τ, 0 ≤ w τ) →
     ∀ x y : Fin n, x ≠ y → ∀ σ : Fin n → SpinLetter,
     ∀ C : ℝ, ∀ u v : SpinLetter → ℝ,
-    (∀ τ, twoSiteFibre x y σ τ → w τ = C * u (τ x) * v (τ y)) →
-    0 < eventMass (normalize w) (twoSiteFibre x y σ) →
+    (∀ τ, twoSiteFiber x y σ τ → w τ = C * u (τ x) * v (τ y)) →
+    0 < eventMass (normalize w) (twoSiteFiber x y σ) →
     ∀ a b : SpinLetter,
-      conditionalProbability (normalize w) (twoSiteFibre x y σ)
+      conditionalProbability (normalize w) (twoSiteFiber x y σ)
         (fun τ => τ x = a ∧ τ y = b) =
-      conditionalProbability (normalize w) (twoSiteFibre x y σ) (fun τ => τ x = a) *
-        conditionalProbability (normalize w) (twoSiteFibre x y σ) (fun τ => τ y = b)
+      conditionalProbability (normalize w) (twoSiteFiber x y σ) (fun τ => τ x = a) *
+        conditionalProbability (normalize w) (twoSiteFiber x y σ) (fun τ => τ y = b)
 
 /-- A squared norm is a sum of real squares; this also covers the zero vector. -/
 theorem normSq_nonneg (a : Vec3) : 0 ≤ normSq a := by

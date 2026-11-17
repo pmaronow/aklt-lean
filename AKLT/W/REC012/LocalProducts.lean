@@ -38,7 +38,7 @@ lemma site_U_lower {ι : Type*} (S : Finset ι) (v : ι → Vec3)
     have hj := hv j (by simp)
     simp only [Finset.prod_insert (by simpa using hij : i ∉ ({j} : Finset ι)), Finset.prod_singleton]
     rw [site_U, moment_local_two]
-    linarith [twoNeighbourLocalBound (v i) (v j) hi hj]
+    linarith [twoNeighborLocalBound (v i) (v j) hi hj]
   · obtain ⟨i, j, k, hij, hik, hjk, rfl⟩ := Finset.card_eq_three.mp h
     have hi := hv i (by simp)
     have hj := hv j (by simp)
@@ -47,7 +47,7 @@ lemma site_U_lower {ι : Type*} (S : Finset ι) (v : ι → Vec3)
       Finset.prod_insert (by simpa using hjk : j ∉ ({k} : Finset ι)), Finset.prod_singleton]
     simp_rw [← mul_assoc]
     rw [site_U, moment_local_three]
-    exact (threeNeighbourLocalBounds (v i) (v j) (v k) hi hj hk).1
+    exact (threeNeighborLocalBounds (v i) (v j) (v k) hi hj hk).1
 
 lemma site_D_upper {ι : Type*} (S : Finset ι) (v : ι → Vec3)
     (hS : S.card ≤ 2) (hv : ∀ i ∈ S, normSq (v i) ≤ 1) :

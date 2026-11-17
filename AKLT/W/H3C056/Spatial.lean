@@ -24,8 +24,8 @@ theorem mask_four (t₀ t₁ t₂ t₃ : Nat)
   have h3 := mask_sub h2 (mask_one t₃ h₃) (by intro s hs he; subst s; exact ⟨⟨⟨trivial,h03.symm⟩,h13.symm⟩,h23.symm⟩)
   exact mask_congr h3 (by intros; dsimp; tauto)
 
-theorem centre_mem : kernelCentre ∈ square (0,0) certificateRadius := by
-  norm_num [kernelCentre, square, certificateRadius]
+theorem center_mem : kernelCenter ∈ square (0,0) certificateRadius := by
+  norm_num [kernelCenter, square, certificateRadius]
 
 theorem start_mem : kernelStart ∈ square (0,0) certificateRadius := by
   norm_num [kernelStart, square, certificateRadius]
@@ -45,28 +45,28 @@ theorem case_ne_east (X : PairType) (d₀ : Compass) (h : (X,d₀) ∈ stationar
 
 theorem mask_ordinary (X : PairType) (d₀ : Compass) (hd : d₀ ≠ .east) :
     Mask (ordinaryMask X d₀) (fun s =>
-      gridSite s ≠ kernelCentre ∧ gridSite s ≠ kernelTarget X ∧
+      gridSite s ≠ kernelCenter ∧ gridSite s ≠ kernelTarget X ∧
       gridSite s ≠ kernelStart ∧ gridSite s ≠ kernelStart+d₀.step) := by
   unfold ordinaryMask
-  have h := mask_four (siteIndex kernelCentre) (siteIndex (kernelTarget X))
+  have h := mask_four (siteIndex kernelCenter) (siteIndex (kernelTarget X))
     (siteIndex kernelStart) (siteIndex (kernelStart+d₀.step))
-  have hb0 : siteIndex kernelCentre < 19881 := by decide
+  have hb0 : siteIndex kernelCenter < 19881 := by decide
   have hb1 : siteIndex (kernelTarget X) < 19881 := by cases X <;> decide
   have hb2 : siteIndex kernelStart < 19881 := by decide
   have hb3 : siteIndex (kernelStart+d₀.step) < 19881 := by cases d₀ <;> decide
   have hdis :
-      siteIndex kernelCentre ≠ siteIndex (kernelTarget X) ∧
-      siteIndex kernelCentre ≠ siteIndex kernelStart ∧
-      siteIndex kernelCentre ≠ siteIndex (kernelStart+d₀.step) ∧
+      siteIndex kernelCenter ≠ siteIndex (kernelTarget X) ∧
+      siteIndex kernelCenter ≠ siteIndex kernelStart ∧
+      siteIndex kernelCenter ≠ siteIndex (kernelStart+d₀.step) ∧
       siteIndex (kernelTarget X) ≠ siteIndex kernelStart ∧
       siteIndex (kernelTarget X) ≠ siteIndex (kernelStart+d₀.step) ∧
       siteIndex kernelStart ≠ siteIndex (kernelStart+d₀.step) := by
-    cases X <;> cases d₀ <;> simp_all [siteIndex, kernelCentre, kernelStart, kernelTarget, Compass.step]
+    cases X <;> cases d₀ <;> simp_all [siteIndex, kernelCenter, kernelStart, kernelTarget, Compass.step]
   have hm := h hb0 hb1 hb2 hb3 hdis.1 hdis.2.1 hdis.2.2.1
     hdis.2.2.2.1 hdis.2.2.2.2.1 hdis.2.2.2.2.2
   exact mask_congr hm (by
     intro s hs
-    exact (and_congr (not_congr (grid_eq s _ centre_mem))
+    exact (and_congr (not_congr (grid_eq s _ center_mem))
       (and_congr (not_congr (grid_eq s _ (target_mem X)))
         (and_congr (not_congr (grid_eq s _ start_mem))
           (not_congr (grid_eq s _ (next_mem d₀)))))).symm)
@@ -102,21 +102,21 @@ theorem mask_known (d₀ d : Compass) (hd : d₀ ≠ .east) :
 def deadRegion (j : Nat) (x : Plane) : Prop :=
   if j<4 then x = -(direction j).step else ∀ d : Compass, x ≠ -d.step
 
-theorem mask_centreNeighbour (j : Nat) :
-    Mask (centreNeighbourMask j) (fun s => gridSite s = -(direction j).step) := by
-  unfold centreNeighbourMask
+theorem mask_centerNeighbor (j : Nat) :
+    Mask (centerNeighborMask j) (fun s => gridSite s = -(direction j).step) := by
+  unfold centerNeighborMask
   exact mask_congr (mask_one _ (by
     generalize direction j = d
     cases d <;> decide)) (by
       intro s hs
       rw [grid_eq s _ (neg_step_mem (direction j))])
 
-theorem mask_centreNeighbours : Mask centreNeighbourMasks
+theorem mask_centerNeighbors : Mask centerNeighborMasks
     (fun s => ∃ d : Compass, gridSite s = -d.step) := by
-  have h0 := mask_centreNeighbour 0
-  have h1 := mask_centreNeighbour 1
-  have h2 := mask_centreNeighbour 2
-  have h3 := mask_centreNeighbour 3
+  have h0 := mask_centerNeighbor 0
+  have h1 := mask_centerNeighbor 1
+  have h2 := mask_centerNeighbor 2
+  have h3 := mask_centerNeighbor 3
   have hab := mask_add h0 h1 (by
     intro s hs hn
     have he := hn.1.symm.trans hn.2
@@ -129,9 +129,9 @@ theorem mask_centreNeighbours : Mask centreNeighbourMasks
     intro s hs hn
     rcases hn.1 with (h|h)|h <;>
       have he := h.symm.trans hn.2 <;> norm_num [direction, Compass.step] at he)
-  have he : centreNeighbourMasks =
-      centreNeighbourMask 0+centreNeighbourMask 1+centreNeighbourMask 2+centreNeighbourMask 3 := by
-    change 0+centreNeighbourMask 0+centreNeighbourMask 1+centreNeighbourMask 2+centreNeighbourMask 3 = _
+  have he : centerNeighborMasks =
+      centerNeighborMask 0+centerNeighborMask 1+centerNeighborMask 2+centerNeighborMask 3 := by
+    change 0+centerNeighborMask 0+centerNeighborMask 1+centerNeighborMask 2+centerNeighborMask 3 = _
     rw [Nat.zero_add]
   rw [he]
   exact mask_congr habcd (by
@@ -149,8 +149,8 @@ theorem mask_centreNeighbours : Mask centreNeighbourMasks
 theorem mask_dead (j : Nat) : Mask (deadMask j) (fun s => deadRegion j (gridSite s)) := by
   unfold deadMask deadRegion
   split_ifs with hj
-  · exact mask_centreNeighbour j
-  · exact mask_congr (mask_sub mask_all mask_centreNeighbours (by simp)) (by simp)
+  · exact mask_centerNeighbor j
+  · exact mask_congr (mask_sub mask_all mask_centerNeighbors (by simp)) (by simp)
 
 end
 end AKLT.W.H3C056

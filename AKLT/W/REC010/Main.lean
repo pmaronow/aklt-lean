@@ -16,7 +16,7 @@ namespace AKLT.W.REC010
 /-- The one-step trace preserves the auxiliary local rules at an admissible start. -/
 theorem traceStep_auxiliary {G : Finset Plane} {D : Network G}
     (hD : D.Auxiliary) {y o : Plane}
-    (hy : D.AdmissibleStart y) (ho : o ∈ D.presentNeighbours y) :
+    (hy : D.AdmissibleStart y) (ho : o ∈ D.presentNeighbors y) :
     (traceStep D y o).Auxiliary := by
   classical
   rcases hD with ⟨hlocal, hprotected⟩
@@ -54,12 +54,12 @@ theorem traceStep_auxiliary {G : Finset Plane} {D : Network G}
     exact ⟨hactiveSub hx, hactiveSub hz, hadj,
       hkeptSub x hzx, hkeptSub z hxz⟩
   have hneighSub (x : Plane) :
-      (traceStep D y o).presentNeighbours x ⊆ D.presentNeighbours x := by
+      (traceStep D y o).presentNeighbors x ⊆ D.presentNeighbors x := by
     intro z hz
-    simp only [Network.presentNeighbours, Finset.mem_filter] at hz ⊢
+    simp only [Network.presentNeighbors, Finset.mem_filter] at hz ⊢
     exact ⟨hz.1, hpresentSub x z hz.2⟩
-  have hneighYErase : (traceStep D y o).presentNeighbours y ⊆
-      (D.presentNeighbours y).erase o := by
+  have hneighYErase : (traceStep D y o).presentNeighbors y ⊆
+      (D.presentNeighbors y).erase o := by
     intro z hz
     have hzOld := hneighSub y hz
     have hzNe : z ≠ o := by
@@ -69,8 +69,8 @@ theorem traceStep_auxiliary {G : Finset Plane} {D : Network G}
       rcases hpres with ⟨_, _, _, hkeep, _⟩
       simp [traceStep] at hkeep
     exact Finset.mem_erase.mpr ⟨hzNe, hzOld⟩
-  have hneighYCard : ((traceStep D y o).presentNeighbours y).card ≤
-      (D.presentNeighbours y).card := Finset.card_le_card (hneighSub y)
+  have hneighYCard : ((traceStep D y o).presentNeighbors y).card ≤
+      (D.presentNeighbors y).card := Finset.card_le_card (hneighSub y)
   have hstatusNe (x : Plane) (hx : x ≠ y) :
       (traceStep D y o).status x = D.status x := by simp [traceStep, hx]
   refine ⟨?_, ?_⟩
@@ -87,20 +87,20 @@ theorem traceStep_auxiliary {G : Finset Plane} {D : Network G}
     · intro x hxG hs
       by_cases hxy : x = y
       · subst x
-        have hCard : (D.presentNeighbours y).card ≤ 3 := by
+        have hCard : (D.presentNeighbors y).card ≤ 3 := by
           rcases hycase with hU | hDcase
           · exact hU.2
           · simp [traceStep, hDcase.1] at hs
-        have hNewCard : ((traceStep D y o).presentNeighbours y).card ≤ 2 := by
-          have hEraseCard : ((D.presentNeighbours y).erase o).card =
-              (D.presentNeighbours y).card - 1 := Finset.card_erase_of_mem ho
+        have hNewCard : ((traceStep D y o).presentNeighbors y).card ≤ 2 := by
+          have hEraseCard : ((D.presentNeighbors y).erase o).card =
+              (D.presentNeighbors y).card - 1 := Finset.card_erase_of_mem ho
           calc
-            _ ≤ ((D.presentNeighbours y).erase o).card := Finset.card_le_card hneighYErase
+            _ ≤ ((D.presentNeighbors y).erase o).card := Finset.card_le_card hneighYErase
             _ ≤ 2 := by rw [hEraseCard]; omega
         exact hNewCard
       · rw [hstatusNe x hxy] at hs
-        have hcard : ((traceStep D y o).presentNeighbours x).card ≤
-            (D.presentNeighbours x).card := Finset.card_le_card (hneighSub x)
+        have hcard : ((traceStep D y o).presentNeighbors x).card ≤
+            (D.presentNeighbors x).card := Finset.card_le_card (hneighSub x)
         exact hcard.trans (hDdegree x hxG hs)
     · intro x hxActive
       have hxOld : x ∈ D.active := hactiveSub hxActive

@@ -128,7 +128,7 @@ lemma framePinnedSum_eq_complementaryFrameTerm (κ : Plane → Fin 3) (G : Finse
 
 
 /-- The edge identity is pointwise and does not require positivity or a proper coloring. -/
-theorem fibre_integrand_factorization (κ : Plane → Fin 3) {F B : Finset Plane}
+theorem fiber_integrand_factorization (κ : Plane → Fin 3) {F B : Finset Plane}
     (hBF : B ⊆ F) (hNo : NoBond (↑B) {z | z ∉ F})
     (unit : ∀ j a, normSq (frameVector j a) = 1)
     (η : FrameBoundary F) (s : PlaneConfiguration B) (n : PlaneConfiguration (F \ B)) :
@@ -238,7 +238,7 @@ theorem fibre_integrand_factorization (κ : Plane → Fin 3) {F B : Finset Plane
 
 /-- Summing the pointwise factorization over the complementary configuration
 gives the exact unnormalized window marginal. -/
-theorem main : AKLT.Blueprint.Win.FrameFibreSumStatement := by
+theorem main : AKLT.Blueprint.Win.FrameFiberSumStatement := by
   classical
   intro _hThree κ _hκ F B hBF hNoBond unit η s
   rw [marginalNumerator_eq_sum_glue hBF η s]
@@ -249,7 +249,7 @@ theorem main : AKLT.Blueprint.Win.FrameFibreSumStatement := by
             complementaryFrameTerm κ (F \ B) (cutPins κ (F \ B) F B unit η s) n := by
           apply Finset.sum_congr rfl
           intro n hn
-          exact fibre_integrand_factorization κ hBF hNoBond unit η s n
+          exact fiber_integrand_factorization κ hBF hNoBond unit η s n
     _ = windowWeight κ B s *
           (∑ n : PlaneConfiguration (F \ B),
             complementaryFrameTerm κ (F \ B) (cutPins κ (F \ B) F B unit η s) n) := by

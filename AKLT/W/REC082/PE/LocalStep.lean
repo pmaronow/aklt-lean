@@ -65,23 +65,23 @@ private theorem outside_weights_step {G : Finset Plane} (D : Network G)
 
 /-- Disintegration of each successor numerator using exactly the same
 outside configurations and original-leg factors as the pre-step numerator. -/
-private theorem successor_partition_fibre {G : Finset Plane} (D : Network G)
+private theorem successor_partition_fiber {G : Finset Plane} (D : Network G)
     (τ : PinAssignment G) (b : Bool) (u : G) (v o : Plane)
     (hu : D.AdmissibleStart u.val) (hp : D.Present u.val o)
     (huv : u.val ≠ v) (k : Fin 3) :
     (traceStep D u.val o).partition τ b (fun a => a o k * a v k) =
       ∑ n : {x : G // x ≠ u} → SpinLetter,
         (∏ x : {x : G // x ≠ u}, paddedWeight (D.status x.val.val) (n x)) *
-          exteriorFactors D τ b u.val (fibreSpins u n) *
+          exteriorFactors D τ b u.val (fiberSpins u n) *
             paddedSiteFunctional (if D.status u.val = .U then .D else .X)
-              (fun a => (fibreSpins u n o k * fibreSpins u n v k) *
-                ∏ p ∈ (D.presentNeighbours u.val).erase o,
-                  (1 + dot a (fibreSpins u n p))) := by
+              (fun a => (fiberSpins u n o k * fiberSpins u n v k) *
+                ∏ p ∈ (D.presentNeighbors u.val).erase o,
+                  (1 + dot a (fiberSpins u n p))) := by
   classical
-  rw [partition_site_fibre _ τ b u hu.2.1]
+  rw [partition_site_fiber _ τ b u hu.2.1]
   apply Finset.sum_congr rfl
   intro n hn
-  rw [outside_weights_step, exteriorFactors_step hu hp, departureNeighbours_step hu hp]
+  rw [outside_weights_step, exteriorFactors_step hu hp, departureNeighbors_step hu hp]
   have ho : o ≠ u.val := present_ne hp
   simp only [traceStep, Function.update_self,
     Function.update_of_ne ho, Function.update_of_ne huv.symm]
@@ -92,11 +92,11 @@ theorem coordinateStep : CoordinateStepStatement := by
   intro G τ D hD u v hu hv huv b k
   classical
   let uG : G := ⟨u, (Finset.mem_filter.mp hu.1).1⟩
-  have hsucc (o : Plane) (ho : o ∈ D.presentNeighbours u) :=
-    successor_partition_fibre D τ b uG v o hu (Finset.mem_filter.mp ho).2 huv k
-  rw [partition_site_fibre D τ b uG hu.2.1]
+  have hsucc (o : Plane) (ho : o ∈ D.presentNeighbors u) :=
+    successor_partition_fiber D τ b uG v o hu (Finset.mem_filter.mp ho).2 huv k
+  rw [partition_site_fiber D τ b uG hu.2.1]
   simp only [uG, Function.update_self, Function.update_of_ne huv.symm]
-  simp_rw [marked_site_step (D.status u) (D.presentNeighbours u) hu.2.2]
+  simp_rw [marked_site_step (D.status u) (D.presentNeighbors u) hu.2.2]
   simp_rw [Finset.mul_sum]
   rw [Finset.sum_comm]
   apply Finset.sum_congr rfl

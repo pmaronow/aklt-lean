@@ -58,7 +58,7 @@ the exact ground line, and its independence of the selected edge orientations. -
 def TorusKernelStatement : Prop :=
   ∀ L N : Size,
     (∀ e : Bond L N, (bondSites e).card = 2) ∧ Function.Injective (@bondSites L N) ∧
-    (∀ x : Site L N, (torusNeighbours x).card = 4 ∧ x ∉ torusNeighbours x) ∧
+    (∀ x : Site L N, (torusNeighbors x).card = 4 ∧ x ∉ torusNeighbors x) ∧
     B L N ≠ 0 ∧ LinearMap.ker (H L N) = Submodule.span ℂ {B L N} ∧
     ∀ ε : Bond L N → Bool, Submodule.span ℂ {reorientedB L N ε} = Submodule.span ℂ {B L N}
 
@@ -76,7 +76,7 @@ def StarStatement : Prop :=
 and proper coloring. Quantification over all Poincare lower bounds is the form version
 of the displayed gap inequality and remains meaningful on one-point products. -/
 def QDStatement : Prop :=
-  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
+  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColoring κ →
     (∀ σ, torusLaw L N κ σ =
       torusReference L N σ * Complex.normSq (frameEval κ (B L N) σ) / ‖B L N‖^2) ∧
     ∀ γ : ℝ, PoincareLower (torusLaw L N κ) γ → ∀ ψ : Hilbert L N,
@@ -86,7 +86,7 @@ def QDStatement : Prop :=
 assignment bounds with alpha in (0,1], and the internal-edge-only block Poincare bound. -/
 def PlaneEnergyStatement : Prop :=
   0 < frameEnergy ∧ frameEnergy ≤ 1 ∧
-  (∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane, ∀ η : FrameBoundary W,
+  (∀ κ : Plane → Fin 3, ProperPlaneColoring κ → ∀ W : Finset Plane, ∀ η : FrameBoundary W,
     PositiveProbability (planeLaw κ W η) ∧
     (∀ V : Finset Plane, V ⊆ W → ∀ σ : PlaneConfiguration W,
       conditionalPlaneLaw κ W V η σ = planeLaw κ V (inducedBoundary W V η σ)) ∧
@@ -96,10 +96,10 @@ def PlaneEnergyStatement : Prop :=
         (fun σ => ∀ x ∈ J, extendLetters σ x = a x)
         (fun σ => ∀ x ∈ U, extendLetters σ x = b x) ≥ frameEnergy ^ U.card) ∧
     PoincareLower (planeLaw κ W η) (frameRatio ^ (internalBonds W).card)) ∧
-  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
+  ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColoring κ →
     PositiveProbability (torusLaw L N κ) ∧
     (∀ U : Finset (Site L N), ∀ σ ξ : TorusConfiguration L N,
-      (∀ z ∈ (U.biUnion torusNeighbours) \ U, σ z = ξ z) →
+      (∀ z ∈ (U.biUnion torusNeighbors) \ U, σ z = ξ z) →
         conditionalTorusLaw L N κ U σ = conditionalTorusLaw L N κ U ξ) ∧
     ∀ U J : Finset (Site L N), Disjoint U J → ∀ a b : TorusConfiguration L N,
       conditionalProbability (torusLaw L N κ) (fun σ => ∀ x ∈ J, σ x = a x)

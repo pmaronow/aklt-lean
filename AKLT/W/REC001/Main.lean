@@ -149,13 +149,13 @@ theorem ico_letter_avoidance (k : ℕ) (b : Fin k → Vec3)
   have hcard' : 12 ≤ k := by simpa [IcoLetter] using hcard
   omega
 
-theorem adjacent_mem_neighbours {x y : Plane} (h : Adjacent x y) : y ∈ neighbours x := by
+theorem adjacent_mem_neighbors {x y : Plane} (h : Adjacent x y) : y ∈ neighbors x := by
   rcases x with ⟨x₁, x₂⟩
   rcases y with ⟨y₁, y₂⟩
   change (x₁ - y₁).natAbs + (x₂ - y₂).natAbs = 1 at h
   have hc : ((x₁ - y₁).natAbs : ℤ) + ((x₂ - y₂).natAbs : ℤ) = 1 := by exact_mod_cast h
   have go (d : Compass) (heq : (x₁, x₂) + d.step = (y₁, y₂)) :
-      (y₁, y₂) ∈ neighbours (x₁, x₂) := by
+      (y₁, y₂) ∈ neighbors (x₁, x₂) := by
     apply Finset.mem_image.mpr
     exact ⟨d, Finset.mem_univ _, heq⟩
   by_cases h₁ : x₁ ≤ y₁ <;> by_cases h₂ : x₂ ≤ y₂
@@ -229,10 +229,10 @@ theorem exists_partialGood {G : Finset Plane} (D : Network G) (τ : PinAssignmen
         exact hsub (Finset.mem_insert_of_mem hy)
       obtain ⟨σ, hσ⟩ := ih hsubOld
       have hxActive : x ∈ D.active := hsub (Finset.mem_insert_self x S)
-      let N : Finset Plane := (D.presentNeighbours x).filter fun y => y ∈ S
+      let N : Finset Plane := (D.presentNeighbors x).filter fun y => y ∈ S
       let L : Finset (Plane × Plane) := (originalLegs G).filter fun e => e.1 = x
       let C := {y : Plane // y ∈ N} ⊕ {e : Plane × Plane // e ∈ L}
-      have hN : N.card ≤ (D.presentNeighbours x).card := by
+      have hN : N.card ≤ (D.presentNeighbors x).card := by
         exact Finset.card_le_card (Finset.filter_subset _ _)
       have hL : L.card = ((originalLegs G).filter fun e => e.1 = x).card := rfl
       have hdegree := hD.1.2.2.2 x hxActive
@@ -276,7 +276,7 @@ theorem exists_partialGood {G : Finset Plane} (D : Network G) (τ : PinAssignmen
                   have ht := hPresent
                   rw [he₁x] at ht
                   exact ht
-                exact ⟨adjacent_mem_neighbours hpresent.2.2.1, hpresent⟩
+                exact ⟨adjacent_mem_neighbors hpresent.2.2.1, hpresent⟩
               have hp := hpositive (Sum.inl ⟨e.2, hmemN⟩)
               simpa [σ', cv, Function.update, he₁x,
                 (ne_of_mem_of_not_mem he₂old hx), dot, mul_comm] using hp
@@ -289,7 +289,7 @@ theorem exists_partialGood {G : Finset Plane} (D : Network G) (τ : PinAssignmen
                   rw [he₂x] at ht
                   exact ht
                 have hpresent' := present_symm D hpresent
-                exact ⟨adjacent_mem_neighbours hpresent'.2.2.1, hpresent'⟩
+                exact ⟨adjacent_mem_neighbors hpresent'.2.2.1, hpresent'⟩
               have hp := hpositive (Sum.inl ⟨e.1, hmemN⟩)
               simpa [σ', cv, Function.update, he₂x,
                 (ne_of_mem_of_not_mem he₁old hx), dot, mul_comm] using hp
@@ -441,7 +441,7 @@ end AKLT.W.REC001
 #print axioms AKLT.W.REC001.ico_forbid_unique
 #print axioms AKLT.W.REC001.dotFactor_nonneg
 #print axioms AKLT.W.REC001.ico_letter_avoidance
-#print axioms AKLT.W.REC001.adjacent_mem_neighbours
+#print axioms AKLT.W.REC001.adjacent_mem_neighbors
 #print axioms AKLT.W.REC001.present_symm
 #print axioms AKLT.W.REC001.exists_partialGood
 #print axioms AKLT.W.REC001.exists_positive_assignment

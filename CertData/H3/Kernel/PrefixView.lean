@@ -79,14 +79,14 @@ theorem mergeSortFuel_eq {α : Type*} (le : α → α → Bool) (fuel : Nat) (xs
 
 /-- A decidable geometric spelling of the Defs dead-site filter. -/
 def liveOtherView {n : Nat} (w : DirectionWord n) (i : Fin n) : Finset Plane :=
-  ((responseNeighbours w i).erase (wordVertex kernelStart w (i.val+1))).filter
-    (fun z => z ≠ kernelCentre ∧ departureCount kernelStart w i.val z < 2)
+  ((responseNeighbors w i).erase (wordVertex kernelStart w (i.val+1))).filter
+    (fun z => z ≠ kernelCenter ∧ departureCount kernelStart w i.val z < 2)
 
 theorem liveOther_view {n : Nat} (w : DirectionWord n) (i : Fin n) :
-    liveOtherNeighbours w i = liveOtherView w i := by
+    liveOtherNeighbors w i = liveOtherView w i := by
   classical
   ext z
-  simp [liveOtherNeighbours, liveOtherView, deadAt, not_or, not_le]
+  simp [liveOtherNeighbors, liveOtherView, deadAt, not_or, not_le]
 
 noncomputable def kappaView {n : Nat} (w : DirectionWord n) (i : Fin n) : ℚ :=
   let live := liveOtherView w i

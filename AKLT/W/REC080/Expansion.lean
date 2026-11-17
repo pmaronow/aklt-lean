@@ -80,7 +80,7 @@ theorem adjacent_direction {v c : Plane} (h : Adjacent v c) :
 def terminalNetwork (p : PairData) {n : ℕ} (w : DirectionWord n) : Network p.G :=
   normalizeStart (traceNetwork p.normalized (wordVertices p.u w)) p.v p.c
 
-theorem terminal_centre_removed (p : PairData) {n : ℕ} (w : DirectionWord n) :
+theorem terminal_center_removed (p : PairData) {n : ℕ} (w : DirectionWord n) :
     (terminalNetwork p w).status p.c = .X := by
   apply trace_removed p.normalized p.c _ (wordVertices p.u w)
   exact p.pair.2.2.2.2.1
@@ -92,7 +92,7 @@ theorem terminal_absent (p : PairData) {n : ℕ} (w : DirectionWord n)
   rw [heq]
   intro h
   have hc := (Finset.mem_filter.mp h.1).2
-  exact hc (terminal_centre_removed p w)
+  exact hc (terminal_center_removed p w)
 
 theorem terminal_expectation (p : PairData) {n : ℕ} (w : DirectionWord n)
     (b : Bool) (f : (Plane → Vec3) → ℝ) :

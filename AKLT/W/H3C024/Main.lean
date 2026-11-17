@@ -11,8 +11,8 @@ open AKLT.Defs
 
 namespace AKLT.W.H3C024
 
-theorem main : CertData.H3.Bridge.CentreZeroV2Leaf := by
-  intro Q C X d₀ hcentre φ a x
+theorem main : CertData.H3.Bridge.CenterZeroV2Leaf := by
+  intro Q C X d₀ hcenter φ a x
   have hsum :
       (∑ d : Compass, ∑ ψ : Phase,
         coefficientCeiling (stationaryCoefficient Q X d₀ φ a x d ψ) *
@@ -24,10 +24,10 @@ theorem main : CertData.H3.Bridge.CentreZeroV2Leaf := by
     intro d hd
     apply Finset.sum_congr rfl
     intro ψ hψ
-    by_cases hdest : x + d.step = kernelCentre
+    by_cases hdest : x + d.step = kernelCenter
     · have hzero : C.extended ψ (Q.successor a d) (x + d.step) = 0 := by
         rw [hdest]
-        exact hcentre ψ (Q.successor a d)
+        exact hcenter ψ (Q.successor a d)
       rw [hzero]
       simp [stationaryCoefficientV2, hdest]
     · have hcoef :

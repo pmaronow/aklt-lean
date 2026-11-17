@@ -26,15 +26,15 @@ def pull (P Z : Nat) (d : Compass) : Nat :=
     Nat.land (repeatLane 80 19881 Z) (boundaryMask d)
 
 def ordinaryMask (X : PairType) (d₀ : Compass) : Nat :=
-  allMask - oneMask (siteIndex kernelCentre) - oneMask (siteIndex (kernelTarget X)) -
+  allMask - oneMask (siteIndex kernelCenter) - oneMask (siteIndex (kernelTarget X)) -
     oneMask (siteIndex kernelStart) - oneMask (siteIndex (kernelStart+d₀.step))
 def knownMask (d₀ d : Compass) : Nat :=
   (if d = d₀ then 0 else oneMask (siteIndex kernelStart)) +
   (if d = d₀.reverse then 0 else oneMask (siteIndex (kernelStart+d₀.step)))
-def centreNeighbourMask (j : Nat) : Nat := oneMask (siteIndex (-(direction j).step))
-def centreNeighbourMasks : Nat := (List.range 4).foldl (fun a j => a + centreNeighbourMask j) 0
+def centerNeighborMask (j : Nat) : Nat := oneMask (siteIndex (-(direction j).step))
+def centerNeighborMasks : Nat := (List.range 4).foldl (fun a j => a + centerNeighborMask j) 0
 def deadMask (j : Nat) : Nat :=
-  if j < 4 then centreNeighbourMask j else allMask - centreNeighbourMasks
+  if j < 4 then centerNeighborMask j else allMask - centerNeighborMasks
 
 def qs : Nat := 97632666219444
 def qt : Nat := 100347585280092
@@ -95,8 +95,8 @@ def RowTermsAgreement : Prop :=
     (X : PairType) (d₀ : Compass) (φ : Phase) (a : Fin q),
     Q.Correct → (X,d₀) ∈ stationaryCases →
     (∀ ψ b, cap ψ b < 2^26 ∧ Fits (plane ψ b) 80 19881 ∧
-      lane (plane ψ b) 80 (siteIndex kernelCentre) = 0) →
-    ∀ s < 19881, gridSite s ≠ kernelCentre → gridSite s ≠ kernelTarget X →
+      lane (plane ψ b) 80 (siteIndex kernelCenter) = 0) →
+    ∀ s < 19881, gridSite s ≠ kernelCenter → gridSite s ≠ kernelTarget X →
       component 80 s (rowTerms Q plane cap X d₀ φ a) =
         ∑ d : Compass, ∑ ψ : Phase,
           coefficientCeiling (stationaryCoefficient Q X d₀ φ a (gridSite s) d ψ) *

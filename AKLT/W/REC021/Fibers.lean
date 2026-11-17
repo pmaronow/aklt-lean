@@ -14,7 +14,7 @@ namespace AKLT.W.REC021
 
 /-- One fiber of the spins outside the three mutually nonadjacent neighbors.
 Missing incident factors are represented by zero fields. -/
-structure CubicFibre where
+structure CubicFiber where
   coefficient : ℝ
   coefficient_nonneg : 0 ≤ coefficient
   status : Fin 3 → Status
@@ -22,24 +22,24 @@ structure CubicFibre where
   field : Fin 3 → Fin 3 → Vec3
   field_ball : ∀ i j, normSq (field i j) ≤ 1
 
-def CubicFibre.A (F : CubicFibre) (i : Fin 3) : ℝ :=
+def CubicFiber.A (F : CubicFiber) (i : Fin 3) : ℝ :=
   cubicA (F.status i) (F.field i 0) (F.field i 1) (F.field i 2)
 
-def CubicFibre.B (F : CubicFibre) (i : Fin 3) : Vec3 :=
+def CubicFiber.B (F : CubicFiber) (i : Fin 3) : Vec3 :=
   cubicB (F.status i) (F.field i 0) (F.field i 1) (F.field i 2)
 
-def CubicFibre.mass (F : CubicFibre) : ℝ :=
+def CubicFiber.mass (F : CubicFiber) : ℝ :=
   F.coefficient * (F.A 0 * F.A 1 * F.A 2)
 
-def CubicFibre.pairMass (F : CubicFibre) : ℝ :=
+def CubicFiber.pairMass (F : CubicFiber) : ℝ :=
   F.coefficient * (dot (F.B 0) (F.B 1) * F.A 2 +
     dot (F.B 0) (F.B 2) * F.A 1 + dot (F.B 1) (F.B 2) * F.A 0)
 
-theorem CubicFibre.A_pos (F : CubicFibre) (i : Fin 3) : 0 < F.A i :=
+theorem CubicFiber.A_pos (F : CubicFiber) (i : Fin 3) : 0 < F.A i :=
   (cubic_bound _ (F.status_active i) _ _ _ (F.field_ball i 0)
     (F.field_ball i 1) (F.field_ball i 2)).1
 
-theorem CubicFibre.mass_nonneg (F : CubicFibre) : 0 ≤ F.mass :=
+theorem CubicFiber.mass_nonneg (F : CubicFiber) : 0 ≤ F.mass :=
   mul_nonneg F.coefficient_nonneg (by exact le_of_lt (mul_pos (mul_pos (F.A_pos 0)
     (F.A_pos 1)) (F.A_pos 2)))
 
@@ -48,7 +48,7 @@ theorem dot_div (a b : Vec3) (x y : ℝ) :
   simp only [dot, Fin.sum_univ_three]
   ring
 
-theorem CubicFibre.pairMass_lower (F : CubicFibre) :
+theorem CubicFiber.pairMass_lower (F : CubicFiber) :
     -(27 / 50 : ℝ) * F.mass ≤ F.pairMass := by
   let m (j : Fin 3) : Vec3 := fun i => F.B j i / F.A j
   have hb (j : Fin 3) : normSq (m j) ≤ (9 / 25 : ℝ) :=
@@ -68,10 +68,10 @@ theorem CubicFibre.pairMass_lower (F : CubicFibre) :
     <;> ring
   rw [he] at hmul
   have h := mul_le_mul_of_nonneg_left hmul F.coefficient_nonneg
-  simpa only [CubicFibre.mass, CubicFibre.pairMass, mul_left_comm] using h
+  simpa only [CubicFiber.mass, CubicFiber.pairMass, mul_left_comm] using h
 
-#print axioms CubicFibre.A_pos
-#print axioms CubicFibre.mass_nonneg
-#print axioms CubicFibre.pairMass_lower
+#print axioms CubicFiber.A_pos
+#print axioms CubicFiber.mass_nonneg
+#print axioms CubicFiber.pairMass_lower
 
 end AKLT.W.REC021

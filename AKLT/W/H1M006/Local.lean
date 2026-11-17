@@ -50,8 +50,8 @@ theorem split_slots (π : PatternData) (h0 : (0, 0) ∈ π.active)
   intro j _
   simp only [split_spins, external_not_origin, ↓reduceIte]
 
-theorem neighbours_not_origin (π : PatternData) (f g : Plane)
-    (hn : PassageNeighbours π f g) :
+theorem neighbors_not_origin (π : PatternData) (f g : Plane)
+    (hn : PassageNeighbors π f g) :
     f ≠ (0, 0) ∧ g ≠ (0, 0) ∧ π.outgoing.step ≠ (0, 0) := by
   have hs : passageSites = {π.outgoing.step, f, g} := hn.1.symm
   exact ⟨(passage_sites_geometry f (by simp [hs])).2.2,
@@ -59,7 +59,7 @@ theorem neighbours_not_origin (π : PatternData) (f g : Plane)
     (passage_sites_geometry π.outgoing.step (by simp [hs])).2.2⟩
 
 theorem originalSummand_factorized (π : PatternData) (hπ : π.Covered)
-    (next : Bool) (m : Fin 20 → UnitVector) (f g : Plane) (hn : PassageNeighbours π f g)
+    (next : Bool) (m : Fin 20 → UnitVector) (f g : Plane) (hn : PassageNeighbors π f g)
     (n : passageComplement π → SpinLetter) (p : SpinLetter) :
     originalSummand π next m (splitAssignments π (origin_active π hπ) (n, p)) =
       complementWeight π m n * (spinWeight (if next then .D else .U) p *
@@ -70,7 +70,7 @@ theorem originalSummand_factorized (π : PatternData) (hπ : π.Covered)
   change (_ * bondProduct π next (π.spins _) * slotProduct π m (π.spins _)) = _
   rw [split_weights π hπ next n p, factor_bonds π hπ next _ (spins_removed π _) f g hn,
     split_remaining_bonds, split_slots]
-  have hn0 := neighbours_not_origin π f g hn
+  have hn0 := neighbors_not_origin π f g hn
   simp only [split_spins, ↓reduceIte, hn0.1, hn0.2.1, hn0.2.2]
   unfold complementWeight
   ring
@@ -81,7 +81,7 @@ theorem local_fubini
         1 + (dot a b + dot a o + dot b o) / 3 ∧
       siteFunctional .D (fun z => (1 + dot z a) * (1 + dot z b)) = 1 + dot a b / 5)
     (π : PatternData) (hπ : π.Covered) (m : Fin 20 → UnitVector)
-    (f g : Plane) (hn : PassageNeighbours π f g) (n : passageComplement π → SpinLetter) :
+    (f g : Plane) (hn : PassageNeighbors π f g) (n : passageComplement π → SpinLetter) :
     (∑ p : SpinLetter,
       originalSummand π false m (splitAssignments π (origin_active π hπ) (n, p))) =
         erasedSummand π m (passageI π.outgoing.step f g) n ∧

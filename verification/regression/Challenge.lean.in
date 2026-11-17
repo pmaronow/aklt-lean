@@ -51,14 +51,14 @@ def Adjacent (x y : Plane) : Prop := latticeDist x y = 1
 instance (x y : Plane) : Decidable (Adjacent x y) := inferInstanceAs (Decidable (_ = _))
 
 /-- Four physical neighbors. -/
-def neighbours (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
+def neighbors (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
 
 /-- The positive orientations, used solely to count each internal bond once. -/
-def positiveNeighbours (x : Plane) : Finset Plane := {(x.1 + 1, x.2), (x.1, x.2 + 1)}
+def positiveNeighbors (x : Plane) : Finset Plane := {(x.1 + 1, x.2), (x.1, x.2 + 1)}
 
 /-- `d:pinmodel`: each internal unoriented edge, indexed once. -/
 def internalBonds (G : Finset Plane) : Finset (Plane × Plane) :=
-  G.biUnion fun x => (positiveNeighbours x ∩ G).image (fun y => (x, y))
+  G.biUnion fun x => (positiveNeighbors x ∩ G).image (fun y => (x, y))
 
 /-- `d:shells`: the translated physical square of integer radius `u`. -/
 def square (a : Plane) (u : ℕ) : Finset Plane :=
@@ -217,40 +217,40 @@ namespace AKLT.Defs
 
 /-- `d:kernel`: the fixed start, center, target and incoming direction of each row. -/
 def kernelStart : Plane := (-1, 0)
-def kernelCentre : Plane := (0, 0)
+def kernelCenter : Plane := (0, 0)
 def kernelTarget : PairType → Plane | .B => (1, 0) | .C => (0, 1)
 def kernelIncoming : Compass := .west
 
 /-- `ClosedTrail` describes a first-hit path to v, avoiding c, with no repeated unoriented bond (`d:kernel`). -/
 def ClosedTrail {n : ℕ} (X : PairType) (w : DirectionWord n) : Prop :=
   IsTrail kernelStart kernelIncoming w ∧ wordVertex kernelStart w n = kernelTarget X ∧
-  (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre) ∧
+  (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCenter) ∧
   ∀ j < n, wordVertex kernelStart w j ≠ kernelTarget X
 
 /-- `d:kernel`: dead sites are the center and sites with two previous departures. -/
 def deadAt {n : ℕ} (w : DirectionWord n) (i : Fin n) (z : Plane) : Prop :=
-  z = kernelCentre ∨ 2 ≤ departureCount kernelStart w i.val z
+  z = kernelCenter ∨ 2 ≤ departureCount kernelStart w i.val z
 
 /-- `d:kernel`: the three nonarrival neighbors, with the actual outgoing neighbor distinguished. -/
-def responseNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane :=
-  (neighbours (wordVertex kernelStart w i.val)).erase
+def responseNeighbors {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane :=
+  (neighbors (wordVertex kernelStart w i.val)).erase
     (wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step)
 
 /-- Live non-outgoing neighbors; this is where the beta-prime case is decided. -/
-def liveOtherNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
+def liveOtherNeighbors {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
   classical
-  exact ((responseNeighbours w i).erase (wordVertex kernelStart w (i.val + 1))).filter
+  exact ((responseNeighbors w i).erase (wordVertex kernelStart w (i.val + 1))).filter
     fun z => ¬ deadAt w i z
 
 /-- `d:kernel`: live response pairs, represented as two-element finite sets. -/
 def responsePairs {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset (Finset Plane) :=
-  (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).powersetCard 2
+  (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbors w i)).powersetCard 2
 
 /-- `d:kernel`: exact type-dependent coefficient, including one-live-neighbor beta-prime. -/
 def pairCoefficient {n : ℕ} (w : DirectionWord n) (i : Fin n) (p : Finset Plane) : ℚ :=
   let straight := wordStraight kernelIncoming w i
   if wordVertex kernelStart w (i.val + 1) ∈ p then
-    if (liveOtherNeighbours w i).card = 1 then betaPrimeBound straight else betaBound straight
+    if (liveOtherNeighbors w i).card = 1 then betaPrimeBound straight else betaBound straight
   else alphaBound straight
 
 /-- Pair type is collinear exactly when both sites share a coordinate. -/
@@ -365,7 +365,7 @@ def PatternData.Covered (π : PatternData) : Prop :=
   (∀ x ∈ templateCorners, π.statusAt x = .U ∨ π.statusAt x = .X ∨
     (π.statusAt x = .D ∧ (π.keptAt x).card = 2)) ∧
   (∀ x ∈ templateSites, x ≠ (0, 0) → x ∉ templateTips → π.statusAt x = .U →
-    π.keptAt x = neighbours x) ∧
+    π.keptAt x = neighbors x) ∧
   (∀ x ∈ templateTips, π.statusAt x = .U) ∧
   ∀ x ∈ templateSites \ templateTips, ∀ y ∈ templateSites \ templateTips,
     π.statusAt x ≠ .X → π.statusAt y ≠ .X → Adjacent x y →

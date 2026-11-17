@@ -42,7 +42,7 @@ def SpectralKernelCoercivityStatement : Prop :=
 /-- `l:star`, lines 245–249: a coordinate permutation identifies an incident
 torus star with independent copies of the fixed five-site star. Prove the
 five sites distinct using periods >=3, also when either period equals three. -/
-def StarRelabellingStatement : Prop :=
+def StarRelabelingStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N,
     ∃ n : ℕ, ∃ U : Hilbert L N ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n × (Fin 5 → Fin 5)),
       amplifiesStar (siteHamiltonian x) n U

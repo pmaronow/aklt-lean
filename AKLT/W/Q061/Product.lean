@@ -225,7 +225,7 @@ theorem energy_split (p : (x : ι) → Weight (S x))
   rw [hcross, add_zero]
   rfl
 
-theorem sum_fibre {M : Type*} [AddCommMonoid M] (x : ι)
+theorem sum_fiber {M : Type*} [AddCommMonoid M] (x : ι)
     (σ : (x : ι) → S x) (F : ((x : ι) → S x) → M) :
     (∑ τ, if AgreeOutside {x} σ τ then F τ else 0) =
       ∑ a, F (Function.update σ x a) := by
@@ -258,7 +258,7 @@ theorem conditionalExpectation_singleton (p : (x : ι) → Weight (S x))
     conditionalExpectation (productMass p) {x} f σ = siteAverage p x f σ := by
   classical
   unfold conditionalExpectation
-  rw [sum_fibre, sum_fibre]
+  rw [sum_fiber, sum_fiber]
   simp_rw [productMass_update, Complex.ofReal_mul, mul_assoc]
   rw [← Finset.mul_sum, ← Finset.mul_sum]
   have h : ∑ a, (p x a : ℂ) = 1 := by exact_mod_cast (hp x).2

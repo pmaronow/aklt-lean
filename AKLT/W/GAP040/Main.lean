@@ -59,14 +59,14 @@ private theorem marginal_decEq_irrel {Ω Ξ : Type*} [Fintype Ω]
   intro x _
   by_cases h : r x = z <;> simp [h]
 
-private theorem neighbour_supDist_eq_one {x y : Plane}
-    (h : y ∈ neighbours x) : supDist y x = 1 := by
+private theorem neighbor_supDist_eq_one {x y : Plane}
+    (h : y ∈ neighbors x) : supDist y x = 1 := by
   rcases Finset.mem_image.mp h with ⟨d, _, rfl⟩
   cases d <;> simp [supDist, Compass.step]
 
-private theorem neighbour_mem_exteriorSites
+private theorem neighbor_mem_exteriorSites
     {W : Finset Plane} {x y : Plane}
-    (hx : x ∈ W) (hy : y ∈ neighbours x \ W) :
+    (hx : x ∈ W) (hy : y ∈ neighbors x \ W) :
     y ∈ exteriorSites W := by
   change y ∈ (originalLegs W).image Prod.snd
   refine Finset.mem_image.mpr ⟨(x, y), ?_, rfl⟩
@@ -178,7 +178,7 @@ theorem main : AKLT.Blueprint.Gap.FrameSpecRegularityStatement := by
         exact iInf_le
           (fun q : {q : Plane // q ∈ (↑W : Set Plane)} => (supDist y q.val : ℕ∞))
           ⟨x, hxSet⟩
-      rw [neighbour_supDist_eq_one ((Finset.mem_sdiff.mp hy).1)] at hle
+      rw [neighbor_supDist_eq_one ((Finset.mem_sdiff.mp hy).1)] at hle
       exact hle
     have hagree' := hagree y hyW hdist
     have heq : e = (x, y) := hxy.symm

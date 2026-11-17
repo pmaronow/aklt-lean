@@ -20,7 +20,7 @@ namespace AKLT.W.REC019
 /-- The three-spin conditional-mean lower bound, before any logarithms. -/
 def Residual_TripleLower : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     -(27 / 50 : ℝ) ≤
       removedPairMean a.D a.τ true a.y f g + removedPairMean a.D a.τ true a.y f a.o +
         removedPairMean a.D a.τ true a.y g a.o
@@ -28,7 +28,7 @@ def Residual_TripleLower : Prop :=
 /-- The two-spin conditional-mean upper estimate in the departure-deleted network. -/
 def Residual_PairUpper : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     ∀ b : Bool, removedPairMean a.D a.τ b a.y f g ≤ 9 / 25
 
 /-- The remaining concrete-network conditioning bridge. The three removed pair
@@ -36,7 +36,7 @@ means must come from one common finite mixture of independent conditional
 means. A zero total weight is permitted, matching the real quotient convention. -/
 def Residual_ConditionalMixture : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
-    a.D.presentNeighbours a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
+    a.D.presentNeighbors a.y = {a.o, f, g} → a.o ≠ f → a.o ≠ g → f ≠ g →
     ∀ b : Bool, ∃ n : ℕ, ∃ w : Fin n → ℝ, ∃ m : Fin n → Fin 3 → Vec3,
       (∀ σ, 0 ≤ w σ) ∧ (∀ σ i, normSq (m σ i) ≤ 9 / 25) ∧
       removedPairMean a.D a.τ b a.y f g = mixturePair w m 0 1 ∧

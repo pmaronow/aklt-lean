@@ -1,5 +1,5 @@
 module
-public import AKLT.W.REC012.Fibres
+public import AKLT.W.REC012.Fibers
 
 @[expose] public section
 set_option backward.privateInPublic true
@@ -67,7 +67,7 @@ lemma outsideFactor_trace {G : Finset Plane} (D : Network G) (τ : PinAssignment
 
 lemma localIntegral_U_lower {G : Finset Plane} (D : Network G) (y : Plane)
     (v : Plane → Vec3) (hv : ∀ x, normSq (v x) ≤ 1)
-    (hU : D.status y = .U) (hcard : (D.presentNeighbours y).card ≤ 3) :
+    (hU : D.status y = .U) (hcard : (D.presentNeighbors y).card ≤ 3) :
     1 / 2 ≤ localIntegral D y v := by
   unfold localIntegral
   simp only [paddedWeight, hU]
@@ -76,7 +76,7 @@ lemma localIntegral_U_lower {G : Finset Plane} (D : Network G) (y : Plane)
 
 lemma localIntegral_D_upper {G : Finset Plane} (D : Network G) (y : Plane)
     (v : Plane → Vec3) (hv : ∀ x, normSq (v x) ≤ 1)
-    (hD : D.status y = .D) (hcard : (D.presentNeighbours y).card ≤ 2) :
+    (hD : D.status y = .D) (hcard : (D.presentNeighbors y).card ≤ 2) :
     localIntegral D y v ≤ 6 / 5 := by
   unfold localIntegral
   simp only [paddedWeight, hD]
@@ -84,7 +84,7 @@ lemma localIntegral_D_upper {G : Finset Plane} (D : Network G) (y : Plane)
     ((incident_card_le D y).trans hcard) (fun _ _ => hv _)
 
 lemma localIntegral_D_small {G : Finset Plane} (D : Network G) (y : Plane)
-    (v : Plane → Vec3) (hD : D.status y = .D) (hcard : (D.presentNeighbours y).card ≤ 1) :
+    (v : Plane → Vec3) (hD : D.status y = .D) (hcard : (D.presentNeighbors y).card ≤ 1) :
     localIntegral D y v = 1 := by
   unfold localIntegral
   simp only [paddedWeight, hD]
@@ -95,14 +95,14 @@ lemma localIntegral_X {G : Finset Plane} (D : Network G) (y : Plane)
   simp [localIntegral, hX, paddedWeight, spinVector, dot]
 
 lemma localIntegral_trace_le {G : Finset Plane} (D : Network G) (y o : Plane)
-    (hy : D.AdmissibleStart y) (ho : o ∈ D.presentNeighbours y)
+    (hy : D.AdmissibleStart y) (ho : o ∈ D.presentNeighbors y)
     (v : Plane → Vec3) (hv : ∀ x, normSq (v x) ≤ 1) :
     localIntegral (traceStep D y o) y v ≤ (12 / 5 : ℝ) * localIntegral D y v := by
   rcases hy.2.2 with ⟨hU,hcard⟩ | ⟨hD,hcard⟩
   · have hpre := localIntegral_U_lower D y v hv hU hcard
     have hpostD : (traceStep D y o).status y = .D := by simp [traceStep,hU]
-    have hpostcard : ((traceStep D y o).presentNeighbours y).card ≤ 2 := by
-      rw [trace_neighbours_U D y o hU ho, Finset.card_erase_of_mem ho]
+    have hpostcard : ((traceStep D y o).presentNeighbors y).card ≤ 2 := by
+      rw [trace_neighbors_U D y o hU ho, Finset.card_erase_of_mem ho]
       omega
     have hpost := localIntegral_D_upper (traceStep D y o) y v hv hpostD hpostcard
     linarith
@@ -117,8 +117,8 @@ theorem pinned_partition_upper (a : AKLT.Blueprint.Rec.Departure) :
       (12 / 5 : ℝ) * a.D.partition a.τ true (fun _ => 1) := by
   have hyG : a.y ∈ a.G := (Finset.mem_filter.mp a.start.1).1
   have hlegs := no_legs_at_start a.D a.y a.start
-  rw [partition_fibres (traceStep a.D a.y a.o) a.τ a.y hyG hlegs,
-    partition_fibres a.D a.τ a.y hyG hlegs, Finset.mul_sum]
+  rw [partition_fibers (traceStep a.D a.y a.o) a.τ a.y hyG hlegs,
+    partition_fibers a.D a.τ a.y hyG hlegs, Finset.mul_sum]
   apply Finset.sum_le_sum
   intro n hn
   rw [outsideFactor_trace a.D a.τ a.y a.o n hlegs]

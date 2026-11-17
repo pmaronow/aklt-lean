@@ -63,8 +63,8 @@ private theorem crossPathJoin (X₀ : Finset Plane)
   exact hmain ha
 
 theorem main : AKLT.Blueprint.Win.CrossUnionStatement := by
-  intro X₀ hcentres hcross hoverlap
-  rcases hcentres.1 with ⟨a, ha⟩
+  intro X₀ hcenters hcross hoverlap
+  rcases hcenters.1 with ⟨a, ha⟩
   refine ⟨?_, ?_⟩
   · change (thicken X₀).Nonempty
     exact ⟨a, Finset.mem_biUnion.mpr ⟨a, ha, by simp [cross]⟩⟩
@@ -74,7 +74,7 @@ theorem main : AKLT.Blueprint.Win.CrossUnionStatement := by
     obtain ⟨x, hx, hzx⟩ := Finset.mem_biUnion.mp hz
     obtain ⟨y, hy, hwy⟩ := Finset.mem_biUnion.mp hw
     exact crossPathJoin X₀ hcross hoverlap hx hy
-      (hcentres.2 x hx y hy) z hzx w hwy
+      (hcenters.2 x hx y hy) z hzx w hwy
 
 end AKLT.W.WIN027
 

@@ -35,7 +35,8 @@ The release extends its earlier two-input package with the hand-written import
 closure of `CertData.Close.All` at main
 `8f59d336acf2fc13428893faf26097890f4f288b`. The original legacy tree is unchanged.
 Every first-party Lean source uses the module system and has at most 10,000 lines.
-[PORT-CHANGES.md](PORT-CHANGES.md) records every visibility repair and proof-body change.
+[PORT-CHANGES.md](PORT-CHANGES.md) records the visibility port and the consistent
+American English identifier update. Numeric data and input schemas are unchanged.
 
 The libraries are `AKLT` for the mathematical development, `CertKernels` for the
 hand-written H3 kernels and bridges, `CertDataH1` and `CertDataH3` for the generated
@@ -125,5 +126,6 @@ Author and maintainer identities, verified ORCIDs, release SPDX license and root
 LICENSE text, immutable public source and certificate archive locations, and
 proof-development provenance remain clearly marked TODO fields in
 `formalization.yaml`. Existing vendored license notices are retained. Independent
-mathematical fidelity review remains pending. Prose uses American English;
-British spellings in Lean identifiers are retained and listed in the interface records.
+mathematical fidelity review remains pending. Prose and first-party identifiers use American English.
+The current identifier inventory is AMERICAN-ENGLISH-IDENTIFIERS.tsv; paper
+citation labels and external dependency names retain their original spelling.

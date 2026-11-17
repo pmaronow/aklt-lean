@@ -165,17 +165,17 @@ private lemma bond_adjacent (π : PatternData) (e : Plane × Plane) (he : e ∈ 
   simp only [internalBonds, Finset.mem_biUnion, Finset.mem_inter, Finset.mem_image] at hi
   obtain ⟨x, hx, y, hy, hxy⟩ := hi
   cases hxy
-  simp only [positiveNeighbours, Finset.mem_insert, Finset.mem_singleton] at hy
+  simp only [positiveNeighbors, Finset.mem_insert, Finset.mem_singleton] at hy
   rcases hy.1 with h | h
   · subst y
     simp [Adjacent, latticeDist]
   · subst y
     simp [Adjacent, latticeDist] <;> omega
 
-private lemma leafNeighbour_eq_other_of_degree_one (π : PatternData) (x : Plane)
+private lemma leafNeighbor_eq_other_of_degree_one (π : PatternData) (x : Plane)
     (hdeg : patternDegree π x = 1) :
     ∃ e ∈ π.bonds, (e.1 = x ∨ e.2 = x) ∧
-      leafNeighbour π x = (if e.1 = x then e.2 else e.1) := by
+      leafNeighbor π x = (if e.1 = x then e.2 else e.1) := by
   classical
   have hcard : (incidentBondSet π x).card = 1 := by
     simpa [patternDegree, incidentBondSet] using hdeg
@@ -220,7 +220,7 @@ private lemma leafNeighbour_eq_other_of_degree_one (π : PatternData) (x : Plane
       by_cases h : f = e <;> simp [h]
     · exact ⟨e, helist, by simp⟩
   refine ⟨e, he, hendpoint, ?_⟩
-  dsimp [leafNeighbour]
+  dsimp [leafNeighbor]
   rw [hlist]
   exact hhead
 
@@ -245,7 +245,7 @@ private lemma splitBondProduct (π : PatternData) (r : Representation)
       (∏ e ∈ π.bonds, if e.1 ∈ reducedSpinSites π r ∧ e.2 ∈ reducedSpinSites π r ∧
           ¬ droppedPassageBond π next e then bondTerm n e else 1) *
         ∏ x ∈ deletedLeafSites π r,
-          if patternDegree π x = 0 then 1 else 1 + dot (n x) (n (leafNeighbour π x)) := by
+          if patternDegree π x = 0 then 1 else 1 + dot (n x) (n (leafNeighbor π x)) := by
   classical
   let V := reducedSpinSites π r
   let D := deletedLeafSites π r
@@ -313,7 +313,7 @@ private lemma splitBondProduct (π : PatternData) (r : Representation)
       simp only [if_neg hnd, if_neg hnotret, if_pos hcross, one_mul]
   have hcrossprod :
       (∏ e ∈ π.bonds, if cross e then bondTerm n e else 1) =
-        ∏ x ∈ D, if patternDegree π x = 0 then 1 else 1 + dot (n x) (n (leafNeighbour π x)) := by
+        ∏ x ∈ D, if patternDegree π x = 0 then 1 else 1 + dot (n x) (n (leafNeighbor π x)) := by
     let C := π.bonds.filter cross
     have hfiltered :
         (∏ e ∈ π.bonds, if cross e then bondTerm n e else 1) = ∏ e ∈ C, bondTerm n e := by
@@ -364,7 +364,7 @@ private lemma splitBondProduct (π : PatternData) (r : Representation)
         simpa [patternDegree, incidentBondSet] using hz
       simp [hz, hc]
     · have h1 : patternDegree π x = 1 := by omega
-      obtain ⟨e, he, hi, hleaf⟩ := leafNeighbour_eq_other_of_degree_one π x h1
+      obtain ⟨e, he, hi, hleaf⟩ := leafNeighbor_eq_other_of_degree_one π x h1
       have hcExists : ∃ e₀, incidentBondSet π x = {e₀} :=
         Finset.card_eq_one.mp (by simpa [patternDegree, incidentBondSet] using h1)
       obtain ⟨e₀, hc⟩ := hcExists
@@ -513,7 +513,7 @@ private def deletedSummandFactor (π : PatternData) (r : Representation)
     coveredSiteField m x.val (spinVector (d x)) *
     (if patternDegree π x.val = 0 then 1 else
       1 + dot (spinVector (d x))
-        (supportSpins (reducedSpinSites π r) a (leafNeighbour π x.val)))
+        (supportSpins (reducedSpinSites π r) a (leafNeighbor π x.val)))
 
 private def retainedSummandFactor (π : PatternData) (r : Representation)
     (next : Bool) (m : Fin 20 → UnitVector)
@@ -593,12 +593,12 @@ private lemma assignmentTermFactorization (π : PatternData) (r : Representation
       simp [hcondition, hnotRight]
   have hbrD :
       (∏ x ∈ D, if patternDegree π x = 0 then 1 else
-        1 + dot (n x) (n (leafNeighbour π x))) =
+        1 + dot (n x) (n (leafNeighbor π x))) =
         ∏ x : D, if patternDegree π x.val = 0 then 1 else
-          1 + dot (spinVector (d x)) (nV (leafNeighbour π x.val)) := by
+          1 + dot (spinVector (d x)) (nV (leafNeighbor π x.val)) := by
     calc
       _ = ∏ x : D, if patternDegree π x.val = 0 then 1 else
-          1 + dot (n x.val) (n (leafNeighbour π x.val)) :=
+          1 + dot (n x.val) (n (leafNeighbor π x.val)) :=
         (Finset.prod_coe_sort D _).symm
       _ = _ := by
         apply Finset.prod_congr rfl
@@ -637,13 +637,13 @@ private lemma assignmentTermFactorization (π : PatternData) (r : Representation
         (∏ x : D, spinWeight (π.statusAt x.val) (d x)) *
           (∏ x : D, coveredSiteField m x.val (spinVector (d x))) *
           ∏ x : D, if patternDegree π x.val = 0 then 1 else
-            1 + dot (spinVector (d x)) (nV (leafNeighbour π x.val)) := by
+            1 + dot (spinVector (d x)) (nV (leafNeighbor π x.val)) := by
     calc
       _ = ∏ x : D,
           ((spinWeight (π.statusAt x.val) (d x) *
               coveredSiteField m x.val (spinVector (d x))) *
             (if patternDegree π x.val = 0 then 1 else
-              1 + dot (spinVector (d x)) (nV (leafNeighbour π x.val)))) := by
+              1 + dot (spinVector (d x)) (nV (leafNeighbor π x.val)))) := by
         apply Finset.prod_congr rfl
         intro x hx
         simp [deletedSummandFactor, nV, V, mul_assoc]
@@ -671,7 +671,7 @@ private lemma deletedAssignmentSum (π : PatternData) (r : Representation)
       (coveredSiteField m x.val (spinVector z) *
         (if patternDegree π x.val = 0 then 1 else
           1 + dot (spinVector z)
-            (supportSpins (reducedSpinSites π r) a (leafNeighbour π x.val))))
+            (supportSpins (reducedSpinSites π r) a (leafNeighbor π x.val))))
   calc
     _ = ∑ d : deletedLeafSites π r → SpinLetter, ∏ x, g x (d x) := by
       apply Finset.sum_congr rfl

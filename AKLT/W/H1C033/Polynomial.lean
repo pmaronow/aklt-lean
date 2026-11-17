@@ -117,7 +117,7 @@ abbrev localEquiv : LocalVariable ≃ LocalVariable :=
       simp [rename_formalDot, Function.comp_def, hl, hs]
     · have hp' : groupIsPair π r x = false := Bool.eq_false_iff.mpr hp'
       have hx1 := (AKLT.W.H1M023.group_single π r hx hp').1.1
-      have hn := mirror_neighbour π ρ h x hx1
+      have hn := mirror_neighbor π ρ h x hx1
       have hr : replacementRadius π x = replacementRadius ρ (flip x) := by
         simp [replacementRadius, ← h.2.2 x hpos]
       simp [rename_formalDot, Function.comp_def, hl, hn, hr]

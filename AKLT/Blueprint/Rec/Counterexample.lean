@@ -19,7 +19,7 @@ def boundaryExampleG : Finset Plane :=
 version only erases the passage flag to the removed center. -/
 def boundaryExampleD : Network boundaryExampleG where
   status := fun x => if x ∈ boundaryExampleG ∧ x ≠ (-1, 0) then .U else .X
-  kept := fun x => neighbours x ∩ boundaryExampleG
+  kept := fun x => neighbors x ∩ boundaryExampleG
 
 /-- The covering pattern for the same straight departure. Tips are covering U
 and both corner slots are retained. -/
@@ -53,7 +53,7 @@ theorem boundaryExample_not_old_covered :
     simpa [normalizeStart, boundaryExampleD, boundaryExampleG, normalizeRotation,
       square, latticeDist] using hstatus
   rcases hπ with ⟨_, _, _, _, _, _, _, hfull, _, _⟩
-  have hfull' : π.keptAt (-1, 1) = neighbours (-1, 1) :=
+  have hfull' : π.keptAt (-1, 1) = neighbors (-1, 1) :=
     hfull _ (Finset.mem_sdiff.mp hz).1 (by decide) (Finset.mem_sdiff.mp hz).2 hU
   have ht : (-1, 2) ∈ π.keptAt (-1, 1) := by
     rw [hfull']

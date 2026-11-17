@@ -20,7 +20,7 @@ def pairCost (π : PatternData) (r : Representation) (x y : Plane) : ℕ :=
   if groupIsPair π r y then if x = y then 2 else 0 else 0
 
 def singleCost (π : PatternData) (r : Representation) (x y : Plane) : ℕ :=
-  if groupIsPair π r y then 0 else if x = leafNeighbour π y then 1 else 0
+  if groupIsPair π r y then 0 else if x = leafNeighbor π y then 1 else 0
 
 /-- Charge a replacement factor to the bond that it replaces. -/
 def replacementCost (π : PatternData) (r : Representation) (x y : Plane)
@@ -185,8 +185,8 @@ lemma degreeBudget_zero (π : PatternData) (r : Representation) (x : Plane)
   · have hxy : x ≠ y := fun h => hx (h ▸ group_pair_retained π r hy hp)
     simp [pairCost, singleCost, hp, hxy]
   · have hp : groupIsPair π r y = false := Bool.eq_false_iff.mpr hp
-    have hxy : x ≠ leafNeighbour π y := fun h =>
-      hx (h ▸ group_single_neighbour_retained π r hy hp)
+    have hxy : x ≠ leafNeighbor π y := fun h =>
+      hx (h ▸ group_single_neighbor_retained π r hy hp)
     simp [pairCost, singleCost, hp, hxy]
 
 end AKLT.W.H1M023

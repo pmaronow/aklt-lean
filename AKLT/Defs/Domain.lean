@@ -32,21 +32,21 @@ def Network.bonds {G : Finset Plane} (D : Network G) : Finset (Plane × Plane) :
   (internalBonds G).filter fun e => D.Present e.1 e.2
 
 /-- Present degree counts actual bonds, not merely kept half-edges. -/
-def Network.presentNeighbours {G : Finset Plane} (D : Network G) (x : Plane) : Finset Plane :=
-  (neighbours x).filter fun y => D.Present x y
+def Network.presentNeighbors {G : Finset Plane} (D : Network G) (x : Plane) : Finset Plane :=
+  (neighbors x).filter fun y => D.Present x y
 
 /-- Common local restrictions for ordinary and auxiliary networks. -/
 def Network.LocalRules {G : Finset Plane} (D : Network G) : Prop :=
   (∀ x, x ∉ G → D.status x = .X) ∧
-  (∀ x, D.kept x ⊆ neighbours x ∩ G) ∧
-  (∀ x ∈ G, D.status x = .D → (D.presentNeighbours x).card ≤ 2) ∧
-  (∀ x ∈ D.active, (D.presentNeighbours x).card +
+  (∀ x, D.kept x ⊆ neighbors x ∩ G) ∧
+  (∀ x ∈ G, D.status x = .D → (D.presentNeighbors x).card ≤ 2) ∧
+  (∀ x ∈ D.active, (D.presentNeighbors x).card +
     ((originalLegs G).filter fun e => e.1 = x).card ≤ 4)
 
 /-- `d:domain`: an ordinary domain protects original S(G), including all its kept bonds. -/
 def Network.Ordinary {G : Finset Plane} (D : Network G) : Prop :=
   D.LocalRules ∧ ∀ x ∈ protectedSites G,
-    D.status x = .U ∧ D.kept x = neighbours x ∩ G
+    D.status x = .U ∧ D.kept x = neighbors x ∩ G
 
 /-- `d:domain`: auxiliary networks permit protected kept-set defects, retaining all original legs. -/
 def Network.Auxiliary {G : Finset Plane} (D : Network G) : Prop :=
@@ -55,7 +55,7 @@ def Network.Auxiliary {G : Finset Plane} (D : Network G) : Prop :=
 /-- `d:domain`: the ordinary consistent class, including the corrected mutual-kept rule. -/
 def Network.Consistent {G : Finset Plane} (D : Network G) : Prop :=
   D.Ordinary ∧
-  (∀ x ∈ G, D.status x = .U → D.kept x = neighbours x ∩ G) ∧
+  (∀ x ∈ G, D.status x = .U → D.kept x = neighbors x ∩ G) ∧
   (∀ x ∈ G, D.status x = .D → (D.kept x).card = 2) ∧
   ∀ x ∈ D.active, ∀ y ∈ D.active, Adjacent x y → (y ∈ D.kept x ↔ x ∈ D.kept y)
 
@@ -86,8 +86,8 @@ def Network.ratio {G : Finset Plane} (D : Network G) (τ : PinAssignment G) : �
 /-- `d:trace`: only the two admissible start cases used in the proof. -/
 def Network.AdmissibleStart {G : Finset Plane} (D : Network G) (u : Plane) : Prop :=
   u ∈ D.active ∧ u ∉ protectedSites G ∧
-    ((D.status u = .U ∧ (D.presentNeighbours u).card ≤ 3) ∨
-      (D.status u = .D ∧ (D.presentNeighbours u).card ≤ 1))
+    ((D.status u = .U ∧ (D.presentNeighbors u).card ≤ 3) ∨
+      (D.status u = .D ∧ (D.presentNeighbors u).card ≤ 1))
 
 /-- `d:trace`: drop the traversed bond at both ends, then U becomes D and D becomes X. -/
 def traceStep {G : Finset Plane} (D : Network G) (y o : Plane) : Network G where
@@ -127,8 +127,8 @@ def Network.ResponsePair {G : Finset Plane} (D : Network G) (X : PairType)
     (u v c : Plane) : Prop :=
   D.Consistent ∧ u ∈ D.active ∧ v ∈ D.active ∧ c ∈ G ∧ D.status c = .X ∧
   Adjacent u c ∧ Adjacent v c ∧ HasPairType X u v ∧
-  (D.status u = .U ∨ (D.status u = .D ∧ (D.presentNeighbours u).card ≤ 1)) ∧
-  (D.status v = .U ∨ (D.status v = .D ∧ (D.presentNeighbours v).card ≤ 1))
+  (D.status u = .U ∨ (D.status u = .D ∧ (D.presentNeighbors u).card ≤ 1)) ∧
+  (D.status v = .U ∨ (D.status v = .D ∧ (D.presentNeighbors v).card ≤ 1))
 
 /-- `d:pairenv`: bounded ordinary-domain response envelope, never over auxiliary networks. -/
 def responseEnvelope (X : PairType) (d : ℤ) : ℝ :=

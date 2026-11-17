@@ -49,7 +49,7 @@ def DeterminantPrimeEmbeddingStatement : Prop :=
 under a nonzero product. If p and p*chi both have center degree four,
 chi has center degree zero. Split chi into finitely many graded pieces;
 injectivity of multiplication prevents cancellation across different degrees. -/
-def CentreDegreeCancellationStatement : Prop :=
+def CenterDegreeCancellationStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N, ∀ p χ : SpinorPolynomial L N, p ≠ 0 →
     (∀ m ∈ p.support, m (x, 0) + m (x, 1) = 4) →
     (∀ m ∈ (p * χ).support, m (x, 0) + m (x, 1) = 4) → independentAt x χ
@@ -63,7 +63,7 @@ def IncidentProductDegreeStatement : Prop :=
 
 /-- `d:poly` and `l:divisibility`, sec3 lines 176–182: the physical coordinate
 polynomial has center degree four at every site; the zero state is allowed. -/
-def StateCentreDegreeStatement : Prop :=
+def StateCenterDegreeStatement : Prop :=
   ∀ L N : Size, ∀ ψ : Hilbert L N, ∀ x : Site L N,
     ∀ m ∈ (statePolynomial ψ).support, m (x, 0) + m (x, 1) = 4
 
