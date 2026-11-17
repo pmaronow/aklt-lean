@@ -1,47 +1,20 @@
 
-\section{Exact computational inputs}\label{s:inputs}
+\section{Exact computational inputs}
 
 The computational inputs have three finite certificates. The local
 input tests integer Hermitian-form matrices reconstructed from the
 covered patterns. The open-trail input tests a positive integer
 vector for a memory-six one-step matrix. The kernel input
 tests five stationary lattice supersolutions and their exact
-length-twelve prefixes. The finite tests specified below and in Appendix C use integer
-equalities, inequalities, and divisibility tests, with positive
-rational denominators cleared.
-The soundness arguments prove deterministic implications from these
-finite assertions.
+length-twelve prefixes. All numerical checks below are finite integer equalities,
+inequalities, and divisibility tests, with positive rational denominators cleared.
 
-Theorem~\ref{t:main}, including the three inputs (H1), (H2), and
-(H3\(_h\)) and their certificates, has been formalized in Lean~4
-(version 4.35.0-rc2, with Mathlib) and checked by the Lean kernel.
-The accompanying Lean formalization % CHECK: add repository reference
-uses only the standard axioms \texttt{propext},
-\texttt{Classical.choice}, and \texttt{Quot.sound}, and it does not
-use \texttt{native\_decide}. The certificate proofs are checked by the Lean kernel; external
-programs generate and encode witness data. The certificate for (H1) covers all \(7962\) local patterns and
-their \(12173\) sector blocks; successful Lean builds of its
-numerical certificate library used about \(139\) CPU-hours.
-The production manifest for (H3\(_h\)) contains \(5032\) generated
-modules and three hand-written bridge modules; successful Lean
-builds of these modules used about \(19.5\) CPU-hours. The
-exhaustive kernel computation for (H2) took about four minutes. At commit~\texttt{63d176a}, the part of the formalization independent
-of the (H1) and (H3\(_h\)) certificate proofs, including the
-conditional derivation of Theorem~\ref{t:main} and the (H2) proof,
-was also checked by con-ron and NanoDa, two independent
-implementations of the Lean kernel. These rechecks exclude the
-(H1) and (H3\(_h\)) certificate proofs and the subsequent closing
-and packaging modules.
-
-The local verification described below uses the archived
-representation and inversion choices, the two supplied nonzero
-Gram factors, and the Bareiss fallback permitted by
-Lemma~\ref{l:integercheck}. The Lean certificate uses the same
-patterns, choices, and reconstructed matrices, with zero Gram
-factors for the \(8439\) directly dominant blocks and nonzero
-Gram factors for all \(3734\) remaining blocks. It therefore
-proves the same local input without running the numerical
-Bareiss fallback.
+For the local input we use the archived representation and inversion
+choices, and the division-free Gram/residual format wherever its
+witness is available. For a block without a supplied nonzero Gram
+factor which is not directly diagonally dominant, we use the
+Bareiss fallback permitted by Lemma~\ref{l:integercheck}. Thus the
+complete local input is specified by the supplied data.
 
 \subsection*{The finite local verification}
 The pattern data are \texttt{pext7962.json}, under
@@ -142,7 +115,7 @@ and minimum residual margins are
 \]
 Check each supplied \(L\) to be an integer lower-triangular matrix
 of the correct size and check every residual row, not just the
-displayed minimum. These are the only two nonzero factors supplied in the original archive.
+displayed minimum. These are the only two nonzero factors used.
 
 For each of the remaining \(3732\) blocks use the following exact
 fallback. One may remove a positive integer common scalar
@@ -166,7 +139,9 @@ these matrices are symmetric. At the last stage there are no
 trailing entries to update. These requirements are finite integer
 divisibility and strict positivity assertions over matrices
 regenerated from the archived choices. No stored pivot or floating
-eigenvalue replaces any requirement.
+eigenvalue replaces any requirement. As additional native evidence,
+all \(3734\) blocks failing the direct dominance test, including
+the two with supplied nonzero factors, pass this fallback too.
 
 \begin{theorem}\label{t:H1}
 For every \(\pi\in\mathcal P_{\rm ext}\) and every
@@ -182,10 +157,9 @@ For every \(\pi\in\mathcal P_{\rm ext}\) and every
 
 \begin{proof}
 We first justify the finite reduction and the implication of its
-arithmetic tests. The finite assertions specified above constitute the archived local
-verification. The accompanying Lean certificate proves the same
-local input by the reconstructed-matrix Gram/residual checks
-described at the beginning of this section.
+arithmetic tests. The finite counts and inequalities specified
+above are the numerical local assertions; their verification uses
+only the archived pattern, choice and factor data.
 
 The pattern enumeration is exhaustive because every free status
 and kept-set choice in Definition~\ref{d:pattern} appears in its
@@ -334,13 +308,12 @@ type-dependent coefficients and fixed orderings.
 \subsection*{Certification scope}
 The mathematical reductions prove deterministic implications from
 the specified finite integer assertions to the pointwise local
-input and the two all-length trail inputs. The archived H1 calculation uses the frozen representation and
-inversion records. Its residual tests require all rows, and its
-fallback requires every division exact and every pivot positive.
-The fallback discharges exactly the blocks without supplied
-nonzero Gram factors, using the fixed representation and inversion
-records. The Lean certificate uses Gram/residual witnesses for all
-blocks and checks their mathematical reconstruction and coverage.
+input and the two all-length trail inputs. The H1 calculation uses
+the frozen representation and inversion records. Its residual
+tests require all rows, and its fallback requires every division
+exact and every pivot positive. The fallback discharges exactly
+the blocks without supplied nonzero Gram factors, using the fixed
+representation and inversion records.
 
 Appendix C tests the true H2 revisit coefficient \(1/5\) and
 the stated rate \(q_*\). Its H3 assertion concerns the kernel of
@@ -355,8 +328,7 @@ improvement enters these input theorems.
 The finite assertions require regenerated mathematical index sets
 and coefficients. Supplied matrices, sector counts, numerical
 eigenvalues, file hashes, and native exit codes do not replace
-the prescribed comparisons. Each Lean certificate proves its computational input from the
-finite integer assertions used in that certificate, with the (H1)
-witness format described at the beginning of this section. None of these arguments assumes
-a physical window estimate, a frame finite-energy bound, or a
-spectral-gap conclusion.
+the prescribed comparisons. The native exact reruns provide
+reproducibility evidence. None of these
+arguments assumes a physical window estimate, a frame finite-energy
+bound, or a spectral-gap conclusion.

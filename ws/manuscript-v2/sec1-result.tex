@@ -7,11 +7,8 @@ positive spectral gap for all integers \(L,N\ge L_0\), with no parity
 restriction, for one fixed threshold \(L_0\). The computational inputs
 are local operator inequalities, an open-trail growth bound, and a
 type-dependent positive-vector bound obtained from stationary Bellman
-inequalities and finite prefix sums. Theorem~\ref{t:main}, including
-the finite certificate checks for these inputs, has been formalized
-in Lean~4 and checked by the Lean kernel. Section~\ref{s:inputs}
-describes the accompanying Lean formalization. % CHECK: add repository reference
-The polynomial realization of the spin space,
+inequalities and finite prefix sums. All computations are checked in
+exact arithmetic. The polynomial realization of the spin space,
 including its Hilbert space normalization, is fixed in
 Definition~\ref{d:poly}.
 
@@ -116,6 +113,15 @@ The finite probability and comparison tools are proved in Appendix~A;
 the planar topology and the computational certificate arguments are
 proved in Appendices~B--D. All scale choices precede the choice of the
 torus periods, colouring, block placement and exterior configuration.
+
+\emph{Formal verification.}
+Theorem~\ref{t:main} has been formalized in Lean~4 and checked by the
+Lean kernel. The formalization has two parts. The first derives
+Theorem~\ref{t:main} from (H1) and (H3\(_h\)) and proves (H2); it is
+self-contained and is checked in minutes. The second checks the
+finite inputs (H1) and (H3\(_h\)) in the Lean kernel, which takes
+about \(139\) and \(19.5\) CPU-hours. Both parts are available with
+this paper. % CHECK: add repository reference
 
 \subsection{Conventions}
 

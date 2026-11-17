@@ -13,13 +13,10 @@ of \(\mathbb Z^2\).
 The finite assertions in Propositions~\ref{p:H2-test},
 \ref{p:automaton10} and \ref{p:stationary-check} specify exact checks
 of the archived witnesses. The arguments below prove the soundness
-of those checks. In Lean, the archived (H2) integer vector is expanded to all
-\(916\) raw windows and checked directly, and the archived
-(H3\(_h\)) automaton and stationary arrays are checked through
-their literal encodings. The resulting proofs are checked by the
-Lean kernel, as described at the beginning of Section~\ref{s:inputs}. An executable's exit
-code or a floating approximation is not an additional hypothesis of
-any soundness lemma.
+of those checks. The finite checks themselves are stated with their
+full arithmetic contracts, for separate verification; an executable's
+exit code or a floating approximation is not an additional hypothesis
+of any soundness lemma.
 
 \begin{definition}\label{d:memory-automaton}
 Let \(\mathcal E=\{{\rm E}=(1,0),{\rm N}=(0,1),
@@ -1176,8 +1173,7 @@ Definition~\ref{d:prefix-bound}.
 The archived exact fractions in the five prefix records identify
 the values of these finite expressions; the expressions and the
 cleared inequalities above, together with all the array checks,
-constitute the stationary certificates. Their proofs are checked by
-the Lean kernel.
+are the numerical assertions to be verified separately.
 \end{proof}
 
 \begin{lemma}\label{l:stationary-assembly}
