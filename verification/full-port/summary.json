@@ -1,20 +1,22 @@
 {
   "status": "FULL PORT COMPLETE",
   "scope": "Hand-written port and available-source build/audit; conditional regression replay. Unconditional certificate build remains pending.",
-  "source_snapshot_commit": "ed6f6c304b5114f03b739f6210be0f29d33c9fb7",
+  "source_snapshot_commit": "3c8260184b1df7b90b5cd780777a4a9f2e411985",
   "legacy_source_commit": "8f59d336acf2fc13428893faf26097890f4f288b",
   "handwritten_legacy_files": 1104,
   "lean_source_files": 1115,
   "new_original_handwritten_files": 489,
-  "source_bytes": 10654310,
+  "source_bytes": 10654396,
   "maximum_lines": 1636,
   "challenge": {
     "path": "Challenge.lean",
-    "sha256": "887b00225ba92458c666b4c0a3df01435529f49a84d498b4797726712e35fb05",
+    "sha256": "bb48cd674a2abecb0cd876c87ad752577a963bf7a6018cadba8bf4adfdc0467e",
     "lines": 161,
     "bytes": 7736
   },
   "proof_body_changes": [],
+  "audited_first_party_declaration_entries": 21855,
+  "audit_count_note": "Module-local realizations can repeat a declaration name; every entry is checked.",
   "generated_required": {
     "H1": 7964,
     "H3": 5032
@@ -30,26 +32,26 @@
   "buildable_sources": 1109,
   "stages": [
     {
-      "stage": "final-source-checks",
-      "started_utc": "2026-11-17T03:32:53.162717+00:00",
+      "stage": "delivered-source-checks",
+      "started_utc": "2026-11-17T03:51:01.395022+00:00",
       "command": [
-        "python3",
-        "scripts/verify_sources.py",
+        "/usr/bin/python3",
+        "/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/verify_sources.py",
         "--verifier",
         "/home/ubuntu/dbl/scratch/PAL-DRY/tools/PalomarSubmission",
         "--report",
-        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/final-source-checks.json"
+        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/delivered-source-checks.json"
       ],
       "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
       "exit_code": 1,
-      "wall_s": 5.346058677998371,
-      "user_s": 5.184802,
-      "system_s": 0.103976,
-      "cpu_s": 5.288778000000001,
-      "sampled_tree_cpu_s": 5.23,
-      "peak_tree_rss_bytes": 69890048,
-      "peak_single_rss_bytes": 70651904,
-      "peak_tree_vms_bytes": 82833408,
+      "wall_s": 3.4260134950018255,
+      "user_s": 3.258032,
+      "system_s": 0.08400099999999999,
+      "cpu_s": 3.342033,
+      "sampled_tree_cpu_s": 3.31,
+      "peak_tree_rss_bytes": 69947392,
+      "peak_single_rss_bytes": 70103040,
+      "peak_tree_vms_bytes": 82829312,
       "peak_threads": 1,
       "peak_processes": 1,
       "peak_lean_processes": 0,
@@ -71,9 +73,9 @@
         14,
         15
       ],
-      "timeout_s": 120.0,
+      "timeout_s": 1200.0,
       "limit": null,
-      "rss_cap_gb": 285,
+      "rss_cap_gb": 285.0,
       "virtual_address_limit_per_process_bytes": 257698037760,
       "cgroup": {
         "authenticated_palomar_telemetry": false,
@@ -84,12 +86,12 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 18944783568\nuser_usec 17056845993\nsystem_usec 1887937574\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20987698535\nuser_usec 18885439246\nsystem_usec 2102259289\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       },
       "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
-      "wait4_cpu_s": 5.288778000000001,
+      "wait4_cpu_s": 3.342033,
       "cpu_method": "wait4 cumulative",
       "cgroup_before": {
         "authenticated_palomar_telemetry": false,
@@ -100,14 +102,14 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 18871952257\nuser_usec 16990917538\nsystem_usec 1881034719\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20984292772\nuser_usec 18882133578\nsystem_usec 2102159193\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       }
     },
     {
-      "stage": "final-header-parser",
-      "started_utc": "2026-11-17T03:36:59.436097+00:00",
+      "stage": "delivered-header-parser",
+      "started_utc": "2026-11-17T03:51:04.876142+00:00",
       "command": [
         "lake",
         "env",
@@ -116,19 +118,19 @@
         "--verifier",
         "/home/ubuntu/dbl/scratch/PAL-DRY/tools/PalomarSubmission",
         "--report",
-        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/final-header-checks.json"
+        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/delivered-header-checks.json"
       ],
       "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
       "exit_code": 0,
-      "wall_s": 1.4206486559996847,
-      "user_s": 0.7940579999999999,
-      "system_s": 0.6497539999999999,
-      "cpu_s": 1.4438119999999999,
-      "sampled_tree_cpu_s": 1.01,
-      "peak_tree_rss_bytes": 1746907136,
-      "peak_single_rss_bytes": 859611136,
-      "peak_tree_vms_bytes": 11337768960,
-      "peak_threads": 8,
+      "wall_s": 2.2418371929961722,
+      "user_s": 1.165905,
+      "system_s": 1.106331,
+      "cpu_s": 2.272236,
+      "sampled_tree_cpu_s": 1.63,
+      "peak_tree_rss_bytes": 1837735936,
+      "peak_single_rss_bytes": 860110848,
+      "peak_tree_vms_bytes": 14695800832,
+      "peak_threads": 10,
       "peak_processes": 4,
       "peak_lean_processes": 1,
       "affinity_cpus": [
@@ -149,7 +151,7 @@
         14,
         15
       ],
-      "timeout_s": 1800.0,
+      "timeout_s": 1200.0,
       "limit": null,
       "rss_cap_gb": 285.0,
       "virtual_address_limit_per_process_bytes": 257698037760,
@@ -162,12 +164,12 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20663129760\nuser_usec 18595587064\nsystem_usec 2067542695\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20990069219\nuser_usec 18886674079\nsystem_usec 2103395140\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       },
       "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
-      "wait4_cpu_s": 1.4438119999999999,
+      "wait4_cpu_s": 2.272236,
       "cpu_method": "wait4 cumulative",
       "cgroup_before": {
         "authenticated_palomar_telemetry": false,
@@ -178,7 +180,7 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20661663454\nuser_usec 18594779177\nsystem_usec 2066884277\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20987753291\nuser_usec 18885483922\nsystem_usec 2102269368\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       }
@@ -337,29 +339,28 @@
       }
     },
     {
-      "stage": "final-strict-audit",
-      "started_utc": "2026-11-17T03:36:55.325135+00:00",
+      "stage": "final-reference-comments-build",
+      "started_utc": "2026-11-17T03:44:39.733638+00:00",
       "command": [
         "lake",
-        "env",
-        "lean",
-        "-j1",
-        "-DautoImplicit=false",
-        "-DrelaxedAutoImplicit=false",
-        "-DwarningAsError=true",
-        "AuditHandwritten.lean"
+        "build",
+        "Handwritten",
+        "Challenge",
+        "Regression.Solution",
+        "Regression.Audit",
+        "AuditHandwritten"
       ],
       "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
       "exit_code": 0,
-      "wall_s": 3.9344012740039034,
-      "user_s": 2.81378,
-      "system_s": 1.08157,
-      "cpu_s": 3.8953499999999996,
-      "sampled_tree_cpu_s": 3.62,
-      "peak_tree_rss_bytes": 5105745920,
-      "peak_single_rss_bytes": 4252647424,
-      "peak_tree_vms_bytes": 19815477248,
-      "peak_threads": 8,
+      "wall_s": 13.953772830005619,
+      "user_s": 18.300596,
+      "system_s": 2.758237,
+      "cpu_s": 21.058833,
+      "sampled_tree_cpu_s": 20.74,
+      "peak_tree_rss_bytes": 4113387520,
+      "peak_single_rss_bytes": 3057868800,
+      "peak_tree_vms_bytes": 39929810944,
+      "peak_threads": 31,
       "peak_processes": 2,
       "peak_lean_processes": 1,
       "affinity_cpus": [
@@ -393,12 +394,12 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20661531181\nuser_usec 18594669839\nsystem_usec 2066861342\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20723466003\nuser_usec 18650487635\nsystem_usec 2072978367\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       },
       "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
-      "wait4_cpu_s": 3.8953499999999996,
+      "wait4_cpu_s": 21.058833,
       "cpu_method": "wait4 cumulative",
       "cgroup_before": {
         "authenticated_palomar_telemetry": false,
@@ -409,34 +410,36 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20657603303\nuser_usec 18591834863\nsystem_usec 2065768439\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20702219694\nuser_usec 18632046390\nsystem_usec 2070173303\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       }
     },
     {
-      "stage": "final-axiom-transcript",
-      "started_utc": "2026-11-17T03:36:59.296092+00:00",
+      "stage": "final-prose-build",
+      "started_utc": "2026-11-17T03:46:13.381268+00:00",
       "command": [
-        "/usr/bin/python3",
-        "/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/check_axioms.py",
-        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/stages/final-strict-audit/stdout.log",
-        "--mode",
-        "handwritten"
+        "lake",
+        "build",
+        "Handwritten",
+        "Challenge",
+        "Regression.Solution",
+        "Regression.Audit",
+        "AuditHandwritten"
       ],
       "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
       "exit_code": 0,
-      "wall_s": 0.10262035600317176,
-      "user_s": 0.048715999999999995,
-      "system_s": 0.006959,
-      "cpu_s": 0.055674999999999995,
-      "sampled_tree_cpu_s": 0.0,
-      "peak_tree_rss_bytes": 1232896,
-      "peak_single_rss_bytes": 18784256,
-      "peak_tree_vms_bytes": 11952128,
-      "peak_threads": 1,
-      "peak_processes": 1,
-      "peak_lean_processes": 0,
+      "wall_s": 39.49924051501148,
+      "user_s": 139.190816,
+      "system_s": 15.707957,
+      "cpu_s": 154.898773,
+      "sampled_tree_cpu_s": 153.14,
+      "peak_tree_rss_bytes": 19263336448,
+      "peak_single_rss_bytes": 3141357568,
+      "peak_tree_vms_bytes": 122787860480,
+      "peak_threads": 91,
+      "peak_processes": 7,
+      "peak_lean_processes": 6,
       "affinity_cpus": [
         0,
         1,
@@ -468,12 +471,12 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20661625616\nuser_usec 18594748325\nsystem_usec 2066877291\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20880267596\nuser_usec 18790997431\nsystem_usec 2089270165\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       },
       "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
-      "wait4_cpu_s": 0.055674999999999995,
+      "wait4_cpu_s": 154.898773,
       "cpu_method": "wait4 cumulative",
       "cgroup_before": {
         "authenticated_palomar_telemetry": false,
@@ -484,7 +487,237 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20661567751\nuser_usec 18594699448\nsystem_usec 2066868302\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20724230395\nuser_usec 18651005859\nsystem_usec 2073224536\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    },
+    {
+      "stage": "final-american-prose-build",
+      "started_utc": "2026-11-17T03:47:54.541921+00:00",
+      "command": [
+        "lake",
+        "build",
+        "Handwritten",
+        "Challenge",
+        "Regression.Solution",
+        "Regression.Audit",
+        "AuditHandwritten"
+      ],
+      "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
+      "exit_code": 0,
+      "wall_s": 25.680938572011655,
+      "user_s": 81.389287,
+      "system_s": 10.678008,
+      "cpu_s": 92.067295,
+      "sampled_tree_cpu_s": 91.02,
+      "peak_tree_rss_bytes": 25320669184,
+      "peak_single_rss_bytes": 3097878528,
+      "peak_tree_vms_bytes": 221178736640,
+      "peak_threads": 167,
+      "peak_processes": 10,
+      "peak_lean_processes": 9,
+      "affinity_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "timeout_s": 1800.0,
+      "limit": null,
+      "rss_cap_gb": 285.0,
+      "virtual_address_limit_per_process_bytes": 257698037760,
+      "cgroup": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20974796664\nuser_usec 18874439750\nsystem_usec 2100356913\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      },
+      "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
+      "wait4_cpu_s": 92.067295,
+      "cpu_method": "wait4 cumulative",
+      "cgroup_before": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20882273768\nuser_usec 18792732431\nsystem_usec 2089541337\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    },
+    {
+      "stage": "delivered-strict-audit",
+      "started_utc": "2026-11-17T03:51:07.168854+00:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-DwarningAsError=true",
+        "AuditHandwritten.lean"
+      ],
+      "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
+      "exit_code": 0,
+      "wall_s": 5.66497271899425,
+      "user_s": 3.940691,
+      "system_s": 1.6892209999999999,
+      "cpu_s": 5.629912,
+      "sampled_tree_cpu_s": 5.35,
+      "peak_tree_rss_bytes": 5111693312,
+      "peak_single_rss_bytes": 4255358976,
+      "peak_tree_vms_bytes": 19815534592,
+      "peak_threads": 8,
+      "peak_processes": 2,
+      "peak_lean_processes": 1,
+      "affinity_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "timeout_s": 1200.0,
+      "limit": null,
+      "rss_cap_gb": 285.0,
+      "virtual_address_limit_per_process_bytes": 257698037760,
+      "cgroup": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20995838305\nuser_usec 18890720785\nsystem_usec 2105117519\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      },
+      "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
+      "wait4_cpu_s": 5.629912,
+      "cpu_method": "wait4 cumulative",
+      "cgroup_before": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20990119509\nuser_usec 18886715337\nsystem_usec 2103404172\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    },
+    {
+      "stage": "delivered-axiom-transcript",
+      "started_utc": "2026-11-17T03:51:12.882282+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "/home/ubuntu/aklt/wt/PAL_FIT/_pkg/scripts/check_axioms.py",
+        "/home/ubuntu/aklt/reports/PAL_FIT/full-port/stages/delivered-strict-audit/stdout.log",
+        "--mode",
+        "handwritten"
+      ],
+      "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
+      "exit_code": 0,
+      "wall_s": 0.10340326100413222,
+      "user_s": 0.080569,
+      "system_s": 0.01492,
+      "cpu_s": 0.095489,
+      "sampled_tree_cpu_s": 0.0,
+      "peak_tree_rss_bytes": 655360,
+      "peak_single_rss_bytes": 18817024,
+      "peak_tree_vms_bytes": 11943936,
+      "peak_threads": 1,
+      "peak_processes": 1,
+      "peak_lean_processes": 0,
+      "affinity_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "timeout_s": 1200.0,
+      "limit": null,
+      "rss_cap_gb": 285.0,
+      "virtual_address_limit_per_process_bytes": 257698037760,
+      "cgroup": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20995984360\nuser_usec 18890845729\nsystem_usec 2105138630\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.peak": "93943840768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      },
+      "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
+      "wait4_cpu_s": 0.095489,
+      "cpu_method": "wait4 cumulative",
+      "cgroup_before": {
+        "authenticated_palomar_telemetry": false,
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/tmux-spawn-d6ac2384-f184-4d42-8e27-980d20421d33.scope",
+        "limits": {
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.high": "max",
+          "memory.swap.max": "max"
+        },
+        "cpu.stat": "usage_usec 20995887010\nuser_usec 18890763418\nsystem_usec 2105123591\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       }
@@ -1702,8 +1935,8 @@
       }
     },
     {
-      "stage": "final-regression-export",
-      "started_utc": "2026-11-17T03:37:00.894231+00:00",
+      "stage": "delivered-regression-export",
+      "started_utc": "2026-11-17T03:51:13.033666+00:00",
       "command": [
         "/usr/bin/env",
         "-i",
@@ -1920,17 +2153,17 @@
       ],
       "cwd": "/home/ubuntu/aklt/wt/PAL_FIT/_pkg",
       "exit_code": 0,
-      "wall_s": 36.24126574899128,
+      "wall_s": 46.5574235469976,
       "user_s": 0.0,
-      "system_s": 0.0032229999999999997,
-      "cpu_s": 35.88,
-      "sampled_tree_cpu_s": 35.88,
-      "peak_tree_rss_bytes": 7604506624,
-      "peak_single_rss_bytes": 7600922624,
-      "peak_tree_vms_bytes": 12882919424,
-      "peak_threads": 5,
-      "peak_processes": 3,
-      "peak_lean_processes": 0,
+      "system_s": 0.0049759999999999995,
+      "cpu_s": 46.37,
+      "sampled_tree_cpu_s": 46.37,
+      "peak_tree_rss_bytes": 7602634752,
+      "peak_single_rss_bytes": 7599042560,
+      "peak_tree_vms_bytes": 12882923520,
+      "peak_threads": 8,
+      "peak_processes": 4,
+      "peak_lean_processes": 1,
       "affinity_cpus": [
         0,
         1,
@@ -1949,7 +2182,7 @@
         14,
         15
       ],
-      "timeout_s": 1800.0,
+      "timeout_s": 1200.0,
       "limit": null,
       "rss_cap_gb": 285.0,
       "virtual_address_limit_per_process_bytes": 257698037760,
@@ -1962,12 +2195,12 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20699671257\nuser_usec 18630310591\nsystem_usec 2069360666\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 21043217527\nuser_usec 18935822467\nsystem_usec 2107395060\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       },
       "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
-      "wait4_cpu_s": 0.0032229999999999997,
+      "wait4_cpu_s": 0.0049759999999999995,
       "cpu_method": "sampled process-tree CPU; approximate because namespace PID 1 does not forward rusage",
       "cgroup_before": {
         "authenticated_palomar_telemetry": false,
@@ -1978,7 +2211,7 @@
           "memory.high": "max",
           "memory.swap.max": "max"
         },
-        "cpu.stat": "usage_usec 20663167204\nuser_usec 18595615460\nsystem_usec 2067551743\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.stat": "usage_usec 20996032407\nuser_usec 18890884767\nsystem_usec 2105147639\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
         "memory.peak": "93943840768",
         "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
       }
@@ -2014,11 +2247,10 @@
   },
   "final_export_equality": {
     "status": "PASS",
-    "source": "Final fresh .lake/build",
+    "source": "Final source and final .lake/build, including American English comment edits",
     "bytes": 671987125,
     "sha256": "9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a",
-    "equals_three_checker_regression_export": true,
-    "original_regression_receipt": "/home/ubuntu/aklt/reports/PAL_FIT/full-port/regression/receipt.json"
+    "equals_three_checker_regression_export": true
   },
   "remaining_source_findings": [
     {
@@ -2030,12 +2262,9 @@
       "message": "Choose a license and add its exact text at the release root"
     }
   ],
-  "wall_sum_s": 2126.381414030984,
-  "cpu_sum_s": 10239.678581,
+  "wall_sum_s": 2216.4640214500105,
+  "cpu_sum_s": 10518.849537,
   "timing_note": "Some stages overlap. Sums are accounting totals, not an isolated cold end-to-end run. Namespace CPU uses sampled child totals where wait4 omits them. RSS sums can double-count shared pages. All measured stages use CPU affinity 0-15. No Palomar 32-GiB limit applies in this phase.",
   "author_metadata_and_license_pending": true,
-  "unconditional_export_verified": false,
-  "audited_first_party_declaration_entries": 21855,
-  "unique_AKLT_CertData_inventory_names": 18955,
-  "audit_count_note": "Module-local realizations can repeat a constant name. Every entry is checked; the AKLT/CertData interface inventory has 18,955 distinct names, plus the sample/regression declarations."
+  "unconditional_export_verified": false
 }
