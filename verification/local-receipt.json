@@ -110,7 +110,71 @@
       "peak_tree_rss_bytes": 4832407552,
       "peak_single_rss_bytes": 3984224256,
       "peak_lean_processes": 1
+    },
+    {
+      "stage": "fresh-serial-default",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 2595.6003930389998,
+      "cpu_s_best": 3170.194279,
+      "wait4_or_reported_cpu_s": 3170.194279,
+      "sampled_tree_cpu_s": 3132.8,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 28272304128,
+      "peak_single_rss_bytes": 27264335872,
+      "peak_lean_processes": 1
+    },
+    {
+      "stage": "serial-explicit-targets",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 10.27480932699109,
+      "cpu_s_best": 10.152943,
+      "wait4_or_reported_cpu_s": 10.152943,
+      "sampled_tree_cpu_s": 10.01,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 4083212288,
+      "peak_single_rss_bytes": 3069263872,
+      "peak_lean_processes": 1
+    },
+    {
+      "stage": "serial-strict-audit",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 2.8224969480070285,
+      "cpu_s_best": 2.7486539999999997,
+      "wait4_or_reported_cpu_s": 2.7486539999999997,
+      "sampled_tree_cpu_s": 2.53,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 4833808384,
+      "peak_single_rss_bytes": 3984384000,
+      "peak_lean_processes": 1
+    },
+    {
+      "stage": "serial-solution-export",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 33.05253338901093,
+      "cpu_s_best": 32.986051,
+      "wait4_or_reported_cpu_s": 32.986051,
+      "sampled_tree_cpu_s": 32.75,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 8453672960,
+      "peak_single_rss_bytes": 7602188288,
+      "peak_lean_processes": 0
     }
   ],
-  "note": "Namespace-stage CPU is sampled and approximate; raw wait4 is wrapper-only. A final serial-build receipt is maintained by the orchestrator."
+  "note": "Namespace-stage CPU is sampled and approximate; raw wait4 is wrapper-only. A final serial-build receipt is maintained by the orchestrator.",
+  "serial_export_equality": {
+    "bytes": 671987125,
+    "sha256": "9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a",
+    "checked_export_sha256": "9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a",
+    "same_sha256": true
+  },
+  "cold_runner_smoke": {
+    "commit": "93ef45ede9fd425e2e48fa5842ac4c8c0747811e",
+    "clean_clone": true,
+    "budget_s": 2,
+    "status": "controlled budget exhaustion after source checks; no dependencies fetched"
+  }
 }
