@@ -20,9 +20,13 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(args.verifier.resolve()))
 from scripts import verify_submission as official
 from scripts.source_requirements import physical_lines
+from refresh_manifests import check as check_manifests
 project = args.project.resolve()
 summary, issues = official.inspect_lean_sources(project)
 problems = [dict(code=e.code, path=e.path, message=str(e)) for e in issues]
+manifests = check_manifests(project)
+for issue in manifests['issues']:
+    problems.append(dict(code='package.source_hash', **issue))
 config = official.load_comparator_config(project/'comparator.json')
 if config['theorem_names'] != ['AKLTPalomar.aklt_gap'] or set(config['permitted_axioms']) != {
         'propext', 'Classical.choice', 'Quot.sound'} or config.get('definition_names'):

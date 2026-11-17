@@ -10,6 +10,7 @@ from itertools import product
 from math import lcm,prod
 import argparse,json,time
 from pathlib import Path
+from locations import INPUT_DIR
 from export import records,validate,RING,TIPS
 
 
@@ -178,7 +179,7 @@ def main():
     ap.add_argument('--block',default='all',help='block number or all exchange parities')
     ap.add_argument('--out',type=Path)
     args=ap.parse_args()
-    r=next(r for r in records(Path('/home/ubuntu/aklt/data/h1')) if r['pid']==args.pid)
+    r=next(r for r in records(INPUT_DIR) if r['pid']==args.pid)
     validate(r); start=time.monotonic()
     checked=[]
     for bi in range(len(r['blocks'])) if args.block=='all' else [int(args.block)]:

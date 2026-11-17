@@ -16,11 +16,9 @@ TOKEN = re.compile(r'''(?<![\w.:/])(/[A-Za-z_][^\s\x00"'`<>|,;\)\]]*)''')
 
 
 def reason(name, value):
-    if value.startswith('/home/ubuntu'):
-        if name.startswith('AKLT/Cert/H1/tools/'):
-            return 'Unchanged H1 tooling; preserve active receipt/interface inputs. Final portable adapter is explicit; historical entry points are not release commands.'
-        if name.startswith('AKLT/Cert/H3/'):
-            return 'Unchanged H3 tooling; production defaults overridden by H3_INPUT_DIR/H3_REPORT_DIR, or unused historical planning/merge command.'
+    if value.startswith('/home/'):
+        if name.startswith(('AKLT/Cert/H1/tools/', 'AKLT/Cert/H3/')):
+            return 'Unexpected user-specific tool path; replace it with a repository-relative default or an explicit input.'
         if name.endswith('.lean'):
             return 'Unchanged Lean comment containing a historical diagnostic reference; no import or runtime requirement.'
         return 'Verbatim historical receipt, review, or feasibility report; identifies measured environment and is not a required release path.'
@@ -55,13 +53,13 @@ def main():
                 rows.append({'file': name, 'line': line_number, 'path': value,
                              'reason': reason(name, value)})
     data = io.StringIO()
-    writer = csv.DictWriter(data, fieldnames=['file', 'line', 'path', 'reason'],
+    table = csv.DictWriter(data, fieldnames=['file', 'line', 'path', 'reason'],
                             delimiter='\t', lineterminator='\n')
-    writer.writeheader()
-    writer.writerows(rows)
+    table.writeheader()
+    table.writerows(rows)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'absolute-paths.tsv.gz').write_bytes(gzip.compress(data.getvalue().encode(), mtime=0))
-    home = [r for r in rows if r['path'].startswith('/home/ubuntu')]
+    home = [r for r in rows if r['path'].startswith('/home/')]
     summary = {'inventory': 'absolute-paths.tsv.gz',
         'scope': 'Tracked text and decompressed historical reports; one distinct literal per file/line. Excludes this inventory, its producer, binary paper PDF, Git ignore anchors, and mathematical division.',
         'rows': len(rows), 'home_path_rows': len(home), 'files': len({r['file'] for r in rows}),

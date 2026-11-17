@@ -1,10 +1,8 @@
 # Certificate regeneration interface
 
-This handoff is the complete-formalization hand-written port from main
-`8f59d336acf2fc13428893faf26097890f4f288b`, extending the earlier two-input release.
-Regenerate the certificates **against this release's module-system sources and
-fresh objects**. Do not copy or import any legacy olean. Lean is 4.35.0-rc2;
-Mathlib is pinned to `065356127b1dc0016f66b7283ce0ce2c4055aa55`.
+Generated certificates use this release's module-system sources and fresh
+objects. Lean is 4.35.0-rc2; Mathlib is pinned to
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`.
 First-party identifiers now use American English. Eight analytic source files
 were renamed consistently with their imports; no direct H1/H3 kernel import
 module name changed. Declaration inventories below contain the current names. In
@@ -175,11 +173,10 @@ it does not replace the soundness theorems or certify numeric data.
 
 ## Closing and verification
 
-Only the two Close.Main files directly import generated modules. The further
-blocked hand-written modules are `CertData.H1.Close.Audit`, `CertData.Close.All`,
+Only the two Close.Main files directly import generated modules. The dependent hand-written modules are `CertData.H1.Close.Audit`, `CertData.Close.All`,
 `Solution`, and `Audit`. Their exact direct and transitive requirements are in
-`verification/generated-modules.json`. No unproved fact is introduced to make
-these modules compile early; they remain genuine pending builds.
+`verification/generated-modules.json`. They consume the checked generated modules; no extra premise is introduced
+to compile them independently of those modules.
 
 Build the samples with:
 
@@ -188,29 +185,28 @@ LEAN_NUM_THREADS=4 lake build RegenSamples.H1Consumer RegenSamples.H3Consumer
 lake env lean -DwarningAsError=true AuditHandwritten.lean
 ```
 
-The original generator scripts are retained under `AKLT/Cert/H1/tools/` and
-`AKLT/Cert/H3/`. Their legacy output templates must be adapted to these headers
-before use. The regeneration agents own the data-input pins, output archives,
-updated manifests, full rebuild, and per-theorem axiom receipts. If splitting a
-source to meet the line cap adds modules, update the generated inventory, Lake
-globs, and ignore rules together, while preserving downstream declaration names.
-The archive installer accepts only inventory paths and refuses overwrites.
+The numeric generators under `AKLT/Cert/H1/tools/` and `AKLT/Cert/H3/` emit
+these module headers and preserve the recorded owner maps. The input pins,
+source archives, complete builds, and per-theorem axiom receipts are described
+in `docs/regeneration/H1.md` and `H3.md`. The archive installer accepts only
+inventory paths and refuses overwrites.
 
 Every `.lean` source, including generated sources, must have a module header and
 at most 10,000 lines. Only the root Challenge has its single conventional
 placeholder. The only permitted axioms are `propext`, `Classical.choice`, and
 `Quot.sound`; no `native_decide`, `unsafe`, `implemented_by`, `extern`, or new
-`opaque` declaration is allowed. Run the official source/header checks, the full
-fresh build, strict Audit, unconditional Comparator with Lean and NanoDa, and
-con-ron on the final full export after regeneration. Earlier conditional receipts
-do not certify that final export. Resources are recorded, not constrained by
-Palomar's production acceptance budget.
+`opaque` declaration is allowed. The cold driver runs the source/header checks, full source build, strict
+Audit, and physical statement comparison with Lean and NanoDa. The accepted
+full two-input reduction has separate independent-kernel receipts. A full
+unconditional independent replay was not run; `VERIFICATION.md` states the
+size and computation boundary. Resources are recorded without a Palomar
+production execution allowance.
 
 All prose and first-party identifiers use American English.
 `verification/port/american-english-identifiers.tsv` lists the current identifier spellings. External
 Mathlib identifiers and manuscript labels such as `l:colour` stay exact.
 The generator input-key audit found no affected external data key: only emitted
-Lean names and Lean leaf-name metadata values change.
+Lean names and Lean theorem-name metadata values change.
 
 The unused even-period MainStatement has been removed from the two complete and
 two exposed inventories. It was absent from both generated reference lists. All

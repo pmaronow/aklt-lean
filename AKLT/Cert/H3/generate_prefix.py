@@ -118,7 +118,7 @@ ex.write_source(ex.LEGACY_DATA/'PrefixBN.lean',s)
 stats=dict(stem=stem,step_denominator=str(D),step_denominator_bits=D.bit_length(),phase_bits=phaseBits,
            surviving=[i for i,r in enumerate(leaves) if r['surviving']],closed=[i for i,r in enumerate(leaves) if r['closed']],
            tail_numerator=str(numerator),tail_denominator=str(denominator),short=str(short),shard_value=str(short+F(numerator,denominator)))
-report=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
+report=pathlib.Path(os.environ.get('H3_REPORT_DIR',ex.ROOT / 'verification/runs/H3'))
 report.mkdir(parents=True,exist_ok=True)
 (report/'prefix_manifest.json').write_text(json.dumps(stats,indent=2)+'\n')
 print(json.dumps(stats,indent=2))

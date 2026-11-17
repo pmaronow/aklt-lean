@@ -1,111 +1,137 @@
 {
-  "status": "TIDY COMPLETE",
-  "baseline_commit": "2707fd84b72ca0edb273fff82c3a84882a1fd3bd",
-  "changes": "Layout, manuscript snapshot, documentation, verification drivers, and ignore patterns only.",
-  "lean_and_build_pins_unchanged": true,
-  "protected_files_identical": 1163,
-  "protected_classes": {
-    "Lean sources": 1117,
-    "H1 tools": 19,
-    "H3 tools and numeric pins": 11,
-    "regeneration interface inventories": 11,
-    "build/configuration/generated-inventory pins": 5
-  },
-  "source_digest": "6466aff3e10dcd09cb2e149891adebada40465c6d0252c79406436bf40f62077",
-  "moves": {
-    "PORT-CHANGES.md": "docs/port/CHANGES.md",
-    "PORT-MANIFEST.tsv": "verification/port/source-manifest.tsv",
-    "port-list.tsv": "verification/port/port-list.tsv",
-    "direct-leaves.txt": "verification/port/direct-leaves.txt",
-    "reachable-leaves.txt": "verification/port/reachable-leaves.txt",
-    "AMERICAN-ENGLISH-IDENTIFIERS.tsv": "verification/port/american-english-identifiers.tsv",
-    "REGEN-INTERFACE.md": "docs/REGEN-INTERFACE.md",
-    "REGEN-CHANGES.md": "docs/regeneration/H3-CHANGES.md",
-    "REGEN-H3.md": "docs/regeneration/H3.md",
-    "FIDELITY.md": "docs/FIDELITY.md",
-    "statement-sources.json": "verification/statement-sources.json"
-  },
-  "original_reference_rows": 23,
-  "manuscript": {
-    "files": 14,
-    "all_exact_bytes": true,
-    "commit": "241c2d870e89e8ff857991fbadf28ba6df833783",
-    "auxiliary_files_present": false
-  },
-  "ignore_patterns": {
-    "generated_paths": 12996,
-    "ignored_generated": 12996,
-    "handwritten_CertData_paths": 23,
-    "ignored_handwritten": [],
-    "missing_generated_patterns": [],
-    "old_ignore_bytes": 185499,
-    "new_ignore_bytes": 620,
-    "new_ignore_lines": 23,
-    "method": "git check-ignore --no-index --stdin -z on all inventory source paths and every tracked CertData path"
-  },
-  "checks": {
-    "python_syntax": {
-      "passed": true,
-      "scripts": 13
-    },
-    "shell_syntax": true,
-    "cold_driver_dry_run": {
-      "passed": true,
-      "stages": 25,
-      "creates_files": false,
-      "build_directory_absent": true,
-      "H1_placeholder_explicit": "TBD-H1-PORTABLE-ENTRYPOINT; fails before any build"
-    },
-    "incomplete_H1_interface_fails_before_work": true,
-    "invalid_cold_arguments_rejected": true,
-    "statement_comparison_dry_run": {
-      "passed": true,
-      "cases": [
-        "physical identity: Lean and NanoDa",
-        "spinZ 2 to 3: required mismatch at bondCasimir"
-      ]
-    },
-    "exact_generation": {
-      "positive": true,
-      "extra_byte_rejected": true,
-      "nested_manifest_location": true
-    },
-    "source_digest": {
-      "sorted_path_space_sha256_LF_convention": true,
-      "literal_and_file_check_modes": true,
-      "documentation_independent": true,
-      "tracked_source_change_detected": true
-    },
-    "current_source_digest": "6466aff3e10dcd09cb2e149891adebada40465c6d0252c79406436bf40f62077",
-    "official_source_checks": {
-      "mechanical_findings": [],
-      "author_owned_findings": [
-        "package.metadata_todo",
-        "package.license_missing"
-      ],
-      "files": 1117
-    },
-    "manuscript_snapshot": {
-      "files": 14,
-      "all_exact_bytes": true,
-      "commit": "241c2d870e89e8ff857991fbadf28ba6df833783",
-      "auxiliary_files_present": false
-    },
-    "protected_files": {
-      "files": 1163,
-      "changed": [],
-      "baseline": "2707fd84b72ca0edb273fff82c3a84882a1fd3bd"
-    },
-    "no_Lean_builds_or_elaboration_run": true
-  },
-  "remaining_integration": [
-    "TBD-H1-PORTABLE-ENTRYPOINT: final H1 adapter; the provided cold driver fails before work when absent.",
-    "Final combined-build placeholders in VERIFICATION.md.",
-    "Release tag, published archive confirmation, and author metadata/license/provenance."
+  "status": "FINAL FILL COMPLETE",
+  "source_baseline": "42b16c34abb52e2e508ae4000cdfd804115ed14c",
+  "source_digest": "c875dff024d396b0b78f1fa955ea5d38e8f577e1d8bd69e970fd02bea906bee9",
+  "unchanged_Lean_sources": 1117,
+  "unchanged_Lean_build_and_interface_files": 1133,
+  "current_source_and_tool_hashes": 1162,
+  "cold_driver_stages": 29,
+  "H1_default_route": [
+    "inputs",
+    "reexport --install",
+    "build --cap-gib 7",
+    "verify",
+    "close"
   ],
-  "no_Lean_build_or_certificate_runner_executed": true,
-  "no_final_or_regeneration_clone_or_report_modified": true,
-  "absolute_path_inventory": "absolute-paths.tsv.gz",
-  "absolute_path_policy": "Runner files remain byte-identical; operational H3 overrides are explicit, H1 is a named final-interface integration point, other machine paths are immutable evidence/comments.",
-  "report_location_deviation": "The requested reports/FINAL_TIDY directory is outside the permitted writable roots. The report is in reports/PAL_FIT/final-tidy."
+  "external_H1_adapter_required": false,
+  "existing_custom_stage_override_preserved": true,
+  "certificate_receipt_keys_formats_and_generated_templates_unchanged": true,
+  "deleted_unused_tools": [
+    "AKLT/Cert/H1/tools/export_leaves.py",
+    "AKLT/Cert/H1/tools/production_bootstrap.py",
+    "AKLT/Cert/H1/tools/production_handoff.py",
+    "AKLT/Cert/H1/tools/production_leaves.py",
+    "AKLT/Cert/H1/tools/production_merge_check.py",
+    "AKLT/Cert/H1/tools/production_regen.py",
+    "AKLT/Cert/H1/tools/production_status.py",
+    "AKLT/Cert/H3/production_plan.py",
+    "AKLT/Cert/H3/validate_merge.py"
+  ],
+  "comment_updated_source_files": [
+    "AKLT/Blueprint/Gap/Assembly.lean",
+    "AKLT/Blueprint/Gap/NodesFinite.lean",
+    "AKLT/Blueprint/Gap/NodesMain.lean",
+    "AKLT/Blueprint/H1/AssemblyV2.lean",
+    "AKLT/Blueprint/Q/NodesSplits.lean",
+    "AKLT/Cert/H1/Production/Leaves.lean",
+    "AKLT/Final/Skeleton.lean",
+    "AKLT/Gen/Bellman/Growth.lean",
+    "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+    "AKLT/W/H3C034/PrefixStep/Main.lean",
+    "CertData/H1/Close/Main.lean"
+  ],
+  "source_manifest_rows_refreshed": 11,
+  "source_inventory_and_statement_source_record_unchanged": true,
+  "numeric_inputs_hash_checked": 23,
+  "source_configuration_findings": [
+    {
+      "code": "package.metadata_todo",
+      "message": "Author metadata and public provenance remain TODO"
+    },
+    {
+      "code": "package.license_missing",
+      "message": "Choose a license and add its exact text at the release root"
+    }
+  ],
+  "compilers_certificate_commands_and_independent_kernels_executed": false,
+  "existing_axiom_transcript_guard": "18 hand-written export prints accepted; this is not a new Lean audit",
+  "actual_existing_production_receipt_verification": "Not executed; exact verifier/key AST identity and synthetic probes establish compatibility.",
+  "historical_hash_occurrences_preserved": [
+    {
+      "file": "verification/fidelity-fix/protected-closure.json",
+      "stale_source_references": [
+        "AKLT/Cert/H1/Production/Leaves.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/fidelity-fix/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/fidelity-round2/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/rename/regression-receipt.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    },
+    {
+      "file": "verification/rename/summary.json",
+      "stale_source_references": [
+        "AKLT/Blueprint/Gap/Assembly.lean",
+        "AKLT/Blueprint/Gap/NodesFinite.lean",
+        "AKLT/Blueprint/Gap/NodesMain.lean",
+        "AKLT/Blueprint/H1/AssemblyV2.lean",
+        "AKLT/Blueprint/Q/NodesSplits.lean",
+        "AKLT/Cert/H1/Production/Leaves.lean",
+        "AKLT/Final/Skeleton.lean",
+        "AKLT/Gen/Bellman/Growth.lean",
+        "AKLT/W/H3C034/PrefixStep/Accounting.lean",
+        "AKLT/W/H3C034/PrefixStep/Main.lean",
+        "CertData/H1/Close/Main.lean"
+      ],
+      "kind": "historical receipt or provenance"
+    }
+  ],
+  "author_metadata_unchanged": true
 }

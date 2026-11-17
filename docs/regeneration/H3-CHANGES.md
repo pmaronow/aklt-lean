@@ -11,7 +11,7 @@ No legacy compiled object is reused.
 - Prefix reducers privately `import all Init.Data.List.Sort.Basic`. The unchanged
   `mergeSortFuel` body calls the standard-library private `splitInTwo` helper.
   Importing its body only in `PrefixView` did not make it available to a later
-  `decide +kernel`. The first early-prefix pilot detected this. Importing the
+  `decide +kernel`. A prefix-reduction check detected this missing body. Importing the
   original standard-library body in the reducing module preserves the checker
   and sort exactly. Standard-library sources and objects are unchanged.
 - `AKLT/Cert/H3/regen.py`, `inputs.json`, and `prefix-reference.json`: input pins, exact inventory checks,
@@ -28,5 +28,5 @@ No legacy compiled object is reused.
   output headers, imports, line checks, report destination, and disk guard. These
   prototypes are outside the production inventory and are not produced by this run.
 
-Hand-written Lean checker edits: **none**. No definition, proof body, leaf type,
+Hand-written Lean checker edits: **none**. No definition, proof body, theorem type,
 or closing statement has been changed.

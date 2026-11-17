@@ -1,28 +1,50 @@
-# Release layout checks
+# Source and portable-tool checks
 
-These records concern the layout/documentation commit based on 2707fd8.
-They are not a new Lean build or certificate run. `summary.json` records the
-changes, exact source digest, known integration fields, and check results.
-`protected-baseline.json.gz` pins all 1,163 constrained files before any edit;
-all remain byte-identical. The empty constrained Git diff is checked separately.
+The current records bind the unchanged Lean source tree at 42b16c3 to portable
+certificate tools and the complete numeric-input cold verification plan.
+`summary.json` states the exact scope. No compiler, certificate command, or
+independent kernel was run for these checks.
 
-`moved-references.tsv` lists every original document/script reference to a moved
-root record, including its original line and new location. The source inventory,
-generated inventory, and machine-readable certificate interface paths are stable.
-`source-checks.json` preserves the official source/header policy result: no
-mechanical finding, with only author metadata and root license TODOs. The 12,996
-absent generated paths are counted instead of duplicated from the inventory.
+`protected-baseline.json.gz` records current hashes for every tracked Lean file,
+build pin, generated/API inventory, numeric pin, and retained certificate tool.
+Its source baseline identifies the Lean sources; Python hashes identify the
+accompanying tool revision. `verification/source-digest.txt` at the repository
+root records the digest of the 1,117 tracked Lean files and three build pins.
+`manifest-checks.json` checks the active port manifests, source inventory,
+protected hashes, source digest, and exact Challenge generation. Historical
+receipts under fidelity-fix/, fidelity-round2/, and rename/ retain their original
+hashes and remain bound to their own source commits.
 
-`checks.json` records script syntax, argument validation, cold-driver and physical
-comparison dry-runs, exact Challenge bytes and its extra-byte negative control,
-source-digest positive/negative controls, manuscript hashes, and ignore coverage.
-No `.lake/build` directory was created. The compiled-source header parser's
-previous acceptance remains bound to the identical Lean bytes; no elaboration
-was needed or run for this layout task.
+`tool-compatibility.json` records exact AST identity for both receipt verifiers,
+key/dependency hash functions, numeric emitters, owner bundling, and the H1
+per-module compilation/receipt body. Other changes are restricted to input/report
+selection, documentation, and the optional aggregate-memory control. Synthetic
+probes reproduce identical keys, input receipt bytes, module envelopes, and H3
+context/dependency hashes. They do not verify a mathematical proof.
 
-`absolute-paths.tsv.gz` lists retained absolute literals by file and line, with
-a reason, including decompressed historical reports. The JSON companion gives
-counts. See `docs/PORTABILITY.md` from the repository root for the operational
-rules and the named H1 adapter completion field. The inventory excludes itself,
-its producer's scanner patterns, repository-anchored Git ignore patterns, and
-mathematical division. Historical records remain unchanged.
+`checks.json` covers syntax, the 29-stage dry-run, exact H1 command order,
+resource limits, paths with spaces, argument rejection, input-directory settings,
+small positive/negative numeric fixtures, uppercase layout compatibility, and
+byte-exact Challenge generation. A one-byte read perturbation is rejected
+without changing a source file. `source-checks.json` preserves the official
+source/module-header/line-cap/configuration result: only author metadata and
+LICENSE findings, with generated sources counted separately.
+
+Reproduce the pure-Python checks with:
+
+```sh
+python3 scripts/refresh_manifests.py --check
+python3 scripts/inventory.py --check
+python3 scripts/source_digest.py --check verification/source-digest.txt
+python3 scripts/make_challenge.py --check
+python3 scripts/self_check.py
+python3 scripts/check_tool_compatibility.py --baseline 42b16c3
+```
+
+The compatibility comparison needs the named Git revision. It never executes an
+old or new certificate command. `moved-references.tsv` preserves the earlier
+root-record relocation map. `placeholders.json` lists the unfilled final-result
+fields. `absolute-paths.tsv.gz` inventories retained absolute literals, including
+verbatim historical reports; its JSON companion gives counts. Operational
+scripts and working instructions contain no fixed user-specific path. See
+`docs/PORTABILITY.md` from the repository root for current defaults and overrides.

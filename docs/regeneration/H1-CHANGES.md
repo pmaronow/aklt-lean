@@ -1,68 +1,52 @@
-# H1 regeneration changes
+# H1 certificate tooling and module interfaces
 
-No hand-written Lean checker, checker definition, statement, proof body, arithmetic
-operation, or input datum has been changed. The pilots use the ported exposed
-kernels supplied by the release.
+The generated library uses ordinary Lean module-system files. No arithmetic
+expression, checker definition, statement, proof body, input number, owner name,
+dependency edge, or numeric-data key changes in this tooling update.
 
-- `AKLT/Cert/H1/tools/module_source.py`: a reversible module envelope adds
-  `module`, public imports, an exposed public section, and
-  `backward.proofsInPublic`. Explicit private helpers retain their modifiers.
-  The three historical catalog identifier spellings are translated to the
-  release spellings, with no numeric or string-literal changes.
-- `export.py` and `production_export.py`: every source write uses that envelope.
-  Report and scratch output roots can be selected through `H1_REGEN_REPORT` and
-  `H1_REGEN_ROOT`; the pinned numeric input directory is unchanged.
-- `production_bundle.py`: unwraps the visibility envelope before the original
-  size-based grouping and body concatenation. This preserves all 7,964 owner
-  names, all component namespaces, and each independent kernel reduction.
-- `production_regen.py`: checks retained source hashes against the legacy
-  verified receipt, transforms only sources, and creates the release manifest
-  and paired pilot plan. It never reads or copies a legacy compiled module.
-- `production_reexport.py`: runs the complete original numeric export, bridge,
-  coverage, representative-index, and two bundling stages in a separate scratch
-  directory. All 7,964 owners were independently regenerated from the pinned
-  integer inputs and matched the transformed sources byte for byte.
-- `production_bootstrap.py`: checks only the local ported prerequisites; removes
-  the legacy artifact-symlink attachment workflow.
-- `production_build.py`: uses fresh single-threaded Lean processes and this
-  release's normal Lake artifact directory. Source, input pins, hand-written
-  dependency closure, generated dependency keys, and all module artifact parts
-  determine replay. It captures stdout, stderr, GNU-time, per-theorem axiom
-  receipts, and an append-only build journal. Module locks and atomic receipts
-  permit resume. Limits are 36 Lean processes, 270 GB RAM, 40 GB available RAM,
-  and 100 GiB free disk, with conservative per-module reservations.
-- `production_receipts.py`: independently checks every source, compiled artifact,
-  dependency key, exit status, import edge, and complete theorem axiom transcript;
-  writes source and compiled-module SHA-256 manifests.
-- `production_measure.py` and `production_cache_test.py`: summarize the new
-  receipt format and test unchanged replay, transitive invalidation, expected
-  kernel rejection, and restoration in an isolated validation run.
-- `production_close.py`: builds both existing closing modules with strict
-  warnings, records their exact closed types, and audits every printed theorem.
-- `production_handoff.py`: writes final totals and the hand-off only after
-  independent production, closing, archive, and all paired-pilot receipts pass.
-- `production_archive.py`: creates a deterministic archive containing exactly
-  the 7,964 inventory source paths and no compiled artifacts.
-- `production_status.py`: records accepted owner counts and same-owner pilot
-  comparisons in the live report. It does not change certificate artifacts.
+- `module_source.py` supplies the reversible visibility envelope: `module`, public
+  imports, an exposed public section, and `backward.proofsInPublic`. Explicit
+  private helpers retain their modifiers. The existing identifier conversion
+  preserves numeric and string literals.
+- `export.py`, `production_export.py`, `production_bridge_export.py`,
+  `production_coverage.py`, `production_index.py`, and `production_bundle.py`
+  generate the same source expressions and the same 7,964-owner map. Bundling
+  keeps every `decide +kernel` reduction separate.
+- `locations.py` defines one numeric-input location, `H1_INPUT_DIR`, defaulting
+  to `data/h1/`, and one report location, `H1_REGEN_REPORT`, defaulting to
+  `verification/runs/H1/`. Both defaults are relative to the repository. The
+  existing `H1_REGEN_ROOT` output override remains independent of numeric inputs.
+- `production_reexport.py` runs the complete numeric export and both bundling
+  stages in a separate scratch directory. Every owner matched the converted
+  module-system source byte for byte; the owner/dependency/component map matched.
+- `production_build.py` keeps the existing source, recursive library, build-pin,
+  generated-dependency, and compiled-artifact key calculations. The optional
+  `--ram-gb` limit defaults to the existing 270 GB and changes only resource
+  admission and RSS checks. Existing per-module reservations and all receipt
+  field names are retained.
+- `production_receipts.py` independently checks source and compiled hashes,
+  dependency keys, actual imports, exit status, and every exported theorem's
+  axiom transcript. Its verifier and receipt format are unchanged. The input
+  command reads the shared input directory and retains its exact record format.
+- `production_close.py` builds the two existing closing modules, checks their
+  exact hypothesis-free types, and audits every printed theorem. Its source and
+  compiled-artifact records are unchanged.
+- `production_archive.py` creates the deterministic source-only archive;
+  `production_measure.py` summarizes verified receipts. The optional
+  `production_cache_test.py` checks transitive invalidation and expected rejection
+  in a separate validation directory.
 
-The complete data-only reproduction took 228.63 seconds and emitted 158,230
-logical components before bundling. The longest owner has 1,690 physical lines.
-Every transformed owner retains exactly its original data and check expressions.
+The numeric route is the release build route. Unused source-conversion,
+prerequisite, progress-report, and merge helpers are excluded. The commands,
+input pins, reference per-kind measurements, resource settings, receipt contents,
+and closing contracts are documented in [H1.md](H1.md).
 
-`CertData/H1/Close/Main.lean` has one documentation-only update identifying
-the imported numerical proofs as freshly checked module-system certificates.
-Its declarations, types, and proof bodies are unchanged.
-
-## Coverage performance finding
-
-The coverage frontier pilots pass but use 26–28% more CPU than their legacy
-receipts. A profiled small frontier used 77.3 seconds for kernel type checking,
-versus 61.3 seconds in the legacy profile. Loading private bodies did not help
+Coverage-frontier checks used 26–28% more CPU than the corresponding
+pre-module-system checks. The reference profiled control spent 77.3 seconds in
+kernel type checking versus 61.3 seconds. Loading private bodies did not help
 (92.17 CPU-seconds), nor did default private-proof elaboration (88.01 seconds),
-compared with 85.11 seconds for the profiled required-header control. All data
-and checker expressions were held fixed. No missing exposed body was found.
-The production headers and checker definitions remain unchanged. The cost
-increase is recorded for the orchestrator; no definition-preserving repair was
-identified. Diagnostic receipts are in `coverage-performance.json`. Temporary
-validation sources and objects were removed only after recording their hashes.
+compared with 85.11 seconds for the profiled control. Inputs, arithmetic, and
+check expressions were fixed. This measured cost does not change correctness.
+Final combined-tree measurements use `TBD-H1-CPU-HOURS`, `TBD-H1-WALL`,
+`TBD-H1-PROCESS-MEMORY`, `TBD-H1-AGGREGATE-MEMORY`, and `TBD-H1-RECEIPT` as
+recorded in `VERIFICATION.md`.

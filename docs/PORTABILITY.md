@@ -1,51 +1,50 @@
-# Portable commands and retained path literals
+# Portable certificate commands
 
-Release commands resolve the repository from their script location. The cold
-driver takes `--input-dir`, `--report-dir`, `--jobs`, and `--memory-gb` arguments.
-Its default input parent is `data/` in the repository; its default report directory
-is a sibling named `<checkout-name>-verification`. Reports are outside the source
-tree so temporary comparison modules never become repository sources. The driver
-uses the pinned dependency revisions and requires an explicit official-verifier
-checkout through `--verifier` or `PALOMAR_VERIFIER`.
+All release commands locate the repository from their script path. Numeric input
+and report locations can be selected independently:
 
-H3 production commands always set both `H3_INPUT_DIR` and `H3_REPORT_DIR`; all
-published examples do so. The original absolute defaults remain byte-identical
-inside the receipt-pinned H3 programs. The historical planning and merge-check
-programs are not release build entry points.
+| Setting | Default | Purpose |
+|---|---|---|
+| `H1_INPUT_DIR` | `<repo>/data/h1` | Index and sixteen integer-witness chunks |
+| `H1_REGEN_REPORT` | `<repo>/verification/runs/H1` | H1 plans, logs, and receipts |
+| `H1_REGEN_ROOT` | Repository root | H1 generated-output root; scratch exports override it |
+| `H3_INPUT_DIR` | `<repo>/data/h3` | Five stationary arrays and the finite-window table |
+| `H3_REPORT_DIR` | `<repo>/verification/runs/H3` | H3 plans, logs, and receipts |
 
-The incoming H1 interface uses `H1_REGEN_REPORT` for reports, but several inspected
-exporters and the input-receipt command still use literal input locations.
-`H1_INPUT_DIR` does not override those versions. The cold driver's explicit H1
-adapter contract is documented in `regeneration/H1-INTEGRATION.md`; its named
-integration field is completed against the final hand-back. The current driver
-fails before starting any build when that adapter is absent. This avoids relying
-on a machine-specific data mount or claiming that an unused variable works.
-No receipt-pinned H1 tool is changed by the layout commit.
+The H1 input default always uses the repository root, even when `H1_REGEN_ROOT`
+selects a scratch output tree. An explicit `--report-dir` retains its existing
+precedence in commands that provide it. Existing explicit environment overrides
+continue to select exactly the paths supplied. The standalone numeric commands
+are in `docs/regeneration/H1.md` and `H3.md`.
 
-`verification/layout/absolute-paths.tsv.gz` lists every distinct absolute path
-literal by file and line, with a reason. It includes compressed historical
-reports and excludes the inventory itself to avoid recursive duplication.
-Read it with `gzip -dc verification/layout/absolute-paths.tsv.gz`.
-Machine-specific entries fall into these categories:
+The complete `scripts/cold-verify.sh` driver accepts `--jobs`, `--memory-gb`,
+`--input-dir`, and `--report-dir`, plus the official verifier and bubblewrap
+locations. Its input default is the repository's `data/`; lowercase `h1/` and
+`h3/` subdirectories are preferred. Existing uppercase family directories are
+also accepted; two directories for the same family are rejected as ambiguous.
+Its report default is a sibling named `<checkout-name>-verification`. Reports
+are outside the checkout so temporary source exports and comparison modules do
+not become repository sources. The default H1 implementation runs the numeric
+route directly and requires no external adapter. `--dry-run` prints every stage
+without starting a command or creating a report directory.
 
-- Retained H1/H3 runner defaults and historical tools: kept byte-identical to
-  preserve active build contexts; H3 defaults have documented overrides, and H1
-  has the explicit adapter completion field.
-- Two unchanged Lean comments: historical diagnostic references, not imports or
-  build inputs. The hard constraint prohibits even comment edits in Lean files.
-- Historical verification receipts and verbatim review/study reports: paths
-  identify the environment actually measured. They are evidence, not commands
-  or required release paths, and are not rewritten as results for another tree.
-- Standard Linux/tool paths such as `/proc`, `/usr/bin/time`, `/dev/null`, and
-  sandbox `/tmp`: runtime interfaces or executable locations, not a particular
-  user's checkout. User-selected data, report, verifier, and bubblewrap paths
-  are explicit arguments.
+Source generation, numeric packing, owner/dependency maps, receipt key formulas,
+and receipt field names are unchanged by the location defaults. H1's optional
+`--ram-gb` defaults to the existing 270 GB; lowering it changes resource admission
+and RSS checks, not proof-related hashes. H3 retains its existing memory options.
 
-The manuscript is unedited; any original citation or spelling convention is
-preserved. Exact external Lean names, paper labels, and input-data keys are
-likewise preserved. The explanatory prose and new verification commands use
-American English.
+The release contains no fixed user-checkout path in operational scripts or
+working instructions. `verification/layout/absolute-paths.tsv.gz` lists every
+retained absolute path literal by file and line, with a reason. Read it with
+`gzip -dc verification/layout/absolute-paths.tsv.gz`. User-specific entries belong
+to historical receipts or verbatim review/study reports and identify the measured
+environment; they are not required release locations. Standard Linux paths such
+as `/proc`, `/usr/bin/time`, `/dev/null`, and sandbox `/tmp` are runtime interfaces.
+The inventory excludes itself, its producer's scanner patterns, binary paper
+PDFs, repository-anchored ignore patterns, and mathematical division.
 
-Regenerate the inventory after a source hand-back with
-`python3 scripts/path_inventory.py`. It reads tracked files and does not edit
-runner sources, receipts, or interface inventories.
+The manuscript is unedited. Exact external Lean names, paper labels, and numeric
+input-data keys are preserved. Explanatory prose and current first-party names
+use American English. Regenerate the path inventory with
+`python3 scripts/path_inventory.py`; check current source hashes with
+`python3 scripts/refresh_manifests.py --check`. Neither command invokes Lean or Lake.

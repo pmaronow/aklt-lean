@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Compile raw inputs, check every geometry and emit conditional Defs bridges.
 
-No mathematical leaf proof is generated. Per-pattern witness theorems apply
-Production.Assembly.case_witness to numerical checks and named closed leaves.
+No mathematical proof module is generated. Per-pattern witness theorems apply
+Production.Assembly.case_witness to numerical checks and named closed library theorems.
 """
 import argparse, itertools, json, re
 from pathlib import Path
+from locations import INPUT_DIR
 from export import records, raw_completion, RING, TIPS, lean_list
 from coverage import AXIAL, CORNERS, key, bond
 from production_export import ROOT, NS, CORE, REPORT, write
@@ -29,7 +30,7 @@ def main():
     ap.add_argument('--output',type=Path)
     args=ap.parse_args();plan=json.loads(args.manifest.read_text());patterns={p['pid']:p for p in plan['patterns']}
     jobs=list(plan['jobs']);byid={j['module']:j for j in jobs};items=[]
-    for r in records(Path('/home/ubuntu/aklt/data/h1')):
+    for r in records(INPUT_DIR):
         budget_guard()
         pid=r['pid']
         if pid not in patterns:continue

@@ -3,11 +3,12 @@
 
 All generated Lean lives below CertData/H1/Generated, never below AKLT/.
 Only finite computation proofs and assemblies using existing library results
-are generated. Mathematical soundness leaves are emitted separately.
+are generated. Mathematical soundness proofs are supplied by the library.
 """
 from __future__ import annotations
 import argparse, hashlib, json, math, os, sys, time
 from pathlib import Path
+from locations import INPUT_DIR, REPORT_DIR
 import export as old
 from export_packed import tree
 from packed import sites, packed_row, at
@@ -18,7 +19,7 @@ ROOT=Path(os.environ.get('H1_REGEN_ROOT', str(Path(__file__).resolve().parents[4
 OUT=ROOT/'CertData/H1/Generated'
 NS='CertData.H1.Generated'
 CORE='AKLT.Cert.H1'
-REPORT=Path(os.environ.get('H1_REGEN_REPORT', '/home/ubuntu/aklt/reports/REGEN_H1'))
+REPORT=REPORT_DIR
 
 def module_path(module): return ROOT/(module.replace('.','/')+'.lean')
 
@@ -167,7 +168,7 @@ def main():
     if args.ctor_batch<1 or args.gram_rows<1:ap.error('batch sizes must be positive')
     selected=None if args.all else set(args.pids or json.loads(args.selection.read_text())['pids'] if args.selection else args.pids or [7237])
     begin=time.monotonic();patterns=[]
-    for r in old.records(Path('/home/ubuntu/aklt/data/h1')):
+    for r in old.records(INPUT_DIR):
         if selected is not None and r['pid'] not in selected:continue
         patterns.append(emit_pattern(r,args.ctor_batch,args.gram_rows,args.python_check,not args.unsplit))
     manifest=dict(format='h1-production-v2',data_root=str(OUT),namespace=NS,patterns=patterns,

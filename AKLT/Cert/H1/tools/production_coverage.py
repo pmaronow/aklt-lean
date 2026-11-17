@@ -2,6 +2,7 @@
 """Export all 500 axial frontiers and their eight independent corner shards."""
 import argparse, itertools, json
 from pathlib import Path
+from locations import INPUT_DIR
 from export import records, lean_list
 from coverage import AXIAL, CORNERS, options, key, bond
 from production_export import ROOT, NS, CORE, REPORT, write
@@ -16,7 +17,7 @@ def main():
     ap.add_argument('--manifest',type=Path,default=REPORT/'coverage-manifest.json')
     args=ap.parse_args()
     entries=[]
-    for r in records(Path('/home/ubuntu/aklt/data/h1')):
+    for r in records(INPUT_DIR):
         pat=r['pattern'];ks={tuple(s[:2]):s[2] for s in pat['sites']}
         bs={bond(tuple(a),tuple(b)) for a,b in pat['present']}
         entries.append((key(ks,bs,tuple(pat['out'])),r['pid']))

@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse, collections, gzip, hashlib, json, re, time
 from pathlib import Path
+from locations import INPUT_DIR
 from production_build import (ROOT, REPORT, ALLOWED, artifact_hashes, artifact_path,
                               axiom_audit, build_key, compact_source, guard,
                               imports, sha, source_bytes)
@@ -113,7 +114,7 @@ def verify(args):
 
 
 def inputs(args):
-    base = Path('/home/ubuntu/aklt/data/h1')
+    base = INPUT_DIR
     index = json.loads((base / 'index.json').read_text())
     files = [base / 'index.json'] + [base / chunk['file'] for chunk in index['chunks']]
     records = [dict(path=str(p), bytes=p.stat().st_size, sha256=sha(p)) for p in files]

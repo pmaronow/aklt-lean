@@ -9,7 +9,7 @@ import argparse, array, gzip, hashlib, json, os, pathlib, shutil, struct, sys
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 HERE = pathlib.Path(__file__).resolve().parent
 LEGACY_DATA = ROOT/'CertData/H3/Legacy/Data'
-ARCHIVE = pathlib.Path(os.environ.get('H3_INPUT_DIR', '/home/ubuntu/aklt/compfeas/data'))
+ARCHIVE = pathlib.Path(os.environ.get('H3_INPUT_DIR', ROOT / 'data/h3'))
 SS, NW, BITS = 19881, 3741, 80
 HEADER = '\n@[expose] public section\nset_option backward.proofsInPublic true\nset_option maxHeartbeats 2000000000\nset_option maxRecDepth 1000000\n'
 
@@ -143,7 +143,7 @@ def main():
         ap.error('The selected prototype is B/north; use --all to export another complete case.')
     disk_guard();auto=export_automaton()
     cert=export_case(args.case,prototype_keys(),args.all,args.group)
-    report=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
+    report=pathlib.Path(os.environ.get('H3_REPORT_DIR',ROOT / 'verification/runs/H3'))
     report.mkdir(parents=True,exist_ok=True)
     (report/'export_manifest.json').write_text(json.dumps(dict(automaton=auto,certificate=cert),indent=2)+'\n')
     print(json.dumps({k:v for k,v in cert.items() if k!='selected_keys'}),flush=True)

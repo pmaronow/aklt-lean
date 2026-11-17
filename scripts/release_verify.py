@@ -197,7 +197,7 @@ class Pipeline:
       'oom_kill_before':before.get('oom_kill',0),'oom_kill_after':after.get('oom_kill',0),
       'authenticated_by_palomar':False}
     raise ConronCapacity('Mandatory kernels accept; con-ron is locally capacity-inconclusive. Official supervision must authenticate the classification.')
-   raise RuntimeError('Mandatory kernels accept, but con-ron did not finish accepting; retain its diagnostics for the orchestrator')
+   raise RuntimeError('Mandatory kernels accept, but con-ron did not finish accepting; see the retained diagnostics')
   if self.source_hashes()!=self.receipt['source_sha256']:raise RuntimeError('Lean source changed during verification')
   self.receipt['status']='all-mechanical-components-pass';self.receipt['metadata_fields_complete']=not self.receipt['author_metadata_findings'] and not self.receipt.get('official_metadata_diagnostic');self.receipt['registry_preparation_required']=True;self.receipt['submission_ready']=False;self.save()
 

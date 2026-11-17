@@ -7,6 +7,7 @@ unconditional monolithic independent-kernel replay is implied by this driver.
 import argparse
 import datetime
 import json
+import math
 import os
 from pathlib import Path
 import shlex
@@ -18,24 +19,27 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(ROOT / 'scripts'))
 from source_digest import source_digest
+from verify_inputs import family_input_dir
 
 
 def arguments():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--jobs', type=int, default=12, help='Maximum Lean compiler processes / Lake worker setting')
     parser.add_argument('--memory-gb', type=float, default=160, help='Sampled process-tree RSS limit in decimal GB')
-    parser.add_argument('--input-dir', type=Path, default=ROOT / 'data', help='Parent of H1/ and H3/ numeric inputs')
+    parser.add_argument('--input-dir', type=Path, default=ROOT / 'data', help='Parent of h1/ and h3/ numeric inputs')
     parser.add_argument('--report-dir', type=Path, default=ROOT.parent / (ROOT.name + '-verification'))
     parser.add_argument('--verifier', type=Path, default=os.environ.get('PALOMAR_VERIFIER'),
                         help='Official PalomarSubmission checkout; or PALOMAR_VERIFIER')
     parser.add_argument('--verifier-commit', default='14aa8d6b3c2f14a8540605e37144560b9a00e7e7')
     parser.add_argument('--bwrap', type=Path, help='Bubblewrap 0.12.0; otherwise use PATH')
     parser.add_argument('--h1-stage', type=Path,
-        help='Final H1 adapter: Python script accepting --project, --input-dir, --report-dir, --jobs, --memory-gb')
+        help='Optional H1 stage override; the built-in numeric-input route is the default')
     parser.add_argument('--dry-run', action='store_true', help='Print the complete plan; run no command and create no files')
     args = parser.parse_args()
-    if not 1 <= args.jobs <= 48 or args.memory_gb <= 0:
+    if not 1 <= args.jobs <= 48 or not math.isfinite(args.memory_gb) or args.memory_gb <= 0:
         parser.error('Use 1..48 jobs and a positive memory limit')
+    if not args.h1_stage and args.memory_gb * 1_000_000_000 < 64 * 2**30:
+        parser.error('the numeric H1 plan reserves 64 GiB for terminal owners; increase --memory-gb')
     for name in ['input_dir', 'report_dir', 'verifier', 'bwrap', 'h1_stage']:
         value = getattr(args, name)
         if value is not None:
@@ -77,7 +81,9 @@ def main():
         work / 'stages/strict-handwritten-audit/stdout.log', '--mode', 'handwritten'])
     add('input-pins', [python, ROOT / 'scripts/verify_inputs.py', '--input-dir', args.input_dir,
         '--report', work / 'input-pins.json'])
-    h3env = {'H3_INPUT_DIR': str(args.input_dir / 'H3'), 'H3_REPORT_DIR': str(h3)}
+    h1inputs = family_input_dir(args.input_dir, 'H1')
+    h3inputs = family_input_dir(args.input_dir, 'H3')
+    h3env = {'H3_INPUT_DIR': str(h3inputs), 'H3_REPORT_DIR': str(h3)}
     h3command = [python, ROOT / 'AKLT/Cert/H3/regen.py']
     add('H3-generate', [*h3command, 'generate'], env=h3env)
     add('H3-build', [*h3command, 'build', '--jobs', min(args.jobs, 16),
@@ -85,20 +91,23 @@ def main():
     add('H3-close', [*h3command, 'close', '--stage', 'closing', '--jobs', '1',
         '--ram-gb', min(170, max(1, int(args.memory_gb))), '--process-gib', '64'], env=h3env)
     add('H3-verify', [*h3command, 'verify'], env=h3env)
+    h1env = {'H1_INPUT_DIR': str(h1inputs), 'H1_REGEN_REPORT': str(h1)}
+    h1tools = ROOT / 'AKLT/Cert/H1/tools'
     if args.h1_stage:
-        h1command = [python, args.h1_stage, '--project', ROOT, '--input-dir', args.input_dir / 'H1',
-            '--report-dir', h1, '--jobs', min(args.jobs, 36), '--memory-gb', args.memory_gb]
+        add('H1-custom-stage', [python, args.h1_stage, '--project', ROOT,
+            '--input-dir', h1inputs, '--report-dir', h1,
+            '--jobs', min(args.jobs, 36), '--memory-gb', args.memory_gb], env=h1env)
     else:
-        # TBD-H1-PORTABLE-ENTRYPOINT: complete this call after the H1 hand-back.
-        # AKLT/Cert/H1/tools/production_regen.py is the hand-back reference;
-        # its retained-source arguments are not a numeric-input-only interface.
-        # The numeric route is production_reexport.py --install followed by
-        # production_build.py, production_receipts.py verify, production_close.py.
-        # The current exporters still hard-code the campaign input directory.
-        h1command = [python, ROOT / 'AKLT/Cert/H1/tools/production_regen.py',
-            'TBD-H1-PORTABLE-ENTRYPOINT']
-    add('H1-generate-build-close-verify', h1command,
-        env={'H1_INPUT_DIR': str(args.input_dir / 'H1'), 'H1_REGEN_REPORT': str(h1)})
+        add('H1-inputs', [python, h1tools / 'production_receipts.py', 'inputs',
+            '--output', h1 / 'data-input-receipt.json'], env=h1env)
+        add('H1-reexport', [python, h1tools / 'production_reexport.py',
+            '--scratch', h1 / 'export-scratch', '--install', '--report-dir', h1], env=h1env)
+        add('H1-build', [python, h1tools / 'production_build.py', h1 / 'data-only-production.json',
+            '--jobs', min(args.jobs, 36), '--cap-gib', '7',
+            '--ram-gb', min(270, args.memory_gb), '--report-dir', h1], env=h1env)
+        add('H1-verify', [python, h1tools / 'production_receipts.py', 'verify',
+            h1 / 'data-only-production.json', '--report-dir', h1], env=h1env)
+        add('H1-close', [python, h1tools / 'production_close.py', '--report-dir', h1], env=h1env)
     for module in ['CertData.H1.Close.Main', 'CertData.H1.Close.Audit', 'CertData.H3.Close.Main',
                    'CertData.Close.All', 'Solution', 'Audit']:
         source = Path(module.replace('.', '/') + '.lean')
@@ -122,14 +131,12 @@ def main():
     plan = {'scope': 'complete source build, strict axiom audits, and physical statement comparison',
         'independent_full_unconditional_replay': False, 'jobs': args.jobs, 'memory_gb': args.memory_gb,
         'input_dir': str(args.input_dir), 'report_dir': str(work), 'stages': stages,
-        'H1_integration': 'configured adapter' if args.h1_stage else 'TBD-H1-PORTABLE-ENTRYPOINT; fails before any build'}
+        'H1_mode': 'custom stage' if args.h1_stage else 'numeric inputs'}
     if args.dry_run:
         print(json.dumps(plan, indent=2))
         return 0
-    if not args.h1_stage:
-        raise SystemExit('TBD-H1-PORTABLE-ENTRYPOINT: supply --h1-stage after the H1 hand-back; see docs/regeneration/H1-INTEGRATION.md. No command was run.')
-    if not args.h1_stage.is_file():
-        raise SystemExit('The --h1-stage adapter does not exist')
+    if args.h1_stage and not args.h1_stage.is_file():
+        raise SystemExit('The --h1-stage script does not exist')
     if (ROOT / '.lake/build').exists():
         raise SystemExit('Use a fresh checkout without .lake/build; no build objects are deleted by this script')
     if (ROOT / '.lake/packages').exists():
@@ -142,6 +149,8 @@ def main():
     if pin != args.verifier_commit:
         raise SystemExit('Official verifier commit differs from --verifier-commit')
     work.mkdir(parents=True)
+    h1.mkdir()
+    h3.mkdir()
     (work / 'plan.json').write_text(json.dumps(plan, indent=2) + '\n')
     before, listing = source_digest(ROOT)
     (work / 'lean-source-digest.txt').write_text(before + '\n')

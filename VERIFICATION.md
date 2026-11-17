@@ -41,9 +41,10 @@ python3 scripts/source_digest.py --check ../aklt-verification/lean-source-digest
 ```
 
 Final combined digest: **TBD-FINAL-LEAN-SOURCE-DIGEST**.
-The layout baseline at `2707fd8` has digest
-`6466aff3e10dcd09cb2e149891adebada40465c6d0252c79406436bf40f62077`.
-H1's closing source hand-back can change it; recompute after that merge.
+The tracked source baseline at `42b16c3` has digest
+`c875dff024d396b0b78f1fa955ea5d38e8f577e1d8bd69e970fd02bea906bee9`.
+It is recorded in `verification/source-digest.txt`; documentation and tooling
+updates preserve it.
 
 ## Hand-written build
 
@@ -80,14 +81,19 @@ The separate H3 regeneration completed 5,032 modules and 2,735 generated theorem
 axiom audits using 23.081631 CPU-hours for unique successful compilations
 (23.187933 CPU-hours across all attempts). Peak process RSS including closing
 was 13.636 GB; peak sampled aggregate RSS was 94.716 GB, at up to 16 Lean processes.
-These hand-back measurements, in `docs/regeneration/H3.md`, are not the final
-combined-build measurements. H1's legacy forecast was about 115 CPU-hours;
-record its actual fresh value above rather than substituting that estimate.
+These reference measurements, in `docs/regeneration/H3.md`, are not the final
+combined-build measurements. The H1 reference build checked 7,964 owners and
+414,638 theorem audits using 155.174 numeric CPU-hours, with 5.987 GiB peak module
+RSS and a conservative 160.028 GB sampled aggregate bound. Its per-kind table
+and 26–28% coverage-frontier CPU increase are recorded in `docs/regeneration/H1.md`.
+Record the actual combined-tree values above rather than substituting reference
+measurements.
 
-The cold driver orders hand-written targets, H3 generate/build/close/verify, H1,
-then the common closing modules. Its **TBD-H1-PORTABLE-ENTRYPOINT** adapter binds
-the final H1 interface; see `docs/regeneration/H1-INTEGRATION.md`. No numerical
-build is run by this documentation/layout task.
+The cold driver orders hand-written targets, H3 generate/build/close/verify,
+H1 input receipts/re-export/build/verify/close, and the common closing modules.
+It runs directly from numeric inputs without an external adapter. Both families
+receive explicit job and aggregate-memory limits. The source-only dry-run and
+compatibility checks are recorded under `verification/layout/`.
 
 ## Closing theorems and axioms
 

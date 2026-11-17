@@ -8,9 +8,10 @@ from __future__ import annotations
 import argparse, concurrent.futures, fcntl, gzip, hashlib, json, os, re
 import shutil, signal, subprocess, threading, time
 from pathlib import Path
+from locations import REPORT_DIR
 
 ROOT = Path(__file__).resolve().parents[4]
-REPORT = Path(os.environ.get('H1_REGEN_REPORT', '/home/ubuntu/aklt/reports/REGEN_H1'))
+REPORT = REPORT_DIR
 ALLOWED = {'propext', 'Classical.choice', 'Quot.sound'}
 MEMORY_LIMIT = 270_000_000_000
 MAX_JOBS = 36
@@ -180,10 +181,12 @@ def axiom_audit(text, source):
 
 
 def main():
+    global REPORT, MEMORY_LIMIT
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('manifest', type=Path)
     ap.add_argument('--jobs', type=int, default=32)
     ap.add_argument('--cap-gib', type=float, default=8)
+    ap.add_argument('--ram-gb', type=float, default=270, help='Aggregate memory reservation/RSS limit in decimal GB, at most 270')
     ap.add_argument('--seconds', type=int, default=14400)
     ap.add_argument('--kinds', nargs='+')
     ap.add_argument('--force', action='store_true')
@@ -198,9 +201,11 @@ def main():
         ap.error('at most 36 Lean processes')
     if args.cap_gib <= 0:
         ap.error('the memory cap must be positive')
+    if not 0 < args.ram_gb <= 270:
+        ap.error('the aggregate memory limit must be positive and at most 270 GB')
+    MEMORY_LIMIT = int(args.ram_gb * 1_000_000_000)
     signal.signal(signal.SIGINT, lambda *_: abort.set())
     signal.signal(signal.SIGTERM, lambda *_: abort.set())
-    global REPORT
     REPORT = args.report_dir or REPORT
     REPORT.mkdir(parents=True, exist_ok=True)
     logs = REPORT / 'logs'
@@ -222,6 +227,10 @@ def main():
         for m in list(wanted):
             add_deps(m)
     jobs = {m: alljobs[m] for m in wanted}
+    if args.ram_gb < 270:
+        oversized = [m for m, j in jobs.items() if j.get('cap_gib', args.cap_gib) * 2**30 > MEMORY_LIMIT]
+        if oversized:
+            ap.error('a module reservation exceeds --ram-gb: ' + oversized[0])
     statepath = REPORT / ('state-' + args.manifest.stem + '.json')
     state = {}
     events = REPORT / 'events.jsonl'
@@ -230,7 +239,7 @@ def main():
             try:
                 record = json.loads(line)
             except json.JSONDecodeError:
-                continue  # A killed writer may have left an incomplete last line.
+                continue  # A terminated process may have left an incomplete last line.
             if record.get('exit') == 0:
                 state[record['module']] = record
     env = os.environ.copy()

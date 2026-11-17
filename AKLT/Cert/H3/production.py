@@ -10,8 +10,8 @@ import struct, sys, time
 
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 OUT=ROOT/'CertData/H3'
-REPORT=pathlib.Path(os.environ.get('H3_REPORT_DIR','/home/ubuntu/aklt/reports/REGEN_H3'))
-ARCHIVE=pathlib.Path(os.environ.get('H3_INPUT_DIR','/home/ubuntu/aklt/compfeas/data'))
+REPORT=pathlib.Path(os.environ.get('H3_REPORT_DIR',ROOT / 'verification/runs/H3'))
+ARCHIVE=pathlib.Path(os.environ.get('H3_INPUT_DIR',ROOT / 'data/h3'))
 SS,NQ,BITS=19881,3741,80
 CASES={'B1':('B',1,351207554),'B2':('B',2,290599163),'C1':('C',1,527872005),'C2':('C',2,380754375),'C3':('C',3,273048088)}
 HDR='set_option maxHeartbeats 2000000000\nset_option maxRecDepth 1000000\n'

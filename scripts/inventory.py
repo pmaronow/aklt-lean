@@ -13,12 +13,20 @@ import sys
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--tree', type=Path, required=True)
-    ap.add_argument('--verifier', type=Path, required=True)
-    ap.add_argument('--output', type=Path, required=True)
+    ap.add_argument('--tree', type=Path, default=Path(__file__).resolve().parents[1])
+    ap.add_argument('--verifier', type=Path)
+    ap.add_argument('--output', type=Path)
+    ap.add_argument('--check', action='store_true', help='Check current source inventories and hashes with pure Python')
     ap.add_argument('--confirm-headers', action='store_true')
     args = ap.parse_args()
     sys.dont_write_bytecode = True
+    if args.check:
+        from refresh_manifests import check
+        result = check(args.tree)
+        print(json.dumps(result, indent=2))
+        raise SystemExit(0 if result['passed'] else 1)
+    if not args.verifier or not args.output:
+        ap.error('--verifier and --output are required unless --check is used')
     sys.path.insert(0, str(args.verifier.resolve()))
     from scripts import verify_submission as official
     from scripts.source_requirements import physical_lines, has_module_header

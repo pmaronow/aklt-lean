@@ -70,7 +70,7 @@ imports it. No Lean declaration or proof changes for this repair.
 American English and serial commas are applied to comments and doc strings,
 including the unnormalized VBS terminology and the corrected model/polynomial
 paper references in Main and Sanity. Code tokens remain unchanged. The complete
-prose-change inventory is retained with the phase records. Manuscript labels,
+prose-change inventory is retained with the verification records. Manuscript labels,
 Lean identifiers, and raw tool transcripts keep their original spelling.
 
 ## American English identifier update
@@ -85,9 +85,9 @@ string-literal values in Lean are unchanged. All 851 literal generator key
 accesses are unchanged; the input data schemas are preserved.
 
 The old verification transcripts are retained unchanged in Git history and the
-campaign report archive. They are not relabeled as verification of renamed
+verification report archive. They are not relabeled as verification of renamed
 sources. Current verification records are under verification/rename/. The exact
-old-to-new spelling map and declaration map are in the campaign report.
+old-to-new spelling map and declaration map are in the verification report.
 
 ## Fidelity fix round
 

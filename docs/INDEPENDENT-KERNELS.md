@@ -28,7 +28,7 @@ improved reader behavior, but no full-catalog or full-release result was establi
 
 The study's whole-release memory allowances and 150–200 GiB workspace estimates
 are planning values. A complete combined export and replay would require a
-separate measured campaign. This release records the complete Lean build and
+separate measured verification run. This release records the complete Lean build and
 the exact narrower independent-checker results without extrapolating those
 results into unconditional independent acceptance.
 
