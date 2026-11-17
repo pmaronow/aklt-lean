@@ -1,3 +1,4 @@
+module
 /-
 Vendored from https://github.com/LionSR/QICLean
 Commit: 603fc408b9f4c2a50f2475e1e44843fdc0a9c0ac
@@ -11,8 +12,12 @@ Copyright (c) 2026 QICLean contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: QICLean contributors
 -/
-import Mathlib.Analysis.CStarAlgebra.Matrix
-import Mathlib.Analysis.Matrix.Spectrum
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Matrix.Spectrum
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 set_option autoImplicit true
 set_option relaxedAutoImplicit true

@@ -1,5 +1,10 @@
-import AKLT.Cert.H2.Growth
-import AKLT.Cert.H2.Finite
+module
+public import AKLT.Cert.H2.Growth
+public import AKLT.Cert.H2.Finite
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

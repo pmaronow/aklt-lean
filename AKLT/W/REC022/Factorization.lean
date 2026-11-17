@@ -1,5 +1,10 @@
-import AKLT.W.REC022.Trace
-import AKLT.W.REC022.Normalize
+module
+public import AKLT.W.REC022.Trace
+public import AKLT.W.REC022.Normalize
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

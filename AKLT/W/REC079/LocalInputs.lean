@@ -1,17 +1,22 @@
-import AKLT.W.REC089.Main
-import AKLT.W.REC001.Main
-import AKLT.W.REC002.Main
-import AKLT.W.REC003.Main
-import AKLT.W.REC004.Main
-import AKLT.W.REC005.Main
-import AKLT.W.REC015.Main
-import AKLT.W.REC018.Main
-import AKLT.W.REC020.Main
-import AKLT.W.REC027.Main
-import AKLT.W.REC028.Main
-import AKLT.W.REC034.Main
-import AKLT.W.REC035.Main
-import AKLT.W.REC036.Main
+module
+public import AKLT.W.REC089.Main
+public import AKLT.W.REC001.Main
+public import AKLT.W.REC002.Main
+public import AKLT.W.REC003.Main
+public import AKLT.W.REC004.Main
+public import AKLT.W.REC005.Main
+public import AKLT.W.REC015.Main
+public import AKLT.W.REC018.Main
+public import AKLT.W.REC020.Main
+public import AKLT.W.REC027.Main
+public import AKLT.W.REC028.Main
+public import AKLT.W.REC034.Main
+public import AKLT.W.REC035.Main
+public import AKLT.W.REC036.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

@@ -1,4 +1,9 @@
-import Mathlib
+module
+public import Mathlib
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # The square-lattice spin-2 AKLT model and Theorem 1.1
@@ -17,7 +22,7 @@ namespace AKLT.Challenge
 abbrev Size := {n : ℕ // 3 ≤ n}
 
 /-- The §1 side bound supplies a nonzero modulus for finite `ZMod` instances. -/
-instance size_neZero (L : Size) : NeZero L.val := ⟨by have := L.property; omega⟩
+@[expose] instance size_neZero (L : Size) : NeZero L.val := ⟨by have := L.property; omega⟩
 
 /-- The torus Λ_{L,N} = ℤ/Lℤ × ℤ/Nℤ (§1, before (e:H)). -/
 abbrev Site (L N : Size) := ZMod L.val × ZMod N.val

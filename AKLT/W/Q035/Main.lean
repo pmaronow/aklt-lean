@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Q.NodesSplits
-import AKLT.Uniq.Polynomial
+module
+public import AKLT.Blueprint.Q.NodesSplits
+public import AKLT.Uniq.Polynomial
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

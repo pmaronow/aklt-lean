@@ -1,4 +1,9 @@
-import AKLT.Uniq.Edge
+module
+public import AKLT.Uniq.Edge
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 Closed blueprint nodes for §3 (`d:poly`, `l:edge`, `l:divisibility`,

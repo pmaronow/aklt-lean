@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.Definitions
+module
+public import AKLT.Blueprint.Rec.Definitions
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

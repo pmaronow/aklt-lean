@@ -1,5 +1,10 @@
-import AKLT.W.REC021.LocalBounds
-import AKLT.W.REC021.Geometry
+module
+public import AKLT.W.REC021.LocalBounds
+public import AKLT.W.REC021.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesResponse
-import AKLT.W.REC010.Positive
+module
+public import AKLT.Blueprint.Rec.NodesResponse
+public import AKLT.W.REC010.Positive
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

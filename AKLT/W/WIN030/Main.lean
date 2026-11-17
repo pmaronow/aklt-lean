@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Win.NodesTopology
-import Mathlib.Data.Prod.Lex
+module
+public import AKLT.Blueprint.Win.NodesTopology
+public import Mathlib.Data.Prod.Lex
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

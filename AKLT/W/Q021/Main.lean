@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Q.NodesPolynomial
+module
+public import AKLT.Blueprint.Q.NodesPolynomial
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

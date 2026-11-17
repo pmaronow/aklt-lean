@@ -1,4 +1,9 @@
-import Mathlib
+module
+public import Mathlib
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # Positive-vector bounds for a finite one-step matrix

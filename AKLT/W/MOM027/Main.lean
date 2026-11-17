@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Mom.NodesMean
+module
+public import AKLT.Blueprint.Mom.NodesMean
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 noncomputable section
 open scoped BigOperators
 open AKLT.Defs AKLT.Blueprint.Mom

@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Mom.NodesFinite
+module
+public import AKLT.Blueprint.Mom.NodesFinite
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

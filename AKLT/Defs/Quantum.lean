@@ -1,4 +1,9 @@
-import AKLT.Defs.FrameModel
+module
+public import AKLT.Defs.FrameModel
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

@@ -1,4 +1,9 @@
-import AKLT.W.REC011.Monotone
+module
+public import AKLT.W.REC011.Monotone
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

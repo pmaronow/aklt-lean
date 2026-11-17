@@ -1,5 +1,10 @@
-import AKLT.W.REC003.Moments
-import AKLT.Defs.Domain
+module
+public import AKLT.W.REC003.Moments
+public import AKLT.Defs.Domain
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

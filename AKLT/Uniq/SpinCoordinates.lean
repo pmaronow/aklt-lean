@@ -1,4 +1,9 @@
-import AKLT.Uniq.Transvectant
+module
+public import AKLT.Uniq.Transvectant
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Coordinate identities for the concrete single-site spin matrices. -/
 

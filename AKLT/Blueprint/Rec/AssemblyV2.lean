@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesV2Handoff
-import AKLT.Blueprint.Top.Assembly
+module
+public import AKLT.Blueprint.Rec.NodesV2Handoff
+public import AKLT.Blueprint.Top.Assembly
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Adapted assemblies only. New mathematical leaf proofs are intentionally
 absent: unchanged statements come from the frozen nodes and changed statements

@@ -1,9 +1,14 @@
-import AKLT.W.REC079.TrailComparison
-import AKLT.W.REC079.LocalInputs
-import AKLT.W.REC013.Main
-import AKLT.W.REC014.Main
-import AKLT.W.REC017.Main
-import AKLT.W.REC022.Main
+module
+public import AKLT.W.REC079.TrailComparison
+public import AKLT.W.REC079.LocalInputs
+public import AKLT.W.REC013.Main
+public import AKLT.W.REC014.Main
+public import AKLT.W.REC017.Main
+public import AKLT.W.REC022.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

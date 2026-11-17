@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.Quantum
-import AKLT.Blueprint.Top.Response
+module
+public import AKLT.Blueprint.Top.Quantum
+public import AKLT.Blueprint.Top.Response
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

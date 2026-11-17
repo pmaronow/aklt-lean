@@ -1,5 +1,10 @@
-import AKLT.W.REC081.Geometry
-import AKLT.W.REC081.Positivity
+module
+public import AKLT.W.REC081.Geometry
+public import AKLT.W.REC081.Positivity
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

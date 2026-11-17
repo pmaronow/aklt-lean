@@ -1,7 +1,12 @@
-import AKLT.W.REC096.Main
-import AKLT.W.REC039.Main
-import AKLT.W.REC050.Main
-import AKLT.W.REC079.TraceGeometry
+module
+public import AKLT.W.REC096.Main
+public import AKLT.W.REC039.Main
+public import AKLT.W.REC050.Main
+public import AKLT.W.REC079.TraceGeometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

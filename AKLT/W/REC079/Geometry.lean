@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesRecursion
-import AKLT.Cert.H2.Frames
+module
+public import AKLT.Blueprint.Rec.NodesRecursion
+public import AKLT.Cert.H2.Frames
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

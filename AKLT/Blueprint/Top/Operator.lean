@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Top.Common
-import AKLT.Defs.OperatorContracts
-import AKLT.Defs.RealOperator
+module
+public import AKLT.Blueprint.Top.Common
+public import AKLT.Defs.OperatorContracts
+public import AKLT.Defs.RealOperator
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ComplexOrder

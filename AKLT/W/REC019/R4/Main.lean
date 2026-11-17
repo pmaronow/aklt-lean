@@ -1,6 +1,11 @@
-import AKLT.W.REC019.R4.Free
-import AKLT.W.REC019.R4.FibreExpansion
-import AKLT.W.REC019.R4.Expansion
+module
+public import AKLT.W.REC019.R4.Free
+public import AKLT.W.REC019.R4.FibreExpansion
+public import AKLT.W.REC019.R4.Expansion
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

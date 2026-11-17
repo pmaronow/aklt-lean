@@ -1,5 +1,10 @@
-import AKLT.W.GAP037.Basic
-import AKLT.Challenge.Sanity
+module
+public import AKLT.W.GAP037.Basic
+public import AKLT.Challenge.Sanity
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

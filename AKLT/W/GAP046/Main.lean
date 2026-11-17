@@ -1,4 +1,9 @@
-import AKLT.W.GAP046.TraceHelpers
+module
+public import AKLT.W.GAP046.TraceHelpers
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 set_option maxHeartbeats 8000000

@@ -1,4 +1,9 @@
-import AKLT.W.REC079.TraceStatus
+module
+public import AKLT.W.REC079.TraceStatus
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

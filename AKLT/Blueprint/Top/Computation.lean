@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.Coefficients
-import AKLT.Defs.Computational
+module
+public import AKLT.Blueprint.Top.Coefficients
+public import AKLT.Defs.Computational
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

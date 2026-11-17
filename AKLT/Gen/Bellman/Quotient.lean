@@ -1,4 +1,9 @@
-import AKLT.Gen.Bellman.Basic
+module
+public import AKLT.Gen.Bellman.Basic
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # Exact quotients of labelled deterministic automata

@@ -1,4 +1,9 @@
-import AKLT.Uniq.BondAlgebra
+module
+public import AKLT.Uniq.BondAlgebra
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Site degrees of polynomial quotients and the algebraic part of `l:divisibility`. -/
 

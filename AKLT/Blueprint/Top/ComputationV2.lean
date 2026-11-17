@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.Computation
-import AKLT.Defs.Automaton10Data
+module
+public import AKLT.Blueprint.Top.Computation
+public import AKLT.Defs.Automaton10Data
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

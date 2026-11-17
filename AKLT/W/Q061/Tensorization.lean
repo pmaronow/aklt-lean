@@ -1,5 +1,10 @@
-import AKLT.W.Q061.Product
-import AKLT.W.Q061.Projections
+module
+public import AKLT.W.Q061.Product
+public import AKLT.W.Q061.Projections
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

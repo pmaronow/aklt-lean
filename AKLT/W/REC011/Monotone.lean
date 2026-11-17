@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesResponse
+module
+public import AKLT.Blueprint.Rec.NodesResponse
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! For the free model, coordinate sign symmetry makes every monomial moment
 nonnegative, without a degree bound. Natural-coefficient polynomials therefore

@@ -1,5 +1,10 @@
-import AKLT.W.REC089.CutBonds
-import AKLT.W.REC089.PatternFactorization
+module
+public import AKLT.W.REC089.CutBonds
+public import AKLT.W.REC089.PatternFactorization
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

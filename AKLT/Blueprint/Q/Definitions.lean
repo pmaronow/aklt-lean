@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Quantum
+module
+public import AKLT.Blueprint.Top.Quantum
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Concrete objects used by the Q blueprint. These are definitions, with no
 mathematical facts or typeclass assumptions built into the data. -/

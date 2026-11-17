@@ -1,4 +1,9 @@
-import AKLT.Uniq.Hamiltonian
+module
+public import AKLT.Uniq.Hamiltonian
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 The frozen Casimir is symmetric, and the kernel of its spin-four projection

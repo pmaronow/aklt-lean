@@ -1,7 +1,12 @@
-import AKLT.W.REC080.Exceptions
-import AKLT.W.REC054.Main
-import AKLT.W.REC096.Main
-import AKLT.W.REC039.Main
+module
+public import AKLT.W.REC080.Exceptions
+public import AKLT.W.REC054.Main
+public import AKLT.W.REC096.Main
+public import AKLT.W.REC039.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

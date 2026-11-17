@@ -1,6 +1,11 @@
-import AKLT.W.REC070.Budget
-import AKLT.W.REC070.Mass
-import AKLT.W.REC070.Shift
+module
+public import AKLT.W.REC070.Budget
+public import AKLT.W.REC070.Mass
+public import AKLT.W.REC070.Shift
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

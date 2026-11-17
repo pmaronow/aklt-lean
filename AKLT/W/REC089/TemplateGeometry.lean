@@ -1,6 +1,11 @@
-import AKLT.W.REC089.FiniteSums
-import AKLT.W.REC096.Main
-import AKLT.W.REC003.Main
+module
+public import AKLT.W.REC089.FiniteSums
+public import AKLT.W.REC096.Main
+public import AKLT.W.REC003.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

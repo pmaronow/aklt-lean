@@ -1,4 +1,9 @@
-import AKLT.W.Q030.Blocks
+module
+public import AKLT.W.Q030.Blocks
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Blueprint.Q

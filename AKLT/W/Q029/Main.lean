@@ -1,5 +1,10 @@
-import AKLT.W.Q029.Diagonal
-import AKLT.W.Q029.Eigenvectors
+module
+public import AKLT.W.Q029.Diagonal
+public import AKLT.W.Q029.Eigenvectors
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Blueprint.Q

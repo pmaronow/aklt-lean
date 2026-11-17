@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Q.NodesEnergy
+module
+public import AKLT.Blueprint.Q.NodesEnergy
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Explicit coordinate averages for finite product probabilities. The swap
 of a configuration's coordinate with a fresh letter proves stationarity.

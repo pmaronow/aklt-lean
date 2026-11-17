@@ -1,5 +1,10 @@
-import AKLT.W.REC070.Budget
-import AKLT.W.REC070.Foundations
+module
+public import AKLT.W.REC070.Budget
+public import AKLT.W.REC070.Foundations
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

@@ -1,5 +1,10 @@
-import AKLT.W.REC089.Disintegration
-import AKLT.W.REC089.Tips
+module
+public import AKLT.W.REC089.Disintegration
+public import AKLT.W.REC089.Tips
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

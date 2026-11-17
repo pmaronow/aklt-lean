@@ -1,5 +1,10 @@
-import AKLT.W.REC017.Sums
-import AKLT.W.REC017.Bonds
+module
+public import AKLT.W.REC017.Sums
+public import AKLT.W.REC017.Bonds
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

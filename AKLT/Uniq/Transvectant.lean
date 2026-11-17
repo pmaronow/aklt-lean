@@ -1,4 +1,9 @@
-import AKLT.Uniq.Divisibility
+module
+public import AKLT.Uniq.Divisibility
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! The determinant differential operator and its finite polynomial right inverse. -/
 

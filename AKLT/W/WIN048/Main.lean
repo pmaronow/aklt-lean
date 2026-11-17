@@ -1,4 +1,9 @@
-import AKLT.W.WIN048.Helpers
+module
+public import AKLT.W.WIN048.Helpers
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

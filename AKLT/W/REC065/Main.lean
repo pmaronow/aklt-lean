@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Rec.NodesKernel
-import AKLT.Blueprint.H3.Positivity
-import AKLT.W.REC070.TrailBound
+module
+public import AKLT.Blueprint.Rec.NodesKernel
+public import AKLT.Blueprint.H3.Positivity
+public import AKLT.W.REC070.TrailBound
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

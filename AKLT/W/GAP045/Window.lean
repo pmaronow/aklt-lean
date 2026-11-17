@@ -1,4 +1,9 @@
-import AKLT.W.GAP045.Plane
+module
+public import AKLT.W.GAP045.Plane
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 set_option maxHeartbeats 800000

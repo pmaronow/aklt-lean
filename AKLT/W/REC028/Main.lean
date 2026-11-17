@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesLogMean
-import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+module
+public import AKLT.Blueprint.Rec.NodesLogMean
+public import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Common
+module
+public import AKLT.Blueprint.Top.Common
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Reusable finite-sum interfaces for Section 2. All unproved nodes are closed
 propositions. Parameters in their bodies are ordinary algebraic data and premises,

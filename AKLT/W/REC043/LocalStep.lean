@@ -1,5 +1,10 @@
-import AKLT.W.REC043.SetMoments
-import AKLT.W.REC043.Iteration
+module
+public import AKLT.W.REC043.SetMoments
+public import AKLT.W.REC043.Iteration
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

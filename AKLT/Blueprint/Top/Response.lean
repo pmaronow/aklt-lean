@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Common
+module
+public import AKLT.Blueprint.Top.Common
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

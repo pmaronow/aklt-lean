@@ -1,5 +1,10 @@
-import AKLT.W.REC013.Split
-import AKLT.W.REC013.SpinFacts
+module
+public import AKLT.W.REC013.Split
+public import AKLT.W.REC013.SpinFacts
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

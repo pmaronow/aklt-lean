@@ -1,5 +1,10 @@
-import AKLT.Defs.Polynomial
-import AKLT.Defs.Probability
+module
+public import AKLT.Defs.Polynomial
+public import AKLT.Defs.Probability
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

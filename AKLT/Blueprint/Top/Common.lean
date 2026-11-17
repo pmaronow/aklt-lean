@@ -1,6 +1,11 @@
-import AKLT.Defs.FiniteNetwork
-import AKLT.Defs.Stationary
-import AKLT.Defs.FrameModel
+module
+public import AKLT.Defs.FiniteNetwork
+public import AKLT.Defs.Stationary
+public import AKLT.Defs.FrameModel
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

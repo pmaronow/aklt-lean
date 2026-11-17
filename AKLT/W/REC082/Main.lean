@@ -1,6 +1,11 @@
-import AKLT.W.REC082.Terminal
-import AKLT.W.REC082.LocalMoments
-import AKLT.W.REC082.PE.Main
+module
+public import AKLT.W.REC082.Terminal
+public import AKLT.W.REC082.LocalMoments
+public import AKLT.W.REC082.PE.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

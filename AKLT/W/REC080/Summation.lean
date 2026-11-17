@@ -1,5 +1,10 @@
-import AKLT.W.REC080.Basic
-import AKLT.Cert.H2.Words
+module
+public import AKLT.W.REC080.Basic
+public import AKLT.Cert.H2.Words
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

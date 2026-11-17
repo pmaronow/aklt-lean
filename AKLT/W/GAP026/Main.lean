@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Gap.NodesFinite
+module
+public import AKLT.Blueprint.Gap.NodesFinite
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

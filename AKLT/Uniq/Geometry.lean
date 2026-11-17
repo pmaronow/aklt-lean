@@ -1,4 +1,9 @@
-import AKLT.Uniq.Polynomial
+module
+public import AKLT.Uniq.Polynomial
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Exact site degrees of the VBS product, including periods three. -/
 

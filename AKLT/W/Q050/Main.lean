@@ -1,4 +1,9 @@
-import AKLT.W.Q050.Edges
+module
+public import AKLT.W.Q050.Edges
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

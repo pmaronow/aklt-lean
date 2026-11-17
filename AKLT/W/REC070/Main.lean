@@ -1,5 +1,10 @@
-import AKLT.W.REC070.Regroup
-import AKLT.W.REC070.Increment
+module
+public import AKLT.W.REC070.Regroup
+public import AKLT.W.REC070.Increment
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! The witness perturbation bound for the fixed cutoff-twelve kernel ordering.
 The unshifted row bound is the numerical premise of the frozen statement. -/

@@ -1,6 +1,11 @@
-import AKLT.W.REC082.PE.Enumeration
-import AKLT.W.REC082.PE.Normalization
-import AKLT.W.REC082.PE.LocalStep
+module
+public import AKLT.W.REC082.PE.Enumeration
+public import AKLT.W.REC082.PE.Normalization
+public import AKLT.W.REC082.PE.LocalStep
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

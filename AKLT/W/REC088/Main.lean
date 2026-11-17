@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesRenewal
+module
+public import AKLT.Blueprint.Rec.NodesRenewal
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators Topology

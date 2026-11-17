@@ -1,4 +1,9 @@
-import AKLT.Uniq.Blueprint
+module
+public import AKLT.Uniq.Blueprint
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # Uniqueness of the AKLT ground state on every torus of periods at least three

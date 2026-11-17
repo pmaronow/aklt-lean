@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesV2Ordering
+module
+public import AKLT.Blueprint.Rec.NodesV2Ordering
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! A precise Appendix C handoff for REF2_6 finding 3. This is an open
 transfer obligation, not a numerical input or a claim of a passing certificate. -/

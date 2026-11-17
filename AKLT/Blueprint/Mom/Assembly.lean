@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Mom.NodesConsequences
+module
+public import AKLT.Blueprint.Mom.NodesConsequences
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Kernel-checked assembly implications for the four Section 2 interfaces.
 All open mathematical inputs to the four target theorems are closed Props.

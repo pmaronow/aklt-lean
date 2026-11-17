@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesRenewal
+module
+public import AKLT.Blueprint.Rec.NodesRenewal
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Kernel-checked assembly implications. A leaf bundle is a closed Prop;
 no open leaf is asserted to have been proved. -/

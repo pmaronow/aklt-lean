@@ -110,3 +110,14 @@ statements, proof rules, or kernel checks. The otherwise unused `trailWeight`
 definition is retained because it originally owns a shared numeral-proof helper
 used by `trailBaseWeight`. The architecture report records the actual comparison
 results; this naming arrangement is not itself a claim of verifier acceptance.
+
+
+## Module-system port note
+
+The standalone release preserves every original statement and proof body. Its
+module-system port makes public/exposed interfaces explicit and exposes
+`AKLT.Challenge.size_neZero`, matching the independent Challenge. The original
+`AKLT.Defs.moment` definition is retained verbatim in Challenge to preserve the
+numeral-proof helper reused by `spinWeight`. This adds no premise and changes
+none of H1, H3 or Main. The modern Compass matcher then agrees across both
+environments. See PORT-CHANGES.md and the protected Comparator receipts.

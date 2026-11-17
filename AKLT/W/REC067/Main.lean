@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesKernel
+module
+public import AKLT.Blueprint.Rec.NodesKernel
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 set_option maxHeartbeats 100000
 

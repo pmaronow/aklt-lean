@@ -1,4 +1,9 @@
-import AKLT.W.REC079.OrderedExposure
+module
+public import AKLT.W.REC079.OrderedExposure
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! REC079: fixed-chart trace comparison with the exact type-dependent kernel.
 Both local obligations in the earlier reduction are discharged by proved leaves

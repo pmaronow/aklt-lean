@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Win.NodesTopology
+module
+public import AKLT.Blueprint.Win.NodesTopology
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs AKLT.Blueprint.Win

@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Rec.NodesResponse
-import AKLT.W.REC003.Trace
-import AKLT.W.REC003.Weights
+module
+public import AKLT.Blueprint.Rec.NodesResponse
+public import AKLT.W.REC003.Trace
+public import AKLT.W.REC003.Weights
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

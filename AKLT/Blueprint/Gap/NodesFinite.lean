@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Gap.Definitions
+module
+public import AKLT.Blueprint.Gap.Definitions
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Writer-sized closed obligations for Appendix a:finite. Type quantifiers and finite,
 nonempty alphabet instances are explicit; no obligation assumes another named leaf. -/

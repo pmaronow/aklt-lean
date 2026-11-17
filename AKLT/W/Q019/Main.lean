@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Q.NodesStar
-import AKLT.Vendor.QICLean.Analysis.KernelSpectralGap
+module
+public import AKLT.Blueprint.Q.NodesStar
+public import AKLT.Vendor.QICLean.Analysis.KernelSpectralGap
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

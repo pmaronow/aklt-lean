@@ -1,5 +1,10 @@
-import AKLT.W.REC043.Moments
-import AKLT.W.REC043.Factors
+module
+public import AKLT.W.REC043.Moments
+public import AKLT.W.REC043.Factors
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

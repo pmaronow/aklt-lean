@@ -1,10 +1,15 @@
-import AKLT.W.REC019.LogMean
-import AKLT.W.REC019.FreePositive
-import AKLT.W.REC019.NetworkBounds
-import AKLT.W.REC019.LocalBound
-import AKLT.W.REC019.DepartureGeometry
-import AKLT.W.REC019.Conditioning
-import AKLT.W.REC019.R4.Main
+module
+public import AKLT.W.REC019.LogMean
+public import AKLT.W.REC019.FreePositive
+public import AKLT.W.REC019.NetworkBounds
+public import AKLT.W.REC019.LocalBound
+public import AKLT.W.REC019.DepartureGeometry
+public import AKLT.W.REC019.Conditioning
+public import AKLT.W.REC019.R4.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

@@ -1,255 +1,260 @@
-import AKLT.Blueprint.Top.Assembly
-import AKLT.Blueprint.Q.Assembly
-import AKLT.Blueprint.Gap.Assembly
-import AKLT.Blueprint.Win.Assembly
-import AKLT.Blueprint.Mom.Assembly
-import AKLT.Blueprint.Rec.AssemblyV2
-import AKLT.W.UNIQ_TOP.TorusKernel
-import AKLT.Cert.H2.Main
-import AKLT.W.GAP018.Main
-import AKLT.W.GAP019.Main
-import AKLT.W.GAP021.Main
-import AKLT.W.GAP022.Main
-import AKLT.W.GAP023.Main
-import AKLT.W.GAP024.Main
-import AKLT.W.GAP025.Main
-import AKLT.W.GAP026.Main
-import AKLT.W.GAP027.Main
-import AKLT.W.GAP028.Main
-import AKLT.W.GAP029.Main
-import AKLT.W.GAP030.Main
-import AKLT.W.GAP031.Main
-import AKLT.W.GAP032.Main
-import AKLT.W.GAP033.Main
-import AKLT.W.GAP034.Main
-import AKLT.W.GAP035.Main
-import AKLT.W.GAP036.Main
-import AKLT.W.GAP037.Main
-import AKLT.W.GAP038.Main
-import AKLT.W.GAP039.Main
-import AKLT.W.GAP040.Main
-import AKLT.W.GAP041.Main
-import AKLT.W.GAP042.Main
-import AKLT.W.GAP045.Main
-import AKLT.W.GAP046.Main
-import AKLT.W.GAP047.Main
-import AKLT.W.GAP048.Main
-import AKLT.W.GAP049.Main
-import AKLT.W.GAP050.Main
-import AKLT.W.GAP052.Main
-import AKLT.W.GAP053.Main
-import AKLT.W.GAP054.Main
-import AKLT.W.GAP055.Main
-import AKLT.W.GAP056.Main
-import AKLT.W.GAP057.Main
-import AKLT.W.GAP058.Main
-import AKLT.W.MOM001.Main
-import AKLT.W.MOM002.Main
-import AKLT.W.MOM003.Main
-import AKLT.W.MOM004.Main
-import AKLT.W.MOM005.Main
-import AKLT.W.MOM006.Main
-import AKLT.W.MOM007.Main
-import AKLT.W.MOM008.Main
-import AKLT.W.MOM009.Main
-import AKLT.W.MOM010.Main
-import AKLT.W.MOM011.Main
-import AKLT.W.MOM012.Main
-import AKLT.W.MOM013.Main
-import AKLT.W.MOM014.Main
-import AKLT.W.MOM015.Main
-import AKLT.W.MOM016.Main
-import AKLT.W.MOM017.Main
-import AKLT.W.MOM018.Main
-import AKLT.W.MOM019.Main
-import AKLT.W.MOM020.Main
-import AKLT.W.MOM021.Main
-import AKLT.W.MOM022.Main
-import AKLT.W.MOM023.Main
-import AKLT.W.MOM024.Main
-import AKLT.W.MOM025.Main
-import AKLT.W.MOM026.Main
-import AKLT.W.MOM027.Main
-import AKLT.W.MOM028.Main
-import AKLT.W.MOM029.Main
-import AKLT.W.MOM030.Main
-import AKLT.W.MOM031.Main
-import AKLT.W.Q001.Main
-import AKLT.W.Q002.Main
-import AKLT.W.Q003.Main
-import AKLT.W.Q004.Main
-import AKLT.W.Q005.Main
-import AKLT.W.Q006.Main
-import AKLT.W.Q007.Main
-import AKLT.W.Q008.Main
-import AKLT.W.Q009.Main
-import AKLT.W.Q010.Main
-import AKLT.W.Q011.Main
-import AKLT.W.Q012.Main
-import AKLT.W.Q013.Main
-import AKLT.W.Q014.Main
-import AKLT.W.Q015.Main
-import AKLT.W.Q016.Main
-import AKLT.W.Q017.Main
-import AKLT.W.Q018.Main
-import AKLT.W.Q019.Main
-import AKLT.W.Q020.Main
-import AKLT.W.Q021.Main
-import AKLT.W.Q022.Main
-import AKLT.W.Q023.Main
-import AKLT.W.Q024.Main
-import AKLT.W.Q025.Main
-import AKLT.W.Q026.Main
-import AKLT.W.Q027.Main
-import AKLT.W.Q028.Main
-import AKLT.W.Q029.Main
-import AKLT.W.Q030.Main
-import AKLT.W.Q031.Main
-import AKLT.W.Q032.Main
-import AKLT.W.Q033.Main
-import AKLT.W.Q034.Main
-import AKLT.W.Q035.Main
-import AKLT.W.Q036.Main
-import AKLT.W.Q037.Main
-import AKLT.W.Q038.Main
-import AKLT.W.Q039.Main
-import AKLT.W.Q040.Main
-import AKLT.W.Q041.Main
-import AKLT.W.Q042.Main
-import AKLT.W.Q043.Main
-import AKLT.W.Q044.Main
-import AKLT.W.Q045.Main
-import AKLT.W.Q046.Main
-import AKLT.W.Q047.Main
-import AKLT.W.Q048.Main
-import AKLT.W.Q049.Main
-import AKLT.W.Q050.Main
-import AKLT.W.Q051.Main
-import AKLT.W.Q052.Main
-import AKLT.W.Q053.Main
-import AKLT.W.Q054.Main
-import AKLT.W.Q055.Main
-import AKLT.W.Q056.Main
-import AKLT.W.Q057.Main
-import AKLT.W.Q058.Main
-import AKLT.W.Q059.Main
-import AKLT.W.Q060.Main
-import AKLT.W.Q061.Main
-import AKLT.W.REC004.Main
-import AKLT.W.REC005.Main
-import AKLT.W.REC010.Main
-import AKLT.W.REC011.Main
-import AKLT.W.REC012.Main
-import AKLT.W.REC013.Main
-import AKLT.W.REC014.Main
-import AKLT.W.REC015.Main
-import AKLT.W.REC016.Main
-import AKLT.W.REC017.Main
-import AKLT.W.REC018.Main
-import AKLT.W.REC019.Main
-import AKLT.W.REC020.Main
-import AKLT.W.REC021.Main
-import AKLT.W.REC022.Main
-import AKLT.W.REC024.Main
-import AKLT.W.REC025.Main
-import AKLT.W.REC027.Main
-import AKLT.W.REC028.Main
-import AKLT.W.REC034.Main
-import AKLT.W.REC035.Main
-import AKLT.W.REC036.Main
-import AKLT.W.REC062.Main
-import AKLT.W.REC064.Main
-import AKLT.W.REC065.Main
-import AKLT.W.REC066.Main
-import AKLT.W.REC067.Main
-import AKLT.W.REC069.Main
-import AKLT.W.REC070.Main
-import AKLT.W.REC071.Main
-import AKLT.W.REC072.Main
-import AKLT.W.REC073.Main
-import AKLT.W.REC079.Main
-import AKLT.W.REC081.Main
-import AKLT.W.REC082.Main
-import AKLT.W.REC083.Main
-import AKLT.W.REC085.Main
-import AKLT.W.REC086.Main
-import AKLT.W.REC087.Main
-import AKLT.W.REC088.Main
-import AKLT.W.REC091.Main
-import AKLT.W.WIN001.Main
-import AKLT.W.WIN002.Main
-import AKLT.W.WIN003.Main
-import AKLT.W.WIN004.Main
-import AKLT.W.WIN005.Main
-import AKLT.W.WIN006.Main
-import AKLT.W.WIN007.Main
-import AKLT.W.WIN008.Main
-import AKLT.W.WIN009.Main
-import AKLT.W.WIN010.Main
-import AKLT.W.WIN011.Main
-import AKLT.W.WIN012.Main
-import AKLT.W.WIN013.Main
-import AKLT.W.WIN014.Main
-import AKLT.W.WIN015.Main
-import AKLT.W.WIN016.Main
-import AKLT.W.WIN017.Main
-import AKLT.W.WIN018.Main
-import AKLT.W.WIN019.Main
-import AKLT.W.WIN020.Main
-import AKLT.W.WIN021.Main
-import AKLT.W.WIN022.Main
-import AKLT.W.WIN023.Main
-import AKLT.W.WIN024.Main
-import AKLT.W.WIN025.Main
-import AKLT.W.WIN026.Main
-import AKLT.W.WIN027.Main
-import AKLT.W.WIN028.Main
-import AKLT.W.WIN029.Main
-import AKLT.W.WIN030.Main
-import AKLT.W.WIN031.Main
-import AKLT.W.WIN032.Main
-import AKLT.W.WIN033.Main
-import AKLT.W.WIN034.Main
-import AKLT.W.WIN035.Main
-import AKLT.W.WIN036.Main
-import AKLT.W.WIN037.Main
-import AKLT.W.WIN038.Main
-import AKLT.W.WIN039.Main
-import AKLT.W.WIN040.Main
-import AKLT.W.WIN041.Main
-import AKLT.W.WIN042.Main
-import AKLT.W.WIN043.Main
-import AKLT.W.WIN044.Main
-import AKLT.W.WIN045.Main
-import AKLT.W.WIN046.Main
-import AKLT.W.WIN047.Main
-import AKLT.W.WIN048.Main
-import AKLT.W.WIN049.Main
-import AKLT.W.WIN050.Main
-import AKLT.W.WIN051.Main
-import AKLT.W.WIN052.Main
-import AKLT.W.WIN053.Main
-import AKLT.W.WIN054.Main
-import AKLT.W.WIN055.Main
-import AKLT.W.WIN056.Main
-import AKLT.W.WIN057.Main
-import AKLT.W.WIN058.Main
-import AKLT.W.WIN059.Main
-import AKLT.W.WIN060.Main
-import AKLT.W.WIN061.Main
-import AKLT.W.WIN062.Main
-import AKLT.W.WIN063.Main
-import AKLT.W.WIN064.Main
-import AKLT.W.WIN065.Main
-import AKLT.W.WIN066.Main
-import AKLT.W.WIN067.Main
-import AKLT.W.WIN068.Main
-import AKLT.W.WIN069.Main
-import AKLT.W.WIN070.Main
-import AKLT.W.WIN071.Main
-import AKLT.W.WIN072.Main
-import AKLT.W.WIN073.Main
-import AKLT.W.WIN074.Main
+module
+public import AKLT.Blueprint.Top.Assembly
+public import AKLT.Blueprint.Q.Assembly
+public import AKLT.Blueprint.Gap.Assembly
+public import AKLT.Blueprint.Win.Assembly
+public import AKLT.Blueprint.Mom.Assembly
+public import AKLT.Blueprint.Rec.AssemblyV2
+public import AKLT.W.UNIQ_TOP.TorusKernel
+public import AKLT.Cert.H2.Main
+public import AKLT.W.GAP018.Main
+public import AKLT.W.GAP019.Main
+public import AKLT.W.GAP021.Main
+public import AKLT.W.GAP022.Main
+public import AKLT.W.GAP023.Main
+public import AKLT.W.GAP024.Main
+public import AKLT.W.GAP025.Main
+public import AKLT.W.GAP026.Main
+public import AKLT.W.GAP027.Main
+public import AKLT.W.GAP028.Main
+public import AKLT.W.GAP029.Main
+public import AKLT.W.GAP030.Main
+public import AKLT.W.GAP031.Main
+public import AKLT.W.GAP032.Main
+public import AKLT.W.GAP033.Main
+public import AKLT.W.GAP034.Main
+public import AKLT.W.GAP035.Main
+public import AKLT.W.GAP036.Main
+public import AKLT.W.GAP037.Main
+public import AKLT.W.GAP038.Main
+public import AKLT.W.GAP039.Main
+public import AKLT.W.GAP040.Main
+public import AKLT.W.GAP041.Main
+public import AKLT.W.GAP042.Main
+public import AKLT.W.GAP045.Main
+public import AKLT.W.GAP046.Main
+public import AKLT.W.GAP047.Main
+public import AKLT.W.GAP048.Main
+public import AKLT.W.GAP049.Main
+public import AKLT.W.GAP050.Main
+public import AKLT.W.GAP052.Main
+public import AKLT.W.GAP053.Main
+public import AKLT.W.GAP054.Main
+public import AKLT.W.GAP055.Main
+public import AKLT.W.GAP056.Main
+public import AKLT.W.GAP057.Main
+public import AKLT.W.GAP058.Main
+public import AKLT.W.MOM001.Main
+public import AKLT.W.MOM002.Main
+public import AKLT.W.MOM003.Main
+public import AKLT.W.MOM004.Main
+public import AKLT.W.MOM005.Main
+public import AKLT.W.MOM006.Main
+public import AKLT.W.MOM007.Main
+public import AKLT.W.MOM008.Main
+public import AKLT.W.MOM009.Main
+public import AKLT.W.MOM010.Main
+public import AKLT.W.MOM011.Main
+public import AKLT.W.MOM012.Main
+public import AKLT.W.MOM013.Main
+public import AKLT.W.MOM014.Main
+public import AKLT.W.MOM015.Main
+public import AKLT.W.MOM016.Main
+public import AKLT.W.MOM017.Main
+public import AKLT.W.MOM018.Main
+public import AKLT.W.MOM019.Main
+public import AKLT.W.MOM020.Main
+public import AKLT.W.MOM021.Main
+public import AKLT.W.MOM022.Main
+public import AKLT.W.MOM023.Main
+public import AKLT.W.MOM024.Main
+public import AKLT.W.MOM025.Main
+public import AKLT.W.MOM026.Main
+public import AKLT.W.MOM027.Main
+public import AKLT.W.MOM028.Main
+public import AKLT.W.MOM029.Main
+public import AKLT.W.MOM030.Main
+public import AKLT.W.MOM031.Main
+public import AKLT.W.Q001.Main
+public import AKLT.W.Q002.Main
+public import AKLT.W.Q003.Main
+public import AKLT.W.Q004.Main
+public import AKLT.W.Q005.Main
+public import AKLT.W.Q006.Main
+public import AKLT.W.Q007.Main
+public import AKLT.W.Q008.Main
+public import AKLT.W.Q009.Main
+public import AKLT.W.Q010.Main
+public import AKLT.W.Q011.Main
+public import AKLT.W.Q012.Main
+public import AKLT.W.Q013.Main
+public import AKLT.W.Q014.Main
+public import AKLT.W.Q015.Main
+public import AKLT.W.Q016.Main
+public import AKLT.W.Q017.Main
+public import AKLT.W.Q018.Main
+public import AKLT.W.Q019.Main
+public import AKLT.W.Q020.Main
+public import AKLT.W.Q021.Main
+public import AKLT.W.Q022.Main
+public import AKLT.W.Q023.Main
+public import AKLT.W.Q024.Main
+public import AKLT.W.Q025.Main
+public import AKLT.W.Q026.Main
+public import AKLT.W.Q027.Main
+public import AKLT.W.Q028.Main
+public import AKLT.W.Q029.Main
+public import AKLT.W.Q030.Main
+public import AKLT.W.Q031.Main
+public import AKLT.W.Q032.Main
+public import AKLT.W.Q033.Main
+public import AKLT.W.Q034.Main
+public import AKLT.W.Q035.Main
+public import AKLT.W.Q036.Main
+public import AKLT.W.Q037.Main
+public import AKLT.W.Q038.Main
+public import AKLT.W.Q039.Main
+public import AKLT.W.Q040.Main
+public import AKLT.W.Q041.Main
+public import AKLT.W.Q042.Main
+public import AKLT.W.Q043.Main
+public import AKLT.W.Q044.Main
+public import AKLT.W.Q045.Main
+public import AKLT.W.Q046.Main
+public import AKLT.W.Q047.Main
+public import AKLT.W.Q048.Main
+public import AKLT.W.Q049.Main
+public import AKLT.W.Q050.Main
+public import AKLT.W.Q051.Main
+public import AKLT.W.Q052.Main
+public import AKLT.W.Q053.Main
+public import AKLT.W.Q054.Main
+public import AKLT.W.Q055.Main
+public import AKLT.W.Q056.Main
+public import AKLT.W.Q057.Main
+public import AKLT.W.Q058.Main
+public import AKLT.W.Q059.Main
+public import AKLT.W.Q060.Main
+public import AKLT.W.Q061.Main
+public import AKLT.W.REC004.Main
+public import AKLT.W.REC005.Main
+public import AKLT.W.REC010.Main
+public import AKLT.W.REC011.Main
+public import AKLT.W.REC012.Main
+public import AKLT.W.REC013.Main
+public import AKLT.W.REC014.Main
+public import AKLT.W.REC015.Main
+public import AKLT.W.REC016.Main
+public import AKLT.W.REC017.Main
+public import AKLT.W.REC018.Main
+public import AKLT.W.REC019.Main
+public import AKLT.W.REC020.Main
+public import AKLT.W.REC021.Main
+public import AKLT.W.REC022.Main
+public import AKLT.W.REC024.Main
+public import AKLT.W.REC025.Main
+public import AKLT.W.REC027.Main
+public import AKLT.W.REC028.Main
+public import AKLT.W.REC034.Main
+public import AKLT.W.REC035.Main
+public import AKLT.W.REC036.Main
+public import AKLT.W.REC062.Main
+public import AKLT.W.REC064.Main
+public import AKLT.W.REC065.Main
+public import AKLT.W.REC066.Main
+public import AKLT.W.REC067.Main
+public import AKLT.W.REC069.Main
+public import AKLT.W.REC070.Main
+public import AKLT.W.REC071.Main
+public import AKLT.W.REC072.Main
+public import AKLT.W.REC073.Main
+public import AKLT.W.REC079.Main
+public import AKLT.W.REC081.Main
+public import AKLT.W.REC082.Main
+public import AKLT.W.REC083.Main
+public import AKLT.W.REC085.Main
+public import AKLT.W.REC086.Main
+public import AKLT.W.REC087.Main
+public import AKLT.W.REC088.Main
+public import AKLT.W.REC091.Main
+public import AKLT.W.WIN001.Main
+public import AKLT.W.WIN002.Main
+public import AKLT.W.WIN003.Main
+public import AKLT.W.WIN004.Main
+public import AKLT.W.WIN005.Main
+public import AKLT.W.WIN006.Main
+public import AKLT.W.WIN007.Main
+public import AKLT.W.WIN008.Main
+public import AKLT.W.WIN009.Main
+public import AKLT.W.WIN010.Main
+public import AKLT.W.WIN011.Main
+public import AKLT.W.WIN012.Main
+public import AKLT.W.WIN013.Main
+public import AKLT.W.WIN014.Main
+public import AKLT.W.WIN015.Main
+public import AKLT.W.WIN016.Main
+public import AKLT.W.WIN017.Main
+public import AKLT.W.WIN018.Main
+public import AKLT.W.WIN019.Main
+public import AKLT.W.WIN020.Main
+public import AKLT.W.WIN021.Main
+public import AKLT.W.WIN022.Main
+public import AKLT.W.WIN023.Main
+public import AKLT.W.WIN024.Main
+public import AKLT.W.WIN025.Main
+public import AKLT.W.WIN026.Main
+public import AKLT.W.WIN027.Main
+public import AKLT.W.WIN028.Main
+public import AKLT.W.WIN029.Main
+public import AKLT.W.WIN030.Main
+public import AKLT.W.WIN031.Main
+public import AKLT.W.WIN032.Main
+public import AKLT.W.WIN033.Main
+public import AKLT.W.WIN034.Main
+public import AKLT.W.WIN035.Main
+public import AKLT.W.WIN036.Main
+public import AKLT.W.WIN037.Main
+public import AKLT.W.WIN038.Main
+public import AKLT.W.WIN039.Main
+public import AKLT.W.WIN040.Main
+public import AKLT.W.WIN041.Main
+public import AKLT.W.WIN042.Main
+public import AKLT.W.WIN043.Main
+public import AKLT.W.WIN044.Main
+public import AKLT.W.WIN045.Main
+public import AKLT.W.WIN046.Main
+public import AKLT.W.WIN047.Main
+public import AKLT.W.WIN048.Main
+public import AKLT.W.WIN049.Main
+public import AKLT.W.WIN050.Main
+public import AKLT.W.WIN051.Main
+public import AKLT.W.WIN052.Main
+public import AKLT.W.WIN053.Main
+public import AKLT.W.WIN054.Main
+public import AKLT.W.WIN055.Main
+public import AKLT.W.WIN056.Main
+public import AKLT.W.WIN057.Main
+public import AKLT.W.WIN058.Main
+public import AKLT.W.WIN059.Main
+public import AKLT.W.WIN060.Main
+public import AKLT.W.WIN061.Main
+public import AKLT.W.WIN062.Main
+public import AKLT.W.WIN063.Main
+public import AKLT.W.WIN064.Main
+public import AKLT.W.WIN065.Main
+public import AKLT.W.WIN066.Main
+public import AKLT.W.WIN067.Main
+public import AKLT.W.WIN068.Main
+public import AKLT.W.WIN069.Main
+public import AKLT.W.WIN070.Main
+public import AKLT.W.WIN071.Main
+public import AKLT.W.WIN072.Main
+public import AKLT.W.WIN073.Main
+public import AKLT.W.WIN074.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Reduction of the headline to the paper's two semantic inputs.
 H2 is discharged by its existing kernel-checked proof. -/

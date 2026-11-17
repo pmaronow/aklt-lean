@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesLocal
+module
+public import AKLT.Blueprint.Rec.NodesLocal
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

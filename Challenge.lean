@@ -105,6 +105,9 @@ def icoVector (j : IcoLetter) : Vec3 :=
     else if j.1 = 1 then ![a, b, 0] else ![b, 0, a]
   fun k => v k / icoRadius
 
+/-- `d:moment`: the fourth-moment functional, defined for arbitrary functions by a finite sum. -/
+def moment (f : Vec3 → ℝ) : ℝ := (1 / 12) * ∑ j : IcoLetter, f (icoVector j)
+
 /-- `d:domain`: site status; there is no scalar trace mass. -/
 inductive Status where
   | U | D | X

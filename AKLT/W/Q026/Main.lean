@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Q.NodesPolynomial
-import AKLT.Uniq.BondAlgebra
+module
+public import AKLT.Blueprint.Q.NodesPolynomial
+public import AKLT.Uniq.BondAlgebra
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

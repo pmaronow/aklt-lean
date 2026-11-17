@@ -1,5 +1,10 @@
-import AKLT.W.REC017.Network
-import AKLT.W.REC017.Bounds
+module
+public import AKLT.W.REC017.Network
+public import AKLT.W.REC017.Bounds
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

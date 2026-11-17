@@ -1,5 +1,10 @@
-import AKLT.W.REC082.PE.Iteration
-import AKLT.W.REC082.PE.Trails
+module
+public import AKLT.W.REC082.PE.Iteration
+public import AKLT.W.REC082.PE.Trails
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

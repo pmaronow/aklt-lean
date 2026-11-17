@@ -1,4 +1,9 @@
-import AKLT.Uniq.CasimirAction
+module
+public import AKLT.Uniq.CasimirAction
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 The concrete edge lemma of §3.  The normalized polynomial-action identity is

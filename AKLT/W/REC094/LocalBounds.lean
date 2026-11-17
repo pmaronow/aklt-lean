@@ -1,7 +1,12 @@
-import AKLT.W.REC094.Dynamics
-import AKLT.W.REC011.Main
-import AKLT.W.REC012.Main
-import AKLT.W.REC013.Main
+module
+public import AKLT.W.REC094.Dynamics
+public import AKLT.W.REC011.Main
+public import AKLT.W.REC012.Main
+public import AKLT.W.REC013.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

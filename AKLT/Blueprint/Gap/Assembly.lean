@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Gap.NodesMain
+module
+public import AKLT.Blueprint.Gap.NodesMain
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Kernel-checked logical assembly only. Every unproved input argument is a closed
 Prop defined in a Nodes module or an unchanged Top module. -/

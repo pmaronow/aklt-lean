@@ -1,4 +1,9 @@
-import AKLT.W.REC012.Comparison
+module
+public import AKLT.W.REC012.Comparison
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

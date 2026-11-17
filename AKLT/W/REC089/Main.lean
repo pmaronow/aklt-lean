@@ -1,5 +1,10 @@
-import AKLT.W.REC089.Mixtures
-import AKLT.W.REC089.ActualDisintegration
+module
+public import AKLT.W.REC089.Mixtures
+public import AKLT.W.REC089.ActualDisintegration
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

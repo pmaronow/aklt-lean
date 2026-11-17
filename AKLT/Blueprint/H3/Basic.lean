@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.Computation
-import AKLT.Gen.Bellman.Main
+module
+public import AKLT.Blueprint.Top.Computation
+public import AKLT.Gen.Bellman.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Shared, finite algebra for the H3 blueprint. No certificate arrays live here. -/
 noncomputable section

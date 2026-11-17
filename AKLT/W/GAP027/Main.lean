@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Gap.NodesMain
+module
+public import AKLT.Blueprint.Gap.NodesMain
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 namespace AKLT.W.GAP027
 

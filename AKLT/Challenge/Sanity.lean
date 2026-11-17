@@ -1,4 +1,9 @@
-import AKLT.Challenge.Main
+module
+public import AKLT.Challenge.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Sanity statements about the concrete definitions. Unproved statements below
 are propositions, with no assumed inhabitants. Neither the ground-state equation

@@ -1,10 +1,15 @@
-import AKLT.Blueprint.Q.NodesFrames
-import AKLT.Blueprint.Q.NodesTight
-import AKLT.Blueprint.Q.NodesStar
-import AKLT.Blueprint.Q.NodesPolynomial
-import AKLT.Blueprint.Q.NodesQuantum
-import AKLT.Blueprint.Q.NodesEnergy
-import AKLT.Blueprint.Q.NodesSplits
+module
+public import AKLT.Blueprint.Q.NodesFrames
+public import AKLT.Blueprint.Q.NodesTight
+public import AKLT.Blueprint.Q.NodesStar
+public import AKLT.Blueprint.Q.NodesPolynomial
+public import AKLT.Blueprint.Q.NodesQuantum
+public import AKLT.Blueprint.Q.NodesEnergy
+public import AKLT.Blueprint.Q.NodesSplits
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Checked implications only. Every mathematical argument to an exported
 assembly is a closed proposition. Generic leaf premises are ordinary explicit

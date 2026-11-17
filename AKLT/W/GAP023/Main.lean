@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Gap.NodesFinite
-import AKLT.Vendor.QICLean.Analysis.KernelSpectralGap
-import Mathlib.Analysis.Matrix.Spectrum
+module
+public import AKLT.Blueprint.Gap.NodesFinite
+public import AKLT.Vendor.QICLean.Analysis.KernelSpectralGap
+public import Mathlib.Analysis.Matrix.Spectrum
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ComplexConjugate Matrix

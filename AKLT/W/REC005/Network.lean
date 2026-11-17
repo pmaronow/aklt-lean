@@ -1,5 +1,10 @@
-import AKLT.W.REC005.Graph
-import AKLT.W.REC005.Geometry
+module
+public import AKLT.W.REC005.Graph
+public import AKLT.W.REC005.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

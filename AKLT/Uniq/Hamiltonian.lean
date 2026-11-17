@@ -1,4 +1,9 @@
-import AKLT.Challenge.Sanity
+module
+public import AKLT.Challenge.Sanity
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! The kernel of the sum of the frozen orthogonal bond projections. -/
 

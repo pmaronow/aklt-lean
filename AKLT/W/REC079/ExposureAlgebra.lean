@@ -1,5 +1,10 @@
-import AKLT.W.REC079.KernelAlgebra
-import AKLT.W.REC046.Main
+module
+public import AKLT.W.REC079.KernelAlgebra
+public import AKLT.W.REC046.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

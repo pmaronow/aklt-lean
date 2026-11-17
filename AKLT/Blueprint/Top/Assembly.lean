@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Top.Windows
-import AKLT.Challenge.MainV2
-import AKLT.Blueprint.Top.InputsV2
+module
+public import AKLT.Blueprint.Top.Windows
+public import AKLT.Challenge.MainV2
+public import AKLT.Blueprint.Top.InputsV2
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! The proved top assembly. Every unproved mathematical part is a closed Prop;
 all mathematical inputs remain explicit arguments. -/

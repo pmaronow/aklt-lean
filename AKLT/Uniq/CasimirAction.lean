@@ -1,5 +1,10 @@
-import AKLT.Uniq.SpinCoordinates
-import AKLT.Uniq.Casimir
+module
+public import AKLT.Uniq.SpinCoordinates
+public import AKLT.Uniq.Casimir
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! The normalized polynomial action of the frozen two-site Casimir. -/
 

@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Top.Common
-import AKLT.Defs.Quantum
-import AKLT.Defs.Specification
+module
+public import AKLT.Blueprint.Top.Common
+public import AKLT.Defs.Quantum
+public import AKLT.Defs.Specification
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

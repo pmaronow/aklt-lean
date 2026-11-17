@@ -1,5 +1,10 @@
-import AKLT.W.REC018.Network
-import AKLT.W.REC018.LogMean
+module
+public import AKLT.W.REC018.Network
+public import AKLT.W.REC018.LogMean
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

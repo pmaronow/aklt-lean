@@ -1,9 +1,14 @@
-import AKLT.Blueprint.Win.NodesShell
-import AKLT.Blueprint.Win.NodesTopology
-import AKLT.Blueprint.Win.NodesTaper
-import AKLT.Blueprint.Win.NodesRemoval
-import AKLT.Blueprint.Win.NodesCut
-import AKLT.Blueprint.Win.NodesTail
+module
+public import AKLT.Blueprint.Win.NodesShell
+public import AKLT.Blueprint.Win.NodesTopology
+public import AKLT.Blueprint.Win.NodesTaper
+public import AKLT.Blueprint.Win.NodesRemoval
+public import AKLT.Blueprint.Win.NodesCut
+public import AKLT.Blueprint.Win.NodesTail
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 namespace AKLT.Blueprint.Win
 

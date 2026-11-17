@@ -1,4 +1,9 @@
-import AKLT.Defs.PinModel
+module
+public import AKLT.Defs.PinModel
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

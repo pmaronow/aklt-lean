@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Win.NodesTaper
+module
+public import AKLT.Blueprint.Win.NodesTaper
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 open AKLT.Defs
 open AKLT.Blueprint.Win

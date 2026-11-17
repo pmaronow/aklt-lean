@@ -1,4 +1,9 @@
-import AKLT.W.REC005.Free
+module
+public import AKLT.W.REC005.Free
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

@@ -1,273 +1,116 @@
 {
-  "scope": "Local unported architecture diagnostics; not Palomar acceptance",
-  "source_commit": "63d176add85a0eae6c862c54849a495434b7d438",
+  "scope": "local protected components, existing pinned dependencies, not production acceptance",
+  "origin_commit": "d77c3ca85754582f91354dd848ac5a830f73727d",
+  "unported_commit": "933e99cddadb1ae6b85d5f4aff551b6f14f91f42",
   "verifier_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
-  "toolchain": {
-    "lean": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
-      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+  "source_manifest_sha256": "7214f411b4d04cd533943955a8b395c1e0159a5474ec743295f3e75c9ec019d2",
+  "source_files": 618,
+  "proof_body_changes": [],
+  "source_comparison": "pass",
+  "mandatory_kernels": "Lean and NanoDa accept",
+  "conron": "verified acceptance",
+  "exports": {
+    "challenge": {
+      "bytes": 154767051,
+      "sha256": "dca523b287d87bba21c5879e679b081a1ede3a85ed765661182c7c65d0280b34"
     },
-    "lake": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lake",
-      "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
-    },
-    "leanexport": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
-      "sha256": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954"
-    },
-    "leanchecker": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
-      "sha256": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29"
-    },
-    "nanoda_bin": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
-      "sha256": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
-    },
-    "con-ron": {
-      "path": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
-      "sha256": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef"
-    },
-    "lean_version": "Lean (version 4.35.0-rc2, x86_64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)"
+    "solution": {
+      "bytes": 671987125,
+      "sha256": "9a6aba195545920cd2b62a256cb9b64d3681de90d91f32193cc6071ec503ae1a"
+    }
   },
-  "interface_only_compatibility_copy": {
-    "original": "/home/ubuntu/aklt/wt/ARCH_PKG/palomar/Solution.lean",
-    "original_sha256": "c9634e549a48f042e5d2eb87609c8490ef99cef48c5fb96ad0df96efdbdd4803",
-    "copy": "/home/ubuntu/aklt/reports/ARCH_PKG/compat/src/Solution.lean",
-    "copy_sha256": "0362c3b83ea9fd23585d8870a237c7f8e46fa8b85d9333e1ea1dedc8ca2ebf21",
-    "changes": [
-      "remove module header",
-      "public import becomes import",
-      "remove public expose section"
-    ],
-    "unchanged": "all definitions, theorem statements and proofs"
-  },
-  "kernel_limits": {
-    "address_space_bytes": 33285996544,
-    "authenticated_cgroup": false,
-    "source_build": "cached"
-  },
-  "stages": [
+  "timings": [
     {
-      "stage": "solution-compat-build",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
-        "-j1",
-        "-DautoImplicit=false",
-        "-DrelaxedAutoImplicit=false",
-        "--root=/home/ubuntu/aklt/reports/ARCH_PKG/compat/src",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/compat/src/Solution.lean",
-        "-o",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/compat/lib/Solution.olean"
-      ],
+      "stage": "build-default-a1",
       "exit_code": 0,
-      "wall_s": 4.072993490000954,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-compat-build.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-compat-build.stderr",
-      "time": "4.06 6985380\n"
-    },
-    {
-      "stage": "audit-compat",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
-        "-j1",
-        "-DautoImplicit=false",
-        "-DwarningAsError=true",
-        "--root=/home/ubuntu/aklt/reports/ARCH_PKG/compat/src",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/compat/src/Audit.lean"
-      ],
-      "exit_code": 0,
-      "wall_s": 3.972817608009791,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/audit-compat.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/audit-compat.stderr",
-      "time": "3.94 6976008\n"
-    },
-    {
-      "stage": "canonical-challenge-build",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lean",
-        "-j1",
-        "-DautoImplicit=false",
-        "-DrelaxedAutoImplicit=false",
-        "--root=/home/ubuntu/aklt/reports/ARCH_PKG/canonical/src",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/canonical/src/PalomarCanonical70f9792190baebf83663b466/Challenge.lean",
-        "-o",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/canonical/lib/PalomarCanonical70f9792190baebf83663b466/Challenge.olean"
-      ],
-      "exit_code": 0,
-      "wall_s": 4.0275950170034776,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/canonical-challenge-build.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/canonical-challenge-build.stderr",
-      "time": "4.00 3850876\n"
+      "limit": null,
+      "wall_s": 666.1343245419994,
+      "cpu_s_best": 3191.0718739999998,
+      "wait4_or_reported_cpu_s": 3191.0718739999998,
+      "sampled_tree_cpu_s": 3153.33,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 37727432704,
+      "peak_single_rss_bytes": 27238526976,
+      "peak_lean_processes": 4
     },
     {
       "stage": "challenge-export",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
-        "PalomarCanonical70f9792190baebf83663b466.Challenge",
-        "--",
-        "Quot",
-        "Quot.mk",
-        "Quot.lift",
-        "Quot.ind",
-        "AKLTPalomar.aklt_gap_of_inputs",
-        "propext",
-        "Quot.sound",
-        "Classical.choice",
-        "Nat.add",
-        "Nat.sub",
-        "Nat.mul",
-        "Nat.pow",
-        "Nat.gcd",
-        "Nat.div",
-        "Nat.mod",
-        "Nat.beq",
-        "Nat.ble",
-        "Nat.land",
-        "Nat.lor",
-        "Nat.xor",
-        "Nat.shiftLeft",
-        "Nat.shiftRight",
-        "String.ofList",
-        "Char.ofNat",
-        "List",
-        "eagerReduce",
-        "Nat",
-        "String",
-        "String.mk",
-        "Char",
-        "optParam",
-        "autoParam",
-        "semiOutParam",
-        "outParam"
-      ],
       "exit_code": 0,
-      "wall_s": 8.975386710997554,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/challenge.ndjson",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/challenge-export.stderr",
-      "time": "8.77 6670632\n"
+      "limit": null,
+      "wall_s": 8.573572027002228,
+      "cpu_s_best": 8.42,
+      "wait4_or_reported_cpu_s": 0.002935,
+      "sampled_tree_cpu_s": 8.42,
+      "cpu_method": "sampled process tree (approximate)",
+      "peak_tree_rss_bytes": 6835175424,
+      "peak_single_rss_bytes": 6831587328,
+      "peak_lean_processes": 0
+    },
+    {
+      "stage": "conron-replay",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 420.76031471999886,
+      "cpu_s_best": 519.88,
+      "wait4_or_reported_cpu_s": 0.003051,
+      "sampled_tree_cpu_s": 519.88,
+      "cpu_method": "sampled process tree (approximate)",
+      "peak_tree_rss_bytes": 50668879872,
+      "peak_single_rss_bytes": 50665287680,
+      "peak_lean_processes": 0
+    },
+    {
+      "stage": "protected-challenge-build",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 3.935071883999626,
+      "cpu_s_best": 3.83,
+      "wait4_or_reported_cpu_s": 0.0030749999999999996,
+      "sampled_tree_cpu_s": 3.83,
+      "cpu_method": "sampled process tree (approximate)",
+      "peak_tree_rss_bytes": 3932729344,
+      "peak_single_rss_bytes": 3929133056,
+      "peak_lean_processes": 1
+    },
+    {
+      "stage": "protected-comparator",
+      "exit_code": 0,
+      "limit": null,
+      "wall_s": 553.5796210080007,
+      "cpu_s_best": 599.91,
+      "wait4_or_reported_cpu_s": 0.003238,
+      "sampled_tree_cpu_s": 599.91,
+      "cpu_method": "sampled process tree (approximate)",
+      "peak_tree_rss_bytes": 24939012096,
+      "peak_single_rss_bytes": 24822296576,
+      "peak_lean_processes": 0
     },
     {
       "stage": "solution-export",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport",
-        "Solution",
-        "--",
-        "Quot",
-        "Quot.mk",
-        "Quot.lift",
-        "Quot.ind",
-        "AKLTPalomar.aklt_gap_of_inputs",
-        "propext",
-        "Quot.sound",
-        "Classical.choice",
-        "Nat.add",
-        "Nat.sub",
-        "Nat.mul",
-        "Nat.pow",
-        "Nat.gcd",
-        "Nat.div",
-        "Nat.mod",
-        "Nat.beq",
-        "Nat.ble",
-        "Nat.land",
-        "Nat.lor",
-        "Nat.xor",
-        "Nat.shiftLeft",
-        "Nat.shiftRight",
-        "String.ofList",
-        "Char.ofNat",
-        "List",
-        "eagerReduce",
-        "Nat",
-        "String",
-        "String.mk",
-        "Char",
-        "optParam",
-        "autoParam",
-        "semiOutParam",
-        "outParam"
-      ],
       "exit_code": 0,
-      "wall_s": 42.70714110099652,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/solution.ndjson",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-export.stderr",
-      "time": "42.67 7406328\n"
+      "limit": null,
+      "wall_s": 32.975280491999,
+      "cpu_s_best": 32.82,
+      "wait4_or_reported_cpu_s": 0.003021,
+      "sampled_tree_cpu_s": 32.82,
+      "cpu_method": "sampled process tree (approximate)",
+      "peak_tree_rss_bytes": 7605936128,
+      "peak_single_rss_bytes": 7602335744,
+      "peak_lean_processes": 0
     },
     {
-      "stage": "comparator",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lake",
-        "comparator",
-        "--config",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/protected-comparator.json",
-        "--challenge-from-export",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/challenge.ndjson",
-        "--solution-from-export",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/solution.ndjson"
-      ],
-      "exit_code": 1,
-      "wall_s": 22.78639050500351,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/comparator.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/comparator.stderr",
-      "time": "Command exited with non-zero status 1\n22.77 1193604\n"
-    },
-    {
-      "stage": "solution-lean-replay",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanchecker",
-        "--silent",
-        "--from-export",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/solution.ndjson"
-      ],
+      "stage": "strict-audit",
       "exit_code": 0,
-      "wall_s": 239.19295998600137,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-lean-replay.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-lean-replay.stderr",
-      "time": "239.14 24239788\n"
-    },
-    {
-      "stage": "solution-con-ron",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
-        "--jobs=2",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/solution.ndjson"
-      ],
-      "exit_code": 134,
-      "wall_s": 236.6085047230008,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-con-ron.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-con-ron.stderr",
-      "time": "Command terminated by signal 6\n236.56 29048628\n"
-    },
-    {
-      "stage": "solution-nanoda-configured",
-      "argv": [
-        "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin",
-        "/home/ubuntu/aklt/reports/ARCH_PKG/solution-nanoda-config.json"
-      ],
-      "exit_code": 0,
-      "wall_s": 290.31722800100397,
-      "stdout": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-nanoda-configured.log",
-      "stderr": "/home/ubuntu/aklt/reports/ARCH_PKG/solution-nanoda-configured.stderr",
-      "time": "290.30 19764788\n"
+      "limit": null,
+      "wall_s": 2.924512172001414,
+      "cpu_s_best": 2.844371,
+      "wait4_or_reported_cpu_s": 2.844371,
+      "sampled_tree_cpu_s": 2.66,
+      "cpu_method": "wait4 cumulative",
+      "peak_tree_rss_bytes": 4832407552,
+      "peak_single_rss_bytes": 3984224256,
+      "peak_lean_processes": 1
     }
   ],
-  "proof_export": {
-    "export_bytes": 671960957,
-    "sha256": "63f03cc6a8040a757fe5fa26604fc39282c1028dc5d5d2d77f252fd395295556",
-    "declarations": 65738,
-    "theorems": 49670,
-    "reachable_leaves": 260,
-    "axioms": [
-      "Classical.choice",
-      "Quot.sound",
-      "propext"
-    ],
-    "forbidden_layer_hits": []
-  },
-  "delivered_lean_sources": {
-    "AKLT/Final/Inputs.lean": "d13eb2a29750d8beef660275b865ef760248de715c843f50c13b2f8776565d34",
-    "palomar/Audit.lean": "ae977c60fa9d4649d08181e59e235434039e4f5c743d2768aa8bd3a0acaae4a0",
-    "palomar/Challenge.lean": "9c25be8959f583fef89bb91bb8d9680993ee1c966cba79e4ace7011b825a0b6e",
-    "palomar/Solution.lean": "c9634e549a48f042e5d2eb87609c8490ef99cef48c5fb96ad0df96efdbdd4803"
-  }
+  "note": "Namespace-stage CPU is sampled and approximate; raw wait4 is wrapper-only. A final serial-build receipt is maintained by the orchestrator."
 }

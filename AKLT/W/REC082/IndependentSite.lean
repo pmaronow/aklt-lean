@@ -1,5 +1,10 @@
-import AKLT.W.REC082.Partition
-import AKLT.W.REC082.Trail
+module
+public import AKLT.W.REC082.Partition
+public import AKLT.W.REC082.Trail
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

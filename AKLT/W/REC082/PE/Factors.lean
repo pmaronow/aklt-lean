@@ -1,5 +1,10 @@
-import AKLT.W.REC082.PE.Fibres
-import AKLT.W.REC082.PE.Bonds
+module
+public import AKLT.W.REC082.PE.Fibres
+public import AKLT.W.REC082.PE.Bonds
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

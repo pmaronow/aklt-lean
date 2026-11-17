@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesLocal
-import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+module
+public import AKLT.Blueprint.Rec.NodesLocal
+public import Mathlib.Analysis.Convex.SpecificFunctions.Basic
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

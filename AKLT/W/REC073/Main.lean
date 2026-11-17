@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Rec.NodesRecursion
-import AKLT.Blueprint.Mom.NodesMoments
-import AKLT.Blueprint.Mom.Assembly
+module
+public import AKLT.Blueprint.Rec.NodesRecursion
+public import AKLT.Blueprint.Mom.NodesMoments
+public import AKLT.Blueprint.Mom.Assembly
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

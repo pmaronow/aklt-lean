@@ -1,9 +1,14 @@
-import AKLT.W.REC081.Summation
-import AKLT.W.REC081.Normalization
-import AKLT.Blueprint.Rec.NodesV2Closure
-import AKLT.W.REC080.Main
-import AKLT.W.REC094.Main
-import AKLT.W.REC096.Main
+module
+public import AKLT.W.REC081.Summation
+public import AKLT.W.REC081.Normalization
+public import AKLT.Blueprint.Rec.NodesV2Closure
+public import AKLT.W.REC080.Main
+public import AKLT.W.REC094.Main
+public import AKLT.W.REC096.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

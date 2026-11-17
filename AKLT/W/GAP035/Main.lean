@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Gap.NodesPeriodic
+module
+public import AKLT.Blueprint.Gap.NodesPeriodic
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs AKLT.Challenge AKLT.Blueprint.Gap

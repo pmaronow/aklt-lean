@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Q.NodesSplits
-import AKLT.Challenge.Sanity
+module
+public import AKLT.Blueprint.Q.NodesSplits
+public import AKLT.Challenge.Sanity
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Challenge

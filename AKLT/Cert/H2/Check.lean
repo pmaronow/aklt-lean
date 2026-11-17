@@ -1,4 +1,9 @@
-import AKLT.Cert.H2.Data
+module
+public import AKLT.Cert.H2.Data
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 open AKLT.Defs
 

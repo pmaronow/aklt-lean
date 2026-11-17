@@ -1,5 +1,10 @@
-import AKLT.W.REC096.Prefix
-import AKLT.W.REC096.Template
+module
+public import AKLT.W.REC096.Prefix
+public import AKLT.W.REC096.Template
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs AKLT.Blueprint.Rec

@@ -1,5 +1,10 @@
-import AKLT.Defs.Probability
-import AKLT.Defs.Operator
+module
+public import AKLT.Defs.Probability
+public import AKLT.Defs.Operator
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

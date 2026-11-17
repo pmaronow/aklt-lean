@@ -1,4 +1,9 @@
-import AKLT.W.REC096.Geometry
+module
+public import AKLT.W.REC096.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs AKLT.Blueprint.Rec

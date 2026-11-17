@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Coefficients
+module
+public import AKLT.Blueprint.Top.Coefficients
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Concrete data used by the §6–§7 blueprint. No proof obligations are fields
 of these definitions except the ordinary mathematical premises of an instance. -/

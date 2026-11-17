@@ -1,6 +1,11 @@
-import AKLT.W.REC003.Finite
-import AKLT.W.REC003.Geometry
-import AKLT.W.REC003.Moments
+module
+public import AKLT.W.REC003.Finite
+public import AKLT.W.REC003.Geometry
+public import AKLT.W.REC003.Moments
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

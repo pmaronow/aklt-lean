@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Win.NodesShell
+module
+public import AKLT.Blueprint.Win.NodesShell
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 namespace AKLT.W.WIN005
 

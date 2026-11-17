@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Windows
+module
+public import AKLT.Blueprint.Top.Windows
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Concrete data for §5 and Appendix B. No field of a data definition is an
 unproved global statement. Distances and pins retain their original volume. -/

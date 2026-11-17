@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.ComputationV2
-import AKLT.Blueprint.Top.Operator
+module
+public import AKLT.Blueprint.Top.ComputationV2
+public import AKLT.Blueprint.Top.Operator
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 namespace AKLT.Blueprint.Top
 

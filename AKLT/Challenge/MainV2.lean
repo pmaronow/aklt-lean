@@ -1,5 +1,10 @@
-import Mathlib
-import AKLT.Challenge.Main
+module
+public import Mathlib
+public import AKLT.Challenge.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # The all-parity AKLT challenge

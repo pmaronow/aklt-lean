@@ -1,8 +1,13 @@
-import AKLT.Gen.Bellman.Basic
-import AKLT.Gen.Bellman.Extension
-import AKLT.Gen.Bellman.Quotient
-import AKLT.Gen.Bellman.Growth
-import AKLT.Gen.Bellman.Certificates
+module
+public import AKLT.Gen.Bellman.Basic
+public import AKLT.Gen.Bellman.Extension
+public import AKLT.Gen.Bellman.Quotient
+public import AKLT.Gen.Bellman.Growth
+public import AKLT.Gen.Bellman.Certificates
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 # Generic Bellman and automaton path-sum theory

@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Q.Definitions
+module
+public import AKLT.Blueprint.Q.Definitions
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! A second split of the representation, prime, degree, and tensor-transport
 bridges. The larger propositions in NodesPolynomial/NodesStar become proved

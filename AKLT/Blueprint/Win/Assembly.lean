@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Win.Leaves
+module
+public import AKLT.Blueprint.Win.Leaves
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Proved conditional assemblies for §5 and Appendix B. All global inputs
 are closed Props. WindowLeaves is an explicit conjunction of open obligations;

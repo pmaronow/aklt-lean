@@ -1,5 +1,10 @@
-import AKLT.W.WIN064.Polynomial
-import AKLT.W.WIN064.Quadrature
+module
+public import AKLT.W.WIN064.Polynomial
+public import AKLT.W.WIN064.Quadrature
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

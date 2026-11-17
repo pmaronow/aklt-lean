@@ -1,6 +1,11 @@
-import AKLT.W.REC080.Pointwise
-import AKLT.W.REC043.Main
-import AKLT.W.REC090.Main
+module
+public import AKLT.W.REC080.Pointwise
+public import AKLT.W.REC043.Main
+public import AKLT.W.REC090.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 The terminal geometry, shared matcher, twelve-exception count, common

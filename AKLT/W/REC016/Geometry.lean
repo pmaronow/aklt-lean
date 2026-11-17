@@ -1,4 +1,9 @@
-import AKLT.W.REC016.Analysis
+module
+public import AKLT.W.REC016.Analysis
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

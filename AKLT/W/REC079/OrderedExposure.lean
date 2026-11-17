@@ -1,8 +1,13 @@
-import AKLT.W.REC079.LocalLogComparison
-import AKLT.W.REC079.ExposureAlgebra
-import AKLT.W.REC041.Main
-import AKLT.W.REC010.Main
-import AKLT.W.REC011.Main
+module
+public import AKLT.W.REC079.LocalLogComparison
+public import AKLT.W.REC079.ExposureAlgebra
+public import AKLT.W.REC041.Main
+public import AKLT.W.REC010.Main
+public import AKLT.W.REC011.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

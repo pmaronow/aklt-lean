@@ -1,5 +1,10 @@
-import AKLT.W.REC080.Expansion
-import AKLT.W.REC080.Summation
+module
+public import AKLT.W.REC080.Expansion
+public import AKLT.W.REC080.Summation
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

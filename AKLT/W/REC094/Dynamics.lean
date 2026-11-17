@@ -1,4 +1,9 @@
-import AKLT.W.REC094.TraceAlgebra
+module
+public import AKLT.W.REC094.TraceAlgebra
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

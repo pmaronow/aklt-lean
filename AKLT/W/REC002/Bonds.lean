@@ -1,5 +1,10 @@
-import AKLT.W.REC002.Sums
-import AKLT.W.REC002.Geometry
+module
+public import AKLT.W.REC002.Sums
+public import AKLT.W.REC002.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

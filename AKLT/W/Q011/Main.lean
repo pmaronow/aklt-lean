@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Q.NodesTight
+module
+public import AKLT.Blueprint.Q.NodesTight
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

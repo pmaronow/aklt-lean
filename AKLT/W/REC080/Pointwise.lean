@@ -1,8 +1,13 @@
-import AKLT.W.REC080.SharedCover
-import AKLT.W.REC011.Main
-import AKLT.W.REC012.Main
-import AKLT.W.REC013.Main
-import AKLT.W.REC041.Main
+module
+public import AKLT.W.REC080.SharedCover
+public import AKLT.W.REC011.Main
+public import AKLT.W.REC012.Main
+public import AKLT.W.REC013.Main
+public import AKLT.W.REC041.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

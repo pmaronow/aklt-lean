@@ -1,5 +1,10 @@
-import AKLT.W.REC014.Positive
-import AKLT.W.REC014.Integral
+module
+public import AKLT.W.REC014.Positive
+public import AKLT.W.REC014.Integral
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

@@ -1,4 +1,9 @@
-import AKLT.Defs.OperatorContracts
+module
+public import AKLT.Defs.OperatorContracts
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Real-coefficient forms for Appendix D. Rational reconstruction definitions
 remain unchanged for the existing certificate proofs. -/

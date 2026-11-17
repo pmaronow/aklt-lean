@@ -1,5 +1,10 @@
-import AKLT.Defs.Frame
-import AKLT.Challenge.Main
+module
+public import AKLT.Defs.Frame
+public import AKLT.Challenge.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

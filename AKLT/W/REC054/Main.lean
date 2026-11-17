@@ -1,4 +1,9 @@
-import AKLT.W.REC054.LocalRules
+module
+public import AKLT.W.REC054.LocalRules
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

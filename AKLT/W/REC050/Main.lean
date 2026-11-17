@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Rec.NodesClosure
+module
+public import AKLT.Blueprint.Rec.NodesClosure
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

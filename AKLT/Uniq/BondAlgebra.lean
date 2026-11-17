@@ -1,4 +1,9 @@
-import AKLT.Uniq.Geometry
+module
+public import AKLT.Uniq.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-!
 Prime, nonassociate bond determinants and finite-product divisibility.

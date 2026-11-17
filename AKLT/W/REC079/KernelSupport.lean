@@ -1,4 +1,9 @@
-import AKLT.W.REC079.KernelAlgebra
+module
+public import AKLT.W.REC079.KernelAlgebra
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators ENNReal

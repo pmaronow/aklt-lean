@@ -1,6 +1,11 @@
-import AKLT.W.REC012.Ambient
-import AKLT.W.REC012.Geometry
-import AKLT.W.REC012.LocalProducts
+module
+public import AKLT.W.REC012.Ambient
+public import AKLT.W.REC012.Geometry
+public import AKLT.W.REC012.LocalProducts
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

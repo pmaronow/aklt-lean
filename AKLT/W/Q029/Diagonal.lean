@@ -1,4 +1,9 @@
-import AKLT.W.Q029.Coordinates
+module
+public import AKLT.W.Q029.Coordinates
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

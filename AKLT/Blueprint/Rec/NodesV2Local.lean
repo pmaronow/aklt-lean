@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.Assembly
-import AKLT.Blueprint.Rec.Counterexample
+module
+public import AKLT.Blueprint.Rec.Assembly
+public import AKLT.Blueprint.Rec.Counterexample
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Adaptation to ARCH_0 F1/F1a. The shared present-bond matcher is always
 fully qualified: the frozen Rec-local predicate has the same short name.

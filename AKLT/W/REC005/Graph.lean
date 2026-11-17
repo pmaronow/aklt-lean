@@ -1,4 +1,9 @@
-import AKLT.W.REC005.Fibres
+module
+public import AKLT.W.REC005.Fibres
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

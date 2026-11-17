@@ -1,4 +1,9 @@
-import AKLT.Blueprint.Top.Windows
+module
+public import AKLT.Blueprint.Top.Windows
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 /-! Local vocabulary for the finite, physical-site periodic-gap blueprint.
 No field below asserts an unproved global interface result. -/

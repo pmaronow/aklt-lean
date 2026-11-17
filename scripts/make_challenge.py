@@ -9,7 +9,7 @@ import re
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--tree', type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument('--tree', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     selection = [
@@ -18,7 +18,7 @@ def main():
             'Adjacent', 'neighbours', 'positiveNeighbours', 'internalBonds', 'square'}),
         ('AKLT/Defs/Moment.lean', 'AKLT.Defs', {
             'Vec3', 'dot', 'normSq', 'UnitVector', 'goldenRatio', 'icoRadius',
-            'IcoLetter', 'signValue', 'icoVector', 'Status', 'SpinLetter', 'spinVector', 'spinWeight'}),
+            'IcoLetter', 'signValue', 'icoVector', 'moment', 'Status', 'SpinLetter', 'spinVector', 'spinWeight'}),
         ('AKLT/Defs/Domain.lean', 'AKLT.Defs', {'PairType'}),
         ('AKLT/Defs/Trails.lean', 'AKLT.Defs', {
             'localThreshold', 'passageFactor', 'alphaBound', 'betaBound', 'betaPrimeBound',
@@ -60,9 +60,9 @@ open scoped BigOperators ENNReal
                   for i,m in enumerate(offsets)]
         kept = []
         for block in blocks:
-            declared = re.findall(r'^(?:noncomputable )?(?:def|abbrev|inductive|structure|instance) ([\w.]+)', block, re.M)
+            declared = re.findall(r'^(?:@\[[^\n]*\]\s*)*(?:noncomputable )?(?:def|abbrev|inductive|structure|instance) ([\w.]+)', block, re.M)
             if names is None or any(name in names for name in declared):
-                kept.append(block.rstrip().replace('instance size_neZero', '@[expose] instance size_neZero'))
+                kept.append(re.sub(r'^instance size_neZero', '@[expose] instance size_neZero', block.rstrip(), flags=re.M))
         result += '\n/- Statement source: ' + relative + '. -/\n'
         result += ('/- Reset only Lean’s auxiliary-proof cache at the original source boundary,\n'
                    'preserving generated proof names. All declarations remain kernel checked. -/\n'

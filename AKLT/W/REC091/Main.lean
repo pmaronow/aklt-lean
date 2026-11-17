@@ -1,5 +1,10 @@
-import AKLT.W.REC091.Factorizations
-import AKLT.W.REC089.Main
+module
+public import AKLT.W.REC091.Factorizations
+public import AKLT.W.REC089.Main
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

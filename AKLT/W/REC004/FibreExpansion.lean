@@ -1,5 +1,10 @@
-import AKLT.W.REC004.Conditioning
-import AKLT.W.REC004.Geometry
+module
+public import AKLT.W.REC004.Conditioning
+public import AKLT.W.REC004.Geometry
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

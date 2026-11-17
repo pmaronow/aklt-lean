@@ -1,5 +1,10 @@
-import AKLT.W.REC089.FibreFactors
-import AKLT.W.REC089.InteriorCoordinates
+module
+public import AKLT.W.REC089.FibreFactors
+public import AKLT.W.REC089.InteriorCoordinates
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

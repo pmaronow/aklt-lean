@@ -1,5 +1,10 @@
-import AKLT.W.REC089.ExternalFields
-import AKLT.W.REC089.InternalBonds
+module
+public import AKLT.W.REC089.ExternalFields
+public import AKLT.W.REC089.InternalBonds
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

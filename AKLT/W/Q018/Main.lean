@@ -1,6 +1,11 @@
-import AKLT.Blueprint.Q.NodesStar
-import Mathlib.Analysis.InnerProductSpace.Spectrum
-import Mathlib.Analysis.InnerProductSpace.PiL2
+module
+public import AKLT.Blueprint.Q.NodesStar
+public import Mathlib.Analysis.InnerProductSpace.Spectrum
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 

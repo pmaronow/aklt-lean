@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Top.Response
-import AKLT.Defs.Response
+module
+public import AKLT.Blueprint.Top.Response
+public import AKLT.Defs.Response
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open AKLT.Defs

@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesWalk
-import AKLT.W.REC041.Positivity
+module
+public import AKLT.Blueprint.Rec.NodesWalk
+public import AKLT.W.REC041.Positivity
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

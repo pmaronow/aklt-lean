@@ -1,5 +1,10 @@
-import AKLT.Blueprint.Rec.NodesV2Closure
-import AKLT.Blueprint.Top.ComputationV2
+module
+public import AKLT.Blueprint.Rec.NodesV2Closure
+public import AKLT.Blueprint.Top.ComputationV2
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators

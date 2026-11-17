@@ -56,8 +56,8 @@ automation:
         - GPT-6
       framework: OpenAI Codex
       tool_setup: >-
-        Lean 4.35.0-rc2, pinned Mathlib, source import inventory, axiom prints,
-        and the toolchain Comparator. This package architecture was prepared
+        Lean 4.35.0-rc2, pinned Mathlib, source import inventory, a visibility-only module-system port, strict axiom
+        prints, and protected statement comparison with the toolchain Comparator. This package architecture was prepared
         by a single agent without delegated proof work.
       notes: 'TODO: add accurate provenance for the underlying proof development.'
 review:
@@ -70,6 +70,7 @@ limitations:
   - The package certifies the analytic and algebraic reduction, including H2.
   - The two premises are semantic statements with universal quantifiers, obtained
     by the companion artifact from finite certificate assertions.
-  - This directory is a skeleton until the listed source closure is copied and
-    ported, metadata TODOs and the root license are completed, and clean verification
-    succeeds. Cached local checks are not production resource evidence.
+  - The exact source closure is populated and ported. Author metadata TODOs, the
+    root license, independent fidelity review, and authenticated production resource
+    verification remain release prerequisites. Local component receipts are not
+    production acceptance evidence.

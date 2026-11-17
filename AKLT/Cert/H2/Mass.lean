@@ -1,4 +1,9 @@
-import AKLT.Cert.H2.Trails
+module
+public import AKLT.Cert.H2.Trails
+
+@[expose] public section
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
 
 noncomputable section
 open scoped BigOperators
