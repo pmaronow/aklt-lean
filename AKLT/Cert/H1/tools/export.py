@@ -14,6 +14,7 @@ import itertools
 import json
 from pathlib import Path
 import shutil
+from module_source import module_source
 
 NS = "AKLT.Cert.H1"
 RING = [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)]
@@ -206,6 +207,7 @@ end {NS}.Data.P{pid:04d}
 
 
 def write(path,text):
+    text = module_source(text)
     path.parent.mkdir(parents=True,exist_ok=True)
     if not path.exists() or path.read_text() != text:
         path.write_text(text)

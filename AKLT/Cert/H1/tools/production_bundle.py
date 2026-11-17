@@ -8,6 +8,7 @@ import argparse, collections, hashlib, json, re
 from pathlib import Path
 from production_export import ROOT, NS, REPORT, write
 from production_build import guard as budget_guard, source_bytes
+from module_source import unwrap
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
@@ -42,7 +43,7 @@ def main():
             limit=4 if kind=='local_parameters' else 32
             weight=j.get('dot_products',0) if kind=='gram_rows' else n*n if kind.endswith('assembly') or kind=='matrix_data' else j.get('row_end',0)-j.get('row_start',0)
             maxcost=180000 if kind=='gram_rows' else 65536 if kind.endswith('assembly') or kind=='matrix_data' else 128
-            amount=len(source_bytes(src))
+            amount=len(unwrap(source_bytes(src).decode()).encode())
             if current and (len(current)>=limit or size+amount>240000 or cost+weight>maxcost):
                 groups.append((lev,kind,current));current=[];size=cost=0
             current.append(m);size+=amount;cost+=weight
@@ -59,7 +60,7 @@ def main():
         budget_guard()
         owner=owners[members[0]];imports=set();bodies=[]
         for m in members:
-            text=source_bytes(ROOT/(m.replace('.','/')+'.lean')).decode()
+            text=unwrap(source_bytes(ROOT/(m.replace('.','/')+'.lean')).decode())
             for imported in re.findall(r'^import ([\w.]+)\s*$',text,re.M):
                 imported=owners.get(imported,imported)
                 if imported!=owner:imports.add(imported)

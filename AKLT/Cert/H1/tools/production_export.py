@@ -6,22 +6,24 @@ Only finite computation proofs and assemblies using existing library results
 are generated. Mathematical soundness leaves are emitted separately.
 """
 from __future__ import annotations
-import argparse, hashlib, json, math, sys, time
+import argparse, hashlib, json, math, os, sys, time
 from pathlib import Path
 import export as old
 from export_packed import tree
 from packed import sites, packed_row, at
 from production_build import guard as budget_guard
+from module_source import module_source
 
-ROOT=Path(__file__).resolve().parents[4]
+ROOT=Path(os.environ.get('H1_REGEN_ROOT', str(Path(__file__).resolve().parents[4])))
 OUT=ROOT/'CertData/H1/Generated'
 NS='CertData.H1.Generated'
 CORE='AKLT.Cert.H1'
-REPORT=Path('/home/ubuntu/aklt/reports/CERT_H1/phase2')
+REPORT=Path(os.environ.get('H1_REGEN_REPORT', '/home/ubuntu/aklt/reports/REGEN_H1'))
 
 def module_path(module): return ROOT/(module.replace('.','/')+'.lean')
 
 def write(module,text):
+    text=module_source(text)
     path=module_path(module);path.parent.mkdir(parents=True,exist_ok=True)
     if not path.exists() or path.read_text()!=text: path.write_text(text)
 
