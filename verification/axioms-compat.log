@@ -1,0 +1,8 @@
+'AKLT.Final.main_of_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLTPalomar.h1_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLTPalomar.h3_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLTPalomar.main_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AKLTPalomar.aklt_gap_of_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+AKLT.Final.main_of_inputs : AKLT.Blueprint.Top.H1Statement →
+  AKLT.Blueprint.Top.H3Statement → AKLT.Challenge.MainStatementV2
+AKLTPalomar.aklt_gap_of_inputs : AKLTPalomar.H1 → AKLTPalomar.H3 → AKLTPalomar.Main
