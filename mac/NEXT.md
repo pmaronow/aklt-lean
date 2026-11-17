@@ -8,8 +8,10 @@ DONE. Nothing is running for this campaign.
 - Workstation `aklt-ws`: release tree `~/aklt/final` (bc8a413, with all generated sources and objects built);
   reports `~/aklt/reports/FINAL`; release assets `~/aklt/release-final`; paper `~/aklt/manuscript-v2` (9806e35).
   RULE still in force: no `.lean` edits in `~/aklt/final` (they invalidate ~175 CPU-h of certificate receipts).
-- The instance was left running because another campaign's job (tmux `tube`) was active on it. The certificate
-  objects (~32 GB) exist only there; they can be rebuilt from the release (v1.0) in ~175 CPU-h.
+- The instance (i-0e2ac202f3db8309c, us-east-2, profile agent-toolkit) was STOPPED at the author's request on
+  2026-11-17 ~18:00 UTC; its disk (vol-0bfc57d4c8a20d29a) is kept, so the compiled certificate objects (~32 GB)
+  survive. To resume: `aws ec2 start-instances`, then update HostName of `aklt-ws` in ~/.ssh/config (no Elastic IP).
+  Stopping killed the rough-minimax sweep (`~/rm-numerics/tube-sweep.sh`, 12 cases in progress); it is resumable.
 
 Author items (not done, need the author):
 1. License: add LICENSE at the root and its SPDX id in formalization.yaml (vendored QICLean files are Apache-2.0).
