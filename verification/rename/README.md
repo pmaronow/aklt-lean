@@ -9,7 +9,7 @@ names. No declaration, namespace-prefix, file-path, or conservative local collis
 was found. Eight Lean files were renamed; 356 Lean files have spelling edits.
 
 The spelling rules and exact old-to-new map are in the external campaign report.
-Current spellings are listed in ../../AMERICAN-ENGLISH-IDENTIFIERS.tsv. All 27
+Current spellings are listed in ../port/american-english-identifiers.tsv. All 27
 generators were reviewed; all 851 literal data-key accesses and all Lean string
 literals are unchanged. Paper citation labels and external names remain intact.
 

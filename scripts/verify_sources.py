@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Official source/config checks plus checks specific to this package skeleton.
+"""Official source/configuration checks and release-specific invariants.
 
 This is a local source check, not full preparation or protected verification.
-It intentionally fails while source materialization or metadata is unfinished.
+Author metadata and license findings are reported separately from proof checks.
 """
 import argparse
 import importlib.util
@@ -42,7 +42,7 @@ spec.loader.exec_module(statement_generator)
 try:
     generated_challenge, generated_sources = statement_generator.render(project)
     stale = [name for name, data in [('Challenge.lean', generated_challenge),
-                                   ('statement-sources.json', generated_sources)]
+                                   ('verification/statement-sources.json', generated_sources)]
              if not (project/name).is_file() or (project/name).read_bytes() != data]
     if stale:
         problems.append(dict(code='package.statement_generation', files=stale,

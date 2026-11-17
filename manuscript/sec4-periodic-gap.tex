@@ -1,0 +1,553 @@
+\section{Physical windows and the periodic gap}
+\label{s:periodic-gap}
+
+We pass from a uniform estimate on plane window marginals to a gap on
+the physical torus.  All shell sets below consist of physical sites.
+The finite coupling and Poincare tools used in this section are proved
+in Appendix~\ref{a:finite}.  In particular, all heat-bath sums count
+each indicated update at rate one.
+
+\begin{definition}\label{d:shells}
+For \(a\in\mathbb Z^2\), integer \(u\ge1\), put
+\(C_u(a)=a+\{-u,\ldots,u\}^2\).
+For \(\operatorname{dist}_\infty(y,C_u(a))=1\), let
+\(s=u^{1/4}\), \(k_i=\lfloor is\rfloor\), \(i_1=\lfloor s\rfloor+1\).
+For an integer \(l_0\ge1\) define
+\[
+ \begin{split}
+ F_i&=\{x\in C_u(a):|x-y|_\infty>(i-1)s\},\\
+ D_i&=\{x\in C_u(a):|x-y|_\infty=k_i\},\\
+ A_i&=\{x\in D_i:\operatorname{dist}_\infty
+                    (x,\mathbb Z^2\setminus C_u(a))\le l_0\},\qquad
+ B_i=D_i\setminus A_i .
+ \end{split}
+\]
+Let \(I_0\) consist of the integers \(2\le i\le i_1\) for which
+some point of \(D_i\) is at distance strictly less than \(s/3\)
+from a corner site of \(C_u(a)\).
+All these are sets of physical sites.
+\end{definition}
+
+\begin{definition}[(W)]\label{d:W}
+The family of plane frame specifications has \(\mathsf W(l_0,p_0,M_\star)\)
+if \(l_0,M_\star\) are positive integers, \(0<p_0\le1\), and,
+for every proper plane three-coloring, every translate \(C_u(a)\)
+with integer \(u\ge M_\star\), every \(y\) as in Definition~\ref{d:shells},
+every integer \(2\le i\le u^{1/4}\) outside \(I_0\), and every two
+admissible frame-valued boundary conditions \(\eta,\xi\) for \(F_i\),
+\[
+ d_{\mathrm{TV}}\!\left(
+       \mu^{+,\eta}_{\kappa,F_i,B_i},
+       \mu^{+,\xi}_{\kappa,F_i,B_i}\right)\le1-p_0 .
+\]
+The subscript \(B_i\) denotes a marginal. Boundaries are arbitrary
+within their site alphabets; they need not agree anywhere.
+\end{definition}
+
+For a positive specification with other finite site alphabets, the
+phrase ``window bound (W)'' means the displayed marginal inequality
+with that specification's laws in place of the frame laws, with the
+same quantifiers over translates, exterior sites and permitted indices.
+Consistency means that conditioning a volume law on its letters off a
+subset gives the specification law on that subset with the induced
+boundary.  Range one means that the latter law depends only on exterior
+letters within \(\ell^\infty\) distance one of the subset.
+
+\begin{lemma}\label{l:stopped}
+Suppose a consistent positive plane specification with site-dependent
+finite alphabets has range one in \(\ell^\infty\), one-site probabilities
+at least \(\alpha\in(0,1]\), and the window bound (W) at every translate.
+Put \(\delta=p_0\alpha^{16l_0}\) and
+\(M_{\mathrm g}(l_0)=\max\{16,6(l_0+1)\}^4\).
+For \(u\ge\max\{M_\star,M_{\mathrm g}(l_0)\}\), boundaries of \(C_u(a)\)
+agreeing off one exterior site \(y\), and any integer
+\(4\le h\le\lfloor u^{1/4}\rfloor\), there is a coupling of the
+full laws such that
+\[
+ \mathbb P(n_{Q_h}\ne n'_{Q_h})\le(1-\delta)^{h-3},
+ \qquad Q_h=\{x\in C_u(a):|x-y|_\infty>hu^{1/4}\}.
+\]
+If \(y\) is farther than range one, the full laws are equal.
+\end{lemma}
+
+\begin{proof}
+Write \(C=C_u(a)\), \(\mu=\mu_C^\eta\) and
+\(\mu'=\mu_C^\xi\) for the two volume laws.  If the exterior site
+\(y\) is farther than distance one from \(C\), the range-one property
+gives \(\mu=\mu'\); sampling the same configuration in both
+components proves the conclusion.  Hence assume
+\(\operatorname{dist}_\infty(y,C)=1\), and use the shells of
+Definition~\ref{d:shells}.  The size assumption gives
+\(s=u^{1/4}\ge\max\{16,6(l_0+1)\}\).
+Lemma~\ref{l:shellgeom} supplies
+\[
+ |I_0|\le1,\qquad D_i\subset F_i,
+ \qquad |A_i|\le8l_0\quad(i\notin I_0),
+ \qquad 2\le i\le i_1.
+\]
+It also says that every site of \(C\setminus F_i\) within distance
+one of \(F_i\) belongs to \(D_{i-1}\), and that \(y\) is not
+within distance one of \(F_i\), for \(i\ge2\).
+Since \(h+1\le\lfloor s\rfloor+1=i_1\), these geometric statements
+apply to every surgery index used below.
+
+We first record the consequence of finite energy needed for the
+surgeries.  In any one of the positive finite-volume laws under
+consideration, a one-site conditional probability after specifying
+only some other letters is an average of fully specified one-site
+conditional probabilities.  Thus it is at least \(\alpha\).
+Order any finite set \(A\) and apply the finite chain rule to a
+prescribed assignment \(t_A\), conditional on any fixed letters off
+\(A\).  Every factor is at least \(\alpha\), so that
+\[
+ \mathbb P(n_A=t_A\mid\text{those fixed letters})
+                      \ge\alpha^{|A|}.
+\]
+Positivity guarantees every conditioning denominator used in this
+argument is nonzero.  For \(A=\varnothing\) the assertion reads
+\(1\ge1\).
+
+Start from the product coupling \(\mu\otimes\mu'\).  For the fixed
+indices \(i=2,\ldots,h+1\), in increasing order, use the following
+operation.  If \(i\in I_0\), leave the pair unchanged.  Otherwise,
+for the current pair \((\omega,\omega')\), let \(p_i,p'_i\) be its
+two specification laws on \(F_i\), with the respective complements
+and original boundaries fixed.  If
+\(\omega_{D_{i-1}}=\omega'_{D_{i-1}}\), these laws coincide:
+all their exterior neighbors inside \(C\) belong to the agreeing
+separator \(D_{i-1}\), and their exterior neighbors outside \(C\)
+have identical boundary letters because none is \(y\).  In this
+case draw one sample from the common law and use it in both components
+on \(F_i\).
+
+If the two configurations on \(D_{i-1}\) differ, maximally couple
+the \(B_i\) marginals of \(p_i,p'_i\), using
+Lemma~\ref{l:finitecoupling}.  Given the two sampled marginals,
+complete them independently to \(F_i\) using their respective
+conditional laws on \(F_i\setminus B_i\).  Finally resample \(A_i\)
+independently in the two components, each with its conditional law
+given the rest of its own configuration.  The initial completion has
+the correct two marginals \(p_i,p'_i\).  The last resampling preserves
+each of these laws, by Lemma~\ref{l:CE} and consistency.  Thus in
+either branch the output on \(F_i\), for every fixed input pair,
+has marginals \(p_i,p'_i\).  Lemma~\ref{l:surgery} shows that every
+step preserves the original full marginals \(\mu,\mu'\).
+
+Suppose now \(i\le h\) and \(i\notin I_0\).
+Then \(i\le h\le\lfloor s\rfloor\), so (W) implies agreement
+on \(B_i\) with probability at least \(p_0\) in the maximal-coupling
+branch.  Fix an arbitrary assignment \(t_{A_i}\) using the alphabet
+at each of its sites.  Given the entire result before the final
+independent resamplings, the probability that both choose this
+assignment is at least \(\alpha^{2|A_i|}\).
+Those resamplings leave \(B_i\) fixed.  Therefore, conditional on
+any history preceding step \(i\),
+\[
+ \mathbb P(\omega_{D_i}=\omega'_{D_i}
+                     \text{ after step }i\mid\text{history})
+       \ge p_0\alpha^{2|A_i|}
+       \ge p_0\alpha^{16l_0}=\delta.
+\]
+In the identical-resampling branch the probability is one because
+\(D_i\subset F_i\), so this bound holds in that branch as well.
+At step \(h+1\), if \(h+1>s\), the coupling construction still
+exists but no success bound from (W) is used.
+
+Let
+\[
+ J=\{i\in\{2,\ldots,h\}:i\notin I_0,
+                                      \ i+1\notin I_0\}.
+\]
+There are \(h-1\) possible trial indices, and the at most one
+exceptional index excludes at most two of them.  Hence
+\(|J|\ge h-3\ge1\).
+If a trial \(i\in J\) produces agreement on \(D_i\), the
+unskipped next step \(i+1\) uses identical resampling, giving agreement
+on \(F_{i+1}\).  This agreement persists.  Indeed, for a later index
+\(j\ge i+2\), \(F_j\subset F_{i+1}\), and
+\[
+ \lfloor(j-1)s\rfloor\ge(j-1)s-1
+                      \ge(i+1)s-1>is,
+\]
+so \(D_{j-1}\subset F_{i+1}\).
+A skipped step changes nothing, and any unskipped step therefore
+again uses identical resampling on \(F_j\), preserving agreement
+everywhere in \(F_{i+1}\).  Since
+\(Q_h=F_{h+1}\subset F_{i+1}\), one successful trial in \(J\)
+ensures final agreement on \(Q_h\).
+
+To bound the chance of no success, list \(J=\{j_1<\cdots<j_r\}\)
+and let \(H_i\) denote the full history through step \(i\).
+The event that the first \(k-1\) trials fail is measurable with
+respect to \(H_{j_k-1}\).  The displayed conditional success bound
+therefore yields, successively,
+\[
+ \mathbb P(\text{first }k\text{ trials fail})
+       \le(1-\delta)
+           \mathbb P(\text{first }k-1\text{ trials fail}).
+\]
+Induction gives probability at most \((1-\delta)^r\), which is
+at most \((1-\delta)^{h-3}\).  This proves the required bound for
+the final coupling of the full laws.  If \(\delta=1\), the first
+trial fails with probability zero, so the same argument gives zero.
+An empty \(B_i\) has its unique empty configuration and is coupled
+with agreement probability one; an empty \(A_i\) needs no resampling.
+Empty volumes occurring in a step and singleton alphabets are covered
+by the same formulas.  No comparison of letters at distinct sites
+has been made.
+\end{proof}
+
+\begin{corollary}\label{p:surgery}
+Under the hypotheses and size threshold of Lemma~\ref{l:stopped},
+the same two laws have marginal total variation at most
+\((1-\delta)^{u^{1/4}-4}\) on
+\(\{x\in C_u(a):|x-y|_\infty>u^{1/2}\}\).
+When \(\delta=1\), this upper bound is zero.
+\end{corollary}
+
+\begin{proof}
+If the changed exterior site is farther than range one, the full laws
+are equal by Lemma~\ref{l:stopped}.  Otherwise set
+\(s=u^{1/4}\) and \(h=\lfloor s\rfloor\).
+The size threshold gives \(s\ge16\), so \(h\ge4\).
+Since \(hs\le s^2=u^{1/2}\), the target set of this corollary
+is contained in \(Q_h\).  Lemmas~\ref{l:stopped}
+and~\ref{l:finitecoupling} thus bound its marginal total variation by
+\((1-\delta)^{h-3}\).
+For \(0<\delta<1\), the inequality
+\(\lfloor s\rfloor-3\ge s-4\) implies
+\((1-\delta)^{h-3}\le(1-\delta)^{s-4}\).
+If \(\delta=1\), the coupling already gives agreement with
+probability one and \(s-4>0\), so the asserted upper bound is zero.
+\end{proof}
+
+In the following lemma, ``as above'' retains all the specification
+hypotheses of Lemma~\ref{l:stopped}: consistency, full support on
+nonempty finite site alphabets, range one in \(\ell^\infty\), a
+uniform lower bound \(\alpha\in(0,1]\) on fully conditional
+one-site probabilities, and (W) at every translate.
+
+\begin{lemma}\label{l:hamming}
+Assume (W) and \(\alpha\in(0,1]\) as above, and put
+\(d_0=\min\{1/2,p_0\alpha^{16l_0}\}\).
+Choose an integer \(n\) satisfying
+\[
+ n\ge44,\quad n^8\ge M_\star,\quad
+ n^2\ge\max\{50000,6(l_0+1)\},\quad
+ n^{12}d_0^{20}\ge50000\,2^{20}\,20!.
+\]
+Such an integer exists. Set \(M=n^8\).
+Every translated \(C_M(a)\), with any two admissible boundaries
+agreeing off one exterior site, admits a full-law coupling with
+expected Hamming distance at most \(M/1000\).
+One sufficient bound is
+\[
+ 25n^6+25n^{16}(1-d_0)^{n-3}\le M/1000.
+\]
+\end{lemma}
+
+\begin{proof}
+The number \(d_0\) is strictly positive and at most \(1/2\).
+All four requirements on \(n\) are lower bounds by finite constants;
+for example, an integer at least
+\[
+ \max\left\{44,\ M_\star^{1/8},\
+       \sqrt{\max\{50000,6(l_0+1)\}},\
+       \left(50000\,2^{20}\,20!\,d_0^{-20}\right)^{1/12}\right\}
+\]
+satisfies them.  This proves existence before any torus periods or
+boundary conditions are chosen.
+
+We first prove a finite tail inequality.  For \(0<d\le1/2\) and
+integer \(n\ge44\), put \(r=n-3\).  Then
+\((1-d)^{-1}\ge1+d\), and the binomial theorem gives
+\[
+ \begin{split}
+ (1-d)^{-r}
+ &\ge(1+d)^r\ge\binom r{20}d^{20}\\
+ &\ge\frac{(r-19)^{20}}{20!}d^{20}
+   =\frac{(n-22)^{20}}{20!}d^{20}
+   \ge\frac{n^{20}d^{20}}{2^{20}20!}.
+ \end{split}
+\]
+Here \(r\ge41\), and each of the twenty factors in
+\(r(r-1)\cdots(r-19)\) is at least \(r-19>0\).
+Taking reciprocals proves
+\[
+ (1-d)^{n-3}\le\frac{2^{20}20!}{d^{20}n^{20}}.
+\]
+
+Fix a translated square with radius \(M=n^8\).  Its shell parameter
+is \(s=M^{1/4}=n^2\), which is at least both \(16\) and
+\(6(l_0+1)\).  Thus \(M\ge M_{\mathrm g}(l_0)\), and the other
+size assumption gives \(M\ge M_\star\).
+Apply Lemma~\ref{l:stopped} with \(h=n\); its index restriction
+holds because \(4\le n\le n^2=\lfloor s\rfloor\).
+If the changed exterior site is farther than distance one, use the
+identical coupling and there is nothing to prove.  Otherwise the
+lemma gives a full-law coupling agreeing outside the near region
+\(\{x:|x-y|_\infty\le n^3\}\), except on an event of probability
+at most \((1-\delta)^{n-3}\le(1-d_0)^{n-3}\).
+The near region contains at most
+\((2n^3+1)^2\le25n^6\) sites, and the square has
+\((2n^8+1)^2\le25n^{16}\) sites.  Consequently the expected
+Hamming cost of this same coupling is at most
+\[
+ 25n^6+25n^{16}(1-d_0)^{n-3}.
+\]
+The condition \(n^2\ge50000\) gives \(25n^6\le n^8/2000\).
+Using the tail inequality and the last requirement on \(n\) gives
+\[
+ 25n^{16}(1-d_0)^{n-3}
+   \le\frac{25\,2^{20}20!}{d_0^{20}n^4}
+   \le\frac{n^8}{2000}.
+\]
+Adding proves the asserted bound \(M/1000\), uniformly over every
+translate and boundary pair.  The truncation in the definition of
+\(d_0\) also covers \(\delta=1\) without division by \(1-\delta\).
+\end{proof}
+
+In the following criterion the square radius and both torus periods
+are integers.  The torus \(\ell^\infty\) distance is the minimum
+over coordinate lifts.
+
+\begin{theorem}\label{t:periodic}
+Let \(M\ge1\), \(L,N\ge2M+3\), and let \(\mu>0\) be a
+probability on a finite product over \(\Lambda_{L,N}\) whose
+conditional law on any set depends only on letters in its exterior
+\(\ell^\infty\) one-neighborhood.
+For every translated square \(Q\) of side \(2M+1\), suppose that:
+the single-site heat bath of every conditional law on \(Q\) has Poincare gap at least
+\(g>0\); and any two conditional block laws whose outside
+configurations agree off one site admit a coupling with expected
+Hamming distance in \(Q\) at most \(K\ge0\), whenever that site is
+outside and at \(\ell^\infty\) distance one from \(Q\).
+Put \(T_M=(2M+1)^2\), \(S_M=8M+8\), and suppose \(S_MK<T_M\).
+Then
+\[
+ \sum_{Q}(I-E_Q)\text{ has Poincare gap at least }T_M-S_MK,\qquad
+ \lambda(\mu)\ge g\left(1-\frac{S_MK}{T_M}\right).
+\]
+The sum is over all torus translates, each at rate one.
+In particular, \(K\le M/1000\) implies
+\(\lambda(\mu)\ge(499/500)g\).
+\end{theorem}
+
+\begin{proof}
+For a center label \(a\in\Lambda_{L,N}\), let
+\(Q_a=a+\{-M,\ldots,M\}^2\), with coordinates reduced modulo
+the periods.  There are \(A=LN\) labels.  We count these labels
+without making any assumption on symmetries of \(\mu\).
+
+Fix a site \(x\).  The center labels for which \(x\in Q_a\) are
+exactly \(a=x-z\), where \(z\in\{-M,\ldots,M\}^2\).
+Reduction is injective on this offset square, so their number is
+\(T_M=(2M+1)^2\).  Likewise, the labels with
+\(\operatorname{dist}_\infty(x,Q_a)\le1\), using cyclic coordinate
+distances on the torus, are exactly \(a=x-z\) with
+\(z\in\{-M-1,\ldots,M+1\}^2\).  This follows by adding an
+offset in \(\{-1,0,1\}^2\) to an offset in the smaller square;
+their sum is precisely the larger square.  Its reduction is still
+injective: a coordinate difference between two of its points has
+absolute value at most \(2M+2\), strictly less than either relevant
+period.  Hence exactly
+\[
+ (2M+3)^2-(2M+1)^2=8M+8=S_M
+\]
+labels exclude \(x\) but have it at distance one.  This count
+includes the four corner offsets, which may have no interaction with
+\(Q_a\) for a nearest-neighbor specification.  In particular, the
+maximal site multiplicity of the labeled block family is \(T_M\).
+
+Set \(P=A^{-1}\sum_aE_{Q_a}\).  Consider two input configurations
+differing only at site \(x\), and choose the same uniformly random
+block label in both components.  If \(x\in Q_a\), their exterior
+configurations agree, so their conditional block laws are equal.
+Use an identical sample on \(Q_a\); the output pair then agrees
+everywhere.  If \(x\notin Q_a\) but its distance from \(Q_a\)
+is one, use the assumed coupling on \(Q_a\).  The original
+disagreement remains at \(x\), and its expected number of additional
+disagreements is at most \(K\); the total is at most \(1+K\).
+For every remaining label, the range-one assumption makes the two
+block laws equal.  Identical resampling then leaves just the one
+disagreement at \(x\).  The resulting mixture is a coupling of
+the two \(P\)-output laws with
+\[
+ \mathbb E d_H
+    \le\frac{S_M(1+K)+(A-T_M-S_M)}A
+    =1-\frac{T_M-S_MK}A.
+\]
+By assumption \(c=T_M-S_MK>0\), and
+\(c\le T_M\le A\) since \(K\ge0\).
+Lemma~\ref{l:contraction} proves a block Poincare gap at least \(c\).
+Applying Lemma~\ref{l:comparison} with the conditional block gap
+\(g\) and multiplicity \(t_{\max}=T_M\) yields
+\[
+ \lambda(\mu)\ge\frac{cg}{T_M}
+             =g\left(1-\frac{S_MK}{T_M}\right).
+\]
+These are the two claimed bounds with unnormalized block rates.
+They also hold on one-point product spaces by the Poincare convention.
+Finally, if \(K\le M/1000\), then
+\[
+ \frac{S_MK}{T_M}
+ \le\frac{8M(M+1)}{1000(2M+1)^2}
+ =\frac1{500}\left(1-\frac1{(2M+1)^2}\right)
+ <\frac1{500}.
+\]
+In particular the strict block-contraction assumption is satisfied,
+and the final stated lower bound follows.
+\end{proof}
+
+
+
+\begin{theorem}\label{t:mainW}
+If the plane frame family satisfies (W), there exist \(c>0\) and
+an integer \(L_0\ge3\) such that
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) and every nonzero eigenvalue is
+at least \(c\), for all integers \(L,N\ge L_0\).
+\end{theorem}
+
+\begin{proof}
+Fix constants \((l_0,p_0,M_\star)\) witnessing (W).
+Lemma~\ref{l:planeenergy} supplies a consistent positive,
+nearest-neighbor plane family with a common one-site bound
+\(\alpha=12^{-1}r_b^4\in(0,1]\).  Choose \(n\) by
+Lemma~\ref{l:hamming}, once and for all, and put
+\[
+ M=n^8,\qquad L_0=2M+3,\qquad
+ g_M=r_b^{\,2(2M+1)(2M)}>0.
+\]
+These choices precede the torus periods, coloring, block placement
+and exterior fiber.
+
+Let \(L,N\ge L_0\).  In particular \(L,N\ge3\), so
+Lemma~\ref{l:colour} provides the proper torus three-coloring
+\[
+ \kappa(i,j)=a_L(i)+a_N(j)\pmod3,\qquad
+ a_m(i)=\begin{cases}
+ 2,&m\text{ odd and }i=m-1,\\
+ i\bmod2,&\text{otherwise},
+ \end{cases}
+ \quad 0\le i<m.
+\]
+Consider
+\(\mu=\mu^{\mathrm{af}}_{\kappa,L,N}\) from
+Definition~\ref{d:framemodel}.  This measure has full support and
+nearest-neighbor conditional dependence by
+Lemma~\ref{l:planeenergy}.  The periodic pullback
+\(\bar\kappa(z)=\kappa(p(z))\), where
+\(p:\mathbb Z^2\to\Lambda_{L,N}\) is reduction, is a proper plane
+coloring.  Indeed each plane nearest-neighbor edge reduces to a
+torus edge between distinct vertices since \(L,N\ge3\).
+
+For every labeled square \(Q\), choose its lift
+\(Q'=a+\{-M,\ldots,M\}^2\) to the plane, and put
+\(Q'^+=a+\{-M-1,\ldots,M+1\}^2\).
+Here \(M=n^8\ge1\) and \(L,N\ge2M+3\), precisely the size
+hypotheses of Lemma~\ref{l:boxlift}.  It gives injectivity of
+\(p\) on \(Q'^+\) and the exact internal and crossing-bond
+correspondences.  For an exterior torus configuration \(\sigma\),
+the local sign change in that lemma is
+\[
+ \varepsilon_z=(-1)^{z_1+z_2},\qquad
+ n_z=\varepsilon_zs_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=\varepsilon_z\sigma_{p(z)}
+                                  \quad(z\in Q'^+\setminus Q').
+\]
+Injectivity ensures \(p(z)\notin Q\) for
+\(z\in Q'^+\setminus Q'\), so the displayed boundary values
+are defined.  Only nearest-neighbor exterior letters enter the law.
+Lemma~\ref{l:boxlift} identifies the conditional torus law under
+this map with \(\mu^{+,\eta}_{\bar\kappa,Q'}\).
+Antipodality of each alphabet
+ensures that the sign change is a bijection using the same site
+alphabets.  This bijection intertwines single-site updates and
+preserves Hamming distances.  It also preserves variances and
+Dirichlet forms, by the change of variables in the finite sums.
+The number of internal edges of \(Q'\) is
+\(2(2M+1)(2M)\): there are \(2M\) bonds in each of its
+\(2M+1\) horizontal rows and the same number vertically.
+Lemma~\ref{l:planeenergy}, equivalently the density comparison in
+Lemma~\ref{l:density}, therefore gives conditional single-site
+Poincare gap at least \(g_M\), uniformly over all such fibers.
+
+Now take two torus exterior configurations for \(Q\) differing at
+just one site \(y\) at \(\ell^\infty\) distance one.
+The image \(p(Q'^+)\) is the full torus one-neighborhood of \(Q\):
+every one-step coordinate displacement lifts to
+\(\{-1,0,1\}^2\), and
+\(Q'^+=Q'+\{-1,0,1\}^2\).
+Thus the one-neighborhood injection in Lemma~\ref{l:boxlift}
+gives an existing, unique exterior lift of \(y\).
+Under the same local
+sign change the two plane boundary assignments differ at most at
+that lift.  Only nearest-neighbor exterior letters are needed; if
+necessary, extend the other exterior letters identically and
+arbitrarily in their site alphabets.  For a corner site that has no
+crossing nearest-neighbor bond the two conditional laws are already
+equal.  In all other cases Lemma~\ref{l:hamming}, applied to this
+plane coloring and placement, provides a coupling of expected
+Hamming cost at most \(K=M/1000\).  The inverse coordinatewise
+bijection carries it to a coupling of the two conditional torus laws
+with exactly the same Hamming cost.
+
+All hypotheses of Theorem~\ref{t:periodic} now hold, giving
+\[
+ \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})
+                        \ge\frac{499}{500}g_M.
+\]
+Use the constant defined and proved positive in Lemma~\ref{l:star}:
+\(g_\star\) is the smallest positive eigenvalue of
+\(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+It is independent of the torus periods.  Theorem~\ref{t:QD} applies
+to every \(L,N\ge3\) and every proper torus three-coloring using
+the frames of Definition~\ref{d:framemodel}; these hypotheses hold
+for the periods and coloring just chosen.  Its precise operator
+inequality is
+\[
+ H_{L,N}\big|_{B_{L,N}^{\perp}}
+       \ge\frac{g_\star}{2}
+               \lambda(\mu^{\mathrm{af}}_{\kappa,L,N})I.
+\]
+The factor \(1/2\) uses Lemma~\ref{l:star}:
+\(\sum_xH_x=2H_{L,N}\), where \(H_x=\sum_{e\ni x}P_e\),
+with one heat-bath update per site.  Consequently every eigenvalue on
+\(B_{L,N}^{\perp}\) is at least
+\[
+ c=\frac{g_\star}{2}\,\frac{499}{500}g_M
+                         =\frac{499}{1000}g_\star g_M>0.
+\]
+Proposition~\ref{p:toruskernel}, whose hypothesis is only
+\(L,N\ge3\), supplies both \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).  Thus \(B_{L,N}^{\perp}\)
+is the direct sum of the eigenspaces for nonzero eigenvalues.
+The constants \(c,L_0\) are independent of \(L,N\).
+The sign change was defined separately on each lifted square, so this
+argument applies to both even and odd periods.
+\end{proof}
+
+
+We now prove the two conclusions of Theorem~\ref{t:main}, stated in
+the result section: nonvanishing of \(B_{L,N}\) and the kernel
+identity for every \(L,N\ge3\), and the existence of one
+\(c>0\) and integer \(L_0\ge3\) bounding every nonzero eigenvalue
+below by \(c\) for all integers \(L,N\ge L_0\).
+
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+Proposition~\ref{p:toruskernel} proves \(B_{L,N}\ne0\) and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\) for every \(L,N\ge3\).
+For the uniform positive gap, Theorem~\ref{t:inputs} gives (H1),
+(H2) with \(C_V=10\) and
+\(0<q=1119948287353/1120437614225<1\), and (H3\(_h\)), all at
+the same pair \((c_{\rm s},c_{\rm t})=(961/1000,187/200)\).
+Theorem~\ref{t:rec} thus gives \(A\ge2\), \(0<\theta<1\) and
+\(\mathsf P(A,\theta)\).
+Theorem~\ref{t:cutMOS} supplies
+\(\mathsf W(64,p_0,M_\star)\) with common
+\(p_0\in(0,1]\) and positive integer \(M_\star\), valid for
+every proper plane coloring and every translate.
+Theorem~\ref{t:mainW} then gives \(c>0\) and an integer
+\(L_0\ge3\) such that all nonzero eigenvalues are at least \(c\)
+whenever \(L,N\ge L_0\), as required.
+\end{proof}

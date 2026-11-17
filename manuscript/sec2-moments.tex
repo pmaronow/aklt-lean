@@ -1,0 +1,353 @@
+\section{Finite moment algebra and the response input}\label{s:moments}
+
+We use finite product sums with explicitly specified moments through degree
+four. Pins are arbitrary unit vectors on the original legs; deleting a
+site creates no new pin. All degree bounds below count the inserted
+observable together with the interaction factors.
+
+\begin{definition}\label{d:moment}
+Write \(\mathbb S^2=\{a\in\mathbb R^3:|a|=1\}\), put
+\(\phi=(1+\sqrt5)/2\), \(r=\sqrt{\phi+2}\), and set
+\[
+ D=\frac1r\{(0,\pm1,\pm\phi),(\pm1,\pm\phi,0),(\pm\phi,0,\pm1)\},
+ \qquad
+ \mathcal M(f)=\frac1{12}\sum_{a\in D}f(a).
+\]
+All indicated signs are independent. Define finite probability laws
+\(\lambda_{\mathrm U}=\frac1{12}\sum_{a\in D}\delta_a\) and
+\(\lambda_{\mathrm D}=\frac35\lambda_{\mathrm U}+\frac25\delta_0\).
+Products of these functionals always mean finite sums.
+For plane sites, \(d\) denotes ambient \(\ell^1\) distance and
+\(\operatorname{dist}_\infty\) denotes ambient \(\ell^\infty\) distance.
+Distances to an empty set are \(+\infty\); a product over an empty site
+set has its one empty configuration. For finite probabilities, use
+\[
+ d_{\rm TV}(p,p')=\tfrac12\sum_z|p(z)-p'(z)|,\qquad
+ \operatorname{Var}_\mu f=\mu(|f-\mu f|^2),\qquad
+ d_H(n,n')=\sum_x\mathbf1_{\{n_x\ne n'_x\}} .
+\]
+\end{definition}
+
+For a vector-valued polynomial, the functional is applied to each
+coordinate. In particular the expressions for means below are finite
+vector sums.
+
+\begin{lemma}\label{l:moments}
+The set \(D\) has twelve distinct unit vectors and is antipodal.
+For \(i,j,k,l\in\{1,2,3\}\),
+\[
+ \begin{gathered}
+ \mathcal M(1)=1,\qquad \mathcal M(n_i)=\mathcal M(n_in_jn_k)=0,\qquad
+ \mathcal M(n_in_j)=\delta_{ij}/3,\\
+ \mathcal M(n_in_jn_kn_l)=
+ (\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk})/15.
+ \end{gathered}
+\]
+For every polynomial \(p\) of total degree at most four and every
+\(R\in\mathrm O(3)\), \(\mathcal M(p\circ R)=\mathcal M(p)\).
+The same covariance holds for \(\lambda_{\mathrm D}\); its constant
+moment is one and its moments of positive degree at most four are
+\(3/5\) times those displayed above.
+These assertions hold site by site for polynomials of separate degree
+at most four in a finite product of spins.
+\end{lemma}
+
+\begin{proof}
+The identities \(\phi^2=\phi+1\), \(r^2=\phi+2=1+\phi^2\) show that
+every displayed vector has norm one. Each vector has precisely one zero
+coordinate; its location specifies one of the three displayed groups,
+and its two nonzero signs specify one of four distinct vectors within
+that group. Thus there are twelve distinct vectors. Reversing both signs
+gives the antipodal vector.
+
+The set is preserved by changing any individual coordinate sign and by
+cyclically permuting the coordinates. A monomial with any odd coordinate
+exponent consequently has zero average. For each coordinate \(i\), and
+distinct coordinates \(i,j\), direct summation over the three groups gives
+\[
+ \mathcal M(n_i^2)=\frac{1+\phi^2}{3r^2}=\frac13,\qquad
+ \mathcal M(n_i^4)=\frac{1+\phi^4}{3r^4}=\frac15,\qquad
+ \mathcal M(n_i^2n_j^2)=\frac{\phi^2}{3r^4}=\frac1{15}.
+\]
+Here \(r^4=5\phi^2\) and \(1+\phi^4=3\phi^2\).
+These cases, the constant, and the vanishing odd-exponent cases exhaust
+the monomials through degree four. For four indices, the all-equal case
+has three nonzero Kronecker products, the two-equal-pairs case has one,
+and every other case has zero; this gives the stated tensor.
+
+For \(R\in\mathrm O(3)\), substituting
+\((Rn)_i=\sum_aR_{ia}n_a\) into the second tensor gives
+\(\sum_aR_{ia}R_{ja}/3=\delta_{ij}/3\).
+Substitution into the fourth tensor gives the three products of the
+same contractions, divided by \(15\). The first and third tensors
+remain zero, and the constant remains one. Linearity proves covariance
+for every polynomial in the stated degree range.
+
+For \(\lambda_{\mathrm D}\), a positive-degree monomial vanishes at
+zero, so its moment is \(3/5\) times the corresponding moment of
+\(\mathcal M\); the constant moment is \(3/5+2/5=1\).
+Zero is fixed by \(R\), so covariance follows as well.
+Finally a polynomial of separate degree at most four is a finite sum
+of products of single-site monomials of degrees at most four.
+Its product functional factors on every such product. Applying the
+single-site conclusions to each factor proves the last assertion,
+including different orthogonal substitutions at different sites.
+\end{proof}
+
+\begin{definition}\label{d:pinmodel}
+For finite \(G\subset\mathbb Z^2\), let
+\[
+ \mathcal L(G)=\{(x,z):x\in G,\ z\notin G,\ d(x,z)=1\},\qquad
+ S(G)=\{x\in G:d(x,\mathbb Z^2\setminus G)\le2\}.
+\]
+A pin assignment is \(\tau\in(\mathbb S^2)^{\mathcal L(G)}\).
+For \(Y\subset G\), write \(D_Y=G\setminus Y\) and define
+\[
+ Z^\tau_{D_Y}[f]=
+ \sum_{n\in D^{D_Y}}12^{-|D_Y|}f(n)
+ \prod_{\substack{\{x,y\}\subset D_Y\\d(x,y)=1}}(1+n_x\cdot n_y)
+ \prod_{\substack{(x,z)\in\mathcal L(G)\\x\in D_Y}}
+       (1+\tau_{xz}\cdot n_x).
+\]
+The free sum \(Z^0_{D_Y}[f]\) omits all leg factors.
+Write \(Z^\bullet_{D_Y}=Z^\bullet_{D_Y}[1]\),
+\(\mathbb E^\bullet_{D_Y}f=Z^\bullet_{D_Y}[f]/Z^\bullet_{D_Y}\),
+and \(\Psi_{D_Y}(\tau)=Z^\tau_{D_Y}/Z^0_{D_Y}\).
+Here and below \(\bullet\) is either \(\tau\) or \(0\).
+The empty partition sum is one. There are no new factors on legs into \(Y\).
+Different original legs may carry unrelated unit pins, even if their
+outside endpoints coincide.
+\end{definition}
+
+The argument \(f\) is a function of the surviving spins. In the
+partition sum every surviving site has at most four factors: each
+factor uses one of its four original lattice directions.
+
+\begin{lemma}\label{l:finitefacts}
+Consider a finite network with site laws \(\lambda_{\mathrm U}\) or
+\(\lambda_{\mathrm D}\), retained distinct-endpoint bonds
+\(1+n_x\cdot n_y\), and retained original unit-pin factors
+\(1+\tau_\ell\cdot n_x\), with at most four factors incident to each site.
+Its pinned and free partition sums are strictly positive, including
+the empty network. Non-neighbors are conditionally independent given
+the other spins on every conditioning event of positive probability.
+If \(f\) is a product of scalar products of spins and the product of
+\(f\) with the bond factors has separate degree at most four at every
+site, then \(Z^0[f]\ge0\), hence \(\mathbb E^0 f\ge0\).
+All normalized spins have norm at most one.
+\end{lemma}
+
+\begin{proof}
+Every site law has finite support in the closed unit ball, and every
+bond or pin factor lies in \([0,2]\). Thus every sum is finite and
+nonnegative. To prove strict positivity, order the nonremoved sites
+as \(x_1,\ldots,x_m\), and choose at each site a letter in the
+twelve-point set \(D\). Such a letter has positive mass under either
+law, namely \(1/12\) or \(1/20\).
+
+At stage \(i\), each pin at \(x_i\) excludes at most its antipodal
+letter, and each bond to an already chosen site excludes at most the
+antipode of that site's letter. There are at most four incident
+factors in total, so at most four of the twelve letters are excluded.
+Choose any remaining letter. A bond to a later site will be made
+strictly positive when that site's letter is chosen. At the end every
+retained factor is strictly positive, and the product site mass is
+positive. This single summand proves strict positivity. The same
+argument with pins omitted proves positivity of the free sum; the
+empty network has sum one.
+
+For conditional independence, let \(A\) be any set of sites with no
+retained bond between its distinct members, and fix all spins off
+\(A\) at a configuration of positive marginal probability. The
+unnormalized conditional weight has the form
+\[
+ C\prod_{x\in A}
+ \left(\lambda_{\mathrm{st}(x)}(n_x)
+       \prod_{\substack{\text{retained factors}\\\text{incident to }x}}
+                     (1+n_x\cdot b)\right).
+\]
+Here each \(b\) is a fixed neighboring spin or pin, and factors
+wholly off \(A\) are included in \(C\). Positive marginal probability
+implies \(C>0\) and that every local sum in this product is positive.
+The conditional normalizer is \(C\) times the product of those sums.
+Dividing therefore gives a product of the single-site conditional
+laws. Taking \(A\) to consist of two non-neighbors gives the stated
+assertion.
+
+For free positivity expand each retained factor \(1+n_x\cdot n_y\)
+into its two terms, and expand every scalar product, including those
+in \(f\), as \(\sum_{i=1}^3n_{x,i}n_{y,i}\). Every coefficient in
+these finite expansions is nonnegative. For any resulting choice
+of coordinate indices, the sum over spins is a product of
+single-site moment tensors. The assumed separate degree bound
+allows only degrees \(0,1,2,3,4\).
+By Lemma~\ref{l:moments}, a degree-one or degree-three tensor is zero,
+and the tensors of degrees zero, two and four are sums of products
+of Kronecker deltas with nonnegative coefficients.
+The same is true for \(\lambda_{\mathrm D}\), with the extra
+positive factor \(3/5\) at each site of positive even degree.
+Consequently every term after these substitutions is nonnegative.
+This also covers scalar products with coincident endpoints, counting
+both appearances in the degree. Thus \(Z^0[f]\ge0\); division by the
+strictly positive \(Z^0\) proves the normalized assertion.
+The supports give \(|n_x|\le1\) pointwise, and hence the same bound
+for any conditional or unconditional mean.
+\end{proof}
+
+\begin{lemma}\label{l:35}
+For \(0\le k\le3\) and \(|a_j|\le1\), the probability law proportional to
+\(\prod_{j=1}^k(1+n\cdot a_j)\lambda_{\mathrm U}(\mathrm dn)\)
+has mean of norm at most \(3/5\). The same bound holds with
+\(\lambda_{\mathrm D}\) in place of \(\lambda_{\mathrm U}\).
+Moreover,
+\[
+ \left\{
+ \frac{\mathcal M\!\left(n\prod_{j=1}^3(1+n\cdot a_j)\right)}
+      {\mathcal M\!\left(\prod_{j=1}^3(1+n\cdot a_j)\right)}
+       :a_1,a_2,a_3\in\mathbb S^2
+ \right\}=\{b\in\mathbb R^3:|b|\le3/5\}.
+\]
+Consequently an unpinned site having at most three present factors
+has conditional mean of norm at most \(3/5\), on every positive
+conditioning fiber.
+\end{lemma}
+
+\begin{proof}
+First take three unit vectors \(a,b,c\), and put
+\[
+ p=a\cdot b+a\cdot c+b\cdot c,\qquad
+ A=\mathcal M\bigl((1+n\cdot a)(1+n\cdot b)(1+n\cdot c)\bigr).
+\]
+The second moment gives \(A=1+p/3\). Since
+\(0\le|a+b+c|^2=3+2p\), we have \(A\ge1/2\).
+The second and fourth moments give
+\[
+ 15\,\mathcal M\bigl(n(1+n\cdot a)(1+n\cdot b)(1+n\cdot c)\bigr)
+ =V,\qquad
+ V=5(a+b+c)+a(b\cdot c)+b(a\cdot c)+c(a\cdot b).
+\]
+Thus the mean is \(V/(5(3+p))\). Set
+\(X=1-b\cdot c\), \(Y=1-a\cdot c\), \(Z=1-a\cdot b\);
+each lies in \([0,2]\). Expanding the scalar products in \(|V|^2\)
+and using \(|a|^2=|b|^2=|c|^2=1\) gives the polynomial identity
+\[
+ (9+3p)^2-|V|^2
+ =4\bigl((X-Y)^2+(X-Z)^2+(Y-Z)^2\bigr)+6XYZ.
+\]
+The right-hand side is nonnegative, and \(9+3p\ge9/2>0\).
+Taking square roots gives \(|V|\le3(3+p)\), which proves the
+\(3/5\) bound for three unit fields.
+
+We spell out the reduction to at most three fields in the closed
+unit ball. For any such field \(a\), choose a unit vector \(e\)
+parallel to \(a\) if \(a\ne0\), and any unit vector if \(a=0\).
+With \(p_a=(1+|a|)/2\),
+\[
+ 1+n\cdot a=p_a(1+n\cdot e)+(1-p_a)(1-n\cdot e).
+\]
+An absent factor can likewise be inserted as
+\(1=\tfrac12(1+n\cdot e)+\tfrac12(1-n\cdot e)\).
+Expand these identities until there are exactly three unit fields
+in every term. The result is a finite convex combination
+\(W=\sum_\eta t_\eta W_\eta\), with \(t_\eta\ge0\),
+\(\sum_\eta t_\eta=1\), and
+\(\mathcal M(W_\eta)=A_\eta\ge1/2\). The normalized mean for \(W\)
+is the convex combination of the means for \(W_\eta\) with weights
+\(t_\eta A_\eta/\sum_\xi t_\xi A_\xi\).
+These weights are nonnegative and sum to one, proving the bound
+and positivity of its normalizer in every case \(0\le k\le3\).
+
+For the same product \(W\), let \(A=\mathcal M(W)>0\) and let
+\(\mu=\mathcal M(nW)/A\). Since \(W(0)=1\), the mean under the
+normalized \(\lambda_{\mathrm D}\) law is
+\[
+ \frac{(3/5)A}{(3/5)A+2/5}\,\mu.
+\]
+The prefactor belongs to \((0,1)\), so its norm is at most \(3/5\).
+
+It remains to show that every vector in the ball occurs with three
+unit fields under \(\mathcal M\). Take
+\[
+ a=e_1,\quad b_t=\cos t\,e_1+\sin t\,e_2,\quad
+ c_t=\cos t\,e_1-\sin t\,e_2,\qquad 0\le t\le2\pi/3.
+\]
+The displayed rational formula for the mean has denominator
+\(5(3+p)\ge15/2\), so it is continuous along this path.
+At \(t=0\), the formula gives mean \(3e_1/5\).
+At \(t=2\pi/3\), the three pairwise scalar products are \(-1/2\)
+and \(a+b_t+c_t=0\), so \(V=0\).
+The continuous norm therefore takes every value in \([0,3/5]\).
+The moment formulas also show directly that simultaneously replacing
+the three fields by \(Ra,Rb,Rc\) replaces the mean by \(R\mu\),
+for every \(R\in\mathrm O(3)\).
+For any nonzero desired vector, choose a point on the path with
+its norm and an orthogonal matrix sending that mean to the desired
+vector; the zero vector already occurs at the endpoint.
+The preceding norm bound excludes vectors outside the ball.
+This covariance argument concerns only the displayed polynomials,
+of degrees three and four.
+
+On a positive conditioning fiber at an unpinned site, its incident
+factors give precisely one of the laws just considered, with
+neighboring spins of norm at most one. Positivity is as in
+Lemma~\ref{l:finitefacts}. Applying the corresponding single-site
+bound proves the final assertion.
+\end{proof}
+
+\begin{lemma}\label{l:exact}
+At each site of a finite set choose any positive weighted unit-vector
+law whose moments through degree four equal those of \(\mathcal M\).
+A polynomial of separate degree at most four has the same product
+functional under these laws as under \(\lambda_{\mathrm U}\) at all
+sites. The analogous assertion holds after replacing any chosen site
+laws by \(3/5\) times that law plus \(2/5\,\delta_0\).
+In particular this applies to partition products of factors
+\(1\pm n_x\cdot n_y\) and \(1\pm n_x\cdot a\), \(|a|=1\), whenever
+each variable occurs at most four times, and to inserted observables
+only when their degrees are included in this same bound.
+\end{lemma}
+
+\begin{proof}
+Write a polynomial on sites \(x_1,\ldots,x_m\) as a finite linear
+combination of monomials
+\[
+ \prod_{j=1}^m\prod_{i=1}^3 n_{x_j,i}^{\,\gamma_{j,i}},
+ \qquad \sum_{i=1}^3\gamma_{j,i}\le4\quad(1\le j\le m).
+\]
+The product functional of such a monomial is the product of its
+single-site moments. Each factor agrees with its
+\(\lambda_{\mathrm U}\) value by hypothesis. This proves the first
+assertion by linearity, including the empty product.
+At a replaced site, the constant moment is unchanged and every
+positive-degree moment is multiplied by \(3/5\), since that
+monomial vanishes at zero. These are exactly the moments of
+\(\lambda_{\mathrm D}\). The same monomial argument proves the
+assertion for any specified subset of replaced sites.
+
+A bond factor is affine in each distinct endpoint, and a pin factor
+is affine in its spin. Expanding their product therefore has the
+claimed separate degree bound when each spin has at most four
+appearances, with multiplicity. If an observable is inserted, its
+degree is added at each site before this test is applied.
+\end{proof}
+
+This replacement identity compares summed-out polynomial expressions.
+In particular it supplies the partition-function comparisons for
+different finite alphabets with these moments.
+
+\begin{definition}[(P)]\label{h:P}
+For \(A\ge2\) and \(0<\theta<1\), property \(\mathsf P(A,\theta)\)
+means that, for every finite \(G\subset\mathbb Z^2\), every unit-pin
+assignment on \(\mathcal L(G)\), every
+\(Y\subset G\setminus S(G)\), and all \(u,v\in G\setminus Y\) with
+\(d(u,v)=2\) and a common neighbor in \(Y\),
+\[
+ \left|\mathbb E^\tau_{G\setminus Y}(n_u\cdot n_v)
+             -\mathbb E^0_{G\setminus Y}(n_u\cdot n_v)\right|
+ \le A\theta^{\min\{d(u,S(G)),d(v,S(G))\}} .
+\]
+The distances are ambient plane distances to the original \(S(G)\);
+removed sites are not added to the boundary.
+\end{definition}
+
+

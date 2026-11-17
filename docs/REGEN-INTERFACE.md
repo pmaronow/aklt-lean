@@ -207,7 +207,7 @@ do not certify that final export. Resources are recorded, not constrained by
 Palomar's production acceptance budget.
 
 All prose and first-party identifiers use American English.
-`AMERICAN-ENGLISH-IDENTIFIERS.tsv` lists the current identifier spellings. External
+`verification/port/american-english-identifiers.tsv` lists the current identifier spellings. External
 Mathlib identifiers and manuscript labels such as `l:colour` stay exact.
 The generator input-key audit found no affected external data key: only emitted
 Lean names and Lean leaf-name metadata values change.

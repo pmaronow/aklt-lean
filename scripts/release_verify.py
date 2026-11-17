@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """End-to-end protected component verification; registry metadata stays separate.
 
-All mutable artifacts are under --work. The production cgroup must enclose this
-whole process. This does not claim Palomar's authenticated supervisor verdict.
+All mutable artifacts are under --work. Resource guards cover the subprocesses.
+This optional full-export checker is separate from cold-verify.sh and does not
+claim a Palomar supervisor verdict.
 """
 import argparse,datetime,hashlib,json,os,re,shutil,subprocess,sys,time
 from pathlib import Path
@@ -203,9 +204,9 @@ class Pipeline:
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--verifier',type=Path,required=True);ap.add_argument('--work',type=Path,required=True)
  ap.add_argument('--budget',type=float,default=0,help='Optional shared wall watchdog; zero disables it');ap.add_argument('--build-threads',type=int,default=8);ap.add_argument('--rss-cap-gb',type=float,default=285);ap.add_argument('--address-space-gib',type=float,default=240)
- ap.add_argument('--regression-inputs',action='store_true',help='Check the retained two-input reduction before certificates are regenerated')
+ ap.add_argument('--regression-inputs',action='store_true',help='Replay the complete two-input reduction instead of the unconditional proof')
  ap.add_argument('--conron-timeout',type=float,default=0,help='Optional con-ron wall watchdog; zero disables it')
- ap.add_argument('--existing-dependencies',action='store_true',help='Local iteration only; cold-verify.sh never uses this')
+ ap.add_argument('--existing-dependencies',action='store_true',help='Use existing pinned dependencies for this optional replay')
  ap.add_argument('--skip-build',action='store_true',help='Local iteration after a separately measured fresh default build')
  ap.add_argument('--bwrap',type=Path);ap.add_argument('--campaign-report',type=Path);a=ap.parse_args();p=Pipeline(a)
  try:p.verify();return 0

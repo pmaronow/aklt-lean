@@ -1,0 +1,95 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\setlength{\emergencystretch}{1em}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Sph}{\mathbb{S}^2}
+\newcommand{\TV}{d_{\mathrm{TV}}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\cs}{c_{\mathrm{s}}}
+\newcommand{\ct}{c_{\mathrm{t}}}
+\newcommand{\Pext}{\mathcal{P}_{\mathrm{ext}}}
+\newcommand{\Dcons}{\mathcal{D}_{\mathrm{cons}}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{The spectral gap of the spin-2 AKLT model on the square lattice}
+
+\begin{abstract}
+We prove that the spin-2 AKLT Hamiltonian on the square-lattice torus
+has a unique ground state for every pair of integers $L,N\ge3$ and a
+spectral gap bounded below by one positive constant for all integers
+$L,N\ge L_0$, for some fixed $L_0$, with either parity allowed for
+each period. The proof is computer-assisted. Its computational inputs
+are local operator inequalities, an open-trail growth bound, and a
+type-dependent positive-vector bound for a response kernel. These
+inputs are checked using exact matrix positivity certificates, a
+finite-memory test, and stationary Bellman inequalities with finite
+prefix sums. The theorem, including these finite checks, has been
+formalized in Lean~4 and checked by the Lean kernel.
+Three finite coherent-state frames compare the quantum gap with the
+gap of a finite-state heat-bath dynamics. A sign change on each lifted
+square permits arbitrary torus parities. A direct periodic block
+argument reduces the heat-bath gap to window estimates, which follow
+from a separating-cut factorization, a walk expansion, and a
+contracting response recursion. Uniqueness follows independently from
+polynomial divisibility.
+\end{abstract}
+
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\input{sec1-result}
+\input{sec2-moments}
+\input{sec3-quantum-frames}
+\input{sec4-periodic-gap}
+\input{sec5-window}
+\input{sec6-walks}
+\input{sec7-recursion}
+\input{sec8-inputs}
+
+\appendix
+\input{app-finite}
+\input{app-topology}
+\input{app-input-contracts}
+\input{app-local-operator}
+
+\begin{thebibliography}{99}
+
+\bibitem{AKLT88}
+I.~Affleck, T.~Kennedy, E.~H.~Lieb, and H.~Tasaki,
+\emph{Valence bond ground states in isotropic quantum antiferromagnets},
+Comm.\ Math.\ Phys.\ \textbf{115} (1988), 477--528.
+
+\bibitem{KLT88}
+T.~Kennedy, E.~H.~Lieb, and H.~Tasaki,
+\emph{A two-dimensional isotropic quantum antiferromagnet with unique disordered ground state},
+J.\ Statist.\ Phys.\ \textbf{53} (1988), 383--415.
+
+\end{thebibliography}
+
+\end{document}

@@ -34,13 +34,13 @@ Audit. Generated certificate sources and legacy objects are not copied into Git.
   retained. All certificate-kernel public definitions receive exposed bodies,
   including Boolean checkers, signed packing, structure projections, and literal
   consumers. The exact inventory is in `verification/regen-interface/` and
-  `REGEN-INTERFACE.md`; the H1 and H3 samples exercise reduction from another module.
+  `docs/REGEN-INTERFACE.md`; the H1 and H3 samples exercise reduction from another module.
 - `ClosedTrail` keeps its name and body. Its doc comments now identify a first-hit
   path, including the retained regression template. Paper references to nonexistent
   labels are replaced with `d:model` and `d:poly` at their actual manuscript files.
   The Sanity doc comments also use the actual normalization and theorem labels.
 - Comments, doc strings, and notes use American English. Lean identifiers and paper
-  labels retain their spelling. `AMERICAN-ENGLISH-IDENTIFIERS.tsv` now lists the corresponding American
+  labels retain their spelling. `verification/port/american-english-identifiers.tsv` now lists the corresponding American
   spellings; the earlier source inventory is available in Git history.
 
 ### Original proof-body changes in this extension

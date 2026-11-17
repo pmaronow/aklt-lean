@@ -1,4 +1,4 @@
-# Metadata skeleton: replace every TODO before release.
+# Author metadata: replace each explicit TODO with verified author information.
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
 version: v0.4
 project:
@@ -8,12 +8,12 @@ project:
     uniqueness of the VBS ground state on every torus with periods at least
     three, and a uniform positive spectral gap for all sufficiently large
     periods. The finite H1 and H3 certificate libraries are part of the proof.
-    This hand-written port phase awaits regeneration of those source libraries
-    against the module-system kernels before the full release can build.
+    The manuscript, mathematical proofs, certificate generators, and checked
+    finite-input interfaces are included in one source tree.
   authors:
-    - 'TODO: formalization author name'
+    - 'TODO: formalization author name and ORCID'
   responsible_maintainers:
-    - 'TODO: responsible maintainer name'
+    - 'TODO: responsible maintainer name and ORCID'
   license: 'TODO: SPDX identifier matching the release LICENSE'
 classification:
   arxiv:
@@ -28,12 +28,12 @@ sources:
     type: paper
     relationship: formalizes
     location: >-
-      Companion manuscript-v2: sec1-result.tex, t:main;
+      manuscript/ at commit 241c2d870e89e8ff857991fbadf28ba6df833783: sec1-result.tex, t:main;
       sec6-walks.tex, h:H1; sec7-recursion.tex, h:H3;
       sec8-inputs.tex, t:H1 and t:inputs.
     note: >-
       The advertised claim is the unconditional t:main, with H1, H2, and H3_h
-      discharged by the mathematical development and finite certificates. See FIDELITY.md for exact source lines and
+      discharged by the mathematical development and finite certificates. See docs/FIDELITY.md for exact source lines and
       the clause-by-clause correspondence. TODO: immutable public source URL.
   - title: AKLT finite certificate companion artifact
     authors:
@@ -55,19 +55,21 @@ automation:
       framework: OpenAI Codex
       tool_setup: >-
         Lean 4.35.0-rc2, pinned Mathlib, source import inventory, a visibility-only module-system port, strict axiom
-        prints, and protected statement comparison with the toolchain Comparator. This package architecture was prepared
-        by a single agent without delegated proof work.
+        prints, and protected statement comparison with the toolchain Comparator. Reproducible
+        certificate generation and strict per-theorem axiom audits accompany the Lean source build.
       notes: 'TODO: add accurate provenance for the underlying proof development.'
 review:
-  status: independent mathematical review pending
+  status: independently reviewed with nonblocking remarks
   notes: >-
-    FIDELITY.md is prepared for independent review. Local diagnostics do not
-    establish a clean production build or Palomar acceptance.
+    Two independent statement-and-input reviews found the selected statements
+    faithful with remarks and no Fatal or Major finding. A separate earlier
+    headline review passed with zero blocking findings. See VERIFICATION.md
+    for scope, verdicts, resolution records, and the final-build template.
 limitations:
-  - Generated certificate sources must be regenerated and rebuilt against the
-    ported kernels; legacy certificate objects are not reused.
-  - The hand-written port and two-input regression do not by themselves certify
-    the pending unconditional package build or its independent checker replays.
-  - Author metadata, the root license, public artifact provenance, and independent
-    fidelity review remain TODO. This project is not being submitted to Palomar;
-    its file-level and package conventions are retained.
+  - Generated certificate sources and numeric inputs are distributed as pinned
+    release attachments rather than tracked in Git.
+  - Lean and NanoDa compared the physical statement, and Lean, NanoDa, and con-ron
+    accepted the full two-input reduction. A full independent-kernel replay of
+    the unconditional certificate proof was not run because of its size and cost.
+  - Author identities, ORCIDs, license, immutable public URLs, and underlying
+    proof-development provenance are author TODOs. This is not a Palomar submission.

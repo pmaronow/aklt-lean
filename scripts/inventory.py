@@ -75,15 +75,17 @@ def main():
     project = sorted((seen[m] for m in inputs if seen[m]['owner']=='project'), key=lambda r:r['path'])
     package_rows = [*project, seen['Solution']]
     def tsv(name, rows):
+        (output/name).parent.mkdir(parents=True, exist_ok=True)
         fields=['module','owner','path','lines','bytes','module_header','sha256']
         (output/name).write_text('\t'.join(fields)+'\n'+''.join(
             '\t'.join(str(r[f]) for f in fields)+'\n' for r in rows))
     tsv('inputs-closure.tsv',project)
-    tsv('port-list.tsv',package_rows)
+    tsv('verification/port/port-list.tsv',package_rows)
     tsv('dependency-closure.tsv',sorted((seen[m] for m in solution if seen[m]['owner'] not in ('project','interface')),
                                       key=lambda r:(r['owner'],r['path'])))
     direct=sorted(set(re.findall(r'\bAKLT\.W\.\w+\.main\b',(tree/'AKLT/Final/Inputs.lean').read_text())))
-    (output/'direct-leaves.txt').write_text('\n'.join(direct+['AKLT.W.UNIQ_TOP.torusKernel'])+'\n')
+    (output/'verification/port').mkdir(parents=True, exist_ok=True)
+    (output/'verification/port/direct-leaves.txt').write_text('\n'.join(direct+['AKLT.W.UNIQ_TOP.torusKernel'])+'\n')
     def stats(rows):
         return dict(files=len(rows),lines=sum(r['lines'] for r in rows),bytes=sum(r['bytes'] for r in rows),
                     lacks_module=sum(not r['module_header'] for r in rows),

@@ -73,16 +73,17 @@ def main():
     parser.add_argument('--check', action='store_true', help='Fail on any byte difference; never rewrite files')
     args = parser.parse_args()
     challenge, sources = render(args.tree)
-    generated = {'Challenge.lean': challenge, 'statement-sources.json': sources}
+    generated = {'Challenge.lean': challenge, 'verification/statement-sources.json': sources}
     if args.check:
         bad = [name for name, data in generated.items()
                if not (args.output/name).is_file() or (args.output/name).read_bytes() != data]
         if bad:
             raise SystemExit('Generated statement is stale: ' + ', '.join(bad))
-        print('PASS: Challenge.lean and statement-sources.json are byte-for-byte reproducible')
+        print('PASS: Challenge.lean and verification/statement-sources.json are byte-for-byte reproducible')
     else:
         args.output.mkdir(parents=True, exist_ok=True)
         for name, data in generated.items():
+            (args.output/name).parent.mkdir(parents=True, exist_ok=True)
             (args.output/name).write_bytes(data)
         print(f'Challenge: {len(challenge.splitlines())} physical lines, {len(challenge)} bytes')
 

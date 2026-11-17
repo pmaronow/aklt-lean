@@ -1,0 +1,890 @@
+\section{The quantum model, uniqueness, and positive frames}
+\label{s:quantum-frames}
+
+\subsection{Polynomial normalization and the edge kernel}
+
+We use the Pauli matrices
+\[
+ \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ \sigma_2=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\qquad
+ \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
+ \qquad a\cdot\sigma=\sum_{j=1}^3a_j\sigma_j.
+\]
+
+\begin{definition}\label{d:poly}
+Let \(V_d\) be the homogeneous binary polynomials of degree \(d\).
+Its monomials \(z_1^{d-j}z_2^j\), \(0\le j\le d\), are orthogonal with
+squared norms \(\binom dj^{-1}\). The action is
+\((U_gp)(z)=p(g^{-1}z)\). Use \(V_4\) at each physical site.
+For each of the finitely many frame letters \(a\) choose one unit
+spinor \(\zeta(a)\in\mathbb C^2\) with
+\(\zeta(a)\zeta(a)^*=(I+a\cdot\sigma)/2\).
+No spinor choice on the whole sphere is part of the definitions.
+\end{definition}
+
+Here \(d\) is a nonnegative integer and \(g\in\mathrm{SU}(2)\).
+We record explicitly why this is the spin-\(d/2\) Hilbert space.
+In the \(d\)-fold tensor product of the dual of \(\mathbb C^2\),
+average the \(\binom dj\) distinct elementary tensors having \(j\)
+second-coordinate covectors. Evaluation of this average on
+\(z^{\otimes d}\) is \(z_1^{d-j}z_2^j\), and its squared norm is
+\(\binom dj\binom dj^{-2}=\binom dj^{-1}\).
+These averages are orthogonal for different \(j\).
+The dual action of a unitary matrix is unitary, as is its tensor
+power; restriction to symmetric tensors therefore gives precisely
+the invariant inner product of Definition~\ref{d:poly}.
+
+For completeness, irreducibility follows directly from the monomials
+\(m_j=z_1^{d-j}z_2^j\). The diagonal subgroup
+\(g_t=\operatorname{diag}(e^{it/2},e^{-it/2})\) acts on \(m_j\)
+by \(e^{it(j-d/2)}\). When \(d\ge1\), take
+\(t=2\pi/(d+1)\); the \(d+1\) eigenvalues are distinct, so each
+monomial projection is a polynomial in \(U_{g_t}\).
+A nonzero invariant subspace consequently contains some \(m_j\).
+For the skew-Hermitian trace-zero matrices
+\[
+ A=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
+ C=\begin{pmatrix}0&i\\i&0\end{pmatrix},
+\]
+differentiating the action along \(\exp(tA)\) and \(\exp(tC)\)
+gives, respectively,
+\(dU(A)=z_1\partial_{z_2}-z_2\partial_{z_1}\) and
+\(dU(C)=-i(z_1\partial_{z_2}+z_2\partial_{z_1})\).
+The subspace is stable under these operators and hence under their
+complex linear combinations
+\(z_1\partial_{z_2}=(dU(A)+i\,dU(C))/2\) and
+\(z_2\partial_{z_1}=(-dU(A)+i\,dU(C))/2\).
+Their actions are
+\[
+ z_1\partial_{z_2}m_j=j m_{j-1}\quad(j\ge1),\qquad
+ z_2\partial_{z_1}m_j=(d-j)m_{j+1}\quad(j<d).
+\]
+The indicated coefficients are nonzero. Iterating reaches all
+monomials, proving irreducibility. For \(d=0\) it is immediate.
+The weights are \(-d/2,-d/2+1,\ldots,d/2\), which identifies the
+spin. Differentiation here preserves the invariant subspace because
+it is finite dimensional and hence closed.
+
+If \(|a|=1\), the Hermitian matrix \((I+a\cdot\sigma)/2\) is a
+rank-one orthogonal projection: its trace is one and
+\((a\cdot\sigma)^2=I\). A unit vector in its range supplies the
+spinor required in Definition~\ref{d:poly}. We make this choice only
+for the finite sets under consideration. Changing such a choice by
+a phase does not change any squared modulus below.
+The tensor product \(\mathcal H_\Lambda\) is identified with
+polynomials homogeneous of degree four in each pair
+\(z_x=(z_{x,1},z_{x,2})\).
+
+\begin{lemma}\label{l:edge}
+For \(e=\{x,y\}\) and \(\varphi\in\mathcal H_\Lambda\),
+\(P_e\varphi=0\) if and only if
+\(\varphi=q_e\chi\), where \(\chi\) is homogeneous of degree three
+in \(z_x,z_y\) and degree four in every other site variable.
+\end{lemma}
+
+\begin{proof}
+First consider just the two endpoint sites. Define the diagonal
+evaluation map
+\[
+ \Delta:V_4\otimes V_4\longrightarrow V_8,\qquad
+ (\Delta p)(z)=p(z,z).
+\]
+It is equivariant for the diagonal \(\mathrm{SU}(2)\) action.
+For \(0\le k\le8\), choose \(j=\max\{0,k-4\}\); then both
+\(j\) and \(k-j\) lie in \(\{0,\ldots,4\}\), and
+\[
+ \Delta\bigl(z_{x,1}^{4-j}z_{x,2}^j
+              z_{y,1}^{4-(k-j)}z_{y,2}^{k-j}\bigr)
+       =z_1^{8-k}z_2^k.
+\]
+Thus \(\Delta\) is onto and
+\(\dim\ker\Delta=25-9=16\).
+
+Multiplication by \(q_{xy}\) injects \(V_3\otimes V_3\) into
+\(V_4\otimes V_4\), since the polynomial ring is an integral
+domain and \(q_{xy}\ne0\). Its image is contained in
+\(\ker\Delta\), because \(q_{xy}(z,z)=0\). Its dimension is
+\(4\cdot4=16\), so
+\[
+ \ker\Delta=q_{xy}(V_3\otimes V_3).
+\]
+
+We identify the orthogonal complement with the physical total-spin
+space, using the inner products just fixed. Since \(\Delta\) is
+onto, \(\Delta^*\) is injective. Unitarity and equivariance imply
+that \(\Delta^*\) also intertwines the actions. Hence
+\(\operatorname{Ran}\Delta^*=(\ker\Delta)^\perp\) is an
+irreducible copy of \(V_8\), namely spin four.
+In \(V_4\otimes V_4\), the weight of \(m_j\otimes m_k\) is
+\(j+k-4\). Its weight-four subspace is one dimensional, spanned
+by \(m_4\otimes m_4\). Every spin-four copy contains a nonzero
+weight-four vector. Two such copies therefore intersect nontrivially,
+and irreducibility forces them to coincide. Consequently
+\(\operatorname{Ran}\Delta^*\) is the entire total-spin-four
+space onto which \(P_e\) projects. Thus \(\ker P_e=\ker\Delta\).
+Reversing the edge orientation changes the determinant by \(-1\)
+and leaves its image unchanged.
+
+Finally, expand a general \(\varphi\) in a tensor monomial basis
+of the other sites. The equation \(P_e\varphi=0\) is equivalent
+to the same equation for each endpoint coefficient. Each coefficient
+is \(q_e\) times a polynomial of bidegree \((3,3)\), by the
+two-site argument. Summing those quotients against the other-site
+monomials gives exactly the stated \(\chi\). The converse follows
+coefficient by coefficient as well.
+\end{proof}
+
+\begin{lemma}\label{l:divisibility}
+Let \(L,N\ge3\), \(R\subset\Lambda_{L,N}\), and
+\(E_R=\{e\in E_{L,N}:e\cap R\ne\varnothing\}\).
+If \(\varphi\in\mathcal H_\Lambda\) and \(P_e\varphi=0\)
+for every \(e\in E_R\), then
+\(\varphi=(\prod_{e\in E_R}q_e)\chi\), where \(\chi\) is independent
+of every \(z_x\), \(x\in R\).
+\end{lemma}
+
+\begin{proof}
+The four sites \(x+(1,0),x-(1,0),x+(0,1),x-(0,1)\) are
+different from \(x\) and pairwise distinct. Indeed, within a
+coordinate the equality of the two neighbors would make its period
+divide two; between coordinates an equality would make a period
+divide one. Neither is possible for periods at least three.
+Thus there are exactly four distinct incident edges at every site.
+
+Work in the unique factorization domain
+\(\mathcal R=\mathbb C[z_{u,1},z_{u,2}:u\in\Lambda]\).
+For two distinct sites \(x,y\), regard
+\(q_{xy}=z_{x,1}z_{y,2}-z_{x,2}z_{y,1}\) as a polynomial in
+\(z_{y,2}\) over the polynomial ring in all the other variables.
+Its two coefficients are relatively prime: the variable
+\(z_{x,1}\) does not divide \(z_{x,2}z_{y,1}\).
+It is primitive and is linear and nonconstant over the fraction
+field of that coefficient ring. Gauss's lemma therefore makes it
+irreducible in \(\mathcal R\). This argument already includes all
+other site variables. Each \(q_e\), with either orientation, is
+accordingly an irreducible and hence a prime element.
+
+Two different unoriented edges have different endpoint sets.
+Their determinants depend nontrivially on different sets of site
+variables and cannot differ by a nonzero scalar, the only kind of
+unit in \(\mathcal R\). They are therefore nonassociate.
+Lemma~\ref{l:edge} says that every \(q_e\), \(e\in E_R\),
+divides \(\varphi\). Unique factorization for these distinct prime
+factors implies that their product, denoted \(b_R\), divides
+\(\varphi\).
+
+If \(\varphi=0\), take \(\chi=0\). Otherwise write
+\(\varphi=b_R\chi\) and decompose \(\chi\) into its finitely
+many multihomogeneous components. Write \(d_R(u)\) for the number
+of edges of \(E_R\) at \(u\), so that \(b_R\) has degree
+\(d_R(u)\) in \(z_u\). Multiplication by the nonzero \(b_R\)
+is injective, and distinct multidegrees remain distinct after adding
+\((d_R(u))_u\). Since \(\varphi\) has multidegree \((4)_u\),
+the only possible component of \(\chi\) has degree
+\(4-d_R(u)\) at each \(u\). For \(u\in R\), all four incident
+edges are in \(E_R\), so this degree is zero. A polynomial of
+degree zero in both variables at each such site is independent of
+those variables. This also covers \(R=\varnothing\), where
+\(b_R=1\) and the independence assertion is vacuous.
+\end{proof}
+
+\begin{proposition}\label{p:toruskernel}
+For every \(L,N\ge3\), the torus is simple and has four distinct
+neighbors at each site, \(B_{L,N}\ne0\), and
+\(\ker H_{L,N}=\mathbb C B_{L,N}\).
+Changing edge orientations does not change this one-dimensional space.
+\end{proposition}
+
+\begin{proof}
+The neighbor calculation in Lemma~\ref{l:divisibility} proves
+the asserted degree and the absence of loops, including at period
+three; the edge set in Definition~\ref{d:model} has no repeated
+unordered pairs. Each determinant is nonzero, so their product is
+nonzero in the polynomial integral domain. Exactly four factors
+meet each site; thus \(B_{L,N}\) has degree four there and is a
+vector of \(\mathcal H_\Lambda\).
+It is divisible by \(q_e\) for every \(e\), so
+Lemma~\ref{l:edge} gives \(P_eB_{L,N}=0\).
+
+For any \(\varphi\), orthogonality of the projections gives
+\[
+ \langle\varphi,H_{L,N}\varphi\rangle
+       =\sum_e\|P_e\varphi\|^2.
+\]
+Consequently \(\ker H_{L,N}=\bigcap_e\ker P_e\).
+Apply Lemma~\ref{l:divisibility} to a vector in this intersection
+with \(R=\Lambda\). The quotient by \(B_{L,N}\) is independent
+of every site variable and is a scalar. This proves both inclusions
+in the kernel equality. Reversing any chosen orientations multiplies
+\(B_{L,N}\) by \((-1)^k\), where \(k\) is the number reversed,
+and therefore preserves its span.
+\end{proof}
+
+\begin{lemma}\label{l:star}
+Let \(h_\star=\sum_{j=1}^4P_{\{0,j\}}\) on \(V_4^{\otimes5}\).
+Its smallest positive eigenvalue \(g_\star\) exists and is positive.
+For \(L,N\ge3\), set \(H_x=\sum_{e\ni x}P_e\) and
+\(\mathcal S_x=\ker H_x\). Then
+\[
+ H_x\ge g_\star(I-\Pi_{\mathcal S_x}),\qquad
+ \sum_xH_x=2H_{L,N}.
+\]
+\end{lemma}
+
+\begin{proof}
+The operator \(h_\star\) is positive semidefinite on the
+\(5^5\)-dimensional Hilbert space. It is nonzero: the tensor
+\((z_2^4)^{\otimes5}\) has each endpoint pair in the
+one-dimensional weight-four subspace used in Lemma~\ref{l:edge},
+so every one of the four projections fixes it. Its eigenvalue for
+\(h_\star\) is four. The finite set of positive eigenvalues is
+therefore nonempty and has a strictly positive minimum \(g_\star\).
+The spectral theorem gives
+\(h_\star\ge g_\star(I-\Pi_{\ker h_\star})\).
+
+The center \(x\) and its four neighbors are distinct, so relabelling
+those five tensor factors identifies \(H_x\) with
+\(h_\star\) tensored with the identity on the other sites.
+Edges between the neighbors do not occur in \(H_x\) and do not
+affect this identification. Tensoring the preceding inequality
+proves the first assertion for \(H_x\). Each unoriented edge has
+two different endpoints and occurs once at each endpoint in
+\(\sum_xH_x\), proving the second assertion.
+\end{proof}
+
+\subsection{Finite frames and their separation}
+
+The symbols \(D\), \(\phi\), \(r\), and \(\mathcal M\) have the
+meaning fixed in Definition~\ref{d:moment}. In particular,
+\(\phi=(1+\sqrt5)/2\), \(r^2=\phi+2\), and
+\(\mathcal M\) is the uniform average on the twelve displayed
+icosahedral vertices. We use its degree-four moment identities and
+polynomial covariance from Lemma~\ref{l:moments}.
+
+\begin{definition}\label{d:frame}
+A frame is a finite set \(A\subset\mathbb S^2\) with positive weights
+\(w(a)\) summing to one such that
+\(\sum_{a\in A}w(a)p(a)=\mathcal M(p)\)
+for every real polynomial \(p\) of degree at most four.
+\end{definition}
+
+The defining identity also holds for complex polynomials by applying
+it to their real and imaginary parts.
+
+\begin{lemma}\label{l:tight}
+For every frame \((A,w)\) and every \(p\in V_4\),
+\[
+ \sum_{a\in A}5w(a)|p(\zeta(a))|^2=\|p\|_{V_4}^2.
+\]
+For site frames \((D_x,w_x)\), set \(\Omega=\prod_xD_x\),
+\(\pi(s)=\prod_x5w_x(s_x)\), and
+\(\iota\varphi(s)=\varphi((\zeta(s_x))_x)\).
+Then \(\iota:\mathcal H_\Lambda\to\ell^2(\Omega,\pi)\) is an isometry.
+\end{lemma}
+
+\begin{proof}
+Let \(m_j(z)=z_1^{4-j}z_2^j\), \(0\le j\le4\).
+For \(j\le k\), the spinor projection identity gives
+\[
+ \overline{m_j(\zeta(a))}\,m_k(\zeta(a))
+ =P_{jk}(a):=
+ \frac{(1+a_3)^{4-k}(1-a_3)^j(a_1+i a_2)^{k-j}}{16}.
+\]
+Indeed, the paired factors are
+\(|\zeta_1|^2=(1+a_3)/2\),
+\(|\zeta_2|^2=(1-a_3)/2\), and
+\(\overline{\zeta_1}\zeta_2=(a_1+i a_2)/2\).
+For \(j>k\), use \(P_{jk}=\overline{P_{kj}}\).
+Every \(P_{jk}\) has degree at most four. If \(j<k\), rotation
+through \(\pi/(k-j)\) about the third coordinate multiplies
+\(P_{jk}\) by \(-1\). Polynomial covariance in
+Lemma~\ref{l:moments} implies \(\mathcal M(P_{jk})=0\).
+The same follows by conjugation for \(j>k\).
+
+For diagonal entries only the moments of \(t=a_3\) are needed:
+\(\mathcal M(1)=1\), \(\mathcal M(t)=\mathcal M(t^3)=0\),
+\(\mathcal M(t^2)=1/3\), and \(\mathcal M(t^4)=1/5\).
+Expanding the five polynomials yields
+\[
+ \begin{array}{c|ccccc}
+ j&0&1&2&3&4\\ \hline
+ \mathcal M(P_{jj})&1/5&1/20&1/30&1/20&1/5
+ \end{array}
+ \qquad
+ 5\mathcal M(P_{jj})=\binom4j^{-1}.
+\]
+For example, the three different even parts of their numerators
+are \(1+6t^2+t^4\), \(1-t^4\), and
+\(1-2t^2+t^4\), respectively. The frame identity for these
+degree-four polynomials now gives
+\[
+ \sum_{a\in A}5w(a)
+       \overline{m_j(\zeta(a))}m_k(\zeta(a))
+       =\begin{cases}\binom4j^{-1},&j=k,\\0,&j\ne k.\end{cases}
+\]
+Expanding \(p\) in the monomials proves its norm identity with
+exactly the normalization of Definition~\ref{d:poly}.
+
+For a finite collection of sites, the evaluation map is the tensor
+product of the single-site evaluation maps. The product monomials
+form an orthogonal basis, and the finite sums of their pairwise
+inner products factor into the single-site sums just computed.
+Their tensor inner products are therefore preserved, which proves
+the isometry on all of \(\mathcal H_\Lambda\).
+\end{proof}
+
+The weight \(\pi\) in this lemma is a positive reference measure
+of total mass \(5^{|\Lambda|}\), rather than a probability.
+The use of rotations in the proof was solely on polynomials of
+degree at most four.
+
+\begin{lemma}\label{l:threeframes}
+Let
+\[
+ T=\begin{pmatrix}99/101&-20/101&0\\20/101&99/101&0\\0&0&1\end{pmatrix},
+ \quad D^{(j)}=T^jD\ (j=0,1,2),\quad
+ b=\frac{5-\sqrt5}{505},\quad r_b=\frac b{2-b}.
+\]
+The matrix \(T\) is in \(\mathrm{SO}(3)\).
+Each \(D^{(j)}\), with uniform weights \(1/12\), is an antipodal frame.
+For \(i\ne j\), \(a\in D^{(i)}\), \(a'\in D^{(j)}\),
+\[
+ 0<b<1,\qquad b\le1\pm a\cdot a'\le2-b,\qquad0<r_b<1.
+\]
+The common lower bound \(b\) is attained, and distinct frames are
+disjoint even up to antipodal signs.
+\end{lemma}
+
+\begin{proof}
+The equality \(99^2+20^2=101^2\) proves \(T^TT=I\) and
+\(\det T=1\). The set \(D\) consists of twelve distinct unit
+vectors and is antipodal by Lemma~\ref{l:moments}.
+For a polynomial \(p\) of degree at most four,
+\[
+ \frac1{12}\sum_{a\in D^{(j)}}p(a)
+       =\mathcal M(p\circ T^j)=\mathcal M(p).
+\]
+Here \(T^j\) is bijective and covariance applies on precisely
+the stated degree range. Thus each rotated set is an antipodal
+frame of twelve letters.
+
+Write \(\vartheta\) for the rotation angle of \(T\), so that
+\(\cos\vartheta=99/101\) and \(\sin\vartheta=20/101\).
+We have
+\[
+ 1-\cos\vartheta=\frac2{101},\qquad
+ 1-\cos(2\vartheta)=\frac{800}{10201}\ge\frac2{101},
+ \qquad
+ b=\frac{2}{101(\phi+2)}.
+\]
+The last identity follows by rationalizing
+\(\phi+2=(5+\sqrt5)/2\). In particular \(0<b<1\).
+By applying a common inverse rotation and, if needed, swapping
+the two vectors, it suffices to bound
+\(1-u\cdot T^k v\) for \(u,v\in D\) and \(k\in\{1,2\}\).
+
+First let \(u=v\). Direct multiplication of the planar rotation
+matrix gives
+\[
+ 1-u\cdot T^ku
+       =(1-\cos(k\vartheta))(u_1^2+u_2^2).
+\]
+The three possible values of \(u_1^2+u_2^2\), from the three
+coordinate families of \(D\), are
+\(1/r^2,1,\phi^2/r^2\). Since \(\phi>1\), their minimum is
+\(1/r^2\). It follows that \(1-u\cdot T^ku\ge b\).
+Equality holds for \(k=1\) and \(u=(0,1,\phi)/r\).
+
+Next suppose \(u\ne v\). For vertices in the same coordinate
+family, their scalar product has the form
+\((\epsilon\epsilon'+\phi^2\delta\delta')/r^2\) with
+\(\epsilon,\epsilon',\delta,\delta'\in\{\pm1\}\).
+Apart from the equal-vertex case, its values are
+\(-1\) and \(\pm\phi/r^2\). For vertices in different
+families, the only shared nonzero coordinate has product
+\(\pm\phi\), so the scalar product is \(\pm\phi/r^2\).
+The identity \(\phi/r^2=1/\sqrt5\) thus proves
+\[
+ u\cdot v\in\{-1,1/\sqrt5,-1/\sqrt5\},\qquad
+ |u-v|^2\ge2-\frac2{\sqrt5}>1.
+\]
+On the first two coordinates the operator norm of a rotation minus
+the identity is \(\sqrt{2(1-\cos(k\vartheta))}\), while it is
+zero on the third coordinate. Hence
+\[
+ \|T-I\|=\frac2{\sqrt{101}}\le\frac{40}{101},\qquad
+ \|T^2-I\|=\frac{40}{101}<\frac25.
+\]
+The triangle inequality gives \(|u-T^kv|>3/5\), and therefore
+\[
+ 1-u\cdot T^kv=\tfrac12|u-T^kv|^2>\frac9{50}>b.
+\]
+For the last inequality, \(\phi+2>2\) implies
+\(b<1/101<9/50\). This proves \(1-a\cdot a'\ge b\)
+in every case. Replace \(a'\) by \(-a'\), which belongs to the
+same rotated frame, to obtain \(1+a\cdot a'\ge b\) as well.
+These two lower bounds give both upper bounds \(2-b\).
+The equality case already displayed attains \(b\); changing the
+sign of its second vector also attains the bound with the other
+choice of sign. An equality \(a=\pm a'\) would make one of
+\(1\pm a\cdot a'\) zero, contradicting \(b>0\).
+Finally, \(0<b<1\) implies \(0<b/(2-b)<1\).
+\end{proof}
+
+\begin{lemma}\label{l:colour}
+For \(m\ge3\) and representatives \(0\le i<m\), put
+\[
+ a_m(i)=\begin{cases}2,&m\text{ odd and }i=m-1,\\i\bmod2,&\text{otherwise}.
+ \end{cases}
+\]
+Then \(\kappa(i,j)=a_L(i)+a_N(j)\pmod3\) is a proper
+three-coloring of \(\Lambda_{L,N}\) for every \(L,N\ge3\).
+\end{lemma}
+
+\begin{proof}
+If \(m\) is even, the two colors zero and one alternate along
+the cycle, and the wraparound edge joins the odd index \(m-1\)
+to index zero. If \(m\) is odd, they alternate on indices
+\(0,\ldots,m-2\); the last of these indices is odd and has
+color one. The remaining vertex \(m-1\) has color two and is
+adjacent to that vertex and to index zero, whose color is zero.
+This covers \(m=3\) as well. Thus every cycle edge changes
+\(a_m\) by a nonzero element of \(\mathbb Z_3\).
+A torus edge changes exactly one summand in the formula for
+\(\kappa\), leaving the other fixed, so its endpoint colors
+are different modulo three.
+\end{proof}
+
+\begin{lemma}\label{l:qmod}
+For unit spinors \(\zeta,\zeta'\) with
+\(\zeta\zeta^*=(I+a\cdot\sigma)/2\) and
+\(\zeta'\zeta'^*=(I+a'\cdot\sigma)/2\),
+\[
+ |\zeta_1\zeta'_2-\zeta_2\zeta'_1|^2=(1-a\cdot a')/2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Expansion of the two-by-two determinant gives the Gram identity
+\[
+ |\zeta_1\zeta'_2-\zeta_2\zeta'_1|^2
+       =\|\zeta\|^2\|\zeta'\|^2-|\zeta^*\zeta'|^2
+       =1-|\zeta^*\zeta'|^2.
+\]
+The displayed Pauli matrices satisfy
+\(\operatorname{tr}\sigma_j=0\) and
+\(\operatorname{tr}(\sigma_j\sigma_k)=2\delta_{jk}\).
+Consequently
+\[
+ |\zeta^*\zeta'|^2
+ =\operatorname{tr}(\zeta\zeta^*\zeta'\zeta'^*)
+ =\frac14\operatorname{tr}\bigl((I+a\cdot\sigma)
+                               (I+a'\cdot\sigma)\bigr)
+ =\frac{1+a\cdot a'}2.
+\]
+Substitution proves the assertion.
+\end{proof}
+
+\subsection{Frame specifications and the quantum comparison}
+
+\begin{definition}\label{d:framemodel}
+Given any proper three-coloring \(\kappa\) of a plane or torus,
+put \(D_x=D^{(\kappa(x))}\), with weights \(1/12\).
+On the torus define
+\[
+ \mu^{\mathrm{af}}_{\kappa,L,N}(s)=
+ \frac1{Z^{\mathrm{af}}}\prod_x\frac1{12}
+       \prod_{\{x,y\}\in E_{L,N}}(1-s_x\cdot s_y).
+\]
+On the plane, for finite \(W\subset\mathbb Z^2\) and
+\(\eta_z\in D_z\) at exterior neighbor sites, define
+\[
+ \mu^{+,\eta}_{\kappa,W}(n)=\frac1{Z^{+,\eta}_{\kappa,W}}
+ \prod_{x\in W}\frac1{12}
+ \prod_{\substack{\{x,y\}\subset W\\d(x,y)=1}}(1+n_x\cdot n_y)
+ \prod_{\substack{x\in W,z\notin W\\d(x,z)=1}}(1+n_x\cdot\eta_z).
+\]
+Only the finitely many needed exterior letters are specified.
+These laws have full support. Write \(E_U\) for conditioning off \(U\),
+\(\operatorname{Var}_U f=E_U|f-E_Uf|^2\), and
+\[
+ \mathcal D_\mu(f)=\sum_x\mu(\operatorname{Var}_x f),\qquad
+ \lambda(\mu)=\inf_{\operatorname{Var}_\mu f>0}
+             \frac{\mathcal D_\mu(f)}{\operatorname{Var}_\mu f}.
+\]
+All generators have one update per physical site. A gap lower bound is
+always equivalently a Poincare inequality, including one-point spaces.
+\end{definition}
+
+Indeed, every interaction factor in this definition lies in
+\([b,2-b]\), by proper coloring and Lemma~\ref{l:threeframes}.
+There are finitely many configurations, each of strictly positive
+weight, so every normalizer is finite and positive. For
+\(W=\varnothing\) the normalizer is one and the configuration
+space has one point.
+On a positive finite law the conditional expectation \(E_U\) is
+the orthogonal projection onto the functions of the letters off
+\(U\): this follows by summing on each fixed exterior fiber.
+In particular,
+\[
+ \mu(\operatorname{Var}_U f)=\|(I-E_U)f\|_{L^2(\mu)}^2,
+ \qquad \mathcal L_\mu=\sum_x(E_x-I).
+\]
+If \(\mathcal D_\mu(f)=0\), full support makes \(f\) constant
+on every single-site fiber. Any two product configurations can be
+joined by changing their coordinates one at a time, so \(f\) is
+constant. The finite-dimensional spectral theorem consequently
+gives \(\lambda(\mu)>0\) whenever the configuration space has
+at least two points. On a one-point space every Poincare inequality
+holds by the convention of Section~1.
+
+We abbreviate the torus law by \(\mu^{\rm af}\) and the valence-bond
+state by \(B\). Every evaluation of an incident determinant is
+nonzero: its squared modulus is at least \(b/2\) by
+Lemmas~\ref{l:threeframes} and~\ref{l:qmod}.
+
+\begin{lemma}\label{l:quantumfibre}
+Fix \(x\), write \(q_e=\epsilon_{e,x}q_{xy}\) for \(e=\{x,y\}\),
+and set
+\[
+ c_x=\prod_{e\ni x}\epsilon_{e,x},\quad
+ \beta_x(t;\sigma)=\prod_{y\sim x}q_{xy}(\zeta(t),\zeta(\sigma_y)),
+ \quad \rho_x=c_x\prod_{e\not\ni x}q_e .
+\]
+All products are evaluated at the corresponding frame spinors.
+Then \(\iota B=\beta_x\rho_x\), and if
+\(\psi=(\prod_{e\ni x}q_e)\chi\) with \(\chi\) independent of \(z_x\),
+then \(\iota\psi=c_x\beta_x\,\iota\chi\).
+Let \(\mathcal P_x\) be the fiberwise orthogonal projection in
+\(\ell^2(\Omega,\pi)\) onto the span of \(\beta_x\), and put
+\(Uf=f\,\iota B/\|B\|\).
+The map \(U:L^2(\mu^{\rm af})\to\ell^2(\Omega,\pi)\) is unitary,
+\(UE_x=\mathcal P_xU\), and
+\[
+ \|(I-\mathcal P_x)\iota\varphi\|
+            \le\|(I-\Pi_{\mathcal S_x})\varphi\|.
+\]
+\end{lemma}
+
+\begin{proof}
+Here \(\epsilon_{e,x}=1\) when the chosen orientation of \(e\)
+starts at \(x\), and \(\epsilon_{e,x}=-1\) otherwise, so
+\(c_x\in\{1,-1\}\). Separating the four incident edge factors
+in the product for \(B\) gives \(\iota B=\beta_x\rho_x\).
+Evaluation of a product is the product of its evaluations, which
+also gives \(\iota\psi=c_x\beta_x\,\iota\chi\) in the stated
+case. The notation \(\iota\chi\) in this equality means evaluation
+of the residual polynomial; no assertion about an isometry for its
+different degrees is used. Both \(\rho_x\) and this evaluation
+are independent of the coordinate at \(x\).
+
+We first verify the probability identity that is needed for
+unitarity. Lemma~\ref{l:qmod} and the product reference weights give
+\begin{equation}\label{e:frame-ground-weight}
+ \pi(s)|\iota B(s)|^2
+ =5^{|\Lambda|}2^{-|E_{L,N}|}
+       \prod_x\frac1{12}
+       \prod_{\{u,v\}\in E_{L,N}}(1-s_u\cdot s_v).
+\end{equation}
+By Lemma~\ref{l:tight}, summing the left side gives \(\|B\|^2\).
+Thus
+\(\|B\|^2=5^{|\Lambda|}2^{-|E_{L,N}|}Z^{\rm af}\), and
+\begin{equation}\label{e:frame-ground-law}
+ \mu^{\rm af}(s)=\frac{\pi(s)|\iota B(s)|^2}{\|B\|^2}.
+\end{equation}
+The product \(\iota B\) is nowhere zero. Equation
+\eqref{e:frame-ground-law} proves that \(U\) preserves the norm,
+and its inverse on the full finite function space is
+\(h\mapsto\|B\|h/(\iota B)\). Therefore it is unitary.
+
+Fix an exterior configuration \(s_{\Lambda\setminus\{x\}}\)
+and let \(\sigma\) denote its neighbor letters. The conditional
+probabilities, by either the factorization or
+\eqref{e:frame-ground-law}, are
+\[
+ \mu^{\rm af}(t\mid s_{\Lambda\setminus\{x\}})
+ =\frac{5w_x(t)|\beta_x(t;\sigma)|^2}
+        {\sum_{u\in D_x}5w_x(u)|\beta_x(u;\sigma)|^2}.
+\]
+The denominator is strictly positive. On the same fiber the
+orthogonal projection formula in \(\ell^2(D_x,5w_x)\) is
+\[
+ (\mathcal P_xh)(t,s_{\Lambda\setminus\{x\}})
+ =\beta_x(t;\sigma)
+  \frac{\sum_{u\in D_x}5w_x(u)\overline{\beta_x(u;\sigma)}
+                         h(u,s_{\Lambda\setminus\{x\}})}
+       {\sum_{u\in D_x}5w_x(u)|\beta_x(u;\sigma)|^2}.
+\]
+Since the outside factor of \(\pi\) is constant on that fiber,
+these orthogonal fiber projections combine to an orthogonal
+projection on \(\ell^2(\Omega,\pi)\).
+Substitute \(h=Uf=\beta_x\rho_x f/\|B\|\) in the formula.
+The result is \(\beta_x\rho_x(E_xf)/\|B\|=U(E_xf)\), proving
+the intertwining.
+
+If \(\psi\in\mathcal S_x\), positivity of its four projection
+terms implies \(P_e\psi=0\) for all \(e\ni x\).
+Lemma~\ref{l:divisibility}, with \(R=\{x\}\), gives the
+factorization of \(\psi\) used in the statement with a quotient
+independent of \(z_x\). Its evaluated fiber is consequently a
+multiple of \(\beta_x\). This proves the inclusion
+\(\iota\mathcal S_x\subset\operatorname{Ran}\mathcal P_x\).
+It follows that
+\[
+ \begin{split}
+ \|(I-\mathcal P_x)\iota\varphi\|
+ &=\|(I-\mathcal P_x)\iota(I-\Pi_{\mathcal S_x})\varphi\|\\
+ &\le\|\iota(I-\Pi_{\mathcal S_x})\varphi\|
+  =\|(I-\Pi_{\mathcal S_x})\varphi\|.
+ \end{split}
+\]
+The inequality is the contraction property of an orthogonal
+projection, and the last equality is the physical-space isometry
+of Lemma~\ref{l:tight}.
+\end{proof}
+
+\begin{theorem}\label{t:QD}
+For every \(L,N\ge3\) and every proper torus three-coloring,
+\[
+ \mu^{\mathrm{af}}(s)=
+ \frac{\pi(s)|\iota B_{L,N}(s)|^2}{\|B_{L,N}\|^2},\qquad
+ H_{L,N}\big|_{B_{L,N}^{\perp}}\ge
+       \frac{g_\star}{2}\lambda(\mu^{\mathrm{af}})I .
+\]
+In particular
+\(\operatorname{gap}(H_{L,N})\ge(g_\star/2)\lambda(\mu^{\mathrm{af}})\).
+\end{theorem}
+
+\begin{proof}
+The probability identity was proved in
+\eqref{e:frame-ground-law}. For \(\varphi\perp B\), set
+\(f=U^{-1}\iota\varphi\). Since
+\(U1=\iota B/\|B\|\) and both maps preserve inner products,
+\[
+ \mu^{\rm af}(f)
+ =\langle U1,\iota\varphi\rangle
+ =\frac{\langle B,\varphi\rangle}{\|B\|}=0,\qquad
+ \operatorname{Var}_{\mu^{\rm af}}f=\|\varphi\|^2.
+\]
+Using the Poincare definition of \(\lambda\), the intertwining
+and norm inequality of Lemma~\ref{l:quantumfibre}, and
+Lemma~\ref{l:star}, we obtain
+\[
+ \begin{split}
+ \lambda(\mu^{\rm af})\|\varphi\|^2
+ &\le\sum_x\|(I-E_x)f\|_{L^2(\mu^{\rm af})}^2\\
+ &=\sum_x\|(I-\mathcal P_x)\iota\varphi\|_{\ell^2(\pi)}^2\\
+ &\le\sum_x\langle\varphi,(I-\Pi_{\mathcal S_x})\varphi\rangle\\
+ &\le\frac1{g_\star}\sum_x\langle\varphi,H_x\varphi\rangle
+  =\frac2{g_\star}\langle\varphi,H_{L,N}\varphi\rangle.
+ \end{split}
+\]
+For \(\varphi=0\) the same inequality is immediate.
+The space \(B^\perp\) is invariant under \(H_{L,N}\), since
+\(H_{L,N}\) is self-adjoint and kills \(B\).
+Proposition~\ref{p:toruskernel} identifies its spectrum with the
+positive spectrum of \(H_{L,N}\), proving the last assertion.
+\end{proof}
+
+\subsection{Finite energy and the gauge on a lifted square}
+
+\begin{lemma}\label{l:planeenergy}
+All the frame specifications above are consistent under conditioning
+and have nearest-neighbor Markov dependence. Uniformly over proper
+colorings, finite volumes, admissible frame-valued boundaries, and
+fully specified one-site fibers, every letter has conditional
+probability at least
+\[
+ \alpha=\frac1{12}r_b^4\in(0,1].
+\]
+The same lower bound holds after conditioning on fewer letters.
+Any prescribed assignment on \(k\) sites, under arbitrary consistent
+partial conditioning off those sites, has conditional probability
+at least \(\alpha^k\).
+For a finite plane block \(Q\), the single-site heat bath of every conditional block law in \(Q\) has Poincare gap at least
+\(r_b^{|E(Q)|}\), where \(E(Q)\) is its internal edge set.
+\end{lemma}
+
+\begin{proof}
+Let \(U\) be a subset of the unfixed sites in a finite specification
+and fix the letters on its complement. Every site or edge factor
+not meeting \(U\) is then constant and cancels between the
+conditional weight and its normalizer. The remaining factors are
+exactly the site factors on \(U\), the internal edge factors of
+\(U\), and the crossing factors with the newly fixed neighbor
+letters. They have the same sign of interaction as the initial
+specification. This proves consistency, both for the torus law and
+for the plane laws, and shows that only exterior nearest-neighbor
+letters affect the conditional law. The assertion also holds for
+\(U=\varnothing\), whose conditional space has one point.
+
+For a fully specified fiber at a site \(x\), the unnormalized
+weight of a proposed letter \(t\in D_x\) is \(1/12\) times
+at most four factors, each in \([b,2-b]\). If their number is
+\(d_x\le4\), the numerator is at least \(b^{d_x}/12\),
+and the sum of all twelve weights is at most \((2-b)^{d_x}\).
+Thus
+\[
+ \Pr(s_x=t\mid\hbox{all other unfixed letters})
+ \ge\frac1{12}r_b^{d_x}\ge\frac1{12}r_b^4=\alpha.
+\]
+Lemma~\ref{l:threeframes} gives \(0<r_b<1\), hence
+\(0<\alpha\le1\). Conditioning on fewer letters takes a finite
+weighted average of the fully specified conditional probabilities;
+every summand has this same lower bound.
+
+More explicitly, let \(A=\{x_1,\ldots,x_k\}\) consist of
+distinct sites and prescribe \(t_i\in D_{x_i}\). Condition on
+any positive event specifying letters off \(A\). At stage \(i\)
+of the chain rule, that event and the previous \(i-1\) prescribed
+letters condition only off \(x_i\), so the conditional probability
+of \(t_i\) is at least \(\alpha\). The preceding lower bounds
+ensure that every intermediate event has positive probability.
+Multiplying gives \(\alpha^k\). For \(k=0\), the probability
+and the asserted bound are both one. The argument also applies to
+a positive event determined by fewer outside letters, by averaging.
+
+For the block-gap assertion, fix a finite plane block \(Q\) and
+all its exterior neighbor letters \(\eta\). Absorb every fixed
+boundary factor into its endpoint site weight by setting
+\[
+ h_x(t)=\frac1{12}
+       \prod_{\substack{z\notin Q\\d(x,z)=1}}
+                    (1+t\cdot\eta_z),\qquad
+ \nu_x(t)=\frac{h_x(t)}{\sum_{u\in D_x}h_x(u)},\qquad
+ \nu_Q=\bigotimes_{x\in Q}\nu_x.
+\]
+Every \(h_x(t)\) is positive, since all its boundary factors are
+in \([b,2-b]\). Thus \(\nu_Q\) is a strictly positive product
+probability on the finite product \(\prod_{x\in Q}D_x\). Let
+\[
+ R(n)=\prod_{\{x,y\}\in E(Q)}(1+n_x\cdot n_y),\qquad
+ e=|E(Q)|.
+\]
+The conditional block law is \(d\mu=(R/\nu_Q(R))\,d\nu_Q\),
+and \(b^e\le R\le(2-b)^e\). In particular,
+\(0<\nu_Q(R)<\infty\), and its density has the bounds
+\[
+ 0<m_Q:=\frac{b^e}{\nu_Q(R)}
+ \ \le\ \frac{R(n)}{\nu_Q(R)}
+ \ \le\ M_Q:=\frac{(2-b)^e}{\nu_Q(R)}<\infty.
+\]
+Apply the density comparison of Lemma~\ref{l:density}, proved in
+Appendix~A, with its product reference law \(\pi=\nu_Q\),
+density \(\varrho=R/\nu_Q(R)\), and constants \(m=m_Q\),
+\(M=M_Q\). All its hypotheses have just been verified. Its
+conditional-variance comparison and product Poincare inequality give,
+for every complex \(f\),
+\[
+ \mathcal D_\mu(f)
+ \ge m_Q\mathcal D_{\nu_Q}(f)
+ \ge m_Q\operatorname{Var}_{\nu_Q}f
+ \ge\frac{m_Q}{M_Q}\operatorname{Var}_\mu f.
+\]
+Consequently the Poincare gap is at least
+\(m_Q/M_Q=r_b^e\). Only internal edges occur in this ratio;
+all fixed boundary factors have been retained in \(\nu_Q\).
+If some sites of \(Q\) are already fixed, apply this construction
+to the free subset \(U\subset Q\). Since
+\(E(U)\subset E(Q)\) and \(0<r_b<1\), the resulting bound
+\(r_b^{|E(U)|}\) is at least the displayed bound for \(Q\).
+If the free subset is empty, the Poincare inequality holds because
+its variance is zero. In particular the argument includes empty
+blocks and blocks with no internal edges.
+\end{proof}
+
+The finite-energy bound in this lemma concerns admissible frame
+letters on neighbor sites. Arbitrary unit-vector pins, which are
+used in the separate response estimates, are not included in its
+quantifiers.
+
+\begin{lemma}\label{l:boxlift}
+Let \(Q'=a+\{-M,\ldots,M\}^2\subset\mathbb Z^2\), \(M\ge1\),
+and \(L,N\ge2M+3\). Reduction modulo the periods is injective
+on the \(\ell^\infty\) one-neighborhood of \(Q'\), preserves exactly
+the internal nearest-neighbor edges of \(Q'\), and identifies all its
+crossing bonds with the torus crossing bonds of its image \(Q\).
+For every torus outside configuration \(\sigma\), pull back the
+coloring and set
+\[
+ n_z=(-1)^{z_1+z_2}s_{p(z)}\quad(z\in Q'),\qquad
+ \eta_z=(-1)^{z_1+z_2}\sigma_{p(z)}
+       \quad(z\notin Q',\ d(z,Q')=1).
+\]
+This coordinatewise bijection carries the conditional
+antiferromagnetic law in \(Q\) to
+\(\mu^{+,\eta}_{\kappa\circ p,Q'}\), intertwines every site update,
+and preserves Hamming distances between configurations in each fiber.
+\end{lemma}
+
+\begin{proof}
+Let \(p:\mathbb Z^2\to\mathbb Z_L\times\mathbb Z_N\) be
+coordinatewise reduction. The indicated one-neighborhood is
+\[
+ A'=a+\{-M-1,\ldots,M+1\}^2.
+\]
+The difference between two of its first coordinates has absolute
+value at most \(2M+2<L\), and the analogous bound is
+\(2M+2<N\) for second coordinates. If their reductions agree,
+both differences are multiples of their periods, so both are zero.
+This proves injectivity on \(A'\).
+
+Plane nearest neighbors reduce to distinct torus nearest neighbors.
+Conversely, if \(z,w\in Q'\) have nearest-neighbor reductions,
+the congruent coordinate differences are \(\pm1\) and zero,
+in one order. A difference in \([-2M,2M]\) congruent to zero
+modulo its period must be zero. A difference in that interval
+congruent to \(1\) or \(-1\) must be that very integer:
+every other representative has absolute value at least
+\(\min\{L,N\}-1\ge2M+2\). Thus \(d(z,w)=1\), which
+proves the exact correspondence of internal edges.
+
+For a torus edge leaving \(Q=p(Q')\), lift its endpoint in \(Q\)
+uniquely to \(z\in Q'\). Its other endpoint has the form
+\(p(z+v)\), with a unique
+\(v\in\{(1,0),(-1,0),(0,1),(0,-1)\}\); the four torus
+neighbors are distinct. Then \(z+v\in A'\), and it is outside
+\(Q'\) since the torus endpoint is outside \(Q\).
+Conversely, a plane crossing bond from \(z\in Q'\) to
+\(w\notin Q'\) has \(w\in A'\); injectivity on \(A'\)
+ensures \(p(w)\notin Q\). These operations are inverse on
+crossing bonds. They also show that all required exterior sites
+are represented without identifications.
+
+The function \(\kappa\circ p\) is a proper plane coloring:
+each plane nearest-neighbor edge maps to a torus edge whose
+colors differ. Put \(\varepsilon_z=(-1)^{z_1+z_2}\) for the
+plane sites involved in the lift. Each alphabet is antipodal with
+uniform weights, so multiplication by \(\varepsilon_z\) is a
+weight-preserving bijection on its alphabet. The displayed \(\eta\)
+are consequently admissible exterior frame letters.
+For a plane internal or crossing bond \(\{z,w\}\),
+\(\varepsilon_z\varepsilon_w=-1\). Substituting
+\(s_{p(z)}=\varepsilon_z n_z\) at a free site and
+\(\sigma_{p(w)}=\varepsilon_w\eta_w\) at a fixed site changes
+its torus factor as follows:
+\[
+ 1-s_{p(z)}\cdot s_{p(w)}=1+n_z\cdot n_w,
+ \qquad
+ 1-s_{p(z)}\cdot\sigma_{p(w)}=1+n_z\cdot\eta_w.
+\]
+Factors wholly outside \(Q\) cancel in the conditional torus
+law. The exact internal and crossing-bond correspondences show
+that all remaining factors are precisely those in
+\(\mu^{+,\eta}_{\kappa\circ p,Q'}\). Site weights are unchanged,
+and the configuration bijection makes their normalizing sums
+equal. This proves the asserted transport of laws.
+
+For \(x=p(z)\), let \(Jf(s)=f((\varepsilon_w s_{p(w)})_{w\in Q'})\)
+be pullback on the corresponding conditional function spaces.
+It is unitary by the transported law. In a single-site fiber all
+other coordinates are fixed, and summing over the letter at \(x\)
+is exactly summing over its image letter at \(z\) with the
+transported conditional probabilities. Therefore
+\(E_x^{\rm af}J=J E_z^+\). This proves the update intertwining.
+Finally \(s_{p(z)}=t_{p(z)}\) if and only if
+\(\varepsilon_zs_{p(z)}=\varepsilon_zt_{p(z)}\), so the
+coordinate bijection preserves the number of unequal coordinates.
+All signs used here are defined on plane lifts; no sign function
+on the torus is needed.
+\end{proof}

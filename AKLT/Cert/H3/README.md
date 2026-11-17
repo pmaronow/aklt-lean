@@ -18,6 +18,8 @@ From the release root, with its hand-written module-system dependencies built:
 
 ```sh
 export PATH="$HOME/.elan/bin:$PATH"
+export H3_INPUT_DIR="$PWD/data/H3"
+export H3_REPORT_DIR="$(dirname "$PWD")/aklt-verification/H3"
 python3 AKLT/Cert/H3/regen.py generate
 python3 AKLT/Cert/H3/regen.py build --jobs 16 --ram-gb 160
 python3 AKLT/Cert/H3/regen.py close --stage closing --jobs 1
@@ -37,6 +39,6 @@ forces selected fresh checks through the same runner. The retained `export.py` a
 `generate_prefix.py` are initial prototype generators, outside the production
 inventory. Historical planning and merge-validation scripts are not release build commands.
 
-See `REGEN-H3.md` for production measurements, retained artifacts, and the final
-assembly handoff, `REGEN-CHANGES.md` for the private sort-body visibility repair,
-and `REGEN-INTERFACE.md` for the exposed API and cross-module samples.
+See [the H3 record](../../../docs/regeneration/H3.md) for production measurements, retained artifacts, and the final
+assembly handoff, [the H3 change note](../../../docs/regeneration/H3-CHANGES.md) for the private sort-body visibility repair,
+and [the interface note](../../../docs/REGEN-INTERFACE.md) for the exposed API and cross-module samples.
