@@ -1,0 +1,129 @@
+[
+  {
+    "source": "AKLT/Defs/Geometry.lean",
+    "source_sha256": "552cb87e311a92f0117ed901d6f89c8f0a691737bf2a59484b4fe21cd055cbfd",
+    "declarations": [
+      "Adjacent",
+      "Compass",
+      "Compass.reverse",
+      "Compass.step",
+      "Plane",
+      "internalBonds",
+      "latticeDist",
+      "neighbours",
+      "positiveNeighbours",
+      "square"
+    ]
+  },
+  {
+    "source": "AKLT/Defs/Moment.lean",
+    "source_sha256": "2e38dd8dbe631bcfcdac04fcf2e25fcd8d1cede96e1899e04b4e9411da2a826e",
+    "declarations": [
+      "IcoLetter",
+      "SpinLetter",
+      "Status",
+      "UnitVector",
+      "Vec3",
+      "dot",
+      "goldenRatio",
+      "icoRadius",
+      "icoVector",
+      "moment",
+      "normSq",
+      "signValue",
+      "spinVector",
+      "spinWeight"
+    ]
+  },
+  {
+    "source": "AKLT/Defs/Domain.lean",
+    "source_sha256": "07ec71068e075907d41a0d6145e87a1860e461586dda452aaa701d0024d65639",
+    "declarations": [
+      "PairType"
+    ]
+  },
+  {
+    "source": "AKLT/Defs/Trails.lean",
+    "source_sha256": "5cdd683bad531fa75ae528f33530bc60f396f0ba1bbc7baeb55efba73d289770",
+    "declarations": [
+      "DirectionWord",
+      "IsTrail",
+      "alphaBound",
+      "betaBound",
+      "betaPrimeBound",
+      "departureCount",
+      "localThreshold",
+      "passageFactor",
+      "trailBaseWeight",
+      "trailWeight",
+      "wordBond",
+      "wordIncoming",
+      "wordRevisit",
+      "wordStraight",
+      "wordVertex"
+    ]
+  },
+  {
+    "source": "AKLT/Defs/Kernel.lean",
+    "source_sha256": "30700822e634d0afd04b944d2f2601cba19259595158a3045a633b02a4b7b61f",
+    "declarations": [
+      "ClosedTrail",
+      "PositiveVectorBound",
+      "closedContribution",
+      "deadAt",
+      "exposureSum",
+      "firstVisitList",
+      "kernelOrdering",
+      "kernelPartialRow",
+      "kernelRho",
+      "kernelStart",
+      "kernelWitness",
+      "liveOtherNeighbours",
+      "pairCoefficient",
+      "responseNeighbours",
+      "responsePairType",
+      "responsePairs",
+      "shortOrderLE",
+      "witnessKappa"
+    ]
+  },
+  {
+    "source": "AKLT/Defs/Pattern.lean",
+    "source_sha256": "36aa789fdfcbdcbee66f415b0757912567f8d7cb7a0a24e52a68ce0e5b643896",
+    "declarations": "all statement declarations"
+  },
+  {
+    "source": "AKLT/Challenge/Main.lean",
+    "source_sha256": "47707ef60478ee8b02a0a9c15c5de0ebf83a1a2f1461d4a959932da5334ccf27",
+    "declarations": [
+      "B",
+      "Bond",
+      "Configuration",
+      "Direction",
+      "H",
+      "Hilbert",
+      "P",
+      "Site",
+      "Size",
+      "SpinorPolynomial",
+      "V",
+      "atSite",
+      "bondCasimir",
+      "monomialDegree",
+      "nextSite",
+      "onBond",
+      "singlet",
+      "size_neZero",
+      "spin4Space",
+      "spinMinus",
+      "spinPlus",
+      "spinZ",
+      "vbsPolynomial"
+    ]
+  },
+  {
+    "source": "AKLT/Challenge/MainV2.lean",
+    "source_sha256": "1487afe9584bab2500d654e21c3d78254c304c5363b371de858890d2e3a5cc40",
+    "declarations": "all statement declarations"
+  }
+]

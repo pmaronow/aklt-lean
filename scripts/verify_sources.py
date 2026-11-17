@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+"""Official source/config checks plus checks specific to this package skeleton.
+
+This is a local source check, not full preparation or protected verification.
+It intentionally fails while source materialization or metadata is unfinished.
+"""
+import argparse
+import json
+from pathlib import Path
+import re
+import sys
+
+ap = argparse.ArgumentParser(description=__doc__)
+ap.add_argument('--verifier', type=Path, required=True)
+ap.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[1])
+ap.add_argument('--report', type=Path, required=True)
+args = ap.parse_args()
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(args.verifier.resolve()))
+from scripts import verify_submission as official
+from scripts.source_requirements import physical_lines
+project = args.project.resolve()
+summary, issues = official.inspect_lean_sources(project)
+problems = [dict(code=e.code, path=e.path, message=str(e)) for e in issues]
+config = official.load_comparator_config(project/'comparator.json')
+if config['theorem_names'] != ['AKLTPalomar.aklt_gap_of_inputs'] or set(config['permitted_axioms']) != {
+        'propext', 'Classical.choice', 'Quot.sound'} or config.get('definition_names'):
+    problems.append(dict(code='package.configuration', message='Unexpected comparison surface'))
+for line in (project/'port-list.tsv').read_text().splitlines()[1:]:
+    fields = line.split('\t')
+    if not (project/fields[2]).is_file():
+        problems.append(dict(code='package.source_missing', path=fields[2]))
+expected={line.split('\t')[2] for line in (project/'port-list.tsv').read_text().splitlines()[1:]}|{'Challenge.lean','Audit.lean'}
+actual={str(p.relative_to(project)) for p in official.lean_source_files(project)}
+if actual!=expected:
+    problems.append(dict(code='package.source_inventory', missing=sorted(expected-actual), extra=sorted(actual-expected)))
+challenge = (project/'Challenge.lean').read_text()
+if physical_lines(challenge) > 1000 or len(challenge.encode()) > 100*1024:
+    problems.append(dict(code='package.challenge_size'))
+for p in official.lean_source_files(project):
+    code = official.strip_lean_comments(p.read_text())
+    code = re.sub(r'"(?:\\.|[^"\\])*"', '""', code)
+    holes = re.findall(r'(?<![\w.])(?:sorry|admit)(?![\w\'])', code)
+    if holes != (['sorry'] if p == project/'Challenge.lean' else []):
+        problems.append(dict(code='package.proof_hole', path=str(p.relative_to(project))))
+    forbidden = re.findall(r'(?<![\w.])(?:axiom|native_decide|unsafe|implemented_by|extern|opaque)(?![\w\'])', code)
+    if forbidden:
+        problems.append(dict(code='package.forbidden_tokens', path=str(p.relative_to(project)), tokens=sorted(set(forbidden))))
+    if re.search(r'set_option\s+debug\.skipKernelTC\s+true', code):
+        problems.append(dict(code='package.kernel_bypass', path=str(p.relative_to(project))))
+    if re.search(r'set_option\s+maxHeartbeats\s+0\b', code) and p!=project/'AKLT/Cert/H2/Check.lean':
+        problems.append(dict(code='package.unlimited_heartbeats', path=str(p.relative_to(project))))
+if 'TODO' in (project/'formalization.yaml').read_text():
+    problems.append(dict(code='package.metadata_todo', message='Author metadata and public provenance remain TODO'))
+if not (project/'LICENSE').is_file():
+    problems.append(dict(code='package.license_missing', message='Choose a license and add its exact text at the release root'))
+report = dict(scope='local source/config checks; not full preparation', summary=summary,
+              configuration=config, passed=not problems, issues=problems)
+args.report.parent.mkdir(parents=True, exist_ok=True)
+args.report.write_text(json.dumps(report, indent=2)+'\n')
+print(json.dumps(dict(passed=not problems, summary=summary, issue_count=len(problems)), indent=2))
+raise SystemExit(0 if not problems else 1)
