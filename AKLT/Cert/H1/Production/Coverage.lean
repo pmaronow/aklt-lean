@@ -5,7 +5,7 @@ public import AKLT.Cert.H1.Production.Basic
 set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
-/-! Finite raw enumeration, local consistency pruning and balanced catalog
+/-! Finite raw enumeration, local consistency pruning, and balanced catalog
 lookup. Every loop is structural on lists/Nat; no trusted native computation. -/
 namespace AKLT.Cert.H1.Production
 

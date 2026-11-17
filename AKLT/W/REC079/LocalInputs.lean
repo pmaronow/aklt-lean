@@ -81,7 +81,7 @@ theorem covered_integrated_lower : CoveredIntegratedLowerStatementV2 := by
     nlinarith
 
 /-- The repaired shared-matcher coefficient interface, derived from proved
-mixture, interval, analytic and rational-enclosure leaves. -/
+mixture, interval, analytic, and rational-enclosure leaves. -/
 theorem response_typed : AKLT.Blueprint.Top.ResponseTypedStatementV2 := by
   classical
   intro hH1

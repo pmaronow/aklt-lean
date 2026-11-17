@@ -79,7 +79,7 @@ def InversionStatement : Prop :=
       ∀ u : Fin 20 → Vec3, (∀ j ∈ J, normSq (u j) ≤ 1) → 0 ≤ evaluateReduced p u)
 
 /-- Legacy rational-threshold specialization of `l:Ostruct`; use V2 below.
-Real symmetric Pauli operators, SU(2) and ladder commutators,
+Real symmetric Pauli operators, SU(2), and ladder commutators,
 U-pair support and D-pair exchange symmetry, for inversions that are unions of groups. -/
 def OperatorStructureStatement : Prop :=
   ∀ π : PatternData, π.Covered → ∀ r : Representation, ∀ I : Finset (Fin 20), GroupInversion π r I →

@@ -46,7 +46,7 @@ theorem rational_scaled_row {E : Type} (s : Finset E) (t : E → ℚ) (p v : E �
   apply (Rat.cast_le (K := ℝ)).mp
   simpa only [Rat.cast_sum, Rat.cast_mul, Rat.cast_div, Rat.cast_natCast] using hc
 
-/-- `d:stationary-certificate`, lines 692–714: nonnegativity, caps and outside equality.
+/-- `d:stationary-certificate`, lines 692–714: nonnegativity, caps, and outside equality.
 No positivity of the inside values is assumed: zero terminal values are allowed. -/
 theorem potential_bounds {q m : ℕ} (C : StationaryData q) (Q : MemoryQuotient m q)
     (X : PairType) (d₀ : Compass) (hC : C.Passes Q X d₀) (φ : Phase) (a : Fin q) (x : Plane) :

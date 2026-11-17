@@ -55,7 +55,7 @@ def checkRows (whole : IntRows) (c g : ℤ) : ℕ → IntRows → IntRows → Bo
   | i, mr :: ms, lr :: ls => rowOK whole c g i mr lr && checkRows whole c g (i+1) ms ls
   | _, _, _ => false
 
-/-- Shape, symmetry and scale checks, separated for independently checked shards. -/
+/-- Shape, symmetry, and scale checks, separated for independently checked shards. -/
 def header (M L : IntRows) (g d S : ℤ) : Bool :=
   M.all (fun r => r.length == M.length) && (L.length == M.length) &&
   L.all (fun r => decide (r.length ≤ M.length)) &&

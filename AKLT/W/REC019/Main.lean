@@ -84,7 +84,7 @@ theorem alpha_bound_of_intervals {Iτ I₀ Jτ J₀ : ℝ}
     _ ≤ _ := by norm_num
 
 /-- The original leaf follows from two purely finite moment estimates. The
-free positivity, logarithmic-mean facts and exact coefficient checks are proved. -/
+free positivity, logarithmic-mean facts, and exact coefficient checks are proved. -/
 theorem main_of_residuals (hT : Residual_TripleLower) (hP : Residual_PairUpper) :
     AKLT.Blueprint.Rec.AlphaUniformStatement := by
   intro a hU f g hN hof hog hfg

@@ -106,7 +106,7 @@ def StationaryData.potential {q : ℕ} (C : StationaryData q)
     (φ : Phase) (a : Fin q) (x : Plane) : ℚ :=
   (C.extended φ a x : ℚ) / certificateValueScale
 
-/-- `d:stationary-certificate`: all integer free rows, caps, terminal values and local rows. -/
+/-- `d:stationary-certificate`: all integer free rows, caps, terminal values, and local rows. -/
 def StationaryData.Passes {m q : ℕ} (C : StationaryData q) (Q : MemoryQuotient m q)
     (X : PairType) (d₀ : Compass) : Prop :=
   (∀ φ a, 0 < C.cap φ a) ∧

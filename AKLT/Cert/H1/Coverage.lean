@@ -11,7 +11,7 @@ open AKLT.Defs
 def ringSites : List Plane :=
   [(1,0), (1,1), (0,1), (-1,1), (-1,0), (-1,-1), (0,-1), (1,-1)]
 
-/-- Fixed undirected template edges: four center, eight ring and four tip edges. -/
+/-- Fixed undirected template edges: four center, eight ring, and four tip edges. -/
 def templateEdges : List (Plane × Plane) :=
   [((0,0),(1,0)), ((0,0),(0,1)), ((0,0),(-1,0)), ((0,0),(0,-1)),
    ((1,0),(1,1)), ((1,1),(0,1)), ((0,1),(-1,1)), ((-1,1),(-1,0)),

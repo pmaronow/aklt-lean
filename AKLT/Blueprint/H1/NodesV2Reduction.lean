@@ -36,7 +36,7 @@ def RationalEmbeddingEvaluationStatementV2 : Prop :=
     evaluateRealPolynomial (MvPolynomial.map (Rat.castHom ℝ) p) u = evaluateReduced p u
 
 /-- `c:reduce`, D.4, lines 172–229 in the refereed Appendix D; real scalar
-combinations preserve vector degree, supported tokens and orthogonal invariance.
+combinations preserve vector degree, supported tokens, and orthogonal invariance.
 The scalar c is arbitrary real, including irrational values. -/
 def DifferenceStructureStatementV2 : Prop :=
   ∀ J : Finset (Fin 20), ∀ p q : RealVectorPolynomial 20, ∀ c : ℝ,

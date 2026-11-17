@@ -44,7 +44,7 @@ def freeExpectation (G Y : Finset Plane) (f : (Plane → Vec3) → ℝ) : ℝ :=
 def partitionRatio (G Y : Finset Plane) (τ : PinAssignment G) : ℝ :=
   pinnedSum G Y τ (fun _ => 1) / freeSum G Y (fun _ => 1)
 
-/-- `h:P`: all original volumes, independent unit pins, permitted removals and distance-two pairs.
+/-- `h:P`: all original volumes, independent unit pins, permitted removals, and distance-two pairs.
 Distances are to the original protected layer, and infinity has decay zero. -/
 def ResponseProperty (A θ : ℝ) : Prop :=
   2 ≤ A ∧ 0 < θ ∧ θ < 1 ∧

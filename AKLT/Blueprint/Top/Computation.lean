@@ -23,7 +23,7 @@ def ALMStatement : Prop :=
       OpenTrailBound (memoryBaseConstant m q v) q ∧
       ∀ CV : ℝ, memoryBaseConstant m q v ≤ CV → OpenTrailBound CV q
 
-/-- `l:H2-dihedral`: raw symmetry, exact representative coverage and counts,
+/-- `l:H2-dihedral`: raw symmetry, exact representative coverage, and counts,
 and soundness of checking only one representative of each orbit. -/
 def H2DihedralStatement : Prop :=
   (∀ m : ℕ, 1 ≤ m → ∀ g : SquareSymmetry, ∀ w : DirectionWord m, RawWindow w →

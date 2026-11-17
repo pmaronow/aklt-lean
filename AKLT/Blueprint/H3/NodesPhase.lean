@@ -53,7 +53,7 @@ def LongExposureExpansionStatement : Prop :=
     exposureSum w (witnessKappa w) (longOrdering w) = ∑ j : Fin n, longRewardTerm w j
 
 /-- `l:phase-expansion`, lines 509–515: causality of true prefix coefficients.
-Prefix vertices, incoming directions, departure counts and dead-neighbor sets agree at
+Prefix vertices, incoming directions, departure counts, and dead-neighbor sets agree at
 indices below L. The final vertex at L is retained, so the last prefix departure is covered. -/
 def PrefixCoefficientCausalityStatement : Prop :=
   ∀ n : ℕ, ∀ w : DirectionWord n, ∀ L : ℕ, ∀ hL : L ≤ n,

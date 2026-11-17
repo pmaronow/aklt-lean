@@ -141,7 +141,7 @@ theorem bonds_areDistinct (L N : Size) : BondsAreDistinct L N := by
     · apply (hN2 _).elim
       simpa [nextSite, add_assoc, one_add_one_eq_two] using congrArg Prod.snd hb
 
-/-- The coordinate conversion in (e:Vinner) never divides by zero. -/
+/-- The coordinate conversion in (`d:poly`, `sec3-quantum-frames.tex`) never divides by zero. -/
 def BasisNormalizationNonzero (L N : Size) : Prop :=
   ∀ σ : Configuration L N,
     (∏ x : Site L N, (Real.sqrt (Nat.choose 4 (σ x).val : ℝ) : ℂ)) ≠ 0
@@ -155,7 +155,7 @@ theorem basis_normalization_nonzero (L N : Size) : BasisNormalizationNonzero L N
   have hp : 0 < Nat.choose 4 (σ x).val := Nat.choose_pos (by have := (σ x).isLt; omega)
   exact_mod_cast hp
 
-/-- Non-vanishing of B, asserted after (e:B). Unproved here: one must transfer
+/-- Non-vanishing of B, asserted in `t:main` (`sec1-result.tex`). Unproved here: one must transfer
 the integral-domain argument through the degree-four coordinate extraction. -/
 def BNonzero (L N : Size) : Prop := B L N ≠ 0
 

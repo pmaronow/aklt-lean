@@ -99,7 +99,7 @@ theorem reducedStructure_of_nodes : Top.MomentsStatement → ReducedDegreeStatem
   exact hDifference _ _ _ c (hPoly false).1 (hPoly true).1
     (hPoly false).2.1 (hPoly true).2.1 (hPoly false).2.2 (hPoly true).2.2
 
-/-- `c:reduce`: compose the geometric split, finite Fubini and one common
+/-- `c:reduce`: compose the geometric split, finite Fubini, and one common
 assignment, then replace the raw functionals by their rational contractions. -/
 theorem simultaneousLeafReconstruction_of_nodes : PeripheralGeometryStatement → PeripheralFubiniStatement →
     PeripheralAssignmentStatement → SimultaneousLeafReconstructionStatement := by

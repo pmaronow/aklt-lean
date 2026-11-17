@@ -276,7 +276,7 @@ def ResidualRewardItems : Prop :=
           (item.reward : ℚ) / E.denominator =
             witnessKappa (appendWords w (fun _ : Fin 1 => direction d.val)) i
 
-/-- Assemble the walk, phase, base-weight, timestamp and reward components. -/
+/-- Assemble the walk, phase, base-weight, timestamp, and reward components. -/
 theorem main_from_residuals (hPhase : ResidualPhaseNumerators)
     (hItems : ResidualRewardItems) : PrefixStepLeaf := by
   intro E hE n w s hrep d htrail

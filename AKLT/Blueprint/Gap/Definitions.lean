@@ -43,7 +43,7 @@ def blockLaw {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
 def weightedInner {Ω : Type} [Fintype Ω] (p : Weight Ω) (f h : Ω → ℂ) : ℂ :=
   ∑ σ, (p σ : ℂ) * star (f σ) * h σ
 
-/-- Unnormalised, labeled block Dirichlet form. Repeated blocks count repeatedly. -/
+/-- Unnormalized, labeled block Dirichlet form. Repeated blocks count repeatedly. -/
 def blockForm {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (B : J → Finset ι) (f : Config S → ℂ) : ℝ := ∑ a, blockDirichlet p (B a) f
@@ -101,7 +101,7 @@ structure ProductChange {ι κ : Type} (S : ι → Type) (T : κ → Type) where
   configurations : Config S ≃ Config T
   coordinate_eq : ∀ σ τ x, σ x = τ x ↔ configurations σ (sites x) = configurations τ (sites x)
 
-/-- Finite pushforward equality, not an unnormalised weight comparison. -/
+/-- Finite pushforward equality, not an unnormalized weight comparison. -/
 def Carries {ι κ : Type} {S : ι → Type} {T : κ → Type}
     (e : ProductChange S T) (p : Weight (Config S)) (q : Weight (Config T)) : Prop :=
   ∀ σ, q (e.configurations σ) = p σ
@@ -129,7 +129,7 @@ def specMarginal (P : PlaneSpec) (W V : Finset Plane) (η : Config P.Letter) :
   classical
   exact marginal (P.law W η) (fun σ => restrict V (fill P W η σ))
 
-/-- Positivity, full conditioning consistency and range one, without hidden constants. -/
+/-- Positivity, full conditioning consistency, and range one, without hidden constants. -/
 def RegularSpec (P : PlaneSpec) : Prop :=
   (∀ W η, PositiveProbability (P.law W η)) ∧
   (∀ W V, V ⊆ W → ∀ η σ,

@@ -9,8 +9,8 @@ set_option backward.proofsInPublic true
 
 /-!
 The production moment-polynomial leaf.  Integer moment numerators, exact
-denominator clearing, transfer expansion and original-token inversion are in
-Local, Normalization, Transfer, Inversion and GroupTokens.  The two spin
+denominator clearing, transfer expansion, and original-token inversion are in
+Local, Normalization, Transfer, Inversion, and GroupTokens.  The two spin
 contraction steps are proved in ResidualRing (finite Fubini over the eight
 ring sites) and ResidualCenter (integration of the passage spin).
 -/

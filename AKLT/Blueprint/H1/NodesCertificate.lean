@@ -14,7 +14,7 @@ namespace AKLT.Blueprint.H1
 
 /-- `t:H1`, REV-PLAN lines 2308–2323, and `p:certificate`, Appendix D lines
 830–896. REQUIRED EXTERNAL DATA HANDOFF: every covered pattern must actually
-have a representation, a group inversion, a justified denominator and passing
+have a representation, a group inversion, a justified denominator, and passing
 Gram witnesses at its exact threshold. Neither existing Top soundness statement
 asserts this existence. A data owner should refine this contract into checked
 enumeration/orbit coverage and separately kernel-checked certificate shards.

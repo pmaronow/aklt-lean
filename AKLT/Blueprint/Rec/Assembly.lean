@@ -247,7 +247,7 @@ theorem firstTermBound_of_leaves (hl : TraceKernelLengthStatement)
     _ ≤ recursionSeries p.X d := ht CV q hOpen responseEnvelope he p.X d _
 
 /-- `t:rec`: the remaining elementary combination of the response
-recursion, Mtheta, bounded renewal and the ordinary removal-domain realization. -/
+recursion, Mtheta, bounded renewal, and the ordinary removal-domain realization. -/
 theorem rec_of_leaves (hM : Top.MThetaStatement) (hN : BoundedRenewalStatement)
     (h : RecursionLeaves) : Top.RecStatement := by
   intro CV q hH1 hOpen hH3

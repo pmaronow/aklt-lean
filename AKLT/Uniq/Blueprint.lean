@@ -7,7 +7,7 @@ set_option backward.proofsInPublic true
 
 /-!
 Closed blueprint nodes for §3 (`d:poly`, `l:edge`, `l:divisibility`,
-`p:toruskernel`).  All polynomial, torus and positivity nodes imported above
+`p:toruskernel`).  All polynomial, torus, and positivity nodes imported above
 are proved, as are the concrete edge nodes.  The assembly theorems expose the
 dependencies explicitly; `Main.lean` supplies their proved inhabitants.
 -/

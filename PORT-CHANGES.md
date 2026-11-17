@@ -38,6 +38,7 @@ Audit. Generated certificate sources and legacy objects are not copied into Git.
 - `ClosedTrail` keeps its name and body. Its doc comments now identify a first-hit
   path, including the retained regression template. Paper references to nonexistent
   labels are replaced with `d:model` and `d:poly` at their actual manuscript files.
+  The Sanity doc comments also use the actual normalization and theorem labels.
 - Comments, doc strings, and notes use American English. Lean identifiers and paper
   labels retain their spelling. `BRITISH-IDENTIFIERS.tsv` lists source identifier
   tokens with British spelling and their locations.
@@ -63,3 +64,11 @@ lemmas; they are interface tests and are not production certificate claims.
 The explicit `CertData.H1.Generated` root was added to its library globs; a
 submodule-only glob does not build that empty hand-written root when Handwritten
 imports it. No Lean declaration or proof changes for this repair.
+
+### Authored prose and references
+
+American English and serial commas are applied to comments and doc strings,
+including the unnormalized VBS terminology and the corrected model/polynomial
+paper references in Main and Sanity. Code tokens remain unchanged. The complete
+prose-change inventory is retained with the phase records. Manuscript labels,
+Lean identifiers, and raw tool transcripts keep their original spelling.

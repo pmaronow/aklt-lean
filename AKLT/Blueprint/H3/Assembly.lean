@@ -69,7 +69,7 @@ theorem phaseExpansion_of_nodes (hFold : PhaseFoldExpansionStatement)
       simp [takeWord, Nat.lt_of_lt_of_le i.isLt hL]
     simpa only [ht] using hSplit n w L hL (hCausal n w L hL)
 
-/-- `l:stationary-domination`: all geometric, local scalar and path-sum steps are explicit. -/
+/-- `l:stationary-domination`: all geometric, local scalar, and path-sum steps are explicit. -/
 theorem stationaryDomination_of_nodes
     (hValid : SuffixWindowValidityStatement) (hLabels : SuffixWindowLabelsStatement)
     (hIncident : IncidentBondBudgetStatement) (hBalance : DepartureBalanceStatement)
@@ -166,7 +166,7 @@ theorem stationaryLocalGlobal_of_nodes (hFree : StationaryFreeEdgeStatement) :
     fun R => stationary_finite_le Q X d₀ C.potential
       (fun ψ b y => (potential_bounds C Q X d₀ hC ψ b y).1) hrow φ a x R⟩
 
-/-- `l:prefix-domination`: exact short ordering, surviving prefixes and dominated suffixes. -/
+/-- `l:prefix-domination`: exact short ordering, surviving prefixes, and dominated suffixes. -/
 theorem prefixDomination_of_nodes (hPhase : Top.PhaseExpansionStatement)
     (hDomination : Top.StationaryDominationStatement) (hGlobal : Top.StationaryLocalGlobalStatement)
     (hPrefix : LongTrailPrefixStatement) (hRegroup : LongRowRegroupingStatement) :

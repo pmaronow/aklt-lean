@@ -28,7 +28,7 @@ namespace AKLT.Vendor.QICLean
 /-!
 # Closeness of subspaces
 
-Arad, Landau, Vazirani and Vidick, *Rigorous RG algorithms and area laws for low energy
+Arad, Landau, Vazirani, and Vidick, *Rigorous RG algorithms and area laws for low energy
 eigenstates in 1D* (arXiv:1602.08828v2, `local_alg_arxiv_v2.tex`, Section `s:vs`), measure how
 well a subspace approximates another through projections. A subspace `T` is `δ`-close to `T'`
 when `P_{T'} P_T P_{T'} ≥ (1 - δ) P_{T'}` (Definition `d:close`, lines 469–474); a subspace `S`
@@ -65,14 +65,14 @@ variable {𝕜 E : Type*} [RCLike 𝕜] [NormedAddCommGroup E] [InnerProductSpac
   [FiniteDimensional 𝕜 E]
 
 /-- The subspace `T` is `δ`-close to `T'`: `P_{T'} P_T P_{T'} ≥ (1 - δ) P_{T'}` in the Loewner
-order. Arad, Landau, Vazirani and Vidick, arXiv:1602.08828v2, Definition `d:close`
+order. Arad, Landau, Vazirani, and Vidick, arXiv:1602.08828v2, Definition `d:close`
 (lines 469–474). For `T = S ⊗ H_B` this is `δ`-viability of `S` for `T'` (Definition `d:vs`,
 lines 433–440). -/
 def IsCloseTo (δ : ℝ) (T T' : Submodule 𝕜 E) : Prop :=
   ((1 - δ : ℝ) : 𝕜) • T'.starProjection ≤ T'.starProjection * T.starProjection * T'.starProjection
 
 /-- **Closeness as a statement about vectors.** `T` is `δ`-close to `T'` exactly when every
-`t ∈ T'` satisfies `(1 - δ) ‖t‖² ≤ ‖P_T t‖²`. Arad, Landau, Vazirani and Vidick,
+`t ∈ T'` satisfies `(1 - δ) ‖t‖² ≤ ‖P_T t‖²`. Arad, Landau, Vazirani, and Vidick,
 arXiv:1602.08828v2, the reformulation at the start of the proof of Lemma `l:close` (line 488). -/
 theorem isCloseTo_iff {δ : ℝ} {T T' : Submodule 𝕜 E} :
     IsCloseTo δ T T' ↔ ∀ t ∈ T', (1 - δ) * ‖t‖ ^ 2 ≤ ‖T.starProjection t‖ ^ 2 := by
@@ -167,7 +167,7 @@ theorem IsCloseTo.exists_mem_starProjection_eq_and_norm_sq_le
 
 /-- **Lemma `l:2`.** If `S` is `δ`-close to `T` with `δ < 1`, then every `t ∈ T` is the
 projection `P_T s` of some `s ∈ S` with `‖s‖ ≤ ‖t‖ / (1 - δ)`. For `S ⊗ H_B` in place of `S`
-this is Lemma `l:2` of Arad, Landau, Vazirani and Vidick, arXiv:1602.08828v2 (lines 449–465):
+this is Lemma `l:2` of Arad, Landau, Vazirani, and Vidick, arXiv:1602.08828v2 (lines 449–465):
 every unit `t` of `T` is `P_T s` with `s ∈ S ⊗ H_B` and `‖s‖ ≤ 1 / (1 - δ)`. -/
 theorem IsCloseTo.exists_mem_starProjection_eq {δ : ℝ} {S T : Submodule 𝕜 E}
     (h : IsCloseTo δ S T) (hδ : δ < 1) {t : E} (ht : t ∈ T) :

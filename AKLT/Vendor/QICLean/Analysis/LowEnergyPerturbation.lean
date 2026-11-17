@@ -33,13 +33,13 @@ and let `T(c)` and `T'(c)` be the spans of the basis vectors with eigenvalue at 
 Suppose `H` and `H'` differ by at most `ξ` on `T(c)`: `‖(H - H') φ‖ ≤ ξ ‖φ‖` for `φ ∈ T(c)`,
 and the eigenvalues of `H` in `T(c)` lie in `[m, c]` with `m < c`. Cover `[m, c]` from the top
 by `N = ⌈(c - m) / (2 h)⌉` closed windows of width `2 h`, with centers `c - h - 2 h w`. On a
-window centerd at `μ` a vector `ψ` satisfies `‖(H' - μ) ψ‖ ≤ (ξ + h) ‖ψ‖`, so by Markov's
+window centered at `μ` a vector `ψ` satisfies `‖(H' - μ) ψ‖ ≤ (ξ + h) ‖ψ‖`, so by Markov's
 inequality its mass on the eigenvalues of `H'` above `c' ≥ c` is at most
 `(ξ + h) / (c' - c + h)` times its norm. Summing over the windows with the Cauchy–Schwarz
 inequality, `T'(c')` is `δ`-close to `T(c)` as soon as `N (ξ + h) ^ 2 ≤ δ (c' - c + h) ^ 2`.
 
 This is the quantitative closeness step in the proof of the second item of Lemma
-`lem:hard-trunc` of Arad, Landau, Vazirani and Vidick (arXiv:1602.08828v2,
+`lem:hard-trunc` of Arad, Landau, Vazirani, and Vidick (arXiv:1602.08828v2,
 `local_alg_arxiv_v2.tex`, lines 955–968), with the perturbation bound of Proposition
 `prop:truncation` (lines 894–921) as a hypothesis.
 

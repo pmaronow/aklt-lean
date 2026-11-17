@@ -193,7 +193,7 @@ theorem responseProperty_of_inputsV2 (hInputs : Top.InputsStatementV2)
   exact ⟨Top.renewalAmplitude 10 (certifiedRate : ℝ) ρ, θ, hP⟩
 
 /-- A checked connection to the repaired headline assembly. BP_REC supplies
-RecStatement; the archive-bound input package, windows, MainW and uniqueness
+RecStatement; the archive-bound input package, windows, MainW, and uniqueness
 remain closed inputs owned by their respective lanes. -/
 theorem mainV2_of_blueprintV2 (hInputs : Top.InputsStatementV2)
     (h : AssemblyLeavesV2) (hCut : Top.CutMOSStatement)

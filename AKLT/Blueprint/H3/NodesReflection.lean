@@ -24,7 +24,7 @@ def ReflectionGeometryStatement : Prop :=
       wordRevisit kernelStart w i = wordRevisit kernelStart (reflectWord w) i
 
 /-- `l:kernel-reflection`, lines 1045–1052: reflection bijects the finite live-pair sets.
-Transport neighbors, erases, dead predicates and powersetCard through the lattice involution. -/
+Transport neighbors, erases, dead predicates, and powersetCard through the lattice involution. -/
 def ReflectionLivePairsStatement : Prop :=
   ∀ n : ℕ, ∀ w : DirectionWord n, ∀ i : Fin n,
     (responsePairs w i).image (fun p => p.image reflectSite) = responsePairs (reflectWord w) i
@@ -39,7 +39,7 @@ def ReflectionPairLabelsStatement : Prop :=
     pairShift .B p = pairShift .B (p.image reflectSite)
 
 /-- Derived node for `l:kernel-reflection`, lines 1045–1059: the live response-pair bijection, exact
-coefficients, types and ambient shifts. Image under an involution preserves cardinalities;
+coefficients, types, and ambient shifts. Image under an involution preserves cardinalities;
 reflection is an l1 isometry and fixes both B endpoints. No C-row shift claim is made. -/
 def ReflectionPairsStatement : Prop :=
   ∀ n : ℕ, ∀ w : DirectionWord n, ∀ i : Fin n,
@@ -50,7 +50,7 @@ def ReflectionPairsStatement : Prop :=
       pairShift .B p = pairShift .B (p.image reflectSite)
 
 /-- `l:kernel-reflection`, lines 1060–1065: the ordering keys and tie breakers are
-unchanged once straightness, revisits and h-rewards agree pointwise. This finite-list
+unchanged once straightness, revisits, and h-rewards agree pointwise. This finite-list
 congruence is separate from lattice geometry and also applies to non-trails. -/
 def ReflectionOrderingAlgebraStatement : Prop :=
   ∀ n : ℕ, ∀ w : DirectionWord n,

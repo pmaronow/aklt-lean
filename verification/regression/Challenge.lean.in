@@ -514,7 +514,7 @@ def singlet {L N : Size} (e : Bond L N) : SpinorPolynomial L N :=
   MvPolynomial.X (e.1, 0) * MvPolynomial.X (y, 1) -
     MvPolynomial.X (e.1, 1) * MvPolynomial.X (y, 0)
 
-/-- The unnormalised VBS polynomial ∏_e q_e, exactly (`d:model`, `sec1-result.tex`).
+/-- The unnormalized VBS polynomial ∏_e q_e, exactly (`d:model`, `sec1-result.tex`).
 There are four incident bonds per site, hence degree four at every site. -/
 def vbsPolynomial (L N : Size) : SpinorPolynomial L N :=
   ∏ e : Bond L N, singlet e

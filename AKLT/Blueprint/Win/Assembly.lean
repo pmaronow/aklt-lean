@@ -162,7 +162,7 @@ structure CutGeometryResult (a y : Plane) (u : ℕ) (i : ℤ) : Prop where
       5 * θ⁻¹ * ∑ x ∈ cutRaw a y u i, decay θ (boundaryDepth (cutVolume a y u i) x)
 
 /-- `l:cutgeom` and `l:Xconn`, sec5-window.tex:382–691. Compose depth,
-layer counts, signed-side exclusion, boundary topology and thickening. -/
+layer counts, signed-side exclusion, boundary topology, and thickening. -/
 theorem cutGeometry_of_leaves (h : WindowLeaves) :
     ∀ a y : Plane, ∀ u : ℕ, ∀ i : ℤ, CutSetup a y u i → CutGeometryResult a y u i := by
   classical

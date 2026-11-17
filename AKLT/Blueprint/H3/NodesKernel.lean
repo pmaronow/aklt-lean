@@ -27,7 +27,7 @@ def LengthShiftSupportStatement : Prop :=
 
 /-- `h:H3`, PLAN.md:2146–2164, and `d:kernel`.
 Regroup each finite live-pair sum by its actual type and exact shift, then use linearity
-of exposureSum in its reward. Commute the finite word, type and shift sums. No analytic
+of exposureSum in its reward. Commute the finite word, type, and shift sums. No analytic
 convergence statement is needed at one fixed length. -/
 def LengthRewardPartitionStatement : Prop :=
   ∀ X : PairType, ∀ n : ℕ,

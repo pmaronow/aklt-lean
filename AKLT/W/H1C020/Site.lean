@@ -8,7 +8,7 @@ set_option backward.proofsInPublic true
 
 /-!
 The uncontracted local tensor at one ring position.  It factors as a left
-edge factor, a site factor (center edge and group slots) and a right edge
+edge factor, a site factor (center edge and group slots), and a right edge
 factor.  Contracting its single internal spin gives exactly `rationalLocal`.
 -/
 

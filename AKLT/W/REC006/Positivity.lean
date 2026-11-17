@@ -61,7 +61,7 @@ theorem ico_monomial_nonneg (m : Fin 3 → ℕ) :
   · simpa [icoVector, Fin.prod_univ_three, mul_comm, mul_left_comm, mul_assoc] using
       two_sign_moment_nonneg (m 1) (m 2) (m 0)
 
-/-- U, D and even the omitted X law have nonnegative monomial functionals. -/
+/-- U, D, and even the omitted X law have nonnegative monomial functionals. -/
 theorem site_monomial_nonneg (s : Status) (m : Fin 3 → ℕ) :
     0 ≤ siteFunctional s (fun v => ∏ i, v i ^ m i) := by
   have h0 : 0 ≤ ∏ i : Fin 3, (0 : Vec3) i ^ m i :=

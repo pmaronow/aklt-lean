@@ -10,7 +10,7 @@ open scoped BigOperators ENNReal
 
 namespace AKLT.Defs
 
-/-- `d:kernel`: the fixed start, center, target and incoming direction of each row. -/
+/-- `d:kernel`: the fixed start, center, target, and incoming direction of each row. -/
 def kernelStart : Plane := (-1, 0)
 def kernelCentre : Plane := (0, 0)
 def kernelTarget : PairType → Plane | .B => (1, 0) | .C => (0, 1)

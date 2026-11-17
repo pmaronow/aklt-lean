@@ -91,7 +91,7 @@ def BlockComparisonStatement : Prop :=
     (∀ a σ, PoincareLower (blockLaw p (B a) σ) g) → BlockGap p B c →
       PoincareLower p (c*g/t)
 
-/-- Assembled t:periodic, retaining both the unnormalised block gap and the
+/-- Assembled t:periodic, retaining both the unnormalized block gap and the
 single-site gap. The strict contraction premise appears exactly as in the paper. -/
 def PeriodicCriterionStatement : Prop :=
   ∀ (L N : Size) (S : Site L N → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]

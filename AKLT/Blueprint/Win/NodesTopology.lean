@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.Blueprint.Win
 
-/-- `d:shells`, sec5-window.tex:423–425; app-topology.tex:4–8. Expand natAbs coordinate distances; omega proves comparison, positivity, symmetry and the nearest-neighbor implication. -/
+/-- `d:shells`, sec5-window.tex:423–425; app-topology.tex:4–8. Expand natAbs coordinate distances; omega proves comparison, positivity, symmetry, and the nearest-neighbor implication. -/
 def MetricFactsStatement : Prop :=
   (∀ x y : Plane, supDist x y ≤ latticeDist x y) ∧
     (∀ x y : Plane, Adjacent x y → StarAdjacent x y) ∧
