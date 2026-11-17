@@ -43,8 +43,9 @@ python3 scripts/check_tool_compatibility.py --baseline 42b16c3
 
 The compatibility comparison needs the named Git revision. It never executes an
 old or new certificate command. `moved-references.tsv` preserves the earlier
-root-record relocation map. `placeholders.json` lists the unfilled final-result
-fields. `absolute-paths.tsv.gz` inventories retained absolute literals, including
+root-record relocation map. `placeholders.json` lists the result
+fields that were unfilled when these checks ran; the root VERIFICATION.md now
+records them. The baseline commit named here resolves on the `development` branch. `absolute-paths.tsv.gz` inventories retained absolute literals, including
 verbatim historical reports; its JSON companion gives counts. Operational
 scripts and working instructions contain no fixed user-specific path. See
 `docs/PORTABILITY.md` from the repository root for current defaults and overrides.

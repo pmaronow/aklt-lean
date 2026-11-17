@@ -1,7 +1,7 @@
 # Mathematical correspondence
 
 Paper paths below are relative to `manuscript/`, the unedited snapshot at commit
-`241c2d870e89e8ff857991fbadf28ba6df833783`. The selected theorem is
+`9806e35e3bb87b469fc16077a31617121c776c5d`. The selected theorem is
 `AKLTPalomar.aklt_gap : AKLTPalomar.Main`, with no premises. `main_iff` is Iff.rfl
 on the library alias, and `CertData.Close.main` supplies its proof. H1 and H3
 certificate sources are part of that proof closure. Build and checker claims

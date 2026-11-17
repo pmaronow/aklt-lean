@@ -38,7 +38,7 @@ dependency edge, or numeric-data key changes in this tooling update.
 
 The numeric route is the release build route. Unused source-conversion,
 prerequisite, progress-report, and merge helpers are excluded. The commands,
-input pins, reference per-kind measurements, resource settings, receipt contents,
+input pins, per-kind measurements, resource settings, receipt contents,
 and closing contracts are documented in [H1.md](H1.md).
 
 Coverage-frontier checks used 26–28% more CPU than the corresponding
@@ -47,6 +47,4 @@ kernel type checking versus 61.3 seconds. Loading private bodies did not help
 (92.17 CPU-seconds), nor did default private-proof elaboration (88.01 seconds),
 compared with 85.11 seconds for the profiled control. Inputs, arithmetic, and
 check expressions were fixed. This measured cost does not change correctness.
-Final combined-tree measurements use `TBD-H1-CPU-HOURS`, `TBD-H1-WALL`,
-`TBD-H1-PROCESS-MEMORY`, `TBD-H1-AGGREGATE-MEMORY`, and `TBD-H1-RECEIPT` as
-recorded in `VERIFICATION.md`.
+The final build's measurements are recorded in `VERIFICATION.md` and [H1.md](H1.md).

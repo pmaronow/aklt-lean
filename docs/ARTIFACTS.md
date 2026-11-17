@@ -1,8 +1,8 @@
 # Release artifacts and numeric inputs
 
-Release tag: **TBD-RELEASE-TAG**. Download the numeric input archives, generated-source
-archives, and receipt bundles attached to that release of this repository. Extract
-numeric inputs as `data/h1/` and `data/h3/` under the repository, or pass their common
+Release tag: `v1.0`. Download the numeric inputs, generated-source archives, and
+receipts attached to that release of this repository. Place the numeric inputs in
+`data/h1/` and `data/h3/` under the repository, or pass their common
 parent with `--input-dir`. These archives are excluded from Git. Generated Lean
 sources are proof inputs, not trusted compiled objects; the Lean kernel checks
 their proofs during compilation.
@@ -52,9 +52,39 @@ sixteen chunks above; the auxiliary files do not enter that regeneration route.
 | H1 | 7,964 | `H1-module-sources.tar.gz` | 25,987,925 | `a27c7dc50ccf88bf53ddeb1d739764eebe623c763bc31ec3f34fd521af9c543f` |
 | H3 | 5,032 | `H3-modules.tar.gz` | 4,168,219,365 | `4eab44fec523c00dc6f6c620eb74d25b47077c67b67c23da582440fa0710f60f` |
 
-These are the pinned source-only archives. **TBD-RELEASE-ARCHIVE-PINS**:
-confirm the published archives retain these exact bytes; otherwise record the
-published names, sizes, and hashes here. No `.olean` is part of these archives.
+These are source-only archives; no `.olean` is part of them. Their files match the
+generated sources of the final build one by one (`archives/archive-match.json` in the
+receipts). A release asset is limited to 2 GiB, so the H3 archive is attached in
+three parts that concatenate to the file pinned above.
+
+## Release assets
+
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| `h1-inputs.tar` (`h1/index.json` and `h1/chunks/`) | 12,359,680 | `9b5b980e7ab0866abe5fdaeaf6c6f18ab2e38e4af3c70806dd9df717c039d3ff` |
+| The six H3 input files | as in the table above | as in the table above |
+| `H1-module-sources.tar.gz` | 25,987,925 | `a27c7dc50ccf88bf53ddeb1d739764eebe623c763bc31ec3f34fd521af9c543f` |
+| `H3-modules.tar.gz.part00` | 1,992,294,400 | `43e0f3ae41b15f67bbed5fcc121821c687c06ea45d5f23c2661dc15898827d6f` |
+| `H3-modules.tar.gz.part01` | 1,992,294,400 | `941e6749675f3152afba1bfa62469717df5a90077989085a8bcd5da6a13ec60d` |
+| `H3-modules.tar.gz.part02` | 183,630,565 | `a64ac3e5502d1da8e830183e738a102d88e574330adc1c33c1cf68fe6c9d9580` |
+| `verification-receipts.tar.zst` | 238,109,642 | `ee9c72ff2c39cc304b12eed79af25191a1b114c30b94ff878ba53957fce4f667` |
+| `SHA256SUMS` | | covers every asset above |
+
+From the repository root, with the GitHub CLI:
+
+```sh
+mkdir -p data/release data/h3
+gh release download v1.0 --dir data/release
+(cd data/release && sha256sum -c SHA256SUMS)
+tar -xf data/release/h1-inputs.tar -C data
+mv data/release/stationary_*_coarse.bin.gz data/release/windows_m10_min.txt data/h3/
+cat data/release/H3-modules.tar.gz.part00 data/release/H3-modules.tar.gz.part01 \
+  data/release/H3-modules.tar.gz.part02 > data/H3-modules.tar.gz
+mv data/release/H1-module-sources.tar.gz data/
+```
+
+The numeric inputs alone suffice for the from-scratch route; the source archives
+skip generation.
 
 Install each archive into a checkout with no generated sources:
 
@@ -81,6 +111,9 @@ are [H1 changes](regeneration/H1-CHANGES.md) and
 `docs/REGEN-INTERFACE.md`; machine-readable interfaces remain under
 `verification/regen-interface/`.
 
-The release assets include runner manifests, input pins, source hashes, compiled
-artifact hashes, per-module timing and axiom logs, and closing receipts.
-`VERIFICATION.md` identifies the combined Lean source digest and final results.
+`verification-receipts.tar.zst` is the complete report directory of the final build:
+runner manifests, input pins, source hashes, compiled artifact hashes, per-module
+timing and axiom logs, closing receipts, the source, header, and statement checks,
+and the independent-kernel replay of the two-input reduction. The compact subset is
+tracked in `verification/final/`. `VERIFICATION.md` identifies the Lean source digest
+and the final results.

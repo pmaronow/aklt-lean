@@ -1,0 +1,78 @@
+{
+  "stage": "strict-audit",
+  "started_utc": "2026-11-17T17:04:10.766233+00:00",
+  "command": [
+    "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/lake",
+    "env",
+    "lean",
+    "-j1",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DwarningAsError=true",
+    "Regression/Audit.lean"
+  ],
+  "cwd": "/home/ubuntu/aklt/regr",
+  "exit_code": 0,
+  "wall_s": 3.5381540099915583,
+  "user_s": 2.468315,
+  "system_s": 1.093214,
+  "cpu_s": 3.561529,
+  "sampled_tree_cpu_s": 3.29,
+  "peak_tree_rss_bytes": 4840538112,
+  "peak_single_rss_bytes": 3984412672,
+  "peak_tree_vms_bytes": 18029875200,
+  "peak_threads": 9,
+  "peak_processes": 2,
+  "peak_lean_processes": 1,
+  "affinity_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "timeout_s": 0.0,
+  "limit": null,
+  "rss_cap_gb": 285.0,
+  "virtual_address_limit_per_process_bytes": 257698037760,
+  "cgroup": {
+    "authenticated_palomar_telemetry": false,
+    "path": "/sys/fs/cgroup/user.slice/user-1000.slice/session-1228.scope",
+    "limits": {
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "memory.swap.max": "max"
+    },
+    "cpu.stat": "usage_usec 1840228936066\nuser_usec 1785899796765\nsystem_usec 54329139300\nnice_usec 478383275688\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "memory.peak": "313043365888",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  },
+  "memory_note": "Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.",
+  "wait4_cpu_s": 3.561529,
+  "cpu_method": "wait4 cumulative",
+  "cgroup_before": {
+    "authenticated_palomar_telemetry": false,
+    "path": "/sys/fs/cgroup/user.slice/user-1000.slice/session-1228.scope",
+    "limits": {
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "memory.swap.max": "max"
+    },
+    "cpu.stat": "usage_usec 1840182885845\nuser_usec 1785854843308\nsystem_usec 54328042537\nnice_usec 478340833503\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "memory.peak": "313043365888",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  }
+}

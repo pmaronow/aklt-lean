@@ -56,7 +56,7 @@ the two-input reduction, and `RegenSamples/` exercises cross-module computation.
 `scripts/` contains verification tools; `verification/` contains machine-readable
 inventories and records; `docs/` contains explanatory and regeneration notes.
 `manuscript/` is the unedited paper at commit
-`241c2d870e89e8ff857991fbadf28ba6df833783`.
+`9806e35e3bb87b469fc16077a31617121c776c5d`.
 
 Use the pinned Lean toolchain and Mathlib revision in `lean-toolchain` and
 `lake-manifest.json`. Fetch their prebuilt cache; do not update dependencies.
@@ -70,7 +70,7 @@ lake build Handwritten Challenge Regression.Solution Regression.Audit AuditHandw
 ```
 
 The generated libraries contain 7,964 H1 modules and 5,032 H3 modules.
-Reference kernel checks used about 155 CPU-hours for H1 and 23 CPU-hours for H3.
+The final kernel checks used about 152 CPU-hours for H1 and 23 CPU-hours for H3.
 The runners admit independent
 compilations according to dependency and memory limits, compile each module in
 a fresh Lean process, and record hashes, timings, and theorem axiom sets.
@@ -93,7 +93,7 @@ a new report directory outside it, and the official verifier checkout:
 ```sh
 git clone <repository-url> aklt
 cd aklt
-git checkout <release-commit>
+git checkout v1.0
 export PATH="$HOME/.elan/bin:$PATH"
 export PALOMAR_VERIFIER=/path/to/PalomarSubmission
 bash scripts/cold-verify.sh \
@@ -127,10 +127,11 @@ kernel results, and source digest.
 
 ## Release inputs
 
-Release tag: **TBD-RELEASE-TAG**. Numeric inputs and generated-source archives
-are attached to that release of this repository and are excluded from Git.
-Extract the numeric inputs into `data/h1/` and `data/h3/`, or select a common parent
-with `--input-dir`. H1 uses an index and sixteen compressed integer-witness chunks;
+Release tag: `v1.0`. Numeric inputs, generated-source archives, and the complete
+receipts are attached to that release of this repository and are excluded from Git.
+`h1-inputs.tar` unpacks to `h1/`; the six H3 files are attached individually.
+Place them in `data/h1/` and `data/h3/`, or select a common parent
+with `--input-dir`; the [artifact guide](docs/ARTIFACTS.md) gives the commands. H1 uses an index and sixteen compressed integer-witness chunks;
 H3 uses five stationary arrays and a finite-window quotient table. The exact
 names, sizes in bytes, and SHA-256 pins are:
 

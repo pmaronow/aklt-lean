@@ -18,7 +18,7 @@ From the release root, with its hand-written module-system dependencies built:
 
 ```sh
 export PATH="$HOME/.elan/bin:$PATH"
-export H3_INPUT_DIR="$PWD/data/H3"
+export H3_INPUT_DIR="$PWD/data/h3"
 export H3_REPORT_DIR="$(dirname "$PWD")/aklt-verification/H3"
 python3 AKLT/Cert/H3/regen.py generate
 python3 AKLT/Cert/H3/regen.py build --jobs 16 --ram-gb 160

@@ -1,7 +1,7 @@
 # Independent-kernel scope and feasibility
 
-The full `Regression.Solution` export was accepted by Lean's fresh replay,
-NanoDa, and verified con-ron. The physical Challenge definitions were also
+The full `Regression.Solution` export of the final sources was accepted by Lean's
+fresh replay, NanoDa, and verified con-ron. The physical Challenge definitions were also
 compared with the library definitions by Lean and NanoDa, including an altered
 spinZ negative control. These are distinct checks. Neither is an independent
 replay of the unconditional proof with both generated certificate libraries.
@@ -35,5 +35,4 @@ results into unconditional independent acceptance.
 The verbatim study report is preserved as
 `verification/feasibility/REL_FEAS.md.gz`, with its uncompressed SHA-256 in
 `verification/feasibility/manifest.json`. Its paths are historical diagnostics,
-not dependencies of the release commands. No measurements were repeated for
-this layout task.
+not dependencies of the release commands.
