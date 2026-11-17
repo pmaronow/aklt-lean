@@ -247,7 +247,7 @@ theorem mainW_of_core
 
 #print axioms mainW_of_core
 
-/-- Complete assembly from writer-sized closed leaves and the paper's independent
+/-- Complete assembly from closed leaves and the paper's independent
 Top inputs. No hypothesis here is a local free-standing assertion about one torus. -/
 theorem mainW_of_parts (hFinite : FiniteAssemblyLeaves) (hShell : ShellAssemblyLeaves)
     (hLocal : PeriodicAssemblyLeaves) (hGeometry : ShellGeometryStatement)

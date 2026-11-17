@@ -106,7 +106,7 @@ theorem minWitness_pos [Nonempty I] (h : I → ℝ) (hh : ∀ i, 0 < h i) :
     0 < minWitness h := by
   exact (Finset.lt_inf'_iff _).2 fun i _ => hh i
 
-/-- The exact `max h / min h` form used in the campaign's one-step lemma. -/
+/-- The exact `max h / min h` form used in the one-step lemma. -/
 theorem positive_vector_growth [Nonempty I] (M : I → I → ℝ) (A : ℕ → I → ℝ)
     (h : I → ℝ) (q : ℝ) (hq : 0 ≤ q) (hA : ∀ n i, 0 ≤ A n i)
     (hh : ∀ i, 0 < h i)

@@ -15,7 +15,7 @@ set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
 /-! Closing assembly. Each argument is one closed leaf or certificate contract.
-The active leaf list is the campaign map; replaced legacy leaves are absent.
+Only the active leaves occur; replaced legacy leaves are absent.
 The H1 V2 certificate is split into its soundness and finite-data conjuncts,
 so the mapped finite-data obligation occurs exactly once. -/
 

@@ -39,8 +39,8 @@ set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
 /-! Closing assembly for the two H1 certificate contracts on main.
-The numerical proofs are imported from the retained production artifacts.
-All mathematical leaves below are supplied by merged writer theorems. -/
+The numerical proofs are imported from freshly checked module-system certificates.
+All mathematical leaves below are supplied by the proved leaf theorems `AKLT.W.*.main`. -/
 
 namespace CertData.H1.Close
 open AKLT.Cert.H1.Production

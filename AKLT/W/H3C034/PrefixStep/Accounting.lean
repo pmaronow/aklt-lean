@@ -1,6 +1,6 @@
 module
 /- Reuse of the registered PrefixStepLeaf proof AKLT.W.H3C031.main.
-   Source: /home/ubuntu/aklt/wt/LW_H3C031/AKLT/W/H3C031/Accounting.lean
+   Source: AKLT/W/H3C031/Accounting.lean
    Only the module import and namespace are relocated into H3C034. -/
 public import CertData.H3.Bridge.Interface
 public import AKLT.Cert.H2.Words

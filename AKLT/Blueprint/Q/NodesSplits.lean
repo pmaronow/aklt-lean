@@ -7,7 +7,7 @@ set_option backward.proofsInPublic true
 
 /-! A second split of the representation, prime, degree, and tensor-transport
 bridges. The larger propositions in NodesPolynomial/NodesStar become proved
-intermediate assembly results, and are not open writer assignments. -/
+intermediate assembly results, and are not open obligations. -/
 
 noncomputable section
 open scoped BigOperators

@@ -187,14 +187,14 @@ def FiniteAssemblyLeaves : Prop :=
   BlockAverageFormStatement ∧ LipschitzCouplingStatement ∧ LipschitzEigenvalueStatement ∧
   ReversibleEigenvalueGapStatement ∧ ConditionalBlockComparisonStatement ∧ MultiplicityEstimateStatement
 
-/-- Minimal shell and scale inputs, each a closed writer obligation. -/
+/-- Minimal shell and scale inputs, each a closed obligation. -/
 def ShellAssemblyLeaves : Prop :=
   ShellRowStatement ∧ TraceMarginalsStatement ∧ TrialCountStatement ∧ ShellAbsorptionStatement ∧
   FiniteTrialFailureStatement ∧ TraceDisagreementStatement ∧ ThresholdSpacingStatement ∧
   ScaleGeometryStatement ∧ BinomialTailStatement ∧ HammingCardinalityStatement ∧ HammingBudgetStatement ∧
   StoppedHammingConversionStatement ∧ FarBoundaryEqualityStatement ∧ ScaleExistenceStatement
 
-/-- Minimal periodic counting and local gauge inputs, each a closed writer obligation. -/
+/-- Minimal periodic counting and local gauge inputs, each a closed obligation. -/
 def PeriodicAssemblyLeaves : Prop :=
   ContainingBlockCountStatement ∧ ExteriorBlockCountStatement ∧ BlockVolumeBoundStatement ∧
   PeriodicNeighborCouplingStatement ∧ FrameSpecRegularityStatement ∧ FrameSpecEnergyStatement ∧

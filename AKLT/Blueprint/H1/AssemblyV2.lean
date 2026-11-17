@@ -148,8 +148,8 @@ theorem inputs_of_shared_partsV2 : Top.CertificateStatementV2 → OtherInputPart
   exact ⟨⟨h1_of_shared_certificateV2 hCertificate, hH2, hH3, hRate, hCeiling⟩,
     hCertificate.2, hAutomaton, hStationary⟩
 
-/-- Optional orchestrator bridge to the repaired top assembly; every other
-lane's mathematical input stays explicit and no numeric dataset is certified. -/
+/-- Optional bridge to the corrected top assembly; every other
+part's mathematical input stays explicit and no numeric dataset is certified. -/
 theorem main_of_shared_partsV2 : Top.CertificateStatementV2 → OtherInputPartsV2 →
     Top.RecStatement → Top.CutMOSStatement → Top.MainWStatement → Top.TorusKernelStatement →
     AKLT.Challenge.MainStatementV2 := by

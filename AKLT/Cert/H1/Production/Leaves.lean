@@ -65,7 +65,7 @@ def signedPacking : Prop := ∀ width n : Nat, 0 < width → ∀ f : Fin n → I
   ∀ i : Fin n, signedDigit ((∑ j : Fin n, f j * ((2 : Nat)^(width*j.val) : Int)) +
     signedBias width n) width i = f i
 
-/-- A small decoder-composition writer uses the preceding expansion, bound,
+/-- A small decoder-composition leaf uses the preceding expansion, bound,
 and signed-digit leaves, rather than reproving the network. -/
 def packingDecode : Prop := sectorPackingExpansion → sectorCoefficientBound → signedPacking →
   ∀ c : Case, c.MetadataAccepted → ∀ b : Bundle, b.LayoutAccepted c →
