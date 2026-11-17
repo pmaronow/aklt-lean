@@ -1,0 +1,75 @@
+# Metadata skeleton: replace every TODO before release.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
+version: v0.4
+project:
+  name: The square-lattice spin-2 AKLT gap from two explicit inputs
+  description: >-
+    Formalizes the deterministic reduction from the paper's pointwise local
+    partition inequality (H1), at 961/1000 and 187/200, and its all-cutoff
+    positive-vector kernel bound (H3_h), to nonvanishing and uniqueness of the
+    VBS ground state on every torus with periods at least three and a uniform
+    positive spectral gap for all sufficiently large periods of either parity.
+    The open-trail input (H2) is proved internally. H1 and H3_h are explicit
+    premises; their finite certificate verification belongs to a separate
+    companion artifact and is outside this submission's certified claims.
+  authors:
+    - 'TODO: formalization author name'
+  responsible_maintainers:
+    - 'TODO: responsible maintainer name'
+  license: 'TODO: SPDX identifier matching the release LICENSE'
+classification:
+  arxiv:
+    - math-ph
+    - math.PR
+  msc2020:
+    - 82B10
+sources:
+  - title: The spectral gap of the spin-2 AKLT model on the square lattice
+    authors:
+      - 'TODO: manuscript author names'
+    type: paper
+    relationship: formalizes
+    location: >-
+      Companion manuscript-v2: sec1-result.tex, t:main;
+      sec6-walks.tex, h:H1; sec7-recursion.tex, h:H3;
+      sec8-inputs.tex, t:H1 and t:inputs.
+    note: >-
+      The advertised claim is the implication from H1 and H3_h, with H2
+      discharged internally. See FIDELITY.md for exact source lines and
+      the clause-by-clause correspondence. TODO: immutable public source URL.
+  - title: AKLT finite certificate companion artifact
+    authors:
+      - 'TODO: companion artifact authors'
+    type: formalization
+    relationship: background
+    location: >-
+      AKLT/Cert/H1, AKLT/Cert/H3, CertData, AKLT/W/H1C*, AKLT/W/H3C*,
+      and the H1M/H3M semantic assemblies in the companion development.
+    note: >-
+      Supplies the separate verification routes for the two explicit premises.
+      These source layers are absent from the Solution import closure.
+      TODO: public companion URL, immutable commit, artifact manifest, and receipts.
+automation:
+  methods:
+    - method: agent
+      models:
+        - GPT-6
+      framework: OpenAI Codex
+      tool_setup: >-
+        Lean 4.35.0-rc2, pinned Mathlib, source import inventory, axiom prints,
+        and the toolchain Comparator. This package architecture was prepared
+        by a single agent without delegated proof work.
+      notes: 'TODO: add accurate provenance for the underlying proof development.'
+review:
+  status: independent mathematical review pending
+  notes: >-
+    FIDELITY.md is prepared for independent review. Local diagnostics do not
+    establish a clean production build or Palomar acceptance.
+limitations:
+  - H1 and H3_h remain explicit premises; neither is proved by this package.
+  - The package certifies the analytic and algebraic reduction, including H2.
+  - The two premises are semantic statements with universal quantifiers, obtained
+    by the companion artifact from finite certificate assertions.
+  - This directory is a skeleton until the listed source closure is copied and
+    ported, metadata TODOs and the root license are completed, and clean verification
+    succeeds. Cached local checks are not production resource evidence.
