@@ -28,7 +28,7 @@ def ThreeFactorizationStatement : Prop :=
       (traceStep a.D a.y a.o).partition a.τ b (fun _ => 1) =
         (removeSite a.D a.y).partition a.τ b (fun _ => 1) * responseJ a.D a.τ b a.y f g
 
-/-- `d:ratios`, §6 lines 272–280. Two neighbours give I₂ and post-step scalar one. -/
+/-- `d:ratios`, §6 lines 272–280. Two neighbors give I₂ and post-step scalar one. -/
 def TwoFactorizationStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
     a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f → ∀ b : Bool,
@@ -38,7 +38,7 @@ def TwoFactorizationStatement : Prop :=
         (removeSite a.D a.y).partition a.τ b (fun _ => 1)
 
 /-- `l:response`, §6 lines 339–364. Condition on every other spin. Distinct
-neighbours are nonadjacent, unpinned, and have at most three remaining factors.
+neighbors are nonadjacent, unpinned, and have at most three remaining factors.
 Use the three-factor mean bound; do not assert arbitrary-function covariance. -/
 def RemovedMeanIntervalsStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f g : Plane,
@@ -51,7 +51,7 @@ def RemovedMeanIntervalsStatement : Prop :=
     1 ≤ responseJ a.D a.τ false a.y f g ∧
     responseJ a.D a.τ false a.y f g ≤ responseI a.D a.τ false a.y a.o f g
 
-/-- `l:response`, §6 lines 393–408. The analogous two-neighbour fibre estimate. -/
+/-- `l:response`, §6 lines 393–408. The analogous two-neighbor fiber estimate. -/
 def TwoMeanIntervalsStatement : Prop :=
   ∀ a : Departure, a.D.status a.y = .U → ∀ f : Plane,
     a.D.presentNeighbours a.y = {a.o, f} → a.o ≠ f →
@@ -95,7 +95,7 @@ def FreeRatioUpperStatement : Prop :=
   ∀ a : Departure, stepRatio a.D a.τ false a.y a.o ≤ 1
 
 /-- `l:response`, §6 lines 421–431. Pointwise I≥1/2 and J≤6/5 for three
-neighbours; the two- and one-neighbour cases are smaller. -/
+neighbors; the two- and one-neighbor cases are smaller. -/
 def PinnedRatioUpperStatement : Prop :=
   ∀ a : Departure, stepRatio a.D a.τ true a.y a.o ≤ 12 / 5
 

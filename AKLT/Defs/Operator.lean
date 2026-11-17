@@ -59,7 +59,7 @@ def reductionVectors (π : PatternData) (r : Representation) : Finset (Fin 20) :
 def replacementRadius (π : PatternData) (x : Plane) : ℚ :=
   if x ∈ templateTips then 3 / 5 else if π.statusAt x = .U then 1 / 2 else 1 / 3
 
-/-- The unique internal neighbour of a singly bonded leaf, with a harmless totalization. -/
+/-- The unique internal neighbor of a singly bonded leaf, with a harmless totalization. -/
 def leafNeighbour (π : PatternData) (x : Plane) : Plane :=
   ((π.bonds.toList.filterMap fun e =>
     if e.1 = x then some e.2 else if e.2 = x then some e.1 else none).headD (0, 0))

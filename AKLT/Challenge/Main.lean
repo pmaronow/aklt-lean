@@ -8,8 +8,8 @@ set_option backward.proofsInPublic true
 /-!
 # The square-lattice spin-2 AKLT model and Theorem 1.1
 
-Only Mathlib is imported. References are to `sec1-intro-statement.tex` (§1)
-and `sec2-frames-Q.tex` (§2) in the manuscript.
+Only Mathlib is imported. References are to `sec1-result.tex` (`d:model`)
+and `sec3-quantum-frames.tex` (`d:poly`) in the manuscript.
 -/
 
 noncomputable section
@@ -24,13 +24,13 @@ abbrev Size := {n : ℕ // 3 ≤ n}
 /-- The §1 side bound supplies a nonzero modulus for finite `ZMod` instances. -/
 @[expose] instance size_neZero (L : Size) : NeZero L.val := ⟨by have := L.property; omega⟩
 
-/-- The torus Λ_{L,N} = ℤ/Lℤ × ℤ/Nℤ (§1, before (e:H)). -/
+/-- The torus Λ_{L,N} = ℤ/Lℤ × ℤ/Nℤ (§1, before (`d:model`, `sec1-result.tex`)). -/
 abbrev Site (L N : Size) := ZMod L.val × ZMod N.val
 
 /-- Positive coordinate directions: `0` is horizontal, `1` vertical. -/
 abbrev Direction := Fin 2
 
-/-- Each unoriented nearest-neighbour bond is indexed once by its initial
+/-- Each unoriented nearest-neighbor bond is indexed once by its initial
 site and positive direction. The bound in `Size` excludes loops and repetitions. -/
 abbrev Bond (L N : Size) := Site L N × Direction
 
@@ -39,13 +39,13 @@ def nextSite {L N : Size} (x : Site L N) (d : Direction) : Site L N :=
   if d = 0 then (x.1 + 1, x.2) else (x.1, x.2 + 1)
 
 /-- The underlying unordered bond; its orientation is used only to fix the
-sign of the factor q_e in (e:B). -/
+sign of the factor q_e in (`d:model`, `sec1-result.tex`). -/
 def bondSites {L N : Size} (e : Bond L N) : Finset (Site L N) :=
   {e.1, nextSite e.1 e.2}
 
 /-- Spin 2 in orthonormal coordinates e_k = √(choose 4 k) z₁^(4-k) z₂^k,
 k = 0,…,4. This is Sym⁴ ℂ² with the SU(2) action f(z) ↦ f(g⁻¹z),
-unitary for (e:Vinner). Thus the standard ℓ² inner product here is precisely
+unitary for (`d:poly`, `sec3-quantum-frames.tex`). Thus the standard ℓ² inner product here is precisely
 the paper's inner product, not the unweighted monomial inner product. -/
 abbrev V := EuclideanSpace ℂ (Fin 5)
 
@@ -63,11 +63,11 @@ def spinPlus : Matrix (Fin 5) (Fin 5) ℂ :=
 /-- J₋ = J₊*. In particular J² = J_z² + (J₊J₋ + J₋J₊)/2 = 6I. -/
 def spinMinus : Matrix (Fin 5) (Fin 5) ℂ := spinPlus.conjTranspose
 
-/-- Tensor-product basis labels for ⊗_x V (§1, before (e:H)). -/
+/-- Tensor-product basis labels for ⊗_x V (§1, before (`d:model`, `sec1-result.tex`)). -/
 abbrev Configuration (L N : Size) := Site L N → Fin 5
 
 /-- The finite-dimensional Hilbert space ℋ_Λ, with the standard sum inner
-product on its tensor-product orthonormal coordinates (§1; §2, (e:Vinner)). -/
+product on its tensor-product orthonormal coordinates (§1; §2, (`d:poly`, `sec3-quantum-frames.tex`)). -/
 abbrev Hilbert (L N : Size) := EuclideanSpace ℂ (Configuration L N)
 
 /-- A single-site matrix tensored with the identity at every other site.
@@ -101,33 +101,33 @@ Finite dimension supplies the orthogonal projection with no spectral choices. -/
 def P {L N : Size} (e : Bond L N) : Module.End ℂ (Hilbert L N) :=
   (spin4Space e).starProjection.toLinearMap
 
-/-- The spin-2 AKLT Hamiltonian, exactly (e:H), with coefficient one per bond. -/
+/-- The spin-2 AKLT Hamiltonian, exactly (`d:model`, `sec1-result.tex`), with coefficient one per bond. -/
 def H (L N : Size) : Module.End ℂ (Hilbert L N) := ∑ e : Bond L N, P e
 
-/-- The polynomial ring in the two spinor variables at each site (§2, §s:poly). -/
+/-- The polynomial ring in the two spinor variables at each site (`d:poly`, `sec3-quantum-frames.tex`). -/
 abbrev SpinorPolynomial (L N : Size) := MvPolynomial (Site L N × Fin 2) ℂ
 
 /-- q_xy = z_{x,1}z_{y,2} - z_{x,2}z_{y,1}, using zero-based variable
-indices and the positive-coordinate orientation (§2, immediately before (e:B)). -/
+indices and the positive-coordinate orientation (§2, immediately before (`d:model`, `sec1-result.tex`)). -/
 def singlet {L N : Size} (e : Bond L N) : SpinorPolynomial L N :=
   let y := nextSite e.1 e.2
   MvPolynomial.X (e.1, 0) * MvPolynomial.X (y, 1) -
     MvPolynomial.X (e.1, 1) * MvPolynomial.X (y, 0)
 
-/-- The unnormalised VBS polynomial ∏_e q_e, exactly (e:B).
+/-- The unnormalised VBS polynomial ∏_e q_e, exactly (`d:model`, `sec1-result.tex`).
 There are four incident bonds per site, hence degree four at every site. -/
 def vbsPolynomial (L N : Size) : SpinorPolynomial L N :=
   ∏ e : Bond L N, singlet e
 
-/-- The exponent vector of ∏_x z_{x,1}^(4-σ_x) z_{x,2}^σ_x (§2, (e:B)). -/
+/-- The exponent vector of ∏_x z_{x,1}^(4-σ_x) z_{x,2}^σ_x (§2, (`d:model`, `sec1-result.tex`)). -/
 def monomialDegree {L N : Size} (σ : Configuration L N) :
     (Site L N × Fin 2) →₀ ℕ :=
   Finsupp.equivFunOnFinite.symm fun p =>
     if p.2 = 0 then 4 - (σ p.1).val else (σ p.1).val
 
-/-- B of (e:B), expressed in the orthonormal basis fixed in `V`.
+/-- B of (`d:model`, `sec1-result.tex`), expressed in the orthonormal basis fixed in `V`.
 Divide monomial coefficients by ∏_x √(choose 4 σ_x) to change coordinates;
-no global normalisation or rescaling of the polynomial is introduced. -/
+no global normalization or rescaling of the polynomial is introduced. -/
 def B (L N : Size) : Hilbert L N :=
   WithLp.toLp 2 fun σ =>
     (vbsPolynomial L N).coeff (monomialDegree σ) /

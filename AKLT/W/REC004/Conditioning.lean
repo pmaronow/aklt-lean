@@ -62,7 +62,7 @@ lemma fibre_mean_bound (s : Fin 3 → Status) (hs : ∀ j, s j = .U ∨ s j = .D
   exact h
 
 set_option maxRecDepth 2048 in
-/-- Explicit finite distributivity on a three-spin fibre. -/
+/-- Explicit finite distributivity on a three-spin fiber. -/
 lemma fibre_pair_eq (s : Fin 3 → Status) (hs : ∀ j, s j = .U ∨ s j = .D)
     (a : Fin 3 → Fin 3 → SpinLetter) (p q : Fin 3) (hpq : p ≠ q) :
     (∑ t : Fin 3 → SpinLetter, (∏ j, fibreDensity s a j (t j)) *

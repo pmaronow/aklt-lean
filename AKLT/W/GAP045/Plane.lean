@@ -81,7 +81,7 @@ lemma local_to_fibre (P : PlaneSpec) (hP : RegularSpec P)
   · have hsx := hs x (by simpa [sitesInVolume] using hx)
     simpa [insertVolume, hx] using hsx
 
-/-- Lift both local components to the full exterior fibres. -/
+/-- Lift both local components to the full exterior fibers. -/
 def liftLocalCoupling (P : PlaneSpec) (hP : RegularSpec P)
     (W V : Finset Plane) (hV : V ⊆ W) (η ξ : Config P.Letter)
     (σ τ : PlaneConfig P W)

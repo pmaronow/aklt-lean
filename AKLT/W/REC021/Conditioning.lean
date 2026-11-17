@@ -157,8 +157,8 @@ theorem partition_add {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     D.partition τ pinned (fun n => f n + g n) = D.partition τ pinned f + D.partition τ pinned g := by
   simp only [partition_as_weight, mul_add, Finset.sum_add_distrib]
 
-/-- Sum all fibres explicitly. Uniform resampling contributes the positive
-factor 13³; no division by an outside-spin fibre mass is used. -/
+/-- Sum all fibers explicitly. Uniform resampling contributes the positive
+factor 13³; no division by an outside-spin fiber mass is used. -/
 theorem network_three_pair_lower {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (x : Fin 3 → D.active) (hinj : Function.Injective x)
     (hnobond : ∀ e ∈ D.bonds, ∀ i j, ¬ (e.1 = (x i).val ∧ e.2 = (x j).val))

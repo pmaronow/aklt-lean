@@ -12,7 +12,7 @@ open AKLT.Defs
 
 namespace AKLT.W.REC021
 
-/-- One fibre of the spins outside the three mutually nonadjacent neighbours.
+/-- One fiber of the spins outside the three mutually nonadjacent neighbors.
 Missing incident factors are represented by zero fields. -/
 structure CubicFibre where
   coefficient : ℝ

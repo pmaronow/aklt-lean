@@ -27,7 +27,7 @@ def restrict {ι : Type} {S : ι → Type} (U : Finset ι) (σ : Config S) :
 def AgreeOn {ι : Type} {S : ι → Type} (U : Finset ι) (σ τ : Config S) : Prop :=
   ∀ x ∈ U, σ x = τ x
 
-/-- Full-state conditional law, supported on the specified exterior fibre. -/
+/-- Full-state conditional law, supported on the specified exterior fiber. -/
 def fibre {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι) (σ : Config S) :
     Weight (Config S) := conditionOn p (AgreeOutside U σ)
@@ -43,7 +43,7 @@ def blockLaw {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
 def weightedInner {Ω : Type} [Fintype Ω] (p : Weight Ω) (f h : Ω → ℂ) : ℂ :=
   ∑ σ, (p σ : ℂ) * star (f σ) * h σ
 
-/-- Unnormalised, labelled block Dirichlet form. Repeated blocks count repeatedly. -/
+/-- Unnormalised, labeled block Dirichlet form. Repeated blocks count repeatedly. -/
 def blockForm {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J]
     {S : ι → Type} [∀ x, Fintype (S x)] (p : Weight (Config S))
     (B : J → Finset ι) (f : Config S → ℂ) : ℝ := ∑ a, blockDirichlet p (B a) f
@@ -63,7 +63,7 @@ def blockAverage {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J]
 def Reversible {Ω : Type} [Fintype Ω] (p : Weight Ω) (K : Ω → Weight Ω) : Prop :=
   (∀ σ, Probability (K σ)) ∧ ∀ σ τ, p σ * K σ τ = p τ * K τ σ
 
-/-- Quadratic form for A(I-K), with A labels and no clock normalisation. -/
+/-- Quadratic form for A(I-K), with A labels and no clock normalization. -/
 def kernelForm {Ω : Type} [Fintype Ω] (p : Weight Ω) (K : Ω → Weight Ω)
     (A : ℝ) (f : Ω → ℂ) : ℝ :=
   A * (weightedInner p f (fun σ => f σ - ∑ τ, (K σ τ : ℂ) * f τ)).re
@@ -218,7 +218,7 @@ structure SurgeryKernels (P : PlaneSpec) (a y : Plane) (u l h : ℕ)
 /-- A coordinate reduction; there is no global parity sign on this torus. -/
 def reduction (L N : Size) (z : Plane) : Site L N := (z.1, z.2)
 
-/-- Labelled torus square and its full sup-distance-one halo. -/
+/-- Labeled torus square and its full sup-distance-one halo. -/
 def torusSquare (L N : Size) (M : ℕ) (a : Site L N) : Finset (Site L N) :=
   (square (0, 0) M).image fun z => a + reduction L N z
 
@@ -230,7 +230,7 @@ def haloCount (M : ℕ) : ℕ := 8 * M + 8
 def internalCount (M : ℕ) : ℕ := 2 * (2 * M + 1) * (2 * M)
 def blockGapConstant (M : ℕ) : ℝ := frameRatio ^ internalCount M
 
-/-- Explicit all-parity cycle colour, with a third colour at the last odd site. -/
+/-- Explicit all-parity cycle color, with a third color at the last odd site. -/
 def cycleColour (m i : ℕ) : ℕ := if Odd m ∧ i = m - 1 then 2 else i % 2
 
 def torusColour (L N : Size) (x : Site L N) : Fin 3 :=
@@ -259,7 +259,7 @@ def PeriodicCounts (L N : Size) (M : ℕ) : Prop :=
   (∀ x, (Finset.univ.filter fun a => x ∈ torusHalo L N M a \ torusSquare L N M a).card = haloCount M) ∧
   volumeCount M ≤ Fintype.card (Site L N)
 
-/-- One local gauge, common to all exterior fibres of a labelled block. -/
+/-- One local gauge, common to all exterior fibers of a labeled block. -/
 structure BoxGauge (L N : Size) (M : ℕ) (a : Site L N) (κ : Site L N → Fin 3) where
   centre : Plane
   centre_reduces : reduction L N centre = a
@@ -325,7 +325,7 @@ def StoppedEstimate (P : PlaneSpec) (l : ℕ) (p : ℝ) (Mstar : ℕ) (α : ℝ)
     ∃ c : Coupling (P.law (square a u) η) (P.law (square a u) ξ),
       disagreement c (farSites a y u ((h : ℝ) * shellSpacing u)) ≤ (1 - p * α^(16*l))^(h-3)
 
-/-- A single scale chosen uniformly over translates and all exterior fibres. -/
+/-- A single scale chosen uniformly over translates and all exterior fibers. -/
 def HammingEstimate (P : PlaneSpec) (M : ℕ) (K : ℝ) : Prop :=
   ∀ a y, y ∉ square a M → ∀ η ξ : Config P.Letter,
     (∀ z, z ≠ y → η z = ξ z) →

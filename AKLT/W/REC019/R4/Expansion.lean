@@ -123,7 +123,7 @@ lemma legProduct_extend_nonneg {G : Finset Plane} (A V : Finset Plane) (τ : Pin
   · norm_num
 
 /-- The algebra of one outside configuration: three nested site integrals of a
-product integrand are one constant times a product-fibre sum. -/
+product integrand are one constant times a product-fiber sum. -/
 lemma config_identity (sf sg so : Status) (Wt B L : ℝ)
     (Pf Pg Po : Vec3 → ℝ) (af ag ao : Fin 3 → SpinLetter)
     (hPf : ∀ x, Pf (spinVector x) = localProduct (fun k => spinVector (af k)) (spinVector x))
@@ -152,7 +152,7 @@ lemma config_identity (sf sg so : Status) (Wt B L : ℝ)
     Matrix.head_cons, Matrix.tail_cons]
   ring
 
-/-- The fibre expansion for any network and any three distinct, mutually
+/-- The fiber expansion for any network and any three distinct, mutually
 nonadjacent active sites with at most three present bonds and no original legs. -/
 theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment G) (b : Bool)
     (f g o : Plane) (hfg : f ≠ g) (hfo : f ≠ o) (hgo : g ≠ o)
@@ -268,7 +268,7 @@ theorem expansion_general {G : Finset Plane} (D : Network G) (τ : PinAssignment
       (fun v => ∏ z ∈ D.presentNeighbours o, (1 + dot v (extend W n z)))
       (af n) (ag n) (ao n) hPf hPg hPo F
 
-/-- The residual of `FibreExpansion.lean`, proved. -/
+/-- The residual of `Fiberexpansion.lean`, proved. -/
 theorem fibreExpansion : Residual_FibreExpansion := by
   intro a hU f g hN hof hog hfg b
   have hfN : f ∈ a.D.presentNeighbours a.y := by rw [hN]; simp

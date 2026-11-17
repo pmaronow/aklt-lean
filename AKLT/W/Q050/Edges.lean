@@ -101,7 +101,7 @@ private theorem mem_oriented_legs (W : Finset Plane) (e : Plane × Plane) :
           ⟨h2, h1, (mem_neighbours _ _).mpr (Or.inr hp)⟩
       · simp [orient, not_positive_reverse hp]
 
-/-- Every nearest-neighbour edge meeting a volume, counted in positive orientation. -/
+/-- Every nearest-neighbor edge meeting a volume, counted in positive orientation. -/
 private def volumeEdges (W : Finset Plane) : Finset (Plane × Plane) :=
   internalBonds W ∪ (originalLegs W).image orient
 

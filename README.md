@@ -1,118 +1,129 @@
-# AKLT gap from two explicit inputs
+# The spin-2 AKLT spectral gap on the square lattice
 
-This standalone Lean 4 package proves
+The complete release targets the unconditional theorem of the paper:
 
 ```lean
-AKLTPalomar.aklt_gap_of_inputs : AKLTPalomar.H1 → AKLTPalomar.H3 → AKLTPalomar.Main
+AKLTPalomar.aklt_gap : AKLTPalomar.Main
 ```
 
-H1 is the paper's local pattern inequality at `961/1000` and `187/200`. H3 is its
-all-cutoff positive-vector kernel bound. Main is nonvanishing and uniqueness of
-the VBS ground state on every torus with periods at least three, and an eventual
-uniform positive spectral gap, with every parity allowed. H2 is proved internally.
-The two premises are not proved by this package; their separate finite-certificate
-artifact is outside the submitted proof. See [FIDELITY.md](FIDELITY.md).
+For every torus with both periods at least three, the VBS vector is nonzero and
+spans the Hamiltonian's kernel. There is a uniform positive lower bound on every
+nonzero eigenvalue for all sufficiently large periods, with every parity allowed.
+`Solution` proves this statement from `CertData.Close.main` through `main_iff`.
+The finite H1 and H3 certificate proofs belong to that import closure. The
+ordinary library also retains `AKLT.Final.main_of_inputs`, the two-input reduction.
 
-`Solution` never imports `Challenge`. The independent Challenge imports only
-Mathlib and inlines the statement definitions. Comparator recursively compares
-their reachable declarations; `comparator.json` has no definition exemptions.
-The only proof hole is the required Challenge theorem placeholder. The three
-`Iff.rfl` theorems `h1_iff`, `h3_iff`, and `main_iff` identify the Solution aliases
-with their original in-tree statements.
+The hand-written module-system port is complete in this phase. The generated
+certificate sources must be regenerated and rebuilt against these kernels before
+the unconditional Solution and Audit can build. Legacy certificate oleans cannot
+be reused. This is a complete-formalization source layout with a pending
+certificate regeneration step, not a claim that the new unconditional package
+has already completed its full build or independent checker replays.
 
-The package contains exactly 618 first-party Lean files: the 616-file Solution
-closure in [port-list.tsv](port-list.tsv), plus Challenge and Audit. Every file
-uses Lean's module system. No H1/H3 certificate library, CertData, H1C/H3C, or
-H1M/H3M source is included. Dependencies under `.lake/packages` are external to
-this submitted source inventory. The pinned toolchain is Lean 4.35.0-rc2 and
-Mathlib is pinned to `065356127b1dc0016f66b7283ce0ce2c4055aa55`.
+`Challenge.lean` imports only Mathlib and gives the physical statement directly,
+with one conventional placeholder. It has no H1 or H3 premise definitions.
+`Solution` does not import Challenge. Comparator compares the reachable statement
+objects recursively, without definition exemptions. The paper's physical model,
+Hamiltonian, and VBS product are `d:model` in `sec1-result.tex`; its polynomial
+normalization is `d:poly` in `sec3-quantum-frames.tex`. See [FIDELITY.md](FIDELITY.md).
 
-The first Git commit, `933e99cddadb1ae6b85d5f4aff551b6f14f91f42`, is the exact
-unported materialization from main `d77c3ca85754582f91354dd848ac5a830f73727d`.
-[PORT-CHANGES.md](PORT-CHANGES.md) records the visibility conversion and the
-auxiliary-definition alignment needed by Comparator. Existing proof bodies,
-definitions and statement meanings are preserved. The old development and its
-compiled certificate libraries were not ported in place.
+## Sources and libraries
 
-## Cold verification
+The Lean toolchain is 4.35.0-rc2. Mathlib is pinned to
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`; `lake update` is never needed.
+The release extends its earlier two-input package with the hand-written import
+closure of `CertData.Close.All` at main
+`8f59d336acf2fc13428893faf26097890f4f288b`. The original legacy tree is unchanged.
+Every first-party Lean source uses the module system and has at most 10,000 lines.
+[PORT-CHANGES.md](PORT-CHANGES.md) records every visibility repair and proof-body change.
 
-Run from this package repository, supplying an immutable **package** commit:
+The libraries are `AKLT` for the mathematical development, `CertKernels` for the
+hand-written H3 kernels and bridges, `CertDataH1` and `CertDataH3` for the generated
+certificate families and their closing modules, and `CertDataClose` for the
+combined closing theorem. The default targets remain `Solution` and `Audit`.
+`Challenge` is also an explicit target. `Handwritten` builds every hand-written
+module whose imports do not require generated certificates, including the
+cross-module regeneration samples. `AuditHandwritten` checks the available
+first-party theorem constants for forbidden axioms.
+
+Before regeneration, build and audit the available sources:
 
 ```sh
 export PATH="$HOME/.elan/bin:$PATH"
-AKLT_RELEASE_COMMIT=$(git rev-parse HEAD)
-systemd-run --user --scope \
-  -p CPUQuota=1600% -p MemoryMax=32G -p MemorySwapMax=0 \
-  bash scripts/cold-verify.sh \
-    --repository "$PWD" --commit "$AKLT_RELEASE_COMMIT" \
-    --verifier /absolute/path/to/PalomarSubmission \
-    --output /tmp/aklt-cold-verification
+LEAN_NUM_THREADS=12 lake build Handwritten Challenge Regression.Solution Regression.Audit AuditHandwritten
+lake env lean -DwarningAsError=true AuditHandwritten.lean
 ```
 
-The output directory must be new. The runner clones the requested commit, starts
-with no `.lake`, fetches every exact Git pin through the official verifier's
-materialization code, and obtains the pinned Mathlib cache. It never invokes
-`lake update` or falls back to building Mathlib. A `--no-build` dependency
-preflight refuses a missing/stale cache. Cache downloads, temporary homes and
-build tools stay under the output directory. No package-store link or prior
-project artifact is used by the cold path.
+`verification/generated-modules.json` lists all 7,964 H1 and 5,032 H3 generated
+module names, the direct hand-written importers, and the blocked closing targets.
+Generated sources are intentionally excluded from Git. Their original generator
+scripts are included for the regeneration agents; those agents must update their
+output headers and supply pinned data inputs, module-system archives, manifests,
+and receipts. [REGEN-INTERFACE.md](REGEN-INTERFACE.md) gives the exact handoff.
 
-It then checks all source headers/configuration, runs the default Lake build and
-`Challenge`, `Solution`, `Audit`, checks the strict axiom transcript, compiles an
-independent randomly named Challenge using only trusted dependency paths, and
-exports both sides. The actual Comparator runs under the official read-only
-judge policy, with NanoDa forced and Lean's kernel always enabled. Finally the
-maintainer-pinned con-ron replays the same hashed full Solution export in verified
-mode with two workers and a 1,800-second cap.
+After installing both families, `lake build` proves the unconditional theorem.
+Then run the complete verification pipeline. A hash-pinned source archive may
+be installed with:
 
-The runner uses 16 CPUs' affinity and a single compiler worker by default to
-reduce build memory. `--build-threads` changes that local scheduling choice. This
-setting is recorded: Palomar's production environment does not currently pass
-`LEAN_NUM_THREADS` through its outer sandbox, so this harness does not certify the
-production scheduler or replace its authenticated cgroup supervision. Run one
-cold verification per enclosing cgroup. Each stage also monitors the 20-GiB
-free-workspace floor. The cgroup is inherited throughout;
-the runner does not start a sibling systemd scope or escape the caller's limits.
+```sh
+python3 scripts/install_certificates.py --archive /path/to/H1.tar.gz --sha256 FULL_SHA256
+python3 scripts/install_certificates.py --archive /path/to/H3.tar.gz --sha256 FULL_SHA256
+```
 
-`receipt.json`, `verification/receipt.json`, and per-stage stdout, stderr, resource
-samples and JSON results are written as work progresses. The shared 19,800-second
-budget includes clone, fetch, setup, build and replays. Namespace descendants do
-not reliably forward `wait4` CPU usage: the timing helper also samples every
-thread's process children and reports the larger CPU total, labelled approximate
-when sampling is required. RSS sums can double-count shared mappings and do not
-replace the enclosing cgroup's memory accounting.
+The archive installer accepts only the declared generated source paths, refuses
+to overwrite files, rejects links and escaping paths, and checks the module
+header and line cap. It does not accept prebuilt certificate objects as proof.
+All generated files must receive the same source and axiom checks as hand-written files.
 
-The official verifier checkout is pinned by default to
-`14aa8d6b3c2f14a8540605e37144560b9a00e7e7`; a deliberate update requires
-`--verifier-commit`. The runner uses its source/configuration routines, protected
-configuration, export roots, namespace policy, checker pin and outcome parser.
-This is a complete **component verification** runner, not the registry's intake
-workflow or an authenticated production acceptance report. Exit 0 requires both mandatory kernels and con-ron to accept. Exit 2 records
-mandatory acceptance with a locally observed con-ron stage deadline or enclosing
-cgroup OOM; it remains capacity-inconclusive and requires the production
-supervisor to authenticate the classification. Exit 1 covers other failures.
-No timeout/allocation failure is promoted to proof rejection or con-ron acceptance.
+## Verification and records
 
-Usual Linux tools, Python/pip, Git, curl, a C compiler and pkg-config are needed.
-If necessary, the runner bootstraps pinned Meson/Ninja and extracts libcap headers
-locally without installing system packages, then invokes the official
-source-pinned bubblewrap 0.12.0 installer. On an AppArmor-restricted host, any
-required administrator policy remains an infrastructure prerequisite. The source
-compiler/toolchain must be available through Elan. Other dependency artifacts
-and the con-ron override are fetched when required and recorded by digest.
+For a fresh clone at an immutable **package** commit, with the toolchain installed:
 
-For iterations with already provisioned pinned dependencies, run
-`bash scripts/verify.sh /path/to/PalomarSubmission /new/output/directory`.
-This local path is labelled separately and is not a cold-cache receipt.
+```sh
+bash scripts/cold-verify.sh \
+  --repository "$PWD" --commit FULL_PACKAGE_COMMIT \
+  --verifier /path/to/PalomarSubmission --output /tmp/aklt-full-verification \
+  --certificate-archive /path/to/H1.tar.gz --certificate-sha256 H1_SHA256 \
+  --certificate-archive /path/to/H3.tar.gz --certificate-sha256 H3_SHA256
+```
 
-## Release fields still owned by the author
+The runner obtains the exact pinned dependencies and Mathlib cache, refuses to
+build Mathlib from source, checks every first-party source and parsed header,
+builds the default and explicit targets, runs strict Audit, compiles a protected
+independent Challenge, and runs Comparator with both Lean and NanoDa followed
+by verified con-ron replay of the same full Solution export. Logs, hashes, timing
+samples, and JSON receipts remain under the output directory. Only that clone,
+the official verifier checkout, the supplied certificate archives, and the
+installed toolchain are needed. Ordinary Linux build utilities are documented in
+[verification/README.md](verification/README.md).
 
-The following remain explicit TODOs in `formalization.yaml`: author and maintainer
-names and verified ORCID identifiers, manuscript and companion-artifact authors,
-release SPDX license and matching root LICENSE text, immutable public manuscript
-and companion URLs/commits/manifests/receipts, and the underlying proof-development
-provenance. Existing vendored license notices are preserved. Independent review of
-FIDELITY remains pending. These fields do not alter the proved conditional theorem,
-but must be completed for registry preparation. The runner records them and keeps
-`submission_ready: false`; it still runs the mechanical stages so the TODOs cannot
-hide a source or proof failure.
+Use `--regression-inputs` without certificate archives to check the retained
+two-input theorem while regeneration is pending. Its independent statement
+surface is stored as `verification/regression/Challenge.lean.in`; the runner
+materializes it outside the source tree under the verifier's randomized protected
+module name. It is a test template, not a second Lean source or a second release
+Challenge. The only `.lean` file containing a placeholder is the root Challenge.
+The regression receipt explicitly identifies its conditional verification surface.
+`Regression.Solution` and root `Solution` deliberately reuse the comparison names
+and are checked in separate environments; do not import both into one module.
+Use `AKLT.Final.main_of_inputs` when the reduction is needed in ordinary library code.
+
+Resource measurements remain useful engineering records; Palomar's production
+CPU, memory, and execution budgets are not acceptance requirements for this
+formalization. The local runner uses 16 CPUs' affinity, records the actual
+resource limits, and inherits any cgroup supplied by its caller. Its generous
+configurable watchdogs are operational safeguards. Wall watchdogs are disabled
+by default. `--budget`, `--rss-cap-gb`, and `--address-space-gib` configure
+shared wall, sampled RSS, and per-process virtual address limits; zero disables
+the respective local watchdog or limit. The local safety defaults are 285 GB
+of sampled RSS and 240 GiB of virtual address space per process. They are not production
+Palomar limits. No registry submission or authenticated Palomar acceptance is
+claimed or requested. Exit 0 requires the selected theorem's full mechanical
+checks to pass; an unfinished replay is never reported as acceptance.
+
+Author and maintainer identities, verified ORCIDs, release SPDX license and root
+LICENSE text, immutable public source and certificate archive locations, and
+proof-development provenance remain clearly marked TODO fields in
+`formalization.yaml`. Existing vendored license notices are retained. Independent
+mathematical fidelity review remains pending. Prose uses American English;
+British spellings in Lean identifiers are retained and listed in the interface records.

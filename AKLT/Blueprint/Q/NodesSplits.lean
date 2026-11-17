@@ -46,8 +46,8 @@ def DeterminantPrimeEmbeddingStatement : Prop :=
   ∀ L N : Size, ∀ e : Bond L N, Prime (singlet e)
 
 /-- `l:divisibility`, sec3 lines 176–188: grading at one site is additive
-under a nonzero product. If p and p*chi both have centre degree four,
-chi has centre degree zero. Split chi into finitely many graded pieces;
+under a nonzero product. If p and p*chi both have center degree four,
+chi has center degree zero. Split chi into finitely many graded pieces;
 injectivity of multiplication prevents cancellation across different degrees. -/
 def CentreDegreeCancellationStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N, ∀ p χ : SpinorPolynomial L N, p ≠ 0 →
@@ -55,14 +55,14 @@ def CentreDegreeCancellationStatement : Prop :=
     (∀ m ∈ (p * χ).support, m (x, 0) + m (x, 1) = 4) → independentAt x χ
 
 /-- `l:divisibility`, lines 147–152, 178–186: the actual four-factor incident
-product is nonzero and homogeneous of centre degree four. This is the
+product is nonzero and homogeneous of center degree four. This is the
 geometric input to the generic degree cancellation, including period three. -/
 def IncidentProductDegreeStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N, incidentProduct x ≠ 0 ∧
     ∀ m ∈ (incidentProduct x).support, m (x, 0) + m (x, 1) = 4
 
 /-- `d:poly` and `l:divisibility`, sec3 lines 176–182: the physical coordinate
-polynomial has centre degree four at every site; the zero state is allowed. -/
+polynomial has center degree four at every site; the zero state is allowed. -/
 def StateCentreDegreeStatement : Prop :=
   ∀ L N : Size, ∀ ψ : Hilbert L N, ∀ x : Site L N,
     ∀ m ∈ (statePolynomial ψ).support, m (x, 0) + m (x, 1) = 4
@@ -77,7 +77,7 @@ def casimirCopies {L N : Size} (x : Site L N) (n : ℕ)
     starCasimir j (WithLp.toLp 2 (fun t => U ψ (r, t))) s
 
 /-- `l:star`, sec3 lines 245–252: enumerate the four incident oriented bond
-indices without duplication. The negative-direction bonds start at neighbours. -/
+indices without duplication. The negative-direction bonds start at neighbors. -/
 def StarEdgeEnumerationStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N, Function.Injective (starEdge x) ∧
     Finset.univ.image (starEdge x) = Finset.univ.filter (fun e => x ∈ bondSites e)

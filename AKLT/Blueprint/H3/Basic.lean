@@ -53,7 +53,7 @@ def longRewardTerm {n : ℕ} (w : DirectionWord n) (j : Fin n) : ℚ :=
 def arrivalCount {n : ℕ} (w : DirectionWord n) (z : Plane) : ℕ :=
   ((Finset.range n).filter fun j => wordVertex kernelStart w (j + 1) = z).card
 
-/-- A finite set of genuinely dead neighbours; the centre is included even when remote. -/
+/-- A finite set of genuinely dead neighbors; the center is included even when remote. -/
 def trueDeadSet {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
   classical
   exact insert kernelCentre ((neighbours (wordVertex kernelStart w i.val)).filter (deadAt w i))

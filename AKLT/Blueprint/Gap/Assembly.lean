@@ -41,7 +41,7 @@ theorem finiteContraction_of_parts
   intro f
   exact (hSpectral f).trans_eq (hEnergy f)
 
-/-- Appendix l:comparison: integrate fibre inequalities and divide only by t>0. -/
+/-- Appendix l:comparison: integrate fiber inequalities and divide only by t>0. -/
 theorem blockComparison_of_parts (hCond : ConditionalBlockComparisonStatement)
     (hMult : MultiplicityEstimateStatement) : BlockComparisonStatement := by
   intro ι J _ _ _ S _ _ p hp B t g c ht hg hc hCount hBlocks hGap f

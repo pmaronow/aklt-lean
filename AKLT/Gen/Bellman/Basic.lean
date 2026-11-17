@@ -6,7 +6,7 @@ set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
 /-!
-# Nonnegative labelled transition systems
+# Nonnegative labeled transition systems
 
 Labels distinguish parallel edges. No finiteness or countability assumption is needed for
 `ENNReal` sums. A countable kernel `w : S → S → ℝ≥0∞` is the special case
@@ -21,14 +21,14 @@ attribute [local instance] Classical.propDecidable
 universe u v
 variable {S : Type u} {L : Type v}
 
-/-- A weighted labelled transition system; a forbidden edge has weight zero. -/
+/-- A weighted labeled transition system; a forbidden edge has weight zero. -/
 structure System (S L : Type*) where
   next : S → L → S
   weight : S → L → ℝ≥0∞
 
 namespace System
 
-/-- The backward operator, including every labelled edge with its multiplicity. -/
+/-- The backward operator, including every labeled edge with its multiplicity. -/
 noncomputable def step (T : System S L) (f : S → ℝ≥0∞) (x : S) : ℝ≥0∞ :=
   ∑' a, T.weight x a * f (T.next x a)
 
@@ -129,7 +129,7 @@ theorem stopped_total_le (T : System S L) (stop : S → Prop) (r F : S → ℝ�
     (T.kill stop).total (reward stop r) x ≤ F x :=
   (T.kill stop).total_le _ F (T.supersolution_of_stopping stop r F hstop hcont) x
 
-/-- Length-`n` labelled words, represented recursively to expose the first edge. -/
+/-- Length-`n` labeled words, represented recursively to expose the first edge. -/
 def Words (L : Type v) : ℕ → Type v
   | 0 => PUnit
   | n + 1 => L × Words L n
@@ -140,7 +140,7 @@ noncomputable def pathWeight (T : System S L) (g : S → ℝ≥0∞) :
   | 0, x, _ => g x
   | n + 1, x, p => T.weight x p.1 * T.pathWeight g n (T.next x p.1) p.2
 
-/-- The recursive backward sum really enumerates all labelled paths, including parallel edges. -/
+/-- The recursive backward sum really enumerates all labeled paths, including parallel edges. -/
 theorem exact_eq_tsum_paths (T : System S L) (g : S → ℝ≥0∞) (n : ℕ) (x : S) :
     T.exact g n x = ∑' p : Words L n, T.pathWeight g n x p := by
   induction n generalizing x with

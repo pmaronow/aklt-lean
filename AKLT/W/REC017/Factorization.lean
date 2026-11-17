@@ -63,7 +63,7 @@ theorem two_factorization : TwoFactorizationStatement := by
     norm_num
   · field_simp [hz]
 
-/-- The logarithm of the step ratio is meaningful even in a zero-mass fibre. -/
+/-- The logarithm of the step ratio is meaningful even in a zero-mass fiber. -/
 theorem log_stepRatio (a : Departure) (hU : a.D.status a.y = .U) (f : Plane)
     (hN : a.D.presentNeighbours a.y = {a.o, f}) (hne : a.o ≠ f) (b : Bool) :
     Real.log (stepRatio a.D a.τ b a.y a.o) = -Real.log (responseI₂ a.D a.τ b a.y a.o f) := by

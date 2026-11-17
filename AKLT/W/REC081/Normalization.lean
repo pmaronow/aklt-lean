@@ -19,7 +19,7 @@ theorem normalized_kept_subset (p : PairData) (x : Plane) :
   · exact Finset.erase_subset _ _
   · exact Finset.Subset.refl _
 
-/-- Erasing a flag to the removed centre changes no present bond. -/
+/-- Erasing a flag to the removed center changes no present bond. -/
 theorem normalized_present_iff (p : PairData) (x y : Plane) :
     p.normalized.Present x y ↔ p.D.Present x y := by
   constructor

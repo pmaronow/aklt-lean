@@ -22,7 +22,7 @@ def alphaBound (straight : Bool) : ℚ := if straight then 145217 / 10^6 else 15
 /-- `l:log-mean-bounds`: the adopted exact beta table. -/
 def betaBound (straight : Bool) : ℚ := if straight then 352782 / 10^6 else 357549 / 10^6
 
-/-- `l:log-mean-bounds`: the one-live-neighbour beta-prime table. -/
+/-- `l:log-mean-bounds`: the one-live-neighbor beta-prime table. -/
 def betaPrimeBound (straight : Bool) : ℚ := if straight then 340008 / 10^6 else 344661 / 10^6
 
 /-- `d:weights`: a finite direction word; there is no spatial quotient. -/

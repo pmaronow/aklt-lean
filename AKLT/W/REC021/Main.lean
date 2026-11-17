@@ -38,7 +38,7 @@ theorem beta_of_I_lower {x y : ℝ} (hx : (41 / 50 : ℝ) ≤ x) (hy : 1 ≤ y) 
     _ ≤ (367502 / 10^6 : ℝ) := hCrude
     _ ≤ (36751 / 100000 : ℝ) := by norm_num
 
-/-- The uniform three-neighbour beta bound, with no residual assumptions. -/
+/-- The uniform three-neighbor beta bound, with no residual assumptions. -/
 theorem main : AKLT.Blueprint.Rec.BetaUniformStatement := by
   intro a hU f g hN hof hog hfg
   exact beta_of_I_lower (responseI_pinned_lower_closed a f g hN hof hog hfg)

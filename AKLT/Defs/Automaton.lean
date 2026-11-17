@@ -89,7 +89,7 @@ def MemoryQuotient.Correct {m q : ℕ} (Q : MemoryQuotient m q) : Prop :=
       (windowKind w d ≠ .revisit → Q.arrival (Q.project w) = windowArrival w))
 
 /-- `l:automaton-quotient`: the raw hypotheses on a surjective class map,
-before choosing representatives and labelled quotient transitions. -/
+before choosing representatives and labeled quotient transitions. -/
 def CompatibleProjection (m q : ℕ) (π : DirectionWord m → Fin q) : Prop :=
   (∀ a, ∃ w, RawWindow w ∧ π w = a) ∧
   ∀ w w' : DirectionWord m, RawWindow w → RawWindow w' → π w = π w' →
@@ -98,7 +98,7 @@ def CompatibleProjection (m q : ℕ) (π : DirectionWord m → Fin q) : Prop :=
       (WindowAdmissible w d → π (windowSuccessor w d) = π (windowSuccessor w' d))) ∧
     ((∃ d, WindowAdmissible w d ∧ windowKind w d ≠ .revisit) → windowArrival w = windowArrival w')
 
-/-- `p:automaton10`: counts of labelled quotient edges, regenerated from admissibility/kind. -/
+/-- `p:automaton10`: counts of labeled quotient edges, regenerated from admissibility/kind. -/
 def quotientEdgeCount {m q : ℕ} (Q : MemoryQuotient m q) (k : StepKind) : ℕ :=
   (Finset.univ.filter fun e : Fin q × Compass => Q.allowed e.1 e.2 ∧ Q.kind e.1 e.2 = k).card
 

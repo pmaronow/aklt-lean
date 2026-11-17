@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.W.REC005
 
-/-- The two-neighbour response interval, with its free lower bound. -/
+/-- The two-neighbor response interval, with its free lower bound. -/
 theorem main : AKLT.Blueprint.Rec.TwoMeanIntervalsStatement := by
   intro a _hU f hN hne
   have hf : f ∈ a.D.presentNeighbours a.y := by rw [hN]; simp

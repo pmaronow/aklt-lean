@@ -107,7 +107,7 @@ theorem pair_type_pair {a b : Plane} (hd : latticeDist a b = 2) :
   · simp only [he, ite_false, reduceCtorEq]
     exact ⟨hd, not_or.mp he⟩
 
-/-- Only non-arrival neighbours enter this closure assertion. -/
+/-- Only non-arrival neighbors enter this closure assertion. -/
 theorem invariant_pair_closure {G : Finset Plane} {E : Network G} {y arrival a b : Plane}
     (h : PrefixInvariant E y arrival) (hE : E.Auxiliary) (hy : y ∈ E.active)
     (hS : y ∉ protectedSites G) (hU : E.status y = .U)

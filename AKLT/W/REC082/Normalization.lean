@@ -11,7 +11,7 @@ open AKLT.Defs AKLT.Blueprint.Rec
 
 namespace AKLT.W.REC082
 
-/-- A removed centre is never an active site. -/
+/-- A removed center is never an active site. -/
 theorem removed_not_active {G : Finset Plane} (D : Network G) {c : Plane}
     (hc : D.status c = .X) : c ∉ D.active := by
   simp [Network.active, hc]

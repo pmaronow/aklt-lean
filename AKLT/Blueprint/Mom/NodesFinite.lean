@@ -26,7 +26,7 @@ def LetterAvoidanceStatement : Prop :=
 /-- `l:finitefacts`, lines 143–156: a generic greedy extension lemma.
 The alphabet is arbitrary; local feasibility is an explicit property of its
 vectors, not a hypothesis naming any other blueprint statement. Order `Fin n`,
-collect pins and already assigned neighbours, and apply local feasibility. -/
+collect pins and already assigned neighbors, and apply local feasibility. -/
 def GreedyAssignmentStatement : Prop :=
   ∀ (α : Type) [Fintype α], ∀ v : α → Vec3, (∀ a, normSq (v a) ≤ 1) →
     (∀ k : ℕ, k ≤ 4 → ∀ b : Fin k → Vec3, (∀ i, normSq (b i) ≤ 1) →
@@ -83,7 +83,7 @@ theorem freeEvaluation : FreeEvaluationStatement := by
 def twoSiteFibre {n : ℕ} (x y : Fin n) (σ τ : Fin n → SpinLetter) : Prop :=
   ∀ z, z ≠ x → z ≠ y → τ z = σ z
 
-/-- `l:finitefacts`, lines 159–168: on a two-site fibre without a retained
+/-- `l:finitefacts`, lines 159–168: on a two-site fiber without a retained
 bond, allocate all off-site factors to `C` and each incident factor to its site.
 Zero site masses and zero off-site factors are allowed. -/
 def TwoSiteFactorizationStatement : Prop :=
@@ -94,7 +94,7 @@ def TwoSiteFactorizationStatement : Prop :=
         0 ≤ C ∧ (∀ a, 0 ≤ u a) ∧ (∀ b, 0 ≤ v b) ∧
         ∀ τ, twoSiteFibre x y σ τ → D.weight pinned τ = C * u (τ x) * v (τ y)
 
-/-- `l:finitefacts`, lines 169–175: enumerate a two-coordinate fibre, factor
+/-- `l:finitefacts`, lines 169–175: enumerate a two-coordinate fiber, factor
 its normalizer, and cancel it only when its normalized event mass is positive.
 This generic finite-probability lemma is independent of the spin model. -/
 def FactorizedConditioningStatement : Prop :=

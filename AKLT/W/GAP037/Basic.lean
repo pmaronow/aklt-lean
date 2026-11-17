@@ -41,7 +41,7 @@ theorem insertBlock_restrict {ι : Type} [DecidableEq ι] {S : ι → Type}
   · simp [insertBlock, restrict, hx]
   · simp [insertBlock, hx, h x hx]
 
-/-- Reindex the exterior fibre by its free coordinates. -/
+/-- Reindex the exterior fiber by its free coordinates. -/
 theorem sum_insertBlock {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (U : Finset ι) (σ : Config S) (f : Config S → ℝ) :
     (∑ τ, if AgreeOutside U σ τ then f τ else 0) = ∑ ω, f (insertBlock U σ ω) := by
@@ -58,7 +58,7 @@ theorem sum_insertBlock {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Ty
   · intro τ hτ
     rw [insertBlock_restrict U σ τ (Finset.mem_filter.mp hτ).2]
 
-/-- The conditional block marginal is the normalized weight on its fibre. -/
+/-- The conditional block marginal is the normalized weight on its fiber. -/
 theorem blockLaw_formula {ι : Type} [Fintype ι] [DecidableEq ι] {S : ι → Type}
     [∀ x, Fintype (S x)] (p : Weight (Config S)) (U : Finset ι)
     (σ : Config S) (ω : (x : U) → S x) :

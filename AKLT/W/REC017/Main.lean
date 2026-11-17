@@ -28,7 +28,7 @@ private theorem log_sub_log_eq_div_logarithmicMean
     have hnum : x - y ≠ 0 := ne_of_gt (sub_pos.mpr hyx)
     field_simp [hlog, hnum]
 
-/-- The exact two-neighbour logarithmic response, including coincident I₂ values. -/
+/-- The exact two-neighbor logarithmic response, including coincident I₂ values. -/
 theorem main : AKLT.Blueprint.Rec.TwoLogIdentityStatement := by
   intro a hU f hN hne
   rw [log_stepRatio a hU f hN hne false, log_stepRatio a hU f hN hne true]

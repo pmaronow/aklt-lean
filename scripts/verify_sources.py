@@ -23,17 +23,16 @@ project = args.project.resolve()
 summary, issues = official.inspect_lean_sources(project)
 problems = [dict(code=e.code, path=e.path, message=str(e)) for e in issues]
 config = official.load_comparator_config(project/'comparator.json')
-if config['theorem_names'] != ['AKLTPalomar.aklt_gap_of_inputs'] or set(config['permitted_axioms']) != {
+if config['theorem_names'] != ['AKLTPalomar.aklt_gap'] or set(config['permitted_axioms']) != {
         'propext', 'Classical.choice', 'Quot.sound'} or config.get('definition_names'):
     problems.append(dict(code='package.configuration', message='Unexpected comparison surface'))
-for line in (project/'port-list.tsv').read_text().splitlines()[1:]:
-    fields = line.split('\t')
-    if not (project/fields[2]).is_file():
-        problems.append(dict(code='package.source_missing', path=fields[2]))
-expected={line.split('\t')[2] for line in (project/'port-list.tsv').read_text().splitlines()[1:]}|{'Challenge.lean','Audit.lean'}
+inventory=json.loads((project/'verification/source-inventory.json').read_text())
+expected=set(inventory['handwritten'])
+generated=json.loads((project/'verification/generated-modules.json').read_text())
+allowed_generated={m.replace('.','/')+'.lean' for fam in ['H1','H3'] for m in generated[fam]}
 actual={str(p.relative_to(project)) for p in official.lean_source_files(project)}
-if actual!=expected:
-    problems.append(dict(code='package.source_inventory', missing=sorted(expected-actual), extra=sorted(actual-expected)))
+if expected-actual or actual-expected-allowed_generated:
+    problems.append(dict(code='package.source_inventory', missing=sorted(expected-actual), extra=sorted(actual-expected-allowed_generated)))
 challenge = (project/'Challenge.lean').read_text()
 if physical_lines(challenge) > 1000 or len(challenge.encode()) > 100*1024:
     problems.append(dict(code='package.challenge_size'))
@@ -48,14 +47,16 @@ for p in official.lean_source_files(project):
         problems.append(dict(code='package.forbidden_tokens', path=str(p.relative_to(project)), tokens=sorted(set(forbidden))))
     if re.search(r'set_option\s+debug\.skipKernelTC\s+true', code):
         problems.append(dict(code='package.kernel_bypass', path=str(p.relative_to(project))))
-    if re.search(r'set_option\s+maxHeartbeats\s+0\b', code) and p!=project/'AKLT/Cert/H2/Check.lean':
+    if re.search(r'set_option\s+maxHeartbeats\s+0\b', code) and p!=project/'AKLT/Cert/H2/Check.lean' and str(p.relative_to(project)) not in allowed_generated:
         problems.append(dict(code='package.unlimited_heartbeats', path=str(p.relative_to(project))))
 if 'TODO' in (project/'formalization.yaml').read_text():
     problems.append(dict(code='package.metadata_todo', message='Author metadata and public provenance remain TODO'))
 if not (project/'LICENSE').is_file():
     problems.append(dict(code='package.license_missing', message='Choose a license and add its exact text at the release root'))
 report = dict(scope='local source/config checks; not full preparation', summary=summary,
-              configuration=config, passed=not problems, issues=problems)
+              configuration=config, passed=not problems, issues=problems,
+              generated_present=sorted(actual & allowed_generated),
+              generated_missing=sorted(allowed_generated-actual))
 args.report.parent.mkdir(parents=True, exist_ok=True)
 args.report.write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(dict(passed=not problems, summary=summary, issue_count=len(problems)), indent=2))

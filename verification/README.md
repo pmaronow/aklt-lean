@@ -1,27 +1,33 @@
-# Verification boundary
+# Verification boundary and records
 
-The populated module-system release has passed a fresh default-target source
-build, explicit Challenge/Solution/Audit builds, strict axiom checks, independent
-protected statement comparison with Lean and NanoDa, and verified con-ron replay.
-The package originated at main d77c3ca and was ported only in this separate Git
-repository. The legacy tree was not edited.
+The current release targets the unconditional `AKLTPalomar.aklt_gap`. Its generated
+H1 and H3 certificate sources are pending regeneration against the ported kernels.
+The hand-written build, strict available-source axiom audit, and protected
+Comparator regression for the two-input theorem are recorded separately. A
+conditional regression pass never means the unconditional theorem has completed
+its package build or checker replays.
 
-`local-receipt.json` records the local component study and export digests. Its
-source proof files match PORT-MANIFEST.tsv. These measurements used existing
-pinned dependency artifacts, 16 CPUs' affinity, and the authorized larger local
-memory envelope. They are not an authenticated production cgroup run or a cold
-Mathlib-cache receipt. In particular, the measured con-ron peak exceeds 32 GiB;
-a default-profile capacity decline needs official supervision.
+The earlier `local-receipt.json`, `axioms.log`, and `axioms-compat.log` are historical
+two-input package records. Their source identity is the earlier package commit
+recorded in those files. Current records belong under `verification/full-port/`.
+No export or compiled project object is committed. The source manifest is
+`PORT-MANIFEST.tsv`; the generated-module inventory is `generated-modules.json`.
 
-The root metadata still has author-owned TODOs and no selected release LICENSE.
-A completed local proof check is not registry preparation or acceptance. The
-standalone cold runner produces new logs and JSON receipts for any chosen package
-commit without the study's external package store. Run it inside a real 16 CPU /
-32 GiB cgroup as described in the package README. Exit 2 means mandatory kernels
-accepted but con-ron hit a locally observed capacity limit; the official verifier
-must authenticate that classification.
+Run `scripts/cold-verify.sh` with a package repository and full commit, the official
+verifier checkout, and hash-pinned generated-source archives for full verification.
+Before regeneration, add `--regression-inputs` and omit the archives. The script
+starts from a fresh clone, fetches pinned dependencies and the Mathlib cache,
+and never runs `lake update` or builds Mathlib from source. Author-owned metadata
+TODOs are recorded and do not hide mechanical failures.
 
-The previous `axioms-compat.log` is an explicitly historical pre-port architecture
-transcript. Current strict axiom output is `axioms.log`; both have only the three
-allowed axioms for the five advertised exports. No NDJSON export or project olean
-is committed to this source repository.
+The tools required are Python 3 with pip, Git, curl, a C compiler, pkg-config,
+tar, zstd, and ordinary Linux utilities. If needed, the official source-pinned
+bubblewrap installer is bootstrapped with pinned Meson/Ninja and extracted
+libcap headers. A restricted host may need administrator namespace policy.
+The source toolchain must be installed through Elan. Checker downloads are
+verified against the official binary digest.
+
+Resource measurements use 16 CPUs' affinity. The runner inherits the caller's
+cgroup and records its limits; it does not claim authenticated Palomar capacity
+evidence. The author has removed external verifier resource limits from the
+release requirements. Configurable local time and memory watchdogs remain.

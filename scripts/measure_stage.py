@@ -56,15 +56,16 @@ def cgroups():
 
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--stage',required=True);ap.add_argument('--out',type=Path,required=True)
- ap.add_argument('--cwd',type=Path,default=Path.cwd());ap.add_argument('--timeout',type=float,default=19800)
- ap.add_argument('--rss-cap-gb',type=float,default=260);ap.add_argument('--max-lean',type=int,default=48)
+ ap.add_argument('--cwd',type=Path,default=Path.cwd());ap.add_argument('--timeout',type=float,default=0,help='Wall watchdog in seconds; zero disables it')
+ ap.add_argument('--rss-cap-gb',type=float,default=285,help='Sampled tree RSS watchdog in decimal GB; zero disables it');ap.add_argument('--address-space-gib',type=float,default=240,help='Per-process virtual address limit; zero disables it');ap.add_argument('--max-lean',type=int,default=48)
  ap.add_argument('--campaign-report',type=Path);ap.add_argument('command',nargs=argparse.REMAINDER);a=ap.parse_args()
  cpus=sorted(os.sched_getaffinity(0))[:16];os.sched_setaffinity(0,cpus);assert len(cpus)==16
  cmd=a.command[1:] if a.command and a.command[0]=='--' else a.command
  assert cmd;a.out.mkdir(parents=True,exist_ok=True)
  cg_before=cgroups();started=datetime.datetime.now(datetime.timezone.utc).isoformat();clock=time.monotonic();seen_cpu={};peak=0;peak_single=0;peak_vms=0;peak_threads=0;peak_processes=0;peak_lean=0;limit=None
  def setup():
-  os.sched_setaffinity(0,cpus);resource.setrlimit(resource.RLIMIT_CORE,(0,0));resource.setrlimit(resource.RLIMIT_AS,(240*1024**3,)*2)
+  os.sched_setaffinity(0,cpus);resource.setrlimit(resource.RLIMIT_CORE,(0,0))
+  if a.address_space_gib>0:resource.setrlimit(resource.RLIMIT_AS,(int(a.address_space_gib*1024**3),)*2)
  with (a.out/'stdout.log').open('wb') as out,(a.out/'stderr.log').open('wb') as err,(a.out/'samples.jsonl').open('w') as log:
   proc=subprocess.Popen(cmd,cwd=a.cwd,stdout=out,stderr=err,start_new_session=True,preexec_fn=setup)
   next_sample=clock
@@ -79,8 +80,8 @@ def main():
    if now>=next_sample:
     log.write(json.dumps(dict(elapsed_s=now-clock,rss=rss,vms=vms,threads=threads,lean_processes=nlean,processes=rows))+'\n');log.flush();next_sample=now+1
    if any(exceeds_affinity(x['pid'],cpus) for x in rows):limit='affinity_violation'
-   elif now-clock>a.timeout:limit='wall_timeout'
-   elif rss>a.rss_cap_gb*10**9:limit='diagnostic_rss_cap'
+   elif a.timeout>0 and now-clock>a.timeout:limit='wall_timeout'
+   elif a.rss_cap_gb>0 and rss>a.rss_cap_gb*10**9:limit='diagnostic_rss_cap'
    elif shutil.disk_usage(a.cwd).free<20*1024**3:limit='workspace_free_below_20_GiB'
    elif nlean>a.max_lean:limit='lean_process_cap'
    if limit:kill(proc.pid,rows)
@@ -90,7 +91,7 @@ def main():
   sampled_tree_cpu_s=sum(seen_cpu.values())/os.sysconf('SC_CLK_TCK'),peak_tree_rss_bytes=peak,
   peak_single_rss_bytes=max(peak_single,usage.ru_maxrss*1024),peak_tree_vms_bytes=peak_vms,peak_threads=peak_threads,
   peak_processes=peak_processes,peak_lean_processes=peak_lean,affinity_cpus=cpus,timeout_s=a.timeout,limit=limit,rss_cap_gb=a.rss_cap_gb,
-  virtual_address_limit_per_process_bytes=240*1024**3,cgroup=cgroups(),memory_note='Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.')
+  virtual_address_limit_per_process_bytes=int(a.address_space_gib*1024**3) if a.address_space_gib>0 else None,cgroup=cgroups(),memory_note='Sampled RSS sum may double-count shared pages; not cgroup RAM/page-cache accounting; wait4 may omit namespace descendants.')
  result['wait4_cpu_s']=result['cpu_s']
  result['cpu_s']=max(result['cpu_s'],result['sampled_tree_cpu_s'])
  result['cpu_method']='wait4 cumulative' if result['wait4_cpu_s']>=result['sampled_tree_cpu_s'] else 'sampled process-tree CPU; approximate because namespace PID 1 does not forward rusage'

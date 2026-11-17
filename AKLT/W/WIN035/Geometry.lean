@@ -10,7 +10,7 @@ open AKLT.Defs AKLT.Blueprint.Win
 
 namespace AKLT.W.WIN035
 
-/-- Move one maximal coordinate away from the centre, choosing the positive sign at zero. -/
+/-- Move one maximal coordinate away from the center, choosing the positive sign at zero. -/
 def stepAway (c z : Plane) : Plane :=
   if (z.2 - c.2).natAbs ≤ (z.1 - c.1).natAbs then
     if c.1 ≤ z.1 then (z.1 + 1, z.2) else (z.1 - 1, z.2)

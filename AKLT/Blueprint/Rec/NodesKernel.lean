@@ -18,7 +18,7 @@ def KernelOrderingStatement : Prop :=
     (kernelOrdering w).Perm (firstVisitList w) ∧ (kernelOrdering w).Nodup
 
 /-- `d:kernel`, §7 lines 517–554. Coefficients are nonnegative. Every
-response pair has two distinct live neighbours and positive coefficient. -/
+response pair has two distinct live neighbors and positive coefficient. -/
 def KernelPositivityStatement : Prop :=
   (∀ n : ℕ, ∀ X Y : PairType, ∀ s : ℕ, 0 ≤ kernelLengthCoefficient X Y s n) ∧
   ∀ n : ℕ, ∀ w : DirectionWord n, ∀ i : Fin n, ∀ p ∈ responsePairs w i,

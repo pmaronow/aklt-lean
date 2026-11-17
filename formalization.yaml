@@ -2,16 +2,14 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json
 version: v0.4
 project:
-  name: The square-lattice spin-2 AKLT gap from two explicit inputs
+  name: The square-lattice spin-2 AKLT spectral gap
   description: >-
-    Formalizes the deterministic reduction from the paper's pointwise local
-    partition inequality (H1), at 961/1000 and 187/200, and its all-cutoff
-    positive-vector kernel bound (H3_h), to nonvanishing and uniqueness of the
-    VBS ground state on every torus with periods at least three and a uniform
-    positive spectral gap for all sufficiently large periods of either parity.
-    The open-trail input (H2) is proved internally. H1 and H3_h are explicit
-    premises; their finite certificate verification belongs to a separate
-    companion artifact and is outside this submission's certified claims.
+    Formalizes the unconditional all-parity AKLT theorem: nonvanishing and
+    uniqueness of the VBS ground state on every torus with periods at least
+    three, and a uniform positive spectral gap for all sufficiently large
+    periods. The finite H1 and H3 certificate libraries are part of the proof.
+    This hand-written port phase awaits regeneration of those source libraries
+    against the module-system kernels before the full release can build.
   authors:
     - 'TODO: formalization author name'
   responsible_maintainers:
@@ -34,8 +32,8 @@ sources:
       sec6-walks.tex, h:H1; sec7-recursion.tex, h:H3;
       sec8-inputs.tex, t:H1 and t:inputs.
     note: >-
-      The advertised claim is the implication from H1 and H3_h, with H2
-      discharged internally. See FIDELITY.md for exact source lines and
+      The advertised claim is the unconditional t:main, with H1, H2, and H3_h
+      discharged by the mathematical development and finite certificates. See FIDELITY.md for exact source lines and
       the clause-by-clause correspondence. TODO: immutable public source URL.
   - title: AKLT finite certificate companion artifact
     authors:
@@ -46,8 +44,8 @@ sources:
       AKLT/Cert/H1, AKLT/Cert/H3, CertData, AKLT/W/H1C*, AKLT/W/H3C*,
       and the H1M/H3M semantic assemblies in the companion development.
     note: >-
-      Supplies the separate verification routes for the two explicit premises.
-      These source layers are absent from the Solution import closure.
+      Supplies the finite verification routes inside the unconditional Solution
+      import closure. Generated sources are regenerated or fetched as pinned archives.
       TODO: public companion URL, immutable commit, artifact manifest, and receipts.
 automation:
   methods:
@@ -66,11 +64,10 @@ review:
     FIDELITY.md is prepared for independent review. Local diagnostics do not
     establish a clean production build or Palomar acceptance.
 limitations:
-  - H1 and H3_h remain explicit premises; neither is proved by this package.
-  - The package certifies the analytic and algebraic reduction, including H2.
-  - The two premises are semantic statements with universal quantifiers, obtained
-    by the companion artifact from finite certificate assertions.
-  - The exact source closure is populated and ported. Author metadata TODOs, the
-    root license, independent fidelity review, and authenticated production resource
-    verification remain release prerequisites. Local component receipts are not
-    production acceptance evidence.
+  - Generated certificate sources must be regenerated and rebuilt against the
+    ported kernels; legacy certificate objects are not reused.
+  - The hand-written port and two-input regression do not by themselves certify
+    the pending unconditional package build or its independent checker replays.
+  - Author metadata, the root license, public artifact provenance, and independent
+    fidelity review remain TODO. This project is not being submitted to Palomar;
+    its file-level and package conventions are retained.

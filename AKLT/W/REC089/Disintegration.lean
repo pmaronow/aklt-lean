@@ -16,7 +16,7 @@ def joinSpins {ι : Type} (p : ι → Prop) [DecidablePred p]
     ι → SpinLetter :=
   (Equiv.piEquivPiSubtypeProd p (fun _ => SpinLetter)).symm (inside, outside)
 
-/-- Disintegration is an unnormalized finite-sum identity, including zero fibres. -/
+/-- Disintegration is an unnormalized finite-sum identity, including zero fibers. -/
 theorem finite_disintegration {ι : Type} [Fintype ι] [DecidableEq ι]
     (p : ι → Prop) [DecidablePred p] (w : ι → SpinLetter → ℝ)
     (F : (ι → SpinLetter) → ℝ) :
@@ -89,7 +89,7 @@ def commonFactors (a : AKLT.Blueprint.Rec.Departure) (next : Bool)
 def commonStatus (a : AKLT.Blueprint.Rec.Departure) (next : Bool) (x : Plane) : Status :=
   (if next then traceStep a.D a.y a.o else a.D).status x
 
-/-- The outside weight includes only site masses; all other factors stay in the fibre. -/
+/-- The outside weight includes only site masses; all other factors stay in the fiber. -/
 def exteriorMass (a : AKLT.Blueprint.Rec.Departure) (incoming : Compass)
     (ω : ExteriorSpins a incoming) : ℝ := by
   classical

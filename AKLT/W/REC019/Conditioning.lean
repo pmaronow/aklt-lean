@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.W.REC019
 
-/-- Finite averaging, allowing zero-mass fibres and a zero total mass. -/
+/-- Finite averaging, allowing zero-mass fibers and a zero total mass. -/
 theorem finite_weighted_bounds {Ω : Type*} [Fintype Ω] (w F : Ω → ℝ)
     (hw : ∀ σ, 0 ≤ w σ) {l u : ℝ} (hl : l ≤ 0) (hu : 0 ≤ u)
     (hF : ∀ σ, l ≤ F σ ∧ F σ ≤ u) :

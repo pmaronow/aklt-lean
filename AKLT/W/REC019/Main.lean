@@ -116,7 +116,7 @@ theorem main_of_conditional_mixture (h : Residual_ConditionalMixture) :
     (residuals_of_conditional_mixture h).2
 
 /-- The removed-mean intervals (blueprint leaf `RemovedMeanIntervalsStatement`),
-proved in the copied fibre-expansion development `AKLT.W.REC019.R4`. -/
+proved in the copied fiber-expansion development `AKLT.W.REC019.R4`. -/
 theorem removedMeanIntervals : AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement :=
   AKLT.W.REC019.R4.main
 

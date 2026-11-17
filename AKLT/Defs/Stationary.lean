@@ -38,7 +38,7 @@ def phaseTransition (k : StepKind) (reward : ℚ) (φ ψ : Phase) : ℚ :=
     if φ = .A ∧ ψ = .C ∧ k = .turn then passageFactor false * reward / 3 else
     if φ = .B ∧ ψ = .D ∧ k = .straight then passageFactor true * reward / 3 else 0
 
-/-- Type-dependent h reward when a chosen set of neighbours is declared dead. -/
+/-- Type-dependent h reward when a chosen set of neighbors is declared dead. -/
 def relaxedReward (x : Plane) (incoming outgoing : Compass) (dead : Finset Plane) : ℚ :=
   let o := x + outgoing.step
   let live := ((neighbours x).erase (x - incoming.step) |>.erase o) \ dead
@@ -55,7 +55,7 @@ def freeCoefficient {m q : ℕ} (Q : MemoryQuotient m q)
     (relaxedReward (0, 0) (Q.arrival a) d ∅) φ ψ else 0
 
 /-- Legacy stationary coefficients, retained for existing H3 proofs.
-Use `stationaryCoefficientV2` for the paper's zero-centre-edge operator. -/
+Use `stationaryCoefficientV2` for the paper's zero-center-edge operator. -/
 def stationaryCoefficient {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
     (φ : Phase) (a : Fin q) (x : Plane) (d : Compass) (ψ : Phase) : ℚ :=
   if x = kernelCentre ∨ x = kernelTarget X ∨ Q.allowed a d = false then 0 else
@@ -124,7 +124,7 @@ def StationaryData.Passes {m q : ℕ} (C : StationaryData q) (Q : MemoryQuotient
         C.extended ψ (Q.successor a d) (x.val + d.step)) ≤
       certificateCoefficientScale * C.value φ a x
 
-/-- Actual phase weights along a true prefix, with its true revisits and dead neighbours. -/
+/-- Actual phase weights along a true prefix, with its true revisits and dead neighbors. -/
 def prefixPhases {n : ℕ} (w : DirectionWord n) : Phase → ℚ :=
   (List.finRange n).foldl (fun p i ψ => ∑ φ : Phase, p φ *
     phaseTransition (if wordRevisit kernelStart w i then .revisit
@@ -135,7 +135,7 @@ def prefixPhases {n : ℕ} (w : DirectionWord n) : Phase → ℚ :=
 def FirstDirection {n : ℕ} (w : DirectionWord n) (d : Compass) : Prop :=
   ∃ i : Fin n, i.val = 0 ∧ w i = d
 
-/-- `d:prefix-bound`: true surviving prefixes avoid both the centre and the target. -/
+/-- `d:prefix-bound`: true surviving prefixes avoid both the center and the target. -/
 def SurvivingPrefix {n : ℕ} (X : PairType) (d₀ : Compass) (w : DirectionWord n) : Prop :=
   IsTrail kernelStart kernelIncoming w ∧ FirstDirection w d₀ ∧
   ∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre ∧ wordVertex kernelStart w j ≠ kernelTarget X
@@ -171,7 +171,7 @@ def stationaryPrefixCeiling (X : PairType) (d : Compass) : ℕ :=
   | _, _ => 0
 
 /-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
-into the centre is zero, including known-site rows. Legacy definitions are
+into the center is zero, including known-site rows. Legacy definitions are
 retained for existing H3 row/refinement proofs. -/
 def stationaryCoefficientV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
     (φ : Phase) (a : Fin q) (x : Plane) (d : Compass) (ψ : Phase) : ℚ :=
@@ -183,7 +183,7 @@ def stationaryCoefficientV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) 
         (relaxedReward x (Q.arrival a) d {kernelCentre}) φ ψ
 
 /-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
-into the centre is zero, including known-site rows. Legacy definitions are
+into the center is zero, including known-site rows. Legacy definitions are
 retained for existing H3 row/refinement proofs. -/
 def stationaryApplyV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ : Compass)
     (F : Phase → Fin q → Plane → ℚ) (φ : Phase) (a : Fin q) (x : Plane) : ℚ :=
@@ -191,7 +191,7 @@ def stationaryApplyV2 {m q : ℕ} (Q : MemoryQuotient m q) (X : PairType) (d₀ 
     stationaryCoefficientV2 Q X d₀ φ a x d ψ * F ψ (Q.successor a d) (x + d.step)
 
 /-- Corrected `d:stationary-walk` / `d:stationary-certificate`: every edge
-into the centre is zero, including known-site rows. Legacy definitions are
+into the center is zero, including known-site rows. Legacy definitions are
 retained for existing H3 row/refinement proofs. -/
 def StationaryData.PassesV2 {m q : ℕ} (C : StationaryData q) (Q : MemoryQuotient m q)
     (X : PairType) (d₀ : Compass) : Prop :=

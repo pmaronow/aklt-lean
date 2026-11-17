@@ -16,7 +16,7 @@ attribute [local instance] Classical.propDecidable
 namespace AKLT.Blueprint.Gap
 local instance (α : Type) : DecidableEq α := Classical.decEq α
 
-/-- `l:CE`, app-finite:35-46. Group the finite sum by the exterior fibre; strict
+/-- `l:CE`, app-finite:35-46. Group the finite sum by the exterior fiber; strict
 positivity makes its denominator positive. Also identify the full-state kernel mean. -/
 def FibreNormalizationStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)]
@@ -59,7 +59,7 @@ def CouplingMarginalTVStatement : Prop :=
     ∀ r : Ω → Ξ, totalVariation (marginal p r) (marginal q r) ≤ totalVariation p q
 
 /-- `l:finitecoupling`, app-finite:114-128. Lift a given marginal coupling by
-conditional residual laws. Zero marginal fibres have zero mass and are branched off. -/
+conditional residual laws. Zero marginal fibers have zero mass and are branched off. -/
 def MarginalCompletionStatement : Prop :=
   ∀ (Ω Ξ : Type) [Fintype Ω] [Fintype Ξ] (p q : Weight Ω), Probability p → Probability q →
     ∀ r : Ω → Ξ, ∀ c : Coupling (marginal p r) (marginal q r),
@@ -161,7 +161,7 @@ def SignedFrameBlockStatement : Prop :=
       (frameRatio^E.card)
 
 /-- `l:density`, app-finite:177-197. Subtract the conditional mean (or constant
-mean) and expand the square; the cross term vanishes by fibre averaging. -/
+mean) and expand the square; the cross term vanishes by fiber averaging. -/
 def VariationalCenteringStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)]
     [∀ x, Nonempty (S x)] (p : Weight (Config S)), PositiveProbability p → ∀ f,
@@ -188,7 +188,7 @@ def DensityComparisonStatement : Prop :=
       variance μ f ≤ M * variance (fun σ => ∏ x, π x (σ x)) f) ∧ PoincareLower μ (m / M)
 
 /-- `l:comparison`, app-finite:270-286. Integrate the conditional block Poincare
-inequality and identify the nested single-site fibre with the original one-site fibre. -/
+inequality and identify the nested single-site fiber with the original one-site fiber. -/
 def ConditionalBlockComparisonStatement : Prop :=
   ∀ (ι J : Type) [Fintype ι] [DecidableEq ι] [Fintype J]
     (S : ι → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
@@ -215,7 +215,7 @@ def HammingPathStatement : Prop :=
     (∀ σ τ, |f σ - f τ| ≤ lipschitz f * hamming σ τ) ∧
     (lipschitz f = 0 ↔ ∃ c, ∀ σ, f σ = c)
 
-/-- `l:contraction`, app-finite:321-326. Test the neighbour-output couplings on
+/-- `l:contraction`, app-finite:321-326. Test the neighbor-output couplings on
 f and take the maximum of finitely many one-coordinate oscillations. -/
 def LipschitzCouplingStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
@@ -256,7 +256,7 @@ def ReversibleSpectralStatement : Prop :=
     ∀ f, c * variance p f ≤ kernelForm p K A f
 
 /-- `l:contraction`/`l:CE`, app-finite:65-66,328-330. An average of conditional
-projections is reversible and has exactly the labelled sum as its A(I-P) form. -/
+projections is reversible and has exactly the labeled sum as its A(I-P) form. -/
 def BlockAverageFormStatement : Prop :=
   ∀ (ι J : Type) [Fintype ι] [DecidableEq ι] [Fintype J] [Nonempty J]
     (S : ι → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]
@@ -265,7 +265,7 @@ def BlockAverageFormStatement : Prop :=
         kernelForm p (blockAverage p B) (Fintype.card J) f = blockForm p B f
 
 /-- `l:boxlift` used in `t:mainW`, sec4:459-465. Change variables in the finite
-sums; the coordinate equality equivalence identifies every one-site fibre. -/
+sums; the coordinate equality equivalence identifies every one-site fiber. -/
 def ProductPoincareTransportStatement : Prop :=
   ∀ (ι κ : Type) [Fintype ι] [DecidableEq ι] [Fintype κ] [DecidableEq κ]
     (S : ι → Type) (T : κ → Type) [∀ x, Fintype (S x)] [∀ y, Fintype (T y)]

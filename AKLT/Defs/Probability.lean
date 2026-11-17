@@ -45,7 +45,7 @@ def variance {Ω : Type*} [Fintype Ω] (p : Weight Ω) (f : Ω → ℂ) : ℝ :=
 def AgreeOutside {ι : Type*} {S : ι → Type*} (U : Finset ι)
     (σ τ : (x : ι) → S x) : Prop := ∀ x, x ∉ U → σ x = τ x
 
-/-- `d:framemodel`: conditioning off a block, given by its finite fibre quotient. -/
+/-- `d:framemodel`: conditioning off a block, given by its finite fiber quotient. -/
 def conditionalExpectation {ι : Type*} [Fintype ι] [DecidableEq ι] {S : ι → Type*}
     [∀ x, Fintype (S x)] (p : Weight ((x : ι) → S x)) (U : Finset ι)
     (f : ((x : ι) → S x) → ℂ) (σ : (x : ι) → S x) : ℂ := by
@@ -54,7 +54,7 @@ def conditionalExpectation {ι : Type*} [Fintype ι] [DecidableEq ι] {S : ι �
     (∑ τ, if AgreeOutside U σ τ then (p τ : ℂ) else 0)
 
 /-- `d:framemodel`: the pointwise conditional variance E_U |f-E_U f|^2,
-with the same explicit fibre denominator as the conditional expectation. -/
+with the same explicit fiber denominator as the conditional expectation. -/
 def conditionalVariance {ι : Type*} [Fintype ι] [DecidableEq ι] {S : ι → Type*}
     [∀ x, Fintype (S x)] (p : Weight ((x : ι) → S x)) (U : Finset ι)
     (f : ((x : ι) → S x) → ℂ) (σ : (x : ι) → S x) : ℝ := by

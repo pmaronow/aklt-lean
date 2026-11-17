@@ -122,7 +122,7 @@ instance : Fintype PairType := ⟨{.B, .C}, by intro X; cases X <;> simp⟩
 def HasPairType (X : PairType) (u v : Plane) : Prop :=
   latticeDist u v = 2 ∧ (if X = .B then u.1 = v.1 ∨ u.2 = v.2 else u.1 ≠ v.1 ∧ u.2 ≠ v.2)
 
-/-- `d:pairenv`: the ordinary response-pair class with its designated removed centre. -/
+/-- `d:pairenv`: the ordinary response-pair class with its designated removed center. -/
 def Network.ResponsePair {G : Finset Plane} (D : Network G) (X : PairType)
     (u v c : Plane) : Prop :=
   D.Consistent ∧ u ∈ D.active ∧ v ∈ D.active ∧ c ∈ G ∧ D.status c = .X ∧

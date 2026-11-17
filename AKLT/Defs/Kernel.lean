@@ -10,28 +10,28 @@ open scoped BigOperators ENNReal
 
 namespace AKLT.Defs
 
-/-- `d:kernel`: the fixed start, centre, target and incoming direction of each row. -/
+/-- `d:kernel`: the fixed start, center, target and incoming direction of each row. -/
 def kernelStart : Plane := (-1, 0)
 def kernelCentre : Plane := (0, 0)
 def kernelTarget : PairType → Plane | .B => (1, 0) | .C => (0, 1)
 def kernelIncoming : Compass := .west
 
-/-- `d:kernel`: first hit of v, avoiding c, with no used unoriented bond repeated. -/
+/-- `ClosedTrail` describes a first-hit path to v, avoiding c, with no repeated unoriented bond (`d:kernel`). -/
 def ClosedTrail {n : ℕ} (X : PairType) (w : DirectionWord n) : Prop :=
   IsTrail kernelStart kernelIncoming w ∧ wordVertex kernelStart w n = kernelTarget X ∧
   (∀ j ≤ n, wordVertex kernelStart w j ≠ kernelCentre) ∧
   ∀ j < n, wordVertex kernelStart w j ≠ kernelTarget X
 
-/-- `d:kernel`: dead sites are the centre and sites with two previous departures. -/
+/-- `d:kernel`: dead sites are the center and sites with two previous departures. -/
 def deadAt {n : ℕ} (w : DirectionWord n) (i : Fin n) (z : Plane) : Prop :=
   z = kernelCentre ∨ 2 ≤ departureCount kernelStart w i.val z
 
-/-- `d:kernel`: the three nonarrival neighbours, with the actual outgoing neighbour distinguished. -/
+/-- `d:kernel`: the three nonarrival neighbors, with the actual outgoing neighbor distinguished. -/
 def responseNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane :=
   (neighbours (wordVertex kernelStart w i.val)).erase
     (wordVertex kernelStart w i.val - (wordIncoming kernelIncoming w i).step)
 
-/-- Live non-outgoing neighbours; this is where the beta-prime case is decided. -/
+/-- Live non-outgoing neighbors; this is where the beta-prime case is decided. -/
 def liveOtherNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Plane := by
   classical
   exact ((responseNeighbours w i).erase (wordVertex kernelStart w (i.val + 1))).filter
@@ -41,7 +41,7 @@ def liveOtherNeighbours {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset Pla
 def responsePairs {n : ℕ} (w : DirectionWord n) (i : Fin n) : Finset (Finset Plane) :=
   (insert (wordVertex kernelStart w (i.val + 1)) (liveOtherNeighbours w i)).powersetCard 2
 
-/-- `d:kernel`: exact type-dependent coefficient, including one-live-neighbour beta-prime. -/
+/-- `d:kernel`: exact type-dependent coefficient, including one-live-neighbor beta-prime. -/
 def pairCoefficient {n : ℕ} (w : DirectionWord n) (i : Fin n) (p : Finset Plane) : ℚ :=
   let straight := wordStraight kernelIncoming w i
   if wordVertex kernelStart w (i.val + 1) ∈ p then

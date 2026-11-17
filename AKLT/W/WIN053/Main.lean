@@ -1085,7 +1085,7 @@ theorem main : AKLT.Blueprint.Win.NeighbourFibresStatement := by
     have hpair :
         fibreMean p V σ (fun ω => dot (extendIcoSpins ω z) (extendIcoSpins ω w)) =
           dot (fibreSpinMean p V σ z) (fibreSpinMean p V σ w) := by
-      -- The product fibre separates the two site observables coordinate by coordinate.
+      -- The product fiber separates the two site observables coordinate by coordinate.
       unfold fibreMean
       have hnum :
           (∑ ω : PlaneConfiguration D,

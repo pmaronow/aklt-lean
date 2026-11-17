@@ -57,7 +57,7 @@ def ResponseStatement : Prop :=
 
 /-- Legacy full-kept specialization of `l:response-typed`; use V2 below.
 Covered U departures satisfy both the analytic and exact
-type-dependent bounds, including beta-prime when one non-outgoing neighbour is absent. -/
+type-dependent bounds, including beta-prime when one non-outgoing neighbor is absent. -/
 def ResponseTypedStatement : Prop :=
   H1Statement →
   (∀ straight : Bool, alphaBound straight ≤ 18094 / 100000 ∧

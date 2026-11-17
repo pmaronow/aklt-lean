@@ -37,7 +37,7 @@ def EnumerationStepsStatement : Prop :=
       RemovalStep G (removedPrefix e j.val) (e.site j) ∧
       (0 < j.val → ∃ c ∈ removedPrefix e j.val, Adjacent (e.site j) c)
 
-/-- `l:removal`, sec5-window.tex:251–255,287–292,321–327. All four neighbours of a depth-three site are original interior sites. After removal they are pairwise at distance two, have at most three surviving bonds, and are at original depth at least two. -/
+/-- `l:removal`, sec5-window.tex:251–255,287–292,321–327. All four neighbors of a depth-three site are original interior sites. After removal they are pairwise at distance two, have at most three surviving bonds, and are at original depth at least two. -/
 def SurvivorGeometryStatement : Prop :=
   ∀ G Y : Finset Plane, ∀ x : Plane, RemovalStep G Y x →
     (survivors G Y x).card ≤ 4 ∧
@@ -46,7 +46,7 @@ def SurvivorGeometryStatement : Prop :=
     (∀ z ∈ survivors G Y x, 2 ≤ boundaryDepth G z) ∧
     (∀ z ∈ survivors G Y x, ∀ w ∈ survivors G Y x, z ≠ w → latticeDist z w = 2)
 
-/-- `e:removalpolynomial`, sec5-window.tex:257–279. Sum the removed site first. Odd tensors vanish, the second tensor supplies pairSum/3, and only all four surviving neighbours create quartic/15. Other sites retain their original legs. -/
+/-- `e:removalpolynomial`, sec5-window.tex:257–279. Sum the removed site first. Odd tensors vanish, the second tensor supplies pairSum/3, and only all four surviving neighbors create quartic/15. Other sites retain their original legs. -/
 def RemovalIntegralStatement : Prop :=
   AKLT.Blueprint.Top.MomentsStatement →
     ∀ G Y : Finset Plane, ∀ τ : PinAssignment G, ∀ x : Plane, RemovalStep G Y x →
@@ -54,14 +54,14 @@ def RemovalIntegralStatement : Prop :=
       partSum pinned G Y τ (fun _ => 1) =
         partSum pinned G (insert x Y) τ (removalPolynomial x (survivors G Y x))
 
-/-- `l:removal`, sec5-window.tex:287–301. Freeze the other spins on a positive fibre. Nonadjacency of the neighbours factors that fibre into one-site laws with at most three unit fields. Apply the three-factor mean bound and retain only positive fibres. -/
+/-- `l:removal`, sec5-window.tex:287–301. Freeze the other spins on a positive fiber. Nonadjacency of the neighbors factors that fiber into one-site laws with at most three unit fields. Apply the three-factor mean bound and retain only positive fibers. -/
 def NeighbourFibresStatement : Prop :=
   AKLT.Blueprint.Top.MomentsStatement → AKLT.Blueprint.Top.ThreeFactorMeanStatement →
     ∀ G Y : Finset Plane, ∀ τ : PinAssignment G, ∀ x : Plane, RemovalStep G Y x →
     ∀ pinned : Bool,
       NeighbourControl (partLaw pinned G (insert x Y) τ) (survivors G Y x)
 
-/-- `l:removal`, sec5-window.tex:303–310. On every positive fibre use 2∑mᵣ·mₜ=|∑mᵣ|²−∑|mᵣ|². Average the resulting lower bound; zero-mass fibres contribute zero. -/
+/-- `l:removal`, sec5-window.tex:303–310. On every positive fiber use 2∑mᵣ·mₜ=|∑mᵣ|²−∑|mᵣ|². Average the resulting lower bound; zero-mass fibers contribute zero. -/
 def PairMeanAveragingStatement : Prop :=
   ∀ D V : Finset Plane, V ⊆ D → ∀ p : Weight (PlaneConfiguration D),
     Probability p → NeighbourControl p V →
@@ -83,7 +83,7 @@ def PolynomialLowerStatement : Prop :=
     (if V.card = 4 then (14 / 25 : ℝ) else 41 / 50) ≤
       expectation p (fun σ => removalPolynomial x V (extendIcoSpins σ))
 
-/-- `h:P`, sec5-window.tex:321–337. The pair has its common removed neighbour x in insert x Y. Lipschitz depth gives distance to the original S(G) at least b_G(x)−3; convert finite ENat depth before the natural subtraction. -/
+/-- `h:P`, sec5-window.tex:321–337. The pair has its common removed neighbor x in insert x Y. Lipschitz depth gives distance to the original S(G) at least b_G(x)−3; convert finite ENat depth before the natural subtraction. -/
 def RemovedPairResponseStatement : Prop :=
   ∀ A θ : ℝ, ResponseProperty A θ →
     ∀ G Y : Finset Plane, ∀ τ : PinAssignment G, ∀ x : Plane, RemovalStep G Y x →

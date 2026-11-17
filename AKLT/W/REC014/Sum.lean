@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.W.REC014
 
-/-- Equality may be checked by summing over one coordinate on every fibre. -/
+/-- Equality may be checked by summing over one coordinate on every fiber. -/
 theorem sum_eq_of_fibre {ι : Type*} [Fintype ι] [DecidableEq ι]
     (y : ι) (F H : (ι → SpinLetter) → ℝ)
     (h : ∀ n, (∑ j, F (Function.update n y j)) =
@@ -45,7 +45,7 @@ theorem prod_update {ι : Type*} [Fintype ι] [DecidableEq ι]
   rw [Function.update_of_ne (Finset.mem_erase.mp hx).1]
 
 /-- The zero first moment integrates a single U bond to one; the new isolated
-D site also has mass one. All other factors are constant on this fibre. -/
+D site also has mass one. All other factors are constant on this fiber. -/
 theorem integrate_leaf {ι : Type*} [Fintype ι] [DecidableEq ι]
     (s : ι → Status) (y o : ι) (hyo : o ≠ y) (hy : s y = .U)
     (H : (ι → SpinLetter) → ℝ)

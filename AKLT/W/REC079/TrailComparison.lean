@@ -92,7 +92,7 @@ theorem pairSignal_zero_of_inactive {G : Finset Plane} (E : Network G) (τ : Pin
       simp [Network.spins, hb, dot]
     simp [Network.expectation, Network.partition, hf]
 
-/-- Present neighbours at a true U departure occur in the kernel's live set. -/
+/-- Present neighbors at a true U departure occur in the kernel's live set. -/
 theorem present_kernel_mem (p : PairSetup) {n : ℕ} (w : DirectionWord n)
     (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)
     (i : Fin n)

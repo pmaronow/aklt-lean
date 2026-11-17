@@ -26,7 +26,7 @@ def ShellGeometryStatement : Prop :=
       ¬ setDistance supDist y (↑(farVolume a y u i) : Set Plane) ≤ 1
 
 /-- `t:cutMOS`: P implies W for the actual frame family, with l0=64 and exactly
-the displayed exp(-2E); one common threshold works for every colouring and translate. -/
+the displayed exp(-2E); one common threshold works for every coloring and translate. -/
 def CutMOSStatement : Prop :=
   ∀ A θ : ℝ, ResponseProperty A θ →
     ∃ Mstar : ℕ, WindowProperty 64 (cutProbability A θ) Mstar

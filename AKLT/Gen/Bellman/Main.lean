@@ -16,7 +16,7 @@ Import this module for the complete generic API in `AKLT.Gen.Bellman`.
 
 * `System.stopped_total_le`: first-hit path-sum soundness, arbitrary label and state types.
 * `local_global`, `local_global_total_le`: finite modifications controlled by free rows.
-* `Automaton.quotient_compatible`, `Automaton.stopped_total_pullback`: exact labelled lumping.
+* `Automaton.quotient_compatible`, `Automaton.stopped_total_pullback`: exact labeled lumping.
 * `all_length_path_bound`, `alm`: positive-vector growth and the finite-prefix constant.
 * `scaled_ennreal_row_sound`: natural-number row checks imply exact scaled inequalities.
 

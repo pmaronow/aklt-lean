@@ -48,7 +48,7 @@ theorem interior_distance {G : Finset Plane} {y : Plane}
   apply hle.trans
   exact_mod_cast (show latticeDist y z ≤ 2 by omega)
 
-/-- A neighbour of an admissible departure has no original pin factor. -/
+/-- A neighbor of an admissible departure has no original pin factor. -/
 theorem departure_neighbour_no_leg (a : Departure) {x : Plane}
     (hx : x ∈ a.D.presentNeighbours a.y) :
     ∀ e ∈ originalLegs a.G, e.1 ≠ x := by

@@ -63,7 +63,7 @@ theorem coordinates_image {L N : Size} {M : ℕ} {a : Site L N}
     exact Finset.mem_image.mpr ⟨(C.change.sites ⟨x, hx⟩).val,
       (C.change.sites ⟨x, hx⟩).property, C.site_reduces ⟨x, hx⟩⟩
 
-/-- The four possible displacements of a nearest neighbour. -/
+/-- The four possible displacements of a nearest neighbor. -/
 theorem adjacent_iff_steps (x y : Plane) : Adjacent x y ↔
     y = (x.1+1, x.2) ∨ y = (x.1, x.2+1) ∨
     x = (y.1+1, y.2) ∨ x = (y.1, y.2+1) := by

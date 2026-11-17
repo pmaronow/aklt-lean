@@ -32,8 +32,8 @@ Let `H` and `H'` be diagonal in orthonormal bases `b` and `b'` with eigenvalues 
 and let `T(c)` and `T'(c)` be the spans of the basis vectors with eigenvalue at most `c`.
 Suppose `H` and `H'` differ by at most `ξ` on `T(c)`: `‖(H - H') φ‖ ≤ ξ ‖φ‖` for `φ ∈ T(c)`,
 and the eigenvalues of `H` in `T(c)` lie in `[m, c]` with `m < c`. Cover `[m, c]` from the top
-by `N = ⌈(c - m) / (2 h)⌉` closed windows of width `2 h`, with centres `c - h - 2 h w`. On a
-window centred at `μ` a vector `ψ` satisfies `‖(H' - μ) ψ‖ ≤ (ξ + h) ‖ψ‖`, so by Markov's
+by `N = ⌈(c - m) / (2 h)⌉` closed windows of width `2 h`, with centers `c - h - 2 h w`. On a
+window centerd at `μ` a vector `ψ` satisfies `‖(H' - μ) ψ‖ ≤ (ξ + h) ‖ψ‖`, so by Markov's
 inequality its mass on the eigenvalues of `H'` above `c' ≥ c` is at most
 `(ξ + h) / (c' - c + h)` times its norm. Summing over the windows with the Cauchy–Schwarz
 inequality, `T'(c')` is `δ`-close to `T(c)` as soon as `N (ξ + h) ^ 2 ≤ δ (c' - c + h) ^ 2`.

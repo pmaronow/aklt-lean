@@ -261,7 +261,7 @@ lemma depleted_bound {k : ℕ} (a : Fin k → Vec3)
   have hs : (3 * A / (3 * A + 2))^2 ≤ 1 := by nlinarith [ht.1, ht.2]
   nlinarith
 
-/-- The only fields used on an unpinned fibre are support atoms (zero included). -/
+/-- The only fields used on an unpinned fiber are support atoms (zero included). -/
 theorem atom_mean_bound (s : Status) (hs : s = .U ∨ s = .D)
     (a : Fin 3 → SpinLetter) :
     1 / 2 ≤ siteFunctional s (localProduct (fun j => spinVector (a j))) ∧

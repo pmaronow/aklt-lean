@@ -33,7 +33,7 @@ def LocalMixtureStatementV2 : Prop :=
 
 /-- `l:local`, §6 lines 625–651; ARCH_0 F1. Apply H1 to the shared
 matcher, allowing arbitrary missing external factors and inactive flags.
-The actual outgoing neighbour is supplied by Departure, not inferred from a slot. -/
+The actual outgoing neighbor is supplied by Departure, not inferred from a slot. -/
 def CoveredRatioStatementV2 : Prop :=
   Top.H1Statement → ∀ a : Departure, a.D.status a.y = .U →
     ∀ incoming outgoing : Compass, a.o = a.y + outgoing.step →

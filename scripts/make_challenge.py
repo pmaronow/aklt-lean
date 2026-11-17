@@ -13,23 +13,6 @@ def main():
     parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     selection = [
-        ('AKLT/Defs/Geometry.lean', 'AKLT.Defs', {
-            'Plane', 'latticeDist', 'Compass', 'Compass.step', 'Compass.reverse',
-            'Adjacent', 'neighbours', 'positiveNeighbours', 'internalBonds', 'square'}),
-        ('AKLT/Defs/Moment.lean', 'AKLT.Defs', {
-            'Vec3', 'dot', 'normSq', 'UnitVector', 'goldenRatio', 'icoRadius',
-            'IcoLetter', 'signValue', 'icoVector', 'moment', 'Status', 'SpinLetter', 'spinVector', 'spinWeight'}),
-        ('AKLT/Defs/Domain.lean', 'AKLT.Defs', {'PairType'}),
-        ('AKLT/Defs/Trails.lean', 'AKLT.Defs', {
-            'localThreshold', 'passageFactor', 'alphaBound', 'betaBound', 'betaPrimeBound',
-            'DirectionWord', 'wordVertex', 'wordBond', 'IsTrail', 'wordIncoming',
-            'wordStraight', 'departureCount', 'wordRevisit', 'trailWeight', 'trailBaseWeight'}),
-        ('AKLT/Defs/Kernel.lean', 'AKLT.Defs', {
-            'kernelStart', 'ClosedTrail', 'deadAt', 'responseNeighbours', 'liveOtherNeighbours',
-            'responsePairs', 'pairCoefficient', 'responsePairType', 'kernelWitness', 'kernelRho',
-            'witnessKappa', 'firstVisitList', 'shortOrderLE', 'kernelOrdering', 'exposureSum',
-            'closedContribution', 'kernelPartialRow', 'PositiveVectorBound'}),
-        ('AKLT/Defs/Pattern.lean', 'AKLT.Defs', None),
         ('AKLT/Challenge/Main.lean', 'AKLT.Challenge', {
             'Size', 'size_neZero', 'Site', 'Direction', 'Bond', 'nextSite', 'V', 'spinZ', 'spinPlus', 'spinMinus',
             'Configuration', 'Hilbert', 'atSite', 'onBond', 'bondCasimir', 'spin4Space', 'P', 'H',
@@ -40,8 +23,8 @@ def main():
 
 public import Mathlib
 
-/-! The spin-2 square-lattice AKLT headline, conditional on the paper's (H1)
-and (H3_h). Definitions are copied faithfully from the statement layers;
+/-! The unconditional spin-2 square-lattice AKLT headline.
+Definitions are copied faithfully from the statement layers;
 no certificate or analytic proof module is imported. See FIDELITY.md. -/
 
 @[expose] public section
@@ -74,19 +57,11 @@ open scoped BigOperators ENNReal
     result += '''
 namespace AKLTPalomar
 
-/-- Paper (H1), sec6-walks.tex, h:H1, at the exact thresholds in t:H1:
-every covered radius-two pattern and every assignment of its twenty unit pins. -/
-def H1 : Prop := AKLT.Defs.LocalPatternBound (961 / 1000) (187 / 200)
-
-/-- Paper (H3_h), sec7-recursion.tex, h:H3, with the constants in t:inputs:
-every true-trail cutoff, the fixed dyadic vector, and cutoff-twelve orderings. -/
-def H3 : Prop := AKLT.Defs.PositiveVectorBound
-
 /-- Paper t:main: all-period ground-state uniqueness, and an eventual uniform gap. -/
 def Main : Prop := AKLT.Challenge.MainStatementV2
 
-/-- The certified reduction. The two computational inputs are explicit premises. -/
-theorem aklt_gap_of_inputs : H1 → H3 → Main := by
+/-- The unconditional theorem of the paper, t:main in sec1-result.tex. -/
+theorem aklt_gap : Main := by
   sorry
 
 end AKLTPalomar

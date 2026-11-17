@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.Blueprint.Rec
 
-/-- `l:closure`: the distinct active neighbours other than the arrival site.
+/-- `l:closure`: the distinct active neighbors other than the arrival site.
 Presence is derived by consistency at a live U site, not presumed for an arrival. -/
 def nonarrivalNeighboursV2 {G : Finset Plane} (D : Network G) (y : Plane)
     (incoming : Compass) : Finset Plane :=
@@ -28,7 +28,7 @@ def CoveredClosureStatementV2 : Prop :=
         (wordVertex p.u w i.val) (wordIncoming p.incoming w i) (w i)
 
 /-- `l:closure`, §7 lines 79–81, 158–164; REF2_5 finding 1. Only
-non-arrival neighbours are response endpoints. An arrival D site can retain
+non-arrival neighbors are response endpoints. An arrival D site can retain
 two present bonds after live-site deletion and is deliberately excluded. -/
 def PairClosureStatementV2 : Prop :=
   ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,

@@ -6,7 +6,7 @@ set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
 /-!
-# Exact quotients of labelled deterministic automata
+# Exact quotients of labeled deterministic automata
 
 An optional `(kind, successor)` records admissibility, kind, and successor together.
 The alphabet consists of absolute labels: it is never quotiented or rotated.
@@ -33,7 +33,7 @@ def project (π : S → Q) : Option (K × S) → Option (K × Q) :=
 def Compatible (A : Automaton S D K) (B : Automaton Q D K) (π : S → Q) : Prop :=
   ∀ s d, project π (A.trans s d) = B.trans (π s) d
 
-/-- A quotient can be constructed from any surjection with constant projected rows on fibres. -/
+/-- A quotient can be constructed from any surjection with constant projected rows on fibers. -/
 noncomputable def quotient (A : Automaton S D K) (π : S → Q)
     (hsurj : Function.Surjective π) : Automaton Q D K where
   trans q d := project π (A.trans (Classical.choose (hsurj q)) d)

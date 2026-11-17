@@ -78,7 +78,7 @@ def IncidentKernelStatement : Prop :=
 
 /-- `l:divisibility`, sec3 lines 176–188, specialized to R={x}:
 degree-four saturation makes any quotient by all four incident determinants
-independent of the centre. Nonzero divisor cancellation also handles ψ=0. -/
+independent of the center. Nonzero divisor cancellation also handles ψ=0. -/
 def IncidentDegreeStatement : Prop :=
   ∀ L N : Size, ∀ x : Site L N, ∀ ψ : Hilbert L N, ∀ χ : SpinorPolynomial L N,
     statePolynomial ψ = incidentProduct x * χ → independentAt x χ

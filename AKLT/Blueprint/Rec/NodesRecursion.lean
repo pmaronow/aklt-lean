@@ -70,7 +70,7 @@ def PairEnvelopeShiftStatement : Prop :=
 
 /-- `l:recineq`, §7 lines 817–858. Compare one true trace to its lattice
 trail: true U departures are first visits; extra initial D sites only lower
-the base weight. Dead sites are actually removed; missing neighbours choose
+the base weight. Dead sites are actually removed; missing neighbors choose
 beta-prime or the larger beta. The target remains live until the endpoint. -/
 def TraceKernelLengthStatement : Prop :=
   Top.H1Statement → ∀ p : PairData, ∀ d : ℕ, 1 ≤ d → (d : ℕ∞) ≤ p.depth →

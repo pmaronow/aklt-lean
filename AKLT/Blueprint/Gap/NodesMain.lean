@@ -62,14 +62,14 @@ def StoppedCouplingStatement : Prop :=
       StoppedEstimate P l p Mstar α
 
 /-- Assembled interface for l:hamming at a preselected scale; the choice of n is
-separate, so n can be shared across every colouring. -/
+separate, so n can be shared across every coloring. -/
 def HammingAtScaleStatement : Prop :=
   ∀ P : PlaneSpec, RegularSpec P → ∀ l p Mstar α,
     0 < α → α ≤ 1 → SpecEnergy P α → SpecWindow P l p Mstar →
     ∀ n, ScaleConditions l Mstar (min (1/2) (p * α^(16*l))) n →
       HammingEstimate P (n^8) (((n^8 : ℕ) : ℝ)/1000)
 
-/-- Assembled Appendix l:contraction interface. All blocks are labelled and the
+/-- Assembled Appendix l:contraction interface. All blocks are labeled and the
 number of labels is positive; no nontrivial-state-space premise is needed. -/
 def FiniteContractionStatement : Prop :=
   ∀ (ι J : Type) [Fintype ι] [DecidableEq ι] [Fintype J] [Nonempty J]
@@ -81,7 +81,7 @@ def FiniteContractionStatement : Prop :=
         couplingCost d ≤ 1 - c / Fintype.card J) → BlockGap p B c
 
 /-- Assembled Appendix l:comparison interface in multiplicative form. t>0 avoids
-an artificial division-by-zero case; nonempty labelled physical blocks satisfy it. -/
+an artificial division-by-zero case; nonempty labeled physical blocks satisfy it. -/
 def BlockComparisonStatement : Prop :=
   ∀ (ι J : Type) [Fintype ι] [DecidableEq ι] [Fintype J]
     (S : ι → Type) [∀ x, Fintype (S x)] [∀ x, Nonempty (S x)]

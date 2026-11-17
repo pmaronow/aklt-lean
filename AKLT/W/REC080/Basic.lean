@@ -161,7 +161,7 @@ theorem present_symm {G : Finset Plane} (D : Network G) {x y : Plane}
     simp only [latticeDist, hab y.1 x.1, hab y.2 x.2]
   exact ⟨h.2.1, h.1, by simpa [Adjacent, hs] using h.2.2.1, h.2.2.2.2, h.2.2.2.1⟩
 
-/-- Erasing a flag into a removed centre changes no present edge. -/
+/-- Erasing a flag into a removed center changes no present edge. -/
 theorem normalize_present {G : Finset Plane} (D : Network G) (u c : Plane)
     (hc : D.status c = .X) (x y : Plane) :
     (normalizeStart D u c).Present x y ↔ D.Present x y := by

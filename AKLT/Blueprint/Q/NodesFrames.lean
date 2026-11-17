@@ -26,7 +26,7 @@ def FrameScalarsStatement : Prop :=
   0 < frameRatio ∧ frameRatio < 1 ∧ 0 < frameEnergy ∧ frameEnergy ≤ 1
 
 /-- `l:threeframes`, lines 360–369: an orthogonal matrix preserves injectivity,
-unit length, and antipodality of any labelled finite family. -/
+unit length, and antipodality of any labeled finite family. -/
 def OrthogonalFamilyStatement : Prop :=
   ∀ R : Matrix (Fin 3) (Fin 3) ℝ, R.transpose * R = 1 →
   ∀ v : IcoLetter → Vec3, Function.Injective v → (∀ a, normSq (v a) = 1) →

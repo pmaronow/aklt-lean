@@ -62,7 +62,7 @@ private theorem pair_active_ne_centre (p : PairData) {x : Plane}
   have hs : p.normalized.status x ≠ .X := (Finset.mem_filter.mp h).2
   exact hs (hx ▸ pair_centre_removed p)
 
-/-- Every target-reaching true trace avoids the designated removed centre. -/
+/-- Every target-reaching true trace avoids the designated removed center. -/
 theorem target_trail_avoids_centre (p : PairData) {n : ℕ} (w : DirectionWord n)
     (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)
     (hend : wordVertex p.u w n = p.v) (j : ℕ) (hj : j ≤ n) :

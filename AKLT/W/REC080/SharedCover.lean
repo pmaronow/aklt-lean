@@ -138,7 +138,7 @@ theorem removeSite_present {G : Finset Plane} (E : Network G) (e x z : Plane)
   rfl
 
 /-- Erase the fixed defect only in a comparison network. Its radius-two
-neighbourhood is excluded before transferring the extracted cover back. -/
+neighborhood is excluded before transferring the extracted cover back. -/
 theorem defect_remove {G : Finset Plane} {E : Network G} {y a e : Plane}
     (h : DefectInvariant E y a e) (hy : y ≠ e) (he : e ∈ G) :
     AKLT.W.REC096.PrefixInvariant (removeSite E e) y a := by

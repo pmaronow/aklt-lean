@@ -225,7 +225,7 @@ lemma network_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignment 
   rw [partition_graph, partition_graph]
   simpa only [spins_at, mul_one] using h
 
-/-- Two distinct neighbours of an interior departure have bounded correlation
+/-- Two distinct neighbors of an interior departure have bounded correlation
 in the departure-deleted network, for either choice of pins. -/
 theorem removed_pair_bound {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y a b : Plane) (hy : y ∈ D.active) (hp : y ∉ protectedSites G)

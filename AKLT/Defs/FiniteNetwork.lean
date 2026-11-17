@@ -43,7 +43,7 @@ def conditionalProbability {Ω : Type*} [Fintype Ω] (p : Weight Ω)
   classical
   exact (∑ σ, if E σ ∧ A σ then p σ else 0) / ∑ σ, if E σ then p σ else 0
 
-/-- Conditioning weights, without pretending that a zero-probability fibre is defined probabilistically. -/
+/-- Conditioning weights, without pretending that a zero-probability fiber is defined probabilistically. -/
 def conditionOn {Ω : Type*} [Fintype Ω] (p : Weight Ω) (E : Ω → Prop) : Weight Ω := by
   classical
   exact normalize fun σ => if E σ then p σ else 0

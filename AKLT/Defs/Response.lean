@@ -39,13 +39,13 @@ def removedPairMean {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (y a b : Plane) : ℝ :=
   (removeSite D y).expectation τ pinned (fun n => dot (n a) (n b))
 
-/-- `d:ratios`: I for the three-present-neighbour case. -/
+/-- `d:ratios`: I for the three-present-neighbor case. -/
 def responseI {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (y o f g : Plane) : ℝ :=
   1 + (removedPairMean D τ pinned y f g + removedPairMean D τ pinned y f o +
     removedPairMean D τ pinned y g o) / 3
 
-/-- `d:ratios`: J for the three-present-neighbour case. -/
+/-- `d:ratios`: J for the three-present-neighbor case. -/
 def responseJ {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (y f g : Plane) : ℝ := 1 + removedPairMean D τ pinned y f g / 5
 
@@ -59,7 +59,7 @@ def responseAlpha {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y o f g : Plane) : ℝ := responseBeta D τ y o f g -
       1 / (5 * logarithmicMean (responseJ D τ true y f g) (responseJ D τ false y f g))
 
-/-- `l:response`: beta-prime for exactly two present neighbours. -/
+/-- `l:response`: beta-prime for exactly two present neighbors. -/
 def responseBetaPrime {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y o f : Plane) : ℝ := 1 / (3 * logarithmicMean
       (1 + removedPairMean D τ true y f o / 3) (1 + removedPairMean D τ false y f o / 3))

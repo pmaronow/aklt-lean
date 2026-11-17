@@ -127,7 +127,7 @@ lemma framePinnedSum_eq_complementaryFrameTerm (κ : Plane → Fin 3) (G : Finse
   simp [complementaryFrameTerm, Finset.sdiff_empty, frameSpins_sdiffEmpty]
 
 
-/-- The edge identity is pointwise and does not require positivity or a proper colouring. -/
+/-- The edge identity is pointwise and does not require positivity or a proper coloring. -/
 theorem fibre_integrand_factorization (κ : Plane → Fin 3) {F B : Finset Plane}
     (hBF : B ⊆ F) (hNo : NoBond (↑B) {z | z ∉ F})
     (unit : ∀ j a, normSq (frameVector j a) = 1)

@@ -13,7 +13,7 @@ attribute [local instance] Classical.propDecidable
 namespace AKLT.Blueprint.Gap
 local instance (α : Type) : DecidableEq α := Classical.decEq α
 
-/-- `t:periodic`, sec4:339-346. Centres containing x are x-z for the offset square;
+/-- `t:periodic`, sec4:339-346. Centers containing x are x-z for the offset square;
 coordinate reduction is injective since 2M < L,N. Labels, rather than distinct sets,
 are counted. -/
 def ContainingBlockCountStatement : Prop :=
@@ -108,7 +108,7 @@ structure BoxCoordinates (L N : Size) (M : ℕ) (a : Site L N) (κ : Site L N �
       ∀ w, w ≠ z → boundary σ w = boundary τ w
 
 /-- `l:boxlift`, PLAN:886-901; sec4:451-463,478-486 (coordinates). Injectivity and
-antipodality define a permutation in each site alphabet; choose a lift of the centre,
+antipodality define a permutation in each site alphabet; choose a lift of the center,
 and use halo injectivity for the unique changed exterior site. -/
 def BoxCoordinatesStatement : Prop :=
   (∀ j : Fin 3, Function.Injective (frameVector j) ∧
@@ -119,7 +119,7 @@ def BoxCoordinatesStatement : Prop :=
 
 /-- `l:boxlift`, PLAN:886-901; sec4:451-463 (weights). Adjacent lifted parity
 signs are opposite. Group the internal/crossing factors by the exact bond lift and
-cancel the positive exterior-only factors in the conditional normalisation. -/
+cancel the positive exterior-only factors in the conditional normalization. -/
 def BoxGaugeLawStatement : Prop :=
   (∀ i j : Fin 3, i ≠ j → ∀ a b : IcoLetter,
     0 < 1 + dot (frameVector i a) (frameVector j b) ∧
@@ -130,8 +130,8 @@ def BoxGaugeLawStatement : Prop :=
     ∀ σ, Carries C.change (blockLaw (torusLaw L N κ) (torusSquare L N M a) σ)
       ((frameSpec (κ ∘ reduction L N)).law (square C.centre M) (C.boundary σ))
 
-/-- `t:mainW`, sec4:440-441. The four nearest neighbours belong to the full
-one-neighbourhood halo. The local Markov input from planeenergy therefore implies
+/-- `t:mainW`, sec4:440-441. The four nearest neighbors belong to the full
+one-neighborhood halo. The local Markov input from planeenergy therefore implies
 the sup-distance-one version required by the periodic criterion. -/
 def TorusRangeTransferStatement : Prop :=
   ∀ (L N : Size) (κ : Site L N → Fin 3),
@@ -146,7 +146,7 @@ def SquareInternalEdgesStatement : Prop :=
 
 /-- `l:planeenergy` used in `t:mainW`, sec4:415-417 (consistency). Convert finite
 boundaries to total assignments and prove plane range one directly from the four
-nearest-neighbour weight factors. -/
+nearest-neighbor weight factors. -/
 def FrameSpecRegularityStatement : Prop :=
   ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
   (∀ W η, PositiveProbability (planeLaw κ W η)) →
@@ -167,7 +167,7 @@ def FrameSpecEnergyStatement : Prop :=
     SpecEnergy (frameSpec κ) frameEnergy
 
 /-- `d:W`/`t:mainW`, sec4:414-417. Restrict total exterior assignments to the
-finite nearest-neighbour boundary. Since B⊆F, extending a sample off F has no effect. -/
+finite nearest-neighbor boundary. Since B⊆F, extending a sample off F has no effect. -/
 def FrameWindowTransferStatement : Prop :=
   ∀ l p Mstar, WindowProperty l p Mstar → ∀ κ : Plane → Fin 3,
     ProperPlaneColouring κ → SpecWindow (frameSpec κ) l p Mstar

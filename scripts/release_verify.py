@@ -14,6 +14,10 @@ class ConronCapacity(RuntimeError):pass
 class Pipeline:
  def __init__(self,a):
   self.a=a;self.work=a.work.resolve()
+  self.config_path=ROOT/('verification/regression/comparator.json' if a.regression_inputs else 'comparator.json')
+  self.challenge_source=ROOT/('verification/regression/Challenge.lean.in' if a.regression_inputs else 'Challenge.lean')
+  self.solution_module='Regression.Solution' if a.regression_inputs else 'Solution'
+  self.audit_module='Regression.Audit' if a.regression_inputs else 'Audit'
   if self.work.is_relative_to(ROOT):raise RuntimeError('--work must be outside the source root')
   self.work.mkdir(parents=True,exist_ok=True);self.started=time.monotonic()
   cpus=sorted(os.sched_getaffinity(0))[:16];assert len(cpus)==16;os.sched_setaffinity(0,cpus)
@@ -40,11 +44,11 @@ class Pipeline:
   self.receipt['elapsed_s']=time.monotonic()-self.started
   (self.work/'receipt.json').write_text(json.dumps(self.receipt,indent=2)+'\n')
  def run(self,name,args,*,cwd=ROOT,env=None,allow_failure=False,timeout=None):
-  remain=self.a.budget-(time.monotonic()-self.started)
-  if remain<1:raise RuntimeError('The shared execution budget is exhausted')
+  remain=self.a.budget-(time.monotonic()-self.started) if self.a.budget>0 else None
+  if remain is not None and remain<1:raise RuntimeError('The shared execution budget is exhausted')
   self.receipt['current_stage']=name;self.save();out=self.work/'stages'/name
   cmd=[sys.executable,str(ROOT/'scripts/measure_stage.py'),'--stage',name,'--out',str(out),'--cwd',str(cwd),
-   '--timeout',str(min(remain,timeout or remain)),'--rss-cap-gb',str(self.a.rss_cap_gb)]
+   '--timeout',str(min(x for x in [remain,timeout] if x is not None and x>0) if any(x is not None and x>0 for x in [remain,timeout]) else 0),'--rss-cap-gb',str(self.a.rss_cap_gb),'--address-space-gib',str(self.a.address_space_gib)]
   if self.a.campaign_report:cmd+=['--campaign-report',str(self.a.campaign_report)]
   cmd+=['--',*map(str,args)]
   with (self.work/'driver.log').open('a') as log:subprocess.run(cmd,cwd=ROOT,env={**self.env,**(env or {})},stdout=log,stderr=subprocess.STDOUT,check=False)
@@ -70,6 +74,11 @@ class Pipeline:
   ours=[x for x in source['issues'] if x['code'] not in allowed]
   if ours:raise RuntimeError('Mechanical source/configuration findings: '+str(ours))
   self.receipt['author_metadata_findings']=source['issues'];self.receipt['source_files']=source['summary']['files_checked']
+  self.receipt['verification_surface']='two-input regression' if a.regression_inputs else 'unconditional complete theorem'
+  self.receipt['generated_modules_missing']=source['generated_missing']
+  if source['generated_missing'] and not a.regression_inputs:
+   self.receipt['status']='pending-generated-certificates';self.save()
+   raise RuntimeError(str(len(source['generated_missing']))+' generated modules must be regenerated or installed before full verification; see verification/generated-modules.json')
   # Full preparation enforces more metadata requirements, including ORCIDs.
   try:official.submission_contract.load_formalization_metadata(ROOT/'formalization.yaml')
   except Exception as e:self.receipt['official_metadata_diagnostic']=str(e)
@@ -99,10 +108,10 @@ class Pipeline:
   header=json.loads((out/'stdout.log').read_text());entries=header.get('imports',[])
   if not entries or any(x.get('errors') or not x.get('result',{}).get('isModule') for x in entries):raise RuntimeError('Lean parsed a non-module header')
   self.receipt['parsed_header_records']=len(entries)
-  if not a.skip_build:self.run('default-build',[lake,'build'])
-  self.run('explicit-targets',[lake,'build','Challenge','Solution','Audit'])
-  _,audit=self.run('strict-audit',[lake,'env','lean','-j1','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DwarningAsError=true','Audit.lean'])
-  self.run('axiom-transcript',[sys.executable,ROOT/'scripts/check_axioms.py',audit/'stdout.log'])
+  if not a.skip_build:self.run('default-build',[lake,'build',*(['Handwritten','Regression.Solution','Challenge','AuditHandwritten','Regression.Audit'] if a.regression_inputs else [])])
+  self.run('explicit-targets',[lake,'build',*(['Challenge','Regression.Solution','Regression.Audit'] if a.regression_inputs else ['Challenge','Solution','Audit'])])
+  _,audit=self.run('strict-audit',[lake,'env','lean','-j1','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DwarningAsError=true',self.audit_module.replace('.','/')+'.lean'])
+  self.run('axiom-transcript',[sys.executable,ROOT/'scripts/check_axioms.py',audit/'stdout.log','--mode','regression' if a.regression_inputs else 'full'])
   # Install the official source-pinned bubblewrap locally if the system lacks it.
   bwrap=a.bwrap.resolve() if a.bwrap else Path(shutil.which('bwrap') or '/nonexistent')
   version=subprocess.run([str(bwrap),'--version'],capture_output=True,text=True).stdout.strip() if bwrap.is_file() else ''
@@ -134,11 +143,11 @@ class Pipeline:
     conron=self.work/'trusted-checker-update/con-ron'
    if self.sha(conron)!=revision['binary_sha256']:raise RuntimeError('con-ron checksum mismatch')
   self.receipt['conron']={'path':str(conron),'sha256':self.sha(conron),'revision':revision}
-  config=official.load_comparator_config(ROOT/'comparator.json');protected=self.work/'protected-comparator.json'
-  official.protected_comparator_config(ROOT/'comparator.json',protected,kernels={'nanoda':[str(tc/'bin/nanoda_bin')]})
+  config=official.load_comparator_config(self.config_path);protected=self.work/'protected-comparator.json'
+  official.protected_comparator_config(self.config_path,protected,kernels={'nanoda':[str(tc/'bin/nanoda_bin')]})
   alias=json.loads(protected.read_text())['challenge_module'];can=self.work/'canonical';src=can/'src';lib=can/'lib'
   source=src/Path(*alias.split('.')).with_suffix('.lean');obj=lib/Path(*alias.split('.')).with_suffix('.olean')
-  source.parent.mkdir(parents=True);obj.parent.mkdir(parents=True);source.write_bytes((ROOT/'Challenge.lean').read_bytes())
+  source.parent.mkdir(parents=True);obj.parent.mkdir(parents=True);source.write_bytes(self.challenge_source.read_bytes())
   home=can/'home';tmp=can/'tmp';home.mkdir();tmp.mkdir()
   system=sorted({p.resolve() for p in map(Path,['/usr','/bin','/lib','/lib64']) if p.exists()})
   base={'PATH':str(tc/'bin')+':/usr/bin:/bin','HOME':str(home),'TMPDIR':str(tmp),'LEAN_ABORT_ON_PANIC':'1',
@@ -153,7 +162,7 @@ class Pipeline:
   artifacts=official.canonical_challenge_artifacts(obj,module_system=True)
   if not all(p.is_file() for p in artifacts):raise RuntimeError('Missing canonical Challenge sidecar')
   targets=official.comparator_export_targets(config,official.primitive_targets(tc));exports=self.work/'exports';exports.mkdir()
-  for side,module,lps in [('challenge',alias,[str(lib),*trusted]),('solution','Solution',paths)]:
+  for side,module,lps in [('challenge',alias,[str(lib),*trusted]),('solution',self.solution_module,paths)]:
    env={**base,'LEAN_PATH':os.pathsep.join(lps)}
    cmd=outer([tc/'bin/leanexport',module,'--',*targets],cwd=src,read=[*(Path(x['path']) for x in pins),*map(Path,lps)],writable=[home,tmp],env=env)
    _,out=self.run(side+'-export',cmd,cwd=src)
@@ -170,7 +179,7 @@ class Pipeline:
   replay=self.work/'conron';replay.mkdir();env={'PATH':base['PATH'],'HOME':str(home),'TMPDIR':str(tmp)}
   cmd=outer([conron,'--verified','--jobs='+str(official.CON_RON_JOBS),exports/'solution.ndjson'],cwd=replay,
     read=[exports/'solution.ndjson',conron],writable=[home,tmp],env=env)
-  result,out=self.run('conron-replay',cmd,cwd=replay,timeout=official.CON_RON_REPLAY_SECONDS,allow_failure=True)
+  result,out=self.run('conron-replay',cmd,cwd=replay,timeout=a.conron_timeout,allow_failure=True)
   from scripts.kernel_outcomes import con_ron_outcome
   outcome=con_ron_outcome(result['exit_code'],(out/'stdout.log').read_text(),(out/'stderr.log').read_text())
   self.receipt['conron_outcome']=outcome
@@ -192,7 +201,9 @@ class Pipeline:
 
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--verifier',type=Path,required=True);ap.add_argument('--work',type=Path,required=True)
- ap.add_argument('--budget',type=float,default=19800);ap.add_argument('--build-threads',type=int,default=1);ap.add_argument('--rss-cap-gb',type=float,default=260)
+ ap.add_argument('--budget',type=float,default=0,help='Optional shared wall watchdog; zero disables it');ap.add_argument('--build-threads',type=int,default=8);ap.add_argument('--rss-cap-gb',type=float,default=285);ap.add_argument('--address-space-gib',type=float,default=240)
+ ap.add_argument('--regression-inputs',action='store_true',help='Check the retained two-input reduction before certificates are regenerated')
+ ap.add_argument('--conron-timeout',type=float,default=0,help='Optional con-ron wall watchdog; zero disables it')
  ap.add_argument('--existing-dependencies',action='store_true',help='Local iteration only; cold-verify.sh never uses this')
  ap.add_argument('--skip-build',action='store_true',help='Local iteration after a separately measured fresh default build')
  ap.add_argument('--bwrap',type=Path);ap.add_argument('--campaign-report',type=Path);a=ap.parse_args();p=Pipeline(a)

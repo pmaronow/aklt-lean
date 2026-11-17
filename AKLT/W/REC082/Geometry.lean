@@ -11,7 +11,7 @@ open AKLT.Defs AKLT.Blueprint.Rec
 
 namespace AKLT.W.REC082
 
-/-- The four directions enumerate precisely the ambient nearest neighbours. -/
+/-- The four directions enumerate precisely the ambient nearest neighbors. -/
 theorem adjacent_iff_mem_neighbours (x y : Plane) : Adjacent x y ↔ y ∈ neighbours x := by
   classical
   constructor

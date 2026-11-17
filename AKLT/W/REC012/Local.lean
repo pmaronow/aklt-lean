@@ -60,7 +60,7 @@ theorem dot_abs_le_one {u v : Vec3} (hu : normSq u ≤ 1) (hv : normSq v ≤ 1) 
   rw [normSq_sub] at hm
   constructor <;> nlinarith
 
-/-- The pointwise three-neighbour comparison in §6: integrated U factor is
+/-- The pointwise three-neighbor comparison in §6: integrated U factor is
 at least one half, while the post-step D factor is at most six fifths. -/
 theorem threeNeighbourLocalBounds (a b c : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) (hc : normSq c ≤ 1) :
@@ -90,7 +90,7 @@ theorem threeNeighbourScalarComparison (a b c : Vec3)
   have h := threeNeighbourLocalBounds a b c ha hb hc
   nlinarith
 
-/-- The two-neighbour version of the same pointwise estimate. -/
+/-- The two-neighbor version of the same pointwise estimate. -/
 theorem twoNeighbourLocalBound (a b : Vec3)
     (ha : normSq a ≤ 1) (hb : normSq b ≤ 1) :
     2 / 3 ≤ 1 + dot a b / 3 := by

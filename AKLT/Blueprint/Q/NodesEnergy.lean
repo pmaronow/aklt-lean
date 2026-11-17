@@ -12,7 +12,7 @@ open AKLT.Defs AKLT.Challenge
 namespace AKLT.Blueprint.Q
 
 /-- `d:framemodel`, sec3 lines 519–524: every finite plane and torus weight
-is strictly positive. Proper colouring is essential for both signs. -/
+is strictly positive. Proper coloring is essential for both signs. -/
 def FrameWeightsPositiveStatement : Prop :=
   interactionBounds →
   (∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ W : Finset Plane,
@@ -26,7 +26,7 @@ def PositiveNormalizationStatement : Prop :=
   ∀ (Ω : Type) [Fintype Ω] [Nonempty Ω], ∀ w : Weight Ω,
     (∀ σ, 0 < w σ) → PositiveProbability (normalize w)
 
-/-- `l:planeenergy`, sec3 lines 709–719: cancel fixed factors on each fibre,
+/-- `l:planeenergy`, sec3 lines 709–719: cancel fixed factors on each fiber,
 then push forward to the actual smaller configuration space. Empty V and W
 are included; V⊆W is needed for the induced boundary identification. -/
 def PlaneConditioningStatement : Prop :=
@@ -35,7 +35,7 @@ def PlaneConditioningStatement : Prop :=
     ∀ η : FrameBoundary W, ∀ V : Finset Plane, V ⊆ W → ∀ σ : PlaneConfiguration W,
       conditionalPlaneLaw κ W V η σ = planeLaw κ V (inducedBoundary W V η σ)
 
-/-- `l:planeenergy`, lines 709–719: only exterior nearest neighbours affect
+/-- `l:planeenergy`, lines 709–719: only exterior nearest neighbors affect
 a torus conditional block law. Crossings are counted once by frozen bonds. -/
 def TorusMarkovStatement : Prop :=
   interactionBounds →
@@ -44,7 +44,7 @@ def TorusMarkovStatement : Prop :=
       (∀ z ∈ (U.biUnion torusNeighbours) \ U, σ z = ξ z) →
         conditionalTorusLaw L N κ U σ = conditionalTorusLaw L N κ U ξ
 
-/-- `l:planeenergy`, lines 721–730: in a fully fixed plane one-site fibre,
+/-- `l:planeenergy`, lines 721–730: in a fully fixed plane one-site fiber,
 at most four factors lie between b and 2-b. Bound numerator and denominator
 separately to get (1/12)r_b^4 for each of the twelve letters. -/
 def PlaneOneSiteEnergyStatement : Prop :=
@@ -53,7 +53,7 @@ def PlaneOneSiteEnergyStatement : Prop :=
     ∀ η : FrameBoundary W, ∀ x : W, ∀ σ : PlaneConfiguration W, ∀ a : IcoLetter,
       frameEnergy ≤ conditionalProbability (planeLaw κ W η) (fullFibreEvent x σ) (fun τ => τ x = a)
 
-/-- `l:planeenergy`, lines 721–730: the same fibre ratio for the all-parity
+/-- `l:planeenergy`, lines 721–730: the same fiber ratio for the all-parity
 antiferromagnetic torus; its four incident factors use the minus sign. -/
 def TorusOneSiteEnergyStatement : Prop :=
   interactionBounds →
@@ -61,7 +61,7 @@ def TorusOneSiteEnergyStatement : Prop :=
     ∀ x : Site L N, ∀ σ : TorusConfiguration L N, ∀ a : IcoLetter,
       frameEnergy ≤ conditionalProbability (torusLaw L N κ) (fullFibreEvent x σ) (fun τ => τ x = a)
 
-/-- `l:planeenergy`, lines 732–745: average fully fixed fibres, then use a
+/-- `l:planeenergy`, lines 732–745: average fully fixed fibers, then use a
 chain rule on a finite set of distinct sites. Positivity of every intermediate
 event follows from full support. Nonempty alphabets and alpha>0 are explicit. -/
 def PartialAssignmentStatement : Prop :=
@@ -119,14 +119,14 @@ def PlaneDensityBoundsStatement : Prop :=
       planeDensityLower κ W η / planeDensityUpper κ W η = frameRatio ^ (internalBonds W).card
 
 /-- Appendix A `l:density`, used at sec3 lines 772–782: compare variance by
-its minimum over constant centres. Probability normalization is explicit. -/
+its minimum over constant centers. Probability normalization is explicit. -/
 def DensityVarianceStatement : Prop :=
   ∀ (Ω : Type) [Fintype Ω], ∀ p q : Weight Ω,
     PositiveProbability p → PositiveProbability q → ∀ M : ℝ, 0 ≤ M →
       (∀ σ, q σ ≤ M * p σ) → ∀ f, variance q f ≤ M * variance p f
 
 /-- Appendix A `l:density`, sec3 lines 779–780: variational formula for the
-integrated single-site conditional variance. Compare unnormalized fibre
+integrated single-site conditional variance. Compare unnormalized fiber
 energies before minimizing, so only one density ratio is lost. -/
 def DensityDirichletStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι], ∀ S : ι → Type,

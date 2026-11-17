@@ -11,12 +11,12 @@ open AKLT.Defs
 namespace AKLT.Blueprint.Rec
 
 /-- A translated taxicab ball. The passage (0,0) has depth three, its
-removed centre (-1,0) depth four, and corner (1,1) lies on the boundary. -/
+removed center (-1,0) depth four, and corner (1,1) lies on the boundary. -/
 def boundaryExampleG : Finset Plane :=
   (square (-2, 0) 4).filter fun x => latticeDist x (-2, 0) ≤ 4
 
 /-- The ordinary U/X removal domain underlying the example; the normalized
-version only erases the passage flag to the removed centre. -/
+version only erases the passage flag to the removed center. -/
 def boundaryExampleD : Network boundaryExampleG where
   status := fun x => if x ∈ boundaryExampleG ∧ x ≠ (-1, 0) then .U else .X
   kept := fun x => neighbours x ∩ boundaryExampleG

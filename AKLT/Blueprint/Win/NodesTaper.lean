@@ -42,7 +42,7 @@ def ComplementEscapeStatement : Prop :=
     ∀ z : Plane, z ∉ taper a y u i → ∃ w : Plane, w ∉ square a u ∧
       JoinedIn Adjacent {v | v ∉ taper a y u i} z w
 
-/-- `l:cutgeom`, sec5-window.tex:514–529. Window sites have t=0 and h≥65, their neighbours have t≤1 and h≥64. Every tapered site and its neighbours remain beyond the previous radius and inside C. -/
+/-- `l:cutgeom`, sec5-window.tex:514–529. Window sites have t=0 and h≥65, their neighbors have t≤1 and h≥64. Every tapered site and its neighbors remain beyond the previous radius and inside C. -/
 def WindowBufferStatement : Prop :=
   ∀ a y : Plane, ∀ u : ℕ, ∀ i : ℤ, CutSetup a y u i →
     window a y u 64 i ⊆ taper a y u i ∧
@@ -51,7 +51,7 @@ def WindowBufferStatement : Prop :=
     NoBond (↑(taper a y u i)) {z | z ∉ farVolume a y u i} ∧
     cutRaw a y u i ⊆ cutVolume a y u i
 
-/-- `l:cutgeom`, sec5-window.tex:523–558. Compare a raw-boundary site to a star neighbour in U using the one-Lipschitz h and t. In the near case failure of U forces 30+t≤h<32+t. -/
+/-- `l:cutgeom`, sec5-window.tex:523–558. Compare a raw-boundary site to a star neighbor in U using the one-Lipschitz h and t. In the near case failure of U forces 30+t≤h<32+t. -/
 def RawRangeStatement : Prop :=
   ∀ a y : Plane, ∀ u : ℕ, ∀ i : ℤ, CutSetup a y u i →
     ∀ x ∈ cutRaw a y u i,
@@ -78,7 +78,7 @@ def RawDepthArithmeticStatement : Prop :=
     14 ≤ b ∧ (t ≤ s / 12 → max t 16 - 2 ≤ b) ∧
       (s / 12 < t → s / 12 - 1 ≤ b)
 
-/-- `l:cutgeom`, sec5-window.tex:523–525. A star neighbour of U has h≥30+t, by comparing both one-Lipschitz functions to its neighbour in U. State this separately so the far-depth arithmetic does not silently require the near-range premise. -/
+/-- `l:cutgeom`, sec5-window.tex:523–525. A star neighbor of U has h≥30+t, by comparing both one-Lipschitz functions to its neighbor in U. State this separately so the far-depth arithmetic does not silently require the near-range premise. -/
 def RawHeightStatement : Prop :=
   ∀ a y : Plane, ∀ u : ℕ, ∀ i : ℤ, CutSetup a y u i →
     ∀ x ∈ cutRaw a y u i, 30 + (radialOffset y u i x : ℤ) ≤ squareDepth a u x
@@ -134,7 +134,7 @@ def RawWeightSumStatement : Prop :=
     ∑ x ∈ cutRaw a y u i, decay θ (boundaryDepth (cutVolume a y u i) x) ≤
       nearCost θ + tailCost θ u
 
-/-- `l:cutgeom`, sec5-window.tex:641–646. Apply finite-depth Lipschitz at a centre of each cross. Depth at least 13 forces membership in G and excludes its protected layer. -/
+/-- `l:cutgeom`, sec5-window.tex:641–646. Apply finite-depth Lipschitz at a center of each cross. Depth at least 13 forces membership in G and excludes its protected layer. -/
 def ThickDepthStatement : Prop :=
   ∀ G X₀ : Finset Plane, (∀ x ∈ X₀, 14 ≤ boundaryDepth G x) →
     thicken X₀ ⊆ G ∧ ∀ z ∈ thicken X₀, 13 ≤ boundaryDepth G z

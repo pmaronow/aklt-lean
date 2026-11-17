@@ -12,7 +12,7 @@ namespace AKLT.Defs
 /-- `d:moment`: the ambient plane, never a quotient in the analytic lanes. -/
 abbrev Plane := ℤ × ℤ
 
-/-- `d:moment`: ambient nearest-neighbour distance. -/
+/-- `d:moment`: ambient nearest-neighbor distance. -/
 def latticeDist (x y : Plane) : ℕ := (x.1 - y.1).natAbs + (x.2 - y.2).natAbs
 
 /-- `d:moment`: ambient maximum-coordinate distance. -/
@@ -40,12 +40,12 @@ def Compass.reverse : Compass → Compass
   | .west => .east
   | .south => .north
 
-/-- Nearest-neighbour adjacency, always in the ambient plane. -/
+/-- Nearest-neighbor adjacency, always in the ambient plane. -/
 def Adjacent (x y : Plane) : Prop := latticeDist x y = 1
 
 instance (x y : Plane) : Decidable (Adjacent x y) := inferInstanceAs (Decidable (_ = _))
 
-/-- Four physical neighbours. -/
+/-- Four physical neighbors. -/
 def neighbours (x : Plane) : Finset Plane := Finset.univ.image (fun d : Compass => x + d.step)
 
 /-- The positive orientations, used solely to count each internal bond once. -/

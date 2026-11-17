@@ -21,9 +21,9 @@ def ShellNestingStatement : Prop :=
     farVolume a y u j ⊆ farVolume a y u (i + 1) ∧
     shell a y u (j - 1) ⊆ farVolume a y u (i + 1)
 
-/-- `l:stopped`, sec4:100-113. Partial conditionals average full one-site fibres;
+/-- `l:stopped`, sec4:100-113. Partial conditionals average full one-site fibers;
 then induct over an ordering of the prescribed assignment sites. Positivity and
-nonempty alphabets ensure every partial fibre has positive mass. -/
+nonempty alphabets ensure every partial fiber has positive mass. -/
 def FiniteEnergyChainStatement : Prop :=
   ∀ (ι : Type) [Fintype ι] [DecidableEq ι] (S : ι → Type) [∀ x, Fintype (S x)]
     [∀ x, Nonempty (S x)] (p : Weight (Config S)), PositiveProbability p →
@@ -108,7 +108,7 @@ def TerminalRadiusStatement : Prop :=
       (1 - p * α^(16*l)) ^ (shellSpacing u - 4 : ℝ)
 
 /-- `l:hamming`, sec4:248-261. Archimedean choice above four explicit finite
-thresholds. This choice has no torus, translate, colouring or boundary argument. -/
+thresholds. This choice has no torus, translate, coloring or boundary argument. -/
 def ScaleExistenceStatement : Prop :=
   ∀ l Mstar : ℕ, ∀ d : ℝ, 0 < d → ∃ n : ℕ, ScaleConditions l Mstar d n
 
@@ -141,7 +141,7 @@ def HammingBudgetStatement : Prop :=
     25*(n : ℝ)^6 + 25*(n : ℝ)^16*(1-d)^(n-3) ≤ ((n^8 : ℕ) : ℝ)/1000
 
 /-- `l:stopped` far-site clause / `l:hamming`, sec4:75-78,291-293. For a changed
-exterior site outside the range-one neighbourhood, range one gives equality of full laws. -/
+exterior site outside the range-one neighborhood, range one gives equality of full laws. -/
 def FarBoundaryEqualityStatement : Prop :=
   ∀ (P : PlaneSpec), RegularSpec P → ∀ a u y, y ∉ square a u →
     setDistance supDist y (↑(square a u) : Set Plane) ≠ 1 →

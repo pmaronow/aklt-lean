@@ -28,7 +28,7 @@ lemma scaled_le {w a U : ℝ} (ha : 0 ≤ a) (hU : 0 ≤ U) (h : w ≤ U) :
   · apply (div_le_iff₀ h0).mpr
     nlinarith [mul_le_mul_of_nonneg_right h ha]
 
-/-- Match arbitrary labelled submeasures and complete the remaining mass. -/
+/-- Match arbitrary labeled submeasures and complete the remaining mass. -/
 theorem match_submeasures {p : Weight Ω} {q : Weight Ξ}
     (hp : Probability p) (hq : Probability q)
     (u : Λ → Weight Ω) (v : Λ → Weight Ξ) (w : Weight Λ)
@@ -109,7 +109,7 @@ theorem match_submeasures {p : Weight Ω} {q : Weight Ξ}
       by_cases he : E (x,y) <;> simp [he, hks x y]
     _ ≤ _ := event_mono (fun z => hk _ _) (fun z => hc _ _) (fun _ he => he)
 
-/-- An event in each fibre supplies a matchable submeasure on that label. -/
+/-- An event in each fiber supplies a matchable submeasure on that label. -/
 theorem match_events {p : Weight Ω} {q : Weight Ξ}
     (hp : Probability p) (hq : Probability q) (f : Ω → Λ) (g : Ξ → Λ)
     (G : Ω → Prop) (H : Ξ → Prop) (w : Weight Λ)

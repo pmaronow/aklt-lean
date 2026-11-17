@@ -135,7 +135,7 @@ lemma ambientTerm_fill {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     pinProduct_update D τ y _ _ hlegs, bondProduct_update]
   ring
 
-/-- Explicit finite summation over the departure-spin fibres. -/
+/-- Explicit finite summation over the departure-spin fibers. -/
 lemma partition_fibres {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y : Plane) (hy : y ∈ G) (hlegs : ∀ e : originalLegs G, e.val.1 ≠ y) :
     D.partition τ true (fun _ => 1) = ∑ n : G.erase y → SpinLetter,

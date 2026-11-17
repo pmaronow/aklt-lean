@@ -43,7 +43,7 @@ def pairResponse {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (y a b : Plane) : ℝ :=
   removedPairMean D τ true y a b - removedPairMean D τ false y a b
 
-/-- The two-neighbour pre-step scalar, with post-step scalar one. -/
+/-- The two-neighbor pre-step scalar, with post-step scalar one. -/
 def responseI₂ {G : Finset Plane} (D : Network G) (τ : PinAssignment G)
     (pinned : Bool) (y o f : Plane) : ℝ :=
   1 + removedPairMean D τ pinned y f o / 3
@@ -78,7 +78,7 @@ def ResponseTypedStatementV2 : Prop :=
       responseI D τ false y o f g ≥ responseJ D τ false y f g ∧
       responseJ D τ false y f g ≥ 1 ∧ responseJ D τ true y f g ≥ 116 / 125
 
-/-- `l:closure`: erase only the harmless flag pointing at the removed centre. -/
+/-- `l:closure`: erase only the harmless flag pointing at the removed center. -/
 def normalizeStart {G : Finset Plane} (D : Network G) (u c : Plane) : Network G :=
   { D with kept := fun x => if x = u ∧ D.status u = .U then (D.kept x).erase c else D.kept x }
 
@@ -112,7 +112,7 @@ def onePointSum {G : Finset Plane} (D : Network G) (τ : PinAssignment G) (u : P
 def protectedDistance (G : Finset Plane) (x : Plane) : ℕ :=
   (setDistance latticeDist x (↑(protectedSites G) : Set Plane)).toNat
 
-/-- `d:pairenv`: a domain, an ordered pair, its centre, and its independent unit pins. -/
+/-- `d:pairenv`: a domain, an ordered pair, its center, and its independent unit pins. -/
 structure PairData where
   G : Finset Plane
   τ : PinAssignment G

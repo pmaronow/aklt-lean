@@ -17,7 +17,7 @@ namespace AKLT.W.REC091
 def Residual_SharedCoverMixture : Prop :=
   AKLT.Blueprint.Rec.LocalMixtureStatementV2
 
-/-- Exact integration of the departure spin in the two- and three-neighbour
+/-- Exact integration of the departure spin in the two- and three-neighbor
 cases. -/
 def Residual_StepFactorizations : Prop :=
   AKLT.Blueprint.Rec.TwoFactorizationStatement ∧

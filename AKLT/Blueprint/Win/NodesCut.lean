@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.Blueprint.Win
 
-/-- `e:windowfactor`, sec5-window.tex:154–174. Split configurations on F into configurations on B and G=F\B. With no exterior neighbour of B, products factor into the actual W_B and the complementary frame partition sum. -/
+/-- `e:windowfactor`, sec5-window.tex:154–174. Split configurations on F into configurations on B and G=F\B. With no exterior neighbor of B, products factor into the actual W_B and the complementary frame partition sum. -/
 def FrameFibreSumStatement : Prop :=
   AKLT.Blueprint.Top.ThreeFramesStatement →
     ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
@@ -27,7 +27,7 @@ def ComplementQuadratureStatement : Prop :=
     ∀ κ : Plane → Fin 3, ∀ G Y : Finset Plane, ∀ τ : PinAssignment G,
     framePinnedSum κ G Y τ = pinnedSum G Y τ (fun _ => 1)
 
-/-- `e:windowfactor`, sec5-window.tex:166–177. Sum the unnormalized fibre numerators over the nonempty finite window product and move the positive original normalizer through each sum. -/
+/-- `e:windowfactor`, sec5-window.tex:166–177. Sum the unnormalized fiber numerators over the nonempty finite window product and move the positive original normalizer through each sum. -/
 def MarginalNormalizationStatement : Prop :=
   ∀ κ : Plane → Fin 3, ∀ F B : Finset Plane, B ⊆ F →
     ∀ η : FrameBoundary F, 0 < ∑ σ : PlaneConfiguration F, planeWeight κ F η σ →
@@ -54,7 +54,7 @@ def ComponentPinsStatement : Prop :=
     componentSum (F \ B) G₂ (cutPins κ (F \ B) F B unit η s) =
       componentSum (F \ B) G₂ (cutPins κ (F \ B) F B unit η t)
 
-/-- `l:cut`, sec5-window.tex:155–163. Every actual frame bond of a proper colouring is bounded below by positive frameBound; finite site and bond products are positive, including an empty window. -/
+/-- `l:cut`, sec5-window.tex:155–163. Every actual frame bond of a proper coloring is bounded below by positive frameBound; finite site and bond products are positive, including an empty window. -/
 def WindowWeightPositiveStatement : Prop :=
   AKLT.Blueprint.Top.ThreeFramesStatement →
     ∀ κ : Plane → Fin 3, ProperPlaneColouring κ →
@@ -101,7 +101,7 @@ def OverlapMinorizationStatement : Prop :=
     (∀ s, p₀ * ν s ≤ p s) → (∀ s, p₀ * ν s ≤ q s) →
     totalVariation p q ≤ 1 - p₀
 
-/-- `l:threeframes`, sec5-window.tex:163–177. Every internal or exterior edge has differently coloured endpoints. Apply the positive lower bound from ThreeFramesStatement to every factor, then multiply. -/
+/-- `l:threeframes`, sec5-window.tex:163–177. Every internal or exterior edge has differently colored endpoints. Apply the positive lower bound from ThreeFramesStatement to every factor, then multiply. -/
 def FrameWeightPositiveStatement : Prop :=
   AKLT.Blueprint.Top.ThreeFramesStatement →
     ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ F : Finset Plane,

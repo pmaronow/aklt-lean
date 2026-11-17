@@ -25,8 +25,8 @@ def conditionalSpinMean {n : ℕ} (p : Weight (Fin n → SpinLetter))
       eventMass p (oneSiteFibre x σ)
 
 /-- `l:35`, lines 290–294: isolate the factors at an unpinned site on a
-positive fibre. Enumerate its at most three retained neighbours; the other
-factors cancel. Explicit positivity prevents total division at a zero fibre.
+positive fiber. Enumerate its at most three retained neighbors; the other
+factors cancel. Explicit positivity prevents total division at a zero fiber.
 This is the paper's conditional-mean consequence, absent from the compact Top type. -/
 def OneSiteConditionalReductionStatement : Prop :=
   ∀ n : ℕ, ∀ D : FiniteSpinNetwork n, D.Valid → ∀ pinned : Bool,

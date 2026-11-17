@@ -33,7 +33,7 @@ def GroundProductWeightStatement : Prop :=
       groundScale L N * torusWeight L N κ σ
 
 /-- `l:quantumfibre`, sec3 lines 570–579: evaluate a polynomial divisible by
-the four incident determinants, including their centre orientation signs.
+the four incident determinants, including their center orientation signs.
 The residual polynomial has its own degrees; no residual isometry is assumed. -/
 def IncidentEvaluationStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ∀ x : Site L N,
@@ -44,7 +44,7 @@ def IncidentEvaluationStatement : Prop :=
       inFibreSpan κ x (frameEval κ ψ)
 
 /-- `l:quantumfibre`, lines 570–579: separate the incident factors of B and
-show rho is constant on each centre fibre. The actual evaluation/product
+show rho is constant on each center fiber. The actual evaluation/product
 identity is supplied explicitly, without a second definition of B. -/
 def GroundFibreFactorizationStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3,
@@ -68,9 +68,9 @@ def GroundTransformStatement : Prop :=
     (∀ ψ, groundTransform κ (groundQuotient κ ψ) = frameEval κ ψ) ∧
     ∀ f σ, (‖B L N‖ : ℂ) * groundTransform κ f σ / frameEval κ (B L N) σ = f σ
 
-/-- `l:quantumfibre`, sec3 lines 600–623: compare the two finite fibre
+/-- `l:quantumfibre`, sec3 lines 600–623: compare the two finite fiber
 quotients. Include the integrated residual identity needed by t:QD.
-Positive beta makes every displayed fibre denominator positive. -/
+Positive beta makes every displayed fiber denominator positive. -/
 def FibreIntertwiningStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ∀ x : Site L N, B L N ≠ 0 →
     (∀ σ, beta κ x σ ≠ 0) →
@@ -85,7 +85,7 @@ def FibreIntertwiningStatement : Prop :=
       weightedNorm (torusReference L N)
         (groundTransform κ f - fibreProjection κ x (groundTransform κ f))
 
-/-- `l:quantumfibre`, sec3 lines 609–620, 634–643: the explicit fibre formula
+/-- `l:quantumfibre`, sec3 lines 609–620, 634–643: the explicit fiber formula
 is the orthogonal projection onto beta. Prove positivity of the denominator,
 then the finite weighted least-squares identity. Its best-approximation form
 is exactly what is needed for the physical-space inclusion argument. -/
@@ -124,7 +124,7 @@ def GroundQuotientVarianceStatement : Prop :=
 
 /-- `l:quantumfibre`, sec3 lines 541–544, 595, 609: every beta is nonzero
 once every incident determinant has strictly positive squared modulus.
-The four-neighbour and orientation identifications are part of this finite
+The four-neighbor and orientation identifications are part of this finite
 product bridge, not an assumed nonvanishing of B. -/
 def BetaNonzeroStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3,

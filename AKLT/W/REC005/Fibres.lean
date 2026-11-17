@@ -116,7 +116,7 @@ lemma sum_pair_updates {ι : Type*} [Fintype ι] [DecidableEq ι] (x y : ι)
   norm_num [SpinLetter, IcoLetter, Fintype.card_prod]
   ring
 
-/-- Explicit finite averaging, with no normalization of zero-mass fibres. -/
+/-- Explicit finite averaging, with no normalization of zero-mass fibers. -/
 theorem pair_bound_of_fibres {ι : Type*} [Fintype ι] [DecidableEq ι]
     (w : (ι → SpinLetter) → ℝ) (x y : ι) (hxy : x ≠ y) (s t : Status)
     (hF : ∀ σ : ι → SpinLetter, ∃ (C : ℝ) (l r : List SpinLetter),

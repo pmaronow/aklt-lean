@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.Blueprint.Rec
 
-/-- `l:closure`, §7 lines 88–104. Erasing a flag to the removed centre
+/-- `l:closure`, §7 lines 88–104. Erasing a flag to the removed center
 changes no present bond, site law, leg, partition, or expectation. -/
 def NormalizeStartStatement : Prop :=
   ∀ p : PairData, p.normalized.bonds = p.D.bonds ∧
@@ -41,7 +41,7 @@ def RemovedClosureStatement : Prop :=
       (removeSite (prefixNetwork p.normalized p.u w j) (wordVertex p.u w j)).Consistent
 
 /-- `l:closure`, §7 lines 147–158. Check central, arrival, three
-nonarrival neighbours and four corners. V2 compares inside-G flags and
+nonarrival neighbors and four corners. V2 compares inside-G flags and
 permits the original-leg slots at boundary corners; tips remain covering U. -/
 def CoveredClosureStatement : Prop :=
   ∀ p : PairSetup, ∀ T : Finset Plane, ∀ n : ℕ, ∀ w : DirectionWord n,

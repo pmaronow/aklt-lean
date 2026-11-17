@@ -73,7 +73,7 @@ def StarStatement : Prop :=
         (inner ℂ ψ (siteHamiltonian x ψ)).re
 
 /-- `t:QD`: exact squared-modulus density and quantum coercivity for every torus
-and proper colouring. Quantification over all Poincare lower bounds is the form version
+and proper coloring. Quantification over all Poincare lower bounds is the form version
 of the displayed gap inequality and remains meaningful on one-point products. -/
 def QDStatement : Prop :=
   ∀ L N : Size, ∀ κ : Site L N → Fin 3, ProperTorusColouring κ →
@@ -82,7 +82,7 @@ def QDStatement : Prop :=
     ∀ γ : ℝ, PoincareLower (torusLaw L N κ) γ → ∀ ψ : Hilbert L N,
       inner ℂ (B L N) ψ = 0 → (starGap / 2) * γ * ‖ψ‖^2 ≤ (inner ℂ ψ (H L N ψ)).re
 
-/-- `l:planeenergy`: full support and conditioning consistency, uniform partial-fibre
+/-- `l:planeenergy`: full support and conditioning consistency, uniform partial-fiber
 assignment bounds with alpha in (0,1], and the internal-edge-only block Poincare bound. -/
 def PlaneEnergyStatement : Prop :=
   0 < frameEnergy ∧ frameEnergy ≤ 1 ∧

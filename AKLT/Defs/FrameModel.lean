@@ -11,11 +11,11 @@ open scoped BigOperators
 
 namespace AKLT.Defs
 
-/-- `d:framemodel`: a proper plane colouring is quantified, not assumed translation invariant. -/
+/-- `d:framemodel`: a proper plane coloring is quantified, not assumed translation invariant. -/
 def ProperPlaneColouring (κ : Plane → Fin 3) : Prop :=
   ∀ x y, Adjacent x y → κ x ≠ κ y
 
-/-- `d:framemodel`: proper colouring on the actual frozen torus bonds. -/
+/-- `d:framemodel`: proper coloring on the actual frozen torus bonds. -/
 def ProperTorusColouring {L N : AKLT.Challenge.Size}
     (κ : AKLT.Challenge.Site L N → Fin 3) : Prop :=
   ∀ e : AKLT.Challenge.Bond L N, κ e.1 ≠ κ (AKLT.Challenge.nextSite e.1 e.2)
@@ -23,7 +23,7 @@ def ProperTorusColouring {L N : AKLT.Challenge.Size}
 /-- A finite configuration of actual frame-letter labels. -/
 abbrev PlaneConfiguration (W : Finset Plane) := (x : W) → IcoLetter
 
-/-- The finite exterior neighbour sites; a boundary uses one letter per site. -/
+/-- The finite exterior neighbor sites; a boundary uses one letter per site. -/
 def exteriorSites (W : Finset Plane) : Finset Plane := (originalLegs W).image Prod.snd
 
 /-- `d:framemodel`: admissible boundaries, distinct from unrelated original-leg pins. -/
@@ -84,7 +84,7 @@ def frameEval {L N : AKLT.Challenge.Size} (κ : AKLT.Challenge.Site L N → Fin 
     (ψ : AKLT.Challenge.Hilbert L N) (σ : TorusConfiguration L N) : ℂ :=
   physicalEval ψ (fun x => frameSpinor (κ x) (σ x))
 
-/-- `d:W`: the entire uniform physical-site window property, with all colourings and translates. -/
+/-- `d:W`: the entire uniform physical-site window property, with all colorings and translates. -/
 def WindowProperty (l₀ : ℕ) (p₀ : ℝ) (Mstar : ℕ) : Prop :=
   1 ≤ l₀ ∧ 1 ≤ Mstar ∧ 0 < p₀ ∧ p₀ ≤ 1 ∧
   ∀ κ : Plane → Fin 3, ProperPlaneColouring κ → ∀ a : Plane,

@@ -158,7 +158,7 @@ theorem network_partition_positive
     ⟨(fun x => some (σ x)), Finset.mem_univ _, hw⟩
 
 /-- `l:finitefacts`: positive summands, coefficientwise free positivity under
-the complete degree test, and factorization on positive conditioning fibres. -/
+the complete degree test, and factorization on positive conditioning fibers. -/
 theorem finiteFacts_of_leaves
     (hMoments : AKLT.Blueprint.Top.MomentsStatement)
     (hBall : BallDotBoundsStatement) (hAvoid : LetterAvoidanceStatement)

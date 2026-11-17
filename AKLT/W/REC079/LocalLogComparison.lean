@@ -163,7 +163,7 @@ theorem prefix_coefficients (hH1 : AKLT.Blueprint.Top.H1Statement)
       hh.2.2.1, by simpa only [a, wordStraight] using hh.2.2.2.1⟩
 
 /-- The true logarithmic response is bounded by the fixed kernel's reward,
-including the beta-prime versus beta comparison for a missing neighbour. -/
+including the beta-prime versus beta comparison for a missing neighbor. -/
 theorem local_log_bound (hH1 : AKLT.Blueprint.Top.H1Statement)
     (p : PairSetup) {n : ℕ} (w : DirectionWord n)
     (hw : StoppedNetworkTrail p.normalized p.u (insert p.v (protectedSites p.G)) w)

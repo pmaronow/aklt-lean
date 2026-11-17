@@ -118,7 +118,7 @@ theorem uStepMoment : AKLT.Blueprint.Rec.UStepMomentStatement := by
       siteU_third, siteU_fourth, siteD_first_right, siteD_second_right, siteD_one]
     ring
 
-/-- The D site identity includes the zero-neighbour case. -/
+/-- The D site identity includes the zero-neighbor case. -/
 theorem dStepMoment : AKLT.Blueprint.Rec.DStepMomentStatement := by
   intro k hk a u
   interval_cases k

@@ -55,7 +55,7 @@ private theorem product_erase_enum (S : Finset Plane) (e : Fin (Fintype.card S) 
 @[simp] theorem paddedSite_X (f : Vec3 → ℝ) : paddedSiteFunctional .X f = f 0 := by
   simp [paddedSiteFunctional, paddedWeight, Fintype.sum_option, spinVector]
 
-/-- The local U expansion, reindexed by the actual present-neighbour finset. -/
+/-- The local U expansion, reindexed by the actual present-neighbor finset. -/
 theorem uMoment_finset (S : Finset Plane) (hS : S.card ≤ 3) (s : Plane → Vec3)
     (k : Fin 3) :
     paddedSiteFunctional .U (fun a => a k * ∏ o ∈ S, (1 + dot a (s o))) =
@@ -75,7 +75,7 @@ theorem uMoment_finset (S : Finset Plane) (hS : S.card ≤ 3) (s : Plane → Vec
     siteFunctional .D (fun a => ∏ p ∈ S.erase o, (1 + dot a (s p))))] at h
   simpa only [paddedSite_U, paddedSite_D] using h
 
-/-- The D expansion, including an empty present-neighbour finset. -/
+/-- The D expansion, including an empty present-neighbor finset. -/
 theorem dMoment_finset (S : Finset Plane) (hS : S.card ≤ 1) (s : Plane → Vec3)
     (k : Fin 3) :
     paddedSiteFunctional .D (fun a => a k * ∏ o ∈ S, (1 + dot a (s o))) =

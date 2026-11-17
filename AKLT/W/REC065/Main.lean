@@ -387,7 +387,7 @@ def Residual_DepartureBudget : Prop := by
 
 /-- A fixed response type is bounded by the total response budget.  The total
 has at most one alpha pair and two beta pairs among the three nonarrival
-neighbours; deleting dead neighbours only decreases this nonnegative sum. -/
+neighbors; deleting dead neighbors only decreases this nonnegative sum. -/
 theorem departure_budget : Residual_DepartureBudget := by
   classical
   intro n X Y w hclosed i

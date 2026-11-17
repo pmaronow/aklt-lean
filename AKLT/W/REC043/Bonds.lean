@@ -100,7 +100,7 @@ theorem exteriorBonds_step {G : Finset Plane} {D : Network G} {u o : Plane}
     simp only [Finset.mem_insert, Finset.mem_singleton] at hm
     exact hne (hm.imp Eq.symm Eq.symm)
 
-/-- Exactly the out-neighbour disappears from the departure neighbour set. -/
+/-- Exactly the out-neighbor disappears from the departure neighbor set. -/
 theorem departureNeighbours_step {G : Finset Plane} {D : Network G} {u o : Plane}
     (hu : D.AdmissibleStart u) (hp : D.Present u o) :
     (traceStep D u o).presentNeighbours u = (D.presentNeighbours u).erase o := by

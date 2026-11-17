@@ -25,7 +25,7 @@ theorem free_response_comparison {G : Finset Plane} (D : Network G)
   constructor <;> linarith
 
 /-- Reduction of the frozen target to one exact finite-sum identity,
-which is proved as `fibreExpansion` in `Expansion.lean`. -/
+which is proved as `fiberexpansion` in `Expansion.lean`. -/
 theorem main_from_residuals (h : Residual_FibreExpansion) :
     AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement := by
   intro a hU f g hN hof hog hfg
@@ -41,7 +41,7 @@ theorem main_from_residuals (h : Residual_FibreExpansion) :
       · linarith [hp.1]
       · linarith [hp.2]
 
-/-- The frozen target, unconditionally: the fibre residual is proved in `Expansion.lean`. -/
+/-- The frozen target, unconditionally: the fiber residual is proved in `Expansion.lean`. -/
 theorem main : AKLT.Blueprint.Rec.RemovedMeanIntervalsStatement :=
   main_from_residuals fibreExpansion
 

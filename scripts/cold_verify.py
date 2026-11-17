@@ -5,13 +5,18 @@ from pathlib import Path
 
 def main():
  ap=argparse.ArgumentParser(description=__doc__)
+ ap.add_argument('--regression-inputs',action='store_true',help='Verify the two-input regression while generated certificates are absent')
+ ap.add_argument('--certificate-archive',type=Path,action='append',default=[],help='Complete generated-source archive to install in the fresh clone')
+ ap.add_argument('--certificate-sha256',action='append',default=[],help='Expected SHA-256 of that archive')
  ap.add_argument('--repository',required=True,help='Package Git URL or local repository; never the parent AKLT repository')
  ap.add_argument('--commit',required=True,help='Full immutable package commit')
  ap.add_argument('--verifier',type=Path,required=True)
  ap.add_argument('--verifier-commit',default='14aa8d6b3c2f14a8540605e37144560b9a00e7e7')
  ap.add_argument('--output',type=Path,help='Fresh output directory, outside the source repository')
- ap.add_argument('--budget',type=float,default=19800)
- ap.add_argument('--build-threads',type=int,default=1,help='Lean runtime workers; serial build is the low-memory default')
+ ap.add_argument('--budget',type=float,default=0,help='Optional shared wall watchdog; zero disables it')
+ ap.add_argument('--rss-cap-gb',type=float,default=285)
+ ap.add_argument('--address-space-gib',type=float,default=240)
+ ap.add_argument('--build-threads',type=int,default=8,help='Lean compiler workers; adjust to the available memory')
  a=ap.parse_args();start=time.monotonic();cpus=sorted(os.sched_getaffinity(0))[:16]
  if len(cpus)!=16:raise SystemExit('Exactly 16 available CPUs are required')
  os.sched_setaffinity(0,cpus)
@@ -33,7 +38,7 @@ def main():
   receipt['wall_s']=time.monotonic()-start;(work/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
  save();clone=work/'clone';before=resource.getrusage(resource.RUSAGE_CHILDREN);clock=time.monotonic()
  def run(args):
-  with (work/'bootstrap.log').open('a') as log:subprocess.run(list(map(str,args)),env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=max(1,a.budget-(time.monotonic()-start)))
+  with (work/'bootstrap.log').open('a') as log:subprocess.run(list(map(str,args)),env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=max(1,a.budget-(time.monotonic()-start)) if a.budget>0 else None)
  try:
   run(['git','-c','core.hooksPath=/dev/null','-c','gc.auto=0','clone','--no-checkout','--no-hardlinks',a.repository,clone])
   run(['git','-C',clone,'-c','core.hooksPath=/dev/null','checkout','--detach',a.commit])
@@ -43,11 +48,16 @@ def main():
   receipt['clone_stage']={'wall_s':time.monotonic()-clock,'cpu_s':after.ru_utime+after.ru_stime-before.ru_utime-before.ru_stime,'max_single_rss_bytes':after.ru_maxrss*1024}
   if subprocess.run([sys.executable,'-c','import yaml'],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
    deps=work/'python-deps';run([sys.executable,'-m','pip','install','--disable-pip-version-check','--no-input','--no-cache-dir','--target',deps,'-r',verifier/'requirements.txt']);env['PYTHONPATH']=str(deps)
-  remaining=a.budget-(time.monotonic()-start)
+  if len(a.certificate_archive)!=len(a.certificate_sha256):raise RuntimeError('Each certificate archive needs one SHA-256')
+  for archive,digest in zip(a.certificate_archive,a.certificate_sha256):
+   run([sys.executable,clone/'scripts/install_certificates.py','--archive',archive.resolve(),'--sha256',digest,'--project',clone])
+  remaining=max(0,a.budget-(time.monotonic()-start)) if a.budget>0 else 0
+  if a.budget>0 and remaining<1:raise RuntimeError('The optional wall watchdog is exhausted')
   receipt.update(status='verifying',clone=str(clone));save()
   cmd=[sys.executable,str(clone/'scripts/release_verify.py'),'--verifier',str(verifier),'--work',str(work/'verification'),
-       '--budget',str(remaining),'--build-threads',str(a.build_threads)]
-  with (work/'pipeline.log').open('w') as log:p=subprocess.run(cmd,cwd=clone,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=max(1,remaining+15))
+       '--budget',str(remaining),'--build-threads',str(a.build_threads),'--rss-cap-gb',str(a.rss_cap_gb),'--address-space-gib',str(a.address_space_gib)]
+  if a.regression_inputs:cmd.append('--regression-inputs')
+  with (work/'pipeline.log').open('w') as log:p=subprocess.run(cmd,cwd=clone,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=max(1,remaining+15) if remaining>0 else None)
   child=work/'verification/receipt.json'
   if child.is_file():receipt['verification']=json.loads(child.read_text())
   receipt['exit_code']=p.returncode;receipt['status']='complete' if p.returncode==0 else ('mandatory-pass-conron-capacity-inconclusive' if p.returncode==2 else 'incomplete');save()

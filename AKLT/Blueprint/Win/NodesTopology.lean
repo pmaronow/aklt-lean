@@ -11,7 +11,7 @@ open AKLT.Defs
 
 namespace AKLT.Blueprint.Win
 
-/-- `d:shells`, sec5-window.tex:423–425; app-topology.tex:4–8. Expand natAbs coordinate distances; omega proves comparison, positivity, symmetry and the nearest-neighbour implication. -/
+/-- `d:shells`, sec5-window.tex:423–425; app-topology.tex:4–8. Expand natAbs coordinate distances; omega proves comparison, positivity, symmetry and the nearest-neighbor implication. -/
 def MetricFactsStatement : Prop :=
   (∀ x y : Plane, supDist x y ≤ latticeDist x y) ∧
     (∀ x y : Plane, Adjacent x y → StarAdjacent x y) ∧
@@ -74,7 +74,7 @@ def TailSupportStatement : Prop :=
     (∀ i : ℤ, ∑ r ∈ Finset.Icc (-R) R, horizontal c i r = 0) →
     ∃ P : Finset Plane, ∀ p : Plane, p ∉ P → tailCoefficient c R p.1 p.2 = 0
 
-/-- `l:boundaryconn`, app-topology.tex:60–81. Compare horizontal coefficients by adjacent tail differences. Compare vertical coefficients by summing the even-degree relation over the finite interval and cancelling endpoints. -/
+/-- `l:boundaryconn`, app-topology.tex:60–81. Compare horizontal coefficients by adjacent tail differences. Compare vertical coefficients by summing the even-degree relation over the finite interval and canceling endpoints. -/
 def PlaquetteReconstructionStatement : Prop :=
   ∀ c : EdgeChain, ChainNN c → ChainEven c → ∀ R : ℤ,
     1 ≤ R → ChainInBox c R →
@@ -86,7 +86,7 @@ def PlaquetteReconstructionStatement : Prop :=
 def PlaquetteTrianglesStatement : Prop :=
   ∀ p : Plane, plaquette p ∈ triangleSpan
 
-/-- `l:boundaryconn`, app-topology.tex:88–91. Choose a site of maximal first coordinate in A; its right neighbour is exterior and defines a crossing edge. -/
+/-- `l:boundaryconn`, app-topology.tex:88–91. Choose a site of maximal first coordinate in A; its right neighbor is exterior and defines a crossing edge. -/
 def CutEdgesNonemptyStatement : Prop :=
   ∀ A : Finset Plane, A.Nonempty → (cutEdges A).Nonempty
 
@@ -142,17 +142,17 @@ def OuterEndpointTransferStatement : Prop :=
       JoinedIn Linked (↑(cutEdges A) : Set LatticeEdge) e f) →
     ConnectedIn StarAdjacent (↑(rawBoundary A))
 
-/-- `l:thicken`, app-topology.tex:150–154. List the centre and four compass neighbours. Each neighbour joins the centre in one step, and the five coordinates are distinct. -/
+/-- `l:thicken`, app-topology.tex:150–154. List the center and four compass neighbors. Each neighbor joins the center in one step, and the five coordinates are distinct. -/
 def CrossFactsStatement : Prop :=
   ∀ x : Plane, (cross x).card = 5 ∧
     (∀ z : Plane, z ∈ cross x ↔ latticeDist z x ≤ 1) ∧
     ConnectedIn Adjacent (↑(cross x))
 
-/-- `l:thicken`, app-topology.tex:155–162. For an axial star step the centres belong to both crosses; for a diagonal step choose one of the two common axial neighbours. -/
+/-- `l:thicken`, app-topology.tex:155–162. For an axial star step the centers belong to both crosses; for a diagonal step choose one of the two common axial neighbors. -/
 def CrossOverlapStatement : Prop :=
   ∀ x y : Plane, StarAdjacent x y → (cross x ∩ cross y).Nonempty
 
-/-- `l:thicken`, app-topology.tex:162–167. Induct along the star path of centres, joining inside each cross through a shared point. Includes a singleton centre set. -/
+/-- `l:thicken`, app-topology.tex:162–167. Induct along the star path of centers, joining inside each cross through a shared point. Includes a singleton center set. -/
 def CrossUnionStatement : Prop :=
   ∀ X₀ : Finset Plane, ConnectedIn StarAdjacent (↑X₀) →
     (∀ x : Plane, ConnectedIn Adjacent (↑(cross x))) →

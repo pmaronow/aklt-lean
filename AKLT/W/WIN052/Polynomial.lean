@@ -11,7 +11,7 @@ open AKLT.Defs AKLT.Blueprint.Win
 
 namespace AKLT.W.WIN052
 
-/-- The tensor calculation on any subset of the four physical neighbours. -/
+/-- The tensor calculation on any subset of the four physical neighbors. -/
 theorem neighbour_moment (hM : AKLT.Blueprint.Top.MomentsStatement)
     (x : Plane) (V : Finset Plane) (hV : V ⊆ neighbours x) (n : Plane → Vec3) :
     moment (fun v => ∏ z ∈ V, (1 + dot v (n z))) = removalPolynomial x V n := by

@@ -114,7 +114,7 @@ theorem boundaryConnectivity_of_leaves (h : TopologyLeaves) :
     h.boundaryMembership A⟩
 
 /-- `l:thicken`, app-topology.tex:138–182. Chains of intersecting crosses
-give nearest-neighbour connectivity; overcounting gives the exact factor 5/θ. -/
+give nearest-neighbor connectivity; overcounting gives the exact factor 5/θ. -/
 theorem thickening_of_leaves (h : TopologyLeaves) :
     ∀ X₀ : Finset Plane, ConnectedIn StarAdjacent (↑X₀) →
     ConnectedIn Adjacent (↑(thicken X₀)) ∧

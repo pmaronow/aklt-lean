@@ -29,7 +29,7 @@ def Residual_FibreExpansion : Prop :=
             (∏ j, fibreDensity s (fields r) j (t j)) *
               F (fun j => spinVector (t j))
 
-/-- Average independent three-spin fibres with their actual nonnegative mass.
+/-- Average independent three-spin fibers with their actual nonnegative mass.
 Zero outside factors make zero contributions and require no cancellation. -/
 lemma fibre_average_bounds {α : Type*} [Fintype α]
     (C : α → ℝ) (hC : ∀ r, 0 ≤ C r)
@@ -71,7 +71,7 @@ lemma fibre_average_bounds {α : Type*} [Fintype α]
     · simpa [mul_comm] using mul_le_mul_of_nonneg_left h.1 (hW r)
     · simpa [mul_comm] using mul_le_mul_of_nonneg_left h.2 (hW r)
 
-/-- All interval arithmetic is finished once the explicit fibre expansion is supplied. -/
+/-- All interval arithmetic is finished once the explicit fiber expansion is supplied. -/
 theorem removed_pair_bounds_from_fibres (h : Residual_FibreExpansion)
     (a : AKLT.Blueprint.Rec.Departure) (hU : a.D.status a.y = .U)
     (f g : Plane) (hN : a.D.presentNeighbours a.y = {a.o, f, g})
