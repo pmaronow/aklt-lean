@@ -50,7 +50,7 @@ def spinZ : Matrix (Fin 5) (Fin 5) ℂ :=
   fun i j => if i = j then (2 : ℂ) - (i.val : ℂ) else 0
 
 /-- J₊ e_k = √(k(5-k)) e_{k-1}; missing boundary entries are zero.
-These are the usual degree-four symmetric-power spin matrices (§1, spin 2). -/
+These are the usual degree-four symmetric-power spin matrices (Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`), spin 2). -/
 def spinPlus : Matrix (Fin 5) (Fin 5) ℂ :=
   fun i j => if i.val + 1 = j.val then
     (Real.sqrt ((j.val * (5 - j.val) : ℕ) : ℝ) : ℂ) else 0

@@ -5,10 +5,10 @@ public import AKLT.Challenge.Main
 set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 
-/-! Sanity statements about the concrete definitions. Unproved statements below
-are propositions, with no assumed inhabitants. These elementary checks do not
-prove Theorem 1.2 (`t:main`, `sec1-result.tex`). Nonvanishing is proved separately
-in `AKLT.Challenge.SanityProofs`; the rank sanity statement remains unproved. -/
+/-! Sanity statements about the concrete definitions. These elementary checks do not
+prove Theorem 1.2 (`t:main`, `sec1-result.tex`). Nonvanishing, bond rank, and the
+combined 4×4 check are proved downstream in `AKLT.Challenge.SanityProofs`,
+avoiding an import cycle through the polynomial development. -/
 
 noncomputable section
 
@@ -161,9 +161,9 @@ Proved as `b_nonzero` in `AKLT.Challenge.SanityProofs` from the existing
 polynomial integral-domain argument and its coordinate conversion. -/
 def BNonzero (L N : Size) : Prop := B L N ≠ 0
 
-/-- Unproved sanity statement: the spin-4 projector has the expected rank.
-No theorem or certificate assumes this proposition. A proof still needs the
-25-dimensional Casimir multiplicity and its transfer to all spectator factors. -/
+/-- The spin-4 projector has the expected rank, including spectator factors.
+Proved as `bond_rank` in `AKLT.Challenge.SanityProofs` via polynomial edge
+factorization and rank-nullity. No theorem or certificate assumes this proposition. -/
 def BondRank (L N : Size) : Prop :=
   ∀ e : Bond L N, Module.finrank ℂ (LinearMap.range (P e)) =
     9 * 5 ^ (L.val * N.val - 2)
@@ -193,8 +193,9 @@ def FourByFourSizes : Prop :=
 theorem four_by_four_sizes : FourByFourSizes := by
   exact ⟨site_count four four, bond_count four four, hilbert_dimension four four⟩
 
-/-- Unproved combined sanity statement, assumed by no theorem or certificate.
-The bond checks and B ≠ 0 are proved; the rank assertion remains open. -/
+/-- Combined geometric, nonvanishing, and rank check on the 4×4 torus.
+Proved as `four_by_four_nondegenerate` in `AKLT.Challenge.SanityProofs`;
+this proposition is assumed by no theorem or certificate. -/
 def FourByFourNondegenerate : Prop :=
   BondsHaveTwoSites four four ∧ BondsAreDistinct four four ∧
     BNonzero four four ∧

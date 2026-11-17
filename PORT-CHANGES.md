@@ -94,8 +94,11 @@ old-to-new spelling map and declaration map are in the campaign report.
 No existing theorem proof body or mathematical definition was changed. MainV2,
 Sanity, Solution, and Regression.Solution received documentation corrections.
 `AKLT.Challenge.b_nonzero` in the new downstream SanityProofs module is the existing
-`AKLT.Uniq.B_ne_zero` proof under the sanity predicate. Keeping it downstream
-avoids an import cycle through Sanity. Handwritten and AuditHandwritten import or
+`AKLT.Uniq.B_ne_zero` proof under the sanity predicate. BondRank.lean adds a
+site-degree coordinate equivalence, identifies the actual projection kernel by
+the proved edge factorization, and counts its dimension. SanityProofs exports
+`bond_rank` and `four_by_four_nondegenerate` from that proof. Keeping the new
+proofs downstream avoids an import cycle through Sanity. Handwritten and AuditHandwritten import or
 print this theorem. Challenge generation corrects documentation only and no longer
 emits cache resets; copied declaration bodies are unchanged. All 65 transitive
 certificate dependency sources, including Main.lean and Top/Response.lean, were

@@ -44,6 +44,8 @@ MainStatementV2 retain their exact mathematical bodies; no library reorganizatio
 is needed. The separate conditional regression template retains its original
 source-boundary naming machinery. See [statement notes](docs/STATEMENT-NOTES.md)
 for the frozen interface, legacy helpers, spin convention, and sanity statements.
+All sanity propositions now have downstream proofs, including the full bond rank
+and the combined 4×4 nondegeneracy check; no sanity premise is added to the headline.
 
 ## Sources and libraries
 

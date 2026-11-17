@@ -14,7 +14,7 @@ expected = ({'CertData.Close.h1','CertData.Close.h2','CertData.Close.h3','CertDa
             {'AKLT.Final.main_of_inputs','AKLTPalomar.h1_iff','AKLTPalomar.h3_iff',
              'AKLTPalomar.main_iff','AKLTPalomar.aklt_gap_of_inputs'})
 if args.mode=='handwritten':
-    expected |= {'AKLT.Challenge.b_nonzero','AKLT.Final.main_of_certificates','RegenSamples.H1.checked',
+    expected |= {'AKLT.Challenge.bond_rank','AKLT.Challenge.four_by_four_nondegenerate','AKLT.Challenge.b_nonzero','AKLT.Final.main_of_certificates','RegenSamples.H1.checked',
         'RegenSamples.H1.packed_reduces','RegenSamples.H1Consumer.packed_reduces_again',
         'RegenSamples.H1Consumer.lowerTriangular','RegenSamples.H1Consumer.literal_reduces',
         'RegenSamples.H3.checked','RegenSamples.H3.walk_step',

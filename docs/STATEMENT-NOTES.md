@@ -119,9 +119,14 @@ separate checks with explicit receipts.
 
 ## Sanity propositions
 
-`AKLT.Challenge.b_nonzero` proves BNonzero using the existing polynomial proof
-`AKLT.Uniq.B_ne_zero`. The unproved sanity propositions are BondRank and
-FourByFourNondegenerate. Neither is assumed by any theorem or certificate.
-Their doc comments mark this status. The requested bounded rank attempt and its
-exact progress are recorded in the fidelity verification receipt; a finite
-rational matrix calculation alone does not prove the full torus statement.
+All sanity propositions in Sanity.lean now have proofs. The downstream module
+`AKLT.Challenge.SanityProofs` supplies `b_nonzero`, `bond_rank`, and
+`four_by_four_nondegenerate`. Nonvanishing reuses `AKLT.Uniq.B_ne_zero`.
+For rank, the proved edge factorization identifies ker P_e with polynomials of
+site degrees (3,3,4,…,4), whose coordinate count is 16·5^(LN−2). Rank-nullity in
+the physical Hilbert space gives 9·5^(LN−2), including every spectator site.
+The proof uses the actual normalized physical P through the existing edge lemma;
+it does not assume a separate finite rank calculation or a tensor identification.
+An independent exact rational two-site calculation also proved multiplicity nine
+at eigenvalue 20 during the bounded attempt, but the shipped proof does not need it.
+None of these sanity propositions is assumed by the headline or certificates.

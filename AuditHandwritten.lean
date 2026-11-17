@@ -4,6 +4,8 @@ import all Handwritten
 import all Regression.Solution
 import Lean.Elab.Print
 
+#print axioms AKLT.Challenge.bond_rank
+#print axioms AKLT.Challenge.four_by_four_nondegenerate
 #print axioms AKLT.Challenge.b_nonzero
 #print axioms AKLT.Final.main_of_inputs
 #print axioms AKLT.Final.main_of_certificates

@@ -24,6 +24,7 @@ COMMENT_CORRECTIONS = {
         'B of Definition 1.1 (`d:model`, `sec1-result.tex`)',
     'unitary for (`d:poly`, `sec3-quantum-frames.tex`)':
         'unitary for Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`)',
+    '§1, spin 2': 'Definition 3.1 (`d:poly`, `sec3-quantum-frames.tex`), spin 2',
     '§1, P_e': 'Definition 1.1 (`d:model`, `sec1-result.tex`), P_e',
     '§1, total-spin-4 subspace': 'Definition 1.1 (`d:model`, `sec1-result.tex`), total-spin-4 subspace',
     'P_e of §1:': 'P_e of Definition 1.1 (`d:model`, `sec1-result.tex`):',
